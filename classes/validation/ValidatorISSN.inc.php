@@ -24,11 +24,9 @@ class ValidatorISSN extends Validator {
 	function isValid($value) {
 		$validator = \ValidatorFactory::make(
 			['value' => $value],
-			['value' => 'issn']
+			['value' => ['required', 'issn']]
 		);
 
 		return $validator->passes();
 	}
 }
-
-

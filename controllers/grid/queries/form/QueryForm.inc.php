@@ -259,7 +259,7 @@ class QueryForm extends Form {
 				}
 			}
 
-			import('lib.pkp.components.listPanels.users.SelectUserListPanel');
+			import('lib.pkp.classes.components.listPanels.users.SelectUserListPanel');
 			$queryParticipantsList = new SelectUserListPanel(array(
 				'title' => 'editor.submission.stageParticipants',
 				'inputName' => 'users[]',

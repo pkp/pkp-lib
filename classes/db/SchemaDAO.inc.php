@@ -13,7 +13,7 @@
  *  the data object.
  */
 import('lib.pkp.classes.db.DAO');
-import('classes.core.ServicesContainer');
+import('classes.core.Services');
 
 abstract class SchemaDAO extends DAO {
 	/** @var string One of the SCHEMA_... constants */
@@ -45,7 +45,7 @@ abstract class SchemaDAO extends DAO {
 	 * @return int The new object's id
 	 */
 	public function insertObject($object) {
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 		$schema = $schemaService->get($this->schemaName);
 		$sanitizedProps = $schemaService->sanitize($this->schemaName, $object->_data);
 
@@ -114,7 +114,7 @@ abstract class SchemaDAO extends DAO {
 	 * @param $object DataObject The object to insert into the database
 	 */
 	public function updateObject($object) {
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 		$schema = $schemaService->get($this->schemaName);
 		$sanitizedProps = $schemaService->sanitize($this->schemaName, $object->_data);
 
@@ -211,7 +211,7 @@ abstract class SchemaDAO extends DAO {
 	 * @return DataObject
 	 */
 	public function _fromRow($primaryRow) {
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 		$schema = $schemaService->get($this->schemaName);
 
 		$object = $this->newDataObject();

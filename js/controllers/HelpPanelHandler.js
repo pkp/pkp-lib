@@ -159,7 +159,8 @@
 	 * @param {Event} event The event triggered on this handler
 	 * @param {{
 	 *  caller: jQueryObject,
-	 *  topic: string
+	 *  topic: string,
+	 *  section: string
 	 *  }} options The options with which to open this handler
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.openPanel_ =

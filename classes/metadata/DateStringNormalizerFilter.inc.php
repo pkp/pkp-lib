@@ -15,6 +15,7 @@
  */
 
 import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.validation.ValidatorDate');
 
 class DateStringNormalizerFilter extends Filter {
 	/**
@@ -23,7 +24,7 @@ class DateStringNormalizerFilter extends Filter {
 	function __construct() {
 		$this->setDisplayName('Date String Normalizer');
 
-		parent::__construct('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')');
+		parent::__construct('primitive::string', 'validator::date()');
 	}
 
 
@@ -79,4 +80,3 @@ class DateStringNormalizerFilter extends Filter {
 		return $normalizedDate;
 	}
 }
-

@@ -28,12 +28,12 @@ class PKPContextHandler extends APIHandler {
 			'GET' => array(
 				array(
 					'pattern' => $this->getEndpointPattern(),
-					'handler' => array($this, 'getContexts'),
+					'handler' => array($this, 'getMany'),
 					'roles' => $roles,
 				),
 				array(
 					'pattern' => $this->getEndpointPattern() . '/{contextId}',
-					'handler' => array($this, 'getContext'),
+					'handler' => array($this, 'get'),
 					'roles' => $roles,
 				),
 				array(
@@ -45,14 +45,14 @@ class PKPContextHandler extends APIHandler {
 			'POST' => array(
 				array(
 					'pattern' => $this->getEndpointPattern(),
-					'handler' => array($this, 'addContext'),
+					'handler' => array($this, 'add'),
 					'roles' => array(ROLE_ID_SITE_ADMIN),
 				),
 			),
 			'PUT' => array(
 				array(
 					'pattern' => $this->getEndpointPattern() . '/{contextId}',
-					'handler' => array($this, 'editContext'),
+					'handler' => array($this, 'edit'),
 					'roles' => $roles,
 				),
 				array(
@@ -64,7 +64,7 @@ class PKPContextHandler extends APIHandler {
 			'DELETE' => array(
 				array(
 					'pattern' => $this->getEndpointPattern() . '/{contextId}',
-					'handler' => array($this, 'deleteContext'),
+					'handler' => array($this, 'delete'),
 					'roles' => array(ROLE_ID_SITE_ADMIN),
 				),
 			),
@@ -96,9 +96,9 @@ class PKPContextHandler extends APIHandler {
 	 * @param $args array arguments
 	 * @return Response
 	 */
-	public function getContexts($slimRequest, $response, $args) {
+	public function getMany($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$contextService = ServicesContainer::instance()->get('context');
+		$contextService = Services::get('context');
 
 		$defaultParams = array(
 			'count' => 20,
@@ -143,7 +143,7 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		$items = array();
-		$contexts = $contextService->getContexts($allowedParams);
+		$contexts = $contextService->getMany($allowedParams);
 		if (!empty($contexts)) {
 			$propertyArgs = array(
 				'request' => $request,
@@ -155,7 +155,7 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		$data = array(
-			'itemsMax' => $contextService->getContextsMaxCount($allowedParams),
+			'itemsMax' => $contextService->getMax($allowedParams),
 			'items' => $items,
 		);
 
@@ -170,12 +170,12 @@ class PKPContextHandler extends APIHandler {
 	 *
 	 * @return Response
 	 */
-	public function getContext($slimRequest, $response, $args) {
+	public function get($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$user = $request->getUser();
 
-		$contextService = ServicesContainer::instance()->get('context');
-		$context = $contextService->getContext((int) $args['contextId']);
+		$contextService = Services::get('context');
+		$context = $contextService->get((int) $args['contextId']);
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
@@ -218,8 +218,8 @@ class PKPContextHandler extends APIHandler {
 		$request = $this->getRequest();
 		$user = $request->getUser();
 
-		$contextService = ServicesContainer::instance()->get('context');
-		$context = $contextService->getContext((int) $args['contextId']);
+		$contextService = Services::get('context');
+		$context = $contextService->get((int) $args['contextId']);
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
@@ -273,7 +273,7 @@ class PKPContextHandler extends APIHandler {
 	 *
 	 * @return Response
 	 */
-	public function addContext($slimRequest, $response, $args) {
+	public function add($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 
 		// This endpoint is only available at the site-wide level
@@ -286,7 +286,7 @@ class PKPContextHandler extends APIHandler {
 
 		$primaryLocale = $site->getPrimaryLocale();
 		$allowedLocales = $site->getSupportedLocales();
-		$contextService = ServicesContainer::instance()->get('context');
+		$contextService = Services::get('context');
 		$errors = $contextService->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
 		if (!empty($errors)) {
@@ -295,7 +295,7 @@ class PKPContextHandler extends APIHandler {
 
 		$context = Application::getContextDAO()->newDataObject();
 		$context->_data = $params;
-		$context = $contextService->addContext($context, $request);
+		$context = $contextService->add($context, $request);
 		$contextProps = $contextService->getFullProperties($context, array(
 			'request' => $request,
 			'slimRequest' 	=> $slimRequest
@@ -312,7 +312,7 @@ class PKPContextHandler extends APIHandler {
 	 *
 	 * @return Response
 	 */
-	public function editContext($slimRequest, $response, $args) {
+	public function edit($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$requestContext = $request->getContext();
 
@@ -323,8 +323,14 @@ class PKPContextHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
 		}
 
-		$contextService = ServicesContainer::instance()->get('context');
-		$context = $contextService->getContext($contextId);
+		// Don't allow to edit the context from the site-wide API, because the
+		// context's plugins will not be enabled
+		if (!$request->getContext()) {
+			return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
+		}
+
+		$contextService = Services::get('context');
+		$context = $contextService->get($contextId);
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
@@ -347,7 +353,7 @@ class PKPContextHandler extends APIHandler {
 		if (!empty($errors)) {
 			return $response->withStatus(400)->withJson($errors);
 		}
-		$context = $contextService->editContext($context, $params, $request);
+		$context = $contextService->edit($context, $params, $request);
 
 		$contextProps = $contextService->getFullProperties($context, array(
 			'request' => $request,
@@ -376,8 +382,14 @@ class PKPContextHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
 		}
 
-		$contextService = ServicesContainer::instance()->get('context');
-		$context = $contextService->getContext($contextId);
+		// Don't allow to edit the context from the site-wide API, because the
+		// context's plugins will not be enabled
+		if (!$request->getContext()) {
+			return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
+		}
+
+		$contextService = Services::get('context');
+		$context = $contextService->get($contextId);
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
@@ -402,7 +414,7 @@ class PKPContextHandler extends APIHandler {
 			if (!empty($errors)) {
 				return $response->withJson($errors, 400);
 			}
-			$newContext = $contextService->editContext($context, ['themePluginPath' => $themePluginPath], $request);
+			$newContext = $contextService->edit($context, ['themePluginPath' => $themePluginPath], $request);
 		}
 
 		// Get the appropriate theme plugin
@@ -457,7 +469,7 @@ class PKPContextHandler extends APIHandler {
 	 *
 	 * @return Response
 	 */
-	public function deleteContext($slimRequest, $response, $args) {
+	public function delete($slimRequest, $response, $args) {
 
 		// This endpoint is only available at the site-wide level
 		if ($this->getRequest()->getContext()) {
@@ -471,19 +483,19 @@ class PKPContextHandler extends APIHandler {
 
 		$contextId = (int) $args['contextId'];
 
-		$contextService = ServicesContainer::instance()->get('context');
-		$context = $contextService->getContext($contextId);
+		$contextService = Services::get('context');
+		$context = $contextService->get($contextId);
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
 		}
 
 		$contextProps = $contextService->getSummaryProperties($context, array(
-				'request' => $this->getRequest(),
-				'slimRequest' 	=> $slimRequest
-			));
+			'request' => $this->getRequest(),
+			'slimRequest' 	=> $slimRequest
+		));
 
-		$contextService->deleteContext($context);
+		$contextService->delete($context);
 
 		return $response->withJson($contextProps, 200);
 	}

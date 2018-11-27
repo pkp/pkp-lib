@@ -141,12 +141,14 @@
 					'/plugins/generic/tinymce/plugins/pkpWordcount/plugin.js');
 
 
-			var contentCSS = $.pkp.app.tinyMceContentCSS;
+			var contentCSS = $.pkp.app.tinyMceContentCSS,
+					tinymceParams,
+					tinymceParamDefaults;
 			if ($.pkp.app.cdnEnabled) {
 				contentCSS = contentCSS + ', ' + $.pkp.app.tinyMceContentFont;
 			}
 
-			var tinymceParams, tinymceParamDefaults = {
+			tinymceParamDefaults = {
 				width: '100%',
 				resize: 'both',
 				entity_encoding: 'raw',
@@ -646,7 +648,7 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.handleNotifyEvent =
 			function(caller, settings) {
-		pnotify = new PNotify(settings);
+		var pnotify = new PNotify(settings);
 	};
 
 

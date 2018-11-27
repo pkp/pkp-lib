@@ -15,7 +15,7 @@
  */
 
 import('lib.pkp.classes.handler.APIHandler');
-import('classes.core.ServicesContainer');
+import('classes.core.Services');
 
 class PKPUserHandler extends APIHandler {
 
@@ -29,7 +29,7 @@ class PKPUserHandler extends APIHandler {
 			'GET' => array (
 				array(
 					'pattern' => $this->getEndpointPattern(),
-					'handler' => array($this, 'getUsers'),
+					'handler' => array($this, 'getMany'),
 					'roles' => $roles
 				),
 				array(
@@ -39,7 +39,7 @@ class PKPUserHandler extends APIHandler {
 				),
 				array(
 					'pattern' => $this->getEndpointPattern() . '/{userId}',
-					'handler' => array($this, 'getUser'),
+					'handler' => array($this, 'get'),
 					'roles' => $roles
 				),
 			),
@@ -64,10 +64,10 @@ class PKPUserHandler extends APIHandler {
 	 *
 	 * @return Response
 	 */
-	public function getUsers($slimRequest, $response, $args) {
+	public function getMany($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
-		$userService = ServicesContainer::instance()->get('user');
+		$userService = Services::get('user');
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -76,7 +76,7 @@ class PKPUserHandler extends APIHandler {
 		$params = $this->_buildListRequestParams($slimRequest);
 
 		$items = array();
-		$users = $userService->getUsers($context->getId(), $params);
+		$users = $userService->getMany($params);
 		if (!empty($users)) {
 			$propertyArgs = array(
 				'request' => $request,
@@ -88,7 +88,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'itemsMax' => $userService->getUsersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getMax($params),
 			'items' => $items,
 		);
 
@@ -103,13 +103,13 @@ class PKPUserHandler extends APIHandler {
 	 *
 	 * @return Response
 	 */
-	public function getUser($slimRequest, $response, $args) {
+	public function get($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
-		$userService = ServicesContainer::instance()->get('user');
+		$userService = Services::get('user');
 
 		if (!empty($args['userId'])) {
-			$user = $userService->getUser((int) $args['userId']);
+			$user = $userService->get((int) $args['userId']);
 		}
 
 		if (!$user) {
@@ -135,7 +135,7 @@ class PKPUserHandler extends APIHandler {
 	public function getReviewers($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$context = $request->getContext();
-		$userService = ServicesContainer::instance()->get('user');
+		$userService = Services::get('user');
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -144,7 +144,7 @@ class PKPUserHandler extends APIHandler {
 		$params = $this->_buildReviewerListRequestParams($slimRequest);
 
 		$items = array();
-		$users = $userService->getReviewers($context->getId(), $params);
+		$users = $userService->getReviewers($params);
 		if (!empty($users)) {
 			$propertyArgs = array(
 				'request' => $request,
@@ -156,7 +156,7 @@ class PKPUserHandler extends APIHandler {
 		}
 
 		$data = array(
-			'itemsMax' => $userService->getReviewersMaxCount($context->getId(), $params),
+			'itemsMax' => $userService->getReviewersMax($params),
 			'items' => $items,
 		);
 
@@ -238,6 +238,8 @@ class PKPUserHandler extends APIHandler {
 			}
 		}
 
+		$returnParams['contextId'] = $context->getId();
+
 		\HookRegistry::call('API::users::params', array(&$returnParams, $slimRequest));
 
 		return $returnParams;
@@ -252,6 +254,7 @@ class PKPUserHandler extends APIHandler {
 	private function _buildReviewerListRequestParams($slimRequest) {
 
 		$returnParams = $this->_buildListRequestParams($slimRequest);
+		$contextId = $returnParams['contextId'];
 		$requestParams = $slimRequest->getQueryParams();
 
 		foreach ($requestParams as $param => $val) {
@@ -274,6 +277,9 @@ class PKPUserHandler extends APIHandler {
 					break;
 			}
 		}
+
+		// Don't allow the contextId to be overridden
+		$returnParams['contextId'] = $contextId;
 
 		// Restrict role IDs to reviewer roles
 		$returnParams['roleIds'] = array(ROLE_ID_REVIEWER);

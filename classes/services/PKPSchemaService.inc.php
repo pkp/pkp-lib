@@ -324,6 +324,9 @@ class PKPSchemaService {
 					$rules = $this->addPropValidationRules($rules, $ruleKey . '.*', $propSchema->items);
 				} else {
 					$rules[$ruleKey] = ['array'];
+					if (!empty($propSchema->validation)) {
+						$rules[$ruleKey] = array_merge($rules[$ruleKey], $propSchema->validation);
+					}
 					$rules[$ruleKey . '.*'] = [$propSchema->items->type];
 					if (!empty($propSchema->items->validation)) {
 						$rules[$ruleKey . '.*'] = array_merge($rules[$ruleKey . '.*'], $propSchema->items->validation);

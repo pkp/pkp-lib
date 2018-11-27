@@ -14,7 +14,7 @@
  */
 
 import('lib.pkp.classes.form.Form');
-import('classes.core.ServicesContainer');
+import('classes.core.Services');
 
 abstract class PKPStageParticipantNotifyForm extends Form {
 	/** @var int The file/submission ID this form is for */
@@ -101,7 +101,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		));
 
 		if ($request->getUserVar('userId')) {
-			$user = ServicesContainer::instance()->get('user')->getUser($request->getUserVar('userId'));
+			$user = Services::get('user')->get($request->getUserVar('userId'));
 			if ($user) {
 				$templateMgr->assign(array(
 					'userId' => $user->getId(),
@@ -156,8 +156,8 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
 			$email->setBody($this->getData('message'));
 
-			import('classes.core.ServicesContainer');
-			$submissionUrl = ServicesContainer::instance()->get('submission')->getWorkflowUrlByUserRoles($submission, $user->getId());
+			import('classes.core.Services');
+			$submissionUrl = Services::get('submission')->getWorkflowUrlByUserRoles($submission, $user->getId());
 
 			// Parameters for various emails
 			$email->assignParams(array(
@@ -343,5 +343,3 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	 */
 	abstract protected function _getMailTemplate($submission, $templateKey, $includeSignature = true);
 }
-
-

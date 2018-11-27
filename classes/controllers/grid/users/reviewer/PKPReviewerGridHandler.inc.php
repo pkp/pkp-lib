@@ -768,10 +768,8 @@ class PKPReviewerGridHandler extends GridHandler {
 
 		// Check that the current user is specifically allowed to access gossip for
 		// this user
-		import('classes.core.ServicesContainer');
-		$canCurrentUserGossip = ServicesContainer::instance()
-			->get('user')
-			->canCurrentUserGossip($user->getId());
+		import('classes.core.Services');
+		$canCurrentUserGossip = Services::get('user')->canCurrentUserGossip($user->getId());
 		if (!$canCurrentUserGossip) {
 			return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
 		}
@@ -926,5 +924,3 @@ class PKPReviewerGridHandler extends GridHandler {
 		);
 	}
 }
-
-

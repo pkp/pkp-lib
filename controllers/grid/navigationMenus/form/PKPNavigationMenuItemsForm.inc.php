@@ -73,10 +73,8 @@ class PKPNavigationMenuItemsForm extends Form {
 			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getData('supportPhone'))),
 			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getData('supportEmail'))),
 		));
-		import('classes.core.ServicesContainer');
-		$types = ServicesContainer::instance()
-			->get('navigationMenu')
-			->getMenuItemTypes();
+		import('classes.core.Services');
+		$types = Services::get('navigationMenu')->getMenuItemTypes();
 
 		$typeTitles = array(0 => __('grid.navigationMenus.navigationMenu.selectType'));
 		foreach ($types as $type => $settings) {
@@ -203,5 +201,3 @@ class PKPNavigationMenuItemsForm extends Form {
 	}
 
 }
-
-

@@ -16,28 +16,13 @@ namespace PKP\Services;
 
 use \Application;
 use \DAORegistry;
-use \ServicesContainer;
-use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
+use \Services;
+use \PKP\Services\interfaces\EntityPropertyInterface;
 
-class PKPSiteService extends PKPBaseEntityPropertyService {
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		parent::__construct($this);
-	}
+class PKPSiteService implements EntityPropertyInterface {
 
 	/**
-	 * Get the site
-	 *
-	 * @return Site
-	 */
-	public function getSite() {
-		return DAORegistry::getDAO('SiteDAO')->getSite();
-	}
-
-	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
 	 */
 	public function getProperties($site, $props, $args = null) {
 		$request = $args['request'];
@@ -49,7 +34,7 @@ class PKPSiteService extends PKPBaseEntityPropertyService {
 			$values[$prop] = $site->getData($prop);
 		}
 
-		$values = ServicesContainer::instance()->get('schema')->addMissingMultilingualValues(SCHEMA_SITE, $values, $site->getSupportedLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SITE, $values, $site->getSupportedLocales());
 
 		\HookRegistry::call('Site::getProperties', array(&$values, $site, $props, $args));
 
@@ -59,19 +44,17 @@ class PKPSiteService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getSummaryProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($site, $args = null) {
 		return $this->getFullProperties($site, $args);
 	}
 
 	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getFullProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($site, $args = null) {
-		$props = ServicesContainer::instance()
-			->get('schema')
-			->getFullProps(SCHEMA_SITE);
+		$props = Services::get('schema')->getFullProps(SCHEMA_SITE);
 
 		return $this->getProperties($site, $props, $args);
 	}
@@ -96,7 +79,7 @@ class PKPSiteService extends PKPBaseEntityPropertyService {
 			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_APP_MANAGER
 		);
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
@@ -186,7 +169,7 @@ class PKPSiteService extends PKPBaseEntityPropertyService {
 	 * @param $request Request
 	 * @return Site
 	 */
-	public function editSite($site, $params, $request) {
+	public function edit($site, $params, $request) {
 		$siteDao = DAORegistry::getDAO('SiteDAO');
 
 		// Move uploaded files into place and update the params
@@ -210,7 +193,7 @@ class PKPSiteService extends PKPBaseEntityPropertyService {
 		\HookRegistry::call('Site::edit', array($newSite, $site, $params, $request));
 
 		$siteDao->updateObject($newSite);
-		$newSite = $this->getSite();
+		$newSite = $siteDao->getSite();
 
 		return $newSite;
 	}

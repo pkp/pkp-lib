@@ -1,3 +1,4 @@
+/*global pkp */
 /**
  * @defgroup js_controllers_modal
  */
@@ -44,7 +45,8 @@
 
 		// Merge user and default options.
 		this.options = /** @type {{ canClose: boolean, title: string,
-				titleIcon: string }} */ (this.mergeOptions(internalOptions));
+				titleIcon: string, closeCleanVueInstances: Array }} */
+				(this.mergeOptions(internalOptions));
 
 		// Attach content to the modal
 		$handledElement.html(this.modalBuild()[0].outerHTML);
@@ -251,11 +253,17 @@
 		$modalElement.removeClass('is_visible');
 		this.trigger('pkpModalClose');
 		setTimeout(function() {
-			if (modalHandler.options.closeCleanVueInstances.length) {
-				for (var i = 0; i < modalHandler.options.closeCleanVueInstances.length; i++) {
-					var id = modalHandler.options.closeCleanVueInstances[i];
+			var vueInstances = modalHandler.options.closeCleanVueInstances,
+					instance,
+					i,
+					id;
+			if (vueInstances.length) {
+				for (i = 0; i < vueInstances.length; i++) {
+					id = vueInstances[i];
 					if (typeof pkp.registry._instances[id] !== 'undefined') {
-						pkp.registry._instances[id].$destroy();
+						instance = /** @type {{ $destroy: Function }} */
+								pkp.registry._instances[id];
+						instance.$destroy();
 					}
 				}
 			}
@@ -328,8 +336,8 @@
 	 * from a child form has been fired, and this form matches the config id
 	 *
 	 * @param {Object} source The Vue.js component which fired the event
-	 * @param {Object} data Data attached to the event, which will include the
-	 *  form id.
+	 * @param {Object} formId The form component's id prop
+	 * @private
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ =
 			function(source, formId) {

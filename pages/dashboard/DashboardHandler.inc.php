@@ -49,7 +49,7 @@ class DashboardHandler extends Handler {
 
 		$currentUser = $request->getUser();
 
-		import('components.listPanels.submissions.SubmissionsListPanel');
+		import('classes.components.listPanels.submissions.SubmissionsListPanel');
 
 		// My Queue
 		$myQueueListPanel = new SubmissionsListPanel(array(

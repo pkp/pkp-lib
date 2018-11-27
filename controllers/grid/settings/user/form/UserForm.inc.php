@@ -68,7 +68,7 @@ class UserForm extends Form {
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);
 
-		import('lib.pkp.components.listPanels.users.SelectRoleListPanel');
+		import('lib.pkp.classes.components.listPanels.users.SelectRoleListPanel');
 		$selectRoleList = new SelectRoleListPanel(array(
 			'contextId' => $contextId,
 			'title' => 'grid.user.userRoles',

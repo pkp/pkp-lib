@@ -72,8 +72,8 @@ class LanguageGridHandler extends GridHandler {
 		$availableLocales = $this->getGridDataElements($request);
 		$context = $request->getContext();
 
-		import('classes.core.ServicesContainer');
-		$contextService = ServicesContainer::instance()->get('context');
+		import('classes.core.Services');
+		$contextService = Services::get('context');
 
 		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');
 		if (in_array($settingName, $permittedSettings) && $locale) {
@@ -89,7 +89,7 @@ class LanguageGridHandler extends GridHandler {
 						$supportedFormLocales = (array) $context->getData('supportedFormLocales');
 						if (!in_array($locale, $supportedFormLocales)) {
 							array_push($supportedFormLocales, $locale);
-							$context = $contextService->editContext($context, ['supportedFormLocales' => $supportedFormLocales], $request);
+							$context = $contextService->edit($context, ['supportedFormLocales' => $supportedFormLocales], $request);
 							// reload localized default context settings
 							$contextService->restoreLocaleDefaults($context, $request, $locale);
 						}
@@ -103,13 +103,13 @@ class LanguageGridHandler extends GridHandler {
 						$key = array_search($locale, $supportedSubmissionLocales);
 						if ($key !== false) unset($supportedSubmissionLocales[$key]);
 						$supportedSubmissionLocales = array_values($supportedSubmissionLocales);
-						$context = $contextService->editContext($context, ['supportedSubmissionLocales' => $supportedSubmissionLocales], $request);
+						$context = $contextService->edit($context, ['supportedSubmissionLocales' => $supportedSubmissionLocales], $request);
 					}
 				}
 			}
 		}
 
-		$context = $contextService->editContext($context, [$settingName => $currentSettingValue], $request);
+		$context = $contextService->edit($context, [$settingName => $currentSettingValue], $request);
 
 		$notificationManager = new NotificationManager();
 		$user = $request->getUser();

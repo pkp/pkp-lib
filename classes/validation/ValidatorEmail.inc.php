@@ -24,7 +24,7 @@ class ValidatorEmail extends Validator {
 	function isValid($value) {
 		$validator = \ValidatorFactory::make(
 			['value' => $value],
-			['value' => 'email_or_localhost']
+			['value' => ['required', 'email_or_localhost']]
 		);
 
 		return $validator->passes();

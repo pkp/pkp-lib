@@ -14,7 +14,7 @@ set -xe # Fail on first error
 # Search for all JSON files in the current directory
 REPOSITORY_DIR="."
 
-sudo npm install jsonlint -g
+npm install jsonlint -g
 for name in `find $REPOSITORY_DIR -name \*.json | fgrep -v -f $REPOSITORY_DIR/tools/jsonlint-exclusions.txt`; do
 	jsonlint -q $name
 done

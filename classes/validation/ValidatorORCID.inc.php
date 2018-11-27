@@ -24,11 +24,9 @@ class ValidatorORCID extends Validator {
 	function isValid($value) {
 		$validator = \ValidatorFactory::make(
 			['value' => $value],
-			['value' => 'orcid']
+			['value' => ['required', 'orcid']]
 		);
 
 		return $validator->passes();
 	}
 }
-
-

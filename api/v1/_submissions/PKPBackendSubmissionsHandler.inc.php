@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 import('lib.pkp.classes.submission.Submission');
-import('classes.core.ServicesContainer');
+import('classes.core.Services');
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler {
 
@@ -29,7 +29,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			'GET' => array(
 				array(
 					'pattern' => "{$rootPattern}",
-					'handler' => array($this, 'getSubmissions'),
+					'handler' => array($this, 'getMany'),
 					'roles' => array(
 						ROLE_ID_SITE_ADMIN,
 						ROLE_ID_MANAGER,
@@ -43,7 +43,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			'DELETE' => array(
 				array(
 					'pattern' => "{$rootPattern}/{submissionId}",
-					'handler' => array($this, 'deleteSubmission'),
+					'handler' => array($this, 'delete'),
 					'roles' => array(
 						ROLE_ID_SITE_ADMIN,
 						ROLE_ID_MANAGER,
@@ -72,7 +72,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	 *
 	 * @return Response
 	 */
-	public function getSubmissions($slimRequest, $response, $args) {
+	public function getMany($slimRequest, $response, $args) {
 
 		$request = $this->getRequest();
 		$currentUser = $request->getUser();
@@ -139,6 +139,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			}
 		}
 
+		$params['contextId'] = $context->getId();
+
 		\HookRegistry::call('API::_submissions::params', array(&$params, $slimRequest, $response));
 
 		// Prevent users from viewing submissions they're not assigned to,
@@ -147,8 +149,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
 		}
 
-		$submissionService = ServicesContainer::instance()->get('submission');
-		$submissions = $submissionService->getSubmissions($context->getId(), $params);
+		$submissionService = Services::get('submission');
+		$submissions = $submissionService->getMany($params);
 		$items = array();
 		if (!empty($submissions)) {
 			$propertyArgs = array(
@@ -161,7 +163,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		}
 		$data = array(
 			'items' => $items,
-			'itemsMax' => $submissionService->getSubmissionsMaxCount($context->getId(), $params),
+			'itemsMax' => $submissionService->getMax($params),
 		);
 
 		return $response->withJson($data);
@@ -175,7 +177,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	 * @param array $args arguments
 	 * @return Response
 	 */
-	public function deleteSubmission($slimRequest, $response, $args) {
+	public function delete($slimRequest, $response, $args) {
 
 		$request = $this->getRequest();
 		$currentUser = $request->getUser();
@@ -194,15 +196,14 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.deleteSubmissionOutOfContext');
 		}
 
-		import('classes.core.ServicesContainer');
-		$submissionService = ServicesContainer::instance()
-				->get('submission');
+		import('classes.core.Services');
+		$submissionService = Services::get('submission');
 
 		if (!$submissionService->canCurrentUserDelete($submission)) {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
 		}
 
-		$submissionService->deleteSubmission($submissionId);
+		$submissionService->delete($submissionId);
 
 		return $response->withJson(true);
 	}

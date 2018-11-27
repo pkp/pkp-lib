@@ -269,7 +269,9 @@ plupload.Uploader.prototype.removeFile = function(f) {};
 plupload.Uploader.prototype.bind = function(eventName, f) {};
 
 $.pkp.app = {
-	baseUrl: ''
+	baseUrl: '',
+	tinyMceContentCSS: '',
+	tinyMceContentFont: ''
 };
 
 $.pkp.locale = {

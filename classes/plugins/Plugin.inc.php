@@ -568,32 +568,9 @@ abstract class Plugin {
 	 * @return boolean
 	 */
 	function installContextSpecificSettings($hookName, $args) {
-		// Only applications that have at least one context can
-		// install context specific settings.
-		$application = Application::getApplication();
-		$contextDepth = $application->getContextDepth();
-		if ($contextDepth < 1) {
-			return false;
-		}
-
 		$context = $args[0];
-
-		// Install context specific settings
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-		switch ($contextDepth) {
-			case 1:
-				$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
-				break;
-
-			case 2:
-				$pluginSettingsDao->installSettings($context->getId(), 0, $this->getName(), $this->getContextSpecificPluginSettingsFile());
-				break;
-
-			default:
-				// No application can have a context depth > 2
-				assert(false);
-		}
-
+		$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
 		return false;
 	}
 
@@ -817,5 +794,3 @@ abstract class Plugin {
 		return '$.pkp.plugins.' . strtolower(get_class($this));
 	}
 }
-
-

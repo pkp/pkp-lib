@@ -133,8 +133,8 @@ class Dispatcher {
 
 		// Reload the context after generic plugins have loaded so that changes to
 		// the context schema can take place
-		import('classes.core.ServicesContainer');
-		$contextSchema = \ServicesContainer::instance()->get('schema')->get(SCHEMA_CONTEXT, true);
+		import('classes.core.Services');
+		$contextSchema = \Services::get('schema')->get(SCHEMA_CONTEXT, true);
 		$request->getRouter()->getContext($request, 1, true);
 
 		$router->route($request);

@@ -14,7 +14,7 @@
  * @brief Operations for retrieving and modifying the Site object.
  */
 import('lib.pkp.classes.site.Site');
-import('classes.core.ServicesContainer');
+import('classes.core.Services');
 
 class SiteDAO extends DAO {
 
@@ -58,7 +58,7 @@ class SiteDAO extends DAO {
 	 * @copydoc SchemaDAO::_fromRow()
 	 */
 	function _fromRow($primaryRow, $callHook = true) {
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 		$schema = $schemaService->get(SCHEMA_SITE);
 
 		$site = $this->newDataObject();
@@ -131,7 +131,7 @@ class SiteDAO extends DAO {
 	 * @copydoc SchemaDAO::updateObject
 	 */
 	public function updateObject($site) {
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 		$schema = $schemaService->get(SCHEMA_SITE);
 		$sanitizedProps = $schemaService->sanitize(SCHEMA_SITE, $site->_data);
 

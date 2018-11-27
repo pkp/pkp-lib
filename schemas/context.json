@@ -553,6 +553,9 @@
 		},
 		"sidebar": {
 			"type": "array",
+			"validation": [
+				"nullable"
+			],
 			"items": {
 				"type": "string",
 				"validation": [

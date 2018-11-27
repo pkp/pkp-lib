@@ -125,8 +125,8 @@ class APIRouter extends PKPRouter {
 		$handler = $this->getHandler();
 		$container = $handler->getApp()->getContainer();
 		$router = $container->get('router');
-		$request = $container->get('request');
-		$routeInfo = $router->dispatch($request);
+		$slimRequest = $handler->getSlimRequest();
+		$routeInfo = $router->dispatch($slimRequest);
 		if (isset($routeInfo[1])) {
 			$route = $router->lookupRoute($routeInfo[1]);
 			$callable = $route->getCallable();
@@ -150,4 +150,50 @@ class APIRouter extends PKPRouter {
 		exit;
 	}
 
+	/**
+	 * @copydoc PKPRouter::url()
+	 */
+	function url($request, $newContext = null, $endpoint = null, $op = null, $path = null,
+			$params = null, $anchor = null, $escape = false) {
+
+		// APIHandlers do not understand $op, $path or $anchor. All routing is baked
+		// into the $endpoint string. It only accepts a string as the $newContext,
+		// since it relies on this when path info is disabled.
+		assert(is_null($op) && is_null($path) && is_null($anchor) && is_scalar($newContext));
+
+		//
+		// Base URL and Context
+		//
+		$baseUrlAndContext = $this->_urlGetBaseAndContext($request, $this->_urlCanonicalizeNewContext($newContext));
+		$baseUrl = array_shift($baseUrlAndContext);
+		$context = $baseUrlAndContext;
+
+		//
+		// Additional query parameters
+		//
+		$additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
+
+		//
+		// Assemble URL
+		//
+		if ($request->isPathInfoEnabled()) {
+			// If path info is enabled, everything but params goes into the path
+			$pathInfoArray = array_merge(
+				$context,
+				['api',	API_VERSION, $endpoint]
+			);
+			$queryParametersArray = $additionalParameters;
+		} else {
+			// If path info is disabled, the context and endpoint must be passed as
+			// query params, and the context must be concatenated into the endpoint
+			$pathInfoArray = array();
+			$queryParametersArray = array_merge(
+				$context,
+				[sprintf('endpoint=/%s/api/%s/%s', $newContext, API_VERSION, $endpoint)],
+				$additionalParameters
+			);
+		}
+
+		return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+	}
 }

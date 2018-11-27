@@ -186,11 +186,11 @@ class VersionCheck {
 	}
 
 	/**
-	 * Checks the application's version against the latest version 
+	 * Checks the application's version against the latest version
 	 * on the PKP servers.
 	 * @return string|false Version description or false if no newer version
 	 */
-	function checkIfNewVersionExists() {
+	static function checkIfNewVersionExists() {
 		$versionInfo = VersionCheck::getLatestVersion();
 		$latestVersion = $versionInfo['release'];
 
@@ -199,5 +199,3 @@ class VersionCheck {
 		return false;
 	}
 }
-
-

@@ -26,7 +26,7 @@
 
 
 import('lib.pkp.classes.install.Installer');
-import('classes.core.ServicesContainer');
+import('classes.core.Services');
 
 class PKPInstall extends Installer {
 
@@ -300,13 +300,11 @@ class PKPInstall extends Installer {
 		}
 
 		// Install default site settings
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 		$site = $schemaService->setDefaults(SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
 		$site->setData('contactEmail', $this->getParam('adminEmail'));
-		$siteDao->updateobject($site);
+		$siteDao->updateObject($site);
 
 		return true;
 	}
 }
-
-

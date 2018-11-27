@@ -93,10 +93,8 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 			return new JSONMessage(false);
 		}
 
-		import('classes.core.ServicesContainer');
-		$context = ServicesContainer::instance()
-			->get('context')
-			->restoreLocaleDefaults($context, $request, $locale);
+		import('classes.core.Services');
+		$context = Services::get('context')->restoreLocaleDefaults($context, $request, $locale);
 
 		$notificationManager = new NotificationManager();
 		$notificationManager->createTrivialNotification(
@@ -108,5 +106,3 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 		return DAO::getDataChangedEvent($locale);
 	}
 }
-
-

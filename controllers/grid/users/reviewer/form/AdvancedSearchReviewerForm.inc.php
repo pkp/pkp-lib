@@ -86,7 +86,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 		}
 		$warnOnAssignment = array_map('intval', array_values(array_unique($warnOnAssignment)));
 
-		import('lib.pkp.components.listPanels.users.SelectReviewerListPanel');
+		import('lib.pkp.classes.components.listPanels.users.SelectReviewerListPanel');
 		$selectReviewerListPanel = new SelectReviewerListPanel(array(
 			'title' => 'editor.submission.findAndSelectReviewer',
 			'inputName' => 'reviewerId',

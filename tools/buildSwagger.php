@@ -58,7 +58,7 @@ class buildSwagger extends CommandLineTool {
 				exit;
 			}
 
-			import('classes.core.ServicesContainer');
+			import('classes.core.Services');
 			$locales = ['en_US', 'fr_CA'];
 
 			$apiSchema = json_decode($source);
@@ -70,7 +70,7 @@ class buildSwagger extends CommandLineTool {
 				}
 
 				$editDefinition = $summaryDefinition = $readDefinition = ['type' => 'object', 'properties' => []];
-				$entitySchema = \ServicesContainer::instance()->get('schema')->get($definition, true);
+				$entitySchema = \Services::get('schema')->get($definition, true);
 				foreach ($entitySchema->properties as $propName => $propSchema) {
 
 					// Skip prop schemas with a `$ref`. They are already set up for the

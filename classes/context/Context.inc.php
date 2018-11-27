@@ -13,6 +13,13 @@
  * @brief Basic class describing a context.
  */
 
+ // Constant used to distinguish whether metadata is enabled and whether it
+ // should be requested or required during submission
+ define('METADATA_DISABLE', 0);
+ define('METADATA_ENABLE', 'enable');
+ define('METADATA_REQUEST', 'request');
+ define('METADATA_REQUIRE', 'require');
+
 class Context extends DataObject {
 
 	/**
@@ -403,5 +410,3 @@ class Context extends DataObject {
 		return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);
 	}
 }
-
-

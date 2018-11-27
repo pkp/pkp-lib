@@ -407,19 +407,22 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			}
 		}
 
-		// Import the field classes
-		import('lib.pkp.components.forms.FormComponent');
-
-		if (!class_exists($type)) {
-			fatalError(sprintf(
-				'The %s class was not found for the theme option, %s,  defined by %s or one of its parent themes.',
-				$type,
-				$name,
-				$this->getDisplayName()
-			));
+		$class = 'PKP\components\forms\\' . $type;
+		try {
+			$this->options[$name] = new $class($name, $args);
+		} catch (Exception $e) {
+			$class = 'APP\components\forms\\' . $type;
+			try {
+				$this->options[$name] = new $class($name, $args);
+			} catch (Exception $e) {
+				fatalError(sprintf(
+					'The %s class was not found for the theme option, %s,  defined by %s or one of its parent themes.',
+					$type,
+					$name,
+					$this->getDisplayName()
+				));
+			}
 		}
-
-		$this->options[$name] = new $type($name, $args);
 	}
 
 	/**

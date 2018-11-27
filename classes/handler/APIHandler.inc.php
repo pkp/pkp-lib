@@ -17,7 +17,7 @@ import('lib.pkp.classes.handler.PKPHandler');
 
 use \Slim\App;
 import('lib.pkp.classes.core.APIResponse');
-import('classes.core.ServicesContainer');
+import('classes.core.Services');
 
 class APIHandler extends PKPHandler {
 	protected $_app;
@@ -62,8 +62,7 @@ class APIHandler extends PKPHandler {
 				$uri = $uri->withPath(substr($path, 0, -1));
 				if($request->getMethod() == 'GET') {
 					return $response->withRedirect((string)$uri, 301);
-				}
-				else {
+				} else {
 					return $next($request->withUri($uri), $response);
 				}
 			}
@@ -71,7 +70,8 @@ class APIHandler extends PKPHandler {
 		});
 		// if pathinfo is disabled, rewrite URI to match Slim's expectation
 		$app = $this->getApp();
-		$this->_app->add(function ($request, $response, $next) use($app) {
+		$handler = $this;
+		$this->_app->add(function($request, $response, $next) use($app, $handler) {
 			$uri = $request->getUri();
 			$endpoint = trim($request->getQueryParam('endpoint'));
 			$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
@@ -81,12 +81,39 @@ class APIHandler extends PKPHandler {
 				if($request->getMethod() == 'GET') {
 					$uri = $uri->withPath($basePath . $endpoint);
 					return $response->withRedirect((string)$uri, 301);
-				}
-				else {
-					// because the route is calculated before any middleware is executed
-					// we need to call App::process because the URI changed so that dispatch happens again
-					$uri = $uri->withPath($endpoint);
-					return $app->process($request->withUri($uri), $response);
+				} else {
+					/**
+					 * WARNING
+					 *
+					 * We have to rewrite the URI in the Request object and then kick off
+					 * the middleware again with $app->process(). Because PSR-7 Request
+					 * objects are immutable, we can't just set the URI and move on. We
+					 * need to reset our own copy of the Request ($this->_slimRequest) so
+					 * that it is available for use by our Handlers (or anywhere outside
+					 * of API middleware).
+					 *
+					 * This means that we should never seek the Request in our handler by
+					 * going to Slim's container. A call to:
+					 *
+					 * $this->getApp()->getContainer()->get('request')
+					 *
+					 * Will not have the updated URI. Handlers should access their own
+					 * stored copy:
+					 *
+					 * $this->getSlimRequest()
+					 *
+					 * This will solve the URI issue when path info is disabled. But if
+					 * middleware updates the request, this stored copy will fall out of
+					 * sync. This may lead to hard-to-debug issues. Whenever possible,
+					 * middleware that modifies the request should reset the request in
+					 * the handler to keep it synced.
+					 *
+					 * I hope, when you need it, you will find this message and it will
+					 * save you the day that I just had.
+					 */
+					$uri = $uri->withPath($basePath . $endpoint);
+					$handler->_slimRequest = $request->withUri($uri);
+					return $app->process($handler->_slimRequest, $response);
 				}
 			}
 			return $next($request, $response);
@@ -254,7 +281,7 @@ class APIHandler extends PKPHandler {
 	 * @return array Converted parameters
 	 */
 	public function convertStringsToSchema($schema, $params) {
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 		$schema = $schemaService->get($schema);
 
 		foreach ($params as $paramName => $paramValue) {

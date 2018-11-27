@@ -80,13 +80,11 @@ class PKPSectionForm extends Form {
 	 * @return array
 	 */
 	public function _getAssignedSubEditorIds($sectionId, $contextId) {
-		import('classes.core.ServicesContainer');
-		$subEditors = ServicesContainer::instance()
-			->get('user')
-			->getUsers($contextId, array(
-				'roleIds' => ROLE_ID_SUB_EDITOR,
-				'assignedToSection' => $sectionId,
-			));
+		import('classes.core.Services');
+		$subEditors = Services::get('user')->getMany(array(
+			'roleIds' => ROLE_ID_SUB_EDITOR,
+			'assignedToSection' => $sectionId,
+		));
 
 		if (empty($subEditors)) {
 			return array();
@@ -107,12 +105,13 @@ class PKPSectionForm extends Form {
 	 * @return array
 	 */
 	public function _getSubEditorsListPanelData($contextId, $request) {
-		import('lib.pkp.components.listPanels.users.SelectUserListPanel');
+		import('lib.pkp.classes.components.listPanels.users.SelectUserListPanel');
 		$data = new SelectUserListPanel(array(
 			'title' => 'user.role.subEditors',
 			'inputName' => 'subEditors[]',
 			'selected' => $this->getData('subEditors'),
 			'getParams' => array(
+				'contextId' => $contextId,
 				'roleIds' => ROLE_ID_SUB_EDITOR,
 			),
 		));
@@ -140,5 +139,3 @@ class PKPSectionForm extends Form {
 	}
 
 }
-
-

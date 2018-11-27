@@ -427,24 +427,28 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 	protected function _updateContextLocaleSettings($request) {
 		$site = $request->getSite();
 		$siteSupportedLocales = $site->getSupportedLocales();
+		$contextService = \Services::get('context');
 
 		$contextDao = Application::getContextDAO();
 		$contexts = $contextDao->getAll();
 		while ($context = $contexts->next()) {
+			$params = [];
 			$primaryLocale = $context->getPrimaryLocale();
 			foreach (array('supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales') as $settingName) {
 				$localeList = $context->getData($settingName);
 
 				if (is_array($localeList)) {
-					$localeList = array_intersect($localeList, $siteSupportedLocales);
-					$context->updateSetting($settingName, $localeList, 'object');
+					$params[$settingName] = array_intersect($localeList, $siteSupportedLocales);
 				}
 			}
 			if (!in_array($primaryLocale, $siteSupportedLocales)) {
-				$context->setPrimaryLocale($site->getPrimaryLocale());
-				$contextDao->updateObject($context);
+				$params['primaryLocale'] = $site->getPrimaryLocale();
+				$primaryLocale = $params['primaryLocale'];
 			}
-
+			$errors = $contextService->validate(VALIDATE_ACTION_EDIT, $params, $params['supportedLocales'], $primaryLocale);
+			// If there are errors, it's too late to do anything about it
+			assert(empty($errors));
+			$contextService->edit($context, $params, $request);
 		}
 	}
 
@@ -462,5 +466,3 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		return ($contexts->getCount() == 1 && $context && in_array(ROLE_ID_MANAGER, $userRoles));
 	}
 }
-
-

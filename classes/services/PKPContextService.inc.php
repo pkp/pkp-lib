@@ -19,12 +19,18 @@ use \DBResultRange;
 use \Application;
 use \DAOResultFactory;
 use \DAORegistry;
-use \ServicesContainer;
-use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
+use \Services;
+use \PKP\Services\interfaces\EntityPropertyInterface;
+use \PKP\Services\interfaces\EntityReadInterface;
+use \PKP\Services\interfaces\EntityWriteInterface;
+use \PKP\Services\traits\EntityReadTrait;
+use \APP\Services\QueryBuilders\ContextQueryBuilder;
 
 import('lib.pkp.classes.db.DBResultRange');
 
-abstract class PKPContextService extends PKPBaseEntityPropertyService {
+abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
+	use EntityReadTrait;
+
 	/**
 	 * @var array List of file directories to create on installation. Use %d to
 	 *  use the context ID in a file path.
@@ -38,10 +44,10 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	var $contextsFileDirName;
 
 	/**
-	 * Constructor
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
-	public function __construct() {
-		parent::__construct($this);
+	public function get($contextId) {
+		return Application::getContextDAO()->getById($contextId);
 	}
 
 	/**
@@ -55,8 +61,8 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	 * }
 	 * @return array
 	 */
-	public function getContexts($args = array()) {
-		$contextListQB = $this->_buildGetContextsQueryObject($args);
+	public function getMany($args = array()) {
+		$contextListQB = $this->_getQueryBuilder($args);
 		$contextListQO = $contextListQB->get();
 		$range = $this->getRangeByArgs($args);
 		$contextDao = Application::getContextDAO();
@@ -67,13 +73,10 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Get max count of contexts matching a query request
-	 *
-	 * @see self::getContexts()
-	 * @return int
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
-	public function getContextsMaxCount($args = array()) {
-		$contextListQB = $this->_buildGetContextsQueryObject($args);
+	public function getMax($args = array()) {
+		$contextListQB = $this->_getQueryBuilder($args);
 		$countQO = $contextListQB->countOnly()->get();
 		$countRange = new DBResultRange($args['count'], 1);
 		$contextDao = Application::getContextDAO();
@@ -84,12 +87,12 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Build the contexts query object for getContexts requests
+	 * Build the query object for getting contexts
 	 *
-	 * @see self::getContexts()
+	 * @see self::get()
 	 * @return object Query object
 	 */
-	private function _buildGetContextsQueryObject($args = array()) {
+	private function _getQueryBuilder($args = array()) {
 
 		$defaultArgs = array(
 			'isEnabled' => null,
@@ -98,28 +101,18 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 
 		$args = array_merge($defaultArgs, $args);
 
-		$contextListQB = $this->getContextListQueryBuilder();
+		$contextListQB = new ContextQueryBuilder();
 		$contextListQB
 			->filterByIsEnabled($args['isEnabled'])
 			->searchPhrase($args['searchPhrase']);
 
-		\HookRegistry::call('Context::getContexts::queryBuilder', array($contextListQB, $args));
+		\HookRegistry::call('Context::getMany::queryBuilder', array($contextListQB, $args));
 
 		return $contextListQB;
 	}
 
 	/**
-	 * Get a single context
-	 *
-	 * @param int $contextId
-	 * @return Context|null
-	 */
-	public function getContext($contextId) {
-		return Application::getContextDAO()->getById($contextId);
-	}
-
-	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
 	 */
 	public function getProperties($context, $props, $args = null) {
 		$slimRequest = $args['slimRequest'];
@@ -143,12 +136,11 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 					if (!empty($slimRequest)) {
 						$route = $slimRequest->getAttribute('route');
 						$arguments = $route->getArguments();
-						$values[$prop] = $router->getApiUrl(
-							$request,
-							$arguments['contextPath'],
-							$arguments['version'],
-							'contexts',
-							$context->getId()
+						$values[$prop] = $dispatcher->url(
+							$args['request'],
+							ROUTE_API,
+							$context->getData('path'),
+							'contexts/' . $context->getId()
 						);
 					}
 					break;
@@ -159,7 +151,7 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 		}
 
 		$supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedLocales() : $args['supportedLocales'];
-		$values = ServicesContainer::instance()->get('schema')->addMissingMultilingualValues(SCHEMA_CONTEXT, $values, $supportedLocales);
+		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_CONTEXT, $values, $supportedLocales);
 
 		\HookRegistry::call('Context::getProperties', array(&$values, $context, $props, $args));
 
@@ -169,48 +161,25 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getSummaryProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($context, $args = null) {
-		$props = ServicesContainer::instance()
-			->get('schema')
-			->getSummaryProps(SCHEMA_CONTEXT);
+		$props = Services::get('schema')->getSummaryProps(SCHEMA_CONTEXT);
 
 		return $this->getProperties($context, $props, $args);
 	}
 
 	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getFullProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($context, $args = null) {
-		$props = ServicesContainer::instance()
-			->get('schema')
-			->getFullProps(SCHEMA_CONTEXT);
+		$props = Services::get('schema')->getFullProps(SCHEMA_CONTEXT);
 
 		return $this->getProperties($context, $props, $args);
 	}
 
 	/**
-	 * Helper function to return the app-specific context list query builder
-	 *
-	 * @return \PKP\Services\QueryBuilders\PKPContextListQueryBuilder
-	 */
-	abstract function getContextListQueryBuilder();
-
-	/**
-	 * Validate the properties of a context
-	 *
-	 * Passes the properties through the SchemaService to validate them, and
-	 * performs any additional checks needed to validate a context.
-	 *
-	 * This does NOT authenticate the current user to perform the action.
-	 *
-	 * @param $action string The type of action required. One of the
-	 *  VALIDATE_ACTION_... constants
-	 * @param $props array The data to validate
-	 * @param $allowedLocales array Which locales are allowed for this context
-	 * @param $primaryLocale string
-	 * @return array List of error messages. The array keys are property names
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::validate()
 	 */
 	public function validate($action, $props, $allowedLocales, $primaryLocale) {
 		\AppLocale::requireComponents(
@@ -219,7 +188,7 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_APP_MANAGER
 		);
-		$schemaService = ServicesContainer::instance()->get('schema');
+		$schemaService = Services::get('schema');
 
 		import('lib.pkp.classes.validation.ValidatorFactory');
 		$validator = \ValidatorFactory::make(
@@ -323,16 +292,9 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Add a new context
-	 *
-	 * This does not check if the user is authorized to add a context, or
-	 * validate or sanitize this context.
-	 *
-	 * @param $context Context
-	 * @param $request Request
-	 * @return Context
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
 	 */
-	public function addContext($context, $request) {
+	public function add($context, $request) {
 		$site = $request->getSite();
 		$currentUser = $request->getUser();
 		$contextDao = Application::getContextDAO();
@@ -362,15 +324,13 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 		// Allow plugins to extend the $localeParams for new property defaults
 		\HookRegistry::call('Context::defaults::localeParams', array(&$localeParams, $context, $request));
 
-		$context = ServicesContainer::instance()
-			->get('schema')
-			->setDefaults(
-				SCHEMA_CONTEXT,
-				$context,
-				$context->getData('supportedLocales'),
-				$context->getData('primaryLocale'),
-				$localeParams
-			);
+		$context = Services::get('schema')->setDefaults(
+			SCHEMA_CONTEXT,
+			$context,
+			$context->getData('supportedLocales'),
+			$context->getData('primaryLocale'),
+			$localeParams
+		);
 
 		if (!$context->getData('supportedFormLocales')) {
 			$context->setData('supportedFormLocales', [$context->getData('primaryLocale')]);
@@ -382,7 +342,7 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 		$contextDao->insertObject($context);
 		$contextDao->resequence();
 
-		$context = $this->getContext($context->getId());
+		$context = $this->get($context->getId());
 
 		// Move uploaded files into place and update the settings
 		$supportedLocales = $context->getSupportedLocales();
@@ -404,7 +364,7 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 		if (!empty($params['styleSheet'])) {
 			$params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $userId);
 		}
-		$context = $this->editContext($context, $params, $request);
+		$context = $this->edit($context, $params, $request);
 
 		$genreDao = \DAORegistry::getDAO('GenreDAO');
 		$genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
@@ -433,17 +393,9 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Edit a context
-	 *
-	 * This does not check if the user is authorized to edit a context, or
-	 * validate or sanitize the new content.
-	 *
-	 * @param $context Context The context to edit
-	 * @param $params Array Key/value array of new data
-	 * @param $request Request
-	 * @return Context
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
 	 */
-	public function editContext($context, $params, $request) {
+	public function edit($context, $params, $request) {
 		$contextDao = Application::getContextDao();
 
 		// Move uploaded files into place and update the params
@@ -471,21 +423,15 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 		\HookRegistry::call('Context::edit', array($newContext, $context, $params, $request));
 
 		$contextDao->updateObject($newContext);
-		$newContext = $this->getContext($newContext->getId());
+		$newContext = $this->get($newContext->getId());
 
 		return $newContext;
 	}
 
 	/**
-	 * Delete a context
-	 *
-	 * This does not check if the user is authorized to delete a context or if the
-	 * context exists.
-	 *
-	 * @param $context Context
-	 * @return boolean
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
-	public function deleteContext($context) {
+	public function delete($context) {
 		$contextDao = Application::getContextDao();
 		$contextDao->deleteObject($context);
 
@@ -558,9 +504,7 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 		// Allow plugins to extend the $localeParams for new property defaults
 		\HookRegistry::call('Context::restoreLocaleDefaults::localeParams', array(&$localeParams, $context, $request, $locale));
 
-		$localeDefaults = ServicesContainer::instance()
-			->get('schema')
-			->getLocaleDefaults(SCHEMA_CONTEXT, $locale, $localeParams);
+		$localeDefaults = Services::get('schema')->getLocaleDefaults(SCHEMA_CONTEXT, $locale, $localeParams);
 
 		$params = [];
 		foreach ($localeDefaults as $paramName => $value) {
@@ -570,7 +514,7 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 			);
 		}
 
-		return $this->editContext($context, $params, $request);
+		return $this->edit($context, $params, $request);
 	}
 
 	/**
@@ -626,7 +570,7 @@ abstract class PKPContextService extends PKPBaseEntityPropertyService {
 	 * - If a null value is passed, deletes any existing file
 	 *
 	 * This method is protected because all operations which edit contexts should
-	 * go through the addContext and editContext methods in order to ensure that
+	 * go through the add and edit methods in order to ensure that
 	 * the appropriate hooks are fired.
 	 *
 	 * @param $context Context The context being edited

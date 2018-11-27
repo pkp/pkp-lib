@@ -282,8 +282,8 @@ class PKPTemplateManager extends Smarty {
 			}
 
 			// Register Navigation Menus
-			import('classes.core.ServicesContainer');
-			$nmService = ServicesContainer::instance()->get('navigationMenu');
+			import('classes.core.Services');
+			$nmService = Services::get('navigationMenu');
 
 			if (Config::getVar('general', 'installed')) {
 				\HookRegistry::register('LoadHandler', array($nmService, '_callbackHandleCustomNavigationMenuItems'));
@@ -1670,10 +1670,8 @@ class PKPTemplateManager extends Smarty {
 		$navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName)->toArray();
 		if (isset($navigationMenus[0])) {
 			$navigationMenu = $navigationMenus[0];
-			import('classes.core.ServicesContainer');
-			ServicesContainer::instance()
-				->get('navigationMenu')
-				->getMenuTree($navigationMenu);
+			import('classes.core.Services');
+			Services::get('navigationMenu')->getMenuTree($navigationMenu);
 		}
 
 

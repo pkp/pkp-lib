@@ -43,8 +43,8 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate {
 		$stageData = $this->_getStageDataByType();
 		$operation = $stageData['path'];
 
-		import('classes.core.ServicesContainer');
-		return ServicesContainer::instance()->get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
+		import('classes.core.Services');
+		return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
 	}
 
 	/**

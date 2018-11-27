@@ -18,8 +18,11 @@ define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 define('ROUTE_API', 'api');
 
+define('API_VERSION', 'v1');
+
 define('CONTEXT_SITE', 0);
 define('CONTEXT_ID_NONE', 0);
+define('CONTEXT_ID_ALL', '*');
 define('REVIEW_ROUND_NONE', 0);
 
 define('ASSOC_TYPE_PRODUCTION_ASSIGNMENT',	0x0000202);
@@ -60,13 +63,6 @@ define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
 // Constant used to distinguish between editorial and author workflows
 define('WORKFLOW_TYPE_EDITORIAL', 'editorial');
 define('WORKFLOW_TYPE_AUTHOR', 'author');
-
-// Constant used to distinguish whether metadata is enabled and whether it
-// should be requested or required during submission
-define('METADATA_DISABLE', 0);
-define('METADATA_ENABLE', 'enable');
-define('METADATA_REQUEST', 'request');
-define('METADATA_REQUIRE', 'require');
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -189,10 +185,15 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			}
 		}
 
-		// Register custom autoloader function for PKP namespace
+		// Register custom autoloader functions for namespaces
 		spl_autoload_register(function($class) {
 			$prefix = 'PKP\\';
 			$rootPath = BASE_SYS_DIR . "/lib/pkp/classes";
+			customAutoload($rootPath, $prefix, $class);
+		});
+		spl_autoload_register(function($class) {
+			$prefix = 'APP\\';
+			$rootPath = BASE_SYS_DIR . "/classes";
 			customAutoload($rootPath, $prefix, $class);
 		});
 	}
@@ -663,7 +664,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * creative commons licenses.
 	 * @return array
 	 */
-	function getCCLicenseOptions() {
+	static function getCCLicenseOptions() {
 		return array(
 			'https://creativecommons.org/licenses/by-nc-nd/4.0' => 'submission.license.cc.by-nc-nd4',
 			'https://creativecommons.org/licenses/by-nc/4.0' => 'submission.license.cc.by-nc4',

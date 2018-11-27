@@ -35,11 +35,9 @@ class ValidatorRegExp extends Validator {
 	function isValid($value) {
 		$validator = \ValidatorFactory::make(
 			['value' => $value],
-			['value' => ['regex:' . $this->_regExp]]
+			['value' => ['required', 'regex:' . $this->_regExp]]
 		);
 
 		return $validator->passes();
 	}
 }
-
-

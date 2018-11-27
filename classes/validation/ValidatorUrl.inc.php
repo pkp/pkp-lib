@@ -24,11 +24,9 @@ class ValidatorUrl extends Validator {
 	function isValid($value) {
 		$validator = \ValidatorFactory::make(
 			['value' => $value],
-			['value' => 'url']
+			['value' => ['required', 'url']]
 		);
 
 		return $validator->passes();
 	}
 }
-
-

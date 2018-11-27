@@ -84,22 +84,24 @@ class PKPTemporaryFilesHandler extends APIHandler {
 
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
-		$uploadedFile = $temporaryFileManager->handleUpload(key($_FILES), $request->getUser()->getId());
+		$fileName = $temporaryFileManager->getFirstUploadedPostName();
+		$uploadedFile = $temporaryFileManager->handleUpload($fileName, $request->getUser()->getId());
 
 		if ($uploadedFile === false) {
-			$errorCode = $_FILES[key($_FILES)]['error'];
-			switch ($errorCode) {
-				case UPLOAD_ERR_INI_SIZE:
-				case UPLOAD_ERR_FORM_SIZE:
+			if ($temporaryFileManager->uploadError($fileName)) {
+				switch ($temporaryFileManager->getUploadErrorCode($fileName)) {
+					case UPLOAD_ERR_INI_SIZE:
+					case UPLOAD_ERR_FORM_SIZE:
 					return $response->withStatus(400)->withJsonError('api.temporaryFiles.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]);
-				case UPLOAD_ERR_PARTIAL:
+					case UPLOAD_ERR_PARTIAL:
 					return $response->withStatus(400)->withJsonError('api.temporaryFiles.409.uploadFailed');
-				case UPLOAD_ERR_NO_FILE:
+					case UPLOAD_ERR_NO_FILE:
 					return $response->withStatus(400)->withJsonError('api.temporaryFiles.400.noUpload');
-				case UPLOAD_ERR_NO_TMP_DIR:
-				case UPLOAD_ERR_CANT_WRITE:
-				case UPLOAD_ERR_EXTENSION:
+					case UPLOAD_ERR_NO_TMP_DIR:
+					case UPLOAD_ERR_CANT_WRITE:
+					case UPLOAD_ERR_EXTENSION:
 					return $response->withStatus(400)->withJsonError('api.temporaryFiles.400.config');
+				}
 			}
 			return $response->withStatus(400)->withJsonError('api.temporaryFiles.409.uploadFailed');
 		}

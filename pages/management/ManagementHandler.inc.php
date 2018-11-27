@@ -86,9 +86,9 @@ class ManagementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 		$context = $request->getContext();
-		$router = $request->getRouter();
+		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $router->getApiUrl($request, $context->getPath(), 'v1', 'contexts', $context->getId());
+		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();
@@ -96,10 +96,8 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		import('lib.pkp.components.forms.context.PKPContactForm');
-		$contactForm = new PKPContactForm($apiUrl, $locales, $context);
-		import('components.forms.context.MastheadForm');
-		$mastheadForm = new MastheadForm($apiUrl, $locales, $context);
+		$contactForm = new PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
+		$mastheadForm = new APP\components\forms\context\MastheadForm($apiUrl, $locales, $context);
 
 		$settingsData = [
 			'forms' => [
@@ -138,11 +136,12 @@ class ManagementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 		$context = $request->getContext();
+		$dispatcher = $request->getDispatcher();
 		$router = $request->getRouter();
 
-		$contextApiUrl = $router->getApiUrl($request, $context->getPath(), 'v1', 'contexts', $context->getId());
-		$themeApiUrl = $router->getApiUrl($request, $context->getPath(), 'v1', 'contexts', $context->getId() . '/theme');
-		$temporaryFileApiUrl = $router->getApiUrl($request, $context->getPath(), 'v1', 'temporaryFiles');
+		$contextApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
+		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'temporaryFiles');
 		$contextUrl = $router->url($request, $context->getPath());
 
 		import('classes.file.PublicFileManager');
@@ -155,20 +154,13 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		import('lib.pkp.components.forms.context.PKPAnnouncementSettingsForm');
-		$announcementSettingsForm = new PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
-		import('lib.pkp.components.forms.context.PKPAppearanceAdvancedForm');
-		$appearanceAdvancedForm = new PKPAppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
-		import('components.forms.context.AppearanceSetupForm');
-		$appearanceSetupForm = new AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
-		import('lib.pkp.components.forms.context.PKPInformationForm');
-		$informationForm = new PKPInformationForm($contextApiUrl, $locales, $context);
-		import('lib.pkp.components.forms.context.PKPListsForm');
-		$listsForm = new PKPListsForm($contextApiUrl, $locales, $context);
-		import('lib.pkp.components.forms.context.PKPPrivacyForm');
-		$privacyForm = new PKPPrivacyForm($contextApiUrl, $locales, $context);
-		import('lib.pkp.components.forms.context.PKPThemeForm');
-		$themeForm = new PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
+		$announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
+		$appearanceAdvancedForm = new \PKP\components\forms\context\PKPAppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
+		$appearanceSetupForm = new \APP\components\forms\context\AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
+		$informationForm = new \PKP\components\forms\context\PKPInformationForm($contextApiUrl, $locales, $context);
+		$listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
+		$privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context);
+		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
 
 		$settingsData = [
 			'forms' => [
@@ -196,9 +188,9 @@ class ManagementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 		$context = $request->getContext();
-		$router = $request->getRouter();
+		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $router->getApiUrl($request, $context->getPath(), 'v1', 'contexts', $context->getId());
+		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_SUBMISSION,
@@ -215,16 +207,11 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		import('lib.pkp.components.forms.context.PKPAuthorGuidelinesForm');
-		$authorGuidelinesForm = new PKPAuthorGuidelinesForm($apiUrl, $locales, $context);
-		import('lib.pkp.components.forms.context.PKPMetadataSettingsForm');
-		$metadataSettingsForm = new PKPMetadataSettingsForm($apiUrl, $context);
-		import('lib.pkp.components.forms.context.PKPEmailSetupForm');
-		$emailSetupForm = new PKPEmailSetupForm($apiUrl, $locales, $context);
-		import('components.forms.context.ReviewGuidanceForm');
-		$reviewGuidanceForm = new ReviewGuidanceForm($apiUrl, $locales, $context);
-		import('lib.pkp.components.forms.context.PKPReviewSetupForm');
-		$reviewSetupForm = new PKPReviewSetupForm($apiUrl, $locales, $context);
+		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($apiUrl, $locales, $context);
+		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($apiUrl, $context);
+		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($apiUrl, $locales, $context);
+		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($apiUrl, $locales, $context);
+		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($apiUrl, $locales, $context);
 
 		$settingsData = [
 			'forms' => [
@@ -253,11 +240,11 @@ class ManagementHandler extends Handler {
 		$router = $request->getRouter();
 		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $router->getApiUrl($request, $context->getPath(), 'v1', 'contexts', $context->getId());
+		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 		$lockssUrl = $router->url($request, $context->getPath(), 'gateway', 'lockss');
 		$clockssUrl = $router->url($request, $context->getPath(), 'gateway', 'clockss');
 		$sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
-		$paymentsUrl = $router->getApiUrl($request, $context->getPath(), 'v1', '_payments');
+		$paymentsUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_payments');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();
@@ -265,77 +252,15 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		import('components.forms.context.ArchivingLockssForm');
-		$archivingLockssForm = new ArchivingLockssForm($apiUrl, $locales, $context, $lockssUrl, $clockssUrl);
-		import('lib.pkp.components.forms.context.PKPLicenseForm');
-		$licenseForm = new PKPLicenseForm($apiUrl, $locales, $context);
-		import('lib.pkp.components.forms.context.PKPSearchIndexingForm');
-		$searchIndexingForm = new PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
-		import('components.forms.context.AccessForm');
-		$accessForm = new AccessForm($apiUrl, $locales, $context);
-		import('components.forms.context.PaymentSettingsForm');
-		$paymentSettingsForm = new PaymentSettingsForm($apiUrl, $locales, $context);
-
-		// Create a dummy "form" for the PKP Preservation Network settings. This
-		// form loads a single field which enables/disables the plugin, and does
-		// not need to be submitted. It's a dirty hack, but we can change this once
-		// an API is in place for plugins and plugin settings.
-		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$isPlnInstalled = $versionDao->getCurrentVersion('plugins.generic', 'pln', true);
-		$archivePnForm = new FormComponent('archivePn', 'PUT', 'dummy', 'dummy');
-		$archivePnForm->addPage([
-				'id' => 'default',
-				'submitButton' => null,
-			])
-			->addGroup([
-				'id' => 'default',
-				'pageId' => 'default',
-			]);
-
-		if (!$isPlnInstalled) {
-			$archivePnForm->addField(new FieldHTML('pn', [
-				'label' => __('manager.setup.plnPluginArchiving'),
-				'value' => __('manager.setup.plnPluginNotInstalled'),
-				'groupId' => 'default',
-			]));
-		} else {
-			$plnPlugin = PluginRegistry::getPlugin('generic', 'plnplugin');
-			$pnEnablePluginUrl = $dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.settings.plugins.SettingsPluginGridHandler', 'enable', null, array('plugin' => 'plnplugin', 'category' => 'generic'));
-			$pnDisablePluginUrl = $dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.settings.plugins.SettingsPluginGridHandler', 'disable', null, array('plugin' => 'plnplugin', 'category' => 'generic'));
-			$pnSettingsUrl = $dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.settings.plugins.SettingsPluginGridHandler', 'manage', null, array('verb' => 'settings', 'plugin' => 'plnplugin', 'category' => 'generic'));
-
-			$archivePnForm->addField(new FieldArchivingPn('pn', [
-				'label' => __('manager.setup.plnPluginArchiving'),
-				'description' => __('manager.setup.plnDescription'),
-				'terms' => __('manager.setup.plnSettingsDescription'),
-				'options' => [
-					[
-						'value' => true,
-						'label' => __('manager.setup.plnPluginEnable'),
-					],
-				],
-				'value' => (bool) $plnPlugin,
-				'enablePluginUrl' => $pnEnablePluginUrl,
-				'disablePluginUrl' => $pnDisablePluginUrl,
-				'settingsUrl' => $pnSettingsUrl,
-				'csrfToken' => $request->getSession()->getCSRFToken(),
-				'groupId' => 'default',
-				'i18n' => [
-					'enablePluginError' => __('api.submissions.unknownError'),
-					'enablePluginSuccess' => __('common.pluginEnabled', ['pluginName' => __('manager.setup.plnPluginArchiving')]),
-					'disablePluginSuccess' => __('common.pluginDisabled', ['pluginName' => __('manager.setup.plnPluginArchiving')]),
-				],
-			]));
-		}
+		$licenseForm = new \PKP\components\forms\context\PKPLicenseForm($apiUrl, $locales, $context);
+		$searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+		$accessForm = new \APP\components\forms\context\AccessForm($apiUrl, $locales, $context);
 
 		$settingsData = [
 			'forms' => [
-				FORM_ARCHIVING_LOCKSS => $archivingLockssForm->getConfig(),
-				$archivePnForm->id => $archivePnForm->getConfig(),
 				FORM_LICENSE => $licenseForm->getConfig(),
 				FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
 				FORM_ACCESS => $accessForm->getConfig(),
-				FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
 			],
 		];
 		$templateMgr->assign('settingsData', $settingsData);
@@ -362,12 +287,11 @@ class ManagementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 		$context = $request->getContext();
-		$router = $request->getRouter();
+		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $router->getApiUrl($request, $context->getPath(), 'v1', 'contexts', $context->getId());
+		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 
-		import('components.forms.context.UserAccessForm');
-		$userAccessForm = new UserAccessForm($apiUrl, $context);
+		$userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
 
 		$settingsData = [
 			'forms' => [

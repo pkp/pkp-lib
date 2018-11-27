@@ -69,7 +69,7 @@ class RegistrationForm extends Form {
 		}
 
 		$context = Application::getRequest()->getContext();
-		if ($context && $context->getSetting('privacyStatement')) {
+		if ($context && $context->getData('privacyStatement')) {
 			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 		}
 
@@ -106,7 +106,7 @@ class RegistrationForm extends Form {
 			'source' =>$request->getUserVar('source'),
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'enableSiteWidePrivacyStatement' => Config::getVar('general', 'sitewide_privacy_statement'),
-			'siteWidePrivacyStatement' => $site->getSetting('privacyStatement'),
+			'siteWidePrivacyStatement' => $site->getData('privacyStatement'),
 		));
 
 		return parent::fetch($request, $template, $display);
@@ -167,7 +167,7 @@ class RegistrationForm extends Form {
 		// group signups if we're in the site-wide registration form
 		if (!$request->getContext()) {
 
-			if ($request->getSite()->getSetting('privacyStatement')) {
+			if ($request->getSite()->getData('privacyStatement')) {
 				$privacyConsent = $this->getData('privacyConsent');
 				if (!is_array($privacyConsent) || !array_key_exists(CONTEXT_ID_NONE, $privacyConsent)) {
 					$this->addError('privacyConsent[' . CONTEXT_ID_NONE . ']', __('user.register.form.missingSiteConsent'));
@@ -347,5 +347,3 @@ class RegistrationForm extends Form {
 		}
 	}
 }
-
-

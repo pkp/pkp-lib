@@ -747,7 +747,7 @@ class FormBuilderVocabulary {
 					)
 				); break;
 				case 'current': $smarty->assign('FBV_currentKeywords', $value); break;
-				case 'source': $smarty->assign('FBV_sourceUrl', $value); break;
+				case 'sourceUrl': $smarty->assign('FBV_sourceUrl', $value); break;
 			}
 		}
 

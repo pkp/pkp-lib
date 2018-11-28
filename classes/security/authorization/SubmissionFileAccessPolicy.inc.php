@@ -163,6 +163,10 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 				$reviewerFileAccessOptionsPolicy->addPolicy(new SubmissionFileAssignedReviewerAccessPolicy($request, $fileIdAndRevision));
 			}
 
+			// 2c) If the file is part of a query assigned to the user, allow.
+			import('lib.pkp.classes.security.authorization.internal.SubmissionFileAssignedQueryAccessPolicy');
+			$reviewerFileAccessOptionsPolicy->addPolicy(new SubmissionFileAssignedQueryAccessPolicy($request, $fileIdAndRevision));
+
 			// Add the rules from 2)
 			$reviewerFileAccessPolicy->addPolicy($reviewerFileAccessOptionsPolicy);
 

@@ -41,7 +41,7 @@ class PluginRequiredPolicy extends AuthorizationPolicy {
 		$pluginName = $this->_request->getUserVar('plugin');
 
 		// Load the plugin.
-		$plugins =& PluginRegistry::loadCategory($category);
+		$plugins = PluginRegistry::loadCategory($category);
 		$foundPlugin = null;
 		foreach ($plugins as $plugin) { /* @var $plugin Plugin */
 			if ($plugin->getName() == $pluginName) {

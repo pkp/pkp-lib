@@ -242,8 +242,8 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	 * @param $newRowId array
 	 */
 	function updateEntry($request, $rowId, $newRowId) {
-		$plugins =& PluginRegistry::loadCategory('blocks');
-		$plugin =& $plugins[$rowId]; // Ref hack
+		$plugins = PluginRegistry::loadCategory('blocks');
+		$plugin = $plugins[$rowId];
 		switch ($newRowId['listId']) {
 			case 'unselected':
 				$plugin->setEnabled(false);

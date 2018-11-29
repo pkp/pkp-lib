@@ -57,7 +57,7 @@ class PluginRegistry {
 	 *  can be given as an explicit ID.
 	 * @return boolean True IFF the plugin was registered successfully
 	 */
-	static function register($category, &$plugin, $path, $mainContextId = null) {
+	static function register($category, $plugin, $path, $mainContextId = null) {
 		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
 
@@ -67,8 +67,8 @@ class PluginRegistry {
 		// Allow the plugin to register.
 		if (!$plugin->register($category, $path, $mainContextId)) return false;
 
-		if (isset($plugins[$category])) $plugins[$category][$pluginName] =& $plugin;
-		else $plugins[$category] = array($pluginName => &$plugin);
+		if (isset($plugins[$category])) $plugins[$category][$pluginName] = $plugin;
+		else $plugins[$category] = array($pluginName => $plugin);
 		return true;
 	}
 
@@ -77,7 +77,7 @@ class PluginRegistry {
 	 * @param $category String category name
 	 * @param $name String plugin name
 	 */
-	static function &getPlugin($category, $name) {
+	static function getPlugin($category, $name) {
 		$plugins =& PluginRegistry::getPlugins();
 		$plugin = @$plugins[$category][$name];
 		return $plugin;
@@ -95,7 +95,7 @@ class PluginRegistry {
 	 *  (e.g. when executing CLI commands). Then the main context
 	 *  can be given as an explicit ID.
 	 */
-	static function &loadCategory ($category, $enabledOnly = false, $mainContextId = null) {
+	static function loadCategory ($category, $enabledOnly = false, $mainContextId = null) {
 		$plugins = array();
 		$categoryDir = PLUGINS_PREFIX . $category;
 		if (!is_dir($categoryDir)) return $plugins;
@@ -103,12 +103,12 @@ class PluginRegistry {
 		if ($enabledOnly && Config::getVar('general', 'installed')) {
 			// Get enabled plug-ins from the database.
 			$application = Application::getApplication();
-			$products =& $application->getEnabledProducts('plugins.'.$category, $mainContextId);
+			$products = $application->getEnabledProducts('plugins.'.$category, $mainContextId);
 			foreach ($products as $product) {
 				$file = $product->getProduct();
-				$plugin =& PluginRegistry::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
+				$plugin = PluginRegistry::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
 				if ($plugin && is_object($plugin)) {
-					$plugins[$plugin->getSeq()]["$categoryDir/$file"] =& $plugin;
+					$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
 					unset($plugin);
 				}
 			}
@@ -119,9 +119,9 @@ class PluginRegistry {
 			$handle = opendir($categoryDir);
 			while (($file = readdir($handle)) !== false) {
 				if ($file == '.' || $file == '..') continue;
-				$plugin =& PluginRegistry::_instantiatePlugin($category, $categoryDir, $file);
+				$plugin = PluginRegistry::_instantiatePlugin($category, $categoryDir, $file);
 				if ($plugin && is_object($plugin)) {
-					$plugins[$plugin->getSeq()]["$categoryDir/$file"] =& $plugin;
+					$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
 					unset($plugin);
 				}
 			}
@@ -158,7 +158,7 @@ class PluginRegistry {
 	 * @param $pathName string
 	 * @return object
 	 */
-	static function &loadPlugin($category, $pathName) {
+	static function loadPlugin($category, $pathName) {
 		$pluginPath = PLUGINS_PREFIX . $category . '/' . $pathName;
 		$plugin = null;
 		if (!file_exists($pluginPath . '/index.php')) return $plugin;
@@ -190,14 +190,14 @@ class PluginRegistry {
 	/**
 	 * Load all plugins in the system and return them in a single array.
 	 * @param $enabledOnly boolean load only enabled plug-ins
+	 * @return array Set of all plugins
 	 */
 	static function &loadAllPlugins($enabledOnly = false) {
 		// Retrieve and register categories (order is significant).
 		foreach (PluginRegistry::getCategories() as $category) {
 			PluginRegistry::loadCategory($category, $enabledOnly);
 		}
-		$allPlugins =& PluginRegistry::getAllPlugins();
-		return $allPlugins;
+		return PluginRegistry::getAllPlugins();
 	}
 
 
@@ -215,7 +215,7 @@ class PluginRegistry {
 	 * @param $classToCheck string set null to maintain pre-2.3.x backwards compatibility
 	 * @return Plugin
 	 */
-	static function &_instantiatePlugin($category, $categoryDir, $file, $classToCheck = null) {
+	static function _instantiatePlugin($category, $categoryDir, $file, $classToCheck = null) {
 		if(!is_null($classToCheck) && !preg_match('/[a-zA-Z0-9]+/', $file)) fatalError('Invalid product name "'.$file.'"!');
 
 		$pluginPath = "$categoryDir/$file";
@@ -236,7 +236,7 @@ class PluginRegistry {
 			if (file_exists("$pluginPath/$pluginClassFile")) {
 				// Try to instantiate the plug-in class.
 				$pluginPackage = 'plugins.'.$category.'.'.$file;
-				$plugin =& instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
+				$plugin = instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
 			}
 		}
 
@@ -250,5 +250,4 @@ class PluginRegistry {
 		return $plugin;
 	}
 }
-
 

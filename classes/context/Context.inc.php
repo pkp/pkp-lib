@@ -360,7 +360,7 @@ class Context extends DataObject {
 	*/
 	function getMetricTypes($withDisplayNames = false) {
 		// Retrieve report plugins enabled for this journal.
-		$reportPlugins =& PluginRegistry::loadCategory('reports', true, $this->getId());
+		$reportPlugins = PluginRegistry::loadCategory('reports', true, $this->getId());
 		if (!is_array($reportPlugins)) return array();
 
 		// Run through all report plugins and retrieve all supported metrics.

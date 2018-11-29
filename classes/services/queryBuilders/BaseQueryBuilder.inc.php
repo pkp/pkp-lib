@@ -55,6 +55,8 @@ abstract class BaseQueryBuilder {
 				'host'      => Config::getVar('database', 'host'),
 				'database'  => Config::getVar('database', 'name'),
 				'username'  => Config::getVar('database', 'username'),
+			        'port'      => Config::getVar('database', 'port'),
+			        'unix_socket'=> Config::getVar('database', 'unix_socket'),
 				'password'  => Config::getVar('database', 'password'),
 				'charset'   => $charset,
 				'collation' => 'utf8_general_ci',

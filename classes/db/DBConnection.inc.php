@@ -64,6 +64,13 @@ class DBConnection {
 	function initDefaultDBConnection() {
 		$this->driver = Config::getVar('database', 'driver');
 		$this->host = Config::getVar('database', 'host');
+		$socket = Config::getVar('database', 'unix_socket');
+		$port = Config::getVar('database', 'port');
+		if ($socket) {
+			$this->host .= ':' . $socket;
+		} elseif ($port) {
+			$this->host .= ':' . $port;
+		}
 		$this->username = Config::getVar('database', 'username');
 		$this->password = Config::getVar('database', 'password');
 		$this->databaseName = Config::getVar('database', 'name');
@@ -80,7 +87,7 @@ class DBConnection {
 	 * Create new database connection with the specified connection
 	 * parameters.
 	 * @param $driver string
-	 * @param $host string
+	 * @param $host string (Use host:socket and host:port for non-standard port and socket)
 	 * @param $username string
 	 * @param $password string
 	 * @param $databaseName string

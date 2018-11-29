@@ -173,9 +173,7 @@ class AnnouncementForm extends Form {
 			$announcement->setTypeId(null);
 		}
 
-		// Give the parent class a chance to set the dateExpire.
-		$dateExpire = $this->getData('dateExpire');
-		$announcement->setDateExpire(!empty($dateExpire[0])?DAO::formatDateToDB($dateExpire[1], null, false):null);
+		$announcement->setDateExpire($this->getData('dateExpire'));
 
 		// Update or insert announcement
 		if ($announcement->getId()) {

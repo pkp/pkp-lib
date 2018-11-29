@@ -58,7 +58,7 @@
 		{if $FBV_disabled} disabled="disabled"{/if}
 		{if $FBV_readonly} readonly="readonly"{/if}
 		name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
-		value="{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}"
+		value="{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{elseif $FBV_class|strstr:"datepicker" && $FBV_value!==null}{$FBV_value|date_format:$dateFormatShort|escape}{else}{$FBV_value|escape}{/if}"
 		id="{$FBV_id|escape}{$uniqId}"
 		{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
 		{if $FBV_required} required aria-required="true"{/if}

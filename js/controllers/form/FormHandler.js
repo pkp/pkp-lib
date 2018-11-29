@@ -61,17 +61,16 @@
 		// to have its config.inc.php dateFormatShort parameter displayed but
 		// 'yy-mm-dd' to be send to post request.
 		// [http://api.jqueryui.com/datepicker/#option-altField]
-		$('.datepicker').each(function() {
-			$(this).datepicker({
-				altField: '#' + $(this).prop('id') + '-altField',
+		$form.find('.datepicker').each(function() {
+			var $this = $(this);
+			$this.datepicker({
+				altField: '#' + $this.prop('id') + '-altField',
 				altFormat: 'yy-mm-dd',
-				dateFormat: $('#' + $(this).prop('id') + '-altField')
+				dateFormat: $('#' + $this.prop('id') + '-altField')
 						.attr('data-date-format')
 			});
 
-			if (!$(this).hasClass('hasDatepicker')) {
-				$(this).prop('name', $(this).prop('name') + '-removed');
-			}
+			$this.prop('name', $this.prop('name') + '-removed');
 		});
 
 
@@ -463,6 +462,13 @@
 		if (defaultPrevented) {
 			return;
 		}
+
+		// For datepicker controls, ensure that empty values are respected.
+		$(formElement).find('.datepicker').each(function() {
+			if ($(this).prop('value') === '') {
+				$('#' + $(this).prop('id') + '-altField').prop('value', '');
+			}
+		});
 
 		this.showSpinner_();
 

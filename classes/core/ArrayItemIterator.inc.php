@@ -159,6 +159,13 @@ class ArrayItemIterator extends ItemIterator {
 	}
 
 	/**
+	 * Return this iterator as an associative array.
+	 */
+	function &toAssociativeArray() {
+		return $this->theArray;
+	}
+
+	/**
 	 * Determine whether or not the iterator is within bounds.
 	 * @return boolean
 	 */

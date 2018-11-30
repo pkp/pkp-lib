@@ -14,7 +14,7 @@
 		{if $FBV_translate}{capture assign="FBV_labelTranslated"}{translate key=$FBV_label|escape}{/capture}
 		{else}{assign var="FBV_labelTranslated" value=$FBV_Label}{/if}
 		{if $FBV_labelFor}<label for="{$FBV_labelFor|escape}">{$FBV_labelTranslated}{if $FBV_required}<span class="req">*</span>{/if}</label>
-		{else}<span class="label">{$FBV_labelTranslated}</span>{/if}
+		{else}<span class="label">{$FBV_labelTranslated}{if $FBV_required}<span class="req">*</span>{/if}</span>{/if}
 	{/if}
 	{if $FBV_description}<label class="description">{if $FBV_translate}{translate key=$FBV_description}{else}{$FBV_description}{/if}</label>{/if}
 	{if $FBV_listSection}<ul class="checkbox_and_radiobutton">{/if}

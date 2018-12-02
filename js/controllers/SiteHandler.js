@@ -39,6 +39,10 @@
 
 		$('.go').button();
 
+		this.bindGlobal('reloadPage', function () {
+			window.location.reload();
+		});
+
 		this.bind('redirectRequested', this.redirectToUrl);
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 		this.bind('updateHeader', this.updateHeaderHandler_);

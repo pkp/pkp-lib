@@ -324,6 +324,7 @@ class UserService extends PKPBaseEntityPropertyService {
 								'roleId' => (int) $userGroup->getRoleId(),
 								'showTitle' => (boolean) $userGroup->getShowTitle(),
 								'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
+								'permitMetadataEdit' => (boolean) $userGroup->getPermitMetadataEdit(),
 								'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
 							);
 						}

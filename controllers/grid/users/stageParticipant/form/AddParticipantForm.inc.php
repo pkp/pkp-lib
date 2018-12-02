@@ -19,21 +19,33 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	/** @var Submission The submission associated with the submission contributor being edited **/
 	var $_submission;
 
+	var $_assignmentId;
+	var $_isChangePermitMetadataAllowed = false;
+	var $_isChangeRecommentOnlyAllowed = false;
+	var $_managerGroupIds;
+	var $_possibleRecommendOnlyUserGroupIds;
+	var $_contextId;
+
 	/**
 	 * Constructor.
 	 * @param $submission Submission
 	 * @param $stageId int STAGE_ID_...
+	 * @param $assignmentId int Optional - Used for edit the assignment
 	 */
-	function __construct($submission, $stageId) {
+	function __construct($submission, $stageId, $assignmentId = null) {
 		parent::__construct($submission->getId(), ASSOC_TYPE_SUBMISSION, $stageId, 'controllers/grid/users/stageParticipant/addParticipantForm.tpl');
 		$this->_submission = $submission;
 		$this->_stageId = $stageId;
+		$this->_assignmentId = $assignmentId;
+		$this->_contextId = $submission->getContextId();
 
 		// add checks in addition to anything that the Notification form may apply.
 		// FIXME: should use a custom validator to check that the userId belongs to this group.
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'editor.submission.addStageParticipant.form.userGroupRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
+
+		$this->initialise();
 	}
 
 	//
@@ -48,9 +60,33 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	}
 
 	/**
+	 * Initialise private attributes that need to be used through all functions.
+	 */
+	function initialise() {
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+
+		// assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
+		$this->_managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_MANAGER, $this->_contextId);
+		$subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SUB_EDITOR, $this->_contextId);
+		$this->_possibleRecommendOnlyUserGroupIds = array_merge($this->_managerGroupIds, $subEditorGroupIds);
+
+		if ($this->_assignmentId) {
+			/** @var $stageAssignmentDao StageAssignmentDAO */
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+
+			/** @var $stageAssignment StageAssignment */
+			$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
+			$this->_isChangePermitMetadataAllowed = !in_array($stageAssignment->getUserGroupId(), $this->_managerGroupIds);
+			$this->_isChangeRecommentOnlyAllowed = in_array($stageAssignment->getUserGroupId(), $this->_possibleRecommendOnlyUserGroupIds);
+		}
+	}
+
+	/**
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
+		$this->initialise($request);
+
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
@@ -71,16 +107,46 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		// assigned the first element as selected
 		$keys = array_keys($userGroupOptions);
 		$templateMgr->assign('selectedUserGroupId', array_shift($keys));
-		// assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
-		$managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_MANAGER, $request->getContext()->getId());
-		$subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SUB_EDITOR, $request->getContext()->getId());
-		$possibleRecommendOnlyUserGroupIds = array_merge($managerGroupIds, $subEditorGroupIds);
-		$templateMgr->assign('possibleRecommendOnlyUserGroupIds', $possibleRecommendOnlyUserGroupIds);
+
+		$templateMgr->assign('possibleRecommendOnlyUserGroupIds', $this->_possibleRecommendOnlyUserGroupIds);
 		// assign user group IDs with recommendOnly option set
 		$templateMgr->assign('recommendOnlyUserGroupIds', $userGroupDao->getRecommendOnlyGroupIds($request->getContext()->getId()));
 
+		$templateMgr->assign('notPossibleEditSubmissionMetadataPermissionChange', $this->_managerGroupIds);
+		$templateMgr->assign('permitMetadataEditUserGroupIds', $userGroupDao->getPermitMetadataEditGroupIds($request->getContext()->getId()));
+
 		// assign the vars required for the request
 		$templateMgr->assign('submissionId', $this->getSubmission()->getId());
+
+		$templateMgr->assign('userGroupId', '');
+		$templateMgr->assign('userIdSelected', '');
+
+		if ($this->_assignmentId) {
+			/** @var $stageAssignmentDao StageAssignmentDAO */
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+
+			/** @var $stageAssignment StageAssignment */
+			$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
+
+			$userDao = DAORegistry::getDAO('UserDAO');
+			/** @var $currentUser User */
+			$currentUser = $userDao->getById($stageAssignment->getUserId());
+
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			/** @var $userGroup UserGroup */
+			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+
+			$templateMgr->assign('assignmentId', $this->_assignmentId);
+			$templateMgr->assign('currentUserName', $currentUser->getFullName());
+			$templateMgr->assign('currentUserGroup', $userGroup->getLocalizedName());
+			$templateMgr->assign('userGroupId', $stageAssignment->getUserGroupId());
+			$templateMgr->assign('userIdSelected', $stageAssignment->getUserId());
+			$templateMgr->assign('currentAssignmentRecommentOnly', $stageAssignment->getRecommendOnly());
+			$templateMgr->assign('currentAssignmentPermitMetadataEdit', $stageAssignment->getCanChangeMetadata());
+			$templateMgr->assign('isChangePermitMetadataAllowed', $this->_isChangePermitMetadataAllowed);
+			$templateMgr->assign('isChangeRecommentOnlyAllowed', $this->_isChangeRecommentOnlyAllowed);
+		}
+
 
 		// If submission is in review, add a list of reviewer Ids that should not be
 		// assigned as participants because they have blind peer reviews in progress
@@ -117,6 +183,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			'message',
 			'template',
 			'recommendOnly',
+			'canChangeMetadata',
 		));
 	}
 
@@ -144,11 +211,34 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$userGroupId = (int) $this->getData('userGroupId');
 		$userId = (int) $this->getData('userId');
 		$recommendOnly = $this->getData('recommendOnly')?true:false;
+		$canChangeMetadata = $this->getData('canChangeMetadata')?true:false;
 
 		// sanity check
 		if ($userGroupDao->userGroupAssignedToStage($userGroupId, $this->getStageId())) {
-			// insert the assignment
-			$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId, $recommendOnly);
+			$updated = false;
+
+			if ($this->_assignmentId) {
+				/** @var $stageAssignment StageAssignment */
+				$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
+
+				if ($stageAssignment) {
+					if ($this->_isChangeRecommentOnlyAllowed) {
+						$stageAssignment->setRecommendOnly($recommendOnly);
+					}
+
+					if ($this->_isChangePermitMetadataAllowed) {
+						$stageAssignment->setCanChangeMetadata($canChangeMetadata);
+					}
+
+					$stageAssignmentDao->updateObject($stageAssignment);
+					$updated = true;
+				}
+			}
+
+			if (!$updated) {
+				// insert the assignment
+				$stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroupId, $userId, $recommendOnly, $canChangeMetadata);
+			}
 		}
 
 		parent::execute();

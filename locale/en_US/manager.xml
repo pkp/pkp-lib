@@ -264,6 +264,12 @@
 	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the website's appearance.</message>
 	<message key="manager.setup.technicalSupportContact">Technical Support Contact</message>
 	<message key="manager.setup.technicalSupportContactDescription">A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material.</message>
+	<message key="manager.setup.emailDefaultAdditions">Default Subject Additions</message>
+	<message key="manager.setup.emailDefaultAdditionsDescription">Enable the parameter that you want to add to the subject of your email</message>
+	<message key="manager.setup.emailSubmissionIncludeIdDescription">Enable to add Submission id to submission related emails</message>
+	<message key="manager.setup.emailSubmissionIncludeIdTitle">Submission Id</message>
+	<message key="manager.setup.emailSubmissionIncludeId">Enable Submission Id</message>
+	<message key="manager.setup.emailSubmissionIncludePatternDescription">Add a pattern to use to the subject. Please use {submissionId} as placeholder for displaying the submission id. The default value is [SID {submissionId}]</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Site Access Options</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>

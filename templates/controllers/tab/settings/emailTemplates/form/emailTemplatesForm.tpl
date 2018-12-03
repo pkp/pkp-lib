@@ -35,6 +35,14 @@
 		{/if}
 	{/fbvFormSection}
 
+	{fbvFormArea title="manager.setup.emailDefaultAdditions"}           
+		{fbvFormSection list="true" title="manager.setup.emailSubmissionIncludeIdTitle" description="manager.setup.emailDefaultAdditionsDescription" translate=true}
+			{fbvElement type="checkbox" id="emailSubmissionIncludeId" value="1" checked=$emailSubmissionIncludeId label="manager.setup.emailSubmissionIncludeId" translate="true"}
+			{fbvElement type="text" label="manager.setup.emailSubmissionIncludePatternDescription" value=$emailSubmissionIncludePattern id="emailSubmissionIncludePattern" maxlength="90" size=$fbvStyles.size.LARGE}
+		{/fbvFormSection}
+	{/fbvFormArea}
+	
+
 	{capture assign=preparedEmailsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="preparedEmailsGridDiv" url=$preparedEmailsGridUrl}
 

@@ -54,6 +54,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$doc->preserveWhiteSpace = false;
 		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
+		$context = $deployment->getContext();
 
 		if (count($submissions)==1 && !$this->getIncludeSubmissionsNode()) {
 			// Only one submission specified; create root node
@@ -106,6 +107,9 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$this->addAuthors($doc, $submissionNode, $submission);
 		$this->addFiles($doc, $submissionNode, $submission);
 		$this->addRepresentations($doc, $submissionNode, $submission);
+		$this->addReviewRounds($doc, $submissionNode, $submission);
+		$this->addQueries($doc, $submissionNode, $submission);
+
 
 		return $submissionNode;
 	}
@@ -290,27 +294,100 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			$exportFilter->setDeployment($this->getDeployment());
 
 			$submissionFileDoc = $exportFilter->execute($submissionFile);
-			$fileId = $submissionFileDoc->documentElement->getAttribute('id');
-			if (!isset($submissionFileNodesByFileId[$fileId])) {
-				$clone = $doc->importNode($submissionFileDoc->documentElement, true);
-				$submissionNode->appendChild($clone);
-				$submissionFileNodesByFileId[$fileId] = $clone;
-			} else {
-				$submissionFileNode = $submissionFileNodesByFileId[$fileId];
-				// Look for a <revision> element
-				$revisionNode = null;
-				foreach ($submissionFileDoc->documentElement->childNodes as $childNode) {
-					if (!is_a($childNode, 'DOMElement')) continue;
-					if ($childNode->tagName == 'revision') $revisionNode = $childNode;
+			if ($submissionFileDoc) {
+				$fileId = $submissionFileDoc->documentElement->getAttribute('id');
+				if (!isset($submissionFileNodesByFileId[$fileId])) {
+					$clone = $doc->importNode($submissionFileDoc->documentElement, true);
+					$submissionNode->appendChild($clone);
+					$submissionFileNodesByFileId[$fileId] = $clone;
+				} else {
+					$submissionFileNode = $submissionFileNodesByFileId[$fileId];
+					// Look for a <revision> element
+					$revisionNode = null;
+					foreach ($submissionFileDoc->documentElement->childNodes as $childNode) {
+						if (!is_a($childNode, 'DOMElement')) continue;
+						if ($childNode->tagName == 'revision') $revisionNode = $childNode;
+					}
+					assert(is_a($revisionNode, 'DOMElement'));
+					$clone = $doc->importNode($revisionNode, true);
+					$firstRevisionChild = $submissionFileNode->firstChild;
+					$submissionFileNode->insertBefore($clone, $firstRevisionChild);
 				}
-				assert(is_a($revisionNode, 'DOMElement'));
-				$clone = $doc->importNode($revisionNode, true);
-				$firstRevisionChild = $submissionFileNode->firstChild;
-				$submissionFileNode->insertBefore($clone, $firstRevisionChild);
+			} else {
+				$this->addError(__('plugins.importexport.submission.error.submissionFileCantBeExported', array('submissionFileId' => $submissionFile->getId(), 'submissionFileName' => $submissionFile->getLocalizedName())));
 			}
+
 		}
 	}
 
+	/**
+	 * Add the addReviewRounds for a submission to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
+	function addReviewRounds($doc, $submissionNode, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('review-round=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRounds = $reviewRoundDao->getBySubmissionId($submission->getId())->toArray();
+
+		$reviewRoundsDoc = $exportFilter->execute($reviewRounds);
+		if ($reviewRoundsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewRoundsDoc->documentElement, true);
+			$submissionNode->appendChild($clone);
+		}
+	}
+
+	/**
+	 * Add the Queries for a submission to its DOM element.
+	 * @param $doc DOMDocument
+	 * @param $submissionNode DOMElement
+	 * @param $submission Submission
+	 */
+	function addQueries($doc, $submissionNode, $submission) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('query=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId())->toArray();
+
+		$queriesDoc = $exportFilter->execute($queries);
+		if ($queriesDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($queriesDoc->documentElement, true);
+			$submissionNode->appendChild($clone);
+		}
+	}
+
+	/**
+	 * Create and return a ReviewForms node.
+	 * @param $doc DOMDocument
+	 * @param $context Context
+	 * @return DOMElement
+	 */
+	function createReviewFormsNode($doc, $context) {
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$nativeExportFilters = $filterDao->getObjectsByGroup('review-form=>native-xml');
+		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
+		$exportFilter = array_shift($nativeExportFilters);
+		$exportFilter->setDeployment($this->getDeployment());
+
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewForms = $reviewFormDao->getByAssocId(Application::getContextAssocType(), $context->getId())->toArray();
+
+		$reviewFormsDoc = $exportFilter->execute($reviewForms);
+		if ($reviewFormsDoc->documentElement instanceof DOMElement) {
+			$clone = $doc->importNode($reviewFormsDoc->documentElement, true);
+			$doc->appendChild($clone);
+		}
+	}
 
 	//
 	// Abstract methods for subclasses to implement

@@ -452,6 +452,22 @@ class ReviewAssignment extends DataObject {
 	}
 
 	/**
+	 * Set step.
+	 * @param $step int
+	 */
+	function setStep($step) {
+		$this->setData('step', $step);
+	}
+
+	/**
+	 * Get step.
+	 * @return int
+	 */
+	function getStep() {
+		return $this->getData('step');
+	}
+
+	/**
 	 * Set review form id.
 	 * @param $reviewFormId int
 	 */

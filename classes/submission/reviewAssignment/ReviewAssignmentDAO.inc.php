@@ -351,9 +351,10 @@ class ReviewAssignmentDAO extends DAO {
 				date_reminded, reminder_was_automatic,
 				review_form_id,
 				review_round_id,
-				unconsidered
+				unconsidered,
+				step
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?, ?
 				)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()),
 				$this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -379,6 +380,7 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getReviewFormId(),
 				(int) $reviewAssignment->getReviewRoundId(),
 				(int) $reviewAssignment->getUnconsidered(),
+				(int) $reviewAssignment->getStep(),
 			)
 		);
 
@@ -417,7 +419,8 @@ class ReviewAssignmentDAO extends DAO {
 					reminder_was_automatic = ?,
 					review_form_id = ?,
 					review_round_id = ?,
-					unconsidered = ?
+					unconsidered = ?,
+					step = ?
 				WHERE review_id = ?',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
@@ -434,7 +437,9 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getReviewFormId(),
 				(int) $reviewAssignment->getReviewRoundId(),
 				(int) $reviewAssignment->getUnconsidered(),
-				(int) $reviewAssignment->getId()
+				(int) $reviewAssignment->getStep(),
+				(int) $reviewAssignment->getId(),
+				(int) $reviewAssignment->getStep(),
 			)
 		);
 
@@ -499,6 +504,7 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setReviewMethod($row['review_method']);
 		$reviewAssignment->setStageId($row['stage_id']);
 		$reviewAssignment->setUnconsidered($row['unconsidered']);
+		$reviewAssignment->setStep($row['step']);
 
 		return $reviewAssignment;
 	}

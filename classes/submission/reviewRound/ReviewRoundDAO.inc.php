@@ -81,6 +81,8 @@ class ReviewRoundDAO extends DAO {
 					(int)$reviewRound->getStatus()
 				)
 		);
+
+		$reviewRound->setId($this->getInsertId());
 		return $reviewRound;
 	}
 

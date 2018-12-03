@@ -463,6 +463,31 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	}
 
 	/**
+	 * Update Submission File with id to set assocType and assocId.
+	 * Used to native import process
+	 * @param $fileId int
+	 * @param $assocType int ASSOC_TYPE_...
+	 * @param $assocId int
+	 * @param $revision int
+	 */
+	function assignAssocTypeAndIdToFile($fileId, $assocType, $assocId, $revision) {
+		// Update the file in the database.
+		$this->update(
+			'UPDATE submission_files
+			SET
+				assoc_type = ?,
+				assoc_id = ?
+			WHERE file_id = ? and revision = ?',
+			array(
+				(int)$assocType,
+				(int)$assocId,
+				(int)$fileId,
+				(int)$revision,
+			)
+		);
+	}
+
+	/**
 	 * Delete a specific revision of a submission file.
 	 * @param $submissionFile SubmissionFile
 	 * @return integer the number of deleted file revisions

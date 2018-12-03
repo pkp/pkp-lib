@@ -103,6 +103,21 @@ class PKPAuthor extends Identity {
 		return $this->setData('submissionLocale', $submissionLocale);
 	}
 
+	/*
+	 * Set version
+	 * @param $version int
+	 */
+	function setVersion($version) {
+		$this->setData('version', $version);
+	}
+		/**
+	 * Get version
+	 * @return int
+	 */
+	function getVersion() {
+		return $this->getData('version') ? $this->getData('version') : 1;
+	}
+
 	/**
 	 * Set the user group id
 	 * @param $userGroupId int
@@ -208,5 +223,3 @@ class PKPAuthor extends Identity {
 		return $userGroup->getLocalizedName();
 	}
 }
-
-

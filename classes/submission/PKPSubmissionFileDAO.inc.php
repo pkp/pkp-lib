@@ -640,7 +640,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		// The DISTINCT is required to de-dupe the review_round_files join in
 		// PKPSubmissionFileDAO.
 		return 'SELECT DISTINCT
-				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
+				sf.file_id AS submission_file_id, sf.revision AS submission_version,
 				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
 				suf.file_id AS supplementary_file_id, suf.revision AS supplementary_revision,
 				s.locale AS submission_locale,
@@ -912,7 +912,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 
 			// Construct a combined id from file id and revision
 			// that uniquely identifies the file.
-			$idAndRevision = $row['submission_file_id'].'-'.$row['submission_revision'];
+			$idAndRevision = $row['submission_file_id'].'-'.$row['submission_version'];
 
 			// Check for duplicates.
 			assert(!isset($submissionFiles[$idAndRevision]));

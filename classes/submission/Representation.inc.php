@@ -85,6 +85,33 @@ class Representation extends DataObject {
 	}
 
 	/**
+	 * Set submission version.
+	 * @param $submissionVersion int
+	 */
+	function setSubmissionVersion($submissionVersion) {
+			$this->setData('submissionVersion', $submissionVersion);
+	}
+
+	/**
+	 * Get submission version.
+	 * @return int
+	 */
+	function getSubmissionVersion() {
+			return $this->getData('submissionVersion');
+	}
+
+	/**
+	 * Get the current revision id for a galley from submission
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getCurrentVersionId($contextId = null) {
+			$submissionDao = Application::getSubmissionDAO();
+			$submissionVersion = $submissionDao->getLatestVersionId($this->getSubmissionId(), $contextId);
+			return $submissionVersion;
+	}
+
+	/**
 	 * Determines if a representation is approved or not.
 	 * @return boolean
 	 */

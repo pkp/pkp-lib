@@ -131,6 +131,32 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
+	 * Set submission version.
+	 * @param $submissionVersion int
+	 */
+	function setSubmissionVersion($submissionVersion) {
+		$this->setData('submissionVersion', $submissionVersion);
+	}
+
+	/**
+	 * Return submission version.
+	 * @return int
+	 */
+	function getSubmissionVersion() {
+		return $this->getData('submissionVersion');
+	}
+
+	/**
+	 * Get the current version id for a submission
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getCurrentVersionId() {
+		$submissionDao = Application::getSubmissionDAO();
+		return $submissionDao->getLatestVersionId($this->getId(), $this->getContextId());
+	}
+
+	/**
 	 * Get a piece of data for this object, localized to the current
 	 * locale if possible.
 	 * @param $key string
@@ -253,9 +279,9 @@ abstract class Submission extends DataObject {
 	 * @param $familyOnly boolean return list of family names only (default false)
 	 * @return string
 	 */
-	function getAuthorString($preferred = true, $familyOnly = false) {
-		$authors = $this->getAuthors(true);
 
+	function getAuthorString($preferred = true, $familyOnly = false, $version = null) {
+		$authors = $this->getAuthors(true, $version);
 		$str = '';
 		$lastUserGroupId = null;
 		$author = null;
@@ -322,12 +348,17 @@ abstract class Submission extends DataObject {
 	 * @param $onlyIncludeInBrowse boolean whether to limit to include_in_browse authors.
 	 * @return array Authors
 	 */
-	function getAuthors($onlyIncludeInBrowse = false) {
+	function getAuthors($onlyIncludeInBrowse = false, $version = null) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		if (!$onlyIncludeInBrowse)
-			return $authorDao->getBySubmissionId($this->getId());
-		else
-			return $authorDao->getBySubmissionId($this->getId(), false, true);
+
+			if ($version == null) {
+				$version = $this->getCurrentVersionId() ? $this->getCurrentVersionId() : 1; // if a new submission is submitted, version is 1
+			}
+			if (!$onlyIncludeInBrowse) {
+				return $authorDao->getBySubmissionId($this->getId(), false, false, $version);
+			} else {
+				return $authorDao->getBySubmissionId($this->getId(), false, true, $version);
+			}
 	}
 
 	/**
@@ -1021,5 +1052,3 @@ abstract class Submission extends DataObject {
 	 */
 	abstract function _getContextLicenseFieldValue($locale, $field);
 }
-
-

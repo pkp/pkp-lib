@@ -284,5 +284,3 @@ class Version extends DataObject {
 		return $numericVersion;
 	}
 }
-
-

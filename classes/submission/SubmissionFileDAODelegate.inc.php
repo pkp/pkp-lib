@@ -252,7 +252,7 @@ class SubmissionFileDAODelegate extends DAO {
 		$submissionFile = $this->newDataObject();
 		$submissionFile->setFileId((int)$row['submission_file_id']);
 		$submissionFile->setSubmissionLocale($row['submission_locale']);
-		$submissionFile->setRevision((int)$row['submission_revision']);
+		$submissionFile->setRevision((int)$row['submission_version']);
 		$submissionFile->setAssocType(is_null($row['assoc_type']) ? null : (int)$row['assoc_type']);
 		$submissionFile->setAssocId(is_null($row['assoc_id']) ? null : (int)$row['assoc_id']);
 		$submissionFile->setSourceFileId(is_null($row['source_file_id']) ? null : (int)$row['source_file_id']);

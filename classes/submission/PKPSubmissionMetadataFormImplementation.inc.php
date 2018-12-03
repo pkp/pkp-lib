@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionMetadataFormImplementation.inc.php
+ * @file classes/submission/PKPSubmissionMetadataFormImplementation.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
@@ -87,8 +87,9 @@ class PKPSubmissionMetadataFormImplementation {
 	/**
 	 * Initialize form data from current submission.
 	 * @param $submission Submission
+	 * @param $version int
 	 */
-	function initData($submission) {
+	function initData($submission, $version = null) {
 		if (isset($submission)) {
 			$formData = array(
 				'title' => $submission->getTitle(null, false), // Localized
@@ -123,6 +124,8 @@ class PKPSubmissionMetadataFormImplementation {
 			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
 			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
+			$this->_parentForm->setData('submissionVersion', $version);
+			$this->_parentForm->setData('latestVersionId', $submission->getCurrentVersionId());
 		}
 	}
 
@@ -181,6 +184,9 @@ class PKPSubmissionMetadataFormImplementation {
 		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
 		if (in_array($newLocale, $supportedSubmissionLocales)) $submission->setLocale($newLocale);
 
+		// save submission version
+		$submission->setData('submissionVersion', $request->getUserVar('submissionVersion') ? (int)$request->getUserVar('submissionVersion') : $submission->getCurrentVersionId());
+
 		// Save the submission
 		$submissionDao->updateObject($submission);
 
@@ -232,5 +238,3 @@ class PKPSubmissionMetadataFormImplementation {
 		}
 	}
 }
-
-

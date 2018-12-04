@@ -79,6 +79,23 @@ class AboutContextHandler extends Handler {
 
 		$templateMgr->assign( 'submissionChecklist', $context->getLocalizedSetting('submissionChecklist') );
 
+		// Get sections for this context
+		$canSubmitAll = false;
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if ($userRoles && !empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
+			$canSubmitAll = true;
+		}
+
+		$sectionDao = Application::getSectionDAO();
+		$sections = $sectionDao->getByContextId($context->getId(), null, !$canSubmitAll)->toArray();
+
+		// for author.submit.notAccepting
+		if (count($sections) == 0) {
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
+		}
+
+		$templateMgr->assign('sections', $sections);
+
 		$templateMgr->display('frontend/pages/submissions.tpl');
 	}
 

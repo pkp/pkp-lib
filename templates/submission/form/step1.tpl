@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#submitStep1Form').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#submitStep1Form').pkpHandler('$.pkp.pages.submission.SubmissionStep1FormHandler');
 	{rdelim});
 </script>
 

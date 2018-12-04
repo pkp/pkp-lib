@@ -15,20 +15,21 @@
 <div class="page page_submissions">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.submissions"}
 
-	{* Login/register prompt *}
-	{if $isUserLoggedIn}
-		{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
-		{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
-		<div class="cmp_notification">
-			{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
-		</div>
-	{else}
-		{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
-		{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
-		<div class="cmp_notification">
-			{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
-		</div>
-	{/if}
+	<div class="cmp_notification">
+		{if $sections|@count == 0}
+			{translate key="author.submit.notAccepting"}
+		{else}
+			{if $isUserLoggedIn}
+				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+				{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+					{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
+			{else}
+				{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
+				{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
+					{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
+			{/if}
+		{/if}
+	</div>
 
 	{if $submissionChecklist}
 		<div class="submission_checklist">
@@ -56,6 +57,21 @@
 		{$currentContext->getLocalizedSetting('authorGuidelines')}
 	</div>
 	{/if}
+
+	{foreach from=$sections item="section"}
+		{if $section->getLocalizedPolicy()}
+			<div class="section_policy">
+				<h2>{$section->getLocalizedTitle()|escape}</h2>
+				{$section->getLocalizedPolicy()}
+				{if $isUserLoggedIn}
+					{capture assign="sectionSubmissionUrl"}{url page="submission" op="wizard" sectionId=$section->getId()}{/capture}
+					<p>
+						{translate key="about.onlineSubmissions.submitToSection" name=$section->getLocalizedTitle() url=$sectionSubmissionUrl}
+					</p>
+				{/if}
+			</div>
+		{/if}
+	{/foreach}
 
 	{if $currentContext->getLocalizedSetting('copyrightNotice')}
 		<div class="copyright_notice">

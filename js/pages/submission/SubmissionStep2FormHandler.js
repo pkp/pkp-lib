@@ -1,8 +1,6 @@
 /**
  * @defgroup js_pages_submission
  */
-// Create the namespace.
-jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 
 /**
  * @file js/pages/submission/SubmissionStep2FormHandler.js

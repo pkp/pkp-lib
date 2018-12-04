@@ -113,6 +113,32 @@ class PKPSection extends DataObject {
 		$application = Application::getApplication();
 		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SECTION, $this->getId());
 	}
+
+	/**
+	 * Get localized section policy.
+	 * @return string
+	 */
+	function getLocalizedPolicy() {
+		return $this->getLocalizedData('policy');
+	}
+
+	/**
+	 * Get policy.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getPolicy($locale) {
+		return $this->getData('policy', $locale);
+	}
+
+	/**
+	 * Set policy.
+	 * @param $policy string
+	 * @param $locale string
+	 */
+	function setPolicy($policy, $locale) {
+		return $this->setData('policy', $policy, $locale);
+	}
 }
 
 

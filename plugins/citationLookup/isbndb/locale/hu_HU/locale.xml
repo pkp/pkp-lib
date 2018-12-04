@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/isbndb/locale/hu_HU/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="hu_HU" full_name="Magyar">
+	<!-- plug-in -->
+	<message key="plugins.citationLookup.isbndb.displayName">Link az ISBNdb adatbázisba</message>
+	<message key="plugins.citationLookup.isbndb.description">A plugin az ISBNdb bibliográfiai adatbázisra mutató linket hajt végre.</message>
+
+	<!-- ISBN lookup and extraction services -->
+	<message key="plugins.citationLookup.isbndbExtraction.displayName">ISBN kölcsönzéshez</message>
+	<message key="plugins.citationLookup.isbndbExtraction.description">Keresse meg a kiválasztott NLM 3.0 hivatkozási elemhez tartozó ISBN-t.</message>
+	<message key="plugins.citationLookup.isbndbLookup.displayName">Keresés az ISBN szerint</message>
+	<message key="plugins.citationLookup.isbndbLookup.description">Keresse meg az ajánlattételi leírást a kiválasztott ISBN NLM 3.0 formátumában.</message>
+</locale>

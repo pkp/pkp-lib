@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/crossref/locale/hu_HU/locale.xml
+  *
+  * Copyright (c) 2014-2017 Simon Fraser University
+  * Copyright (c) 2003-2017 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="hu_HU" full_name="Magyar">
+	<message key="plugins.citationLookup.crossref.displayName">Kapcsolat a CrossRef adatbázisával</message>
+	<message key="plugins.citationLookup.crossref.description">A plugin kapcsolatot létesít a CrossRef bibliográfiai adatbázisával.</message>
+</locale>

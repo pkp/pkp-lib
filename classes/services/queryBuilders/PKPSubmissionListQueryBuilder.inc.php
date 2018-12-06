@@ -277,6 +277,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			$q->leftJoin('review_assignments as ra', function($table) use ($assigneeId) {
 				$table->on('s.submission_id', '=', 'ra.submission_id');
 				$table->on('ra.reviewer_id', '=', Capsule::raw((int) $assigneeId));
+				$table->on('ra.declined', '=', Capsule::raw((int) 0));
 			});
 
 			$q->where(function($q) {

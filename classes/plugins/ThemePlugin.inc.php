@@ -92,9 +92,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		HookRegistry::register('appearanceform::readuservars', array($this, 'readOptionsFormUserVars'));
 		HookRegistry::register('sitesetupform::execute', array($this, 'saveOptionsForm'));
 		HookRegistry::register('sitesetupform::readuservars', array($this, 'readOptionsFormUserVars'));
-		
-		// Add default styles to the HTML galley file
-		HookRegistry::register('HtmlArticleGalleyPlugin::htmlGalleyContent', array($this, 'addHmtlGalleyStyle'));
 
 		return true;
 	}
@@ -823,57 +820,6 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$b * $b * .068
 		);
 		return $contrast < $limit;
-	}
-	
-	/**
-	 * Add default stylesheets to the HTML galley
-	 *
-	 * Passes styles to the galley through HTML Galley Plugin hook
-	 *
-	 * @param $hookName string
-	 * @param $args array [
-	 * $args[0] ArticleGalley
-	 * $args[1] string HTML
-	 * ]
-	 *
-	 * @return bool
-	 */
-	function addHmtlGalleyStyle($hookName, $args) {
-		$galley =& $args[0];
-		$contents =& $args[1];
-		
-		if (empty($contents)) return false;
-		
-		$submissionFile = $galley->getFile();
-		
-		// Check if HTML galley has attached styles
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-		import('lib.pkp.classes.submission.SubmissionFile');
-		$embeddableFiles = array_merge(
-			$submissionFileDao->getLatestRevisions($submissionFile->getSubmissionId(), SUBMISSION_FILE_PROOF),
-			$submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId(), $submissionFile->getSubmissionId(), SUBMISSION_FILE_DEPENDENT)
-		);
-		
-		$attachedStyles = false;
-		
-		foreach ($embeddableFiles as $embeddableFile) {
-			if ($embeddableFile->getFileType() =='text/css') $attachedStyles = true;
-		}
-		
-		if ($attachedStyles) return false;
-		
-		// Upload styles to the HTML galley
-		$output = '';
-		
-		foreach ($this->styles as $styleData) {
-			if ($styleData['contexts'] === 'htmlGalley') {
-				$output .= '<link rel="stylesheet" href="' . $styleData['style'] . '" type="text/css" />' . "\n";
-			}
-		}
-		
-		$contents = str_replace('<head>', '<head>' . "\n" . $output, $contents);
-		
-		return true;
 	}
 }
 

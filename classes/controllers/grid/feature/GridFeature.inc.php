@@ -13,7 +13,7 @@
  * @brief Base grid feature class. A feature is a type of plugin specific
  * to the grid widgets. It provides several hooks to allow injection of
  * additional grid functionality. This class implements template methods
- * to be extendeded by subclasses.
+ * to be extended by subclasses.
  *
  */
 

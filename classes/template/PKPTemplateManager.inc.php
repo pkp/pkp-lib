@@ -87,6 +87,11 @@ class PKPTemplateManager extends Smarty {
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
 		$this->_cacheability = CACHEABILITY_NO_STORE; // Safe default
+
+		$this->assign(array(
+			'itemsPerPage' => Config::getVar('interface', 'items_per_page'),
+			'numPageLinks' => Config::getVar('interface', 'page_links'),
+		));
 	}
 
 	/**
@@ -360,8 +365,6 @@ class PKPTemplateManager extends Smarty {
 			$this->assign(array(
 				'isUserLoggedIn' => Validation::isLoggedIn(),
 				'isUserLoggedInAs' => Validation::isLoggedInAs(),
-				'itemsPerPage' => Config::getVar('interface', 'items_per_page'),
-				'numPageLinks' => Config::getVar('interface', 'page_links'),
 			));
 
 			$user = $this->_request->getUser();

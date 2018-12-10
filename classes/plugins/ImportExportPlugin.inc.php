@@ -142,17 +142,28 @@ abstract class ImportExportPlugin extends Plugin {
 	 * @param $xml string
 	 */
 	function displayXMLValidationErrors($errors, $xml) {
-		$charset = Config::getVar('i18n', 'client_charset');
-		header('Content-type: text/html; charset=' . $charset);
-		echo '<html><body>';
-		echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';
-		foreach ($errors as $error) {
-			echo '<p>' . trim($error->message) . '</p>';
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER);
+		if (defined('SESSION_DISABLE_INIT')) {
+			echo __('plugins.importexport.common.validationErrors') . "\n";
+			foreach ($errors as $error) {
+				echo trim($error->message) . "\n";
+			}
+			libxml_clear_errors();
+			echo __('plugins.importexport.common.invalidXML') . "\n";
+			echo $xml . "\n";
+		} else {
+			$charset = Config::getVar('i18n', 'client_charset');
+			header('Content-type: text/html; charset=' . $charset);
+			echo '<html><body>';
+			echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';
+			foreach ($errors as $error) {
+				echo '<p>' . trim($error->message) . '</p>';
+			}
+			libxml_clear_errors();
+			echo '<h3>' . __('plugins.importexport.common.invalidXML') . '</h3>';
+			echo '<p><pre>' . htmlspecialchars($xml) . '</pre></p>';
+			echo '</body></html>';
 		}
-		libxml_clear_errors();
-		echo '<h3>' . __('plugins.importexport.common.invalidXML') . '</h3>';
-		echo '<p><pre>' . htmlspecialchars($xml) . '</pre></p>';
-		echo '</body></html>';
 		fatalError(__('plugins.importexport.common.error.validation'));
 	}
 

@@ -72,11 +72,15 @@ class PKPSubmissionMetadataFormImplementation {
 					$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, create_function('$key,$form,$name', '$data = $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getLocale().'-'.$key)));
 					break;
 				case $key == 'citations':
-					$request = Application::getRequest();
-					$user = $request->getUser();
-					if ($user->hasRole(ROLE_ID_AUTHOR, $context->getId())) {
-						$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $key, 'required', $requiredLocaleKey));
-					}
+					$form = $this->_parentForm;
+					$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, function($key) use ($form) {
+						$metadataModal = $form->getData('metadataModal');
+						if (!$metadataModal) {
+							$references = $form->getData('citations');
+							return !empty($references);
+						}
+						return true;
+					}));
 					break;
 				default:
 					$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $key, 'required', $requiredLocaleKey));

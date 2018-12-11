@@ -449,6 +449,8 @@
 	<message key="notification.editedAuthor">Автор отредактирован.</message>
 	<message key="notification.confirmError">При подверждении вашей подписки возникла ошибка.</message>
 	<message key="notification.confirmSuccess">Вы были успешно подписаны.</message>
+	<message key="notification.email">Не отправлять мне сообщения электронной почтой для этих типов уведомлений.</message>
+	<message key="notification.noneExist">На текущий момент для вас нет уведомлений.</message>
 	<message key="notification.addedNote">Заметка опубликована.</message>
 	<message key="notification.removedNote">Заметка удалена.</message>
 	<message key="notification.removedFile">Файл удален.</message>

@@ -35,7 +35,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider {
 	function getAuthorizationPolicy($request, $args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 		$context = $request->getContext();
-		$policy = new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', !$context->getSetting('restrictReviewerFileAccess'));
+		$policy = new SubmissionAccessPolicy($request, $args, $roleAssignments);
 
 		$stageId = $request->getUserVar('stageId');
 		import('lib.pkp.classes.security.authorization.internal.WorkflowStageRequiredPolicy');

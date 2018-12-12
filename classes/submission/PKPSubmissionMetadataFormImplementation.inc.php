@@ -137,7 +137,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function readInputData() {
 		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citations', 'locale', 'metadataModal');
+		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citations', 'locale', 'metadataModal', 'categories');
 		$this->_parentForm->readUserVars($userVars);
 	}
 
@@ -228,6 +228,15 @@ class PKPSubmissionMetadataFormImplementation {
 		// Resequence the authors (this ensures a primary contact).
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$authorDao->resequenceAuthors($submission->getId());
+
+		// Save the submission categories
+		$submissionDao = Application::getSubmissionDAO();
+		$submissionDao->removeCategories($submission->getId());
+		if ($categories = $this->_parentForm->getData('categories')) {
+			foreach ((array) $categories as $categoryId) {
+				$submissionDao->addCategory($submission->getId(), (int) $categoryId);
+			}
+		}
 
 		// Only log modifications on completed submissions
 		if ($submission->getSubmissionProgress() == 0) {

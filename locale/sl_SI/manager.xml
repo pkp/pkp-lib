@@ -538,4 +538,17 @@
 	<message key="manager.navigationMenus.search.description">Povezava do strani za iskanje.</message>
 	<message key="manager.navigationMenus.privacyStatement.description">Povezava do strani z Izjavo o zasebnosti.</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Ta povezava bo vidna le, če ste vpisali izjavo o zasebnosti pod Nastavitve > Delovni tok > Oddaja.]]></message>
+
+	<message key="grid.category.add">Dodaj kategorijo</message>
+	<message key="grid.category.edit">Uredi kategorijo</message>
+	<message key="grid.category.name">Ime</message>
+	<message key="grid.category.path">Naslov</message>
+	<message key="grid.category.urlWillBe">URL kategorije bo {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Naslov kategorije mora biti zapisan samo s črkami in številkami.</message>
+	<message key="grid.category.pathExists">Tak naslov kategorije že obstaja. Vnesite edinstven naslov.</message>
+	<message key="grid.category.description">Opis</message>
+	<message key="grid.category.parentCategory">Višja kategorija</message>
+	<message key="grid.category.removeText">Ste prepričani, da želite izbrisati to kategorijo?</message>
+	<message key="grid.category.nameRequired">Vnesite ime kategorije.</message>
+	<message key="grid.category.categoryDetails">Podrobnosti kategorije</message>
 </locale>

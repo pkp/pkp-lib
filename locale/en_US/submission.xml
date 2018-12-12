@@ -635,4 +635,13 @@
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
 	<message key="submission.list.assignEditor">Assign Editor</message>
+
+	<message key="grid.category.categories">Categories</message>
+	<message key="catalog.sortBy.titleAsc">Title (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Title (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Publication date (oldest first)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Publication date (newest first)</message>
+	<message key="category.coverImage">Cover Image</message>
+	<message key="submission.submit.placement.categories">Categories</message>
+	<message key="submission.currentCoverImage">Current Image</message>
 </locale>

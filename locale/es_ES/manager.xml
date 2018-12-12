@@ -525,4 +525,17 @@
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Este enlace solo se mostrará si el visitante ha iniciado la sesión, la opción de pagos está activa en Ajustes > Distribución > Pagos  y se requieren suscripciones  en Ajustes > Distribución > Acceso.]]></message>
 	<message key="manager.navigationMenus.privacyStatement.description">Enlazar con la página que muestra la declaración de privacidad.</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Este enlace solo se mostrará si se ha introducido una declaración de privacidad en Ajustes > Flujo de trabajo > Envíos.]]></message>
+
+	<message key="grid.category.add">Añadir categoría</message>
+	<message key="grid.category.edit">Editar categoría</message>
+	<message key="grid.category.name">Nombre</message>
+	<message key="grid.category.path">Ruta</message>
+	<message key="grid.category.urlWillBe">La URL de la categoría, será: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">La ruta de la categoría debe consistir sólo en letras y números.</message>
+	<message key="grid.category.pathExists">La ruta de la categoría ya existe. Por favor introduzca una ruta única.</message>
+	<message key="grid.category.description">Descripción</message>
+	<message key="grid.category.parentCategory">Categoría padre</message>
+	<message key="grid.category.removeText">¿Está seguro que desea eliminar esta categoría?</message>
+	<message key="grid.category.nameRequired">Por favor, introduzca un nombre de categoría.</message>
+	<message key="grid.category.categoryDetails">Detalles de la categoría</message>
 </locale>

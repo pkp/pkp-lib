@@ -156,10 +156,10 @@ class PKPSubmissionMetadataViewForm extends Form {
 		// readOnly mode. This mode is invoked on the SubmissionMetadataHandler
 		// is not available here
 		$submissionDao = Application::getSubmissionDAO();
-		$result = $submissionDao->getCategories($submission->getId(), $submission->getContextId());
+		$categories = $submissionDao->getCategories($submission->getId(), $submission->getContextId());
 		$assignedCategories = array();
 		$selectedIds = array();
-		while ($category = $result->next()) {
+		while ($category = $categories->next()) {
 			$assignedCategories[] = $category;
 			$selectedIds[] = $category->getId();
 		}

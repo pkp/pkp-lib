@@ -633,4 +633,11 @@
 	<message key="editor.submission.roundStatus.submissionResubmitted">Prispevek je bil poslan v nov recenzijski krog.</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Izbrani udeleženec je bil dodeljen z opravljanje slepe recenzije.  Če ga boste dodali med udeležence, bo dobil dostop do identitete avtorja. Priporočamo, da tega ne storite, razen, če lahko neodvisno zagotovite integriteto recenzentskega postopka.</message>
 	<message key="submission.list.currentStage">Trenutno v fazi {$stage}.</message>
+	<message key="grid.category.categories">Kategorije</message>
+	<message key="catalog.sortBy.titleAsc">Po naslovu (A-Ž)</message>
+	<message key="catalog.sortBy.titleDesc">Po naslovu (Ž-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Po datumu izdaje (najprej najstarejše)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Po datumu izdaje (najprej najnovejše)</message>
+	<message key="submission.submit.placement.categories">Kategorije</message>
+	<message key="submission.currentCoverImage">Trenutna slika</message>
 </locale>

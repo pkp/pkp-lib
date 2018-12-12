@@ -708,4 +708,20 @@
 	<message key="submission.list.dualWorkflowLinks"><![CDATA[Vous possédez plusieurs rôles pour cette soumission. Souhaitez-vous accéder à cette soumission en tant qu'<a href="{$urlAuthorWorkflow}">auteur</a>  ou en tant que<a href="{$urlEditorialWorkflow}">rédacteur</a>?]]></message>
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Vous avez reçu un rôle éditorial pour cette soumission. Souhaitez-vous accéder aux <a href="{$urlEditorialWorkflow}">flux de production éditoriaux</a>?]]></message>
 	<message key="submission.list.currentStage">Présentement à l'étape {$stage}.</message>
+
+	<message key="grid.category.categories">Catégories</message>
+	<message key="grid.category.add">Ajouter une catégorie</message>
+	<message key="grid.category.edit">Modifier une catégorie</message>
+	<message key="grid.category.name">Nom</message>
+	<message key="grid.category.path">Chemin d'accès</message>
+	<message key="grid.category.urlWillBe">L'adresse URL de la catégorie sera {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Le chemin d'accès de la catégorie ne peut contenir que des lettres et des chiffres.</message>
+	<message key="grid.category.pathExists">Le chemin d'accès choisi pour cette catégorie existe déjà. Veuillez choisir un chemin d'accès unique.</message>
+	<message key="grid.category.description">Description</message>
+	<message key="grid.category.parentCategory">Catégorie principale</message>
+	<message key="grid.category.removeText">Vous êtes certain de vouloir supprimer cette catégorie?</message>
+	<message key="grid.category.nameRequired">Veuillez saisir le nom de la catégorie.</message>
+	<message key="grid.category.categoryDetails">Détails de la catégorie </message>
+	<message key="submission.submit.placement.categories">Catégories</message>
+	<message key="submission.currentCoverImage">Image actuelle</message>
 </locale>

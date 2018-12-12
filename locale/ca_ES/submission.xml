@@ -501,4 +501,20 @@
 	<message key="notification.type.editorDecisionSendToProduction">Ha començat el procés de producció.</message>
 	<message key="notification.type.editorAssignmentProduction">S'ha d'assignar un editor/a abans de començar el procés de producció. Afegiu un editor/a de producció amb l'enllaç de participants anterior.</message>
 	<message key="notification.type.editorAssignmentEditing">S'ha d'assignar un editor/a de producció abans de començar el procés editorial. Afegiu un editor/a de producció amb l'enllaç de participants anterior.</message>
+
+	<message key="grid.category.categories">Categories</message>
+	<message key="grid.category.add">Afegeix categoria</message>
+	<message key="grid.category.edit">Edita categoria</message>
+	<message key="grid.category.name">Nom</message>
+	<message key="grid.category.path">Ruta</message>
+	<message key="grid.category.urlWillBe">La categoria de l'URL serà {$sampleUrl}.</message>
+	<message key="grid.category.pathAlphaNumeric">La ruta de la categoria només pot estar formada per números i lletres.</message>
+	<message key="grid.category.pathExists">Ja existeix una ruta per a la categoria. Introduïu una ruta única.</message>
+	<message key="grid.category.description">Descripció</message>
+	<message key="grid.category.parentCategory">Categoria principal</message>
+	<message key="grid.category.removeText">Esteu segur/a que voleu eliminar aquesta categoria?</message>
+	<message key="grid.category.nameRequired">Introduïu un nom vàlid per a la categoria.</message>
+	<message key="grid.category.categoryDetails">Detalls de la categoria</message>
+	<message key="submission.submit.placement.categories">Categories</message>
+	<message key="submission.currentCoverImage">Imatge actual</message>
 </locale>

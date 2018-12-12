@@ -34,7 +34,7 @@
 		{$additionalContributorsFields}
 	{/fbvFormArea}
 
-	{$additionalFormFields}
+	{include file="submission/form/categories.tpl"}
 
 	{include file="submission/submissionMetadataFormFields.tpl"}
 

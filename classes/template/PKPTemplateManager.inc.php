@@ -1493,9 +1493,8 @@ class PKPTemplateManager extends Smarty {
 		}
 		
 		if (!empty($output)) {
-			$contents = str_replace('<head>', '<head>' . "\n" . $output, $contents);
+			$contents = str_ireplace('<head>', '<head>' . "\n" . $output, $contents);
 		}
-		
 	}
 
 	/**

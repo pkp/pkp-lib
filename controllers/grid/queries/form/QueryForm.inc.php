@@ -77,10 +77,9 @@ class QueryForm extends Form {
 
 		$this->setQuery($query);
 
-		$user = $request->getUser();
 		// Validation checks for this form
-		$this->addCheck(new FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function($users) use ($user) {
-			return in_array($user->getId(), $users) && count($users) > 1;
+		$this->addCheck(new FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function($users) {
+			return count($users) > 1;
 		}));
 		$this->addCheck(new FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
 		$this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));

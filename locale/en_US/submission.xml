@@ -644,4 +644,6 @@
 	<message key="category.coverImage">Cover Image</message>
 	<message key="submission.submit.placement.categories">Categories</message>
 	<message key="submission.currentCoverImage">Current Image</message>
+	<message key="catalog.browseTitles">{$numTitles} Titles</message>
+	<message key="catalog.noTitlesSection">No titles have been published yet for this section.</message>
 </locale>

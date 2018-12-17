@@ -681,4 +681,6 @@
 	<message key="catalog.sortBy.datePublishedDesc">Data de publicação (novos primeiro)</message>
 	<message key="submission.submit.placement.categories">Categorias</message>
 	<message key="submission.currentCoverImage">Imagem atual</message>
+	<message key="catalog.browseTitles">{$numTitles} títulos</message>
+	<message key="catalog.noTitlesSection">Sem publicações para esta seção no momento.</message>
 </locale>

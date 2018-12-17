@@ -313,4 +313,5 @@
 	<message key="grid.category.categoryDetails">Λεπτομέρειες Κατηγορίας</message>
 	<message key="submission.submit.placement.categories">Κατηγορίες</message>
 	<message key="submission.currentCoverImage">Τρέχουσα Εικόνα</message>
+	<message key="catalog.browseTitles">Περιήγηση σε {$numTitles} Τίτλους</message>
 </locale>

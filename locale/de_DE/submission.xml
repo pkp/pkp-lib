@@ -649,4 +649,6 @@
 	<message key="catalog.sortBy.datePublishedDesc">Erscheinungsdatum (neueste zuerst)</message>
 	<message key="submission.submit.placement.categories">Kategorien</message>
 	<message key="submission.currentCoverImage">Aktuelles Bild</message>
+	<message key="catalog.browseTitles">{$numTitles} Titel</message>
+	<message key="catalog.noTitlesSection">In dieser Rubrik wurden bisher keine Titel veröffentlicht.</message>
 </locale>

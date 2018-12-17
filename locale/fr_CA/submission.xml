@@ -724,4 +724,5 @@
 	<message key="grid.category.categoryDetails">Détails de la catégorie </message>
 	<message key="submission.submit.placement.categories">Catégories</message>
 	<message key="submission.currentCoverImage">Image actuelle</message>
+	<message key="catalog.browseTitles">Explorer {$numTitles} les titres</message>
 </locale>

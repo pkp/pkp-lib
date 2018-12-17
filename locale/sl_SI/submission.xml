@@ -640,4 +640,6 @@
 	<message key="catalog.sortBy.datePublishedDesc">Po datumu izdaje (najprej najnovejše)</message>
 	<message key="submission.submit.placement.categories">Kategorije</message>
 	<message key="submission.currentCoverImage">Trenutna slika</message>
+	<message key="catalog.browseTitles">{$numTitles} Naslovi</message>
+	<message key="catalog.noTitlesSection">Zaenkrat še ni objavljenih naslovov v tem razdelku.</message>
 </locale>

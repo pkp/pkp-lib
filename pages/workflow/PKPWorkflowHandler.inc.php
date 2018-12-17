@@ -522,7 +522,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	abstract protected function getEditorAssignmentNotificationTypeByStageId($stageId);
 
 	/**
-	 * Checks whether or not the submission is ready to appear in catalog.
+	 * Checks whether or not the submission is ready to appear publicly.
 	 * @param $submission Submission
 	 * @return boolean
 	 */

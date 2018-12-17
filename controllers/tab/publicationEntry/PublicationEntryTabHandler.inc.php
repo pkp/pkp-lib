@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PublicationEntryTabHandler
- * @ingroup controllers_tab_catalogEntry
+ * @ingroup controllers_tab_publicationEntry
  *
  * @brief Base handler for AJAX operations for tabs on the Publication Entry management pages.
  */

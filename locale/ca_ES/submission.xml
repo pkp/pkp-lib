@@ -517,4 +517,5 @@
 	<message key="grid.category.categoryDetails">Detalls de la categoria</message>
 	<message key="submission.submit.placement.categories">Categories</message>
 	<message key="submission.currentCoverImage">Imatge actual</message>
+	<message key="catalog.browseTitles">Navega pels títols {$numTitles}</message>
 </locale>

@@ -248,8 +248,8 @@ class CategoryForm extends Form {
 			$coverThumbnailsMaxWidth = $context->getSetting('coverThumbnailsMaxWidth');
 			$coverThumbnailsMaxHeight = $context->getSetting('coverThumbnailsMaxHeight');
 			$thumbnailFilename = $category->getId() . '-category-thumbnail' . $this->_imageExtension;
-			$xRatio = min(1, $coverThumbnailsMaxWidth / $this->_sizeArray[0]);
-			$yRatio = min(1, $coverThumbnailsMaxHeight / $this->_sizeArray[1]);
+			$xRatio = min(1, ($coverThumbnailsMaxWidth?$coverThumbnailsMaxWidth:100) / $this->_sizeArray[0]);
+			$yRatio = min(1, ($coverThumbnailsMaxHeight?$coverThumbnailsMaxHeight:100) / $this->_sizeArray[1]);
 
 			$ratio = min($xRatio, $yRatio);
 

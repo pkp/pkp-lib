@@ -1359,13 +1359,13 @@ class PKPTemplateManager extends Smarty {
 	function smartyLoadUrlInEl($params, $smarty) {
 		// Required Params
 		if (!isset($params['el'])) {
-			$smarty->trigger_error("el parameter is missing from load_url_in_el");
+			throw new Exception("el parameter is missing from load_url_in_el");
 		}
 		if (!isset($params['url'])) {
-			$smarty->trigger_error("url parameter is missing from load_url_in_el");
+			throw new Exception("url parameter is missing from load_url_in_el");
 		}
 		if (!isset($params['id'])) {
-			$smarty->trigger_error("id parameter is missing from load_url_in_el");
+			throw new Exception("id parameter is missing from load_url_in_el");
 		}
 
 		$this->assign(array(

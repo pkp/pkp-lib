@@ -181,7 +181,7 @@ class FormBuilderVocabulary {
 				//  This is a kludge but the only way to make sure we've
 				//  set the list parameter when we're using lists
 				if (substr(trim($content), 0, 4) == "<li>") {
-					$smarty->trigger_error('FBV: list attribute not set on form section containing lists');
+					throw new Exception('FBV: list attribute not set on form section containing lists');
 				}
 
 				$smarty->assign('FBV_listSection', false);
@@ -224,8 +224,8 @@ class FormBuilderVocabulary {
 	 * @param $smarty object-
 	 */
 	function smartyFBVElement($params, $smarty, $content = null) {
-		if (!isset($params['type'])) $smarty->trigger_error('FBV: Element type not set');
-		if (!isset($params['id'])) $smarty->trigger_error('FBV: Element ID not set');
+		if (!isset($params['type'])) throw new Exception('FBV: Element type not set');
+		if (!isset($params['id'])) throw new Exception('FBV: Element ID not set');
 
 		// Set up the element template
 		$smarty->assign(array(
@@ -462,7 +462,7 @@ class FormBuilderVocabulary {
 						case $styles['height']['MEDIUM']: $smarty->assign('FBV_height', 'medium'); break;
 						case $styles['height']['TALL']: $smarty->assign('FBV_height', 'tall'); break;
 						default:
-							$smarty->trigger_error('FBV: invalid height specified for textarea.');
+							throw new Exception('FBV: invalid height specified for textarea.');
 					}
 					break;
 				case 'id': break; // if we don't do this, the textarea ends up with two id attributes because FBV_id is also set.
@@ -665,7 +665,7 @@ class FormBuilderVocabulary {
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 
 		if (isset($params['label']) && isset($params['content'])) {
-			$smarty->trigger_error('FBV: radio button cannot have both a content and a label parameter.  Label has precedence.');
+			throw new Exception('FBV: radio button cannot have both a content and a label parameter.  Label has precedence.');
 		}
 
 		$radioParams = '';

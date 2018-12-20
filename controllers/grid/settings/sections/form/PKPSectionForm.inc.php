@@ -82,6 +82,7 @@ class PKPSectionForm extends Form {
 	public function _getAssignedSubEditorIds($sectionId, $contextId) {
 		import('classes.core.Services');
 		$subEditors = Services::get('user')->getMany(array(
+			'contextId' => $contextId,
 			'roleIds' => ROLE_ID_SUB_EDITOR,
 			'assignedToSection' => $sectionId,
 		));

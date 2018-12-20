@@ -218,7 +218,6 @@ class PKPUserHandler extends APIHandler {
 
 				case 'assignedToSubmissionStage':
 				case 'assignedToSubmission':
-				case 'assignedToSection':
 					$returnParams[$param] = (int) $val;
 					break;
 

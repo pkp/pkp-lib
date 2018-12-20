@@ -328,7 +328,6 @@
 	<message key="notification.localeReloaded">{$locale} dili yeniden yüklendi.</message>
 	<message key="notification.localeSettingsSaved">Dil ayarları kaydedildi.</message>
 	<message key="notification.editedUser">Kullanıcı düzenlendi.</message>
-	<message key="manager.distribution.indexing">İndeksleniyor</message>
 	<message key="manager.paymentMethod">Ödemeler</message>
 	<message key="manager.paymentMethod.title">Ödeme Yöntemleri</message>
 	<message key="manager.paymentMethod.none">Ödeme yöntemi seçilmedi</message>
@@ -405,7 +404,6 @@
 	<message key="manager.workflow.title">İş Akışı Ayarları</message>
 	<message key="manager.distribution">Dağıtım</message>
 	<message key="manager.distribution.title">Dağıtım Ayarları</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Hakem Çıkar Çatışması Bildirimi</message>
 	<message key="manager.setup.competingInterests.required">Bu makalenin değerlendirilmesi sırasında bir Çıkar Çatışması bildirimi isteyin.</message>
 	<message key="manager.setup.licenseURLDescription">Varsa, lisansı açıklayan bir web sayfasının URL'si.</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Geçici dosya {$dest}, {$source} kaynağıdan oluşturulamadı</message>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/form/context/PKPMastheadForm.inc.php
+ * @file classes/components/form/context/PKPMastheadForm.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
@@ -42,7 +42,7 @@ class PKPMastheadForm extends FormComponent {
 				'label' => __('manager.setup.identity'),
 			])
 			->addField(new FieldText('name', [
-				'label' => __('manager.setup.contextName'),
+				'label' => __('manager.setup.contextTitle'),
 				'size' => 'large',
 				'isRequired' => true,
 				'isMultilingual' => true,
@@ -50,7 +50,7 @@ class PKPMastheadForm extends FormComponent {
 				'value' => $context->getData('name'),
 			]))
 			->addField(new FieldText('acronym', [
-				'label' => __('manager.setup.journalInitials'),
+				'label' => __('manager.setup.contextInitials'),
 				'size' => 'small',
 				'isRequired' => true,
 				'isMultilingual' => true,
@@ -63,7 +63,7 @@ class PKPMastheadForm extends FormComponent {
 				'description' => __('manager.setup.keyInfo.description'),
 			])
 			->addField(new FieldRichTextarea('description', [
-				'label' => __('manager.setup.journalSummary'),
+				'label' => __('manager.setup.contextSummary'),
 				'isMultilingual' => true,
 				'groupId' => 'keyInfo',
 				'value' => $context->getData('description'),
@@ -77,10 +77,10 @@ class PKPMastheadForm extends FormComponent {
 			->addGroup([
 				'id' => 'about',
 				'label' => __('common.description'),
-				'description' => __('manager.setup.journalAbout.description'),
+				'description' => __('manager.setup.contextAbout.description'),
 			])
 			->addField(new FieldRichTextarea('about', [
-				'label' => __('manager.setup.journalAbout'),
+				'label' => __('manager.setup.contextAbout'),
 				'isMultilingual' => true,
 				'size' => 'large',
 				'groupId' => 'about',

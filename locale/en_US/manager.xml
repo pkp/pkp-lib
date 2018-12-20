@@ -221,6 +221,7 @@
 	<message key="manager.setup.additionalContent.description">Anything entered here will appear on your homepage.</message>
 	<message key="manager.setup.advanced">Advanced</message>
 	<message key="manager.setup.appearance.success">The appearance settings have been updated.</message>
+	<message key="manager.setup.contact.success">The contact details for this press have been updated.</message>
 	<message key="manager.setup.copyrightNotice">Copyright Notice</message>
 	<message key="manager.setup.copyrightNotice.description">Require authors to agree to the following copyright notice as part of the submission process.</message>
 	<message key="manager.setup.authorGuidelines">Author Guidelines</message>
@@ -275,6 +276,7 @@
 	<message key="manager.setup.theme">Theme</message>
 	<message key="manager.setup.theme.description">New themes may be installed from the Plugins tab at the top of this page.</message>
 	<message key="manager.setup.theme.notFound">The theme you selected is not installed or enabled.</message>
+	<message key="manager.setup.userAccess.success">The user access details for this press have been updated.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Site Access Options</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
@@ -369,7 +371,6 @@
 	<message key="notification.editedUser">User edited.</message>
 
 	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indexing</message>
 	<message key="manager.distribution.license">License</message>
 	<message key="manager.distribution.license.success">The licensing details have been updated. </message>
 	<message key="manager.distribution.license.other">Other license URL</message>
@@ -480,7 +481,6 @@
 	<message key="manager.reviewFormElements.textfield">Single line text box</message>
 	<message key="manager.reviewFormElements.viewable">Viewable (for authors)</message>
 	<message key="grid.action.createReviewForm">Create a new Review Form</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
 	<message key="manager.setup.competingInterests.required">Request a Competing Interest statement during the peer review.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL to a webpage describing the license, if available.</message>

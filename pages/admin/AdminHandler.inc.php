@@ -88,6 +88,11 @@ class AdminHandler extends Handler {
 		$site = $request->getSite();
 		$dispatcher = $request->getDispatcher();
 
+		// No admin settings when the app doesn't support multiple contexts
+		if (!Application::getAllowMultipleContexts()) {
+			$dispatcher->handle404();
+		}
+
 		$apiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site');
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
 		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');

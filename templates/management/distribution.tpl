@@ -12,27 +12,14 @@
 {assign var="uuid" value=""|uniqid|escape}
 <div id="settings-context-{$uuid}">
 	<tabs>
-		<tab id="permissions" name="{translate key="settings.libraryFiles.category.permissions"}">
+		<tab name="{translate key="submission.license"}">
 			{help file="settings" section="distribution" class="pkp_help_tab"}
-			<tabs :options="{ useUrlFragment: false}">
-				<tab name="{translate key="manager.distribution.access"}">
-					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_ACCESS}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
-					/>
-				</tab>
-				<tab name="{translate key="submission.license"}">
-					<license-form
-						v-bind="forms.{$smarty.const.FORM_LICENSE}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
-					/>
-				</tab>
-				{call_hook name="Template::Settings::distribution::permissions"}
-			</tabs>
+			<license-form
+				v-bind="forms.{$smarty.const.FORM_LICENSE}"
+				@set-fields="setFormFields"
+				@set-errors="setFormErrors"
+				@set-visible-locales="setFormVisibleLocales"
+			/>
 		</tab>
 		<tab id="indexing" name="{translate key="manager.setup.searchEngineIndexing"}">
 			{help file="settings" section="distribution" class="pkp_help_tab"}
@@ -42,7 +29,15 @@
 				@set-errors="setFormErrors"
 				@set-visible-locales="setFormVisibleLocales"
 			/>
-			{call_hook name="Template::Settings::distribution::indexing"}
+		</tab>
+		<tab id="payments" name="{translate key="manager.paymentMethod"}">
+			{help file="settings" section="distribution" class="pkp_help_tab"}
+			<pkp-form
+				v-bind="forms.{$smarty.const.FORM_PAYMENT_SETTINGS}"
+				@set-fields="setFormFields"
+				@set-errors="setFormErrors"
+				@set-visible-locales="setFormVisibleLocales"
+			/>
 		</tab>
 		{call_hook name="Template::Settings::distribution"}
 	</tabs>

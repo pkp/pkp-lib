@@ -349,9 +349,6 @@
 	<message key="notification.localeSettingsSaved">Налаштування мови збережені.</message>
 	<message key="notification.editedUser">Користувача відредаговано.</message>
 
-	<!-- Налаштування процесу поширення -->
-	<message key="manager.distribution.indexing">Індексування</message>
-
 	<!-- Налштування способу оплати -->
 	<message key="manager.paymentMethod">Платежі</message>
 	<message key="manager.paymentMethod.title">Способи оплати</message>
@@ -453,7 +450,6 @@
 	<message key="manager.reviewFormElements.textfield">Текстове поле з одним рядком</message>
 	<message key="manager.reviewFormElements.viewable">Видимий (для авторів)</message>
 	<message key="grid.action.createReviewForm">Створити нову форму рецензії</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Заява про конфлікт інтересів рецензента</message>
 	<message key="manager.setup.competingInterests.required">Запит на заяву про конфлікт інтерсів під час рецензування.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL-адреса веб-сторінки, що описує ліцензію, якщо така є.</message>

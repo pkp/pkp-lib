@@ -108,7 +108,7 @@ class CitationsForm extends Form {
 			'stageId' => $this->getStageId(),
 			'tabPos' => $this->getTabPosition(),
 			'formParams' => $this->getFormParams(),
-			'citationsRequired' => $context->getData('citationsRequired'),
+			'citationsRequired' => $context->getData('citations') === METADATA_REQUIRE,
 			'parsedCitations' => $parsedCitations,
 		));
 		return parent::fetch($request, $template, $display);

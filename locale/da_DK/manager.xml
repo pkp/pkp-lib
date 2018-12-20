@@ -235,14 +235,12 @@
 	<message key="manager.setup.reviewOptions.neverSendReminder">Send aldrig rykker</message>
 	<message key="manager.setup.competingInterests">Konkurrerende interesser</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Bedømmelsestidsfrister</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Erklæring om konkurrerende interesser</message>
 	<message key="manager.setup.competingInterests.required">Anmod om en erklæring om konkurrerende interesser under bedømmelsesprocessen.</message>
 	<message key="settings.libraryFiles.category.marketing">Marketing</message>
 	<message key="settings.libraryFiles.category.permissions">Tilladelser</message>
 	<message key="settings.libraryFiles.category.reports">Rapporter</message>
 	<message key="settings.libraryFiles.category.other">Andet</message>
 	<message key="manager.distribution.title">Distributionsindstillinger</message>
-	<message key="manager.distribution.indexing">Indeksering</message>
 	<message key="manager.paymentMethod">Betaling</message>
 	<message key="manager.paymentMethod.currency">Valuta</message>
 	<message key="manager.paymentMethod.method">Betalingsmåde</message>

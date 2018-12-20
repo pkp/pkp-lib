@@ -56,7 +56,7 @@ class AboutSiteHandler extends Handler {
 		$context = $request->getContext();
 		$enableSiteWidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
 		if (!$enableSiteWidePrivacyStatement && $context) {
-			$privacyStatement = $context->getLocalizedSetting('privacyStatement');
+			$privacyStatement = $context->getLocalizedData('privacyStatement');
 		} else {
 			$privacyStatement = $request->getSite()->getLocalizedSetting('privacyStatement');
 		}

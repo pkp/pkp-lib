@@ -22,7 +22,7 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\traits\EntityReadTrait;
-use \PKP\Services\QueryBuilders\PKPUserQueryBuilder;
+use \APP\Services\QueryBuilders\UserQueryBuilder;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	use EntityReadTrait;
@@ -46,7 +46,6 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * 		@option string roleIds
 	 * 		@option int assignedToSubmission
 	 * 		@option int assignedToSubmissionStage
-	 * 		@option int assignedToSection
 	 * 		@option array includeUsers
 	 * 		@option array excludeUsers
 	 * 		@option string status
@@ -95,7 +94,6 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'roleIds' => null,
 			'assignedToSubmission' => null,
 			'assignedToSubmissionStage' => null,
-			'assignedToSection' => null,
 			'includeUsers' => null,
 			'excludeUsers' => null,
 			'status' => 'active',
@@ -106,13 +104,12 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		$args = array_merge($defaultArgs, $args);
 
-		$userListQB = new PKPUserQueryBuilder();
+		$userListQB = new UserQueryBuilder();
 		$userListQB
 			->filterByContext($args['contextId'])
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->filterByRoleIds($args['roleIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
-			->assignedToSection($args['assignedToSection'])
 			->includeUsers($args['includeUsers'])
 			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])

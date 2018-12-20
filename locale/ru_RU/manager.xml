@@ -351,9 +351,6 @@
 	<message key="notification.localeSettingsSaved">Настройки языка сохранены.</message>
 	<message key="notification.editedUser">Пользователь отредактирован.</message>
 
-	<!-- Настройки процесса распространения -->
-	<message key="manager.distribution.indexing">Индексирование</message>
-
 	<!-- Настройки методов платежей -->
 	<message key="manager.paymentMethod">Платежи</message>
 	<message key="manager.paymentMethod.title">Методы платежей</message>
@@ -456,7 +453,6 @@
 	<message key="manager.reviewFormElements.textfield">Поле для ввода одной строки</message>
 	<message key="manager.reviewFormElements.viewable">Видимый (для авторов)</message>
 	<message key="grid.action.createReviewForm">Создать новую форму рецензии</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Декларация о конфликте интересов рецензента</message>
 	<message key="manager.setup.competingInterests.required">Запросить Декларацию о конфликте интересов во время рецензирования.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL-адрес веб-страницы, описывающей лицензию (если она доступна).</message>

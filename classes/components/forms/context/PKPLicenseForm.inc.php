@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/form/context/PKPLicenseForm.inc.php
+ * @file classes/components/form/context/PKPLicenseForm.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
@@ -13,7 +13,6 @@
  */
 namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldOptions;
 use \PKP\components\forms\FieldRadioInput;
 use \PKP\components\forms\FieldRichTextarea;
 
@@ -76,16 +75,6 @@ class PKPLicenseForm extends FormComponent {
 				'type' => 'radio',
 				'options' => $licenseUrlOptions,
 				'value' => $context->getData('licenseUrl'),
-			]))
-			->addField(new FieldOptions('copyrightYearBasis', [
-				'label' => __('submission.copyrightYear'),
-				'description' => __('manager.distribution.copyrightYearBasis.description'),
-				'type' => 'radio',
-				'options' => [
-					['value' => 'issue', 'label' => __('manager.distribution.copyrightYearBasis.issue')],
-					['value' => 'submission', 'label' => __('manager.distribution.copyrightYearBasis.submission')],
-				],
-				'value' => $context->getData('copyrightYearBasis'),
 			]))
 			->addField(new FieldRichTextarea('licenseTerms', [
 				'label' => __('manager.distribution.licenseTerms'),

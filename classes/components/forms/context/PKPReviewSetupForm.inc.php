@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/form/context/PKPReviewSetupForm.inc.php
+ * @file classes/components/form/context/PKPReviewSetupForm.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
@@ -102,7 +102,7 @@ class PKPReviewSetupForm extends FormComponent {
 		} else {
 			$this->addField(new FieldHTML('reviewRemindersDisabled', [
 				'label' => __('manager.setup.reviewOptions.automatedReminders'),
-				'value' => __('manager.setup.reviewOptions.automatedRemindersDisabled'),
+				'description' => __('manager.setup.reviewOptions.automatedRemindersDisabled'),
 			]));
 		}
 	}

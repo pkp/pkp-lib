@@ -22,7 +22,7 @@
 			{load_url_in_div id="roleGridContainer" url=$rolesUrl}
 		</tab>
 		<tab id="access" name="{translate key="manager.siteAccessOptions.siteAccessOptions"}">
-		{help file="users-and-roles" section="accessOptions" class="pkp_help_tab"}
+		{help file="users-and-roles" section="site-access" class="pkp_help_tab"}
 			<pkp-form
 				v-bind="forms.{$smarty.const.FORM_USER_ACCESS}"
 				@set-fields="setFormFields"

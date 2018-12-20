@@ -350,9 +350,6 @@
 	<message key="notification.localeSettingsSaved">Språk/region-inställningar sparade.</message>
 	<message key="notification.editedUser">Användare ändrades.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indexering</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Betalningar</message>
 	<message key="manager.paymentMethod.title">Betalningsmetoder</message>
@@ -454,7 +451,6 @@
 	<message key="manager.reviewFormElements.textfield">Textruta, en rad</message>
 	<message key="manager.reviewFormElements.viewable">Synlig (för författare)</message>
 	<message key="grid.action.createReviewForm">Skapa nytt granskningsformulär</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Granskares redovisning av intressekonflikter</message>
 	<message key="manager.setup.competingInterests.required">Begär redovisning av intressekonflikter vid sakkunniggranskning.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL till webbsida som beskriver licensen, om en sådan finns tillgänglig.</message>

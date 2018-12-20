@@ -310,10 +310,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		// Specify values needed to render default locale strings
 		$localeParams = array(
 			'indexUrl' => $request->getIndexUrl(),
-			'journalPath' => $context->getData('path'),
 			'primaryLocale' => $context->getData('primaryLocale'),
-			'journalName' => $context->getData('name', $context->getPrimaryLocale()),
 			'contextName' => $context->getData('name', $context->getPrimaryLocale()),
+			'contextPath' => $context->getData('path'),
 			'contextUrl' => $request->getDispatcher()->url(
 				$request,
 				ROUTE_PAGE,
@@ -432,6 +431,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($context) {
+		\HookRegistry::call('Context::delete::before', array($context));
+
 		$contextDao = Application::getContextDao();
 		$contextDao->deleteObject($context);
 
@@ -443,10 +444,10 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$genreDao->deleteByContextId($context->getId());
 
 		$announcementDao = \DAORegistry::getDAO('AnnouncementDAO');
-		$announcementDao->deleteByAssoc(ASSOC_TYPE_JOURNAL, $context->getId());
+		$announcementDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
 		$announcementTypeDao = \DAORegistry::getDAO('AnnouncementTypeDAO');
-		$announcementTypeDao->deleteByAssoc(ASSOC_TYPE_JOURNAL, $context->getId());
+		$announcementTypeDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
 		$emailTemplateDao = \DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->deleteEmailTemplatesByContext($context->getId());
@@ -455,7 +456,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$pluginSettingsDao->deleteByContextId($context->getId());
 
 		$reviewFormDao = \DAORegistry::getDAO('ReviewFormDAO');
-		$reviewFormDao->deleteByAssoc(ASSOC_TYPE_JOURNAL, $context->getId());
+		$reviewFormDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
 		$navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
 		$navigationMenuDao->deleteByContextId($context->getId());

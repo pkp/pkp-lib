@@ -126,18 +126,19 @@
 				"nullable"
 			]
 		},
-		"copyrightYearBasis": {
-			"type": "string",
-			"validation": [
-				"nullable"
-			]
-		},
 		"coverage": {
 			"type": "string",
 			"description": "Enable coverage metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
 			"validation": [
 				"nullable",
-				""
+				"in:0,enable,request,require"
+			]
+		},
+		"currency": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"currency"
 			]
 		},
 		"customHeaders": {
@@ -192,7 +193,7 @@
 		},
 		"emailSignature": {
 			"type": "string",
-			"defaultLocaleKey": "default.journalSettings.emailSignature",
+			"defaultLocaleKey": "default.contextSettings.emailSignature",
 			"validation": [
 				"nullable"
 			]
@@ -303,7 +304,7 @@
 		},
 		"keywords": {
 			"type": "string",
-			"default": 2,
+			"default": "enable",
 			"description": "Enable keywords metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
 			"validation": [
 				"nullable",
@@ -322,13 +323,6 @@
 			"type": "string",
 			"multilingual": true,
 			"defaultLocaleKey": "default.contextSettings.forLibrarians",
-			"validation": [
-				"nullable"
-			]
-		},
-		"licenseTerms": {
-			"type": "string",
-			"multilingual": true,
 			"validation": [
 				"nullable"
 			]
@@ -385,6 +379,7 @@
 		},
 		"numWeeksPerResponse": {
 			"type": "integer",
+			"default": 4,
 			"validation": [
 				"nullable",
 				"min:0"
@@ -401,7 +396,7 @@
 		"openAccessPolicy": {
 			"type": "string",
 			"multilingual": true,
-			"defaultLocaleKey": "default.journalSettings.openAccessPolicy",
+			"defaultLocaleKey": "default.contextSettings.openAccessPolicy",
 			"validation": [
 				"nullable"
 			]
@@ -451,6 +446,12 @@
 			],
 			"apiSummary": true
 		},
+		"paymentsEnabled": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"primaryLocale": {
 			"type": "string",
 			"validation": [
@@ -460,22 +461,9 @@
 		"privacyStatement": {
 			"type": "string",
 			"multilingual": true,
-			"defaultLocaleKey": "default.journalSettings.privacyStatement",
+			"defaultLocaleKey": "default.contextSettings.privacyStatement",
 			"validation": [
 				"nullable"
-			]
-		},
-		"publisherInstitution": {
-			"type": "string",
-			"validation": [
-				"nullable"
-			]
-		},
-		"publishingMode": {
-			"type": "integer",
-			"validation": [
-				"nullable",
-				"in:0,1,2"
 			]
 		},
 		"rateReviewerOnQuality": {
@@ -505,12 +493,6 @@
 			]
 		},
 		"reviewerAccessKeysEnabled": {
-			"type": "boolean",
-			"validation": [
-				"nullable"
-			]
-		},
-		"reviewerCompetingInterestsRequired": {
 			"type": "boolean",
 			"validation": [
 				"nullable"
@@ -610,31 +592,31 @@
 				{
 					"order": 1,
 					"content": {
-						"defaultLocaleKey": "default.journalSettings.checklist.notPreviouslyPublished"
+						"defaultLocaleKey": "default.contextSettings.checklist.notPreviouslyPublished"
 					}
 				},
 				{
 					"order": 2,
 					"content": {
-						"defaultLocaleKey": "default.journalSettings.checklist.fileFormat"
+						"defaultLocaleKey": "default.contextSettings.checklist.fileFormat"
 					}
 				},
 				{
 					"order": 3,
 					"content": {
-						"defaultLocaleKey": "default.journalSettings.checklist.addressesLinked"
+						"defaultLocaleKey": "default.contextSettings.checklist.addressesLinked"
 					}
 				},
 				{
 					"order": 4,
 					"content": {
-						"defaultLocaleKey": "default.journalSettings.checklist.submissionAppearance"
+						"defaultLocaleKey": "default.contextSettings.checklist.submissionAppearance"
 					}
 				},
 				{
 					"order": 5,
 					"content": {
-						"defaultLocaleKey": "default.journalSettings.checklist.bibliographicRequirements"
+						"defaultLocaleKey": "default.contextSettings.checklist.bibliographicRequirements"
 					}
 				}
 			]

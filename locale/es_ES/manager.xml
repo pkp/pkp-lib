@@ -286,9 +286,6 @@
 	<message key="notification.localeSettingsSaved">Opciones de configuración regional guardadas.</message>
 	<message key="notification.editedUser">Usuario/a editado.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indexación</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Pagos</message>
 	<message key="manager.paymentMethod.title">Formas de pago</message>
@@ -438,7 +435,6 @@
 	<message key="manager.reviewFormElements.textfield">Caja de texto de una sola línea</message>
 	<message key="manager.reviewFormElements.viewable">Visible (para autores)</message>
 	<message key="grid.action.createReviewForm">Crea un nuevo formulario de revisión</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Declaración de conflictos de interés de los revisores</message>
 	<message key="manager.setup.competingInterests.required">Solicita una declaración de conflictos de interés durante una revisión por pares.</message>
 	<message key="manager.setup.licenseURLDescription">URL a la página web que describa la licencia, si está disponible.</message>
 	<message key="manager.setup.metadata.submission">Formulario de envío</message>

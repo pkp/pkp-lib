@@ -298,7 +298,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="notification.localeReloaded">Idioma {$locale} recarregado.</message>
 	<message key="notification.localeSettingsSaved">Configurações de idioma salvas.</message>
 	<message key="notification.editedUser">Usuário editado.</message>
-	<message key="manager.distribution.indexing">Indexação</message>
 	<message key="manager.paymentMethod">Pagamentos</message>
 	<message key="manager.paymentMethod.title">Métodos de Pagamento</message>
 	<message key="manager.paymentMethod.none">Nenhum método de pagamento selecionado</message>
@@ -379,7 +378,6 @@ Há casos em que uma única estatística de uso devem ser utilizada, por exemplo
 	<message key="manager.reviewFormElements.textfield">Caixa de texto de uma linha</message>
 	<message key="manager.reviewFormElements.viewable">Visível (para autores)</message>
 	<message key="grid.action.createReviewForm">Criar Novo Formulário de Avaliação</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Declaração de Conflito de Interesses para Avaliadores</message>
 	<message key="manager.setup.competingInterests.required">Requisitar uma declaração de Conflito de Interesses durante a avaliação por pares.</message>
 
 	<message key="manager.setup.includeCopyrightStatement">Display the copyright statement with content (advisable for asserting an author-held copyright).</message>

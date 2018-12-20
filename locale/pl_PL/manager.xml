@@ -343,7 +343,6 @@
 	<message key="notification.localeReloaded">Język {$locale} przeładowany.</message>
 	<message key="notification.localeSettingsSaved">Ustawienia językowe zapisane.</message>
 	<message key="notification.editedUser">Edycja zakończona sukcesem.</message>
-	<message key="manager.distribution.indexing">Indeksowanie</message>
 	<message key="manager.paymentMethod">Płatności</message>
 	<message key="manager.paymentMethod.title">Metody płatności</message>
 	<message key="manager.paymentMethod.none">Nie wybrano metod płatności</message>
@@ -430,7 +429,6 @@
 	<message key="manager.reviewFormElements.textfield">Obszar tekstowy (krótki)</message>
 	<message key="manager.reviewFormElements.viewable">Możliwe do wyświetlenia (dla autorów)</message>
 	<message key="grid.action.createReviewForm">Utwórz nowy formularz recenzji</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Oświadczenie o braku konfliktu interesów</message>
 	<message key="manager.setup.competingInterests.required">Podczas recenzji poproś o oświadczenie o braku konfliktu interesów.</message>
 	<message key="manager.setup.licenseURLDescription">Link do strony z treścią licencji, jeśli jest dostępna.</message>
 	<message key="manager.setup.metadata.submission">Formularz przesyłania</message>

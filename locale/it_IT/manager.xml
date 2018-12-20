@@ -262,7 +262,6 @@
 	<message key="manager.setup.competingInterests.required">Richiedi una dichiarazione su eventuali conflitti di interessi durante la peer review</message>
 	<message key="manager.setup.metadata.submission">Form per le proposte</message>
 	<message key="manager.plugins.upload">Carica un nuovo plugin</message>
-	<message key="manager.distribution.indexing">Indicizzazione</message>
 	<message key="manager.website.imageFileRequired">Un file di immagine è richiesto. Per favore controlla di aver scelto e caricato un file</message>
 	<message key="manager.publication.reviewStage">Revisione</message>
 	<message key="manager.publication.editorialStage">Correzione editoriale</message>
@@ -430,7 +429,6 @@
 	<message key="manager.reviewFormElements.included">Includilo in um messaggio all'autore</message>
 	<message key="manager.reviewFormElements.viewable">Visibile (per gli autori)</message>
 	<message key="grid.action.createReviewForm">Crea un nuovo form di revisione</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Dichiarazione sul conflitto di interessi del revisore</message>
 	<message key="manager.setup.licenseURLDescription">URL verso una pagina web che descrive la licenza, se disponibile.</message>
 	<message key="plugins.importexport.common.validationErrors">Errrori di validazione:</message>
 	<message key="plugins.importexport.common.warningsEncountered">Avvisi ricevuti:</message>
@@ -451,7 +449,7 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">L'utente importato "{$username}" non ha password. Controlla il tuo formato XML. L'utente non è stato importato.</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged">La password dell'utente importato "{$username}" non può essere importata. Una nuova password è stata mandata all'utente via mail. L'utente è stato importato.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">L'utente da importare "{$username}" ha una password di tipo plaintext non valida. L'utente non è stato importato.</message>
-	
+
 	<message key="manager.navigationMenus.form.title">Titolo</message>
 	<message key="manager.navigationMenus.form.path">Path</message>
 	<message key="manager.navigationMenus">Menu di navigazione</message>

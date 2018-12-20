@@ -350,9 +350,6 @@
 	<message key="notification.localeSettingsSaved">حُفِظت إعدادات اللغة.</message>
 	<message key="notification.editedUser">تم تعديل المستخدم.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">الفهرسة</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">المدفوعات</message>
 	<message key="manager.paymentMethod.title">طرائق الدفع</message>
@@ -454,7 +451,6 @@
 	<message key="manager.reviewFormElements.textfield">مربع نص ذو سطر واحد</message>
 	<message key="manager.reviewFormElements.viewable">يمكن معاينته (من قبل المؤلفين)</message>
 	<message key="grid.action.createReviewForm">إنشاء نموذج تحكيم جديد</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">عبارة بيان المصالح المتضاربة للمحكم</message>
 	<message key="manager.setup.competingInterests.required">طالب المحكم بعبارة تتعلق بالمصالح المتضاربة خلال عملية التحكيم المناظر.</message>
 
 	<message key="manager.setup.licenseURLDescription">رابط إلى موقع يصف الرخصة، لو توافر ذلك.</message>

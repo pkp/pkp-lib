@@ -9,7 +9,7 @@
  * @class ReviewFormElements
  * @ingroup controllers_grid_settings_reviewForms_form
  *
- * @brief Form for manager to edit review form elements. 
+ * @brief Form for manager to edit review form elements.
  */
 
 import('lib.pkp.classes.db.DBDataXMLParser');
@@ -23,7 +23,7 @@ class ReviewFormElements extends Form {
 	/**
 	 * Constructor.
 	 * @param $template string
-	 * @param $reviewFormId 
+	 * @param $reviewFormId
 	 */
 	function __construct($reviewFormId) {
 		parent::__construct('manager/reviewForms/reviewFormElements.tpl');
@@ -54,7 +54,7 @@ class ReviewFormElements extends Form {
 		if (isset($this->reviewFormId)) {
 			// Get review form
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-			$reviewForm = $reviewFormDao->getById($this->reviewFormId, ASSOC_TYPE_JOURNAL, $this->contextId);
+			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $this->contextId);
 
 			// Get review form elements
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
@@ -66,5 +66,3 @@ class ReviewFormElements extends Form {
 		}
 	}
 }
-
-

@@ -317,7 +317,6 @@
 	<message key="notification.localeSettingsSaved">Podešavanja lokalizacije su sačuvana.</message>
 	<message key="notification.localeUninstalled">{$locale} lokalizacija je obrisana.</message>
 	<message key="notification.editedUser">Korisnik je uređen.</message>
-	<message key="manager.distribution.indexing">Indeksiranje</message>
 	<message key="manager.paymentMethod">Plaćanje</message>
 	<message key="manager.paymentMethod.title">Metodi plaćanja</message>
 	<message key="manager.paymentMethod.none">Nema odabranih metoda plaćanja</message>
@@ -385,7 +384,6 @@
 	<message key="manager.reviewFormElements.textfield">Tekst kutija za jedan red teksta</message>
 	<message key="manager.reviewFormElements.viewable">Vidljivo (za autore)</message>
 	<message key="grid.action.createReviewForm">Napravi novi recenzentski obrazac</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Izjava o recenzentskom sukobu interesa</message>
 	<message key="manager.setup.metadata.submission">Forma za prijavu</message>
 	<message key="plugins.importexport.common.validationErrors">Greške pri potvrđivanju</message>
 	<message key="manager.setup.competingInterests.required">Zahtevajte Izjavu o sukobu interesa u toku recenzije.</message>

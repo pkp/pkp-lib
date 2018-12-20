@@ -236,11 +236,4 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			$this->_getParams
 		);
 	}
-
-	/**
-	 * Get an array of workflow stages supported by the current app
-	 *
-	 * @return array
-	 */
-	abstract function getWorkflowStages();
 }

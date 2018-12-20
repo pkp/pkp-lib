@@ -155,7 +155,7 @@ class ManagementHandler extends Handler {
 		}, $supportedFormLocales);
 
 		$announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
-		$appearanceAdvancedForm = new \PKP\components\forms\context\PKPAppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
+		$appearanceAdvancedForm = new \APP\components\forms\context\AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
 		$appearanceSetupForm = new \APP\components\forms\context\AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
 		$informationForm = new \PKP\components\forms\context\PKPInformationForm($contextApiUrl, $locales, $context);
 		$listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
@@ -241,8 +241,6 @@ class ManagementHandler extends Handler {
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-		$lockssUrl = $router->url($request, $context->getPath(), 'gateway', 'lockss');
-		$clockssUrl = $router->url($request, $context->getPath(), 'gateway', 'clockss');
 		$sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
 		$paymentsUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_payments');
 
@@ -252,15 +250,15 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		$licenseForm = new \PKP\components\forms\context\PKPLicenseForm($apiUrl, $locales, $context);
+		$licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
 		$searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
-		$accessForm = new \APP\components\forms\context\AccessForm($apiUrl, $locales, $context);
+		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
 		$settingsData = [
 			'forms' => [
 				FORM_LICENSE => $licenseForm->getConfig(),
 				FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
-				FORM_ACCESS => $accessForm->getConfig(),
+				FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
 			],
 		];
 		$templateMgr->assign('settingsData', $settingsData);

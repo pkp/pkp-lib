@@ -9,7 +9,7 @@
  *}
 
 {* Help Link *}
-{help file="users-and-roles" section="users" class="pkp_help_tab"}
+{help file="users-and-roles" class="pkp_help_tab"}
 
 {capture assign=usersUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid" oldUserId=$oldUserId escape=false}{/capture}
 {load_url_in_div id="userGridContainer" url=$usersUrl}

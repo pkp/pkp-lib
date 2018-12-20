@@ -342,9 +342,6 @@
 	<message key="notification.localeSettingsSaved">Kielialueiden asetukset tallennettu.</message>
 	<message key="notification.editedUser">Käyttäjää muokattu.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indeksointi</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Maksut</message>
 	<message key="manager.paymentMethod.title">Maksutavat</message>
@@ -439,8 +436,6 @@
 	<message key="manager.reviewFormElements.textfield">Yhden rivin tekstikenttä</message>
 	<message key="manager.reviewFormElements.viewable">Nähtävissä (kirjoittajille)</message>
 	<message key="grid.action.createReviewForm">Luo uusi arviointilomake</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Arvioijien sidonnaisuuksista ilmoittaminen</message>
-	<message key="manager.setup.competingInterests.required">Pyydä ilmoittamaan sidonnaisuuksista vertaisarvioinnin aikana.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL-osoite verkkosivulle, jossa kerrotaan lisenssistä (mikäli saatavilla).</message>
 

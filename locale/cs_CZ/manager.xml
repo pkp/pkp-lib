@@ -241,7 +241,6 @@
 	<message key="manager.reviewFormElements.included">Zahrnuto do zprávy pro autora</message>
 	<message key="manager.reviewFormElements.viewable">Viditelné (pro autory).</message>
 	<message key="grid.action.createReviewForm">Vytvořit nový formulář pro recenzenty</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Vyjádření ke konfliktu zájmů recenzentů</message>
 	<message key="manager.setup.competingInterests.required">Požadovat vyjádření ke konfliktu zájmů pro recenzenty.</message>
 	<message key="manager.statistics.defaultMetricDescription">Váš {$contextObjectName} je nakonfigurován tak, aby zaznamenal více než jednu metriku přístupů. Statistika přístupů se zobrazí v několika kontextech.
 Existují případy, kdy může být použita pouze jedna statistika přístupů, např. při zobrazení uspořádaného seznamu nejčastěji čtených příspěvků nebo při hodnocení.
@@ -336,7 +335,6 @@ výsledků vyhledávání. Zvolte jednu z nakonfigurovaných metrik jako výchoz
 	<message key="settings.libraryFiles.category.reports">Zprávy</message>
 	<message key="settings.libraryFiles.category.other">Ostatní</message>
 	<message key="notification.editedUser">Uživatel byl upraven.</message>
-	<message key="manager.distribution.indexing">Indexování.</message>
 	<message key="manager.paymentMethod">Platby</message>
 	<message key="manager.paymentMethod.title">Metoda platby</message>
 	<message key="manager.paymentMethod.none">Nebyla vybrána žádná metoda platby</message>

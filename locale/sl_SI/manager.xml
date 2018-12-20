@@ -360,9 +360,6 @@
 	<message key="notification.localeSettingsSaved">Nastavitve jezika so shranjene.</message>
 	<message key="notification.editedUser">Uporabnik je spremenjen.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indeksiranje</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Plačila</message>
 	<message key="manager.paymentMethod.title">Načini plačila</message>
@@ -464,7 +461,6 @@
 	<message key="manager.reviewFormElements.textfield">Enovrstično tekstovno polje</message>
 	<message key="manager.reviewFormElements.viewable">Vidno (za avtorje)</message>
 	<message key="grid.action.createReviewForm">Ustvari nov recenzijski obrazec</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Izjava recenzenta o navzkrižju interesov</message>
 	<message key="manager.setup.competingInterests.required">Zahtevaj izjavo o navzkrižju interesov pri recenziji.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL povezava do spletne strani, ki opisuje licenco (če je na voljo).</message>

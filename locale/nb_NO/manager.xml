@@ -275,7 +275,6 @@
 	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.reviewFormElements.viewable">Synlig (for forfattere)</message>
 	<message key="grid.action.createReviewForm">Lag et nytt vurderingsskjema</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Fagfellers erklæring om interessekonflikter</message>
 	<message key="manager.setup.competingInterests.required">Krev en erklæring om interessekonflikter i løpet av fagfellevurderingen.</message>
 	<message key="manager.setup.licenseURLDescription">URL til en nettside som beskriver lisensen, om mulig.</message>
 	<message key="manager.setup.metadata.submission">Innsendingsskjema</message>
@@ -354,7 +353,6 @@
 	<message key="notification.localeReloaded">{$locale} lokalinnstillinger lastet inn på nytt.</message>
 	<message key="notification.localeSettingsSaved">Lokalinnstillinger lagret.</message>
 	<message key="notification.editedUser">Redigert av bruker.</message>
-	<message key="manager.distribution.indexing">Indeksering</message>
 	<message key="manager.paymentMethod">Betalinger</message>
 	<message key="manager.paymentMethod.title">Betalingsmåter</message>
 	<message key="manager.paymentMethod.none">Betalingsmåte er ikke valgt</message>

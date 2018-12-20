@@ -350,9 +350,6 @@
 	<message key="notification.localeSettingsSaved">Einstellungen zur Regionaleinstellung gespeichert.</message>
 	<message key="notification.editedUser">Benutzer/in bearbeitet.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indizierung</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Zahlungen</message>
 	<message key="manager.paymentMethod.title">Zahlungsmethoden</message>
@@ -455,7 +452,6 @@
 	<message key="manager.reviewFormElements.textfield">Einzeiliges Textfeld</message>
 	<message key="manager.reviewFormElements.viewable">Sichtbar (für Autor/innen)</message>
 	<message key="grid.action.createReviewForm">Ein neues Begutachtungsformular anlegen</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Erklärung von Gutachter/in zu möglicherweise bestehenden Interessenkonflikten</message>
 	<message key="manager.setup.competingInterests.required">Während der Begutachtung die Angabe einer Erklärung zu möglicherweise bestehenden Interessenkonflikten verlangen.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL zum Lizenztext, sofern verfügbar.</message>

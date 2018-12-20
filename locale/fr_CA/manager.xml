@@ -339,7 +339,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="notification.localeReloaded">Le paramètre régional {$locale} a été rechargé.</message>
 	<message key="notification.localeSettingsSaved">Les paramètres du paramètre régional ont été sauvegardés.</message>
 	<message key="notification.editedUser">Utilisateur modifié</message>
-	<message key="manager.distribution.indexing">Indexation</message>
 	<message key="manager.paymentMethod">Paiements</message>
 	<message key="manager.paymentMethod.title">Méthodes de paiement</message>
 	<message key="manager.paymentMethod.description">Veuillez choisir à partir de la liste des méthodes de paiement disponibles. La zone ci-dessous s'actualisera en conséquence.</message>
@@ -480,7 +479,6 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.plugins.pluginGallery.summary">Sommaire</message>
 	<message key="manager.reviewFormElements.included">Inclus dans le message à l'auteur</message>
 	<message key="grid.action.createReviewForm">Créer un nouveau formulaire d'évaluation</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Déclaration de conflit d'intérêts de l'évaluateur</message>
 	<message key="manager.setup.competingInterests.required">Demander une déclaration de conflit d'intérêts de l'évaluateur</message>
 	<message key="manager.setup.licenseURLDescription">URL de la page décrivant la licence, si disponible.</message>
 	<message key="manager.setup.metadata.submission">Formulaire de soumission</message>

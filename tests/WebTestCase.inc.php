@@ -314,10 +314,17 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * Type a value into a TinyMCE control.
 	 * @param $controlPrefix string Prefix of control name
 	 * @param $value string Value to enter into control
+	 * @param $inline boolean Whether or not the tinymce control is inline
 	 */
-	protected function typeTinyMCE($controlPrefix, $value) {
-		$this->waitForElementPresent('css=iframe[id^="' . $controlPrefix . '"]'); // Wait for TinyMCE to init
-		$this->runScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+	protected function typeTinyMCE($controlPrefix, $value, $inline = false) {
+		if ($inline) {
+			$this->waitForElementPresent('css=div[id^="' . $controlPrefix . '"].mce-content-body');
+			$this->runScript("tinyMCE.get('" . $controlPrefix . "').setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+			$this->runScript("tinyMCE.get('" . $controlPrefix . "').fire('blur');");
+		} else {
+			$this->waitForElementPresent('css=iframe[id^="' . $controlPrefix . '"]'); // Wait for TinyMCE to init
+			$this->runScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+		}
 	}
 
 	/**
@@ -355,7 +362,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * @param $text string
 	 */
 	protected function clickButton($text) {
-		$selector = '//button[text()=\'' . $this->escapeJS($name) . '\']';
+		$selector = '//button[text()=\'' . $this->escapeJS($text) . '\']';
 		$this->waitForElementPresent($selector);
 		$this->click($selector);
 	}

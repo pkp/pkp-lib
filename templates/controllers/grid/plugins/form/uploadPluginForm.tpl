@@ -39,6 +39,6 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
-	{fbvFormButtons id="mastheadFormSubmit" submitText="common.save"}
+	{fbvFormButtons id="uploadPluginFormSubmit" submitText="common.save"}
 </form>
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>

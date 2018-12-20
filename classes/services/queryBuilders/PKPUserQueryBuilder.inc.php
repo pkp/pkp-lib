@@ -42,9 +42,6 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	/** @var int submission stage ID */
 	protected $assignedToSubmissionStageId = null;
 
-	/** @var int section ID */
-	protected $assignedToSectionId = null;
-
 	/** @var array user IDs */
 	protected $includeUsers = null;
 
@@ -146,18 +143,6 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 		if ($submissionStage && $this->assignedToSubmissionId) {
 			$this->assignedToSubmissionStageId = $submissionStage;
 		}
-		return $this;
-	}
-
-	/**
-	 * Limit results to users assigned as editors to this section
-	 *
-	 * @param $sectionId int
-	 *
-	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
-	 */
-	public function assignedToSection($sectionId) {
-		$this->assignedToSectionId = $sectionId;
 		return $this;
 	}
 
@@ -382,18 +367,6 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 				$q->leftJoin('user_group_stage as ugs', 'sa.user_group_id', '=', 'ugs.user_group_id');
 				$q->where('ugs.stage_id', '=', Capsule::raw((int) $stageId));
 			}
-		}
-
-		// assigned to section
-		if (!is_null($this->assignedToSectionId)) {
-			$sectionId = $this->assignedToSectionId;
-
-			$q->leftJoin('section_editors as se', function($table) use ($sectionId) {
-				$table->on('u.user_id', '=', 'se.user_id');
-				$table->on('se.section_id', '=', Capsule::raw((int) $sectionId));
-			});
-
-			$q->whereNotNull('se.section_id');
 		}
 
 		// search phrase

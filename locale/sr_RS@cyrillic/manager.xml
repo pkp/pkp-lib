@@ -317,7 +317,6 @@
 	<message key="notification.localeSettingsSaved">Подешавања локализације су сачувана.</message>
 	<message key="notification.localeUninstalled">{$locale} локализација је обрисана.</message>
 	<message key="notification.editedUser">Корисник је уређен.</message>
-	<message key="manager.distribution.indexing">Индексирање</message>
 	<message key="manager.paymentMethod">Плаћање</message>
 	<message key="manager.paymentMethod.title">Методи плаћања</message>
 	<message key="manager.paymentMethod.none">Нема одабраних метода плаћања</message>
@@ -385,7 +384,6 @@
 	<message key="manager.reviewFormElements.textfield">Текст кутија за један ред текста</message>
 	<message key="manager.reviewFormElements.viewable">Видљиво (за ауторе)</message>
 	<message key="grid.action.createReviewForm">Направи нови рецензентски образац</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Изјава о рецензентском сукобу интереса</message>
 	<message key="manager.setup.metadata.submission">Форма за пријаву</message>
 	<message key="plugins.importexport.common.validationErrors">Грешке при потврђивању</message>
 	<message key="manager.setup.competingInterests.required">Захтевајте Изјаву о сукобу интереса у току рецензије.</message>

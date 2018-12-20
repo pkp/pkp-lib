@@ -300,9 +300,6 @@
 	<message key="notification.localeSettingsSaved">S'han desat els paràmetres de configuració regional.</message>
 	<message key="notification.editedUser">Editat per l'usuari/ària</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indexació</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Pagaments</message>
 	<message key="manager.paymentMethod.title">Mètodes de pagament</message>

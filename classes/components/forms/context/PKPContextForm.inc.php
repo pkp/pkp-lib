@@ -1,6 +1,6 @@
 <?php
 /**
- * @file controllers/form/context/PKPContextForm.inc.php
+ * @file classes/components/form/context/PKPContextForm.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
@@ -41,13 +41,13 @@ class PKPContextForm extends FormComponent {
 		$this->method = $context ? 'PUT' : 'POST';
 
 		$this->addField(new FieldText('name', [
-				'label' => __('manager.setup.journalTitle'),
+				'label' => __('manager.setup.contextTitle'),
 				'isRequired' => true,
 				'isMultilingual' => true,
 				'value' => $context ? $context->getData('name') : null,
 			]))
 			->addField(new FieldText('acronym', [
-				'label' => __('manager.setup.journalInitials'),
+				'label' => __('manager.setup.contextInitials'),
 				'size' => 'small',
 				'isRequired' => true,
 				'isMultilingual' => true,
@@ -55,7 +55,7 @@ class PKPContextForm extends FormComponent {
 				'value' => $context ? $context->getData('acronym') : null,
 			]))
 			->addField(new FieldRichTextarea('description', [
-				'label' => __('admin.journals.journalDescription'),
+				'label' => __('admin.contexts.contextDescription'),
 				'isMultilingual' => true,
 				'value' => $context ? $context->getData('description') : null,
 			]))

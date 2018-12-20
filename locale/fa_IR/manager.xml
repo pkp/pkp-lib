@@ -372,8 +372,6 @@
 	<message key="notification.localeReloaded">زبان {$locale} بارگذاری مجدد شد.</message>
 	<message key="notification.localeSettingsSaved">تنظیمات زبان ذخیره شد.</message>
 	<message key="notification.editedUser">کاربر ویرایش شد.</message>
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">نمایه کردن</message>
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">شیوه‌ی پرداخت</message>
 	<message key="manager.paymentMethod.title">شیوه‌های پرداخت</message>
@@ -466,7 +464,6 @@
 	<message key="manager.reviewFormElements.textfield">جعبه متن یک سطری</message>
 	<message key="manager.reviewFormElements.viewable">قابل مشاهده (برای نویسندگان)</message>
 	<message key="grid.action.createReviewForm">ایجاد یک فرم داوری جدید</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">بیانیه تضاد منافع </message>
 	<message key="manager.setup.competingInterests.required">درخواست بیانیه تضاد منافع رقابتی به ازای هر داوری</message>
 	<message key="manager.setup.licenseURLDescription">آدرس صفحه وبی که این مجوز را شرح می‌دهد (در صورت وجود) اضافه کنید</message>
 	<message key="manager.setup.metadata.submission">فرم ارسال مقاله</message>

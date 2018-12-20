@@ -234,7 +234,6 @@
 	<message key="manager.reviewFormElements.viewable">Visível (para autores)</message>
 	<message key="grid.action.createReviewForm">Criar um novo Formulário de Revisão</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Uploader desconhecido {$param}</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Declaração Interesses Concorrentes do Revisor</message>
 	<message key="manager.setup.competingInterests.required">Solicitar uma Declaração Interesses Concorrentes durante a revisão por pares.</message>
 	<message key="manager.setup.licenseURLDescription">URL para uma página da Web que descreve a licença, se disponível.</message>
 	<message key="manager.setup.metadata.submission">Formulário Submissão</message>
@@ -391,7 +390,6 @@
 	<message key="notification.localeReloaded">{$locale} idioma recarregado.</message>
 	<message key="notification.localeSettingsSaved">Configurações do idioma guardadas.</message>
 	<message key="notification.editedUser">Utilizador editado.</message>
-	<message key="manager.distribution.indexing">Indexação</message>
 	<message key="manager.paymentMethod">Pagamentos</message>
 	<message key="manager.paymentMethod.title">Métodos Pagamento</message>
 	<message key="manager.paymentMethod.none">Não foi seleccionado nenhum método de pagamento</message>

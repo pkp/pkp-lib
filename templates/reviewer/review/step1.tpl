@@ -63,22 +63,14 @@
 		{/fbvFormSection}
 	{/if}
 
-	{if $competingInterestsText != null}
-		{assign var="hasCI" value=true}
-		{assign var="noCI" value=false}
-	{else}
-		{assign var="hasCI" value=false}
-		{assign var="noCI" value=true}
-	{/if}
-	{if $hasCI || $currentContext->getData('reviewerCompetingInterestsRequired')}
+	{if $currentContext->getData('competingInterests')}
 		{fbvFormSection list=true}
-			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=$noCI label="reviewer.submission.noCompetingInterests" disabled=$reviewIsComplete}
-			<br /><br />
-			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=$hasCI label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsComplete}
+			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=!$reviewerCompetingInterests label="reviewer.submission.noCompetingInterests" disabled=$reviewIsComplete}
+			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=!!$reviewerCompetingInterests label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsComplete}
 		{/fbvFormSection}
 
 		{fbvFormSection}
-			{fbvElement type="textarea" name="competingInterestsText" id="competingInterestsText" value=$competingInterestsText size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete rich=true}
+			{fbvElement type="textarea" name="reviewerCompetingInterests" id="reviewerCompetingInterests" value=$reviewerCompetingInterests size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete rich=true}
 		{/fbvFormSection}
 	{/if}
 

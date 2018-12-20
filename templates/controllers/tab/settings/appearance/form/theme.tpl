@@ -35,7 +35,7 @@
 					{/fbvFormSection}
 
 				{elseif $themeOption.type == 'radio'}
-					{fbvFormSection label=$themeOption.label list=true}
+					{fbvFormSection label=$themeOption.label description=$themeOption.description list=true}
 						{foreach from=$themeOption.options key=themeOptionItemName item=themeOptionItem}
 							{fbvElement type="radio" id=$smarty.const.THEME_OPTION_PREFIX|concat:$themeOptionName|concat:$themeOptionItemName name=$smarty.const.THEME_OPTION_PREFIX|concat:$themeOptionName value=$themeOptionItemName checked=$themeOption.value|compare:$themeOptionItemName label=$themeOptionItem}
 						{/foreach}

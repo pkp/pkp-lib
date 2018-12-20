@@ -226,8 +226,8 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		$contextTitle = 'Context title';
 
 		// Build a test user object.
-		import('lib.pkp.classes.user.PKPUser');
-		$testUser = new PKPUser();
+		import('lib.pkp.classes.user.User');
+		$testUser = new User();
 		$testUser->setId($expectedNotification->getUserId());
 		$testUser->setGivenName($userFirstName, 'en_US');
 		$testUser->setFamilyName($userLastName, 'en_US');

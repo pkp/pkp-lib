@@ -250,7 +250,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @param $submission Submission
 	 * @param $submissionFile SubmissionFile
-	 * @param $user PKPUser
+	 * @param $user User
 	 */
 	abstract function logDeletionEvent($request, $submission, $submissionFile, $user);
 

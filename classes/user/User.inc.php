@@ -5,13 +5,13 @@
  */
 
 /**
- * @file classes/user/PKPUser.inc.php
+ * @file classes/user/User.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPUser
+ * @class User
  * @ingroup user
  * @see UserDAO
  *
@@ -20,7 +20,7 @@
 
 import('lib.pkp.classes.identity.Identity');
 
-class PKPUser extends Identity {
+class User extends Identity {
 	/** @var array Roles assigned to this user grouped by context */
 	protected $_roles = array();
 
@@ -400,6 +400,38 @@ class PKPUser extends Identity {
 	public function setRoles($roles, $contextId) {
 		$this->_roles[$contextId] = $roles;
 	}
-}
 
+	/**
+	 * Retrieve array of user settings.
+	 * @param contextId int
+	 * @return array
+	 */
+	function getSettings($contextId = null) {
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		return $userSettingsDao->getSettingsByContextId($this->getId(), $contextId);
+	}
+
+	/**
+	 * Retrieve a user setting value.
+	 * @param $name
+	 * @param $contextId int
+	 * @return mixed
+	 */
+	function getSetting($name, $contextId = null) {
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		return $userSettingsDao->getSetting($this->getId(), $name, $contextId);
+	}
+
+	/**
+	 * Set a user setting value.
+	 * @param $name string
+	 * @param $value mixed
+	 * @param $type string optional
+	 * @param $contextId int optional
+	 */
+	function updateSetting($name, $value, $type = null, $contextId = null) {
+		$userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
+		return $userSettingsDao->updateSetting($this->getId(), $name, $value, $type, $contextId);
+	}
+}
 

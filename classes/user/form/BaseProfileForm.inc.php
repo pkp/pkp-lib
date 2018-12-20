@@ -23,7 +23,7 @@ abstract class BaseProfileForm extends Form {
 	/**
 	 * Constructor.
 	 * @param $template string
-	 * @param $user PKPUser
+	 * @param $user User
 	 */
 	function __construct($template, $user) {
 		parent::__construct($template);

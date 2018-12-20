@@ -39,7 +39,7 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 	function effect() {
 		// Get the user
 		$user = $this->_request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
 
 		// Get the submission
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

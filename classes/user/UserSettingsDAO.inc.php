@@ -1,21 +1,79 @@
 <?php
 
 /**
- * @file classes/user/PKPUserSettingsDAO.inc.php
+ * @file classes/user/UserSettingsDAO.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPUserSettingsDAO
+ * @class UserSettingsDAO
  * @ingroup user
- * @see PKPUser
+ * @see User
  *
  * @brief Operations for retrieving and modifying user settings.
  */
 
 
-class PKPUserSettingsDAO extends DAO {
+class UserSettingsDAO extends DAO {
+	/**
+	 * Retrieve a user setting value.
+	 * @param $userId int
+	 * @param $name
+	 * @param $contextId int
+	 * @return mixed
+	 * @see UserSettingsDAO::getByAssoc
+	 */
+	function getSetting($userId, $name, $contextId = null) {
+		return parent::getByAssoc($userId, $name, Application::getContextAssocType(), $contextId);
+	}
+
+	/**
+	 * Retrieve all users by setting name and value.
+	 * @param $name string
+	 * @param $value mixed
+	 * @param $type string
+	 * @param $contextId int
+	 * @return DAOResultFactory matching Users
+	 * @see UserSettingsDAO::getUsersByAssocSetting
+	 */
+	function getUsersBySetting($name, $value, $type = null, $contextId = null) {
+		return parent::getUsersByAssocSetting($name, $value, $type, Application::getContextAssocType(), $contextId);
+	}
+
+	/**
+	 * Retrieve all settings for a user for a journal.
+	 * @param $userId int
+	 * @param $contextId int
+	 * @return array 
+	 */
+	function getSettingsByContextId($userId, $contextId = null) {
+		return parent::getSettingsByAssoc($userId, Application::getContextAssocType(), $contextId);
+	}
+
+	/**
+	 * Add/update a user setting.
+	 * @param $userId int
+	 * @param $name string
+	 * @param $value mixed
+	 * @param $type string data type of the setting. If omitted, type will be guessed
+	 * @param $contextId int
+	 * @see UserSettingsDAO::updateByAssoc
+	 */
+	function updateSetting($userId, $name, $value, $type = null, $contextId = null) {
+		return parent::updateByAssoc($userId, $name, $value, $type, Application::getContextAssocType(), $contextId);
+	}
+
+	/**
+	 * Delete a user setting by association.
+	 * @param $userId int
+	 * @param $name string
+	 * @param $contextId int
+	 * @see UserSettingsDAO::deleteByAssoc
+	 */
+	function deleteSetting($userId, $name, $contextId = null) {
+		return parent::deleteByAssoc($userId, $name, Application::getContextAssocType(), $contextId);
+	}
 
 	/**
 	 * Retrieve a user setting value by association.
@@ -25,7 +83,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $assocId int
 	 * @return mixed
 	 */
-	function &getByAssoc($userId, $name, $assocType = null, $assocId = null) {
+	function getByAssoc($userId, $name, $assocType = null, $assocId = null) {
 		$result = $this->retrieve(
 			'SELECT	setting_value,
 				setting_type
@@ -48,7 +106,7 @@ class PKPUserSettingsDAO extends DAO {
 		} else {
 			$returner = null;
 		}
-
+		$result->Close();
 		return $returner;
 	}
 
@@ -61,7 +119,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $assocId int
 	 * @return DAOResultFactory matching Users
 	 */
-	function &getUsersByAssocSetting($name, $value, $type = null, $assocType = null, $assocId = null) {
+	function getUsersByAssocSetting($name, $value, $type = null, $assocType = null, $assocId = null) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		$value = $this->convertToDB($value, $type);
@@ -77,8 +135,7 @@ class PKPUserSettingsDAO extends DAO {
 			array($name, $value, (int) $assocType, (int) $assocId)
 		);
 
-		$returner = new DAOResultFactory($result, $userDao, '_returnUserFromRow');
-		return $returner;
+		return new DAOResultFactory($result, $userDao, '_returnUserFromRow');
 	}
 
 	/**
@@ -88,7 +145,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $assocId int
 	 * @return array
 	 */
-	function &getSettingsByAssoc($userId, $assocType = null, $assocId = null) {
+	function getSettingsByAssoc($userId, $assocType = null, $assocId = null) {
 		$userSettings = array();
 
 		$result = $this->retrieve(
@@ -192,9 +249,8 @@ class PKPUserSettingsDAO extends DAO {
 	 */
 	function deleteSettings($userId) {
 		return $this->update(
-			'DELETE FROM user_settings WHERE user_id = ?', $userId
+			'DELETE FROM user_settings WHERE user_id = ?', (int) $userId
 		);
 	}
 }
-
 

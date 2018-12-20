@@ -72,7 +72,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 	/**
 	 * Create and return a user node.
 	 * @param $doc DOMDocument
-	 * @param $user PKPUser
+	 * @param $user User
 	 * @return DOMElement
 	 */
 	function createPKPUserNode($doc, $user) {

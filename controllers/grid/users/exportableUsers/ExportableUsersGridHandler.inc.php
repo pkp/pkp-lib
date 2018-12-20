@@ -201,8 +201,8 @@ class ExportableUsersGridHandler extends GridHandler {
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 
-		// Import PKPUserDAO to define the USER_FIELD_* constants.
-		import('lib.pkp.classes.user.PKPUserDAO');
+		// Import UserDAO to define the USER_FIELD_* constants.
+		import('lib.pkp.classes.user.UserDAO');
 		$fieldOptions = array(
 			IDENTITY_SETTING_GIVENNAME => 'user.givenName',
 			IDENTITY_SETTING_FAMILYNAME => 'user.familyName',

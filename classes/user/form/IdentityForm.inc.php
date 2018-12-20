@@ -20,7 +20,7 @@ class IdentityForm extends BaseProfileForm {
 	/**
 	 * Constructor.
 	 * @param $template string
-	 * @param $user PKPUser
+	 * @param $user User
 	 */
 	function __construct($user) {
 		parent::__construct('user/identityForm.tpl', $user);

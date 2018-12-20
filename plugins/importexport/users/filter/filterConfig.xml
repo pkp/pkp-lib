@@ -16,7 +16,7 @@
 			symbolic="user=>user-xml"
 			displayName="plugins.importexport.users.displayName"
 			description="plugins.importexport.users.description"
-			inputType="class::classes.user.User[]"
+			inputType="class::lib.pkp.classes.user.User[]"
 			outputType="xml::schema(lib/pkp/plugins/importexport/users/pkp-users.xsd)" />
 		<!-- Native XML Users input -->
 		<filterGroup

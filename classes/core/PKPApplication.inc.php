@@ -417,12 +417,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
 			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
 			'UserGroupAssignmentDAO' => 'lib.pkp.classes.security.UserGroupAssignmentDAO',
+			'UserDAO' => 'lib.pkp.classes.user.UserDAO',
 			'UserGroupDAO' => 'lib.pkp.classes.security.UserGroupDAO',
+			'UserSettingsDAO' => 'lib.pkp.classes.user.UserSettingsDAO',
 			'UserStageAssignmentDAO' => 'lib.pkp.classes.user.UserStageAssignmentDAO',
 			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',
 			'ViewsDAO' => 'lib.pkp.classes.views.ViewsDAO',
 			'WorkflowStageDAO' => 'lib.pkp.classes.workflow.WorkflowStageDAO',
-			'XMLDAO' => 'lib.pkp.classes.db.XMLDAO'
+			'XMLDAO' => 'lib.pkp.classes.db.XMLDAO',
 		);
 	}
 

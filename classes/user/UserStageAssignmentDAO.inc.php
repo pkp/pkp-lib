@@ -14,7 +14,7 @@
  * @brief Operations for users as related to their stage assignments
  */
 
-import('classes.user.UserDAO');
+import('lib.pkp.classes.user.UserDAO');
 class UserStageAssignmentDAO extends UserDAO {
 
 	/**

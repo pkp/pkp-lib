@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file classes/user/PKPUserDAO.inc.php
+ * @file classes/user/UserDAO.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPUserDAO
+ * @class UserDAO
  * @ingroup user
  * @see User
  *
  * @brief Operations for retrieving and modifying User objects.
  */
 
-import('lib.pkp.classes.user.PKPUser');
+import('lib.pkp.classes.user.User');
 
 /* These constants are used user-selectable search fields. */
 define('USER_FIELD_USERID', 'user_id');
@@ -25,21 +25,21 @@ define('USER_FIELD_INTERESTS', 'interests');
 define('USER_FIELD_AFFILIATION', 'affiliation');
 define('USER_FIELD_NONE', null);
 
-class PKPUserDAO extends DAO {
+class UserDAO extends DAO {
 
 	/**
 	 * Construct a new User object.
-	 * @return PKPUser
+	 * @return User
 	 */
 	function newDataObject() {
-		return new PKPUser();
+		return new User();
 	}
 
 	/**
 	 * Retrieve a user by ID.
 	 * @param $userId int
 	 * @param $allowDisabled boolean
-	 * @return PKPUser
+	 * @return User
 	 */
 	function getById($userId, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -59,7 +59,7 @@ class PKPUserDAO extends DAO {
 	 * Retrieve a user by username.
 	 * @param $username string
 	 * @param $allowDisabled boolean
-	 * @return PKPUser
+	 * @return User
 	 */
 	function &getByUsername($username, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -80,7 +80,7 @@ class PKPUserDAO extends DAO {
 	 * @param $settingName string
 	 * @param $settingValue string
 	 * @param $allowDisabled boolean
-	 * @return PKPUser
+	 * @return User
 	 */
 	function getBySetting($settingName, $settingValue, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -120,7 +120,7 @@ class PKPUserDAO extends DAO {
 	 * Retrieve a user by email address.
 	 * @param $email string
 	 * @param $allowDisabled boolean
-	 * @return PKPUser
+	 * @return User
 	 */
 	function &getUserByEmail($email, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -141,7 +141,7 @@ class PKPUserDAO extends DAO {
 	 * @param $username string
 	 * @param $password string encrypted password
 	 * @param $allowDisabled boolean
-	 * @return PKPUser
+	 * @return User
 	 */
 	function &getUserByCredentials($username, $password, $allowDisabled = true) {
 		$result = $this->retrieve(
@@ -261,10 +261,10 @@ class PKPUserDAO extends DAO {
 	}
 
 	/**
-	 * Create and return a complete PKPUser object from a given row.
+	 * Create and return a complete User object from a given row.
 	 * @param $row array
 	 * @param $callHook boolean
-	 * @return PKPUser
+	 * @return User
 	 */
 	function &_returnUserFromRowWithData($row, $callHook = true) {
 		$user =& $this->_returnUserFromRow($row, false);
@@ -280,7 +280,7 @@ class PKPUserDAO extends DAO {
 	 * Internal function to return a User object from a row.
 	 * @param $row array
 	 * @param $callHook boolean
-	 * @return PKPUser
+	 * @return User
 	 */
 	function &_returnUserFromRow($row, $callHook = true) {
 		$user = $this->newDataObject();
@@ -383,7 +383,7 @@ class PKPUserDAO extends DAO {
 
 	/**
 	 * Update an existing user.
-	 * @param $user PKPUser
+	 * @param $user User
 	 */
 	function updateObject($user) {
 		if ($user->getDateLastLogin() == null) {

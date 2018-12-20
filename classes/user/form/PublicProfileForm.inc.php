@@ -24,7 +24,7 @@ class PublicProfileForm extends BaseProfileForm {
 	/**
 	 * Constructor.
 	 * @param $template string
-	 * @param $user PKPUser
+	 * @param $user User
 	 */
 	function __construct($user) {
 		parent::__construct('user/publicProfileForm.tpl', $user);

@@ -21,7 +21,7 @@ class APIProfileForm extends BaseProfileForm {
 
 	/**
 	 * Constructor.
-	 * @param $user PKPUser
+	 * @param $user User
 	 */
 	public function __construct($user) {
 		parent::__construct('user/apiProfileForm.tpl', $user);

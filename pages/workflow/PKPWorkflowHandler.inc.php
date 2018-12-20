@@ -481,7 +481,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	/**
 	 * Determine if a particular stage has a notification pending.  If so, return true.
 	 * This is used to set the CSS class of the submission progress bar.
-	 * @param $user PKPUser
+	 * @param $user User
 	 * @param $stageId integer
 	 * @param $contextId integer
 	 * @return boolean

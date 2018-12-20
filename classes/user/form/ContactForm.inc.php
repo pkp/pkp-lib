@@ -19,7 +19,7 @@ class ContactForm extends BaseProfileForm {
 
 	/**
 	 * Constructor.
-	 * @param $user PKPUser
+	 * @param $user User
 	 */
 	function __construct($user) {
 		parent::__construct('user/contactForm.tpl', $user);

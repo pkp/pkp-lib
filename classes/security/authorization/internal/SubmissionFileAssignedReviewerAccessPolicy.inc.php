@@ -37,7 +37,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 
 		// Get the user
 		$user = $request->getUser();
-		if (!is_a($user, 'PKPUser')) return AUTHORIZATION_DENY;
+		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
 
 		// Get the submission file
 		$submissionFile = $this->getSubmissionFile($request);

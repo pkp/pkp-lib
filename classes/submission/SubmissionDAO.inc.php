@@ -134,7 +134,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		// 'deleteAllRevisionsBySubmissionId' has to be called before 'rmtree'
 		// because SubmissionFileDaoDelegate::deleteObjects checks the file
 		// and returns false if the file is not there, which makes the foreach loop in
-		// PKPSubmissionFileDAO::_deleteInternally not run till the end.
+		// SubmissionFileDAO::_deleteInternally not run till the end.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->deleteAllRevisionsBySubmissionId($submissionId);
 		import('lib.pkp.classes.file.SubmissionFileManager');

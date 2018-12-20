@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/submission/PKPSubmissionFileDAO.inc.php
+ * @file classes/submission/SubmissionFileDAO.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionFileDAO
+ * @class SubmissionFileDAO
  * @ingroup submission
  * @see SubmissionFile
  * @see SubmissionFileDAODelegate
@@ -34,7 +34,7 @@ import('lib.pkp.classes.db.DAO');
 import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 
-abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
+class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	/**
 	 * @var array a private list of delegates that provide operations for
 	 *  different SubmissionFile implementations.
@@ -638,7 +638,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	function baseQueryForFileSelection() {
 		// Build the basic query that joins the class tables.
 		// The DISTINCT is required to de-dupe the review_round_files join in
-		// PKPSubmissionFileDAO.
+		// SubmissionFileDAO.
 		return 'SELECT DISTINCT
 				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
 				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
@@ -661,9 +661,17 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $fileImplementation string
 	 * @return SubmissionFile
 	 */
-	function fromRow($row, $fileImplementation) {
-		// Identify the delegate.
-		$daoDelegate = $this->_getDaoDelegate($fileImplementation); /* @var $daoDelegate SubmissionFileDAODelegate */
+	function fromRow($row, $fileImplementation = null) {
+		switch(true) {
+			case isset($row['artwork_file_id']) && is_numeric($row['artwork_file_id']):
+				$daoDelegate = $this->_getDaoDelegate('SubmissionArtworkFile');
+				break;
+			case isset($row['supplementary_file_id']) && is_numeric($row['supplementary_file_id']):
+				$daoDelegate = $this->_getDaoDelegate('SupplementaryFile');
+				break;
+			default:
+				$daoDelegate = $this->_getDaoDelegate('SubmissionFile');
+		}
 
 		// Let the DAO delegate instantiate the file implementation.
 		return $daoDelegate->fromRow($row);
@@ -920,7 +928,7 @@ abstract class PKPSubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			// Instantiate the file and add it to the
 			// result array with a unique key.
 			// N.B. The subclass implementation of fromRow receives just the $row
-			// but calls PKPSubmissionFileDAO::fromRow($row, $fileImplementation) as defined here.
+			// but calls SubmissionFileDAO::fromRow($row, $fileImplementation) as defined here.
 			$submissionFiles[$idAndRevision] = $this->fromRow($row);
 
 			// Move the query cursor to the next record.

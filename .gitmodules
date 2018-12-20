@@ -1,6 +1,3 @@
-[submodule "lib/swordappv2"]
-	path = lib/swordappv2
-	url = https://github.com/swordapp/swordappv2-php-library.git
 [submodule "js/lib/jquery/plugins/spectrum"]
 	path = js/lib/jquery/plugins/spectrum
 	url = https://github.com/bgrins/spectrum.git

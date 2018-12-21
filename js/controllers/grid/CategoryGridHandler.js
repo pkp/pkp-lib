@@ -151,9 +151,9 @@
 	 * @return {jQueryObject}
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowByDataId =
-			function(rowDataId, opt_parentElementId) {
-		this.parent('getRowByDataId', rowDataId, opt_parentElementId);
-		return $('#' + this.getRowIdPrefix() + opt_parentElementId +
+			function(rowDataId) {
+		this.parent('getRowByDataId', rowDataId);
+		return $('#' + this.getRowIdPrefix() + this.currentCategoryId_ +
 				'-row-' + rowDataId, this.getHtmlElement());
 	};
 

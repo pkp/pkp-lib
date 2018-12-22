@@ -549,6 +549,18 @@ class DAO {
 
 		// Remove stale data
 		if (count($staleSettings)) {
+			$this->removeDataObjectSettings($tableName, $idArray, $staleSettings);
+		}
+	}
+
+	/**
+	 * Removes entries from the settings table of a data object.
+	 * @param $tableName string
+	 * @param $idArray array
+	 * @param $settingNames array
+	 */
+	function removeDataObjectSettings($tableName, $idArray, $settingNames) {
+		if (count($settingNames)) {
 			$removeWhere = '';
 			$removeParams = array();
 			foreach ($idArray as $idField => $idValue) {
@@ -556,8 +568,8 @@ class DAO {
 				$removeWhere .= $idField.' = ?';
 				$removeParams[] = $idValue;
 			}
-			$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($staleSettings)), ',').')';
-			$removeParams = array_merge($removeParams, $staleSettings);
+			$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($settingNames)), ',').')';
+			$removeParams = array_merge($removeParams, $settingNames);
 			$removeSql = 'DELETE FROM '.$tableName.' WHERE '.$removeWhere;
 			$this->update($removeSql, $removeParams);
 		}

@@ -386,7 +386,7 @@
 	<message key="stageParticipants.notify.startDiscussion.description">Начать обсуждение между вами и {$userFullName}.</message>
 	<message key="stageParticipants.notify.chooseMessage">Выберите стандартное сообщение для использования или заполните форму ниже.</message>
 	<message key="stageParticipants.notify.message">Сообщение</message>
-	<message key="stageParticipants.notify.warning">Пожалуйста, убедитесь, что вы заполнили поле сообщения и выбрали хотя бы одного получателя.</message>
+	<message key="stageParticipants.notify.warning">Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в обсуждение кого-то, кроме себя.</message>
 	<message key="stageParticipants.options">Назначенные права</message>
 	<message key="stageParticipants.recommendOnly">Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами.</message>
 

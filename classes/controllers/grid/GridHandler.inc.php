@@ -941,7 +941,9 @@ class GridHandler extends PKPHandler {
 	 * @return array Array with initialized grid features objects.
 	 */
 	protected function initFeatures($request, $args) {
-		return array();
+		$returner = array();
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::initFeatures'), array($this, $request, $args, &$returner));
+		return $returner;
 	}
 
 	/**

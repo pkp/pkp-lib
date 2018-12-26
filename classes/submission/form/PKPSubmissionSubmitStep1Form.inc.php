@@ -77,6 +77,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$this->context->getSupportedSubmissionLocaleNames()
 		);
 
+		$this->setupTemplateSubmissionChecklist($templateMgr, $request);
+		$this->setupTemplatePrivacyConsent($templateMgr);
+
 		// if this context has a copyright notice that the author must agree to, present the form items.
 		if ((boolean) $this->context->getSetting('copyrightNoticeAgree')) {
 			$templateMgr->assign('copyrightNotice', $this->context->getLocalizedSetting('copyrightNotice'));
@@ -179,6 +182,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		$vars = array(
 			'userGroupId', 'locale', 'copyrightNoticeAgree', 'commentsToEditor','privacyConsent'
 		);
+
 		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$vars[] = "checklist-$key";
 		}
@@ -193,6 +197,22 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	function setSubmissionData($submission) {
 		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
 		$this->submission->setLocale($this->getData('locale'));
+
+		// submission checklist
+		foreach ((array) $this->context->getSetting('submissionChecklist') as $locale => $checklistItems) {
+			foreach ($checklistItems as $key => $checklistItem) {
+				$this->submission->setData($this->getSubmissionChecklistItemCheckedSettingName($key), $this->getData("checklist-$key") === '1');
+				$this->submission->setData($this->getSubmissionChecklistItemContentSettingName($key), $checklistItem['content'], $locale);
+			}
+		}
+
+		// privacy consent
+		$this->submission->setData($this->getPrivacyConsentSettingName(), $this->getData('privacyConsent') === '1');
+
+		$locales = $this->context->getSupportedSubmissionLocales();
+		foreach ($locales as $locale) {
+			$this->submission->setData($this->getPrivacyStatementPlainTextSettingName(), $this->getPrivacyStatementPlainText($locale), $locale);
+		}
 	}
 
 	/**
@@ -264,6 +284,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
+		$this->extendSubmissionDAOLocaleFieldNames($submissionDao);
+		$this->extendSubmissionDAOAdditionalFieldNames($submissionDao);
+
 		$request = Application::getRequest(); 
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
@@ -343,6 +366,114 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		}
 
 		return $this->submissionId;
+	}
+
+	private function extendSubmissionDAOLocaleFieldNames($submissionDao) {
+		$localeFieldNames = array();
+
+		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+			$localeFieldNames[] = $this->getSubmissionChecklistItemContentSettingName($key);
+		}
+
+		$localeFieldNames[] = $this->getPrivacyStatementPlainTextSettingName();
+
+		$submissionDao->extendLocaleFieldNames($localeFieldNames);
+	}
+
+	private function extendSubmissionDAOAdditionalFieldNames($submissionDao) {
+		$additionalFieldNames = array();
+
+		foreach ((array) $this->context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
+			$additionalFieldNames[] = $this->getSubmissionChecklistItemCheckedSettingName($key);
+		}
+
+		$additionalFieldNames[] = $this->getPrivacyConsentSettingName();
+
+		$submissionDao->extendAdditionalFieldNames($additionalFieldNames);
+	}
+
+	private function getPrivacyStatementPlainText($locale = null) {
+		return trim(PKPString::html2text($this->context->getSetting('privacyStatement', $locale)));
+	}
+
+	private function getSubmissionChecklistItemCheckedSettingName($key) {
+		return "submissionChecklistItemChecked$key";
+	}
+
+	private function getSubmissionChecklistItemContentSettingName($key) {
+		return "submissionChecklistItemContent$key";
+	}
+
+	private function setupTemplateSubmissionChecklist($templateMgr, $request) {
+		$submissionChecklist = $this->context->getLocalizedSetting('submissionChecklist');
+
+		$router = $request->getRouter();
+		$isPostbackRequest = is_a($router, 'PKPPageRouter') && $router->getRequestedOp($request) === 'saveStep';
+
+		if ($isPostbackRequest) {
+			// on postback read checked states from form data
+			foreach ((array) $submissionChecklist as $key => $checklistItem) {
+				$submissionChecklist[$key]['checked'] = $this->getData("checklist-$key") === '1';
+			}
+		} else {
+			// on other requests determine checked states from stored submission data
+			if (isset($this->submission)) {
+				$locale = $this->submission->getLocale();
+
+				foreach ((array) $submissionChecklist as $key => $checklistItem) {
+					// compare checklist item's value stored on previous submit with current configured value
+					$submissionChecklistItemContentSettingName = $this->getSubmissionChecklistItemContentSettingName($key);
+
+					$contentFromPreviousSubmit = $this->submission->getData($submissionChecklistItemContentSettingName, $locale);
+					if ($contentFromPreviousSubmit === $checklistItem['content']) {
+						// content of checklist item is still the same, render checklist item with the state stored
+						$submissionChecklistItemCheckedSettingName = $this->getSubmissionChecklistItemCheckedSettingName($key);
+
+						$checked = $this->submission->getData($submissionChecklistItemCheckedSettingName);
+					} else {
+						// content of checklist item has changed, render it as unchecked so that user needs to confirm again
+						$checked = false;
+					}
+
+					$submissionChecklist[$key]['checked'] = $checked;
+				}
+			}
+		}
+
+		$templateMgr->assign('submissionChecklist', $submissionChecklist);
+	}
+
+	private function getPrivacyConsentSettingName() {
+		return 'privacyConsent';
+	}
+
+	private function getPrivacyStatementPlainTextSettingName() {
+		return 'privacyStatementPlainText';
+	}
+
+	private function setupTemplatePrivacyConsent($templateMgr) {
+		if (isset($this->submission))
+		{
+			$locale = $this->submission->getLocale();
+
+			// compare privacy statement's plain text stored on previous submit with current configured value
+			$privacyStatementPlainTextSettingName = $this->getPrivacyStatementPlainTextSettingName();
+
+			$privacyStatementPlainTextFromPreviousSubmit = $this->submission->getData($privacyStatementPlainTextSettingName, $locale);
+			$currentPrivacyStatementPlainText = $this->getPrivacyStatementPlainText($locale);
+
+			if ($privacyStatementPlainTextFromPreviousSubmit === $currentPrivacyStatementPlainText) {
+				// privacy statement is still the same, render checkbox with the state stored
+				$privacyConsentSettingName = $this->getPrivacyConsentSettingName();
+
+				$checked = $this->submission->getData($privacyConsentSettingName);
+			} else {
+				// privacy statement has changed, render it as unchecked so that user needs to confirm again
+				$checked = false;
+			}
+
+			$templateMgr->assign('privacyConsent', $checked);
+		}
 	}
 }
 

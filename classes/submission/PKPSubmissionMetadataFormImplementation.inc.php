@@ -69,7 +69,7 @@ class PKPSubmissionMetadataFormImplementation {
 					$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $key, 'required', $requiredLocaleKey, $submission->getLocale()));
 					break;
 				case in_array($key, $this->getTagitFieldNames()):
-					$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, create_function('$key,$form,$name', '$data = $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getLocale().'-'.$key)));
+					$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, create_function('$key,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getLocale().'-'.$key)));
 					break;
 				case $key == 'citations':
 					$form = $this->_parentForm;

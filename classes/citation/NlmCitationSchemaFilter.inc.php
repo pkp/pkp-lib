@@ -211,7 +211,7 @@ class NlmCitationSchemaFilter extends Filter {
 		}
 
 		// Remove empty or duplicate searches
-		$searchStrings = array_map(array('String', 'trimPunctuation'), $searchStrings);
+		$searchStrings = array_map(array('PKPString', 'trimPunctuation'), $searchStrings);
 		$searchStrings = array_unique($searchStrings);
 		$searchStrings = arrayClean($searchStrings);
 

@@ -110,7 +110,16 @@
 				$(element).parent().parent().removeClass(errorClass);
 			},
 			submitHandler: this.callbackWrapper(this.submitHandler_),
-			showErrors: this.callbackWrapper(this.showErrors)
+			showErrors: this.callbackWrapper(this.showErrors),
+			errorPlacement: function(error, element) {
+				if (element.is(':checkbox')) {
+					// place error after checkbox text
+					element.parent().closest(':not(label)').append(error);
+				} else {
+					// default jquery validate placement
+					error.insertAfter(element);
+				}
+			}
 		});
 
 		// Activate the cancel button (if present).

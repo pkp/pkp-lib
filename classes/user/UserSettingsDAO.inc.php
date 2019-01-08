@@ -25,7 +25,7 @@ class UserSettingsDAO extends DAO {
 	 * @see UserSettingsDAO::getByAssoc
 	 */
 	function getSetting($userId, $name, $contextId = null) {
-		return parent::getByAssoc($userId, $name, Application::getContextAssocType(), $contextId);
+		return $this->getByAssoc($userId, $name, Application::getContextAssocType(), $contextId);
 	}
 
 	/**
@@ -38,7 +38,7 @@ class UserSettingsDAO extends DAO {
 	 * @see UserSettingsDAO::getUsersByAssocSetting
 	 */
 	function getUsersBySetting($name, $value, $type = null, $contextId = null) {
-		return parent::getUsersByAssocSetting($name, $value, $type, Application::getContextAssocType(), $contextId);
+		return $this->getUsersByAssocSetting($name, $value, $type, Application::getContextAssocType(), $contextId);
 	}
 
 	/**
@@ -48,7 +48,7 @@ class UserSettingsDAO extends DAO {
 	 * @return array 
 	 */
 	function getSettingsByContextId($userId, $contextId = null) {
-		return parent::getSettingsByAssoc($userId, Application::getContextAssocType(), $contextId);
+		return $this->getSettingsByAssoc($userId, Application::getContextAssocType(), $contextId);
 	}
 
 	/**
@@ -61,7 +61,7 @@ class UserSettingsDAO extends DAO {
 	 * @see UserSettingsDAO::updateByAssoc
 	 */
 	function updateSetting($userId, $name, $value, $type = null, $contextId = null) {
-		return parent::updateByAssoc($userId, $name, $value, $type, Application::getContextAssocType(), $contextId);
+		return $this->updateByAssoc($userId, $name, $value, $type, Application::getContextAssocType(), $contextId);
 	}
 
 	/**
@@ -72,7 +72,7 @@ class UserSettingsDAO extends DAO {
 	 * @see UserSettingsDAO::deleteByAssoc
 	 */
 	function deleteSetting($userId, $name, $contextId = null) {
-		return parent::deleteByAssoc($userId, $name, Application::getContextAssocType(), $contextId);
+		return $this->deleteByAssoc($userId, $name, Application::getContextAssocType(), $contextId);
 	}
 
 	/**

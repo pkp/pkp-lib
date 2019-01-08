@@ -84,4 +84,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Heu instal·lat el PHP amb el mòdul XSL desactivat. Activeu-lo o configureu el paràmetre xslt_command en el vostre fitxer config.inc.php .</p>]]></message>
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Aporteu un únic ID de lloc i una URL de base OAI a PKP només per a propòsits de seguretat i d'alertes de seguretat.</message>
+	<message key="installer.miscSettings">Paràmetres diversos</message>
 </locale>

@@ -81,4 +81,5 @@
 	<message key="installer.beacon">Identifikationssignal</message>
 	<message key="installer.beacon.enable">Förse PKP med ett unikt ID för webbplatsen och bas-URL:en för OAI (bara för statistik och säkerhetsvarningar).</message>
 	<message key="installer.unsupportedPhpError">Den här programvaran stödjer inte PHP-versionen på din server. Dubbelkolla installationskraven i docs/README.</message>
+	<message key="installer.miscSettings">Diverse inställningar</message>
 </locale>

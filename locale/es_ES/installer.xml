@@ -81,4 +81,5 @@
 	<message key="installer.beacon">Beacon</message>
 	<message key="installer.beacon.enable">Aporte a PKP un único identificador de sitio y una URL de base OAI solo con finalidades estadísticas y de seguridad.</message>
 	<message key="installer.unsupportedPhpError">Este software no soporta la versión PHP de su servidor. Vuelva a comprobar los requisitos de instalación en docs/README.</message>
+	<message key="installer.miscSettings">Configuración adicional</message>
 </locale>

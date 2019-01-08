@@ -66,4 +66,5 @@
 	<message key="installer.configureXSLMessage"><![CDATA[<p> در نسخه php نصب شده در سرور شما ماژول XSL فعال نشده است. یا این ماژول را فعال کنید و یا آنکه در فایل config.inc.php پارامتر xslt_command  را تنظیم نمایید</p>]]></message>
 	<message key="installer.beacon">دیدبانی</message>
 	<message key="installer.beacon.enable">یک آدرس URL و شناسه منحصربه‌فرد تعیین کنید که از آن به هدف اطلاع‌رسانی آمار و پیام‌های امنیتی استفاده می‌شود.</message>
+	<message key="installer.miscSettings">تنظیمات متفرقه</message>
 </locale>

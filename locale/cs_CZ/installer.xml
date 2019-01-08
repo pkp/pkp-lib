@@ -80,4 +80,5 @@
 	<message key="installer.beacon">Signál</message>
 	<message key="installer.beacon.enable">Poskytněte, prosím, unikátní ID a OAI base URL vašich stránek pro PKP - budou využity pouze pro statistické účely a bezpečnostní varování.</message>
 	<message key="installer.unsupportedPhpError">Verze PHP vašeho serveru není podporována tímto software. Zkontrolujte, prosím, znovu požadavky na konfiguraci serveru v docs/README.</message>
+	<message key="installer.miscSettings">Různá nastavení</message>
 </locale>

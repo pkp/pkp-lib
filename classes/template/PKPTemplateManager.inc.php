@@ -1826,4 +1826,25 @@ class PKPTemplateManager extends Smarty {
 
 		$smarty->assign($params['assign'], $matching_files);
 	}
+
+	/**
+	 * DEPRECATED wrapper for Smarty2 backwards compatibility
+	 * @param $varname
+	 */
+	public function get_template_vars($varname = null) {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call to Smarty2 function ' .  __FUNCTION__);
+		return $this->getTemplateVars($varname);
+	}
+
+	/**
+	 * DEPRECATED wrapper for Smarty2 backwards compatibility
+	 * @param $name
+	 * @param $impl
+	 * @param $cacheable
+	 * @param $cache_attrs
+	 */
+	public function register_function($name, $impl, $cacheable = true, $cache_attrs = null) {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call to Smarty2 function ' .  __FUNCTION__);
+		$this->registerPlugin('function', $name, $impl, $cacheable, $cache_attrs);
+	}
 }

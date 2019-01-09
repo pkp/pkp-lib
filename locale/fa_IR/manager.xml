@@ -204,9 +204,9 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">محدودتر کردن نتایج بر اساس شهر، منطقه و یا کشور</message>
 	<message key="manager.affiliationAndSupport">حامی مالی</message>
 	<message key="manager.setup.additionalContent">سایر اطلاعات</message>
-	<message key="manager.setup.additionalContentDescription">هر اطلاعات دیگری که می‌خواهید در صفحه‌ی اصلی نمایش داده شود</message>
-	<message key="manager.setup.authorCopyrightNotice">بیانیه حق نشر</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">نیاز به موافقت نویسنده با بیانیه حق نشر به عنوان قسمتی از روند ارسال مقاله.  </message>
+	<message key="manager.setup.additionalContent.description">هر اطلاعات دیگری که می‌خواهید در صفحه‌ی اصلی نمایش داده شود</message>
+	<message key="manager.setup.copyrightNotice">بیانیه حق نشر</message>
+	<message key="manager.setup.copyrightNotice.description">نیاز به موافقت نویسنده با بیانیه حق نشر به عنوان قسمتی از روند ارسال مقاله.  </message>
 	<message key="manager.setup.authorGuidelines">دستورالعمل ارسال مقاله</message>
 	<message key="manager.setup.authorGuidelines.description">دستورالعمل‌های ارسال مقال شامل فرمت نوشته و نحوه ارجاع دهی است.</message>
 	<message key="manager.setup.citations">ارجاعات</message>
@@ -216,10 +216,9 @@
 	<message key="manager.setup.citationFilterLookup">بررسی ارجاعات</message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>  همچنین می‌بایست اتصال به پایگاه داده‌های خارجی را فعال و تنظیم کنید. بدین وسیله اشکالات موجود در ارجاعات نویسنده را می‌توانید پیگیری کنید و یا اطلاعات بیشتری را به آن‌ها اضافه کنید. مانند DOI, PubMed ID  </p>  <p>اتصالاتی به چندین پایگاه داده‌های خارجی فراهم شده است که در آن‌ها می‌توان به دنبال ارجاعات گشت. بعضی از آن‌ها نیاز به ثبت‌نام یا تنظیمات برای ورود دارند. برای اطلاعات بیشتر به سایت این پایگاه داده‌های خارجی مراجعه کنید. با کلیک بر روی «افزودن المان» می‌توانید یک یا چند پایگاه داده را اضافه کنید.  </p>  برای ویرایش یا حذف یک اتصال موجود بر روی آیکون چرخ‌دنده کلیک کنید.  </p>  <p>  برای اینکه روند بررسی ارجاع به موقع کار خود را تمام کند تنظیم   <tt>citation_checking_max_processes</tt>  در فایل تنظیمات باید به طرز مناسبی مقداردهی شود. لطفاً به راهنمایی‌های  <tt>config.inc.php</tt>  مراجعه کنید.]]></message>
 	<message key="manager.setup.competingInterests">تضاد منافع</message>
-	<message key="manager.setup.competingInterestsDescription">از داور تقاضا می‌شود تا با سیاست‌های تضاد منافع که در زیر مشخص شده‌اند، موافقت کند.</message>
 	<!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">هنگام حذف این مورد خطایی رخ داد</message>
-	<message key="manager.setup.favicon">نماد سایت (FAVICON)</message>
+	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">هنگام حذف این فیلتر خطایی رخ داد. لطفاً این را به عنوان یک باگ گزارش کنید</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">اتصال گر</message>
 	<message key="manager.setup.filter.grid.filterSettings">اطلاعات ثبت‌نام و تنظیمات اتصال گر</message>
@@ -244,17 +243,14 @@
 	<message key="manager.setup.filter.parser.grid.title">سرویس‌های استخراج ارجاعات</message>
 	<message key="manager.setup.filter.pleaseSelect">لطفاً انتخاب کنید ...</message>
 	<message key="manager.setup.groupType">دسته‌بندی نوع فایل</message>
-	<message key="manager.setup.homeHeaderImageInvalid">فرمت تصویر لوگوی سرتیتر صفحه خانگی نامعتبر است. فرمت‌های پشتیبانی شده عبارت است از: gif، png، jpg</message>
 	<message key="manager.setup.homepageImage">تصویر صفحه‌ی اصلی</message>
-	<message key="manager.setup.homepageImageDescription">آپلود یک تصویر برای نمایش دادن در صفحه‌ی اصلی</message>
+	<message key="manager.setup.homepageImage.description">آپلود یک تصویر برای نمایش دادن در صفحه‌ی اصلی</message>
 	<message key="manager.setup.homepageImageInvalid">فرمت تصویر صفحه خانگی نامناسب است. فرمت‌های پشتیبانی شده عبارت است از: gif، png، jpg</message>
 	<message key="manager.setup.homeTitleImageInvalid">فرمت تصویر عنوان سرتیتر صفحه خانگی نامعتبر است. فرمت‌های پشتیبانی شده عبارت است از: gif، png، jpg</message>
 	<message key="manager.setup.information.descriptionTitle">توضیحات</message>
-	<message key="manager.setup.layout.theme">پوسته سایت</message>
-	<message key="manager.setup.layout.themeDescription">ممکن است پوسته جدیدی  از طریق بخش افزونه‌ها نصب شده باشد.</message>
-	<message key="manager.setup.layout.blockManagement">مدیریت نوار حاشیه</message>
+	<message key="manager.setup.theme">پوسته سایت</message>
+	<message key="manager.setup.theme.description">ممکن است پوسته جدیدی  از طریق بخش افزونه‌ها نصب شده باشد.</message>
 	<message key="manager.setup.layout.sidebar">نوار حاشیه</message>
-	<message key="manager.setup.layout.unselected">انتخاب نشده</message>
 	<message key="manager.setup.loggingAndAuditing">ورود و حسابرسی</message>
 	<message key="manager.setup.logo">لوگو</message>
 	<message key="manager.setup.notifications">اطلاع‌رسانی ارسال مقاله توسط نویسنده</message>
@@ -264,7 +260,7 @@
 	<message key="manager.setup.openAccessPolicy.description">اگر به صورت آنی به محتویات انتشار یافته دسترسی آزاد می‌دهید. بهتر است در مورد سیاست‌های دسترسی آزاد خود توضیحی وارد کنید.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">فرمت لوگوی سرتیتر صفحات نامعتبر است.  فرمت‌های قابل قبول عبارت است از: gif، png و jpg</message>
 	<message key="manager.setup.pageFooter">پاورقی</message>
-	<message key="manager.setup.pageFooterDescription">هر تصویر ، متن یا کد HTML که مایل هستید در قسمت پاوری قرار گیرد وارد نمایید</message>
+	<message key="manager.setup.pageFooter.description">هر تصویر ، متن یا کد HTML که مایل هستید در قسمت پاوری قرار گیرد وارد نمایید</message>
 	<message key="manager.setup.peerReview.description">کلیات سیاست داوری خود را برای خوانندگان و نویسندگان وارد کنید. این توضیح معمولاً شامل تعداد داورهای بررسی کننده هر مقاله، روش انتخاب آن‌ها و مدت زمان داوری است.</message>
 	<message key="manager.setup.principalContact">تماس با مدیر</message>
 	<message key="manager.setup.principalContactDescription">اطلاعات تماس دبیران، ویراستاران یا عوامل اجرایی که به صورت عمومی در وب‌سایت در دسترس خواهد بود</message>
@@ -273,10 +269,9 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">متوسط مهلت داوری</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">هرگز یادآوری نکن</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">مقادیر پیش‌فرض به ازای هر داوری می‌تواند ویرایش شود.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">ارسال یادآوری برای داور در صورت عدم پاسخ به درخواست داوری در مهلت معین شده پس از (به ‌روز):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">ارسال یادآوری برای داور در صورت عدم ارسال نتیجه داوری در مهلت معین شده پس از (به‌ روز):</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">ارسال یادآوری برای داور در صورت عدم پاسخ به درخواست داوری در مهلت معین شده پس از (به ‌روز):</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">ارسال یادآوری برای داور در صورت عدم ارسال نتیجه داوری در مهلت معین شده پس از (به‌ روز):</message>
 	<message key="manager.setup.reviewOptions.reviewTime">مهلت پیش‌فرض انجام داوری</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">فراهم آوردن لینکی برای اطمینان از «محرمانگی داوری» در زمان آپلود</message>
 	<message key="manager.setup.sortableByComponent">قابل مرتب‌سازی بر اساس اجزاء</message>
 	<message key="manager.setup.sponsors.note">سیاست‌های حمایت مالی و معنوی</message>
 	<message key="manager.setup.sponsors.description">برای مثال: انجمن‌های علمی، دانشکده‌ها، تعاونی‌ها، و غیره. حامیان به طور عمومی نمایش داده می‌شوند.</message>
@@ -377,15 +372,12 @@
 	<message key="notification.localeReloaded">زبان {$locale} بارگذاری مجدد شد.</message>
 	<message key="notification.localeSettingsSaved">تنظیمات زبان ذخیره شد.</message>
 	<message key="notification.editedUser">کاربر ویرایش شد.</message>
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">نمایه کردن</message>
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">شیوه‌ی پرداخت</message>
 	<message key="manager.paymentMethod.title">شیوه‌های پرداخت</message>
 	<message key="manager.paymentMethod.none">روش پرداختی انتخاب نشده است</message>
 	<message key="manager.paymentMethod.method">روش پرداخت</message>
 	<message key="manager.paymentMethod.currency">واحد پول</message>
-	<message key="manager.paymentMethod.currency.description">پرداخت مستقیم با انتخاب واحد پول</message>
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">گزینه های نقش</message>
 	<message key="settings.roles.showTitles">نمایش عنوان نقش را در فهرست مشارکت کننده</message>
@@ -472,7 +464,6 @@
 	<message key="manager.reviewFormElements.textfield">جعبه متن یک سطری</message>
 	<message key="manager.reviewFormElements.viewable">قابل مشاهده (برای نویسندگان)</message>
 	<message key="grid.action.createReviewForm">ایجاد یک فرم داوری جدید</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">بیانیه تضاد منافع </message>
 	<message key="manager.setup.competingInterests.required">درخواست بیانیه تضاد منافع رقابتی به ازای هر داوری</message>
 	<message key="manager.setup.licenseURLDescription">آدرس صفحه وبی که این مجوز را شرح می‌دهد (در صورت وجود) اضافه کنید</message>
 	<message key="manager.setup.metadata.submission">فرم ارسال مقاله</message>

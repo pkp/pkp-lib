@@ -635,8 +635,6 @@
 	<message key="submission.list.reviewDue">مهلت داوری</message>
 	<message key="submission.list.confirmDelete">حذف مقاله ارسالی؟</message>
 	<message key="submission.list.viewSubmission">مشاهده مقالات ارسالی</message>
-	<message key="submission.list.itemOrdererUp">افزایش موقعیت {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">کاهش موقعیت {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">مشاهده مقالات ارسالی</message>
 	<message key="submission.list.reviewsCompleted">داوری انساب داده شده تکمیل شد.</message>
 	<message key="submission.list.revisionsSubmitted">اصلاحات ارسال شد.</message>

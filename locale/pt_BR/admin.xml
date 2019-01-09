@@ -65,20 +65,14 @@
 	<message key="admin.server.phpVersion">Versão do PHP</message>
 	<message key="admin.server.platform">Sistema Operacional</message>
 	<message key="admin.settings">Configurações</message>
-	<message key="admin.settings.aboutDescription">Descrição sobre o Portal</message>
+	<message key="admin.settings.about">Descrição sobre o Portal</message>
 	<message key="admin.settings.contactEmail">E-mail do Contato Principal</message>
 	<message key="admin.settings.contactName">Nome do contato principal</message>
-	<message key="admin.settings.form.contactEmailRequired">O e-mail do contato principal é obrigatório.</message>
-	<message key="admin.settings.form.contactNameRequired">O nome do contato principal é obrigatório.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Informe uma quantidade mínima de caracteres para senhas.</message>
-	<message key="admin.settings.form.titleRequired">Um título é obrigatório.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Sua instalação está configurada para gravar mais de uma métrica de uso. Estatísticas de uso serão mostradas de diferentes modos.
 		Existem casos onde uma única estatística de uso deve ser usada, por exemplo: para mostrar uma lista ordenada das submissões mais usadas
 		ou para rankear resultados de busca. Por favor selecione uma das métricas configuradas como padrão.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo do Portal</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissões e dono de pasta, e tamanho de arquivo permitido.</message>
 	<message key="admin.settings.introduction">Introdução</message>
 	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
@@ -130,5 +124,5 @@ Uso (processando todos os arquivos dentro de um diretório): {$scriptName} camin
 	<message key="admin.error.utilExecutionProblem">"{$utilPath}" retornou o seguinte erro após executado: {$output}</message>
 	<message key="admin.error.executingUtil">Erro: não foi possível executar "{$utilPath}".  Cheque a configuração de {$utilVar} em config.inc.php.</message>
 	<message key="admin.settings.siteLogo">Logotipo do Site</message>
-	<message key="admin.languages.noLocalesToDownload">Sem idiomas disponíveis para download.</message>        
+	<message key="admin.languages.noLocalesToDownload">Sem idiomas disponíveis para download.</message>
 </locale>

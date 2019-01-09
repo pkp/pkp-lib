@@ -345,7 +345,7 @@ class PKPFileUploadWizardHandler extends Handler {
 						$mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
 						import('lib.pkp.classes.log.PKPSubmissionEmailLogEntry'); // Import email event constants
 						$mail->setEventType(SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
-						$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+						$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 						// Get editors assigned to the submission, consider also the recommendOnly editors
 						$userDao = DAORegistry::getDAO('UserDAO');
 						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
@@ -358,7 +358,7 @@ class PKPFileUploadWizardHandler extends Handler {
 						$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
 						$mail->assignParams(array(
 							'authorName' => $uploader->getFullName(),
-							'editorialContactSignature' => $context->getSetting('contactName'),
+							'editorialContactSignature' => $context->getData('contactName'),
 							'submissionUrl' => $submissionUrl,
 						));
 						if (!$mail->send($request)) {
@@ -545,5 +545,3 @@ class PKPFileUploadWizardHandler extends Handler {
 		);
 	}
 }
-
-

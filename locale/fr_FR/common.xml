@@ -45,7 +45,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Déjà assigné</message>
 	<message key="common.altText">Texte alternatif</message>
-	<message key="common.altTextInstructions">Veuillez fournir un texte alternatif pour cette image afin d'assurer l'accessibilité aux utilisateurs de navigateurs textuels ou d'appareils et accessoires fonctionnels.</message>
 	<message key="common.and">et</message>
 	<message key="common.applyAction">Appliquer l'action</message>
 	<message key="common.assign">Assigner</message>
@@ -129,10 +128,11 @@
 	<message key="common.on">Démarré</message>
 	<message key="common.options">Options</message>
 	<message key="common.order">Classer</message>
+	<message key="common.orderUp">Remonter {$itemTitle}</message>
+	<message key="common.orderDown">Descendre {$itemTitle}</message>
 	<message key="common.originalFileName">Nom original du fichier</message>
 	<message key="common.or">ou</message>
 	<message key="common.other">Autre</message>
-	<message key="common.pageHeaderLogo.altText">Logo de l'en-tête de la page</message>
 	<message key="common.plugin">Plugiciel</message>
 	<message key="common.publisher">Éditeur</message>
 	<message key="common.quality">Qualité</message>
@@ -163,7 +163,6 @@
 	<message key="common.uninitiated">Non engagé</message>
 	<message key="common.untitled">Sans titre</message>
 	<message key="common.updated">Mis à jour</message>
-	<message key="common.uploadedFile">Fichier transféré</message>
 	<message key="common.upload">Transférer</message>
 	<message key="common.up">Haut</message>
 	<message key="common.upload.addFile">Transférer un fichier</message>
@@ -302,7 +301,6 @@
 	<message key="common.noComments">Aucun commentaire</message>
 	<message key="email.senderEmail">Courriel de l'expéditeur</message>
 	<message key="email.senderName">Nom de l'expéditeur</message>
-	<message key="form.csrfInvalid">le formulaire n'a pas été soumis de la bonne façon.</message>
 	<message key="form.startsWith">commence par</message>
 	<message key="form.url.invalid">L'URL indiquée n'est pas valide. Veuillez vérifier et essayer de nouveau.</message>
 	<message key="notification.updatedReviewFiles">Fichiers d'évaluation mis à jour.</message>
@@ -426,7 +424,6 @@
 	<message key="common.contents">Contenu</message>
 	<message key="common.dateHijri">Calendrier Hijri</message>
 	<message key="common.declined">Refusé</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.finish">Terminer</message>
 	<message key="common.fileUploaderError">La fenêtre pour transférer un fichier système est en cours. Si elle n'apparait pas, il est probable qu'aucun de ses temps d'exécution ne soit supporté par ce navigateur. Veuillez contacter l'administrateur pour obtenir de l'aide.</message>
 	<message key="common.go">Continuer</message>
@@ -454,9 +451,6 @@
 	<message key="common.subtitle">Sous-titre</message>
 	<message key="common.element">Élément</message>
 	<message key="common.unread">Non lu</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Ce serveur permet de transférer un fichier dont la taille maximale est {$fileSize}. Si nécessaire, contactez <a href="mailto:{$supportEmail}">{$supportName}</a> pour obtenir de l'aide.]]></message>
-	<message key="common.invalidFileType">Aucun fichier n'a été transféré ou type de fichier invalide!</message>
-	<message key="common.homepageImage.altText">Image de la page d'accueil</message>
 	<message key="common.plugins">Modules externes</message>
 	<message key="common.metric">Métrique</message>
 	<message key="common.count">Décompte</message>

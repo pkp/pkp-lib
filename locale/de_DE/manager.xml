@@ -213,27 +213,23 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Ergebnisse nach Land, Region und/oder Stadt filtern..</message>
 	<message key="manager.affiliationAndSupport">Sponsor</message>
 	<message key="manager.setup.additionalContent">Weiterer Inhalt</message>
-	<message key="manager.setup.additionalContentDescription">Alle hier eingegebenen Inhalte werden auf Ihrer Homepage erscheinen.</message>
-	<message key="manager.setup.authorCopyrightNotice">Copyright-Vermerk</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Autor/innen müssen im Einreichungsverfahren der Lizenz zustimmen.</message>
+	<message key="manager.setup.additionalContent.description">Alle hier eingegebenen Inhalte werden auf Ihrer Homepage erscheinen.</message>
+	<message key="manager.setup.copyrightNotice">Copyright-Vermerk</message>
+	<message key="manager.setup.copyrightNotice.description">Autor/innen müssen im Einreichungsverfahren der Lizenz zustimmen.</message>
 	<message key="manager.setup.authorGuidelines">Autor/innen-Richtlinien</message>
 	<message key="manager.setup.authorGuidelines.description">Für die Richtlinien werden Standards für Bibliografie und Format sowie Beispiele für gängige Zitierformate, die in Einreichungen benutzt werden sollen, vorgeschlagen.</message>
 	<message key="manager.setup.competingInterests">Interessenkonflikte</message>
-	<message key="manager.setup.competingInterestsDescription">Gutachter/innen werden aufgefordert, den Richtlinien zur Offenlegung von Interessenkonflikten zu entsprechen, die Sie unten angeben.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Es gab einen Fehler beim Löschen dieses Eintrags.</message>
-	<message key="manager.setup.favicon">Ungültiges Favicon-Format. Zulässige Formate sind .ico, .png und .gif.</message>
+	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.setup.groupType">Dateitypgruppierung</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Das Format des Logos in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.homepageImage">Startseitengrafik</message>
-	<message key="manager.setup.homepageImageDescription">Laden Sie eine Grafik hoch, die zentral auf Ihrer Homepage angezeigt werden soll.</message>
+	<message key="manager.setup.homepageImage.description">Laden Sie eine Grafik hoch, die zentral auf Ihrer Homepage angezeigt werden soll.</message>
 	<message key="manager.setup.homepageImageInvalid">Das Format des Bildes auf der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Das Format des Titelbildes in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Beschreibungen</message>
-	<message key="manager.setup.layout.theme">Grafisches Thema</message>
-	<message key="manager.setup.layout.themeDescription">Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plugins aus.</message>
-	<message key="manager.setup.layout.blockManagement">Verwaltung der Sidebar</message>
+	<message key="manager.setup.theme">Grafisches Thema</message>
+	<message key="manager.setup.theme.description">Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plugins aus.</message>
 	<message key="manager.setup.layout.sidebar">Sidebar</message>
-	<message key="manager.setup.layout.unselected">Nicht ausgewählt</message>
 	<message key="manager.setup.loggingAndAuditing">Protokollieren und prüfen</message>
 	<message key="manager.setup.logo">Logo</message>
 	<message key="manager.setup.notifications">Bestätigung der Beitragseinreichung durch die Autor/innen</message>
@@ -243,7 +239,7 @@
 	<message key="manager.setup.openAccessPolicy.description">Wenn Sie sofortigen freien Zugang zu allen veröffentlichten Inhalten gewähren, geben Sie eine Beschreibung Ihrer Open-Access-Richtlinie ein.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ungültiges Format des Logos in der Kopfzeile. Gültige Formate sind .gif, .jpg und .png.</message>
 	<message key="manager.setup.pageFooter">Fußzeile</message>
-	<message key="manager.setup.pageFooterDescription">Geben Sie alle Grafiken, Text oder HTML-Code an, die Sie am Fuß Ihrer Website anzeigen möchten.</message>
+	<message key="manager.setup.pageFooter.description">Geben Sie alle Grafiken, Text oder HTML-Code an, die Sie am Fuß Ihrer Website anzeigen möchten.</message>
 	<message key="manager.setup.peerReview.description">Beschreiben Sie die Begutachtungsrichtlinien und die Abläufe für Leser/innen und Autor/innen. Diese Beschreibung enthält üblicherweise die Anzahl der Gutachter/innen, die typischerweise eine Einreichung begutachten, die Kriterien, anhand derer Gutachter/innen urteilen sollen, die erwartete Begutachtungsdauer und die Grundsätze der Gutachter/innenauswahl.</message>
 	<message key="manager.setup.principalContact">Hauptkontakt</message>
 	<message key="manager.setup.principalContactDescription">Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich zugänglichen Webseite angezeigt werden können.</message>
@@ -253,12 +249,9 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Zeit für Abschluss des Gutachtens (Wochen)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Nie erinnern</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Die Standards können für jedes Gutachten im Rahmen des redaktionellen Prozesses angepasst werden.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht innerhalb der genannten Zeit geantwortet hat (Tage):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der genannten Zeit eine Empfehlung eingereicht hat (Tage):</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht innerhalb der genannten Zeit geantwortet hat (Tage):</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der genannten Zeit eine Empfehlung eingereicht hat (Tage):</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Standard-Fristen für Begutachtung</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Einen Link zu "blinde Begutachtung gewährleisten" während des Uploads anzeigen</message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Eine XML-Sitemap zur Übermittlung an Suchmaschinen steht unter <a href="{$path}" target="_blank">{$path}</a> zur Verfügung.]]></message>
 	<message key="manager.setup.sponsors.note">Sie können einen Hinweis hinzufügen, wie Ihr Verhältnis zu Ihren Sponsoren ist; dieser Hinweis wird in der Sponsorenliste auf Ihrer "Über uns"-Seite erscheinen.</message>
 	<message key="manager.setup.sponsors.description">Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt.</message>
 	<message key="manager.setup.styleSheetDescription">Sie können eine zusätzliche CSS-Datei hochladen, um das Aussehen anzupassen.</message>
@@ -357,16 +350,12 @@
 	<message key="notification.localeSettingsSaved">Einstellungen zur Regionaleinstellung gespeichert.</message>
 	<message key="notification.editedUser">Benutzer/in bearbeitet.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indizierung</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Zahlungen</message>
 	<message key="manager.paymentMethod.title">Zahlungsmethoden</message>
 	<message key="manager.paymentMethod.none">Keine Zahlungsmethode ausgewählt</message>
 	<message key="manager.paymentMethod.method">Zahlungsmethode</message>
 	<message key="manager.paymentMethod.currency">Währung</message>
-	<message key="manager.paymentMethod.currency.description">Zahlungen, die direkt über diese Website abgewickelt werden, werden in der ausgewählten Währung ausgewiesen.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Rollen-Einstellungen</message>
@@ -463,7 +452,6 @@
 	<message key="manager.reviewFormElements.textfield">Einzeiliges Textfeld</message>
 	<message key="manager.reviewFormElements.viewable">Sichtbar (für Autor/innen)</message>
 	<message key="grid.action.createReviewForm">Ein neues Begutachtungsformular anlegen</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Erklärung von Gutachter/in zu möglicherweise bestehenden Interessenkonflikten</message>
 	<message key="manager.setup.competingInterests.required">Während der Begutachtung die Angabe einer Erklärung zu möglicherweise bestehenden Interessenkonflikten verlangen.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL zum Lizenztext, sofern verfügbar.</message>
@@ -490,7 +478,7 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">Importierte/r Nutzer/in "{$username}" besitzt kein Passwort. Bitte überprüfen Sie Ihr Import-XML-Format. Nutzer/in wurde nicht importiert.</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Importierte/r Nutzer/in "{$username}" konnte nicht in der vorliegenden Form importiert werden. Ein neues Passwort wird an die E-Mail-Adresse der Nutzerin/des Nutzers geschickt. Nutzer/in wurde importiert.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">Importierte/r Nutzer/in "{$username}" hat ein ungültiges Klartext-Passwort. Nutzer/in wurde nicht importiert.</message>
-	
+
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Titel</message>
 	<message key="manager.navigationMenus.form.path">Pfad</message>

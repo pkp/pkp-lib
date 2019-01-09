@@ -62,11 +62,9 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 				$navigationMenusTitles = '';
 
 				$templateMgr = TemplateManager::getManager(Application::getRequest());
-				import('classes.core.ServicesContainer');
+				import('classes.core.Services');
 				foreach ($items as $item) {
-					ServicesContainer::instance()
-						->get('navigationMenu')
-						->transformNavMenuItemTitle($templateMgr, $item);
+					Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $item);
 					$navigationMenusTitles = $navigationMenusTitles.$item->getLocalizedTitle().', ';
 				}
 
@@ -80,5 +78,3 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 		return parent::getTemplateVarsFromRowColumn($row, $column);
 	}
 }
-
-

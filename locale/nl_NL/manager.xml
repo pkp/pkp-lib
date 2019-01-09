@@ -138,10 +138,8 @@
 	<message key="manager.plugins">Systeemplugins</message>
 	<message key="manager.readingTools">Leesgereedschappen</message>
 	<message key="manager.roles">Rollen</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Onbruikbaar bestandsformaat voor het home-pagina koptekst-logo. Bruikbaar zijn .gif, .jpg of .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Onbruikbaar bestandsformaat voor de home-pagina afbeelding. Bruikbaar zijn .gif, .jpg of .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Onbruikbaar bestandsformaat voor de home-pagina koptitel. Bruikbaar zijn .gif, .jpg of .png.</message>
-	<message key="manager.setup.layout.unselected">Niet geselecteerd</message>
 	<message key="manager.setup.loggingAndAuditing">Logboek en controle</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Onbruikbaar bestandsformaat voor het paginakop-logo. Bruikbaar zijn .gif, .jpg of .png.</message>
 	<message key="manager.setup.selectOne">Kies er een</message>
@@ -174,7 +172,6 @@
 	<message key="manager.emails.enable.message">U staat op het punt deze e-mail in te schakelen. Wilt u deze bewerking bevestigen?</message>
 	<message key="manager.emails.resetAll.message">Als u de sjablonen herstelt gaan alle modificaties aan de sjablonen verloren. Wilt deze bewerking bevestigen?</message>
 	<message key="manager.reviewerSearch.searchByName.short">Zoeken op naam</message>
-	<message key="manager.setup.layout.blockManagement">Beheer van de sidebar</message>
 	<message key="plugins.categories.metadata">Metadata plugins</message>
 	<message key="manager.emails.data">Sjabloon berichtinhoud</message>
 	<message key="manager.emails.reset.message">Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?</message>

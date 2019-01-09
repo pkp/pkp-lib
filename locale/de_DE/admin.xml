@@ -65,20 +65,14 @@
 	<message key="admin.server.phpVersion">PHP-Version</message>
 	<message key="admin.server.platform">OS-Plattform</message>
 	<message key="admin.settings">Einstellungen</message>
-	<message key="admin.settings.aboutDescription">Beschreibung Über uns</message>
+	<message key="admin.settings.about">Beschreibung Über uns</message>
 	<message key="admin.settings.contactEmail">E-Mail-Adresse des Hauptkontakts</message>
 	<message key="admin.settings.contactName">Name des Hauptkontakts</message>
-	<message key="admin.settings.form.contactEmailRequired">E-Mail-Adresse des Hauptkontakts erforderlich</message>
-	<message key="admin.settings.form.contactNameRequired">Name des Hauptkontakts erforderlich</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Ihr Passwort muss mindestens 4 Zeichen lang sein.</message>
-	<message key="admin.settings.form.titleRequired">Ein Titel ist erforderlich.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Ihre Installation ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.
 		Es gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Beiträge angezeigt werden soll oder um
 		Suchergebnisse zu gewichten. Bitte wählen Sie eine der Nutzungsmetriken als Standard aus.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo der Website</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Ungültiges Dateiformat für Logo der Website. Zulässige Formate sind .gif, .jpg und .png.</message>
 	<message key="admin.settings.introduction">Einführung</message>
 	<message key="admin.settings.minPasswordLength">Mindestlänge des Passworts</message>
 	<message key="admin.settings.siteLanguage">Sprache der Website</message>
@@ -119,7 +113,7 @@ in das aktuelle Dateiverzeichnis innerhalb des Vorbereitungs-Verzeichnisses des 
 Dieses Werkzeug wird nur Dateien kopieren, die nicht bereits in den usageStats-Verzeichnissen (Vorbereitung, Bearbeitung, Archiv, zurückgewiesen) sind.
 
 Benutzung: {$scriptName} path/to/apache/log/file.log
-Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/apache/directory 
+Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/apache/directory
 	</message>
 	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Fehler: kann temporären Ordner {$tmpDir} nicht anlegen</message>
 	<message key="admin.copyAccessLogFileTool.error.acessingFile">Fehler: Datei {$filePath} existiert nicht, oder es kann nicht auf sie zugegriffen werden.</message>

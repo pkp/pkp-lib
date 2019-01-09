@@ -31,29 +31,22 @@ class HelpHandler extends Handler {
 	 */
 	function index($args, $request) {
 		$path = 'docs/manual/';
-		$filename = join('/', $request->getRequestedArgs());
-
-		// If a hash (anchor) was specified, discard it -- we don't need it here.
-		if ($hashIndex = strpos($filename, '#')) {
-			$hash = substr($filename, $hashIndex+1);
-			$filename = substr($filename, 0, $hashIndex);
-		} else {
-			$hash = null;
-		}
+		$urlPart = join('/', $request->getRequestedArgs());
+		$filename = $urlPart . '.md';
 
 		$language = AppLocale::getIso1FromLocale(AppLocale::getLocale());
 		if (!file_exists($path . $language)) $language = 'en'; // Default
 
 		if (!$filename || !preg_match('#^([[a-zA-Z0-9_-]+/)+[a-zA-Z0-9_-]+\.\w+$#', $filename) || !file_exists($path . $filename)) {
-			$request->redirect(null, null, null, array($language, 'SUMMARY.md'));
+			$request->redirect(null, null, null, array($language, 'SUMMARY'));
 		}
 
 		// Use the summary document to find next/previous links.
 		// (Yes, we're grepping markdown outside the parser, but this is much faster.)
 		$previousLink = $nextLink = null;
-		if (preg_match_all('/\(([^)]+\.md)\)/sm', file_get_contents($path . $language . '/SUMMARY.md'), $matches)) {
+		if (preg_match_all('/\(([^)]+)\)/sm', file_get_contents($path . $language . '/SUMMARY.md'), $matches)) {
 			$matches = $matches[1];
-			if (($i = array_search(substr($filename, strpos($filename, '/')+1), $matches)) !== false) {
+			if (($i = array_search(substr($urlPart, strpos($urlPart, '/')+1), $matches)) !== false) {
 				if ($i>0) $previousLink = $matches[$i-1];
 				if ($i<count($matches)-1) $nextLink = $matches[$i+1];
 			}
@@ -74,5 +67,3 @@ class HelpHandler extends Handler {
 		);
 	}
 }
-
-

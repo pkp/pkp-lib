@@ -162,10 +162,8 @@ class ReviewerGridRow extends GridRow {
 			}
 
 			// Add gossip action when appropriate
-			import('classes.core.ServicesContainer');
-			$canCurrentUserGossip = ServicesContainer::instance()
-				->get('user')
-				->canCurrentUserGossip($reviewAssignment->getReviewerId());
+			import('classes.core.Services');
+			$canCurrentUserGossip = Services::get('user')->canCurrentUserGossip($reviewAssignment->getReviewerId());
 			if ($canCurrentUserGossip) {
 				$this->addAction(
 					new LinkAction(
@@ -183,5 +181,3 @@ class ReviewerGridRow extends GridRow {
 		}
 	}
 }
-
-

@@ -18,7 +18,7 @@ body {
 	position: relative;
 	height: auto;
 	min-height: 100%;
-	background: @lift;
+	background: @bg;
 	font-family: @font;
 	font-size: @font-base;
 	line-height: @double;
@@ -59,7 +59,14 @@ img {
 
 .pkp_structure_page {
 	margin-left: 192px;
-	padding: @double 0 228px;
+	padding: @double 0;
+	background: @bg;
+}
+
+.pkp_structure_content {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 992px;
 }
 
 // Panel wrapper when supporting context sidebar

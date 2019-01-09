@@ -24,7 +24,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	function __construct($request, $reviewerSubmission, $reviewAssignment) {
 		parent::__construct($request, $reviewerSubmission, $reviewAssignment, 1);
 		$context = $request->getContext();
-		if (!$reviewAssignment->getDateConfirmed() && $context->getSetting('privacyStatement')) {
+		if (!$reviewAssignment->getDateConfirmed() && $context->getData('privacyStatement')) {
 			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 		}
 	}
@@ -49,17 +49,17 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		$context = $request->getContext();
 
 		// Add submission parameters.
-		$submission = $this->getReviewerSubmission();
-		$templateMgr->assign('completedSteps', $submission->getStatus());
-		$templateMgr->assign('competingInterestsText', $submission->getCompetingInterests());
+		$reviewerSubmission = $this->getReviewerSubmission();
+		$templateMgr->assign('completedSteps', $reviewerSubmission->getStatus());
+		$templateMgr->assign('reviewerCompetingInterests', $reviewerSubmission->getCompetingInterests());
 
 		// Add review assignment.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$reviewAssignment = $reviewAssignmentDao->getById($submission->getReviewId());
+		$reviewAssignment = $reviewAssignmentDao->getById($reviewerSubmission->getReviewId());
 		$templateMgr->assign(array(
 			'reviewAssignment' => $reviewAssignment,
 			'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-			'restrictReviewerFileAccess' => $context->getSetting('restrictReviewerFileAccess'),
+			'restrictReviewerFileAccess' => $context->getData('restrictReviewerFileAccess'),
 			'reviewMethod' => __($reviewAssignment->getReviewMethodKey()),
 		));
 
@@ -78,7 +78,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		$templateMgr->assign('viewMetadataAction', $viewMetadataLinkAction);
 
 		// include the confirmation modal for competing interests if the context has them.
-		if ($context->getLocalizedSetting('competingInterests') != '') {
+		if ($context->getLocalizedData('competingInterests') != '') {
 			import('lib.pkp.controllers.confirmationModal.linkAction.ViewCompetingInterestGuidelinesLinkAction');
 			$competingInterestsAction = new ViewCompetingInterestGuidelinesLinkAction($request);
 			$templateMgr->assign('competingInterestsAction', $competingInterestsAction);
@@ -112,7 +112,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('competingInterestOption', 'competingInterestsText', 'privacyConsent'));
+		$this->readUserVars(array('competingInterestOption', 'reviewerCompetingInterests', 'privacyConsent'));
 	}
 
 	/**
@@ -123,7 +123,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 
 		// Set competing interests.
 		if ($this->getData('competingInterestOption') == 'hasCompetingInterests') {
-			$reviewerSubmission->setCompetingInterests($this->request->getUserVar('competingInterestsText'));
+			$reviewerSubmission->setCompetingInterests($this->request->getUserVar('reviewerCompetingInterests'));
 		} else {
 			$reviewerSubmission->setCompetingInterests(null);
 		}
@@ -143,5 +143,3 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		parent::execute();
 	}
 }
-
-

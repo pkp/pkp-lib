@@ -141,6 +141,14 @@
 	$.pkp.controllers.HelpPanelHandler.prototype.nextTopic_ = null;
 
 
+	/**
+	 * Requested help section
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.HelpPanelHandler.prototype.requestedSection_ = null;
+
+
 	//
 	// Private methods
 	//
@@ -151,7 +159,8 @@
 	 * @param {Event} event The event triggered on this handler
 	 * @param {{
 	 *  caller: jQueryObject,
-	 *  topic: string
+	 *  topic: string,
+	 *  section: string
 	 *  }} options The options with which to open this handler
 	 */
 	$.pkp.controllers.HelpPanelHandler.prototype.openPanel_ =
@@ -178,6 +187,7 @@
 
 		// Load the appropriate help content
 		this.loadHelpContent_(options.topic, this.helpLocale_);
+		this.requestedSection_ = options.section || '';
 
 		// Set focus inside the help panel (delay is required so that element is
 		// visible when jQuery tries to focus on it)
@@ -234,11 +244,11 @@
 		$element.find('.content').replaceWith(
 				'<div class="content">' + responseObject.content + '</div>');
 
-		// If a hash was specified, scroll to the named anchor.
+		// If a section was specified, scroll to the named section.
 		panel.scrollTop(0);
-		if (hashIndex !== -1) {
+		if (this.requestedSection_) {
 			$targetHash = $element.find(
-					'a[name=' + this.currentTopic_.substr(hashIndex + 1) + ']');
+					'a[name="' + this.requestedSection_ + '"]');
 			if ($targetHash.length) {
 				panel.scrollTop($targetHash.offset().top - 50);
 			}
@@ -263,7 +273,10 @@
 			handleContentLinks_ = function(target, event) {
 
 		var url = $(target).attr('href'),
-				urlParts;
+				urlParts,
+				topic,
+				locale,
+				topicParts;
 
 		event.preventDefault();
 
@@ -271,10 +284,18 @@
 		// See: https://github.com/pkp/pkp-lib/issues/1032#issuecomment-199342940
 		if (url.substring(0, 4) == 'http') {
 			window.open(url);
-		} else {
-			urlParts = url.split('/');
-			this.loadHelpContent_(urlParts.slice(1).join('/'), urlParts[0]);
+			return false;
 		}
+
+		urlParts = url.split('/');
+		topic = urlParts.slice(1).join('/');
+		locale = urlParts[0];
+		if (topic.indexOf('#') > -1) {
+			topicParts = topic.split('#');
+			topic = topicParts[0];
+			this.requestedSection_ = topicParts[1];
+		}
+		this.loadHelpContent_(topic, locale);
 
 		return false;
 	};

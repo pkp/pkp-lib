@@ -110,7 +110,7 @@ abstract class Plugin {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installData'));
 		}
 		if ($this->getContextSpecificPluginSettingsFile()) {
-			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array($this, 'installContextSpecificSettings'));
+			HookRegistry::register ('Context::add', array($this, 'installContextSpecificSettings'));
 		}
 
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
@@ -311,6 +311,14 @@ abstract class Plugin {
 	 */
 	function getPluginPath() {
 		return $this->pluginPath;
+	}
+
+	/**
+	 * Get the directory name of the plugin
+	 * @return String directory name
+	 */
+	function getDirName() {
+		return basename($this->pluginPath);
 	}
 
 	/**
@@ -560,33 +568,9 @@ abstract class Plugin {
 	 * @return boolean
 	 */
 	function installContextSpecificSettings($hookName, $args) {
-		// Only applications that have at least one context can
-		// install context specific settings.
-		$application = Application::getApplication();
-		$contextDepth = $application->getContextDepth();
-		if ($contextDepth > 0) {
-			$context =& $args[1];
-
-			// Make sure that this is really a new context
-			$isNewContext = isset($args[3]) ? $args[3] : true;
-			if (!$isNewContext) return false;
-
-			// Install context specific settings
-			$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
-			switch ($contextDepth) {
-				case 1:
-					$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
-					break;
-
-				case 2:
-					$pluginSettingsDao->installSettings($context->getId(), 0, $this->getName(), $this->getContextSpecificPluginSettingsFile());
-					break;
-
-				default:
-					// No application can have a context depth > 2
-					assert(false);
-			}
-		}
+		$context = $args[0];
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
 		return false;
 	}
 
@@ -769,20 +753,6 @@ abstract class Plugin {
 	 * Private helper methods
 	 */
 	/**
-	 * The application specific context installation hook.
-	 *
-	 * @return string
-	 */
-	function _getContextSpecificInstallationHook() {
-		$application = Application::getApplication();
-
-		if ($application->getContextDepth() == 0) return null;
-
-		$contextList = $application->getContextList();
-		return ucfirst(array_shift($contextList)).'SiteSettingsForm::execute';
-	}
-
-	/**
 	 * Get a list of link actions for plugin management.
 	 * @param request PKPRequest
 	 * @param $actionArgs array The list of action args to be included in request URLs.
@@ -824,5 +794,3 @@ abstract class Plugin {
 		return '$.pkp.plugins.' . strtolower(get_class($this));
 	}
 }
-
-

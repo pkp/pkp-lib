@@ -220,16 +220,17 @@ class PKPRouter {
 	 * A Generic call to a context defining object (e.g. a Press, a Conference, or a SchedConf)
 	 * @param $request PKPRequest the request to be routed
 	 * @param $requestedContextLevel int (optional) the desired context level
+	 * @param $forceReload boolean (optional) Reset a context even if it's already been loaded
 	 * @return object
 	 */
-	function &getContext($request, $requestedContextLevel = 1) {
+	function &getContext($request, $requestedContextLevel = 1, $forceReload = false) {
 		// Handle context depth 0
 		if (!$this->_contextDepth) {
 			$nullVar = null;
 			return $nullVar;
 		}
 
-		if (!isset($this->_contexts[$requestedContextLevel])) {
+		if ($forceReload || !isset($this->_contexts[$requestedContextLevel])) {
 			// Retrieve the requested context path (this validates the context level and the path)
 			$path = $this->getRequestedContextPath($request, $requestedContextLevel);
 
@@ -626,5 +627,3 @@ class PKPRouter {
 		return $this->_flippedContextList[$contextName] + 1;
 	}
 }
-
-

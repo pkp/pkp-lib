@@ -41,7 +41,6 @@
 	<message key="common.alphaList">A B C Č Ć D Đ E F G H I J K L M N O P Q R S Š T U V W X Y Z Ž</message>
 	<message key="common.alreadyAssigned">Pridruženo</message>
 	<message key="common.altText">Zamjenski tekst</message>
-	<message key="common.altTextInstructions">Molimo priložite zamjenski tekst za ovu sliku kako bi pristup sadržaju bio moguć i korisnicima sa tekstualnim preglednicima ili pomagalima za čitanje (npr. slijepim i slabovidnim osobama).</message>
 	<message key="common.applyAction">Primjeni postupak</message>
 	<message key="common.assign">Pridruži</message>
 	<message key="common.assigned">Upita</message>
@@ -119,7 +118,6 @@
 	<message key="common.originalFileName">Izvorno ime datoteke</message>
 	<message key="common.or">ili</message>
 	<message key="common.other">Ostalo</message>
-	<message key="common.pageHeaderLogo.altText">Logotip zaglavlja stranice</message>
 	<message key="common.plugin">Dodatak</message>
 	<message key="common.publisher">Nakladnik</message>
 	<message key="common.record">Zapiši</message>
@@ -149,7 +147,6 @@
 	<message key="common.uninitiated">Nezapočeto</message>
 	<message key="common.untitled">Bez naslova</message>
 	<message key="common.updated">Obnovljeno</message>
-	<message key="common.uploadedFile">Poslana datoteka</message>
 	<message key="common.upload">Pošalji datoteku</message>
 	<message key="common.up">Gore</message>
 	<message key="common.url">URL</message>

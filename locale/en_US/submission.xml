@@ -383,7 +383,6 @@
 	<message key="submission.submit.form.subjectsRequired">Please enter a subject.</message>
 	<message key="submission.submit.form.disciplinesRequired">Please enter a discipline.</message>
 	<message key="submission.submit.form.keywordsRequired">Please enter a keyword.</message>
-	<message key="submission.submit.form.agenciesRequired">Please enter a supporting agency.</message>
 	<message key="submission.submit.form.coverageRequired">Please enter the coverage information.</message>
 	<message key="submission.submit.form.typeRequired">Please enter the type.</message>
 	<message key="submission.submit.form.sourceRequired">Please enter the source.</message>
@@ -589,6 +588,12 @@
 	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>]]></message>
 	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>]]></message>
 	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>]]></message>
 
 	<!-- Submission Queries -->
 	<message key="submission.queries.submission">Pre-Review Discussions</message>
@@ -618,8 +623,6 @@
 	<message key="submission.list.reviewDue">Review Due</message>
 	<message key="submission.list.reviewComplete">Review Submitted</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
-	<message key="submission.list.itemOrdererUp">Increase position of {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Decrease position of {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">View Submission</message>
 	<message key="submission.list.reviewsCompleted">Assigned reviews completed</message>
 	<message key="submission.list.revisionsSubmitted">Revisions submitted</message>

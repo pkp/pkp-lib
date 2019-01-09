@@ -1,0 +1,688 @@
+{
+	"title": "Context",
+	"description": "A journal or press.",
+	"type": "object",
+	"required": [
+		"path",
+		"name"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"about": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"acronym": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"additionalHomeContent": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"agencies": {
+			"type": "string",
+			"description": "Enable agencies metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"announcementsIntroduction": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"authorGuidelines": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"authorInformation": {
+			"type": "string",
+			"multilingual": true,
+			"defaultLocaleKey": "default.contextSettings.forAuthors",
+			"validation": [
+				"nullable"
+			]
+		},
+		"citations": {
+			"type": "string",
+			"description": "Enable citations metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"competingInterests": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"contactAffiliation": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"contactEmail": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"email_or_localhost"
+			]
+		},
+		"contactName": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"contactPhone": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"copyrightHolderType": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"in:author,context,other"
+			]
+		},
+		"copyrightHolderOther": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"copyrightNotice": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"coverage": {
+			"type": "string",
+			"description": "Enable coverage metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"currency": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"currency"
+			]
+		},
+		"customHeaders": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"defaultReviewMode": {
+			"type": "integer",
+			"default": 2,
+			"validation": [
+				"nullable",
+				"in:1,2,3"
+			]
+		},
+		"defaultMetricType": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"description": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"disableUserReg": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"disciplines": {
+			"type": "string",
+			"description": "Enable disciplines metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"editorialTeam": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"emailSignature": {
+			"type": "string",
+			"defaultLocaleKey": "default.contextSettings.emailSignature",
+			"validation": [
+				"nullable"
+			]
+		},
+		"enableAnnouncements": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"enableClockss": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"enabled": {
+			"type": "boolean",
+			"apiSummary": true
+		},
+		"enableLockss": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"envelopeSender": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"email_or_localhost"
+			]
+		},
+		"favicon": {
+			"type": "object",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string"
+				}
+			}
+		},
+		"homepageImage": {
+			"type": "object",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string"
+				}
+			}
+		},
+		"id": {
+			"type": "integer",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"itemsPerPage": {
+			"type": "integer",
+			"default": 25,
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"keywords": {
+			"type": "string",
+			"default": "enable",
+			"description": "Enable keywords metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"languages": {
+			"type": "string",
+			"description": "Enable languages metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"librarianInformation": {
+			"type": "string",
+			"multilingual": true,
+			"defaultLocaleKey": "default.contextSettings.forLibrarians",
+			"validation": [
+				"nullable"
+			]
+		},
+		"licenseUrl": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
+		"mailingAddress": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"name": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"numAnnouncementsHomepage": {
+			"type": "integer",
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
+		"numDaysBeforeInviteReminder": {
+			"type": "integer",
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
+		"numDaysBeforeSubmitReminder": {
+			"type": "integer",
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
+		"numPageLinks": {
+			"type": "integer",
+			"default": 10,
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"numWeeksPerResponse": {
+			"type": "integer",
+			"default": 4,
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
+		"numWeeksPerReview": {
+			"type": "integer",
+			"default": 4,
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
+		"openAccessPolicy": {
+			"type": "string",
+			"multilingual": true,
+			"defaultLocaleKey": "default.contextSettings.openAccessPolicy",
+			"validation": [
+				"nullable"
+			]
+		},
+		"pageFooter": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"pageHeaderLogoImage": {
+			"type": "object",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string"
+				}
+			}
+		},
+		"path": {
+			"type": "string",
+			"validation": [
+				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"
+			],
+			"apiSummary": true
+		},
+		"paymentsEnabled": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"primaryLocale": {
+			"type": "string",
+			"validation": [
+				"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+			]
+		},
+		"privacyStatement": {
+			"type": "string",
+			"multilingual": true,
+			"defaultLocaleKey": "default.contextSettings.privacyStatement",
+			"validation": [
+				"nullable"
+			]
+		},
+		"rateReviewerOnQuality": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"readerInformation": {
+			"type": "string",
+			"multilingual": true,
+			"defaultLocaleKey": "default.contextSettings.forReaders",
+			"validation": [
+				"nullable"
+			]
+		},
+		"restrictReviewerFileAccess": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"restrictSiteAccess": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"reviewerAccessKeysEnabled": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"reviewGuidelines": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"rights": {
+			"type": "string",
+			"description": "Enable rights metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"searchDescription": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"seq": {
+			"type": "integer",
+			"apiSummary": true,
+			"validation": [
+				"min:0"
+			]
+		},
+		"showEnsuringLink": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"sidebar": {
+			"type": "array",
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "string",
+				"validation": [
+					"alpha_num"
+				]
+			}
+		},
+		"source": {
+			"type": "string",
+			"description": "Enable source metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"styleSheet": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"subjects": {
+			"type": "string",
+			"description": "Enable subjects metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"submissionChecklist": {
+			"type": "array",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"order": {
+						"type": "integer",
+						"validation": [
+							"nullable",
+							"min:0"
+						]
+					},
+					"content": {
+						"type": "string"
+					}
+				}
+			},
+			"default": [
+				{
+					"order": 1,
+					"content": {
+						"defaultLocaleKey": "default.contextSettings.checklist.notPreviouslyPublished"
+					}
+				},
+				{
+					"order": 2,
+					"content": {
+						"defaultLocaleKey": "default.contextSettings.checklist.fileFormat"
+					}
+				},
+				{
+					"order": 3,
+					"content": {
+						"defaultLocaleKey": "default.contextSettings.checklist.addressesLinked"
+					}
+				},
+				{
+					"order": 4,
+					"content": {
+						"defaultLocaleKey": "default.contextSettings.checklist.submissionAppearance"
+					}
+				},
+				{
+					"order": 5,
+					"content": {
+						"defaultLocaleKey": "default.contextSettings.checklist.bibliographicRequirements"
+					}
+				}
+			]
+		},
+		"supportedFormLocales": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+				]
+			}
+		},
+		"supportedLocales": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+				]
+			}
+		},
+		"supportedSubmissionLocales": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+				]
+			}
+		},
+		"supportEmail": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"email_or_localhost"
+			]
+		},
+		"supportName": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"supportPhone": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"themePluginPath": {
+			"type": "string",
+			"default": "default"
+		},
+		"type": {
+			"type": "string",
+			"description": "Enable types metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"url": {
+			"type": "string",
+			"readOnly": true,
+			"apiSummary": true
+		}
+	}
+}

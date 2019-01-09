@@ -244,11 +244,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
 		if ($request->checkCSRF() && $plugin->getCanEnable()) {
 			$plugin->setEnabled(true);
-			$user = $request->getUser();
-			$notificationManager = new NotificationManager();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_ENABLED, array('pluginName' => $plugin->getDisplayName()));
+			if (empty($args['disableNotification'])) {
+				$user = $request->getUser();
+				$notificationManager = new NotificationManager();
+				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_ENABLED, array('pluginName' => $plugin->getDisplayName()));
+			}
+			return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 		}
-		return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
+		return new JSONMessage(false);
 	}
 
 	/**
@@ -261,11 +264,14 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
 		if ($request->checkCSRF() && $plugin->getCanDisable()) {
 			$plugin->setEnabled(false);
-			$user = $request->getUser();
-			$notificationManager = new NotificationManager();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_DISABLED, array('pluginName' => $plugin->getDisplayName()));
+			if (empty($args['disableNotification'])) {
+				$user = $request->getUser();
+				$notificationManager = new NotificationManager();
+				$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_PLUGIN_DISABLED, array('pluginName' => $plugin->getDisplayName()));
+			}
+			return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
 		}
-		return DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
+		return new JSONMessage(false);
 	}
 
 	/**

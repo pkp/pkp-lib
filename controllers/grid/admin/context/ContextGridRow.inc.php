@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');
+import('lib.pkp.classes.linkAction.request.AjaxModal');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class ContextGridRow extends GridRow {
@@ -41,8 +42,10 @@ class ContextGridRow extends GridRow {
 					$router->url($request, null, null, 'editContext', null, array('rowId' => $rowId)),
 					__('grid.action.edit'),
 					'modal_edit',
-					true
-					),
+					true,
+					'context',
+					['editContext']
+				),
 				__('grid.action.edit'),
 				'edit'
 			)
@@ -65,8 +68,7 @@ class ContextGridRow extends GridRow {
 		$this->addAction(
 			new LinkAction(
 				'wizard',
-				new RedirectAction(
-					$dispatcher->url($request, ROUTE_PAGE, $element->getPath(), 'admin', 'contexts', null, array('openWizard' => 1))),
+				new RedirectAction($dispatcher->url($request, ROUTE_PAGE, 'index', 'admin', 'wizard', $element->getId())),
 				__('grid.action.wizard'),
 				'wrench'
 			)
@@ -87,5 +89,3 @@ class ContextGridRow extends GridRow {
 
 	}
 }
-
-

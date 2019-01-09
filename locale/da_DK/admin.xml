@@ -45,15 +45,9 @@
 	<message key="admin.serverInformation">Serveroplysninger</message>
 	<message key="admin.server.phpVersion">PHP-version</message>
 	<message key="admin.server.platform">Operativsystemplatform</message>
-	<message key="admin.settings.aboutDescription">Om webstedsbeskrivelsen</message>
+	<message key="admin.settings.about">Om webstedsbeskrivelsen</message>
 	<message key="admin.settings.contactEmail">E-mail-adresse på primær kontaktperson</message>
 	<message key="admin.settings.contactName">Navn på primær kontaktperson</message>
-	<message key="admin.settings.form.contactEmailRequired">E-mail-adressen på den primære kontaktperson er påkrævet.</message>
-	<message key="admin.settings.form.contactNameRequired">Navnet på den primære kontaktperson er påkrævet.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Du skal angive en adgangskode, der består af mindst 4 tegn.</message>
-	<message key="admin.settings.form.titleRequired">En titel er påkrævet.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Websteds-logo</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Ugyldigt billedformat for webstedslogo. De accepterede formater er .jpg eller .png.</message>
 	<message key="admin.settings.introduction">Introduktion</message>
 	<message key="admin.settings.minPasswordLength">Minimumlængde for adgangskode</message>
 	<message key="admin.settings.siteLanguage">Sprog på websted</message>

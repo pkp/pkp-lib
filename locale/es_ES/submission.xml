@@ -647,8 +647,6 @@
 	<message key="submission.list.reviewDue">Revisión esperada</message>
 	<message key="submission.list.confirmDelete">¿Eliminar envío?</message>
 	<message key="submission.list.viewSubmission">Ver {$title}</message>
-	<message key="submission.list.itemOrdererUp">Incrementar posición de {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Decrementar posición de {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Ver Envío</message>
 	<message key="submission.list.reviewsCompleted">Revisiones asignadas completadas</message>
 	<message key="submission.list.revisionsSubmitted">Revisiones enviadas</message>

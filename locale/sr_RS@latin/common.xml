@@ -37,7 +37,6 @@
 	<message key="common.alphaList">A B C Č Ć D Đ E F G H I J K L M N O P Q R S Š T U V W X Y Z Ž</message>
 	<message key="common.alreadyAssigned">Dodeljeno</message>
 	<message key="common.altText">Dopunski opisni tekst</message>
-	<message key="common.altTextInstructions">Molimo priložite dopunski opisni tekst za ovu sliku kako bi pristup sadržaju bio moguć i korisnicima sa tekstualnim čitačima ili pomagalima za čitanje (npr. slepim i slabovidnim osobama).</message>
 	<message key="common.and">i</message>
 	<message key="common.applyAction">Primeni postupak</message>
 	<message key="common.assign">Dodeli</message>
@@ -139,7 +138,6 @@
 	<message key="common.originalFileName">Originalno ime fajla</message>
 	<message key="common.or">ili</message>
 	<message key="common.other">Ostalo</message>
-	<message key="common.pageHeaderLogo.altText">Logo zaglavlja stranice</message>
 	<message key="common.plugin">Dodatak</message>
 	<message key="common.pluginEnabled">Dodatak "{$pluginName}" je omogućen.</message>
 	<message key="common.pluginDisabled">Dodatak "{$pluginName}" je onemogućen.</message>
@@ -176,7 +174,6 @@
 	<message key="common.untitled">Bez naslova</message>
 
 	<message key="common.updated">Ažurirano</message>
-	<message key="common.uploadedFile">Dostavljeni fajl</message>
 	<message key="common.upload">Dostavi</message>
 	<message key="common.uploadFailed">Fajl ne može da se dostavi. Pokušajte opet ili kontaktirajte administratora.</message>
 	<message key="common.up">Gore</message>
@@ -322,7 +319,6 @@
 	<message key="common.remoteURL">Udaljeni URL</message>
 	<message key="common.reset">Resetuj</message>
 	<message key="common.unread">Nije pročitano</message>
-	<message key="common.invalidFileType">Fajl nije dostavljen ili je u pogrešnom formatu!</message>
 	<message key="common.plugins">Dodaci</message>
 	<message key="email.subjectRequired">Dodajte temu imejla.</message>
 	<message key="email.bodyRequired">Dodajte tekst imejla.</message>
@@ -379,7 +375,6 @@
 	<message key="common.fileUploaderError">Sistemski postavljač fajlova postavlja fajl.  Ako se ne fajl ne pojavi to verovatno znači da vaš internet pregledač ne podržava neki od njegovih procesa. Kontaktirajte administratora za podršku.</message>
 	<message key="common.homepageNavigationLabel">Početna</message>
 	<message key="common.itemsPerPage">Elemenata po stranici</message>
-	<message key="common.favicon.altText">Omiljena sličica-Favicon</message>
 	<message key="common.notified.date">Obavešteno: {$dateNotified}</message>
 	<message key="common.pageNumber">Strana {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -398,7 +393,6 @@
 	<message key="common.subtitle">Podnaslov</message>
 	<message key="common.component">Komponenta</message>
 	<message key="common.uploadedDate">Datum dostavljanja</message>
-	<message key="common.homepageImage.altText">Slika početne stranice</message>
 	<message key="common.upload.addFile">Dostavi fajl</message>
 	<message key="common.upload.changeFile">Izmeni fajl</message>
 	<message key="common.upload.dragFile">Prevuci fajl ovde da započneš dostavljanje</message>
@@ -413,7 +407,6 @@
 	<message key="email.senderName">Ime pošiljaoca</message>
 	<message key="email.senderEmail">Imejl adresa pošiljaoca</message>
 	<message key="form.url.invalid">Data URL adresa nije ispravna, proverite i pokušajte ponovo.</message>
-	<message key="form.csrfInvalid">Formular nije ispravno unet.</message>
 	<message key="form.fileRequired">Neophodno je dodavanje fajla</message>
 	<message key="help.previous">Prethodno</message>
 	<message key="help.next">Sledeće</message>

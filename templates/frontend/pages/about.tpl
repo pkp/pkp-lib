@@ -16,7 +16,7 @@
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutContext"}
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}
 
-	{$currentContext->getLocalizedSetting('about')}
+	{$currentContext->getLocalizedData('about')}
 </div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

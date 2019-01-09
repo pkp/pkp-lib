@@ -56,7 +56,6 @@
 	<message key="common.titleSmallWords">и или но если то иначе когда в на под из над с во</message>
 	<message key="common.alreadyAssigned">Назначен</message>
 	<message key="common.altText">Альтернативный текст</message>
-	<message key="common.altTextInstructions">Чтобы улучшить оптимизацию для поисковых машин и соответствовать стандартам WCAG, пожалуйста, опишите то, что изображено на этой картинке, так как она будет пропущена, если сайт будет просматриваться через текстовый браузер или с помощью других вспомогательных устройств для людей с ограниченными возможностями. Например: «Наш редактор выступает на конференции PKP#2015».</message>
 	<message key="common.and">и</message>
 	<message key="common.applyAction">Применить</message>
 	<message key="common.assign">Назначить</message>
@@ -167,7 +166,6 @@
 	<message key="common.initiate">Начать</message>
 	<message key="common.inProgress">В процессе</message>
 	<message key="common.itemsPerPage">Элементов на странице</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">Ключевые слова</message>
 	<message key="common.language">Язык</message>
 	<message key="common.languages">Языки</message>
@@ -201,6 +199,8 @@
 	<message key="common.ok">OK</message>
 	<message key="common.options">Параметры</message>
 	<message key="common.order">Сортировка</message>
+	<message key="common.orderUp">Поднять вверх «{$itemTitle}»</message>
+	<message key="common.orderDown">Опустить вниз «{$itemTitle}»</message>
 	<message key="common.originalFileName">Первоначальное название файла</message>
 	<message key="common.or">или</message>
 	<message key="common.other">Прочее</message>
@@ -208,7 +208,6 @@
 	<message key="common.pagination">{$start}-{$end} из {$total}</message>
 	<message key="common.pagination.label">Просмотреть другие страницы</message>
 	<message key="common.pageNumber">Страница {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">Логотип верхнего колонтитула страницы</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Модуль</message>
 	<message key="common.pluginEnabled">Модуль «{$pluginName}» был включен.</message>
@@ -267,11 +266,8 @@
 	<message key="common.untitled">Без имени</message>
 	<message key="common.updated">Обновлен</message>
 	<message key="common.uploadedDate">Дата загрузки</message>
-	<message key="common.uploadedFile">Загруженный файл</message>
 	<message key="common.upload">Загрузить на сервер</message>
 	<message key="common.uploadFailed">Файл не может быть загружен или изменен.</message>
-	<message key="common.invalidFileType">Файл не был загружен или имеет неверный тип!</message>
-	<message key="common.homepageImage.altText">Изображение главной страницы</message>
 	<message key="common.up">Наверх</message>
 	<message key="common.upload.addFile">Загрузить файл</message>
 	<message key="common.upload.changeFile">Изменить файл</message>
@@ -340,7 +336,6 @@
 	<message key="form.is">равно</message>
 	<message key="form.startsWith">начинается с</message>
 	<message key="form.postRequired">Форма не была отправлена надлежащим образом.</message>
-	<message key="form.csrfInvalid">Форма не была отправлена надлежащим образом.</message>
 	<message key="form.fileRequired">Обязательно нужно загрузить файл.</message>
 	<message key="form.required">(* Обязательно)</message>
 	<message key="form.resubmit">Отправить снова</message>

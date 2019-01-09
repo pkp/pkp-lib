@@ -25,9 +25,14 @@ class AjaxModal extends Modal {
 	 * @param $title string (optional) The localized modal title.
 	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
 	 * @param $canClose boolean (optional) Whether the modal will have a close button.
+	 * @param $closeOnFormSuccessId string (optional) Close the modal when the
+	 *  form with this id fires a formSuccess event.
+	 * @param $closeCleanVueInstances array (optional) When the modal is closed
+	 *  destroy the registered vue instances with these ids
 	 */
-	function __construct($url, $title = null, $titleIcon = null, $canClose = true) {
-		parent::__construct($title, $titleIcon, $canClose);
+	function __construct($url, $title = null, $titleIcon = null, $canClose = true,
+			$closeOnFormSuccessId = null, $closeCleanVueInstances = []) {
+		parent::__construct($title, $titleIcon, $canClose, $closeOnFormSuccessId, $closeCleanVueInstances);
 
 		$this->_url = $url;
 	}
@@ -52,10 +57,12 @@ class AjaxModal extends Modal {
 	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
 	function getLocalizedOptions() {
-		return array_merge(parent::getLocalizedOptions(), array(
+		return array_merge(
+			parent::getLocalizedOptions(),
+			array(
 				'modalHandler' => '$.pkp.controllers.modal.AjaxModalHandler',
-				'url' => $this->getUrl()));
+				'url' => $this->getUrl(),
+			)
+		);
 	}
 }
-
-

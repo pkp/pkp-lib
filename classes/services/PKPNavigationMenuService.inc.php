@@ -146,16 +146,16 @@ class PKPNavigationMenuService {
 		// Conditionally hide some items
 		switch ($menuItemType) {
 			case NMI_TYPE_ANNOUNCEMENTS:
-				$navigationMenuItem->setIsDisplayed($context && $context->getSetting('enableAnnouncements'));
+				$navigationMenuItem->setIsDisplayed($context && $context->getData('enableAnnouncements'));
 				break;
 			case NMI_TYPE_EDITORIAL_TEAM:
-				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedSetting('editorialTeam'));
+				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('editorialTeam'));
 				break;
 			case NMI_TYPE_CONTACT:
-				$navigationMenuItem->setIsDisplayed($context && ($context->getSetting('mailingAddress') || $context->getSetting('contactName')));
+				$navigationMenuItem->setIsDisplayed($context && ($context->getData('mailingAddress') || $context->getData('contactName')));
 				break;
 			case NMI_TYPE_USER_REGISTER:
-				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn && !($context && $context->getSetting('disableUserReg')));
+				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn && !($context && $context->getData('disableUserReg')));
 				break;
 			case NMI_TYPE_USER_LOGIN:
 				$navigationMenuItem->setIsDisplayed(!$isUserLoggedIn);
@@ -172,7 +172,7 @@ class PKPNavigationMenuService {
 				$navigationMenuItem->setIsDisplayed($context);
 				break;
 			case NMI_TYPE_PRIVACY:
-				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedSetting('privacyStatement'));
+				$navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('privacyStatement'));
 				break;
 		}
 

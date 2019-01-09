@@ -16,7 +16,7 @@
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Du kan bara visa opublicerade bidrag som du själv blivit tilldelad.</message>
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">Du kan inte radera ett bidrag som inte är kopplat till den här kontexten.</message>
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">Du har inte behörighet att ta bort det här bidraget.</message>
-	<message key="api.submissions.404.resourceNotFound">Den efterfrågade resursen kunde inte hittas.</message>
+	<message key="api.404.resourceNotFound">Den efterfrågade resursen kunde inte hittas.</message>
 	<message key="api.submissions.400.missingRequired">Din förfrågan kunde inte fullföljas eftersom det saknar nödvändig information.</message>
 	<message key="api.submissions.400.stageNotValid">Din förfrågan kunde inte fullföljas eftersom ID:t för bidragssteget är ogiltigt.</message>
 	<message key="api.submissions.unknownError">Ett oväntat fel uppstod. Ladda om sidan och försök igen.</message>

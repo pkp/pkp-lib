@@ -65,20 +65,14 @@
 	<message key="admin.server.phpVersion">PHP version</message>
 	<message key="admin.server.platform">OS platform</message>
 	<message key="admin.settings">Settings</message>
-	<message key="admin.settings.aboutDescription">About the Site</message>
+	<message key="admin.settings.about">About the Site</message>
 	<message key="admin.settings.contactEmail">Email of principal contact</message>
 	<message key="admin.settings.contactName">Name of principal contact</message>
-	<message key="admin.settings.form.contactEmailRequired">The email address of the principal contact is required.</message>
-	<message key="admin.settings.form.contactNameRequired">The name of the principal contact is required.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">You must enter a minimum password length of at least 4 characters.</message>
-	<message key="admin.settings.form.titleRequired">A title is required.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Your installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
 		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
 		search results. Please select one of the configured metrics as a default.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Site Logo</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Invalid site logo image format. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="admin.settings.introduction">Introduction</message>
 	<message key="admin.settings.minPasswordLength">Minimum password length (characters)</message>
 	<message key="admin.settings.siteLanguage">Site language</message>

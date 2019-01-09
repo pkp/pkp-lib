@@ -14,50 +14,19 @@
  * @brief Validation check for ORCID iDs.
  */
 
-import('lib.pkp.classes.validation.ValidatorRegExp');
+import('lib.pkp.classes.validation.Validator');
+import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorORCID extends ValidatorRegExp {
+class ValidatorORCID extends Validator {
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct(self::getRegexp());
-	}
-
-
-	//
-	// Implement abstract methods from Validator
-	//
-	/**
-	 * @see Validator::isValid()
-	 * @param $value mixed
-	 * @return boolean
+	 * @copydoc Validator::isValid()
 	 */
 	function isValid($value) {
-		if (!parent::isValid($value)) return false;
+		$validator = \ValidatorFactory::make(
+			['value' => $value],
+			['value' => ['required', 'orcid']]
+		);
 
-		// Test the check digit
-		// ORCID is an extension of ISNI
-		// http://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier
-		$matches = $this->getMatches();
-		$orcid = $matches[1] . $matches[2] . $matches[3] . $matches[4];
-
-		import('lib.pkp.classes.validation.ValidatorISNI');
-		$validator = new ValidatorISNI();
-		return $validator->isValid($orcid);
-	}
-
-	//
-	// Public static methods
-	//
-	/**
-	 * Return the regex for an ORCID check. This can be called
-	 * statically.
-	 * @return string
-	 */
-	static function getRegexp() {
-		return '/^http[s]?:\/\/orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/';
+		return $validator->passes();
 	}
 }
-
-

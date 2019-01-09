@@ -383,7 +383,6 @@
 	<message key="submission.submit.form.subjectsRequired">Пожалуйста, укажите тему.</message>
 	<message key="submission.submit.form.disciplinesRequired">Пожалуйста, укажите предмет.</message>
 	<message key="submission.submit.form.keywordsRequired">Пожалуйста, укажите ключевое слово.</message>
-	<message key="submission.submit.form.agenciesRequired">Пожалуйста, укажите спонсоров.</message>
 	<message key="submission.submit.form.coverageRequired">Пожалуйста, укаэите информацию об охвате.</message>
 	<message key="submission.submit.form.typeRequired">Пожалуйста, укажите тип.</message>
 	<message key="submission.submit.form.sourceRequired">Пожалуйста, укажите источник.</message>
@@ -618,8 +617,6 @@
 	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
 	<message key="submission.list.reviewComplete">Рецензия отправлена</message>
 	<message key="submission.list.confirmDelete">Удалить материал?</message>
-	<message key="submission.list.itemOrdererUp">Поднять вверх «{$itemTitle}»</message>
-	<message key="submission.list.itemOrdererDown">Опустить вниз «{$itemTitle}»</message>
 	<message key="submission.list.viewSubmission">Показать материал</message>
 	<message key="submission.list.reviewsCompleted">Завершено назначенных рецензий</message>
 	<message key="submission.list.revisionsSubmitted">Отправлено новых версий</message>

@@ -61,7 +61,6 @@
 	<message key="installer.oaiRepositoryId">OAI gordailu-identifikatzailea</message>
 	<message key="installer.publicFilesDirError">Fitxategi publikoen direktorioa ez dago edo ez da idazgarria.</message>
 	<message key="installer.releaseNotes">Bertsio-oharrak</message>
-	<message key="installer.securitySettings">Segurtasun-ezarpenak</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Errorea <tt>{$file}</tt> txantiloia analizatzean.]]></message>
 	<message key="installer.locale.maybeIncomplete">Markatutako lokalak osatu gabe egon daitezke.</message>
 	<message key="installer.oaiSettings">OAI ezarpenak</message>

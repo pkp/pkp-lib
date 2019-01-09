@@ -24,7 +24,7 @@ class AdminHandler extends Handler {
 
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN),
-			array('index', 'settings')
+			array('index', 'contexts', 'settings', 'wizard')
 		);
 	}
 
@@ -67,6 +67,17 @@ class AdminHandler extends Handler {
 	}
 
 	/**
+	 * Display a list of the contexts hosted on the site.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function contexts($args, $request) {
+		$this->setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->display('admin/contexts.tpl');
+	}
+
+	/**
 	 * Display the administration settings page.
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -74,7 +85,101 @@ class AdminHandler extends Handler {
 	function settings($args, $request) {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
+		$site = $request->getSite();
+		$dispatcher = $request->getDispatcher();
+
+		// No admin settings when the app doesn't support multiple contexts
+		if (!Application::getAllowMultipleContexts()) {
+			$dispatcher->handle404();
+		}
+
+		$apiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site');
+		$themeApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
+		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');
+		$siteUrl = $request->getBaseUrl();
+
+		import('classes.file.PublicFileManager');
+		$publicFileManager = new PublicFileManager();
+		$baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
+
+		$supportedLocales = $site->getSupportedLocales();
+		$localeNames = AppLocale::getAllLocales();
+		$locales = array_map(function($localeKey) use ($localeNames) {
+			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+		}, $supportedLocales);
+
+		$siteAppearanceForm = new \APP\components\forms\site\SiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
+		$siteConfigForm = new \APP\components\forms\site\SiteConfigForm($apiUrl, $locales, $site);
+		$siteInformationForm = new \APP\components\forms\site\SiteInformationForm($apiUrl, $locales, $site);
+		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $siteUrl);
+
+		$settingsData = [
+			'forms' => [
+				FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
+				FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
+				FORM_SITE_INFO => $siteInformationForm->getConfig(),
+				FORM_THEME => $themeForm->getConfig(),
+			],
+		];
+
+		$templateMgr->assign('settingsData', $settingsData);
+
 		$templateMgr->display('admin/settings.tpl');
+	}
+
+	/**
+	 * Display a settings wizard for a journal
+	 *
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	public function wizard($args, $request) {
+		$this->setupTemplate($request);
+		$router = $request->getRouter();
+		$dispatcher = $request->getDispatcher();
+
+		if (!isset($args[0]) || !ctype_digit($args[0])) {
+			$request->getDispatcher()->handle404();
+		}
+
+		import('classes.core.Services');
+		$contextService = Services::get('context');
+		$context = $contextService->get((int) $args[0]);
+
+		if (empty($context)) {
+			$request->getDispatcher()->handle404();
+		}
+
+		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
+		$contextUrl = $router->url($request, $context->getPath());
+		$sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
+
+		$supportedFormLocales = $context->getSupportedFormLocales();
+		$localeNames = AppLocale::getAllLocales();
+		$locales = array_map(function($localeKey) use ($localeNames) {
+			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+		}, $supportedFormLocales);
+
+		$contextForm = new APP\components\forms\context\ContextForm($apiUrl, __('admin.contexts.form.edit.success'), $locales, $request->getBaseUrl(), $context);
+		$themeForm = new PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
+		$indexingForm = new PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+
+		$settingsData = [
+			'forms' => [
+				FORM_CONTEXT => $contextForm->getConfig(),
+				FORM_SEARCH_INDEXING => $indexingForm->getConfig(),
+				FORM_THEME => $themeForm->getConfig(),
+			],
+		];
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'settingsData' => $settingsData,
+			'editContext' => $context,
+		]);
+
+		$templateMgr->display('admin/contextSettings.tpl');
 	}
 
 	/**
@@ -86,5 +191,3 @@ class AdminHandler extends Handler {
 		return parent::initialize($request);
 	}
 }
-
-

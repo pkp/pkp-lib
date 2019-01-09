@@ -68,15 +68,15 @@ class UserForm extends Form {
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);
 
-		import('lib.pkp.controllers.list.users.SelectRoleListHandler');
-		$selectRoleList = new SelectRoleListHandler(array(
+		import('lib.pkp.classes.components.listPanels.users.SelectRoleListPanel');
+		$selectRoleList = new SelectRoleListPanel(array(
 			'contextId' => $contextId,
 			'title' => 'grid.user.userRoles',
 			'inputName' => 'userGroupIds[]',
 			'selected' => $this->getData('userGroupIds'),
 		));
 		$templateMgr->assign(array(
-			'selectUserListData' => json_encode($selectRoleList->getConfig()),
+			'selectUserListData' => $selectRoleList->getConfig(),
 		));
 
 		return $this->fetch($request);
@@ -103,5 +103,3 @@ class UserForm extends Form {
 	}
 
 }
-
-

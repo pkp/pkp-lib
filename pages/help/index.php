@@ -15,12 +15,6 @@
  * @brief Handle requests for help functions.
  *
  */
-
-switch($op) {
-	case 'index':
-		define('HANDLER_CLASS', 'HelpHandler');
-		import('lib.pkp.pages.help.HelpHandler');
-		break;
-}
-
-
+$op = 'index';
+define('HANDLER_CLASS', 'HelpHandler');
+import('lib.pkp.pages.help.HelpHandler');

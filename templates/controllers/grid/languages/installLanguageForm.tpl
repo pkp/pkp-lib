@@ -46,6 +46,6 @@
 	{/fbvFormArea}
 
 	{if not empty($notInstalledLocales)}
-		{fbvFormButtons id="mastheadFormSubmit" submitText="common.save"}
+		{fbvFormButtons id="installLanguageFormSubmit" submitText="common.save"}
 	{/if}
 </form>

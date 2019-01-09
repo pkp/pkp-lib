@@ -213,26 +213,23 @@
 	<message key="manager.affiliationAndSupport">Patrocinadors</message>
 	<message key="manager.setup.authorGuidelines">Directrius per a l’autor/a</message>
 	<message key="manager.setup.competingInterests">Conflicte d’interessos</message>
-	<message key="manager.setup.competingInterestsDescription">Es demanarà als revisors/oresque compleixin amb la política de divulgació de conflicte d'interessos que especifiqueu a continuació.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
+	<message key="manager.setup.favicon">Icona de web</message>
 	<message key="manager.setup.groupType">Classificació dels tipus de fitxers</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Temps permès per rebre respostes de revisió (setmanes)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Temps permès per completar les revisions (setmanes)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">No m'ho recordis</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Envia un recordatori si el revisor/a no ha respost a una sol·licitud de revisió en el període següent (dies):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Envia un recordatori si el revisor/a no ha tramès una recomanació en el període següent (dies):</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Envia un recordatori si el revisor/a no ha respost a una sol·licitud de revisió en el període següent (dies):</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Envia un recordatori si el revisor/a no ha tramès una recomanació en el període següent (dies):</message>
 	<message key="manager.setup.dependentGenre">Gèneres dependents</message>
 	<message key="manager.setup.sponsors">Organitzacions patrocinadores</message>
 	<message key="manager.setup.sponsors.note">Podeu afegir una nota per descriure la vostra política i relació de patrocini, que apareixerà amb la llista de patrocinadors/ores a la vostra pàgina d'Informació personal.</message>
 	<message key="manager.setup.contributors.note">Podeu afegir una nota per descriure la política i la relació que heu establert amb les vostres fonts de finançament, que apareixerà amb la llista de Fonts de finançament a la vostra pàgina d'Informació personal.</message>
 	<message key="manager.setup.styleSheetDescription">Podeu carregar un fitxer de full d'estil en cascada (CSS) addicional per canviar l'aparença.</message>
 	<message key="manager.setup.errorDeletingItem">S’ha produït un error en suprimir aquest element.</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Ha fallat la càrrega de la imatge utilitzada com a logotip per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Ha fallat la càrrega de la imatge per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Ha fallat la càrrega de la imatge del títol per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
-	<message key="manager.setup.layout.theme">Tema</message>
-	<message key="manager.setup.layout.themeDescription">Trieu un tema d'entre els mòduls de tema disponibles.</message>
-	<message key="manager.setup.layout.blockManagement">Administració de la barra lateral</message>
-	<message key="manager.setup.layout.unselected">No seleccionada</message>
+	<message key="manager.setup.theme">Tema</message>
+	<message key="manager.setup.theme.description">Trieu un tema d'entre els mòduls de tema disponibles.</message>
 	<message key="manager.setup.loggingAndAuditing">Registre i control</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Ha fallat la càrrega de la imatge utilitzada com a logotip per a la capçalera de la pàgina, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Ha fallat la càrrega de la imatge del títol per a la capçalera de la pàgina inicial, o bé el format no és vàlid. Els formats acceptats són .gif, .jpg i .png.</message>
@@ -303,9 +300,6 @@
 	<message key="notification.localeSettingsSaved">S'han desat els paràmetres de configuració regional.</message>
 	<message key="notification.editedUser">Editat per l'usuari/ària</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indexació</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Pagaments</message>
 	<message key="manager.paymentMethod.title">Mètodes de pagament</message>
@@ -313,7 +307,6 @@
 	<message key="manager.paymentMethod.none">No s'ha seleccionat cap mètode de pagament</message>
 	<message key="manager.paymentMethod.method">Mètode de pagament</message>
 	<message key="manager.paymentMethod.currency">Moneda</message>
-	<message key="manager.paymentMethod.currency.description">Els pagaments efectuats mitjançant aquest lloc web es denominaran en la moneda seleccionada.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Opcions de rol</message>

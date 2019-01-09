@@ -67,16 +67,14 @@ class PKPNavigationMenuItemsForm extends Form {
 
 		$context = $request->getContext();
 		if ($context) $templateMgr->assign('allowedVariables', array(
-			'contactName' => __('plugins.generic.tinymce.variables.principalContactName', array('value' => $context->getSetting('contactName'))),
-			'contactEmail' => __('plugins.generic.tinymce.variables.principalContactEmail', array('value' => $context->getSetting('contactEmail'))),
-			'supportName' => __('plugins.generic.tinymce.variables.supportContactName', array('value' => $context->getSetting('supportName'))),
-			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getSetting('supportPhone'))),
-			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getSetting('supportEmail'))),
+			'contactName' => __('plugins.generic.tinymce.variables.principalContactName', array('value' => $context->getData('contactName'))),
+			'contactEmail' => __('plugins.generic.tinymce.variables.principalContactEmail', array('value' => $context->getData('contactEmail'))),
+			'supportName' => __('plugins.generic.tinymce.variables.supportContactName', array('value' => $context->getData('supportName'))),
+			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getData('supportPhone'))),
+			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getData('supportEmail'))),
 		));
-		import('classes.core.ServicesContainer');
-		$types = ServicesContainer::instance()
-			->get('navigationMenu')
-			->getMenuItemTypes();
+		import('classes.core.Services');
+		$types = Services::get('navigationMenu')->getMenuItemTypes();
 
 		$typeTitles = array(0 => __('grid.navigationMenus.navigationMenu.selectType'));
 		foreach ($types as $type => $settings) {
@@ -203,5 +201,3 @@ class PKPNavigationMenuItemsForm extends Form {
 	}
 
 }
-
-

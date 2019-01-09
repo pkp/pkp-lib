@@ -131,6 +131,12 @@ class Dispatcher {
 		AppLocale::initialize($request);
 		PluginRegistry::loadCategory('generic', true);
 
+		// Reload the context after generic plugins have loaded so that changes to
+		// the context schema can take place
+		import('classes.core.Services');
+		$contextSchema = \Services::get('schema')->get(SCHEMA_CONTEXT, true);
+		$request->getRouter()->getContext($request, 1, true);
+
 		$router->route($request);
 	}
 

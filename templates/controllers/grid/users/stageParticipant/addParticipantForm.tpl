@@ -10,7 +10,7 @@
  *}
 
 {* Help link *}
-{help file="editorial-workflow.md" section="participants" class="pkp_help_modal"}
+{help file="editorial-workflow" section="participants" class="pkp_help_modal"}
 
 <script type="text/javascript">
 	$(function() {ldelim}

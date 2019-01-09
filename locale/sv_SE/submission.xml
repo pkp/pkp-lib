@@ -383,7 +383,6 @@
 	<message key="submission.submit.form.subjectsRequired">Vänligen ange ett ämne.</message>
 	<message key="submission.submit.form.disciplinesRequired">Vänligen ange en disciplin.</message>
 	<message key="submission.submit.form.keywordsRequired">Vänligen ange nyckelord.</message>
-	<message key="submission.submit.form.agenciesRequired">Vänligen ange stödorganisation.</message>
 	<message key="submission.submit.form.coverageRequired">Vänligen ange information om täckning.</message>
 	<message key="submission.submit.form.typeRequired">Vänligen ange typ.</message>
 	<message key="submission.submit.form.sourceRequired">Vänligen ange källa.</message>
@@ -617,8 +616,6 @@
 	<message key="submission.list.reviewDue">Deadline för granskning</message>
 	<message key="submission.list.reviewComplete">Granskning inskickad</message>
 	<message key="submission.list.confirmDelete">Radera bidrag?</message>
-	<message key="submission.list.itemOrdererUp">Flytta up {$itemTitle} i listan</message>
-	<message key="submission.list.itemOrdererDown">Flytta ned {$itemTitle} i listan</message>
 	<message key="submission.list.viewSubmission">Visa bidrag</message>
 	<message key="submission.list.reviewsCompleted">Tilldelade granskningar slutförda</message>
 	<message key="submission.list.revisionsSubmitted">Bearbetningar insända</message>

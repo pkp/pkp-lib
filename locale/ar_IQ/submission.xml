@@ -618,8 +618,6 @@
 	<message key="submission.list.reviewDue">استيجاب التحكيم</message>
 	<message key="submission.list.reviewComplete">التحكيم مسَلم</message>
 	<message key="submission.list.confirmDelete">أتريد حذف الطلب؟</message>
-	<message key="submission.list.itemOrdererUp">زيادة موقع {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">تقليل موقع {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">معاينة الطلب</message>
 	<message key="submission.list.reviewsCompleted">مهام التحكيم مكتملة</message>
 	<message key="submission.list.revisionsSubmitted">التحكيمات مسلَّمة</message>

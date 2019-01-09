@@ -383,7 +383,6 @@
 	<message key="submission.submit.form.subjectsRequired">Bitte geben Sie ein Thema ein.</message>
 	<message key="submission.submit.form.disciplinesRequired">Bitte geben Sie ein Fachgebiet ein.</message>
 	<message key="submission.submit.form.keywordsRequired">Bitte geben Sie ein Schlagwort ein.</message>
-	<message key="submission.submit.form.agenciesRequired">Bitte geben Sie eine unterstützende Organisation ein.</message>
 	<message key="submission.submit.form.coverageRequired">Bitte geben Sie Informationen zum Abdeckungsbereich ein.</message>
 	<message key="submission.submit.form.typeRequired">Bitte geben Sie den Typ ein.</message>
 	<message key="submission.submit.form.sourceRequired">Bitte geben Sie die Quelle ein.</message>
@@ -618,8 +617,6 @@
 	<message key="submission.list.reviewDue">Gutachten fällig</message>
 	<message key="submission.list.reviewComplete">Gutachten eingereicht</message>
 	<message key="submission.list.confirmDelete">Einreichung löschen?</message>
-	<message key="submission.list.itemOrdererUp">Position von {$itemTitle} nach oben setzen</message>
-	<message key="submission.list.itemOrdererDown">Position von {$itemTitle} nach unten setzen</message>
 	<message key="submission.list.viewSubmission">Einreichung ansehen</message>
 	<message key="submission.list.reviewsCompleted">Zugeteilte Gutachten fertiggestellt</message>
 	<message key="submission.list.revisionsSubmitted">Überarbeitungen eingereicht</message>

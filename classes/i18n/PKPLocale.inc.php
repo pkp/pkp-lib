@@ -765,5 +765,3 @@ class PKPLocale {
 function __($key, $params = array(), $locale = null) {
 	return AppLocale::translate($key, $params, $locale);
 }
-
-

@@ -36,5 +36,3 @@ class OrderListbuilderItemsFeature extends OrderItemsFeature {
 		return '$.pkp.classes.features.OrderListbuilderItemsFeature';
 	}
 }
-
-

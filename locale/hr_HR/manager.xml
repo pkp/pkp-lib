@@ -131,7 +131,6 @@
 	<message key="manager.plugins">Funkcionalni dodaci sustava</message>
 	<message key="manager.readingTools">Alati za čitanje</message>
 	<message key="manager.roles">Uloge</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Neispravan format slike logotipa zaglavlja naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Neispravan format slike naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Neispravan format slike zaglavlja naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png.</message>
 	<message key="manager.setup.loggingAndAuditing">Bilježenje uređivačkog postupka</message>

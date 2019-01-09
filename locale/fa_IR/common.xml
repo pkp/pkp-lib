@@ -54,7 +54,6 @@
 	<message key="common.titleSmallWords">از و یک نه اما اگر است وگرنه زمانی که در توسط روی با</message>
 	<message key="common.alreadyAssigned">منتسب شده</message>
 	<message key="common.altText">متن جایگزین</message>
-	<message key="common.altTextInstructions">لطفاً متن جایگزین این تصویر را وارد کنید تا برای کاربرانی که مرورگر متنی بکار می‌برند نیز قابل رؤیت باشد.</message>
 	<message key="common.and">و</message>
 	<message key="common.applyAction">اعمال کن</message>
 	<message key="common.assign">انتخاب</message>
@@ -148,7 +147,6 @@
 	<message key="common.initiate">راه‌اندازی</message>
 	<message key="common.inProgress">در حال پیشروی</message>
 	<message key="common.itemsPerPage">تعداد موارد در هر صفحه</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">کلمات کلیدی</message>
 	<message key="common.language">زبان</message>
 	<message key="common.languages">زبان‌ها</message>
@@ -180,12 +178,13 @@
 	<message key="common.ok">تائید</message>
 	<message key="common.options">امکانات</message>
 	<message key="common.order">ترتیب</message>
+	<message key="common.orderUp">افزایش موقعیت {$itemTitle}</message>
+	<message key="common.orderDown">کاهش موقعیت {$itemTitle}</message>
 	<message key="common.originalFileName">نام اصلی فایل</message>
 	<message key="common.or">یا</message>
 	<message key="common.other">دیگر</message>
 	<message key="common.overdue">به تأخیر افتاده</message>
 	<message key="common.pageNumber">صفحه {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">لوگوی هدر صفحه</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">افزونه</message>
 	<message key="common.pluginEnabled">افزونه «{$pluginName}» فعال شد</message>
@@ -243,12 +242,8 @@
 	<message key="common.untitled">بدون عنوان</message>
 	<message key="common.updated">بروز رسانی شد</message>
 	<message key="common.uploadedDate">تاریخ آپلود</message>
-	<message key="common.uploadedFile">فایل آپلود شده</message>
 	<message key="common.upload">آپلود</message>
 	<message key="common.uploadFailed">فایل قابل آپلود نیست. لطفاً دوباره امتحان کنید و یا با مدیر سایت تماس بگیرید</message>
-	<message key="common.invalidFileType">فایلی آپلود نشده است یا نوع آن غیر معتبر است!</message>
-	<message key="common.homepageImage.altText">تصویر صفحه اصلی</message>
-	<message key="common.up">بالا</message>
 	<message key="common.upload.addFile">آپلود فایل</message>
 	<message key="common.upload.changeFile">تغییر فایل</message>
 	<message key="common.upload.dragFile">می‌توانید فایل را به درون کادر بکشید تا آپلود شود</message>
@@ -314,7 +309,6 @@
 	<message key="form.is">برابر با</message>
 	<message key="form.startsWith">شروع با</message>
 	<message key="form.postRequired">داده‌های فرم به صورت صحیحی وارد نشده است</message>
-	<message key="form.csrfInvalid">داده‌های فرم به صورت صحیحی وارد نشده است</message>
 	<message key="form.fileRequired">آپلود کردن فایل الزامی است.</message>
 	<message key="form.required">(* الزامی)</message>
 	<message key="form.resubmit">ارائه مجدد</message>

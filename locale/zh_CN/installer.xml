@@ -62,7 +62,6 @@
 	<message key="installer.oaiRepositoryId">OAI库标识符</message>
 	<message key="installer.publicFilesDirError">Public的文件的目录不存在或不可写.</message>
 	<message key="installer.releaseNotes">发行说明</message>
-	<message key="installer.securitySettings">安全设置</message>
 	<message key="installer.installParseFilterConfigFileError"><![CDATA[错误解析过滤配置文件<tt>{$file}</tt>.]]></message>
 	<message key="installer.oaiSettings">OAI 设置</message>
 </locale>

@@ -41,7 +41,7 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
 	 */
 	function applies() {
 		$context = $this->_router->getContext($this->_request);
-		return ( $context && $context->getSetting('restrictSiteAccess'));
+		return ( $context && $context->getData('restrictSiteAccess'));
 	}
 
 	/**

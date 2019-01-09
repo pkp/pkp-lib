@@ -512,7 +512,6 @@
 	<message key="submission.submit.form.subjectsRequired">Introduza um assunto.</message>
 	<message key="submission.submit.form.disciplinesRequired">Introduza uma Área de Conhecimento.</message>
 	<message key="submission.submit.form.keywordsRequired">Introduza uma palavra-chave.</message>
-	<message key="submission.submit.form.agenciesRequired">Introduza uma agência de suporte.</message>
 	<message key="submission.submit.form.coverageRequired">Introduza a informação de cobertura.</message>
 	<message key="submission.submit.form.typeRequired">Introduza o tipo.</message>
 	<message key="submission.submit.form.sourceRequired">Introduza a fonte.</message>
@@ -557,8 +556,6 @@
 	<message key="submission.list.reviewDue">Revisão Até</message>
 	<message key="submission.list.reviewComplete">Revisão Enviada</message>
 	<message key="submission.list.confirmDelete">Apagar submissão?</message>
-	<message key="submission.list.itemOrdererUp">Incrementar posição de {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Decrementar posição de {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Ver Submissão</message>
 	<message key="submission.list.reviewsCompleted">Revisões atribuídas terminadas</message>
 	<message key="submission.list.revisionsSubmitted">Revisões enviadas</message>

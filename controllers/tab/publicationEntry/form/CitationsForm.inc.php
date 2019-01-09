@@ -49,7 +49,7 @@ class CitationsForm extends Form {
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
-		if ($context->getSetting('citationsRequired')) {
+		if ($context->getData('citations') === METADATA_REQUIRE) {
 			$this->addCheck(new FormValidator($this, 'citations', 'required', 'common.required'));
 		}
 		$this->addCheck(new FormValidatorPost($this));
@@ -108,7 +108,7 @@ class CitationsForm extends Form {
 			'stageId' => $this->getStageId(),
 			'tabPos' => $this->getTabPosition(),
 			'formParams' => $this->getFormParams(),
-			'citationsRequired' => $context->getSetting('citationsRequired'),
+			'citationsRequired' => $context->getData('citations') === METADATA_REQUIRE,
 			'parsedCitations' => $parsedCitations,
 		));
 		return parent::fetch($request, $template, $display);
@@ -147,5 +147,3 @@ class CitationsForm extends Form {
 	}
 
 }
-
-

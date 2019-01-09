@@ -25,9 +25,12 @@ class ValidatorEmailTest extends PKPTestCase {
 	public function testValidatorEmail() {
 		$validator = new ValidatorEmail();
 		self::assertTrue($validator->isValid('some.address@gmail.com'));
+		self::assertTrue($validator->isValid('anything@localhost'));
+		self::assertTrue($validator->isValid("allowedchars!#$%&'*+./=?^_`{|}@gmail.com"));
+		self::assertTrue($validator->isValid('"quoted.username"@gmail.com'));
 		self::assertFalse($validator->isValid('anything else'));
-
-		self::assertEquals('/^[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+(\.[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+)*@(([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){1,63}\.)+([a-z0-9]([-a-z0-9]*[a-z0-9]+)?){2,63}$/i', ValidatorEmail::getRegexp());
+		self::assertFalse($validator->isValid('double@@gmail.com'));
+		self::assertFalse($validator->isValid('no"quotes"in.middle@gmail.com'));
 	}
 }
 

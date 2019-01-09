@@ -61,7 +61,6 @@
 	<message key="installer.oaiRepositoryId">Identifiant du dépôt OAI</message>
 	<message key="installer.publicFilesDirError">Le répertoire des fichiers publics n'existe pas ou n'est pas disponible en écriture.</message>
 	<message key="installer.releaseNotes">Instructions d'utilisation</message>
-	<message key="installer.securitySettings">Paramètres de sécurité</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Une erreur s'est produite lors de l'analyse du fichier du modèle de courriel <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Les langues sélectionnées peuvent être incomplètes.</message>
 	<message key="installer.oaiSettings">Paramètres OAI</message>

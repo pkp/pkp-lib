@@ -29,7 +29,7 @@
 		{if $currentContext}
 
 			<fieldset class="consent">
-				{if $currentContext->getSetting('privacyStatement')}
+				{if $currentContext->getData('privacyStatement')}
 					{* Require the user to agree to the terms of the privacy policy *}
 					<div class="fields">
 						<div class="optin optin-privacy">

@@ -18,13 +18,6 @@
 
 switch ($op) {
 	//
-	// Context Management
-	//
-	case 'contexts':
-		define('HANDLER_CLASS', 'AdminContextHandler');
-		import('lib.pkp.pages.admin.AdminContextHandler');
-		break;
-	//
 	// Administrative functions
 	//
 	case 'systemInfo':
@@ -38,14 +31,14 @@ switch ($op) {
 		import('lib.pkp.pages.admin.AdminFunctionsHandler');
 		break;
 	//
-	// Main administration page
+	// Main administration pages
 	//
 	case 'index':
+	case 'contexts':
 	case 'settings':
 	case 'saveSettings':
+	case 'wizard':
 		define('HANDLER_CLASS', 'AdminHandler');
 		import('lib.pkp.pages.admin.AdminHandler');
 		break;
 }
-
-

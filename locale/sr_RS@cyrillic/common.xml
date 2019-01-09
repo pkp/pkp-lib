@@ -37,7 +37,6 @@
 	<message key="common.alphaList">А Б Ц Ч Ћ Д Ђ Е Ф Г Х И Ј К Л М Н О П Q Р С Ш Т У В W X Y З Ж</message>
 	<message key="common.alreadyAssigned">Додељено</message>
 	<message key="common.altText">Допунски описни текст</message>
-	<message key="common.altTextInstructions">Молимо приложите допунски описни текст за ову слику како би приступ садржају био могућ и корисницима са текстуалним читачима или помагалима за читање (нпр. слепим и слабовидним особама).</message>
 	<message key="common.and">и</message>
 	<message key="common.applyAction">Примени поступак</message>
 	<message key="common.assign">Додели</message>
@@ -137,7 +136,6 @@
 	<message key="common.originalFileName">Оригинално име фајла</message>
 	<message key="common.or">или</message>
 	<message key="common.other">Остало</message>
-	<message key="common.pageHeaderLogo.altText">Лого заглавља странице</message>
 	<message key="common.plugin">Додатак</message>
 	<message key="common.pluginEnabled">Додатак "{$pluginName}" је омогућен.</message>
 	<message key="common.pluginDisabled">Додатак "{$pluginName}" је онемогућен.</message>
@@ -173,7 +171,6 @@
 	<message key="common.uninitiated">Незапочето</message>
 	<message key="common.untitled">Без наслова</message>
 	<message key="common.updated">Ажурирано</message>
-	<message key="common.uploadedFile">Достављени фајл</message>
 	<message key="common.upload">Достави</message>
 	<message key="common.uploadFailed">Фајл не може да се достави. Покушајте опет или контактирајте администратора.</message>
 	<message key="common.up">Горе</message>
@@ -316,7 +313,6 @@
 	<message key="common.remoteURL">Удаљени URL</message>
 	<message key="common.reset">Ресетуј</message>
 	<message key="common.unread">Није прочитано</message>
-	<message key="common.invalidFileType">Фајл није достављен или је у погрешном формату!</message>
 	<message key="common.plugins">Додаци</message>
 	<message key="email.subjectRequired">Додајте тему имејла.</message>
 	<message key="email.bodyRequired">Додајте текст имејла.</message>
@@ -371,7 +367,6 @@
 	<message key="common.fileUploaderError">Системски постављач фајлова поставља фајл.  Ако се не фајл не појави то вероватно значи да ваш интернет прегледач не подржава неки од његових процеса. Контактирајте администратора за подршку.</message>
 	<message key="common.homepageNavigationLabel">Почетна</message>
 	<message key="common.itemsPerPage">Елемената по страници</message>
-	<message key="common.favicon.altText">Омиљена сличица-Favicon</message>
 	<message key="common.notified.date">Обавештено: {$dateNotified}</message>
 	<message key="common.pageNumber">Страна {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -390,7 +385,6 @@
 	<message key="common.subtitle">Поднаслов</message>
 	<message key="common.component">Компонента</message>
 	<message key="common.uploadedDate">Датум достављања</message>
-	<message key="common.homepageImage.altText">Слика почетне странице</message>
 	<message key="common.upload.addFile">Достави фајл</message>
 	<message key="common.upload.changeFile">Измени фајл</message>
 	<message key="common.upload.dragFile">Превуци фајл овде да започенш достављање</message>
@@ -404,7 +398,6 @@
 	<message key="email.senderName">Име пошиљаоца</message>
 	<message key="email.senderEmail">Имејл адреса пошиљаоца</message>
 	<message key="form.url.invalid">Дата URL адреса није исправна, проверите и покушајте поново.</message>
-	<message key="form.csrfInvalid">Формулар није исправно унет.</message>
 	<message key="form.fileRequired">Неопходно је додавање фајла</message>
 	<message key="help.previous">Претходно</message>
 	<message key="help.next">Следеће</message>

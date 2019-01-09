@@ -56,7 +56,6 @@
 	<message key="common.titleSmallWords">in ali ne toda je če potem drugače kdaj ob od na za k</message>
 	<message key="common.alreadyAssigned">Dodeljeno</message>
 	<message key="common.altText">Nadomestno besedilo</message>
-	<message key="common.altTextInstructions">Prosimo dodajte nadomestno besedilo za to sliko, ki bo v pomoč uporabnikom z negrafičnimi brskalniki ali s pripomočki za branje (npr. slepi, slabovidni).</message>
 	<message key="common.and">in</message>
 	<message key="common.applyAction">Potrdi akcijo</message>
 	<message key="common.assign">Dodaj</message>
@@ -167,7 +166,6 @@
 	<message key="common.initiate">Začni</message>
 	<message key="common.inProgress">V delu</message>
 	<message key="common.itemsPerPage">Postavk na stran</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">Ključne besede</message>
 	<message key="common.language">Jezik</message>
 	<message key="common.languages">Jeziki</message>
@@ -204,7 +202,6 @@
 	<message key="common.other">Ostalo</message>
 	<message key="common.overdue">Zapadlo</message>
 	<message key="common.pageNumber">Stran {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">Logotip glave naslovne strani</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Vtičnik</message>
 	<message key="common.pluginEnabled">Vtičnik "{$pluginName}" je bil omogočen.</message>
@@ -262,11 +259,8 @@
 	<message key="common.untitled">Brez naslova</message>
 	<message key="common.updated">Posodobljeno</message>
 	<message key="common.uploadedDate">Datum oddaje</message>
-	<message key="common.uploadedFile">Naložena datoteka</message>
 	<message key="common.upload">Naloži</message>
 	<message key="common.uploadFailed">Datoteke ni bilo mogoče naložiti oziroma posodobiti.</message>
-	<message key="common.invalidFileType">Datoteka ni dodana ali pa je napačnega tipa.</message>
-	<message key="common.homepageImage.altText">Slika domače strani</message>
 	<message key="common.up">Gor</message>
 	<message key="common.upload.addFile">Naloži datoteko</message>
 	<message key="common.upload.changeFile">Spremeni datoteko</message>
@@ -333,7 +327,6 @@
 	<message key="form.is">je</message>
 	<message key="form.startsWith">se začne z</message>
 	<message key="form.postRequired">Ta obrazec ni bil pravilno poslan.</message>
-	<message key="form.csrfInvalid">Obrazec ni bil pravilno poslan.</message>
 	<message key="form.fileRequired">Obvezno ddajte datoteko.</message>
 	<message key="form.required">(* obvezno)</message>
 	<message key="form.resubmit">Ponovno pošlji</message>
@@ -550,7 +543,7 @@
 	<message key="notification.addedNavigationMenu">Navigacijski meni je bil uspešno dodan</message>
 	<message key="notification.editedNavigationMenu">Navigacijski meni je bil uspešno posodobljen</message>
 	<message key="notification.removedNavigationMenu">Navigacijski meni je bil uspešno odstranjen</message>
-	
+
 	<!-- List Handlers -->
 	<message key="list.viewMore">Prikaži več podrobnosti o {$name}</message>
 	<message key="list.viewLess">Skrij podrobnosti o {$name}</message>

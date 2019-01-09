@@ -56,7 +56,6 @@
 	<message key="common.titleSmallWords">von ein eine einer eines der die das und oder weder aber ist wenn als dann sonst durch in aus über zu zum zur mit</message>
 	<message key="common.alreadyAssigned">Bereits zugewiesen</message>
 	<message key="common.altText">Alternativtext</message>
-	<message key="common.altTextInstructions">Bitte geben Sie einen Alternativtext für dieses Bild an um die Zugänglichkeit für Nutzer/innen mit Nur-Text-Browsern oder technischen Hilfsmitteln zu gewährleisten.</message>
 	<message key="common.and">und</message>
 	<message key="common.applyAction">Anwenden</message>
 	<message key="common.assign">Zuweisen</message>
@@ -167,7 +166,6 @@
 	<message key="common.initiate">Beginnen</message>
 	<message key="common.inProgress">In Arbeit</message>
 	<message key="common.itemsPerPage">Einträge pro Seite</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.keywords">Schlagworte</message>
 	<message key="common.language">Sprache</message>
 	<message key="common.languages">Sprachen</message>
@@ -201,6 +199,8 @@
 	<message key="common.ok">OK</message>
 	<message key="common.options">Optionen</message>
 	<message key="common.order">Sortieren</message>
+	<message key="common.orderUp">Position von {$itemTitle} nach oben setzen</message>
+	<message key="common.orderDown">Position von {$itemTitle} nach unten setzen</message>
 	<message key="common.originalFileName">Ursprünglicher Dateiname</message>
 	<message key="common.or">oder</message>
 	<message key="common.other">Andere</message>
@@ -208,7 +208,6 @@
 	<message key="common.pagination">{$start}-{$end} von {$total}</message>
 	<message key="common.pagination.label">Zusätzliche Seiten durchstöbern</message>
 	<message key="common.pageNumber">Seite {$pageNumber}</message>
-	<message key="common.pageHeaderLogo.altText">Logo in der Kopfzeile</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">Das Plugin "{$pluginName}" ist aktiviert worden.</message>
@@ -267,11 +266,8 @@
 	<message key="common.untitled">Ohne Titel</message>
 	<message key="common.updated">Aktualisiert</message>
 	<message key="common.uploadedDate">Datum des Hochladens</message>
-	<message key="common.uploadedFile">Hochgeladene Datei</message>
 	<message key="common.upload">Hochladen</message>
 	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
-	<message key="common.invalidFileType">Keine Datei hochgeladen oder ungültiger Dateityp!</message>
-	<message key="common.homepageImage.altText">Bild auf der Startseite</message>
 	<message key="common.up">Aufwärts</message>
 	<message key="common.upload.addFile">Datei hochladen</message>
 	<message key="common.upload.changeFile">Datei ändern</message>
@@ -339,7 +335,6 @@
 	<message key="form.is">ist</message>
 	<message key="form.startsWith">beginnt mit</message>
 	<message key="form.postRequired">Das Formular wurde nicht ordnungsgemäß ausgefüllt.</message>
-	<message key="form.csrfInvalid">Das Formular wurde nicht ordnungsgemäß übermittelt.</message>
 	<message key="form.fileRequired">Dateiupload ist erforderlich.</message>
 	<message key="form.required">Mit * gekennzeichnete Angaben sind Pflichtangaben.</message>
 	<message key="form.resubmit">Erneut abschicken</message>

@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * lib/pkp/locale/sl_SI/manager.xml 
+  * lib/pkp/locale/sl_SI/manager.xml
   *
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2000-2018 John Willinsky
@@ -210,9 +210,9 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Zoži rezultate po državi, regiji in/ali mestu.</message>
 	<message key="manager.affiliationAndSupport">Sponzor</message>
 	<message key="manager.setup.additionalContent">Dodatna vsebina</message>
-	<message key="manager.setup.additionalContentDescription">Vse, kar boste vpisali tukaj, se bo prikazalo na domači strani.</message>
-	<message key="manager.setup.authorCopyrightNotice">Opomba o avtorskih pravicah</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Zahtevaj od avtorjev, da se strinjajo z obvestilom o avtorskih pravicah v postopku oddaje prispevka.</message>
+	<message key="manager.setup.additionalContent.description">Vse, kar boste vpisali tukaj, se bo prikazalo na domači strani.</message>
+	<message key="manager.setup.copyrightNotice">Opomba o avtorskih pravicah</message>
+	<message key="manager.setup.copyrightNotice.description">Zahtevaj od avtorjev, da se strinjajo z obvestilom o avtorskih pravicah v postopku oddaje prispevka.</message>
 	<message key="manager.setup.authorGuidelines">Priporočila za avtorje</message>
 	<message key="manager.setup.authorGuidelines.description">Priporočila za avtorje naj vsebujejo navodila za pravilno podajanje bibliografskih podatkov in oblikovanje besedila ter pravilen format referenc, priporočljivo je navesti tudi primere le-teh.</message>
 	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Omogočiti in nastaviti morate povezave do zunanjih baz citatov. To pomaga pri preprečevati napačna citiranja avtorja in doda dodatne informacije (npr. DOIs or PubMed IDs) obvezne za elektronsko objavljanje.</p>
@@ -220,7 +220,6 @@
 	<p>Obstoječe povezave do baz lahko spremenite ali izbrišete s klikom na ikono zobnika poleg povezave..</p>
 	<p><strong>Opozorilo:</strong> Da zagotovite končanje postopka preverjanja v razumljivem času, je potrebno nastaviti direktivo <tt>citation_checking_max_processes</tt> v konfiguracijski datoteki na primerno vrednost. Preverite v "General Settings" poglavju v <tt>config.inc.php</tt> za več informacij.</p>]]></message>
 	<message key="manager.setup.competingInterests">Nasprotujoči interesi</message>
-	<message key="manager.setup.competingInterestsDescription">Recenzenti bodo pozvani, da izpolnjujejo zahteve razkritja nasprotujočih interesov, ki jih boste zapisali spodaj.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Med brisanjem je prišlo do napake.</message>
 	<message key="manager.setup.favicon">Napačen format favikona. Dovoljeni formati so .ico, .png in .gif.</message>
 	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Ta filter se povezuje na OCLC servise <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> in <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcijsko).</p>
@@ -229,12 +228,12 @@
 	<message key="manager.setup.groupType">Grupiranje po tipu datoteke</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Napačen format slike za logotip glave osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImage">Slika domače strani</message>
-	<message key="manager.setup.homepageImageDescription">Naloži sliko, ki se bo prikazovala na domači strani.</message>
+	<message key="manager.setup.homepageImage.description">Naloži sliko, ki se bo prikazovala na domači strani.</message>
 	<message key="manager.setup.homepageImageInvalid">Napačen format slike za logotip osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Napačen format slike za glavo osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Opisi</message>
-	<message key="manager.setup.layout.theme">Tema</message>
-	<message key="manager.setup.layout.themeDescription">Nove teme se lahko namestijo v zavihku Vtičniki na vrhu te strani.</message>
+	<message key="manager.setup.theme">Tema</message>
+	<message key="manager.setup.theme.description">Nove teme se lahko namestijo v zavihku Vtičniki na vrhu te strani.</message>
 	<message key="manager.setup.layout.blockManagement">Upravljanje stranskih orodnih stolpcev</message>
 	<message key="manager.setup.layout.sidebar">Stranki orodni stolpec</message>
 	<message key="manager.setup.layout.unselected">Neizbrano</message>
@@ -247,7 +246,7 @@
 	<message key="manager.setup.openAccessPolicy.description">Če uporabljate politko takojšnjega prostega dostopa za vse objvaljene vsebine, lahko vpišete opis vaše politike odprtega dostopa.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Napačen format slike za glavo strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png.</message>
 	<message key="manager.setup.pageFooter">Noga strani</message>
-	<message key="manager.setup.pageFooterDescription">Vnesite slike, besedilo ali HTML kodo, za katero želite, da se pojavlja na dnu spletne strani.</message>
+	<message key="manager.setup.pageFooter.description">Vnesite slike, besedilo ali HTML kodo, za katero želite, da se pojavlja na dnu spletne strani.</message>
 	<message key="manager.setup.peerReview.description">Orišite recenzentsko politiko in postopek za bralce in avtorje.Ta oris pogosto vsebuje tipično število recenzentov za prispevek, kriterije po katerih recenzenti ocenjujejo prispevek, pričakovan čas opravljanja recenzije in način določanaj recenzentov.</message>
 	<message key="manager.setup.principalContact">Glavni kontakt</message>
 	<message key="manager.setup.principalContactDescription">Vnesite podatke kontakta, tipično glavni urednik, vodja uredništva ali administrativna oseba, ki je lahko objavljena na javno dostopni spletni strani.</message>
@@ -361,16 +360,12 @@
 	<message key="notification.localeSettingsSaved">Nastavitve jezika so shranjene.</message>
 	<message key="notification.editedUser">Uporabnik je spremenjen.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indeksiranje</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Plačila</message>
 	<message key="manager.paymentMethod.title">Načini plačila</message>
 	<message key="manager.paymentMethod.none">Noben način plačila ni izbran</message>
 	<message key="manager.paymentMethod.method">Način plačila</message>
 	<message key="manager.paymentMethod.currency">Valuta</message>
-	<message key="manager.paymentMethod.currency.description">Plačila, opravljena preko te spletne strani, bodo opravljena v izbrani valuti.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Možnosti vloge</message>
@@ -466,7 +461,6 @@
 	<message key="manager.reviewFormElements.textfield">Enovrstično tekstovno polje</message>
 	<message key="manager.reviewFormElements.viewable">Vidno (za avtorje)</message>
 	<message key="grid.action.createReviewForm">Ustvari nov recenzijski obrazec</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Izjava recenzenta o navzkrižju interesov</message>
 	<message key="manager.setup.competingInterests.required">Zahtevaj izjavo o navzkrižju interesov pri recenziji.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL povezava do spletne strani, ki opisuje licenco (če je na voljo).</message>

@@ -17,6 +17,11 @@
 (function($) {
 
 	/** @type {Object} */
+	$.pkp.controllers.tab =
+			$.pkp.controllers.tab || {};
+
+
+	/** @type {Object} */
 	$.pkp.controllers.tab.workflow =
 			$.pkp.controllers.tab.workflow || {};
 

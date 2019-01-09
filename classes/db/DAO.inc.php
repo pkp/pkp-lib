@@ -340,15 +340,19 @@ class DAO {
 	function convertFromDB($value, $type) {
 		switch ($type) {
 			case 'bool':
+			case 'boolean':
 				$value = (bool) $value;
 				break;
 			case 'int':
+			case 'integer':
 				$value = (int) $value;
 				break;
 			case 'float':
+			case 'number':
 				$value = (float) $value;
 				break;
 			case 'object':
+			case 'array':
 				$value = unserialize($value);
 				break;
 			case 'date':
@@ -400,17 +404,21 @@ class DAO {
 
 		switch ($type) {
 			case 'object':
+			case 'array':
 				$value = serialize($value);
 				break;
 			case 'bool':
+			case 'boolean':
 				// Cast to boolean, ensuring that string
 				// "false" evaluates to boolean false
 				$value = ($value && $value !== 'false') ? 1 : 0;
 				break;
 			case 'int':
+			case 'integer':
 				$value = (int) $value;
 				break;
 			case 'float':
+			case 'number':
 				$value = (float) $value;
 				break;
 			case 'date':

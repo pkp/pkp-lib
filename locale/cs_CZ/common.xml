@@ -40,7 +40,6 @@
 	<message key="common.alphaList">A B C Č D Ď E É Ě F G H CH I Í J K L M N Ň O Ó P Q R Ř S Š T Ť U Ú Ů V W X Y Ý Z Ž</message>
 	<message key="common.alreadyAssigned">Přiděleno</message>
 	<message key="common.altText">Alternativní text</message>
-	<message key="common.altTextInstructions">Uveďte prosím alternativní text pro tento obrázek, aby byla zaručena dostupnost pro uživatele s textovými prohlížeči nebo pomocnými zařízeními.</message>
 	<message key="common.and">a</message>
 	<message key="common.applyAction">Provést akci</message>
 	<message key="common.assign">Přidělit</message>
@@ -100,7 +99,7 @@
 	<message key="common.fileName">Jméno souboru</message>
 	<message key="common.fileSize">Velikost souboru</message>
 	<message key="common.fileType">Typ souboru</message>
-	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message> 
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
 	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.height">Výška</message>
 	<message key="common.homePageHeaderLogo.altText">Logo záhlaví domácí stránky</message>
@@ -134,7 +133,6 @@
 	<message key="common.originalFileName">Původní jméno souboru</message>
 	<message key="common.or">nebo</message>
 	<message key="common.other">Jiný</message>
-	<message key="common.pageHeaderLogo.altText">Logo záhlaví stránky</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Vydavatel</message>
 	<message key="common.record">Záznam</message>
@@ -165,7 +163,6 @@
 	<message key="common.uninitiated">Nezahájeno</message>
 	<message key="common.untitled">Bez názvu</message>
 	<message key="common.updated">Aktualizováno</message>
-	<message key="common.uploadedFile">Nahraný soubor</message>
 	<message key="common.upload">Nahrát</message>
 	<message key="common.uploadFailed">Soubor nemohl být nahrán. Zkuste to prosím znovu nebo se obraťte na správce, pokud problém přetrvává.</message>
 	<message key="common.up">Nahoru</message>
@@ -343,7 +340,6 @@
 	<message key="common.go">Spustit</message>
 	<message key="common.homepageNavigationLabel">Domů</message>
 	<message key="common.itemsPerPage">Položek na stránku</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.less">Méně</message>
 	<message key="common.billingAddress">Fakturační adresa (pokud se liší)</message>
 	<message key="common.more">Více</message>
@@ -380,8 +376,6 @@
 	<message key="common.component">Složka</message>
 	<message key="common.unread">Nepřečteno</message>
 	<message key="common.uploadedDate">Datum nahrání</message>
-	<message key="common.invalidFileType">Nebyl nahrán žádný soubor, nebo typ souboru je nesprávný!</message>
-	<message key="common.homepageImage.altText">Obrázek úvodní stránky</message>
 	<message key="common.upload.addFile">Nahrát soubor</message>
 	<message key="common.upload.changeFile">Změnit soubor</message>
 	<message key="common.upload.dragFile">Sem přetáhněte soubor a pusťte jej pro nahrání</message>
@@ -403,7 +397,6 @@
 	<message key="form.confirmSubmit.title">Potvrdit</message>
 	<message key="form.emailRequired">Je třeba vložit emailovou adresu.</message>
 	<message key="form.dataHasChanged">Údaje v tomto formuláři se změnily. Chcete opravdu pokračovat bez uložení?</message>
-	<message key="form.csrfInvalid">Formulář nebyl odeslán v pořádku.</message>
 	<message key="form.fileRequired">Je vyžadováno nahrání souboru.</message>
 	<message key="form.invalidImage">Byl nahrán neplatný obrázek. Přípustné formáty jsou .png, .gif nebo .jpg.</message>
 	<message key="help.previous">Předešlý</message>

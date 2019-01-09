@@ -117,9 +117,10 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 	 */
 	function viewLibrary($args, $request) {
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('canEdit', false);
 		$templateMgr->assign('isModal', true);
-		return $templateMgr->fetchJson('controllers/tab/settings/library.tpl');
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$templateMgr->assign('canEdit', !empty(array_intersect([ROLE_ID_ADMIN, ROLE_ID_MANAGER], $userRoles)));
+		return $templateMgr->fetchJson('controllers/modals/documentLibrary/publisherLibrary.tpl');
 	}
 
 	/**
@@ -145,5 +146,3 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 		return new EditLibraryFileForm($context->getId(), $fileId, $submission->getId());
 	}
 }
-
-

@@ -55,7 +55,7 @@
 	line-height: @pkp_submission_actions_height;
 	padding-left: @double;
 	padding-right: @double;
-	background: @primary;
+	border-bottom: @bg-border-light;
 	text-align: right;
 
 	li {
@@ -63,21 +63,34 @@
 	}
 
 	a {
+		position: relative;
 		display: block;
 		padding-left: 1em;
 		padding-right: 1em;
 		font-size: @font-sml;
 		font-weight: @bold;
-		color: #fff;
 		text-decoration: none;
-		text-shadow: 0 2px 0 rgba(0,0,0,0.2);
 
-		&:hover,
+		&:before {
+			position: absolute;
+			content: '';
+			top: 100%;
+			left: 50%;
+			width: 25%;
+			height: 2px;
+			background: transparent;
+			transition: width 0.2s;
+			transform: translateX(-50%);
+		}
+
 		&:focus {
-			background: @bg;
-			color: @primary;
-			text-shadow: 0 2px 0 rgba(255,255,255,0.4);
 			outline: 0;
+		}
+
+		&:hover:before,
+		&:focus:before {
+			width: 100%;
+			background: @primary;
 		}
 	}
 }

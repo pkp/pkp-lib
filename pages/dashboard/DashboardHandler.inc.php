@@ -49,23 +49,23 @@ class DashboardHandler extends Handler {
 
 		$currentUser = $request->getUser();
 
-		import('controllers.list.submissions.SubmissionsListHandler');
+		import('classes.components.listPanels.submissions.SubmissionsListPanel');
 
 		// My Queue
-		$myQueueListHandler = new SubmissionsListHandler(array(
+		$myQueueListPanel = new SubmissionsListPanel(array(
 			'title' => 'common.queue.long.myAssigned',
 			'getParams' => array(
 				'status' => STATUS_QUEUED,
 				'assignedTo' => $request->getUser()->getId(),
 			),
 		));
-		$templateMgr->assign('myQueueListData', json_encode($myQueueListHandler->getConfig()));
+		$templateMgr->assign('myQueueListData', $myQueueListPanel->getConfig());
 
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
 
 			// Unassigned
-			$unassignedListHandler = new SubmissionsListHandler(array(
+			$unassignedListPanel = new SubmissionsListPanel(array(
 				'title' => 'common.queue.long.submissionsUnassigned',
 				'getParams' => array(
 					'status' => STATUS_QUEUED,
@@ -73,17 +73,17 @@ class DashboardHandler extends Handler {
 				),
 				'lazyLoad' => true,
 			));
-			$templateMgr->assign('unassignedListData', json_encode($unassignedListHandler->getConfig()));
+			$templateMgr->assign('unassignedListData', $unassignedListPanel->getConfig());
 
 			// Active
-			$activeListHandler = new SubmissionsListHandler(array(
+			$activeListPanel = new SubmissionsListPanel(array(
 				'title' => 'common.queue.long.active',
 				'getParams' => array(
 					'status' => STATUS_QUEUED,
 				),
 				'lazyLoad' => true,
 			));
-			$templateMgr->assign('activeListData', json_encode($activeListHandler->getConfig()));
+			$templateMgr->assign('activeListData', $activeListPanel->getConfig());
 		}
 
 		// Archived
@@ -97,8 +97,8 @@ class DashboardHandler extends Handler {
 		if (!$currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
 			$params['getParams']['assignedTo'] = $currentUser->getId();
 		}
-		$archivedListHandler = new SubmissionsListHandler($params);
-		$templateMgr->assign('archivedListData', json_encode($archivedListHandler->getConfig()));
+		$archivedListPanel = new SubmissionsListPanel($params);
+		$templateMgr->assign('archivedListData', $archivedListPanel->getConfig());
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}
@@ -125,5 +125,3 @@ class DashboardHandler extends Handler {
 		parent::setupTemplate($request);
 	}
 }
-
-

@@ -35,7 +35,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
 		$this->libraryFile = $libraryFileDao->getById($fileId);
 
-		if (!$this->libraryFile || $this->libraryFile->getContextId() !== $this->contextId || $this->libraryFile->getSubmissionId() !== $this->getSubmissionId()) {
+		if (!$this->libraryFile || $this->libraryFile->getContextId() != $this->contextId || $this->libraryFile->getSubmissionId() != $this->getSubmissionId()) {
 			fatalError('Invalid library file!');
 		}
 	}
@@ -70,5 +70,3 @@ class EditLibraryFileForm extends LibraryFileForm {
 		return $this->submissionId;
 	}
 }
-
-

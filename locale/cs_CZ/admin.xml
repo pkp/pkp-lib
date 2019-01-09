@@ -47,15 +47,9 @@
 	<message key="admin.serverInformation">Informace o serveru</message>
 	<message key="admin.server.phpVersion">Verze PHP</message>
 	<message key="admin.server.platform">Platforma OS</message>
-	<message key="admin.settings.aboutDescription">O popisu stránky</message>
+	<message key="admin.settings.about">O popisu stránky</message>
 	<message key="admin.settings.contactEmail">E-mail hlavní kontaktní osoby</message>
 	<message key="admin.settings.contactName">Jméno hlavní kontaktní osoby</message>
-	<message key="admin.settings.form.contactEmailRequired">Je vyžadován e-mail hlavní kontaktní osoby.</message>
-	<message key="admin.settings.form.contactNameRequired">Je vyžadováno jméno hlavní kontaktní osoby.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Musíte zadat heslo o minimální délce 4 znaky.</message>
-	<message key="admin.settings.form.titleRequired">Je vyžadován název.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo stránek</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Neplatný formát obrázku loga stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="admin.settings.introduction">Úvod</message>
 	<message key="admin.settings.minPasswordLength">Minimální délka hesla</message>
 	<message key="admin.settings.siteLanguage">Jazyk stránky</message>

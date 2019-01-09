@@ -35,7 +35,7 @@ class AnnouncementGridHandler extends GridHandler {
 
 		// Ensure announcements are enabled.
 		$context = $request->getContext();
-		if ($requireAnnouncementsEnabled && !$context->getSetting('enableAnnouncements')) {
+		if ($requireAnnouncementsEnabled && !$context->getData('enableAnnouncements')) {
 			return false;
 		}
 

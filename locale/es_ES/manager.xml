@@ -208,23 +208,19 @@
 	<message key="manager.affiliationAndSupport">Patrocinador</message>
 	<message key="manager.setup.authorGuidelines">Directrices para autores</message>
 	<message key="manager.setup.competingInterests">Conflicto de intereses.</message>
-	<message key="manager.setup.competingInterestsDescription">Se pedirá a los revisores/as que cumplan con la política de divulgación de conflictos de intereses que especifique a continuación.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.groupType">Agrupación de tipos de archivo</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Tiempo permitido para revisar las respuestas (semanas)</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Tiempo permitido para finalizar las respuestas (semanas)</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">No recordar más</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Envíe un recordatorio si el revisor/a no responde a una solicitud de revisión (días):</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Envíe un recordatorio si el revisor/a no entrega una recomendación (días):</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Envíe un recordatorio si el revisor/a no responde a una solicitud de revisión (días):</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Envíe un recordatorio si el revisor/a no entrega una recomendación (días):</message>
 	<message key="manager.setup.sponsors.note">Puede añadir una nota para describir su política y su relación con el patrocinador, esta aparecerá junto con la lista del patrocinador en su página Acerca de.</message>
 	<message key="manager.setup.styleSheetDescription">Puede subir un hoja de estilo en cascada (CSS) adicional para cambiar la apariencia.</message>
 	<message key="manager.setup.errorDeletingItem">Ha sucedido un error al borrar este ítem</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Formato de la imagen del logotipo de cabecera de la página inicial inválido o error de subida. Formatos aceptados: .gif, .jpg y .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Formato de la imagen del logotipo de cabecera de la página inicial inválido o error de subida. Formatos aceptados: .gif, .jpg y .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Formato de la imagen del logotipo de cabecera de la página inicial inválido o error de subida. Formatos aceptados: .gif, .jpg y .png.</message>
-	<message key="manager.setup.layout.theme">Tema</message>
-	<message key="manager.setup.layout.themeDescription">Elija un tema del conjunto de módulos de aspecto.</message>
-	<message key="manager.setup.layout.blockManagement">Gestión de la barra lateral</message>
-	<message key="manager.setup.layout.unselected">Sin seleccionar</message>
+	<message key="manager.setup.theme">Tema</message>
+	<message key="manager.setup.theme.description">Elija un tema del conjunto de módulos de aspecto.</message>
 	<message key="manager.setup.loggingAndAuditing">Registro y Auditoría</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagen del logotipo de encabezado de página inválido o error de subida. Formatos aceptados: .gif, .jpg y .png.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Opciones de acceso a sitio</message>
@@ -290,16 +286,12 @@
 	<message key="notification.localeSettingsSaved">Opciones de configuración regional guardadas.</message>
 	<message key="notification.editedUser">Usuario/a editado.</message>
 
-	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indexación</message>
-
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Pagos</message>
 	<message key="manager.paymentMethod.title">Formas de pago</message>
 	<message key="manager.paymentMethod.none">No se ha seleccionado una forma de pago</message>
 	<message key="manager.paymentMethod.method">Forma de pago</message>
 	<message key="manager.paymentMethod.currency">Moneda</message>
-	<message key="manager.paymentMethod.currency.description">Los pagos realizados directamente desde este sitio web se realizarán en la moneda seleccionada.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Opciones de rol</message>
@@ -350,13 +342,13 @@
 	<message key="manager.statistics.reports.objectNotFound">Objeto no encontrado en la base de datos</message>
 	<message key="manager.statistics.reports.yesterday">Ayer</message>
 	<message key="manager.setup.additionalContent">Contenido adicional</message>
-	<message key="manager.setup.additionalContentDescription">Cualquier elemento introducido aquí aparecerá en su página de inicio.</message>
-	<message key="manager.setup.authorCopyrightNotice">Aviso de derechos de autor</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Es necesario que los autores acepten el aviso de derechos de autor como parte del proceso de envío.</message>
+	<message key="manager.setup.additionalContent.description">Cualquier elemento introducido aquí aparecerá en su página de inicio.</message>
+	<message key="manager.setup.copyrightNotice">Aviso de derechos de autor</message>
+	<message key="manager.setup.copyrightNotice.description">Es necesario que los autores acepten el aviso de derechos de autor como parte del proceso de envío.</message>
 	<message key="manager.setup.authorGuidelines.description">Las directrices recomendadas incluyen estándares bibliográficos y de formateo junto con ejemplos de formatos de citas comunes para ser usados en los envíos.</message>
-	<message key="manager.setup.favicon">Formato de icono de web inválido. Los formatos aceptados son .ico, .png y .gif.</message>
+	<message key="manager.setup.favicon">Icono de página</message>
 	<message key="manager.setup.homepageImage">Imagen de inicio</message>
-	<message key="manager.setup.homepageImageDescription">Subir una imagen para visualizarla en primer plano en la página de inicio.</message>
+	<message key="manager.setup.homepageImage.description">Subir una imagen para visualizarla en primer plano en la página de inicio.</message>
 	<message key="manager.setup.information.descriptionTitle">Descripciones</message>
 	<message key="manager.setup.logo">Logo</message>
 	<message key="manager.setup.notifications">Notificación del envío del autor</message>
@@ -365,13 +357,12 @@
 	<message key="manager.setup.openAccessPolicy">Política de acceso abierto</message>
 	<message key="manager.setup.openAccessPolicy.description">Si proporciona acceso libre inmediato a todo el contenido publicado, debería introducir una descripción de su política de acceso abierto.</message>
 	<message key="manager.setup.pageFooter">Pie de página</message>
-	<message key="manager.setup.pageFooterDescription">Introduzca cualquier imagen, texto o código HTML que quiera que aparezca en la parte inferior de su sitio web.</message>
+	<message key="manager.setup.pageFooter.description">Introduzca cualquier imagen, texto o código HTML que quiera que aparezca en la parte inferior de su sitio web.</message>
 	<message key="manager.setup.principalContact">Contacto principal</message>
 	<message key="manager.setup.principalContactDescription">Introduzca los detalles de contacto usuales para el editor principal, el director editorial o el personal administrativo, los cuales se mostrarán en la parte accesible al público general de su sitio web.</message>
 	<message key="manager.setup.privacyStatement">Declaración de privacidad</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Las condiciones predefinidas para cada revisión pueden ser modificadas durante el proceso editorial.</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Fechas límites de revisión por defecto</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Muestra un enlace para "garantizar una revisión ciega" durante la subida</message>
 	<message key="manager.setup.sponsors.description">Ejemplos: asociaciones escolares, departamentos universitarios, cooperativas, etc. Los patrocinadores se muestran públicamente.</message>
 	<message key="manager.setup.technicalSupportContact">Contacto del soporte técnico</message>
 	<message key="manager.setup.technicalSupportContactDescription">Una persona de contacto que puede dar soporte a editores, autores y revisores con problemas al enviar, editar, revisar o publicar un material.</message>
@@ -444,7 +435,6 @@
 	<message key="manager.reviewFormElements.textfield">Caja de texto de una sola línea</message>
 	<message key="manager.reviewFormElements.viewable">Visible (para autores)</message>
 	<message key="grid.action.createReviewForm">Crea un nuevo formulario de revisión</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Declaración de conflictos de interés de los revisores</message>
 	<message key="manager.setup.competingInterests.required">Solicita una declaración de conflictos de interés durante una revisión por pares.</message>
 	<message key="manager.setup.licenseURLDescription">URL a la página web que describa la licencia, si está disponible.</message>
 	<message key="manager.setup.metadata.submission">Formulario de envío</message>

@@ -12,7 +12,7 @@
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="editingNotification_"|concat:$submission->getId() requestOptions=$editingNotificationRequestOptions refreshOn="stageStatusUpdated"}
 
 	{* Help Link *}
-	{help file="editorial-workflow/copyediting.md" class="pkp_help_tab"}
+	{help file="editorial-workflow/copyediting" class="pkp_help_tab"}
 
 	<div class="pkp_context_sidebar">
 		{capture assign=copyeditingEditorDecisionsUrl}{url router=$smarty.const.ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}

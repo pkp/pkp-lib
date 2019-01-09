@@ -19,27 +19,33 @@ use \DBResultRange;
 use \Application;
 use \DAOResultFactory;
 use \DAORegistry;
-use \ServicesContainer;
-use \PKP\Services\EntityProperties\PKPBaseEntityPropertyService;
+use \Services;
+use \PKP\Services\interfaces\EntityPropertyInterface;
+use \PKP\Services\interfaces\EntityReadInterface;
+use \PKP\Services\traits\EntityReadTrait;
+use \APP\Services\QueryBuilders\SubmissionQueryBuilder;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 define('SUBMISSION_RETURN_SUBMISSION', 0);
 define('SUBMISSION_RETURN_PUBLISHED', 1);
 
-abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
+abstract class PKPSubmissionService implements EntityPropertyInterface, EntityReadInterface {
+	use EntityReadTrait;
 
 	/**
-	 * Constructor
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
-	public function __construct() {
-		parent::__construct($this);
+	public function get($submissionId) {
+		return Application::getSubmissionDAO()->getById($submissionId);
 	}
 
 	/**
-	 * Get submissions
+	 * Get a collection of submissions limited, filtered and sorted by $args
 	 *
-	 * @param int $contextId
-	 * @param array $args {
+	 * @param array $args
+	 *		@option int contextId If not supplied, CONTEXT_ID_NONE will be used and
+	 *			no submissions will be returned. To retrieve submissions from all
+	 *			contexts, use CONTEXT_ID_ALL.
 	 * 		@option string orderBy
 	 * 		@option string orderDirection
 	 * 		@option int assignedTo
@@ -50,12 +56,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 *		@option string returnObject Whether to return submission or published
 	 *			objects. SUBMISSION_RETURN_SUBMISSION or SUBMISSION_RETURN_PUBLISHED.
 	 *			Default: SUBMISSION_RETURN_SUBMISSION.
-	 * }
-	 *
 	 * @return array
 	 */
-	public function getSubmissions($contextId, $args = array()) {
-		$submissionListQB = $this->_buildGetSubmissionsQueryObject($contextId, $args);
+	public function getMany($args = array()) {
+		$submissionListQB = $this->_getQueryBuilder($args);
 		$submissionListQO = $submissionListQB->get();
 		$range = $this->getRangeByArgs($args);
 		$dao = Application::getSubmissionDAO();
@@ -69,13 +73,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Get max count of submissions matching a query request
-	 *
-	 * @see self::getSubmissions()
-	 * @return int
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
-	public function getSubmissionsMaxCount($contextId, $args = array()) {
-		$submissionListQB = $this->_buildGetSubmissionsQueryObject($contextId, $args);
+	public function getMax($args = array()) {
+		$submissionListQB = $this->_getQueryBuilder($args);
 		$countQO = $submissionListQB->countOnly()->get();
 		$countRange = new DBResultRange($args['count'], 1);
 		$dao = Application::getSubmissionDAO();
@@ -89,14 +90,15 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Build the submission query object for getSubmissions requests
+	 * Build the submission query object for getMany requests
 	 *
-	 * @see self::getSubmissions()
+	 * @see self::getMany()
 	 * @return object Query object
 	 */
-	private function _buildGetSubmissionsQueryObject($contextId, $args = array()) {
+	private function _getQueryBuilder($args = array()) {
 
 		$defaultArgs = array(
+			'contextId' => CONTEXT_ID_NONE,
 			'orderBy' => 'dateSubmitted',
 			'orderDirection' => 'DESC',
 			'assignedTo' => null,
@@ -112,8 +114,9 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$args = array_merge($defaultArgs, $args);
 
-		$submissionListQB = $this->getSubmissionListQueryBuilder($contextId);
+		$submissionListQB = new SubmissionQueryBuilder();
 		$submissionListQB
+			->filterByContext($args['contextId'])
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->assignedTo($args['assignedTo'])
 			->filterByStatus($args['status'])
@@ -123,7 +126,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			->searchPhrase($args['searchPhrase'])
 			->returnObject($args['returnObject']);
 
-		\HookRegistry::call('Submission::getSubmissions::queryBuilder', array($submissionListQB, $contextId, $args));
+		\HookRegistry::call('Submission::getMany::queryBuilder', array($submissionListQB, $args));
 
 		return $submissionListQB;
 	}
@@ -231,11 +234,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	/**
 	 * Delete a submission
 	 *
-	 * @param $submissionId int
+	 * @param $id int
 	 */
-	public function deleteSubmission($id) {
-		Application::getSubmissionDAO()
-				->deleteById((int) $id);
+	public function delete($id) {
+		Application::getSubmissionDAO()->deleteById((int) $id);
 	}
 
 	/**
@@ -247,8 +249,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	public function canCurrentUserDelete($submission) {
 
 		if (!is_a($submission, 'Submission')) {
-			$submissionDao = Application::getSubmissionDAO();
-			$submission = $submissionDao->getById((int) $submission);
+			$submission = $this->get((int) $submission);
 			if (!$submission) {
 				return false;
 			}
@@ -363,15 +364,16 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
 	 */
 	public function getProperties($submission, $props, $args = null) {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		\PluginRegistry::loadCategory('pubIds', true);
 		$values = array();
-		$authorService = \ServicesContainer::instance()->get('author');
+		$authorService = \Services::get('author');
 		$request = \Application::getRequest();
 		$dispatcher = $request->getDispatcher();
+		$router = $request->getRouter();
 
 		// Retrieve the submission's context for properties that require it
 		if (array_intersect(array('urlAuthorWorkflow', 'urlEditorialWorkflow'), $props)) {
@@ -461,10 +463,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $submission->getDatePublished();
 					break;
 				case 'status':
-					$values[$prop] = array(
-						'id' => (int) $submission->getStatus(),
-						'label' => __($submission->getStatusKey()),
-					);
+					$values[$prop] = (int) $submission->getStatus();
+					break;
+				case 'statusLabel':
+					$values[$prop] = __($submission->getStatusKey());
 					break;
 				case 'submissionProgress':
 					$values[$prop] = (int) $submission->getSubmissionProgress();
@@ -497,12 +499,11 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					if (!empty($args['slimRequest'])) {
 						$route = $args['slimRequest']->getAttribute('route');
 						$arguments = $route->getArguments();
-						$values[$prop] = $this->getAPIHref(
+						$values[$prop] = $dispatcher->url(
 							$args['request'],
+							ROUTE_API,
 							$arguments['contextPath'],
-							$arguments['version'],
-							'submissions',
-							$submission->getId()
+							'submissions/' . $submission->getId()
 						);
 					}
 					break;
@@ -518,13 +519,17 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			}
 		}
 
+		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION, $values, $request->getContext()->getSupportedLocales());
+
 		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args));
+
+		ksort($values);
 
 		return $values;
 	}
 
 	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getSummaryProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($submission, $args = null) {
 		\PluginRegistry::loadCategory('pubIds', true);
@@ -534,7 +539,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$props = array (
 			'id','title','subtitle','fullTitle','prefix',
-			'abstract','language','pages','datePublished','status',
+			'abstract','language','pages','datePublished','status','statusLabel',
 			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','_href',
 		);
 
@@ -550,7 +555,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * @copydoc \PKP\Services\EntityProperties\EntityPropertyInterface::getFullProperties()
+	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($submission, $args = null) {
 		\PluginRegistry::loadCategory('pubIds', true);
@@ -562,7 +567,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'id','title','subtitle','fullTitle','prefix','abstract',
 			'discipline','subject','type','language','sponsor','pages',
 			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
-			'status','submissionProgress','urlWorkflow','urlPublished',
+			'status','statusLabel','submissionProgress','urlWorkflow','urlPublished',
 			'galleys','_href',
 		);
 
@@ -592,8 +597,9 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$currentUser = $request->getUser();
 
 		$props = array (
-			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
-			'locale', 'urlWorkflow','urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
+			'id','fullTitle','status','statusLabel','submissionProgress','stages',
+			'reviewRounds','reviewAssignments','locale', 'urlWorkflow',
+			'urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
 		);
 
 		if ($this->canUserViewAuthor($currentUser, $submission)) {
@@ -682,7 +688,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	 *    `assocType` int
 	 *    `assocId` int
 	 *    `stageId` int
-	 *    `sequence` int
+	 *    `seq` int
 	 *    `closed` bool
 	 *   }]
 	 *  `statusId` int stage status. note: on review stage, this refers to the
@@ -734,7 +740,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					'assocType' => (int) $query->getAssocType(),
 					'assocId' => (int) $query->getAssocId(),
 					'stageId' => $stageId,
-					'sequence' => (int) $query->getSequence(),
+					'seq' => (int) $query->getSequence(),
 					'closed' => (bool) $query->getIsClosed(),
 				);
 			}

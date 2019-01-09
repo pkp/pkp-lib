@@ -86,8 +86,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 		}
 		$warnOnAssignment = array_map('intval', array_values(array_unique($warnOnAssignment)));
 
-		import('lib.pkp.controllers.list.users.SelectReviewerListHandler');
-		$selectReviewerListHandler = new SelectReviewerListHandler(array(
+		import('lib.pkp.classes.components.listPanels.users.SelectReviewerListPanel');
+		$selectReviewerListPanel = new SelectReviewerListPanel(array(
 			'title' => 'editor.submission.findAndSelectReviewer',
 			'inputName' => 'reviewerId',
 			'inputType' => 'radio',
@@ -95,7 +95,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			'warnOnAssignment' => $warnOnAssignment,
 		));
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('selectReviewerListData', $selectReviewerListHandler->getConfig());
+		$templateMgr->assign('selectReviewerListData', $selectReviewerListPanel->getConfig());
 
 		// Only add actions to forms where user can operate.
 		if (array_intersect($this->getUserRoles(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {

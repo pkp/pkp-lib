@@ -259,8 +259,8 @@ class QueryForm extends Form {
 				}
 			}
 
-			import('lib.pkp.controllers.list.users.SelectUserListHandler');
-			$queryParticipantsList = new SelectUserListHandler(array(
+			import('lib.pkp.classes.components.listPanels.users.SelectUserListPanel');
+			$queryParticipantsList = new SelectUserListPanel(array(
 				'title' => 'editor.submission.stageParticipants',
 				'inputName' => 'users[]',
 				'selected' => $selectedParticipants,
@@ -301,7 +301,7 @@ class QueryForm extends Form {
 
 			$templateMgr->assign(array(
 				'hasParticipants' => count($queryParticipantsListData['items']),
-				'queryParticipantsListData' => json_encode($queryParticipantsListData),
+				'queryParticipantsListData' => $queryParticipantsListData,
 			));
 		}
 
@@ -372,5 +372,3 @@ class QueryForm extends Form {
 		}
 	}
 }
-
-

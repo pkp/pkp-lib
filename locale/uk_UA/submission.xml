@@ -378,7 +378,6 @@
 	<message key="submission.submit.form.subjectsRequired">Будь ласка, вкажіть тему.</message>
 	<message key="submission.submit.form.disciplinesRequired">Будь ласка, вкажіть предмет.</message>
 	<message key="submission.submit.form.keywordsRequired">Будь ласка, вкажіть ключове слово.</message>
-	<message key="submission.submit.form.agenciesRequired">Будь ласка, вкажіть спонсорів.</message>
 	<message key="submission.submit.form.coverageRequired">Будь ласка, вкажіть інформацію про охоплення.</message>
 	<message key="submission.submit.form.typeRequired">Будь ласка, вкажіть тип.</message>
 	<message key="submission.submit.form.sourceRequired">Будь ласка, вкажіть джерело.</message>
@@ -610,8 +609,6 @@
 	<message key="submission.list.responseDue">Термін відповіді на запит</message>
 	<message key="submission.list.reviewDue">Термін подання рецензії</message>
 	<message key="submission.list.confirmDelete">Видалити подання?</message>
-	<message key="submission.list.itemOrdererUp">Підняти нагору {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Опустити донизу {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Переглянути подання</message>
 	<message key="submission.list.reviewsCompleted">Завершено призначених рецензій</message>
 	<message key="submission.list.revisionsSubmitted">Надіслано нових версій</message>

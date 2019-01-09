@@ -39,7 +39,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Ditugaskan</message>
 	<message key="common.altText">Selang-seling teks</message>
-	<message key="common.altTextInstructions">Merupakan teks pengganti gambar untuk penelusuran dengan perambah text-only.</message>
 	<message key="common.and">dan</message>
 	<message key="common.applyAction">Terapkan Aksi</message>
 	<message key="common.assign">Menugaskan</message>
@@ -147,7 +146,6 @@
 	<message key="common.originalFileName">Nama file asli</message>
 	<message key="common.or">atau</message>
 	<message key="common.other">Yang lain</message>
-	<message key="common.pageHeaderLogo.altText">Logo Header Halaman</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">Plugin "{$pluginName}" aktif.</message>
 	<message key="common.pluginDisabled">Plugin "{$pluginName}" tidak aktif.</message>
@@ -183,7 +181,6 @@
 	<message key="common.uninitiated">Belum dimulai</message>
 	<message key="common.untitled">Tidak berjudul</message>
 	<message key="common.updated">Updated</message>
-	<message key="common.uploadedFile">File yang diunggah</message>
 	<message key="common.upload">Unggah</message>
 	<message key="common.uploadFailed">file tidak bisa diunggah. Coba lagi atau hubungi administrator jika masalah tetap ada.</message>
 	<message key="common.up">Up</message>

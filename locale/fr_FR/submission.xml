@@ -276,7 +276,7 @@
 	<message key="submission.status.review">En cours d'évaluation</message>
 	<message key="submission.status.submission">En attente de la décision du rédacteur en chef</message>
 	<message key="submission.status.unassigned">Non assigné</message>
-	
+
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
@@ -558,8 +558,6 @@
 	<message key="submission.list.viewSubmission">Voir</message>
 	<message key="submission.list.filter">Filtres</message>
 	<message key="submission.list.filterRemove">Supprimer le filtre : {$filterTitle}</message>
-	<message key="submission.list.itemOrdererUp">Remonter {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Descendre {$itemTitle}</message>
 	<message key="submission.list.reviewsCompleted">Rapports effectués</message>
 	<message key="submission.list.filesPrepared">Fichiers prêts</message>
 	<message key="submission.list.discussions">Discussions</message>

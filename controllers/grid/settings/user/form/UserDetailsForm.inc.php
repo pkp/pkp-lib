@@ -118,8 +118,8 @@ class UserDetailsForm extends UserForm {
 				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales(),
 			);
-			import('classes.core.ServicesContainer');
-			$userService = ServicesContainer::instance()->get('user');
+			import('classes.core.Services');
+			$userService = Services::get('user');
 			$data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
 			if ($data['canCurrentUserGossip']) {
 				$data['gossip'] = $user->getGossip();
@@ -261,8 +261,8 @@ class UserDetailsForm extends UserForm {
 		$this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 		$this->user->setAuthId((int) $this->getData('authId'));
 		// Users can never view/edit their own gossip fields
-		import('classes.core.ServicesContainer');
-		$userService = ServicesContainer::instance()->get('user');
+		import('classes.core.Services');
+		$userService = Services::get('user');
 		if ($userService->canCurrentUserGossip($this->user->getId())) {
 			$this->user->setGossip($this->getData('gossip'));
 		}
@@ -329,7 +329,7 @@ class UserDetailsForm extends UserForm {
 				// Send welcome email to user
 				import('lib.pkp.classes.mail.MailTemplate');
 				$mail = new MailTemplate('USER_REGISTER');
-				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+				$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()));
 				$mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
 				if (!$mail->send()) {

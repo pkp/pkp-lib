@@ -62,5 +62,4 @@
 	<message key="installer.oaiRepositoryId">Identifikator OAI repozitorija</message>
 	<message key="installer.publicFilesDirError">Direktorij javnih datoteka ne postoji ili se ne može pisati po njemu.</message>
 	<message key="installer.releaseNotes">Bilješke o izdanju</message>
-	<message key="installer.securitySettings">Sigurnosne postavke</message>
 </locale>

@@ -45,15 +45,9 @@
 	<message key="admin.serverInformation">Server informatie</message>
 	<message key="admin.server.phpVersion">PHP versie</message>
 	<message key="admin.server.platform">Besturingssysteem</message>
-	<message key="admin.settings.aboutDescription">Over de site-beschrijving</message>
+	<message key="admin.settings.about">Over de site-beschrijving</message>
 	<message key="admin.settings.contactEmail">E-mail van de eerste contactpersoon</message>
 	<message key="admin.settings.contactName">Naam van de eerste contactpersoon</message>
-	<message key="admin.settings.form.contactEmailRequired">Het e-mail adres van de eerste contactpersoon is verplicht.</message>
-	<message key="admin.settings.form.contactNameRequired">De naam van de eerste contactpersoon is verplicht.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">U moet een wachtwoordlengte van minimaal 4 tekens opgeven.</message>
-	<message key="admin.settings.form.titleRequired">Een titel is vereist.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Site logo</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Onjuist bestandstype voor het site logo. Geldige types zijn .gif, .jpg, en .png.</message>
 	<message key="admin.settings.introduction">Introductie</message>
 	<message key="admin.settings.minPasswordLength">Minimale wachtwoordlengte</message>
 	<message key="admin.settings.passwordCharacters">tekens</message>

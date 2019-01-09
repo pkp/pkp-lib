@@ -110,11 +110,6 @@ jQueryObject.prototype.pkpAjaxHtml = function(url, callback) {};
 jQueryObject.prototype.dialog = function(param1, param2, param3) {};
 
 /**
- * @param {Object=} options
- */
-jQueryObject.prototype.spectrum = function(options) {};
-
-/**
  * @constructor
  * @param {Object=} options
  * @param {jQueryObject=} form
@@ -274,7 +269,9 @@ plupload.Uploader.prototype.removeFile = function(f) {};
 plupload.Uploader.prototype.bind = function(eventName, f) {};
 
 $.pkp.app = {
-	baseUrl: ''
+	baseUrl: '',
+	tinyMceContentCSS: '',
+	tinyMceContentFont: ''
 };
 
 $.pkp.locale = {

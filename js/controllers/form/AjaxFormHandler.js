@@ -28,6 +28,10 @@
 		options.submitHandler = this.submitForm;
 		this.parent($form, options);
 
+		if (typeof options.confirmText !== 'undefined') {
+			this.confirmText = options.confirmText;
+		}
+
 		this.bind('refreshForm', this.refreshFormHandler_);
 		this.publishEvent('containerReloadRequested');
 	};
@@ -44,6 +48,15 @@
 	 */
 	$.pkp.controllers.form.AjaxFormHandler.prototype.
 			disableControlsOnSubmit = true;
+
+
+	/**
+	 * A confirmation message to display before submitting the form
+	 * @protected
+	 * @type {string}
+	 */
+	$.pkp.controllers.form.AjaxFormHandler.prototype.
+			confirmText = '';
 
 
 	//
@@ -65,8 +78,10 @@
 
 		this.disableFormControls();
 
-		$.post($form.attr('action'), $form.serialize(),
-				this.callbackWrapper(this.handleResponse), 'json');
+		if (!this.confirmText.length || confirm(this.confirmText)) {
+			$.post($form.attr('action'), $form.serialize(),
+					this.callbackWrapper(this.handleResponse), 'json');
+		}
 	};
 
 

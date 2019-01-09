@@ -14,61 +14,19 @@
  * @brief Validation check for ISSNs.
  */
 
-import('lib.pkp.classes.validation.ValidatorRegExp');
+import('lib.pkp.classes.validation.Validator');
+import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorISSN extends ValidatorRegExp {
+class ValidatorISSN extends Validator {
 	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct(self::getRegexp());
-	}
-
-
-	//
-	// Implement abstract methods from Validator
-	//
-	/**
-	 * @see Validator::isValid()
-	 * @param $value mixed
-	 * @return boolean
+	 * @copydoc Validator::isValid()
 	 */
 	function isValid($value) {
-		if (!parent::isValid($value)) return false;
+		$validator = \ValidatorFactory::make(
+			['value' => $value],
+			['value' => ['required', 'issn']]
+		);
 
-		// Test the check digit
-		$matches = $this->getMatches();
-		$issn = $matches[1] . $matches[2];
-
-		$check = 0;
-		for ($i=0; $i<7; $i++) {
-			$check += $issn[$i] * (8-$i);
-		}
-		$check = $check % 11;
-		switch ($check) {
-			case 0:
-				$check = '0';
-				break;
-			case 1:
-				$check = 'X';
-				break;
-			default:
-				$check = (string) (11 - $check);
-		}
-		return ($issn[7] === $check);
-	}
-
-	//
-	// Public static methods
-	//
-	/**
-	 * Return the regex for an ISSN check. This can be called
-	 * statically.
-	 * @return string
-	 */
-	static function getRegexp() {
-		return '/^(\d{4})-(\d{3}[\dX])$/';
+		return $validator->passes();
 	}
 }
-
-

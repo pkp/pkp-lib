@@ -36,17 +36,12 @@ class FormValidatorUrlTest extends PKPTestCase {
 		self::assertTrue($validator->isValid());
 
 		// test invalid urls
-		$form->setData('testUrl', 'gopher://some.domain.org/');
+		$form->setData('testUrl', 'http//missing-colon.org');
 		$validator = new FormValidatorUrl($form, 'testUrl', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
 		self::assertFalse($validator->isValid());
 
-		$form->setData('testUrl', 'http://some.domain.org/#frag1#frag2');
-		$validator = new FormValidatorUrl($form, 'testUrl', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
-		self::assertFalse($validator->isValid());
-
-		$form->setData('testUrl', 'http://256.168.0.1/');
+		$form->setData('testUrl', 'http:/missing-slash.org');
 		$validator = new FormValidatorUrl($form, 'testUrl', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
 		self::assertFalse($validator->isValid());
 	}
 }
-

@@ -44,15 +44,9 @@
 	<message key="admin.serverInformation">Informações do Servidor</message>
 	<message key="admin.server.phpVersion">Versão do PHP</message>
 	<message key="admin.server.platform">Sistema Operativo</message>
-	<message key="admin.settings.aboutDescription">Acerca do Portal</message>
+	<message key="admin.settings.about">Acerca do Portal</message>
 	<message key="admin.settings.contactEmail">E-mail do Contacto Principal</message>
 	<message key="admin.settings.contactName">Nome do Contacto Principal</message>
-	<message key="admin.settings.form.contactEmailRequired">E-mail do contacto principal é obrigatório</message>
-	<message key="admin.settings.form.contactNameRequired">Nome do contacto principal é obrigatório</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">A senha deve possuir no mínimo 4 caracteres.</message>
-	<message key="admin.settings.form.titleRequired">Título obrigatório.</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logo do portal</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceites são .gif, .jpg ou .png.</message>
 	<message key="admin.settings.introduction">Introdução</message>
 	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
 	<message key="admin.settings.siteLanguage">Idioma do Portal</message>

@@ -53,5 +53,3 @@ require('./lib/pkp/includes/functions.inc.php');
 import('classes.core.Application');
 
 return new Application();
-
-

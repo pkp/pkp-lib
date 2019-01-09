@@ -653,8 +653,6 @@
 	<message key="submission.list.reviewDue">Prazo de Avaliação</message>
 	<message key="submission.list.confirmDelete">Apagar submissão?</message>
 	<message key="submission.list.viewSubmission">Ver {$title}</message>
-	<message key="submission.list.itemOrdererUp">Aumentar posição de {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Diminuir posição de {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Ver Submissão</message>
 	<message key="submission.list.reviewsCompleted">Avaliações completadas</message>
 	<message key="submission.list.revisionsSubmitted">Avaliações enviadas</message>

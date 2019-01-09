@@ -29,7 +29,7 @@ class AboutContextHandler extends Handler {
 	 */
 	function authorize($request, &$args, $roleAssignments) {
 		$context = $request->getContext();
-		if (!$context || !$context->getSetting('restrictSiteAccess')) {
+		if (!$context || !$context->getData('restrictSiteAccess')) {
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 		}
@@ -71,13 +71,13 @@ class AboutContextHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$context = $request->getContext();
-		$checklist = $context->getLocalizedSetting('submissionChecklist');
+		$checklist = $context->getLocalizedData('submissionChecklist');
 		if (!empty($checklist)) {
 			ksort($checklist);
 			reset($checklist);
 		}
 
-		$templateMgr->assign( 'submissionChecklist', $context->getLocalizedSetting('submissionChecklist') );
+		$templateMgr->assign( 'submissionChecklist', $context->getLocalizedData('submissionChecklist') );
 
 		// Get sections for this context
 		$canSubmitAll = false;
@@ -109,15 +109,15 @@ class AboutContextHandler extends Handler {
 		$this->setupTemplate($request);
 		$context = $request->getContext();
 		$templateMgr->assign(array(
-			'mailingAddress'     => $context->getSetting('mailingAddress'),
-			'contactPhone'       => $context->getSetting('contactPhone'),
-			'contactEmail'       => $context->getSetting('contactEmail'),
-			'contactName'        => $context->getSetting('contactName'),
-			'supportName'        => $context->getSetting('supportName'),
-			'supportPhone'       => $context->getSetting('supportPhone'),
-			'supportEmail'       => $context->getSetting('supportEmail'),
-			'contactTitle'       => $context->getLocalizedSetting('contactTitle'),
-			'contactAffiliation' => $context->getLocalizedSetting('contactAffiliation'),
+			'mailingAddress'     => $context->getData('mailingAddress'),
+			'contactPhone'       => $context->getData('contactPhone'),
+			'contactEmail'       => $context->getData('contactEmail'),
+			'contactName'        => $context->getData('contactName'),
+			'supportName'        => $context->getData('supportName'),
+			'supportPhone'       => $context->getData('supportPhone'),
+			'supportEmail'       => $context->getData('supportEmail'),
+			'contactTitle'       => $context->getLocalizedData('contactTitle'),
+			'contactAffiliation' => $context->getLocalizedData('contactAffiliation'),
 		));
 		$templateMgr->display('frontend/pages/contact.tpl');
 	}

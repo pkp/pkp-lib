@@ -142,7 +142,6 @@
 	<message key="manager.reviewerSearch.interests">Minat Mereview</message>
 	<message key="manager.roles">Peran</message>
 	<message key="manager.setup.errorDeletingItem">Ada kesalahan saat menghapus item ini.</message>
-	<message key="manager.setup.homeHeaderImageInvalid">format gambar logo header beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">format gambar beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">format gambar judul header beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png.</message>
 	<message key="manager.setup.loggingAndAuditing">Proses Login dan Audit</message>

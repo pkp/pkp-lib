@@ -40,7 +40,7 @@ class LanguageGridRow extends GridRow {
 			);
 
 			if (Validation::isSiteAdmin()) {
-				if (!$rowData['primary']) {
+				if (!$request->getContext() && !$rowData['primary']) {
 					$this->addAction(
 						new LinkAction(
 							'uninstall',
@@ -54,18 +54,20 @@ class LanguageGridRow extends GridRow {
 							'delete')
 					);
 				}
-				$this->addAction(
-					new LinkAction(
-						'reload',
-						new RemoteActionConfirmationModal(
-							$request->getSession(),
-							__('manager.language.confirmDefaultSettingsOverwrite'),
-							__('manager.language.reloadLocalizedDefaultSettings'),
-							$router->url($request, null, null, 'reloadLocale', null, $actionArgs)
-							),
-						__('manager.language.reloadLocalizedDefaultSettings')
-						)
-				);
+				if ($request->getContext()) {
+					$this->addAction(
+						new LinkAction(
+							'reload',
+							new RemoteActionConfirmationModal(
+								$request->getSession(),
+								__('manager.language.confirmDefaultSettingsOverwrite'),
+								__('manager.language.reloadLocalizedDefaultSettings'),
+								$router->url($request, null, null, 'reloadLocale', null, $actionArgs)
+								),
+							__('manager.language.reloadLocalizedDefaultSettings')
+							)
+					);
+				}
 			}
 		}
 	}

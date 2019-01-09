@@ -9,7 +9,7 @@
  *}
 
 {* Help tab *}
-{help file="editorial-workflow/review.md" class="pkp_help_tab"}
+{help file="editorial-workflow/review" class="pkp_help_tab"}
 
 <script type="text/javascript">
 	// Attach the JS file tab handler.

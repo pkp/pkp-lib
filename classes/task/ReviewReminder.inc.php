@@ -46,7 +46,7 @@ class ReviewReminder extends ScheduledTask {
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$emailKey = $reminderType;
-		$reviewerAccessKeysEnabled = $context->getSetting('reviewerAccessKeysEnabled');
+		$reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
 		switch (true) {
 			case $reviewerAccessKeysEnabled && ($reminderType == REVIEW_REMIND_AUTO):
 				$emailKey = 'REVIEW_REMIND_AUTO_ONECLICK';
@@ -61,7 +61,7 @@ class ReviewReminder extends ScheduledTask {
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 		$email->setSubject($email->getSubject($context->getPrimaryLocale()));
 		$email->setBody($email->getBody($context->getPrimaryLocale()));
-		$email->setFrom($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+		$email->setFrom($context->getData('contactEmail'), $context->getData('contactName'));
 
 		$reviewUrlArgs = array('submissionId' => $reviewAssignment->getSubmissionId());
 		if ($reviewerAccessKeysEnabled) {
@@ -69,7 +69,7 @@ class ReviewReminder extends ScheduledTask {
 			$accessKeyManager = new AccessKeyManager();
 
 			// Key lifetime is the typical review period plus four weeks
-			$keyLifetime = ($context->getSetting('numWeeksPerReview') + 4) * 7;
+			$keyLifetime = ($context->getData('numWeeksPerReview') + 4) * 7;
 			$accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewId, $keyLifetime);
 			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewId, 'key' => $accessKey));
 		}
@@ -104,7 +104,7 @@ class ReviewReminder extends ScheduledTask {
 			'reviewerUserName' => $reviewer->getUsername(),
 			'reviewDueDate' => $reviewDueDate,
 			'responseDueDate' => $responseDueDate,
-			'editorialContactSignature' => $context->getSetting('contactName') . "\n" . $context->getLocalizedName(),
+			'editorialContactSignature' => $context->getData('contactName') . "\n" . $context->getLocalizedName(),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $submissionReviewUrl,
 			'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
@@ -153,8 +153,8 @@ class ReviewReminder extends ScheduledTask {
 				unset($context);
 				$context = $contextDao->getById($submission->getContextId());
 
-				$inviteReminderDays = $context->getSetting('numDaysBeforeInviteReminder');
-				$submitReminderDays = $context->getSetting('numDaysBeforeSubmitReminder');
+				$inviteReminderDays = $context->getData('numDaysBeforeInviteReminder');
+				$submitReminderDays = $context->getData('numDaysBeforeSubmitReminder');
 			}
 
 			$reminderType = false;

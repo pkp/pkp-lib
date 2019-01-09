@@ -65,8 +65,8 @@ class ReviewReminderForm extends Form {
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$context = $request->getContext();
-		$templateKey = $this->_getMailTemplateKey($context);		
-		
+		$templateKey = $this->_getMailTemplateKey($context);
+
 		$email = new SubmissionMailTemplate($submission, $templateKey);
 
 		// Format the review due date
@@ -144,24 +144,24 @@ class ReviewReminderForm extends Form {
 
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$context = $request->getContext();
-		$templateKey = $this->_getMailTemplateKey($context);	
+		$templateKey = $this->_getMailTemplateKey($context);
 		$email = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
-		
+
 		$reviewUrlArgs = array('submissionId' => $reviewAssignment->getSubmissionId());
-		if ($context->getSetting('reviewerAccessKeysEnabled')) {
+		if ($context->getData('reviewerAccessKeysEnabled')) {
 			import('lib.pkp.classes.security.AccessKeyManager');
 			$accessKeyManager = new AccessKeyManager();
-			$expiryDays = ($context->getSetting('numWeeksPerReview') + 4) * 7;
+			$expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
 			$accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);
 			$reviewUrlArgs = array_merge($reviewUrlArgs, array('reviewId' => $reviewAssignment->getId(), 'key' => $accessKey));
-		}		
+		}
 
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 		$email->setBody($this->getData('message'));
 		$email->assignParams(array(
 			'reviewerName' => $reviewer->getFullName(),
 			'reviewDueDate' => $reviewDueDate,
-			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),			
+			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs),
 			'editorialContactSignature' => $user->getContactSignature(),
 		));
@@ -187,13 +187,13 @@ class ReviewReminderForm extends Form {
 	 */
 	function _getMailTemplateKey($context) {
 		$templateKey = 'REVIEW_REMIND';
-		if ($context->getSetting('reviewerAccessKeysEnabled')) {
+		if ($context->getData('reviewerAccessKeysEnabled')) {
 			$templateKey = 'REVIEW_REMIND_ONECLICK';
 		}
 
 		return $templateKey;
-	}	
-	
+	}
+
 }
 
 

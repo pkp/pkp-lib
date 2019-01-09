@@ -37,7 +37,6 @@
 	<message key="common.alphaList">A B C Ç D E F G Ğ H I İ J K L M N O Ö P Q R S Ş T U Ü V W X Y Z</message>
 	<message key="common.alreadyAssigned">Atanmış</message>
 	<message key="common.altText">Alternatif Metin</message>
-	<message key="common.altTextInstructions">Salt metin tarayıcı veya yardımcı cihazlar ile kullanıcıların erişebilirliğini sağlamak için bu görüntü için alternatif bir metin giriniz.</message>
 	<message key="common.and">ve</message>
 	<message key="common.applyAction">Eylemi Uygula</message>
 	<message key="common.assign">Ata</message>
@@ -137,7 +136,6 @@
 	<message key="common.originalFileName">Orijinal dosya adı</message>
 	<message key="common.or">veya</message>
 	<message key="common.other">Diğer</message>
-	<message key="common.pageHeaderLogo.altText">Sayfa Üstü Logosu</message>
 	<message key="common.plugin">Eklentiler</message>
 	<message key="common.pluginEnabled">"{$pluginName}" eklentisi aktifleştirildi.</message>
 	<message key="common.pluginDisabled">"{$pluginName}" eklentisi kapatıldı.</message>
@@ -173,7 +171,6 @@
 	<message key="common.uninitiated">Başlatılmamış</message>
 	<message key="common.untitled">Başlıksız</message>
 	<message key="common.updated">Güncellenmiş</message>
-	<message key="common.uploadedFile">Yüklenen dosya</message>
 	<message key="common.upload">Dosya yükle</message>
 	<message key="common.uploadFailed">Dosya yüklenemedi ve gözden geçirilemedi.</message>
 	<message key="common.up">Yukarı</message>
@@ -313,7 +310,6 @@
 	<message key="common.remote">Uzak</message>
 	<message key="common.remoteURL">Uzak URL</message>
 	<message key="common.unread">Okunmamış</message>
-	<message key="common.invalidFileType">Dosya yüklenemedi veya hatalı dosya türü!</message>
 	<message key="common.plugins">Eklentiler</message>
 	<message key="email.subjectRequired">Lütfen bir e-posta konusu giriniz.</message>
 	<message key="email.bodyRequired">Lütfen bir e-posta metni giriniz.</message>
@@ -466,7 +462,6 @@
 	<message key="email.senderName">Gönderici Adı</message>
 	<message key="email.senderEmail">Gönderici e-Postası</message>
 	<message key="form.url.invalid">Belirtilen URL geçersiz. Lütfen kontrol edip tekrar deneyin.</message>
-	<message key="form.csrfInvalid">Form uygun şekilde sunulmadı.</message>
 	<message key="form.fileRequired">Bir dosya yüklemesi gereklidir.</message>
 	<message key="help.previous">Önceki</message>
 	<message key="help.next">Sonraki</message>

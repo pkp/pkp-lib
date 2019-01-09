@@ -169,14 +169,14 @@ class RegistrationHandler extends UserHandler {
 			$contexts = $contextDao->getAll(true)->toArray();
 			$contextsForRegistration = array();
 			foreach($contexts as $context) {
-				if (!$context->getSetting('disableUserReg')) {
+				if (!$context->getData('disableUserReg')) {
 					$contextsForRegistration[] = $context;
 				}
 			}
 			if (empty($contextsForRegistration)) {
 				$disableUserReg = true;
 			}
-		} elseif($context->getSetting('disableUserReg')) {
+		} elseif($context->getData('disableUserReg')) {
 			$disableUserReg = true;
 		}
 

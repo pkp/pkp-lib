@@ -213,27 +213,23 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Відібрати результати за країною, регіоном та/або містом.</message>
 	<message key="manager.affiliationAndSupport">Спонсорство</message>
 	<message key="manager.setup.additionalContent">Додатковий вміст</message>
-	<message key="manager.setup.additionalContentDescription">Все, що вводиться тут, з'явиться на вашій домашній сторінці.</message>
-	<message key="manager.setup.authorCopyrightNotice">Умови передачі авторських прав</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Вимагати в авторів погодитись із умовами передачі авторських прав в процесі подання матеріалів.</message>
+	<message key="manager.setup.additionalContent.description">Все, що вводиться тут, з'явиться на вашій домашній сторінці.</message>
+	<message key="manager.setup.copyrightNotice">Умови передачі авторських прав</message>
+	<message key="manager.setup.copyrightNotice.description">Вимагати в авторів погодитись із умовами передачі авторських прав в процесі подання матеріалів.</message>
 	<message key="manager.setup.authorGuidelines">Довідник для авторів</message>
 	<message key="manager.setup.authorGuidelines.description">Рекомендовані правила містять бібліографічні стандарти та стандарти форматування разом із прикладами оформлення цитувань, котрі використовуватимуться під час подання матеріалів.</message>
 	<message key="manager.setup.competingInterests">Конфлікт інтересів</message>
-	<message key="manager.setup.competingInterestsDescription">Рецензентів проситимуть дотримуватися правил декларування конфлікту інтересів, які ви навели нижче.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Під час видалення цього об'єкту виникла помилка.</message>
-	<message key="manager.setup.favicon">Неправильний формат favicon. Прийнятними форматами є .ico, .png та .gif.</message>
+	<message key="manager.setup.favicon">Іконка</message>
 	<message key="manager.setup.groupType">Групування типів файлів</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Завантаження невдале або неправильний формат зображення для логотипу заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.homepageImage">Зображення на домашній сторінці</message>
-	<message key="manager.setup.homepageImageDescription">Завантажте зображення для відображення на домашній сторінці.</message>
+	<message key="manager.setup.homepageImage.description">Завантажте зображення для відображення на домашній сторінці.</message>
 	<message key="manager.setup.homepageImageInvalid">Завантаження невдале або неправильний формат зображення домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Завантаження невдале або неправильний формат зображення для заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Описи</message>
-	<message key="manager.setup.layout.theme">Теми</message>
-	<message key="manager.setup.layout.themeDescription">Нові теми можуть бути встановлені на вкладці "Модулі" у верхній частині цієї сторінки.</message>
-	<message key="manager.setup.layout.blockManagement">Налаштування бічних панелей</message>
+	<message key="manager.setup.theme">Теми</message>
+	<message key="manager.setup.theme.description">Нові теми можуть бути встановлені на вкладці "Модулі" у верхній частині цієї сторінки.</message>
 	<message key="manager.setup.layout.sidebar">Бічна панель</message>
-	<message key="manager.setup.layout.unselected">Не вибрано</message>
 	<message key="manager.setup.loggingAndAuditing">Журналізація та аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
 	<message key="manager.setup.notifications">Повідомлення про подання матеріалів автором</message>
@@ -243,7 +239,7 @@
 	<message key="manager.setup.openAccessPolicy.description">Якщо ви надаєте негайний вільний доступ до всього опублікованого вмісту, ви можете навести опис ваших правил відкритого доступу.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Завантаження невдале або неправильний формат зображення для логотипу заголовку сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.pageFooter">Нижній колонтитул сторінки</message>
-	<message key="manager.setup.pageFooterDescription">Вкажіть будь-які зображення, текст або HTML-код, які ви хочете відобразити в нижній частині вашого веб-сайту.</message>
+	<message key="manager.setup.pageFooter.description">Вкажіть будь-які зображення, текст або HTML-код, які ви хочете відобразити в нижній частині вашого веб-сайту.</message>
 	<message key="manager.setup.peerReview.description">Опишіть правила та процес рецензування для читачів та авторів. Це опис переважно містить кількість рецензентів, які зазвичай долучаються до рецензування, критерії, за якими рецензентів просять оцінити подання, очікуваний час, необхідний для рецензування, та принципи відбору рецензентів.</message>
 	<message key="manager.setup.principalContact">Контактна особа</message>
 	<message key="manager.setup.principalContactDescription">Введіть контактні дані, як правило, це головний редактор, керуючий редактор чи хтось з адміністрації. Ці дані можуть відображатися на вашому сайті у відкритому доступі.</message>
@@ -252,12 +248,9 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Тижнів на рецензування</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Ніколи не нагадувати</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Усталені значення, які можна змінити для кожної рецензії під час редакційного процесу.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Надсилати нагадування, якщо рецензент не відповів на запит на рецензування протягом наступного часу (днів) після закінчення терміну відповіді:</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Надсилати нагадування, якщо рецензент не відповів на запит на рецензування протягом наступного часу (днів) після закінчення терміну відповіді:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Усталений термін рецензування</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Додати посилання "Забезпечення сліпого рецензування" під час завантаження</message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Мапа сайту</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[XML мапи сайту для подання в пошукові системи знаходиться за адресою <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Опис правил та стосунків зі спонсорами</message>
 	<message key="manager.setup.sponsors.description">Приклади: наукові товариства, університетські підрозділи, спілки тощо. Інформація про спонсорів оприлюднюється у відкритому доступі.</message>
 	<message key="manager.setup.styleSheetDescription">Досвідчені веб-розробники можуть завантажувати файл CSS для додаткового оформлення веб-сайту.</message>
@@ -356,16 +349,12 @@
 	<message key="notification.localeSettingsSaved">Налаштування мови збережені.</message>
 	<message key="notification.editedUser">Користувача відредаговано.</message>
 
-	<!-- Налаштування процесу поширення -->
-	<message key="manager.distribution.indexing">Індексування</message>
-
 	<!-- Налштування способу оплати -->
 	<message key="manager.paymentMethod">Платежі</message>
 	<message key="manager.paymentMethod.title">Способи оплати</message>
 	<message key="manager.paymentMethod.none">Спосіб оплати не обрано</message>
 	<message key="manager.paymentMethod.method">Спосіб оплати</message>
 	<message key="manager.paymentMethod.currency">Валюта</message>
-	<message key="manager.paymentMethod.currency.description">Платежі, здійснені безпосередньо через цей веб-сайт, будуть деноміновані у вибраній валюті.</message>
 
 	<!-- Налаштування сітки Ролі -->
 	<message key="settings.roles.roleOptions">Параметри ролі</message>
@@ -461,7 +450,6 @@
 	<message key="manager.reviewFormElements.textfield">Текстове поле з одним рядком</message>
 	<message key="manager.reviewFormElements.viewable">Видимий (для авторів)</message>
 	<message key="grid.action.createReviewForm">Створити нову форму рецензії</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Заява про конфлікт інтересів рецензента</message>
 	<message key="manager.setup.competingInterests.required">Запит на заяву про конфлікт інтерсів під час рецензування.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL-адреса веб-сторінки, що описує ліцензію, якщо така є.</message>

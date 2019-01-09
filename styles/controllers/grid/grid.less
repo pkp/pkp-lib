@@ -610,6 +610,10 @@
 	word-break: break-word;
 }
 
+/* Fix strange grid float issue when placed inside subtabs */
+[id*="GridContainer"] .header {
+	max-height: 48px;
+}
 
 // TODO check if these styles can be removed
 .pkp_controllers_grid {

@@ -1,0 +1,29 @@
+/**
+ * @file styles/pages/tools.less
+ *
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles for the tool pages
+ *
+ */
+.pkp_op_tools {
+
+	.pkp_page_content {
+		padding: 0;
+	}
+
+	.pkp_page_statistics {
+		padding: @double;
+		background: @lift;
+	}
+
+	.pkp_help_link + h3 {
+		margin-top: 0;
+	}
+
+	ul:not(.ui-tabs-nav):not(.ui-sortable):not(.tabs-component-tabs) {
+		&:extend(.pkp_unstyled_list);
+	}
+}

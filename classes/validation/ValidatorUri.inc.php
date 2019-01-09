@@ -1,74 +1,53 @@
 <?php
 
 /**
- * @file classes/validation/ValidatorUri.inc.php
+ * @file classes/validation/ValidatorUrI.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ValidatorUri
+ * @class ValidatorUrl
  * @ingroup validation
  * @see Validator
  *
- * @brief Validation check for URIs.
+ * @brief Validation check for URLs with an additional check for ipv4 syntax and
+ *  the ability to restrict to specific schemes (ftp, etc)
  */
 
-import('lib.pkp.classes.validation.ValidatorRegExp');
+import ('lib.pkp.classes.validation.ValidatorUrl');
+import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorUri extends ValidatorRegExp {
+class ValidatorUri extends ValidatorUrl {
+	/** @var array */
+	public $allowedSchemes = [];
+
 	/**
 	 * Constructor.
 	 * @param $allowedSchemes array
 	 */
 	function __construct($allowedSchemes = null) {
-		parent::__construct(ValidatorUri::getRegexp($allowedSchemes));
+		$this->allowedSchemes = $allowedSchemes;
 	}
 
-	//
-	// Implement abstract methods from Validator
-	//
 	/**
-	 * @see ValidatorRegExp::isValid()
-	 * @param $value mixed
-	 * @return boolean
+	 * @copydoc Validator::isValid()
 	 */
 	function isValid($value) {
-		if(!parent::isValid($value)) return false;
+		if (!parent::isValid($value)) {
+			return false;
+		}
 
-		// Retrieve the matches from the regexp validator
-		$matches = $this->getMatches();
-
-		// Check IPv4 address validity
-		if (!empty($matches[4])) {
-			$parts = explode('.', $matches[4]);
-			foreach ($parts as $part) {
-				if ($part > 255) {
-					return false;
+		if (!empty($this->allowedSchemes)) {
+			$isAllowed = false;
+			foreach ($this->allowedSchemes as $scheme) {
+				if (substr($value, 0, strlen($scheme)) === $scheme) {
+					$isAllowed = true;
+					break;
 				}
 			}
 		}
 
-		return true;
-	}
-
-	//
-	// Public static methods
-	//
-	/**
-	 * Return the regex for an URI check. This can be called
-	 * statically.
-	 * @param $allowedSchemes Array of strings to restrict accepted schemes to defined set, or null for any
-	 * @return string
-	 */
-	static function getRegexp($allowedSchemes = null) {
-		if (is_array($allowedSchemes)) {
-			$schemesRegEx = '(?:(' . implode('|', $allowedSchemes) . '):)';
-			$regEx = $schemesRegEx . substr(PCRE_URI, 24);
-		} else {
-			$regEx = PCRE_URI;
-		}
-		return '&^' . $regEx . '$&i';
+		return $isAllowed;
 	}
 }
-

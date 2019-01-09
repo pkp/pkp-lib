@@ -15,9 +15,6 @@
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
-// This class contains a static method to describe metadata field settings
-import('lib.pkp.controllers.grid.settings.metadata.MetadataGridHandler');
-
 class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 	/** @var SubmissionMetadataFormImplementation */
@@ -53,10 +50,11 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 		$context = $request->getContext();
 
 		// Tell the form what fields are enabled (and which of those are required)
-		foreach (array_keys(MetadataGridHandler::getNames()) as $field) {
+		$metadataFields = Application::getMetadataFields();
+		foreach ($metadataFields as $field) {
 			$templateMgr->assign(array(
-				$field . 'Enabled' => $context->getSetting($field . 'EnabledSubmission'),
-				$field . 'Required' => $context->getSetting($field . 'Required')
+				$field . 'Enabled' => $context->getData($field) === METADATA_REQUEST || $context->getData($field) === METADATA_REQUIRED,
+				$field . 'Required' => $context->getData($field) === METADATA_REQUIRED,
 			));
 		}
 
@@ -104,5 +102,3 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 		return $this->submissionId;
 	}
 }
-
-

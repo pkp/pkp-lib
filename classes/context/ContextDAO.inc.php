@@ -13,9 +13,9 @@
  *
  * @brief Operations for retrieving and modifying context objects.
  */
+import('lib.pkp.classes.db.SchemaDAO');
 
-abstract class ContextDAO extends DAO {
-
+abstract class ContextDAO extends SchemaDAO {
 	/**
 	 * Retrieve a context by context ID.
 	 * @param $contextId int
@@ -23,7 +23,7 @@ abstract class ContextDAO extends DAO {
 	 */
 	function getById($contextId) {
 		$result = $this->retrieve(
-			'SELECT * FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
+			'SELECT * FROM ' . $this->tableName . ' WHERE ' . $this->primaryKeyColumn . ' = ?',
 			(int) $contextId
 		);
 
@@ -58,73 +58,13 @@ abstract class ContextDAO extends DAO {
 	}
 
 	/**
-	 * Internal function to return a Context object from a row.
-	 * @param $row array
-	 * @return Context
-	 */
-	function _fromRow($row) {
-		$context = $this->newDataObject();
-		$context->setId($row[$this->_getPrimaryKeyColumn()]);
-		$context->setPath($row['path']);
-		$context->setSequence($row['seq']);
-		$this->getDataObjectSettings($this->_getSettingsTableName(), $this->_getPrimaryKeyColumn(), $row[$this->_getPrimaryKeyColumn()], $context);
-		return $context;
-	}
-
-	/**
-	 * Insert a new context.
-	 * @param $context Context
-	 * @return int Inserted context ID
-	 */
-	function insertObject($context) {
-		$this->update(
-			'INSERT INTO ' . $this->_getTableName() . '
-				(path, seq, enabled, primary_locale)
-				VALUES
-				(?, ?, ?, ?)',
-			array(
-				$context->getPath(),
-				(int) $context->getSequence(),
-				(int) $context->getEnabled(),
-				$context->getPrimaryLocale()
-			)
-		);
-
-		$context->setId($this->getInsertId());
-		return $context->getId();
-	}
-
-	/**
-	 * Update an existing context.
-	 * @param $press Press
-	 */
-	function updateObject($context) {
-		return $this->update(
-			'UPDATE ' . $this->_getTableName() . '
-				SET
-					path = ?,
-					seq = ?,
-					enabled = ?,
-					primary_locale = ?
-				WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
-			array(
-				$context->getPath(),
-				(int) $context->getSequence(),
-				(int) $context->getEnabled(),
-				$context->getPrimaryLocale(),
-				(int) $context->getId()
-			)
-		);
-	}
-
-	/**
 	 * Check if a context exists with a specified path.
 	 * @param $path string the path for the context
 	 * @return boolean
 	 */
 	function existsByPath($path) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) FROM ' . $this->_getTableName() . ' WHERE path = ?',
+			'SELECT COUNT(*) FROM ' . $this->tableName . ' WHERE path = ?',
 			(string) $path
 		);
 		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
@@ -139,7 +79,7 @@ abstract class ContextDAO extends DAO {
 	 */
 	function getByPath($path) {
 		$result = $this->retrieve(
-			'SELECT * FROM ' . $this->_getTableName() . ' WHERE path = ?',
+			'SELECT * FROM ' . $this->tableName . ' WHERE path = ?',
 			(string) $path
 		);
 		if ($result->RecordCount() == 0) return null;
@@ -157,7 +97,7 @@ abstract class ContextDAO extends DAO {
 	 */
 	function getAll($enabledOnly = false, $rangeInfo = null) {
 		$result = $this->retrieveRange(
-			'SELECT * FROM ' . $this->_getTableName() .
+			'SELECT * FROM ' . $this->tableName .
 			($enabledOnly?' WHERE enabled = 1':'') .
 			' ORDER BY seq',
 			false,
@@ -181,10 +121,10 @@ abstract class ContextDAO extends DAO {
 		);
 
 		$result = $this->retrieveRange(
-			'SELECT c.* FROM ' . $this->_getTableName() . ' c
+			'SELECT c.* FROM ' . $this->tableName . ' c
 			WHERE	c.enabled = 1 ' .
 				($userId?
-					'OR c.' . $this->_getPrimaryKeyColumn() . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ?)
+					'OR c.' . $this->primaryKeyColumn . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ?)
 					OR ? IN (SELECT user_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE ug.role_id = ?) '
 				:'') .
 			'ORDER BY seq',
@@ -207,11 +147,11 @@ abstract class ContextDAO extends DAO {
 		if ($contextId) $params[] = $contextId;
 
 		$result = $this->retrieve(
-			'SELECT * FROM ' . $this->_getTableName() . ' AS c
-			LEFT JOIN ' . $this->_getSettingsTableName() . ' AS cs
-			ON c.' . $this->_getPrimaryKeyColumn() . ' = cs.' . $this->_getPrimaryKeyColumn() .
+			'SELECT * FROM ' . $this->tableName . ' AS c
+			LEFT JOIN ' . $this->settingsTableName . ' AS cs
+			ON c.' . $this->primaryKeyColumn . ' = cs.' . $this->primaryKeyColumn .
 			' WHERE cs.setting_name = ? AND cs.setting_value = ?' .
-			($contextId?' AND c.' . $this->_getPrimaryKeyColumn() . ' = ?':''),
+			($contextId?' AND c.' . $this->primaryKeyColumn . ' = ?':''),
 			$params
 		);
 
@@ -224,41 +164,7 @@ abstract class ContextDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return $this->_getInsertId($this->_getTableName(), $this->_getPrimaryKeyColumn());
-	}
-
-	/**
-	 * Delete a context by object
-	 * @param $context Context
-	 */
-	function deleteObject($context) {
-		$this->deleteById($context->getId());
-	}
-
-	/**
-	 * Delete a context by ID.
-	 * @param $contextId int
-	 */
-	function deleteById($contextId) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroupDao->deleteAssignmentsByContextId($contextId);
-		$userGroupDao->deleteByContextId($contextId);
-
-		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$genreDao->deleteByContextId($contextId);
-
-		$this->update(
-			'DELETE FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
-			(int) $contextId
-		);
-
-		// NavigationMenus
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenuDao->deleteByContextId($contextId);
-
-		// NavigationMenuItems
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-		$navigationMenuItemDao->deleteByContextId($contextId);
+		return $this->_getInsertId($this->tableName, $this->primaryKeyColumn);
 	}
 
 	/**
@@ -266,13 +172,13 @@ abstract class ContextDAO extends DAO {
 	 */
 	function resequence() {
 		$result = $this->retrieve(
-			'SELECT ' . $this->_getPrimaryKeyColumn() . ' FROM ' . $this->_getTableName() . ' ORDER BY seq'
+			'SELECT ' . $this->primaryKeyColumn . ' FROM ' . $this->tableName . ' ORDER BY seq'
 		);
 
 		for ($i=1; !$result->EOF; $i+=2) {
 			list($contextId) = $result->fields;
 			$this->update(
-				'UPDATE ' . $this->_getTableName() . ' SET seq = ? WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
+				'UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?',
 				array(
 					$i,
 					$contextId
@@ -283,27 +189,6 @@ abstract class ContextDAO extends DAO {
 		}
 		$result->Close();
 	}
-
-	//
-	// Protected methods
-	//
-	/**
-	 * Get the table name for this context.
-	 * @return string
-	 */
-	abstract protected function _getTableName();
-
-	/**
-	 * Get the table name for this context's settings table.
-	 * @return string
-	 */
-	abstract protected function _getSettingsTableName();
-
-	/**
-	 * Get the name of the primary key column for this context.
-	 * @return string
-	 */
-	abstract protected function _getPrimaryKeyColumn();
 }
 
 

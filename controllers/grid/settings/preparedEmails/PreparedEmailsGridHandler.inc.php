@@ -240,7 +240,7 @@ class PreparedEmailsGridHandler extends GridHandler {
 
 				if ($emailTemplate->getAssocId() == null) {
 					$emailTemplate->setAssocId($context->getId());
-					$emailTemplate->setAssocType(ASSOC_TYPE_JOURNAL);
+					$emailTemplate->setAssocType($context->getAssocType());
 				}
 
 				if ($emailTemplate->getEmailId() != null) {
@@ -305,5 +305,3 @@ class PreparedEmailsGridHandler extends GridHandler {
 		return new JSONMessage(false);
 	}
 }
-
-

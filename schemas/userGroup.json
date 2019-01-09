@@ -1,0 +1,30 @@
+{
+	"title": "UserGroup",
+	"description": "A user group assigned to one of the allowed roles.",
+	"properties": {
+		"abbrev": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"id": {
+			"type": "integer"
+		},
+		"name": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"permitSelfRegistration": {
+			"type": "boolean"
+		},
+		"recommendOnly": {
+			"type": "boolean"
+		},
+		"roleId": {
+			"type": "integer",
+			"validation": [
+				"in:16,1,17,65536,4096,4097,1048576,209715"
+			]
+		},
+		"showTitle": {
+			"type": "boolean"
+		}
+	}
+}

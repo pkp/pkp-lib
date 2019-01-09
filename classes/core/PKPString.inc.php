@@ -39,15 +39,6 @@ define('PCRE_URI', '(?:([a-z][-+.a-z0-9]*):)?' .						// Scheme
 		   '(?:\?([^#]*))?' .								// Query String
 		   '(?:\#((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();/?:@\&=+$,])*))?');			// Fragment
 
-// RFC-2822 email addresses
-define('PCRE_EMAIL_ADDRESS',
-	'[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]' . '+' . // One or more atom characters.
-	'(\.' . '[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]' . '+)*'. // Followed by zero or more dot separated sets of one or more atom characters.
-	'@'. // Followed by an "at" character.
-	'(' . '([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{1,63}\.)+'. // Followed by one or max 63 domain characters (dot separated).
-	'([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{2,63}' // Must be followed by one set consisting a period of two or max 63 domain characters.
-	);
-
 // Two different types of camel case: one for class names and one for method names
 define ('CAMEL_CASE_HEAD_UP', 0x01);
 define ('CAMEL_CASE_HEAD_DOWN', 0x02);
@@ -498,7 +489,7 @@ class PKPString {
 
 	/**
 	 * Matches each symbol of PHP strftime format string
-	 * to jQuery Datepicker widget date format. 
+	 * to jQuery Datepicker widget date format.
 	 * @param $phpFormat string
 	 * @return string
 	 */

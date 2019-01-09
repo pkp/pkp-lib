@@ -214,27 +214,23 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Фильтровать результаты по странам, регионам и/или городам.</message>
 	<message key="manager.affiliationAndSupport">Спонсорство</message>
 	<message key="manager.setup.additionalContent">Дополнительный контент</message>
-	<message key="manager.setup.additionalContentDescription">Все, что будет введено здесь, появится на главной странице.</message>
-	<message key="manager.setup.authorCopyrightNotice">Условия передачи авторских прав</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Требовать от авторов принятия Условий передачи авторских прав в процессе отправки материала.</message>
+	<message key="manager.setup.additionalContent.description">Все, что будет введено здесь, появится на главной странице.</message>
+	<message key="manager.setup.copyrightNotice">Условия передачи авторских прав</message>
+	<message key="manager.setup.copyrightNotice.description">Требовать от авторов принятия Условий передачи авторских прав в процессе отправки материала.</message>
 	<message key="manager.setup.authorGuidelines">Руководство для авторов</message>
 	<message key="manager.setup.authorGuidelines.description">Рекомендуемые правила оформления, включая стандарты форматирования текста и библиографических ссылок вместе с примерами оформления ссылок, которые часто встречаются в отправляемых материалах.</message>
 	<message key="manager.setup.competingInterests">Конфликт интересов</message>
-	<message key="manager.setup.competingInterestsDescription">Рецензентов просят следовать Правилам декларирования конфликта интересов, которые вы описали ниже.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Во время удаления этого объекта возникла ошибка.</message>
-	<message key="manager.setup.favicon">Неправильный формат favicon. Допустимы форматы .ico, .png и .gif.</message>
+	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.setup.groupType">Группировка типов файлов</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Неверный формат изображения логотипа для верхнего колонтитула домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.homepageImage">Изображение на главной странице</message>
-	<message key="manager.setup.homepageImageDescription">Загрузите изображение для отображения его на главной странице.</message>
+	<message key="manager.setup.homepageImage.description">Загрузите изображение для отображения его на главной странице.</message>
 	<message key="manager.setup.homepageImageInvalid">Неверный формат изображения для домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Неверный формат изображения заголовка для верхнего колонтитула домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Описания</message>
-	<message key="manager.setup.layout.theme">Тема оформления</message>
-	<message key="manager.setup.layout.themeDescription">Новые темы могут быть установлены из вкладки «Модули» вверху на этой странице.</message>
-	<message key="manager.setup.layout.blockManagement">Управление боковыми панелями</message>
+	<message key="manager.setup.theme">Тема оформления</message>
+	<message key="manager.setup.theme.description">Новые темы могут быть установлены из вкладки «Модули» вверху на этой странице.</message>
 	<message key="manager.setup.layout.sidebar">Боковая панель</message>
-	<message key="manager.setup.layout.unselected">Не выбрано</message>
 	<message key="manager.setup.loggingAndAuditing">Ведение журнала и аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
 	<message key="manager.setup.notifications">Уведомление об отправке материала автором</message>
@@ -244,7 +240,7 @@
 	<message key="manager.setup.openAccessPolicy.description">Если журнал предоставляет читателям немедленный свободный доступ ко всему опубликованному контенту, вы можете ввести описание ваших Правил открытого доступа.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Неверный формат изображения логотипа для верхнего колонтитула страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.pageFooter">Нижний колонтитул страницы</message>
-	<message key="manager.setup.pageFooterDescription">Введите все изображения, текст или код HTML, который вы хотите показать в нижней части вашего сайта.</message>
+	<message key="manager.setup.pageFooter.description">Введите все изображения, текст или код HTML, который вы хотите показать в нижней части вашего сайта.</message>
 	<message key="manager.setup.peerReview.description">Опишите правила рецензирования журнала и процесс рецензирования для читателей и авторов. Это описание обычно включает в себя количество рецензентов, обычно дающих рецензии на материал, критерии, по которым рецензентов просят оценить материалы, примерное время выполнения рецензий и принципы подбора рецензентов.</message>
 	<message key="manager.setup.principalContact">Контактное лицо (общие вопросы)</message>
 	<message key="manager.setup.principalContactDescription">Введите данные контактного лица, обычно это главный редактор, ответственный редактор или сотрудник администрации. Эти данные могут отображаться в открытом доступе на сайте.</message>
@@ -254,12 +250,9 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Недель на выполнение рецензии</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Никогда не напоминать</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Значения по умолчанию могут быть изменены для каждой рецензии в ходе редакционного процесса.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Отправить напоминание, если рецензент не ответил на запрос рецензии в течение следующего количества дней, после того как срок ответа на запрос прошел:</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Отправить напоминание, если рецензент не ответил на запрос рецензии в течение следующего количества дней, после того как срок ответа на запрос прошел:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Сроки рецензирования по умолчанию</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Добавить ссылку на «Обеспечение слепого рецензирования» во время загрузки</message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Карта сайта</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Карта сайта в формате XML доступна для отправки поисковым машинам по адресу <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Описание правил и отношений со спонсорами</message>
 	<message key="manager.setup.sponsors.description">Примеры: общества ученых, подразделения университетов, объединения и т.д. Спонсоры показываются в открытом доступе на сайте.</message>
 	<message key="manager.setup.styleSheetDescription">Опытные веб-разработчики могут загрузить файл CSS для дополнительной модификации внешнего вида сайта.</message>
@@ -358,16 +351,12 @@
 	<message key="notification.localeSettingsSaved">Настройки языка сохранены.</message>
 	<message key="notification.editedUser">Пользователь отредактирован.</message>
 
-	<!-- Настройки процесса распространения -->
-	<message key="manager.distribution.indexing">Индексирование</message>
-
 	<!-- Настройки методов платежей -->
 	<message key="manager.paymentMethod">Платежи</message>
 	<message key="manager.paymentMethod.title">Методы платежей</message>
 	<message key="manager.paymentMethod.none">Метод платежей не выбран</message>
 	<message key="manager.paymentMethod.method">Метод платедей</message>
 	<message key="manager.paymentMethod.currency">Валюта</message>
-	<message key="manager.paymentMethod.currency.description">Платежи, выполненные напрямую через этот сайт, будут выставлены в выбранной валюте.</message>
 
 	<!-- Настройки сетки «Роли» -->
 	<message key="settings.roles.roleOptions">Параметры роли</message>
@@ -464,7 +453,6 @@
 	<message key="manager.reviewFormElements.textfield">Поле для ввода одной строки</message>
 	<message key="manager.reviewFormElements.viewable">Видимый (для авторов)</message>
 	<message key="grid.action.createReviewForm">Создать новую форму рецензии</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Декларация о конфликте интересов рецензента</message>
 	<message key="manager.setup.competingInterests.required">Запросить Декларацию о конфликте интересов во время рецензирования.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL-адрес веб-страницы, описывающей лицензию (если она доступна).</message>
@@ -492,7 +480,7 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">У импортируемого пользователя «{$username}» нет пароля. Проверьте формат вашего файла XML для импорта. Пользователь не был импортирован.</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Пароль импортируемого пользователя «{$username}» не модет быть импортирован в данном виде. Новый пароль был отправлен на адрес электронной почты пользователя. Пользователь был импортирован.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">У импортируемого пользователя «{$username}» задан простой пароль, не соответствующий требованиям. Пользователь не был импортирован.</message>
-	
+
 	<!-- Меню навигации -->
 	<message key="manager.navigationMenus.form.title">Название</message>
 	<message key="manager.navigationMenus.form.path">Путь</message>

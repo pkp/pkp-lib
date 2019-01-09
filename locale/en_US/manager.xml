@@ -64,6 +64,11 @@
 	<message key="manager.publication.editorialStage">Editorial</message>
 	<message key="manager.publication.productionStage">Production</message>
 	<message key="manager.publication.emails">Emails</message>
+	<message key="manager.publication.emailSetup.success">The email settings have been updated.</message>
+	<message key="manager.publication.reviewerGuidance">Reviewer Guidance</message>
+	<message key="manager.publication.reviewerGuidance.success">Reviewer guidance has been updated.</message>
+	<message key="manager.publication.reviewSetup.success">The review settings have been updated.</message>
+	<message key="manager.publication.reviewReminders.success">The review reminder details have been updated.</message>
 	<message key="manager.emails.confirmDelete">Are you sure you want to delete this email template?</message>
 	<message key="manager.emails.confirmReset">Are you sure you want to reset this email template to its default values?</message>
 	<message key="manager.emails.addEmail">Add Email Template</message>
@@ -77,7 +82,7 @@
 	<message key="manager.emails.emailKey">Email Key</message>
 	<message key="manager.emails.emailKeyExists">An email with the given key already exists. Email keys must be unique.</message>
 	<message key="manager.emails.emailTemplate">Email Template</message>
-	<message key="manager.emails.emailTemplates">Email Templates</message>
+	<message key="manager.emails.emailTemplates">Templates</message>
 	<message key="manager.emails.enabled">Enable this email template</message>
 	<message key="manager.emails.enable">Enable</message>
 	<message key="manager.emails.enable.message">You are about to enable this email.  Do you want to confirm this operation?</message>
@@ -213,29 +218,30 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Narrow results by country, region and/or city.</message>
 	<message key="manager.affiliationAndSupport">Sponsor</message>
 	<message key="manager.setup.additionalContent">Additional Content</message>
-	<message key="manager.setup.additionalContentDescription">Anything entered here will appear on your homepage.</message>
-	<message key="manager.setup.authorCopyrightNotice">Copyright Notice</message>
-	<message key="manager.setup.authorCopyrightNoticeAgree">Require authors to agree to the Copyright Notice as part of the submission process.</message>
+	<message key="manager.setup.additionalContent.description">Anything entered here will appear on your homepage.</message>
+	<message key="manager.setup.advanced">Advanced</message>
+	<message key="manager.setup.appearance.success">The appearance settings have been updated.</message>
+	<message key="manager.setup.contact.success">The contact details for this press have been updated.</message>
+	<message key="manager.setup.copyrightNotice">Copyright Notice</message>
+	<message key="manager.setup.copyrightNotice.description">Require authors to agree to the following copyright notice as part of the submission process.</message>
 	<message key="manager.setup.authorGuidelines">Author Guidelines</message>
 	<message key="manager.setup.authorGuidelines.description">Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</message>
+	<message key="manager.setup.authorGuidelines.success">The author guidelines have been successfully updated.</message>
+	<message key="manager.setup.checklist">Checklist</message>
 	<message key="manager.setup.competingInterests">Competing Interests</message>
-	<message key="manager.setup.competingInterestsDescription">Reviewers will be asked to comply with the competing interests disclosure policy you specify below.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
-	<message key="manager.setup.favicon">Invalid favicon format. Accepted formats are .ico, .png, and .gif.</message>
+	<message key="manager.setup.favicon">Favicon</message>
 	<message key="manager.setup.groupType">File type grouping</message>
-	<message key="manager.setup.homeHeaderImageInvalid">Invalid homepage header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImage">Homepage Image</message>
-	<message key="manager.setup.homepageImageDescription">Upload an image to display prominently on the homepage.</message>
+	<message key="manager.setup.homepageImage.description">Upload an image to display prominently on the homepage.</message>
 	<message key="manager.setup.homepageImageInvalid">Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Descriptions</message>
-	<message key="manager.setup.layout.theme">Theme</message>
-	<message key="manager.setup.layout.themeDescription">New themes may be installed from the Plugins tab at the top of this page.</message>
-	<message key="manager.setup.layout.blockManagement">Sidebar management</message>
 	<message key="manager.setup.layout.sidebar">Sidebar</message>
-	<message key="manager.setup.layout.unselected">Unselected</message>
+	<message key="manager.setup.layout.sidebar.invalidBlock">The {$name} block can not be found. Please make sure the plugin is installed and enabled.</message>
 	<message key="manager.setup.loggingAndAuditing">Logging and Auditing</message>
 	<message key="manager.setup.logo">Logo</message>
+	<message key="manager.setup.noTemporaryFile">The file you uploaded could not be found. Please try to upload it again.</message>
 	<message key="manager.setup.notifications">Notification of Author Submission</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Send a copy to this email address</message>
 	<message key="manager.setup.notifications.description">Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:</message>
@@ -243,27 +249,34 @@
 	<message key="manager.setup.openAccessPolicy.description">If providing immediate free access to all published content, you may enter a description of your Open Access Policy.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.pageFooter">Page Footer</message>
-	<message key="manager.setup.pageFooterDescription">Enter any images, text or HTML code that you'd like to appear at the bottom of your website.</message>
+	<message key="manager.setup.pageFooter.description">Enter any images, text or HTML code that you'd like to appear at the bottom of your website.</message>
 	<message key="manager.setup.peerReview.description">Outline the peer review policy and processes for readers and authors. This description often includes the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, expected time required to conduct the reviews, and the principles used to select reviewers.</message>
 	<message key="manager.setup.principalContact">Principal Contact</message>
 	<message key="manager.setup.principalContactDescription">Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</message>
 	<message key="manager.setup.privacyStatement">Privacy Statement</message>
 	<message key="manager.setup.privacyStatement.description">This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</message>
-	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Weeks allowed to accept or decline a review request</message>
+	<message key="manager.setup.reviewOptions.defaultReviewResponseTime">Default Response Deadline</message>
+	<message key="manager.setup.reviewOptions.defaultReviewCompletionTime">Default Completion Deadline</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Number of weeks to accept or decline a review request.</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Weeks allowed for review completion</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Never Remind</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Defaults can be modified for each review during the editorial process.</message>
-	<message key="manager.setup.reviewOptions.remindForInvite">Send a reminder if a reviewer has not responded to a review request within the following time (days) after response due date:</message>
-	<message key="manager.setup.reviewOptions.remindForSubmit">Send a reminder if a reviewer has not submitted a recommendation within the following time (days) after review's due date:</message>
-	<message key="manager.setup.reviewOptions.reviewTime">Default Review Deadlines</message>
-	<message key="manager.setup.reviewOptions.showBlindReviewLink">Present a link to "Ensuring a Blind Review" during upload</message>
-	<message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
-	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[A XML sitemap is available for submitting to search engines at <a href="{$path}" target="_blank">{$path}</a>]]></message>
+	<message key="manager.setup.reviewOptions.reminders.response">Response Reminder</message>
+	<message key="manager.setup.reviewOptions.reminders.response.description">Send an email reminder if a reviewer has not responded to a review request this many days after the response due date.</message>
+	<message key="manager.setup.reviewOptions.reminders.submit">Review Reminder</message>
+	<message key="manager.setup.reviewOptions.reminders.submit.description">Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date.</message>
+	<message key="manager.setup.reviewOptions.reviewMode">Default Review Mode</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink"><![CDATA[Present a link to <button type="button">Ensuring a Blind Review</button> during upload]]></message>
 	<message key="manager.setup.sponsors.note">Sponsor Relationship and Policy Description</message>
 	<message key="manager.setup.sponsors.description">Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</message>
 	<message key="manager.setup.styleSheetDescription">Experienced web developers can upload a CSS file to further customize the website's appearance.</message>
 	<message key="manager.setup.technicalSupportContact">Technical Support Contact</message>
 	<message key="manager.setup.technicalSupportContactDescription">A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material.</message>
+	<message key="manager.setup.theme.success"><![CDATA[The theme has been updated. <a href="{$url}" target="_blank">View Now</a>]]></message>
+	<message key="manager.setup.theme">Theme</message>
+	<message key="manager.setup.theme.description">New themes may be installed from the Plugins tab at the top of this page.</message>
+	<message key="manager.setup.theme.notFound">The theme you selected is not installed or enabled.</message>
+	<message key="manager.setup.userAccess.success">The user access details for this press have been updated.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Site Access Options</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
@@ -353,12 +366,18 @@
 	<message key="notification.primaryLocaleDefined">{$locale} defined as primary locale.</message>
 	<message key="notification.localeInstalled">All selected locale(s) installed and activated.</message>
 	<message key="notification.localeUninstalled">{$locale} locale uninstalled.</message>
-	<message key="notification.localeReloaded">{$locale} locale reloaded.</message>
+	<message key="notification.localeReloaded">{$locale} locale reloaded for {$contextName}.</message>
 	<message key="notification.localeSettingsSaved">Locale settings saved.</message>
 	<message key="notification.editedUser">User edited.</message>
 
 	<!-- Distribution Process settings -->
-	<message key="manager.distribution.indexing">Indexing</message>
+	<message key="manager.distribution.license">License</message>
+	<message key="manager.distribution.license.success">The licensing details have been updated. </message>
+	<message key="manager.distribution.license.other">Other license URL</message>
+	<message key="manager.distribution.licenseTerms">License Terms</message>
+	<message key="manager.distribution.licenseTerms.description">Enter public licensing terms you would like to display alongside published work.</message>
+	<message key="manager.distribution.customHeaders">Custom Tags</message>
+	<message key="manager.distribution.customHeaders.description">Add custom HTML tags, also known as meta tags, that you would like to be inserted in the head of every page. Consult a technical advisor before adding tags here.</message>
 
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">Payments</message>
@@ -366,7 +385,6 @@
 	<message key="manager.paymentMethod.none">No payment method selected</message>
 	<message key="manager.paymentMethod.method">Payment Method</message>
 	<message key="manager.paymentMethod.currency">Currency</message>
-	<message key="manager.paymentMethod.currency.description">Payments made directly through this website will be denominated in the selected currency.</message>
 
 	<!-- Roles grid settings -->
 	<message key="settings.roles.roleOptions">Role Options</message>
@@ -463,12 +481,64 @@
 	<message key="manager.reviewFormElements.textfield">Single line text box</message>
 	<message key="manager.reviewFormElements.viewable">Viewable (for authors)</message>
 	<message key="grid.action.createReviewForm">Create a new Review Form</message>
-	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Reviewer Competing Interest statement</message>
 	<message key="manager.setup.competingInterests.required">Request a Competing Interest statement during the peer review.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL to a webpage describing the license, if available.</message>
 
 	<message key="manager.setup.metadata.submission">Submission Form</message>
+	<message key="manager.setup.metadata.success">The submission metadata has been updated successfully.</message>
+	<message key="manager.setup.metadata.coverage">Coverage</message>
+	<message key="manager.setup.metadata.coverage.description">Coverage will typically indicate a work's spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range) or jurisdiction (such as a named administrative entity).</message>
+	<message key="manager.setup.metadata.coverage.enable">Enable coverage metadata</message>
+	<message key="manager.setup.metadata.coverage.noRequest">Do not request coverage metadata from the author during submission.</message>
+	<message key="manager.setup.metadata.coverage.request">Ask the author to suggest coverage metadata during submission.</message>
+	<message key="manager.setup.metadata.coverage.require">Require the author to suggest coverage metadata before accepting their submission.</message>
+	<message key="manager.setup.metadata.keywords.description">Keywords are typically one- to three-word phrases that are used to indicate the main topics of a submission.</message>
+	<message key="manager.setup.metadata.keywords.enable">Enable keyword metadata</message>
+	<message key="manager.setup.metadata.keywords.noRequest">Do not request keywords from the author during submission.</message>
+	<message key="manager.setup.metadata.keywords.request">Ask the author to suggest keywords during submission.</message>
+	<message key="manager.setup.metadata.keywords.require">Require the author to suggest keywords before accepting their submission.</message>
+	<message key="manager.setup.metadata.languages.description">Language indicates the work's primary language using a language code ("en") with an optional country code ("en_US").</message>
+	<message key="manager.setup.metadata.languages.enable">Enable language metadata</message>
+	<message key="manager.setup.metadata.languages.noRequest">Do not request the submission's languages from the author during submission.</message>
+	<message key="manager.setup.metadata.languages.request">Ask the author to indication the submission's languages during submission.</message>
+	<message key="manager.setup.metadata.languages.require">Require the author to enter the submission's languages before accepting their submission.</message>
+	<message key="manager.setup.metadata.rights.description">Any rights held over the submission, which may include Intellectual Property Rights (IPR), Copyright, and various Property Rights.</message>
+	<message key="manager.setup.metadata.rights.enable">Enable rights metadata</message>
+	<message key="manager.setup.metadata.rights.noRequest">Do not request a rights disclosure from the author during submission.</message>
+	<message key="manager.setup.metadata.rights.request">Ask the author to disclose any prior access rights during submission.</message>
+	<message key="manager.setup.metadata.rights.require">Require the author to disclose any prior access rights before accepting their submission.</message>
+	<message key="manager.setup.metadata.source.description">The source may be an ID, such as a DOI, of another work or resource from which the submission is derived.</message>
+	<message key="manager.setup.metadata.source.enable">Enable source metadata</message>
+	<message key="manager.setup.metadata.source.noRequest">Do not request a source URL from the author during submission.</message>
+	<message key="manager.setup.metadata.source.request">Ask the author to provide a source URL during submission.</message>
+	<message key="manager.setup.metadata.source.require">Require the author to provide a source URL before accepting their submission.</message>
+	<message key="manager.setup.metadata.subjects.description">Subjects will be keywords, key phrases or classification codes that describe a topic of the submission.</message>
+	<message key="manager.setup.metadata.subjects.enable">Enable subject metadata</message>
+	<message key="manager.setup.metadata.subjects.noRequest">Do not request subjects from the author during submission.</message>
+	<message key="manager.setup.metadata.subjects.request">Ask the author to provide subjects during submission.</message>
+	<message key="manager.setup.metadata.subjects.require">Require the author to provide subjects before accepting their submission.</message>
+	<message key="manager.setup.metadata.type.description"><![CDATA[The nature or genre of the main content of the submission. The type is usually "Text", but may also be "Dataset", "Image" or any of the <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">Dublin Core types</a>.]]></message>
+	<message key="manager.setup.metadata.type.enable">Enable type metadata</message>
+	<message key="manager.setup.metadata.type.noRequest">Do not request the type from the author during submission.</message>
+	<message key="manager.setup.metadata.type.request">Ask the author to provide the type during submission.</message>
+	<message key="manager.setup.metadata.type.require">Require the author to provide the type before accepting their submission.</message>
+	<message key="manager.setup.metadata.disciplines.description">Disciplines are types of study or branches of knowledge as described by university faculties and learned societies.</message>
+	<message key="manager.setup.metadata.disciplines.enable">Enable disciplines metadata</message>
+	<message key="manager.setup.metadata.disciplines.noRequest">Do not request disciplines from the author during submission.</message>
+	<message key="manager.setup.metadata.disciplines.request">Ask the author to provide disciplines during submission.</message>
+	<message key="manager.setup.metadata.disciplines.require">Require the author to provide disciplines before accepting their submission.</message>
+	<message key="manager.setup.metadata.agencies.description">Supporting agencies may indicate the source of research funding or other institutional support that facilitated the research.</message>
+	<message key="manager.setup.metadata.agencies.enable">Enable supporting agencies metadata</message>
+	<message key="manager.setup.metadata.agencies.noRequest">Do not request supporting agencies from the author during submission.</message>
+	<message key="manager.setup.metadata.agencies.request">Ask the author to disclose any supporting agencies during submission.</message>
+	<message key="manager.setup.metadata.agencies.require">Require the author to disclose any supporting agencies before accepting their submission.</message>
+	<message key="manager.setup.metadata.citations.description">Collect a submission's references in a separate field. This may be required to comply with citation-tracking services such as Crossref.</message>
+	<message key="manager.setup.metadata.citations.enable">Enable references metadata</message>
+	<message key="manager.setup.metadata.citations.noRequest">Do not request references from the author during submission.</message>
+	<message key="manager.setup.metadata.citations.request">Ask the author to provide references during submission.</message>
+	<message key="manager.setup.metadata.citations.require">Require the author to provide references before accepting their submission.</message>
+
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">Validation errors:</message>
 	<message key="plugins.importexport.common.warningsEncountered">Warnings encountered:</message>
@@ -491,11 +561,11 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged">The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</message>
-	
+
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Title</message>
 	<message key="manager.navigationMenus.form.path">Path</message>
-	<message key="manager.navigationMenus">Navigation Menus</message>
+	<message key="manager.navigationMenus">Navigation</message>
 	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></message>
 	<message key="manager.navigationMenus.form.content">Content</message>
 	<message key="manager.navigationMenus.form.pathRegEx">The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</message>

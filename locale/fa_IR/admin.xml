@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>	
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 <!--
   * locale/fa_IR/admin.xml
@@ -62,16 +62,10 @@
 	<message key="admin.server.phpVersion">نسخه PHP</message>
 	<message key="admin.server.platform">سیستم‌عامل</message>
 	<message key="admin.settings">تنظیمات</message>
-	<message key="admin.settings.aboutDescription">درباره سایت</message>
+	<message key="admin.settings.about">درباره سایت</message>
 	<message key="admin.settings.contactEmail">ایمیل اطلاعات تماس اصلی</message>
 	<message key="admin.settings.contactName">نام اطلاعات تماس اصلی</message>
-	<message key="admin.settings.form.contactEmailRequired">وارد کردن ایمیل اطلاعات تماس اصلی الزامی است</message>
-	<message key="admin.settings.form.contactNameRequired">وارد کردن نام اطلاعات تماس اصلی الزامی است</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">طول رمز ورود حداقل باید ۴ کاراکتر باشد.</message>
-	<message key="admin.settings.form.titleRequired">وارد کردن عنوان الزامی است</message>
 	<message key="admin.settings.defaultMetricDescription">در تنظیمات نصب شما، چندین معیار اندازه‌گیری تعیین شده است. اما در برخی موارد نیاز است که از یک معیار استفاده شود، برای مثال در نمایش لیست مقالات بیشتر مشاهده شده. لطفاً یک معیار اندازه‌گیری را به عنوان معیار پیش‌فرض انتخاب کنید.</message>
-	<message key="admin.settings.homeHeaderImage.altText">لوگوی سایت</message>
-	<message key="admin.settings.homeHeaderImageInvalid">فرمت نامناسب تصویر لوگوی سایت. فرمت‌های قابل قبول عبارت‌اند از : gif، jpg یا png</message>
 	<message key="admin.settings.introduction">معرفی</message>
 	<message key="admin.settings.minPasswordLength">حداقل طول رمز ورود</message>
 	<message key="admin.settings.siteLanguage">زبان سایت</message>

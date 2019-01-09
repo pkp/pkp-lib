@@ -41,7 +41,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å</message>
 	<message key="common.alreadyAssigned">Tildelt</message>
 	<message key="common.altText">Alternativ tekst</message>
-	<message key="common.altTextInstructions">Angiv alternativ tekst for dette billede for at sikre tilgængelighed for brugere, som bruger tekst-browsere eller handicapvenlige hjælperedskaber.</message>
 	<message key="common.and">og</message>
 	<message key="common.applyAction">Anvend handling</message>
 	<message key="common.assign">Tildel</message>
@@ -115,10 +114,11 @@
 	<message key="common.on">Til</message>
 	<message key="common.options">Indstillinger</message>
 	<message key="common.order">Rækkefølge</message>
+	<message key="common.orderUp">Hæv placering af {$itemTitle}</message>
+	<message key="common.orderDown">Sænk placering af {$itemTitle}</message>
 	<message key="common.originalFileName">Oprindeligt filnavn</message>
 	<message key="common.or">eller</message>
 	<message key="common.other">Andet</message>
-	<message key="common.pageHeaderLogo.altText">Header-logo</message>
 	<message key="common.plugin">Plug-in</message>
 	<message key="common.publisher">Forlægger</message>
 	<message key="common.record">Post</message>
@@ -148,7 +148,6 @@
 	<message key="common.uninitiated">Ikke startet</message>
 	<message key="common.untitled">Ikke-navngivet</message>
 	<message key="common.updated">Opdateret</message>
-	<message key="common.uploadedFile">Overført fil</message>
 	<message key="common.upload">Overfør</message>
 	<message key="common.up">Op</message>
 	<message key="common.url">URL-adresse</message>
@@ -314,7 +313,6 @@
 	<message key="common.remoteURL">EksternURL</message>
 	<message key="common.reset">Nulstil</message>
 	<message key="common.unread">Ulæst</message>
-	<message key="common.invalidFileType">Filen blev ikke uploadet eller filen er ugyldig</message>
 	<message key="common.plugins">Plug-ins</message>
 	<message key="email.subjectRequired">Udfyld venligst e-mailens emnefelt</message>
 	<message key="email.bodyRequired">Indskriv venligst tekst i e-mailens tekstfelt</message>
@@ -364,8 +362,6 @@
 	<message key="common.abstract">Resumé</message>
 	<message key="common.uploadedDate">Upload-tidspunkt</message>
 	<message key="common.itemsPerPage">Elementer pr. side</message>
-	<message key="common.homepageImage.altText">Billede på hjemmeside</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.name">Navn</message>
 	<message key="common.designation">Betegnelse</message>
 	<message key="notification.type.reviewAssignment">Under bedømmelse</message>
@@ -457,7 +453,6 @@
 	<message key="email.senderName">Afsenders navn</message>
 	<message key="email.senderEmail">Afsenders e-mail</message>
 	<message key="form.url.invalid">Den angivne URL er ugyldig. Tjek og prøv igen.</message>
-	<message key="form.csrfInvalid">Formularen blev ikke sendt korrekt.</message>
 	<message key="form.fileRequired">En fil skal uploades.</message>
 	<message key="stageParticipants.notify.warning">Sørg for at du har udfyldt feltet til beskeder og valgt mindst én modtager.</message>
 	<message key="navigation.breadcrumbLabel">Du er her:</message>

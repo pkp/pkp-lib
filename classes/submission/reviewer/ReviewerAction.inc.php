@@ -116,7 +116,7 @@ class ReviewerAction {
 		}
 		if (!$recipient) {
 			$context = $request->getContext();
-			$email->addRecipient($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+			$email->addRecipient($context->getData('contactEmail'), $context->getData('contactName'));
 		}
 
 		// Get due date

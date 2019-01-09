@@ -42,7 +42,7 @@ class SubmissionChecklistForm extends Form {
 		$request = Application::getRequest();
 		$context = $request->getContext();
 
-		$submissionChecklistAll = $context->getSetting('submissionChecklist');
+		$submissionChecklistAll = $context->getData('submissionChecklist');
 		$checklistItem = array();
 		// preparea  localizable array for this checklist Item
 		foreach (AppLocale::getSupportedLocales() as $locale => $name) {
@@ -92,7 +92,7 @@ class SubmissionChecklistForm extends Form {
 		$request = Application::getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
-		$submissionChecklistAll = $context->getSetting('submissionChecklist');
+		$submissionChecklistAll = $context->getData('submissionChecklist');
 		$locale = AppLocale::getPrimaryLocale();
 		//FIXME: a bit of kludge to get unique submissionChecklist id's
 		$this->submissionChecklistId = ($this->submissionChecklistId != null ? $this->submissionChecklistId:(max(array_keys($submissionChecklistAll[$locale])) + 1));

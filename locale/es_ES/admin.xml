@@ -31,7 +31,7 @@ La herramienta solo copiará los archivos que aún no estén en los directorios 
 
 Uso: {$scriptName} ruta/a/apache/log/file.log
 Uso (procesar todos los archivos de un directorio): {$scriptName} ruta/a/apache/directorio
-Uso (procesar todos los archivos de un directorio que empieza con la cadena pasada): {$scriptName} ruta/a/apache/directorio empieza_con_cadena 
+Uso (procesar todos los archivos de un directorio que empieza con la cadena pasada): {$scriptName} ruta/a/apache/directorio empieza_con_cadena
 	</message>
 	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Error: no se puede crear la carpeta temporal {$tmpDir}</message>
 	<message key="admin.copyAccessLogFileTool.error.acessingFile">Error: el archivo {$filePath} no existe o no se puede acceder a él.</message>
@@ -75,19 +75,13 @@ Uso (procesar todos los archivos de un directorio que empieza con la cadena pasa
 	<message key="admin.server.phpVersion">Versión PHP</message>
 	<message key="admin.server.platform">Plataforma SO</message>
 	<message key="admin.settings">Ajustes</message>
-	<message key="admin.settings.aboutDescription">Descripción del sitio</message>
+	<message key="admin.settings.about">Descripción del sitio</message>
 	<message key="admin.settings.contactEmail">Correo electrónico del contacto principal</message>
 	<message key="admin.settings.contactName">Nombre del contacto principal</message>
-	<message key="admin.settings.form.contactEmailRequired">Se necesita la dirección de correo electrónico del contacto principal.</message>
-	<message key="admin.settings.form.contactNameRequired">Se necesita el nombre del contacto principal.</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Debes introducir una contraseña de 4 caracteres como mínimo.</message>
-	<message key="admin.settings.form.titleRequired">Es necesario introducir el título.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Se ha configurado su instalación para registrar más de una métrica de uso. Se mostrarán las estadísticas de uso en varios contextos.
 		En algunos casos deberá utilizarse una sola estadística de uso, p. ej., para mostrar una lista ordenada de los envíos más utilizados o para clasificar resultados de búsqueda. Seleccione una de las medidas configuradas como predeterminadas.
 	</message>
-	<message key="admin.settings.homeHeaderImage.altText">Logotipo del sitio</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagen del logotipo del sitio inválido. Formatos aceptados: .gif, .jpg y .png.</message>
 	<message key="admin.settings.introduction">Introducción</message>
 	<message key="admin.settings.minPasswordLength">Longitud mínima de la contraseña</message>
 	<message key="admin.settings.siteLanguage">Idioma</message>
@@ -120,13 +114,13 @@ Uso (procesar todos los archivos de un directorio que empieza con la cadena pasa
 	<message key="admin.fileLoader.moveFileFailed">El archivo {$filename} no se pudo mover de {$currentFilePath} a {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">El archivo {$filename} se ha procesado y archivado.</message>
 	<message key="admin.fileLoader.emailSubject">Cargador de archivos</message>
-	
+
 	<message key="admin.copyAccessLogFileTool.usage">Copie el archivo o los archivos de acceso de registro apache y filtre las entradas relacionadas con esta instalación en el directorio de archivo actual, dentro del directorio de fase UsageStatsPlugin. Debe ejecutarlo un usuario/a que tenga los permisos necesarios para la lectura de archivos de acceso de registro apache.
 
 La herramienta solo copiará archivos que aún no estén en los directorios de carga de archivo usageStats (fase, procesamiento, archivo, rechazar).
 
 Uso: {$scriptName} ruta/a/apache/log/file.log
-Uso (procesamiento de todos los archivos dentro de un directorio): {$scriptName} ruta/a/apache/directorio 
+Uso (procesamiento de todos los archivos dentro de un directorio): {$scriptName} ruta/a/apache/directorio
 	</message>
 	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Error: no se puede crear la carpeta temporal {$tmpDir}</message>
 	<message key="admin.copyAccessLogFileTool.error.acessingFile">Error: el archivo {$filePath} no existe o no se puede acceder a él.</message>

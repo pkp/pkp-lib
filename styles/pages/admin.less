@@ -10,7 +10,11 @@
  */
 .pkp_page_admin {
 
-	ul:not(.ui-tabs-nav):not(.ui-sortable) {
+	ul:not(.ui-tabs-nav):not(.ui-sortable):not(.tabs-component-tabs) {
 		&:extend(.pkp_unstyled_list);
+	}
+
+	&.pkp_page_content {
+		background: @lift;
 	}
 }

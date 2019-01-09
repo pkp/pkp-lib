@@ -64,21 +64,19 @@ class NavigationMenuItemHandler extends Handler {
 		$navigationMenuItem->setContent((array) $request->getUserVar('content'), null);
 		$navigationMenuItem->setTitle((array) $request->getUserVar('title'), null);
 
-		import('classes.core.ServicesContainer');
-		ServicesContainer::instance()
-			->get('navigationMenu')
-			->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
+		import('classes.core.Services');
+		Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
 		$templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
 
 		$vars = array();
 		if ($context) {
 			$vars = array(
-				'{$contactName}' => $context->getSetting('contactName'),
-				'{$contactEmail}' => $context->getSetting('contactEmail'),
-				'{$supportName}' => $context->getSetting('supportName'),
-				'{$supportPhone}' => $context->getSetting('supportPhone'),
-				'{$supportEmail}' => $context->getSetting('supportEmail'),
+				'{$contactName}' => $context->getData('contactName'),
+				'{$contactEmail}' => $context->getData('contactEmail'),
+				'{$supportName}' => $context->getData('supportName'),
+				'{$supportPhone}' => $context->getData('supportPhone'),
+				'{$supportEmail}' => $context->getData('supportEmail'),
 			);
 		}
 
@@ -115,11 +113,11 @@ class NavigationMenuItemHandler extends Handler {
 
 			$vars = array();
 			if ($context) $vars = array(
-				'{$contactName}' => $context->getSetting('contactName'),
-				'{$contactEmail}' => $context->getSetting('contactEmail'),
-				'{$supportName}' => $context->getSetting('supportName'),
-				'{$supportPhone}' => $context->getSetting('supportPhone'),
-				'{$supportEmail}' => $context->getSetting('supportEmail'),
+				'{$contactName}' => $context->getData('contactName'),
+				'{$contactEmail}' => $context->getData('contactEmail'),
+				'{$supportName}' => $context->getData('supportName'),
+				'{$supportPhone}' => $context->getData('supportPhone'),
+				'{$supportEmail}' => $context->getData('supportEmail'),
 			);
 			$templateMgr->assign('content', strtr(self::$nmi->getLocalizedContent(), $vars));
 
@@ -147,5 +145,3 @@ class NavigationMenuItemHandler extends Handler {
 		self::$nmi = $nmi;
 	}
 }
-
-

@@ -314,10 +314,38 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * Type a value into a TinyMCE control.
 	 * @param $controlPrefix string Prefix of control name
 	 * @param $value string Value to enter into control
+	 * @param $inline boolean Whether or not the tinymce control is inline
 	 */
-	protected function typeTinyMCE($controlPrefix, $value) {
-		sleep(2); // Give TinyMCE a chance to load/init
-		$this->runScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+	protected function typeTinyMCE($controlPrefix, $value, $inline = false) {
+		if ($inline) {
+			$this->waitForElementPresent('css=div[id^="' . $controlPrefix . '"].mce-content-body');
+			$this->runScript("tinyMCE.get('" . $controlPrefix . "').setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+			$this->runScript("tinyMCE.get('" . $controlPrefix . "').fire('blur');");
+		} else {
+			$this->waitForElementPresent('css=iframe[id^="' . $controlPrefix . '"]'); // Wait for TinyMCE to init
+			$this->runScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+		}
+	}
+
+	/**
+	 * Set the value of an input field and fire the `input` event
+	 *
+	 * This is required to trigger the event listeners in Vue.js and support the
+	 * data binding in form fields. Otherwise, selenium does not fire the event
+	 * and the DOM is updated but Vue's data model is not synced.
+	 *
+	 * @param $selector string A CSS selector compatible with document.querySelector()
+	 * @param $value string Value to enter into the control
+	 */
+	protected function setInputValue($selector, $value) {
+		$this->waitForElementPresent('css=' . $selector);
+		$this->type('css=' . $selector);
+		$this->runScript("
+			var el = document.querySelector('" . $selector . "');
+			el.value = " . json_encode($value) . ";
+			var e = new Event('input');
+			el.dispatchEvent(e);
+		");
 	}
 
 	/**
@@ -330,14 +358,21 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * Click a link action with the specified name.
-	 * @param $name string Name of link action.
-	 * @param $waitFirst boolean True (default) to wait for the element first.
+	 * Click a button with the specified text
+	 * @param $text string
 	 */
-	protected function clickLinkActionNamed($name, $waitFirst = true) {
-		$selector = '//button[text()=\'' . $this->escapeJS($name) . '\']';
+	protected function clickButton($text) {
+		$selector = '//button[text()=\'' . $this->escapeJS($text) . '\']';
 		$this->waitForElementPresent($selector);
 		$this->click($selector);
+	}
+
+	/**
+	 * Click a link action with the specified name.
+	 * @param $name string Name of link action.
+	 */
+	protected function clickLinkActionNamed($name) {
+		$this->clickButton($name);
 	}
 
 	/**
@@ -386,4 +421,3 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->runScript('scroll(0, document.body.scrollHeight()');
 	}
 }
-

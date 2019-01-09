@@ -1,0 +1,124 @@
+{
+	"title": "User",
+	"description": "A registered user.",
+	"properties": {
+		"_href": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"affiliation": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"authId": {
+			"type": "integer"
+		},
+		"authString": {
+			"type": "string"
+		},
+		"billingAddress": {
+			"type": "string"
+		},
+		"biography": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"country": {
+			"type": "string"
+		},
+		"dateRegistered": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"dateValidated": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"dateLastRegistered": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"disabled": {
+			"type": "boolean",
+			"apiSummary": true
+		},
+		"disabledReason": {
+			"type": "string"
+		},
+		"email": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"email_or_localhost"
+			]
+		},
+		"familyName": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"fullName": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"givenName": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"gossip": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"groups": {
+			"type": "array",
+			"apiSummary": true,
+			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/UserGroup"
+			}
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"interests": {
+			"type": "array",
+			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/UserInterest"
+			}
+		},
+		"mailingAddress": {
+			"type": "string"
+		},
+		"mustChangePassword": {
+			"type": "boolean"
+		},
+		"orcid": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"orcid"
+			]
+		},
+		"phone": {
+			"type": "string"
+		},
+		"signature": {
+			"$ref": "#/definitions/LocaleObject"
+		},
+		"url": {
+			"type": "string",
+			"validation": [
+				"url"
+			]
+		},
+		"userName": {
+			"type": "string",
+			"apiSummary": true
+		}
+	}
+}

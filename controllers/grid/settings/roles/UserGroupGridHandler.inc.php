@@ -279,7 +279,9 @@ class UserGroupGridHandler extends GridHandler {
 		$userGroupForm->readInputData();
 		if($userGroupForm->validate()) {
 			$userGroupForm->execute();
-			return DAO::getDataChangedEvent();
+			$json = DAO::getDataChangedEvent();
+			$json->setGlobalEvent('userGroupUpdated');
+			return $json;
 		} else {
 			return new JSONMessage(true, $userGroupForm->fetch($request));
 		}
@@ -326,7 +328,9 @@ class UserGroupGridHandler extends GridHandler {
 
 		}
 
-		return DAO::getDataChangedEvent($userGroup->getId());
+		$json = DAO::getDataChangedEvent($userGroup->getId());
+		$json->setGlobalEvent('userGroupUpdated');
+		return $json;
 	}
 
 	/**
@@ -412,5 +416,3 @@ class UserGroupGridHandler extends GridHandler {
 		return $this->_contextId;
 	}
 }
-
-

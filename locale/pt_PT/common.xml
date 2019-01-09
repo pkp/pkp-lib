@@ -40,7 +40,6 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Já designado</message>
 	<message key="common.altText">Texto alternativo</message>
-	<message key="common.altTextInstructions">Indique um texto alternativo para a imagem, assegurando a acessibilidade a utilizadores com navegadores de texto ou equipamentos de auxílio a necessidades especiais.</message>
 	<message key="common.and">e</message>
 	<message key="common.applyAction">Aplicar Acção</message>
 	<message key="common.assign">Designar</message>
@@ -114,10 +113,11 @@
 	<message key="common.on">Activado</message>
 	<message key="common.options">Opções</message>
 	<message key="common.order">Ordem</message>
+	<message key="common.orderUp">Incrementar posição de {$itemTitle}</message>
+	<message key="common.orderDown">Decrementar posição de {$itemTitle}</message>
 	<message key="common.originalFileName">Nome original do ficheiro</message>
 	<message key="common.or">ou</message>
 	<message key="common.other">Outro</message>
-	<message key="common.pageHeaderLogo.altText">Logo do cabeçalho da página</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Editora</message>
 	<message key="common.record">Registar</message>
@@ -266,7 +266,6 @@
 	<message key="common.re">Re:</message>
 	<message key="common.manage">Gerir</message>
 	<message key="common.noComments">Sem comentários</message>
-	<message key="common.uploadedFile">Ficheiro enviado</message>
 	<message key="form.startsWith">iniciar por</message>
 	<message key="notification.allow">Exibir estas notificações no meu canal de notificações</message>
 	<message key="notification.confirmError">Ocorreu um erro ao confirmar a sua subscrição.</message>
@@ -307,7 +306,6 @@
 	<message key="common.go">Ir</message>
 	<message key="common.homepageNavigationLabel">Home</message>
 	<message key="common.itemsPerPage">Artigos por página</message>
-	<message key="common.favicon.altText">Favicon</message>
 	<message key="common.less">Menos</message>
 	<message key="common.more">Mais</message>
 	<message key="about.description">Descrição</message>
@@ -363,8 +361,6 @@
 	<message key="common.component">Componente</message>
 	<message key="common.unread">Não lido</message>
 	<message key="common.uploadedDate">Data do upload</message>
-	<message key="common.invalidFileType">Nenhum ficheiro carregado ou tipo de ficheiro inválido!</message>
-	<message key="common.homepageImage.altText">Imagem da Homepage</message>
 	<message key="common.upload.addFile">Upload Ficheiro</message>
 	<message key="common.upload.changeFile">Modificar Ficheiro</message>
 	<message key="common.upload.dragFile">Arrastar um ficheiro para aqui para iniciar o upload</message>
@@ -384,7 +380,6 @@
 	<message key="form.confirmSubmit.title">Confirmar</message>
 	<message key="form.emailRequired">É obrigat´ório o e-mail.</message>
 	<message key="form.dataHasChanged">A informação inserida no formulário foi modificada. Pretende avançar sem guardar as alterações?</message>
-	<message key="form.csrfInvalid">O formulário não foi enviado.</message>
 	<message key="form.fileRequired">É obrigatório fazer upload de um ficheiro.</message>
 	<message key="form.invalidImage">Foi transferida uma imagem inválida. Os formatos aceites são .png, .gif, or .jpg.</message>
 	<message key="help.previous">Anterior</message>

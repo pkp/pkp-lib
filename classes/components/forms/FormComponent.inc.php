@@ -15,6 +15,9 @@
 namespace PKP\components\forms;
 use PKP\components\forms;
 
+define('FIELD_POSITION_BEFORE', 'before');
+define('FIELD_POSITION_AFTER', 'after');
+
 class FormComponent {
 	/** @var string A unique ID for this form */
 	public $id = '';
@@ -68,7 +71,7 @@ class FormComponent {
 	 *
 	 * @param $field Field
 	 * @param $position array [
-	 *  @option string One of `before` or `after`
+	 *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
 	 *  @option string The field to position it before or after
 	 * ]
 	 * @return FormComponent
@@ -104,7 +107,7 @@ class FormComponent {
 	 *  @option description string A description of this group of fields.
 	 * ]
 	 * @param $position array [
-	 *  @option string One of `before` or `after`
+	 *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
 	 *  @option string The group to position it before or after
 	 * ]
 	 * @return FormComponent
@@ -147,7 +150,7 @@ class FormComponent {
 	 *  @option previousButton array Assoc array defining button params to go back to the previous page. Supports any param of the Button component in the UI Library.
 	 * ]
 	 * @param $position array [
-	 *  @option string One of `before` or `after`
+	 *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
 	 *  @option string The page to position it before or after
 	 * ]
 	 * @return FormComponent
@@ -188,7 +191,7 @@ class FormComponent {
 	 * @param $id string The id of the item to position before or after
 	 * @param $list array The list of fields, groups or pages
 	 * @param $item array The item to insert
-	 * @param $position string `before` or `after`
+	 * @param $position string FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
 	 * @return array
 	 */
 	public function addToPosition($id, $list, $item, $position) {
@@ -199,12 +202,12 @@ class FormComponent {
 				break;
 			}
 		}
-		if (!$index && $position === 'before') {
+		if (!$index && $position === FIELD_POSITION_BEFORE) {
 			array_unshift($list, $item);
 			return $list;
 		}
 
-		$slice = $position === 'before' ? $index : $index + 1;
+		$slice = $position === FIELD_POSITION_BEFORE ? $index : $index + 1;
 
 		return array_merge(
 			array_slice($list, 0, $slice),

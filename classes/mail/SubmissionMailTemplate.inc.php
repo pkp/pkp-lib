@@ -65,7 +65,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * @param $request PKPRequest optional (used for logging purposes)
 	 */
 	function send($request = null) {
-		if (parent::send(false)) {
+		if (parent::send()) {
 			$this->log($request);
 			return true;
 		} else {

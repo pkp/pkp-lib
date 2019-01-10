@@ -110,6 +110,15 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 			foreach ($submissionFiles as $key => $submissionFile) {
 				if (in_array($submissionFile->getFileStage(), (array) $fileStage)) {
 					$stageSubmissionFiles[$key] = $submissionFile;
+				} elseif ($submissionFile->getFileStage() == SUBMISSION_FILE_QUERY) {
+					// Determine the stage from the query.
+					if ($submissionFile->getAssocType()!=ASSOC_TYPE_NOTE) break;
+					$noteDao = DAORegistry::getDAO('NoteDAO');
+					$note = $noteDao->getById($submissionFile->getAssocId());
+					assert($note && $note->getAssocType()==ASSOC_TYPE_QUERY);
+					$queryDao = DAORegistry::getDAO('QueryDAO');
+					$query = $queryDao->getById($note->getAssocId());
+					if ($query->getStageId() == $stageId) $stageSubmissionFiles[$key] = $submissionFile;
 				}
 			}
 		}
@@ -183,7 +192,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider {
 				return SUBMISSION_FILE_REVIEW_FILE;
 				break;
 			case WORKFLOW_STAGE_ID_EDITING:
-				return array(SUBMISSION_FILE_FINAL, SUBMISSION_FILE_COPYEDIT, SUBMISSION_FILE_QUERY);
+				return array(SUBMISSION_FILE_FINAL, SUBMISSION_FILE_COPYEDIT);
 				break;
 			case WORKFLOW_STAGE_ID_PRODUCTION:
 				return SUBMISSION_FILE_PRODUCTION_READY;

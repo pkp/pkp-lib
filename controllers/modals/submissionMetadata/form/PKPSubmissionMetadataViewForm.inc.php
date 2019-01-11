@@ -149,6 +149,40 @@ class PKPSubmissionMetadataViewForm extends Form {
 				$supportedSubmissionLocales
 			))
 		);
+
+		// Get assigned categories
+		// We need an array of IDs for the SelectListPanel, but we also need an
+		// array of Category objects to use when the metadata form is viewed in
+		// readOnly mode. This mode is invoked on the SubmissionMetadataHandler
+		// is not available here
+		$submissionDao = Application::getSubmissionDAO();
+		$categories = $submissionDao->getCategories($submission->getId(), $submission->getContextId());
+		$assignedCategories = array();
+		$selectedIds = array();
+		while ($category = $categories->next()) {
+			$assignedCategories[] = $category;
+			$selectedIds[] = $category->getId();
+		}
+
+		// Get SelectCategoryListHandler data
+		import('lib.pkp.controllers.list.SelectCategoryListHandler');
+		$selectCategoryList = new SelectCategoryListHandler(array(
+			'title' => 'submission.submit.placement.categories',
+			'inputName' => 'categories[]',
+			'selected' => $selectedIds,
+			'getParams' => array(
+				'contextId' => $submission->getContextId(),
+			),
+		));
+
+		$selectCategoryListData = $selectCategoryList->getConfig();
+
+		$templateMgr->assign(array(
+			'hasCategories' => !empty($selectCategoryListData['items']),
+			'selectCategoryListData' => json_encode($selectCategoryListData),
+			'assignedCategories' => $assignedCategories,
+		));
+
 		return parent::fetch($request, $template, $display);
 	}
 

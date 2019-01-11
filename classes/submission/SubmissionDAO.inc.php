@@ -17,6 +17,9 @@
 import('lib.pkp.classes.submission.Submission');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 
+define('ORDERBY_DATE_PUBLISHED', 'datePublished');
+define('ORDERBY_TITLE', 'title');
+
 abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	var $cache;
 	var $authorDao;
@@ -563,6 +566,122 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		return $searchWhere;
 	}
 
+	/**
+	 * Associate a category with a submission.
+	 * @param $submissionId int
+	 * @param $categoryId int
+	 */
+	function addCategory($submissionId, $categoryId) {
+		$this->update(
+			'INSERT INTO submission_categories
+				(submission_id, category_id)
+			VALUES
+				(?, ?)',
+			array(
+				(int) $submissionId,
+				(int) $categoryId
+			)
+		);
+	}
+
+	/**
+	 * Unassociate a category with a submission.
+	 * @param $submissionId int
+	 * @param $categoryId int
+	 */
+	function removeCategory($submissionId, $categoryId) {
+		$this->update(
+			'DELETE FROM submission_categories WHERE submission_id = ? AND category_id = ?',
+			array(
+				(int) $submissionId,
+				(int) $categoryId
+			)
+		);
+	}
+
+	/**
+	 * Unassociate all categories.
+	 * @param $submissionId int
+	 */
+	function removeCategories($submissionId) {
+		$this->update(
+			'DELETE FROM submission_categories WHERE submission_id = ?',
+			(int) $submissionId
+		);
+	}
+
+	/**
+	 * Get the categories associated with a given submission.
+	 * @param $submissionId int The submission id.
+	 * @param $contextId int (optional) The submission's context id.
+	 * @return DAOResultFactory
+	 */
+	function getCategories($submissionId, $contextId = null) {
+		$params = array((int) $submissionId);
+		if ($contextId) $params[] = (int) $contextId;
+
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$result = $this->retrieve(
+			'SELECT	c.*
+			FROM	categories c,
+				submission_categories sc,
+				submissions s
+			WHERE	c.category_id = sc.category_id AND
+				s.submission_id = ? AND
+			' . ($contextId?' c.context_id = s.context_id AND s.context_id = ? AND':'') . '
+				s.submission_id = sc.submission_id',
+			$params
+		);
+
+		// Delegate category creation to the category DAO.
+		return new DAOResultFactory($result, $categoryDao, '_fromRow');
+	}
+
+	/**
+	 * Get the categories not associated with a given submission.
+	 * @param $submissionId int
+	 * @return DAOResultFactory
+	 */
+	function getUnassignedCategories($submissionId, $contextId = null) {
+		$params = array((int) $submissionId);
+		if ($contextId) $params[] = (int) $contextId;
+
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		// The strange ORDER BY clause is to return subcategories
+		// immediately after their parent category's entry.
+		$result = $this->retrieve(
+			'SELECT	c.*
+			FROM	submissions s
+				JOIN categories c ON (c.context_id = s.context_id)
+				LEFT JOIN submission_categories sc ON (s.submission_id = sc.submission_id AND sc.category_id = c.category_id)
+			WHERE	s.submission_id = ? AND
+				' . ($contextId?' s.context_id = ? AND':'') . '
+				sc.submission_id IS NULL
+			ORDER BY CASE WHEN c.parent_id = 0 THEN c.category_id * 2 ELSE (c.parent_id * 2) + 1 END ASC',
+			$params
+		);
+
+		// Delegate category creation to the category DAO.
+		return new DAOResultFactory($result, $categoryDao, '_fromRow');
+	}
+
+	/**
+	 * Check if a submission exists in a category with the specified ID.
+	 * @param $submissionId int
+	 * @param $categoryId int
+	 * @return boolean
+	 */
+	function categoryAssociationExists($submissionId, $categoryId) {
+		$result = $this->retrieve(
+			'SELECT COUNT(*) FROM submission_categories WHERE submission_id = ? AND category_id = ?',
+			array((int) $submissionId, (int) $categoryId)
+		);
+		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+
+		$result->Close();
+		return $returner;
+	}
+
 
 	//
 	// Protected functions
@@ -622,6 +741,72 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @return string
 	 */
 	abstract protected function getCompletionConditions($completed);
+
+	/**
+	 * Get default sort option.
+	 * @return string
+	 */
+	function getDefaultSortOption() {
+		return $this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC);
+	}
+
+	/**
+	 * Map a column heading value to a database value for sorting
+	 * @param $sortBy string
+	 * @return string
+	 */
+	function getSortMapping($sortBy) {
+		switch ($sortBy) {
+			case ORDERBY_TITLE:
+				return 'st.setting_value';
+			case ORDERBY_DATE_PUBLISHED:
+				return 'ps.date_published';
+			default: return null;
+		}
+	}
+
+	/**
+	 * Get possible sort options.
+	 * @return array
+	 */
+	function getSortSelectOptions() {
+		return array(
+			$this->getSortOption(ORDERBY_TITLE, SORT_DIRECTION_ASC) => __('catalog.sortBy.titleAsc'),
+			$this->getSortOption(ORDERBY_TITLE, SORT_DIRECTION_DESC) => __('catalog.sortBy.titleDesc'),
+			$this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_ASC) => __('catalog.sortBy.datePublishedAsc'),
+			$this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC) => __('catalog.sortBy.datePublishedDesc'),
+		);
+	}
+
+	/**
+	 * Get sort option.
+	 * @param $sortBy string
+	 * @param $sortDir int
+	 * @return string
+	 */
+	function getSortOption($sortBy, $sortDir) {
+		return $sortBy .'-' . $sortDir;
+	}
+
+	/**
+	 * Get sort way for a sort option.
+	 * @param $sortOption string concat(sortBy, '-', sortDir)
+	 * @return string
+	 */
+	function getSortBy($sortOption) {
+		list($sortBy, $sortDir) = explode("-", $sortOption);
+		return $sortBy;
+	}
+
+	/**
+	 * Get sort direction for a sort option.
+	 * @param $sortOption string concat(sortBy, '-', sortDir)
+	 * @return int
+	 */
+	function getSortDirection($sortOption) {
+		list($sortBy, $sortDir) = explode("-", $sortOption);
+		return $sortDir;
+	}
 
 }
 

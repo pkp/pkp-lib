@@ -42,6 +42,11 @@ class PKPUserHandler extends Handler {
 			$session->setSessionVar('currentLocale', $setLocale);
 		}
 
+		$source = $request->getUserVar('source');
+		if (preg_match('#^/\w#', $source) === 1) {
+			$request->redirectUrl($source);
+		}
+
 		if(isset($_SERVER['HTTP_REFERER'])) {
 			$request->redirectUrl($_SERVER['HTTP_REFERER']);
 		}

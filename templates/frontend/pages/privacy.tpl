@@ -13,7 +13,7 @@
 
 <div class="page page_privacy">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="manager.setup.privacyStatement"}
-	{$currentContext->getLocalizedData('privacyStatement')}
+	{$privacyStatement}
 </div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

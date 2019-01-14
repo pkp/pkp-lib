@@ -58,7 +58,7 @@ class AboutSiteHandler extends Handler {
 		if (!$enableSiteWidePrivacyStatement && $context) {
 			$privacyStatement = $context->getLocalizedData('privacyStatement');
 		} else {
-			$privacyStatement = $request->getSite()->getLocalizedSetting('privacyStatement');
+			$privacyStatement = $request->getSite()->getLocalizedData('privacyStatement');
 		}
 		if (!$privacyStatement) {
 			$dispatcher = $this->getDispatcher();
@@ -69,5 +69,3 @@ class AboutSiteHandler extends Handler {
 		$templateMgr->display('frontend/pages/privacy.tpl');
 	}
 }
-
-

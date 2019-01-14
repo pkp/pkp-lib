@@ -16,6 +16,9 @@
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
+	/** @var boolean Is there a privacy statement to be confirmed? */
+	public $hasPrivacyStatement = true;
+
 	/**
 	 * Constructor.
 	 * @param $context Context
@@ -23,6 +26,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function __construct($context, $submission = null) {
 		parent::__construct($context, $submission, 1);
+
+		$enableSiteWidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
+		if (!$enableSiteWidePrivacyStatement && $context) {
+			$this->hasPrivacyStatement = (boolean) $context->getSetting('privacyStatement');
+		} else {
+			$this->hasPrivacyStatement = (boolean) Application::getRequest()->getSite()->getSetting('privacyStatement');
+		}
 
 		// Validation checks for this form
 		$supportedSubmissionLocales = $context->getSupportedSubmissionLocales();
@@ -32,7 +42,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$this->addCheck(new FormValidator($this, 'copyrightNoticeAgree', 'required', 'submission.submit.copyrightNoticeAgreeRequired'));
 		}
 		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'submission.submit.availableUserGroupsDescription'));
-		$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+		if ($this->hasPrivacyStatement) {
+			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+		}
 
 		foreach ((array) $context->getLocalizedSetting('submissionChecklist') as $key => $checklistItem) {
 			$this->addCheck(new FormValidator($this, "checklist-$key", 'required', 'submission.submit.checklistErrors'));
@@ -130,10 +142,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$noExistingRoles = true;
 		}
 
-		$templateMgr->assign('managerGroups', $managerGroups);
-		$templateMgr->assign('userGroupOptions', $userGroupNames);
-		$templateMgr->assign('defaultGroup', $defaultGroup);
-		$templateMgr->assign('noExistingRoles', $noExistingRoles);
+		$templateMgr->assign([
+			'managerGroups' => $managerGroups,
+			'userGroupOptions' => $userGroupNames,
+			'defaultGroup' => $defaultGroup,
+			'noExistingRoles' => $noExistingRoles,
+			'hasPrivacyStatement' => $this->hasPrivacyStatement,
+		]);
 
 		return parent::fetch($request);
 	}
@@ -263,6 +278,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute($args, $request) {
 		$submissionDao = Application::getSubmissionDAO();
+		$request = Application::getRequest();
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
@@ -333,5 +349,3 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		return $this->submissionId;
 	}
 }
-
-?>

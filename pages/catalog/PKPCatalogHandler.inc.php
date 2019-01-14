@@ -57,13 +57,13 @@ class PKPCatalogHandler extends Handler {
 		$orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
 		list($orderBy, $orderDir) = explode('-', $orderOption);
 
-		$count = $context->getSetting('itemsPerPage') ? $context->getSetting('itemsPerPage') : Config::getVar('interface', 'items_per_page');
+		$count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
 		$offset = $page > 1 ? ($page - 1) * $count : 0;
 
-		import('classes.core.ServicesContainer');
-		$submissionService = ServicesContainer::instance()->get('submission');
-
+		import('classes.core.Services');
+		$submissionService = Services::get('submission');
 		$params = array(
+			'contextId' => $context->getId(),
 			'categoryIds' => $category->getId(),
 			'orderByFeatured' => true,
 			'orderBy' => $orderBy,
@@ -73,8 +73,8 @@ class PKPCatalogHandler extends Handler {
 			'status' => STATUS_PUBLISHED,
 			'returnObject' => SUBMISSION_RETURN_PUBLISHED,
 		);
-		$publishedSubmissions = $submissionService->getSubmissions($context->getId(), $params);
-		$total = $submissionService->getSubmissionsMaxCount($context->getId(), $params);
+		$publishedSubmissions = $submissionService->getMany($params);
+		$total = $submissionService->getMax($context->getId(), $params);
 
 		// Provide the parent category and a list of subcategories
 		$parentCategory = $categoryDao->getById($category->getParentId());

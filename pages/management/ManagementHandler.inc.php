@@ -124,6 +124,7 @@ class ManagementHandler extends Handler {
 			}
 		}
 
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 		$templateMgr->display('management/context.tpl');
 	}
 

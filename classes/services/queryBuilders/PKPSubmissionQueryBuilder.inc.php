@@ -71,21 +71,6 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Set category filter
-	 *
-	 * @param int|array $categoryIds
-	 *
-	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
-	 */
-	public function filterByCategories($categoryIds) {
-		if (!is_null($categoryIds) && !is_array($categoryIds)) {
-			$categoryIds = array($categoryIds);
-		}
-		$this->categoryIds = $categoryIds;
-		return $this;
-	}
-
-	/**
 	 * Set result order column and direction
 	 *
 	 * @param string $column

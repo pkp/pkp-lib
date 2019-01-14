@@ -47,7 +47,7 @@ class SelectCategoryListPanel extends SelectListPanel {
 		$items = array();
 
 		$categoryDao = DAORegistry::getDAO('CategoryDAO');
-		$categories = $categoryDao->getByPressId($contextId);
+		$categories = $categoryDao->getByContextId($contextId);
 		if (!$categories->wasEmpty) {
 			while ($category = $categories->next()) {
 				$items[] = array(

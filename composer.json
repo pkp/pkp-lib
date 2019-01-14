@@ -21,6 +21,9 @@
 	},
 	"config": {
 		"component-dir": "lib/components",
-		"vendor-dir": "lib/vendor"
+		"vendor-dir": "lib/vendor",
+		"platform": {
+			"php": "5.6.0"
+		}
 	}
 }

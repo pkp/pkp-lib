@@ -297,4 +297,21 @@
 	<message key="notification.type.editorAssignmentEditing">Για να ξεκινήσει η διαδικασία  σύνταξης/επιμέλειας μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή. Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
 	<message key="submission.reviewForm">Φόρμα αξιολόγησης</message>
 	<message key="submission.reviewFormResponse">Απόκριση Φόρμας Αξιολόγησης</message>
+
+	<message key="grid.category.categories">Κατηγορίες</message>
+	<message key="grid.category.add">Προσθήκη Κατηγορίας</message>
+	<message key="grid.category.edit">Επεξεργασία Κατηγορίας</message>
+	<message key="grid.category.name">Όνομα</message>
+	<message key="grid.category.path">Διαδρομή (path)</message>
+	<message key="grid.category.urlWillBe">Το URL της κατηγορία θς είναι {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Η διαδρομή μιας κατηγορίας πρέπει να αποτελείται μόνο από γράμματα και αριθμούς</message>
+	<message key="grid.category.pathExists">Η διαδρομή της κατηγορίας υπάρχει ήδη. Παρακαλούμε καταχωρήστε μια μοναδική διαδρομή.</message>
+	<message key="grid.category.description">Περιγραφή</message>
+	<message key="grid.category.parentCategory">Γονική κατηγορία</message>
+	<message key="grid.category.removeText">Είστε σίγουροι ότι επιθυμείτε να αφαιρέσετε αυτή την κατηγορία;</message>
+	<message key="grid.category.nameRequired">Παρακαλούμε καταχωρήστε ένα όνομα κατηγορίας.</message>
+	<message key="grid.category.categoryDetails">Λεπτομέρειες Κατηγορίας</message>
+	<message key="submission.submit.placement.categories">Κατηγορίες</message>
+	<message key="submission.currentCoverImage">Τρέχουσα Εικόνα</message>
+	<message key="catalog.browseTitles">Περιήγηση σε {$numTitles} Τίτλους</message>
 </locale>

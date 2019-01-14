@@ -20,6 +20,9 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 	/** @var int|string|null Context ID or '*' to get from all contexts */
+	protected $categoryIds = null;
+
+	/** @var int|null Context ID */
 	protected $contextId = null;
 
 	/** @var array list of columns for query */
@@ -84,6 +87,21 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			$this->orderColumn = 's.date_submitted';
 		}
 		$this->orderDirection = $direction;
+		return $this;
+	}
+
+	/**
+	 * Set category filter
+	 *
+	 * @param int|array|null $categoryIds
+	 *
+	 * @return \OMP\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByCategories($categoryIds) {
+		if (!is_null($categoryIds) && !is_array($categoryIds)) {
+			$categoryIds = array($categoryIds);
+		}
+		$this->categoryIds = $categoryIds;
 		return $this;
 	}
 
@@ -221,8 +239,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			$this->columns[] = 'ps.*';
 			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
 				->groupBy('ps.date_published');
-			$q->whereNotNull('ps.pub_id');
-			$q->groupBy('ps.pub_id');
+			$q->whereNotNull('ps.published_submission_id');
+			$q->groupBy('ps.published_submission_id');
 		}
 
 		// statuses
@@ -340,6 +358,12 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 				}
 
 			}
+		}
+
+		// Category IDs
+		if (!empty($this->categoryIds)) {
+			$q->leftJoin('submission_categories as sc', 's.submission_id', '=', 'sc.submission_id')
+				->whereIn('sc.category_id', $this->categoryIds);
 		}
 
 		// Add app-specific query statements

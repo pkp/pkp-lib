@@ -661,4 +661,26 @@
 	<message key="submission.list.filesPrepared">Arquivos preparados</message>
 	<message key="submission.list.discussions">Discussões abertas</message>
 	<message key="submission.list.incompleteSubmissionNotice">Esta submissão deve ser completada para quer um editor a avalie.</message>
+
+	<message key="grid.category.categories">Categorias</message>
+	<message key="grid.category.add">Incluir categoria</message>
+	<message key="grid.category.edit">Editar categoria</message>
+	<message key="grid.category.name">Nome</message>
+	<message key="grid.category.path">Caminho</message>
+	<message key="grid.category.urlWillBe">O caminho da categoria no navegador será {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">O caminho da categoria deve consistir apenas de letras e números.</message>
+	<message key="grid.category.pathExists">O caminho da categoria já existe. Informe um caminho único.</message>
+	<message key="grid.category.description">Descrição</message>
+	<message key="grid.category.parentCategory">Categoria pai</message>
+	<message key="grid.category.removeText">Deseja realmente excluir esta categoria?</message>
+	<message key="grid.category.nameRequired">Informe o nome da categoria.</message>
+	<message key="grid.category.categoryDetails">Detalhes da categoria</message>
+	<message key="catalog.sortBy.titleAsc">Título (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Título (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Data de publicação (antigos primeiro)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Data de publicação (novos primeiro)</message>
+	<message key="submission.submit.placement.categories">Categorias</message>
+	<message key="submission.currentCoverImage">Imagem atual</message>
+	<message key="catalog.browseTitles">{$numTitles} títulos</message>
+	<message key="catalog.noTitlesSection">Sem publicações para esta seção no momento.</message>
 </locale>

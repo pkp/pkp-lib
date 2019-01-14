@@ -629,4 +629,26 @@
 	<message key="submission.list.incompleteSubmissionNotice">Diese Einreichung muss vervollständigt werden, bevor sie durch eine/n Redakteur/in begutachtet wird.</message>
 	<message key="submission.list.currentStage">Momentan in Phase {$stage}.</message>
 	<message key="submission.list.assignEditor">Redakteur/in zuweisen</message>
+
+	<message key="grid.category.categories">Kategorien</message>
+	<message key="grid.category.add">Kategorie hinzufügen</message>
+	<message key="grid.category.edit">Kategorie bearbeiten</message>
+	<message key="grid.category.name">Name</message>
+	<message key="grid.category.path">Pfad</message>
+	<message key="grid.category.urlWillBe">Die URL der Kategorie soll lauten {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Der Pfadname für eine Kategorie darf nur Buchstaben und Ziffern enthalten.</message>
+	<message key="grid.category.pathExists">Dieser Kategorienpfadname existiert bereits. Bitte geben Sie einen eindeutigen Pfadnamen ein.</message>
+	<message key="grid.category.description">Beschreibung</message>
+	<message key="grid.category.parentCategory">Übergeordnete Kategorie</message>
+	<message key="grid.category.removeText">Sind Sie sicher, dass Sie diese Kategorie entfernen möchten?</message>
+	<message key="grid.category.nameRequired">Bitte geben Sie einen Namen für die Kategorie ein.</message>
+	<message key="grid.category.categoryDetails">Genauere Angaben zur Kategorie</message>
+	<message key="catalog.sortBy.titleAsc">Titel (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Titel (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Erscheinungsdatum (älteste zuerst)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Erscheinungsdatum (neueste zuerst)</message>
+	<message key="submission.submit.placement.categories">Kategorien</message>
+	<message key="submission.currentCoverImage">Aktuelles Bild</message>
+	<message key="catalog.browseTitles">{$numTitles} Titel</message>
+	<message key="catalog.noTitlesSection">In dieser Rubrik wurden bisher keine Titel veröffentlicht.</message>
 </locale>

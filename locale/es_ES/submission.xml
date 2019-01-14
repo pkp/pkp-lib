@@ -704,4 +704,26 @@
 	<message key="submission.list.currentStage">Actualmente en la fase {$stage}.</message>
 	<message key="submission.list.dualWorkflowLinks"><![CDATA[Se le han asignado múltiples roles para este envío. ¿Quiere acceder al <a href="{$urlAuthorWorkflow}">flujo de trabajo del autor/a</a>  o al <a href="{$urlEditorialWorkflow}">flujo de trabajo editorial</a>?]]></message>
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Se le ha asignado un rol editorial para este envío. ¿Quiere acceder al <a href="{$urlEditorialWorkflow}">flujo de trabajo editorial</a>?]]></message>
+
+	<message key="grid.category.categories">Categorías</message>
+	<message key="grid.category.add">Añadir categoría</message>
+	<message key="grid.category.edit">Editar categoría</message>
+	<message key="grid.category.name">Nombre</message>
+	<message key="grid.category.path">Ruta</message>
+	<message key="grid.category.urlWillBe">La URL de la categoría es {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">La ruta de la categoría estará compuesta únicamente por letras y números.</message>
+	<message key="grid.category.pathExists">La ruta de la categoría ya existe. Introduzca una ruta nueva.</message>
+	<message key="grid.category.description">Descripción</message>
+	<message key="grid.category.parentCategory">Categoría superior</message>
+	<message key="grid.category.removeText">¿Seguro que deseas borrar esta categoría?</message>
+	<message key="grid.category.nameRequired">Introducir el nombre de una categoría.</message>
+	<message key="grid.category.categoryDetails">Detalles de categoría</message>
+	<message key="catalog.sortBy.titleAsc">Título (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Título (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Fecha de publicación (más antiguos primero)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Fecha de publicación (más nuevos primero)</message>
+	<message key="submission.submit.placement.categories">Categorías</message>
+	<message key="submission.currentCoverImage">Imagen actual</message>
+	<message key="catalog.browseTitles">Explorar {$numTitles} títulos</message>
+	<message key="catalog.noTitlesSection">No se ha publicado ningún título aún para esta sección.</message>
 </locale>

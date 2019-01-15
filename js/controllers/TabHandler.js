@@ -72,13 +72,21 @@
 			active: options.selected
 		});
 
-		// Load tabs when focused. This ensures that links which use anchor
-		// elements (eg - #backIssues) will load the tab even if the current
-		// page is already visible.
-		// See: https://github.com/pkp/pkp-lib/issues/1787
-		$tabs.children('.ui-tabs-nav').find('li > a').focus(function(e) {
-			$(this).click();
-		});
+		// Load a tab when the URL hash changes to a named tab
+		// Original issue: https://github.com/pkp/pkp-lib/issues/1787
+		// This technique introduced to resolve tab activation errors from #1787.
+		// See: https://github.com/pkp/pkp-lib/issues/4352
+		window.addEventListener('hashchange', function(e) {
+			var parts = e.newURL.split('#');
+			if (parts.length < 2) {
+				return;
+			}
+			var hash = parts[1];
+			var $tab = $tabs.find('li > a[name="' + hash + '"]');
+			if ($tab.length) {
+				$tab.click();
+			}
+		}, false);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.TabHandler, $.pkp.classes.Handler);

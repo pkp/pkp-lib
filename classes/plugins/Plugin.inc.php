@@ -367,6 +367,7 @@ abstract class Plugin {
 	 *			override template.
 	 *		@option string Template file requested
 	 * ]
+	 * @return boolean
 	 */
 	public function _overridePluginTemplates($hookName, $args) {
 		$filePath =& $args[0];
@@ -382,7 +383,15 @@ abstract class Plugin {
 
 		// Check if an overriding plugin exists in the plugin path.
 		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
-		if (file_exists($checkPluginPath)) $filePath = $checkPluginPath;
+		if (file_exists($checkPluginPath)) {
+			$filePath = $checkPluginPath;
+			// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
+		} else {
+			$checkPluginPath = preg_replace("/templates\/(?!.*templates\/)/", "", $checkPluginPath);
+			if (file_exists($checkPluginPath)) {
+				$filePath = $checkPluginPath;
+			}
+		}
 
 		return false;
 	}

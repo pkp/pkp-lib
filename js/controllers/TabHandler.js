@@ -77,12 +77,12 @@
 		// This technique introduced to resolve tab activation errors from #1787.
 		// See: https://github.com/pkp/pkp-lib/issues/4352
 		window.addEventListener('hashchange', function(e) {
-			var parts = e.newURL.split('#');
+			var parts = e.newURL.split('#'), hash, $tab;
 			if (parts.length < 2) {
 				return;
 			}
-			var hash = parts[1];
-			var $tab = $tabs.find('li > a[name="' + hash + '"]');
+			hash = parts[1];
+			$tab = $tabs.find('li > a[name="' + hash + '"]');
 			if ($tab.length) {
 				$tab.click();
 			}

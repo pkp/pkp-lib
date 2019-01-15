@@ -45,5 +45,3 @@ class AboutSiteHandler extends Handler {
 		$templateMgr->display('frontend/pages/aboutThisPublishingSystem.tpl');
 	}
 }
-
-?>

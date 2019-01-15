@@ -147,7 +147,6 @@
 	/**
 	 * Get the grid row by the passed data element id.
 	 * @param {number} rowDataId
-	 * @param {number=} opt_parentElementId
 	 * @return {jQueryObject}
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowByDataId =

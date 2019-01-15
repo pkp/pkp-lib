@@ -69,5 +69,3 @@ class AboutSiteHandler extends Handler {
 		$templateMgr->display('frontend/pages/privacy.tpl');
 	}
 }
-
-

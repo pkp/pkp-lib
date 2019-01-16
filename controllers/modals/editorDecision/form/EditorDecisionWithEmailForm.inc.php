@@ -20,18 +20,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	/** @var String */
 	var $_saveFormOperation;
 
-	/**
-	 * Constructor.
-	 * @param $submission Submission
-	 * @param $decision integer
-	 * @param $stageId integer
-	 * @param $template string The template to display
-	 * @param $reviewRound ReviewRound
-	 */
-	function __construct($submission, $decision, $stageId, $template, $reviewRound = null) {
-		parent::__construct($submission, $decision, $stageId, $template, $reviewRound);
-	}
-
 	//
 	// Getters and Setters
 	//

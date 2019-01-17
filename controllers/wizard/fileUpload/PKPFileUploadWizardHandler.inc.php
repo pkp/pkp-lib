@@ -291,6 +291,14 @@ class PKPFileUploadWizardHandler extends Handler {
 	 */
 	protected function _attachEntities($submissionFile) {
 		switch ($submissionFile->getFileStage()) {
+			case SUBMISSION_FILE_ATTACHMENT:
+				// If this attachment was created in the review stage, add it to
+				// the review round.
+				if ($reviewRound = $this->getReviewRound()) {
+					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+					$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+				}
+				break;
 			case SUBMISSION_FILE_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:

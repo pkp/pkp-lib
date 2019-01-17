@@ -34,19 +34,18 @@ export default {
 	 * @param int|array roles The role ID to look for (pkp.const.ROLE_ID...)
 	 * @return bool
 	 */
-	userHasRole: function (roles) {
-
+	userHasRole: function(roles) {
 		if (!Array.isArray(roles)) {
 			roles = [roles];
 		}
 
 		var hasRole = false;
-		roles.forEach((role) => {
+		roles.forEach(role => {
 			if ($.pkp.currentUser.accessRoles.indexOf(role) > -1) {
 				hasRole = true;
 			}
 		});
 
 		return hasRole;
-	},
+	}
 };

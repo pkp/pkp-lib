@@ -17,6 +17,7 @@
 /Bimbot/
 /[Bb]ingbot/
 /Blekkobot/
+/BLEXBot/
 /BlitzBOT/
 /boitho.com\-dc/
 /boitho.com\-robot/
@@ -117,6 +118,7 @@
 /SearchSight/
 /Seekbot/
 /semanticdiscovery/
+/SemrushBot/
 /Sensis Web Crawler/
 /SeznamBot/
 /Shim\-Crawler/

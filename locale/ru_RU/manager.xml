@@ -65,6 +65,11 @@
 	<message key="manager.publication.editorialStage">Редактирование</message>
 	<message key="manager.publication.productionStage">Публикация</message>
 	<message key="manager.publication.emails">Письма электронной почты</message>
+	<message key="manager.publication.emailSetup.success">Настройки электронной почты были обновлены.</message>
+	<message key="manager.publication.reviewerGuidance">Руководство для рецензентов</message>
+	<message key="manager.publication.reviewerGuidance.success">Руководство для рецензентов было обновлено.</message>
+	<message key="manager.publication.reviewSetup.success">Настройки рецензирования были обновлены.</message>
+	<message key="manager.publication.reviewReminders.success">Настройки напоминаний рецензентам были обновлены.</message>
 	<message key="manager.emails.confirmDelete">Вы уверены, что хотите удалить этот шаблон письма электронной почты?</message>
 	<message key="manager.emails.confirmReset">Вы уверены, что хотите вернуть этот шаблон письма электронной почты к его виду по умолчанию?</message>
 	<message key="manager.emails.addEmail">Добавить шаблон письма</message>
@@ -78,7 +83,7 @@
 	<message key="manager.emails.emailKey">Ключ письма</message>
 	<message key="manager.emails.emailKeyExists">Письмо с таким ключом уже существует. Ключи писем электронной почты должны быть уникальными.</message>
 	<message key="manager.emails.emailTemplate">Шаблон письма</message>
-	<message key="manager.emails.emailTemplates">Шаблоны писем</message>
+	<message key="manager.emails.emailTemplates">Шаблоны</message>
 	<message key="manager.emails.enabled">Включить этот шаблон письма</message>
 	<message key="manager.emails.enable">Включить</message>
 	<message key="manager.emails.enable.message">Вы собираетесь включить этот шаблон письма электронной почты. Вы хотите подтвердить эту операцию?</message>
@@ -215,10 +220,15 @@
 	<message key="manager.affiliationAndSupport">Спонсорство</message>
 	<message key="manager.setup.additionalContent">Дополнительный контент</message>
 	<message key="manager.setup.additionalContent.description">Все, что будет введено здесь, появится на главной странице.</message>
+	<message key="manager.setup.advanced">Расширенная</message>
+	<message key="manager.setup.appearance.success">Настройки внешнего вида были обновлены.</message>
+	<message key="manager.setup.contact.success">Контактная информация для этого издания была обновлена.</message>
 	<message key="manager.setup.copyrightNotice">Условия передачи авторских прав</message>
-	<message key="manager.setup.copyrightNotice.description">Требовать от авторов принятия Условий передачи авторских прав в процессе отправки материала.</message>
+	<message key="manager.setup.copyrightNotice.description">Требовать от авторов принятия следующих Условий передачи авторских прав в процессе отправки материала.</message>
 	<message key="manager.setup.authorGuidelines">Руководство для авторов</message>
 	<message key="manager.setup.authorGuidelines.description">Рекомендуемые правила оформления, включая стандарты форматирования текста и библиографических ссылок вместе с примерами оформления ссылок, которые часто встречаются в отправляемых материалах.</message>
+	<message key="manager.setup.authorGuidelines.success">Руководство для авторов было успешно обновлено.</message>
+	<message key="manager.setup.checklist">Контрольный список</message>
 	<message key="manager.setup.competingInterests">Конфликт интересов</message>
 	<message key="manager.setup.errorDeletingItem">Во время удаления этого объекта возникла ошибка.</message>
 	<message key="manager.setup.favicon">Favicon</message>
@@ -228,11 +238,11 @@
 	<message key="manager.setup.homepageImageInvalid">Неверный формат изображения для домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Неверный формат изображения заголовка для верхнего колонтитула домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Описания</message>
-	<message key="manager.setup.theme">Тема оформления</message>
-	<message key="manager.setup.theme.description">Новые темы могут быть установлены из вкладки «Модули» вверху на этой странице.</message>
 	<message key="manager.setup.layout.sidebar">Боковая панель</message>
+	<message key="manager.setup.layout.sidebar.invalidBlock">Не удается найти блок {$name}. Пожалуйста убедитесь, что модуль установлен и включен.</message>
 	<message key="manager.setup.loggingAndAuditing">Ведение журнала и аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
+	<message key="manager.setup.noTemporaryFile">Не удаётся найти файл, загруженный вами. Пожалуйста, попробуйте загрузить его снова.</message>
 	<message key="manager.setup.notifications">Уведомление об отправке материала автором</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Отправить копию на этот адрес электронной почты:</message>
 	<message key="manager.setup.notifications.description">Авторам автоматически отправляется письмо электронной почты с подтверждением отправки их материала. Вы можете отправить копии этого письма электронной почты следующим:</message>
@@ -246,18 +256,28 @@
 	<message key="manager.setup.principalContactDescription">Введите данные контактного лица, обычно это главный редактор, ответственный редактор или сотрудник администрации. Эти данные могут отображаться в открытом доступе на сайте.</message>
 	<message key="manager.setup.privacyStatement">Заявление о конфиденциальности</message>
 	<message key="manager.setup.privacyStatement.description">Это заявление будет появляться во время регистрации пользователя, отправки автором материала и на странице «Конфиденциальность» в открытом доступе. В некоторых странах закон требует, чтобы вы в раскрыли как именно вы обрабатываете данные пользователей в этом Заявлении о конфиденциальности.</message>
+	<message key="manager.setup.reviewOptions.defaultReviewResponseTime">Срок согласия на рецензию по умолчанию</message>
+	<message key="manager.setup.reviewOptions.defaultReviewCompletionTime">Срок выполнения рецензии по умолчанию</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Недель на согласие или отказ в ответ на запрос выполнения рецензии</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Недель на выполнение рецензии</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Никогда не напоминать</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Значения по умолчанию могут быть изменены для каждой рецензии в ходе редакционного процесса.</message>
+	<message key="manager.setup.reviewOptions.reminders.response">Напоминание о согласии</message>
 	<message key="manager.setup.reviewOptions.reminders.response.description">Отправить напоминание, если рецензент не ответил на запрос рецензии в течение следующего количества дней, после того как срок ответа на запрос прошел:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit">Напоминание о рецензии</message>
 	<message key="manager.setup.reviewOptions.reminders.submit.description">Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:</message>
-	<message key="manager.setup.reviewOptions.reviewTime">Сроки рецензирования по умолчанию</message>
+	<message key="manager.setup.reviewOptions.reviewMode">Режим рецензирования по умолчанию</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink"><![CDATA[Показывать ссылку на <button type="button">Обеспечение слепого рецензирования</button> во время загрузки]]></message>
 	<message key="manager.setup.sponsors.note">Описание правил и отношений со спонсорами</message>
 	<message key="manager.setup.sponsors.description">Примеры: общества ученых, подразделения университетов, объединения и т.д. Спонсоры показываются в открытом доступе на сайте.</message>
 	<message key="manager.setup.styleSheetDescription">Опытные веб-разработчики могут загрузить файл CSS для дополнительной модификации внешнего вида сайта.</message>
 	<message key="manager.setup.technicalSupportContact">Контактное лицо (техническая поддержка)</message>
 	<message key="manager.setup.technicalSupportContactDescription">Контактное лицо, которое может помочь редакторам, авторам и рецензентам с любыми проблемами, которые у них возникли в процессе отправки, редактирования, рецензирования или публикации материала.</message>
+	<message key="manager.setup.theme.success"><![CDATA[Тема оформления была обновлена. <a href="{$url}" target="_blank">Посмотреть сейчас</a>]]></message>
+	<message key="manager.setup.theme">Тема оформления</message>
+	<message key="manager.setup.theme.description">Новые темы могут быть установлены из вкладки «Модули» вверху на этой странице.</message>
+	<message key="manager.setup.theme.notFound">Выбранная вами тема не установлена или не включена.</message>
+	<message key="manager.setup.userAccess.success">Информация о доступе пользователей к этому изданию была обновлена.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Параметры доступа к сайту</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} новых)</message>
@@ -347,9 +367,18 @@
 	<message key="notification.primaryLocaleDefined">{$locale} установлен как основной язык.</message>
 	<message key="notification.localeInstalled">Все выбранные языки установлены и активированы.</message>
 	<message key="notification.localeUninstalled">Язык «{$locale}» удален.</message>
-	<message key="notification.localeReloaded">Язык «{$locale}» загружен заново.</message>
+	<message key="notification.localeReloaded">Язык «{$locale}» загружен для «{$contextName}».</message>
 	<message key="notification.localeSettingsSaved">Настройки языка сохранены.</message>
 	<message key="notification.editedUser">Пользователь отредактирован.</message>
+
+	<!-- Настройки процесса распространения -->
+	<message key="manager.distribution.license">Лицензия</message>
+	<message key="manager.distribution.license.success">Информация о лицензии была обновлена. </message>
+	<message key="manager.distribution.license.other">URL другой лицензии</message>
+	<message key="manager.distribution.licenseTerms">Условия лицензии</message>
+	<message key="manager.distribution.licenseTerms.description">Введите условия публичной лицензии, которые вы хотите показывать рядом с опубликованной работой.</message>
+	<message key="manager.distribution.customHeaders">Пользовательские теги</message>
+	<message key="manager.distribution.customHeaders.description">Добавьте пользовательские HTML-теги, также известные как метатеги, которые вы хотите добавить в тег head каждой страницы. Проконсультируйтесь с тежническим специалистом, прежде чем добавить эти теги.</message>
 
 	<!-- Настройки методов платежей -->
 	<message key="manager.paymentMethod">Платежи</message>
@@ -458,6 +487,59 @@
 	<message key="manager.setup.licenseURLDescription">URL-адрес веб-страницы, описывающей лицензию (если она доступна).</message>
 
 	<message key="manager.setup.metadata.submission">Форма отправки материала</message>
+	<message key="manager.setup.metadata.success">Метаданные материала были успешно обновлены.</message>
+	<message key="manager.setup.metadata.coverage">Охват</message>
+	<message key="manager.setup.metadata.coverage.description">Охват обычно описывает геопространственное расположение работы (название места или географические координаты), временной период (название периода, дата или диапазон дат) или юрисдикцию (такую как название административной единицы).</message>
+	<message key="manager.setup.metadata.coverage.enable">Включить охват в метаданные</message>
+	<message key="manager.setup.metadata.coverage.noRequest">Не запрашивать охват в метаданных у автора во время отправки материала.</message>
+	<message key="manager.setup.metadata.coverage.request">Просить автора указать охват в метаданных во время отправки материала.</message>
+	<message key="manager.setup.metadata.coverage.require">Требовать, чтобы автор обязательно указал охват в метаданных до приёма его материала.</message>
+	<message key="manager.setup.metadata.keywords.description">Ключевые слова — обычно фразы из одного или трёх слов, которые используются для указания основных тем материала.</message>
+	<message key="manager.setup.metadata.keywords.enable">Включить ключевые слова в метаданные</message>
+	<message key="manager.setup.metadata.keywords.noRequest">Не запрашивать ключевые слова у автора во время отправки материала.</message>
+	<message key="manager.setup.metadata.keywords.request">Просить автора указать ключевые слова во время отправки материала.</message>
+	<message key="manager.setup.metadata.keywords.require">Требовать, чтобы автор обязательно указал ключевые слова до приёма его материала.</message>
+	<message key="manager.setup.metadata.languages.description">Язык указывает основной язык работы с помощью кода языка («ru») с дополнительным кодом страны («ru_RU»).</message>
+	<message key="manager.setup.metadata.languages.enable">Включить язык в метаданные</message>
+	<message key="manager.setup.metadata.languages.noRequest">Не запрашивать языки материала у автора во время отправки.</message>
+	<message key="manager.setup.metadata.languages.request">Просить автора указать языки материала во время отправки.</message>
+	<message key="manager.setup.metadata.languages.require">Требовать, чтобы автор обязательно указал языки материала до приёма этого материала.</message>
+	<message key="manager.setup.metadata.rights.description">Любые права, которые распространяются на отправляемый материал, сюда могут быть включены права на интеллектуальную собственность, копирайт и различные имущественные права.</message>
+	<message key="manager.setup.metadata.rights.enable">Включить права в метаданные</message>
+	<message key="manager.setup.metadata.rights.noRequest">Не запрашивать у автора информацию о правах во время отправки.</message>
+	<message key="manager.setup.metadata.rights.request">Просить автора указать информацию об уже существующих правах на материал во время отправки.</message>
+	<message key="manager.setup.metadata.rights.require">Требовать, чтобы автор обязательно указал информацию об уже существующих правах на материал до приёма этого материала.</message>
+	<message key="manager.setup.metadata.source.description">Источником может быть ID, например DOI, другой работы или ресурса, лежащего в основе данного материала.</message>
+	<message key="manager.setup.metadata.source.enable">Включить источник в метаданные</message>
+	<message key="manager.setup.metadata.source.noRequest">Не запрашивать у автора URL источника во время отправки материала.</message>
+	<message key="manager.setup.metadata.source.request">Просить автора указать URL источника во время отправки материала.</message>
+	<message key="manager.setup.metadata.source.require">Требовать, чтобы автор обязательно указал URL источника до приёма этого материала.</message>
+	<message key="manager.setup.metadata.subjects.description">Темы могут быть ключевыми словами, ключевыми фразами или классификационными кодами, которые описывают тему отправляемого материала.</message>
+	<message key="manager.setup.metadata.subjects.enable">Включить темы в метаданные</message>
+	<message key="manager.setup.metadata.subjects.noRequest">Не запрашивать у автора темы во время отправки материала.</message>
+	<message key="manager.setup.metadata.subjects.request">Просить автора указать темы во время отправки материала.</message>
+	<message key="manager.setup.metadata.subjects.require">Требовать, чтобы автор обязательно указал темы до приёма этого материала.</message>
+	<message key="manager.setup.metadata.type.description"><![CDATA[Природа или жанр основного контента отправляемого материала. Обычно тип — это «Text», но может также быть «Dataset», «Image» или любой из <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">типов Dublin Core</a>.]]></message>
+	<message key="manager.setup.metadata.type.enable">Включить тип в метаданные</message>
+	<message key="manager.setup.metadata.type.noRequest">Не запрашивать у автора тип во время отправки материала.</message>
+	<message key="manager.setup.metadata.type.request">Просить автора указать тип во время отправки материала.</message>
+	<message key="manager.setup.metadata.type.require">Требовать, чтобы автор обязательно указал тип до приёма этого материала.</message>
+	<message key="manager.setup.metadata.disciplines.description">Дисциплины — предметы или области знания в том виде как их описывают университетская наука и научные общества.</message>
+	<message key="manager.setup.metadata.disciplines.enable">Включить дисциплины в метаданные</message>
+	<message key="manager.setup.metadata.disciplines.noRequest">Не запрашивать у автора дисциплины во время отправки материала.</message>
+	<message key="manager.setup.metadata.disciplines.request">Просить автора указать дисциплины во время отправки материала.</message>
+	<message key="manager.setup.metadata.disciplines.require">Требовать, чтобы автор обязательно указал дисциплины до приёма этого материала.</message>
+	<message key="manager.setup.metadata.agencies.description">Поддерживающие организации могут указывать на источник финансирования исследования или другую институциональную поддержку, которая была оказана исследованию.</message>
+	<message key="manager.setup.metadata.agencies.enable">Включить поддерживающие организации в метаданные</message>
+	<message key="manager.setup.metadata.agencies.noRequest">Не запрашивать у автора поддерживающие организации во время отправки материала.</message>
+	<message key="manager.setup.metadata.agencies.request">Просить автора указать поддерживающие организации во время отправки материала.</message>
+	<message key="manager.setup.metadata.agencies.require">Требовать, чтобы автор обязательно указал поддерживающие организации до приёма этого материала.</message>
+	<message key="manager.setup.metadata.citations.description">Собрать библиографические ссылки отправляемого материала в отдельное поле. Это может быть необходимо для работы с сервисами отслеживания цитирования такими как Crossref.</message>
+	<message key="manager.setup.metadata.citations.enable">Включить библиографические ссылки в метаданные</message>
+	<message key="manager.setup.metadata.citations.noRequest">Не запрашивать у автора библиографические ссылки во время отправки материала.</message>
+	<message key="manager.setup.metadata.citations.request">Просить автора указать библиографические ссылки во время отправки материала.</message>
+	<message key="manager.setup.metadata.citations.require">Требовать, чтобы автор обязательно указал библиографические ссылки до приёма этого материала.</message>
+
 	<!--  общие ключи импорта/экспорта -->
 	<message key="plugins.importexport.common.validationErrors">Ошибки проверки:</message>
 	<message key="plugins.importexport.common.warningsEncountered">Встретившиеся предупреждения:</message>
@@ -484,7 +566,7 @@
 	<!-- Меню навигации -->
 	<message key="manager.navigationMenus.form.title">Название</message>
 	<message key="manager.navigationMenus.form.path">Путь</message>
-	<message key="manager.navigationMenus">Меню навигации</message>
+	<message key="manager.navigationMenus">Навигация</message>
 	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>Эта страница будет доступна по адресу: <blockquote>{$pagesPath}</blockquote>...где %PATH% — путь, введенный выше. <strong>Обратите внимание:</strong> Путь к каждой странице должен быть уникальным. Использование путей, встроенных в систему, может привести к потере доступа к важным функциям.</p>]]></message>
 	<message key="manager.navigationMenus.form.content">Контент</message>
 	<message key="manager.navigationMenus.form.pathRegEx">Поле с путем должно содержать только буквы, цифры, «.», «/», «-» и «_».</message>

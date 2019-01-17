@@ -13,12 +13,20 @@
  -->
 
 <locale name="ru_RU" full_name="Русский">
+	<message key="api.403.unauthorized">Вы не авторизованы для доступа к запрашиваемому ресурсу.</message>
+	<message key="api.404.resourceNotFound">Запрашиваемый ресурс не найден.</message>
+	<message key="api.404.endpointNotFound">Запрошенный URL не распознан.</message>
 	<message key="api.submissions.403.csrfTokenFailure">Ваш запрос был отклонен. Возможно это произошло из-за того, что время доступа к системе истекло. Попробуйте перезагрузить страницу и войти снова.</message>
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Вы можете только просматривать неопубликованные материалы, в которых вы были назначены.</message>
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">Вы не можете удалить материал, который не был назначен этому контексту.</message>
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">У вас нет прав на удаление этого материала.</message>
-	<message key="api.404.resourceNotFound">Запрошенный ресурс не был найден.</message>
+	<message key="api.submissions.404.siteWideEndpoint">Эта конечная точка не доступна из контекста. К ней нужно обращаться из пространства имен сайта.</message>
 	<message key="api.submissions.400.missingRequired">Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая информация.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">Неправильно указан запрашиваемый том, номер или год.</message>
 	<message key="api.submissions.unknownError">Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.</message>
+	<message key="api.temporaryFiles.400.noUpload">Не найдены файлы для загрузки на сервер, указанные в запросе.</message>
+	<message key="api.temporaryFiles.409.uploadFailed">Один или несколько файлов не могут быть загружены на сервер.</message>
+	<message key="api.temporaryFiles.400.fileSize">Файлы больше чем {$maxSize} нельзя загрузить на сервер.</message>
+	<message key="api.temporaryFiles.400.config">Файл не удается загрузить на сервер из-за ошибки конфигурации сервера. Пожалуйста, свяжитесь с администратором системы.</message>
+	<message key="api.themes.404.themeUnavailable">Активная тема «{$themePluginPath}» не включена и, возможно, не установлена на сервере.</message>
 </locale>

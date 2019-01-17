@@ -7,8 +7,8 @@
  *
  * See: http://api.jquery.com/map
  * 
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  */
 (function($){

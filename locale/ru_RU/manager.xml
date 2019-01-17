@@ -618,4 +618,17 @@
 	<message key="manager.navigationMenus.search.description">Ссылка на страницу поиска.</message>
 	<message key="manager.navigationMenus.privacyStatement.description">Ссылка на страницу, отображающую ваше Заявление о конфиденциальности.</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Эта ссылка будет показываться только в случае, если вы ввели Заявление о конфиденциальности в Настройки > Рабочий поток > Материалы.</message>
+
+	<message key="grid.category.add">Добавить категорию</message>
+	<message key="grid.category.edit">Редактировать категорию</message>
+	<message key="grid.category.name">Название</message>
+	<message key="grid.category.path">Путь</message>
+	<message key="grid.category.urlWillBe">URL категории будет: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Путь к категории должен состоять только из букв и цифр.</message>
+	<message key="grid.category.pathExists">Такой путь к категории уже существует. Пожалуйста, введите уникальный путь.</message>
+	<message key="grid.category.description">Описание</message>
+	<message key="grid.category.parentCategory">Родительская категория</message>
+	<message key="grid.category.removeText">Вы уверены, что хотите удалить эту категорию?</message>
+	<message key="grid.category.nameRequired">Пожалуйста, введите название категории.</message>
+	<message key="grid.category.categoryDetails">Информаци о категории</message>
 </locale>

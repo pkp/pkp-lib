@@ -397,6 +397,7 @@ abstract class Plugin {
 		} else {
 			$checkPluginPath = preg_replace("/templates\/(?!.*templates\/)/", "", $checkPluginPath);
 			if (file_exists($checkPluginPath)) {
+				error_log("Deprecated: The path to the template overridden from " . $checkPluginPath . " has changed, the compatibility will be removed in the future.");
 				$filePath = $checkPluginPath;
 			}
 		}

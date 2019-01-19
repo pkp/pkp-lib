@@ -39,6 +39,8 @@ abstract class PKPServices {
 	 * @param string $service
 	 */
 	public static function get($service) {
+		HookRegistry::call('PKPServices::beforeGet', array(self::_instance(), self::_instance()->container, $service));
+
 		return self::_instance()->_getFromContainer($service);
 	}
 

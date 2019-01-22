@@ -385,29 +385,25 @@ class Core {
 	 */
 	static function _botFileListCacheMiss($cache) {
 		$id = $cache->getCacheId();
-		$botRegexps = array_filter(file(Registry::get('currentUserAgentsFile')),
-			array('Core', '_filterBotRegexps'));
+		$filteredBotRegexps = array_filter(file(Registry::get('currentUserAgentsFile')),
+			function ($regexp) {
+				$regexp = trim($regexp);
+				return !empty($regexp) && $regexp[0] != '#';
+			}
+		);
+		$botRegexps = array_map(function ($regexp) {
+				$delimiter = '/';
+				$regexp = trim($regexp);
+				if(strpos($regexp, $delimiter) !== 0) {
+					// Make sure delimiters are in place.
+					$regexp = $delimiter . $regexp . $delimiter;
+				}
+				return $regexp;
+			},
+			$filteredBotRegexps
+		);
 		$cache->setEntireCache($botRegexps);
 		return $botRegexps;
-	}
-
-	/**
-	 * Filter the regular expressions to find bots, adding
-	 * delimiters if necessary.
-	 * @param $regexp string
-	 */
-	static function _filterBotRegexps(&$regexp) {
-		$delimiter = '/';
-		$regexp = trim($regexp);
-		if (!empty($regexp) && $regexp[0] != '#') {
-			if(strpos($regexp, $delimiter) !== 0) {
-				// Make sure delimiters are in place.
-				$regexp = $delimiter . $regexp . $delimiter;
-			}
-		} else {
-			return false;
-		}
-		return true;
 	}
 
 	/**

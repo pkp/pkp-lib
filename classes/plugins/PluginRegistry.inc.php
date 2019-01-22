@@ -61,11 +61,11 @@ class PluginRegistry {
 		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
 
-		// If the plugin was already loaded, do not load it again.
-		if (isset($plugins[$category][$pluginName])) return false;
-
 		// Allow the plugin to register.
 		if (!$plugin->register($category, $path, $mainContextId)) return false;
+
+		// If the plugin was already loaded, do not load it again.
+		if (isset($plugins[$category][$pluginName])) return false;
 
 		if (isset($plugins[$category])) $plugins[$category][$pluginName] = $plugin;
 		else $plugins[$category] = array($pluginName => $plugin);
@@ -156,16 +156,21 @@ class PluginRegistry {
 	 * within a category rather than loading all.
 	 * @param $category string
 	 * @param $pathName string
+	 * @param $mainContextId integer To identify enabled plug-ins
+	 *  we need a context. This context is usually taken from the
+	 *  request but sometimes there is no context in the request
+	 *  (e.g. when executing CLI commands). Then the main context
+	 *  can be given as an explicit ID.
 	 * @return object
 	 */
-	static function loadPlugin($category, $pathName) {
+	static function loadPlugin($category, $pathName, $mainContextId = null) {
 		$pluginPath = PLUGINS_PREFIX . $category . '/' . $pathName;
 		$plugin = null;
 		if (!file_exists($pluginPath . '/index.php')) return $plugin;
 
 		$plugin = @include("$pluginPath/index.php");
 		if ($plugin && is_object($plugin)) {
-			PluginRegistry::register($category, $plugin, $pluginPath);
+			PluginRegistry::register($category, $plugin, $pluginPath, $mainContextId);
 		}
 		return $plugin;
 	}

@@ -18,7 +18,7 @@
 	{rdelim});
 </script>
 <form class="pkp_form" id="citationsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT op="updateCitations"}">
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="publicationIdentifiersFormFieldsNotification"}
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="publicationCitationsFormFieldsNotification"}
 	<input type="hidden" name="submissionId" value="{$submission->getId()|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="tabPos" value="{$tabPos|escape}" />
@@ -30,13 +30,21 @@
 		{fbvElement type="textarea" id="citations" value=$citations disabled=$readOnly required=$citationsRequired}
 	{/fbvFormSection}
 
+	{$additionalNotifications}
+
 	{if $parsedCitations->getCount()}
 		{fbvFormSection label="submission.parsedCitations" description="submission.parsedCitations.description"}
 			{iterate from=parsedCitations item=parsedCitation}
-				<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
+				<p>
+					{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Controllers::Tab::PublicationEntry::Form::CitationsForm::Citation" citation=$parsedCitation}
+				</p>	
 			{/iterate}
 		{/fbvFormSection}
 	{/if}
-
-	{fbvFormButtons submitText="submission.parsedAndSaveCitations" cancelText="common.cancel"}
+	
+	<div class="section formButtons form_buttons ">
+	{foreach from=$actionNames key=action item=actionName}
+		{fbvElement type="submit" label="$actionName" id="$action" name="$action" value="1" class="$action" translate=false inline=true}
+	{/foreach}
+	<div>
 </form>

@@ -225,7 +225,7 @@ class PublicationEntryTabHandler extends Handler {
 		$citationsForm = new CitationsForm($submission, $stageId, $this->getTabPosition(), array('displayedInContainer' => true));
 		$citationsForm->readInputData();
 		if ($citationsForm->validate()) {
-			$citationsForm->execute();
+			$citationsForm->execute($request);
 		}
 		$json = new JSONMessage(true);
 		if ($request->getUserVar('displayedInContainer')) {

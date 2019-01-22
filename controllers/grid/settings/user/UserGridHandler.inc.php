@@ -473,11 +473,18 @@ class UserGridHandler extends GridHandler {
 	 */
 	function editEmail($args, $request) {
 		$user = $request->getUser();
+		$context = $request->getContext();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
 
-		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		if (
+			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
+				$context &&
+				$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)
+			)
+		) {
 			// We don't have administrative rights over this user.
 			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
@@ -498,11 +505,18 @@ class UserGridHandler extends GridHandler {
 	 */
 	function sendEmail($args, $request) {
 		$user = $request->getUser();
+		$context = $request->getContext();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
 
-		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		if (
+			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
+				$context &&
+				$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)
+			)
+		) {
 			// We don't have administrative rights over this user.
 			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}

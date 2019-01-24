@@ -25,7 +25,7 @@ class VersionCheck {
 	 * Return information about the latest available version.
 	 * @return array
 	 */
-	function getLatestVersion() {
+	static function getLatestVersion() {
 		$application = Application::getApplication();
 		$includeId = Config::getVar('general', 'installed') &&
 			!defined('RUNNING_UPGRADE') &&
@@ -37,7 +37,7 @@ class VersionCheck {
 		} else $uniqueSiteId = null;
 
 		$request = $application->getRequest();
-		return VersionCheck::parseVersionXML(
+		return self::parseVersionXML(
 			$application->getVersionDescriptorUrl() .
 			($includeId?'?id=' . urlencode($uniqueSiteId) .
 				'&oai=' . urlencode($request->url('index', 'oai'))
@@ -49,7 +49,7 @@ class VersionCheck {
 	 * Return the currently installed database version.
 	 * @return Version
 	 */
-	function getCurrentDBVersion() {
+	static function getCurrentDBVersion() {
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		return $versionDao->getCurrentVersion();
 	}
@@ -58,8 +58,8 @@ class VersionCheck {
 	 * Return the current code version.
 	 * @return Version|false
 	 */
-	function getCurrentCodeVersion() {
-		$versionInfo = VersionCheck::parseVersionXML(VERSION_CODE_PATH);
+	static function getCurrentCodeVersion() {
+		$versionInfo = self::parseVersionXML(VERSION_CODE_PATH);
 		if ($versionInfo) {
 			return $versionInfo['version'];
 		}
@@ -124,9 +124,9 @@ class VersionCheck {
 	 * @param $codeVersion as returned by getCurrentCodeVersion()
 	 * @return string
 	 */
-	function getPatch($versionInfo, $codeVersion = null) {
+	static function getPatch($versionInfo, $codeVersion = null) {
 		if (!isset($codeVersion)) {
-			$codeVersion = VersionCheck::getCurrentCodeVersion();
+			$codeVersion = self::getCurrentCodeVersion();
 		}
 		if (isset($versionInfo['patch'][$codeVersion->getVersionString()])) {
 			return $versionInfo['patch'][$codeVersion->getVersionString()];
@@ -144,11 +144,11 @@ class VersionCheck {
 	 * @param $returnErrorMesg boolean
 	 * @return Version or null/string if invalid or missing version file
 	 */
-	function getValidPluginVersionInfo($versionFile, $returnErrorMsg = false) {
+	static function getValidPluginVersionInfo($versionFile, $returnErrorMsg = false) {
 		$errorMsg = null;
 		$fileManager = new FileManager();
 		if ($fileManager->fileExists($versionFile)) {
-			$versionInfo = VersionCheck::parseVersionXML($versionFile);
+			$versionInfo = self::parseVersionXML($versionFile);
 		} else {
 			$errorMsg = 'manager.plugins.versionFileNotFound';
 		}
@@ -191,10 +191,10 @@ class VersionCheck {
 	 * @return string|false Version description or false if no newer version
 	 */
 	static function checkIfNewVersionExists() {
-		$versionInfo = VersionCheck::getLatestVersion();
+		$versionInfo = self::getLatestVersion();
 		$latestVersion = $versionInfo['release'];
 
-		$currentVersion = VersionCheck::getCurrentDBVersion();
+		$currentVersion = self::getCurrentDBVersion();
 		if ($currentVersion->compare($latestVersion) < 0) return $latestVersion;
 		return false;
 	}

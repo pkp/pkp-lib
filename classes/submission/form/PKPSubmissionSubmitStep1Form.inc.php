@@ -171,7 +171,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// supported to use as a default.
 			$keys = array_keys($supportedSubmissionLocales);
 			$tryLocales = array(
-				$this->getFormLocale(), // Current form locale
 				AppLocale::getLocale(), // Current UI locale
 				$this->context->getPrimaryLocale(), // Context locale
 				$supportedSubmissionLocales[array_shift($keys)] // Fallback: first one on the list

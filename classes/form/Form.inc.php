@@ -186,6 +186,7 @@ class Form {
 				'isError' => !$this->isValid(),
 				'errors' => $this->getErrorsArray(),
 				'formLocales' => $this->supportedLocales,
+				'formLocale' => $this->getDefaultFormLocale(),
 			)
 		));
 

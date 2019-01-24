@@ -254,7 +254,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the symbolic name of this application
 	 * @return string
 	 */
-	function getName() {
+	static function getName() {
 		return 'pkp-lib';
 	}
 

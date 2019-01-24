@@ -189,7 +189,6 @@ class Form {
 				'isError' => !$this->isValid(),
 				'errors' => $this->getErrorsArray(),
 				'formLocales' => $this->supportedLocales,
-				'formLocale' => $this->getFormLocale(),
 			)
 		));
 
@@ -331,16 +330,6 @@ class Form {
 	}
 
 	/**
-	 * Determine whether or not the current request results from a resubmit
-	 * of locale data resulting from a form language change.
-	 * @return boolean
-	 */
-	function isLocaleResubmit() {
-		$formLocale = Request::getUserVar('formLocale');
-		return (!empty($formLocale));
-	}
-
-	/**
 	 * Get the default form locale.
 	 * @return string
 	 */
@@ -370,18 +359,6 @@ class Form {
 				$this->supportedLocales[$supportedLocale] = $siteSupportedLocales[$supportedLocale];
 			}
 		}
-	}
-
-	/**
-	 * Get the current form locale.
-	 * @return string
-	 */
-	function getFormLocale() {
-		$formLocale = Request::getUserVar('formLocale');
-		if (!$formLocale || !isset($this->supportedLocales[$formLocale])) {
-			$formLocale = $this->getDefaultFormLocale();
-		}
-		return $formLocale;
 	}
 
 	/**

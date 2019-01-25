@@ -18,18 +18,22 @@ define('RECAPTCHA_HOST', 'https://www.google.com');
 define("RECAPTCHA_PATH", "/recaptcha/api/siteverify");
 
 class FormValidatorReCaptcha extends FormValidator {
-	/** @var string */
+	/** @var string The initiating IP address of the user */
 	var $_userIp;
+	/** @var string The hostname to expect in the validation response */
+	var $_hostname;
 
 	/**
 	 * Constructor.
 	 * @param $form object
 	 * @param $userIp string IP address of user request
 	 * @param $message string Key of message to display on mismatch
+	 * @param $hostname string Hostname to expect in validation response
 	 */
-	function __construct(&$form, $userIp, $message) {
+	function __construct(&$form, $userIp, $message, $hostname = '') {
 		parent::__construct($form, RECAPTCHA_RESPONSE_FIELD, FORM_VALIDATOR_REQUIRED_VALUE, $message);
 		$this->_userIp = $userIp;
+		$this->_hostname = $hostname;
 	}
 
 
@@ -91,6 +95,10 @@ class FormValidatorReCaptcha extends FormValidator {
 
 		// Unrecognizable response from Google server
 		if (isset($response['success']) && $response['success'] === true) {
+			if (Config::getVar('captcha', 'recaptcha_enforce_hostname') && $response['hostname'] !== $this->_hostname) {
+				$this->_message = 'common.captcha.error.invalid-input-response';
+				return false;
+			}
 			return true;
 		} else {
 			if (isset($response['error-codes']) && is_array($response['error-codes'])) {

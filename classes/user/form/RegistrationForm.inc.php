@@ -56,7 +56,7 @@ class RegistrationForm extends Form {
 
 		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
 		if ($this->captchaEnabled) {
-			$this->addCheck(new FormValidatorReCaptcha($this, Request::getRemoteAddr(), 'common.captcha.error.invalid-input-response'));
+			$this->addCheck(new FormValidatorReCaptcha($this, Request::getRemoteAddr(), 'common.captcha.error.invalid-input-response', Request::getServerHost()));
 		}
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');

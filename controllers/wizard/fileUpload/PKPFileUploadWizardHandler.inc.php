@@ -104,15 +104,6 @@ class PKPFileUploadWizardHandler extends Handler {
 		);
 	}
 
-	function authorize($request, &$args, $roleAssignments) {
-		// Allow both reviewers (if in review) and context roles.
-		import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
-
-		$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
-
 
 	//
 	// Getters and Setters

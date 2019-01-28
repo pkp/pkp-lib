@@ -16,6 +16,7 @@
  * @brief Class with basic operations for retrieving and adding statistics data.
  */
 
+import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
 
 class PKPMetricsDAO extends DAO {
 

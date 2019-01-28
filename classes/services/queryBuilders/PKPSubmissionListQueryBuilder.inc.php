@@ -219,6 +219,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 
 		// order by title
 		if ($this->orderColumn === 'st.setting_value') {
+			$this->columns[] = 'st.setting_value';
 			$q->leftJoin('submission_settings as st', 's.submission_id', '=', 'st.submission_id')
 				->where('st.setting_name', '=', 'title');
 			$q->groupBy('st.setting_value');

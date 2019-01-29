@@ -18,7 +18,7 @@
 <div id="managementTabs" class="pkp_controllers_tab">
 	<ul>
 		<li><a name="importexport" href="{url op="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
-		<li><a name="statistics" href="{url op="statistics"}">{translate key="navigation.tools.statistics"}</a></li>
+		<li><a name="statistics" href="{url op="statistics"}">{translate key="manager.statistics.reports"}</a></li>
 		{call_hook name="Templates::Management::Settings::tools"}
 	</ul>
 </div>

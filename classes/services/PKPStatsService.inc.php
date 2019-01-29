@@ -113,7 +113,6 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		$entityService = null;
 		if (is_a($entity, 'Submission')) {
 			$entityService = \ServicesContainer::instance()->get('submission');
-			$entityProperty = 'submission';
 			$params = array(
 				'entityAssocType' => ASSOC_TYPE_SUBMISSION,
 				'fileAssocType' => ASSOC_TYPE_SUBMISSION_FILE,
@@ -131,7 +130,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		$values = $this->getRecordProperties($records, $params, $props, $args);
 
 		if ($entityService) {
-			$values[$entityProperty] = $entityService->getSummaryProperties($entity, $args);
+			$values['object'] = $entityService->getSummaryProperties($entity, $args);
 		}
 
 		\HookRegistry::call('Stats::getProperties::values', array(&$values, $entity, $props, $args));

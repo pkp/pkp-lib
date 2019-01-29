@@ -224,7 +224,11 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		$entityAssocType = $params['entityAssocType'];
 		$fileAssocType = $params['fileAssocType'];
 		// get the requested and used time segment (month or day)
-		$timeSegment = $args['params']['timeSegment'] == 'daily' ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
+		if (isset($args['params']['timeSegment'])) {
+			$timeSegment = $args['params']['timeSegment'] == 'daily' ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
+		} else {
+			$timeSegment = STATISTICS_DIMENSION_MONTH;
+		}
 
 		// get all existing dates (monts or days)
 		$timeSegmentDates = array();
@@ -507,10 +511,13 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 */
 	private function _buildGetTotalSubmissionsStatsQueryObject($contextId, $args = array()) {
 		$statsListQB = new \PKP\Services\QueryBuilders\PKPStatsListQueryBuilder($contextId);
-		$statsListQB
-			->lookingFor('totalSubmissionsStats')
-			->timeSegment($args['timeSegment'])
-			->orderBy($args['timeSegment'], 'DESC');
+		$statsListQB->lookingFor('totalSubmissionsStats');
+
+		if (isset($args['timeSegment'])) {
+			$statsListQB
+				->timeSegment($args['timeSegment'])
+				->orderBy($args['timeSegment'], STATISTICS_ORDER_DESC);
+		}
 
 		if (isset($args['sectionIds'])) $statsListQB->filterBySectionIds($args['sectionIds']);
 
@@ -538,9 +545,13 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		$statsListQB = new \PKP\Services\QueryBuilders\PKPStatsListQueryBuilder($contextId);
 		$statsListQB
 			->lookingFor('submissionStats')
-			->timeSegment($args['timeSegment'])
-			->filterBySubmissionIds($submissionId)
-			->orderBy($args['timeSegment'], 'DESC');
+			->filterBySubmissionIds($submissionId);
+
+		if (isset($args['timeSegment'])) {
+			$statsListQB
+				->timeSegment($args['timeSegment'])
+				->orderBy($args['timeSegment'], STATISTICS_ORDER_DESC);
+		}
 
 		$dateStart = isset($args['dateStart']) ? $args['dateStart'] : null;
 		$dateEnd = isset($args['dateEnd']) ? $args['dateEnd'] : null;

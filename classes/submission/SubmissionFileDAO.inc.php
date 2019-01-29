@@ -448,6 +448,10 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function assignRevisionToReviewRound($fileId, $revision, $reviewRound) {
 		if (!is_numeric($fileId) || !is_numeric($revision)) fatalError('Invalid file!');
+
+		// Avoid duplication errors -- clear out any existing entries
+		$this->deleteReviewRoundAssignment($reviewRound->getSubmissionId(), $reviewRound->getStageId(), $fileId, $revision);
+
 		return $this->update(
 			'INSERT INTO review_round_files
 				(submission_id, review_round_id, stage_id, file_id, revision)

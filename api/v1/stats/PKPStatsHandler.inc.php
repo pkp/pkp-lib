@@ -200,7 +200,10 @@ class PKPStatsHandler extends APIHandler {
 	 */
 	public function dateWithinLast90Days($dateString) {
 		$dateTimestamp = strtotime($dateString);
-		$lastNinetyDaysTimestamp = strtotime('-90 days');
+		// 90 days + 1 day because the most recent allowed date is yesterday
+		// + 1 more day to account for the fact that the $fromTimestamp beings at
+		// the start of the day
+		$lastNinetyDaysTimestamp = strtotime('-92 days');
 		return $dateTimestamp >= $lastNinetyDaysTimestamp;
 	}
 

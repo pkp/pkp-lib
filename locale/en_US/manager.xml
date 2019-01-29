@@ -583,7 +583,7 @@
 	<message key="stats.dateRange.sinceDate">Since {$date}</message>
 	<message key="stats.dateRange.to">To</message>
 	<message key="stats.dateRange.untilDate">Until {$date}</message>
-	<message key="stats.galleyViews">Galley Views</message>
+	<message key="stats.fileViews">File Views</message>
 	<message key="stats.html">HTML</message>
 	<message key="stats.monthly">Monthly</message>
 	<message key="stats.pdf">PDF</message>

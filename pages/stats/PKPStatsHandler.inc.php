@@ -73,10 +73,9 @@ class PKPStatsHandler extends Handler {
 		$statsService = ServicesContainer::instance()->get('stats');
 
 		// Get total stats
-		$totalStatsRecords = $statsService->getTotalStats($context->getId(), $params);
+		$totalStatsRecords = $statsService->getTotalSubmissionsStats($context->getId(), $params);
 		$totalStats = $statsService->getTotalStatsProperties($totalStatsRecords, [
 			'request' => $request,
-			'slimRequest' => $slimRequest,
 			'params' => $params
 		]);
 
@@ -87,7 +86,6 @@ class PKPStatsHandler extends Handler {
 		if (!empty($submissionsRecords)) {
 			$propertyArgs = array(
 				'request' => $request,
-				'slimRequest' => $slimRequest,
 				'params' => $params
 			);
 			$slicedSubmissionsRecords = array_slice($submissionsRecords, 0, $params['count']);
@@ -104,7 +102,7 @@ class PKPStatsHandler extends Handler {
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/articles'),
 			[
 				'timeSegment' => 'daily',
-				'timeSegments' => $totalStats['timeSegments'],
+				'timeSegments' => array_reverse($totalStats['timeSegments']),
 				'items' => $items,
 				'itemsMax' => count($submissionsRecords),
 				'tableColumns' => [
@@ -118,9 +116,9 @@ class PKPStatsHandler extends Handler {
 						'value' => 'abstractViews',
 					],
 					[
-						'name' => 'totalGalleyViews',
-						'label' => __('stats.galleyViews'),
-						'value' => 'totalGalleyViews',
+						'name' => 'totalFileViews',
+						'label' => __('stats.fileViews'),
+						'value' => 'totalFileViews',
 					],
 					[
 						'name' => 'pdf',

@@ -69,7 +69,7 @@
 							<tr>
 								<th scope="col">{translate key="common.date"}</th>
 								<th scope="col">{translate key="submission.abstractViews"}</th>
-								<th scope="col">{translate key="stats.galleyViews"}</th>
+								<th scope="col">{translate key="stats.fileViews"}</th>
 								<th scope="col">{translate key="stats.total"}</th>
 							</tr>
 						</thead>
@@ -77,7 +77,7 @@
 							<tr	v-for="segment in timeSegments">
 								<th scope="row">{{ segment.dateLabel }}</th>
 								<th>{{ segment.abstractViews }}</th>
-								<th>{{ segment.totalGalleyViews }}</th>
+								<th>{{ segment.totalFileViews }}</th>
 								<th>{{ segment.total }}</th>
 							</tr>
 						</tbody>
@@ -128,12 +128,12 @@
 							>
 								<template v-if="column.name === 'title'">
 									<a
-										:href="row.object[0].urlPublished"
+										:href="row.object.urlPublished"
 										class="pkpStatistics__itemLink"
 										target="_blank"
 									>
-										<span class="pkpStatistics__itemAuthors" v-html="row.object[0].shortAuthorString"></span>
-										<span class="pkpStatistics__itemTitle" v-html="row.object[0].fullTitle.en_US"></span>
+										<span class="pkpStatistics__itemAuthors" v-html="row.object.shortAuthorString"></span>
+										<span class="pkpStatistics__itemTitle" v-html="row.object.fullTitle.en_US"></span>
 									</a>
 								</template>
 							</table-cell>

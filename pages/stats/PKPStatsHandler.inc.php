@@ -65,9 +65,9 @@ class PKPStatsHandler extends Handler {
 
 		$params = [
 			'count' => $count,
-			'from' => str_replace('-', '', $dateStart),
-			'to' => str_replace('-', '', $dateEnd),
-			'dimension' => STATISTICS_DIMENSION_DAY,
+			'dateStart' => $dateStart,
+			'dateEnd' => $dateEnd,
+			'timeSegment' => 'daily',
 		];
 
 		$statsService = ServicesContainer::instance()->get('stats');
@@ -102,7 +102,7 @@ class PKPStatsHandler extends Handler {
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/articles'),
 			[
 				'timeSegment' => 'daily',
-				'timeSegments' => array_reverse($totalStats['timeSegments']),
+				'timeSegments' => $totalStats['timeSegments'],
 				'items' => $items,
 				'itemsMax' => count($submissionsRecords),
 				'tableColumns' => [

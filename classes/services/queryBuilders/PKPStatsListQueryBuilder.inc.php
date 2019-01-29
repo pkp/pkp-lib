@@ -225,7 +225,7 @@ class PKPStatsListQueryBuilder extends BaseQueryBuilder {
 				$orderByColumn = STATISTICS_DIMENSION_DAY;
 				break;
 		}
-		switch($orderBy) {
+		switch($orderDirection) {
 			case 'ASC':
 				$direction = STATISTICS_ORDER_ASC;
 				break;

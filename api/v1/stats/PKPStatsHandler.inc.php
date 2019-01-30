@@ -23,6 +23,22 @@ class PKPStatsHandler extends APIHandler {
 	 * Constructor
 	 */
 	public function __construct() {
+		$this->_handlerPath = 'stats';
+		$roles = array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER);
+		$this->_endpoints = array(
+			'GET' => array (
+				array(
+					'pattern' => $this->getEndpointPattern() . '/publishedSubmissions',
+					'handler' => array($this, 'getSubmissionList'),
+					'roles' => $roles
+				),
+				array(
+					'pattern' => $this->getEndpointPattern() . '/publishedSubmissions/{submissionId}',
+					'handler' => array($this, 'getSubmission'),
+					'roles' => $roles
+				),
+			),
+		);
 		parent::__construct();
 	}
 

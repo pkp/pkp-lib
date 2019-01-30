@@ -146,7 +146,10 @@
 						:last-page="lastPage"
 						:i18n="i18n"
 						@set-page="setPage"
-					/>
+					></pagination>
+					<div v-if="!items.length" class="pkpStatistics__noRecords">
+						{translate key="stats.publishedSubmissions.none"}
+					</div>
 				</div>
 			</div>
 		</div>

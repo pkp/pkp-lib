@@ -56,6 +56,9 @@ class PKPStatsHandler extends Handler {
 			$dispatcher->handle404();
 		}
 
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
+
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
@@ -107,7 +110,7 @@ class PKPStatsHandler extends Handler {
 				'tableColumns' => [
 					[
 						'name' => 'title',
-						'label' => __('submission.title'),
+						'label' => __('common.title'),
 					],
 					[
 						'name' => 'abstractViews',

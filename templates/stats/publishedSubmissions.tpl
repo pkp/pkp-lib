@@ -27,6 +27,7 @@
 					@set-range="setDateRange"
 				></date-range>
 				<pkp-button
+					v-if="hasFilters"
 					:label="i18n.filter"
 					icon="filter"
 					:is-active="isFilterVisible"
@@ -36,6 +37,7 @@
 		</page-header>
 		<div class="pkpStatistics__container">
 			<list-panel-filter
+				v-if="hasFilters"
 				:is-visible="isFilterVisible"
 				:filters="filters"
 				:active-filters="activeFilters"

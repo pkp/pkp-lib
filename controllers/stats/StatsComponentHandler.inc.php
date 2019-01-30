@@ -49,8 +49,8 @@ class StatsComponentHandler extends PKPHandler {
 	/** @var string Order items in this direction: ASC or DESC*/
 	public $_orderDirection = 'DESC';
 
-	/** @var array Available filters for these statistics */
-	public $_filters = [];
+	/** @var array|null Configuration assoc array for available filters */
+	public $_filters = null;
 
 	/** @var array Localized strings to pass to the component */
 	public $_i18n = [];
@@ -108,7 +108,6 @@ class StatsComponentHandler extends PKPHandler {
 			'dateRangeOptions' => $this->_dateRangeOptions,
 			'orderBy' => $this->_orderBy,
 			'orderDirection' => $this->_orderDirection,
-			'filters' => $this->_filters,
 			'activeFilters' => [],
 			'isFilterVisible' => false,
 			'isLoading' => false,
@@ -145,6 +144,10 @@ class StatsComponentHandler extends PKPHandler {
 				$this->_i18n
 			),
 		];
+
+		if ($this->_filters) {
+			$config['filters'] = $this->_filters;
+		}
 
 		return $config;
 	}

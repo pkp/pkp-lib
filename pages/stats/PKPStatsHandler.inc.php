@@ -101,7 +101,7 @@ class PKPStatsHandler extends Handler {
 
 		import('lib.pkp.controllers.stats.StatsComponentHandler');
 		$statsHandler = new StatsComponentHandler(
-			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/articles'),
+			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/publishedSubmissions'),
 			[
 				'timeSegment' => 'daily',
 				'timeSegments' => $totalStats['timeSegments'],

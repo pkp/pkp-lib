@@ -152,7 +152,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		pkp.registry.init('article-stats-handler-{$uuid}', 'Statistics', {$statsData|json_encode});
+		pkp.registry.init('article-stats-handler-{$uuid}', 'Statistics', {$statsComponent->getConfig()|json_encode});
 	</script>
 </div>
 

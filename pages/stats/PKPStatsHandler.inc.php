@@ -23,7 +23,7 @@ class PKPStatsHandler extends Handler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			[ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
-			array('articles')
+			array('publishedSubmissions')
 		);
 	}
 
@@ -48,7 +48,7 @@ class PKPStatsHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 */
-	public function articles($args, $request) {
+	public function publishedSubmissions($args, $request) {
 		$dispatcher = $request->getDispatcher();
 		$context = $request->getContext();
 
@@ -96,7 +96,6 @@ class PKPStatsHandler extends Handler {
 			}
 		}
 
-		import('controllers.list.submissions.SubmissionsListHandler');
 		import('lib.pkp.controllers.stats.StatsComponentHandler');
 		$statsHandler = new StatsComponentHandler(
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/articles'),
@@ -168,12 +167,6 @@ class PKPStatsHandler extends Handler {
 						'label' => __('stats.dateRange.allDates'),
 					],
 				],
-				'filters' => [
-					'sectionIds' => [
-						'heading' => __('section.sections'),
-						'filters' => SubmissionsListHandler::getSectionFilters(),
-					],
-				],
 				'orderBy' => 'total',
 				'orderDirection' => true,
 			]
@@ -184,8 +177,8 @@ class PKPStatsHandler extends Handler {
 			'items' => $items,
 		);
 
-		$templateMgr->assign('statsData', $statsHandler->getConfig());
+		$templateMgr->assign('statsComponent', $statsHandler);
 
-		$templateMgr->display('stats/articles.tpl');
+		$templateMgr->display('stats/publishedSubmissions.tpl');
 	}
 }

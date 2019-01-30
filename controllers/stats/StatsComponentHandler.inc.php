@@ -91,6 +91,8 @@ class StatsComponentHandler extends PKPHandler {
 	public function getConfig() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 
 		$config = [
 			'apiUrl' => $this->_apiUrl,

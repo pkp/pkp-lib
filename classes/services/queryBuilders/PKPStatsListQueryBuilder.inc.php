@@ -78,7 +78,7 @@ class PKPStatsListQueryBuilder extends BaseQueryBuilder {
 	 * @return \PKP\Services\QueryBuilders\PKPStatsListQueryBuilder
 	 */
 	public function timeSegment($timeSegment) {
-		$this->timeSegment = $timeSegment == 'daily' ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
+		$this->timeSegment = $timeSegment == 'day' ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
 		return $this;
 	}
 
@@ -218,10 +218,10 @@ class PKPStatsListQueryBuilder extends BaseQueryBuilder {
 			case 'total':
 				$orderByColumn = STATISTICS_METRIC;
 				break;
-			case 'monthly':
+			case 'month':
 				$orderByColumn = STATISTICS_DIMENSION_MONTH;
 				break;
-			case 'daily':
+			case 'day':
 				$orderByColumn = STATISTICS_DIMENSION_DAY;
 				break;
 		}

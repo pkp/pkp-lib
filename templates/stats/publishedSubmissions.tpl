@@ -50,18 +50,18 @@
 						<h2 class="pkpStatistics__graphTitle" id="article-stats-time-segment">Abstract Views</h2>
 						<div class="pkpStatistics__graphSegment">
 							<pkp-button
-								:label="i18n.daily"
-								:aria-pressed="timeSegment === 'daily'"
+								:label="i18n.day"
+								:aria-pressed="timeSegment === 'day'"
 								aria-describedby="article-stats-time-segment"
 								:disabled="!isDailySegmentEnabled"
-								@click="setTimeSegment('daily')"
+								@click="setTimeSegment('day')"
 							></pkp-button>
 							<pkp-button
-								:label="i18n.monthly"
-								:aria-pressed="timeSegment === 'monthly'"
+								:label="i18n.month"
+								:aria-pressed="timeSegment === 'month'"
 								aria-describedby="article-stats-time-segment"
 								:disabled="!isMonthlySegmentEnabled"
-								@click="setTimeSegment('monthly')"
+								@click="setTimeSegment('month')"
 							></pkp-button>
 						</div>
 					</div>

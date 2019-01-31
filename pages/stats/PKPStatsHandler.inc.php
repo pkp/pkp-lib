@@ -70,7 +70,7 @@ class PKPStatsHandler extends Handler {
 			'count' => $count,
 			'dateStart' => $dateStart,
 			'dateEnd' => $dateEnd,
-			'timeSegment' => 'daily',
+			'timeSegment' => 'day',
 		];
 
 		$statsService = ServicesContainer::instance()->get('stats');
@@ -103,7 +103,7 @@ class PKPStatsHandler extends Handler {
 		$statsHandler = new StatsComponentHandler(
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/publishedSubmissions'),
 			[
-				'timeSegment' => 'daily',
+				'timeSegment' => 'day',
 				'timeSegments' => $totalStats['timeSegments'],
 				'items' => $items,
 				'itemsMax' => count($submissionsRecords),

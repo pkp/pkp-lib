@@ -95,7 +95,7 @@ class PKPStatsHandler extends APIHandler {
 				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateRange');
 			}
 		}
-		if (isset($params['timeSegment']) && $params['timeSegment'] == 'daily') {
+		if (isset($params['timeSegment']) && $params['timeSegment'] == 'day') {
 			if (isset($params['dateStart'])) {
 				if (!$this->dateWithinLast90Days($params['dateStart'])) {
 					return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimeSegmentDaily');
@@ -167,7 +167,7 @@ class PKPStatsHandler extends APIHandler {
 				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateRange');
 			}
 		}
-		if (isset($params['timeSegment']) && $params['timeSegment'] == 'daily') {
+		if (isset($params['timeSegment']) && $params['timeSegment'] == 'day') {
 			if (isset($params['dateStart'])) {
 				if (!$this->dateWithinLast90Days($params['dateStart'])) {
 					return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimeSegmentDaily');
@@ -235,7 +235,7 @@ class PKPStatsHandler extends APIHandler {
 		$defaultParams = array(
 			'count' => 30,
 			'offset' => 0,
-			'timeSegment' => 'monthly'
+			'timeSegment' => 'month'
 		);
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
 
@@ -289,7 +289,7 @@ class PKPStatsHandler extends APIHandler {
 	private function _buildSubmissionRequestParams($slimRequest) {
 		// Merge query params over default params
 		$defaultParams = array(
-				'timeSegment' => 'monthly'
+				'timeSegment' => 'month'
 		);
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
 

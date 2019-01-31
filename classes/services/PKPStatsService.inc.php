@@ -225,7 +225,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		$fileAssocType = $params['fileAssocType'];
 		// get the requested and used time segment (month or day)
 		if (isset($args['params']['timeSegment'])) {
-			$timeSegment = $args['params']['timeSegment'] == 'daily' ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
+			$timeSegment = $args['params']['timeSegment'] == 'day' ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
 		} else {
 			$timeSegment = STATISTICS_DIMENSION_MONTH;
 		}

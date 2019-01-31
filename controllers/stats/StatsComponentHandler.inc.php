@@ -16,7 +16,7 @@ class StatsComponentHandler extends PKPHandler {
 	/** @var string The URL to the /stats API endpoint */
 	public $_apiUrl = '';
 
-	/** @var array Stats by time segment (eg - monthly) for a graph */
+	/** @var array Stats by time segment (eg - month) for a graph */
 	public $_timeSegments = [];
 
 	/** @var array List of items to display stats for */
@@ -31,8 +31,8 @@ class StatsComponentHandler extends PKPHandler {
 	/** @var integer How many items to show per page */
 	public $_count = 30;
 
-	/** @var string Which time segment (eg - monthly) is displayed in the graph */
-	public $_timeSegment = 'monthly';
+	/** @var string Which time segment (eg - month) is displayed in the graph */
+	public $_timeSegment = 'month';
 
 	/** @var string Retrieve stats after this date */
 	public $_dateStart = '';
@@ -138,8 +138,8 @@ class StatsComponentHandler extends PKPHandler {
 					'invalidDateRange' => __('stats.dateRange.invalidDateRange'),
 					'invalidEndDateMax' => __('stats.dateRange.invalidEndDateMax'),
 					'invalidStartDateMin' => __('stats.dateRange.invalidStartDateMin'),
-					'daily' => __('stats.daily'),
-					'monthly' => __('stats.monthly'),
+					'day' => __('stats.daily'),
+					'month' => __('stats.monthly'),
 				],
 				$this->_i18n
 			),

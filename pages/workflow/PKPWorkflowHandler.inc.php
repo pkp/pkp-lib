@@ -245,7 +245,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
 			import('classes.workflow.EditorDecisionActionsManager');
 			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
-			$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($stageId);
+			$recommendationOptions = (new EditorDecisionActionsManager())->getRecommendationOptions($stageId);
 			// If this is a review stage and the user has "recommend only role"
 			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
 				if ($recommendOnly) {
@@ -305,7 +305,7 @@ abstract class PKPWorkflowHandler extends Handler {
 				}
 			}
 			// Get the possible editor decisions for this stage
-			$decisions = EditorDecisionActionsManager::getStageDecisions($request->getContext(), $stageId, $makeDecision);
+			$decisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $stageId, $makeDecision);
 			// Iterate through the editor decisions and create a link action
 			// for each decision which as an operation associated with it.
 			foreach($decisions as $decision => $action) {

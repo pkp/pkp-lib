@@ -103,7 +103,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		import('classes.workflow.EditorDecisionActionsManager');
 		$notificationManager->updateNotification(
 			$request,
-			EditorDecisionActionsManager::getStageNotifications(),
+			(new EditorDecisionActionsManager())->getStageNotifications(),
 			null,
 			ASSOC_TYPE_SUBMISSION,
 			$this->submission->getId()

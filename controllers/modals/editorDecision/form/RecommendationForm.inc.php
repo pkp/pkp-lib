@@ -115,7 +115,7 @@ class RecommendationForm extends Form {
 		$editorRecommendations = $editDecisionDao->getEditorDecisions($submission->getId(), $this->getStageId(), null, $user->getId());
 
 		// Set form data
-		$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($this->getStageId());
+		$recommendationOptions = (new EditorDecisionActionsManager())->getRecommendationOptions($this->getStageId());
 		$data = array(
 			'submissionId' => $submission->getId(),
 			'stageId' => $this->getStageId(),
@@ -153,7 +153,7 @@ class RecommendationForm extends Form {
 		import('lib.pkp.classes.submission.action.EditorAction');
 		$editorAction = new EditorAction();
 		// Get editor action labels needed for the recording
-		$recommendationOptions = EditorDecisionActionsManager::getRecommendationOptions($this->getStageId());
+		$recommendationOptions = (new EditorDecisionActionsManager())->getRecommendationOptions($this->getStageId());
 		$actionLabels = array($recommendation => $recommendationOptions[$recommendation]);
 		$editorAction->recordDecision($request, $submission, $recommendation, $actionLabels, $reviewRound, $this->getStageId(), true);
 

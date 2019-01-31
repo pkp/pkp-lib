@@ -112,7 +112,7 @@ class EditorDecisionForm extends Form {
 		$this->setData('stageId', $this->getStageId());
 
 		$templateMgr = TemplateManager::getManager($request);
-		$stageDecisions = EditorDecisionActionsManager::getStageDecisions($request->getContext(), $this->getStageId());
+		$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $this->getStageId());
 		$templateMgr->assign(array(
 			'decisionData' => $stageDecisions[$this->getDecision()],
 			'submissionId' => $submission->getId(),

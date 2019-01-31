@@ -52,7 +52,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 */
 	function initData($actionLabels = array()) {
 		$request = Application::getRequest();
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
@@ -81,7 +81,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();
@@ -168,7 +168,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 		if ($this->getData('requestPayment')) {
 			$context = $request->getContext();
-			$stageDecisions = EditorDecisionActionsManager::getStageDecisions($context, $this->getStageId());
+			$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($context, $this->getStageId());
 			$decisionData = $stageDecisions[$decision];
 			if (isset($decisionData['paymentType'])) {
 				$paymentType = $decisionData['paymentType'];

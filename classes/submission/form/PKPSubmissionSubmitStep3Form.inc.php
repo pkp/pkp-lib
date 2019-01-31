@@ -53,8 +53,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 		$metadataFields = Application::getMetadataFields();
 		foreach ($metadataFields as $field) {
 			$templateMgr->assign(array(
-				$field . 'Enabled' => $context->getData($field) === METADATA_REQUEST || $context->getData($field) === METADATA_REQUIRED,
-				$field . 'Required' => $context->getData($field) === METADATA_REQUIRED,
+				$field . 'Enabled' => $context->getData($field) === METADATA_REQUEST || $context->getData($field) === METADATA_REQUIRE,
+				$field . 'Required' => $context->getData($field) === METADATA_REQUIRE,
 			));
 		}
 

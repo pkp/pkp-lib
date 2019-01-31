@@ -218,7 +218,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		$this->setupTemplate($request, true);
 		$locale = $request->getUserVar('locale');
 
-		import('classes.i18n.LanguageAction');
+		import('lib.pkp.classes.i18n.LanguageAction');
 		$languageAction = new LanguageAction();
 
 		if (!$languageAction->isDownloadAvailable() || !preg_match('/^[a-z]{2}_[A-Z]{2}$/', $locale)) {

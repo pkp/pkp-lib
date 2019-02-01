@@ -48,9 +48,17 @@ elif [[ "$TEST" == "mysql" ]]; then
 fi
 
 # Prep files
-cp config.TEMPLATE.inc.php config.inc.php
-sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php # Disable CDN use
 mkdir ${FILESDIR}
+cp config.TEMPLATE.inc.php config.inc.php
+
+# Use ENABLE_CDN = 1 to prevent default disabling of the CDN for test purposes.
+if [[ "$ENABLE_CDN" != "1" ]]; then
+	sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php
+fi
+# Use DISABLE_PATH_INFO = 1 to turn on disable_path_info mode in config.inc.php.
+if [[ "$DISABLE_PATH_INFO" == "1" ]]; then
+	sed -i -e "s/disable_path_info = Off/disable_path_info = On/" config.inc.php
+fi
 
 # Run data build suite
 if [[ "$TEST" == "mysql" ]]; then

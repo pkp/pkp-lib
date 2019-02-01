@@ -548,7 +548,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$fileName .= $extension;
 
 		$result = $publicFileManager->copyContextFile(
-			$context->getAssoctype(),
 			$context->getId(),
 			$temporaryFile->getFilePath(),
 			$fileName
@@ -597,7 +596,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 				$fileName = $isImage ? $setting['uploadName'] : $setting;
 				import('classes.file.PublicFileManager');
 				$publicFileManager = new \PublicFileManager();
-				$publicFileManager->removeContextFile($context->getAssoctype(), $context->getId(), $fileName);
+				$publicFileManager->removeContextFile($context->getId(), $fileName);
 			}
 			return null;
 		}
@@ -624,7 +623,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 				import('classes.file.PublicFileManager');
 				$publicFileManager = new \PublicFileManager();
 
-				$filePath = $publicFileManager->getContextFilesPath($context->getAssocType(), $context->getId());
+				$filePath = $publicFileManager->getContextFilesPath($context->getId());
 				list($width, $height) = getimagesize($filePath . '/' . $fileName);
 				$altText = !empty($value['altText']) ? $value['altText'] : '';
 

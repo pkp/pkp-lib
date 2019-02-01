@@ -205,7 +205,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 		// Deletes the file and its settings.
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
-		if ($publicFileManager->removeContextFile($context->getAssocType(), $context->getId(), $file['uploadName'])) {
+		if ($publicFileManager->removeContextFile($context->getId(), $file['uploadName'])) {
 			$settingsDao = $context->getSettingsDao();
 			$settingsDao->deleteSetting($context->getId(), $fileSettingName, $locale);
 			return true;

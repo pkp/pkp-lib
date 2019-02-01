@@ -147,7 +147,7 @@ class ManagementHandler extends Handler {
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
-		$baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getAssocType(), $context->getId());
+		$baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();

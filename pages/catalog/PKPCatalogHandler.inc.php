@@ -74,7 +74,7 @@ class PKPCatalogHandler extends Handler {
 			'returnObject' => SUBMISSION_RETURN_PUBLISHED,
 		);
 		$publishedSubmissions = $submissionService->getMany($params);
-		$total = $submissionService->getMax($context->getId(), $params);
+		$total = $submissionService->getMax($params);
 
 		// Provide the parent category and a list of subcategories
 		$parentCategory = $categoryDao->getById($category->getParentId());

@@ -25,8 +25,6 @@
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="navigationMenuItemFormNotification"}
 	{fbvFormArea id="navigationMenuItemInfo"}
-		<input type="hidden" name="page" value="{$page|escape}" />
-		<input type="hidden" name="op" value="{$op|escape}" />
 		{if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}

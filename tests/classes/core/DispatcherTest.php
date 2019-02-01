@@ -70,6 +70,7 @@ class DispatcherTest extends PKPTestCase {
 	 * @covers Dispatcher::url
 	 */
 	public function testUrl() {
+		if (Config::getVar('general', 'disable_path_info')) $this->markTestSkipped();
 		$baseUrl = $this->request->getBaseUrl();
 
 		$url = $this->dispatcher->url($this->request, ROUTE_PAGE, array('context1', 'context2'), 'somepage', 'someop');

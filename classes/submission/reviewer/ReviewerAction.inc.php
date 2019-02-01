@@ -51,7 +51,7 @@ class ReviewerAction {
 			// key, in which case the user is not technically logged in
 			$email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
 			HookRegistry::call('ReviewerAction::confirmReview', array($request, &$submission, &$email, $decline));
-			import('lib.pkp.classes.log.PKPSubmissionEmailLogEntry'); // Import email event constants
+			import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
 			$email->setEventType($decline?SUBMISSION_EMAIL_REVIEW_DECLINE:SUBMISSION_EMAIL_REVIEW_CONFIRM);
 			if ($emailText) $email->setBody($emailText);
 			if (!$email->send($request)) {

@@ -110,13 +110,12 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * Save the email in the submission email log.
 	 */
 	function log($request = null) {
-		import('classes.log.SubmissionEmailLogEntry');
-		$entry = new SubmissionEmailLogEntry();
+		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$entry = $logDao->newDataObject();
 		$submission = $this->submission;
 
 		// Event data
 		$entry->setEventType($this->logEventType);
-		$entry->setAssocType(ASSOC_TYPE_SUBMISSION);
 		$entry->setAssocId($submission->getId());
 		$entry->setDateSent(Core::getCurrentDate());
 
@@ -139,7 +138,6 @@ class SubmissionMailTemplate extends MailTemplate {
 		$entry->setBccs($this->getBccString());
 
 		// Add log entry
-		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 		$logEntryId = $logDao->insertObject($entry);
 	}
 

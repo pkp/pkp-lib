@@ -393,12 +393,12 @@ abstract class Plugin {
 		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
 		if (file_exists($checkPluginPath)) {
 			$filePath = $checkPluginPath;
-			// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
+		// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
 		} else {
 			$checkPluginPath = preg_replace("/templates\/(?!.*templates\/)/", "", $checkPluginPath);
 			if (file_exists($checkPluginPath)) {
 				if (Config::getVar('debug', 'deprecation_warnings')) {
-					trigger_error('Deprecated call without request object.');
+					trigger_error('Deprecated: The template at ' . $checkPluginPath . ' has moved and will not be found in the future.');
 				}
 				$filePath = $checkPluginPath;
 			}

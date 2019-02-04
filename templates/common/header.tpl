@@ -24,7 +24,7 @@
 					toggleHelpUrl: {url|json_encode page="user" op="toggleHelp" escape=false},
 					toggleHelpOnText: {$toggleHelpOnText|json_encode},
 					toggleHelpOffText: {$toggleHelpOffText|json_encode},
-					{include file="core:controllers/notification/notificationOptions.tpl"}
+					{include file="controllers/notification/notificationOptions.tpl"}
 				{rdelim});
 		{rdelim});
 	</script>

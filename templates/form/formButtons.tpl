@@ -23,7 +23,7 @@
 
 	{* IF we have confirmation dialog text specified, load buttonConfirmationLinkAction for the submit button *}
 	{if $FBV_confirmSubmit}
-		{include file="core:linkAction/buttonConfirmationLinkAction.tpl"
+		{include file="linkAction/buttonConfirmationLinkAction.tpl"
 				buttonSelector="#"|concat:$submitButtonId
 				dialogText="$FBV_confirmSubmit"}
 	{/if}

@@ -144,7 +144,7 @@
 	<message key="user.sendPassword.description">Send me a confirmation email including my username and password</message>
 	<message key="user.signature">Signature</message>
 	<message key="user.title">Title</message>
-	<message key="user.url">URL</message>
+	<message key="user.url">Homepage URL</message>
 	<message key="user.userHome">User Home</message>
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Working Languages</message>

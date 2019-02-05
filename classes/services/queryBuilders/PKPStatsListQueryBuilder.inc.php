@@ -54,8 +54,8 @@ class PKPStatsListQueryBuilder extends BaseQueryBuilder {
 		$this->contextId = $contextId;
 		$this->metricType = $this->getMetricType();
 		// Add the metric type and context id filter.
-		$filters[STATISTICS_DIMENSION_METRIC_TYPE] = $this->metricType;
-		$filters[STATISTICS_DIMENSION_CONTEXT_ID] = $contextId;
+		$this->filters[STATISTICS_DIMENSION_METRIC_TYPE] = $this->metricType;
+		$this->filters[STATISTICS_DIMENSION_CONTEXT_ID] = $contextId;
 	}
 
 	/**

@@ -130,7 +130,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		$values = $this->getRecordProperties($records, $params, $props, $args);
 
 		if ($entityService) {
-			$values['object'] = $entityService->getSummaryProperties($entity, $args);
+			$values['object'] = $entityService->getStatsObjectSummaryProperties($entity, $args);
 		}
 
 		\HookRegistry::call('Stats::getProperties::values', array(&$values, $entity, $props, $args));

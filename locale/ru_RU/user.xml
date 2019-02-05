@@ -144,7 +144,7 @@
 	<message key="user.sendPassword.description">Отправить мне подтверждение по электронной почте, содержащее мои имя пользователя и пароль</message>
 	<message key="user.signature">Подпись</message>
 	<message key="user.title">Обращение</message>
-	<message key="user.url">URL</message>
+	<message key="user.url">URL главной страницы</message>
 	<message key="user.userHome">Страница пользователя</message>
 	<message key="user.username">Имя пользователя</message>
 	<message key="user.workingLanguages">Рабочие языки</message>

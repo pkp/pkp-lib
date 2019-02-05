@@ -46,6 +46,18 @@ class ProfileHandler extends UserHandler {
 	 * @param $request PKPRequest
 	 */
 	function profile($args, $request) {
+		$context = $request->getContext();
+		if (!$context) {
+			$user = $request->getUser();
+			$contextDao = Application::getContextDAO();
+			$workingContexts = $contextDao->getAvailable($user?$user->getId():null);
+			if ($workingContexts && $workingContexts->getCount() == 1) {
+				$workingContext = $workingContexts->next();
+				$contextPath = $workingContext->getPath();
+				$request->redirect($contextPath, 'user', 'profile', null, $args);
+			}
+		}
+
 		if ($anchor = array_shift($args)) {
 			// Some requests will try to specify a tab name in the args. Redirect
 			// to use this as an anchor name instead.

@@ -109,6 +109,8 @@ class Core {
 		}
 
 		foreach ($botRegexps[$botRegexpsFile] as $regexp) {
+			// make the search case insensitive
+			$regexp .= 'i';
 			if (PKPString::regexp_match($regexp, $userAgent)) {
 				return true;
 			}

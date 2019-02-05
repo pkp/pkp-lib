@@ -140,12 +140,12 @@ class RoleDAO extends DAO {
 	 */
 	function getByUserId($userId, $contextId = null) {
 		$params = array((int) $userId);
-		if ($contextId) $params[] = (int) $contextId;
+		if ($contextId !== null) $params[] = (int) $contextId;
 		$result = $this->retrieve(
 			'SELECT	DISTINCT ug.role_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
+			WHERE	uug.user_id = ?' . ($contextId !== null ? ' AND ug.context_id = ?' : ''),
 			$params
 		);
 

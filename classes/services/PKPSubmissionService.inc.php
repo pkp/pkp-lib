@@ -258,8 +258,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		}
 
 		$request = Application::getRequest();
-		$context = $request->getContext();
-		$contextId = $context ? $context->getId() : 0;
+		$contextId = $submission->getContextId();
 
 		$currentUser = $request->getUser();
 		if (!$currentUser) {

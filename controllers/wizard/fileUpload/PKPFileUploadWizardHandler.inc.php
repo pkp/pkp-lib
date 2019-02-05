@@ -367,8 +367,8 @@ class PKPFileUploadWizardHandler extends Handler {
 						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 						foreach ($editorsStageAssignments as $editorsStageAssignment) {
 							$editor = $userDao->getById($editorsStageAssignment->getUserId());
- 							// If editor has not logged in since the last notification, do not send another
-							if (strtotime($editor->getDateLastLogin()) > $lastNotification){
+ 							// If no prior notification exists OR if editor has logged in after the last revision upload OR the last upload and notification was sent more than a day ago, send a new notification
+							if (is_null($lastNotification) || strtotime($editor->getDateLastLogin()) > $lastNotification || strtotime('-1 day') > $lastNotification){
 								$mail->addRecipient($editor->getEmail(), $editor->getFullName());
 							}
 						}

@@ -16,13 +16,13 @@
 
 import('lib.pkp.classes.file.FileManager');
 
-class PKPPublicFileManager extends FileManager {
+abstract class PKPPublicFileManager extends FileManager {
 
 	/**
 	 * Get the path to the site public files directory.
 	 * @return string
 	 */
-	function getSiteFilesPath() {
+	public function getSiteFilesPath() {
 		return Config::getVar('files', 'public_files_dir') . '/site';
 	}
 
@@ -32,32 +32,28 @@ class PKPPublicFileManager extends FileManager {
 	 * @param $contextId int Context ID
 	 * @return string
 	 */
-	function getContextFilesPath($assocType, $contextId) {
-		assert(false); // Must be implemented by subclasses
-	}
+	abstract public function getContextFilesPath($contextId);
 
 	/**
 	 * Upload a file to a context's public directory.
-	 * @param $assocType int The assoc type of the context
 	 * @param $contextId int The context ID
 	 * @param $fileName string the name of the file in the upload form
 	 * @param $destFileName string the destination file name
 	 * @return boolean
 	 */
-	function uploadContextFile($assocType, $contextId, $fileName, $destFileName) {
-		return $this->uploadFile($fileName, $this->getContextFilesPath($assocType, $contextId) . '/' . $destFileName);
+	public function uploadContextFile($contextId, $fileName, $destFileName) {
+		return $this->uploadFile($fileName, $this->getContextFilesPath($contextId) . '/' . $destFileName);
 	}
 
 	/**
 	 * Write a file to a context's public directory.
-	 * @param $assocType int Assoc type for context
 	 * @param $contextId int Context ID
 	 * @param $destFileName string the destination file name
 	 * @param $contents string the contents to write to the file
 	 * @return boolean
 	 */
-	function writeContextFile($assocType, $contextId, $destFileName, $contents) {
-		return $this->writeFile($this->getContextFilesPath($assocType, $contextId) . '/' . $destFileName, $contents);
+	public function writeContextFile($contextId, $destFileName, $contents) {
+		return $this->writeFile($this->getContextFilesPath($contextId) . '/' . $destFileName, $contents);
 	}
 
 	/**
@@ -66,7 +62,7 @@ class PKPPublicFileManager extends FileManager {
 	 * @param $destFileName string the destination file name
 	 * @return boolean
 	 */
-	function uploadSiteFile($fileName, $destFileName) {
+	public function uploadSiteFile($fileName, $destFileName) {
 		return $this->uploadFile($fileName, $this->getSiteFilesPath() . '/' . $destFileName);
 	}
 
@@ -78,19 +74,18 @@ class PKPPublicFileManager extends FileManager {
 	 * @param $destFileName string the destination file name
 	 * @return boolean
 	 */
-	function copyContextFile($assocType, $contextId, $sourceFile, $destFileName) {
-		return $this->copyFile($sourceFile, $this->getContextFilesPath($assocType, $contextId) . '/' . $destFileName);
+	public function copyContextFile($assocType, $contextId, $sourceFile, $destFileName) {
+		return $this->copyFile($sourceFile, $this->getContextFilesPath($contextId) . '/' . $destFileName);
 	}
 
 	/**
 	 * Delete a file from a context's public directory.
-	 * @param $assocType Assoc type for context
 	 * @param $contextId int Context ID
 	 * @param $fileName string the target file name
 	 * @return boolean
 	 */
-	function removeContextFile($assocType, $contextId, $fileName) {
-		return $this->deleteByPath($this->getContextFilesPath($assocType, $contextId) . '/' . $fileName);
+	public function removeContextFile($contextId, $fileName) {
+		return $this->deleteByPath($this->getContextFilesPath($contextId) . '/' . $fileName);
 	}
 
 	/**
@@ -98,7 +93,7 @@ class PKPPublicFileManager extends FileManager {
 	 * @param $fileName string the target file name
 	 * @return boolean
 	 */
-	function removeSiteFile($fileName) {
+	public function removeSiteFile($fileName) {
 		return $this->deleteByPath($this->getSiteFilesPath() . '/' . $fileName);
 	}
 }

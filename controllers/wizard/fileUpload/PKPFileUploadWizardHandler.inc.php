@@ -104,15 +104,6 @@ class PKPFileUploadWizardHandler extends Handler {
 		);
 	}
 
-	function authorize($request, &$args, $roleAssignments) {
-		// Allow both reviewers (if in review) and context roles.
-		import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
-
-		$this->addPolicy(new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId')));
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
-
 
 	//
 	// Getters and Setters
@@ -300,6 +291,14 @@ class PKPFileUploadWizardHandler extends Handler {
 	 */
 	protected function _attachEntities($submissionFile) {
 		switch ($submissionFile->getFileStage()) {
+			case SUBMISSION_FILE_ATTACHMENT:
+				// If this attachment was created in the review stage, add it to
+				// the review round.
+				if ($reviewRound = $this->getReviewRound()) {
+					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+					$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+				}
+				break;
 			case SUBMISSION_FILE_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:
@@ -341,18 +340,37 @@ class PKPFileUploadWizardHandler extends Handler {
 					$uploader = $request->getUser();
 					// If the file is uploaded by an author
 					if (in_array($uploader->getId(), $authorUserIds)) {
+
+						// Fetch the latest notification email timestamp if any
+						import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
+						$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+						$submissionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
+						$lastNotification = null;
+						$sentDates = array();
+						if ($submissionEmails){
+							while ($email = $submissionEmails->next()) {
+								if ($email->getDateSent()){
+									$sentDates[] = $email->getDateSent();
+								}
+							}
+							if (!empty($sentDates)){ 
+								$lastNotification = max(array_map('strtotime', $sentDates));
+							}
+						}
+
 						import('lib.pkp.classes.mail.SubmissionMailTemplate');
 						$mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
-						import('lib.pkp.classes.log.PKPSubmissionEmailLogEntry'); // Import email event constants
 						$mail->setEventType(SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
 						$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 						// Get editors assigned to the submission, consider also the recommendOnly editors
 						$userDao = DAORegistry::getDAO('UserDAO');
 						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 						foreach ($editorsStageAssignments as $editorsStageAssignment) {
-							$editorId = $editorsStageAssignment->getUserId();
-							$editor = $userDao->getById($editorId);
-							$mail->addRecipient($editor->getEmail(), $editor->getFullName());
+							$editor = $userDao->getById($editorsStageAssignment->getUserId());
+ 							// If no prior notification exists OR if editor has logged in after the last revision upload OR the last upload and notification was sent more than a day ago, send a new notification
+							if (is_null($lastNotification) || strtotime($editor->getDateLastLogin()) > $lastNotification || strtotime('-1 day') > $lastNotification){
+								$mail->addRecipient($editor->getEmail(), $editor->getFullName());
+							}
 						}
 						// Get uploader name
 						$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'workflow', 'index', array($submission->getId(), $this->getStageId()));
@@ -361,11 +379,15 @@ class PKPFileUploadWizardHandler extends Handler {
 							'editorialContactSignature' => $context->getData('contactName'),
 							'submissionUrl' => $submissionUrl,
 						));
-						if (!$mail->send($request)) {
-							import('classes.notification.NotificationManager');
-							$notificationMgr = new NotificationManager();
-							$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+
+						if ($mail->getRecipients()){
+							if (!$mail->send($request)) {
+								import('classes.notification.NotificationManager');
+								$notificationMgr = new NotificationManager();
+								$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+							}
 						}
+
 					}
 				}
 				break;

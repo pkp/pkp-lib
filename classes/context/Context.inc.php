@@ -20,7 +20,7 @@
  define('METADATA_REQUEST', 'request');
  define('METADATA_REQUIRE', 'require');
 
-class Context extends DataObject {
+abstract class Context extends DataObject {
 
 	/**
 	 * Get the localized name of the context
@@ -288,9 +288,7 @@ class Context extends DataObject {
 	 * Get the association type for this context.
 	 * @return int
 	 */
-	function getAssocType() {
-		assert(false); // Must be overridden by subclasses
-	}
+	public abstract function getAssocType();
 
 	/**
 	 * @deprecated Most settings should be available from self::getData(). In

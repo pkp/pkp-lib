@@ -62,7 +62,7 @@
 		{fbvFormArea id="reportTemplatesFormArea" title="manager.statistics.reports.defaultReportTemplates"}
 			{fbvFormSection}
 				{fbvElement type="select" name="reportTemplate" id="reportTemplate" from=$reportTemplateOptions selected=$reportTemplate translate=false}
-				{include file="core:common/loadingContainer.tpl"}
+				{include file="common/loadingContainer.tpl"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 		{fbvFormArea id="aggregationColumnsFormArea" title="manager.statistics.reports.aggregationColumns"}

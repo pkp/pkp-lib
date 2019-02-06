@@ -561,6 +561,7 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged">The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</message>
+	<message key="plugins.importexport.user.error.usernameEmailMismatch">The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</message>
 
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Title</message>

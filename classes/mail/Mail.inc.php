@@ -497,22 +497,37 @@ class Mail extends DataObject {
 			$mailer->AddCustomHeader($header['key'], $mailer->SecureHeader($header['content']));
 		}
 		if (($f = $this->getFrom()) != null) {
-			// this sets Sender as well
+			if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender') && Config::getVar('email', 'force_dmarc_compliant_from')) {
+				/* If a DMARC compliant RFC5322.From was requested we need to promote the original RFC5322.From into a Reply-to header
+				 * and then munge the RFC5322.From */
+				$alreadyExists = false;
+				foreach ((array) $this->getReplyTo() as $r) {
+					if ($r['email'] === $f['email']) {
+						$alreadyExists = true;
+					}
+				}
+				if (!$alreadyExists) {
+					$mailer->AddReplyTo($f['email'], $f['name']);
+				}
+
+				$request = Application::getRequest();
+				$site = $request->getSite();
+
+				// Munge the RFC5322.From
+				if (Config::getVar('email', 'dmarc_compliant_from_displayname')) {
+					$patterns = array('#%n#', '#%s#');
+					$replacements = array($f['name'], $site->getLocalizedTitle());
+					$f['name'] = preg_replace($patterns, $replacements, Config::getVar('email', 'dmarc_compliant_from_displayname'));
+				} else {
+					$f['name'] = '';
+				}
+				$f['email'] = Config::getVar('email', 'default_envelope_sender');
+			}
+			// this sets both the envelope sender (RFC5321.MailFrom) and the From: header (RFC5322.From)
 			$mailer->SetFrom($f['email'], $f['name']);
 		}
+		// Set the envelope sender (RFC5321.MailFrom)
 		if (($s = $this->getEnvelopeSender()) != null) $mailer->Sender = $s;
-		// When we are modifying the envelope sender, promote the from to a reply-to
-		if ($f != null && $f['email'] !== $s) {
-			$alreadyExists = false;
-			foreach ((array) $this->getReplyTo() as $r) {
-				if ($r['email'] === $f['email']) {
-					$alreadyExists = true;
-				}
-			}
-			if (!$alreadyExists) {
-				$mailer->AddReplyTo($f['email'], $f['name']);
-			}
-		}
 		foreach ((array) $this->getReplyTo() as $r) {
 			$mailer->AddReplyTo($r['email'], $r['name']);
 		}

@@ -1,29 +1,19 @@
 <?php
 
 /**
- * @file classes/i18n/PKPLanguageAction.inc.php
+ * @file classes/i18n/LanguageAction.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPLanguageAction
+ * @class LanguageAction
  * @ingroup i18n
  *
- * @brief PKPLanguageAction class.
+ * @brief LanguageAction class.
  */
 
-class PKPLanguageAction {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-	}
-
-	/**
-	 * Actions.
-	 */
-
+class LanguageAction {
 	/**
 	 * Check to see whether the tar function exists and appears to be
 	 * available for execution from PHP, and various other conditions that

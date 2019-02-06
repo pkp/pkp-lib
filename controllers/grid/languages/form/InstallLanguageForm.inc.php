@@ -49,10 +49,12 @@ class InstallLanguageForm extends Form {
 		$notInstalledLocales = array_diff(array_keys($allLocales), $installedLocales);
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('allLocales', $allLocales);
-		$templateMgr->assign('notInstalledLocales', $notInstalledLocales);
+		$templateMgr->assign(array(
+			'allLocales' => $allLocales,
+			'notInstalledLocales' => $notInstalledLocales,
+		));
 
-		import('classes.i18n.LanguageAction');
+		import('lib.pkp.classes.i18n.LanguageAction');
 		$languageAction = new LanguageAction();
 		if ($languageAction->isDownloadAvailable()) {
 			$downloadableLocales = $languageAction->getDownloadableLocales();
@@ -66,8 +68,10 @@ class InstallLanguageForm extends Form {
 					$name . ' (' . $locale . ')');
 			}
 
-			$templateMgr->assign('downloadAvailable', true);
-			$templateMgr->assign('downloadableLocaleLinks', $downloadableLocaleLinks);
+			$templateMgr->assign(array(
+				'downloadAvailable' => true,
+				'downloadableLocaleLinks' => $downloadableLocaleLinks,
+			));
 		}
 
 		return parent::fetch($request, $template, $display);

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/log/PKPSubmissionEmailLogEntry.inc.php
+ * @file classes/log/SubmissionEmailLogEntry.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionEmailLogEntry
+ * @class SubmissionEmailLogEntry
  * @ingroup log
  * @see SubmissionEmailLogDAO
  *
@@ -63,7 +63,7 @@ define('SUBMISSION_EMAIL_LAYOUT_NOTIFY_EDITOR',			0x70000001);
 define('SUBMISSION_EMAIL_LAYOUT_THANK_EDITOR',			0x70000002);
 define('SUBMISSION_EMAIL_LAYOUT_NOTIFY_COMPLETE',		0x70000003);
 
-class PKPSubmissionEmailLogEntry extends EmailLogEntry {
+class SubmissionEmailLogEntry extends EmailLogEntry {
 	/**
 	 * Set the submission ID for the log entry.
 	 * @param $submissionId int

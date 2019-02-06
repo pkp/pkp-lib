@@ -11,7 +11,6 @@
  * @brief Registry and initialization class for Vue.js handlers
  */
 export default {
-
 	/**
 	 * Registry of all active vue instances
 	 */
@@ -29,10 +28,8 @@ export default {
 	 * @param object The data object to pass to the controller. Can include
 	 *  configuration parameters, translatable strings and initial data.
 	 */
-	init: function (id, type, data) {
-
+	init: function(id, type, data) {
 		if (pkp.controllers[type] === undefined) {
-			console.log('No Vue of the type ' + type + ' could be found.');
 			return;
 		}
 
@@ -41,24 +38,23 @@ export default {
 			delete data._constants;
 		}
 
-		var args = _.extend({}, pkp.controllers[type],
-			{
-				el: '#' + id,
-				data: _.extend(pkp.controllers[type].data(), data, { id: id }),
-			}
-		);
+		var args = $.extend(true, {}, pkp.controllers[type], {
+			el: '#' + id,
+			data: $.extend(true, {}, pkp.controllers[type].data(), data, {id: id})
+		});
 
 		pkp.registry._instances[id] = new pkp.Vue(args);
 
 		// Register with a parent handler from the legacy JS framework, so that
 		// those componments can destroy a Vue instance when removing HTML code
 		var $parents = $(pkp.registry._instances[id].$el).parents();
-		$parents.each(function (i) {
+		$parents.each(function(i) {
 			if ($.pkp.classes.Handler.hasHandler($($parents[i]))) {
-				$.pkp.classes.Handler.getHandler($($parents[i]))
-					.handlerChildren_.push(pkp.registry._instances[id]);
+				$.pkp.classes.Handler.getHandler($($parents[i])).handlerChildren_.push(
+					pkp.registry._instances[id]
+				);
 				return false; // only attach to the closest parent handler
 			}
 		});
-	},
+	}
 };

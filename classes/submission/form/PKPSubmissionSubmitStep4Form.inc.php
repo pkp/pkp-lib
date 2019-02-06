@@ -48,13 +48,13 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 
 		// Assign the default stage participants.
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$notifyUsers = array();
 
 		// Manager and assistant roles -- for each assigned to this
 		//  stage in setup, iff there is only one user for the group,
 		//  automatically assign the user to the stage.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$submissionStageGroups = $userGroupDao->getUserGroupsByStage($this->submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION);
-		$managerFound = false;
 		while ($userGroup = $submissionStageGroups->next()) {
 			// Only handle manager and assistant roles
 			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_ASSISTANT))) continue;
@@ -63,7 +63,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 			if($users->getCount() == 1) {
 				$user = $users->next();
 				$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $user->getId(), $userGroup->getRecommendOnly());
-				if ($userGroup->getRoleId() == ROLE_ID_MANAGER) $managerFound = true;
+				$notifyUsers[] = $user->getId();
 			}
 		}
 
@@ -84,7 +84,6 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		$notificationManager = new NotificationManager();
 
 		// Assign sub editors for that section
-		$submissionSubEditorFound = false;
 		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
 		$subEditors = $subEditorsDao->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId());
 		foreach ($subEditors as $subEditor) {
@@ -94,7 +93,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 				$stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
 				// If we assign a stage assignment in the Submission stage to a sub editor, make note.
 				if ($userGroupDao->userGroupAssignedToStage($userGroup->getId(), WORKFLOW_STAGE_ID_SUBMISSION)) {
-					$submissionSubEditorFound = true;
+					$notifyUsers[] = $subEditor->getId();
 				}
 			}
 		}
@@ -103,14 +102,14 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		import('classes.workflow.EditorDecisionActionsManager');
 		$notificationManager->updateNotification(
 			$request,
-			EditorDecisionActionsManager::getStageNotifications(),
+			(new EditorDecisionActionsManager())->getStageNotifications(),
 			null,
 			ASSOC_TYPE_SUBMISSION,
 			$this->submission->getId()
 		);
 
 		// Send a notification to associated users if an editor needs assigning
-		if (!$managerFound && !$submissionSubEditorFound) {
+		if (empty($notifyUsers)) {
 			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 
 			// Get the managers.
@@ -120,10 +119,6 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 
 			$allUserIds = array_keys($managersArray);
 			foreach ($allUserIds as $userId) {
-				$notificationManager->createNotification(
-					$request, $userId, NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
-					$this->submission->getContextId(), ASSOC_TYPE_SUBMISSION, $this->submission->getId()
-				);
 
 				// Add TASK notification indicating that a submission is unassigned
 				$notificationManager->createNotification(
@@ -136,6 +131,11 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 					NOTIFICATION_LEVEL_TASK
 				);
 			}
+		} else foreach ($notifyUsers as $userId) {
+			$notificationManager->createNotification(
+				$request, $userId, NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+				$this->submission->getContextId(), ASSOC_TYPE_SUBMISSION, $this->submission->getId()
+			);
 		}
 
 		$notificationManager->updateNotification(

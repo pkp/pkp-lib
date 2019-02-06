@@ -154,6 +154,8 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 
 		$userByUsername = $userDao->getByUsername($user->getUsername(), false);
 		$userByEmail = $userDao->getUserByEmail($user->getEmail(), false);
+		// username and email are both required and unique, so either
+		// both exist for one and the same user, or both do not exist
 		if ($userByUsername && $userByEmail && $userByUsername->getId() == $userByEmail->getId()) {
 			$user = $userByUsername;
 			$userId = $user->getId();
@@ -223,35 +225,43 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 					$interestManager->setInterestsForUser($user, $interests);
 				}
 			}
-		}
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroupsFactory = $userGroupDao->getByContextId($context->getId());
-		$userGroups = $userGroupsFactory->toArray();
-
-		// Extract user groups from the User XML and assign the user to those (existing) groups.
-		// Note:  It is possible for a user to exist with no user group assignments so there is
-		// no fatalError() as is the case with PKPAuthor import.
-		$userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
-		if ($userGroupNodeList->length > 0) {
-			for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
-				$n = $userGroupNodeList->item($i);
-				foreach ($userGroups as $userGroup) {
-					if (in_array($n->textContent, $userGroup->getName(null))) {
-						// Found a candidate; assign user to it.
-						$userGroupDao->assignUserToGroup($userId, $userGroup->getId());
-					}
-				}
+			// send USER_REGISTER e-mail only if it is a new inserted/registered user
+			// else, if the user already exists, its metadata will not be change (just groups will be re-assigned below)
+			if ($password) {
+				import('lib.pkp.classes.mail.MailTemplate');
+				$mail = new MailTemplate('USER_REGISTER');
+				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+				$mail->assignParams(array('username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()));
+				$mail->addRecipient($user->getEmail(), $user->getFullName());
+				$mail->send();
 			}
+		} else {
+			// the username and the email do not match to the one and the same existing user
+			$this->addError(__('plugins.importexport.user.error.usernameEmailMismatch', array('username' => $user->getUsername(), 'email' => $user->getEmail())));
 		}
 
-		if ($password) {
-			import('lib.pkp.classes.mail.MailTemplate');
-			$mail = new MailTemplate('USER_REGISTER');
-			$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
-			$mail->assignParams(array('username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()));
-			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
+		// We can only assign a user to a user group if persisted to the database by $userId
+		if ($userId) {
+	  		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+  			$userGroupsFactory = $userGroupDao->getByContextId($context->getId());
+  			$userGroups = $userGroupsFactory->toArray();
+
+	  		// Extract user groups from the User XML and assign the user to those (existing) groups.
+  			// Note:  It is possible for a user to exist with no user group assignments so there is
+  			// no fatalError() as is the case with PKPAuthor import.
+	  		$userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
+  			if ($userGroupNodeList->length > 0) {
+  				for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
+  					$n = $userGroupNodeList->item($i);
+  					foreach ($userGroups as $userGroup) {
+  						if (in_array($n->textContent, $userGroup->getName(null))) {
+  							// Found a candidate; assign user to it.
+	  						$userGroupDao->assignUserToGroup($userId, $userGroup->getId());
+  						}
+  					}
+  				}
+	  		}
 		}
 
 		return $user;

@@ -73,12 +73,7 @@ class PKPReviewerHandler extends Handler {
 			import("lib.pkp.classes.submission.reviewer.form.$formClass");
 
 			$reviewerForm = new $formClass($request, $reviewerSubmission, $reviewAssignment);
-
-			if ($reviewerForm->isLocaleResubmit()) {
-				$reviewerForm->readInputData();
-			} else {
-				$reviewerForm->initData();
-			}
+			$reviewerForm->initData();
 			return new JSONMessage(true, $reviewerForm->fetch($request));
 		} else {
 			$templateMgr = TemplateManager::getManager($request);

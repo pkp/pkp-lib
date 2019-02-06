@@ -47,7 +47,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 		$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 		if (!is_a($reviewRound, 'ReviewRound')) return AUTHORIZATION_DENY;
 		import('classes.workflow.EditorDecisionActionsManager');
-		if (!EditorDecisionActionsManager::getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS))) {
+		if (!(new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, array(SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS))) {
 			return AUTHORIZATION_DENY;
 		}
 

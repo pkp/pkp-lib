@@ -25,7 +25,7 @@
 
 	{$additionalFormContent1}
 
-	{include file="core:submission/submissionLocale.tpl"}
+	{include file="submission/submissionLocale.tpl"}
 
 	{$additionalFormContent2}
 

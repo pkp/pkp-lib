@@ -930,7 +930,7 @@ class Installer {
 						$value = METADATA_REQUIRE;
 					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledSubmission' && $row['setting_value'] && $value !== METADATA_REQUIRE) {
 						$value = METADATA_REQUEST;
-					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledWorkflow' && $row['setting_value'] && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRED) {
+					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledWorkflow' && $row['setting_value'] && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
 						$value = METADATA_ENABLE;
 					}
 					$result->MoveNext();

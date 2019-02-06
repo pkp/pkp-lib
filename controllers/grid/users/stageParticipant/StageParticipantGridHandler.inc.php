@@ -285,7 +285,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			if ($userGroup->getRoleId() == ROLE_ID_MANAGER) {
 				$notificationMgr->updateNotification(
 					$request,
-					EditorDecisionActionsManager::getStageNotifications(),
+					(new EditorDecisionActionsManager())->getStageNotifications(),
 					null,
 					ASSOC_TYPE_SUBMISSION,
 					$submission->getId()
@@ -343,7 +343,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		import('classes.workflow.EditorDecisionActionsManager');
 		$notificationMgr->updateNotification(
 			$request,
-			EditorDecisionActionsManager::getStageNotifications(),
+			(new EditorDecisionActionsManager())->getStageNotifications(),
 			null,
 			ASSOC_TYPE_SUBMISSION,
 			$submission->getId()

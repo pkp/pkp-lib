@@ -53,6 +53,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => array('settingName' => 'notificationSubmissionSubmitted',
 				'emailSettingName' => 'emailNotificationSubmissionSubmitted',
 				'settingKey' => 'notification.type.submissionSubmitted'),
+			NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => array('settingName' => 'notificationEditorAssignmentRequired',
+				'emailSettingName' => 'emailNotificationEditorAssignmentRequired',
+				'settingKey' => 'notification.type.editorAssignmentTask'),
 			NOTIFICATION_TYPE_METADATA_MODIFIED => array('settingName' => 'notificationMetadataModified',
 				'emailSettingName' => 'emailNotificationMetadataModified',
 				'settingKey' => 'notification.type.metadataModified'),
@@ -89,6 +92,7 @@ class PKPNotificationSettingsForm extends Form {
 			array('categoryKey' => 'notification.type.submissions',
 				'settings' => array(
 					NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+					NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
 					NOTIFICATION_TYPE_METADATA_MODIFIED,
 					NOTIFICATION_TYPE_NEW_QUERY,
 					NOTIFICATION_TYPE_QUERY_ACTIVITY,

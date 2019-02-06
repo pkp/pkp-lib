@@ -13,7 +13,7 @@
 		// Attach the form handler.
 		$('#{$notificationId|escape:javascript}').pkpHandler('$.pkp.controllers.NotificationHandler',
 		{ldelim}
-			{include file="core:controllers/notification/notificationOptions.tpl"}
+			{include file="controllers/notification/notificationOptions.tpl"}
 		{rdelim});
 	{rdelim});
 </script>

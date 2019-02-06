@@ -24,7 +24,7 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="submitStep3FormNotification"}
 
-	{include file="core:submission/submissionMetadataFormTitleFields.tpl"}
+	{include file="submission/submissionMetadataFormTitleFields.tpl"}
 
 	{fbvFormArea id="contributors"}
 		<!--  Contributors -->

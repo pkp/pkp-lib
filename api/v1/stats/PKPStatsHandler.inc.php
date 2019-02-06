@@ -122,7 +122,7 @@ class PKPStatsHandler extends APIHandler {
 			$slicedSubmissionsRecords = array_slice($submissionsRecords, isset($params['offset'])?$params['offset']:0, $params['count']);
 			foreach ($slicedSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = \Application::getPublishedSubmissionDAO();
-				$submission = $publishedSubmissionDao->getById($submissionsRecord['submission_id']);
+				$submission = $publishedSubmissionDao->getByArticleId($submissionsRecord['submission_id'], $context->getId());
 				$items[] = $statsService->getSummaryProperties($submission, $propertyArgs);
 			}
 		} else {

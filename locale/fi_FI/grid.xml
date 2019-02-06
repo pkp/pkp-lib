@@ -270,4 +270,5 @@
 	<message key="grid.action.addNavigationMenu">Lisää valikko</message>
 	<message key="grid.action.uninstall">Poista asennus</message>
 	<message key="grid.navigationMenus.navigationMenu.selectType">Valitse tyyppi...</message>
+	<message key="grid.action.users">Selaa/valitse käyttäjiä</message>
 </locale>

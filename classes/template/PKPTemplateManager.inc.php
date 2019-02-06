@@ -1508,6 +1508,9 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
+        $versionDao = DAORegistry::getDAO('VersionDAO');
+        $appVersion = $versionDao->getCurrentVersion()->getVersionString();		
+
 		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);
 
 		ksort($stylesheets);
@@ -1518,6 +1521,9 @@ class PKPTemplateManager extends Smarty {
 				if (!empty($style['inline'])) {
 					$output .= '<style type="text/css">' . $style['style'] . '</style>';
 				} else {
+					if (strpos($style['style'], '?') === false) {
+						$style['style'] .= '?v=' . $appVersion;
+					}
 					$output .= '<link rel="stylesheet" href="' . $style['style'] . '" type="text/css" />';
 				}
 			}
@@ -1581,6 +1587,9 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
+		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$appVersion = $versionDao->getCurrentVersion()->getVersionString();			
+
 		$scripts = $this->getResourcesByContext($this->_javaScripts, $params['context']);
 
 		ksort($scripts);
@@ -1591,6 +1600,9 @@ class PKPTemplateManager extends Smarty {
 				if ($data['inline']) {
 					$output .= '<script type="text/javascript">' . $data['script'] . '</script>';
 				} else {
+					if (strpos($data['script'], '?') === false) {
+						$data['script'] .= '?v=' . $appVersion;
+					}
 					$output .= '<script src="' . $data['script'] . '" type="text/javascript"></script>';
 				}
 			}

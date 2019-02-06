@@ -154,6 +154,8 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 
 		$userByUsername = $userDao->getByUsername($user->getUsername(), false);
 		$userByEmail = $userDao->getUserByEmail($user->getEmail(), false);
+		// username and email are both required and unique, so either
+		// both exist for one and the same user, or both do not exist
 		if ($userByUsername && $userByEmail && $userByUsername->getId() == $userByEmail->getId()) {
 			$user = $userByUsername;
 			$userId = $user->getId();
@@ -223,6 +225,20 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 					$interestManager->setInterestsForUser($user, $interests);
 				}
 			}
+
+			// send USER_REGISTER e-mail only if it is a new inserted/registered user
+			// else, if the user already exists, its metadata will not be change (just groups will be re-assigned below)
+			if ($password) {
+				import('lib.pkp.classes.mail.MailTemplate');
+				$mail = new MailTemplate('USER_REGISTER');
+				$mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
+				$mail->assignParams(array('username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()));
+				$mail->addRecipient($user->getEmail(), $user->getFullName());
+				$mail->send();
+			}
+		} else {
+			// the username and the email do not match to the one and the same existing user
+			$this->addError(__('plugins.importexport.user.error.usernameEmailMismatch', array('username' => $user->getUsername(), 'email' => $user->getEmail())));
 		}
 
 		// We can only assign a user to a user group if persisted to the database by $userId
@@ -246,15 +262,6 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
   					}
   				}
 	  		}
-		}
-
-		if ($password) {
-			import('lib.pkp.classes.mail.MailTemplate');
-			$mail = new MailTemplate('USER_REGISTER');
-			$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
-			$mail->assignParams(array('username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()));
-			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
 		}
 
 		return $user;

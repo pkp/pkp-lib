@@ -3,7 +3,7 @@
 	"description": "A journal or press.",
 	"type": "object",
 	"required": [
-		"path",
+		"urlPath",
 		"name"
 	],
 	"properties": {
@@ -439,7 +439,7 @@
 				}
 			}
 		},
-		"path": {
+		"urlPath": {
 			"type": "string",
 			"validation": [
 				"regex:/^[a-z0-9]+([\\-_][a-z0-9]+)*$/"

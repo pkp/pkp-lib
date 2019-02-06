@@ -101,7 +101,7 @@ abstract class Context extends DataObject {
 	 * @return string
 	 */
 	function getPath() {
-		return $this->getData('path');
+		return $this->getData('urlPath');
 	}
 
 	/**
@@ -109,7 +109,7 @@ abstract class Context extends DataObject {
 	 * @param $path string
 	 */
 	function setPath($path) {
-		$this->setData('path', $path);
+		$this->setData('urlPath', $path);
 	}
 
 	/**

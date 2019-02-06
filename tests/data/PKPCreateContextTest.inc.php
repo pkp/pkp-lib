@@ -42,15 +42,15 @@ class PKPCreateContextTest extends WebTestCase {
 		$this->click('css=#editContext button:contains(\'Save\')');
 		$this->waitForElementPresent('css=#context-name-error-en_US:contains(\'This field is required.\')');
 		$this->waitForElementPresent('css=#context-acronym-error-en_US:contains(\'This field is required.\')');
-		$this->waitForElementPresent('css=#context-path-error:contains(\'This field is required.\')');
+		$this->waitForElementPresent('css=#context-urlPath-error:contains(\'This field is required.\')');
 		$this->setInputValue('[name="name-en_US"]', $this->contextName['en_US']);
 		$this->setInputValue('[name="acronym-en_US"]', $this->contextAcronym['en_US']);
 
 		// Test invalid path characters
-		$this->setInputValue('[name="path"]', 'public&-)knowledge');
+		$this->setInputValue('[name="urlPath"]', 'public&-)knowledge');
 		$this->click('css=#editContext button:contains(\'Save\')');
-		$this->waitForElementPresent('css=#context-path-error:contains(\'The path can only include letters\')');
-		$this->setInputValue('[name="path"]', 'publicknowledge');
+		$this->waitForElementPresent('css=#context-urlPath-error:contains(\'The path can only include letters\')');
+		$this->setInputValue('[name="urlPath"]', 'publicknowledge');
 
 		$this->typeTinyMCE('context-description-control-en_US', $this->contextDescription['en_US'], true);
 		$this->typeTinyMCE('context-description-control-fr_CA', $this->contextDescription['fr_CA'], true);

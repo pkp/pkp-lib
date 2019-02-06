@@ -195,7 +195,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			$props,
 			$schemaService->getValidationRules(SCHEMA_CONTEXT, $allowedLocales),
 			[
-				'path.regex' => __('admin.contexts.form.pathAlphaNumeric'),
+				'urlPath.regex' => __('admin.contexts.form.pathAlphaNumeric'),
 				'primaryLocale.regex' => __('validator.localeKey'),
 				'supportedFormLocales.regex' => __('validator.localeKey'),
 				'supportedLocales.regex' => __('validator.localeKey'),

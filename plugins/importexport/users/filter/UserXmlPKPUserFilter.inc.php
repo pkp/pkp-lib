@@ -225,24 +225,27 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 			}
 		}
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroupsFactory = $userGroupDao->getByContextId($context->getId());
-		$userGroups = $userGroupsFactory->toArray();
+		// We can only assign a user to a user group if persisted to the database by $userId
+		if ($userId) {
+	  		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+  			$userGroupsFactory = $userGroupDao->getByContextId($context->getId());
+  			$userGroups = $userGroupsFactory->toArray();
 
-		// Extract user groups from the User XML and assign the user to those (existing) groups.
-		// Note:  It is possible for a user to exist with no user group assignments so there is
-		// no fatalError() as is the case with PKPAuthor import.
-		$userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
-		if ($userGroupNodeList->length > 0) {
-			for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
-				$n = $userGroupNodeList->item($i);
-				foreach ($userGroups as $userGroup) {
-					if (in_array($n->textContent, $userGroup->getName(null))) {
-						// Found a candidate; assign user to it.
-						$userGroupDao->assignUserToGroup($userId, $userGroup->getId());
-					}
-				}
-			}
+	  		// Extract user groups from the User XML and assign the user to those (existing) groups.
+  			// Note:  It is possible for a user to exist with no user group assignments so there is
+  			// no fatalError() as is the case with PKPAuthor import.
+	  		$userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
+  			if ($userGroupNodeList->length > 0) {
+  				for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
+  					$n = $userGroupNodeList->item($i);
+  					foreach ($userGroups as $userGroup) {
+  						if (in_array($n->textContent, $userGroup->getName(null))) {
+  							// Found a candidate; assign user to it.
+	  						$userGroupDao->assignUserToGroup($userId, $userGroup->getId());
+  						}
+  					}
+  				}
+	  		}
 		}
 
 		if ($password) {

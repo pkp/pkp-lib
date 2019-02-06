@@ -525,7 +525,6 @@
 	<message key="stageParticipants.recommendOnly">Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii toisen toimittajan päätöksen vahvistamiseen.</message>
 	<message key="common.deleting">Poistetaan</message>
 	<message key="common.lessThan">{$value} tai vähemmän</message>
-	<message key="common.listSeparator">,</message>
 	<message key="common.moreThan">{$value} tai enemmän</message>
 	<message key="common.pagination">{$start}-{$end} / {$total}</message>
 	<message key="common.pagination.label">Selaa sivuja</message>
@@ -536,4 +535,7 @@
 	<message key="list.viewLess">Piilota lisätiedot {$name}</message>
 	<message key="common.filterAdd">Lisää suodatin: {$filterTitle}</message>
 	<message key="notification.type.reviewAssignmentUpdated">Arviointipyyntö päivitetty.</message>
+	<message key="common.commaListSeparator">,</message>
+	<message key="common.semicolonListSeparator">;</message>
+	<message key="email.compose.error">Sähköpostin lähetyksessä tapahtui virhe. Ole hyvä ja yritä uudelleen tai ota yhteyttä sivuston ylläpitäjään.</message>
 </locale>

@@ -342,20 +342,24 @@ class PKPFileUploadWizardHandler extends Handler {
 					if (in_array($uploader->getId(), $authorUserIds)) {
 
 						// Fetch the latest notification email timestamp if any
+						import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
 						$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-						$submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
-						if ($submissionEmailFactory){
-							while ($email = $submissionEmailFactory->next()) {
-								$sentDates[] = $email->getDateSent();
+						$submissionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
+						$lastNotification = null;
+						$sentDates = array();
+						if ($submissionEmails){
+							while ($email = $submissionEmails->next()) {
+								if ($email->getDateSent()){
+									$sentDates[] = $email->getDateSent();
+								}
 							}
-							$lastNotification = max(array_map('strtotime', $sentDates));
-						} else {
-							$lastNotification = strtotime("-1 year");
+							if (!empty($sentDates)){ 
+								$lastNotification = max(array_map('strtotime', $sentDates));
+							}
 						}
 
 						import('lib.pkp.classes.mail.SubmissionMailTemplate');
 						$mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
-						import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
 						$mail->setEventType(SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
 						$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 						// Get editors assigned to the submission, consider also the recommendOnly editors
@@ -363,8 +367,8 @@ class PKPFileUploadWizardHandler extends Handler {
 						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 						foreach ($editorsStageAssignments as $editorsStageAssignment) {
 							$editor = $userDao->getById($editorsStageAssignment->getUserId());
- 							// If editor has not logged in since the last notification, do not send another
-							if (strtotime($editor->getDateLastLogin()) > $lastNotification){
+ 							// If no prior notification exists OR if editor has logged in after the last revision upload OR the last upload and notification was sent more than a day ago, send a new notification
+							if (is_null($lastNotification) || strtotime($editor->getDateLastLogin()) > $lastNotification || strtotime('-1 day') > $lastNotification){
 								$mail->addRecipient($editor->getEmail(), $editor->getFullName());
 							}
 						}

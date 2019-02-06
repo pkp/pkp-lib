@@ -518,4 +518,23 @@
 	<message key="manager.navigationMenus.privacyStatement.description">Linkki tietosuojaselosteen sisältävälle sivulle.</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Tämä linkki näkyy ainoastaan, jos olet syöttänyt tietosuojaselosteen asetusten kohtaan Asetukset > Työnkulku > Käsikirjoituksen vastaanotto]]></message>
 	<message key="manager.setup.privacyStatement.description">Tietosuojaseloste näkyy rekisteröitymisen ja käsikirjoituksen lähetyksen yhteydessä sekä julkisella tietosuojaselostesivulla. Joidenkin maiden lainsäädäntö velvoittaa kuvaamaan miten kerättyjä henkilötietoja käytetään.</message>
+	<message key="grid.category.add">Lisää kategoria</message>
+	<message key="grid.category.edit">Muokkaa kategoriaa</message>
+	<message key="grid.category.name">Nimi</message>
+	<message key="grid.category.path">Polku</message>
+	<message key="grid.category.urlWillBe">Kategorian URL-osoitteeksi tulee: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Kategorian polussa voi olla vain kirjaimia ja numeroita. Kansalliset merkit, kuten ä, ö ja å, eivät ole sallittuja.</message>
+	<message key="grid.category.pathExists">Kategorian polku on jo käytössä. Anna toinen polku.</message>
+	<message key="grid.category.description">Kuvaus</message>
+	<message key="grid.category.parentCategory">Yläkategoria</message>
+	<message key="grid.category.removeText">Oletko varma, että haluat poistaa tämän kategorian?</message>
+	<message key="grid.category.nameRequired">Anna kategorian nimi.</message>
+	<message key="grid.category.categoryDetails">Kategorian tiedot</message>
+	<message key="manager.reviewFormElements.description">Kuvaus</message>
+	<message key="plugins.importexport.common.error.missingGivenName">Kirjoittajalle {$authorName} ei ole annettu nimeä käsikirjoituksessa käytettävällä kielellä, {$localeName}. Käsikirjoitusta ei voida tuoda ilman tätä tietoa.</message>
+	<message key="plugins.importexport.user.importExportErrors">Tuonti/Vienti-virheet:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">Käyttäjällä "{$username}" ei ole salasanaa. Tarkista tuontiin käytetty XML-tiedosto. Käyttäjän tiedot jätettiin tuomatta.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Käyttäjän "{$username}" salasanaa ei voitu tuoda sellaisenaan. Käyttäjälle on lähetetty uusi salasana sähköpostitse. Muut käyttäjän tiedot on tuotu onnistuneesti.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">Käyttäjällä "{$username}" on salaamaton salasana, jota ei sallita. Käyttäjän tiedot jätettiin tuomatta.</message>
+	<message key="plugins.importexport.user.error.usernameEmailMismatch">Käyttäjänimi "{$username}" ja sähköposti "{$email}" eivät täsmää saman olemassa olevan käyttäjän tietojen kanssa.</message>
 </locale>

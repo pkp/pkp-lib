@@ -623,4 +623,17 @@
 	<message key="submission.submit.contactConsent">Vastaava kontaktihenkilö</message>
 	<message key="submission.submit.contactConsentDescription">Haluan, että minuun olla yhteydessä tähän käsikirjoitukseen liittyen.</message>
 	<message key="submission.submit.userGroupDescriptionManagers">Valitse jokin seuraavista rooleista, jos haluat toimittaa ja julkaista käsikirjoituksen itse: {$managerGroups}</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} on merkinnyt kierroksen {$round} arvion käsikirjoitukselle {$submissionId} lukemattomaksi.</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
+	<message key="submission.list.assignEditor">Osoita toimittaja</message>
+	<message key="grid.category.categories">Kategoriat</message>
+	<message key="catalog.sortBy.titleAsc">Otsikko (A-Ö)</message>
+	<message key="catalog.sortBy.titleDesc">Otsikko (Ö-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Julkaisupäivä (vanhin ensin)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Julkaisupäivä (uusin ensin)</message>
+	<message key="category.coverImage">Kansikuva</message>
+	<message key="submission.submit.placement.categories">Kategoriat</message>
+	<message key="submission.currentCoverImage">Nykyinen kuva</message>
+	<message key="catalog.browseTitles">{$numTitles} nimikettä</message>
+	<message key="catalog.noTitlesSection">Osastoon ei ole lisätty vielä yhtään nimikettä.</message>
 </locale>

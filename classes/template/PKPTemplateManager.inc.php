@@ -1454,6 +1454,48 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Inject default styles into a HTML galley
+	 *
+	 * Any styles assigned to the `htmlGalley` context will be injected into the
+	 * galley unless the galley already has an embedded CSS file.
+	 *
+	 * @param $htmlContent string The HTML file content
+	 * @param $embeddedFiles array Additional files embedded in this galley
+	 */
+	function loadHtmlGalleyStyles($htmlContent, $embeddedFiles) {
+
+		if (empty($htmlContent)) {
+			return $htmlContent;
+		}
+
+		$hasEmbeddedStyle = false;
+		foreach ($embeddedFiles as $embeddedFile) {
+			if ($embeddedFile->getFileType() === 'text/css') {
+				$hasEmbeddedStyle = true;
+				break;
+			}
+		}
+
+		if ($hasEmbeddedStyle) {
+			return $htmlContent;
+		}
+
+		$links = '';
+		$styles = $this->getResourcesByContext($this->_styleSheets, 'htmlGalley');
+
+		if (!empty($styles)) {
+			ksort($styles);
+			foreach ($styles as $priorityGroup) {
+				foreach ($priorityGroup as $htmlStyle) {
+					$links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
+				}
+			}
+		}
+
+		return str_ireplace('<head>', '<head>' . "\n" . $links, $htmlContent);
+	}
+
+	/**
 	 * Smarty usage: {load_script context="backend" scripts=$scripts}
 	 *
 	 * Custom Smarty function for printing scripts attached to a context.

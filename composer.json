@@ -1,5 +1,6 @@
 {
 	"require": {
+		"ralouphie/getallheaders": "*",
 		"components/jqueryui": "1.*",
 		"components/jquery": "3.*",
 		"oyejorge/less.php": "1.*",

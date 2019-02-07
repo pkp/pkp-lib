@@ -1,3 +1,6 @@
 [submodule "js/lib/jquery/plugins/spectrum"]
 	path = js/lib/jquery/plugins/spectrum
 	url = https://github.com/bgrins/spectrum.git
+[submodule "lib/counterBots"]
+	path = lib/counterBots
+	url = https://github.com/atmire/COUNTER-Robots.git

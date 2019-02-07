@@ -66,9 +66,9 @@ class PKPStatsHandler extends APIHandler {
 	/**
 	 * Get total stats and a collection of submissions
 	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
+	 * @param $response object Response
 	 * @param $args array
-	 * @return Response
+	 * @return object Response
 	 */
 	public function getSubmissionList($slimRequest, $response, $args) {
 		$request = \Application::getRequest();
@@ -78,7 +78,53 @@ class PKPStatsHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
 		}
 
-		$params = $this->_buildSubmissionListRequestParams($slimRequest);
+		// Convert params passed to the api end point
+		// Merge query params over default params
+		$defaultParams = array(
+			'count' => 30,
+			'offset' => 0,
+			'timeSegment' => 'month'
+		);
+		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+
+		$params = array();
+		// Process query params to format incoming data as needed
+		foreach ($requestParams as $param => $val) {
+			switch ($param) {
+				case 'orderBy':
+					$params[$param] = 'total';
+					break;
+				case 'orderDirection':
+					$params[$param] = $val === 'ASC' ? $val : 'DESC';
+					break;
+					// Enforce a maximum count to prevent the API from crippling the
+					// server
+				case 'count':
+					$params[$param] = min(100, (int) $val);
+					break;
+				case 'offset':
+					$params[$param] = (int) $val;
+					break;
+				case 'sectionIds':
+					// these are section IDs in OJS and series IDs in OMP
+					if (is_string($val) && strpos($val, ',') > -1) {
+						$val = explode(',', $val);
+					} elseif (!is_array($val)) {
+						$val = array($val);
+					}
+					$params[$param] = array_map('intval', $val);
+					break;
+				case 'timeSegment':
+				case 'dateStart':
+				case 'dateEnd':
+				case 'searchPhrase':
+					$params[$param] = $val;
+					break;
+			}
+		}
+
+		\HookRegistry::call('API::stats::publishedSubmissions::params', array(&$params, $slimRequest));
+
 		// validate parameters
 		if (isset($params['dateStart'])) {
 			if (!$this->validDate($params['dateStart'])) {
@@ -119,8 +165,8 @@ class PKPStatsHandler extends APIHandler {
 			$totalStatsRecords = $statsService->getTotalSubmissionsStats($context->getId(), $params);
 			$data = $statsService->getTotalStatsProperties($totalStatsRecords, $propertyArgs);
 			// get submisisons stats items
-			$slicedSubmissionsRecords = array_slice($submissionsRecords, isset($params['offset'])?$params['offset']:0, $params['count']);
-			foreach ($slicedSubmissionsRecords as $submissionsRecord) {
+			$currentPageSubmissionsRecords = array_slice($submissionsRecords, isset($params['offset']) ? $params['offset'] : 0, $params['count']);
+			foreach ($currentPageSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = \Application::getPublishedSubmissionDAO();
 				$submission = $publishedSubmissionDao->getByArticleId($submissionsRecord['submission_id'], $context->getId());
 				$items[] = $statsService->getSummaryProperties($submission, $propertyArgs);
@@ -139,18 +185,38 @@ class PKPStatsHandler extends APIHandler {
 	}
 
 	/**
-	 * Get a single submission usage statistics
-	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
+	 * Get a single submission's usage statistics
+	 * @param $slimRequest object Request Slim request
+	 * @param $response object Response
 	 * @param $args array
-	 * @return Response
+	 * @return object Response
 	 */
 	public function getSubmission($slimRequest, $response, $args) {
 		$request = \Application::getRequest();
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-		$params = $this->_buildSubmissionRequestParams($slimRequest);
+		// Convert params passed to the api
+		// Merge query params over default params
+		$defaultParams = array(
+			'timeSegment' => 'month'
+		);
+		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+
+		$params = array();
+		// Process query params to format incoming data as needed
+		foreach ($requestParams as $param => $val) {
+			switch ($param) {
+				case 'timeSegment':
+				case 'dateStart':
+				case 'dateEnd':
+					$params[$param] = $val;
+					break;
+			}
+		}
+
+		\HookRegistry::call('API::stats::publishedSubmission::params', array(&$params, $slimRequest));
+
 		// validate parameters
 		if (isset($params['dateStart'])) {
 			if (!$this->validDate($params['dateStart'])) {
@@ -217,97 +283,10 @@ class PKPStatsHandler extends APIHandler {
 	public function dateWithinLast90Days($dateString) {
 		$dateTimestamp = strtotime($dateString);
 		// 90 days + 1 day because the most recent allowed date is yesterday
-		// + 1 more day to account for the fact that the $fromTimestamp beings at
+		// + 1 more day to account for the fact that the $dateTimestamp begins at
 		// the start of the day
 		$lastNinetyDaysTimestamp = strtotime('-92 days');
 		return $dateTimestamp >= $lastNinetyDaysTimestamp;
-	}
-
-	/**
-	 * Convert params passed to the api end point. Coerce type and only return
-	 * white-listed params.
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @return array
-	 */
-	private function _buildSubmissionListRequestParams($slimRequest) {
-		// Merge query params over default params
-		$defaultParams = array(
-			'count' => 30,
-			'offset' => 0,
-			'timeSegment' => 'month'
-		);
-		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-		$returnParams = array();
-		// Process query params to format incoming data as needed
-		foreach ($requestParams as $param => $val) {
-			switch ($param) {
-				case 'orderBy':
-					$returnParams[$param] = in_array($val, array('total')) ? $val : 'total';
-					break;
-				case 'orderDirection':
-					$returnParams[$param] = $val === 'ASC' ? $val : 'DESC';
-					break;
-				// Enforce a maximum count to prevent the API from crippling the
-				// server
-				case 'count':
-					$returnParams[$param] = min(100, (int) $val);
-					break;
-				case 'offset':
-					$returnParams[$param] = (int) $val;
-					break;
-				case 'sectionIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
-						$val = explode(',', $val);
-					} elseif (!is_array($val)) {
-						$val = array($val);
-					}
-					$returnParams[$param] = array_map('intval', $val);
-					break;
-				case 'timeSegment':
-				case 'dateStart':
-				case 'dateEnd':
-				case 'searchPhrase':
-					$returnParams[$param] = $val;
-					break;
-			}
-		}
-
-		\HookRegistry::call('API::statistics::submissionLists::params', array(&$returnParams, $slimRequest));
-
-		return $returnParams;
-	}
-
-	/**
-	 * Convert params passed to the api end point. Coerce type and only return
-	 * white-listed params.
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @return array
-	 */
-	private function _buildSubmissionRequestParams($slimRequest) {
-		// Merge query params over default params
-		$defaultParams = array(
-				'timeSegment' => 'month'
-		);
-		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-		$returnParams = array();
-		// Process query params to format incoming data as needed
-		foreach ($requestParams as $param => $val) {
-			switch ($param) {
-				case 'timeSegment':
-				case 'dateStart':
-				case 'dateEnd':
-					$returnParams[$param] = $val;
-					break;
-			}
-		}
-
-		\HookRegistry::call('API::statistics::submission::params', array(&$returnParams, $slimRequest));
-
-		return $returnParams;
 	}
 
 }

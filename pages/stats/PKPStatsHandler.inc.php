@@ -44,7 +44,7 @@ class PKPStatsHandler extends Handler {
 	// Public handler methods.
 	//
 	/**
-	 * Display article statistics page
+	 * Display published submissions statistics page
 	 * @param $request PKPRequest
 	 * @param $args array
 	 */
@@ -150,14 +150,14 @@ class PKPStatsHandler extends Handler {
 				'dateEnd' => $dateEnd,
 				'dateRangeOptions' => [
 					[
-						'dateStart' => date('Y-m-d', strtotime('-91 days')),
-						'dateEnd' => $dateEnd,
-						'label' => __('stats.dateRange.last90Days'),
-					],
-					[
 						'dateStart' => $dateStart,
 						'dateEnd' => $dateEnd,
 						'label' => __('stats.dateRange.last30Days'),
+					],
+					[
+						'dateStart' => date('Y-m-d', strtotime('-91 days')),
+						'dateEnd' => $dateEnd,
+						'label' => __('stats.dateRange.last90Days'),
 					],
 					[
 						'dateStart' => date('Y-m-d', strtotime('-12 months')),

@@ -49,23 +49,27 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 */
 	public function getOrderedSubmissions($contextId, $args = array()) {
 		$records = array();
+		if (!empty($args['searchPhrase'])) {
+		    $submissionIds = $this->_filterSubmissionsBySearchPhrase($args['searchPhrase']);
+		    if (empty($submissionIds)) return $records;
+		}
 		$statsListQB = $this->_buildGetOrderedSubmissionsQueryObject($contextId, $args);
+		if (isset($submissionIds)) {
+		    $statsListQB->filterBySubmissionIds($submissionIds);
+		}
 		$statsQO = $statsListQB->get();
-		/* default: SELECT submission_id, SUM(metric) AS metric FROM metrics WHERE context_id = ? AND assoc_type IN (1048585, 515) AND metric_type = 'ojs::counter' GROUP BY submission_id  ORDER BY metric DESC */
-		/* with all filters: SELECT submission_id, SUM(metric) AS metric FROM metrics WHERE context_id = ? AND assoc_type IN (1048585, 515) AND metric_type = 'ojs::counter' AND pkp_section_id = ? AND day BETWEEN ? AND ? AND submission_id = ? GROUP BY submission_id  ORDER BY metric DESC */
-
 		if ($statsQO) {
-			$dao = \DAORegistry::getDAO('MetricsDAO');
-			$result = $dao->retrieve($statsQO->toSql(), $statsQO->getBindings());
+			$metricsDao = \DAORegistry::getDAO('MetricsDAO');
+			$result = $metricsDao->retrieve($statsQO->toSql(), $statsQO->getBindings());
 			$records = $result->GetAll();
 		}
 		return $records;
 	}
 
 	/**
-	 * Get statistics records of the submissions (filtered by request parameters),
-	 * containing given time segments, abstractViews and totalFileViews,
-	 * ordered DESC by the time segments.
+	 * Get the total counts of abstract and file views, as well as
+	 * the totals broken down by time segment,
+	 * for all submission statistics records (filtered by request parameters)
 	 *
 	 * @param int $contextId
 	 * @param array $args {
@@ -84,14 +88,18 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 */
 	public function getTotalSubmissionsStats($contextId, $args = array()) {
 		$records = array();
+		if (!empty($args['searchPhrase'])) {
+			$submissionIds = $this->_filterSubmissionsBySearchPhrase($args['searchPhrase']);
+			if (empty($submissionIds)) return $records;
+		}
 		$statsListQB = $this->_buildGetTotalSubmissionsStatsQueryObject($contextId, $args);
+		if (isset($submissionIds)) {
+			$statsListQB->filterBySubmissionIds($submissionIds);
+		}
 		$statsQO = $statsListQB->get();
-		/* default monthly: SELECT month, assoc_type, SUM(metric) AS metric FROM metrics WHERE context_id = ? AND assoc_type IN (1048585, 515) AND metric_type = 'ojs::counter' GROUP BY month, assoc_type ORDER BY month DESC */
-		/* with filters monthly: SELECT month, assoc_type, SUM(metric) AS metric FROM metrics WHERE context_id = ? AND assoc_type IN (1048585, 515) AND metric_type = 'ojs::counter' AND pkp_section_id = ? AND day BETWEEN ? AND ? AND submission_id = ? GROUP BY month, assoc_type ORDER BY month DESC */
-
 		if ($statsQO) {
-			$dao = \DAORegistry::getDAO('MetricsDAO');
-			$result = $dao->retrieve($statsQO->toSql(), $statsQO->getBindings());
+			$metricsDao = \DAORegistry::getDAO('MetricsDAO');
+			$result = $metricsDao->retrieve($statsQO->toSql(), $statsQO->getBindings());
 			$records = $result->GetAll();
 		}
 		return $records;
@@ -100,7 +108,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	/**
 	 * @see \PKP\Services\EntityProperties\EntityPropertyInterface::getProperties()
 	 *
-	 * @param $entity Submission
+	 * @param $object object Submission
 	 * @param $props array
 	 * @param $args array
 	 *		$args['request'] PKPRequest Required
@@ -109,31 +117,24 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 *
 	 * @return array
 	 */
-	public function getProperties($entity, $props, $args = null) {
-		$entityService = null;
-		if (is_a($entity, 'Submission')) {
-			$entityService = \ServicesContainer::instance()->get('submission');
-			$params = array(
-				'entityAssocType' => ASSOC_TYPE_SUBMISSION,
-				'fileAssocType' => ASSOC_TYPE_SUBMISSION_FILE,
-			);
-			$statsListQB = $this->_buildGetSubmissionQueryObject($entity->getContextId(), $entity->getId(), $args['params']);
-			$statsQO = $statsListQB->get();
-			/* default monthly: SELECT month, assoc_type, file_type, SUM(metric) AS metric FROM metrics WHERE submission_id = ? AND assoc_type IN (1048585, 515) AND metric_type = 'ojs::counter' GROUP BY month, assoc_type, file_type, month */
-			/* with filters monthly: SELECT month, assoc_type, file_type, SUM(metric) AS metric FROM metrics WHERE submission_id = ? AND assoc_type IN (1048585, 515) AND metric_type = 'ojs::counter' AND day BETWEEN ? AND ? GROUP BY month, assoc_type, file_type, month */
-		}
+	public function getProperties($object, $props, $args = null) {
+		assert(is_a($object, 'Submission'));
+		$entityService = \ServicesContainer::instance()->get('submission');
+		$params = array(
+			'entityAssocType' => ASSOC_TYPE_SUBMISSION,
+			'fileAssocType' => ASSOC_TYPE_SUBMISSION_FILE,
+		);
+		$statsListQB = $this->_buildGetSubmissionQueryObject($object->getContextId(), $object->getId(), $args['params']);
+		$statsQO = $statsListQB->get();
 
-		$dao = \DAORegistry::getDAO('MetricsDAO');
-		$result = $dao->retrieve($statsQO->toSql(), $statsQO->getBindings());
+		$metricsDao = \DAORegistry::getDAO('MetricsDAO');
+		$result = $metricsDao->retrieve($statsQO->toSql(), $statsQO->getBindings());
 		$records = $result->GetAll();
 
 		$values = $this->getRecordProperties($records, $params, $props, $args);
+		$values['object'] = $entityService->getStatsObjectSummaryProperties($object, $args);
 
-		if ($entityService) {
-			$values['object'] = $entityService->getStatsObjectSummaryProperties($entity, $args);
-		}
-
-		\HookRegistry::call('Stats::getProperties::values', array(&$values, $entity, $props, $args));
+		\HookRegistry::call('Stats::getProperties', array(&$values, $object, $props, $args));
 
 		return $values;
 	}
@@ -141,7 +142,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	/**
 	 * @see \PKP\Services\EntityProperties\EntityPropertyInterface::getSummaryProperties()
 	 *
-	 * @param $entity Submission
+	 * @param $object object Submission
 	 * @param $args array
 	 *		$args['request'] PKPRequest Required
 	 *		$args['slimRequest'] SlimRequest
@@ -149,33 +150,33 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 *
 	 * @return array
 	 */
-	public function getSummaryProperties($entity, $args = null) {
+	public function getSummaryProperties($object, $args = null) {
 		$props = array (
 			'total', 'abstractViews', 'totalFileViews', 'pdf', 'html', 'other', 'timeSegments',
 		);
 
-		\HookRegistry::call('Stats::getProperties::summaryProperties', array(&$props, $entity, $args));
+		\HookRegistry::call('Stats::getProperties::summaryProperties', array(&$props, $object, $args));
 
-		return $this->getProperties($entity, $props, $args);
+		return $this->getProperties($object, $props, $args);
 	}
 
 	/**
 	 * @see \PKP\Services\EntityProperties\EntityPropertyInterface::getFullProperties()
-	 * @param $entity Submission
+	 * @param $object object Submission
 	 * @param $args array
 	 *		$args['request'] PKPRequest Required
 	 *		$args['slimRequest'] SlimRequest
 	 *		$args['params] array of validated request parameters
 	 * @return array
 	 */
-	public function getFullProperties($entity, $args = null) {
+	public function getFullProperties($object, $args = null) {
 		$props = array (
 			'total', 'abstractViews', 'totalFileViews', 'pdf', 'html', 'other', 'timeSegments',
 		);
 
-		\HookRegistry::call('Stats::getProperties::fullProperties', array(&$props, $entity, $args));
+		\HookRegistry::call('Stats::getProperties::fullProperties', array(&$props, $object, $args));
 
-		return $this->getProperties($entity, $props, $args);
+		return $this->getProperties($object, $props, $args);
 	}
 
 	/**
@@ -219,10 +220,6 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 * @return array
 	 */
 	public function getTimeSegments($records, $params, $props, $args = null) {
-		// get entity (Submission) and file assoc type
-		// used for abstract and file views
-		$entityAssocType = $params['entityAssocType'];
-		$fileAssocType = $params['fileAssocType'];
 		// get the requested and used time segment (month or day)
 		if (isset($args['params']['timeSegment'])) {
 			$timeSegment = $args['params']['timeSegment'] == 'day' ? STATISTICS_DIMENSION_DAY : STATISTICS_DIMENSION_MONTH;
@@ -230,7 +227,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 			$timeSegment = STATISTICS_DIMENSION_MONTH;
 		}
 
-		// get all existing dates (monts or days)
+		// get all existing dates (months or days)
 		$timeSegmentDates = array();
 		foreach ($records as $record) {
 			if (!in_array($record[$timeSegment], $timeSegmentDates)) $timeSegmentDates[] = $record[$timeSegment];
@@ -248,104 +245,11 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 				return ($record[$timeSegment] == $timeSegmentDate);
 			});
 
-			// get total stats for the current date
-			if (in_array('total', $props)) {
-				// calculate the total = sum of all for the current date
-				$total = array_sum(array_map(
-					function($record){
-						return $record[STATISTICS_METRIC];
-					},
-					$dateRecords
-				));
-				$timeSegmentsStats[$timeSegmentDate]['total'] = $total;
-			}
-
-			// get abstract views for the current time segment date
-			if (in_array('abstractViews', $props)) {
-				// get abstract views records (containing the entity (Submisison) assoc type) for the current date
-				$abstractViewsDateRecords = array_filter($dateRecords, function ($record) use ($entityAssocType) {
-					return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $entityAssocType);
-				});
-				// calculate the abstract views = sum of all abstract views for the current date
-				$abstractViews = array_sum(array_map(
-					function($record){
-						return $record[STATISTICS_METRIC];
-					},
-					$abstractViewsDateRecords
-				));
-				$timeSegmentsStats[$timeSegmentDate]['abstractViews'] = $abstractViews;
-			}
-
-			// get file views for the current date
-			if (in_array('totalFileViews', $props)) {
-				// get file views records (containing the file assoc type) for the current date
-				$fileViewsDateRecords = array_filter($dateRecords, function ($record) use ($fileAssocType) {
-					return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType);
-				});
-				// calculate the total file views = sum of all file views for the current date
-				$totalFileViews = array_sum(array_map(
-					function($record){
-						return $record[STATISTICS_METRIC];
-					},
-					$fileViewsDateRecords
-				));
-				$timeSegmentsStats[$timeSegmentDate]['totalFileViews'] = $totalFileViews;
-			}
-
-			// get pdf views for the current date
-			if (in_array('pdf', $props)) {
-				// get pdf views records (containing the file assoc type and the pdf file type) for the current date
-				assert(array_key_exists(STATISTICS_DIMENSION_FILE_TYPE, $record));
-				$pdfDateRecords = array_filter($dateRecords, function ($record) use ($fileAssocType) {
-					return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_PDF);
-				});
-				// calculate the pdf views = sum of all pdf views for the current date
-				$pdfs = array_sum(array_map(
-					function($record){
-						return $record[STATISTICS_METRIC];
-					},
-					$pdfDateRecords
-				));
-				$timeSegmentsStats[$timeSegmentDate]['pdf'] = $pdfs;
-			}
-
-			// get html views for the current date
-			if (in_array('html', $props)) {
-				// get html views records (containing the file assoc type and the html file type) for the current date
-				assert(array_key_exists(STATISTICS_DIMENSION_FILE_TYPE, $record));
-				$htmlDateRecords = array_filter($dateRecords, function ($record) use ($fileAssocType) {
-					return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_HTML);
-				});
-				// calculate the html views = sum of all html views for the current date
-				$htmls = array_sum(array_map(
-					function($record){
-						return $record[STATISTICS_METRIC];
-					},
-					$htmlDateRecords
-				));
-				$timeSegmentsStats[$timeSegmentDate]['html'] = $htmls;
-			}
-
-			// get other file type views for the current date
-			if (in_array('other', $props)) {
-				// get other file tpye views records (containing the file assoc type and the other file type) for the current date
-				assert(array_key_exists(STATISTICS_DIMENSION_FILE_TYPE, $record));
-				$otherDateRecords = array_filter($dateRecords, function ($record) use ($fileAssocType) {
-					return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_OTHER);
-				});
-				// calculate the other file type views = sum of all other file type views for the current date
-				$others = array_sum(array_map(
-					function($record){
-						return $record[STATISTICS_METRIC];
-					},
-					$otherDateRecords
-				));
-				$timeSegmentsStats[$timeSegmentDate]['other'] = $others;
-			}
+			$timeSegmentsStats[$timeSegmentDate] = $this->getStatsProperties($dateRecords, $params, $props);
 
 			// get time segment date label
 			if ($timeSegment == STATISTICS_DIMENSION_MONTH) {
-				$dateLabel = strftime('%B %Y', strtotime($timeSegmentDate.'01'));
+				$dateLabel = strftime('%B %Y', strtotime($timeSegmentDate . '01'));
 			} elseif ($timeSegment == STATISTICS_DIMENSION_DAY) {
 				$dateLabel = strftime(\Config::getVar('general', 'date_format_long'), strtotime($timeSegmentDate));
 			}
@@ -378,15 +282,37 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 */
 	public function getRecordProperties($records, $params, $props, $args = null) {
 		$values = array();
+		if (in_array('timeSegments', $props)) {
+			unset($props['timeSegments']);
+			$values['timeSegments'] = $this->getTimeSegments($records, $params, $props, $args);
+		}
+		$values = $this->getStatsProperties($records, $params, $props, $args);
+		return $values;
+	}
+
+	/**
+	 * Returns stats values given a list of properties of the stats record
+	 *
+	 * @param $records array
+	 * @param $params array
+	 * 		@option int entityAssocType
+	 * 		@otion int fileAssocType
+	 * @param $props array
+	 * @param $args array
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
+	 *		$args['params] array of validated request parameters
+	 *
+	 * @return array
+	 */
+	public function getStatsProperties($records, $params, $props, $args = null) {
+		$values = array();
 		// get entity (Submission) and file assoc type
 		// used for abstract and file views
 		$entityAssocType = $params['entityAssocType'];
 		$fileAssocType = $params['fileAssocType'];
 		foreach ($props as $prop) {
 			switch ($prop) {
-				case 'timeSegments':
-					$values['timeSegments'] = $this->getTimeSegments($records, $params, $props, $args);
-					break;
 				case 'total':
 					// total = sum of all records
 					$values[$prop] = array_sum(array_map(
@@ -477,16 +403,18 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 */
 	private function _buildGetOrderedSubmissionsQueryObject($contextId, $args = array()) {
 		$defaultArgs = array(
-				'orderBy' => 'total',
-				'orderDirection' =>  'DESC',
+			'orderBy' => 'total',
+			'orderDirection' =>  'DESC',
 		);
 		$args = array_merge($defaultArgs, $args);
 
 		$statsListQB = new \PKP\Services\QueryBuilders\PKPStatsListQueryBuilder($contextId);
 		$statsListQB
 			->lookingFor('orderedSubmissions')
-			->orderBy($args['orderBy'], $args['orderDirection']);
+			->orderColumn($args['orderBy'])
+			->orderDirection($args['orderDirection']);
 
+		// filter by (OJS) section i.e. (OMP) series IDs
 		if (isset($args['sectionIds'])) $statsListQB->filterBySectionIds($args['sectionIds']);
 
 		$dateStart = isset($args['dateStart']) ? $args['dateStart'] : null;
@@ -494,8 +422,6 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		if ($dateStart || $dateEnd) {
 			$statsListQB->filterByDateRange($dateStart, $dateEnd);
 		}
-
-		if (isset($args['searchPhrase'])) $statsListQB->filterBySearchPhrase($args['searchPhrase']);
 
 		\HookRegistry::call('Stats::getSubmissions::queryBuilder', array($statsListQB, $contextId, $args));
 
@@ -516,9 +442,11 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		if (isset($args['timeSegment'])) {
 			$statsListQB
 				->timeSegment($args['timeSegment'])
-				->orderBy($args['timeSegment'], STATISTICS_ORDER_DESC);
+				->orderColumn($args['timeSegment'])
+				->orderDirection('DESC');
 		}
 
+		// filter by (OJS) section i.e. (OMP) series IDs
 		if (isset($args['sectionIds'])) $statsListQB->filterBySectionIds($args['sectionIds']);
 
 		$dateStart = isset($args['dateStart']) ? $args['dateStart'] : null;
@@ -527,9 +455,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 			$statsListQB->filterByDateRange($dateStart, $dateEnd);
 		}
 
-		if (isset($args['searchPhrase'])) $statsListQB->filterBySearchPhrase($args['searchPhrase']);
-
-		\HookRegistry::call('Stats::getSubmissions::queryBuilder', array($statsListQB, $contextId, $args));
+		\HookRegistry::call('Stats::getTotalSubmissions::queryBuilder', array($statsListQB, $contextId, $args));
 
 		return $statsListQB;
 	}
@@ -550,7 +476,8 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		if (isset($args['timeSegment'])) {
 			$statsListQB
 				->timeSegment($args['timeSegment'])
-				->orderBy($args['timeSegment'], STATISTICS_ORDER_DESC);
+				->orderColumn($args['timeSegment'])
+				->orderDirection('DESC');
 		}
 
 		$dateStart = isset($args['dateStart']) ? $args['dateStart'] : null;
@@ -562,6 +489,27 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		\HookRegistry::call('Stats::getSubmission::queryBuilder', array($statsListQB, $contextId, $submissionId, $args));
 
 		return $statsListQB;
+	}
+
+	/**
+	 * Filter submissions by the given search phrase
+	 *
+	 * @param $searchPhrase string
+	 * @return array of submisison IDs
+	 */
+	private function _filterSubmissionsBySearchPhrase($searchPhrase) {
+		$submissionIds = array();
+		$submissionService = \ServicesContainer::instance()->get('submission');
+		$submissions = $submissionService->getSubmissions($this->contextId, array('searchPhrase' => $searchPhrase));
+		if (!empty($submissions)) {
+			$submissionIds = array_map(
+				function($submission){
+					return $submission->getId();
+				},
+				$submissions
+			);
+		}
+		return $submissionIds;
 	}
 
 }

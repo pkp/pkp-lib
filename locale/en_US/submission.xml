@@ -643,6 +643,6 @@
 	<message key="category.coverImage">Cover Image</message>
 	<message key="submission.submit.placement.categories">Categories</message>
 	<message key="submission.currentCoverImage">Current Image</message>
-	<message key="catalog.browseTitles">{$numTitles} Titles</message>
-	<message key="catalog.noTitlesSection">No titles have been published yet for this section.</message>
+	<message key="catalog.category.noItems">Nothing has been published in this category yet.</message>
+	<message key="catalog.category.subcategories">Subcategories</message>
 </locale>

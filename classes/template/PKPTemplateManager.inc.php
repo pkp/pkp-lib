@@ -1435,8 +1435,8 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
-        $versionDao = DAORegistry::getDAO('VersionDAO');	
-		$appVersion = defined('SESSION_DISABLE_INIT')?null:$versionDao->getCurrentVersion()->getVersionString();
+		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
 
 		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);
 
@@ -1516,7 +1516,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$appVersion = defined('SESSION_DISABLE_INIT')?null:$versionDao->getCurrentVersion()->getVersionString();	
+		$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
 
 		$scripts = $this->getResourcesByContext($this->_javaScripts, $params['context']);
 

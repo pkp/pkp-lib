@@ -59,10 +59,10 @@ class PKPContextForm extends FormComponent {
 				'isMultilingual' => true,
 				'value' => $context ? $context->getData('description') : null,
 			]))
-			->addField(new FieldText('path', [
+			->addField(new FieldText('urlPath', [
 				'label' => __('context.path'),
 				'isRequired' => true,
-				'value' => $context ? $context->getData('path') : null,
+				'value' => $context ? $context->getData('urlPath') : null,
 				'prefix' => $baseUrl . '/',
 				'size' => 'large',
 			]));

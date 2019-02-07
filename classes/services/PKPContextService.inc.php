@@ -139,7 +139,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 						$values[$prop] = $dispatcher->url(
 							$args['request'],
 							ROUTE_API,
-							$context->getData('path'),
+							$context->getData('urlPath'),
 							'contexts/' . $context->getId()
 						);
 					}
@@ -195,7 +195,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			$props,
 			$schemaService->getValidationRules(SCHEMA_CONTEXT, $allowedLocales),
 			[
-				'path.regex' => __('admin.contexts.form.pathAlphaNumeric'),
+				'urlPath.regex' => __('admin.contexts.form.pathAlphaNumeric'),
 				'primaryLocale.regex' => __('validator.localeKey'),
 				'supportedFormLocales.regex' => __('validator.localeKey'),
 				'supportedLocales.regex' => __('validator.localeKey'),
@@ -225,16 +225,16 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			$primaryLocale
 		);
 
-		// Ensure that a path, if provided, does not already exist
+		// Ensure that a urlPath, if provided, does not already exist
 		$validator->after(function($validator) use ($action, $props) {
-			if (isset($props['path']) && !$validator->errors()->get('path')) {
+			if (isset($props['urlPath']) && !$validator->errors()->get('urlPath')) {
 				$contextDao = Application::getContextDAO();
-				$contextWithPath = $contextDao->getByPath($props['path']);
+				$contextWithPath = $contextDao->getByPath($props['urlPath']);
 				if ($contextWithPath) {
 					if (!($action === VALIDATE_ACTION_EDIT
 							&& isset($props['id'])
 							&& (int) $contextWithPath->getId() === $props['id'])) {
-						$validator->errors()->add('path', __('admin.contexts.form.pathExists'));
+						$validator->errors()->add('urlPath', __('admin.contexts.form.pathExists'));
 					}
 				}
 			}
@@ -312,7 +312,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			'indexUrl' => $request->getIndexUrl(),
 			'primaryLocale' => $context->getData('primaryLocale'),
 			'contextName' => $context->getData('name', $context->getPrimaryLocale()),
-			'contextPath' => $context->getData('path'),
+			'contextPath' => $context->getData('urlPath'),
 			'contextUrl' => $request->getDispatcher()->url(
 				$request,
 				ROUTE_PAGE,
@@ -491,7 +491,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		// Specify values needed to render default locale strings
 		$localeParams = array(
 			'indexUrl' => $request->getIndexUrl(),
-			'journalPath' => $context->getData('path'),
+			'journalPath' => $context->getData('urlPath'),
 			'primaryLocale' => $context->getData('primaryLocale'),
 			'journalName' => $context->getData('name', $locale),
 			'contextName' => $context->getData('name', $locale),

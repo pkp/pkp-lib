@@ -117,7 +117,7 @@ class ContextGridHandler extends GridHandler {
 		// Context path.
 		$this->addColumn(
 			new GridColumn(
-				'path',
+				'urlPath',
 				'context.path',
 				null,
 				null,

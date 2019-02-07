@@ -384,9 +384,6 @@ class PKPTemplateManager extends Smarty {
 			// Clear the cache whenever the active theme is changed
 			HookRegistry::register('Context::edit', array($this, 'clearThemeTemplateCache'));
 			HookRegistry::register('Site::edit', array($this, 'clearThemeTemplateCache'));
-
-			// Inject CSS links into the HTML Galley string
-			HookRegistry::register('HtmlArticleGalleyPlugin::htmlGalleyContent', array($this, 'loadHtmlGalleyStyles'), HOOK_SEQUENCE_CORE);
 		}
 	}
 
@@ -1527,44 +1524,45 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Styles to be injected from a theme plugin into HTML galley file
-	 * Usage: $this->addStyle('name', 'style.css', array('contexts' => 'htmlGalley'));
-	 * @param $hookName string
-	 * @param array [
-	 *      $args[0] ArticleGalley
-	 *      $args[1] string HTML
-	 *      $args[2] SubmissionFile
-	 *      $args[3] array embedded files
-	 *      ]
+	 * Inject default styles into a HTML galley
+	 *
+	 * Any styles assigned to the `htmlGalley` context will be injected into the
+	 * galley unless the galley already has an embedded CSS file.
+	 *
+	 * @param $htmlContent string The HTML file content
+	 * @param $embeddedFiles array Additional files embedded in this galley
 	 */
-	function loadHtmlGalleyStyles($hookName, $args) {
-		$contents =& $args[1];
-		$embeddableFiles = $args[3];
+	function loadHtmlGalleyStyles($htmlContent, $embeddedFiles) {
 
-		if (empty($contents)) return false;
-
-		$attachedStyles = false;
-		foreach ($embeddableFiles as $embeddableFile) {
-			if ($embeddableFile->getFileType() =='text/css') $attachedStyles = true;
+		if (empty($htmlContent)) {
+			return $htmlContent;
 		}
 
-		if ($attachedStyles) return false;
+		$hasEmbeddedStyle = false;
+		foreach ($embeddedFiles as $embeddedFile) {
+			if ($embeddedFile->getFileType() === 'text/css') {
+				$hasEmbeddedStyle = true;
+				break;
+			}
+		}
 
-		$output = '';
+		if ($hasEmbeddedStyle) {
+			return $htmlContent;
+		}
+
+		$links = '';
 		$styles = $this->getResourcesByContext($this->_styleSheets, 'htmlGalley');
-		ksort($styles);
 
 		if (!empty($styles)) {
-			foreach ($styles as $htmlStyles) {
-				foreach ($htmlStyles as $htmlStyle) {
-					$output .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css" />' . "\n";
+			ksort($styles);
+			foreach ($styles as $priorityGroup) {
+				foreach ($priorityGroup as $htmlStyle) {
+					$links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
 				}
 			}
 		}
 
-		if (!empty($output)) {
-			$contents = str_ireplace('<head>', '<head>' . "\n" . $output, $contents);
-		}
+		return str_ireplace('<head>', '<head>' . "\n" . $links, $htmlContent);
 	}
 
 	/**

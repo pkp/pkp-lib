@@ -566,12 +566,14 @@ class PKPRequest {
 		$user =& Registry::get('user', true, null);
 
 		$router = $_this->getRouter();
-		if (is_a($router, 'APIRouter') && !is_null($handler = $router->getHandler()) && !is_null($token = $handler->getApiToken())) {
+		if (!is_null($handler = $router->getHandler()) && !is_null($token = $handler->getApiToken())) {
 			if ($user === null) {
 				$userDao = DAORegistry::getDAO('UserDAO');
 				$user = $userDao->getBySetting('apiKey', $token);
 			}
-			if (is_null($user) || !$user->getData('apiKeyEnabled')) return null;
+			if (is_null($user) || !$user->getData('apiKeyEnabled')) {
+				$user = null;
+			}
 			return $user;
 		}
 

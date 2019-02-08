@@ -61,12 +61,12 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider {
 			case 'replies':
 				return array('label' => max(0,$notes->getCount()-1));
 			case 'from':
-				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?date('M/d', strtotime($headNote->getDateCreated())):''));
+				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?strftime(Config::getVar('general','datetime_format_short'), strtotime($headNote->getDateCreated())):''));
 			case 'lastReply':
 				$latestReply = $notes->next();
 				if ($latestReply && $latestReply->getId() != $headNote->getId()) {
 					$repliedUser = $latestReply->getUser();
-					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . date('M/d', strtotime($latestReply->getDateCreated())));
+					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . strftime(Config::getVar('general','datetime_format_short'), strtotime($latestReply->getDateCreated())));
 				} else {
 					return array('label' => '-');
 				}

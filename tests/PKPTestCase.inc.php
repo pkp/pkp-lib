@@ -22,7 +22,9 @@
 // Include PHPUnit
 import('lib.pkp.tests.PKPTestHelper');
 
-abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+abstract class PKPTestCase extends TestCase {
 	private
 		$daoBackup = array(),
 		$registryBackup = array(),
@@ -47,7 +49,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @copydoc PHPUnit_Framework_TestCase::setUp()
+	 * @copydoc TestCase::setUp()
 	 */
 	protected function setUp() {
 		$this->setBackupGlobals(true);
@@ -76,7 +78,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @copydoc PHPUnit_Framework_TestCase::tearDown()
+	 * @copydoc TestCase::tearDown()
 	 */
 	protected function tearDown() {
 		// Restore registry keys.
@@ -91,7 +93,7 @@ abstract class PKPTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @copydoc PHPUnit_Framework_TestCase::getActualOutput()
+	 * @copydoc TestCase::getActualOutput()
 	 */
 	public function getActualOutput() {
 		// We do not want to see output.

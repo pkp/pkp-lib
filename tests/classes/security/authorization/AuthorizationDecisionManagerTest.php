@@ -31,7 +31,9 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase {
 	 */
 	public function testDecideIfNoPolicyApplies() {
 		// Mock a policy that doesn't apply.
-		$mockPolicy = $this->getMock('AuthorizationPolicy', array('applies'));
+		$mockPolicy = $this->getMockBuilder(AuthorizationPolicy::class)
+			->setMethods(array('applies'))
+			->getMock();
 		$mockPolicy->expects($this->any())
 		           ->method('applies')
 		           ->will($this->returnValue(false));
@@ -54,7 +56,10 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase {
 		$denyPolicy2 = new AuthorizationPolicy('message 2');
 
 		// Mock a policy that permits access.
-		$permitPolicy = $this->getMock('AuthorizationPolicy', array('effect'), array('message 3'));
+		$permitPolicy = $this->getMockBuilder(AuthorizationPolicy::class)
+			->setMethods(array('effect'))
+			->setConstructorArgs(array('message 3'))
+			->getMock();
 		$permitPolicy->expects($this->any())
 		             ->method('effect')
 		             ->will($this->returnValue(AUTHORIZATION_PERMIT));
@@ -98,7 +103,9 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase {
 		// We have to test policies and policy sets
 		// as well as different combining algorithms.
 		$denyPolicy = new AuthorizationPolicy();
-		$permitPolicy = $this->getMock('AuthorizationPolicy', array('effect'));
+		$permitPolicy = $this->getMockBuilder(AuthorizationPolicy::class)
+			->setMethods(array('effect'))
+			->getMock();
 		$permitPolicy->expects($this->any())
 		             ->method('effect')
 		             ->will($this->returnCallback(array($this, 'mockEffect')));
@@ -151,7 +158,9 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase {
 	 */
 	public function testCallOnDeny() {
 		// Create a policy with a call-on-deny advice.
-		$policy = $this->getMock('AuthorizationPolicy', array('callOnDeny'));
+		$policy = $this->getMockBuilder(AuthorizationPolicy::class)
+			->setMethods(array('callOnDeny'))
+			->getMock();
 		$policy->expects($this->once())
 		       ->method('callOnDeny')
 		       ->will($this->returnCallback(array($this, 'mockCallOnDeny')));

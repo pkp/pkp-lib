@@ -40,25 +40,25 @@ class FileCacheTest extends PKPTestCase {
 		$fileCache = $this->getCache();
 
 		// No cache misses should be registered.
-		assert($this->cacheMisses == 0);
+		self::assertTrue($this->cacheMisses == 0);
 
 		// The cache has just been flushed by setUp. Try a get.
 		$val1 = $fileCache->get(1);
 
 		// Make sure the returned value was correct
-		assert($val1 == 'one');
+		self::assertTrue($val1 == 'one');
 
 		// Make sure we registered one cache miss
-		assert($this->cacheMisses == 1);
+		self::assertTrue($this->cacheMisses == 1);
 
 		// Try another get
 		$val2 = $fileCache->get(2);
 
 		// Make sure the value was correct
-		assert($val2 == 'two');
+		self::assertTrue($val2 == 'two');
 
 		// Make sure we didn't have to register another cache miss
-		assert($this->cacheMisses == 1);
+		self::assertTrue($this->cacheMisses == 1);
 	}
 
 	/**
@@ -74,17 +74,17 @@ class FileCacheTest extends PKPTestCase {
 		$val1 = $fileCache->get(-1);
 
 		// Make sure we registered one cache miss
-		assert ($val1 == null);
-		assert($this->cacheMisses == 1);
+		self::assertTrue($val1 == null);
+		self::assertTrue($this->cacheMisses == 1);
 
 		// Try another get of the same item
 		$val2 = $fileCache->get(-1);
 
 		// Check to see that we got it without a second miss
-		assert($val2 == null);
+		self::assertTrue($val2 == null);
 
 		// WARNING: This will trigger bug #8039 until fixed.
-		assert($this->cacheMisses == 1);
+		self::assertTrue($this->cacheMisses == 1);
 	}
 
 	//

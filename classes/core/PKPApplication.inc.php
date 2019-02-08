@@ -199,10 +199,17 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	}
 
 	/**
+	 * @copydoc PKPApplication::get()
+	 */
+	static function getApplication() {
+		return self::get();
+	}
+
+	/**
 	 * Get the current application object
 	 * @return Application
 	 */
-	static function getApplication() {
+	static function get() {
 		return Registry::get('application');
 	}
 
@@ -210,7 +217,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the request implementation singleton
 	 * @return Request
 	 */
-	static function getRequest() {
+	function getRequest() {
 		$request =& Registry::get('request', true, null); // Ref req'd
 
 		if (is_null($request)) {
@@ -227,9 +234,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the dispatcher implementation singleton
 	 * @return Dispatcher
 	 */
-	static function getDispatcher() {
+	public function getDispatcher() {
 		$dispatcher =& Registry::get('dispatcher', true, null); // Ref req'd
-
 		if (is_null($dispatcher)) {
 			import('lib.pkp.classes.core.Dispatcher');
 
@@ -237,7 +243,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$dispatcher = new Dispatcher();
 
 			// Inject dependency
-			$dispatcher->setApplication(PKPApplication::getApplication());
+			$dispatcher->setApplication(PKPApplication::get());
 
 			// Inject router configuration
 			$dispatcher->addRouterName('lib.pkp.classes.core.APIRouter', ROUTE_API);

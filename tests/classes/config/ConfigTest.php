@@ -36,7 +36,7 @@ class ConfigTest extends PKPTestCase {
 
 	/**
 	 * @depends testSetConfigFileName
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException \PHPUnit\Framework\Exception
 	 * @covers Config::reloadData
 	 */
 	public function testReloadDataWithNonExistentConfigFile() {

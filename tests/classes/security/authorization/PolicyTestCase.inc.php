@@ -62,7 +62,9 @@ abstract class PolicyTestCase extends PKPTestCase {
 		if (is_null($this->authorizationContextManipulationPolicy)) {
 			// Use a policy to prepare an authorized context
 			// with a user group.
-			$policy = $this->getMock('AuthorizationPolicy', array('effect'));
+			$policy = $this->getMockBuilder(AuthorizationPolicy::class)
+				->setMethods(array('effect'))
+				->getMock();
 			$policy->expects($this->any())
 			       ->method('effect')
 			       ->will($this->returnCallback(array($this, 'mockEffect')));
@@ -105,7 +107,9 @@ abstract class PolicyTestCase extends PKPTestCase {
 		$this->setContextObjects($context);
 
 		// Mock a router.
-		$router = $this->getMock('PKPRouter', array('getHandler', 'getRequestedOp', 'getContext'));
+		$router = $this->getMockBuilder(PKPRouter::class)
+			->setMethods(array('getHandler', 'getRequestedOp', 'getContext'))
+			->getMock();
 
 		$router->expects($this->any())
 		       ->method('getHandler')

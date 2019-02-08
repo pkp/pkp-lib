@@ -25,7 +25,9 @@ import('classes.i18n.AppLocale'); // This will import our mock locale.
 class PKPPageRouterTest extends PKPRouterTestCase {
 	protected function setUp() {
 		parent::setUp();
-		$this->router = $this->getMock('PKPPageRouter', array('getCacheablePages'));
+		$this->router = $this->getMockBuilder(PKPPageRouter::class)
+			->setMethods(array('getCacheablePages'))
+			->getMock();
 		$this->router->expects($this->any())
 		             ->method('getCacheablePages')
 		             ->will($this->returnValue(array('cacheable')));
@@ -69,6 +71,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPPageRouter::isCacheable
+	 * @runInSeparateProcess
 	 */
 	public function testIsCacheableWithPathinfoSuccess() {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // installed
@@ -106,6 +109,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 
 	/**
 	 * @covers PKPPageRouter::isCacheable
+	 * @runInSeparateProcess
 	 */
 	public function testIsCacheableWithoutPathinfoSuccess() {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // installed
@@ -122,6 +126,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 	 */
 	public function testGetCacheFilename() {
 		// Override parent test
+		$this->markTestSkipped();
 	}
 
 	/**

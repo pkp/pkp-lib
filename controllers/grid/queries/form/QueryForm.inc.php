@@ -265,6 +265,7 @@ class QueryForm extends Form {
 				'inputName' => 'users[]',
 				'selected' => $selectedParticipants,
 				'getParams' => array(
+					'contextId' => $context->getId(),
 					'count' => 100, // high upper value
 					'offset' => 0,
 					'assignedToSubmission' => $query->getAssocId(),

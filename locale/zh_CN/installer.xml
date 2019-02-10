@@ -58,7 +58,7 @@
 	<message key="installer.locale">语言设置</message>
 	<message key="installer.locale.maybeIncomplete">标记的语言环境尚未完成.</message>
 	<message key="installer.localeSettings">语言环境设置</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[一个独一无二的识别码，用来识别本站使用<a href="http://www.openarchives.org/" target="_blank">开放存档计划(Open Archives Initiative)</a>元数据搜集协定所索引的元数据记录 ]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[一个独一无二的识别码，用来识别本站使用<a href="https://www.openarchives.org/" target="_blank">开放存档计划(Open Archives Initiative)</a>元数据搜集协定所索引的元数据记录 ]]></message>
 	<message key="installer.oaiRepositoryId">OAI库标识符</message>
 	<message key="installer.publicFilesDirError">Public的文件的目录不存在或不可写.</message>
 	<message key="installer.releaseNotes">发行说明</message>

@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">اللغات المعلمة قد تكون غير مكتملة تماماً.</message>
 	<message key="installer.localeSettings">إعدادات اللغة</message>
 	<message key="installer.oaiSettings">إعدادات OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[يتم استعمال معرَّف فريد لتعريف سجلات البيانات الوصفية المفهرسة في هذا الموقع باستعمال بروتوكول<a href="http://www.openarchives.org/" target="_blank">مبادرة المحفوظات المفتوحة</a> لحصاد البيانات الوصفية.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[يتم استعمال معرَّف فريد لتعريف سجلات البيانات الوصفية المفهرسة في هذا الموقع باستعمال بروتوكول<a href="https://www.openarchives.org/" target="_blank">مبادرة المحفوظات المفتوحة</a> لحصاد البيانات الوصفية.]]></message>
 	<message key="installer.oaiRepositoryId">معرَّف المستودع</message>
 	<message key="installer.publicFilesDirError">حافظة الملفات العمومية غير موجودة أو أنها لا تقبل الكتابة عليها.</message>
 	<message key="installer.releaseNotes">ملاحظات الإطلاق</message>

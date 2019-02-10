@@ -135,7 +135,7 @@
 	<message key="user.username">Käyttäjätunnus</message>
 	<message key="user.workingLanguages">Työkielet</message>
 	<message key="user.orcid">ORCID-tunniste</message>
-	<message key="user.orcid.orcidInvalid">Määrittämäsi ORCID-tunniste on virheellinen. Liitä koko URI (esim. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Määrittämäsi ORCID-tunniste on virheellinen. Liitä koko URI (esim. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Henkilöllisyys</message>
 	<message key="user.profile.contact">Yhteystiedot</message>
 	<message key="user.profile.public">Julkinen</message>

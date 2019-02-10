@@ -149,7 +149,7 @@
 	<message key="user.username">Benutzer/innen-Name</message>
 	<message key="user.workingLanguages">Arbeitssprachen</message>
 	<message key="user.orcid">ORCID-iD</message>
-	<message key="user.orcid.orcidInvalid">Die angegebene ORCID-iD ist ungültig. Bitte geben Sie den kompletten URI an (z.B. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Die angegebene ORCID-iD ist ungültig. Bitte geben Sie den kompletten URI an (z.B. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identität</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Öffentlich</message>

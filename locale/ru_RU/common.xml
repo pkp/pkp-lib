@@ -79,18 +79,18 @@
 	<message key="common.captchaField">Проверка</message>
 	<message key="common.ccLicense"><![CDATA[
 		<br /><br />
-		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
 			<img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br />
-		Эта работа распространяется по <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons Attribution 3.0</a>.
+		Эта работа распространяется по <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons Attribution 3.0</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
 	<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		Эта работа распространяется по <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">лицензии Creative Commons Attribution 3.0</a>.
+		Эта работа распространяется по <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">лицензии Creative Commons Attribution 3.0</a>.
 	</div>
 	]]></message>
 	<message key="common.changesSaved">Ваши изменения были сохранены.</message>

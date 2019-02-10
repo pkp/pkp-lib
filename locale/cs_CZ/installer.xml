@@ -59,7 +59,7 @@
 	<message key="installer.locale">Lokalizace</message>
 	<message key="installer.locale.maybeIncomplete">Označené soubory lokalizace mohou být nekompletní.</message>
 	<message key="installer.localeSettings">Nastavení lokalizace</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinečný identifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting).]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinečný identifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting).]]></message>
 	<message key="installer.oaiRepositoryId">Identifikátor OAI úložiště</message>
 	<message key="installer.publicFilesDirError">Adresář veřejných souborů (public) neexistuje nebo není zapsatelný.</message>
 	<message key="installer.releaseNotes">Poznámky k vydání</message>

@@ -58,7 +58,7 @@
 	<message key="installer.locale.maybeIncomplete">Označeni jeziki so lahko nepopolni.</message>
 	<message key="installer.localeSettings">Jezikovne nastavitve</message>
 	<message key="installer.oaiSettings">OAI nastavitve</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Enoznačen identifikator, ki se uporablja za identifikacijo zapisov metapodatkov  pridobljenih na tem spletišču z uporabo <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokola za zajemanje metapodatkov.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Enoznačen identifikator, ki se uporablja za identifikacijo zapisov metapodatkov  pridobljenih na tem spletišču z uporabo <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokola za zajemanje metapodatkov.]]></message>
 	<message key="installer.oaiRepositoryId">OAI identifikator repozitorija</message>
 	<message key="installer.publicFilesDirError">Mapa za javne datoteke ne obstaja ali vanj ne moremo pisati.</message>
 	<message key="installer.releaseNotes">Opombe k izdaji</message>

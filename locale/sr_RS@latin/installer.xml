@@ -56,7 +56,7 @@
 	<message key="installer.locale">Prevod</message>
 	<message key="installer.locale.maybeIncomplete">Označene lokalizacije su nekompletne.</message>
 	<message key="installer.localeSettings">Podešavanje lokalizacije</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih na ovom sajtu koristeći <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih na ovom sajtu koristeći <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka.]]></message>
 	<message key="installer.oaiRepositoryId">Identifikator repozitorijuma</message>
 	<message key="installer.publicFilesDirError">Folder javnih fajlova ne postoji ili se ne može pisati po njemu.</message>
 	<message key="installer.releaseNotes">Napomene o izdanju</message>

@@ -58,7 +58,7 @@
 	<message key="installer.locale">Prijevod</message>
 	<message key="installer.localeSettings">Postavke prijevoda sustava</message>
 	<message key="installer.miscSettings">Razne postavke</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih s ove stranice koristeći <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih s ove stranice koristeći <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka.]]></message>
 	<message key="installer.oaiRepositoryId">Identifikator OAI repozitorija</message>
 	<message key="installer.publicFilesDirError">Direktorij javnih datoteka ne postoji ili se ne može pisati po njemu.</message>
 	<message key="installer.releaseNotes">Bilješke o izdanju</message>

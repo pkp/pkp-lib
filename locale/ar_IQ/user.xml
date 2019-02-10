@@ -152,7 +152,7 @@
 	<message key="user.username">اسم الدخول</message>
 	<message key="user.workingLanguages">اللغات العاملة</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">إن رمز ORCID iD الذي حددته غير صحيح. لطفاً، أدرج الرابط كاملاً (مثلاً: "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">إن رمز ORCID iD الذي حددته غير صحيح. لطفاً، أدرج الرابط كاملاً (مثلاً: "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">الهوية</message>
 	<message key="user.profile.contact">اسم الاتصال</message>
 	<message key="user.profile.public">عمومي</message>

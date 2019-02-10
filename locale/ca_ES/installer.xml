@@ -62,7 +62,7 @@
 	<message key="installer.locale.maybeIncomplete">Les configuracions regionals marcades poden estar incompletes.</message>
 	<message key="installer.localeSettings">Paràmetres de configuració regional</message>
 	<message key="installer.oaiSettings">Configuració OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificador únic utilitzat per identificar els registres de metadades indexats des d'aquest lloc web mitjançant el Protocol for Metadata Harvesting (protocol per a la recopilació de metadades) de <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificador únic utilitzat per identificar els registres de metadades indexats des d'aquest lloc web mitjançant el Protocol for Metadata Harvesting (protocol per a la recopilació de metadades) de <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador del dipòsit OAI</message>
 	<message key="installer.publicFilesDirError">El directori per als fitxers públics no existeix o no té permís d’escriptura.</message>
 	<message key="installer.releaseNotes">Notes de la versió</message>

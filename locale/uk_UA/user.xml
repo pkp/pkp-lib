@@ -137,7 +137,7 @@
 	<message key="user.username">Ім'я користувача</message>
 	<message key="user.workingLanguages">Робочі мови</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">Ви вказали недійсний ORCID iD. Будь ласка, додайте повний URI (e.g. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Ви вказали недійсний ORCID iD. Будь ласка, додайте повний URI (e.g. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Ідентифікація</message>
 	<message key="user.profile.contact">Контакти</message>
 	<message key="user.profile.public">Відкритий</message>

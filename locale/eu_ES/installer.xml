@@ -57,7 +57,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Errorea datu-basea instalatzeko <tt>{$file}</tt> fitxategia analizatzean.]]></message>
 	<message key="installer.locale">Localea</message>
 	<message key="installer.localeSettings">Localearen ezarpenak</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Metadatuak Biltzeko <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting protokoloaren bidez gune honetan indexatutako metadatuen erregistroak identifikatzeko erabiltzen da identifikatzaile uniboko hau.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Metadatuak Biltzeko <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting protokoloaren bidez gune honetan indexatutako metadatuen erregistroak identifikatzeko erabiltzen da identifikatzaile uniboko hau.]]></message>
 	<message key="installer.oaiRepositoryId">OAI gordailu-identifikatzailea</message>
 	<message key="installer.publicFilesDirError">Fitxategi publikoen direktorioa ez dago edo ez da idazgarria.</message>
 	<message key="installer.releaseNotes">Bertsio-oharrak</message>

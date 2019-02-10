@@ -62,7 +62,7 @@
 	<message key="installer.localeSettings">Setting Bahasa</message>
 	<message key="installer.manualInstall">Instal Manual</message>
 	<message key="installer.miscSettings">Pengaturan Lain</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Repositori yang menyimpan OAI identifier untuk memudahkan metadata harvesting situs Anda oleh <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protokol untuk Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Repositori yang menyimpan OAI identifier untuk memudahkan metadata harvesting situs Anda oleh <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protokol untuk Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Repositori identifier OAI</message>
 	<message key="installer.pleaseUpgradeAfterManualInstall">Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi utama untuk upgrade ini.</message>
 	<message key="installer.publicFilesDirError">Direktori file umum tidak ada atau tidak dapat diisi.</message>

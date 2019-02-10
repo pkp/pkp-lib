@@ -77,10 +77,10 @@
 	<message key="common.captchaField.description">Kirjoita kirjaimet, kuten ne näkyvät kuvassa.</message>
 	<message key="common.captchaField">Vahvistus</message>
 	<message key="common.ccLicense"><![CDATA[
-		]]><![CDATA[<br /><br /> <a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/"> <img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/> </a> <br/> Tämä työ on lisensoitu <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License -lisenssillä</a>.]]><![CDATA[
+		]]><![CDATA[<br /><br /> <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/"> <img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/> </a> <br/> Tämä työ on lisensoitu <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License -lisenssillä</a>.]]><![CDATA[
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
-	]]><![CDATA[<div class="rtBlock"> <br /> <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a> <br /> Tämä työ on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License -lisenssillä</a>. </div>]]><![CDATA[
+	]]><![CDATA[<div class="rtBlock"> <br /> <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a> <br /> Tämä työ on lisensoitu <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License -lisenssillä</a>. </div>]]><![CDATA[
 	]]></message>
 	<message key="common.changesSaved">Tekemäsi muutokset on tallennettu.</message>
 	<message key="common.chooseOne">Valitse yksi</message>

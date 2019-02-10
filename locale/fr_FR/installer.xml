@@ -57,7 +57,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Erreur d'analyse du fichier d'installation de la base de données <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Langue</message>
 	<message key="installer.localeSettings">Paramètres de langue</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identifiant unique utilisé pour identifier les enregistrements de métadonnées indexées à partir de ce site à l'aide du protocole<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> pour la collecte de métadonnées.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identifiant unique utilisé pour identifier les enregistrements de métadonnées indexées à partir de ce site à l'aide du protocole<a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> pour la collecte de métadonnées.]]></message>
 	<message key="installer.oaiRepositoryId">Identifiant du dépôt OAI</message>
 	<message key="installer.publicFilesDirError">Le répertoire des fichiers publics n'existe pas ou n'est pas disponible en écriture.</message>
 	<message key="installer.releaseNotes">Instructions d'utilisation</message>

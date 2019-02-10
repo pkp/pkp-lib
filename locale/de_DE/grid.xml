@@ -18,6 +18,7 @@
 	<message key="grid.noAuditors">Kein/e Prüfer/in</message>
 	<message key="grid.remotelyHostedItem">Dieses Element wird liegt an einem Remote-Ort.</message>
 
+	<message key="grid.action.uninstall">Deinstallieren</message>
 	<message key="grid.action.manageAccess">Zugriff verwalten</message>
 	<message key="grid.action.sort">Sortieren</message>
 	<message key="grid.action.addItem">Eintrag hinzufügen</message>
@@ -73,7 +74,6 @@
 	<message key="grid.action.sendToProduction">Diese Einreichung in die Produktion schicken</message>
 	<message key="grid.action.settings">Einstellungen</message>
 	<message key="grid.action.importexport">Inhalte oder Einstellungen importieren oder exportieren</message>
-	<message key="grid.action.restoreDefaults">Standardeinstellungen wiederherstellen</message>
 	<message key="grid.action.orderItems">Sortiermodus aktivieren</message>
 	<message key="grid.action.editSubmissionChecklist">Dieses Element der Checkliste bearbeiten</message>
 	<message key="grid.action.deleteSubmissionChecklist">Dieses Element der Checkliste löschen</message>
@@ -119,6 +119,7 @@
 	<message key="grid.action.preview">Vorschau</message>
 	<message key="grid.action.install">Installieren</message>
 	<message key="grid.action.moreItems">Mehr laden</message>
+	<message key="grid.action.users">Benutzer/innen ansehen/auswählen</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">Diese Aufgabe ist erledigt.</message>

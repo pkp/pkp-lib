@@ -308,6 +308,7 @@
 	<message key="email.compose">Nachricht senden</message>
 	<message key="email.compose.tooManyRecipients">Ihre Nachricht hat zu viele Empfänger/innen.</message>
 	<message key="email.compose.tooSoon">Sie versuchen, eine Nachricht zu früh nach Ihrer letzten Nachricht zu versenden. Bitte warten Sie ein wenig, bevor Sie eine weitere Nachricht versenden.></message>
+	<message key="email.compose.error">Beim Senden einer E-Mail ist ein Problem aufgetreten. Bitte versuchen Sie es später noch einmal oder benachrichtigen Sie Ihre/n Systemadministrator/in.</message>
 	<message key="email.email">E-Mail</message>
 	<message key="email.from">Von</message>
 	<message key="email.invalid">Die E-Mail-Adresse {$email} ist ungültig.</message>

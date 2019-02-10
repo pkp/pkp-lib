@@ -466,6 +466,7 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Unbekanntes Encoding {$param}</message>
 	<message key="plugins.importexport.common.error.encodingError">Dieser Inhalt ist nicht als {$param} encodiert</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Unbekannte Nutzergruppe {$param}</message>
+	<message key="plugins.importexport.common.error.missingGivenName">Autor/in {$authorName} hat keinen Vornamen in der in der Einreichung verwendeten Sprache, {$localeName}. Die Einreichung kann nicht importiert werden ohne diese Information.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Unbekannter Uploader {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Temporäre Datei {$dest} konnte nicht aus der Quelle {$source} erzeugt werden</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">Die übermittelte Dateigröße "{$expected}" und die tatsächliche Dateigröße "{$actual}" stimmen nicht überein</message>
@@ -478,6 +479,7 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">Importierte/r Nutzer/in "{$username}" besitzt kein Passwort. Bitte überprüfen Sie Ihr Import-XML-Format. Nutzer/in wurde nicht importiert.</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Importierte/r Nutzer/in "{$username}" konnte nicht in der vorliegenden Form importiert werden. Ein neues Passwort wird an die E-Mail-Adresse der Nutzerin/des Nutzers geschickt. Nutzer/in wurde importiert.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">Importierte/r Nutzer/in "{$username}" hat ein ungültiges Klartext-Passwort. Nutzer/in wurde nicht importiert.</message>
+	<message key="plugins.importexport.user.error.usernameEmailMismatch">Benutzer/innenname "{$username}" und die E-Mail-Adresse "{$email}" passen nicht zur selben Benutzerin/zum selben Benutzer.</message>
 
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Titel</message>
@@ -534,4 +536,17 @@
 	<message key="manager.navigationMenus.search.description">Link zur Suchseite.</message>
 	<message key="manager.navigationMenus.privacyStatement.description">Link zu der Seite mit der Erklärung zum Schutz persönlicher Daten.</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Dieser Link wird nur angezeigt, wenn Sie eine Erklärung zum Schutz persönlicher Daten unter Einstellungen > Workflow > Einreichungen angegeben haben.</message>
+
+	<message key="grid.category.add">Kategorie hinzufügen</message>
+	<message key="grid.category.edit">Kategorie bearbeiten</message>
+	<message key="grid.category.name">Name</message>
+	<message key="grid.category.path">Pfad</message>
+	<message key="grid.category.urlWillBe">Die URL der Kategorie wird: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Der Kategorienpfad darf nur aus Buchstaben und Ziffern bestehen.</message>
+	<message key="grid.category.pathExists">Der Kategorienpfad existiert bereits. Bitte geben Sie einen eindeutigen Pfad an.</message>
+	<message key="grid.category.description">Beschreibung</message>
+	<message key="grid.category.parentCategory">Elternkategorie</message>
+	<message key="grid.category.removeText">Sind Sie sicher, dass Sie diese Kategorie entfernen möchten?</message>
+	<message key="grid.category.nameRequired">Bitte geben Sie einen Kategoriennamen an.</message>
+	<message key="grid.category.categoryDetails">Kategoriendetails</message>
 </locale>

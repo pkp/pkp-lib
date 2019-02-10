@@ -65,6 +65,8 @@
 	<message key="editor.review.responseDue">Antwort fällig: {$date}</message>
 	<message key="editor.review.requestSent">Anfrage gesendet</message>
 	<message key="editor.review.requestAccepted">Anfrage akzeptiert</message>
+	<message key="editor.review.requestDeclined">Anfrage abgelehnt</message>
+	<message key="editor.review.requestDeclined.tooltip">Gutachter/in hat diese Anfrage abgelehnt.</message>
 	<message key="editor.review.revertDecision">Entscheidung zurücksetzen</message>
 	<message key="editor.review.reviewDue">Gutachten fällig: {$date}</message>
 	<message key="editor.review.reviewDueDate">Datum der Fälligkeit des Gutachtens</message>

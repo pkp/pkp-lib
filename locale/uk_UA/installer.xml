@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">Позначені локалізації можуть бути неповними.</message>
 	<message key="installer.localeSettings">Налаштування локалізації</message>
 	<message key="installer.oaiSettings">Налаштування OAI Settings</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Унікальний ідентифікатор, який буде використовуватись для ідентифікації комплектів метаданих зібраних з цього сховища за протоколом збору метаданих <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Унікальний ідентифікатор, який буде використовуватись для ідентифікації комплектів метаданих зібраних з цього сховища за протоколом збору метаданих <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Ідентифікатор сховища OAI</message>
 	<message key="installer.publicFilesDirError">Каталог, визначений для збереження файлів, не існує або захищений від запису.</message>
 	<message key="installer.releaseNotes">Примітки версії</message>

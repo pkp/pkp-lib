@@ -150,7 +150,7 @@
 	<message key="user.login.registrationComplete.continueBrowsing">Explorer le site de la revue</message>
 	<message key="user.register.form.userGroupRequired">Au moins un rôle doit être sélectionné</message>
 	<message key="user.register.registrationCompleted"><![CDATA[*Vous vous êtes inscrit avec succès. <a href="{$profileUrl}"> Cliquez ici </a> pour compléter votre profil utilisateur.]]></message>
-	<message key="user.orcid.orcidInvalid">Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.login.registrationPendingValidation">Inscription en attente de validation</message>
 	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Le rôle ou les rôles qui vous sont assignés pour cette soumission ne vous permettent pas d'accéder à cette opération.</message>
 	<message key="user.authorization.invalidReviewAssignment">Vous n'êtes pas autorisé(e) à accéder à cette évaluation.</message>

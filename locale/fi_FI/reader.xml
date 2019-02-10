@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Jakaminen</message>
 	<message key="rt.admin.sharing.enabled">Jakaminen otettu käyttöön</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Jotta lukijasi voivat jakaa sisältöä, rekisteröidy osoitteessa <a href="http://www.addthis.com">addthis.com</a> saadaksesi tilin, ja kopioi/liitä jakamispainikkeen koodi alle.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Jotta lukijasi voivat jakaa sisältöä, rekisteröidy osoitteessa <a href="https://www.addthis.com">addthis.com</a> saadaksesi tilin, ja kopioi/liitä jakamispainikkeen koodi alle.]]></message>
 
 	<message key="rt.admin.sharing.basic">Perusasetukset</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com -käyttäjätunnus</message>

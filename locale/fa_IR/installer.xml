@@ -57,7 +57,7 @@
 	<message key="installer.locale.maybeIncomplete">زبان‌های مشخص شده ممکن است ناکامل باشند.</message>
 	<message key="installer.localeSettings">تنظیمات زبان</message>
 	<message key="installer.oaiSettings">تنظیماتOAI </message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[یک شناسه منحصربه‌فرد برای استفاده در تشخیص فراداده‌های نمایه شده از این سایت توسط پروتکل  <a href="http://www.openarchives.org/" target="_blank"> Open Archives Initiative </a> ]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[یک شناسه منحصربه‌فرد برای استفاده در تشخیص فراداده‌های نمایه شده از این سایت توسط پروتکل  <a href="https://www.openarchives.org/" target="_blank"> Open Archives Initiative </a> ]]></message>
 	<message key="installer.oaiRepositoryId">شناسه مخزن OAI</message>
 	<message key="installer.publicFilesDirError">پوشه فایل‌های عمومی وجود ندارد و یا قابل نوشتن نیست</message>
 	<message key="installer.releaseNotes">یادداشت‌های منتشره</message>

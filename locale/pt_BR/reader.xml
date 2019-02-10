@@ -158,7 +158,7 @@
 	<message key="comments.titleRequired">O título do comentário é obrigatório.</message>
 	<message key="rt.admin.sharing">Compartilhamento</message>
 	<message key="rt.admin.sharing.enabled">Compartilhamento habilitado</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Para permitir aos leitores compartilhar artigos, cadastre-se no <a href="http://www.addthis.com">AddThis.com</a>, e copie/cole o código de Compartilhar a seguir.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Para permitir aos leitores compartilhar artigos, cadastre-se no <a href="https://www.addthis.com">AddThis.com</a>, e copie/cole o código de Compartilhar a seguir.]]></message>
 	<message key="rt.admin.sharing.basic">Configurações Básicas</message>
 	<message key="rt.admin.sharing.userNameLabel">Usuário AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Estilo do botão</message>

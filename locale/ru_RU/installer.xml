@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">Поддержка отмеченных языков может быть неполной.</message>
 	<message key="installer.localeSettings">Настройки языка</message>
 	<message key="installer.oaiSettings">Настройки OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Уникальный идентификатор используется для идентификации записей метаданных, проиндексированных с этого сайта, при использовании протокола сбора метаданных <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Уникальный идентификатор используется для идентификации записей метаданных, проиндексированных с этого сайта, при использовании протокола сбора метаданных <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Идентификатор хранилища</message>
 	<message key="installer.publicFilesDirError">Каталог public для файлов не существует или не доступен для записи.</message>
 	<message key="installer.releaseNotes">Примечания к выпуску</message>

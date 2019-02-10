@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">Die markierten Regionaleinstellungen sind möglicherweise unvollständig.</message>
 	<message key="installer.localeSettings">Regionaleinstellungen</message>
 	<message key="installer.oaiSettings">OAI-Einstellungen</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Eine eindeutige Kennung zur Identifikation von Metadaten-Einträgen, die von dieser Website mittels des <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>-Protokolls für Metadaten-Harvesting abgerufen werden.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Eine eindeutige Kennung zur Identifikation von Metadaten-Einträgen, die von dieser Website mittels des <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>-Protokolls für Metadaten-Harvesting abgerufen werden.]]></message>
 	<message key="installer.oaiRepositoryId">Kennung für das Repository</message>
 	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
 	<message key="installer.releaseNotes">Versionsinformationen</message>

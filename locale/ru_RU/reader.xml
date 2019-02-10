@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Поделиться</message>
 	<message key="rt.admin.sharing.enabled">Включить возможность поделиться с другими</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Чтобы дать Вашим читателям возможность поделиться информацией о контенте с другими, зарегистрируйтесь на <a href="http://www.addthis.com">addthis.com</a> и вставьте полученный там код кнопки «Sharing» ниже.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Чтобы дать Вашим читателям возможность поделиться информацией о контенте с другими, зарегистрируйтесь на <a href="https://www.addthis.com">addthis.com</a> и вставьте полученный там код кнопки «Sharing» ниже.]]></message>
 
 	<message key="rt.admin.sharing.basic">Основные настройки</message>
 	<message key="rt.admin.sharing.userNameLabel">Имя пользователя AddThis.com</message>

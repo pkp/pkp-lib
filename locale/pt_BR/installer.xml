@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
 	<message key="installer.localeSettings">Configurações de idioma (Localização)</message>
 	<message key="installer.oaiSettings">Configurações OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registros de metadados indexados através do protocolo de Coleta de Metadados do <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registros de metadados indexados através do protocolo de Coleta de Metadados do <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador para repositório OAI</message>
 	<message key="installer.publicFilesDirError">O diretório de documentos públicos não existe ou não possui permissão de escrita.</message>
 	<message key="installer.releaseNotes">Notas de lançamento</message>

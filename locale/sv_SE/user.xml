@@ -143,7 +143,7 @@
 	<message key="user.username">Användarnamn</message>
 	<message key="user.workingLanguages">Arbetsspråk</message>
 	<message key="user.orcid">ORCID-iD</message>
-	<message key="user.orcid.orcidInvalid">ORCID-iD inkorrekt. Fyll i hela URI:n (t.ex. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">ORCID-iD inkorrekt. Fyll i hela URI:n (t.ex. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identitet</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Publik</message>

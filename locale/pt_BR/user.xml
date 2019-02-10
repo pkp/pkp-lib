@@ -137,7 +137,7 @@
 	<message key="user.username">Usuário</message>
 	<message key="user.workingLanguages">Idiomas conhecidos</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">O ORCID iD informado é inválido. Por favor inclua a URL completa (ex. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">O ORCID iD informado é inválido. Por favor inclua a URL completa (ex. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identificação</message>
 	<message key="user.profile.contact">Contato</message>
 	<message key="user.profile.public">Público</message>

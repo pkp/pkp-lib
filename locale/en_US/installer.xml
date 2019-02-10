@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">Marked locales may be incomplete.</message>
 	<message key="installer.localeSettings">Locale Settings</message>
 	<message key="installer.oaiSettings">OAI Settings</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Repository Identifier</message>
 	<message key="installer.publicFilesDirError">The public files directory does not exist or is not writable.</message>
 	<message key="installer.releaseNotes">Release Notes</message>

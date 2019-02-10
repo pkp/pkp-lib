@@ -58,7 +58,7 @@
 	<message key="installer.locale">Τοπικές ρυθμίσεις</message>
 	<message key="installer.localeSettings">Τοπικές ρυθμίσεις</message>
 	<message key="installer.miscSettings">Λοιπές Ρυθμίσεις </message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Ένα μοναδικό αναγνωριστικό χρησιμοποιείται για την αναγνώριση των εγγραφών μεταδεδομένων των ευρετηρίων του συγκεκριμένου ιστοτόπου με χρήση του <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Ένα μοναδικό αναγνωριστικό χρησιμοποιείται για την αναγνώριση των εγγραφών μεταδεδομένων των ευρετηρίων του συγκεκριμένου ιστοτόπου με χρήση του <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Αναγνωριστικό (identifier) OAI καταθετηρίου</message>
 	<message key="installer.publicFilesDirError">Ο κατάλογος των δημόσιων αρχείων δεν υπάρχει ή δεν είναι εγγράψιμος (writable).</message>
 	<message key="installer.releaseNotes">Σημιεώσεις έκδοσης</message>

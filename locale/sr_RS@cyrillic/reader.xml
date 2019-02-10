@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Дељење</message>
 	<message key="rt.admin.sharing.enabled">Дељење је омогућено</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Да бисте омогућили читаоцима да деле чланке вашег часописа напрqавите налог на <a href="http://www.addthis.com">addthis.com</a> и копирајте "Sharing button" код испод.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Да бисте омогућили читаоцима да деле чланке вашег часописа напрqавите налог на <a href="https://www.addthis.com">addthis.com</a> и копирајте "Sharing button" код испод.]]></message>
 
 	<message key="rt.admin.sharing.basic">Основна подешавања</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com корисничко име</message>

@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">Merkityt kielialueet saattavat olla vaillinaisia.</message>
 	<message key="installer.localeSettings">Kielialueiden asetukset</message>
 	<message key="installer.oaiSettings">OAI-asetukset</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Yksilöivä tunniste, jota käytetään sellaisten metatietorekisterien tunnistamiseen, jotka on indeksoitu tältä sivustolta <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiativen</a> protokollaa metatietojen haravoinnista käyttäen.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Yksilöivä tunniste, jota käytetään sellaisten metatietorekisterien tunnistamiseen, jotka on indeksoitu tältä sivustolta <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiativen</a> protokollaa metatietojen haravoinnista käyttäen.]]></message>
 	<message key="installer.oaiRepositoryId">Tietovaraston tunniste</message>
 	<message key="installer.publicFilesDirError">Julkista tiedostohakemistoa ei ole olemassa tai se ei ole kirjoituskelpoinen.</message>
 	<message key="installer.releaseNotes">Julkistamiseen liittyvät muistiinpanot</message>

@@ -59,7 +59,7 @@
 	<message key="installer.locale.maybeIncomplete">Valda språk/regioner kan vara ofullständiga.</message>
 	<message key="installer.localeSettings">Språk/region-inställningar</message>
 	<message key="installer.oaiSettings">OAI-inställningar</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator att använda för att identifiera metadata-poster indexerade från den här webbplatsen genom användandet av <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator att använda för att identifiera metadata-poster indexerade från den här webbplatsen genom användandet av <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Identifikator för arkiv</message>
 	<message key="installer.publicFilesDirError">Katalogen för publika filer existerar inte, eller går inte att skriva till.</message>
 	<message key="installer.releaseNotes">Versionsinformation</message>

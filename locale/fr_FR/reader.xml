@@ -159,7 +159,7 @@
 	<message key="comments.titleRequired">Le titre du commentaire est obligatoire.</message>
 	<message key="rt.admin.sharing">Partage</message>
 	<message key="rt.admin.sharing.enabled">Partage activé</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Pour permettre à vos lecteurs de partager des articles de revues, créer un compte avec <a href="http://www.addthis.com">addthis.com</a>, et copier/coller le code du bouton Partage ci-dessous.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Pour permettre à vos lecteurs de partager des articles de revues, créer un compte avec <a href="https://www.addthis.com">addthis.com</a>, et copier/coller le code du bouton Partage ci-dessous.]]></message>
 	<message key="rt.admin.sharing.basic">Paramètres de base</message>
 	<message key="rt.admin.sharing.userNameLabel">Nom d'utilisateur AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Style du bouton</message>

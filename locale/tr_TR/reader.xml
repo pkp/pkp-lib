@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Paylaşım</message>
 	<message key="rt.admin.sharing.enabled">Paylaşım Etkinleştirildi</message>
-	<message key="rt.admin.sharing.description"><![CDATA[İçeriğini paylaşmak için okuyucularınızı etkinleştirin. <a href="http://www.addthis.com">addthis.com</a> adresine bir hesap ile giriş yapın ve paylaşım butonu kodunu kopyalayıp aşağıya yapıştırın.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[İçeriğini paylaşmak için okuyucularınızı etkinleştirin. <a href="https://www.addthis.com">addthis.com</a> adresine bir hesap ile giriş yapın ve paylaşım butonu kodunu kopyalayıp aşağıya yapıştırın.]]></message>
 	<message key="rt.admin.sharing.basic">Temel Ayarlar</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com kullanıcı adı</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Buton Biçimi</message>

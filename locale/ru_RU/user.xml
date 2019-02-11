@@ -149,7 +149,7 @@
 	<message key="user.username">Имя пользователя</message>
 	<message key="user.workingLanguages">Рабочие языки</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">Указанный вами ORCID iD не корректен. Пожалуйста, добавьте полный URI (например, «http://orcid.org/0000-0002-1825-0097»).</message>
+	<message key="user.orcid.orcidInvalid">Указанный вами ORCID iD не корректен. Пожалуйста, добавьте полный URI (например, «https://orcid.org/0000-0002-1825-0097»).</message>
 	<message key="user.profile.identity">Идентификация</message>
 	<message key="user.profile.contact">Контакты</message>
 	<message key="user.profile.public">Открытый</message>

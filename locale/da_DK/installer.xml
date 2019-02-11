@@ -55,7 +55,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Der opstod en fejl under parsing af databaseinstallationsfilen <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Landestandard</message>
 	<message key="installer.localeSettings">Landestandardindstillinger</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Et entydigt id, som bruges til at identificere metadataposter, der er indekseret fra dette websted ved hjælp af <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Et entydigt id, som bruges til at identificere metadataposter, der er indekseret fra dette websted ved hjælp af <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Id til OAI-lager</message>
 	<message key="installer.publicFilesDirError">Den offentlige filmappe findes ikke eller er ikke skrivbar.</message>
 	<message key="installer.releaseNotes">Produktbemærkninger</message>

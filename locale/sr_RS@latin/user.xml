@@ -111,7 +111,7 @@
 	<message key="user.role.layoutEditor">Grafički urednik</message>
 	<message key="user.role.layoutEditors">Grafički urednici</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">ORCID iD koji ste uneli nije ispravan. Uključite i ceo URI (npr. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">ORCID iD koji ste uneli nije ispravan. Uključite i ceo URI (npr. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identitet</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Javno</message>

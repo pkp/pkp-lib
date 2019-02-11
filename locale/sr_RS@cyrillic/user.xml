@@ -111,7 +111,7 @@
 	<message key="user.role.layoutEditor">Графички уредник</message>
 	<message key="user.role.layoutEditors">Графички уредници</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">ORCID iD који сте унели није исправан. Укључите и цео URI (нпр. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">ORCID iD који сте унели није исправан. Укључите и цео URI (нпр. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Идентитет</message>
 	<message key="user.profile.contact">Контакт</message>
 	<message key="user.profile.public">Јавно</message>

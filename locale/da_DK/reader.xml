@@ -159,7 +159,7 @@
 	<message key="comments.titleRequired">Kommentartitel nødvendig.</message>
 	<message key="rt.admin.sharing">Deling</message>
 	<message key="rt.admin.sharing.enabled">Deling aktiveret</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Hvis du vil gøre dine læsere i stand til at dele tidsskriftsartikler, skal du oprette en konto hos <a href="http://www.addthis.com">addthis.com</a> og kopiere/indsætte koden til deleknappen herunder.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Hvis du vil gøre dine læsere i stand til at dele tidsskriftsartikler, skal du oprette en konto hos <a href="https://www.addthis.com">addthis.com</a> og kopiere/indsætte koden til deleknappen herunder.]]></message>
 	<message key="rt.admin.sharing.basic">Grundindstillinger</message>
 	<message key="rt.admin.sharing.userNameLabel">Brugernavn på AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Knapstil</message>

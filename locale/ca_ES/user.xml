@@ -141,5 +141,5 @@
 	<message key="user.profile.public">Públic</message>
 	<message key="user.register.form.usernameAlphaNumeric">El nom d'usuari/ària només pot contenir caràcters alfanumèrics en minúscula, guions i guions baixos, i ha de començar i acabar amb un caràcter alfanumèric.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[S'ha registrat correctament. Faci <a href="{$profileUrl}">clic aquí</a> per completar el seu perfil d'usuari/ària.]]></message>
-	<message key="user.orcid.orcidInvalid">L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. ex.: "http://orcid.org/0000-0002-1825-0097"), si us plau.</message>
+	<message key="user.orcid.orcidInvalid">L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. ex.: "https://orcid.org/0000-0002-1825-0097"), si us plau.</message>
 </locale>

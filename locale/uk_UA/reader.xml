@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Рекомендації</message>
 	<message key="rt.admin.sharing.enabled">Рекомендації включені</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Для того, щоб дозволити вашим читачам рекомендувати журнальні статті, зареєструйте обліковий запис на <a href="http://www.addthis.com">addthis.com</a>, скопіюйте та вставте нижче код кнопки.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Для того, щоб дозволити вашим читачам рекомендувати журнальні статті, зареєструйте обліковий запис на <a href="https://www.addthis.com">addthis.com</a>, скопіюйте та вставте нижче код кнопки.]]></message>
 
 	<message key="rt.admin.sharing.basic">Базові налаштування</message>
 	<message key="rt.admin.sharing.userNameLabel">Ім'я користувача AddThis.com</message>

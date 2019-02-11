@@ -51,7 +51,7 @@
 	<message key="rt.admin.sharing">Deljenje</message>
 	<message key="rt.admin.sharing.enabled">Deljenje omogočeno</message>
 	<message key="rt.admin.sharing.description">Da omogočite bralcem deljenje članka, se prijavite za račun na &lt;a href="http://addthis.com"&gt;addthis.com&lt;/a&gt; in kopirajte "Sharing button" kodo spodaj.</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Da omogočite bralcem deljenje članka, se prijavite za račun na <a href="http://www.addthis.com">addthis.com</a> in kopirajte "Sharing button" kodo spodaj.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Da omogočite bralcem deljenje članka, se prijavite za račun na <a href="https://www.addthis.com">addthis.com</a> in kopirajte "Sharing button" kodo spodaj.]]></message>
 
 	<message key="rt.admin.sharing.basic">Osnovne nastavitve</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com uporabniško ime</message>

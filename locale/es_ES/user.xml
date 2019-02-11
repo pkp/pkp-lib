@@ -137,7 +137,7 @@
 	<message key="user.register.form.userGroupRequired">Debe seleccionar un rol como mínimo.</message>
 	<message key="user.register.registrationCompleted"><![CDATA[Se ha registrado correctamente. <a href="{$profileUrl}">Haga clic aquí</a> para completar su perfil de usuario.]]></message>
 	<message key="user.orcid">Identificador ORCID</message>
-	<message key="user.orcid.orcidInvalid">El ORCID que ha especificado no es válido. Incluya la URL completa (p. ej.: "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">El ORCID que ha especificado no es válido. Incluya la URL completa (p. ej.: "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identidad</message>
 	<message key="user.profile.contact">Contacto</message>
 	<message key="user.profile.public">Público</message>

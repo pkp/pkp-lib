@@ -159,7 +159,7 @@
 	<message key="comments.titleRequired">Iruzkinaren titulua behar da.</message>
 	<message key="rt.admin.sharing">Konpartitzea</message>
 	<message key="rt.admin.sharing.enabled">Konpartitzea gaituta</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Irakurleek egunkariko artikuluak irakurleekin partekatzea gaitzeko, ireki kontu bat <a href="http://www.addthis.com">addthis.com</a> erabiliz, eta kopiatu/itsatsi beheko partekatze botoiaren kodea.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Irakurleek egunkariko artikuluak irakurleekin partekatzea gaitzeko, ireki kontu bat <a href="https://www.addthis.com">addthis.com</a> erabiliz, eta kopiatu/itsatsi beheko partekatze botoiaren kodea.]]></message>
 	<message key="rt.admin.sharing.basic">Oinarrizko ezarpenak</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com erabiltzaile-izena</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Botoi-estiloa</message>

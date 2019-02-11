@@ -132,7 +132,7 @@
 	<message key="user.username">نام کاربری</message>
 	<message key="user.workingLanguages">زبان‌های کاربردی</message>
 	<message key="user.orcid">شناسه ی نویسندگان/پژوهشگران</message>
-	<message key="user.orcid.orcidInvalid">شناسه ORCID وارد شده معتبر نیست. لطفاً آدرس کامل را وارد کنید (برای مثال:"http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">شناسه ORCID وارد شده معتبر نیست. لطفاً آدرس کامل را وارد کنید (برای مثال:"https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">مشخصات فردی</message>
 	<message key="user.profile.contact">اطلاعات تماس</message>
 	<message key="user.profile.public">مشخصات عمومی</message>

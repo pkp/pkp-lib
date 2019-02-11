@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Delning</message>
 	<message key="rt.admin.sharing.enabled">Delning aktiverad</message>
-	<message key="rt.admin.sharing.description"><![CDATA[För att underlätta för era läsare att dela innehåll, registrera ett konto på <a href="http://www.addthis.com">addthis.com</a>, och klistra in Sharing button-koden nedan.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[För att underlätta för era läsare att dela innehåll, registrera ett konto på <a href="https://www.addthis.com">addthis.com</a>, och klistra in Sharing button-koden nedan.]]></message>
 
 	<message key="rt.admin.sharing.basic">Grundinställningar</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com-användarnamn</message>

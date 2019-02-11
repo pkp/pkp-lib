@@ -46,7 +46,7 @@
 	<message key="rt.admin.management">مدیریت</message>
 	<message key="rt.admin.sharing">به اشتراک گذاری</message>
 	<message key="rt.admin.sharing.enabled">فعال‌سازی به اشتراک گذاری</message>
-	<message key="rt.admin.sharing.description"><![CDATA[برای اینکه خوانندکان بتوانند مقالاتی را به اشتراک بگذارند یک حساب کاربری از <a href="http://www.addthis.com">addthis.com</a> و بگیرید . کد دکمه شراکت را در زیر کپی کنید.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[برای اینکه خوانندکان بتوانند مقالاتی را به اشتراک بگذارند یک حساب کاربری از <a href="https://www.addthis.com">addthis.com</a> و بگیرید . کد دکمه شراکت را در زیر کپی کنید.]]></message>
 	<message key="rt.admin.sharing.basic">تنظیمات پایه</message>
 	<message key="rt.admin.sharing.userNameLabel">نام کاربری AddThis.com</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">استایل دکمه</message>

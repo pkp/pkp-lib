@@ -159,7 +159,7 @@
 	<message key="comments.titleRequired">Απαιτείται ένα τίτλος σχολίου.</message>
 	<message key="rt.admin.sharing">Διαμοιρασμός (Sharing)</message>
 	<message key="rt.admin.sharing.enabled">Ενεργοποίηση Διαμοιρασμού</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Για την ενεργοποίηση της δυνατότητας των αναγνωστών σας να μοιράζονται άρθρα περιοδικών, δημιουργήστε έναν λογαριασμό στο <a href="http://www.addthis.com">addthis.com</a>, και Αντιγράψτε και Επικολλήστε τον κώδικο του κουμπιού Διαμοιρασμού παρακάτω.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Για την ενεργοποίηση της δυνατότητας των αναγνωστών σας να μοιράζονται άρθρα περιοδικών, δημιουργήστε έναν λογαριασμό στο <a href="https://www.addthis.com">addthis.com</a>, και Αντιγράψτε και Επικολλήστε τον κώδικο του κουμπιού Διαμοιρασμού παρακάτω.]]></message>
 	<message key="rt.admin.sharing.basic">Βασικές Ρυθμίσες</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com όνομα χρήστη</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Στύλ κουμπιού</message>

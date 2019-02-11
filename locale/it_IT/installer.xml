@@ -54,7 +54,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Errore nel parsing del file di installazione <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Localizzazione</message>
 	<message key="installer.localeSettings">Impostazioni della localizzazione</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificativo univoco utilizzato per i record di metadati provenienti da questo sito indicizzati tramite l'<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificativo univoco utilizzato per i record di metadati provenienti da questo sito indicizzati tramite l'<a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Identificativo del repository OAI</message>
 	<message key="installer.publicFilesDirError">La directory di file pubblici non esiste o non è scrivibile.</message>
 	<message key="installer.releaseNotes">Note di rilascio</message>

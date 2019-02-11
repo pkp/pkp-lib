@@ -169,7 +169,7 @@
 	<message key="rt.admin.sharing.logoColorLabel">Colore del logo</message>
 	<message key="rt.admin.configureSharing">Configura AddThis</message>
 	<message key="comments.titleRequired">Inserisci un titolo per il commento</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Per abilitare i lettori a condividere gli articoli, iscriviti a <a href="http://www.addthis.com">addthis.com</a>, e copia/incolla il codice del pulsante Sharing qui sotto.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Per abilitare i lettori a condividere gli articoli, iscriviti a <a href="https://www.addthis.com">addthis.com</a>, e copia/incolla il codice del pulsante Sharing qui sotto.]]></message>
 	<message key="rt.admin.sharing.basic">Impostazioni di base</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Stile del bottone</message>
 	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vedi <a href="https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/">AddThis.com customization documentation</a> per informazioni.]]></message>

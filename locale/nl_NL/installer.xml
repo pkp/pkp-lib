@@ -56,7 +56,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Fout bij het parseren van het database installatiebestand <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Taal</message>
 	<message key="installer.localeSettings">Taalinstelingen</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Een unieke identificatie om metadatarecords van deze site te indexeren, gebruikmakend van het <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Een unieke identificatie om metadatarecords van deze site te indexeren, gebruikmakend van het <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI repository identificatie</message>
 	<message key="installer.publicFilesDirError">De map met publieke bestanden bestaat niet of er mag niet in geschreven worden.</message>
 	<message key="installer.releaseNotes">Over deze versie</message>

@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Sharing</message>
 	<message key="rt.admin.sharing.enabled">Sharing Enabled</message>
-	<message key="rt.admin.sharing.description"><![CDATA[To enable your readers to share content, sign up for an account with <a href="http://www.addthis.com">addthis.com</a>, and copy/paste the Sharing button code below.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[To enable your readers to share content, sign up for an account with <a href="https://www.addthis.com">addthis.com</a>, and copy/paste the Sharing button code below.]]></message>
 
 	<message key="rt.admin.sharing.basic">Basic Settings</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>

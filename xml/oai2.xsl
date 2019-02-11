@@ -47,7 +47,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 <xsl:stylesheet
     version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-    xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+    xmlns:oai="https://www.openarchives.org/OAI/2.0/"
 >
 
 <xsl:output method="html"/>
@@ -267,7 +267,7 @@ p.intro {
    Identify / OAI-Identifier
 -->
 
-<xsl:template match="id:oai-identifier" xmlns:id="http://www.openarchives.org/OAI/2.0/oai-identifier">
+<xsl:template match="id:oai-identifier" xmlns:id="https://www.openarchives.org/OAI/2.0/oai-identifier">
   <h2>OAI-Identifier</h2>
   <table class="values">
     <tr><td class="key">Scheme</td>
@@ -286,7 +286,7 @@ p.intro {
    Identify / EPrints
 -->
 
-<xsl:template match="ep:eprints" xmlns:ep="http://www.openarchives.org/OAI/1.1/eprints">
+<xsl:template match="ep:eprints" xmlns:ep="https://www.openarchives.org/OAI/1.1/eprints">
   <h2>EPrints Description</h2>
   <h3>Content</h3>
   <xsl:apply-templates select="ep:content"/>
@@ -305,7 +305,7 @@ p.intro {
   <xsl:apply-templates select="ep:comment"/>
 </xsl:template>
 
-<xsl:template match="ep:content|ep:dataPolicy|ep:metadataPolicy|ep:submissionPolicy" xmlns:ep="http://www.openarchives.org/OAI/1.1/eprints">
+<xsl:template match="ep:content|ep:dataPolicy|ep:metadataPolicy|ep:submissionPolicy" xmlns:ep="https://www.openarchives.org/OAI/1.1/eprints">
   <xsl:if test="ep:text">
     <p><xsl:value-of select="ep:text" /></p>
   </xsl:if>
@@ -314,7 +314,7 @@ p.intro {
   </xsl:if>
 </xsl:template>
 
-<xsl:template match="ep:comment" xmlns:ep="http://www.openarchives.org/OAI/1.1/eprints">
+<xsl:template match="ep:comment" xmlns:ep="https://www.openarchives.org/OAI/1.1/eprints">
   <h3>Comment</h3>
   <div><xsl:value-of select="."/></div>
 </xsl:template>
@@ -324,14 +324,14 @@ p.intro {
    Identify / Friends
 -->
 
-<xsl:template match="fr:friends" xmlns:fr="http://www.openarchives.org/OAI/2.0/friends/">
+<xsl:template match="fr:friends" xmlns:fr="https://www.openarchives.org/OAI/2.0/friends/">
   <h2>Friends</h2>
   <ul>
     <xsl:apply-templates select="fr:baseURL"/>
   </ul>
 </xsl:template>
 
-<xsl:template match="fr:baseURL" xmlns:fr="http://www.openarchives.org/OAI/2.0/friends/">
+<xsl:template match="fr:baseURL" xmlns:fr="https://www.openarchives.org/OAI/2.0/friends/">
   <li><xsl:value-of select="."/> 
 <xsl:text> </xsl:text>
 <a class="link" href="{.}?verb=Identify">Identify</a></li>
@@ -342,13 +342,13 @@ p.intro {
    Identify / Branding
 -->
 
-<xsl:template match="br:branding" xmlns:br="http://www.openarchives.org/OAI/2.0/branding/">
+<xsl:template match="br:branding" xmlns:br="https://www.openarchives.org/OAI/2.0/branding/">
   <h2>Branding</h2>
   <xsl:apply-templates select="br:collectionIcon"/>
   <xsl:apply-templates select="br:metadataRendering"/>
 </xsl:template>
 
-<xsl:template match="br:collectionIcon" xmlns:br="http://www.openarchives.org/OAI/2.0/branding/">
+<xsl:template match="br:collectionIcon" xmlns:br="https://www.openarchives.org/OAI/2.0/branding/">
   <h3>Icon</h3>
   <xsl:choose>
     <xsl:when test="link!=''">
@@ -360,7 +360,7 @@ p.intro {
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="br:metadataRendering" xmlns:br="http://www.openarchives.org/OAI/2.0/branding/">
+<xsl:template match="br:metadataRendering" xmlns:br="https://www.openarchives.org/OAI/2.0/branding/">
   <h3>Metadata Rendering Rule</h3>
   <table class="values">
     <tr><td class="key">URL</td>
@@ -378,7 +378,7 @@ p.intro {
    Identify / Gateway
 -->
 
-<xsl:template match="gw:gateway" xmlns:gw="http://www.openarchives.org/OAI/2.0/gateway/x">
+<xsl:template match="gw:gateway" xmlns:gw="https://www.openarchives.org/OAI/2.0/gateway/x">
   <h2>Gateway Information</h2>
   <table class="values">
     <tr><td class="key">Source</td>
@@ -397,7 +397,7 @@ p.intro {
   </table>
 </xsl:template>
 
-<xsl:template match="gw:gatewayAdmin" xmlns:gw="http://www.openarchives.org/OAI/2.0/gateway/">
+<xsl:template match="gw:gatewayAdmin" xmlns:gw="https://www.openarchives.org/OAI/2.0/gateway/">
   <tr><td class="key">Admin</td>
   <td class="value"><xsl:value-of select="."/></td></tr>
 </xsl:template>
@@ -548,7 +548,7 @@ p.intro {
 
 <!-- oai_dc record -->
 
-<xsl:template match="oai_dc:dc"  xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" >
+<xsl:template match="oai_dc:dc"  xmlns:oai_dc="https://www.openarchives.org/OAI/2.0/oai_dc/" >
   <div class="dcdata">
     <h3>Dublin Core Metadata (oai_dc)</h3>
     <table class="dcdata">

@@ -56,7 +56,7 @@
 	<message key="installer.locale">Kurulum dili yeri</message>
 	<message key="installer.locale.maybeIncomplete">İşaretli diller tamamlanmamış olabilir.</message>
 	<message key="installer.localeSettings">Yerel Ayarlar</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Bu sitede <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> üst veri harmanlama protokolüne uygun olarak meta verilerini tanımlamak için tekil bir tanımlama kullanılır.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Bu sitede <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> üst veri harmanlama protokolüne uygun olarak meta verilerini tanımlamak için tekil bir tanımlama kullanılır.]]></message>
 	<message key="installer.oaiRepositoryId">Kurumsal Arşiv Belirleyici</message>
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>

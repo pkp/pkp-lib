@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">المشاركة</message>
 	<message key="rt.admin.sharing.enabled">المشاركة ممكَّنة</message>
-	<message key="rt.admin.sharing.description"><![CDATA[لتمكين قرائك من مشاركة المحتوى، سجل حساباً لدى <a href="http://www.addthis.com">addthis.com</a>، ثم استعمل نسخ/لصق للنص البرمجي الخاص بالمشاركة من الزر أدناه.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[لتمكين قرائك من مشاركة المحتوى، سجل حساباً لدى <a href="https://www.addthis.com">addthis.com</a>، ثم استعمل نسخ/لصق للنص البرمجي الخاص بالمشاركة من الزر أدناه.]]></message>
 
 	<message key="rt.admin.sharing.basic">الإعدادات الأساسية</message>
 	<message key="rt.admin.sharing.userNameLabel">اسم المستخدم لدى AddThis.com</message>

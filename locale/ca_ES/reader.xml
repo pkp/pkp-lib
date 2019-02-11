@@ -56,7 +56,7 @@
 	<message key="rt.admin.sharing.buttonStyleLabel">Estil del botó</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Utilitzeu el menú desplegable</message>
 	<message key="rt.admin.sharing.advanced">Configuració avançada (opcional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Consulteu la <a href="http://www.addthis.com/help/customize/custom-button/">documentació de configuració d'AddThis.com </a> per obtenir-ne més informació.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Consulteu la <a href="https://www.addthis.com/help/customize/custom-button/">documentació de configuració d'AddThis.com </a> per obtenir-ne més informació.]]></message>
 	<message key="rt.admin.sharing.brandLabel">Marca</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opcions desplegables <br /> (llista separada per comes)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Llengua</message>

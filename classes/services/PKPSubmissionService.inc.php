@@ -180,7 +180,9 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		// Send authors, journal managers and site admins to the submission
 		// wizard for incomplete submissions
 		if ($submission->getSubmissionProgress() > 0 &&
-				($authorDashboard || $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $submissionContext->getId()))) {
+			($authorDashboard ||
+				$user->hasRole(array(ROLE_ID_MANAGER), $submissionContext->getId()) ||
+				$user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE))) {
 			return $dispatcher->url(
 				$request,
 				ROUTE_PAGE,
@@ -256,8 +258,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		}
 
 		$request = Application::getRequest();
-		$context = $request->getContext();
-		$contextId = $context ? $context->getId() : 0;
+		$contextId = $submission->getContextId();
 
 		$currentUser = $request->getUser();
 		if (!$currentUser) {
@@ -268,7 +269,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		// Only allow admins and journal managers to delete submissions, except
 		// for authors who can delete their own incomplete submissions
-		if ($currentUser->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $contextId)) {
+		if ($currentUser->hasRole(array(ROLE_ID_MANAGER), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
 			$canDelete = true;
 		} else {
 			if ($submission->getSubmissionProgress() != 0 ) {
@@ -346,7 +347,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$contextId = $submission->getContextId();
 
-		if ($user->hasRole(array(ROLE_ID_MANAGER), $contextId) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_ID_NONE)) {
+		if ($user->hasRole(array(ROLE_ID_MANAGER), $contextId) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
 			return true;
 		}
 

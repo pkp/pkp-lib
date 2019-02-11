@@ -231,7 +231,7 @@ class QueryForm extends Form {
 				}
 
 				// if current user is editor, add all reviewers
-				if ( $user->hasRole(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $context->getId()) || array_intersect(array(ROLE_ID_SUB_EDITOR), $userRoles) ) {
+				if ( $user->hasRole(array(ROLE_ID_MANAGER), $context->getId()) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE) || array_intersect(array(ROLE_ID_SUB_EDITOR), $userRoles) ) {
 					foreach ($reviewAssignments as $reviewAssignment) {
 						$includeUsers[] = $reviewAssignment->getReviewerId();
 					}

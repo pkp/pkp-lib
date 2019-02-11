@@ -45,7 +45,7 @@ class PKPNavigationMenuService {
 				'conditionalWarning' => __('manager.navigationMenus.editorialTeam.conditionalWarning'),
 			),
 			NMI_TYPE_SUBMISSIONS => array(
-				'title' => __('navigation.submissions'),
+				'title' => __('about.submissions'),
 				'description' => __('manager.navigationMenus.submissions.description'),
 			),
 			NMI_TYPE_ANNOUNCEMENTS => array(

@@ -94,7 +94,7 @@ class DashboardHandler extends Handler {
 			),
 			'lazyLoad' => true,
 		);
-		if (!$currentUser->hasRole(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $request->getContext()->getId())) {
+		if (!$currentUser->hasRole(array(ROLE_ID_MANAGER), $request->getContext()->getId()) && !$currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
 			$params['getParams']['assignedTo'] = $currentUser->getId();
 		}
 		$archivedListPanel = new SubmissionsListPanel($params);

@@ -281,12 +281,12 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 * @return array
 	 */
 	public function getRecordProperties($records, $params, $props, $args = null) {
-		$values = array();
-		if (in_array('timeSegments', $props)) {
-			unset($props['timeSegments']);
-			$values['timeSegments'] = $this->getTimeSegments($records, $params, $props, $args);
-		}
 		$values = $this->getStatsProperties($records, $params, $props, $args);
+		if (in_array('timeSegments', $props)) {
+			$timeSegmentProps = $props;
+			unset($timeSegmentProps['timeSegments']);
+			$values['timeSegments'] = $this->getTimeSegments($records, $params, $timeSegmentProps, $args);
+		}
 		return $values;
 	}
 

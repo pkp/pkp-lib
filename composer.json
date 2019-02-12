@@ -19,7 +19,7 @@
 		"danielstjules/stringy": "3.*"
 	},
 	"require-dev": {
-		"facebook/webdriver": "~1.6.0",
+		"facebook/webdriver": "~1.6",
 		"phpunit/phpunit": "~6"
 	},
 	"config": {

@@ -15,6 +15,9 @@
 
 import('lib.pkp.tests.WebTestCase');
 
+use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\WebDriverBy;
+
 abstract class PKPInstallationTest extends WebTestCase {
 	/**
 	 * Get a piece of text by which to recognize the installation form.
@@ -28,7 +31,7 @@ abstract class PKPInstallationTest extends WebTestCase {
 	 */
 	function testInstallation() {
 		$this->open(self::$baseUrl);
-		$this->assertTextPresent($this->_getInstallerText());
+		$this->waitForTextPresent($this->_getInstallerText());
 
 		// Administrator
 		$this->waitForElementPresent('css=[id^=adminUsername-]');
@@ -55,9 +58,8 @@ abstract class PKPInstallationTest extends WebTestCase {
 		$this->type('css=[id^=filesDir-]', getenv('FILESDIR'));
 
 		// Execute
-		$this->clickAndWait('css=[id^=submitFormButton-]');
+		$this->click('css=[id^=submitFormButton-]');
 		$this->waitForTextPresent('has completed successfully.');
-		$this->waitJQuery();
 	}
 }
 

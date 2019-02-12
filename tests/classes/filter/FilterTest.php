@@ -95,7 +95,7 @@ class FilterTest extends PKPTestCase {
 
 	/**
 	 * @covers Filter
-	 * @expectedException \PHPUnit\Framework\Exception
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	public function testUnsupportedEnvironment() {
 		$mockFilter = $this->getFilterMock();

@@ -35,7 +35,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @covers ValidatorTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException \PHPUnit\Framework\Exception
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	function testInstantiateWithInvalidTypeDescriptor1() {
 		// An unknown type name will cause an error.
@@ -45,7 +45,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @covers ValidatorTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException \PHPUnit\Framework\Exception
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	function testInstantiateWithInvalidTypeDescriptor2() {
 		// We don't allow multi-dimensional arrays.
@@ -55,7 +55,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @covers ValidatorTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException \PHPUnit\Framework\Exception
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	function testInstantiateWithInvalidTypeDescriptor3() {
 		// An invalid cardinality will also cause an error.

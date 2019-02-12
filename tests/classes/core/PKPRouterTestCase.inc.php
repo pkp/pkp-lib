@@ -81,7 +81,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	/**
 	 * @covers PKPRouter::getRequestedContextPath
 	 * @covers PKPRouter::getRequestedContextPaths
-	 * @expectedException \PHPUnit\Framework\Exception
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	public function testGetRequestedContextPathWithInvalidLevel() {
 		// Context depth = 1 but we try to access context level 2

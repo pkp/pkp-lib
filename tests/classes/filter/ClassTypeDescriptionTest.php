@@ -33,7 +33,7 @@ class ClassTypeDescriptionTest extends PKPTestCase {
 
 	/**
 	 * @covers ClassTypeDescription
-	 * @expectedException \PHPUnit\Framework\Exception
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	function testInstantiateWithInvalidTypeDescriptor1() {
 		// An unknown type name will cause an error.

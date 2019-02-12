@@ -237,19 +237,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('css=#dashboardTabs');
 		$this->click('css=[name=active]');
-		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
+		$xpath = '//div[contains(text(),' . $this->quoteXpath($title) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
-	}
-
-	protected function quoteXpath($string) {
-		// Use an xpath concat to escape quotes in literals.
-		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		return 'concat(\'' . strtr($this->escapeJS($string),
-			array(
-				'\\\'' => '\', "\'", \''
-			)
-		) . '\',\'\')';
 	}
 
 	/**
@@ -318,7 +308,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
 		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
 		$this->waitJQuery();
-		$xpath = '//div[contains(text(),' . $this->quoteXPath($name) . ')]';
+		$xpath = '//div[contains(text(),' . $this->quoteXpath($name) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 		$this->click('css=[id^=selectReviewerButton]');
@@ -341,7 +331,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//div[normalize-space(text())=' . $this->quoteXPath($title) . ']';
+		$xpath = '//div[normalize-space(text())=' . $this->quoteXpath($title) . ']';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 

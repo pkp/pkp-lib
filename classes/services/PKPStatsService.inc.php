@@ -227,11 +227,16 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 			$timeSegment = STATISTICS_DIMENSION_MONTH;
 		}
 
-		// get all existing dates (months or days)
-		$timeSegmentDates = array();
-		foreach ($records as $record) {
-			if (!in_array($record[$timeSegment], $timeSegmentDates)) $timeSegmentDates[] = $record[$timeSegment];
-		}
+		// get the earliest found date (month or day), in format Ymd
+		$earliestDateFound = $timeSegment == STATISTICS_DIMENSION_MONTH ? end($records)[$timeSegment] . '01' : end($records)[$timeSegment];
+		// get the start and end date:
+		// if dateStart parameter exists take it, else take the earliest found date
+		$dateStart = isset($args['params']['dateStart']) ? str_replace('-', '', $args['params']['dateStart']) : $earliestDateFound;
+		// if dateEnd parameter exists take it, else take the current date
+		$dateEnd = isset($args['params']['dateEnd']) ? str_replace('-', '', $args['params']['dateEnd']) : date('Ymd', time());
+		// get all time segments (months or days) between the start and end date
+		// the result dates are then sorted DESC (latest -> earliest)
+		$timeSegmentDates = array_reverse($this->_getTimeSegments($dateStart, $dateEnd, $timeSegment));
 
 		// Get stats for all existing days (months or days), and
 		// prepare the timeSegments return values (date, dateLabel and the actual stats for each time segment)
@@ -240,7 +245,8 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 			// all stats we are interested in
 			$total = $abstractViews = $fileViews = $pdfs = $htmls = $others = 0;
 
-			// get all records with the current date
+			// get all records with the given date
+			// if the given date is not found, an empty array will be the result
 			$dateRecords = array_filter($records, function ($record) use ($timeSegmentDate, $timeSegment) {
 				return ($record[$timeSegment] == $timeSegmentDate);
 			});
@@ -314,78 +320,102 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		foreach ($props as $prop) {
 			switch ($prop) {
 				case 'total':
-					// total = sum of all records
-					$values[$prop] = array_sum(array_map(
-						function($record){
-							return $record[STATISTICS_METRIC];
-						},
-						$records
-					));
+					if (empty($records)) {
+						$values[$prop] = 0;
+					} else {
+						// total = sum of all records
+						$values[$prop] = array_sum(array_map(
+							function($record){
+								return $record[STATISTICS_METRIC];
+							},
+							$records
+						));
+					}
 					break;
 				case 'abstractViews':
-					// filter abstract views records (containing the entity assoc type)
-					$abstractViewsRecords = array_filter($records, function ($record) use ($entityAssocType) {
-						return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $entityAssocType);
-					});
-					// abstract views = sum of all abstract views records
-					$values[$prop] = array_sum(array_map(
-						function($record){
-							return $record[STATISTICS_METRIC];
-						},
-						$abstractViewsRecords
-					));
+					if (empty($records)) {
+						$values[$prop] = 0;
+					} else {
+						// filter abstract views records (containing the entity assoc type)
+						$abstractViewsRecords = array_filter($records, function ($record) use ($entityAssocType) {
+							return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $entityAssocType);
+						});
+						// abstract views = sum of all abstract views records
+						$values[$prop] = array_sum(array_map(
+							function($record){
+								return $record[STATISTICS_METRIC];
+							},
+							$abstractViewsRecords
+						));
+					}
 					break;
 				case 'totalFileViews':
-					// filter file views records (containing the file assoc type)
-					$fileViewsRecords = array_filter($records, function ($record) use ($fileAssocType) {
-						return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType);
-					});
-					// total file views = sum of all ttotal file views records
-					$values[$prop] = array_sum(array_map(
-						function($record){
-							return $record[STATISTICS_METRIC];
-						},
-						$fileViewsRecords
-					));
+					if (empty($records)) {
+						$values[$prop] = 0;
+					} else {
+						// filter file views records (containing the file assoc type)
+						$fileViewsRecords = array_filter($records, function ($record) use ($fileAssocType) {
+							return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType);
+						});
+						// total file views = sum of all ttotal file views records
+						$values[$prop] = array_sum(array_map(
+							function($record){
+								return $record[STATISTICS_METRIC];
+							},
+							$fileViewsRecords
+						));
+					}
 					break;
 				case 'pdf':
-					// filter pdf views records (containing the file assoc type and the pdf file type)
-					$pdfRecords = array_filter($records, function ($record) use ($fileAssocType) {
-						return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_PDF);
-					});
-					//  pdf views = sum of all pdf views records
-					$values[$prop] = array_sum(array_map(
-						function($record){
-							return $record[STATISTICS_METRIC];
-						},
-						$pdfRecords
-					));
+					if (empty($records)) {
+						$values[$prop] = 0;
+					} else {
+						// filter pdf views records (containing the file assoc type and the pdf file type)
+						$pdfRecords = array_filter($records, function ($record) use ($fileAssocType) {
+							return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_PDF);
+						});
+						//  pdf views = sum of all pdf views records
+						$values[$prop] = array_sum(array_map(
+							function($record){
+								return $record[STATISTICS_METRIC];
+							},
+							$pdfRecords
+						));
+					}
 					break;
 				case 'html':
-					// filter html views records (containing the file assoc type and the html file type)
-					$htmlRecords = array_filter($records, function ($record) use ($fileAssocType) {
-						return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_HTML);
-					});
-					// html views = sum of all html views records
-					$values[$prop] = array_sum(array_map(
-						function($record){
-							return $record[STATISTICS_METRIC];
-						},
-						$htmlRecords
-					));
+					if (empty($records)) {
+						$values[$prop] = 0;
+					} else {
+						// filter html views records (containing the file assoc type and the html file type)
+						$htmlRecords = array_filter($records, function ($record) use ($fileAssocType) {
+							return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_HTML);
+						});
+						// html views = sum of all html views records
+						$values[$prop] = array_sum(array_map(
+							function($record){
+								return $record[STATISTICS_METRIC];
+							},
+							$htmlRecords
+						));
+					}
 					break;
 				case 'other':
-					// filter other file tpye views records (containing the file assoc type and the other file type)
-					$otherRecords = array_filter($records, function ($record) use ($fileAssocType) {
-						return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_OTHER);
-					});
-					// calculate the other file type views = sum of all other file type views for the current date
-					$values[$prop] = array_sum(array_map(
-						function($record){
-							return $record[STATISTICS_METRIC];
-						},
-						$otherRecords
-					));
+					if (empty($records)) {
+						$values[$prop] = 0;
+					} else {
+						// filter other file tpye views records (containing the file assoc type and the other file type)
+						$otherRecords = array_filter($records, function ($record) use ($fileAssocType) {
+							return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType && $record[STATISTICS_DIMENSION_FILE_TYPE] == STATISTICS_FILE_TYPE_OTHER);
+						});
+						// calculate the other file type views = sum of all other file type views for the current date
+						$values[$prop] = array_sum(array_map(
+							function($record){
+								return $record[STATISTICS_METRIC];
+							},
+							$otherRecords
+						));
+					}
 					break;
 			}
 		}
@@ -510,6 +540,34 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 			);
 		}
 		return $submissionIds;
+	}
+
+	/**
+	 * Get all time segments (months or days) beween the given start and the end date.
+	 * It is assumed that startDate <= endDate
+	 *
+	 * @param $startDate string
+	 * @param $endDate string
+	 * @param $timeSegment string
+	 * @return array of time segments in ASC order
+	 */
+	private function _getTimeSegments($startDate, $endDate, $timeSegment) {
+		if ($timeSegment == STATISTICS_DIMENSION_MONTH) {
+			$resultDateFormat = 'Ym';
+			$interval = '+1 month';
+		} elseif ($timeSegment == STATISTICS_DIMENSION_DAY) {
+			$resultDateFormat = 'Ymd';
+			$interval = '+1 day';
+		}
+		$startTime  = strtotime($startDate);
+		$endTime  = strtotime($endDate);
+
+		$timeSegments = array();
+		while($startTime <= $endTime) {
+			$timeSegments[] = date($resultDateFormat, $startTime);
+			$startTime = strtotime(date('Ymd', $startTime) . $interval);
+		}
+		return $timeSegments;
 	}
 
 }

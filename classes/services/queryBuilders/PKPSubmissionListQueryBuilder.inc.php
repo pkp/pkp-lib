@@ -80,7 +80,7 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		if ($column === 'lastModified') {
 			$this->orderColumn = 's.last_modified';
 		} elseif ($column === 'title') {
-			$this->orderColumn = 'st.setting_value';
+			$this->orderColumn = Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)');
 		} else {
 			$this->orderColumn = 's.date_submitted';
 		}
@@ -218,11 +218,16 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 					->groupBy('s.submission_id');
 
 		// order by title
-		if ($this->orderColumn === 'st.setting_value') {
-			$this->columns[] = 'st.setting_value';
-			$q->leftJoin('submission_settings as st', 's.submission_id', '=', 'st.submission_id')
-				->where('st.setting_name', '=', 'title');
-			$q->groupBy('st.setting_value');
+		if ($this->orderColumn == Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)')) {
+			$locale = \AppLocale::getLocale();
+			$this->columns[] = Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)');
+			$q->leftJoin('submission_settings as submission_tl', 's.submission_id', '=', 'submission_tl.submission_id')
+				->where('submission_tl.setting_name', '=', 'title')
+				->where('submission_tl.locale', '=', $locale);
+			$q->leftJoin('submission_settings as submission_tpl', 's.submission_id', '=', 'submission_tpl.submission_id')
+				->where('submission_tpl.setting_name', '=', 'title')
+				->where('submission_tpl.locale', '=', Capsule::raw('s.locale'));
+			$q->groupBy(Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)'));
 		}
 
 		// return object

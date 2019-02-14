@@ -73,7 +73,6 @@
 	<message key="submission.history.submissionEventLog">Logboek gebeurtenissen</message>
 	<message key="submission.history.submissionNotes">Aantekeningen inzending</message>
 	<message key="submission.history.viewLog">Bekijk logboek</message>
-	<message key="submission.indexing">Indexeren</message>
 	<message key="submission.initiated">Geïnitieerd</message>
 	<message key="submission.lastModified">Laatst gewijzigd</message>
 	<message key="submission.layout.addGalley">Voeg een opmaak proefdruk toe</message>

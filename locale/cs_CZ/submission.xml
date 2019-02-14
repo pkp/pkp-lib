@@ -113,7 +113,6 @@
 	<message key="submission.history.submissionEventLog">Protokol událostí</message>
 	<message key="submission.history.submissionNotes">Poznámky k přípsěvku</message>
 	<message key="submission.history.viewLog">Zobrazit protokol</message>
-	<message key="submission.indexing">Indexace</message>
 	<message key="submission.initiated">Zahájeno</message>
 	<message key="submission.lastModified">Naposledy změněno</message>
 	<message key="submission.layout.addGalley">Přidat sazebnici</message>

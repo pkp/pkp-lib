@@ -182,7 +182,6 @@
 	<message key="submission.history.submissionEventLog">Olay Günlüğü</message>
 	<message key="submission.history.submissionNotes">Başvuru Notları</message>
 	<message key="submission.history.viewLog">Günlüğü Göster</message>
-	<message key="submission.indexing">Dizinleme</message>
 	<message key="submission.initiated">Başlatılmış</message>
 	<message key="submission.lastModified">Son değişiklik</message>
 	<message key="submission.layout.addGalley">Mizanpaj Dizgisi Ekle</message>

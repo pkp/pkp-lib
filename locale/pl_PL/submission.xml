@@ -182,7 +182,6 @@
 	<message key="submission.history.submissionEventLog">Dziennik zdarzeń</message>
 	<message key="submission.history.submissionNotes">Notatki</message>
 	<message key="submission.history.viewLog">Zobacz dziennik</message>
-	<message key="submission.indexing">Indeksowanie</message>
 	<message key="submission.initiated">Rozpoczęty</message>
 	<message key="submission.lastModified">Ostatnio zmieniany</message>
 	<message key="submission.layout.addGalley">Dodaj szablon pliku do publikacji</message>

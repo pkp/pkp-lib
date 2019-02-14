@@ -273,13 +273,12 @@ class WebTestCase extends PKPTestCase {
 		$this->assertElementPresent($formId, 'The passed form locator do not point to any form element at the current page.');
 		$this->click('css=#' . $formId . ' #submitFormButton');
 
-		$progressIndicatorSelector = '#' . $formId . ' .formButtons .pkp_spinner';
-
 		// First make sure that the progress indicator is visible.
-		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 1", 2000);
+		$element = $this->find($selector = "css=#$formId .formButtons .pkp_spinner");
+		self::$driver->wait(5,100)->until($visibilityCondition = WebDriverExpectedCondition::visibilityOf($element));
 
 		// Wait until it disappears (the form submit process is finished).
-		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 0");
+		self::$driver->wait(5,100)->until(WebDriverExpectedCondition::not($visibilityCondition));
 	}
 
 	/**

@@ -60,9 +60,12 @@ class WebTestCase extends PKPTestCase {
 		self::$baseUrl = getenv('BASEURL');
 		self::$timeout = (int) getenv('TIMEOUT');
 		if (!self::$timeout) self::$timeout = 60; // Default 60 seconds
-		if (!self::$driver) {
-			self::$driver = RemoteWebDriver::create('http://localhost:4444/wd/hub', DesiredCapabilities::chrome());
-		}
+		if (!self::$driver) self::$driver = RemoteWebDriver::create(
+			'http://localhost:4444/wd/hub',
+			DesiredCapabilities::chrome(),
+			self::$timeout * 1000,
+			self::$timeout * 1000
+		);
 		parent::setUpBeforeClass();
 	}
 

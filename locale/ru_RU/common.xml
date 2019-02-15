@@ -110,6 +110,7 @@
 	<message key="common.country">Страна</message>
 	<message key="common.create">Создать</message>
 	<message key="common.dateCompleted">Дата завершения</message>
+	<message key="common.dateDecided">Дата решения</message>
 	<message key="common.date">Дата</message>
 	<message key="common.dateModified">Дата изменения</message>
 	<message key="common.dateRequested">Дата запроса</message>

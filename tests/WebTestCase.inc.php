@@ -188,7 +188,7 @@ class WebTestCase extends PKPTestCase {
 		$this->type('css=[id=password]', $data['password']);
 		$this->type('css=[id=password2]', $data['password2']);
 		if (isset($data['affiliation'])) $this->type('css=[id=affiliation]', $data['affiliation']);
-		if (isset($data['country'])) $this->select('id=country', $data['country']);
+		if (isset($data['country'])) $this->select('id=country', 'label=' . $data['country']);
 
 		// Select the specified roles
 		foreach ($data['roles'] as $role) {
@@ -200,7 +200,7 @@ class WebTestCase extends PKPTestCase {
 		// Save the new user
 		$this->waitForElementPresent($formButtonSelector = '//button[contains(.,\'Register\')]');
 		$this->click($formButtonSelector);
-		$this->waitForElementPresent('link=Logout');
+		$this->waitForElementPresent('css=ul#navigationUser>li.profile>a');
 
 		if (in_array('Author', $data['roles'])) {
 			$this->waitForElementPresent('//h4[contains(.,\'My Authored\')]');
@@ -213,8 +213,8 @@ class WebTestCase extends PKPTestCase {
 	protected function logOut() {
 		$this->open(self::$baseUrl);
 		$actions = new WebDriverActions(self::$driver);
-		$actions->moveToElement($this->waitForElementPresent('css=.user.align_right'))
-			->click($this->waitForElementPresent('link=Logout'))
+		$actions->click($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
+			->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Logout")]'))
 			->perform();
 	}
 
@@ -344,12 +344,6 @@ class WebTestCase extends PKPTestCase {
 	protected function setInputValue($selector, $value) {
 		$this->waitForElementPresent('css=' . $selector);
 		$this->type('css=' . $selector, $value);
-/*		$this->runScript("
-			var el = document.querySelector('" . $selector . "');
-			el.value = " . json_encode($value) . ";
-			var e = new Event('input');
-			el.dispatchEvent(e);
-		");*/
 	}
 
 	/**

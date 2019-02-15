@@ -19,12 +19,22 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	/** @var Submission The submission associated with the submission contributor being edited **/
 	var $_submission;
 
-	/** @var  **/
+	/** @var $_assignmentId int Used for edit the assignment **/
 	var $_assignmentId;
+
+	/** @var $_isChangePermitMetadataAllowed bool true if permit_metadata_edit field is allowed to change  **/
 	var $_isChangePermitMetadataAllowed = false;
+
+	/** @var $_isChangeRecommentOnlyAllowed bool true if recommend_only field is allowed to change  **/
 	var $_isChangeRecommentOnlyAllowed = false;
+
+	/** @var $_managerGroupIds array Contains all manager group_ids  **/
 	var $_managerGroupIds;
+
+	/** @var $_possibleRecommendOnlyUserGroupIds array Contains all group_ids that can have the recommendOnly field available for change  **/
 	var $_possibleRecommendOnlyUserGroupIds;
+
+	/** @var $_contextId int the current Context Id **/
 	var $_contextId;
 
 	/**

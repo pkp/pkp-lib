@@ -73,7 +73,6 @@
 	<message key="submission.history.submissionEventLog">Histórico de eventos</message>
 	<message key="submission.history.submissionNotes">Notas sobre a submissão</message>
 	<message key="submission.history.viewLog">Visualizar histórico</message>
-	<message key="submission.indexing">Indexação</message>
 	<message key="submission.initiated">Iniciado</message>
 	<message key="submission.lastModified">Última alteração</message>
 	<message key="submission.layout.addGalley">Adicionar modelo para Layout</message>

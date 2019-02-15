@@ -71,7 +71,6 @@
 	<message key="submission.history.submissionEventLog">Registro degli eventi</message>
 	<message key="submission.history.submissionNotes">Note alla proposta</message>
 	<message key="submission.history.viewLog">Vedi il Registro</message>
-	<message key="submission.indexing">Indicizzazione</message>
 	<message key="submission.initiated">Iniziato</message>
 	<message key="submission.lastModified">Ultima modifica</message>
 	<message key="submission.layout.addGalley">Aggiungi una gabbia</message>

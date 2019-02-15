@@ -68,7 +68,6 @@
 	<message key="submission.history.submissionEmailLog">Korespondencija e-poštom</message>
 	<message key="submission.history.submissionNotes">Bilješke o prijavi</message>
 	<message key="submission.history.viewLog">Pregled zapisa</message>
-	<message key="submission.indexing">Ključne riječi</message>
 	<message key="submission.initiated">Započeto</message>
 	<message key="submission.lastModified">Zadnja izmjena</message>
 	<message key="submission.layout.addGalley">Dodajte prijelom</message>

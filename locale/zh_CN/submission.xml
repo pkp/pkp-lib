@@ -71,7 +71,6 @@
 	<message key="submission.history.submissionEventLog">事件日志</message>
 	<message key="submission.history.submissionNotes">投稿须知</message>
 	<message key="submission.history.viewLog">查看日志</message>
-	<message key="submission.indexing">索引</message>
 	<message key="submission.initiated">已经开始的</message>
 	<message key="submission.lastModified">最后的修改</message>
 	<message key="submission.layout.addGalley">添加一个排版样稿</message>

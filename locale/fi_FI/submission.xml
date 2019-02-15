@@ -221,7 +221,6 @@
 	<message key="submission.history.viewLog">Näytä loki</message>
 	<message key="submission.howToCite">Viittaaminen</message>
 	<message key="submission.howToCite.citationFormats">Viittausmuodot</message>
-	<message key="submission.indexing">Indeksointi</message>
 	<message key="submission.initiated">Aloitettu</message>
 
 	<!-- Identifiers -->

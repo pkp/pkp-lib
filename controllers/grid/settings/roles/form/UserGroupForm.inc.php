@@ -134,7 +134,7 @@ class UserGroupForm extends Form {
 		$templateMgr->assign('disableRoleSelect', $disableRoleSelect);
 		$templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
 		$templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
-		$templateMgr->assign('notChangeMetadataEditPermissionRoles', $this->getNotChangeMetadataEditPermissionRoles());
+		$templateMgr->assign('notChangeMetadataEditPermissionRoles', UserGroupDAO::getNotChangeMetadataEditPermissionRoles());
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -156,14 +156,6 @@ class UserGroupForm extends Form {
 	}
 
 	/**
-	 * Get a list of roles not able to change recommendOnly submissionMetadataEdit permission option.
-	 * @return array
-	 */
-	function getNotChangeMetadataEditPermissionRoles() {
-		return array(ROLE_ID_MANAGER);
-	}
-
-	/**
 	 * @copydoc Form::execute()
 	 */
 	function execute() {
@@ -180,8 +172,8 @@ class UserGroupForm extends Form {
 			$userGroup->setDefault(false);
 			$userGroup->setShowTitle($this->getData('showTitle'));
 			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
-			$userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit'));
-			if (in_array($this->getData('roleId'), $this->getNotChangeMetadataEditPermissionRoles())) {
+			$userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($this->getData('roleId'), UserGroupDAO::getNotChangeMetadataEditPermissionRoles()));
+			if (in_array($this->getData('roleId'), UserGroupDAO::getNotChangeMetadataEditPermissionRoles())) {
 				$userGroup->setPermitMetadataEdit(true);
 			}
 
@@ -194,10 +186,21 @@ class UserGroupForm extends Form {
 			$userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
 			$userGroup->setShowTitle($this->getData('showTitle'));
 			$userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
-			$userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit'));
-			if (in_array($userGroup->getRoleId(), $this->getNotChangeMetadataEditPermissionRoles())) {
+			$userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($userGroup->getRoleId(), UserGroupDAO::getNotChangeMetadataEditPermissionRoles()));
+			if (in_array($userGroup->getRoleId(), UserGroupDAO::getNotChangeMetadataEditPermissionRoles())) {
 				$userGroup->setPermitMetadataEdit(true);
+			} else {
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var stageAssignmentDao StageAssignmentDAO */
+				$allUserAssignments = $stageAssignmentDao
+					->getByUserGroupId($userGroupId, $this->getContextId())
+					->toAssociativeArray();
+
+				foreach($allUserAssignments as $userAssignment) {
+					$userAssignment->setCanChangeMetadata($userGroup->getPermitMetadataEdit());
+					$stageAssignmentDao->updateObject($userAssignment);
+				}
 			}
+			
 			$userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
 
 			$userGroupDao->updateObject($userGroup);

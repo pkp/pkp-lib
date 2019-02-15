@@ -1036,6 +1036,13 @@ class UserGroupDAO extends DAO {
 		return $userGroupIds;
 	}
 
+	/**
+	 * Get a list of roles not able to change submissionMetadataEdit permission option.
+	 * @return array
+	 */
+	static function getNotChangeMetadataEditPermissionRoles() {
+		return array(ROLE_ID_MANAGER);
+	}
 }
 
 

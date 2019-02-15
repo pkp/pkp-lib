@@ -19,6 +19,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	/** @var Submission The submission associated with the submission contributor being edited **/
 	var $_submission;
 
+	/** @var  **/
 	var $_assignmentId;
 	var $_isChangePermitMetadataAllowed = false;
 	var $_isChangeRecommentOnlyAllowed = false;
@@ -45,7 +46,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 
-		$this->initialise();
+		$this->initialize();
 	}
 
 	//
@@ -60,9 +61,9 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	}
 
 	/**
-	 * Initialise private attributes that need to be used through all functions.
+	 * Initialize private attributes that need to be used through all functions.
 	 */
-	function initialise() {
+	function initialize() {
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
 		// assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
@@ -85,7 +86,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$this->initialise($request);
+		$this->initialize($request);
 
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getUserGroupsByStage(
@@ -204,8 +205,8 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * @return array ($userGroupId, $userId)
 	 */
 	function execute() {
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var $stageAssignmentDao StageAssignmentDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var $userGroupDao UserGroupDAO */
 
 		$submission = $this->getSubmission();
 		$userGroupId = (int) $this->getData('userGroupId');

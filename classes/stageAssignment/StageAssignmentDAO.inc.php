@@ -117,6 +117,28 @@ class StageAssignmentDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve all assignments by UserGroupId and ContextId
+	 * @param $userGroupId int
+	 * @param $contextId int
+	 * @return DAOResultFactory
+	 */
+	function getByUserGroupId($userGroupId, $contextId) {
+		$params = array(
+			(int) $userGroupId, 
+			(int) $contextId
+		);
+
+		$result = $this->retrieve(
+			'SELECT * FROM stage_assignments sa'
+			. ' JOIN submissions s ON s.submission_id = sa.submission_id'
+			. ' WHERE sa.user_group_id = ? AND s.context_id = ?',
+			$params
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Fetch a stageAssignment by symbolic info, building it if needed.
 	 * @param $submissionId int
 	 * @param $userGroupId int

@@ -79,9 +79,4 @@
 	  <message key="installer.beacon">Beacon</message>
 	  <message key="installer.beacon.enable">Geef een unieke ID op voor de website, en een basis-URL voor OAI. Deze gegevens worden uitsluitend gebruikt voor statistieken en beveiliging.</message>
 	  <message key="installer.unsupportedPhpError">De PHP versie van uw server wordt niet ondersteund door deze software. Controleer de systeemvereisten in docs/README.</message>
-	
-	<!--possibly superfluous terms-->
-	<message key="installer.encryption">Wachtwoord-encryptiealgoritme</message>
-	<message key="installer.form.encryptionRequired">Er moet een wachtwoord-encryptie algoritme gekozen worden.</message>
-	<message key="installer.securitySettings">Security instellingen</message>
 </locale>

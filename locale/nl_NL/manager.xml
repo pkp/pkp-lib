@@ -626,27 +626,4 @@
 	  <message key="grid.category.removeText">Weet u zeker dat u deze categorie wilt verwijderen?</message>
 	  <message key="grid.category.nameRequired">Vul een naam voor de categorie in.</message>
 	  <message key="grid.category.categoryDetails">Categorie informatie</message>
-	
-   <!--possibly superfluous terms-->
-	 <message key="manager.setup.homeHeaderImageInvalid">Onbruikbaar bestandsformaat voor het homepage koptekst-logo. Bruikbaar zijn .gif, .jpg of .png.</message>
-   <message key="manager.setup.layout.unselected">Niet geselecteerd</message>
-   <message key="manager.setup.selectOne">Kies er een</message>
-   <message key="manager.setup.layout.blockManagement">Beheer van de sidebar</message>
-   <message key="subscriptions.individualDescription">Bij individuele abonnementen is inloggen nodig om toegang te krijgen tot de inhoud.</message>
-   <message key="manager.setup.additionalContentDescription">Deze tekst zal op de homepage worden getoond.</message>
-   <message key="manager.setup.authorCopyrightNotice">Copyright verklaring</message>
-   <message key="manager.setup.authorCopyrightNoticeAgree">Verplicht auteurs om in te stemmen met de copyright verklaring als deel van het inzendingsproces.</message>
-   <message key="manager.setup.competingInterestsDescription">Reviewers wordt gevraagd om aan te geven of ze voldoen aan de verklaring over strijdige belangen die hieronder wordt gegeven.</message>
-   <message key="manager.setup.homepageImageDescription">Laad een bestand op voor de homepage.</message>
-   <message key="manager.setup.layout.theme">Stijl</message>
-   <message key="manager.setup.layout.themeDescription">Nieuwe stijlen kunnen worden geïnstalleerd in het Plugins tabblad bovenaan deze pagina.</message>
-   <message key="manager.setup.pageFooterDescription">Vul afbeeldingen, tekst of HTML code in die onderaan elke pagina op de website moet worden getoond.</message>
-   <message key="manager.setup.reviewOptions.remindForInvite">Geef aan na hoeveel dagen na het versturen van een reviewverzoek een herinnering moet worden verstuurd aan reviewers die nog niet hebben geantwoord:</message>
-   <message key="manager.setup.reviewOptions.remindForSubmit">Geef aan na hoeveel dagen na de afgesproken reviewdatum een herinnering moet worden verstuurd aan reviewers die hun review nog niet hebben ingediend:</message>
-   <message key="manager.setup.reviewOptions.reviewTime">Tijd voor review</message>
-   <message key="manager.setup.searchEngineIndexing.sitemap">Sitemap</message>
-   <message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[Een XML sitemap is beschikbaar voor zoekmachines op <a href="{$pagh}" target="_blank">{$path}</a>.]]></message>
-   <message key="manager.distribution.indexing">Indexering</message>
-   <message key="manager.paymentMethod.currency.description">Betalingen die rechtstreeks via deze website worden uitgevoerd zullen in de geselecteerde munteenheid worden verrekend.</message>
-   <message key="manager.setup.reviewerCompetingInterestsRequired.description">Verklaring over strijdbare belangen voor reviewers</message>
 </locale>

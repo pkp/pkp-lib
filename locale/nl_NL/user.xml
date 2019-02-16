@@ -158,18 +158,4 @@
 	  <message key="user.apiKey.generateWarning">Een nieuwe API sleutel zal eerdere sleutels voor deze gebruiker ongeldig maken.</message>
 	  <message key="user.apiKey.secretRequired">Voor u een API sleutel kan aanmaken, moet uw website beheerder de instelling "api_key_secret" in het config.inc.php bestand opslaan.</message>
 	  <message key="user.privacyLink"><![CDATA[Uw gegevens worden bewaard in overeenstemming met onze <a href="{$privacyUrl}" target="_blank">privacy verklaring</a>.]]></message>
-	
-   <!--possibly superfluous terms-->
-	 <message key="user.biography.description">(Bv. Faculteit en functie)</message>
-   <message key="user.register.completeForm">Vul dit formulier in om u te registreren bij dit tijdschrift.</message>
-   <message key="user.register.passwordLengthRestriction">Het wachtwoord moet minimaal {$length} tekens zijn.</message>
-   <message key="user.firstName">Voornaam</message>
-   <message key="user.initialsExample">Peter Janssen = PJ</message>
-   <message key="user.initials">Initialen</message>
-   <message key="user.lastName">Familienaam</message>
-   <message key="user.middleName">Tweede naam</message>
-   <message key="user.profile.form.firstNameRequired">Voornaam is verplicht.</message>
-   <message key="user.profile.form.lastNameRequired">Familienaam is verplicht.</message>
-   <message key="user.salutation">Aanspreking</message>
-   <message key="user.suffix">Suffix</message>
 </locale>

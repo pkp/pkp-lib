@@ -117,14 +117,4 @@ Gebruik (om alle bestanden in een folder te verwerken): {$scriptName} pad/naar/a
 	  <message key="admin.error.utilExecutionProblem">Het "{$utilPath}" programma eindigde met volgende fout: {$output}</message>
 	  <message key="admin.error.executingUtil">Fout: kan "{$utilPath}" niet uitvoeren.  Controleer de instelling voor {$utilVar} in config.inc.php.</message>
 	  <message key="admin.languages.noLocalesToDownload">Er zijn geen taalbestanden om te downloaden.</message>
-		
-   <!--possibly superfluous terms-->
-	<message key="admin.serverInformationDescription"><![CDATA[Besturingssysteem en server programmatuur versies. Klik op <span class="highlight">Uitgebreide PHP informatie</span> om de details van de PHP configuratie van de server te bekijken.]]></message>
-   <message key="admin.settings.form.contactEmailRequired">Het e-mailadres van de eerste contactpersoon is verplicht.</message>
-   <message key="admin.settings.form.contactNameRequired">De naam van de eerste contactpersoon is verplicht.</message>
-   <message key="admin.settings.form.minPasswordLengthRequired">U moet een wachtwoordlengte van minimaal 4 tekens opgeven.</message>
-   <message key="admin.settings.form.titleRequired">Een titel is vereist.</message>
-   <message key="admin.settings.homeHeaderImage.altText">Site logo</message>
-   <message key="admin.settings.homeHeaderImageInvalid">Onjuist bestandstype voor het site logo. Geldige types zijn .gif, .jpg, en .png.</message>
-   <message key="admin.settings.passwordCharacters">tekens</message>
 </locale>

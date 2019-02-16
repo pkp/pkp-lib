@@ -645,9 +645,4 @@
 	  <message key="submission.currentCoverImage">Huidige omslagafbeelding</message>
 	  <message key="catalog.browseTitles">{$numTitles} titels</message>
 	  <message key="catalog.noTitlesSection">Er zijn nog geen titels gepubliceerd voor deze sectie</message>
-	
-   <!--possibly superfluous terms-->
-	 <message key="submission.submit.form.agenciesRequired">Vul een ondersteunende instelling in.</message>
-   <message key="submission.list.itemOrdererUp">Verplaats {$itemTitle} naar voor</message>
-   <message key="submission.list.itemOrdererDown">Verplaats {$itemTitle} naar achter</message>
 </locale>

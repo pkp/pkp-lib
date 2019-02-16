@@ -643,30 +643,4 @@
 	  <message key="validator.timezone">Dit is geen geldige tijdzone.</message>
 	  <message key="validator.unique">De {$attribute} bestaat al.</message>
 	  <message key="validator.url">Dit is geen geldige URL.</message>
-	
-   <!--possibly superfluous terms-->
-	 <message key="announcement.viewLink">Meer...</message>
-   <message key="common.pageHeaderLogo.altText">Paginakop logo</message>
-   <message key="common.uploadedFile">Laad bestand</message>
-   <message key="help.contents">Inhoud</message>
-   <message key="help.helpIndex">Help Index</message>
-   <message key="help.matchesFound">{$matches} overeenkomsten gevonden</message>
-   <message key="help.noMatchingTopics">Geen toepasselijke help-onderwerpen gevonden.</message>
-   <message key="help.relatedTopics">Gerelateerde onderwerpen</message>
-   <message key="help.searchFor">Doorzoek help naar</message>
-   <message key="help.searchResultsFor">Resultaten voor</message>
-   <message key="help.searchResults">Zoekresultaten</message>
-   <message key="help.search">Doorzoek Help</message>
-   <message key="search.reviseSearch">Herzie zoekopdracht</message>
-   <message key="search.searchAllCategories">Doorzoek alle categorieën op</message>
-   <message key="search.searchCategories">Doorzoek categorieën</message>
-   <message key="common.element">Element</message>
-   <message key="common.invalidFileType">Geen bestand geladen of onbekend bestandstype!</message>
-   <message key="common.signoff">Uitloggen</message>
-   <message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Deze server kent een maximumgrootte voor het laden van bestanden van {$fileSize}. Neem desgewenst contact op met <a href="mailto:{$supportEmail}">{$supportName}</a>voor assistentie.]]></message>
-   <message key="common.favicon.altText">Favicon</message>
-   <message key="common.subtitle.tip">De optionele ondertitel zal getoond worden na de hoofdtitel, gescheiden door een dubbele punt (:).</message>
-   <message key="common.homepageImage.altText">Afbeelding van homepage</message>
-   <message key="common.captchaField.altText">Validatie-afbeelding</message>
-   <message key="common.captchaField.badCaptcha">De ingevoerde karakters komen niet overeen met de karakters in de afbeelding. Controleer de karakters en probeer het opnieuw.</message>
 </locale>

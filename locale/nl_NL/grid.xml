@@ -272,10 +272,4 @@
 	  <message key="grid.navigationMenus.navigationMenuItems.noneExist">Het navigatiemenu heeft geen items</message>
 	  <message key="grid.navigationMenus.navigationMenu.noneExist">Er zijn geen navigatiemenu's</message>
 	  <message key="grid.navigationMenus.navigationMenu.selectType">Kies een type...</message>
-	
-   <!--possibly superfluous terms-->
-	<message key="grid.action.resubmit">Vraag deze inzending opnieuw in te sturen</message>
-	<message key="grid.genres.title">Genres</message>
-	<message key="grid.genres.description">Deze genres worden gebruikt bij het maken van bestandsnamen. Ze worden getoond in een pull-down menu bij het laden van bestanden. De genres met de indicatie ## maken het voor de gebruiker mogelijk om het bestand te associëren met het hele boek 99Z of met een specifiek hoofdstuk nummer (zoals 02).</message>
-	<message key="grid.preparedEmails.description">OJS faciliteert communicatie over de voortgang van het werk door het gebruik van voorbereide e-mails. De standaardinhoud van deze berichten kan hieronder aangepast worden.</message>
 </locale>

@@ -73,7 +73,6 @@
 	<message key="submission.history.submissionEventLog">Gertaeren loga</message>
 	<message key="submission.history.submissionNotes">Bidalketaren oharrak</message>
 	<message key="submission.history.viewLog">Ikusi loga</message>
-	<message key="submission.indexing">Indexatzea</message>
 	<message key="submission.initiated">Hasita</message>
 	<message key="submission.lastModified">Azken aldaketa</message>
 	<message key="submission.layout.addGalley">Gehitu Maketazio-galerada bat</message>

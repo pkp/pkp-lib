@@ -82,7 +82,6 @@
 	<message key="submission.history.submissionEventLog">Registre d'événements</message>
 	<message key="submission.history.submissionNotes">Notes de soumissions</message>
 	<message key="submission.history.viewLog">Voir le registre</message>
-	<message key="submission.indexing">Indexation</message>
 	<message key="submission.initiated">En cours</message>
 	<message key="submission.lastModified">Dernière modification</message>
 	<message key="submission.layout.addGalley">Ajouter une épreuve de mise en page</message>

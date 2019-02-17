@@ -206,7 +206,6 @@
 	<message key="submission.howToCite">Como Citar</message>
 	<message key="submission.howToCite.citationFormats">Mais Formatos de Citação</message>
 	<message key="submission.howToCite.downloadCitation">Baixar Citação</message>
-	<message key="submission.indexing">Indexação</message>
 	<message key="submission.initiated">Iniciado</message>
 	<message key="submission.lastModified">Última alteração</message>
 	<message key="submission.layout.addGalley">Incluir modelo para Layout</message>

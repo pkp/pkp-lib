@@ -215,7 +215,6 @@
 	<message key="submission.history.submissionEventLog">Registre d’esdeveniments</message>
 	<message key="submission.history.submissionNotes">Notes de la tramesa</message>
 	<message key="submission.history.viewLog">Visualitza el registre</message>
-	<message key="submission.indexing">Indexació</message>
 	<message key="submission.initiated">Iniciada</message>
 
 	<!-- Information Center -->

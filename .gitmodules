@@ -1,0 +1,3 @@
+[submodule "lib/counterBots"]
+	path = lib/counterBots
+	url = https://github.com/atmire/COUNTER-Robots.git

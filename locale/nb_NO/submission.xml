@@ -72,7 +72,6 @@
 	<message key="submission.history.submissionEventLog">Hendelseslogg</message>
 	<message key="submission.history.submissionNotes">Manuskriptnotater</message>
 	<message key="submission.history.viewLog">Vis logg</message>
-	<message key="submission.indexing">Indeksering</message>
 	<message key="submission.initiated">Igangsatt</message>
 	<message key="submission.lastModified">Sist endret</message>
 	<message key="submission.layout.addGalley">Legg til et layoutoppsett</message>

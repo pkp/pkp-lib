@@ -182,7 +182,6 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.history.submissionEventLog"> Log Event</message>
 	<message key="submission.history.submissionNotes">Catatan Naskah</message>
 	<message key="submission.history.viewLog">Lihat Log</message>
-	<message key="submission.indexing">Pengindeksan</message>
 	<message key="submission.initiated">Dimulai</message>
 	<message key="submission.lastModified">Terakhir Dimodifikasi</message>
 	<message key="submission.layout.addGalley">Tambahkan Galley Layout</message>

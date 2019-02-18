@@ -50,7 +50,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	public function getOrderedSubmissions($contextId, $args = array()) {
 		$records = array();
 		if (!empty($args['searchPhrase'])) {
-		    $submissionIds = $this->_filterSubmissionsBySearchPhrase($args['searchPhrase']);
+		    $submissionIds = $this->_filterSubmissionsBySearchPhrase($contextId, $args['searchPhrase']);
 		    if (empty($submissionIds)) return $records;
 		}
 		$statsListQB = $this->_buildGetOrderedSubmissionsQueryObject($contextId, $args);
@@ -89,7 +89,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	public function getTotalSubmissionsStats($contextId, $args = array()) {
 		$records = array();
 		if (!empty($args['searchPhrase'])) {
-			$submissionIds = $this->_filterSubmissionsBySearchPhrase($args['searchPhrase']);
+			$submissionIds = $this->_filterSubmissionsBySearchPhrase($contextId, $args['searchPhrase']);
 			if (empty($submissionIds)) return $records;
 		}
 		$statsListQB = $this->_buildGetTotalSubmissionsStatsQueryObject($contextId, $args);
@@ -527,10 +527,10 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 * @param $searchPhrase string
 	 * @return array of submisison IDs
 	 */
-	private function _filterSubmissionsBySearchPhrase($searchPhrase) {
+	private function _filterSubmissionsBySearchPhrase($contextId, $searchPhrase) {
 		$submissionIds = array();
 		$submissionService = \ServicesContainer::instance()->get('submission');
-		$submissions = $submissionService->getSubmissions($this->contextId, array('searchPhrase' => $searchPhrase));
+		$submissions = $submissionService->getSubmissions($contextId, array('searchPhrase' => $searchPhrase));
 		if (!empty($submissions)) {
 			$submissionIds = array_map(
 				function($submission){

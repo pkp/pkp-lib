@@ -119,9 +119,13 @@ class PKPNavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
 		if ($navigationMenuItem) {
+			$genericTitle = $navigationMenuItem->getTitleLocaleKey();
+			$title = $navigationMenuItem->getTitle(null);
+
 			$formData = array(
 				'path' => $navigationMenuItem->getPath(),
-				'title' => $navigationMenuItem->getTitle(null),
+				'title' => $title,
+				'genericTitle' => $genericTitle,
 				'url' => $navigationMenuItem->getUrl(),
 				'menuItemType' => $navigationMenuItem->getType(),
 			);
@@ -136,7 +140,7 @@ class PKPNavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url','menuItemType'));
+		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url', 'menuItemType'));
 	}
 
 	/**

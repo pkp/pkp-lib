@@ -562,6 +562,64 @@ class UserDAO extends DAO {
 	}
 
 	/**
+	 * Update user names when the site primary locale changes.
+	 * @param $oldLocale string
+	 * @param $newLocale string
+	 */
+	function changeSitePrimaryLocale($oldLocale, $newLocale) {
+		// remove all empty user names in the new locale
+		// so that we do not have to take care if we should insert or update them -- we can then only insert them if needed
+		$settingNames = array(IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName');
+		foreach ($settingNames as $settingName) {
+			$params = array($newLocale, $settingName);
+			$this->update(
+				"DELETE from user_settings
+				WHERE locale = ? AND setting_name = ? AND setting_value = ''",
+				$params
+			);
+		}
+		// get all names of all users in the new locale
+		$params = array($newLocale, IDENTITY_SETTING_GIVENNAME, $newLocale, IDENTITY_SETTING_FAMILYNAME, $newLocale, 'preferredPublicName');
+		$result = $this->retrieve(
+			"SELECT DISTINCT us.user_id, usg.setting_value AS given_name, usf.setting_value AS family_name, usp.setting_value AS preferred_public_name
+			FROM user_settings us
+				LEFT JOIN user_settings usg ON (usg.user_id = us.user_id AND usg.locale = ? AND usg.setting_name = ?)
+				LEFT JOIN user_settings usf ON (usf.user_id = us.user_id AND usf.locale = ? AND usf.setting_name = ?)
+				LEFT JOIN user_settings usp ON (usp.user_id = us.user_id AND usp.locale = ? AND usp.setting_name = ?)",
+			$params
+		);
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			$userId = $row['user_id'];
+			if (empty($row['given_name']) && empty($row['family_name']) && empty($row['preferred_public_name'])) {
+				// if no user name exists in the new locale, insert them all
+				foreach ($settingNames as $settingName) {
+					$params = array($newLocale, $settingName, $settingName, $oldLocale, $userId);
+					$this->update(
+						"INSERT INTO user_settings (user_id, locale, setting_name, setting_value, setting_type)
+						SELECT DISTINCT us.user_id, ?, ?, us.setting_value, 'string'
+						FROM user_settings us
+						WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
+						$params
+					);
+				}
+			} elseif (empty($row['given_name'])) {
+				// if the given name does not exist in the new locale (but one of the other names do exist), insert it
+				$params = array($newLocale, IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_GIVENNAME, $oldLocale, $userId);
+				$this->update(
+					"INSERT INTO user_settings (user_id, locale, setting_name, setting_value, setting_type)
+					SELECT DISTINCT us.user_id, ?, ?, us.setting_value, 'string'
+					FROM user_settings us
+					WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
+					$params
+				 );
+			}
+			$result->MoveNext();
+		}
+		$result->Close();
+	}
+
+	/**
 	 * Get the ID of the last inserted user.
 	 * @return int
 	 */

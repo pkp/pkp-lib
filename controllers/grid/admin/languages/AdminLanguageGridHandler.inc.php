@@ -365,6 +365,9 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 
 		if (array_key_exists($rowId, $gridData)) {
 			if (AppLocale::isLocaleValid($rowId)) {
+				$oldSitePrimaryLocale = $site->getPrimaryLocale();
+				$userDao = DAORegistry::getDAO('UserDAO');
+				$userDao->changeSitePrimaryLocale($oldSitePrimaryLocale, $rowId);
 				$site->setPrimaryLocale($rowId);
 				$siteDao = DAORegistry::getDAO('SiteDAO');
 				$siteDao->updateObject($site);

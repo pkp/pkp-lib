@@ -564,6 +564,7 @@
 	<message key="plugins.importexport.user.error.usernameEmailMismatch">The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</message>
 
 	<!-- Navigation Menus -->
+	<message key="manager.navigationMenus.form.defaultTitle">Default Title Key</message>
 	<message key="manager.navigationMenus.form.title">Title</message>
 	<message key="manager.navigationMenus.form.path">Path</message>
 	<message key="manager.navigationMenus">Navigation</message>
@@ -572,7 +573,10 @@
 	<message key="manager.navigationMenus.form.pathRegEx">The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</message>
 	<message key="manager.navigationMenus.form.duplicatePath">This path already exists for another navigation menu item.</message>
 	<message key="manager.navigationMenus.form.duplicateTitles">This title already exists for another navigation menu.</message>
+	<message key="manager.navigationMenus.form.defaultTitleMessage">This is the default translation key of the navigation menu item.</message>
+	<message key="manager.navigationMenus.form.titleMessage">Override the Default Title Key translation by providing a custom title</message>	
 	<message key="manager.navigationMenus.form.titleRequired">The title is required</message>
+	<message key="manager.navigationMenus.form.defaultTitleRequired">The Default Title Key is required</message>
 	<message key="manager.navigationMenuItems">Navigation Menu Items</message>
 	<message key="manager.navigationMenus.assignedMenuItems">Assigned Menu Items</message>
 	<message key="manager.navigationMenus.unassignedMenuItems">Unassigned Menu Items</message>

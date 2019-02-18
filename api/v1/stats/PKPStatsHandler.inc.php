@@ -169,7 +169,9 @@ class PKPStatsHandler extends APIHandler {
 			foreach ($currentPageSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = \Application::getPublishedSubmissionDAO();
 				$submission = $publishedSubmissionDao->getByArticleId($submissionsRecord['submission_id'], $context->getId());
-				$items[] = $statsService->getSummaryProperties($submission, $propertyArgs);
+				if ($submission) {
+					$items[] = $statsService->getSummaryProperties($submission, $propertyArgs);
+				}
 			}
 		} else {
 			$data = array(

@@ -12,264 +12,264 @@
   -->
 <locale name="nl_NL" full_name="Nederlands">
 	<!-- Common -->
-	  <message key="grid.noItems">Geen onderdelen</message>
-	  <message key="grid.settings">Instellingen</message>
-	  <message key="grid.noAuditors">Geen correctors</message>
-	  <message key="grid.remotelyHostedItem">Dit onderdeel bevindt zich op een andere site.</message>
+	<message key="grid.noItems">Geen onderdelen</message>
+	<message key="grid.settings">Instellingen</message>
+	<message key="grid.noAuditors">Geen correctors</message>
+	<message key="grid.remotelyHostedItem">Dit onderdeel bevindt zich op een andere site.</message>
 
-	  <message key="grid.action.uninstall">De-installeren</message>
-	  <message key="grid.action.manageAccess">Toegang beheren</message>
-	  <message key="grid.action.sort">Sorteren</message>
-	  <message key="grid.action.addItem">Onderdeel toevoegen</message>
-	  <message key="grid.action.addNote">Noot toevoegen</message>
-	  <message key="grid.action.addQuery">Discussie toevoegen</message>
-	  <message key="grid.action.readQuery">Discussie lezen</message>
-	  <message key="grid.action.deleteQuery">Discussie verwijderen</message>
-	  <message key="grid.action.updateQuery">Discussie bijwerken</message>
-	  <message key="grid.action.addUser">Gebruiker toevoegen</message>
-	  <message key="grid.action.unassignReviewer">Reviewer verwijder</message>
-	  <message key="grid.action.approveCopyedit">Keur dit geredigeerde bestand goed om het aan een volgende redactiestap door te geven</message>
-	  <message key="grid.action.reload">Herladen</message>
-	  <message key="grid.action.delete">Verwijderen</message>
-	  <message key="grid.action.deleteFile">Bestand verwijderen</message>
-	  <message key="grid.action.deleteMedia">Media verwijderen</message>
-	  <message key="grid.action.editMedia">Media bewerken</message>
-	  <message key="grid.action.editSection">Sectie bewerken</message>
-	  <message key="grid.action.export">Exporteren</message>
-	  <message key="grid.action.deleteSection">Sectie verwijderen</message>
-	  <message key="grid.action.editorialHistory">Redactiegeschiedenis</message>
-	  <message key="grid.action.remove">Weghalen</message>
-	  <message key="grid.action.edit">Bewerken</message>
-	  <message key="grid.action.approve">Goedkeuren</message>
-	  <message key="grid.action.disapprove">Afkeuren</message>
-	  <message key="grid.action.setApproval">Goed- of afkeuren</message>
-	  <message key="grid.action.moreInformation">Meer informatie</message>
-	  <message key="grid.action.restoreDefaults">Terug naar standaardwaarden</message>
-	  <message key="grid.action.restoreDefaults.confirm">Weet u zeker dat u de standaardwaarden wilt herstellen?</message>
-	  <message key="grid.action.addAuthor">Auteur toevoegen</message>
-	  <message key="grid.action.editAuthor">Auteur bewerken</message>
-	  <message key="grid.action.deleteAuthor">Auteur verwijderen</message>
-	  <message key="grid.action.addAuditor">Corrector toevoegen</message>
-	  <message key="grid.action.upgrade">Upgraden</message>
-	  <message key="grid.action.order">Sorteren</message>
-	  <message key="grid.action.cancelOrdering">Sorteren opheffen</message>
-	  <message key="grid.action.extendAll">Alles openklappen</message>
-	  <message key="grid.action.collapse">Dichtklappen</message>
-	  <message key="grid.action.collapseAll">Alles dichtklappen</message>
-	  <message key="grid.action.wizard">Instellingen assistent</message>
-	  <message key="grid.action.moveItem">Item verplaatsen</message>
-	  <message key="grid.action.downloadAll">Download alle bestanden als archief</message>
-	  <message key="grid.action.readReview">Review lezen</message>
-	  <message key="grid.action.email">Stuur e-mail</message>
-	  <message key="grid.action.addReviewer">Voeg een reviewer toe</message>
-	  <message key="grid.action.addFile">Voeg een bestand toe</message>
-	  <message key="grid.action.editFile">Bewerk een bestand</message>
-	  <message key="grid.action.selectFiles">Selecteer de te beheren bestanden</message>
-	  <message key="grid.action.requestRevisions">Vraag revisies voor deze inzending</message>
-	  <message key="grid.action.accept">Deze inzending accepteren</message>
-	  <message key="grid.action.decline">Deze inzending afwijzen</message>
-	  <message key="grid.action.internalReview">Stuur deze inzending naar interne review</message>
-	  <message key="grid.action.externalReview">Stuur deze inzending naar peer review</message>
-	  <message key="grid.action.sendToProduction">Stuur deze inzending naar productie</message>
-	  <message key="grid.action.settings">Instellingen</message>
-	  <message key="grid.action.importexport">Importeer of exporteer content of sitegegevens</message>
-	  <message key="grid.action.orderItems">Schakel sorteren in</message>
-	  <message key="grid.action.editSubmissionChecklist">Bewerk dit checklistitem</message>
-	  <message key="grid.action.deleteSubmissionChecklist">Verwijder dit checklistitem</message>
-	  <message key="grid.action.resetAll">Zet alle items terug naar standaardwaarde</message>
-	  <message key="grid.action.addPreparedEmail">Voeg een nieuw e-mail sjabloon toe</message>
-	  <message key="grid.action.editPreparedEmail">Bewerk dit e-mail sjabloon</message>
-	  <message key="grid.action.disableEmail">Schakel dit e-mail sjabloon uit</message>
-	  <message key="grid.action.resetEmail">Zet dit e-mail sjabloon terug naar de standaardwaarde</message>
-	  <message key="grid.action.expandAll">Alles uitklappen</message>
-	  <message key="grid.action.requestAccount">Deelnemer toevoegen</message>
-	  <message key="grid.action.expand">Uitklappen</message>
-	  <message key="grid.action.notify">Bericht deze gebruiker</message>
-	  <message key="grid.action.addUserGroup">Voeg een gebruikersgroep toe</message>
-	  <message key="grid.action.editUserGroup">Gebruikersgroep bewerken</message>
-	  <message key="grid.action.disable">Schakel uit</message>
-	  <message key="grid.action.details">Bekijk dit item</message>
-	  <message key="grid.action.enrolExisting">Maak een bestaande gebruiker reviewer</message>
-	  <message key="grid.action.selectCreate">Maak een nieuwe reviewer</message>
-	  <message key="grid.action.search">Zoeken</message>
-	  <message key="grid.action.advancedSearch">Geavanceerd zoeken</message>
-	  <message key="grid.action.viewLibrary">Bekijk documentbibliotheek</message>
-	  <message key="grid.action.viewMetadata">Bekijk de metadata voor deze inzending</message>
-	  <message key="grid.action.sendReminder">Stuur deze gebruiker een herinnering</message>
-	  <message key="grid.action.newRound">Maak een nieuwe ronde</message>
-	  <message key="grid.action.viewReviewGuidelines">Bekijk de richtlijnen voor review</message>
-	  <message key="grid.action.viewCompetingInterestGuidelines">Bekijk het beleid over belangenconflicten</message>
-	  <message key="grid.action.thankReviewer">Stuur een bedankje naar deze reviewer</message>
-	  <message key="grid.action.uploadFile">Laad een bestand</message>
-	  <message key="grid.action.addAnnouncementType">Voeg een nieuwsberichttype toe</message>
-	  <message key="grid.action.addAnnouncement">Nieuwsbericht toevoegen</message>
-	  <message key="grid.action.mergeUser">Gebruiker samenvoegen</message>
-	  <message key="grid.action.unassignUser">Toekenning gebruiker terugdraaien</message>
-	  <message key="grid.action.history">Bekijk geschiedenis</message>
-	  <message key="grid.action.unconsiderReview">Deze review is afgewerkt, maar u kan ze ook terugtrekken</message>
-	  <message key="grid.action.enable">Inschakelen</message>
-	  <message key="grid.action.bookInfo">Informatie over de inzending</message>
-	  <message key="grid.action.logInAs">Log in als</message>
-	  <message key="grid.action.exportAllUsers">Exporteer alle gebruikers</message>
-	  <message key="grid.users.confirmExportAllUsers">Weet u zeker dat u alle gebruikers wil exporteren?</message>
-	  <message key="grid.action.activate">Activeren</message>
-	  <message key="grid.action.deactivate">Deactiveren</message>
-	  <message key="grid.action.copy">Kopiëren</message>
-	  <message key="grid.action.preview">Bekijk voorvertoning</message>
-	  <message key="grid.action.install">Installeren</message>
-	  <message key="grid.action.moreItems">Laad meer</message>
-	  <message key="grid.action.users">Gebruikers bekijken/selecteren</message>
+	<message key="grid.action.uninstall">De-installeren</message>
+	<message key="grid.action.manageAccess">Toegang beheren</message>
+	<message key="grid.action.sort">Sorteren</message>
+	<message key="grid.action.addItem">Onderdeel toevoegen</message>
+	<message key="grid.action.addNote">Noot toevoegen</message>
+	<message key="grid.action.addQuery">Discussie toevoegen</message>
+	<message key="grid.action.readQuery">Discussie lezen</message>
+	<message key="grid.action.deleteQuery">Discussie verwijderen</message>
+	<message key="grid.action.updateQuery">Discussie bijwerken</message>
+	<message key="grid.action.addUser">Gebruiker toevoegen</message>
+	<message key="grid.action.unassignReviewer">Reviewer verwijder</message>
+	<message key="grid.action.approveCopyedit">Keur dit geredigeerde bestand goed om het aan een volgende redactiestap door te geven</message>
+	<message key="grid.action.reload">Herladen</message>
+	<message key="grid.action.delete">Verwijderen</message>
+	<message key="grid.action.deleteFile">Bestand verwijderen</message>
+	<message key="grid.action.deleteMedia">Media verwijderen</message>
+	<message key="grid.action.editMedia">Media bewerken</message>
+	<message key="grid.action.editSection">Sectie bewerken</message>
+	<message key="grid.action.export">Exporteren</message>
+	<message key="grid.action.deleteSection">Sectie verwijderen</message>
+	<message key="grid.action.editorialHistory">Redactiegeschiedenis</message>
+	<message key="grid.action.remove">Weghalen</message>
+	<message key="grid.action.edit">Bewerken</message>
+	<message key="grid.action.approve">Goedkeuren</message>
+	<message key="grid.action.disapprove">Afkeuren</message>
+	<message key="grid.action.setApproval">Goed- of afkeuren</message>
+	<message key="grid.action.moreInformation">Meer informatie</message>
+	<message key="grid.action.restoreDefaults">Terug naar standaardwaarden</message>
+	<message key="grid.action.restoreDefaults.confirm">Weet u zeker dat u de standaardwaarden wilt herstellen?</message>
+	<message key="grid.action.addAuthor">Auteur toevoegen</message>
+	<message key="grid.action.editAuthor">Auteur bewerken</message>
+	<message key="grid.action.deleteAuthor">Auteur verwijderen</message>
+	<message key="grid.action.addAuditor">Corrector toevoegen</message>
+	<message key="grid.action.upgrade">Upgraden</message>
+	<message key="grid.action.order">Sorteren</message>
+	<message key="grid.action.cancelOrdering">Sorteren opheffen</message>
+	<message key="grid.action.extendAll">Alles openklappen</message>
+	<message key="grid.action.collapse">Dichtklappen</message>
+	<message key="grid.action.collapseAll">Alles dichtklappen</message>
+	<message key="grid.action.wizard">Instellingen assistent</message>
+	<message key="grid.action.moveItem">Item verplaatsen</message>
+	<message key="grid.action.downloadAll">Download alle bestanden als archief</message>
+	<message key="grid.action.readReview">Review lezen</message>
+	<message key="grid.action.email">Stuur e-mail</message>
+	<message key="grid.action.addReviewer">Voeg een reviewer toe</message>
+	<message key="grid.action.addFile">Voeg een bestand toe</message>
+	<message key="grid.action.editFile">Bewerk een bestand</message>
+	<message key="grid.action.selectFiles">Selecteer de te beheren bestanden</message>
+	<message key="grid.action.requestRevisions">Vraag revisies voor deze inzending</message>
+	<message key="grid.action.accept">Deze inzending accepteren</message>
+	<message key="grid.action.decline">Deze inzending afwijzen</message>
+	<message key="grid.action.internalReview">Stuur deze inzending naar interne review</message>
+	<message key="grid.action.externalReview">Stuur deze inzending naar peer review</message>
+	<message key="grid.action.sendToProduction">Stuur deze inzending naar productie</message>
+	<message key="grid.action.settings">Instellingen</message>
+	<message key="grid.action.importexport">Importeer of exporteer content of sitegegevens</message>
+	<message key="grid.action.orderItems">Schakel sorteren in</message>
+	<message key="grid.action.editSubmissionChecklist">Bewerk dit checklistitem</message>
+	<message key="grid.action.deleteSubmissionChecklist">Verwijder dit checklistitem</message>
+	<message key="grid.action.resetAll">Zet alle items terug naar standaardwaarde</message>
+	<message key="grid.action.addPreparedEmail">Voeg een nieuw e-mail sjabloon toe</message>
+	<message key="grid.action.editPreparedEmail">Bewerk dit e-mail sjabloon</message>
+	<message key="grid.action.disableEmail">Schakel dit e-mail sjabloon uit</message>
+	<message key="grid.action.resetEmail">Zet dit e-mail sjabloon terug naar de standaardwaarde</message>
+	<message key="grid.action.expandAll">Alles uitklappen</message>
+	<message key="grid.action.requestAccount">Deelnemer toevoegen</message>
+	<message key="grid.action.expand">Uitklappen</message>
+	<message key="grid.action.notify">Bericht deze gebruiker</message>
+	<message key="grid.action.addUserGroup">Voeg een gebruikersgroep toe</message>
+	<message key="grid.action.editUserGroup">Gebruikersgroep bewerken</message>
+	<message key="grid.action.disable">Schakel uit</message>
+	<message key="grid.action.details">Bekijk dit item</message>
+	<message key="grid.action.enrolExisting">Maak een bestaande gebruiker reviewer</message>
+	<message key="grid.action.selectCreate">Maak een nieuwe reviewer</message>
+	<message key="grid.action.search">Zoeken</message>
+	<message key="grid.action.advancedSearch">Geavanceerd zoeken</message>
+	<message key="grid.action.viewLibrary">Bekijk documentbibliotheek</message>
+	<message key="grid.action.viewMetadata">Bekijk de metadata voor deze inzending</message>
+	<message key="grid.action.sendReminder">Stuur deze gebruiker een herinnering</message>
+	<message key="grid.action.newRound">Maak een nieuwe ronde</message>
+	<message key="grid.action.viewReviewGuidelines">Bekijk de richtlijnen voor review</message>
+	<message key="grid.action.viewCompetingInterestGuidelines">Bekijk het beleid over belangenconflicten</message>
+	<message key="grid.action.thankReviewer">Stuur een bedankje naar deze reviewer</message>
+	<message key="grid.action.uploadFile">Laad een bestand</message>
+	<message key="grid.action.addAnnouncementType">Voeg een nieuwsberichttype toe</message>
+	<message key="grid.action.addAnnouncement">Nieuwsbericht toevoegen</message>
+	<message key="grid.action.mergeUser">Gebruiker samenvoegen</message>
+	<message key="grid.action.unassignUser">Toekenning gebruiker terugdraaien</message>
+	<message key="grid.action.history">Bekijk geschiedenis</message>
+	<message key="grid.action.unconsiderReview">Deze review is afgewerkt, maar u kan ze ook terugtrekken</message>
+	<message key="grid.action.enable">Inschakelen</message>
+	<message key="grid.action.bookInfo">Informatie over de inzending</message>
+	<message key="grid.action.logInAs">Log in als</message>
+	<message key="grid.action.exportAllUsers">Exporteer alle gebruikers</message>
+	<message key="grid.users.confirmExportAllUsers">Weet u zeker dat u alle gebruikers wil exporteren?</message>
+	<message key="grid.action.activate">Activeren</message>
+	<message key="grid.action.deactivate">Deactiveren</message>
+	<message key="grid.action.copy">Kopiëren</message>
+	<message key="grid.action.preview">Bekijk voorvertoning</message>
+	<message key="grid.action.install">Installeren</message>
+	<message key="grid.action.moreItems">Laad meer</message>
+	<message key="grid.action.users">Gebruikers bekijken/selecteren</message>
 
-	  <!--  grid task status -->
-	  <message key="grid.task.status.completed">Deze taak is uitgevoerd</message>
-	  <message key="grid.task.status.new">Dit is een nieuw item en heeft uw aandacht nodig</message>
-	  <message key="grid.task.status.uploaded">De kolomtitel geeft aan wie het bestand geladen heeft</message>
-	  <message key="grid.task.status.unfinished">Review nog niet gereed</message>
-	  <message key="grid.task.status.reviewReady">Dit review is gereed. Klik op het ikoon aan de links om het te lezen.</message>
+	<!--  grid task status -->
+	<message key="grid.task.status.completed">Deze taak is uitgevoerd</message>
+	<message key="grid.task.status.new">Dit is een nieuw item en heeft uw aandacht nodig</message>
+	<message key="grid.task.status.uploaded">De kolomtitel geeft aan wie het bestand geladen heeft</message>
+	<message key="grid.task.status.unfinished">Review nog niet gereed</message>
+	<message key="grid.task.status.reviewReady">Dit review is gereed. Klik op het ikoon aan de links om het te lezen.</message>
 
-	  <!-- Common Grid Column Titles -->
-	  <message key="grid.columns.actions">Acties</message>
-	  <message key="grid.columns.institution">Instituut</message>
-	  <message key="grid.columns.url">URL</message>
-	  <message key="grid.columns.auditor">Goedkeurder</message>
-	  <message key="grid.columns.locale">Taalkode</message>
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Acties</message>
+	<message key="grid.columns.institution">Instituut</message>
+	<message key="grid.columns.url">URL</message>
+	<message key="grid.columns.auditor">Goedkeurder</message>
+	<message key="grid.columns.locale">Taalkode</message>
 
-	  <!-- Sponsors Grid -->
-	  <message key="grid.sponsor.title">Sponsors</message>
-	  <message key="grid.action.addSponsor">Voeg een sponsor toe</message>
-	  <message key="grid.action.deleteSponsor">Verwijder sponsor</message>
-	  <message key="grid.action.editSponsor">Bewerk sponsor</message>
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Sponsors</message>
+	<message key="grid.action.addSponsor">Voeg een sponsor toe</message>
+	<message key="grid.action.deleteSponsor">Verwijder sponsor</message>
+	<message key="grid.action.editSponsor">Bewerk sponsor</message>
 
-	  <!-- Series Grid -->
-	  <message key="grid.action.addSeries">Voeg een serie toe</message>
-	  <message key="grid.action.editSeries">Bewerk serie</message>
-	  <message key="grid.action.deleteSeries">Verwijder serie</message>
+	<!-- Series Grid -->
+	<message key="grid.action.addSeries">Voeg een serie toe</message>
+	<message key="grid.action.editSeries">Bewerk serie</message>
+	<message key="grid.action.deleteSeries">Verwijder serie</message>
 
-	  <!-- Categories Grid -->
-	  <message key="grid.action.addCategory">Categorie toevoegen</message>
-	  <message key="grid.action.editCategory">Categorie bewerken</message>
-	  <message key="grid.action.deleteCategory">Categorie verwijderen</message>
+	<!-- Categories Grid -->
+	<message key="grid.action.addCategory">Categorie toevoegen</message>
+	<message key="grid.action.editCategory">Categorie bewerken</message>
+	<message key="grid.action.deleteCategory">Categorie verwijderen</message>
 
-	  <!-- Contributor Grid -->
-	  <message key="grid.contributor.title">Bijgedragen door</message>
-	  <message key="grid.action.addContributor">Voeg een bijdrager toe</message>
-	  <message key="grid.action.editContributor">Bewerk bijdrager</message>
-	  <message key="grid.action.deleteContributor">Verwijder bijdrager</message>
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Bijgedragen door</message>
+	<message key="grid.action.addContributor">Voeg een bijdrager toe</message>
+	<message key="grid.action.editContributor">Bewerk bijdrager</message>
+	<message key="grid.action.deleteContributor">Verwijder bijdrager</message>
 
-	  <!-- Review Forms Grid -->
-	  <message key="grid.reviewForm.title">Reviewformulieren</message>
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Reviewformulieren</message>
 
-	  <!-- Review Form Element Reponse Items Grid -->
-	  <message key="grid.reviewFormElement.responseItems">Antwoord-opties</message>
+	<!-- Review Form Element Reponse Items Grid -->
+	<message key="grid.reviewFormElement.responseItems">Antwoord-opties</message>
 
-	  <!-- Files -->
-	  <message key="grid.noFiles">Geen bestanden</message>
+	<!-- Files -->
+	<message key="grid.noFiles">Geen bestanden</message>
 
-	  <!-- Library Files -->
-	  <message key="grid.libraryFiles.column.files">Bestanden</message>
-	  <message key="grid.libraryFiles.submission.title">Bibliotheek inzending</message>
-	  <message key="grid.libraryFiles.editorial.title">Bibliotheek redactie</message>
-	  <message key="grid.libraryFiles.review.title">Bibliotheek review</message>
-	  <message key="grid.libraryFiles.production.title">Bibliotheek productie</message>
-	  <message key="grid.libraryFiles.productionTemplate.title">Bibliotheek van ontwerpen voor productie</message>
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Bestanden</message>
+	<message key="grid.libraryFiles.submission.title">Bibliotheek inzending</message>
+	<message key="grid.libraryFiles.editorial.title">Bibliotheek redactie</message>
+	<message key="grid.libraryFiles.review.title">Bibliotheek review</message>
+	<message key="grid.libraryFiles.production.title">Bibliotheek productie</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Bibliotheek van ontwerpen voor productie</message>
 
-	  <!-- SubmissionChecklist -->
-	  <message key="grid.submissionChecklist.title">Checklist inzending</message>
-	  <message key="grid.submissionChecklist.column.checklistItem">Checklist onderdeel</message>
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Checklist inzending</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Checklist onderdeel</message>
 
-	  <!-- Submission Contributors -->
-	  <message key="author.users.contributor.name">Naam</message>
-	  <message key="author.users.contributor.email">E-mail</message>
-	  <message key="author.users.contributor.role">Rol</message>
-	  <message key="author.users.contributor.principalContact">Primair contact</message>
-	  <message key="author.users.contributor.includeInBrowse">In bladerlijsten</message>
+	<!-- Submission Contributors -->
+	<message key="author.users.contributor.name">Naam</message>
+	<message key="author.users.contributor.email">E-mail</message>
+	<message key="author.users.contributor.role">Rol</message>
+	<message key="author.users.contributor.principalContact">Primair contact</message>
+	<message key="author.users.contributor.includeInBrowse">In bladerlijsten</message>
 
-	  <!-- Roles -->
-	  <message key="grid.roles.currentRoles">Huidige rollen</message>
-	  <message key="grid.roles.add">Rol toevoegen</message>
-	  <message key="grid.roles.stageAssignment">Ken toe aan stadium</message>
+	<!-- Roles -->
+	<message key="grid.roles.currentRoles">Huidige rollen</message>
+	<message key="grid.roles.add">Rol toevoegen</message>
+	<message key="grid.roles.stageAssignment">Ken toe aan stadium</message>
 
-	  <!-- Users -->
-	  <message key="grid.user.currentUsers">Huidige gebruikers</message>
-	  <message key="grid.user.currentEnrollment">Op dit moment toegekend</message>
-	  <message key="grid.user.allRoles">All rollen</message>
-	  <message key="grid.user.allPermissionLevels">Alle toegangsniveaus</message>
-	  <message key="grid.user.add">Gebruiker toevoegen</message>
-	  <message key="grid.user.enroll">Gebruiker toekennen</message>
-	  <message key="grid.user.edit">Gebruiker bewerken</message>
-	  <message key="grid.user.email">E-mail</message>
-	  <message key="grid.user.enable">Inschakelen</message>
-	  <message key="grid.user.disable">Afsluiten</message>
-	  <message key="grid.user.disableReason">Reden voor het afsluiten van de gebruiker</message>
-	  <message key="grid.user.enableReason">Reden voor het inschakelen van de gebruiker</message>
-	  <message key="grid.user.error">Er is een fout opgetreden bij het bewerken van de gebruiker. Probeer het opnieuw.</message>
-	  <message key="grid.user.errorEmail">Er is een fout opgetreden bij het verzenden van deze e-mail. Kijk na of de configuratie van uw server klopt en/of neem contact op met uw systeembeheerder</message>
-	  <message key="grid.user.cannotAdminister">U heeft niet voldoende bevoegdheden om deze gebruiker te bewerken.</message>
-	  <message key="grid.user.authSource">Authenticatie bij</message>
-	  <message key="grid.user.mustProvideName">Geef als eerste de achternaam van de gebruiker</message>
-	  <message key="grid.user.generatePassword">Genereer wachtwoord</message>
-	  <message key="grid.user.generatePasswordDescription">Genereer een willekeurig wachtwoord voor deze gebruiker.</message>
-	  <message key="grid.user.notifyUser">Stuur de gebruiker een notificatie</message>
-	  <message key="grid.user.notifyUserDescription">Stuur de gebruiker een welkomstmail</message>
-	  <message key="grid.user.mustChangePassword">Wachtwoord veranderen</message>
-	  <message key="grid.user.mustChangePasswordDescription">Gebruiker moet een nieuw wachtwoord kiezen bij de volgende login.</message>
-	  <message key="grid.user.mustChangePasswordDescriptionOld">Verplicht de gebruiker een nieuw wachtwoord te kiezen bij de volgende login.</message>
-	  <message key="grid.user.moreDetails">Meer gebruikersdetails</message>
-	  <message key="grid.user.lessDetails">Minder gebruikers details</message>
-	  <message key="grid.user.userDetails">Gebruikers details</message>
-	  <message key="grid.user.userRoles">Rollen van de gebruiker</message>
-	  <message key="grid.user.userNoRoles">Deze gebruiker heeft geen rollen.</message>
-	  <message key="grid.user.step1">Stap #1: Gebruikersgegevens invullen</message>
-	  <message key="grid.user.step2">Stap #2: Rollen toevoegen aan {$userFullName}</message>
-	  <message key="grid.user.addRoles">Rollen toevoegen</message>
-	  <message key="grid.user.addRole">Rol toevoegen</message>
-	  <message key="grid.user.selectUser">Kies gebruiker</message>
-	  <message key="grid.user.pleaseSelectUser">Kies een gebruiker</message>
-	  <message key="grid.user.confirmLogInAs">Inloggen als deze gebruiker? Alle acties worden dan uitgevoerd en geregistreerd als deze gebruiker.</message>
-	  <message key="grid.user.mergeUsers">Gebruikers samenvoegen</message>
-	  <message key="grid.user.mergeUsers.mergeUser">Gebruiker samenvoegen</message>
-	  <message key="grid.user.mergeUsers.mergeIntoUser">Bij deze gebruiker voegen</message>
-	  <message key="grid.user.mergeUsers.allUsers">Alle gebruikers met een rol</message>
-	  <message key="grid.user.mergeUsers.confirm">Weet u zeker dat u dit account met de gebruikersnaam "{$oldUsername}" wil samenvoegen met het account met gebruikersnaam "{$newUsername}"? Het account met de gebruikersnaam "{$oldUsername}" zal daarbij worden verwijderd. Deze actie kan niet worden ongedaan gemaakt.</message>
+	<!-- Users -->
+	<message key="grid.user.currentUsers">Huidige gebruikers</message>
+	<message key="grid.user.currentEnrollment">Op dit moment toegekend</message>
+	<message key="grid.user.allRoles">All rollen</message>
+	<message key="grid.user.allPermissionLevels">Alle toegangsniveaus</message>
+	<message key="grid.user.add">Gebruiker toevoegen</message>
+	<message key="grid.user.enroll">Gebruiker toekennen</message>
+	<message key="grid.user.edit">Gebruiker bewerken</message>
+	<message key="grid.user.email">E-mail</message>
+	<message key="grid.user.enable">Inschakelen</message>
+	<message key="grid.user.disable">Afsluiten</message>
+	<message key="grid.user.disableReason">Reden voor het afsluiten van de gebruiker</message>
+	<message key="grid.user.enableReason">Reden voor het inschakelen van de gebruiker</message>
+	<message key="grid.user.error">Er is een fout opgetreden bij het bewerken van de gebruiker. Probeer het opnieuw.</message>
+	<message key="grid.user.errorEmail">Er is een fout opgetreden bij het verzenden van deze e-mail. Kijk na of de configuratie van uw server klopt en/of neem contact op met uw systeembeheerder</message>
+	<message key="grid.user.cannotAdminister">U heeft niet voldoende bevoegdheden om deze gebruiker te bewerken.</message>
+	<message key="grid.user.authSource">Authenticatie bij</message>
+	<message key="grid.user.mustProvideName">Geef als eerste de achternaam van de gebruiker</message>
+	<message key="grid.user.generatePassword">Genereer wachtwoord</message>
+	<message key="grid.user.generatePasswordDescription">Genereer een willekeurig wachtwoord voor deze gebruiker.</message>
+	<message key="grid.user.notifyUser">Stuur de gebruiker een notificatie</message>
+	<message key="grid.user.notifyUserDescription">Stuur de gebruiker een welkomstmail</message>
+	<message key="grid.user.mustChangePassword">Wachtwoord veranderen</message>
+	<message key="grid.user.mustChangePasswordDescription">Gebruiker moet een nieuw wachtwoord kiezen bij de volgende login.</message>
+	<message key="grid.user.mustChangePasswordDescriptionOld">Verplicht de gebruiker een nieuw wachtwoord te kiezen bij de volgende login.</message>
+	<message key="grid.user.moreDetails">Meer gebruikersdetails</message>
+	<message key="grid.user.lessDetails">Minder gebruikers details</message>
+	<message key="grid.user.userDetails">Gebruikers details</message>
+	<message key="grid.user.userRoles">Rollen van de gebruiker</message>
+	<message key="grid.user.userNoRoles">Deze gebruiker heeft geen rollen.</message>
+	<message key="grid.user.step1">Stap #1: Gebruikersgegevens invullen</message>
+	<message key="grid.user.step2">Stap #2: Rollen toevoegen aan {$userFullName}</message>
+	<message key="grid.user.addRoles">Rollen toevoegen</message>
+	<message key="grid.user.addRole">Rol toevoegen</message>
+	<message key="grid.user.selectUser">Kies gebruiker</message>
+	<message key="grid.user.pleaseSelectUser">Kies een gebruiker</message>
+	<message key="grid.user.confirmLogInAs">Inloggen als deze gebruiker? Alle acties worden dan uitgevoerd en geregistreerd als deze gebruiker.</message>
+	<message key="grid.user.mergeUsers">Gebruikers samenvoegen</message>
+	<message key="grid.user.mergeUsers.mergeUser">Gebruiker samenvoegen</message>
+	<message key="grid.user.mergeUsers.mergeIntoUser">Bij deze gebruiker voegen</message>
+	<message key="grid.user.mergeUsers.allUsers">Alle gebruikers met een rol</message>
+	<message key="grid.user.mergeUsers.confirm">Weet u zeker dat u dit account met de gebruikersnaam "{$oldUsername}" wil samenvoegen met het account met gebruikersnaam "{$newUsername}"? Het account met de gebruikersnaam "{$oldUsername}" zal daarbij worden verwijderd. Deze actie kan niet worden ongedaan gemaakt.</message>
 
-	  <!-- Prepared emails -->
-	  <message key="grid.preparedEmails.title">Voorbereide e-mail sjablonen</message>
-	  <message key="grid.preparedEmails.currentList">Huidige lijst</message>
+	<!-- Prepared emails -->
+	<message key="grid.preparedEmails.title">Voorbereide e-mail sjablonen</message>
+	<message key="grid.preparedEmails.currentList">Huidige lijst</message>
 
-	  <!-- Plugins -->
-	  <message key="grid.plugin.allCategories">Alle categorieën</message>
-	  <message key="grid.plugin.disable">Weet u zeker dat u deze plugin uit wilt schakelen?</message>
+	<!-- Plugins -->
+	<message key="grid.plugin.allCategories">Alle categorieën</message>
+	<message key="grid.plugin.disable">Weet u zeker dat u deze plugin uit wilt schakelen?</message>
 
-	  <message key="grid.action.fileUnconsider">Proefcorrecties zijn gemaakt, maar u kan ze ook terugtrekken.</message>
+	<message key="grid.action.fileUnconsider">Proefcorrecties zijn gemaakt, maar u kan ze ook terugtrekken.</message>
 
-	  <!-- Artwork Files Grid -->
-	  <message key="grid.artworkFile.caption">Bijschrift</message>
-	  <message key="grid.artworkFile.credit">Bron</message>
-	  <message key="grid.artworkFile.copyrightOwner">Copyrighthouder</message>
-	  <message key="grid.artworkFile.copyrightContact">Contactgegevens (indien verschillend van auteur/uitgever)</message>
-	  <message key="grid.artworkFile.permissionTerms">Toelatingsvoorwaarden</message>
-	  <message key="grid.artworkFile.placement">Plaatsing in nummer</message>
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.caption">Bijschrift</message>
+	<message key="grid.artworkFile.credit">Bron</message>
+	<message key="grid.artworkFile.copyrightOwner">Copyrighthouder</message>
+	<message key="grid.artworkFile.copyrightContact">Contactgegevens (indien verschillend van auteur/uitgever)</message>
+	<message key="grid.artworkFile.permissionTerms">Toelatingsvoorwaarden</message>
+	<message key="grid.artworkFile.placement">Plaatsing in nummer</message>
 
-	  <!-- User Group Grid -->
-	  <message key="grid.userGroup.assignStage">Wijs toe aan stap in redactieproces</message>
-	  <message key="grid.userGroup.unassignStage">Verwijder van stap in redactieproces</message>
-	  <message key="grid.userGroup.allStages">Alle stappen van het redactieproces</message>
-	  <message key="grid.userGroup.filter.listRoles">Rollen die zijn toegekend aan</message>
-	  <message key="grid.userGroup.filter.permissionLevel">Met toegangsniveau</message>
-	  <message key="grid.userGroup.cantRemoveDefaultUserGroup">De rol {$userGroupName} is een standaardrol en kan niet worden verwijderd.</message>
-	  <message key="grid.userGroup.cantRemoveUserGroup">De rol {$userGroupName} kan niet worden verwijderd: in gebruik voor {$usersCount} gebruiker/s.</message>
-	  <message key="grid.userGroup.removed">De rol {$userGroupName} werd verwijderd.</message>
-	  <message key="grid.userGroup.assignedStage">De rol {$userGroupName} is toegekend aan de stap {$stageName} in het redactieproces.</message>
-	  <message key="grid.userGroup.unassignedStage">De rol {$userGroupName} is verwijderd van de stap {$stageName} in het redactieproces.</message>
+	<!-- User Group Grid -->
+	<message key="grid.userGroup.assignStage">Wijs toe aan stap in redactieproces</message>
+	<message key="grid.userGroup.unassignStage">Verwijder van stap in redactieproces</message>
+	<message key="grid.userGroup.allStages">Alle stappen van het redactieproces</message>
+	<message key="grid.userGroup.filter.listRoles">Rollen die zijn toegekend aan</message>
+	<message key="grid.userGroup.filter.permissionLevel">Met toegangsniveau</message>
+	<message key="grid.userGroup.cantRemoveDefaultUserGroup">De rol {$userGroupName} is een standaardrol en kan niet worden verwijderd.</message>
+	<message key="grid.userGroup.cantRemoveUserGroup">De rol {$userGroupName} kan niet worden verwijderd: in gebruik voor {$usersCount} gebruiker/s.</message>
+	<message key="grid.userGroup.removed">De rol {$userGroupName} werd verwijderd.</message>
+	<message key="grid.userGroup.assignedStage">De rol {$userGroupName} is toegekend aan de stap {$stageName} in het redactieproces.</message>
+	<message key="grid.userGroup.unassignedStage">De rol {$userGroupName} is verwijderd van de stap {$stageName} in het redactieproces.</message>
 
-	  <!-- Submission list grids -->
-	  <message key="grid.submission.itemTitle">Auteur; titel</message>
-	  <message key="grid.submission.active.selectOrphaned">Neem onvolledige inzendingen op die niet door een auteur zijn ingediend.</message>
+	<!-- Submission list grids -->
+	<message key="grid.submission.itemTitle">Auteur; titel</message>
+	<message key="grid.submission.active.selectOrphaned">Neem onvolledige inzendingen op die niet door een auteur zijn ingediend.</message>
 
-	  <!-- Navigation Menus -->
-	  <message key="grid.action.addNavigationMenu">Voeg menu toe</message>
-	  <message key="grid.action.addNavigationMenuItem">Voeg menu-item toe</message>
-	  <message key="grid.navigationMenus.navigationMenuItems.noneExist">Het navigatiemenu heeft geen items</message>
-	  <message key="grid.navigationMenus.navigationMenu.noneExist">Er zijn geen navigatiemenu's</message>
-	  <message key="grid.navigationMenus.navigationMenu.selectType">Kies een type...</message>
+	<!-- Navigation Menus -->
+	<message key="grid.action.addNavigationMenu">Voeg menu toe</message>
+	<message key="grid.action.addNavigationMenuItem">Voeg menu-item toe</message>
+	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Het navigatiemenu heeft geen items</message>
+	<message key="grid.navigationMenus.navigationMenu.noneExist">Er zijn geen navigatiemenu's</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Kies een type...</message>
 </locale>

@@ -831,12 +831,12 @@ class Installer {
 
 		// Sanitize plugin names for use in sql IN().
 		$sanitizedPluginNames = array_map(function($name) {
-			return '"' . preg_replace("/[^A-Za-z0-9]/", '', $name) . '"';
+			return "'" . preg_replace("/[^A-Za-z0-9]/", '', $name) . "'";
 		}, array_keys($plugins));
 
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 		$result = $pluginSettingsDao->retrieve(
-			'SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name="context";'
+			"SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name='context';"
 		);
 
 		$sidebarSettings = [];

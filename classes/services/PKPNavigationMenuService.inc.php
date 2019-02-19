@@ -582,6 +582,31 @@ class PKPNavigationMenuService {
 	}
 
 	/**
+	 * Sets the title of a navigation menu item, depending on its title or locale-key
+	 * @param $nmi \NavigationMenuItem The NMI to set its title
+	 */
+	public function setAllNMILocalisedTitles($nmi) {
+		if ($nmi) {
+			$supportedFormLocales = \AppLocale::getSupportedFormLocales();
+
+			foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
+				\AppLocale::requireComponents(
+					LOCALE_COMPONENT_PKP_COMMON, 
+					LOCALE_COMPONENT_PKP_MANAGER, 
+					LOCALE_COMPONENT_APP_COMMON, 
+					LOCALE_COMPONENT_PKP_USER, $supportedFormLocale
+				);
+
+				if ($localisedTitle = $nmi->getTitle($supportedFormLocale)) {
+					$nmi->setTitle($localisedTitle, $supportedFormLocale);
+				} else {
+					$nmi->setTitle(__($nmi->getTitleLocaleKey(), array(), $supportedFormLocale), $supportedFormLocale);
+				}
+			}
+		}
+	}
+
+	/**
 	 * Callback to be registered from PKPTemplateManager for the LoadHandler hook.
 	 * Used by the Custom NMI to point their URL target to [context]/[path]
 	 * @param mixed $hookName

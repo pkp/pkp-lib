@@ -28,23 +28,11 @@
 		{if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}
-
-		{if $genericTitle}
-			{fbvFormSection title="manager.navigationMenus.form.defaultTitle" for="genericTitle"}
-				{fbvElement type="text" id="genericTitle" value=$genericTitle maxlength="255" readonly="true" label="manager.navigationMenus.form.defaultTitleMessage"}
-			{/fbvFormSection}
-		{/if}
 		
-		{if $genericTitle}
-			{fbvFormSection title="manager.navigationMenus.form.title" for="title"}
-				{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" label="manager.navigationMenus.form.titleMessage"}
-			{/fbvFormSection}
-		{else}
-			{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
-				{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true"}
-			{/fbvFormSection}
-		{/if}
-
+		{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
+			{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true" label="manager.navigationMenus.form.titleMessage"}
+		{/fbvFormSection}
+		
 		{fbvFormSection id="menuItemTypeSection" title="manager.navigationMenus.form.navigationMenuItemType" for="menuItemType"}
 			{fbvElement type="select" id="menuItemType" required=true from=$navigationMenuItemTypeTitles selected=$menuItemType label="manager.navigationMenus.form.navigationMenuItemTypeMessage" translate=false}
 		{/fbvFormSection}

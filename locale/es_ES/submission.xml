@@ -204,7 +204,6 @@
 	<message key="submission.history.submissionEventLog">Registro de evento</message>
 	<message key="submission.history.submissionNotes">Notas de envío</message>
 	<message key="submission.history.viewLog">Ver registro</message>
-	<message key="submission.indexing">Indexación</message>
 	<message key="submission.initiated">Iniciado</message>
 
 	<!-- Information Center -->

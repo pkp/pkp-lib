@@ -234,7 +234,6 @@
 	<message key="submission.howToCite">Как цитировать</message>
 	<message key="submission.howToCite.citationFormats">Другие форматы библиографических ссылок</message>
 	<message key="submission.howToCite.downloadCitation">Скачать ссылку</message>
-	<message key="submission.indexing">Индексирование</message>
 	<message key="submission.initiated">Начата</message>
 
 	<!-- Идентификаторы -->

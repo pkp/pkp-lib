@@ -77,7 +77,6 @@
 	<message key="submission.history.submissionEventLog">Ημερολόγιο (Log) συμβάντων</message>
 	<message key="submission.history.submissionNotes">Σημειώσεις υποβολής</message>
 	<message key="submission.history.viewLog">Προβολή ημερολογίου</message>
-	<message key="submission.indexing">Ευρετηρίαση</message>
 	<message key="submission.initiated">Ενεργοποιήθηκε)</message>
 	<message key="submission.lastModified">Τελευταία τροποποίηση</message>
 	<message key="submission.layout.addGalley">Προσθήκη Τυπογραφικού Δοκιμίου</message>

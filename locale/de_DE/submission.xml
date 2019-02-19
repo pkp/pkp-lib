@@ -234,7 +234,6 @@
 	<message key="submission.howToCite">Zitationsvorschlag</message>
 	<message key="submission.howToCite.citationFormats">Zitationsformate</message>
 	<message key="submission.howToCite.downloadCitation">Bibliografische Angaben herunterladen</message>
-	<message key="submission.indexing">Indizieren</message>
 	<message key="submission.initiated">Begonnen</message>
 
 	<!-- Identifiers -->

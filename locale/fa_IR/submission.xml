@@ -291,7 +291,6 @@
 	<message key="submission.howToCite">ارجاع به مقاله</message>
 	<message key="submission.howToCite.citationFormats">شیوه ی ارجاع دهی</message>
 	<message key="submission.howToCite.downloadCitation">دانلود ارجاعات</message>
-	<message key="submission.indexing">نمایه</message>
 	<message key="submission.initiated">آغاز پردازش</message>
 	<!-- Identifiers -->
 	<message key="submission.identifiers">شناسه ها</message>

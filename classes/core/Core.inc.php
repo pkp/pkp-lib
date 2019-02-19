@@ -20,7 +20,7 @@
 
 
 define('PKP_LIB_PATH', 'lib' . DIRECTORY_SEPARATOR . 'pkp');
-define('USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'botAgents.txt');
+define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counterBots' .  DIRECTORY_SEPARATOR . 'generated' . DIRECTORY_SEPARATOR . 'COUNTER_Robots_list.txt');
 
 class Core {
 
@@ -97,7 +97,7 @@ class Core {
 	 * expressions to find bots inside user agent strings.
 	 * @return boolean
 	 */
-	static function isUserAgentBot($userAgent, $botRegexpsFile = USER_AGENTS_FILE) {
+	static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE) {
 		static $botRegexps;
 		Registry::set('currentUserAgentsFile', $botRegexpsFile);
 

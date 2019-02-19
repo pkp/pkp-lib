@@ -339,7 +339,6 @@
 	<message key="submission.event.general.suppFileUpdated">Документ предаје је ажуриран</message>
 	<message key="submission.howToCite">Како цитирати</message>
 	<message key="submission.howToCite.citationFormats">Формати цитирања</message>
-	<message key="submission.indexing">Индексирање</message>
 	<message key="submission.initiated">Започето</message>
 	<message key="submission.identifiers">Идентификатори</message>
 	<message key="submission.informationCenter.submissionInfo">Информације о предаји</message>

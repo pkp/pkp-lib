@@ -110,6 +110,7 @@
 	<message key="common.country">Country</message>
 	<message key="common.create">Create</message>
 	<message key="common.dateCompleted">Date completed</message>
+	<message key="common.dateDecided">Date decided</message>
 	<message key="common.date">Date</message>
 	<message key="common.dateModified">Date modified</message>
 	<message key="common.dateRequested">Date requested</message>

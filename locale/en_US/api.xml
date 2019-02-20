@@ -20,4 +20,7 @@
 	<message key="api.submissions.400.missingRequired">Your request could not be fulfilled because it is missing required information.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">The requested volume, number or year is not valid.</message>
 	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
+	<message key="api.stats.400.wrongDateFormat">Your request was not valid. The date has to be in the format YYYY-MM-DD.</message>
+	<message key="api.stats.400.wrongDateRange">Your request was not valid. The dateStart can not be later than the dateEnd.</message>
+	<message key="api.stats.400.wrongTimeSegmentDaily">Your request was not valid. The timeSegment 'daily' can only be used together with a date range (dateStart and dateEnd) within the last 90 days.</message>
 </locale>

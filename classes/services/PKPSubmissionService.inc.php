@@ -608,6 +608,40 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
+	 * Returns properties for when a submission is retrieved as part of the
+	 * statistics API endpoint
+	 *
+	 * Defines a minimal set of props to reduce long load times when retrieving
+	 * statistics for several articles
+	 *
+	 * @param Submission $submission
+	 * @param array extra arguments
+	 *		$args['request'] PKPRequest Required
+	 *		$args['slimRequest'] SlimRequest
+	 */
+	public function getStatsObjectSummaryProperties($submission, $args = null) {
+		$request = $args['request'];
+		$context = $request->getContext();
+		$currentUser = $request->getUser();
+
+		$props = [
+			'_href',
+			'id',
+			'fullTitle',
+			'urlWorkflow',
+			'urlPublished',
+		];
+
+		if ($this->canUserViewAuthor($currentUser, $submission)) {
+			$props[] = 'shortAuthorString';
+		}
+
+		\HookRegistry::call('Submission::getStatsObjectSummaryProperties::properties', array(&$props, $submission, $args));
+
+		return $this->getProperties($submission, $props, $args);
+	}
+
+	/**
 	 * Get details about the review assignments for a submission
 	 *
 	 * @todo account for extra review stage in omp

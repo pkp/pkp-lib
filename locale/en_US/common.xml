@@ -592,7 +592,7 @@
 	<message key="validator.active_url">This is not a valid URL.</message>
 	<message key="validator.after">This date must be after {$date}.</message>
 	<message key="validator.alpha">This may only contain letters.</message>
-	<message key="validator.alpha_dash">This may only contain letters, numbers, and dashes.</message>
+	<message key="validator.alpha_dash">This may only contain letters, numbers, dashes and underscores.</message>
 	<message key="validator.alpha_num">This may only contain letters and numbers.</message>
 	<message key="validator.array">This is not a valid array.</message>
 	<message key="validator.before">This date must be before {$date}.</message>

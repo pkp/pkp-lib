@@ -1,0 +1,96 @@
+{
+	"title": "Email Template",
+	"description": "A saved email message that can be sent by the application during registration, submission, peer review and all other operations of the application.",
+	"type": "object",
+	"required": [
+		"body",
+		"canDisable",
+		"canEdit",
+		"key",
+		"subject"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"assocId": {
+			"type": "integer",
+			"description": "The ID of the object that this email is related to. See `assocType` below. Only used for custom email templates. Default is `null`.",
+			"apiSummary": "true",
+			"validation": [
+				"nullable"
+			]
+		},
+		"assocType": {
+			"type": "integer",
+			"description": "The `ASSOC_TYPE_*` that this email is related to. Only used for custom email templates. May be `ASSOC_TYPE_JOURNAL` or `ASSOC_TYPE_PRESS`. Default is `null`.",
+			"apiSummary": "true",
+			"validation": [
+				"nullable"
+			]
+		},
+		"body": {
+			"type": "string",
+			"description": "The email template to be used in the email's main body content.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"canDisable": {
+			"type": "boolean",
+			"description": "Can this email template be disabled in the context settings area? Default is `true`.",
+			"apiSummary": true
+		},
+		"canEdit": {
+			"type": "boolean",
+			"description": "Can this email template be edited in the context settings area? Default is `true`.",
+			"apiSummary": true
+		},
+		"description": {
+			"type": "string",
+			"description": "A description of when this email template is used.",
+			"multilingual": true,
+			"apiSummary": true
+		},
+		"enabled": {
+			"type": "boolean",
+			"description": "Is this email template enabled? Default is `true`.",
+			"apiSummary": true
+		},
+		"fromRoleId": {
+			"type": "integer",
+			"description": "The `ROLE_ID_*` of the user who will send this email.",
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"description": "The email template ID.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"toRoleId": {
+			"type": "integer",
+			"description": "The `ROLE_ID_*` of the user who will receive this email.",
+			"apiSummary": true
+		},
+		"key": {
+			"type": "string",
+			"description": "A unique key for this email template.",
+			"apiSummary": true,
+			"validation": [
+				"alpha_dash"
+			]
+		},
+		"subject": {
+			"type": "string",
+			"description": "The subject of the email to be used in the email's subject header.",
+			"multilingual": true,
+			"apiSummary": true
+		}
+	}
+}

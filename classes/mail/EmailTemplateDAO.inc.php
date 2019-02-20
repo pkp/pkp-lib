@@ -15,8 +15,111 @@
  */
 
 import('lib.pkp.classes.mail.EmailTemplate');
+import('lib.pkp.classes.db.SchemaDAO');
+import('classes.core.Services');
 
-class EmailTemplateDAO extends DAO {
+class EmailTemplateDAO extends SchemaDAO {
+	/** @copydoc SchemaDAO::$schemaName */
+	var $schemaName = SCHEMA_EMAIL_TEMPLATE;
+
+	/** @copydoc SchemaDAO::$tableName */
+	var $tableName = 'email_templates';
+
+	/** @copydoc SchemaDAO::$settingsTableName */
+	var $settingsTableName = 'email_templates_data';
+
+	/** @copydoc SchemaDAO::$primaryKeyColumn */
+	var $primaryKeyColumn = 'email_id';
+
+	/** @var array Maps schema properties for the primary table to their column names */
+	var $primaryTableColumns = [
+		'id' => 'email_id',
+		'key' => 'email_key',
+		'assocType' => 'assoc_type',
+		'assocId' => 'assoc_id',
+		'enabled' => 'enabled',
+		'canDisable' => 'can_disable',
+		'canEdit' => 'can_edit',
+		'fromRoleId' => 'from_role_id',
+		'toRoleId' => 'to_role_id',
+	];
+
+	/**
+	 * @copydoc SchemaDAO::newDataObject()
+	 */
+	public function newDataObject() {
+		return new EmailTemplate();
+	}
+
+	/**
+	 * Return a DataObject from a result row
+	 *
+	 * @param $primaryRow array The result row from the primary table lookup
+	 * @return DataObject
+	 */
+	public function _fromRow($primaryRow) {
+		$schemaService = Services::get('schema');
+		$schema = $schemaService->get($this->schemaName);
+
+		$emailTemplate = $this->newDataObject();
+
+		foreach ($this->primaryTableColumns as $propName => $column) {
+			if (isset($primaryRow[$column])) {
+				$emailTemplate->setData(
+					$propName,
+					$this->convertFromDb($primaryRow[$column], $schema->properties->{$propName}->type)
+				);
+			}
+		}
+
+		// Get the default email template data
+		$result = $this->retrieve(
+			"SELECT * FROM email_templates_default_data WHERE email_key = ?",
+			array($primaryRow['email_key'])
+		);
+		$props = ['subject', 'body', 'description'];
+		while (!$result->EOF) {
+			$settingRow = $result->getRowAssoc(false);
+			foreach ($props as $prop) {
+				$emailTemplate->setData(
+					$prop,
+					$this->convertFromDB(
+						$settingRow[$prop],
+						$schema->properties->{$prop}->type
+					),
+					$settingRow['locale']
+				);
+			}
+			$result->MoveNext();
+		}
+		$result->Close();
+
+		// Get any custom email template data
+		if ($emailTemplate->getId()) {
+			$result = $this->retrieve(
+				"SELECT * FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ?",
+				array($primaryRow[$this->primaryKeyColumn])
+			);
+			$props = ['subject', 'body'];
+			while (!$result->EOF) {
+				$settingRow = $result->getRowAssoc(false);
+				foreach ($props as $prop) {
+					$emailTemplate->setData(
+						$prop,
+						$this->convertFromDB(
+							$settingRow[$prop],
+							$schema->properties->{$prop}->type
+						),
+						$settingRow['locale']
+					);
+				}
+				$result->MoveNext();
+			}
+			$result->Close();
+		}
+
+		return $emailTemplate;
+	}
 
 	/**
 	 * Retrieve a base email template by key.
@@ -734,5 +837,3 @@ class EmailTemplateDAO extends DAO {
 		return true;
 	}
 }
-
-

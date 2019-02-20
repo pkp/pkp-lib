@@ -27,7 +27,7 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	/** @var string The column name for a context ID: `journal_id` or `press_id` */
 	protected $dbIdColumn;
 
-	/** @var string enabled or disabled contexts */
+	/** @var boolean enabled or disabled contexts */
 	protected $isEnabled = null;
 
 	/** @var string search phrase */
@@ -39,7 +39,7 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set isEnabled filter
 	 *
-	 * @param $isEnabled string
+	 * @param $isEnabled boolean
 	 *
 	 * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
 	 */

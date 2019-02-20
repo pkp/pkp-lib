@@ -23,6 +23,8 @@
 	<message key="api.submissions.400.missingRequired">Your request could not be fulfilled because it is missing required information.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">The requested volume, number or year is not valid.</message>
 	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
+	<message key="api.emailTemplates.403.requireAssocObject">You must provide an assocType and assocId for this email template.</message>
+	<message key="api.emailTemplates.404.templateNotFound">The email template you requested was not found.</message>
 	<message key="api.temporaryFiles.400.noUpload">No file to be uploaded could be found with the request.</message>
 	<message key="api.temporaryFiles.409.uploadFailed">One or more files could not be uploaded.</message>
 	<message key="api.temporaryFiles.400.fileSize">Files larger than {$maxSize} can not be uploaded.</message>

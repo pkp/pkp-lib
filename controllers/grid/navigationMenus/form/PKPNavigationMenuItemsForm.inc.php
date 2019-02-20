@@ -112,9 +112,7 @@ class PKPNavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
 		if ($navigationMenuItem) {
-			import('classes.core.ServicesContainer');
-			ServicesContainer::instance()
-				->get('navigationMenu')
+			Services::get('navigationMenu')
 				->setAllNMILocalisedTitles($navigationMenuItem);
 			
 			$formData = array(
@@ -156,9 +154,7 @@ class PKPNavigationMenuItemsForm extends Form {
 			$navigationMenuItem = $navigationMenuItemDao->newDataObject();
 			$navigationMenuItem->setTitle($this->getData('title'), null);
 		} else {
-			import('classes.core.ServicesContainer');
-			ServicesContainer::instance()
-				->get('navigationMenu')
+			Services::get('navigationMenu')
 				->setAllNMILocalisedTitles($navigationMenuItem);
 			
 			$localizedTitles = $navigationMenuItem->getTitle(null);

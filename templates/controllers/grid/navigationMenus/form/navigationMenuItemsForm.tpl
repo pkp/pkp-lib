@@ -30,9 +30,9 @@
 		{/if}
 		
 		{fbvFormSection title="manager.navigationMenus.form.title" for="title" required="true"}
-			{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true" label="manager.navigationMenus.form.titleMessage"}
+			{fbvElement type="text" multilingual="true" id="title" value=$title maxlength="255" required="true"}
 		{/fbvFormSection}
-		
+
 		{fbvFormSection id="menuItemTypeSection" title="manager.navigationMenus.form.navigationMenuItemType" for="menuItemType"}
 			{fbvElement type="select" id="menuItemType" required=true from=$navigationMenuItemTypeTitles selected=$menuItemType label="manager.navigationMenus.form.navigationMenuItemTypeMessage" translate=false}
 		{/fbvFormSection}

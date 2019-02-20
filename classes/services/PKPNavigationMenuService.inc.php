@@ -591,10 +591,11 @@ class PKPNavigationMenuService {
 
 			foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
 				\AppLocale::requireComponents(
-					LOCALE_COMPONENT_PKP_COMMON, 
-					LOCALE_COMPONENT_PKP_MANAGER, 
-					LOCALE_COMPONENT_APP_COMMON, 
-					LOCALE_COMPONENT_PKP_USER, $supportedFormLocale
+					LOCALE_COMPONENT_PKP_COMMON,
+					LOCALE_COMPONENT_PKP_MANAGER,
+					LOCALE_COMPONENT_APP_COMMON,
+					LOCALE_COMPONENT_PKP_USER,
+					$supportedFormLocale
 				);
 
 				if ($localisedTitle = $nmi->getTitle($supportedFormLocale)) {

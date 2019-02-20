@@ -571,10 +571,8 @@
 	<message key="manager.navigationMenus.form.content">Content</message>
 	<message key="manager.navigationMenus.form.pathRegEx">The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</message>
 	<message key="manager.navigationMenus.form.duplicatePath">This path already exists for another navigation menu item.</message>
-	<message key="manager.navigationMenus.form.duplicateTitles">This title already exists for another navigation menu.</message>
-	<message key="manager.navigationMenus.form.titleMessage">Provide a custom navigation menu item title</message>	
+	<message key="manager.navigationMenus.form.duplicateTitles">This title already exists for another navigation menu.</message>	
 	<message key="manager.navigationMenus.form.titleRequired">The title is required</message>
-	<message key="manager.navigationMenus.form.defaultTitleRequired">The Default Title Key is required</message>
 	<message key="manager.navigationMenuItems">Navigation Menu Items</message>
 	<message key="manager.navigationMenus.assignedMenuItems">Assigned Menu Items</message>
 	<message key="manager.navigationMenus.unassignedMenuItems">Unassigned Menu Items</message>

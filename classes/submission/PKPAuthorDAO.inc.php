@@ -327,6 +327,33 @@ abstract class PKPAuthorDAO extends DAO {
 	}
 
 	/**
+	 * Update author names when submisison locale changes.
+	 * @param $submissionId int
+	 * @param $oldLocale string
+	 * @param $newLocale string
+	 */
+	function changeSubmissionLocale($submissionId, $oldLocale, $newLocale) {
+		$authors = $this->getBySubmissionId($submissionId);
+		foreach ($authors as $author) {
+			if (empty($author->getGivenName($newLocale))) {
+				if (empty($author->getFamilyName($newLocale)) && empty($author->getPreferredPublicName($newLocale))) {
+					// if no name exists for the new locale
+					// copy all names with the old locale to the new locale
+					$author->setGivenName($author->getGivenName($oldLocale), $newLocale);
+					$author->setFamilyName($author->getFamilyName($oldLocale), $newLocale);
+					$author->setPreferredPublicName($author->getPreferredPublicName($oldLocale), $newLocale);
+				} else {
+					// if the given name does not exist, but one of the other names do exist
+					// copy only the given name with the old locale to the new locale, because the given name is required
+					$author->setGivenName($author->getGivenName($oldLocale), $newLocale);
+				}
+				$this->updateObject($author);
+			}
+		}
+	}
+
+
+	/**
 	 * Get the ID of the last inserted author.
 	 * @return int
 	 */

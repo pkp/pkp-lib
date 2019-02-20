@@ -205,8 +205,13 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * @param $submission Submission
 	 */
 	function setSubmissionData($submission) {
-		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
+		$oldLocale = $this->submission->getLocale();
 		$this->submission->setLocale($this->getData('locale'));
+		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
+		if ($oldLocale != $this->getData('locale')) {
+			$authorDao = DAORegistry::getDAO('AuthorDAO');
+			$authorDao->changeSubmissionLocale($this->submission->getId(), $oldLocale, $this->getData('locale'));
+		}
 	}
 
 	/**

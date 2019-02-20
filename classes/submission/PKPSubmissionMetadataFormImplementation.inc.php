@@ -165,6 +165,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function execute($submission, $request) {
 		$submissionDao = Application::getSubmissionDAO();
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 
 		// Update submission
 		$submission->setTitle($this->_parentForm->getData('title'), null); // Localized
@@ -181,11 +182,15 @@ class PKPSubmissionMetadataFormImplementation {
 		}
 
 		// Update submission locale
+		$oldLocale = $submission->getLocale();
 		$newLocale = $this->_parentForm->getData('locale');
 		$context = $request->getContext();
 		$supportedSubmissionLocales = $context->getData('supportedSubmissionLocales');
 		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
 		if (in_array($newLocale, $supportedSubmissionLocales)) $submission->setLocale($newLocale);
+		if ($newLocale != $oldLocale) {
+			$authorDao->changeSubmissionLocale($submission->getId(), $oldLocale, $newLocale);
+		}
 
 		// Save the submission
 		$submissionDao->updateObject($submission);
@@ -226,7 +231,6 @@ class PKPSubmissionMetadataFormImplementation {
 		$submissionSubjectDao->insertSubjects($subjects, $submission->getId());
 
 		// Resequence the authors (this ensures a primary contact).
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$authorDao->resequenceAuthors($submission->getId());
 
 		// Save the submission categories

@@ -13,7 +13,7 @@
 
 <article class="obj_announcement_full">
 	<h1>
-		{$announcement->getLocalizedTitle()}
+		{$announcement->getLocalizedTitle()|escape}
 	</h1>
 	<div class="date">
 		{$announcement->getDatePosted()|date_format:$dateFormatShort}

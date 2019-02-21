@@ -77,11 +77,11 @@ class PluginGalleryGridCellProvider extends GridCellProvider {
 					'moreInformation',
 					new AjaxModal(
 						$router->url($request, null, null, 'viewPlugin', null, array('rowId' => $row->getId()+1)),
-						$element->getLocalizedName(),
+						htmlspecialchars($element->getLocalizedName()),
 						'modal_information',
 						true
 					),
-					$element->getLocalizedName(),
+					htmlspecialchars($element->getLocalizedName()),
 					'details'
 				));
 		}

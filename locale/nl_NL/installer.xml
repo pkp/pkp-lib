@@ -8,13 +8,13 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings.
+  * Localization strings for the nl_NL (Nederlands) locale.
+  *
   -->
-
 <locale name="nl_NL" full_name="Nederlands">
-	<message key="installer.additionalLocales">Additionele talen</message>
+	<message key="installer.additionalLocales">Bijkomende talen</message>
 	<message key="installer.administratorAccount">Beheerdersaccount</message>
-	<message key="installer.administratorAccountInstructions">Deze gebruiker wordt de sitebeheerder en heeft volledige toegang tot het systeem. Additionele gebruikersaccounts kunnen na installatie aangemaakt worden.</message>
+	<message key="installer.administratorAccountInstructions">Deze gebruiker wordt de sitebeheerder en heeft volledige toegang tot het systeem. Bijkomende gebruikersaccounts kunnen na installatie aangemaakt worden.</message>
 	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NEE</span>]]></message>
 	<message key="installer.checkYes">Ja</message>
 	<message key="installer.clientCharset">Browser karakterset</message>
@@ -33,14 +33,12 @@
 	<message key="installer.databasePassword">Wachtwoord</message>
 	<message key="installer.databaseSettings">Databaseinstellingen</message>
 	<message key="installer.databaseUsername">Gebruikersnaam</message>
-	<message key="installer.encryption">Wachtwoord-encryptiealgoritme</message>
 	<message key="installer.filesDir">Map voor het laden van bestanden</message>
 	<message key="installer.fileSettings">Bestandsinstellingen</message>
 	<message key="installer.form.clientCharsetRequired">Er moet een karakterset voor de browser gekozen worden.</message>
 	<message key="installer.form.databaseDriverRequired">Er moet een database-stuurprogramma gekozen worden.</message>
 	<message key="installer.form.databaseNameRequired">De databasenaam is verplicht.</message>
 	<message key="installer.form.emailRequired">Een geldig e-mailadres voor de beheerder is verplicht.</message>
-	<message key="installer.form.encryptionRequired">Er moet een wachtwoord-encryptie algoritme gekozen worden.</message>
 	<message key="installer.form.filesDirRequired">De map voor het bewaren van geladen bestanden is verplicht.</message>
 	<message key="installer.form.localeRequired">Er moet een taal gekozen worden.</message>
 	<message key="installer.form.passwordRequired">Het wachtwoord voor de beheerder is verplicht.</message>
@@ -54,14 +52,31 @@
 	<message key="installer.installFileError"><![CDATA[Het installatiebestand <tt>dbscripts/xml/install.xml</tt> bestaat niet of kan niet gelezen worden.]]></message>
 	<message key="installer.installFilesDirError">De map voor het laden van bestanden bestaat niet of er mag niet in geschreven worden.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Fout bij het parseren van het database installatiebestand <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Fout in het filter configuratiebestand <tt>{$file}</tt>]]></message>
+	<message key="installer.unsupportedUpgradeError">Upgrade wordt niet ondersteund. Zie docs/UPGRADE-UNSUPPORTED voor details.</message>
 	<message key="installer.locale">Taal</message>
+	<message key="installer.locale.maybeIncomplete">De gemarkeerde talen zijn mogelijk onvolledig</message>
 	<message key="installer.localeSettings">Taalinstelingen</message>
+	<message key="installer.oaiSettings">OAI instellingen</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Een unieke identificatie om metadatarecords van deze site te indexeren, gebruikmakend van het <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI repository identificatie</message>
 	<message key="installer.publicFilesDirError">De map met publieke bestanden bestaat niet of er mag niet in geschreven worden.</message>
 	<message key="installer.releaseNotes">Over deze versie</message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>.]]></message>
-	<message key="installer.locale.maybeIncomplete">De gemarkeerde talen zijn mogelijk incompleet</message>
-	<message key="installer.oaiSettings">OAI instellingen</message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Fout in het filter configuratiebestand <tt>{$file}</tt>]]></message>
+	<message key="installer.preInstallationInstructionsTitle">Voorbereidende stappen voor de installatie</message>
+	<message key="installer.preInstallationInstructions"><![CDATA[<p>1. Volgende bestanden en folders (en hun inhoud) moeten schrijfbaar zijn:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> is schrijfbaar (optioneel): {$writable_config}</li>
+			<li><tt>public/</tt> is schrijfbaar: {$writable_public}</li>
+			<li><tt>cache/</tt> is schrijfbaar: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> is schrijfbaar: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> is schrijfbaar: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> is schrijfbaar: {$writable_db_cache}</li>
+		</ul>
+
+<p>2. Er moet een folder bestaan voor het opladen van bestanden, en die folder moet schrijfbaar zijn (zie "Bestandsinstellingen" hieronder).</p>]]></message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>De XSL module is niet ingeschakeld in uw PHP installatie. Schakel die module in, of configureer de xslt_command parameter in het config.inc.php bestand.</p>]]></message>
+	<message key="installer.beacon">Beacon</message>
+	<message key="installer.beacon.enable">Geef een unieke ID op voor de website, en een basis-URL voor OAI. Deze gegevens worden uitsluitend gebruikt voor statistieken en beveiliging.</message>
+	<message key="installer.unsupportedPhpError">De PHP versie van uw server wordt niet ondersteund door deze software. Controleer de systeemvereisten in docs/README.</message>
 </locale>

@@ -8,17 +8,17 @@
   * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings.
+  * Localization strings for the nl_NL (Nederlands) locale.
   -->
-
 <locale name="nl_NL" full_name="Nederlands">
 	<message key="comments.anonymous">Anonieme gebruiker</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Inhoud</message>
+	<message key="comments.titleRequired">Een titel is verplicht</message>
 	<message key="comments.confirmDeleteChildren">Bij het verwijderen van deze reactie gaan ook de antwoorden daarop verloren. Weet u zeker dat u dit wilt doen?</message>
 	<message key="comments.delete">Verwijder dit commentaar</message>
-	<message key="comments.email">E-mail schrijver</message>
-	<message key="comments.emailReply">E-mail antwoord</message>
+	<message key="comments.email">E-mailadres schrijver</message>
+	<message key="comments.emailReply">Antwoord via e-mail</message>
 	<message key="comments.enterComment">Geef reactie</message>
 	<message key="comments.inResponseTo"><![CDATA[In reactie op <a href="{$url}">{$title}</a>]]></message>
 	<message key="comments.name">Naam schrijver</message>
@@ -33,5 +33,4 @@
 	<message key="comments.title">Titel</message>
 	<message key="comments.viewAllComments">Bekijk alle reacties</message>
 	<message key="reader.fullText">Volledige tekst:</message>
-	<message key="comments.titleRequired">Een titel is verplicht</message>
 </locale>

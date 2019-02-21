@@ -26,7 +26,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	var $tableName = 'email_templates';
 
 	/** @copydoc SchemaDAO::$settingsTableName */
-	var $settingsTableName = 'email_templates_data';
+	var $settingsTableName = 'email_templates_settings';
 
 	/** @copydoc SchemaDAO::$primaryKeyColumn */
 	var $primaryKeyColumn = 'email_id';
@@ -52,35 +52,61 @@ class EmailTemplateDAO extends SchemaDAO {
 	}
 
 	/**
-	 * Return a DataObject from a result row
+	 * @copydoc SchemaDAO::insertObject()
+	 */
+	public function insertObject($object) {
+		// The object contains custom template information as well as the default data.
+		// Strip default data from the object before calling insertObject so that it
+		// doesn't try to write this data to the email templates settings table.
+		$partialObject = clone $object;
+		unset($partialObject->_data['canDisable']);
+		unset($partialObject->_data['canEdit']);
+		unset($partialObject->_data['description']);
+		unset($partialObject->_data['fromRoleId']);
+		unset($partialObject->_data['toRoleId']);
+
+		parent::insertObject($partialObject);
+	}
+
+	/**
+	 * @copydoc SchemaDAO::updateObject()
+	 */
+	public function updateObject($object) {
+		// The object contains custom template information as well as the default data.
+		// Strip default data from the object before calling updateObject so that it
+		// doesn't try to write this data to the email templates settings table.
+		$partialObject = clone $object;
+		unset($partialObject->_data['canDisable']);
+		unset($partialObject->_data['canEdit']);
+		unset($partialObject->_data['description']);
+		unset($partialObject->_data['fromRoleId']);
+		unset($partialObject->_data['toRoleId']);
+
+		parent::updateObject($partialObject);
+	}
+
+	/**
+	 * Extend SchemaDAO::_fromRow() to add data from the email template defaults
 	 *
 	 * @param $primaryRow array The result row from the primary table lookup
-	 * @return DataObject
+	 * @return BaseEmailTemplate
 	 */
 	public function _fromRow($primaryRow) {
-		$schemaService = Services::get('schema');
-		$schema = $schemaService->get($this->schemaName);
+		$emailTemplate = parent::_fromRow($primaryRow);
+		$schema = Services::get('schema')->get($this->schemaName);
 
-		$emailTemplate = $this->newDataObject();
-
-		foreach ($this->primaryTableColumns as $propName => $column) {
-			if (isset($primaryRow[$column])) {
-				$emailTemplate->setData(
-					$propName,
-					$this->convertFromDb($primaryRow[$column], $schema->properties->{$propName}->type)
-				);
-			}
-		}
-
-		// Get the default email template data
 		$result = $this->retrieve(
 			"SELECT * FROM email_templates_default_data WHERE email_key = ?",
-			array($primaryRow['email_key'])
+			[$emailTemplate->getData('key')]
 		);
 		$props = ['subject', 'body', 'description'];
 		while (!$result->EOF) {
 			$settingRow = $result->getRowAssoc(false);
 			foreach ($props as $prop) {
+				// Don't allow default data to override custom template data
+				if ($emailTemplate->getData($prop, $settingRow['locale'])) {
+					continue;
+				}
 				$emailTemplate->setData(
 					$prop,
 					$this->convertFromDB(
@@ -93,30 +119,6 @@ class EmailTemplateDAO extends SchemaDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-
-		// Get any custom email template data
-		if ($emailTemplate->getId()) {
-			$result = $this->retrieve(
-				"SELECT * FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ?",
-				array($primaryRow[$this->primaryKeyColumn])
-			);
-			$props = ['subject', 'body'];
-			while (!$result->EOF) {
-				$settingRow = $result->getRowAssoc(false);
-				foreach ($props as $prop) {
-					$emailTemplate->setData(
-						$prop,
-						$this->convertFromDB(
-							$settingRow[$prop],
-							$schema->properties->{$prop}->type
-						),
-						$settingRow['locale']
-					);
-				}
-				$result->MoveNext();
-			}
-			$result->Close();
-		}
 
 		return $emailTemplate;
 	}
@@ -233,8 +235,8 @@ class EmailTemplateDAO extends SchemaDAO {
 				LEFT JOIN email_templates_default_data ddpl ON (ddpl.email_key = d.email_key AND ddpl.locale = ?)
 				LEFT JOIN email_templates_default_data ddl ON (ddl.email_key = d.email_key AND ddl.locale = ?)
 				LEFT JOIN email_templates e ON (d.email_key = e.email_key AND e.assoc_type = ? AND e.assoc_id = ?)
-				LEFT JOIN email_templates_data edpl ON (edpl.email_key = e.email_key AND edpl.assoc_type = e.assoc_type AND edpl.assoc_id = e.assoc_id AND edpl.locale = ?)
-				LEFT JOIN email_templates_data edl ON (edl.email_key = e.email_key AND edl.assoc_type = e.assoc_type AND edl.assoc_id = e.assoc_id AND edl.locale = ?)
+				LEFT JOIN email_templates_settings edpl ON (edpl.email_key = e.email_key AND edpl.assoc_type = e.assoc_type AND edpl.assoc_id = e.assoc_id AND edpl.locale = ?)
+				LEFT JOIN email_templates_settings edl ON (edl.email_key = e.email_key AND edl.assoc_type = e.assoc_type AND edl.assoc_id = e.assoc_id AND edl.locale = ?)
 			WHERE	d.email_key = ?',
 			array($primaryLocale, $locale, Application::getContextAssocType(), (int) $contextId, $primaryLocale, $locale, $emailKey)
 		);
@@ -262,7 +264,7 @@ class EmailTemplateDAO extends SchemaDAO {
 					NULL AS from_role_id,
 					NULL AS to_role_id
 				FROM	email_templates e
-					LEFT JOIN email_templates_data ed ON (ed.email_key = e.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id)
+					LEFT JOIN email_templates_settings ed ON (ed.email_key = e.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id)
 					LEFT JOIN email_templates_default d ON (e.email_key = d.email_key)
 				WHERE	d.email_key IS NULL AND
 					e.assoc_type = ? AND
@@ -327,7 +329,7 @@ class EmailTemplateDAO extends SchemaDAO {
 					COALESCE(ed.subject, dd.subject) AS subject,
 					COALESCE(ed.body, dd.body) AS body
 				FROM	email_templates_default_data dd
-					LEFT JOIN email_templates_data ed ON (dd.email_key = ed.email_key AND dd.locale = ed.locale AND ed.assoc_type = ? AND ed.assoc_id = ?)
+					LEFT JOIN email_templates_settings ed ON (dd.email_key = ed.email_key AND dd.locale = ed.locale AND ed.assoc_type = ? AND ed.assoc_id = ?)
 				WHERE	dd.email_key = ?',
 				array($row['assoc_type'], $row['assoc_id'], $row['email_key'])
 			);
@@ -348,7 +350,7 @@ class EmailTemplateDAO extends SchemaDAO {
 				'SELECT	ed.locale,
 					ed.subject,
 					ed.body
-				FROM	email_templates_data ed
+				FROM	email_templates_settings ed
 					LEFT JOIN email_templates_default_data dd ON (ed.email_key = dd.email_key AND dd.locale = ed.locale)
 				WHERE	ed.assoc_type = ? AND
 					ed.assoc_id = ? AND
@@ -464,7 +466,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		foreach ($emailTemplate->getLocales() as $locale) {
 			$result = $this->retrieve(
 				'SELECT	COUNT(*)
-				FROM	email_templates_data
+				FROM	email_templates_settings
 				WHERE	email_key = ? AND
 					locale = ? AND
 					assoc_type = ? AND
@@ -479,7 +481,7 @@ class EmailTemplateDAO extends SchemaDAO {
 
 			if ($result->fields[0] == 0) {
 				$this->update(
-					'INSERT INTO email_templates_data
+					'INSERT INTO email_templates_settings
 					(email_key, locale, assoc_type, assoc_id, subject, body)
 					VALUES
 					(?, ?, ?, ?, ?, ?)',
@@ -495,7 +497,7 @@ class EmailTemplateDAO extends SchemaDAO {
 
 			} else {
 				$this->update(
-					'UPDATE	email_templates_data
+					'UPDATE	email_templates_settings
 					SET	subject = ?,
 						body = ?
 					WHERE	email_key = ? AND
@@ -524,7 +526,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function deleteEmailTemplateByKey($emailKey, $contextId) {
 		$this->update(
-			'DELETE FROM email_templates_data WHERE email_key = ? AND assoc_type = ? AND assoc_id = ?',
+			'DELETE FROM email_templates_settings WHERE email_key = ? AND assoc_type = ? AND assoc_id = ?',
 			array($emailKey, Application::getContextAssocType(), (int) $contextId)
 		);
 		return $this->update(
@@ -554,7 +556,7 @@ class EmailTemplateDAO extends SchemaDAO {
 			FROM	email_templates_default d
 				LEFT JOIN email_templates_default_data dd ON (dd.email_key = d.email_key)
 				LEFT JOIN email_templates e ON (d.email_key = e.email_key AND e.assoc_type = ? AND e.assoc_id = ?)
-				LEFT JOIN email_templates_data ed ON (ed.email_key = e.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id AND ed.locale = dd.locale)
+				LEFT JOIN email_templates_settings ed ON (ed.email_key = e.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id AND ed.locale = dd.locale)
 			WHERE	dd.locale = ?',
 			array(Application::getContextAssocType(), (int) $contextId, $locale),
 			$rangeInfo
@@ -582,7 +584,7 @@ class EmailTemplateDAO extends SchemaDAO {
 				NULL AS from_role_id,
 				NULL AS to_role_id
 			FROM	email_templates e
-				LEFT JOIN email_templates_data ed ON (e.email_key = ed.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id AND ed.locale = ?)
+				LEFT JOIN email_templates_settings ed ON (e.email_key = ed.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id AND ed.locale = ?)
 				LEFT JOIN email_templates_default d ON (e.email_key = d.email_key)
 			WHERE	e.assoc_type = ? AND
 				e.assoc_id = ? AND
@@ -618,7 +620,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function deleteEmailTemplatesByContext($contextId) {
 		$this->update(
-			'DELETE FROM email_templates_data WHERE assoc_type = ? AND assoc_id = ?',
+			'DELETE FROM email_templates_settings WHERE assoc_type = ? AND assoc_id = ?',
 			array(Application::getContextAssocType(), (int) $contextId)
 		);
 		return $this->update(
@@ -633,7 +635,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	 */
 	function deleteEmailTemplatesByLocale($locale) {
 		$this->update(
-			'DELETE FROM email_templates_data WHERE locale = ?', $locale
+			'DELETE FROM email_templates_settings WHERE locale = ?', $locale
 		);
 	}
 

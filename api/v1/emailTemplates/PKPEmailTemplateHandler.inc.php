@@ -256,10 +256,22 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$params = $this->convertStringsToSchema(SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
 		$params['key'] = $args['key'];
 
-		$primaryLocale = $context->getData('primaryLocale');
-		$allowedLocales = $context->getData('supportedLocales');
+		// Only allow admins to modify change the context an email template is attached to
+		if (($emailTemplate->getData('assocType') === Application::getContextAssocType()
+				|| is_null($emailTemplate->getData('assocType')))
+				&& (isset($params['assocId']) || isset($params['assocType']))) {
+			$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+			if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+				return $response->withStatus(403)->withJsonError('api.emailTemplates.403.notAllowedChangeContext');
+			}
+		}
 
-		$errors = $emailTemplateService->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+		$errors = $emailTemplateService->validate(
+			empty($emailTemplate->getData('id')) ? VALIDATE_ACTION_ADD : VALIDATE_ACTION_EDIT,
+			$params,
+			$requestContext->getData('supportedLocales'),
+			$requestContext->getData('primaryLocale')
+		);
 
 		if (!empty($errors)) {
 			return $response->withStatus(400)->withJson($errors);

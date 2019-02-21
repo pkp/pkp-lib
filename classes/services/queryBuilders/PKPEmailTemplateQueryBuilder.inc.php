@@ -127,7 +127,6 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 		];
 
 		$q = Capsule::table('email_templates_default as etd')
-			->leftJoin('email_templates as et', 'etd.email_key', '=', 'et.email_key')
 			->orderBy('email_key', 'asc')
 			->groupBy('etd.email_key')
 			->groupBy('etd.can_disable')
@@ -135,6 +134,17 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			->groupBy('etd.from_role_id')
 			->groupBy('etd.to_role_id')
 			->groupBy('et.email_id');
+
+		if (!is_null($this->contextId)) {
+			$contextId = $this->contextId;
+			$q->leftJoin('email_templates as et', function ($table) use ($contextId) {
+				$table->on('etd.email_key', '=', 'et.email_key')
+					->on('et.assoc_type', '=', Capsule::raw(\Application::getContextAssocType()))
+					->on('et.assoc_id', '=', Capsule::raw((int) $contextId));
+			});
+		} else {
+			$q->leftJoin('email_templates as et', 'etd.email_key', '=', 'et.email_key');
+		}
 
 		// Use a UNION to ensure the query will match rows in email_templates and
 		// email_templates_default. This ensures that custom templates which have
@@ -193,27 +203,41 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->searchPhrase)) {
 			$words = explode(' ', $this->searchPhrase);
 			if (count($words)) {
-				$q->leftJoin('email_templates_data as etdata', 'et.email_id', '=', 'etdata.email_id');
+				$q->leftJoin('email_templates_settings as ets', 'et.email_id', '=', 'ets.email_id');
 				$q->leftJoin('email_templates_default_data as etddata', 'etd.email_key', '=', 'etddata.email_key');
 				foreach ($words as $word) {
+					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word) {
-						$q->where('et.email_key', 'LIKE', "%{$word}%")
-							->orWhere('etdata.subject', 'LIKE', "%{$word}%")
-							->orWhere('etdata.body', 'LIKE', "%{$word}%")
-							->orWhere('etd.email_key', 'LIKE', "%{$word}%")
-							->orWhere('etddata.subject', 'LIKE', "%{$word}%")
-							->orWhere('etddata.body', 'LIKE', "%{$word}%")
-							->orWhere('etddata.description', 'LIKE', "%{$word}%");
+						$q->where(Capsule::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
+							->orWhere(function($q) use ($word) {
+								$q->where('ets.setting_name', 'subject');
+								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+							})
+							->orWhere(function($q) use ($word) {
+								$q->where('ets.setting_name', 'body');
+								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+							})
+							->orWhere(Capsule::raw('lower(etd.email_key)'), 'LIKE', "%{$word}%")
+							->orWhere(Capsule::raw('lower(etddata.subject)'), 'LIKE', "%{$word}%")
+							->orWhere(Capsule::raw('lower(etddata.body)'), 'LIKE', "%{$word}%")
+							->orWhere(Capsule::raw('lower(etddata.description)'), 'LIKE', "%{$word}%");
 					});
 				}
 
 				if (isset($customTemplates)) {
-					$customTemplates->leftJoin('email_templates_data as etdata', 'et.email_id', '=', 'etdata.email_id');
+					$customTemplates->leftJoin('email_templates_settings as ets', 'et.email_id', '=', 'ets.email_id');
 					foreach ($words as $word) {
+						$word = strtolower(addcslashes($word, '%_'));
 						$customTemplates->where(function ($customTemplates) use ($word) {
-							$customTemplates->where('et.email_key', 'LIKE', "%{$word}%")
-								->orWhere('etdata.subject', 'LIKE', "%{$word}%")
-								->orWhere('etdata.body', 'LIKE', "%{$word}%");
+							$customTemplates->where(Capsule::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
+								->orWhere(function($q) use ($word) {
+									$q->where('ets.setting_name', 'subject');
+									$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+								})
+								->orWhere(function($q) use ($word) {
+									$q->where('ets.setting_name', 'body');
+									$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+								});
 						});
 					}
 				}
@@ -226,6 +250,12 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 				$q->whereIn('etd.email_key', $this->keys)
 					->orWhereIn('et.email_key', $this->keys);
 			});
+			if (isset($customTemplates)) {
+				$customTemplates->where(function($customTemplates) use ($keys) {
+					$customTemplates->whereIn('etd.email_key', $this->keys)
+						->orWhereIn('et.email_key', $this->keys);
+				});
+			}
 		}
 
 		if (!empty($this->toRoleIds)) {

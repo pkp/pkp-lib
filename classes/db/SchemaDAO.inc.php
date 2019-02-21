@@ -57,7 +57,7 @@ abstract class SchemaDAO extends DAO {
 		}
 
 		if (empty($primaryDbProps)) {
-			fatalError('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
+			throw new Exception('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
 		}
 
 		$columnsList = join(', ', array_keys($primaryDbProps));
@@ -144,7 +144,7 @@ abstract class SchemaDAO extends DAO {
 				foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
 					// Delete rows with a null value
 					if (is_null($localeValue)) {
-						$this->update("DELETE FROM $this->settingsTableName WHERE setting_name = ? AND locale = ?",[
+						$this->update("DELETE FROM $this->settingsTableName WHERE setting_name = ? AND locale = ?", [
 							$propName,
 							$localeKey,
 						]);

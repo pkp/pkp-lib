@@ -3,9 +3,9 @@
 	"description": "A saved email message that can be sent by the application during registration, submission, peer review and all other operations of the application.",
 	"type": "object",
 	"required": [
+		"assocId",
+		"assocType",
 		"body",
-		"canDisable",
-		"canEdit",
 		"key",
 		"subject"
 	],
@@ -44,18 +44,21 @@
 		"canDisable": {
 			"type": "boolean",
 			"description": "Can this email template be disabled in the context settings area? Default is `true`.",
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"canEdit": {
 			"type": "boolean",
 			"description": "Can this email template be edited in the context settings area? Default is `true`.",
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"description": {
 			"type": "string",
 			"description": "A description of when this email template is used.",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"enabled": {
 			"type": "boolean",
@@ -65,18 +68,14 @@
 		"fromRoleId": {
 			"type": "integer",
 			"description": "The `ROLE_ID_*` of the user who will send this email.",
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"id": {
 			"type": "integer",
 			"description": "The email template ID.",
-			"readOnly": true,
-			"apiSummary": true
-		},
-		"toRoleId": {
-			"type": "integer",
-			"description": "The `ROLE_ID_*` of the user who will receive this email.",
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"key": {
 			"type": "string",
@@ -91,6 +90,12 @@
 			"description": "The subject of the email to be used in the email's subject header.",
 			"multilingual": true,
 			"apiSummary": true
+		},
+		"toRoleId": {
+			"type": "integer",
+			"description": "The `ROLE_ID_*` of the user who will receive this email.",
+			"apiSummary": true,
+			"readOnly": true
 		}
 	}
 }

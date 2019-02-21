@@ -64,7 +64,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			$emailTemplate = $emailTemplateDao->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		return $emailTemplate ? $emailTemplate : null;
+		return !empty($emailTemplate) ? $emailTemplate : null;
 	}
 
 	/**
@@ -141,19 +141,18 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		foreach ($props as $prop) {
 			switch ($prop) {
 				case '_href':
-					$values[$prop] = null;
-					if (!empty($args['slimRequest']) &&
-							!empty($args['request']) &&
-							$emailTemplate->getData('assocType') === Application::getContextAssocType()) {
-						$emailTemplateContext = Services::get('context')->get($emailTemplate->getData('assocId'));
-
-						$values[$prop] = $args['request']->getDispatcher()->url(
-							$args['request'],
-							ROUTE_API,
-							$emailTemplateContext->getData('urlPath'),
-							'emailTemplates/' . $emailTemplate->getData('key')
-						);
+					$request = Application::getRequest();
+					if ($emailTemplate->getData('assocType') === Application::getContextAssocType()) {
+						$context = Services::get('context')->get($emailTemplate->getData('assocId'));
+					} else {
+						$context = $request->getContext();
 					}
+					$values[$prop] = $request->getDispatcher()->url(
+						$args['request'],
+						ROUTE_API,
+						$context->getData('urlPath'),
+						'emailTemplates/' . $emailTemplate->getData('key')
+					);
 					break;
 				default:
 					$values[$prop] = $emailTemplate->getData($prop);
@@ -261,10 +260,18 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 
 		HookRegistry::call('EmailTemplate::edit', array($newEmailTemplate, $emailTemplate, $params, $request));
 
-		$emailTemplateDao->updateObject($newEmailTemplate);
+		$emailTemplateKey = $emailTemplate->getData('key');
+
+		// When editing a default template for the first time, we must insert a new entry
+		// in the email_templates table.
+		if ($newEmailTemplate->getData('id')) {
+			$emailTemplateDao->updateObject($newEmailTemplate);
+		} else {
+			$emailTemplateDao->insertObject($newEmailTemplate);
+		}
 
 		if ($newEmailTemplate->getData('assocType') === Application::getContextAssocType()) {
-			$contextId = $emailTemplate->getData('assocType');
+			$contextId = $newEmailTemplate->getData('assocId');
 		} else {
 			$context = $request->getContext();
 			$contextId = $context ? $context->getId() : CONTEXT_SITE;

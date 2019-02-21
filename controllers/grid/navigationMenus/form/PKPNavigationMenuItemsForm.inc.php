@@ -112,6 +112,9 @@ class PKPNavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
 		if ($navigationMenuItem) {
+			Services::get('navigationMenu')
+				->setAllNMILocalisedTitles($navigationMenuItem);
+			
 			$formData = array(
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
@@ -129,7 +132,7 @@ class PKPNavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url','menuItemType'));
+		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url', 'menuItemType'));
 	}
 
 	/**
@@ -149,10 +152,23 @@ class PKPNavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 		if (!$navigationMenuItem) {
 			$navigationMenuItem = $navigationMenuItemDao->newDataObject();
+			$navigationMenuItem->setTitle($this->getData('title'), null);
+		} else {
+			Services::get('navigationMenu')
+				->setAllNMILocalisedTitles($navigationMenuItem);
+			
+			$localizedTitles = $navigationMenuItem->getTitle(null);
+			$inputLocalisedTitles = $this->getData('title');
+			foreach ($localizedTitles as $locale => $title) {
+				if ($inputLocalisedTitles[$locale] != $title) {
+					$navigationMenuItem->setTitle($inputLocalisedTitles[$locale], $locale);
+				} else {
+					$navigationMenuItem->setTitle(null, $locale);
+				}
+			}
 		}
 
 		$navigationMenuItem->setPath($this->getData('path'));
-		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
 		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setUrl($this->getData('url'));

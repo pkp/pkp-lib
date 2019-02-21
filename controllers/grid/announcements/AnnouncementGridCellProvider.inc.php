@@ -32,11 +32,11 @@ class AnnouncementGridCellProvider extends GridCellProvider {
 					'moreInformation',
 					new AjaxModal(
 						$router->url($request, null, null, 'moreInformation', null, $actionArgs),
-						$announcement->getLocalizedTitle(),
+						htmlspecialchars($announcement->getLocalizedTitle()),
 						null,
 						true
 					),
-					$announcement->getLocalizedTitle(),
+					htmlspecialchars($announcement->getLocalizedTitle()),
 					'moreInformation'
 				));
 		}

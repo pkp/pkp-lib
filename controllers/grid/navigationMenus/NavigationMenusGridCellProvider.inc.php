@@ -34,7 +34,7 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 						__('grid.action.edit'),
 						null,
 						true),
-					$navigationMenu->getTitle()
+					htmlspecialchars($navigationMenu->getTitle())
 				));
 		}
 		return parent::getCellActions($request, $row, $column, $position);

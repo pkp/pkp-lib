@@ -93,10 +93,13 @@ class PKPNavigationMenuItemsForm extends Form {
 			}
 		}
 
+		$customTemplates = Services::get('navigationMenu')->getMenuItemCustomEditTemplates();
+
 		$templateArray = array(
 			'navigationMenuItemTypeTitles' => $typeTitles,
 			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
+			'customTemplates' => $customTemplates,
 		);
 
 		$templateMgr->assign($templateArray);

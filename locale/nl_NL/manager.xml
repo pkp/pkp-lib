@@ -559,4 +559,32 @@
 	<message key="grid.category.removeText">Weet u zeker dat u deze categorie wilt verwijderen?</message>
 	<message key="grid.category.nameRequired">Vul een naam voor de categorie in.</message>
 	<message key="grid.category.categoryDetails">Categorie informatie</message>
+	
+	<!-- Statistics -->
+	<message key="stats.articlesOfTotal">{$count} van {$total} artikels</message>
+	<message key="stats.daily">Dagelijks</message>
+	<message key="stats.dateRange">Datumbereik</message>
+	<message key="stats.dateRange.allDates">Alle datums</message>
+	<message key="stats.dateRange.apply">Toepassen</message>
+	<message key="stats.dateRange.change">Wijzig datumbereik</message>
+	<message key="stats.dateRange.customRange">Aangepast datumbereik</message>
+	<message key="stats.dateRange.dateDoesNotExist">Eén van de ingevulde datums bestaat niet.</message>
+	<message key="stats.dateRange.from">Van</message>
+	<message key="stats.dateRange.instruction">Gebruik het formaat JJJJ-MM-DD. Als u bijvoorbeeld de datum wilt invullen voor 15 january 2019, vul dan 2019-01-15 in.</message>
+	<message key="stats.dateRange.invalidDate">Het datumformaat is niet geldig. Gebruik het formaat JJJJ-MM-DD.</message>
+	<message key="stats.dateRange.invalidDateRange">De startdatum moet vroeger zijn dan de einddatum.</message>
+	<message key="stats.dateRange.invalidEndDateMax">De einddatum mag niet later zijn dan {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">De startdatum mag niet vroeger zijn dan {$date}.</message>
+	<message key="stats.dateRange.last12Months">Afgelopen 12 maanden</message>
+	<message key="stats.dateRange.last30Days">Afgelopen 30 dagen</message>
+	<message key="stats.dateRange.last90Days">Afgelopen 90 dagen</message>
+	<message key="stats.dateRange.sinceDate">Sinds {$date}</message>
+	<message key="stats.dateRange.to">Tot</message>
+	<message key="stats.dateRange.untilDate">Tot {$date}</message>
+	<message key="stats.fileViews">Aantal keer bekeken</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Maandelijks</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Zoek op titel, auteur en ID</message>
+	<message key="stats.total">Totaal</message>
 </locale>

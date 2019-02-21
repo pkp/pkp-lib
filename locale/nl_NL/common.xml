@@ -11,6 +11,7 @@
   * Localization strings for the nl_NL (Nederlands) locale.
   *
   -->
+
 <locale name="nl_NL" full_name="Nederlands">
 	<message key="common.publicKnowledgeProject">Public Knowledge Project</message>
 	<message key="common.currentStyleSheet">Huidige stylesheet</message>
@@ -106,6 +107,7 @@
 	<message key="common.country">Land</message>
 	<message key="common.create">Maak aan</message>
 	<message key="common.dateCompleted">Datum van voltooiing</message>
+	<message key="common.dateDecided">Datum van beslissing</message>
 	<message key="common.date">Datum</message>
 	<message key="common.dateModified">Datum van wijziging</message>
 	<message key="common.dateRequested">Datum van verzoek</message>
@@ -203,6 +205,9 @@
 	<message key="common.overdue">Te laat</message>
 	<message key="common.pagination">{$start}-{$end} van {$total}</message>
 	<message key="common.pagination.label">Blader naar verdere pagina's</message>
+	<message key="common.pagination.goToPage">Ga naar {$page}</message>
+	<message key="common.pagination.next">Volgende pagina</message>
+	<message key="common.pagination.previous">Vorige pagina</message>
 	<message key="common.pageNumber">Pagina {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Homepage logo</message>
 	<message key="common.percentage">{$percentage}%</message>

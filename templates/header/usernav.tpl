@@ -96,7 +96,7 @@
 				{foreach from=$supportedLocales item=localeName key=localeKey}
 					{if $localeKey != $currentLocale}
 						<li>
-							<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}">
+							<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey}">
 								{$localeName}
 							</a>
 						</li>

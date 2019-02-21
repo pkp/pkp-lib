@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE languages SYSTEM "../../dtd/languages.dtd">
+<!--
+  * locale/nl_NL/languages.xml
+  *
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localized list of common languages. Based on ISO 639-1:2002. Zie https://en.wikiversity.org/wiki/ISO_639-1_language_matrix, https://nl.wikipedia.org/wiki/Lijst_van_ISO_639-codes
+  *
+  -->
+<languages>
+	<language code="ab" name="Abchazisch"/>
+	<language code="aa" name="Afar"/>
+	<language code="af" name="Afrikaans"/>
+	<language code="ak" name="Akan"/>
+	<language code="sq" name="Albanees"/>
+	<language code="am" name="Amhaars"/>
+	<language code="ar" name="Arabisch"/>
+	<language code="an" name="Aragonees"/>
+	<language code="hy" name="Armeens"/>
+	<language code="as" name="Assamees"/>
+	<language code="av" name="Avaars"/>
+	<language code="ae" name="Avestisch"/>
+	<language code="ay" name="Aymara"/>
+	<language code="az" name="Azerbeidzjaans"/>
+	<language code="bm" name="Bambara"/>
+	<language code="ba" name="Basjkiers"/>
+	<language code="eu" name="Baskisch"/>
+	<language code="be" name="Wit-Russisch (Belarussisch)"/>
+	<language code="bn" name="Bengaals"/>
+	<language code="bh" name="Bihari"/>
+	<language code="bi" name="Bislama"/>
+	<language code="bs" name="Bosnisch"/>
+	<language code="br" name="Bretons"/>
+	<language code="bg" name="Bulgaars"/>
+	<language code="my" name="Birmaans, Birmees"/>
+	<language code="ca" name="Catalaans"/>
+	<language code="km" name="Khmer, Cambodjaans"/>
+	<language code="ch" name="Chamorro"/>
+	<language code="ce" name="Tsjetsjeens"/>
+	<language code="ny" name="Nyanja"/>
+	<language code="zh" name="Chinese talen"/>
+	<language code="cu" name="Kerkslavisch"/>
+	<language code="cv" name="Tsjoevasjisch"/>
+	<language code="kw" name="Cornisch"/>
+	<language code="co" name="Corsicaans"/>
+	<language code="cr" name="Cree"/>
+	<language code="hr" name="Kroatisch"/>
+	<language code="cs" name="Tsjechisch"/>
+	<language code="da" name="Deens"/>
+	<language code="dv" name="Divehi"/>
+	<language code="nl" name="Nederlands"/>
+	<language code="dz" name="Dzongkha"/>
+	<language code="en" name="Engels"/>
+	<language code="eo" name="Esperanto"/>
+	<language code="et" name="Estisch"/>
+	<language code="ee" name="Ewe"/>
+	<language code="fo" name="Faeröers"/>
+	<language code="fj" name="Fijisch"/>
+	<language code="fi" name="Fins"/>
+	<language code="fr" name="Frans"/>
+	<language code="ff" name="Fula"/>
+	<language code="gd" name="Schots-Gaelisch"/>
+	<language code="gl" name="Galicisch"/>
+	<language code="lg" name="Luganda"/>
+	<language code="ka" name="Georgisch"/>
+	<language code="de" name="Duits"/>
+	<language code="el" name="Grieks"/>
+	<language code="gn" name="Guaraní"/>
+	<language code="gu" name="Gujarati"/>
+	<language code="ht" name="Haïtiaans Creools"/>
+	<language code="ha" name="Hausa"/>
+	<language code="he" name="Hebreeuws"/>
+	<language code="hz" name="Herero"/>
+	<language code="hi" name="Hindi"/>
+	<language code="ho" name="Hiri Motu"/>
+	<language code="hu" name="Hongaars"/>
+	<language code="is" name="IJslands"/>
+	<language code="io" name="Ido"/>
+	<language code="ig" name="Igbo"/>
+	<language code="id" name="Indonesisch"/>
+	<language code="ia" name="Interlingua"/>
+	<language code="ie" name="Interlingue"/>
+	<language code="iu" name="Inuktitut"/>
+	<language code="ik" name="Inupiak"/>
+	<language code="ga" name="Iers"/>
+	<language code="it" name="Italiaans"/>
+	<language code="ja" name="Japans"/>
+	<language code="jv" name="Javaans"/>
+	<language code="kl" name="Groenlands"/>
+	<language code="kn" name="Kannada (Kanarees, Kanara)"/>
+	<language code="kr" name="Kanuri"/>
+	<language code="ks" name="Kasjmiri"/>
+	<language code="kk" name="Kazachs"/>
+	<language code="ki" name="Gikuyu"/>
+	<language code="rw" name="Kinyarwanda"/>
+	<language code="ky" name="Kirgizisch"/>
+	<language code="kv" name="Zurjeens (Komi)"/>
+	<language code="kg" name="Kongo"/>
+	<language code="ko" name="Koreaans"/>
+	<language code="kj" name="Kwanyama"/>
+	<language code="ku" name="Koerdisch"/>
+	<language code="lo" name="Laotiaans"/>
+	<language code="la" name="Latijn"/>
+	<language code="lv" name="Lets"/>
+	<language code="li" name="Limburgs"/>
+	<language code="ln" name="Lingala"/>
+	<language code="lt" name="Litouws"/>
+	<language code="lu" name="Luba-Katanga"/>
+	<language code="lb" name="Luxemburgs"/>
+	<language code="mk" name=""/>
+	<language code="mg" name="Plateaumalagasi"/>
+	<language code="ms" name="Maleis"/>
+	<language code="ml" name="Malayalam"/>
+	<language code="mt" name="Maltees"/>
+	<language code="gv" name="Manx-Gaelisch"/>
+	<language code="mi" name="Maori"/>
+	<language code="mr" name="Marathi"/>
+	<language code="mh" name="Marshallees"/>
+	<language code="mn" name="Mongools"/>
+	<language code="na" name="Nauruaans"/>
+	<language code="nv" name="Navajo"/>
+	<language code="ng" name="Ndonga"/>
+	<language code="ne" name="Nepalees"/>
+	<language code="nd" name="Noord-Ndebele"/>
+	<language code="se" name="Noord-Samisch (Noord-Laps)"/>
+	<language code="no" name="Noors"/>
+	<language code="nb" name="Bokmål-Noors"/>
+	<language code="nn" name="Nynorsk (Nieuw-Noors)"/>
+	<language code="oc" name="Occitaans"/>
+	<language code="oj" name="Ojibweg"/>
+	<language code="or" name="Odia (Oriya)"/>
+	<language code="om" name="Afaan Oromo"/>
+	<language code="os" name="Ossetisch"/>
+	<language code="pi" name="Pali"/>
+	<language code="pa" name="Punjabi"/>
+	<language code="fa" name="Perzisch (Farsi)"/>
+	<language code="pl" name="Pools"/>
+	<language code="pt" name="Portugees"/>
+	<language code="ps" name="Pasjtoe"/>
+	<language code="qu" name="Quechua"/>
+	<language code="ro" name="Roemeens"/>
+	<language code="rm" name="Reto-Romaans"/>
+	<language code="rn" name="Kirundi"/>
+	<language code="ru" name="Russisch"/>
+	<language code="sm" name="Samoaans"/>
+	<language code="sg" name="Sango"/>
+	<language code="sa" name="Sanskriet"/>
+	<language code="sc" name="Sardijns"/>
+	<language code="sr" name="Servisch"/>
+	<language code="sn" name="Shona"/>
+	<language code="ii" name="Yi"/>
+	<language code="sd" name="Sindhi"/>
+	<language code="si" name="Singalees"/>
+	<language code="sk" name="Slowaaks"/>
+	<language code="sl" name="Sloveens"/>
+	<language code="so" name="Somalisch"/>
+	<language code="st" name="Zuid-Sotho"/>
+	<language code="nr" name="Zuid-Ndebele"/>
+	<language code="es" name="Spaans"/>
+	<language code="su" name="Soendanees"/>
+	<language code="sw" name="Swahili"/>
+	<language code="ss" name="Swazi"/>
+	<language code="sv" name="Zweeds"/>
+	<language code="tl" name="Tagalog"/>
+	<language code="ty" name="Tahitiaans"/>
+	<language code="tg" name="Tadzjieks"/>
+	<language code="ta" name="Tamil"/>
+	<language code="tt" name="Tataars"/>
+	<language code="te" name="Telugu, Teloegoe"/>
+	<language code="th" name="Thai"/>
+	<language code="bo" name="Tibetaans"/>
+	<language code="ti" name="Tigrinya"/>
+	<language code="to" name="Tongaans, Tonga"/>
+	<language code="ts" name="Tsonga"/>
+	<language code="tn" name="Tswana"/>
+	<language code="tr" name="Turks"/>
+	<language code="tk" name="Turkmeens"/>
+	<language code="tw" name="Twi"/>
+	<language code="ug" name="Oeigoers"/>
+	<language code="uk" name="Oekraïens"/>
+	<language code="ur" name="Urdu"/>
+	<language code="uz" name="Oezbeeks"/>
+	<language code="ve" name="Venda"/>
+	<language code="vi" name="Vietnamees"/>
+	<language code="vo" name="Volapük, Volapuk"/>
+	<language code="wa" name="Waals"/>
+	<language code="cy" name="Welsh"/>
+	<language code="fy" name="Westerlauwers Fries"/>
+	<language code="wo" name="Wolof"/>
+	<language code="xh" name="Xhosa"/>
+	<language code="yi" name="Jiddisch"/>
+	<language code="yo" name="Yoruba"/>
+	<language code="za" name="Zhuang, Tsjoeang"/>
+	<language code="zu" name="Zoeloe"/>
+</languages>

@@ -55,7 +55,7 @@
 							<div class="item">
 								<div class="item_title">
 									<span class="fa fa-sort"></span>
-									{$assignment->navigationMenuItem->getLocalizedTitle()}
+									{$assignment->navigationMenuItem->getLocalizedTitle()|escape}
 								</div>
 								<div class="item_buttons">
 									{if $hasConditionalDisplay}
@@ -81,7 +81,7 @@
 											<div class="item">
 												<div class="item_title">
 													<span class="fa fa-sort"></span>
-													{$childAssignment->navigationMenuItem->getLocalizedTitle()}
+													{$childAssignment->navigationMenuItem->getLocalizedTitle()|escape}
 												</div>
 												<div class="item_buttons">
 													{if $hasConditionalDisplay}
@@ -118,7 +118,7 @@
 							<div class="item">
 								<div class="item_title">
 									<span class="fa fa-sort"></span>
-									{$unassignedItem->getLocalizedTitle()}
+									{$unassignedItem->getLocalizedTitle()|escape}
 								</div>
 								<div class="item_buttons">
 									{if $hasConditionalDisplay}

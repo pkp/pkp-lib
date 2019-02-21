@@ -84,6 +84,7 @@
 	<message key="manager.emails.emailTemplate">Email Template</message>
 	<message key="manager.emails.emailTemplates">Templates</message>
 	<message key="manager.emails.emailTemplate.assocTypeRequired">You must provide an assocType and assocId when adding an email template.</message>
+	<message key="manager.emails.emailTemplate.noDuplicateKeys">The key you provided is already in use.</message>
 	<message key="manager.emails.enabled">Enable this email template</message>
 	<message key="manager.emails.enable">Enable</message>
 	<message key="manager.emails.enable.message">You are about to enable this email.  Do you want to confirm this operation?</message>

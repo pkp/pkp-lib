@@ -202,6 +202,11 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		);
 
 		if ($action === VALIDATE_ACTION_ADD) {
+			\AppLocale::requireComponents(
+				LOCALE_COMPONENT_PKP_MANAGER,
+				LOCALE_COMPONENT_APP_MANAGER
+			);
+
 			// Check required fields when adding a context
 			\ValidatorFactory::required(
 				$validator,
@@ -214,6 +219,16 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			$validator->after(function($validator) use ($props) {
 				if (!isset($props['assocType']) || !isset($props['assocId'])) {
 					$validator->errors()->add('assocType', __('manager.emails.emailTemplate.assocTypeRequired'));
+				}
+			});
+
+			// Don't allow duplicate keys in the same context
+			$validator->after(function($validator) use ($props) {
+				if ($props['assocType'] === Application::getContextAssocType()) {
+					$existingEmailTemplate = $this->getByKey($props['assocId'], $props['key']);
+					if (!empty($existingEmailTemplate->getData('id'))) {
+						$validator->errors()->add('key', __('manager.emails.emailTemplate.noDuplicateKeys'));
+					}
 				}
 			});
 		}
@@ -235,7 +250,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 */
 	public function add($emailTemplate, $request) {
 		if ($emailTemplate->getData('assocType') === Application::getContextAssocType()) {
-			$contextId = $emailTemplate->getData('assocType');
+			$contextId = $emailTemplate->getData('assocId');
 		} else {
 			$context = $request->getContext();
 			$contextId = $context ? $context->getId() : CONTEXT_SITE;
@@ -243,7 +258,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->insertObject($emailTemplate);
-		$emailTemplate = $emailTemplateDao->getByKey($contextId, $emailTemplate->getData('key'));
+		$emailTemplate = $this->getByKey($contextId, $emailTemplate->getData('key'));
 
 		HookRegistry::call('EmailTemplate::add', array($emailTemplate, $request));
 

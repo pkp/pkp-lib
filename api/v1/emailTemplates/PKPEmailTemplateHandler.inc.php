@@ -215,11 +215,6 @@ class PKPEmailTemplateHandler extends APIHandler {
 			return $response->withStatus(400)->withJson($errors);
 		}
 
-		// Don't allow an email template to be added without a context
-		if (empty($params['assocType']) || empty($params['assocId'])) {
-			return $response->withStatus(403)->withJsonError('api.emailTemplates.403.requireAssocObject');
-		}
-
 		$emailTemplate = Application::getContextDAO()->newDataObject();
 		$emailTemplate->_data = $params;
 		$emailTemplate = $emailTemplateService->add($emailTemplate, $request);

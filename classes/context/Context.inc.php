@@ -330,12 +330,26 @@ class Context extends DataObject {
 	/**
 	 * Get a localized context setting by name.
 	 * @param $name string
+	 * @param $preferredLocale string
 	 * @return mixed
 	 */
-	function &getLocalizedSetting($name) {
+	function &getLocalizedSetting($name, $preferredLocale = null) {
+		// Best is the requested locale, if applicable
+		if ($preferredLocale !== null) {
+			$returner = $this->getSetting($name, $preferredLocale);
+			if ($returner !== null) {
+				return $returner;
+			}
+		}
+		// Otherwise, try the user's locale
 		$returner = $this->getSetting($name, AppLocale::getLocale());
 		if ($returner === null) {
-			$returner = $this->getSetting($name, AppLocale::getPrimaryLocale());
+			// Otherwise, try this context's primary locale
+			$returner = $this->getSetting($name, $this->getPrimaryLocale());
+			if ($returner === null) {
+				// Fall back to the current context's primary locale, as an unlikely legacy fallback
+				$returner = $this->getSetting($name, AppLocale::getPrimaryLocale());
+			}
 		}
 		return $returner;
 	}

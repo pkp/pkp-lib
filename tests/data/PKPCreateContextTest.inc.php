@@ -84,6 +84,7 @@ class PKPCreateContextTest extends WebTestCase {
 		$this->click($selector);
 		$this->waitForTextPresent('The theme has been updated.');
 
+		sleep(5); // FIXME: Avoid intermittent failure to scroll to top of page
 		self::$driver->executeScript('window.scrollTo(0,0);'); // Scroll to top of page
 		$this->click('//a[text()="Languages"]');
 		$this->waitForElementPresent($selector = '//input[@id="select-cell-fr_CA-contextPrimary"]');
@@ -98,7 +99,8 @@ class PKPCreateContextTest extends WebTestCase {
 		$this->waitForTextPresent('The search engine index settings have been updated.');
 
 		// Test the form tooltip
-		$this->click('css=label[for="searchIndexing-searchDescription-control-en_US"] + button.tooltipButton');
+		sleep(5); // FIXME: Avoid intermittent failure to open tooltip
+		$this->click('//label[@for="searchIndexing-searchDescription-control-en_US"]/../button[contains(@class,"tooltipButton")]');
 		$this->waitForElementPresent('//div[starts-with(@id,"tooltip_")]//div[contains(text(),"Provide a brief description")]');
 	}
 

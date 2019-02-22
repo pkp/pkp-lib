@@ -278,10 +278,10 @@ class WebTestCase extends PKPTestCase {
 
 		// First make sure that the progress indicator is visible.
 		$element = $this->find($selector = "css=#$formId .formButtons .pkp_spinner");
-		self::$driver->wait(5,100)->until($visibilityCondition = WebDriverExpectedCondition::visibilityOf($element));
+		self::$driver->wait()->until($visibilityCondition = WebDriverExpectedCondition::visibilityOf($element));
 
 		// Wait until it disappears (the form submit process is finished).
-		self::$driver->wait(5,100)->until(WebDriverExpectedCondition::not($visibilityCondition));
+		self::$driver->wait()->until(WebDriverExpectedCondition::not($visibilityCondition));
 	}
 
 	/**
@@ -352,7 +352,7 @@ class WebTestCase extends PKPTestCase {
 	 * @param $value string Value of new tag
 	 */
 	protected function addTag($controlPrefix, $value) {
-		$this->runScript('$(\'[id^=\\\'' . htmlspecialchars($controlPrefix) . '\\\']\').tagit(\'createTag\', \'' . htmlspecialchars($value) . '\');');
+		self::$driver->executeScript('$(\'[id^=\\\'' . htmlspecialchars($controlPrefix) . '\\\']\').tagit(\'createTag\', \'' . htmlspecialchars($value) . '\');');
 	}
 
 	/**
@@ -377,7 +377,13 @@ class WebTestCase extends PKPTestCase {
 	 * Wait for active JQuery requests to complete.
 	 */
 	protected function waitJQuery() {
-		$this->waitForCondition('window.jQuery.active == 0');
+		$driver = self::$driver;
+		$driver->wait()->until(
+			function () use ($driver) {
+				return $driver->executeScript('window.jQuery.active == 0');
+			},
+			'Error waiting for JQuery to finish.'
+		);
 	}
 
 	/**
@@ -399,7 +405,7 @@ class WebTestCase extends PKPTestCase {
 		$loadedItems = 0;
 		$totalItems = 1; // Just to start.
 		while($loadedItems < $totalItems) {
-			$this->runScript('$(\'.scrollable\', \'#' . $gridContainerId . '\').find(\'tr:visible\').last()[0].scrollIntoView()');
+			self::$driver->executeScript('$(\'.scrollable\', \'#' . $gridContainerId . '\').find(\'tr:visible\').last()[0].scrollIntoView()');
 			$this->waitJQuery();
 			$this->waitForElementPresent($selector='css=#' . $gridContainerId . ' .gridPagingScrolling');
 			$pagingInfo = $this->getText($selector);
@@ -416,7 +422,7 @@ class WebTestCase extends PKPTestCase {
 	 */
 	protected function scrollPageDown() {
 		$this->waitJQuery();
-		$this->runScript('scroll(0, document.body.scrollHeight()');
+		self::$driver->executeScript('scroll(0, document.body.scrollHeight()');
 	}
 
 	protected function _webDriverBy($selector) {
@@ -434,7 +440,7 @@ class WebTestCase extends PKPTestCase {
 	}
 
 	protected function waitForElementPresent($selector) {
-		self::$driver->wait(10,500)->until(WebDriverExpectedCondition::presenceOfElementLocated($this->_webDriverBy($selector)));
+		self::$driver->wait()->until(WebDriverExpectedCondition::presenceOfElementLocated($this->_webDriverBy($selector)));
 		$element = $this->find($selector);
 		$this->assertFalse(empty($element));
 		return $element;
@@ -463,9 +469,9 @@ class WebTestCase extends PKPTestCase {
 	}
 
 	protected function click($selector) {
-		$element = $this->waitForElementPresent($selector);
+		self::$driver->wait()->until(WebDriverExpectedCondition::elementToBeClickable($findBy = $this->_webDriverBy($selector)));
 		$actions = new WebDriverActions(self::$driver);
-		$actions->click($element)->perform();
+		$actions->click(self::$driver->findElement($findBy))->perform();
 	}
 
 	protected function quoteXpath($string) {

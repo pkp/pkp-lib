@@ -70,7 +70,7 @@ class PKPCreateUsersTest extends WebTestCase {
 			}
 
 			$this->click('//button[text()=\'Save\']');
-			self::$driver->wait(5,100)->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
+			self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 		}
 	}
 }

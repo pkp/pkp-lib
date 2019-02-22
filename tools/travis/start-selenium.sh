@@ -15,8 +15,8 @@ set -xe
 mkdir screenshots
 
 # Download and start Selenium server.
-wget -q -O selenium.jar http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
-nohup java -jar selenium.jar -forcedBrowserMode *firefox -browserSessionReuse -log selenium-output &
+wget -q -O selenium.jar "https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar"
+java -Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver -jar selenium.jar &
 
 # Wait for Selenium to start before continuing.
-until wget -O - -q "http://localhost:4444/selenium-server/driver/?cmd=testComplete" | grep -e "^OK$"; do sleep 1; done
+until wget -O - -q "http://localhost:4444/wd/hub/status" | fgrep "Server is running"; do sleep 1; done

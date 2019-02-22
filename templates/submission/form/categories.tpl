@@ -11,7 +11,7 @@
 	{if $readOnly}
 		{fbvFormSection title="grid.category.categories" list=true}
 			{foreach from=$assignedCategories item=category}
-				<li>{$category->getLocalizedTitle()}</li>
+				<li>{$category->getLocalizedTitle()|escape}</li>
 			{/foreach}
 		{/fbvFormSection}
 	{else}

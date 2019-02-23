@@ -97,10 +97,6 @@ class PKPUserHandler extends Handler {
 	 * @param $request Request
 	 */
 	function authorizationDenied($args, $request) {
-		if (!Validation::isLoggedIn()) {
-			Validation::redirectLogin();
-		}
-
 		// Get message with sanity check (for XSS or phishing)
 		$authorizationMessage = $request->getUserVar('message');
 		if (!preg_match('/^[a-zA-Z0-9.]+$/', $authorizationMessage)) {

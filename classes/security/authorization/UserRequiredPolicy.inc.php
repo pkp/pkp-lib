@@ -23,11 +23,33 @@ class UserRequiredPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function __construct($request, $message = 'user.authorization.userRequired') {
+	function __construct($request, $message = 'user.authorization.loginRequired') {
 		parent::__construct($message);
 		$this->_request = $request;
+		// Add advice
+		$callOnDeny = array($this, 'checkUser', array());
+		$this->setAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDeny);
 	}
 
+	/**
+	 * Callback function to handle logged out user
+	 *
+	 * @param string $message
+	 * @return mixed
+	 */
+	function checkUser() {
+		import('lib.pkp.classes.core.JSONMessage');
+		//Load locale
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
+		$json = new JSONMessage(false, __('user.authorization.sessionExpired'));
+		$httpAccepts = $_SERVER['HTTP_ACCEPT'];
+		if(strpos($httpAccepts, 'application/json') !== false){
+			echo $json->getString();
+			exit;
+		} else {
+			Validation::redirectLogin();
+		}
+	}
 
 	//
 	// Implement template methods from AuthorizationPolicy

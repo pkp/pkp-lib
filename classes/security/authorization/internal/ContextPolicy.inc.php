@@ -24,6 +24,9 @@ class ContextPolicy extends PolicySet {
 	function __construct($request) {
 		parent::__construct();
 
+		// Ensure a logged in user is available
+		import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
+		$this->addPolicy(new UserRequiredPolicy($request, 'user.authorization.loginRequired'));
 		// Ensure we're in a context
 		import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
 		$this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext'));

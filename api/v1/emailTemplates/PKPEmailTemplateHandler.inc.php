@@ -298,7 +298,8 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$emailTemplateService = Services::get('emailTemplate');
 		$emailTemplate = $emailTemplateService->getByKey($requestContext->getId(), $args['key']);
 
-		if (!$emailTemplate) {
+		// Only custom email templates can be deleted, so return 404 if no id exists
+		if (!$emailTemplate || !$emailTemplate->getData('id')) {
 			return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
 		}
 

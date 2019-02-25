@@ -207,7 +207,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 				LOCALE_COMPONENT_APP_MANAGER
 			);
 
-			// Check required fields when adding a context
+			// Check required fields
 			\ValidatorFactory::required(
 				$validator,
 				$schemaService->getRequiredProps(SCHEMA_EMAIL_TEMPLATE),
@@ -215,7 +215,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 				$primaryLocale
 			);
 
-			// Require an assoc type and id when adding a context
+			// Require an assoc type and id
 			$validator->after(function($validator) use ($props) {
 				if (!isset($props['assocType']) || !isset($props['assocId'])) {
 					$validator->errors()->add('assocType', __('manager.emails.emailTemplate.assocTypeRequired'));
@@ -226,7 +226,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			$validator->after(function($validator) use ($props) {
 				if ($props['assocType'] === Application::getContextAssocType()) {
 					$existingEmailTemplate = $this->getByKey($props['assocId'], $props['key']);
-					if (!empty($existingEmailTemplate->getData('id'))) {
+					if (!empty($existingEmailTemplate) && !empty($existingEmailTemplate->getData('id'))) {
 						$validator->errors()->add('key', __('manager.emails.emailTemplate.noDuplicateKeys'));
 					}
 				}

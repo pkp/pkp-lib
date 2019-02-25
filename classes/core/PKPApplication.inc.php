@@ -684,23 +684,25 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 */
 	function getCCLicenseBadge($ccLicenseURL) {
 		$licenseKeyMap = array(
-			'http://creativecommons.org/licenses/by-nc-nd/4.0' => 'submission.license.cc.by-nc-nd4.footer',
-			'http://creativecommons.org/licenses/by-nc/4.0' => 'submission.license.cc.by-nc4.footer',
-			'http://creativecommons.org/licenses/by-nc-sa/4.0' => 'submission.license.cc.by-nc-sa4.footer',
-			'http://creativecommons.org/licenses/by-nd/4.0' => 'submission.license.cc.by-nd4.footer',
-			'http://creativecommons.org/licenses/by/4.0' => 'submission.license.cc.by4.footer',
-			'http://creativecommons.org/licenses/by-sa/4.0' => 'submission.license.cc.by-sa4.footer',
-			'http://creativecommons.org/licenses/by-nc-nd/3.0' => 'submission.license.cc.by-nc-nd3.footer',
-			'http://creativecommons.org/licenses/by-nc/3.0' => 'submission.license.cc.by-nc3.footer',
-			'http://creativecommons.org/licenses/by-nc-sa/3.0' => 'submission.license.cc.by-nc-sa3.footer',
-			'http://creativecommons.org/licenses/by-nd/3.0' => 'submission.license.cc.by-nd3.footer',
-			'http://creativecommons.org/licenses/by/3.0' => 'submission.license.cc.by3.footer',
-			'http://creativecommons.org/licenses/by-sa/3.0' => 'submission.license.cc.by-sa3.footer'
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nc-nd/4.0[/]?|' => 'submission.license.cc.by-nc-nd4.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nc/4.0[/]?|' => 'submission.license.cc.by-nc4.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nc-sa/4.0[/]?|' => 'submission.license.cc.by-nc-sa4.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nd/4.0[/]?|' => 'submission.license.cc.by-nd4.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by/4.0[/]?|' => 'submission.license.cc.by4.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-sa/4.0[/]?|' => 'submission.license.cc.by-sa4.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nc-nd/3.0[/]?|' => 'submission.license.cc.by-nc-nd3.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nc/3.0[/]?|' => 'submission.license.cc.by-nc3.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nc-sa/3.0[/]?|' => 'submission.license.cc.by-nc-sa3.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-nd/3.0[/]?|' => 'submission.license.cc.by-nd3.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by/3.0[/]?|' => 'submission.license.cc.by3.footer',
+			'|http[s]?://(www.)?creativecommons.org/licenses/by-sa/3.0[/]?|' => 'submission.license.cc.by-sa3.footer'
 		);
 
-		if (isset($licenseKeyMap[$ccLicenseURL])) {
-			PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-			return __($licenseKeyMap[$ccLicenseURL]);
+		foreach($licenseKeyMap as $pattern => $key) {
+			if (preg_match($pattern, $ccLicenseURL)) {
+				PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+				return __($key);
+			}
 		}
 		return null;
 	}

@@ -248,11 +248,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		sleep(5); // FIXME: Avoid missing modal
 		$this->click('//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
 		if ($decision == 'Accept Submission' || $decision == 'Send To Production') {
-			$this->waitForElementPresent($selector='//button[contains(.,"Next:")]');
-			$this->click($selector);
+			$this->click('//button[contains(.,"Next:")]');
 		}
-		$this->waitForElementPresent($selector='//button[contains(.,\'Record Editorial Decision\')]');
-		$this->click($selector);
+		$this->click('//button[contains(.,\'Record Editorial Decision\')]');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
@@ -307,11 +305,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
 		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
 		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
-		$xpath = '//div[contains(text(),' . $this->quoteXpath($name) . ')]';
-		$this->waitForElementPresent($xpath);
+		$this->waitForElementPresent($xpath='//div[contains(text(),' . $this->quoteXpath($name) . ')]');
 		$this->click($xpath);
+		sleep(5); // FIXME: Avoid missing promote modal in ckwantes test
 		$this->click('css=[id^=selectReviewerButton]');
 
+		sleep(5); // FIXME: Avoid missing promote modal in ckwantes test
 		$this->click('//button[text()=\'Add Reviewer\']');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}

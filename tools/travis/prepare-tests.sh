@@ -23,7 +23,7 @@ export FILESDIR=files # Files directory (relative to OJS installation -- do not 
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
 
 # Install required software
-sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl
+sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl chromium-chromedriver chromium-browser
 
 # Generate sample files to use for testing.
 echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # Generate a dummy PDF file

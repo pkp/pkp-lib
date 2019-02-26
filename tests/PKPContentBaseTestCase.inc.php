@@ -245,9 +245,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $decision string
 	 */
 	protected function recordEditorialDecision($decision) {
-		sleep(5); // FIXME: Avoid missing modal
 		$this->click('//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
 		if ($decision == 'Accept Submission' || $decision == 'Send To Production') {
+			sleep(5); // FIXME: Avoid missing modal
 			$this->click('//button[contains(.,"Next:")]');
 		}
 		$this->click('//button[contains(.,\'Record Editorial Decision\')]');

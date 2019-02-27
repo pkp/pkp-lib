@@ -23,7 +23,7 @@ use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverSelect;
 
-class WebTestCase extends PKPTestCase {
+abstract class WebTestCase extends PKPTestCase {
 	/** @var string Base URL provided from environment */
 	public static $baseUrl;
 

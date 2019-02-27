@@ -17,7 +17,7 @@ import('lib.pkp.tests.WebTestCase');
 
 use Facebook\WebDriver\Interactions\WebDriverActions;
 
-class PKPCreateContextTest extends WebTestCase {
+abstract class PKPCreateContextTest extends WebTestCase {
 	/** @var array */
 	public $contextName = [];
 

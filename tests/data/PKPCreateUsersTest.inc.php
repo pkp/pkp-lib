@@ -19,7 +19,7 @@ use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\Interactions\WebDriverActions;
 use Facebook\WebDriver\WebDriverBy;
 
-class PKPCreateUsersTest extends WebTestCase {
+abstract class PKPCreateUsersTest extends WebTestCase {
 	/**
 	 * Creat user accounts.
 	 * @param $users array

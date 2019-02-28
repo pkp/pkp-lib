@@ -109,7 +109,7 @@ class PaymentMethodForm extends ContextSettingsForm {
 	 * @copydoc Form::validate
 	 */
 	function validate($callHooks = true) {
-		if (!$this->settingsForm->validate()) {
+		if ($this->settingsForm && !$this->settingsForm->validate()) {
 			foreach ($this->settingsForm->getErrorsArray() as $field => $message) {
 				$this->addError($field, $message);
 			}

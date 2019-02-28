@@ -155,6 +155,9 @@ class PKPPublicIdentifiersForm extends Form {
 			if (ctype_digit($publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationNumericNotAllowed', array('publicIdentifier' => $publisherId)));
 				$this->addErrorField('$publisherId');
+			} elseif (count(explode('/', $publisherId)) > 1) {
+				$this->addError('publisherId', __('editor.publicIdentificationPatternNotAllowed', array('pattern' => '"/"')));
+				$this->addErrorField('$publisherId');
 			} elseif (is_a($pubObject, 'SubmissionFile') && preg_match('/^(\d+)-(\d+)$/', $publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationPatternNotAllowed', array('pattern' => '\'/^(\d+)-(\d+)$/\' i.e. \'number-number\'')));
 				$this->addErrorField('$publisherId');

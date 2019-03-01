@@ -50,7 +50,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction {
 				null,
 				array('submissionId' => $submissionId)
 			),
-			$title,
+			htmlspecialchars($title),
 			'modal_information'
 		);
 

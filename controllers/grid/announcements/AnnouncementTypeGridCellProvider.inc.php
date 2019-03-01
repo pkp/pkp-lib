@@ -42,7 +42,7 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider {
 						__('grid.action.edit'),
 						null,
 						true),
-					$announcementType->getLocalizedTypeName()
+					htmlspecialchars($announcementType->getLocalizedTypeName())
 				));
 		}
 		return parent::getCellActions($request, $row, $column, $position);

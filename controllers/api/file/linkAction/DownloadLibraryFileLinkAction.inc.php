@@ -37,7 +37,7 @@ class DownloadLibraryFileLinkAction extends LinkAction {
 
 		// Configure the file link action.
 		parent::__construct(
-			'downloadFile', $redirectRequest, $libraryFile->getLocalizedName(),
+			'downloadFile', $redirectRequest, htmlspecialchars($libraryFile->getLocalizedName()),
 			$libraryFile->getDocumentType()
 		);
 	}

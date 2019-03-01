@@ -42,7 +42,7 @@ class ReviewNotesLinkAction extends LinkAction {
 				'grid.users.reviewer.ReviewerGridHandler', 'readReview',
 				null, $actionArgs
 			),
-			__('editor.review') . ': ' . $submission->getLocalizedTitle(),
+			__('editor.review') . ': ' . htmlspecialchars($submission->getLocalizedTitle()),
 			'modal_information'
 		);
 

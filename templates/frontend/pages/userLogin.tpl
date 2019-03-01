@@ -31,7 +31,7 @@
 			</div>
 		{/if}
 
-		<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
+		<input type="hidden" name="source" value="{$source|escape}" />
 
 		<fieldset class="fields">
 			<div class="username">

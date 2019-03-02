@@ -163,6 +163,7 @@
 	<message key="submission.citations">Библиографические ссылки</message>
 	<message key="submission.citations.description">Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь.</message>
 	<message key="submission.parsedCitations">Извлеченные ссылки</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
 	<message key="submission.parsedCitations.description">Следующие ссылки были извлечены и будут связаны с метаданными материала.</message>
 	<message key="submission.parsedAndSaveCitations">Извлечь и сохранить ссылки</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>

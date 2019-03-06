@@ -25,7 +25,7 @@ class SelectReviewerListPanel extends SelectListPanel {
 	);
 
 	/** @var string Used to generate URLs to API endpoints for this component. */
-	public $_apiPath = 'users/reviewers';
+	public $_apiUrl = 'users/reviewers';
 
 	/** @var array List of user IDs already assigned as a reviewer to this submission */
 	public $_currentlyAssigned = array();
@@ -50,7 +50,7 @@ class SelectReviewerListPanel extends SelectListPanel {
 
 		$config = parent::getConfig();
 
-		$config['apiPath'] = $this->_apiPath;
+		$config['apiUrl'] = $this->_apiUrl;
 		$config['itemsMax'] = $this->getItemsMax();
 		$config['count'] = $this->_count;
 		$config['currentlyAssigned'] = $this->_currentlyAssigned;

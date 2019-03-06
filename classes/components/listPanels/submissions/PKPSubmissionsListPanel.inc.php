@@ -24,9 +24,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	/** @var array Query parameters to pass with every GET request */
 	public $_getParams = array();
 
-	/** @var string Used to generate URLs to API endpoints for this component. */
-	public $_apiPath = '_submissions';
-
 	/**
 	 * @copydoc ListPanel::init()
 	 */
@@ -35,6 +32,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 
 		$this->_count = isset($args['count']) ? (int) $args['count'] : $this->_count;
 		$this->_getParams = isset($args['getParams']) ? $args['getParams'] : $this->_getParams;
+		$this->_apiUrl = isset($args['apiUrl']) ? $args['apiUrl'] : $this->_apiUrl;
 	}
 
 	/**
@@ -46,8 +44,13 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 
 		$config = array();
 
+		$config['id'] = $this->getId();
+		$config['title'] = $this->_title;
+
 		if ($this->_lazyLoad) {
 			$config['lazyLoad'] = true;
+			$config['items'] = [];
+			$config['itemsMax'] = 0;
 		} else {
 			$config['items'] = $this->getItems();
 			$config['itemsMax'] = $this->getItemsMax();
@@ -84,33 +87,33 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			array('submissionId' => '__id__', 'stageId' => '__stageId__')
 		);
 
-		$config['apiPath'] = $this->_apiPath;
+		$config['apiUrl'] = $this->_apiUrl;
 
 		$config['count'] = $this->_count;
-		$config['page'] = 1;
+		$config['offset'] = 0;
 
 		$config['getParams'] = $this->_getParams;
 
-		$config['filters'] = array(
-			'attention' => array(
+		$config['filters'] = [
+			array(
 				'filters' => array(
 					array(
 						'param' => 'isOverdue',
-						'val' => true,
+						'value' => true,
 						'title' => __('common.overdue'),
 					),
 					array(
 						'param' => 'isIncomplete',
-						'val' => true,
+						'value' => true,
 						'title' => __('submissions.incomplete'),
 					),
 				),
 			),
-			'stageIds' => array(
+			array(
 				'heading' => __('settings.roles.stages'),
 				'filters' => $this->getWorkflowStages(),
 			),
-		);
+		];
 
 		// Load grid localisation files
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
@@ -118,8 +121,8 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 
 		$config['i18n'] = array(
 			'id' => __('common.id'),
-			'title' => __($this->_title),
 			'add' => __('submission.submit.newSubmissionSingle'),
+			'empty' => __('submission.list.empty'),
 			'search' => __('common.search'),
 			'clearSearch' => __('common.clearSearch'),
 			'itemCount' => __('submission.list.count'),
@@ -139,8 +142,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'reviewComplete' => __('submission.list.reviewComplete'),
 			'filter' => __('common.filter'),
 			'filterRemove' => __('common.filterRemove'),
-			'orderUp' => __('common.orderUp'),
-			'orderDown' => __('common.orderDown'),
 			'viewSubmission' => __('submission.list.viewSubmission'),
 			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
 			'revisionsSubmitted' => __('submission.list.revisionsSubmitted'),

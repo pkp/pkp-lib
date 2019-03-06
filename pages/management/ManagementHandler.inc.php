@@ -100,7 +100,7 @@ class ManagementHandler extends Handler {
 		$mastheadForm = new APP\components\forms\context\MastheadForm($apiUrl, $locales, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_CONTACT => $contactForm->getConfig(),
 				FORM_MASTHEAD => $mastheadForm->getConfig(),
 			],
@@ -164,7 +164,7 @@ class ManagementHandler extends Handler {
 		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
 				FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
 				FORM_APPEARANCE_SETUP => $appearanceSetupForm->getConfig(),
@@ -215,7 +215,7 @@ class ManagementHandler extends Handler {
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($apiUrl, $locales, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_AUTHOR_GUIDELINES => $authorGuidelinesForm->getConfig(),
 				FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
 				FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
@@ -256,7 +256,7 @@ class ManagementHandler extends Handler {
 		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_LICENSE => $licenseForm->getConfig(),
 				FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
 				FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
@@ -293,7 +293,7 @@ class ManagementHandler extends Handler {
 		$userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_USER_ACCESS => $userAccessForm->getConfig(),
 			],
 		];

@@ -114,7 +114,7 @@ class AdminHandler extends Handler {
 		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $siteUrl);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
 				FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
 				FORM_SITE_INFO => $siteInformationForm->getConfig(),
@@ -166,7 +166,7 @@ class AdminHandler extends Handler {
 		$indexingForm = new PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_CONTEXT => $contextForm->getConfig(),
 				FORM_SEARCH_INDEXING => $indexingForm->getConfig(),
 				FORM_THEME => $themeForm->getConfig(),

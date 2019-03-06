@@ -14,6 +14,11 @@
 
 import('classes.handler.Handler');
 
+define('SUBMISSIONS_LIST_ACTIVE', 'active');
+define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
+define('SUBMISSIONS_LIST_MY_QUEUE', 'myQueue');
+define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
+
 class DashboardHandler extends Handler {
 	/**
 	 * Constructor
@@ -40,7 +45,10 @@ class DashboardHandler extends Handler {
 	 * @param $args array
 	 */
 	function index($args, $request) {
-		if (!$request->getContext()) {
+		$context = $request->getContext();
+		$dispatcher = $request->getDispatcher();
+
+		if (!$context) {
 			$request->redirect(null, 'user');
 		}
 
@@ -49,46 +57,58 @@ class DashboardHandler extends Handler {
 
 		$currentUser = $request->getUser();
 
+		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
+
 		import('classes.components.listPanels.submissions.SubmissionsListPanel');
+
+		$lists = [];
 
 		// My Queue
 		$myQueueListPanel = new SubmissionsListPanel(array(
-			'title' => 'common.queue.long.myAssigned',
+			'id' => SUBMISSIONS_LIST_MY_QUEUE,
+			'title' => __('common.queue.long.myAssigned'),
+			'apiUrl' => $apiUrl,
 			'getParams' => array(
 				'status' => STATUS_QUEUED,
 				'assignedTo' => $request->getUser()->getId(),
 			),
 		));
-		$templateMgr->assign('myQueueListData', $myQueueListPanel->getConfig());
+		$lists[$myQueueListPanel->getId()] = $myQueueListPanel->getConfig();
 
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
 
 			// Unassigned
 			$unassignedListPanel = new SubmissionsListPanel(array(
-				'title' => 'common.queue.long.submissionsUnassigned',
+				'id' => SUBMISSIONS_LIST_UNASSIGNED,
+				'title' => __('common.queue.long.submissionsUnassigned'),
+				'apiUrl' => $apiUrl,
 				'getParams' => array(
 					'status' => STATUS_QUEUED,
 					'assignedTo' => -1,
 				),
 				'lazyLoad' => true,
 			));
-			$templateMgr->assign('unassignedListData', $unassignedListPanel->getConfig());
+			$lists[$unassignedListPanel->getId()] = $unassignedListPanel->getConfig();
 
 			// Active
 			$activeListPanel = new SubmissionsListPanel(array(
-				'title' => 'common.queue.long.active',
+				'id' => SUBMISSIONS_LIST_ACTIVE,
+				'title' => __('common.queue.long.active'),
+				'apiUrl' => $apiUrl,
 				'getParams' => array(
 					'status' => STATUS_QUEUED,
 				),
 				'lazyLoad' => true,
 			));
-			$templateMgr->assign('activeListData', $activeListPanel->getConfig());
+			$lists[$activeListPanel->getId()] = $activeListPanel->getConfig();
 		}
 
 		// Archived
 		$params = array(
-			'title' => 'common.queue.long.submissionsArchived',
+			'id' => SUBMISSIONS_LIST_ARCHIVE,
+			'title' => __('common.queue.long.submissionsArchived'),
+			'apiUrl' => $apiUrl,
 			'getParams' => array(
 				'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
 			),
@@ -98,7 +118,11 @@ class DashboardHandler extends Handler {
 			$params['getParams']['assignedTo'] = $currentUser->getId();
 		}
 		$archivedListPanel = new SubmissionsListPanel($params);
-		$templateMgr->assign('archivedListData', $archivedListPanel->getConfig());
+		$lists[$archivedListPanel->getId()] = $archivedListPanel->getConfig();
+
+		$templateMgr->assign('containerData', [
+			'components' => $lists,
+		]);
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

@@ -13,10 +13,8 @@
 	{else}
 	<pkp-form
 	{/if}
-		v-bind="forms.{$smarty.const.FORM_CONTEXT}"
-		@set-fields="setFormFields"
-		@set-errors="setFormErrors"
-		@set-visible-locales="setFormVisibleLocales"
+		v-bind="components.{$smarty.const.FORM_CONTEXT}"
+		@set="set"
 	/>
 </div>
 <script type="text/javascript">

@@ -31,7 +31,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		if (!$enableSiteWidePrivacyStatement && $context) {
 			$this->hasPrivacyStatement = (boolean) $context->getData('privacyStatement');
 		} else {
-			$this->hasPrivacyStatement = (boolean) Application::getRequest()->getSite()->getData('privacyStatement');
+			$this->hasPrivacyStatement = (boolean) Application::get()->getRequest()->getSite()->getData('privacyStatement');
 		}
 
 		// Validation checks for this form
@@ -61,7 +61,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		// Ensure that the user is in the specified userGroupId or trying to enroll an allowed role
 		$userGroupId = (int) $this->getData('userGroupId');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$user = $request->getUser();
 		if (!$user) return false;
@@ -283,7 +283,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 
@@ -328,7 +328,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$userFamilyNames = $user->getFamilyName(null);
 			if (is_null($userFamilyNames)) $userFamilyNames = array();
 			if (empty($userGivenNames[$this->submission->getLocale()])) {
-				$site = Application::getRequest()->getSite();
+				$site = Application::get()->getRequest()->getSite();
 				$userGivenNames[$this->submission->getLocale()] = $userGivenNames[$site->getPrimaryLocale()];
 				// then there should also be no family name for the submission locale
 				$userFamilyNames[$this->submission->getLocale()] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';

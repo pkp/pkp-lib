@@ -197,7 +197,7 @@ class AnnouncementForm extends Form {
 			}
 			foreach ($notificationUsers as $userRole) {
 				$notificationManager->createNotification(
-					Application::getRequest(), $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+					Application::get()->getRequest(), $userRole['id'], NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
 					$contextId, ASSOC_TYPE_ANNOUNCEMENT, $announcement->getId()
 				);
 			}

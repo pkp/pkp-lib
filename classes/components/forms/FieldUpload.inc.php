@@ -53,7 +53,7 @@ class FieldUpload extends Field {
 
 		$this->options['maxFilesize'] = \Application::getIntMaxFileMBs();
 
-		$session = \Application::getRequest()->getSession();
+		$session = \Application::get()->getRequest()->getSession();
 		if ($session) {
 			$this->csrfToken = $session->getCSRFToken();
 		}

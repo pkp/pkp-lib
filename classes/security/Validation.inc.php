@@ -228,7 +228,7 @@ class Validation {
 
 		if ($contextId === -1) {
 			// Get context ID from request
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 			$contextId = $context == null ? 0 : $context->getId();
 		}

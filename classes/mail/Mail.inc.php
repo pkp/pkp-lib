@@ -510,7 +510,7 @@ class Mail extends DataObject {
 					$mailer->AddReplyTo($f['email'], $f['name']);
 				}
 
-				$request = Application::getRequest();
+				$request = Application::get()->getRequest();
 				$site = $request->getSite();
 
 				// Munge the RFC5322.From

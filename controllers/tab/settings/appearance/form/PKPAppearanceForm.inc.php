@@ -218,7 +218,7 @@ class PKPAppearanceForm extends ContextSettingsForm {
 	 * @copydoc ContextSettingsForm::execute()
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		// Clear the template cache if theme has changed
 		$context = $request->getContext();

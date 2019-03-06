@@ -42,7 +42,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	 */
 	public function getConfig() {
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		$config = array();
 
@@ -202,7 +202,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		$items = array();
 		if (!empty($submissions)) {
 			$propertyArgs = array(
-				'request' => Application::getRequest(),
+				'request' => Application::get()->getRequest(),
 			);
 			foreach ($submissions as $submission) {
 				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
@@ -223,7 +223,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	 * @copydoc ListPanel::_getItemsParams()
 	 */
 	protected function _getItemsParams() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 

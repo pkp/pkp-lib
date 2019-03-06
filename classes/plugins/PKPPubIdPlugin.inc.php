@@ -454,7 +454,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 		assert(is_numeric($contextId));
 
 		// Get the context object from the context (optimized).
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		if ($context && $context->getId() == $contextId) return $context;

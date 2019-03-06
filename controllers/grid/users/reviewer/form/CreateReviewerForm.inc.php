@@ -27,7 +27,7 @@ class CreateReviewerForm extends ReviewerForm {
 
 		// the users register for the site, thus
 		// the site primary locale is the required default locale
-		$site = Application::getRequest()->getSite();
+		$site = Application::get()->getRequest()->getSite();
 		$this->addSupportedFormLocale($site->getPrimaryLocale());
 
 		$form = $this;
@@ -130,7 +130,7 @@ class CreateReviewerForm extends ReviewerForm {
 			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('REVIEWER_REGISTER');
 			if ($mail->isEnabled()) {
-				$request = Application::getRequest();
+				$request = Application::get()->getRequest();
 				$context = $request->getContext();
 				$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()));

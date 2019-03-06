@@ -108,7 +108,7 @@ class EditReviewForm extends Form {
 	 * Save review assignment
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		// Get the list of available files for this review.
@@ -132,7 +132,7 @@ class EditReviewForm extends Form {
 		// Send notification to reviewer if details have changed.
 		if (strtotime($reviewAssignment->getDateDue()) != strtotime($this->getData('reviewDueDate')) || strtotime($reviewAssignment->getDateResponseDue()) != strtotime($this->getData('responseDueDate')) || $reviewAssignment->getReviewMethod() != $this->getData('reviewMethod')){
 			$notificationManager = new NotificationManager();
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 
 			$notificationManager->createNotification(

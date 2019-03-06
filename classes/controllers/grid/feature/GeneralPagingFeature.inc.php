@@ -114,7 +114,7 @@ class GeneralPagingFeature extends GridFeature {
 
 		if (is_array($data)) {
 			import('lib.pkp.classes.core.ArrayItemIterator');
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$rangeInfo = $grid->getGridRangeInfo($request, $grid->getId());
 			$itemIterator = new ArrayItemIterator($data, $rangeInfo->getPage(), $rangeInfo->getCount());
 			$this->_itemIterator = $itemIterator;
@@ -134,7 +134,7 @@ class GeneralPagingFeature extends GridFeature {
 		// Add paging info so grid actions will not loose paging context.
 		// Only works if grid link actions use the getRequestArgs
 		// returned content.
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$rangeInfo = $grid->getGridRangeInfo($request, $grid->getId());
 		$requestArgs[GridHandler::getPageParamName($grid->getId())] = $rangeInfo->getPage();
 		$requestArgs[$this->_getItemsPerPageParamName($grid->getId())] = $rangeInfo->getCount();

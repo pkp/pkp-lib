@@ -108,7 +108,7 @@ class QueryNoteForm extends Form {
 	 * @return Note The created note object.
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
 		// Create a new note.

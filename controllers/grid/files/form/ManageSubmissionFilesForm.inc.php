@@ -90,7 +90,7 @@ class ManageSubmissionFilesForm extends Form {
 				}
 			} elseif ($isViewable) {
 				// Import a file from a different workflow area
-				$request = Application::getRequest();
+				$request = Application::get()->getRequest();
 				$context = $request->getContext();
 				$submissionFile = $this->importFile($context, $submissionFile, $fileStage);
 			}

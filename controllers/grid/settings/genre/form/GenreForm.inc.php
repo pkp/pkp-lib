@@ -43,7 +43,7 @@ class GenreForm extends Form {
 		$this->setGenreId($genreId);
 		parent::__construct('controllers/grid/settings/genre/form/genreForm.tpl');
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		// Validation checks for this form
@@ -63,7 +63,7 @@ class GenreForm extends Form {
 	 * @param $args array
 	 */
 	function initData($args) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		$genreDao = DAORegistry::getDAO('GenreDAO');
@@ -121,7 +121,7 @@ class GenreForm extends Form {
 	 */
 	function execute() {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		// Update or insert genre

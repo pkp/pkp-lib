@@ -100,7 +100,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 	 * @copydoc PKPSiteSettingsForm::initData()
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$publicFileManager = $publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
@@ -165,7 +165,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 		$siteDao->updateObject($site);
 
 		// Save block plugins context positions.
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 		ListbuilderHandler::unpack($request, $request->getUserVar('blocks'), array($this, 'deleteEntry'), array($this, 'insertEntry'), array($this, 'updateEntry'));
 

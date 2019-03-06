@@ -209,7 +209,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)) || in_array($userId, $receivedList)) continue;
 
 			$notificationMgr->createNotification(
-				Application::getRequest(), $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
+				Application::get()->getRequest(), $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
 				$submission->getContextId(), ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId()
 			);
 

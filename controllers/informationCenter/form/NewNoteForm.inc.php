@@ -89,7 +89,7 @@ class NewNoteForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
 		$noteDao = DAORegistry::getDAO('NoteDAO');

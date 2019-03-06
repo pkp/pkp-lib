@@ -39,7 +39,7 @@ class NewReviewRoundForm extends EditorDecisionForm {
 	 * @return integer The new review round number
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		// Retrieve the submission.
 		$submission = $this->getSubmission();

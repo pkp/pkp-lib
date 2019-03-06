@@ -122,7 +122,7 @@ class APIHandler extends PKPHandler {
 			$response = $response->withHeader('Access-Control-Allow-Origin', '*');
 			return $next($request, $response);
 		});
-		$this->_request = Application::getRequest();
+		$this->_request = Application::get()->getRequest();
 		$this->setupEndpoints();
 	}
 

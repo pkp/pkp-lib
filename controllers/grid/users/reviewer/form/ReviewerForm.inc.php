@@ -131,7 +131,7 @@ class ReviewerForm extends Form {
 	 * @copydoc Form::initData
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$reviewerId = (int) $request->getUserVar('reviewerId');
 		$context = $request->getContext();
 		$reviewRound = $this->getReviewRound();
@@ -314,7 +314,7 @@ class ReviewerForm extends Form {
 	 */
 	function execute() {
 		$submission = $this->getSubmission();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		$currentReviewRound = $this->getReviewRound();

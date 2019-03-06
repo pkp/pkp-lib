@@ -39,7 +39,7 @@ class SubmissionChecklistForm extends Form {
 	 * @param $args array
 	 */
 	function initData($args) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		$submissionChecklistAll = $context->getData('submissionChecklist');
@@ -89,7 +89,7 @@ class SubmissionChecklistForm extends Form {
 	 * Save checklist entry.
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		$submissionChecklistAll = $context->getData('submissionChecklist');

@@ -223,7 +223,7 @@ abstract class PKPReportGeneratorForm extends Form {
 	 */
 	function execute() {
 		parent::execute();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$context = $router->getContext($request);
 		$statsHelper = new StatisticsHelper();

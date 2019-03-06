@@ -133,7 +133,7 @@ class PublicProfileForm extends BaseProfileForm {
 	 * Save public profile settings.
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
 		$user->setOrcid($this->getData('orcid'));

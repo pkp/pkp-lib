@@ -249,7 +249,7 @@ class FormComponent {
 
 		$fieldsConfig = array_map([$this, 'getFieldConfig'], $this->fields);
 
-		$session = \Application::getRequest()->getSession();
+		$session = \Application::get()->getRequest()->getSession();
 		$csrfToken = $session ? $session->getCSRFToken() : '';
 
 		$this->i18n = array_merge([

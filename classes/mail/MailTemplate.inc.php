@@ -57,7 +57,7 @@ class MailTemplate extends Mail {
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
 		// If a context wasn't specified, use the current request.
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		if ($context === null) $context = $request->getContext();
 
 		$this->includeSignature = $includeSignature;

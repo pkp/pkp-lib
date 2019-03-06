@@ -140,7 +140,7 @@ class PKPAcronPlugin extends GenericPlugin {
 	 * @see PKPPageRouter::loadHandler() for the hook call.
 	 */
 	function callbackLoadHandler($hookName, $args) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		// Avoid controllers requests because of the shutdown function usage.
 		if (!is_a($router, 'PKPPageRouter')) return false;

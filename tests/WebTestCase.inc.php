@@ -308,7 +308,6 @@ abstract class WebTestCase extends PKPTestCase {
 		$fileXPath = $this->getEscapedXPathForLink($filename);
 		$this->waitForElementPresent($fileXPath);
 		$this->click($fileXPath);
-		$this->waitJQuery();
 		$this->assertAlertNotPresent(); // An authentication failure will lead to a js alert.
 		$downloadLinkId = $this->getAttribute($fileXPath . '/@id');
 		$this->waitForCondition("window.jQuery('#" . htmlspecialchars($downloadLinkId) . "').hasClass('ui-state-disabled') == false");
@@ -374,19 +373,6 @@ abstract class WebTestCase extends PKPTestCase {
 	}
 
 	/**
-	 * Wait for active JQuery requests to complete.
-	 */
-	protected function waitJQuery() {
-		$driver = self::$driver;
-		$driver->wait()->until(
-			function () use ($driver) {
-				return $driver->executeScript('window.jQuery.active == 0');
-			},
-			'Error waiting for JQuery to finish.'
-		);
-	}
-
-	/**
 	 * Escape a string for inclusion in JS, typically as part of a selector.
 	 * WARNING: This is probably not safe for use outside the test suite.
 	 * @param $value string The value to escape.
@@ -406,7 +392,6 @@ abstract class WebTestCase extends PKPTestCase {
 		$totalItems = 1; // Just to start.
 		while($loadedItems < $totalItems) {
 			self::$driver->executeScript('$(\'.scrollable\', \'#' . $gridContainerId . '\').find(\'tr:visible\').last()[0].scrollIntoView()');
-			$this->waitJQuery();
 			$this->waitForElementPresent($selector='css=#' . $gridContainerId . ' .gridPagingScrolling');
 			$pagingInfo = $this->getText($selector);
 			if (!$pagingInfo) break;
@@ -421,7 +406,6 @@ abstract class WebTestCase extends PKPTestCase {
 	 * Scroll page down until the end.
 	 */
 	protected function scrollPageDown() {
-		$this->waitJQuery();
 		self::$driver->executeScript('scroll(0, document.body.scrollHeight()');
 	}
 

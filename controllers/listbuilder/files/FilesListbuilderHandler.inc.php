@@ -85,10 +85,11 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 
 	/**
 	 * Load possible items to populate drop-down list with.
+	 * @param $request PKPRequest
 	 * @param $submissionFiles Array Submission files of this submission.
 	 * @return Array
 	 */
-	function getOptions($submissionFiles) {
+	function getOptions($request, $submissionFiles = null) {
 		$itemList = array();
 		foreach ($submissionFiles as $submissionFile) {
 			$itemList[$submissionFile->getFileId()] = $submissionFile->getFileId() . '-' . $submissionFile->getRevision() . ' ' . $submissionFile->getFileLabel();

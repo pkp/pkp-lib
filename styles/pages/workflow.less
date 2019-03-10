@@ -91,7 +91,13 @@
 	}
 }
 
+.pkp_workflow_decisions.hide_buttons {
+	padding-top: 1em;
+	display: none;
+}
+
 .pkp_no_workflow_decisions,
+.pkp_workflow_decided,
 .pkp_workflow_recommendations {
 	padding: @base;
 	font-size: @font-sml;
@@ -99,6 +105,41 @@
 	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
 	border-radius: @radius;
 	border-top: @grid-border;
+	&.decision_1 p { display: inline; color: @primary; }
+	&.decision_2 p { display: inline; color: @bg-dark; }
+	&.decision_4 p { display: inline; color: @offset; }
+}
+
+.pkp_workflow_decided {
+	.show_extras,
+	.hide_extras {
+		color: @text;
+		top: @half; // matches td padding
+		left: 0;
+		width: @double;
+		height: @line-base; // matches td line-height
+		line-height: @line-base;
+		text-align: center;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.show_extras:before,
+	.hide_extras:before {
+		color: @primary;
+		width: @double / 2;
+	}
+
+	.show_extras:before {
+		&:extend(.pkp_caret);
+		&:extend(.pkp_caret_right);
+		margin-top: -4px;
+	}
+
+	.hide_extras:before {
+		&:extend(.pkp_caret);
+		&:extend(.pkp_caret_down);
+	}
 }
 
 .export_actions {

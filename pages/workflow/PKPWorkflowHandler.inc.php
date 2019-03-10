@@ -372,9 +372,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			case STATUS_DECLINED:
 				$lastDecision = 'editor.submission.workflowDecision.Submission.declined';
 				break;
-			// Else unknown, not defined yet.
-			default:
-				$lastDecision = "unknown";
 		}
 
 		// Assign the actions to the template.

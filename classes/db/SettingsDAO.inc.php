@@ -195,11 +195,7 @@ class SettingsDAO extends DAO {
 	 * @param $isLocalized boolean
 	 */
 	function updateSetting($id, $name, $value, $type = null, $isLocalized = false) {
-		$cache = $this->_getCache($id);
-		if ($cache) $cache->setCache($name, $value);
-
 		$keyFields = array('setting_name', 'locale', $this->_getPrimaryKeyColumn());
-
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);
 			$this->replace($this->_getTableName(),
@@ -226,6 +222,9 @@ class SettingsDAO extends DAO {
 				);
 			}
 		}
+
+		$cache = $this->_getCache($id);
+		if ($cache) $cache->setCache($name, $value);
 	}
 
 	/**

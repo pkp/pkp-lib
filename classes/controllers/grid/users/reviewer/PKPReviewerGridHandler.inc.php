@@ -810,8 +810,12 @@ class PKPReviewerGridHandler extends GridHandler {
 		$context = $request->getContext();
 
 		$template->assignParams(array(
+			'contextUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath()),
 			'editorialContactSignature' => $user->getContactSignature(),
 			'signatureFullName' => $user->getFullname(),
+			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
+			'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
+			'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
 		));
 		$template->replaceParams();
 

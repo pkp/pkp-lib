@@ -140,6 +140,8 @@
 	<message key="common.language">Idioma</message>
 	<message key="common.languages">Idiomas</message>
 	<message key="common.less">Menos</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
 	<message key="common.manage">Administrar</message>
 	<message key="common.mailingAddress">Dirección postal</message>
 	<message key="common.billingAddress">Dirección de facturación (si es diferente)</message>

@@ -803,6 +803,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			'editorialContactSignature' => $user->getContactSignature(),
 			'signatureFullName' => $user->getFullname(),
 		));
+		$template->replaceParams();
 
 		return new JSONMessage(true, $template->getBody());
 	}

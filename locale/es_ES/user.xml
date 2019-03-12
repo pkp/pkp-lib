@@ -32,14 +32,14 @@
 	<message key="user.dateRegistered">Fecha de registro</message>
 	<message key="user.editMyProfile">Editar mi perfil</message>
 	<message key="user.email">Correo electrónico</message>
-	<message key="user.firstName">Nombre</message>
+	<message key="user.givenName">Nombre</message>
 	<message key="user.initialsExample">Juan Anselmo Seguí = JAS</message>
 	<message key="user.initials">Iniciales</message>
 	<message key="user.interests">Intereses de revisión</message>
 	<message key="user.interests.description">(Para separar los intereses pulse la tecla Intro o de coma)</message>
 	<message key="user.gossip">Notas privadas</message>
 	<message key="user.group">Grupo de usuarios/as</message>
-	<message key="user.lastName">Apellidos</message>
+	<message key="user.familyName">Apellidos</message>
 	<message key="user.login.activated">Gracias por activar su cuenta. Ahora puede iniciar sesión con las credenciales que proporcionó al crear la cuenta.</message>
 	<message key="user.profile.form.profileImageInvalid">La imagen del perfil no tiene un formato válido o es demasiado grande. Se aceptan los siguientes formatos: .gif, .jpg y .png. Además, la imagen no puede exceder los 150x150 píxeles.</message>
 	<message key="user.login.accountDisabledWithReason">Se ha deshabilitado su cuenta por el siguiente motivo: {$reason}</message>

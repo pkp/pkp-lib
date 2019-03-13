@@ -51,7 +51,7 @@ class FunctionalOaiBaseTestCase extends DatabaseTestCase {
 	}
 
 	protected function &getXPath($namespaces) {
-		$namespaces['oai'] = 'https://www.openarchives.org/OAI/2.0/';
+		$namespaces['oai'] = 'http://www.openarchives.org/OAI/2.0/';
 
 		// Call the web service
 		$dom =& $this->webService->call($this->webServiceRequest);

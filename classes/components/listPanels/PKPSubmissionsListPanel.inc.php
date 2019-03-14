@@ -7,54 +7,29 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionsListPanel
- * @ingroup controllers_list
+ * @ingroup classes_components_list
  *
- * @brief Instantiates and manages a UI component to list submissions.
+ * @brief A ListPanel component for displaying submissions in the dashboard
  */
-import('lib.pkp.classes.components.listPanels.ListPanel');
-import('lib.pkp.classes.db.DBResultRange');
+
+namespace PKP\components\listPanels;
+use PKP\components\listPanels\ListPanel;
+
 import('lib.pkp.classes.submission.Submission');
 import('classes.core.Services');
 
 abstract class PKPSubmissionsListPanel extends ListPanel {
 
-	/** @var int Count of items to retrieve in initial page/request */
-	public $_count = 20;
-
-	/** @var array Query parameters to pass with every GET request */
-	public $_getParams = array();
-
-	/**
-	 * @copydoc ListPanel::init()
-	 */
-	public function init( $args = array() ) {
-		parent::init($args);
-
-		$this->_count = isset($args['count']) ? (int) $args['count'] : $this->_count;
-		$this->_getParams = isset($args['getParams']) ? $args['getParams'] : $this->_getParams;
-		$this->_apiUrl = isset($args['apiUrl']) ? $args['apiUrl'] : $this->_apiUrl;
-	}
+	/** @copydoc ListPanel::$count */
+	public $count = 20;
 
 	/**
 	 * @copydoc ListPanel::getConfig()
 	 */
 	public function getConfig() {
-
 		$request = Application::get()->getRequest();
 
-		$config = array();
-
-		$config['id'] = $this->getId();
-		$config['title'] = $this->_title;
-
-		if ($this->_lazyLoad) {
-			$config['lazyLoad'] = true;
-			$config['items'] = [];
-			$config['itemsMax'] = 0;
-		} else {
-			$config['items'] = $this->getItems();
-			$config['itemsMax'] = $this->getItemsMax();
-		}
+		$config = parent::getConfig();
 
 		// URL to add a new submission
 		$config['addUrl'] = $request->getDispatcher()->url(
@@ -87,13 +62,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			array('submissionId' => '__id__', 'stageId' => '__stageId__')
 		);
 
-		$config['apiUrl'] = $this->_apiUrl;
-
-		$config['count'] = $this->_count;
-		$config['offset'] = 0;
-
-		$config['getParams'] = $this->_getParams;
-
 		$config['filters'] = [
 			array(
 				'filters' => array(
@@ -116,19 +84,16 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		];
 
 		// Load grid localisation files
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
-		$config['i18n'] = array(
+		$config['i18n'] = array_merge($config['i18n'], [
 			'id' => __('common.id'),
 			'add' => __('submission.submit.newSubmissionSingle'),
 			'empty' => __('submission.list.empty'),
-			'search' => __('common.search'),
-			'clearSearch' => __('common.clearSearch'),
 			'itemCount' => __('submission.list.count'),
 			'itemsOfTotal' => __('submission.list.itemsOfTotal'),
 			'loadMore' => __('grid.action.moreItems'),
-			'loading' => __('common.loading'),
 			'incomplete' => __('submissions.incomplete'),
 			'delete' => __('common.delete'),
 			'infoCenter' => __('submission.list.infoCenter'),
@@ -140,8 +105,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'responseDue' => __('submission.list.responseDue'),
 			'reviewDue' => __('submission.list.reviewDue'),
 			'reviewComplete' => __('submission.list.reviewComplete'),
-			'filter' => __('common.filter'),
-			'filterRemove' => __('common.filterRemove'),
 			'viewSubmission' => __('submission.list.viewSubmission'),
 			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
 			'revisionsSubmitted' => __('submission.list.revisionsSubmitted'),
@@ -153,10 +116,14 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'dualWorkflowLinks' => __('submission.list.dualWorkflowLinks'),
 			'reviewerWorkflowLink' => __('submission.list.reviewerWorkflowLink'),
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
-			'selectAllLabel' => __('common.selectAll'),
 			'viewMore' => __('list.viewMore'),
 			'viewLess' => __('list.viewLess'),
-		);
+			'paginationLabel' => __('common.pagination.label'),
+			'goToLabel' => __('common.pagination.goToPage'),
+			'pageLabel' => __('common.pageNumber'),
+			'nextPageLabel' => __('common.pagination.next'),
+			'previousPageLabel' => __('common.pagination.previous'),
+		]);
 
 		// Attach a CSRF token for post requests
 		$config['csrfToken'] = $request->getSession()->getCSRFToken();
@@ -165,48 +132,47 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
 		import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
-		$config['_constants'] = array(
-			'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
-			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
-			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW' => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
-			'WORKFLOW_STAGE_ID_EDITING' => WORKFLOW_STAGE_ID_EDITING,
-			'WORKFLOW_STAGE_ID_PRODUCTION' => WORKFLOW_STAGE_ID_PRODUCTION,
-			'STAGE_STATUS_SUBMISSION_UNASSIGNED' => STAGE_STATUS_SUBMISSION_UNASSIGNED,
-			'REVIEW_ROUND_STATUS_PENDING_REVIEWERS' => REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
-			'REVIEW_ROUND_STATUS_REVIEWS_READY' => REVIEW_ROUND_STATUS_REVIEWS_READY,
-			'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED' => REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
-			'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE' => REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
-			'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
-			'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED' => REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
-			'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW' => REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
-			'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED' => REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED,
-			'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
-			'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
-			'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE' => REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
-			'REVIEW_ASSIGNMENT_STATUS_ACCEPTED' => REVIEW_ASSIGNMENT_STATUS_ACCEPTED,
-			'REVIEW_ASSIGNMENT_STATUS_RECEIVED' => REVIEW_ASSIGNMENT_STATUS_RECEIVED,
-			'REVIEW_ASSIGNMENT_STATUS_COMPLETE' => REVIEW_ASSIGNMENT_STATUS_COMPLETE,
-			'REVIEW_ASSIGNMENT_STATUS_THANKED' => REVIEW_ASSIGNMENT_STATUS_THANKED,
-			'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY' => REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY,
-			'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED' => REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED,
-		);
+		$templateMgr = \TemplateManager::getManager($request);
+		$templateMgr->setConstant('WORKFLOW_STAGE_ID_SUBMISSION');
+		$templateMgr->setConstant('WORKFLOW_STAGE_ID_INTERNAL_REVIEW');
+		$templateMgr->setConstant('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW');
+		$templateMgr->setConstant('WORKFLOW_STAGE_ID_EDITING');
+		$templateMgr->setConstant('WORKFLOW_STAGE_ID_PRODUCTION');
+		$templateMgr->setConstant('STAGE_STATUS_SUBMISSION_UNASSIGNED');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_PENDING_REVIEWERS');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_REVIEWS_READY');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_REVIEWS_COMPLETED');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_REVIEWS_OVERDUE');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_REVISIONS_REQUESTED');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED');
+		$templateMgr->setConstant('REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE');
+		$templateMgr->setConstant('REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE');
+		$templateMgr->setConstant('REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE');
+		$templateMgr->setConstant('REVIEW_ASSIGNMENT_STATUS_ACCEPTED');
+		$templateMgr->setConstant('REVIEW_ASSIGNMENT_STATUS_RECEIVED');
+		$templateMgr->setConstant('REVIEW_ASSIGNMENT_STATUS_COMPLETE');
+		$templateMgr->setConstant('REVIEW_ASSIGNMENT_STATUS_THANKED');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY');
+		$templateMgr->setConstant('REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED');
 
 		return $config;
 	}
 
 	/**
-	 * @copydoc ListPanel::getItems()
+	 * Helper method to get the items property according to the self::$getParams
+	 *
+	 * @param Request $request
+	 * @return array
 	 */
-	public function getItems() {
-		$submissionService = Services::get('submission');
+	public function getItems($request) {
+		$submissionService = \Services::get('submission');
 		$submissions = $submissionService->getMany($this->_getItemsParams());
-		$items = array();
+		$items = [];
 		if (!empty($submissions)) {
-			$propertyArgs = array(
-				'request' => Application::get()->getRequest(),
-			);
 			foreach ($submissions as $submission) {
-				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
+				$items[] = $submissionService->getBackendListProperties($submission, ['request' => $request]);
 			}
 		}
 
@@ -214,14 +180,18 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	}
 
 	/**
-	 * @copydoc ListPanel::getItemsMax()
+	 * Helper method to get the itemsMax property according to self::$getParams
+	 *
+	 * @return int
 	 */
 	public function getItemsMax() {
-		return Services::get('submission')->getMax($this->_getItemsParams());
+		return \Services::get('submission')->getMax($this->_getItemsParams());
 	}
 
 	/**
-	 * @copydoc ListPanel::_getItemsParams()
+	 * Helper method to compile initial params to get items
+	 *
+	 * @return array
 	 */
 	protected function _getItemsParams() {
 		$request = Application::get()->getRequest();
@@ -231,10 +201,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		return array_merge(
 			array(
 				'contextId' => $contextId,
-				'count' => $this->_count,
+				'count' => $this->count,
 				'offset' => 0,
 			),
-			$this->_getParams
+			$this->getParams
 		);
 	}
 }

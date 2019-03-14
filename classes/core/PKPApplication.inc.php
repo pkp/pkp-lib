@@ -456,28 +456,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	}
 
 	/**
-	 * Define a constant so that it can be exposed to the JS front-end.
-	 * @param $name string
-	 * @param $value mixed
-	 */
-	static function defineExposedConstant($name, $value) {
-		define($name, $value);
-		assert(preg_match('/^[a-zA-Z_]+$/', $name));
-		$constants =& PKPApplication::getExposedConstants(); // Ref req'd
-		$constants[$name] = $value;
-	}
-
-	/**
-	 * Get an associative array of defined constants that should be exposed
-	 * to the JS front-end.
-	 * @return array
-	 */
-	static function &getExposedConstants() {
-		static $exposedConstants = array();
-		return $exposedConstants;
-	}
-
-	/**
 	 * Get an array of locale keys that define strings that should be made available to
 	 * JavaScript classes in the JS front-end.
 	 * @return array
@@ -803,25 +781,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	}
 }
 
-/**
- * @see PKPApplication::defineExposedConstant()
- */
-function define_exposed($name, $value) {
-	PKPApplication::defineExposedConstant($name, $value);
-}
+define('REALLY_BIG_NUMBER', 10000);
+define('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
 
-define_exposed('REALLY_BIG_NUMBER', 10000);
-define_exposed('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
-
-define_exposed('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
-define_exposed('WORKFLOW_STAGE_ID_SUBMISSION', 1);
-define_exposed('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
-define_exposed('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
-define_exposed('WORKFLOW_STAGE_ID_EDITING', 4);
-define_exposed('WORKFLOW_STAGE_ID_PRODUCTION', 5);
+define('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
+define('WORKFLOW_STAGE_ID_SUBMISSION', 1);
+define('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
+define('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
+define('WORKFLOW_STAGE_ID_EDITING', 4);
+define('WORKFLOW_STAGE_ID_PRODUCTION', 5);
 
 /* TextArea insert tag variable types used to change their display when selected */
-define_exposed('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');
+define('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');
 
 // To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');

@@ -52,6 +52,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var array of HTML head content to output */
 	private $_htmlHeaders = array();
 
+	/** @var array Key/value list of constants to expose in the JS interface */
+	private $_constants = array();
+
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;
 
@@ -130,6 +133,16 @@ class PKPTemplateManager extends Smarty {
 			'applicationName' => __($application->getNameKey()),
 			'activeTheme' => $activeTheme,
 		));
+
+		$this->setConstant('REALLY_BIG_NUMBER');
+		$this->setConstant('UPLOAD_MAX_FILESIZE');
+		$this->setConstant('WORKFLOW_STAGE_ID_PUBLISHED');
+		$this->setConstant('WORKFLOW_STAGE_ID_SUBMISSION');
+		$this->setConstant('WORKFLOW_STAGE_ID_INTERNAL_REVIEW');
+		$this->setConstant('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW');
+		$this->setConstant('WORKFLOW_STAGE_ID_EDITING');
+		$this->setConstant('WORKFLOW_STAGE_ID_PRODUCTION');
+		$this->setConstant('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT');
 
 		if (is_a($router, 'PKPPageRouter')) {
 			$this->assign(array(
@@ -578,6 +591,15 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Set a constant to be exposed in JavaScript at pkp.const.<constant>
+	 *
+	 * @param string $name Name of the constant
+	 */
+	function setConstant($name) {
+		$this->_constants[$name] = constant($name);
+	}
+
+	/**
 	 * Register all files required by the core JavaScript library
 	 */
 	function registerJSLibrary() {
@@ -633,24 +655,16 @@ class PKPTemplateManager extends Smarty {
 			)
 		);
 
-		// Load constants for new component library
-		$const = array(
-			'ROLE_ID_MANAGER' => ROLE_ID_MANAGER,
-			'ROLE_ID_SITE_ADMIN' => ROLE_ID_SITE_ADMIN,
-			'ROLE_ID_AUTHOR' => ROLE_ID_AUTHOR,
-			'ROLE_ID_REVIEWER' => ROLE_ID_REVIEWER,
-			'ROLE_ID_ASSISTANT' => ROLE_ID_ASSISTANT,
-			'ROLE_ID_READER' => ROLE_ID_READER,
-			'ROLE_ID_SUB_EDITOR' => ROLE_ID_SUB_EDITOR,
-			'ROLE_ID_SUBSCRIPTION_MANAGER' => ROLE_ID_SUBSCRIPTION_MANAGER,
-			'WORKFLOW_STAGE_ID_PUBLISHED' => WORKFLOW_STAGE_ID_PUBLISHED,
-			'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
-			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
-			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW' => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
-			'WORKFLOW_STAGE_ID_EDITING' => WORKFLOW_STAGE_ID_EDITING,
-			'WORKFLOW_STAGE_ID_PRODUCTION' => WORKFLOW_STAGE_ID_PRODUCTION,
-		);
-		$output = 'pkp.const = ' . json_encode($const) . ';';
+		// Load global constants used in new component library
+		$this->setConstant('ROLE_ID_MANAGER');
+		$this->setConstant('ROLE_ID_SITE_ADMIN');
+		$this->setConstant('ROLE_ID_AUTHOR');
+		$this->setConstant('ROLE_ID_REVIEWER');
+		$this->setConstant('ROLE_ID_ASSISTANT');
+		$this->setConstant('ROLE_ID_READER');
+		$this->setConstant('ROLE_ID_SUB_EDITOR');
+		$this->setConstant('ROLE_ID_SUBSCRIPTION_MANAGER');
+		$output = 'pkp.const = ' . json_encode($this->_constants) . ';';
 		$this->addJavaScript(
 			'pkpAppData',
 			$output,
@@ -720,10 +734,7 @@ class PKPTemplateManager extends Smarty {
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
 		// Load exposed constants
-		$exposedConstants = $application->getExposedConstants();
-		if (!empty($exposedConstants)) {
-			$output .= '$.pkp.cons = ' . json_encode($exposedConstants) . ';';
-		}
+		$output .= '$.pkp.cons = ' . json_encode($this->_constants) . ';';
 
 		// Load locale keys
 		$localeKeys = $application->getJSLocaleKeys();

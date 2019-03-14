@@ -148,4 +148,5 @@
 	<message key="reviewer.list.warnOnAssignUnlock">Unlock</message>
 	<message key="reviewer.list.reviewInterests">Reviewing Interests</message>
 	<message key="reviewer.list.biography">Biography</message>
+	<message key="reviewer.list.empty">No reviewers found</message>
 </locale>

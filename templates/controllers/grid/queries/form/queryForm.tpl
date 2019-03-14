@@ -8,7 +8,7 @@
  * @brief Query grid form
  *
  * @uses $hasParticipants boolean Are any participants available
- * @uses $queryParticipantsListData array JSON-encoded data for the SelectUserListPanel
+ * @uses $queryParticipantsListData array JSON-encoded data for the ListPanel to select a user
  *}
 
  {if !$hasParticipants}
@@ -35,10 +35,14 @@
 			{fbvFormSection}
 				{assign var="uuid" value=""|uniqid|escape}
 				<div id="queryParticipants-{$uuid}">
-					<script type="text/javascript">
-						pkp.registry.init('queryParticipants-{$uuid}', 'SelectListPanel', {$queryParticipantsListData|json_encode});
-					</script>
+					<list-panel
+						v-bind="components.queryParticipants"
+						@set="set"
+					/>
 				</div>
+				<script type="text/javascript">
+					pkp.registry.init('queryParticipants-{$uuid}', 'Container', {$queryParticipantsListData|json_encode});
+				</script>
 			{/fbvFormSection}
 		{/if}
 

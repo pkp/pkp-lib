@@ -56,73 +56,79 @@ class DashboardHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$currentUser = $request->getUser();
-
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_submissions');
-
-		import('classes.components.listPanels.submissions.SubmissionsListPanel');
-
 		$lists = [];
 
 		// My Queue
-		$myQueueListPanel = new SubmissionsListPanel(array(
-			'id' => SUBMISSIONS_LIST_MY_QUEUE,
-			'title' => __('common.queue.long.myAssigned'),
-			'apiUrl' => $apiUrl,
-			'getParams' => array(
-				'status' => STATUS_QUEUED,
-				'assignedTo' => $request->getUser()->getId(),
-			),
-		));
-		$lists[$myQueueListPanel->getId()] = $myQueueListPanel->getConfig();
+		$myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+			SUBMISSIONS_LIST_MY_QUEUE,
+			__('common.queue.long.myAssigned'),
+			[
+				'apiUrl' => $apiUrl,
+				'getParams' => [
+					'status' => STATUS_QUEUED,
+					'assignedTo' => (int) $request->getUser()->getId(),
+				],
+			]
+		);
+		$myQueueListPanel->set([
+			'items' => $myQueueListPanel->getItems($request),
+			'itemsMax' => $myQueueListPanel->getItemsMax()
+		]);
+		$lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
 
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		if (!empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles))) {
 
 			// Unassigned
-			$unassignedListPanel = new SubmissionsListPanel(array(
-				'id' => SUBMISSIONS_LIST_UNASSIGNED,
-				'title' => __('common.queue.long.submissionsUnassigned'),
-				'apiUrl' => $apiUrl,
-				'getParams' => array(
-					'status' => STATUS_QUEUED,
-					'assignedTo' => -1,
-				),
-				'lazyLoad' => true,
-			));
-			$lists[$unassignedListPanel->getId()] = $unassignedListPanel->getConfig();
+			$unassignedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+				SUBMISSIONS_LIST_UNASSIGNED,
+				__('common.queue.long.submissionsUnassigned'),
+				[
+					'apiUrl' => $apiUrl,
+					'getParams' => [
+						'status' => STATUS_QUEUED,
+						'assignedTo' => -1,
+					],
+					'lazyLoad' => true,
+				]
+			);
+			$lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
 
 			// Active
-			$activeListPanel = new SubmissionsListPanel(array(
-				'id' => SUBMISSIONS_LIST_ACTIVE,
-				'title' => __('common.queue.long.active'),
-				'apiUrl' => $apiUrl,
-				'getParams' => array(
-					'status' => STATUS_QUEUED,
-				),
-				'lazyLoad' => true,
-			));
-			$lists[$activeListPanel->getId()] = $activeListPanel->getConfig();
+			$activeListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+				SUBMISSIONS_LIST_ACTIVE,
+				__('common.queue.long.active'),
+				[
+					'apiUrl' => $apiUrl,
+					'getParams' => [
+						'status' => STATUS_QUEUED,
+					],
+					'lazyLoad' => true,
+				]
+			);
+			$lists[$activeListPanel->id] = $activeListPanel->getConfig();
 		}
 
 		// Archived
-		$params = array(
-			'id' => SUBMISSIONS_LIST_ARCHIVE,
-			'title' => __('common.queue.long.submissionsArchived'),
-			'apiUrl' => $apiUrl,
-			'getParams' => array(
-				'status' => array(STATUS_DECLINED, STATUS_PUBLISHED),
-			),
-			'lazyLoad' => true,
-		);
-		if (!$currentUser->hasRole(array(ROLE_ID_MANAGER), $request->getContext()->getId()) && !$currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
-			$params['getParams']['assignedTo'] = $currentUser->getId();
+		$params = [
+			'status' => [STATUS_DECLINED, STATUS_PUBLISHED],
+		];
+		if (empty(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN], $userRoles))) {
+			$params['assignedTo'] = (int) $currentUser->getId();
 		}
-		$archivedListPanel = new SubmissionsListPanel($params);
-		$lists[$archivedListPanel->getId()] = $archivedListPanel->getConfig();
+		$archivedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+			SUBMISSIONS_LIST_ARCHIVE,
+			__('common.queue.long.submissionsArchived'),
+			[
+				'apiUrl' => $apiUrl,
+				'getParams' => $params,
+				'lazyLoad' => true,
+			]
+		);
+		$lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
-		$templateMgr->assign('containerData', [
-			'components' => $lists,
-		]);
+		$templateMgr->assign('containerData', ['components' => $lists]);
 
 		return $templateMgr->display('dashboard/index.tpl');
 	}

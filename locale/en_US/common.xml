@@ -186,6 +186,7 @@
 	<message key="common.noneAssigned">None assigned</message>
 	<message key="common.none">None</message>
 	<message key="common.no">No</message>
+	<message key="common.noItemsFound">No items found.</message>
 	<message key="common.noComments">No Comments</message>
 	<message key="common.notApplicable">Not applicable</message>
 	<message key="common.notApplicableShort">N/A</message>
@@ -208,7 +209,10 @@
 	<message key="common.other">Other</message>
 	<message key="common.overdue">Overdue</message>
 	<message key="common.pagination">{$start}-{$end} of {$total}</message>
-	<message key="common.pagination.label">Browse additional pages</message>
+	<message key="common.pagination.label">View additional pages</message>
+	<message key="common.pagination.goToPage">Go to {$page}</message>
+	<message key="common.pagination.next">Next page</message>
+	<message key="common.pagination.previous">Previous page</message>
 	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>

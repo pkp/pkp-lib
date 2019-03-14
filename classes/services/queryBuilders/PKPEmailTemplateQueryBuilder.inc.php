@@ -21,8 +21,11 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	/** @var integer journal or press ID */
 	protected $contextId = null;
 
-	/** @var boolean enabled or disabled contexts */
+	/** @var boolean enabled or disabled emails */
 	protected $isEnabled = null;
+
+	/** @var boolean custom emails with no default template */
+	protected $isCustom = null;
 
 	/** @var array filter by sender role IDs */
 	protected $fromRoleIds = [];
@@ -57,6 +60,18 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function filterByIsEnabled($isEnabled) {
 		$this->isEnabled = $isEnabled;
+		return $this;
+	}
+
+	/**
+	 * Set isCustom filter
+	 *
+	 * @param $isCustom boolean
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+	 */
+	public function filterByisCustom($isCustom) {
+		$this->isCustom = $isCustom;
 		return $this;
 	}
 
@@ -121,8 +136,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			'etd.from_role_id',
 			'etd.to_role_id',
 			'et.email_id',
-			'et.assoc_type',
-			'et.assoc_id',
+			'et.context_id',
 			'et.enabled',
 		];
 
@@ -139,8 +153,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			$contextId = $this->contextId;
 			$q->leftJoin('email_templates as et', function ($table) use ($contextId) {
 				$table->on('etd.email_key', '=', 'et.email_key')
-					->on('et.assoc_type', '=', Capsule::raw(\Application::getContextAssocType()))
-					->on('et.assoc_id', '=', Capsule::raw((int) $contextId));
+					->on('et.context_id', '=', Capsule::raw((int) $contextId));
 			});
 		} else {
 			$q->leftJoin('email_templates as et', 'etd.email_key', '=', 'et.email_key');
@@ -158,19 +171,13 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 		if (!is_null($this->contextId)) {
 			$contextId = $this->contextId;
 			$q->where(function($q) use ($contextId) {
-				$q->whereNull('et.assoc_type')
-					->orWhere(function($q) use ($contextId) {
-						$q->where('et.assoc_type', '=', \Application::getContextAssocType());
-						$q->where('et.assoc_id', '=', $this->contextId);
-					});
+				$q->whereNull('et.context_id')
+					->orWhere('et.context_id', '=', $this->contextId);
 			});
 			if (isset($customTemplates)) {
 				$customTemplates->where(function($customTemplates) use ($contextId) {
-					$customTemplates->whereNull('et.assoc_type')
-						->orWhere(function($customTemplates) use ($contextId) {
-							$customTemplates->where('et.assoc_type', '=', \Application::getContextAssocType());
-							$customTemplates->where('et.assoc_id', '=', $this->contextId);
-						});
+					$customTemplates->whereNull('et.context_id')
+						->orWhere('et.context_id', '=', $this->contextId);
 				});
 			}
 		}
@@ -188,6 +195,18 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			$q->where('et.enabled', '!=', 1);
 			if (isset($customTemplates)) {
 				$customTemplates->where('et.enabled', '!=', 1);
+			}
+		}
+
+		if (!empty($this->isCustom)) {
+			$q->whereNull('etd.can_disable');
+			if (isset($customTemplates)) {
+				$customTemplates->whereNull('etd.can_disable');
+			}
+		} elseif ($this->isCustom === false) {
+			$q->whereNotNull('etd.can_disable');
+			if (isset($customTemplates)) {
+				$customTemplates->whereNotNull('etd.can_disable');
 			}
 		}
 

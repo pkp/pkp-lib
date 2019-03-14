@@ -35,8 +35,7 @@ class EmailTemplateDAO extends SchemaDAO {
 	var $primaryTableColumns = [
 		'id' => 'email_id',
 		'key' => 'email_key',
-		'assocType' => 'assoc_type',
-		'assocId' => 'assoc_id',
+		'contextId' => 'context_id',
 		'enabled' => 'enabled',
 		'canDisable' => 'can_disable',
 		'canEdit' => 'can_edit',
@@ -206,76 +205,6 @@ class EmailTemplateDAO extends SchemaDAO {
 			);
 			if ($result->RecordCount() != 0) {
 				$returner = $this->_returnLocaleEmailTemplateFromRow($result->GetRowAssoc(false));
-			}
-		}
-
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * Retrieve an email template by key.
-	 * @param $emailKey string
-	 * @param $locale string
-	 * @param $contextId int
-	 * @return EmailTemplate
-	 */
-	function getEmailTemplate($emailKey, $locale, $contextId) {
-		$primaryLocale = AppLocale::getPrimaryLocale();
-
-		$result = $this->retrieve(
-			'SELECT	COALESCE(edl.subject, ddl.subject, edpl.subject, ddpl.subject) AS subject,
-				COALESCE(edl.body, ddl.body, edpl.body, ddpl.body) AS body,
-				COALESCE(e.enabled, 1) AS enabled,
-				d.email_key, d.can_edit, d.can_disable,
-				e.assoc_type, e.assoc_id, e.email_id,
-				COALESCE(ddl.locale, ddpl.locale) AS locale,
-				d.from_role_id, d.to_role_id
-			FROM	email_templates_default d
-				LEFT JOIN email_templates_default_data ddpl ON (ddpl.email_key = d.email_key AND ddpl.locale = ?)
-				LEFT JOIN email_templates_default_data ddl ON (ddl.email_key = d.email_key AND ddl.locale = ?)
-				LEFT JOIN email_templates e ON (d.email_key = e.email_key AND e.assoc_type = ? AND e.assoc_id = ?)
-				LEFT JOIN email_templates_settings edpl ON (edpl.email_key = e.email_key AND edpl.assoc_type = e.assoc_type AND edpl.assoc_id = e.assoc_id AND edpl.locale = ?)
-				LEFT JOIN email_templates_settings edl ON (edl.email_key = e.email_key AND edl.assoc_type = e.assoc_type AND edl.assoc_id = e.assoc_id AND edl.locale = ?)
-			WHERE	d.email_key = ?',
-			array($primaryLocale, $locale, Application::getContextAssocType(), (int) $contextId, $primaryLocale, $locale, $emailKey)
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false));
-			$returner->setCustomTemplate(false);
-		} else {
-			$result->Close();
-
-			// Check to see if there's a custom email template. This is done in PHP to avoid
-			// having to do a full outer join or union in SQL.
-			$result = $this->retrieve(
-				'SELECT	ed.subject,
-					ed.body,
-					1 AS enabled,
-					e.email_key,
-					1 AS can_edit,
-					0 AS can_disable,
-					e.assoc_type,
-					e.assoc_id,
-					e.email_id,
-					ed.locale,
-					NULL AS from_role_id,
-					NULL AS to_role_id
-				FROM	email_templates e
-					LEFT JOIN email_templates_settings ed ON (ed.email_key = e.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id)
-					LEFT JOIN email_templates_default d ON (e.email_key = d.email_key)
-				WHERE	d.email_key IS NULL AND
-					e.assoc_type = ? AND
-					e.assoc_id = ? AND
-					e.email_key = ? AND
-					ed.locale = ?',
-				array(Application::getContextAssocType(), $contextId, $emailKey, $locale)
-			);
-			if ($result->RecordCount() != 0) {
-				$returner = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false));
-				$returner->setCustomTemplate(true);
 			}
 		}
 
@@ -533,77 +462,6 @@ class EmailTemplateDAO extends SchemaDAO {
 			'DELETE FROM email_templates WHERE email_key = ? AND assoc_type = ? AND assoc_id = ?',
 			array($emailKey, Application::getContextAssocType(), (int) $contextId)
 		);
-	}
-
-	/**
-	 * Retrieve all email templates.
-	 * @param $locale string
-	 * @param $contextId int
-	 * @param $rangeInfo object optional
-	 * @return array Email templates
-	 */
-	function getEmailTemplates($locale, $contextId, $rangeInfo = null) {
-		$emailTemplates = array();
-
-		$result = $this->retrieveRange(
-			'SELECT	COALESCE(ed.subject, dd.subject) AS subject,
-				COALESCE(ed.body, dd.body) AS body,
-				COALESCE(e.enabled, 1) AS enabled,
-				d.email_key, d.can_edit, d.can_disable,
-				e.assoc_type, e.assoc_id, e.email_id,
-				dd.locale,
-				d.from_role_id, d.to_role_id
-			FROM	email_templates_default d
-				LEFT JOIN email_templates_default_data dd ON (dd.email_key = d.email_key)
-				LEFT JOIN email_templates e ON (d.email_key = e.email_key AND e.assoc_type = ? AND e.assoc_id = ?)
-				LEFT JOIN email_templates_settings ed ON (ed.email_key = e.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id AND ed.locale = dd.locale)
-			WHERE	dd.locale = ?',
-			array(Application::getContextAssocType(), (int) $contextId, $locale),
-			$rangeInfo
-		);
-
-		while (!$result->EOF) {
-			$emailTemplates[] = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), false);
-			$result->MoveNext();
-		}
-		$result->Close();
-
-		// Fetch custom email templates as well; this is done in PHP
-		// to avoid a union or full outer join call in SQL.
-		$result = $this->retrieve(
-			'SELECT	ed.subject,
-				ed.body,
-				e.enabled,
-				e.email_key,
-				1 AS can_edit,
-				1 AS can_disable,
-				e.assoc_type,
-				e.assoc_id,
-				e.email_id,
-				ed.locale,
-				NULL AS from_role_id,
-				NULL AS to_role_id
-			FROM	email_templates e
-				LEFT JOIN email_templates_settings ed ON (e.email_key = ed.email_key AND ed.assoc_type = e.assoc_type AND ed.assoc_id = e.assoc_id AND ed.locale = ?)
-				LEFT JOIN email_templates_default d ON (e.email_key = d.email_key)
-			WHERE	e.assoc_type = ? AND
-				e.assoc_id = ? AND
-				d.email_key IS NULL',
-			array($locale, Application::getContextAssocType(), (int) $contextId)
-		);
-
-		while (!$result->EOF) {
-			$emailTemplates[] = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), true);
-			$result->MoveNext();
-		}
-		$result->Close();
-
-		// Sort all templates by email key.
-		usort ($emailTemplates, function($t1, $t2) {
-			return strcmp($t1->getEmailKey(), $t2->getEmailKey());
-		});
-
-		return $emailTemplates;
 	}
 
 	/**

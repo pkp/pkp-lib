@@ -116,15 +116,15 @@ class BaseEmailTemplate extends DataObject {
 	 * @return string
 	 */
 	function getEmailKey() {
-		return $this->getData('emailKey');
+		return $this->getData('key');
 	}
 
 	/**
 	 * Set key of email template.
-	 * @param $emailKey string
+	 * @param $key string
 	 */
-	function setEmailKey($emailKey) {
-		$this->setData('emailKey', $emailKey);
+	function setEmailKey($key) {
+		$this->setData('key', $key);
 	}
 
 	/**

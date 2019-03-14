@@ -68,15 +68,33 @@ class UserForm extends Form {
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$templateMgr = TemplateManager::getManager($request);
 
-		import('lib.pkp.classes.components.listPanels.users.SelectRoleListPanel');
-		$selectRoleList = new SelectRoleListPanel(array(
-			'contextId' => $contextId,
-			'title' => 'grid.user.userRoles',
-			'inputName' => 'userGroupIds[]',
-			'selected' => $this->getData('userGroupIds'),
-		));
+		$items = [];
+		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($contextId);
+		while ($userGroup = $userGroups->next()) {
+			$items[] = array(
+				'id' => (int) $userGroup->getId(),
+				'title' => $userGroup->getLocalizedName(),
+			);
+		}
+
+		$selectRoleList = new \PKP\components\listPanels\ListPanel(
+			'selectRole',
+			__('grid.user.userRoles'),
+			[
+				'canSelect' => true,
+				'selected' => array_map('intval', $this->getData('userGroupIds')),
+				'selectorName' => 'userGroupIds[]',
+				'items' => $items,
+				'itemsMax' => count($items),
+			]
+		);
+
 		$templateMgr->assign(array(
-			'selectUserListData' => $selectRoleList->getConfig(),
+			'selectRoleListData' => [
+				'components' => [
+					'selectRole' => $selectRoleList->getConfig(),
+				]
+			]
 		));
 
 		return $this->fetch($request);

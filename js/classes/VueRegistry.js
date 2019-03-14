@@ -33,11 +33,6 @@ export default {
 			return;
 		}
 
-		if (data._constants !== undefined) {
-			Object.assign(pkp.const, data._constants);
-			delete data._constants;
-		}
-
 		var args = $.extend(true, {}, pkp.controllers[type], {
 			el: '#' + id,
 			data: $.extend(true, {}, pkp.controllers[type].data(), data, {id: id})

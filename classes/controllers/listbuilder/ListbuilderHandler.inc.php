@@ -19,8 +19,8 @@ import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
 import('lib.pkp.classes.controllers.listbuilder.MultilingualListbuilderGridColumn');
 
 /* Listbuilder source types: text-based, pulldown, ... */
-define_exposed('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
-define_exposed('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
+define('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
+define('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
 
 /* Listbuilder save types */
 define('LISTBUILDER_SAVE_TYPE_EXTERNAL', 0); // Outside the listbuilder handler
@@ -30,7 +30,7 @@ define('LISTBUILDER_SAVE_TYPE_INTERNAL', 1); // Using ListbuilderHandler::save
  * optgroup in listbuilder select, return the options data in a multidimensional array
  * array[columnIndex][optgroupId][selectItemId] and also with
  * array[columnIndex][LISTBUILDER_OPTGROUP_LABEL][optgroupId] */
-define_exposed('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
+define('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
 
 class ListbuilderHandler extends GridHandler {
 	/** @var int Definition of the type of source LISTBUILDER_SOURCE_TYPE_... */
@@ -48,6 +48,11 @@ class ListbuilderHandler extends GridHandler {
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->setConstant('LISTBUILDER_SOURCE_TYPE_TEXT');
+		$templateMgr->setConstant('LISTBUILDER_SOURCE_TYPE_SELECT');
+		$templateMgr->setConstant('LISTBUILDER_OPTGROUP_LABEL');
 
 		if ($this->canAddItems()) {
 			import('lib.pkp.classes.linkAction.request.NullAction');

@@ -103,9 +103,10 @@ class PreparedEmailsGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		// Elements to be displayed in the grid
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$context = $request->getContext();
-		$emailTemplates = $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $context->getId());
+		$emailTemplates = Services::get('emailTemplate')->getMany([
+			'contextId' => $request->getContext()->getId(),
+			'count' => 1000, // large upper range to ensure all are returned
+		]);
 		foreach ($emailTemplates as $emailTemplate) {
 			$rowData[$emailTemplate->getEmailKey()] = $emailTemplate;
 		}

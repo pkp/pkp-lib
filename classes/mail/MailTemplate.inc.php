@@ -70,8 +70,7 @@ class MailTemplate extends Mail {
 		$this->addressFieldsEnabled = true;
 
 		if (isset($this->emailKey)) {
-			$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-			$emailTemplate = $emailTemplateDao->getEmailTemplate($this->emailKey, $this->locale, $context == null ? 0 : $context->getId());
+			$emailTemplate = Services::get('emailTemplate')->getByKey($context ? $context->getId() : CONTEXT_SITE, $this->emailKey);
 		}
 
 		$userSig = '';
@@ -82,8 +81,8 @@ class MailTemplate extends Mail {
 		}
 
 		if (isset($emailTemplate)) {
-			$this->setSubject($emailTemplate->getSubject());
-			$this->setBody($emailTemplate->getBody() . $userSig);
+			$this->setSubject($emailTemplate->getData('subject', $this->locale));
+			$this->setBody($emailTemplate->getData('body', $this->locale) . $userSig);
 			$this->enabled = $emailTemplate->getEnabled();
 		} else {
 			$this->setBody($userSig);

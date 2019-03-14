@@ -106,6 +106,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		// Process query params to format incoming data as needed
 		foreach ($requestParams as $param => $val) {
 			switch ($param) {
+				case 'isCustom':
 				case 'isEnabled':
 					$allowedParams[$param] = (bool) $val;
 					break;

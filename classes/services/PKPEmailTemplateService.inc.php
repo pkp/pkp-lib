@@ -111,6 +111,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		$defaultArgs = array(
 			'contextId' => $context ? $context->getId() : CONTEXT_SITE,
 			'isEnabled' => null,
+			'isCustom' => null,
 			'fromRoleIds' => null,
 			'toRoleIds' => null,
 			'searchPhrase' => null,
@@ -122,6 +123,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		$emailTemplateQB
 			->filterByContext($args['contextId'])
 			->filterByIsEnabled($args['isEnabled'])
+			->filterByIsCustom($args['isCustom'])
 			->filterByFromRoleIds($args['fromRoleIds'])
 			->filterByToRoleIds($args['toRoleIds'])
 			->searchPhrase($args['searchPhrase']);

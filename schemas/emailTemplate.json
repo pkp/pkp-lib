@@ -3,8 +3,7 @@
 	"description": "A saved email message that can be sent by the application during registration, submission, peer review and all other operations of the application.",
 	"type": "object",
 	"required": [
-		"assocId",
-		"assocType",
+		"contextId",
 		"body",
 		"key",
 		"subject"
@@ -16,17 +15,9 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
-		"assocId": {
+		"contextId": {
 			"type": "integer",
-			"description": "The ID of the object that this email is related to. See `assocType` below. Only used for custom email templates. Default is `null`.",
-			"apiSummary": "true",
-			"validation": [
-				"nullable"
-			]
-		},
-		"assocType": {
-			"type": "integer",
-			"description": "The `ASSOC_TYPE_*` that this email is related to. Only used for custom email templates. May be `ASSOC_TYPE_JOURNAL` or `ASSOC_TYPE_PRESS`. Default is `null`.",
+			"description": "The ID of the context (journal/press) this email is related to. Only used for custom email templates. Default is `null`.",
 			"apiSummary": "true",
 			"validation": [
 				"nullable"

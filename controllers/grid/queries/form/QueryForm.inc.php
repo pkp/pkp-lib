@@ -259,50 +259,82 @@ class QueryForm extends Form {
 				}
 			}
 
-			import('lib.pkp.classes.components.listPanels.users.SelectUserListPanel');
-			$queryParticipantsList = new SelectUserListPanel(array(
-				'title' => 'editor.submission.stageParticipants',
-				'inputName' => 'users[]',
-				'selected' => $selectedParticipants,
-				'getParams' => array(
-					'contextId' => $context->getId(),
-					'count' => 100, // high upper value
-					'offset' => 0,
-					'assignedToSubmission' => $query->getAssocId(),
-					'assignedToSubmissionStage' => $query->getStageId(),
-					'includeUsers' => $includeUsers,
-					'excludeUsers' => $excludeUsers,
-				),
-				// Include the full name and role in this submission in the item title
-				'setItemTitleCallback' => function($user, $userProps) use ($stageAssignmentDao, $reviewAssignments, $query) {
-					$title = $user->getFullName();
-					$userRoles = array();
-					$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
-					foreach ($usersAssignments as $assignment) {
-						foreach ($userProps['groups'] as $userGroup) {
-							if ($userGroup['id'] === (int) $assignment->getUserGroupId() && isset($userGroup['name'][AppLocale::getLocale()])) {
-								$userRoles[] = $userGroup['name'][AppLocale::getLocale()];
-							}
-						}
-					}
-					foreach ($reviewAssignments as $assignment) {
-						if ($assignment->getReviewerId() === $user->getId()) {
-							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
-						}
-					}
-					$title =  __('submission.query.participantTitle', array(
-								'fullName' => $user->getFullName(),
-								'userGroup' => join(__('common.commaListSeparator'), $userRoles),
-					));
-					return $title;
-				},
-			));
+			// Get a ListPanel to select query participants
+			$params = [
+				'contextId' => $context->getId(),
+				'count' => 100, // high upper value
+				'offset' => 0,
+				'assignedToSubmission' => $query->getAssocId(),
+				'assignedToSubmissionStage' => $query->getStageId(),
+				'includeUsers' => $includeUsers,
+				'excludeUsers' => $excludeUsers,
+			];
 
-			$queryParticipantsListData = $queryParticipantsList->getConfig();
+			$userService = Services::get('user');
+			$participants = $userService->getMany($params);
+
+			$items = [];
+			$itemsMax = 0;
+			if (!empty($participants)) {
+				foreach ($participants as $user) {
+					$allUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByUserId($user->getId(), $context->getId());
+					$userAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
+						$query->getAssocId(),
+						$query->getStageId(),
+						null,
+						$user->getId()
+					)->toArray();
+
+					$assignedUserGroups = array_filter($allUserGroups, function($userGroup) {
+						foreach ($userAssignments as $userAssignment) {
+							return $userGroup->getId() === (int) $userAssignment->getUserGroupId();
+						}
+					});
+					$assignedUserGroupNames = array_map(function($userGroup) {
+						return $userGroup->getLocalizedName();
+					});
+					$userReviewAssignments = array_filter($reviewAssignments, function($reviewAssignment) {
+						return $reviewAssignment->getReviewerId() === $user->getId();
+					});
+					$userReviewAssignmentGroupNames = array_map(function($reviewAssignment) {
+						return __('user.role.reviewer') . " (" . __($reviewAssignment->getReviewMethodKey()) . ") ";
+					});
+					$rolesList = join(
+						__('common.commaListSeparator'),
+						array_merge($assignedUserGroupNames, $userReviewAssignmentGroupNames)
+					);
+
+					$items[] = [
+						'id' => $user->getId(),
+						'title' => __('submission.query.participantTitle', [
+							'fullName' => $user->getFullName(),
+							'userGroup' => $rolesList,
+						]),
+					];
+				}
+				$itemsMax = $userService->getMax($params);
+			}
+
+			$queryParticipantsList = new \PKP\components\listPanels\ListPanel(
+				'queryParticipants',
+				__('editor.submission.stageParticipants'),
+				[
+					'canSelect' => true,
+					'getParams' => $params,
+					'items' => $items,
+					'itemsMax' => $itemsMax,
+					'selected' => $selectedParticipants,
+					'selectorName' => 'users[]',
+				]
+			);
 
 			$templateMgr->assign(array(
-				'hasParticipants' => count($queryParticipantsListData['items']),
-				'queryParticipantsListData' => $queryParticipantsListData,
+				'hasParticipants' => count($items),
+				'queryParticipantsListData' => [
+					'components' => [
+						'queryParticipants' => $queryParticipantsList->getConfig(),
+					]
+				],
 			));
 		}
 

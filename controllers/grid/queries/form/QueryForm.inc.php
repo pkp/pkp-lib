@@ -277,38 +277,28 @@ class QueryForm extends Form {
 			$itemsMax = 0;
 			if (!empty($participants)) {
 				foreach ($participants as $user) {
-					$allUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByUserId($user->getId(), $context->getId());
-					$userAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
-						$query->getAssocId(),
-						$query->getStageId(),
-						null,
-						$user->getId()
-					)->toArray();
+					$allUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByUserId($user->getId(), $context->getId())->toArray();
 
-					$assignedUserGroups = array_filter($allUserGroups, function($userGroup) {
-						foreach ($userAssignments as $userAssignment) {
-							return $userGroup->getId() === (int) $userAssignment->getUserGroupId();
+					$userRoles = array();
+					$userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
+					foreach ($userAssignments as $userAssignment) {
+						foreach ($allUserGroups as $userGroup) {
+							if ((int) $userGroup->getId() === (int) $userAssignment->getUserGroupId()) {
+								$userRoles[] = $userGroup->getLocalizedName();
+							}
 						}
-					});
-					$assignedUserGroupNames = array_map(function($userGroup) {
-						return $userGroup->getLocalizedName();
-					});
-					$userReviewAssignments = array_filter($reviewAssignments, function($reviewAssignment) {
-						return $reviewAssignment->getReviewerId() === $user->getId();
-					});
-					$userReviewAssignmentGroupNames = array_map(function($reviewAssignment) {
-						return __('user.role.reviewer') . " (" . __($reviewAssignment->getReviewMethodKey()) . ") ";
-					});
-					$rolesList = join(
-						__('common.commaListSeparator'),
-						array_merge($assignedUserGroupNames, $userReviewAssignmentGroupNames)
-					);
+					}
+					foreach ($reviewAssignments as $assignment) {
+						if ($assignment->getReviewerId() === $user->getId()) {
+							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
+						}
+					}
 
 					$items[] = [
 						'id' => $user->getId(),
 						'title' => __('submission.query.participantTitle', [
 							'fullName' => $user->getFullName(),
-							'userGroup' => $rolesList,
+							'userGroup' => join(__('common.commaListSeparator'), $userRoles),
 						]),
 					];
 				}

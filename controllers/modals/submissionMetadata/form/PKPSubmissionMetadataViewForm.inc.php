@@ -179,7 +179,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 		// Categories list
 		$items = [];
 		$categoryDao = DAORegistry::getDAO('CategoryDAO');
-		$categories = $categoryDao->getByContextId($press->getId());
+		$categories = $categoryDao->getByContextId($context->getId());
 		if (!$categories->wasEmpty) {
 			while ($category = $categories->next()) {
 				$items[] = array(
@@ -196,7 +196,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 				'canSelect' => true,
 				'items' => $items,
 				'itemsMax' => count($items),
-				'selected' => $this->getData('categories'),
+				'selected' => $selectedIds,
 				'selectorName' => 'categories[]',
 			]
 		);

@@ -143,6 +143,14 @@ class PKPTemplateManager extends Smarty {
 		$this->setConstant('WORKFLOW_STAGE_ID_EDITING');
 		$this->setConstant('WORKFLOW_STAGE_ID_PRODUCTION');
 		$this->setConstant('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT');
+		$this->setConstant('ROLE_ID_MANAGER');
+		$this->setConstant('ROLE_ID_SITE_ADMIN');
+		$this->setConstant('ROLE_ID_AUTHOR');
+		$this->setConstant('ROLE_ID_REVIEWER');
+		$this->setConstant('ROLE_ID_ASSISTANT');
+		$this->setConstant('ROLE_ID_READER');
+		$this->setConstant('ROLE_ID_SUB_EDITOR');
+		$this->setConstant('ROLE_ID_SUBSCRIPTION_MANAGER');
 
 		if (is_a($router, 'PKPPageRouter')) {
 			$this->assign(array(
@@ -655,26 +663,6 @@ class PKPTemplateManager extends Smarty {
 			)
 		);
 
-		// Load global constants used in new component library
-		$this->setConstant('ROLE_ID_MANAGER');
-		$this->setConstant('ROLE_ID_SITE_ADMIN');
-		$this->setConstant('ROLE_ID_AUTHOR');
-		$this->setConstant('ROLE_ID_REVIEWER');
-		$this->setConstant('ROLE_ID_ASSISTANT');
-		$this->setConstant('ROLE_ID_READER');
-		$this->setConstant('ROLE_ID_SUB_EDITOR');
-		$this->setConstant('ROLE_ID_SUBSCRIPTION_MANAGER');
-		$output = 'pkp.const = ' . json_encode($this->_constants) . ';';
-		$this->addJavaScript(
-			'pkpAppData',
-			$output,
-			array(
-				'priority' => STYLE_SEQUENCE_LATE,
-				'contexts' => array('backend'),
-				'inline' => true,
-			)
-		);
-
 		// Load minified file if it exists
 		if (Config::getVar('general', 'enable_minified')) {
 			$this->addJavaScript(
@@ -860,6 +848,19 @@ class PKPTemplateManager extends Smarty {
 	 * @copydoc Smarty::display()
 	 */
 	function display($template = null, $cache_id = null, $compile_id = null, $parent = null) {
+
+		// Output global constants used in new component library
+		$output = 'pkp.const = ' . json_encode($this->_constants) . ';';
+		$this->addJavaScript(
+			'pkpAppData',
+			$output,
+			array(
+				'priority' => STYLE_SEQUENCE_LATE,
+				'contexts' => array('backend'),
+				'inline' => true,
+			)
+		);
+
 		// Give any hooks registered against the TemplateManager
 		// the opportunity to modify behavior; otherwise, display
 		// the template as usual.

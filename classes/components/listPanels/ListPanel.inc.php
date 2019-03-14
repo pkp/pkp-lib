@@ -81,19 +81,11 @@ class ListPanel {
 	 * @return
 	 */
 	public function set($args) {
-		$this->apiUrl = !empty($args['apiUrl']) ? $args['apiUrl'] : $this->apiUrl;
-		$this->canSelect = !empty($args['canSelect']);
-		$this->canSelectAll = !empty($args['canSelectAll']);
-		$this->count = !empty($args['count']) ? $args['count'] : $this->count;
-		$this->description = !empty($args['description']) ? $args['description'] : $this->description;
-		$this->filters = !empty($args['filters']) ? $args['filters'] : $this->filters;
-		$this->getParams = !empty($args['getParams']) ? $args['getParams'] : $this->getParams;
-		$this->items = !empty($args['items']) ? $args['items'] : $this->items;
-		$this->itemsMax = !empty($args['itemsMax']) ? $args['itemsMax'] : $this->itemsMax;
-		$this->lazyLoad = !empty($args['lazyLoad']);
-		$this->selected = !empty($args['selected']) ? $args['selected'] : $this->selected;
-		$this->selectorName = !empty($args['selectorName']) ? $args['selectorName'] : $this->selectorName;
-		$this->selectorType = !empty($args['selectorType']) ? $args['selectorType'] : $this->selectorType;
+		foreach ($args as $prop => $value) {
+			if (property_exists($this, $prop)) {
+				$this->{$prop} = $value;
+			}
+		}
 
 		return $this;
 	}

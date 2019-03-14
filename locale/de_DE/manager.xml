@@ -561,4 +561,32 @@
 	<message key="grid.category.removeText">Sind Sie sicher, dass Sie diese Kategorie entfernen möchten?</message>
 	<message key="grid.category.nameRequired">Bitte geben Sie einen Kategoriennamen an.</message>
 	<message key="grid.category.categoryDetails">Kategoriendetails</message>
+
+	 <!-- Statistics -->
+        <message key="stats.articlesOfTotal">{$count} von {$total} Artikeln</message>
+        <message key="stats.daily">Täglich</message>
+        <message key="stats.dateRange">Datumsbereich</message>
+        <message key="stats.dateRange.allDates">Alle Daten</message>
+        <message key="stats.dateRange.apply">Anwenden</message>
+        <message key="stats.dateRange.change">Datumsbereich ändern</message>
+        <message key="stats.dateRange.customRange">Benutzerdefinierter Bereich</message>
+        <message key="stats.dateRange.dateDoesNotExist">Eines der eingegebenen Daten existiert nicht</message>
+        <message key="stats.dateRange.from">Von</message>
+        <message key="stats.dateRange.instruction">Bitte geben Sie jedes Datum im Format JJJJ-MM-TT ein.  Wenn Sie z.B. das Datum für den 15. Januar 2019 wünschen, geben Sie 2019-01-15 ein.</message>
+        <message key="stats.dateRange.invalidDate">Das Datumsformat ist ungültig. Bitte geben Sie jedes Datum im Format JJJJ-MM-TT ein.</message>
+        <message key="stats.dateRange.invalidDateRange">Das Startdatum muss vor dem Enddatum liegen.</message>
+        <message key="stats.dateRange.invalidEndDateMax">Das Enddatum darf nicht später liegen als {$date}.</message>
+        <message key="stats.dateRange.invalidStartDateMin">Das Startdatum darf nicht früher liegen als  {$date}.</message>
+        <message key="stats.dateRange.last12Months">Die letzten 12 Monate</message>
+        <message key="stats.dateRange.last30Days">Die letzten 30 Tage</message>
+        <message key="stats.dateRange.last90Days">Die letzten 90 Tage</message>
+        <message key="stats.dateRange.sinceDate">Seit {$date}</message>
+        <message key="stats.dateRange.to">Bis</message>
+        <message key="stats.dateRange.untilDate">Bis {$date}</message>
+        <message key="stats.fileViews">Dateiansichten</message>
+        <message key="stats.html">HTML</message>
+        <message key="stats.monthly">Monatlich</message>
+        <message key="stats.pdf">PDF</message>
+        <message key="stats.searchSubmissionDescription">Suche nach Titel, Autor und ID</message>
+        <message key="stats.total">Total</message>
 </locale>

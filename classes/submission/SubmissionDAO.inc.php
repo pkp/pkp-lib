@@ -901,7 +901,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	public function getSearchWhere($phrase) {
 		$searchWhere = '';
-		if ($search) {
+		if ($phrase) {
 			$words = explode(" ", trim($phrase));
 			if (count($words)) {
 				$searchWhere = ' AND (';

@@ -144,8 +144,8 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			switch ($prop) {
 				case '_href':
 					$request = Application::getRequest();
-					if ($emailTemplate->getData('assocType') === Application::getContextAssocType()) {
-						$context = Services::get('context')->get($emailTemplate->getData('assocId'));
+					if ($emailTemplate->getData('contextId')) {
+						$context = Services::get('context')->get($emailTemplate->getData('contextId'));
 					} else {
 						$context = $request->getContext();
 					}
@@ -217,20 +217,21 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 				$primaryLocale
 			);
 
-			// Require an assoc type and id
+			// Require a context id
 			$validator->after(function($validator) use ($props) {
-				if (!isset($props['assocType']) || !isset($props['assocId'])) {
-					$validator->errors()->add('assocType', __('manager.emails.emailTemplate.assocTypeRequired'));
+				if (!isset($props['contextId'])) {
+					$validator->errors()->add('contextId', __('manager.emails.emailTemplate.contextRequired'));
 				}
 			});
 
 			// Don't allow duplicate keys in the same context
 			$validator->after(function($validator) use ($props) {
-				if ($props['assocType'] === Application::getContextAssocType()) {
-					$existingEmailTemplate = $this->getByKey($props['assocId'], $props['key']);
-					if (!empty($existingEmailTemplate) && !empty($existingEmailTemplate->getData('id'))) {
-						$validator->errors()->add('key', __('manager.emails.emailTemplate.noDuplicateKeys'));
-					}
+				if (!isset($props['contextId'])) {
+					return;
+				}
+				$existingEmailTemplate = $this->getByKey($props['contextId'], $props['key']);
+				if (!empty($existingEmailTemplate) && !empty($existingEmailTemplate->getData('id'))) {
+					$validator->errors()->add('key', __('manager.emails.emailTemplate.noDuplicateKeys'));
 				}
 			});
 		}
@@ -251,8 +252,8 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
 	 */
 	public function add($emailTemplate, $request) {
-		if ($emailTemplate->getData('assocType') === Application::getContextAssocType()) {
-			$contextId = $emailTemplate->getData('assocId');
+		if ($emailTemplate->getData('contextId')) {
+			$contextId = $emailTemplate->getData('contextId');
 		} else {
 			$context = $request->getContext();
 			$contextId = $context ? $context->getId() : CONTEXT_SITE;
@@ -287,8 +288,8 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			$emailTemplateDao->insertObject($newEmailTemplate);
 		}
 
-		if ($newEmailTemplate->getData('assocType') === Application::getContextAssocType()) {
-			$contextId = $newEmailTemplate->getData('assocId');
+		if ($newEmailTemplate->getData('contextId')) {
+			$contextId = $newEmailTemplate->getData('contextId');
 		} else {
 			$context = $request->getContext();
 			$contextId = $context ? $context->getId() : CONTEXT_SITE;

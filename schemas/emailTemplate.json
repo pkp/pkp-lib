@@ -20,7 +20,8 @@
 			"description": "The ID of the context (journal/press) this email is related to. Only used for custom email templates. Default is `null`.",
 			"apiSummary": "true",
 			"validation": [
-				"nullable"
+				"nullable",
+				"min:0"
 			]
 		},
 		"body": {

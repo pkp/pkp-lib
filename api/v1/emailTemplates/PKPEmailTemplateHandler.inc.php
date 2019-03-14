@@ -202,9 +202,8 @@ class PKPEmailTemplateHandler extends APIHandler {
 
 		$params = $this->convertStringsToSchema(SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
 
-		if (empty($params['assocType']) || empty($params['assocId'])) {
-			$params['assocType'] = Application::getContextAssocType();
-			$params['assocId'] = $requestContext->getId();
+		if (!isset($params['contexId'])) {
+			$params['contextId'] = $requestContext->getId();
 		}
 
 		$primaryLocale = $requestContext->getData('primaryLocale');
@@ -253,9 +252,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$params['key'] = $args['key'];
 
 		// Only allow admins to modify change the context an email template is attached to
-		if (($emailTemplate->getData('assocType') === Application::getContextAssocType()
-				|| is_null($emailTemplate->getData('assocType')))
-				&& (isset($params['assocId']) || isset($params['assocType']))) {
+		if (isset($params['contextId'])) {
 			$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 			if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
 				return $response->withStatus(403)->withJsonError('api.emailTemplates.403.notAllowedChangeContext');

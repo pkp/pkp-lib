@@ -18,10 +18,14 @@
 		{fbvFormSection}
 			{assign var="uuid" value=""|uniqid|escape}
 			<div id="categories-{$uuid}">
-				<script type="text/javascript">
-					pkp.registry.init('categories-{$uuid}', 'SelectListPanel', {$selectCategoryListData|json_encode});
-				</script>
+				<list-panel
+					v-bind="components.categories"
+					@set="set"
+				/>
 			</div>
+			<script type="text/javascript">
+				pkp.registry.init('categories-{$uuid}', 'Container', {$categoriesListData|json_encode});
+			</script>
 		{/fbvFormSection}
 	{/if}
 {/if}

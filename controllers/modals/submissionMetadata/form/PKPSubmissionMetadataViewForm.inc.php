@@ -176,22 +176,39 @@ class PKPSubmissionMetadataViewForm extends Form {
 			$selectedIds[] = $category->getId();
 		}
 
-		// Get SelectCategoryListPanel data
-		import('lib.pkp.classes.components.listPanels.SelectCategoryListPanel');
-		$selectCategoryList = new SelectCategoryListPanel(array(
-			'title' => 'submission.submit.placement.categories',
-			'inputName' => 'categories[]',
-			'selected' => $selectedIds,
-			'getParams' => array(
-				'contextId' => $submission->getContextId(),
-			),
-		));
+		// Categories list
+		$items = [];
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categories = $categoryDao->getByContextId($press->getId());
+		if (!$categories->wasEmpty) {
+			while ($category = $categories->next()) {
+				$items[] = array(
+					'id' => $category->getId(),
+					'title' => $category->getLocalizedTitle(),
+				);
+			}
+		}
 
-		$selectCategoryListData = $selectCategoryList->getConfig();
+		$categoriesList = new \PKP\components\listPanels\ListPanel(
+			'categories',
+			__('grid.category.categories'),
+			[
+				'canSelect' => true,
+				'items' => $items,
+				'itemsMax' => count($items),
+				'selected' => $this->getData('categories'),
+				'selectorName' => 'categories[]',
+			]
+		);
+
 		$templateMgr->assign(array(
-			'hasCategories' => !empty($selectCategoryListData['items']),
-			'selectCategoryListData' => $selectCategoryListData,
 			'assignedCategories' => $assignedCategories,
+			'hasCategories' => !empty($categoriesList->items),
+			'categoriesListData' => [
+				'components' => [
+					'categories' => $categoriesList->getConfig(),
+				]
+			]
 		));
 
 		return parent::fetch($request, $template, $display);

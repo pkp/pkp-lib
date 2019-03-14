@@ -620,7 +620,7 @@
 	<message key="submission.list.reviewComplete">Rapport Soumis</message>
 	<message key="submission.list.dualWorkflowLinks"><![CDATA[Vous avez été assigné sous de multiples rôles pour cette soumission. Voulez-vous accéder à l'interface <a href="{$urlAuthorWorkflow}">Auteur</a> ou <a href="{$urlEditorialWorkflow}">Rédacteur</a> ?]]></message>
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Vous avez été assigné avec un rôle éditorial sur cette soumission. Voulez-vous accéder au <a href="{$urlEditorialWorkflow}">processus éditorial</a>  ?]]></message>
-	<message key="submission.list.currentStage">Actuellement dans l'étape {$stage}.</message
+	<message key="submission.list.currentStage">Actuellement dans l'étape {$stage}.</message>
 	<message key="grid.category.categories">Catégories</message>
 	<message key="grid.category.add">Ajouter une catégorie</message>
 	<message key="grid.category.edit">Modifier une catégorie</message>
@@ -631,7 +631,7 @@
 	<message key="grid.category.pathExists">Le chemin d'accès choisi pour cette catégorie existe déjà. Veuillez choisir un chemin d'accès unique.</message>
 	<message key="grid.category.description">Description</message>
 	<message key="grid.category.parentCategory">Catégorie principale</message>
-	<message key="grid.category.removeText">Vous êtes certain de vouloir supprimer cette catégorie?</message>
+	<message key="grid.category.removeText">Vous êtes certain de vouloir supprimer cette catégorie ?</message>
 	<message key="grid.category.nameRequired">Veuillez saisir le nom de la catégorie.</message>
 	<message key="grid.category.categoryDetails">Détails de la catégorie </message>
 	<message key="submission.submit.placement.categories">Catégories</message>

@@ -528,5 +528,46 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si un utilisateur est loggué, que les paiements sont activés et que les abonnements sont nécessaires (Paramètres > Distribution > Accès).]]></message>
 	<message key="manager.navigationMenus.search.description">Lien vers la page de recherche.</message>
 	<message key="manager.navigationMenus.privacyStatement.description">Lien vers la page Déclaration de confidentialité</message>
-	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Ce lien ne sera affiché que si vous avez entré une déclaration sous Paramètres > Worflow > Soumissions.]]></message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Ce lien ne sera affiché que si vous avez entré une déclaration sous Paramètres > Worflow > Soumissions.</message>
+
+	<message key="grid.category.add">Ajouter une catégorie</message>
+	<message key="grid.category.edit">Modifier la catégorie</message>
+	<message key="grid.category.name">Nom</message>
+	<message key="grid.category.path">Chemin d'accès</message>
+	<message key="grid.category.urlWillBe">L'URL de la catégorie sera: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Le chemin d'accès de catégorie doit être composé uniquement de lettres et de chiffres.</message>
+	<message key="grid.category.pathExists">Le chemin d'accès de catégorie existe déjà. Veuillez entrer un chemin d'accès unique.</message>
+	<message key="grid.category.description">Description</message>
+	<message key="grid.category.parentCategory">Catégorie du parent</message>
+	<message key="grid.category.removeText">Êtes-vous sûr de vouloir supprimer cette catégorie ?</message>
+	<message key="grid.category.nameRequired">Veuillez entrer un nom de catégorie.</message>
+	<message key="grid.category.categoryDetails">Détails de la catégorie</message>
+
+	<!-- Statistics -->
+	<message key="stats.articlesOfTotal">{$count} de {$total} articles</message>
+	<message key="stats.daily">Quotidien</message>
+	<message key="stats.dateRange">Période de temps</message>
+	<message key="stats.dateRange.allDates">Toutes les dates</message>
+	<message key="stats.dateRange.apply">Appliquer</message>
+	<message key="stats.dateRange.change">Modifier la période</message>
+	<message key="stats.dateRange.customRange">Gamme sur mesure</message>
+	<message key="stats.dateRange.dateDoesNotExist">Une des dates saisies n'existe pas.</message>
+	<message key="stats.dateRange.from">De</message>
+	<message key="stats.dateRange.instruction">Entrez chaque date dans le format AAAA-MM-JJ. Par exemple, si vous voulez la date du 15 janvier 2019, entrez 2019-01-15.</message>
+	<message key="stats.dateRange.invalidDate">Le format de date n'est pas valide. Entrez chaque date dans le format AAAA-MM-JJ.</message>
+	<message key="stats.dateRange.invalidDateRange">La date de début doit être antérieure à la date de fin.</message>
+	<message key="stats.dateRange.invalidEndDateMax">La date de fin ne peut pas être postérieure à {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">La date de début ne doit pas être antérieure à {$date}.</message>
+	<message key="stats.dateRange.last12Months">Derniers 12 mois</message>
+	<message key="stats.dateRange.last30Days">Derniers 30 jours</message>
+	<message key="stats.dateRange.last90Days">Derniers 90 jours</message>
+	<message key="stats.dateRange.sinceDate">Depuis {$date}</message>
+	<message key="stats.dateRange.to">Au</message>
+	<message key="stats.dateRange.untilDate">Jusqu'à {$date}</message>
+	<message key="stats.fileViews">Vues des fichiers</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Mensuel</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Recherche par titre, auteur et ID</message>
+	<message key="stats.total">Total</message>
 </locale>

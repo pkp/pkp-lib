@@ -337,11 +337,11 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 						})
 						->orWhere(function($q) use ($word) {
 							$q->where('as.setting_name', IDENTITY_SETTING_GIVENNAME);
-							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(Capsule::raw('lower('.Capsule::getQueryGrammar()->wrap("as.setting_value").')'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word, $isAssignedOnly) {
 							$q->where('as.setting_name', IDENTITY_SETTING_FAMILYNAME);
-							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(Capsule::raw('lower('.Capsule::getQueryGrammar()->wrap("as.setting_value").')'), 'LIKE', "%{$word}%");
 						});
 						// Prevent reviewers from matching searches by author name
 						if ($isAssignedOnly) {

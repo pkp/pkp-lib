@@ -22,6 +22,7 @@ use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\Interactions\WebDriverActions;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverSelect;
+use Facebook\WebDriver\Exception\NoSuchElementException;
 
 abstract class PKPContentBaseTestCase extends WebTestCase {
 	/**
@@ -122,14 +123,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 		// Permit the subclass to handle any extra step 3 actions
 		$this->_handleStep3($data);
-		$this->waitForElementPresent($selector='//form[@id=\'submitStep3Form\']//button[text()=\'Save and continue\']');
-		$this->click($selector);
+		$this->click('//form[@id=\'submitStep3Form\']//button[text()=\'Save and continue\']');
 
 		// Page 4
-		$this->waitForElementPresent($selector='//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
-		$this->click($selector);
-		$this->waitForElementPresent($selector="//a[text()='OK']");
-		$this->click($selector);
+		$this->click('//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
+		$this->click('//a[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 	}
 
@@ -152,7 +150,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 					$dummyfile = getenv('DUMMY_PDF');
 					$extension = 'pdf';
 			}
-			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', substr(strtolower($fileTitle),0,15)) . '.' . $extension;
+			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', substr(strtolower($fileTitle),0,40)) . '.' . $extension;
 
 			// Generate a copy of the file to use with a unique-ish filename.
 			copy($dummyfile, $file);
@@ -174,8 +172,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('id=genreId');
 		$this->select('id=genreId', "label=$genreName");
 		$this->uploadFile($file);
-		$this->waitForElementPresent('css=button[id=continueButton]:enabled');
-		$this->click('id=continueButton');
+		$this->click('//div[@class="pkp_modal_panel"]//button[@id="continueButton"]');
 
 		// Enter the title into the metadata form
 		$this->waitForElementPresent('css=[id^=name-]');
@@ -188,7 +185,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 
 		// Validate the form and finish
-		// self::$driver->executeScript('$(\'#metadataForm\').valid();');
+		self::$driver->executeScript('$("form[id^=uploadForm]").valid();');
 		$this->click('css=[id=continueButton]');
 		$this->waitForElementPresent('//h2[contains(text(), "File Added")]');
 		$this->click('//button[@id="continueButton"]');

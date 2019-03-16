@@ -326,22 +326,22 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 			if (count($words)) {
 				$q->leftJoin('submission_settings as ss','s.submission_id','=','ss.submission_id')
 					->leftJoin('authors as au','s.submission_id','=','au.submission_id')
-					->leftJoin('author_settings as as', 'as.author_id', '=', 'au.author_id');
+					->leftJoin('author_settings as aus', 'aus.author_id', '=', 'au.author_id');
 
 				foreach ($words as $word) {
 					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word, $isAssignedOnly)  {
 						$q->where(function($q) use ($word) {
 							$q->where('ss.setting_name', 'title');
-							$q->where(Capsule::raw('lower(ss.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where(Capsule::raw('lower('.Capsule::getQueryGrammar()->wrap("ss.setting_value").')'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word) {
-							$q->where('as.setting_name', IDENTITY_SETTING_GIVENNAME);
-							$q->where(Capsule::raw('lower('.Capsule::getQueryGrammar()->wrap("as.setting_value").')'), 'LIKE', "%{$word}%");
+							$q->where('aus.setting_name', IDENTITY_SETTING_GIVENNAME);
+							$q->where(Capsule::raw('lower('.Capsule::getQueryGrammar()->wrap("aus.setting_value").')'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word, $isAssignedOnly) {
-							$q->where('as.setting_name', IDENTITY_SETTING_FAMILYNAME);
-							$q->where(Capsule::raw('lower('.Capsule::getQueryGrammar()->wrap("as.setting_value").')'), 'LIKE', "%{$word}%");
+							$q->where('aus.setting_name', IDENTITY_SETTING_FAMILYNAME);
+							$q->where(Capsule::raw('lower('.Capsule::getQueryGrammar()->wrap("aus.setting_value").')'), 'LIKE', "%{$word}%");
 						});
 						// Prevent reviewers from matching searches by author name
 						if ($isAssignedOnly) {

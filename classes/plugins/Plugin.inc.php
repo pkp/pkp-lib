@@ -386,7 +386,7 @@ abstract class Plugin {
 		if (strpos($filePath, 'plugins/') === 0) $checkFilePath = 'templates/' . $checkFilePath;
 
 		// If there's a lib/pkp/ prefix on the template, test without it.
-		$libPkpPrefix = 'lib/pkp/';
+		$libPkpPrefix = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR;
 		if (strpos($checkFilePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
 
 		// Check if an overriding plugin exists in the plugin path.

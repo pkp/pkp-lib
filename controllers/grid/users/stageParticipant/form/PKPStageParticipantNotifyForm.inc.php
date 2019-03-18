@@ -169,6 +169,8 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				'editorialContactName' => $user->getFullname(),
 				// EDITOR_ASSIGN
 				'editorUsername' => $user->getUsername(),
+				// AUTHOR ASSIGN, AUTHOR NOTIFY
+				'authorName' => $user->getFullName(),
 			));
 
 			if (!$email->send($request)) {

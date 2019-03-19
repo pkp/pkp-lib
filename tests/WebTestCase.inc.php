@@ -213,7 +213,7 @@ abstract class WebTestCase extends PKPTestCase {
 	protected function logOut() {
 		$this->open(self::$baseUrl);
 		$actions = new WebDriverActions(self::$driver);
-		$actions->click($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
+		$actions->moveToElement($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
 			->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Logout")]'))
 			->perform();
 	}

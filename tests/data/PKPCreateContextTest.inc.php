@@ -68,7 +68,7 @@ abstract class PKPCreateContextTest extends WebTestCase {
 	function settingsWizard() {
 		$this->open(self::$baseUrl);
 		$actions = new WebDriverActions(self::$driver);
-		$actions->click($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
+		$actions->moveToElement($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
 			->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Administration")]'))
 			->perform();
 
@@ -110,7 +110,7 @@ abstract class PKPCreateContextTest extends WebTestCase {
 	function contactSettings() {
 		self::$driver->executeScript('window.scrollTo(0,0);'); // Scroll to top of page
 		$actions = new WebDriverActions(self::$driver);
-		$actions->click($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Settings"]'))
+		$actions->moveToElement($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Settings"]'))
 			->click($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Journal" or text()="Press"]'))
 			->perform();
 		$this->click('link=Contact');

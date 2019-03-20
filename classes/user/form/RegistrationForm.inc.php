@@ -20,6 +20,9 @@ import('lib.pkp.classes.form.Form');
 
 class RegistrationForm extends Form {
 
+	/** @var User The user object being created (available to hooks during registrationform::execute hook) */
+	var $user;
+
 	/** @var boolean user is already registered with another context */
 	var $existingUser;
 
@@ -209,7 +212,7 @@ class RegistrationForm extends Form {
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		// New user
-		$user = $userDao->newDataObject();
+		$this->user = $user = $userDao->newDataObject();
 
 		$user->setUsername($this->getData('username'));
 

@@ -98,8 +98,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('css=[id^=submitFormButton-]');
 
 		// Page 2: File wizard
-		$this->waitForElementPresent($selector = 'id=cancelButton');
+		$element = $this->waitForElementPresent($selector = 'id=cancelButton');
 		sleep(5); // FIXME: Avoid occasional failures with the genre dropdown getting hit instead of cancel
+
+		// Try to avoid ghost-popup-menu-intercepting-clicks at start of page 3
+		$actions = new WebDriverActions(self::$driver);
+		$actions->moveToElement($element)->perform();
+
 		$this->click($selector); // Thanks but no thanks
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 
@@ -109,9 +114,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$metadata = isset($file['metadata'])?$file['metadata']:array();
 			$this->uploadWizardFile($file['fileTitle'], $file['file'], $metadata);
 		}
-		sleep(5);
 		$this->click('//form[@id=\'submitStep2Form\']//button[text()=\'Save and continue\']');
-		sleep(5);
 
 		// Page 3
 		$this->waitForElementPresent('css=[id^=title-]');

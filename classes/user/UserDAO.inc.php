@@ -458,11 +458,12 @@ class UserDAO extends DAO {
 	 * Retrieve a user's name.
 	 * @param $userId int
 	 * @param $allowDisabled boolean
-	 * @return string
+	 * @return string|null
 	 */
 	function getUserFullName($userId, $allowDisabled = true) {
 		$user = $this->getById($userId, $allowDisabled);
-		return $user->getFullName();
+		if ($user) return $user->getFullName();
+		return null;
 	}
 
 	/**

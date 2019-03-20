@@ -61,3 +61,5 @@ sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php
 
 # Make the files directory (this will be files_dir in config.inc.php after installation).
 mkdir --parents ${FILESDIR}
+
+set +e

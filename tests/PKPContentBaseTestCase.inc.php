@@ -109,8 +109,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$metadata = isset($file['metadata'])?$file['metadata']:array();
 			$this->uploadWizardFile($file['fileTitle'], $file['file'], $metadata);
 		}
-		$this->waitForElementPresent($selector='//form[@id=\'submitStep2Form\']//button[text()=\'Save and continue\']');
-		$this->click($selector);
+		sleep(5);
+		$this->click('//form[@id=\'submitStep2Form\']//button[text()=\'Save and continue\']');
+		sleep(5);
 
 		// Page 3
 		$this->waitForElementPresent('css=[id^=title-]');
@@ -123,10 +124,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 		// Permit the subclass to handle any extra step 3 actions
 		$this->_handleStep3($data);
+		sleep(5);
 		$this->click('//form[@id=\'submitStep3Form\']//button[text()=\'Save and continue\']');
 
 		// Page 4
+		sleep(5);
 		$this->click('//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
+		sleep(5);
 		$this->click('//a[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 	}

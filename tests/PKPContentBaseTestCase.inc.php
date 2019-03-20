@@ -302,8 +302,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $name string
 	 */
 	function assignReviewer($name) {
-		$this->waitForElementPresent('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
+		sleep(5);
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
+		sleep(5);
 		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
 		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
 		$this->waitForElementPresent($xpath='//div[contains(text(),' . $this->quoteXpath($name) . ')]');

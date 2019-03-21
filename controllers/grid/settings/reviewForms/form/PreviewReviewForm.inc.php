@@ -53,7 +53,7 @@ class PreviewReviewForm extends Form {
 	function initData() {
 		if ($this->reviewFormId) {
 			// Get review form
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());

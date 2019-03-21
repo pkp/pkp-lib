@@ -68,7 +68,7 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @covers PrimitiveTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	function testInstantiateWithInvalidTypeDescriptor1() {
 		// An unknown type name will cause an error.
@@ -78,7 +78,7 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @covers PrimitiveTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	function testInstantiateWithInvalidTypeDescriptor2() {
 		// We don't allow multi-dimensional arrays.
@@ -88,7 +88,7 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @covers PrimitiveTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	function testInstantiateWithInvalidTypeDescriptor3() {
 		// An invalid cardinality will also cause an error.

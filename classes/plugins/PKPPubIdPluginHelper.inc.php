@@ -117,7 +117,7 @@ class PKPPubIdPluginHelper {
 	 * 	OJS IssueEntryPublicationMetadataForm
 	 */
 	function readAssignInputData($form) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
 		if (is_array($pubIdPlugins)) {

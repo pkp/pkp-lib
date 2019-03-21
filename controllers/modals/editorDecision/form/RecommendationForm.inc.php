@@ -97,7 +97,7 @@ class RecommendationForm extends Form {
 		// Get the editor recommendation e-mail template
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();
 		$user = $request->getUser();
@@ -144,7 +144,7 @@ class RecommendationForm extends Form {
 	 */
 	function execute() {
 		// Record the recommendation.
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$submission = $this->getSubmission();
 		$reviewRound = $this->getReviewRound();
 		$recommendation = $this->getData('recommendation');

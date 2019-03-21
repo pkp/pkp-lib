@@ -138,7 +138,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 */
 	public function isActive() {
 		if (defined('SESSION_DISABLE_INIT')) return false;
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		if (is_a($context, 'Context')) {
 			$activeTheme = $context->getData('themePluginPath');
@@ -442,7 +442,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 
 		// Retrieve option values if they haven't been loaded yet
 		if (is_null($this->_optionValues)) {
-			$context = Application::getRequest()->getContext();
+			$context = Application::get()->getRequest()->getContext();
 			$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 			$this->_optionValues = $this->getOptionValues($contextId);
 		}
@@ -604,7 +604,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		if (is_null($contextId)) {
-			$context = Application::getRequest()->getContext();
+			$context = Application::get()->getRequest()->getContext();
 			$contextId = $context->getId();
 		}
 
@@ -695,7 +695,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		}
 
 		// Register this theme's template directory
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$templateManager = TemplateManager::getManager($request);
 		$templateManager->addTemplateDir($this->_getBaseDir('templates'));
 	}
@@ -713,7 +713,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$this->parent->_registerStyles();
 		}
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$dispatcher = $request->getDispatcher();
 		$templateManager = TemplateManager::getManager($request);
 
@@ -759,7 +759,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$this->parent->_registerScripts();
 		}
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$templateManager = TemplateManager::getManager($request);
 
 		foreach($this->scripts as $name => $data) {
@@ -780,7 +780,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	 * @return string
 	 */
 	public function _getBaseUrl($path = '') {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
 		return $request->getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
 	}

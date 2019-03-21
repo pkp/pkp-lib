@@ -38,7 +38,7 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider {
 
 		switch ($columnId) {
 			case 'title':
-				$templateMgr = TemplateManager::getManager(Application::getRequest());
+				$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
 				import('classes.core.Services');
 				Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 

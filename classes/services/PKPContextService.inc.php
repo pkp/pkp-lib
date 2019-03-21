@@ -242,7 +242,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
-		$user = Application::getRequest()->getUser();
+		$user = Application::get()->getRequest()->getUser();
 		\ValidatorFactory::temporaryFilesExist(
 			$validator,
 			['favicon', 'homepageImage', 'pageHeaderLogoImage', 'styleSheet'],

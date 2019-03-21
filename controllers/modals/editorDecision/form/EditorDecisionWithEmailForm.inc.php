@@ -47,7 +47,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	 * @param $actionLabels array
 	 */
 	function initData($actionLabels = array()) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$router = $request->getRouter();
 		$dispatcher = $router->getDispatcher();

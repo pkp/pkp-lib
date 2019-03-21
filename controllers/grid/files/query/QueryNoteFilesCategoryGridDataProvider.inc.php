@@ -30,7 +30,7 @@ class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGrid
 	 * @copydoc SubmissionFilesCategoryGridDataProvider::initGridDataProvider()
 	 */
 	function initGridDataProvider($fileStage, $initParams = null) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
 		return new QueryNoteFilesGridDataProvider($request->getUserVar('noteId'));
 	}

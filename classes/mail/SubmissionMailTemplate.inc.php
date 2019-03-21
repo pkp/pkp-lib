@@ -48,7 +48,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 */
 	function assignParams($paramArray = array()) {
 		$submission = $this->submission;
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		parent::assignParams(array_merge(
 			array(
 				'submissionTitle' => strip_tags($submission->getLocalizedTitle()),

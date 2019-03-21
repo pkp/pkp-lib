@@ -45,7 +45,7 @@ class UnassignReviewerForm extends Form {
 	 * @copydoc Form::initData
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
@@ -82,7 +82,7 @@ class UnassignReviewerForm extends Form {
 	 * @return bool whether or not the review assignment was deleted successfully
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
 

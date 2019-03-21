@@ -39,7 +39,7 @@ class SelectCategoryListHandler extends SelectListHandler {
 		if (isset($this->_getParams['contextId'])) {
 			$contextId = $this->_getParams['contextId'];
 		} else {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 			$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		}

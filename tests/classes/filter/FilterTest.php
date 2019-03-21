@@ -95,7 +95,7 @@ class FilterTest extends PKPTestCase {
 
 	/**
 	 * @covers Filter
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException PHPUnit\Framework\Exception
 	 */
 	public function testUnsupportedEnvironment() {
 		$mockFilter = $this->getFilterMock();
@@ -134,8 +134,10 @@ class FilterTest extends PKPTestCase {
 	 */
 	private function getFilterMock($outputType = 'class::lib.pkp.tests.classes.filter.TestClass2') {
 		// Mock the abstract filter class
-		$constructorArgs = array('class::lib.pkp.tests.classes.filter.TestClass1', $outputType);
-		$mockFilter = $this->getMock('Filter', array('process'), $constructorArgs);
+		$mockFilter = $this->getMockBuilder(Filter::class)
+			->setMethods(array('process'))
+			->setConstructorArgs(array('class::lib.pkp.tests.classes.filter.TestClass1', $outputType))
+			->getMock();
 
 		// Set the filter processor.
 		$mockFilter->expects($this->any())

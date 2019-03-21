@@ -29,7 +29,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	function getNotificationUrl($request, $notification) {
-		$dispatcher = Application::getDispatcher();
+		$dispatcher = Application::get()->getDispatcher();
 		$context = $request->getContext();
 		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());	
 	}

@@ -74,7 +74,7 @@ class ReviewFormElementForm extends Form {
 	 */
 	function initData() {
 		if ($this->reviewFormElementId) {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId, $this->reviewFormId);
@@ -107,7 +107,7 @@ class ReviewFormElementForm extends Form {
 	 */
 	function execute() {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		if ($this->reviewFormElementId) {
 			$context = $request->getContext();

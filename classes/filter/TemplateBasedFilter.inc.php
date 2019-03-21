@@ -72,7 +72,7 @@ class TemplateBasedFilter extends PersistableFilter {
 	function &process(&$input) {
 		// Initialize view
 		$locale = AppLocale::getLocale();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$templateMgr = TemplateManager::getManager($request);
 
 		// Add the filter's directory as additional template dir so that

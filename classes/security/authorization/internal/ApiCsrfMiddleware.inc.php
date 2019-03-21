@@ -72,7 +72,7 @@ class ApiCsrfMiddleware {
 		if (empty($server['HTTP_X_CSRF_TOKEN'])) {
 			return false;
 		}
-		$session = Application::getRequest()->getSession();
+		$session = Application::get()->getRequest()->getSession();
 		return $session && $session->getCSRFToken() === $server['HTTP_X_CSRF_TOKEN'];
 	}
 }

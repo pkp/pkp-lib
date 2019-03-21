@@ -290,7 +290,7 @@ abstract class PKPWorkflowHandler extends Handler {
 						if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
 							if (array_key_exists($editorDecision['editorId'], $recommendations)) {
 								if ($editorDecision['dateDecided'] >= $recommendations[$editorDecision['editorId']]['dateDecided']) {
-									$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);;
+									$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);
 								}
 							} else {
 								$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);

@@ -69,7 +69,7 @@ class UserEmailForm extends Form {
 	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$toUser = $userDao->getById($this->userId);
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$fromUser = $request->getUser();
 
 		import('lib.pkp.classes.mail.MailTemplate');

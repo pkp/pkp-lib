@@ -19,7 +19,8 @@
 		"danielstjules/stringy": "3.*"
 	},
 	"require-dev": {
-		"phpunit/phpunit-selenium": "1.4.2"
+		"facebook/webdriver": "~1.6",
+		"phpunit/phpunit": "~6"
 	},
 	"config": {
 		"component-dir": "lib/components",

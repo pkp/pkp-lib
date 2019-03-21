@@ -82,7 +82,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	 */
 	function execute() {
 		// Execute submission metadata related operations.
-		$this->_metadataFormImplem->execute($this->submission, Application::getRequest());
+		$this->_metadataFormImplem->execute($this->submission, Application::get()->getRequest());
 
 		// Get an updated version of the submission.
 		$submissionDao = Application::getSubmissionDAO();

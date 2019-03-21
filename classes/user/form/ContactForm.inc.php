@@ -91,7 +91,7 @@ class ContactForm extends BaseProfileForm {
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$availableLocales = $site->getSupportedLocales();
 		$locales = array();

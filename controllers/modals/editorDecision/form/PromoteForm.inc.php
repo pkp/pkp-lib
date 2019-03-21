@@ -51,7 +51,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @copydoc EditorDecisionWithEmailForm::initData()
 	 */
 	function initData($actionLabels = array()) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();
@@ -75,7 +75,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @copydoc Form::execute()
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		// Retrieve the submission.
 		$submission = $this->getSubmission();

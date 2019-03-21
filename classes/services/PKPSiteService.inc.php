@@ -109,7 +109,7 @@ class PKPSiteService implements EntityPropertyInterface {
 
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
-		$user = Application::getRequest()->getUser();
+		$user = Application::get()->getRequest()->getUser();
 		\ValidatorFactory::temporaryFilesExist(
 			$validator,
 			['pageHeaderTitleImage', 'styleSheet'],

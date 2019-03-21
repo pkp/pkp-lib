@@ -25,7 +25,7 @@ sudo apt-get install -q -y cabextract ttf-mscorefonts-installer
 mkfontdir
 
 # Start xvfb.
-/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
+/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1920x1080x24
 
 # Wait for xvfb to start before continuing.
 until xprop -root; do sleep 1; done

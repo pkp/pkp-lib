@@ -147,7 +147,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function getWorkflowUrlByUserRoles($submission, $userId = null) {
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		if (is_null($userId)) {
 			$user = $request->getUser();
@@ -258,7 +258,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			}
 		}
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$contextId = $submission->getContextId();
 
 		$currentUser = $request->getUser();
@@ -373,7 +373,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		\PluginRegistry::loadCategory('pubIds', true);
 		$values = array();
 		$authorService = \Services::get('author');
-		$request = \Application::getRequest();
+		$request = \Application::get()->getRequest();
 		$dispatcher = $request->getDispatcher();
 		$router = $request->getRouter();
 
@@ -631,7 +631,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				continue;
 			}
 
-			$currentUser = \Application::getRequest()->getUser();
+			$currentUser = \Application::get()->getRequest()->getUser();
 			$dateFormatShort = \Config::getVar('general', 'date_format_short');
 			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
 			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
@@ -709,8 +709,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$stageIds = array($stageIds);
 		}
 
-		$currentUser = \Application::getRequest()->getUser();
-		$context = \Application::getRequest()->getContext();
+		$currentUser = \Application::get()->getRequest()->getUser();
+		$context = \Application::get()->getRequest()->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$stages = array();
@@ -726,7 +726,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 			// Discussions in this stage
 			$stage['queries'] = array();
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			import('lib.pkp.classes.query.QueryDAO');
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$queries = $queryDao->getByAssoc(

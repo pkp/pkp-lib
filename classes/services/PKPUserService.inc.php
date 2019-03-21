@@ -421,7 +421,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return boolean
 	 */
 	public function canCurrentUserGossip($userId) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$currentUser = $request->getUser();

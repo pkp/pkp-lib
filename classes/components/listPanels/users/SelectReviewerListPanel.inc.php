@@ -101,7 +101,7 @@ class SelectReviewerListPanel extends SelectListPanel {
 	 * @copydoc SelectListPanel::getItems()
 	 */
 	public function getItems() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		$userService = Services::get('user');
 		$reviewers = $userService->getReviewers($this->_getItemsParams());
@@ -129,7 +129,7 @@ class SelectReviewerListPanel extends SelectListPanel {
 	 * @copydoc SelectListPanel::_getItemsParams()
 	 */
 	protected function _getItemsParams() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 

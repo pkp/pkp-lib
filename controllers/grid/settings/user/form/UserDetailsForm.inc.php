@@ -88,7 +88,7 @@ class UserDetailsForm extends UserForm {
 	 * Initialize form data from current user profile.
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
@@ -238,7 +238,7 @@ class UserDetailsForm extends UserForm {
 	 */
 	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		if (!isset($this->user)) {

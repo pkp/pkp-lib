@@ -56,7 +56,9 @@ class PluginTestCase extends DatabaseTestCase {
 		// Mock request and router.
 		import('lib.pkp.classes.core.PKPRouter');
 		import('classes.core.Request');
-		$mockRequest = $this->getMock('Request', array('getRouter', 'getUser'));
+		$mockRequest = $this->getMockBuilder(Request::class)
+			->setMethods(array('getRouter', 'getUser'))
+			->getMock();
 		$router = new PKPRouter();
 		$mockRequest->expects($this->any())
 		            ->method('getRouter')

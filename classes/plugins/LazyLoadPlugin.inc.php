@@ -99,7 +99,7 @@ abstract class LazyLoadPlugin extends Plugin {
 	 * can be found.
 	 */
 	function getCurrentContextId() {
-		$context = Application::getRequest()->getContext();
+		$context = Application::get()->getRequest()->getContext();
 		return is_null($context) ? 0 : $context->getId();
 	}
 }

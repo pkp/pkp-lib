@@ -28,6 +28,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	public function testSupports() {
 		// This method only exists to override and neutralize the parent class'
 		// testSupports() which is not relevant for component routers.
+		$this->markTestSkipped();
 	}
 
 	/**
@@ -234,9 +235,9 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		self::assertNotNull($serviceEndpoint =& $this->router->getRpcServiceEndpoint($this->request));
 		self::assertInstanceOf('NotificationsGridHandler', $handler =& $serviceEndpoint[0]);
 		$firstContextDao = DAORegistry::getDAO('FirstContextDAO');
-		self::assertInstanceOf('FirstContext', $firstContextDao->getByPath('context1'));
+		self::assertInstanceOf('Context', $firstContextDao->getByPath('context1'));
 		$secondContextDao = DAORegistry::getDAO('SecondContextDAO');
-		self::assertInstanceOf('SecondContext', $secondContextDao->getByPath('context2'));
+		self::assertInstanceOf('Context', $secondContextDao->getByPath('context2'));
 	}
 
 	/**

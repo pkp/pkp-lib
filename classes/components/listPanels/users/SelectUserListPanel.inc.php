@@ -34,7 +34,7 @@ class SelectUserListPanel extends SelectListPanel {
 	 * @copydoc SelectListPanel::getItems()
 	 */
 	public function getItems() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 

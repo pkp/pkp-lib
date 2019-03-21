@@ -292,7 +292,7 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 		$locale = \AppLocale::getLocale();
 		// the users register for the site, thus
 		// the site primary locale should be the default locale
-		$site = \Application::getRequest()->getSite();
+		$site = \Application::get()->getRequest()->getSite();
 		$primaryLocale = $site->getPrimaryLocale();
 
 		$this->columns[] = 'u.*';

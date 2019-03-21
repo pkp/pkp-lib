@@ -71,7 +71,7 @@ class RegistrationForm extends Form {
 			}));
 		}
 
-		$context = Application::getRequest()->getContext();
+		$context = Application::get()->getRequest()->getContext();
 		if ($context && $context->getData('privacyStatement')) {
 			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 		}
@@ -164,7 +164,7 @@ class RegistrationForm extends Form {
 	 * @copydoc Form::validate()
 	 */
 	function validate() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		// Ensure the consent checkbox has been completed for the site and any user
 		// group signups if we're in the site-wide registration form
@@ -218,7 +218,7 @@ class RegistrationForm extends Form {
 
 		// The multilingual user data (givenName, familyName and affiliation) will be saved
 		// in the current UI locale and copied in the site's primary locale too
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$sitePrimaryLocale = $site->getPrimaryLocale();
 		$currentLocale = AppLocale::getLocale();

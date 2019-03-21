@@ -32,7 +32,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 	 */
 	function execute() {
 		$submissionDao = Application::getSubmissionDAO();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		// Set other submission data.
 		if ($this->submission->getSubmissionProgress() <= $this->step) {

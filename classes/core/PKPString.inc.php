@@ -52,7 +52,7 @@ class PKPString {
 		$clientCharset = strtolower_codesafe(Config::getVar('i18n', 'client_charset'));
 
 		// Check if mbstring is installed
-		if (self::hasMBString()) {
+		if (self::hasMBString() && !defined('ENABLE_MBSTRING')) {
 			// mbstring routines are available
 			define('ENABLE_MBSTRING', true);
 
@@ -64,10 +64,12 @@ class PKPString {
 
 		// Define modifier to be used in regexp_* routines
 		// FIXME Should non-UTF-8 encodings be supported with mbstring?
-		if ($clientCharset == 'utf-8' && self::hasPCREUTF8()) {
-			define('PCRE_UTF8', 'u');
-		} else {
-			define('PCRE_UTF8', '');
+		if (!defined('PCRE_UTF8')) {
+			if ($clientCharset == 'utf-8' && self::hasPCREUTF8()) {
+				define('PCRE_UTF8', 'u');
+			} else {
+				define('PCRE_UTF8', '');
+			}
 		}
 	}
 

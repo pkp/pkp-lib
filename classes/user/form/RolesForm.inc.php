@@ -84,7 +84,7 @@ class RolesForm extends BaseProfileForm {
 	 * Save roles settings.
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
 		// Save the roles

@@ -325,7 +325,7 @@ class QueryForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$query = $this->getQuery();
 

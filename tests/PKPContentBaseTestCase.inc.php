@@ -18,6 +18,12 @@ import('lib.pkp.tests.WebTestCase');
 define('DUMMY_PDF', 0);
 define('DUMMY_ZIP', 1);
 
+use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\Interactions\WebDriverActions;
+use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\WebDriverSelect;
+use Facebook\WebDriver\Exception\NoSuchElementException;
+
 abstract class PKPContentBaseTestCase extends WebTestCase {
 	/**
 	 * Handle any section information on submission step 1
@@ -32,12 +38,6 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 */
 	protected function _handleStep3($data) {
 	}
-
-	/**
-	 * Get the number of items in the default submission checklist
-	 * @return int
-	 */
-	abstract protected function _getChecklistLength();
 
 	/**
 	 * Get the submission submission element's name
@@ -80,9 +80,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Check the default checklist items.
 		$this->waitForElementPresent('id=checklist-0');
-		for ($i=0; $i<$this->_getChecklistLength(); $i++) {
-			$id = 'checklist-' . $i;
-			if ($this->getXpathCount("//input[@id='$id' and not(@checked)]")==1) $this->click("id=$id");
+		foreach (self::$driver->findElements(WebDriverBy::xpath('//input[starts-with(@id, "checklist-") and not (@checked)]')) as $element) {
+			$element->click();
 		}
 
 		if (empty($data['submitterRole'])){
@@ -99,9 +98,15 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('css=[id^=submitFormButton-]');
 
 		// Page 2: File wizard
-		$this->waitForElementPresent($selector = 'id=cancelButton');
+		$element = $this->waitForElementPresent($selector = 'id=cancelButton');
+		sleep(2); // FIXME: Avoid occasional failures with the genre dropdown getting hit instead of cancel
+
+		// Try to avoid ghost-popup-menu-intercepting-clicks at start of page 3
+		$actions = new WebDriverActions(self::$driver);
+		$actions->moveToElement($element)->perform();
+
 		$this->click($selector); // Thanks but no thanks
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
+		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 
 		foreach ($data['files'] as $file) {
 			if (!isset($file['file'])) $file['file'] = DUMMY_PDF;
@@ -109,8 +114,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$metadata = isset($file['metadata'])?$file['metadata']:array();
 			$this->uploadWizardFile($file['fileTitle'], $file['file'], $metadata);
 		}
-		$this->waitForElementPresent($selector='//form[@id=\'submitStep2Form\']//button[text()=\'Save and continue\']');
-		$this->click($selector);
+
+		// Make sure the sidebar menus are not activated
+		self::$driver->getMouse()->mouseMove($this->waitForElementPresent('//div[@class="pkp_site_name"]')->getCoordinates());
+
+		$this->click('//form[@id=\'submitStep2Form\']//button[text()=\'Save and continue\']');
 
 		// Page 3
 		$this->waitForElementPresent('css=[id^=title-]');
@@ -123,15 +131,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 		// Permit the subclass to handle any extra step 3 actions
 		$this->_handleStep3($data);
-		$this->waitForElementPresent($selector='//form[@id=\'submitStep3Form\']//button[text()=\'Save and continue\']');
-		$this->click($selector);
+		$this->click('//form[@id=\'submitStep3Form\']//button[text()=\'Save and continue\']');
 
 		// Page 4
-		$this->waitForElementPresent($selector='//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
-		$this->waitJQuery();
-		$this->click($selector);
-		$this->waitForElementPresent($selector="//a[text()='OK']");
-		$this->click($selector);
+		$this->click('//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
+		$this->click('//a[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 	}
 
@@ -154,7 +158,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 					$dummyfile = getenv('DUMMY_PDF');
 					$extension = 'pdf';
 			}
-			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', strtolower($fileTitle)) . '.' . $extension;
+			$file = sys_get_temp_dir() . '/' . preg_replace('/[^a-z0-9\.]/', '', substr(strtolower($fileTitle),0,40)) . '.' . $extension;
 
 			// Generate a copy of the file to use with a unique-ish filename.
 			copy($dummyfile, $file);
@@ -176,11 +180,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('id=genreId');
 		$this->select('id=genreId', "label=$genreName");
 		$this->uploadFile($file);
-		$this->waitForElementPresent('css=button[id=continueButton]:enabled');
-		$this->click('id=continueButton');
+		$this->click('//div[@class="pkp_modal_panel"]//button[@id="continueButton"]');
 
 		// Enter the title into the metadata form
 		$this->waitForElementPresent('css=[id^=name-]');
+		$this->click('//fieldset[@id="fileMetaData"]//a[contains(@class,"pkpEditableToggle")]');
 		$this->type('css=[id^=name-]', $fileTitle);
 
 		// Enter remaining metadata into the form fields
@@ -189,13 +193,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 
 		// Validate the form and finish
-		$this->runScript('$(\'#metadataForm\').valid();');
+		self::$driver->executeScript('$("form[id^=uploadForm]").valid();');
 		$this->click('css=[id=continueButton]');
-		$this->waitJQuery();
-		$this->waitForElementPresent($selector = 'css=[id=continueButton]');
-		$this->click($selector);
-		$this->waitJQuery();
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
+		$this->waitForElementPresent('//h2[contains(text(), "File Added")]');
+		$this->click('//button[@id="continueButton"]');
+		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
 	/**
@@ -218,12 +220,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent('css=[id^=givenName-]');
 		$this->type('css=[id^=givenName-]', $data['givenName']);
 		$this->type('css=[id^=familyName-]', $data['familyName']);
-		$this->select('id=country', $data['country']);
+		$this->select('id=country', 'label=' . $data['country']);
 		$this->type('css=[id^=email-]', $data['email']);
 		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
 		$this->click('//label[contains(.,\'' . $this->escapeJS($data['role']) . '\')]');
 		$this->click('//button[text()=\'Save\']');
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel');
+		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
 	/**
@@ -236,20 +238,11 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		if ($password === null) $password = $username . $username;
 		$this->logIn($username, $password);
 		$this->waitForElementPresent('css=#dashboardTabs');
-		$this->click('css=[name=active]');
-		$xpath = '//div[contains(text(),' . $this->quoteXPath($title) . ')]';
+		/*$this->click('css=[name=active]');
+		$this->waitForElementPresent('//div[contains(text(),"All Active")]');*/
+		$xpath = '//div[contains(text(),' . $this->quoteXpath($title) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
-	}
-
-	protected function quoteXpath($string) {
-		// Use an xpath concat to escape quotes in literals.
-		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		return 'concat(\'' . strtr($this->escapeJS($string),
-			array(
-				'\\\'' => '\', "\'", \''
-			)
-		) . '\',\'\')';
 	}
 
 	/**
@@ -257,11 +250,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $decision string
 	 */
 	protected function recordEditorialDecision($decision) {
-		$this->waitForElementPresent($selector='//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
-		$this->click($selector);
-		$this->waitForElementPresent($selector='//button[contains(.,\'Record Editorial Decision\')]');
-		$this->click($selector);
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
+		$this->click('//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
+		if (in_array($decision, array('Accept Submission', 'Send To Production', 'Send to External Review'))) {
+			sleep(2); // FIXME: Avoid missing modal
+			$this->click('//button[contains(.,"Next:")]');
+		}
+		$this->click('//button[contains(.,\'Record Editorial Decision\')]');
+		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
 	/**
@@ -275,7 +270,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
 		$this->waitForElementPresent($selector='//button[text()=\'Record Editorial Recommendation\']');
 		$this->click($selector);
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#65
+		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
 	/**
@@ -284,18 +279,16 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $name string
 	 */
 	protected function assignParticipant($role, $name, $recommendOnly = null) {
+		sleep(2); // FIXME: Avoid occasional "element is not attached to the page document" errors
 		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
-		$this->waitJQuery();
-		$this->waitForElementPresent($selector = 'name=filterUserGroupId');
+		$this->waitForElementPresent($selector = '//select[@name="filterUserGroupId"]');
 		$this->select($selector, 'label=' . $this->escapeJS($role));
-		$this->waitJQuery();
 		// Search by last name
 		$names = explode(' ', $name);
 		$this->waitForElementPresent($selector='//input[@id[starts-with(., \'namegrid-users-userselect-userselectgrid-\')]]');
 		$this->type($selector, $names[1]);
 		$this->click('//form[@id=\'searchUserFilter-grid-users-userselect-userselectgrid\']//button[@id[starts-with(., \'submitFormButton-\')]]');
-		$this->waitJQuery();
 		// Assume there is only one user with this last name and user group
 		$this->waitForElementPresent($selector='//input[@name=\'userId\']');
 		$this->click($selector);
@@ -304,8 +297,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$this->click($selector);
 		}
 		$this->click('//button[text()=\'OK\']');
-		$this->waitForText('css=div.ui-pnotify-text', 'User added as a stage participant.');
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel');
+		$this->waitForElementPresent('//div[@class="ui-pnotify-text" and text()="User added as a stage participant."]');
+		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
 	/**
@@ -313,18 +306,19 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $name string
 	 */
 	function assignReviewer($name) {
-		$this->waitForElementPresent('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
+		sleep(2);
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
+		sleep(2);
 		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
 		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
-		$this->waitJQuery();
-		$xpath = '//div[contains(text(),' . $this->quoteXPath($name) . ')]';
-		$this->waitForElementPresent($xpath);
+		$this->waitForElementPresent($xpath='//div[contains(text(),' . $this->quoteXpath($name) . ')]');
 		$this->click($xpath);
+		sleep(2); // FIXME: Avoid missing promote modal in ckwantes test
 		$this->click('css=[id^=selectReviewerButton]');
 
+		sleep(2); // FIXME: Avoid missing promote modal in ckwantes test
 		$this->click('//button[text()=\'Add Reviewer\']');
-		$this->waitForElementNotPresent('css=div.pkp_modal_panel'); // pkp/pkp-lib#655
+		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
 	/**
@@ -341,12 +335,13 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Use an xpath concat to permit apostrophes to appear in titles
 		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
-		$xpath = '//div[normalize-space(text())=' . $this->quoteXPath($title) . ']';
+		$xpath = '//div[normalize-space(text())=' . $this->quoteXpath($title) . ']';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
 
 
 		$this->waitForElementPresent($selector='//button[text()=\'Accept Review, Continue to Step #2\']');
+		sleep(2); // FIXME: Avoid occasional unchecked checkbox
 		$this->click('//input[@id=\'privacyConsent\']');
 		$this->click($selector);
 
@@ -364,7 +359,6 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitForElementPresent($selector='link=OK');
 		$this->click($selector);
 		$this->waitForElementPresent('//h2[contains(text(), \'Review Submitted\')]');
-		$this->waitJQuery();
 		$this->logOut();
 	}
 }

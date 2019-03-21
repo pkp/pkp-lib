@@ -27,7 +27,7 @@ class PKPUserImportExportDeployment extends PKPImportExportDeployment {
 	 */
 	function __construct($context, $user) {
 		parent::__construct($context, $user);
-		$site = Application::getRequest()->getSite();
+		$site = Application::get()->getRequest()->getSite();
 		$this->setSite($site);
 	}
 

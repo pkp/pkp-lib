@@ -127,9 +127,9 @@ class PKPNavigationMenuService {
 	 * Callback for display menu item functionallity
 	 */
 	function getDisplayStatus(&$navigationMenuItem, &$navigationMenu) {
-		$request = \Application::getRequest();
+		$request = \Application::get()->getRequest();
 		$dispatcher = $request->getDispatcher();
-		$templateMgr = \TemplateManager::getManager(\Application::getRequest());
+		$templateMgr = \TemplateManager::getManager($request);
 
 		$isUserLoggedIn = \Validation::isLoggedIn();
 		$isUserLoggedInAs = \Validation::isLoggedInAs();
@@ -486,7 +486,7 @@ class PKPNavigationMenuService {
 		// should call transformNavMenuItemTitle because some
 		// request don't have all template variables in place
 		if ($class == 'NavigationMenuItem') {
-			$templateMgr = \TemplateManager::getManager(\Application::getRequest());
+			$templateMgr = \TemplateManager::getManager(\Application::get()->getRequest());
 			$this->transformNavMenuItemTitle($templateMgr, $obj);
 		}
 
@@ -615,7 +615,7 @@ class PKPNavigationMenuService {
 	 * @return boolean true if the callback has handled the request.
 	 */
 	public function _callbackHandleCustomNavigationMenuItems($hookName, $args) {
-		$request = \Application::getRequest();
+		$request = \Application::get()->getRequest();
 
 		$page =& $args[0];
 		$op =& $args[1];

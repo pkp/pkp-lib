@@ -61,7 +61,7 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 
 				$navigationMenusTitles = '';
 
-				$templateMgr = TemplateManager::getManager(Application::getRequest());
+				$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
 				import('classes.core.Services');
 				foreach ($items as $item) {
 					Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $item);

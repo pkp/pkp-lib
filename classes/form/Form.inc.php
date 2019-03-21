@@ -281,7 +281,7 @@ class Form {
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$user = $request->getUser();
 
 			if (!$this->isValid() && $user) {
@@ -351,7 +351,7 @@ class Form {
 	 */
 	function addSupportedFormLocale($supportedLocale) {
 		if (!in_array($supportedLocale, $this->supportedLocales)) {
-			$site = Application::getRequest()->getSite();
+			$site = Application::get()->getRequest()->getSite();
 			$siteSupportedLocales = $site->getSupportedLocaleNames();
 			if (array_key_exists($supportedLocale, $siteSupportedLocales)) {
 				$this->supportedLocales[$supportedLocale] = $siteSupportedLocales[$supportedLocale];

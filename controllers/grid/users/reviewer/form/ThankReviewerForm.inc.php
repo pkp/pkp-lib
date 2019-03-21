@@ -49,7 +49,7 @@ class ThankReviewerForm extends Form {
 	 * @copydoc Form::initData
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $request->getUser();
 		$context = $request->getContext();
@@ -110,7 +110,7 @@ class ThankReviewerForm extends Form {
 
 		if (!$this->getData('skipEmail')) {
 			HookRegistry::call('ThankReviewerForm::thankReviewer', array(&$submission, &$reviewAssignment, &$email));
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$dispatcher = $request->getDispatcher();
 			$context = $request->getContext();
 			$user = $request->getUser();

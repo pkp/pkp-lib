@@ -51,7 +51,7 @@ class ReviewReminderForm extends Form {
 	 * @copydoc Form::initData
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $request->getUser();
 		$context = $request->getContext();
@@ -132,7 +132,7 @@ class ReviewReminderForm extends Form {
 	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submissionDao = Application::getSubmissionDAO();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		$reviewAssignment = $this->getReviewAssignment();
 		$reviewerId = $reviewAssignment->getReviewerId();

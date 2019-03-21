@@ -49,7 +49,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 		$this->_approval = $approval;
 		$this->_confirmationText = $confirmationText;
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();
 

@@ -31,24 +31,22 @@ class DispatcherTest extends PKPTestCase {
 		$request;
 
 	/**
-	 * @see PKPTestCase::getMockedRegistryKeys()
+	 * @copydoc PKPTestCase::getMockedRegistryKeys()
 	 */
 	protected function getMockedRegistryKeys() {
 		return array('application', 'dispatcher');
 	}
 
 	/**
-	 * @see PHPUnit_Framework_TestCase::setUp()
+	 * @see PKPTestCase::setUp()
 	 */
 	protected function setUp() {
 		parent::setUp();
+
 		// Mock application object without calling its constructor.
-		$mockApplication =
-				$this->getMock('Application', array('getContextDepth', 'getContextList'),
-				array(), '', false);
-		Registry::set('application', $mockApplication);
-		$nullVar = null;
-		Registry::set('dispatcher', $nullVar);
+		$mockApplication = $this->getMockBuilder(Application::class)
+			->setMethods(array('getContextDepth', 'getContextList'))
+			->getMock();
 
 		// Set up the getContextDepth() method
 		$mockApplication->expects($this->any())

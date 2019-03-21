@@ -68,7 +68,7 @@ class UploadPluginForm extends Form {
 		parent::execute();
 
 		// Retrieve the temporary file.
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$temporaryFileId = $this->getData('temporaryFileId');
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');

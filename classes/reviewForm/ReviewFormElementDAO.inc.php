@@ -199,11 +199,17 @@ class ReviewFormElementDAO extends DAO {
 	 * Retrieve all elements for a review form.
 	 * @param $reviewFormId int
 	 * @param $rangeInfo object RangeInfo object (optional)
+	 * @param $included boolean True for only included comments; false for non-included; null for both
 	 * @return DAOResultFactory containing ReviewFormElements ordered by sequence
 	 */
-	function getByReviewFormId($reviewFormId, $rangeInfo = null) {
+	function getByReviewFormId($reviewFormId, $rangeInfo = null, $included = null) {
 		$result = $this->retrieveRange(
-			'SELECT * FROM review_form_elements WHERE review_form_id = ? ORDER BY seq',
+			'SELECT * 
+			FROM review_form_elements 
+			WHERE review_form_id = ?
+			' . ($included === true?' AND included = 1':'') . '
+			' . ($included === false?' AND included = 0':'') . ' 
+			ORDER BY seq',
 			(int) $reviewFormId, $rangeInfo
 		);
 
@@ -288,5 +294,4 @@ class ReviewFormElementDAO extends DAO {
 		return $this->_getInsertId('review_form_elements', 'review_form_element_id');
 	}
 }
-
 

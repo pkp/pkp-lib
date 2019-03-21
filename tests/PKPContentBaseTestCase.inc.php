@@ -99,7 +99,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Page 2: File wizard
 		$element = $this->waitForElementPresent($selector = 'id=cancelButton');
-		sleep(5); // FIXME: Avoid occasional failures with the genre dropdown getting hit instead of cancel
+		sleep(2); // FIXME: Avoid occasional failures with the genre dropdown getting hit instead of cancel
 
 		// Try to avoid ghost-popup-menu-intercepting-clicks at start of page 3
 		$actions = new WebDriverActions(self::$driver);
@@ -131,13 +131,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 		// Permit the subclass to handle any extra step 3 actions
 		$this->_handleStep3($data);
-		sleep(5);
 		$this->click('//form[@id=\'submitStep3Form\']//button[text()=\'Save and continue\']');
 
 		// Page 4
-		sleep(5);
 		$this->click('//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
-		sleep(5);
 		$this->click('//a[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 	}
@@ -255,7 +252,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	protected function recordEditorialDecision($decision) {
 		$this->click('//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
 		if (in_array($decision, array('Accept Submission', 'Send To Production', 'Send to External Review'))) {
-			sleep(5); // FIXME: Avoid missing modal
+			sleep(2); // FIXME: Avoid missing modal
 			$this->click('//button[contains(.,"Next:")]');
 		}
 		$this->click('//button[contains(.,\'Record Editorial Decision\')]');
@@ -282,7 +279,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $name string
 	 */
 	protected function assignParticipant($role, $name, $recommendOnly = null) {
-		sleep(5); // FIXME: Avoid occasional "element is not attached to the page document" errors
+		sleep(2); // FIXME: Avoid occasional "element is not attached to the page document" errors
 		$this->waitForElementPresent('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->click('css=[id^=component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-]');
 		$this->waitForElementPresent($selector = '//select[@name="filterUserGroupId"]');
@@ -309,17 +306,17 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $name string
 	 */
 	function assignReviewer($name) {
-		sleep(5);
+		sleep(2);
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
-		sleep(5);
+		sleep(2);
 		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
 		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
 		$this->waitForElementPresent($xpath='//div[contains(text(),' . $this->quoteXpath($name) . ')]');
 		$this->click($xpath);
-		sleep(5); // FIXME: Avoid missing promote modal in ckwantes test
+		sleep(2); // FIXME: Avoid missing promote modal in ckwantes test
 		$this->click('css=[id^=selectReviewerButton]');
 
-		sleep(5); // FIXME: Avoid missing promote modal in ckwantes test
+		sleep(2); // FIXME: Avoid missing promote modal in ckwantes test
 		$this->click('//button[text()=\'Add Reviewer\']');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
@@ -344,7 +341,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 
 		$this->waitForElementPresent($selector='//button[text()=\'Accept Review, Continue to Step #2\']');
-		sleep(5); // FIXME: Avoid occasional unchecked checkbox
+		sleep(2); // FIXME: Avoid occasional unchecked checkbox
 		$this->click('//input[@id=\'privacyConsent\']');
 		$this->click($selector);
 

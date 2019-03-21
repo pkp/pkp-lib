@@ -114,6 +114,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$metadata = isset($file['metadata'])?$file['metadata']:array();
 			$this->uploadWizardFile($file['fileTitle'], $file['file'], $metadata);
 		}
+
+		// Make sure the sidebar menus are not activated
+		self::$driver->getMouse()->mouseMove($this->waitForElementPresent('//div[@class="pkp_site_name"]')->getCoordinates());
+
 		$this->click('//form[@id=\'submitStep2Form\']//button[text()=\'Save and continue\']');
 
 		// Page 3

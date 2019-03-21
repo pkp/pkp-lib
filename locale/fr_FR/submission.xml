@@ -4,8 +4,8 @@
 <!--
   * locale/fr_FR/submission.xml
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2000-2019 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_FR (Français (France)) locale.
@@ -276,7 +276,7 @@
 	<message key="submission.status.review">En cours d'évaluation</message>
 	<message key="submission.status.submission">En attente de la décision du rédacteur en chef</message>
 	<message key="submission.status.unassigned">Non assigné</message>
-	
+
 
 	<!-- Participants -->
 	<message key="editor.submission.stageParticipants">Participants</message>
@@ -558,8 +558,6 @@
 	<message key="submission.list.viewSubmission">Voir</message>
 	<message key="submission.list.filter">Filtres</message>
 	<message key="submission.list.filterRemove">Supprimer le filtre : {$filterTitle}</message>
-	<message key="submission.list.itemOrdererUp">Remonter {$itemTitle}</message>
-	<message key="submission.list.itemOrdererDown">Descendre {$itemTitle}</message>
 	<message key="submission.list.reviewsCompleted">Rapports effectués</message>
 	<message key="submission.list.filesPrepared">Fichiers prêts</message>
 	<message key="submission.list.discussions">Discussions</message>
@@ -624,4 +622,27 @@
 	<message key="submission.list.dualWorkflowLinks"><![CDATA[Vous avez été assigné sous de multiples rôles pour cette soumission. Voulez-vous accéder à l'interface <a href="{$urlAuthorWorkflow}">Auteur</a> ou <a href="{$urlEditorialWorkflow}">Rédacteur</a> ?]]></message>
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Vous avez été assigné avec un rôle éditorial sur cette soumission. Voulez-vous accéder au <a href="{$urlEditorialWorkflow}">processus éditorial</a>  ?]]></message>
 	<message key="submission.list.currentStage">Actuellement dans l'étape {$stage}.</message>
+	<message key="grid.category.categories">Catégories</message>
+	<message key="grid.category.add">Ajouter une catégorie</message>
+	<message key="grid.category.edit">Modifier une catégorie</message>
+	<message key="grid.category.name">Nom</message>
+	<message key="grid.category.path">Chemin d'accès</message>
+	<message key="grid.category.urlWillBe">L'adresse URL de la catégorie sera {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Le chemin d'accès de la catégorie ne peut contenir que des lettres et des chiffres.</message>
+	<message key="grid.category.pathExists">Le chemin d'accès choisi pour cette catégorie existe déjà. Veuillez choisir un chemin d'accès unique.</message>
+	<message key="grid.category.description">Description</message>
+	<message key="grid.category.parentCategory">Catégorie principale</message>
+	<message key="grid.category.removeText">Vous êtes certain de vouloir supprimer cette catégorie ?</message>
+	<message key="grid.category.nameRequired">Veuillez saisir le nom de la catégorie.</message>
+	<message key="grid.category.categoryDetails">Détails de la catégorie </message>
+	<message key="submission.submit.placement.categories">Catégories</message>
+	<message key="submission.currentCoverImage">Image actuelle</message>
+
+        <message key="catalog.sortBy.titleAsc">Titre (A-Z)</message>
+        <message key="catalog.sortBy.titleDesc">Titre (Z-A)</message>
+        <message key="catalog.sortBy.datePublishedAsc">Date de publication (le plus ancien en premier)</message>
+        <message key="catalog.sortBy.datePublishedDesc">Date de publication (le plus récent en premier)</message>
+        <message key="category.coverImage">Image</message>
+        <message key="catalog.category.noItems">Rien n'a encore été publié dans cette catégorie.</message>
+        <message key="catalog.category.subcategories">Sous-catégories</message>
 </locale>

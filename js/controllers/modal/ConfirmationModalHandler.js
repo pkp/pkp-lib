@@ -109,9 +109,9 @@
 			function() {
 
 		var $modal = this.parent('modalBuild'),
-				buttons = '<a href="#" class="ok pkpModalConfirmButton">' +
+				buttons = '<button class="ok pkpModalConfirmButton">' +
 				(/** @type {{ okButton: string }} */ (this.options)).okButton +
-				'</a>';
+				'</button>';
 
 		$modal.addClass('pkp_modal_confirmation').find('.content')
 				.append('<div class="message">' +
@@ -119,8 +119,8 @@
 				'</div>');
 
 		if (this.options.cancelButton) {
-			buttons += '<a href="#" class="cancel pkpModalCloseButton">' +
-					this.options.cancelButton + '</a>';
+			buttons += '<button class="cancel pkpModalCloseButton">' +
+					this.options.cancelButton + '</button>';
 		}
 
 		$modal.append('<div class="footer">' + buttons + '</div>');

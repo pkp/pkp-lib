@@ -82,7 +82,6 @@
 	<message key="manager.emails.emailKey">E-mail sleutel</message>
 	<message key="manager.emails.emailKeyExists">Een e-mail met de opgegeven sleutel bestaat al. E-mail sleutels moeten uniek zijn.</message>
 	<message key="manager.emails.emailTemplate">E-mail sjabloon</message>
-	<message key="manager.emails.emailTemplates">E-mail sjablonen</message>
 	<message key="manager.emails.enabled">Schakel dit e-mail sjabloon in</message>
 	<message key="manager.emails.enable">Schakel in</message>
 	<message key="manager.emails.enable.message">U staat op het punt deze e-mail in te schakelen. Wilt u deze bewerking bevestigen?</message>
@@ -90,8 +89,6 @@
 	<message key="manager.emails.form.bodyRequired">De e-mail moet tekst bevatten.</message>
 	<message key="manager.emails.form.subjectRequired">De e-mail moet een onderwerp hebben.</message>
 	<message key="manager.emails">Voorbereide e-mails</message>
-	<message key="manager.emails.resetAll">Alle sjablonen terugzetten</message>
-	<message key="manager.emails.resetAll.message">Als u de sjablonen herstelt gaan alle modificaties aan de sjablonen verloren. Wilt deze bewerking bevestigen?</message>
 	<message key="manager.emails.reset">Herstel</message>
 	<message key="manager.emails.reset.message">Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?</message>
 	<message key="manager.emails.resetToDefault">Standaard terugzetten</message>
@@ -294,6 +291,24 @@
 	<message key="plugins.categories.reports">Rapportage plugins</message>
 	<message key="plugins.categories.themes.description">Thema plugins kunnen gebruikt worden om het uiterlijk van het systeem te veranderen.</message>
 	<message key="plugins.categories.themes">Thema plugins</message>
+<<<<<<< HEAD
+=======
+	<message key="manager.setup.errorDeletingItem">Er is een fout opgetreden bij het verwijderen van dit onderdeel.</message>
+	<message key="manager.emails.form.emailKeyRequired">Er is een unieke e-mail sleutel nodig voor de e-mail</message>
+	<message key="manager.reviewerSearch.searchByName">Zoek een reviewer op naam</message>
+	<message key="manager.reviewerSearch.interests">Review interesses</message>
+	<message key="manager.announcements.datePublish">Gepubliceerd</message>
+	<message key="manager.emails.details">Sjabloon details</message>
+	<message key="manager.emails.disable.message">U staat op het punt dit sjabloon uit te schakelen. Als er systeemprocessen zijn die dit sjabloon gebruiken, zullen ze het niet meer gebruiken. Wilt u deze bewerking bevestigen?</message>
+	<message key="manager.emails.enable.message">U staat op het punt deze e-mail in te schakelen. Wilt u deze bewerking bevestigen?</message>
+	<message key="manager.emails.resetAll.message">Als u de sjablonen herstelt gaan alle modificaties aan de sjablonen verloren. Wilt deze bewerking bevestigen?</message>
+	<message key="manager.reviewerSearch.searchByName.short">Zoeken op naam</message>
+	<message key="plugins.categories.metadata">Metadata plugins</message>
+	<message key="manager.emails.data">Sjabloon berichtinhoud</message>
+	<message key="manager.emails.reset.message">Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?</message>
+	<message key="manager.reviewerSearch.form.instructions">Gebruik het formulier hieronder om de maximumwaarden op te geven voor de termen waar u op wilt zoeken. Het formulier wordt vooraf gevuld met de gemiddelden voor die velden.</message>
+	<message key="plugins.categories.metadata.description">Metadata Plugins implementeren aanvullende metadata standaards</message>
+>>>>>>> a04de1eb5... pkp/pkp-lib#2906 Add working EmailTemplatesListPanel to settings page
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata formaat plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">Deze plugins beheren metadata-formaten voor OAI communicatie.</message>
 	<message key="plugins.categories.pubIds">Publieke identificatie plugins</message>

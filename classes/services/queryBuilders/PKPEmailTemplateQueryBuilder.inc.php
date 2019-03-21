@@ -137,7 +137,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			'etd.to_role_id',
 			'et.email_id',
 			'et.context_id',
-			'et.enabled',
+			Capsule::raw('IFNULL(et.enabled, 1) as enabled'),
 		];
 
 		$q = Capsule::table('email_templates_default as etd')
@@ -304,5 +304,19 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 		return Capsule::table(Capsule::raw('(' . $q->toSql() . ') as email_template_count'))
 			->mergeBindings($q)
 			->count();
+	}
+
+	/**
+	 * Retrieve all matches from query builder limited by those
+	 * which are custom templates or have been modified from the
+	 * default.
+	 *
+	 * Default templates that have not been modified have no entry
+	 * in the email_templates table and so `et.email_id` is null.
+	 */
+	public function getModified() {
+		$q = $this->get();
+		$q->whereNotNull('et.email_id');
+		return $q;
 	}
 }

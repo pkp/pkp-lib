@@ -72,7 +72,6 @@
 	<message key="manager.publication.reviewReminders.success">Настройки напоминаний рецензентам были обновлены.</message>
 	<message key="manager.emails.confirmDelete">Вы уверены, что хотите удалить этот шаблон письма электронной почты?</message>
 	<message key="manager.emails.confirmReset">Вы уверены, что хотите вернуть этот шаблон письма электронной почты к его виду по умолчанию?</message>
-	<message key="manager.emails.addEmail">Добавить шаблон письма</message>
 	<message key="manager.emails.createEmail">Создать письмо</message>
 	<message key="manager.emails.data">Данные шаблона письма</message>
 	<message key="manager.emails.details">Детали шаблона</message>
@@ -83,7 +82,6 @@
 	<message key="manager.emails.emailKey">Ключ письма</message>
 	<message key="manager.emails.emailKeyExists">Письмо с таким ключом уже существует. Ключи писем электронной почты должны быть уникальными.</message>
 	<message key="manager.emails.emailTemplate">Шаблон письма</message>
-	<message key="manager.emails.emailTemplates">Шаблоны</message>
 	<message key="manager.emails.enabled">Включить этот шаблон письма</message>
 	<message key="manager.emails.enable">Включить</message>
 	<message key="manager.emails.enable.message">Вы собираетесь включить этот шаблон письма электронной почты. Вы хотите подтвердить эту операцию?</message>
@@ -91,7 +89,6 @@
 	<message key="manager.emails.form.bodyRequired">Текст письма электронной почты обязателен.</message>
 	<message key="manager.emails.form.subjectRequired">Тема письма электронной почты обязательна.</message>
 	<message key="manager.emails">Подготовленные письма электронной почты</message>
-	<message key="manager.emails.resetAll">Сбросить все шаблоны</message>
 	<message key="manager.emails.resetAll.message">Если вы сбросите все шаблоны, все изменения, сделанные в шаблонах писем электронной почты, будут потеряны. Вы хотите подтвердить эту операцию?</message>
 	<message key="manager.emails.reset">Сбросить</message>
 	<message key="manager.emails.reset.message">Если вы сбросите этот шаблон, все данные сообщения будут заменены на их значения по умолчанию, все изменения будут потеряны. Вы хотите подтвердить эту операцию?</message>

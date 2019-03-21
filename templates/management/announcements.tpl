@@ -24,7 +24,7 @@
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-announcements-{$uuid}', 'Container', {ldelim}{rdelim});
+	pkp.registry.init('settings-announcements-{$uuid}', 'SettingsContainer', {ldelim}{rdelim});
 </script>
 
 {include file="common/footer.tpl"}

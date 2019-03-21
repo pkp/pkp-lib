@@ -191,7 +191,8 @@ class ManagementHandler extends Handler {
 		$context = $request->getContext();
 		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$contextApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$emailTemplatesApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'emailTemplates');
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_SUBMISSION,
@@ -208,11 +209,23 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($apiUrl, $locales, $context);
-		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($apiUrl, $context);
-		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($apiUrl, $locales, $context);
-		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($apiUrl, $locales, $context);
-		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($apiUrl, $locales, $context);
+		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
+		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($contextApiUrl, $context);
+		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
+		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
+		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
+
+		$emailTemplatesListPanel = new \PKP\components\listPanels\PKPEmailTemplatesListPanel(
+			'emailTemplates',
+			__('manager.emails.emailTemplates'),
+			[
+				'apiUrl' => $emailTemplatesApiUrl,
+				'count' => 1000,
+				'items' => [],
+				'itemsMax' => 0,
+				'lazyLoad' => true,
+			]
+		);
 
 		$settingsData = [
 			'components' => [
@@ -221,6 +234,7 @@ class ManagementHandler extends Handler {
 				FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
 				FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
 				FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),
+				'emailTemplates' => $emailTemplatesListPanel->getConfig(),
 			],
 		];
 		$templateMgr->assign('settingsData', $settingsData);

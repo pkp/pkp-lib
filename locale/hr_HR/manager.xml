@@ -57,13 +57,11 @@
 	<message key="manager.emails.editTestExample">Uredite testni primjer e-pošte</message>
 	<message key="manager.emails.emailKeyExists">E-pošta s datim ključem već postoji. Ključe e-pošte mora biti jedinstven.</message>
 	<message key="manager.emails.emailTemplate">Predložak e-pošte</message>
-	<message key="manager.emails.emailTemplates">Predlošci e-pošte</message>
 	<message key="manager.emails.enabled">Omogućite ovaj predložak e-pošte</message>
 	<message key="manager.emails.enable">Omogući</message>
 	<message key="manager.emails.form.bodyRequired">Tijelo poruke je obavezno u e-pošti.</message>
 	<message key="manager.emails.form.subjectRequired">Naslov je obavezan u e-pošti.</message>
 	<message key="manager.emails">Pripremljeni obrasci e-pošte</message>
-	<message key="manager.emails.resetAll">Vrati tekst svih predložaka u izvorni oblik</message>
 	<message key="manager.emails.reset">Vrati izvorno</message>
 	<message key="manager.emails.resetToDefault">Vratite na standardnu vrijednost</message>
 	<message key="manager.filesBrowser">Preglednik datoteka</message>

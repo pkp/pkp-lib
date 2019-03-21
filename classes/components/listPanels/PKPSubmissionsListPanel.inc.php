@@ -1,6 +1,6 @@
 <?php
 /**
- * @file components/listPanels/submissions/PKPSubmissionsListPanel.inc.php
+ * @file components/listPanels/PKPSubmissionsListPanel.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2000-2018 John Willinsky

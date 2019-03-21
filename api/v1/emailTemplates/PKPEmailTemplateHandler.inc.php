@@ -50,6 +50,11 @@ class PKPEmailTemplateHandler extends APIHandler {
 			],
 			'DELETE' => [
 				[
+					'pattern' => $this->getEndpointPattern() . '/restoreDefaults',
+					'handler' => [$this, 'restoreDefaults'],
+					'roles' => $roles,
+				],
+				[
 					'pattern' => $this->getEndpointPattern() . '/{key}',
 					'handler' => [$this, 'delete'],
 					'roles' => $roles,
@@ -76,8 +81,6 @@ class PKPEmailTemplateHandler extends APIHandler {
 		}
 		$this->addPolicy($rolePolicy);
 
-
-
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -95,7 +98,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$emailTemplateService = Services::get('emailTemplate');
 
 		$defaultParams = array(
-			'count' => 100,
+			'count' => 30,
 			'offset' => 0,
 		);
 
@@ -125,7 +128,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 					break;
 
 				case 'count':
-					$allowedParams[$param] = min(30, (int) $val);
+					$allowedParams[$param] = min(100, (int) $val);
 					break;
 
 				case 'offset':
@@ -251,16 +254,19 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$params = $this->convertStringsToSchema(SCHEMA_EMAIL_TEMPLATE, $slimRequest->getParsedBody());
 		$params['key'] = $args['key'];
 
-		// Only allow admins to modify change the context an email template is attached to
-		if (isset($params['contextId'])) {
-			$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-			if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
-				return $response->withStatus(403)->withJsonError('api.emailTemplates.403.notAllowedChangeContext');
-			}
+		// Only allow admins to change the context an email template is attached to.
+		// Set the contextId if it has not been npassed or the user is not an admin
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (isset($params['contextId'])
+				&& !in_array(ROLE_ID_SITE_ADMIN, $userRoles)
+				&& $params['contextId'] !== $requestContext->getId()) {
+			return $response->withStatus(403)->withJsonError('api.emailTemplates.403.notAllowedChangeContext');
+		} elseif (!isset($params['contextId'])) {
+			$params['contextId'] = $requestContext->getId();
 		}
 
 		$errors = $emailTemplateService->validate(
-			empty($emailTemplate->getData('id')) ? VALIDATE_ACTION_ADD : VALIDATE_ACTION_EDIT,
+			VALIDATE_ACTION_EDIT,
 			$params,
 			$requestContext->getData('supportedLocales'),
 			$requestContext->getData('primaryLocale')
@@ -269,6 +275,7 @@ class PKPEmailTemplateHandler extends APIHandler {
 		if (!empty($errors)) {
 			return $response->withStatus(400)->withJson($errors);
 		}
+
 		$emailTemplate = $emailTemplateService->edit($emailTemplate, $params, $request);
 
 		$data = $emailTemplateService->getFullProperties($emailTemplate, [
@@ -310,5 +317,20 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$emailTemplateService->delete($emailTemplate);
 
 		return $response->withJson($emailTemplateProps, 200);
+	}
+
+	/**
+	 * Restore defaults in the email template settings
+	 *
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param array $args arguments
+	 *
+	 * @return Response
+	 */
+	public function restoreDefaults($slimRequest, $response, $args) {
+		$contextId = $this->getRequest()->getContext()->getId();
+		$deletedKeys = Services::get('emailTemplate')->restoreDefaults($contextId);
+		return $response->withJson($deletedKeys, 200);
 	}
 }

@@ -564,9 +564,6 @@
 			<NOTNULL />
 		</field>
 		<field name="setting_value" type="X" />
-		<field name="subject" type="C2" size="120">
-			<NOTNULL/>
-		</field>
 		<index name="email_settings_email_id">
 			<col>email_id</col>
 		</index>

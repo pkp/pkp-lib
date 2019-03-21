@@ -143,13 +143,12 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		foreach ($props as $prop) {
 			switch ($prop) {
 				case '_href':
-					$request = Application::getRequest();
 					if ($emailTemplate->getData('contextId')) {
 						$context = Services::get('context')->get($emailTemplate->getData('contextId'));
 					} else {
-						$context = $request->getContext();
+						$context = $args['request']->getContext();
 					}
-					$values[$prop] = $request->getDispatcher()->url(
+					$values[$prop] = $args['request']->getDispatcher()->url(
 						$args['request'],
 						ROUTE_API,
 						$context->getData('urlPath'),
@@ -307,5 +306,27 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		HookRegistry::call('EmailTemplate::delete::before', array($emailTemplate));
 		DAORegistry::getDAO('EmailTemplateDAO')->deleteObject($emailTemplate);
 		HookRegistry::call('EmailTemplate::delete', array($emailTemplate));
+	}
+
+	/**
+	 * Remove all custom templates and template modifications. Resets the
+	 * email template settings to their installed defaults.
+	 *
+	 * @return array List of keys that were deleted or reset
+	 */
+	public function restoreDefaults($contextId) {
+		$emailTemplateQB = new PKPEmailTemplateQueryBuilder();
+		$emailTemplateQB->filterByContext($contextId);
+		$emailTemplateQO = $emailTemplateQB->getModified();
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$result = $emailTemplateDao->retrieve($emailTemplateQO->toSql(), $emailTemplateQO->getBindings());
+		$queryResults = new DAOResultFactory($result, $emailTemplateDao, '_fromRow');
+		$deletedKeys = [];
+		foreach ($queryResults->toArray() as $emailTemplate) {
+			$deletedKeys[] = $emailTemplate->getData('key');
+			$this->delete($emailTemplate);
+		}
+		HookRegistry::call('EmailTemplate::restoreDefaults', array(&$deletedKeys, $contextId));
+		return $deletedKeys;
 	}
 }

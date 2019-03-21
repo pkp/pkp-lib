@@ -15,15 +15,6 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
-		"contextId": {
-			"type": "integer",
-			"description": "The ID of the context (journal/press) this email is related to. Only used for custom email templates. Default is `null`.",
-			"apiSummary": "true",
-			"validation": [
-				"nullable",
-				"min:0"
-			]
-		},
 		"body": {
 			"type": "string",
 			"description": "The email template to be used in the email's main body content.",
@@ -44,6 +35,15 @@
 			"description": "Can this email template be edited in the context settings area? Default is `true`.",
 			"apiSummary": true,
 			"readOnly": true
+		},
+		"contextId": {
+			"type": "integer",
+			"description": "The ID of the context (journal/press) this email is related to. Only used for custom email templates. Default is `null`.",
+			"apiSummary": "true",
+			"validation": [
+				"nullable",
+				"min:0"
+			]
 		},
 		"description": {
 			"type": "string",

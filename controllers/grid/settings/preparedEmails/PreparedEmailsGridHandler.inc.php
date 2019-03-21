@@ -147,14 +147,38 @@ class PreparedEmailsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function editPreparedEmail($args, $request) {
+		import('classes.core.Services');
+		$emailTemplateService = Services::get('emailTemplate');
 		$context = $request->getContext();
 		$emailKey = $request->getUserVar('emailKey');
 
-		import('lib.pkp.controllers.grid.settings.preparedEmails.form.PreparedEmailForm');
-		$preparedEmailForm = new PreparedEmailForm($emailKey, $context);
-		$preparedEmailForm->initData();
+		if ($emailKey) {
+			$emailTemplate = $emailTemplateService->getByKey($context->getId(), $emailKey);
 
-		return new JSONMessage(true, $preparedEmailForm->fetch($request));
+			$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'emailTemplates/' . $emailTemplate->getData('key'));
+		} else {
+			$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'emailTemplates');
+			$emailTemplate = null;
+		}
+
+		$localeNames = AppLocale::getAllLocales();
+		$supportedLocales = $context->getSupportedFormLocales();
+		$locales = array_map(function($localeKey) use ($localeNames) {
+			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+		}, $supportedLocales);
+
+		$emailTemplateForm = new \PKP\components\forms\emailTemplate\PKPEmailTemplateForm($apiUrl, $locales, $emailTemplate);
+
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign([
+			'containerData' => [
+				'components' => [
+					FORM_EMAIL_TEMPLATE => $emailTemplateForm->getConfig(),
+				],
+			],
+		]);
+
+		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/settings/preparedEmails/form/emailTemplateForm.tpl'));
 	}
 
 	/**

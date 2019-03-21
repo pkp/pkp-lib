@@ -72,8 +72,8 @@ class PreparedEmailForm extends Form {
 	 */
 	function initData() {
 		$context = $this->getContext();
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
+
+		$emailTemplate = \Services::get('emailTemplate')->getByKey($context->getId(), $this->getEmailKey());
 
 		if ($emailTemplate) {
 			$subject = array();
@@ -108,8 +108,7 @@ class PreparedEmailForm extends Form {
 		$this->readUserVars(array('subject', 'body', 'description', 'emailKey'));
 
 		$context = $this->getContext();
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
+		$emailTemplate = \Services::get('emailTemplate')->getByKey($context->getId(), $this->getEmailKey());
 		if (!$emailTemplate) $this->setData('isNewTemplate', true);
 	}
 
@@ -126,8 +125,7 @@ class PreparedEmailForm extends Form {
 	function execute() {
 		$context = $this->getContext();
 
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplate = $emailTemplateDao->getLocaleEmailTemplate($this->getEmailKey(), $context->getId());
+		$emailTemplate = \Services::get('emailTemplate')->getByKey($context->getId(), $this->getEmailKey());
 
 		if (!$emailTemplate) {
 			$emailTemplate = new LocaleEmailTemplate();
@@ -137,8 +135,7 @@ class PreparedEmailForm extends Form {
 			$emailTemplate->setEmailKey($this->getEmailKey());
 		}
 
-		$emailTemplate->setAssocType($context->getAssocType());
-		$emailTemplate->setAssocId($context->getId());
+		$emailTemplate->setData('contextId', $context->getId());
 
 		$supportedLocales = $context->getSupportedLocaleNames();
 		if (!empty($supportedLocales)) {

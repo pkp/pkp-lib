@@ -66,7 +66,6 @@
 	<message key="manager.publication.emails">رسائل البريد الالكتروني</message>
 	<message key="manager.emails.confirmDelete">هل أنت متأكد من رغبتك في حذف قالب الرسالة هذا؟</message>
 	<message key="manager.emails.confirmReset">هل أنت متأكد من رغبتك في استعادة إفتراضات قالب الرسالة هذا؟</message>
-	<message key="manager.emails.addEmail">أضف قالب رسالة</message>
 	<message key="manager.emails.createEmail">إنشاء رسالة</message>
 	<message key="manager.emails.data">بيانات رسالة القالب</message>
 	<message key="manager.emails.details">تفاصيل القالب</message>
@@ -77,7 +76,6 @@
 	<message key="manager.emails.emailKey">مفتاح الرسالة</message>
 	<message key="manager.emails.emailKeyExists">هناك رسالة بنفس المفتاح موجود مسبقاً. على تلك المفاتيح أن تكون قيمها فريدة.</message>
 	<message key="manager.emails.emailTemplate">قالب الرسالة</message>
-	<message key="manager.emails.emailTemplates">قوالب الرسائل</message>
 	<message key="manager.emails.enabled">تمكين قالب الرسالة هذا</message>
 	<message key="manager.emails.enable">تمكين</message>
 	<message key="manager.emails.enable.message">هل أنت متأكد من رغبتك في تمكين هذا القالب. هل تؤكد هذا العمل؟</message>
@@ -85,7 +83,6 @@
 	<message key="manager.emails.form.bodyRequired">متن الرسالة مطلوب حتماً.</message>
 	<message key="manager.emails.form.subjectRequired">موضوع الرسالة مطلوب حتماً.</message>
 	<message key="manager.emails">رسائل البريد المحضرة</message>
-	<message key="manager.emails.resetAll">إعادة افتراضات كل القوالب</message>
 	<message key="manager.emails.resetAll.message">إذا أعدت ضبط كل القوالب، فإن أي تعديلات عليها ستفقد. هل تؤكد هذا الإجراء؟</message>
 	<message key="manager.emails.reset">إعادة الضبط</message>
 	<message key="manager.emails.reset.message">إذا أعدت ضبط هذا القالب، فإن بيانات كل الرسائل المرتبطة به ستتغير إلى القيم الافتراضية، مما يزيل أية تعديلات. هل تريد تأكيد هذا الإجراء؟</message>

@@ -61,13 +61,11 @@
 	<message key="manager.emails.emailKey">Clé du courriel</message>
 	<message key="manager.emails.emailKeyExists">Un courriel avec cette clé existe déjà. Les clés de courriels doivent être uniques.</message>
 	<message key="manager.emails.emailTemplate">Modèle de courriels</message>
-	<message key="manager.emails.emailTemplates">Modèles de courriels</message>
 	<message key="manager.emails.enabled">Activer ce modèle de courriels</message>
 	<message key="manager.emails.enable">Activer</message>
 	<message key="manager.emails.form.bodyRequired">Le corps du courriel est obligatoire.</message>
 	<message key="manager.emails.form.subjectRequired">L'objet du courriel est obligatoire.</message>
 	<message key="manager.emails">Courriels préparés</message>
-	<message key="manager.emails.resetAll">Réinitialiser tous les modèles</message>
 	<message key="manager.emails.reset">Réinitialiser</message>
 	<message key="manager.emails.resetToDefault">Réinitialiser aux valeurs par défaut</message>
 	<message key="manager.filesBrowser">Explorateur de fichiers</message>
@@ -227,7 +225,6 @@
 	<message key="manager.publication.editorialStage">Éditorial</message>
 	<message key="manager.publication.productionStage">Production</message>
 	<message key="manager.publication.emails">Courriels</message>
-	<message key="manager.emails.addEmail">Ajouter un gabarit de courriel</message>
 	<message key="manager.emails.data">Données du gabarit de message</message>
 	<message key="manager.emails.details">Détails du gabarit</message>
 	<message key="manager.language.submissions">Soumissions</message>

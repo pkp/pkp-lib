@@ -61,13 +61,11 @@
 	<message key="manager.emails.emailKey">Κλειδί ηλεκτρονικού ταχυδρομείου</message>
 	<message key="manager.emails.emailKeyExists">Διεύθυνση ηλεκτρονικού ταχυδρομείου με το συγκεκριμένο κλειδί υπάρχει ήδη. Τα κλειδιά του ηλεκτρονικού ταχυδρομείου πρέπει να είναι μοναδικά.</message>
 	<message key="manager.emails.emailTemplate">Πρότυπο e-mail μήνυμα ηλεκτρονικού ταχυδρομείου</message>
-	<message key="manager.emails.emailTemplates">Πρότυπα e-mail μηνύματα </message>
 	<message key="manager.emails.enabled">Ενεργοποίηση του συγκεκριμένου προτύπου μηνύματος</message>
 	<message key="manager.emails.enable">Ενεργοποίηση</message>
 	<message key="manager.emails.form.bodyRequired"> Απαιτείται η συμπλήρωση του κυρίου σώματος για το μήνυμα.</message>
 	<message key="manager.emails.form.subjectRequired">Απαιτείται ο ορισμός θέματος για το μήνυμα.</message>
 	<message key="manager.emails">Έτοιμα Emails</message>
-	<message key="manager.emails.resetAll">Επαναφορά όλων των προτύπων</message>
 	<message key="manager.emails.reset">Επαναφορά</message>
 	<message key="manager.emails.resetToDefault">Επαναφορά των προεπιλογών</message>
 	<message key="manager.filesBrowser">Ευρετήριο Αρχείων</message>

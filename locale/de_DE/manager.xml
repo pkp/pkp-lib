@@ -66,7 +66,6 @@
 	<message key="manager.publication.emails">E-Mails</message>
 	<message key="manager.emails.confirmDelete">Sind Sie sicher, dass Sie diese E-Mail-Vorlage löschen wollen?</message>
 	<message key="manager.emails.confirmReset">Sind Sie sicher, dass Sie diese E-Mail-Vorlage auf die Standardform zurücksetzen wollen?</message>
-	<message key="manager.emails.addEmail">E-Mail-Vorlage hinzufügen</message>
 	<message key="manager.emails.createEmail">E-Mail erstellen</message>
 	<message key="manager.emails.data">Daten der E-Mail-Vorlage</message>
 	<message key="manager.emails.details">Details der E-Mail-Vorlage</message>
@@ -77,7 +76,6 @@
 	<message key="manager.emails.emailKey">E-Mail-Kennung</message>
 	<message key="manager.emails.emailKeyExists">Eine E-Mail dieser Kennung existiert bereits. Die E-Mail-Kennungen müssen eindeutig sein.</message>
 	<message key="manager.emails.emailTemplate">E-Mail-Vorlage</message>
-	<message key="manager.emails.emailTemplates">E-Mail-Vorlagen</message>
 	<message key="manager.emails.enabled">Diese E-Mail-Vorlage aktivieren</message>
 	<message key="manager.emails.enable">Aktivieren</message>
 	<message key="manager.emails.enable.message">Sie sind dabei, diese Vorlage zu aktivieren. Möchten Sie diese Aktion bestätigen?</message>
@@ -85,7 +83,6 @@
 	<message key="manager.emails.form.bodyRequired">Die E-Mail muss einen Text enthalten.</message>
 	<message key="manager.emails.form.subjectRequired">Ein Betreff ist erforderlich.</message>
 	<message key="manager.emails">E-Mail-Vorlagen</message>
-	<message key="manager.emails.resetAll">Alle Vorlagen zurücksetzen</message>
 	<message key="manager.emails.resetAll.message">Wenn Sie alle Vorlagen zurücksetzen, gehen alle Veränderungen an den E-Mail-Vorlagen verloren. Möchten Sie diese Aktion bestätigen?</message>
 	<message key="manager.emails.reset">Zurücksetzen</message>
 	<message key="manager.emails.reset.message">Wenn Sie diese Vorlage zurücksetzen, werden alle Daten dieser Vorlage auf ihre Standardwerte zurückgesetzt, alle Veränderungen gehen verloren. Möchten Sie diese Aktion bestätigen?</message>

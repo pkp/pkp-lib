@@ -32,7 +32,7 @@
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-access-{$uuid}', 'Container', {$settingsData|json_encode});
+	pkp.registry.init('settings-access-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
 </script>
 
 {include file="common/footer.tpl"}

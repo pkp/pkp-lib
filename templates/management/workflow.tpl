@@ -75,6 +75,10 @@
 					/>
 				</tab>
 				<tab name="{translate key="manager.emails.emailTemplates"}">
+					<email-templates-list-panel
+						v-bind="components.emailTemplates"
+						@set="set"
+					/>
 					{capture assign=preparedEmailsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="preparedEmailsGridDiv" url=$preparedEmailsGridUrl}
 				</tab>
@@ -85,7 +89,7 @@
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'Container', {$settingsData|json_encode});
+	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
 </script>
 
 {include file="common/footer.tpl"}

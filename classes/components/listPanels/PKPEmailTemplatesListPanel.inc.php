@@ -105,11 +105,6 @@ class PKPEmailTemplatesListPanel extends ListPanel {
           ],
           [
             'param' => 'fromRoleIds',
-            'title' => __('default.groups.name.sectionEditor'),
-            'value' => ROLE_ID_SUB_EDITOR,
-          ],
-          [
-            'param' => 'fromRoleIds',
             'title' => __('user.role.reviewer'),
             'value' => ROLE_ID_REVIEWER,
           ],

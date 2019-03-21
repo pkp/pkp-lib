@@ -168,7 +168,8 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 			// Retrieve review form
 			$context = $request->getContext();
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
+			// Get review form elements visible for authors
+			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId(), null, true);
 			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
 			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');

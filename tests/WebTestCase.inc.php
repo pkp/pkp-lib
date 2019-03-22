@@ -86,8 +86,6 @@ abstract class WebTestCase extends PKPTestCase {
 		// Set the URL for the script that generates the selenium coverage reports
 		$this->coverageScriptUrl = self::$baseUrl . '/' .  $this->coverageScriptPath;
 
-// $this->setTimeout(self::$timeout);
-
 		// See PKPTestCase::setUp() for an explanation
 		// of this code.
 		if(function_exists('_array_change_key_case')) {
@@ -95,11 +93,6 @@ abstract class WebTestCase extends PKPTestCase {
 			$ADODB_INCLUDED_LIB = 1;
 		}
 
-		// This is not Google Chrome but the Firefox Heightened
-		// Privilege mode required e.g. for file upload.
-// $this->setBrowser('*chrome');
-
-// $this->get(self::$baseUrl . '/');
 		if (Config::getVar('general', 'installed')) {
 			$affectedTables = $this->getAffectedTables();
 			if (is_array($affectedTables)) {
@@ -468,5 +461,12 @@ abstract class WebTestCase extends PKPTestCase {
 
 	protected function open($url) {
 		self::$driver->get($url);
+	}
+
+	protected function waitJQuery() {
+		$driver = self::$driver;
+		self::$driver->wait()->until(function() use ($driver) {
+			return $driver->executeScript('return jQuery.active == 0;');
+		});
 	}
 }

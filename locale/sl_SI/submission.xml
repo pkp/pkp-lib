@@ -640,6 +640,10 @@
 	<message key="catalog.sortBy.datePublishedDesc">Po datumu izdaje (najprej najnovejše)</message>
 	<message key="submission.submit.placement.categories">Kategorije</message>
 	<message key="submission.currentCoverImage">Trenutna slika</message>
-	<message key="catalog.browseTitles">{$numTitles} Naslovi</message>
-	<message key="catalog.noTitlesSection">Zaenkrat še ni objavljenih naslovov v tem razdelku.</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} je označil recenzijski krog {$round} za prispevek {$submissionId} za ne-upoštevajočega.</message>
+	<message key="submission.list.assignEditor">Dodeljen urednik</message>
+	<message key="category.coverImage">Naslovnica</message>
+	<message key="catalog.category.noItems">V tej kategorij ni bilo še ničesar objavljeno.</message>
+	<message key="catalog.category.subcategories">Podkategorije</message>
 </locale>

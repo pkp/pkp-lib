@@ -143,7 +143,9 @@
 	<message key="reviewer.list.currentlyAssigned">Recenzent je že dodlejen temu prispevku.</message>
 	<message key="reviewer.list.warnOnAssign">Recenzent je zakljenjen, ker je v funkciji, ki mu omogoča videti identiteto avtorja. Slepa recenzija ne more biti zagotovljena. Želite vseeno odkleniti recenzenta?</message>
 	<message key="reviewer.list.warnOnAssignUnlock">Odkleni</message>
-	<message key="reviewer.list.reviewInterests">Recenzijski interesi</message>
-	<message key="reviewer.list.biography">Biogrfija</message>
+	<message key="reviewer.list.reviewInterests">Recenzentski interesi</message>
+	<message key="reviewer.list.biography">Biografija</message>
 	<message key="reviewer.list.declinedReviews">Prošnja za recenzijo je zavrnjena</message>
+	<message key="editor.review.requestDeclined">Zahteva zavrnjena</message>
+	<message key="editor.review.requestDeclined.tooltip">Recenzent je zavrnil zahtevo za to recenzijo.</message>
 </locale>

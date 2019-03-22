@@ -215,17 +215,10 @@
 	<message key="manager.setup.authorCopyrightNoticeAgree">Zahtevaj od avtorjev, da se strinjajo z obvestilom o avtorskih pravicah v postopku oddaje prispevka.</message>
 	<message key="manager.setup.authorGuidelines">Priporočila za avtorje</message>
 	<message key="manager.setup.authorGuidelines.description">Priporočila za avtorje naj vsebujejo navodila za pravilno podajanje bibliografskih podatkov in oblikovanje besedila ter pravilen format referenc, priporočljivo je navesti tudi primere le-teh.</message>
-	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Omogočiti in nastaviti morate povezave do zunanjih baz citatov. To pomaga pri preprečevati napačna citiranja avtorja in doda dodatne informacije (npr. DOIs or PubMed IDs) obvezne za elektronsko objavljanje.</p>
-	<p>Na voljo je nekaj vmesnikov do zunanjih podatkovnih baz po katerih lahko iščete citate. Nekatere od teh baz zahtevajo registracijo ali vpis konfiguracijskih podatkov. Na spletnih straneh teh podatkovnih baz poiščite navodila, kako se registrirati. Dodate lahko povezavo do ene ali več podatkovnih baz s klikom na gumb "Dodaj postavko" spodaj.</p>
-	<p>Obstoječe povezave do baz lahko spremenite ali izbrišete s klikom na ikono zobnika poleg povezave..</p>
-	<p><strong>Opozorilo:</strong> Da zagotovite končanje postopka preverjanja v razumljivem času, je potrebno nastaviti direktivo <tt>citation_checking_max_processes</tt> v konfiguracijski datoteki na primerno vrednost. Preverite v "General Settings" poglavju v <tt>config.inc.php</tt> za več informacij.</p>]]></message>
 	<message key="manager.setup.competingInterests">Nasprotujoči interesi</message>
 	<message key="manager.setup.competingInterestsDescription">Recenzenti bodo pozvani, da izpolnjujejo zahteve razkritja nasprotujočih interesov, ki jih boste zapisali spodaj.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Med brisanjem je prišlo do napake.</message>
 	<message key="manager.setup.favicon">Napačen format favikona. Dovoljeni formati so .ico, .png in .gif.</message>
-	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Ta filter se povezuje na OCLC servise <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> in <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcijsko).</p>
-	<p>Če imatete Worldcat <a href="http://oclc.org/developer/develop/web-services.html" target="_blank">API ključ</a> se z Worldcat-om lahko povežete z vpisom API ključa spodaj.</p>]]></message>
-	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Ta filter se povezuje s <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web servisi.</p>]]></message>
 	<message key="manager.setup.groupType">Grupiranje po tipu datoteke</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Napačen format slike za logotip glave osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImage">Slika domače strani</message>
@@ -557,4 +550,37 @@
 	<message key="grid.category.removeText">Ste prepričani, da želite izbrisati to kategorijo?</message>
 	<message key="grid.category.nameRequired">Vnesite ime kategorije.</message>
 	<message key="grid.category.categoryDetails">Podrobnosti kategorije</message>
+	<message key="plugins.importexport.common.error.missingGivenName">Avtor {$authorName} nima podanega imena v jeziku prispevka,  {$localeName}. Prispevek ne more biti uvožen brez te informacije.</message>
+	<message key="plugins.importexport.user.importExportErrors">Uvozno/izvozne napake:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">Uporabnik "{$username}" nima gesla. Preverite uvozno XML datoteko. Uporabnik ni bil uvožen.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Geslo uporabnika "{$username}" ni bilo mogoče uvoziti. Uporabniku je bil poslan email z novim geslom. Uporabnik je bil uvožen.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">Uporabnik "{$username}" ima geslo, ki ni v veljavni obliki (je 'plain password'). Uporabnik ni bil uvožen.</message>
+	<message key="plugins.importexport.user.error.usernameEmailMismatch">Uporabniško ime "{$username}" in email "{$email}" ne sovpadata z enim in istim uporabnikom.</message>
+	<message key="stats.articlesOfTotal">{$count} od {$total} člankov</message>
+	<message key="stats.daily">Dnevno</message>
+	<message key="stats.dateRange">Datumsko območje</message>
+	<message key="stats.dateRange.allDates">Vsi datumi</message>
+	<message key="stats.dateRange.apply">Potrdi</message>
+	<message key="stats.dateRange.change">Spremeni območje</message>
+	<message key="stats.dateRange.customRange">Poljubno območje</message>
+	<message key="stats.dateRange.dateDoesNotExist">Eden od podanih datumov ne obstaja.</message>
+	<message key="stats.dateRange.from">Od</message>
+	<message key="stats.dateRange.instruction">Vsi datumi morajo biti oblike YYYY-MM-DD. Če želite izbrati 15. januar 2019, potem vpišite 2019-01-15.</message>
+	<message key="stats.dateRange.invalidDate">Oblika datuma je napačna. Vsi datumi morajo biti oblike YYYY-MM-DD.</message>
+	<message key="stats.dateRange.invalidDateRange">Začetni datum mora biti pred končnim.</message>
+	<message key="stats.dateRange.invalidEndDateMax">Končni datum ne sme biti kasnejši od {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">Začetni datum ne sme biti pred {$date}.</message>
+	<message key="stats.dateRange.last12Months">Zadnjih 12 mesecev</message>
+	<message key="stats.dateRange.last30Days">Zadnjih 30 dni</message>
+	<message key="stats.dateRange.last90Days">Zadnjih 90 dni</message>
+	<message key="stats.dateRange.sinceDate">Od {$date}</message>
+	<message key="stats.dateRange.to">Do</message>
+	<message key="stats.dateRange.untilDate">Do {$date}</message>
+	<message key="stats.fileViews">Ogledi datotek</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Mesečno</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Išči po naslovu, avtorju in IDju</message>
+	<message key="stats.total">Skupaj</message>
+	<message key="manager.reviewFormElements.description">Opis</message>
 </locale>

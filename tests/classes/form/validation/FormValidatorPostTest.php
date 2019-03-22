@@ -33,10 +33,11 @@ class FormValidatorPostTest extends PKPTestCase {
 
 		$this->markTestSkipped('Disabled for static invocation of Request.');
 
-		Request::setRequestMethod('POST');
+		$request = Application::get()->getRequest();
+		$request->setRequestMethod('POST');
 		self::assertTrue($validator->isValid());
 
-		Request::setRequestMethod('GET');
+		$request->setRequestMethod('GET');
 		self::assertFalse($validator->isValid());
 	}
 }

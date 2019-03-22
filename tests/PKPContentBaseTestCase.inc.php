@@ -306,17 +306,16 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $name string
 	 */
 	function assignReviewer($name) {
-		sleep(2);
+		$this->waitJQuery();
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
-		sleep(2);
+		$this->waitJQuery();
 		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
 		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
 		$this->waitForElementPresent($xpath='//div[contains(text(),' . $this->quoteXpath($name) . ')]');
 		$this->click($xpath);
-		sleep(2); // FIXME: Avoid missing promote modal in ckwantes test
+		$this->waitJQuery();
 		$this->click('css=[id^=selectReviewerButton]');
-
-		sleep(2); // FIXME: Avoid missing promote modal in ckwantes test
+		$this->waitJQuery();
 		$this->click('//button[text()=\'Add Reviewer\']');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}

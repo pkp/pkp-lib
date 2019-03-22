@@ -359,9 +359,7 @@ abstract class WebTestCase extends PKPTestCase {
 	 * @param $text string
 	 */
 	protected function clickButton($text) {
-		$selector = '//button[text()=\'' . $this->escapeJS($text) . '\']';
-		$this->waitForElementPresent($selector);
-		$this->click($selector);
+		$this->click('//button[text()=\'' . $this->escapeJS($text) . '\']');
 	}
 
 	/**

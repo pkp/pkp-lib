@@ -207,11 +207,12 @@ class PKPInstall extends Installer {
 	 * @return boolean
 	 */
 	function createConfig() {
+		$request = Application::get()->getRequest();
 		return $this->updateConfig(
 			array(
 				'general' => array(
 					'installed' => 'On',
-					'base_url' => Request::getBaseUrl(),
+					'base_url' => $request->getBaseUrl(),
 					'enable_beacon' => $this->getParam('enableBeacon')?'On':'Off',
 				),
 				'database' => array(

@@ -370,8 +370,9 @@ class Form {
 		// Note that class and function names are always lower
 		// case.
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserVars'), array($this, &$vars));
+		$request = Application::get()->getRequest();
 		foreach ($vars as $k) {
-			$this->setData($k, Request::getUserVar($k));
+			$this->setData($k, $request->getUserVar($k));
 		}
 	}
 

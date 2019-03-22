@@ -35,7 +35,8 @@ class FormValidatorPost extends FormValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		return Request::isPost();
+		$request = Application::get()->getRequest();
+		return $request->isPost();
 	}
 }
 

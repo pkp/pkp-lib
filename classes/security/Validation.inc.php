@@ -175,7 +175,8 @@ class Validation {
 			$args['loginMessage'] = $message;
 		}
 
-		Request::redirect(null, 'login', null, null, $args);
+		$request = Application::get()->getRequest();
+		$request->redirect(null, 'login', null, null, $args);
 	}
 
 	/**

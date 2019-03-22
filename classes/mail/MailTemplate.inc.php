@@ -200,7 +200,8 @@ class MailTemplate extends Mail {
 			if (!empty($envelopeSender) && Config::getVar('email', 'allow_envelope_sender')) $this->setEnvelopeSender($envelopeSender);
 		}
 
-		$user = defined('SESSION_DISABLE_INIT')?null:Request::getUser();
+		$request = Application::get()->getRequest();
+		$user = defined('SESSION_DISABLE_INIT')?null:$request->getUser();
 
 		if ($user && $this->bccSender) {
 			$this->addBcc($user->getEmail(), $user->getFullName());

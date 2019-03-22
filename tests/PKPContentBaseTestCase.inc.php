@@ -131,12 +131,16 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 		// Permit the subclass to handle any extra step 3 actions
 		$this->_handleStep3($data);
+		$this->waitJQuery();
 		$this->click('//form[@id=\'submitStep3Form\']//button[text()=\'Save and continue\']');
 
 		// Page 4
+		$this->waitJQuery();
 		$this->click('//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
+		$this->waitJQuery();
 		$this->click('//a[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
+		$this->waitJQuery();
 	}
 
 	/**

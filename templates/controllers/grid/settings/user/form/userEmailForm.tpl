@@ -7,7 +7,7 @@
  *
  * Display form to send user an email.
  *}
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#sendEmailForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
@@ -31,5 +31,6 @@
 	{/fbvFormSection}
 
 	{fbvFormButtons submitText="common.sendEmail"}
+
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

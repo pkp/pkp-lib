@@ -8,18 +8,18 @@
  * Allows users to manage the list of files available to a query.
  *}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#manageQueryNoteFilesForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
-<!-- Current query files -->
-<p>{translate key="editor.submission.query.manageQueryNoteFilesDescription"}</p>
+<form class="pkp_form" id="manageQueryNoteFilesForm" action="{url component="grid.files.query.ManageQueryNoteFilesGridHandler" op="updateQueryNoteFiles" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
+	<!-- Current query files -->
+	<p>{translate key="editor.submission.query.manageQueryNoteFilesDescription"}</p>
 
-<div id="existingFilesContainer">
-	<form class="pkp_form" id="manageQueryNoteFilesForm" action="{url component="grid.files.query.ManageQueryNoteFilesGridHandler" op="updateQueryNoteFiles" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
+	<div id="existingFilesContainer">
 		{csrf}
 		{fbvFormArea id="manageQueryNoteFiles"}
 			{fbvFormSection}
@@ -29,5 +29,5 @@
 
 			{fbvFormButtons}
 		{/fbvFormArea}
-	</form>
-</div>
+	</div>
+</form>

@@ -357,6 +357,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 		$user = $request->getUser();
 
 		if ($installedPlugin) {
+			$pluginName = array('pluginName' => $plugin->getDisplayName());
 			$pluginDest = Core::getBaseDir() . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . $category . DIRECTORY_SEPARATOR . $productName;
 			$pluginLibDest = Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . $category . DIRECTORY_SEPARATOR . $productName;
 
@@ -369,13 +370,13 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 			}
 
 			if(is_dir($pluginDest) || is_dir($pluginLibDest)) {
-				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('manager.plugins.deleteError', array('pluginName' => $plugin->getDisplayName()))));
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('manager.plugins.deleteError', $pluginName)));
 			} else {
 				$versionDao->disableVersion('plugins.'.$category, $productName);
-				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.plugins.deleteSuccess', array('pluginName' => $plugin->getDisplayName()))));
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.plugins.deleteSuccess', $pluginName)));
 			}
 		} else {
-			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('manager.plugins.doesNotExist', array('pluginName' => $plugin->getDisplayName()))));
+			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('manager.plugins.doesNotExist', $pluginName)));
 		}
 
 		return DAO::getDataChangedEvent($plugin->getName());

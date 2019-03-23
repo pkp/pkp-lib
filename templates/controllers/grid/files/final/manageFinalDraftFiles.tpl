@@ -8,16 +8,16 @@
  * Allows editor to add more file to the review (that weren't added when the submission was sent to review)
  *}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#manageFinalDraftFilesForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
-<!-- Current final draft files -->
-<div id="existingFilesContainer">
-	<form class="pkp_form" id="manageFinalDraftFilesForm" action="{url component="grid.files.final.ManageFinalDraftFilesGridHandler" op="updateFinalDraftFiles" submissionId=$submissionId}" method="post">
+<form class="pkp_form" id="manageFinalDraftFilesForm" action="{url component="grid.files.final.ManageFinalDraftFilesGridHandler" op="updateFinalDraftFiles" submissionId=$submissionId}" method="post">
+	<!-- Current final draft files -->
+	<div id="existingFilesContainer">
 		{csrf}
 		{fbvFormArea id="manageFinalDraftFiles"}
 			{fbvFormSection}
@@ -29,5 +29,5 @@
 
 			{fbvFormButtons}
 		{/fbvFormArea}
-	</form>
-</div>
+	</div>
+</form>

@@ -8,10 +8,7 @@
  * User profile form.
  *}
 
-{* Help Link *}
-{help file="user-profile" class="pkp_help_tab"}
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#identityForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
@@ -19,6 +16,9 @@
 </script>
 
 <form class="pkp_form" id="identityForm" method="post" action="{url op="saveIdentity"}" enctype="multipart/form-data">
+	{* Help Link *}
+	{help file="user-profile" class="pkp_help_tab"}
+
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="identityFormNotification"}

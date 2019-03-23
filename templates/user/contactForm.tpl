@@ -7,11 +7,7 @@
  *
  * User profile form.
  *}
-
-{* Help Link *}
-{help file="user-profile" class="pkp_help_tab"}
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#contactForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
@@ -19,6 +15,9 @@
 </script>
 
 <form class="pkp_form" id="contactForm" method="post" action="{url op="saveContact"}">
+	{* Help Link *}
+	{help file="user-profile" class="pkp_help_tab"}
+
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="contactFormNotification"}

@@ -8,26 +8,26 @@
  * Display the permissions tool page.
  *
  *}
-<div class="pkp_page_content pkp_page_permissions">
-	{help file="tools" class="pkp_help_tab"}
+<script>
+$(function() {ldelim}
+	// Attach the form handler.
+	$('#resetPermissionsForm').pkpHandler(
+		'$.pkp.controllers.form.AjaxFormHandler',
+		{ldelim}
+			confirmText: {translate|json_encode key="manager.setup.resetPermissions.confirm"},
+		{rdelim}
+	);
+{rdelim});
+</script>
 
-	<h3>{translate key="manager.setup.resetPermissions"}</h3>
-	<p>{translate key="manager.setup.resetPermissions.description"}</p>
+<form class="pkp_form" id="resetPermissionsForm" method="post" action="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="resetPermissions"}">
+	<div class="pkp_page_content pkp_page_permissions">
+		{help file="tools" class="pkp_help_tab"}
 
-	<script type="text/javascript">
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#resetPermissionsForm').pkpHandler(
-			'$.pkp.controllers.form.AjaxFormHandler',
-			{ldelim}
-				confirmText: {translate|json_encode key="manager.setup.resetPermissions.confirm"},
-			{rdelim}
-		);
-	{rdelim});
-	</script>
+		<h3>{translate key="manager.setup.resetPermissions"}</h3>
+		<p>{translate key="manager.setup.resetPermissions.description"}</p>
 
-	<form class="pkp_form" id="resetPermissionsForm" method="post" action="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="resetPermissions"}">
 		{csrf}
 		{fbvElement type="submit" id="resetPermissionsFormButton" label="manager.setup.resetPermissions"}
-	</form>
-</div>
+	</div>
+</form>

@@ -8,16 +8,16 @@
  * Form used to create a new review round (after the first round)
  *
  *}
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#newRoundForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', null);
 	{rdelim});
 </script>
 
-<p>{translate key="editor.submission.newRoundDescription"}</p>
 <form class="pkp_form" id="newRoundForm" method="post" action="{url op="saveNewReviewRound"}" >
+	<p>{translate key="editor.submission.newRoundDescription"}</p>
+
 	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
@@ -31,4 +31,3 @@
 
 	{fbvFormButtons submitText="editor.submission.createNewRound"}
 </form>
-

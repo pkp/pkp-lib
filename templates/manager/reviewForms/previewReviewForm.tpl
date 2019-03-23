@@ -8,10 +8,7 @@
  * Preview of a review form.
  *
  *}
-<h3>{$title|escape}</h3>
-<p>{$description}</p>
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#previewReviewForm').pkpHandler(
@@ -24,5 +21,8 @@
 </script>
 
 <form class="pkp_form" id="previewReviewForm" method="post" action="#">
+	<h3>{$title|escape}</h3>
+	<p>{$description}</p>
+
 	{include file="reviewer/review/reviewFormResponse.tpl"}
 </form>

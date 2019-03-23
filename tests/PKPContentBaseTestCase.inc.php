@@ -254,11 +254,14 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $decision string
 	 */
 	protected function recordEditorialDecision($decision) {
+		$this->waitJQuery();
 		$this->click('//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
 		if (in_array($decision, array('Accept Submission', 'Send To Production', 'Send to External Review'))) {
 			sleep(2); // FIXME: Avoid missing modal
+			$this->waitJQuery();
 			$this->click('//button[contains(.,"Next:")]');
 		}
+		$this->waitJQuery();
 		$this->click('//button[contains(.,\'Record Editorial Decision\')]');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}

@@ -121,7 +121,8 @@ class AdminFunctionsHandler extends AdminHandler {
 		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 		ScheduledTaskHelper::clearExecutionLogs();
 
-		Request::redirect(null, 'admin');
+		$request = Application::get()->getRequest();
+		$request->redirect(null, 'admin');
 	}
 }
 

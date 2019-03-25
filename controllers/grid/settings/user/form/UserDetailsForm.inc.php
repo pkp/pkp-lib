@@ -173,7 +173,7 @@ class UserDetailsForm extends UserForm {
 		$templateMgr->assign('countries', $countryDao->getCountries());
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');
-		$authSources =& $authDao->getSources();
+		$authSources = $authDao->getSources();
 		$authSourceOptions = array();
 		foreach ($authSources->toArray() as $auth) {
 			$authSourceOptions[$auth->getAuthId()] = $auth->getTitle();

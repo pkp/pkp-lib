@@ -54,7 +54,12 @@ class PKPEmailTemplatesListPanel extends ListPanel {
     $config['i18n']['editTemplate'] = __('manager.emails.editEmail');
     $config['i18n']['enable'] = __('common.enable');
     $config['i18n']['from'] = __('common.fromWithValue');
+    $config['i18n']['goToLabel'] = __('common.pagination.goToPage');
+    $config['i18n']['nextPageLabel'] = __('common.pagination.next');
     $config['i18n']['ok'] = __('common.ok');
+    $config['i18n']['pageLabel'] = __('common.pageNumber');
+    $config['i18n']['paginationLabel'] = __('common.pagination.label');
+    $config['i18n']['previousPageLabel'] = __('common.pagination.previous');
     $config['i18n']['reset'] = __('manager.emails.reset');
     $config['i18n']['resetConfirm'] = __('manager.emails.confirmReset');
     $config['i18n']['resetAll'] = __('manager.emails.resetAll');

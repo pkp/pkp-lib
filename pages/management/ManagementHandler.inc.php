@@ -220,7 +220,7 @@ class ManagementHandler extends Handler {
 			__('manager.emails.emailTemplates'),
 			[
 				'apiUrl' => $emailTemplatesApiUrl,
-				'count' => 1000,
+				'count' => 100,
 				'items' => [],
 				'itemsMax' => 0,
 				'lazyLoad' => true,

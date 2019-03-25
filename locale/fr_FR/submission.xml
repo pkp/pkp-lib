@@ -549,8 +549,6 @@
 	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
 	<message key="submission.query.noParticipantOptions">Vous devez assigner au moins un participant à cette soumission avant d'initier une discussion.</message>
 	<message key="submission.list.infoCenter">Log d'activités et notes</message>
-	<message key="submission.list.count">{$count} soumissions</message>
-	<message key="submission.list.itemsOfTotal">{$count} sur {$total} soumissions</message>
 	<message key="submission.list.responseDue">Réponse en attente</message>
 	<message key="submission.list.reviewDue">Rapport en attente</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission ?</message>

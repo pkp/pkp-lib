@@ -611,8 +611,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Aktivitätsprotokoll &amp; Notizen</message>
-	<message key="submission.list.count">{$count} Einreichungen</message>
-	<message key="submission.list.itemsOfTotal">{$count} von {$total} Einreichungen</message>
 	<message key="submission.list.responseDue">Antwort fällig</message>
 	<message key="submission.list.reviewDue">Gutachten fällig</message>
 	<message key="submission.list.reviewComplete">Gutachten eingereicht</message>

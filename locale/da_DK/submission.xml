@@ -531,8 +531,6 @@
 	<message key="submission.review.status.thanked">Denne bedømmelse er afsluttet og bedømmeren har modtaget tak for deltagelse.</message>
 	<message key="submission.query.noParticipantOptions">Der skal udpeges mindst én deltager i forbindelse med denne indsendelse før en drøftelse kan påbegyndes.</message>
 	<message key="submission.list.infoCenter"><![CDATA[Historik & Noter]]></message>
-	<message key="submission.list.count">{$count} indsendelser</message>
-	<message key="submission.list.itemsOfTotal">{$count} ud af {$total} indsendelser</message>
 	<message key="submission.list.responseDue">Svar forfalden</message>
 	<message key="submission.list.reviewDue">Bedømmelse forfalden</message>
 	<message key="submission.list.confirmDelete">Slet indsendelse?</message>

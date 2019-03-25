@@ -628,8 +628,6 @@
 	<message key="submission.query.noParticipantOptions">قبل از آغاز گفتگو باید حداقل یک همکار به این مقاله انتساب داده شود.</message>
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">گزارش فعالیت‌ها</message>
-	<message key="submission.list.count">{$count} مقاله ارسالی</message>
-	<message key="submission.list.itemsOfTotal">{$count} از {$total} مقاله ارسالی</message>
 	<message key="submission.list.responseDue">مهلت پاسخ</message>
 	<message key="submission.list.reviewDue">مهلت داوری</message>
 	<message key="submission.list.confirmDelete">حذف مقاله ارسالی؟</message>

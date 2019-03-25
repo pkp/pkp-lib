@@ -529,8 +529,6 @@
 	<message key="submission.review.status.awaitingResponse">Čeká se na odpověď recenzenta.</message>
 	<message key="submission.query.noParticipantOptions">Musíte přidělit jednoho účastníka k tomuto příspěvku aby mohla být zahájena diskuse.</message>
 	<message key="submission.list.infoCenter">Záznam aktivit a poznámek</message>
-	<message key="submission.list.count">{$count} příspěvků</message>
-	<message key="submission.list.itemsOfTotal">{$count} z {$total} příspěvků</message>
 	<message key="submission.list.responseDue">Očekává se odpověď</message>
 	<message key="submission.list.reviewDue">Očekává se recenze</message>
 	<message key="submission.list.confirmDelete">Smazat příspěvek?</message>

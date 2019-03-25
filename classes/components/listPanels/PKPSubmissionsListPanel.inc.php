@@ -91,8 +91,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'id' => __('common.id'),
 			'add' => __('submission.submit.newSubmissionSingle'),
 			'empty' => __('submission.list.empty'),
-			'itemCount' => __('submission.list.count'),
-			'itemsOfTotal' => __('submission.list.itemsOfTotal'),
 			'loadMore' => __('grid.action.moreItems'),
 			'incomplete' => __('submissions.incomplete'),
 			'delete' => __('common.delete'),

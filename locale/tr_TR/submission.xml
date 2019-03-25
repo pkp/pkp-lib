@@ -560,8 +560,6 @@
 	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.query.noParticipantOptions">Bir tartışma başlatmadan önce bu gönderiye en az bir katılımcı atamalısınız.</message>
 	<message key="submission.list.infoCenter">Etkinlik Günlüğü ve Notlar</message>
-	<message key="submission.list.count">{$count} gönderi</message>
-	<message key="submission.list.itemsOfTotal">{$total} gönderiden toplam {$count} gönderi</message>
 	<message key="submission.list.responseDue">Cevap Zamanı</message>
 	<message key="submission.list.reviewDue">Değerlendirme Zamanı</message>
 	<message key="submission.list.reviewComplete">Değerlendirme Gönderildi</message>

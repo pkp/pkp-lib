@@ -66,7 +66,7 @@ class PluginHelper {
 			$returnCode = 0;
 			exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir), $output, $returnCode);
 			if ($returnCode) {
-				$errorMsg = __('common.invalidFileType');
+				$errorMsg = __('form.dropzone.dictInvalidFileType');
 			}
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');

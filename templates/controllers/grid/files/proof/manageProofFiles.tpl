@@ -8,18 +8,18 @@
  * Allows editor to add more files to the publication format
  *}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#manageProofFilesForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
-<!-- Current proof files -->
-<p>{translate key="editor.submission.proof.manageProofFilesDescription"}</p>
+<form class="pkp_form" id="manageProofFilesForm" action="{url component="grid.files.proof.ManageProofFilesGridHandler" op="updateProofFiles" submissionId=$submissionId}" method="post">
+	<!-- Current proof files -->
+	<p>{translate key="editor.submission.proof.manageProofFilesDescription"}</p>
 
-<div id="existingFilesContainer">
-	<form class="pkp_form" id="manageProofFilesForm" action="{url component="grid.files.proof.ManageProofFilesGridHandler" op="updateProofFiles" submissionId=$submissionId}" method="post">
+	<div id="existingFilesContainer">
 		{csrf}
 		{fbvFormArea id="manageProofFiles"}
 			{fbvFormSection}
@@ -32,5 +32,5 @@
 
 			{fbvFormButtons}
 		{/fbvFormArea}
-	</form>
-</div>
+	</div>
+</form>

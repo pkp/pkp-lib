@@ -8,16 +8,16 @@
  * Form used to initiate the first review round.
  *
  *}
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#initiateReview').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', null);
 	{rdelim});
 </script>
 
-<p>{translate key="editor.submission.externalReviewDescription"}</p>
 <form class="pkp_form" id="initiateReview" method="post" action="{url op="saveExternalReview"}" >
+	<p>{translate key="editor.submission.externalReviewDescription"}</p>
+
 	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />

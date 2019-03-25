@@ -8,7 +8,7 @@
  * Display submission file notes/note form in information center.
  *}
 
-<script type="text/javascript">
+<script>
 	// Attach the Notes handler.
 	$(function() {ldelim}
 		$('#newNoteForm').pkpHandler(
@@ -20,12 +20,12 @@
 	{rdelim});
 </script>
 
-<div id="newNoteContainer">
-	<form class="pkp_form" id="newNoteForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="saveNote" params=$linkParams}" method="post">
+<form class="pkp_form" id="newNoteForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="saveNote" params=$linkParams}" method="post">
+	<div id="newNoteContainer">
 		{csrf}
 		{fbvFormSection title="informationCenter.addNote" for="newNote"}
 			{fbvElement type="textarea" id="newNote"}
 		{/fbvFormSection}
 		{fbvFormButtons hideCancel=true submitText=$submitNoteText}
-	</form>
-</div>
+	</div>
+</form>

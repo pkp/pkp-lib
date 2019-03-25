@@ -529,7 +529,7 @@ class UserGridHandler extends GridHandler {
 			$userEmailForm->execute();
 			return new JSONMessage(true);
 		} else {
-			return new JSONMessage(false, $userEmailForm->fetch($request));
+			return new JSONMessage(false, __('validator.filled'));
 		}
 	}
 

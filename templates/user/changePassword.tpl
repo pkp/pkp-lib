@@ -7,10 +7,6 @@
  *
  * Form to change a user's password.
  *}
-
-{* Help Link *}
-{help file="user-profile" class="pkp_help_tab"}
-
 <script>
 	$(function() {ldelim}
 		// Attach the form handler.
@@ -19,6 +15,9 @@
 </script>
 
 <form class="pkp_form" id="changePasswordForm" method="post" action="{url op="savePassword"}">
+	{* Help Link *}
+	{help file="user-profile" class="pkp_help_tab"}
+
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="changePasswordFormNotification"}

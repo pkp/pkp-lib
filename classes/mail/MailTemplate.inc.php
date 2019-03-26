@@ -83,7 +83,7 @@ class MailTemplate extends Mail {
 		if (isset($emailTemplate)) {
 			$this->setSubject($emailTemplate->getData('subject', $this->locale));
 			$this->setBody($emailTemplate->getData('body', $this->locale) . $userSig);
-			$this->enabled = $emailTemplate->getEnabled();
+			$this->enabled = $emailTemplate->getData('enabled');
 		} else {
 			$this->setBody($userSig);
 			$this->enabled = true;

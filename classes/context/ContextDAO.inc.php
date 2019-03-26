@@ -161,15 +161,6 @@ abstract class ContextDAO extends SchemaDAO {
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
-
-	/**
-	 * Get the ID of the last inserted context.
-	 * @return int
-	 */
-	function getInsertId() {
-		return $this->_getInsertId($this->tableName, $this->primaryKeyColumn);
-	}
-
 	/**
 	 * Sequentially renumber each context according to their sequence order.
 	 */

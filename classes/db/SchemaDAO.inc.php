@@ -247,4 +247,12 @@ abstract class SchemaDAO extends DAO {
 
 		return $object;
 	}
+
+	/**
+	 * Get the ID of the last inserted context.
+	 * @return int
+	 */
+	public function getInsertId() {
+		return $this->_getInsertId($this->tableName, $this->primaryKeyColumn);
+	}
 }

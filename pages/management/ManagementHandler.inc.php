@@ -215,7 +215,7 @@ class ManagementHandler extends Handler {
 		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
 		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
 
-		$emailTemplatesListPanel = new \PKP\components\listPanels\PKPEmailTemplatesListPanel(
+		$emailTemplatesListPanel = new \APP\components\listPanels\EmailTemplatesListPanel(
 			'emailTemplates',
 			__('manager.emails.emailTemplates'),
 			[

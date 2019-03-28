@@ -153,11 +153,6 @@ class PKPEmailTemplatesListPanel extends ListPanel {
             'title' => __('user.role.reader'),
             'value' => ROLE_ID_READER,
           ],
-          [
-            'param' => 'toRoleIds',
-            'title' => __('default.groups.name.subscriptionManager'),
-            'value' => ROLE_ID_SUBSCRIPTION_MANAGER,
-          ],
         ],
       ],
     ];

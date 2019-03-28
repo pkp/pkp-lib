@@ -27,7 +27,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	 * @copydoc ListPanel::getConfig()
 	 */
 	public function getConfig() {
-		$request = Application::get()->getRequest();
+		$request = \Application::get()->getRequest();
 
 		$config = parent::getConfig();
 
@@ -192,7 +192,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	 * @return array
 	 */
 	protected function _getItemsParams() {
-		$request = Application::get()->getRequest();
+		$request = \Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 

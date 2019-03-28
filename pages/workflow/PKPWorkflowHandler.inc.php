@@ -331,46 +331,36 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		import('lib.pkp.classes.workflow.WorkflowStageDAO');
 		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
-		$isPastStage = $submission->getStageId() > $stageId;
+		$hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
 		$lastDecision = null;
 		switch( $submission->getStatus() ) {
-			// Submission queued (active; status 1)
-			// Checking stageId:
-			// - queued in stageId 1: submission
-			// - queued in stageId 3: in review
-			// - queued in stageId 4: in copyediting
 			case STATUS_QUEUED:
-				switch( $submission->getStageId() ) {
-					case WORKFLOW_STAGE_ID_SUBMISSION: # stageId 1
-						break;
-					case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: # stageId 2
-					case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: # stageId  3
-						$lastDecision = 'editor.submission.workflowDecision.Submission.underreview';
-						// If round shown is the current review round:
-						if(!is_null($lastReviewRound) && !is_null($reviewRound)) {
-							if($lastReviewRound->getRound() === $lastReviewRound->getRound()) { $lastDecision = null; }
+				switch( $stageId ) {
+					case WORKFLOW_STAGE_ID_SUBMISSION:
+						if ($hasSubmissionPassedThisStage) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.underReview';
 						}
 						break;
-					case WORKFLOW_STAGE_ID_EDITING:         # stageId 4
-						if($isPastStage) {
-							$lastDecision = 'editor.submission.workflowDecision.Submission.copyediting';
+					case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+					case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+						if ($reviewRoundId < $lastReviewRound->getId()) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.reviewRound';
+						} elseif ($hasSubmissionPassedThisStage) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.accepted';
 						}
 						break;
-					case WORKFLOW_STAGE_ID_PRODUCTION:       # stageId 5
-						if($isPastStage) {
-							$lastDecision = 'editor.submission.workflowDecision.Submission.production';
+					case WORKFLOW_STAGE_ID_EDITING:
+						if($hasSubmissionPassedThisStage) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.production';
 						}
 						break;
-					# default: just go ahead ($lastDecision stays NULL)
 				}
 				break;
-			// If submission published (status 3)
 			case STATUS_PUBLISHED:
-				$lastDecision = 'editor.submission.workflowDecision.Submission.published';
+				$lastDecision = 'editor.submission.workflowDecision.submission.published';
 				break;
-			// If submission declined (status 4)
 			case STATUS_DECLINED:
-				$lastDecision = 'editor.submission.workflowDecision.Submission.declined';
+				$lastDecision = 'editor.submission.workflowDecision.submission.declined';
 				break;
 		}
 

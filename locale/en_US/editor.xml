@@ -14,17 +14,13 @@
 <locale name="en_US" full_name="U.S. English">
 	<message key="editor.activityLog">Activity Log</message>
 	<message key="editor.submissionLibrary">Library</message>
-	<message key="editor.submission.workflowDecision.Submission">Decision recorded</message>
-	<message key="editor.submission.workflowDecision.Submission.declined">Submission declined.</message>
-	<message key="editor.submission.workflowDecision.Submission.accepted">Submission accepted.</message>
-	<message key="editor.submission.workflowDecision.Submission.published">Submission has been published.</message>
-	<message key="editor.submission.workflowDecision.Submission.review">Sent into review, not yet sent to reviewers.</message>
-	<message key="editor.submission.workflowDecision.Submission.external">Sent out to reviewers (underway).</message>
-	<message key="editor.submission.workflowDecision.Submission.revisionrequired">Decision recorded: revision required.</message>
-	<message key="editor.submission.workflowDecision.Submission.copyediting">Sent to copyediting.</message>
-	<message key="editor.submission.workflowDecision.Submission.production">Sent to production.</message>
-	<message key="editor.submission.workflowDecision.Submission.resubmit">Decision recorded: resubmit for review.</message>
-	<message key="editor.submission.workflowDecision.Submission.underreview">Submission set to review.</message>
+	<message key="editor.submission.workflowDecision.submission">Decision recorded</message>
+	<message key="editor.submission.workflowDecision.submission.declined">Submission declined.</message>
+	<message key="editor.submission.workflowDecision.submission.accepted">Submission accepted.</message>
+	<message key="editor.submission.workflowDecision.submission.published">Submission published.</message>
+	<message key="editor.submission.workflowDecision.submission.reviewRound">Sent for a new round of reviews.</message>
+	<message key="editor.submission.workflowDecision.submission.production">Sent to production.</message>
+	<message key="editor.submission.workflowDecision.submission.underReview">Submission accepted for review.</message>
 	<message key="editor.submission.workflowDecision.changeDecision">Change decision</message>
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Message to user</message>

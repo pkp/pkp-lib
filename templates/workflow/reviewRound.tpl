@@ -9,7 +9,9 @@
  *}
 <div class="pkp_panel_wrapper">
 
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
+	{if $isLastReviewRound}
+		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
+	{/if}
 
 	{* Editorial decision actions, if available *}
 	<div class="pkp_context_sidebar">

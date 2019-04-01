@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridHandler.inc.php
  *
- * Copyright (c) 2016-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2016-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridHandler
@@ -38,6 +38,9 @@ class QueriesGridHandler extends GridHandler {
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
 			array('openQuery', 'closeQuery', 'saveSequence'));
+		$this->addRoleAssignment(
+			array(ROLE_ID_MANAGER),
+			array('leaveQuery'));
 	}
 
 
@@ -389,18 +392,19 @@ class QueriesGridHandler extends GridHandler {
 	 */
 	function readQuery($args, $request) {
 		$query = $this->getQuery();
+		$router = $request->getRouter();
+		$user = $request->getUser();
+		$context = $request->getContext();
+
+		$actionArgs = array_merge($this->getRequestArgs(), array('queryId' => $query->getId()));
 
 		// If appropriate, create an Edit action for the participants list
 		if ($this->getAccessHelper()->getCanEdit($query->getId())) {
 			import('lib.pkp.classes.linkAction.request.AjaxModal');
-			$router = $request->getRouter();
 			$editAction = new LinkAction(
 				'editQuery',
 				new AjaxModal(
-					$router->url($request, null, null, 'editQuery', null, array_merge(
-						$this->getRequestArgs(),
-						array('queryId' => $query->getId())
-					)),
+					$router->url($request, null, null, 'editQuery', null, $actionArgs),
 					__('grid.action.updateQuery'),
 					'modal_edit'
 				),
@@ -411,12 +415,35 @@ class QueriesGridHandler extends GridHandler {
 			$editAction = null;
 		}
 
+		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+		$leaveQueryLinkAction = new LinkAction(
+			'leaveQuery',
+			new RemoteActionConfirmationModal(
+				$request->getSession(),
+				__('submission.query.leaveQuery.confirm'),
+				__('submission.query.leaveQuery'),
+				$router->url($request, null, null, 'leaveQuery', null, $actionArgs),
+				'modal_delete'
+			),
+			__('submission.query.leaveQuery'),
+			'leaveQuery'
+		);
+
+		// Show leave query button for journal managers included in the query
+		if ($user && $this->_getCurrentUserCanLeave($user->getId(), $query->getId())) {
+			$showLeaveQueryButton = true;
+		} else {
+			$showLeaveQueryButton = false;
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'queryNotesGridHandlerName' => $this->getQueryNotesGridHandlerName(),
 			'requestArgs' => $this->getRequestArgs(),
 			'query' => $query,
 			'editAction' => $editAction,
+			'leaveQueryLinkAction' => $leaveQueryLinkAction,
+			'showLeaveQueryButton' => $showLeaveQueryButton,			
 		));
 		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/queries/readQuery.tpl'));
 	}
@@ -431,6 +458,9 @@ class QueriesGridHandler extends GridHandler {
 		$query = $this->getQuery();
 		$queryDao = DAORegistry::getDAO('QueryDAO');
 		$userDao = DAORegistry::getDAO('UserDAO');
+		$context = $request->getContext();
+		$user = $request->getUser();
+
 		$participants = array();
 		foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
 			$participants[] = $userDao->getById($userId);
@@ -438,7 +468,17 @@ class QueriesGridHandler extends GridHandler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('participants', $participants);
-		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/queries/participants.tpl'));
+
+		if ($user && $this->_getCurrentUserCanLeave($user->getId(), $query->getId())) {
+			$showLeaveQueryButton = true;
+		} else {
+			$showLeaveQueryButton = false;
+		}
+		$json = new JSONMessage();
+		$json->setStatus(true);
+		$json->setContent($templateMgr->fetch('controllers/grid/queries/participants.tpl'));
+		$json->setAdditionalAttributes(array('showLeaveQueryButton' => $showLeaveQueryButton));
+		return $json;
 	}
 
 	/**
@@ -520,6 +560,48 @@ class QueriesGridHandler extends GridHandler {
 			)
 		);
 	}
+
+	/**
+	 * Leave query
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function leaveQuery($args, $request) {
+		$queryId = $args['queryId'];
+		$user = $request->getUser();
+		$context = $request->getContext();
+		if ($user && $this->_getCurrentUserCanLeave($user->getId(), $queryId)) {
+			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$queryDao->removeParticipant($queryId, $user->getId());
+			$json = new JSONMessage();
+			$json->setEvent('user-left-discussion');
+		} else {
+			$json = new JSONMessage(false);
+		}
+		return $json;
+	}
+
+	/**
+	 * Check if the current user can leave a query. Only allow if query has more than two participants.
+	 * @param $userId int
+	 * @param $queryId int
+	 * @return boolean
+	 */
+	function _getCurrentUserCanLeave($userId, $queryId) {
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (!in_array(ROLE_ID_MANAGER, $userRoles)) {
+		  return false;
+		}
+		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$participantIds = $queryDao->getParticipantIds($queryId);
+		if (count($participantIds) < 3) {
+		  return false;
+		}
+		$user = Application::get()->getRequest()->getUser();
+		return in_array($user->getId(), $participantIds);
+
+	}	
 }
 
 

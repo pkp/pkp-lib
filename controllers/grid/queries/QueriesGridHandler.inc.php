@@ -584,11 +584,10 @@ class QueriesGridHandler extends GridHandler {
 
 	/**
 	 * Check if the current user can leave a query. Only allow if query has more than two participants.
-	 * @param $userId int
 	 * @param $queryId int
 	 * @return boolean
 	 */
-	function _getCurrentUserCanLeave($userId, $queryId) {
+	function _getCurrentUserCanLeave($queryId) {
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		if (!in_array(ROLE_ID_MANAGER, $userRoles)) {
 		  return false;

@@ -430,7 +430,7 @@ class QueriesGridHandler extends GridHandler {
 		);
 
 		// Show leave query button for journal managers included in the query
-		if ($user && $this->_getCurrentUserCanLeave($user->getId(), $query->getId())) {
+		if ($user && $this->_getCurrentUserCanLeave($query->getId())) {
 			$showLeaveQueryButton = true;
 		} else {
 			$showLeaveQueryButton = false;
@@ -469,7 +469,7 @@ class QueriesGridHandler extends GridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('participants', $participants);
 
-		if ($user && $this->_getCurrentUserCanLeave($user->getId(), $query->getId())) {
+		if ($user && $this->_getCurrentUserCanLeave($query->getId())) {
 			$showLeaveQueryButton = true;
 		} else {
 			$showLeaveQueryButton = false;
@@ -571,7 +571,7 @@ class QueriesGridHandler extends GridHandler {
 		$queryId = $args['queryId'];
 		$user = $request->getUser();
 		$context = $request->getContext();
-		if ($user && $this->_getCurrentUserCanLeave($user->getId(), $queryId)) {
+		if ($user && $this->_getCurrentUserCanLeave($queryId)) {
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$queryDao->removeParticipant($queryId, $user->getId());
 			$json = new JSONMessage();

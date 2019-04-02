@@ -152,6 +152,18 @@ class PKPTemplateManager extends Smarty {
 		$this->setConstant('ROLE_ID_SUB_EDITOR');
 		$this->setConstant('ROLE_ID_SUBSCRIPTION_MANAGER');
 
+		// Always pass these ListBuilder constants to the browser
+		// because we a ListBuilder may be loaded in an ajax request
+		// and won't have an opportunity to pass its constants to
+		// the template manager. This is not a recommended practice,
+		// but these are the only constants from a controller that are
+		// required on the frontend. We can remove them once the
+		// ListBuilderHandler is no longer needed.
+		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		$this->setConstant('LISTBUILDER_SOURCE_TYPE_TEXT');
+		$this->setConstant('LISTBUILDER_SOURCE_TYPE_SELECT');
+		$this->setConstant('LISTBUILDER_OPTGROUP_LABEL');
+
 		if (is_a($router, 'PKPPageRouter')) {
 			$this->assign(array(
 				'requestedPage' => $router->getRequestedPage($request),

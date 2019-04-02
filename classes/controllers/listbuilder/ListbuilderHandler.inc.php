@@ -42,17 +42,11 @@ class ListbuilderHandler extends GridHandler {
 	/** @var string Field for LISTBUILDER_SAVE_TYPE_EXTERNAL naming the field used to send the saved contents of the LB */
 	var $_saveFieldName = null;
 
-
 	/**
 	 * @copydoc GridHandler::initialize
 	 */
 	function initialize($request, $args = null) {
 		parent::initialize($request, $args);
-
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->setConstant('LISTBUILDER_SOURCE_TYPE_TEXT');
-		$templateMgr->setConstant('LISTBUILDER_SOURCE_TYPE_SELECT');
-		$templateMgr->setConstant('LISTBUILDER_OPTGROUP_LABEL');
 
 		if ($this->canAddItems()) {
 			import('lib.pkp.classes.linkAction.request.NullAction');

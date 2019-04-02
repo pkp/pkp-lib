@@ -607,6 +607,8 @@
 	<message key="submission.query.lastReply">Last Reply</message>
 	<message key="submission.query.closed">Closed</message>
 	<message key="submission.query.addNote">Add Message</message>
+	<message key="submission.query.leaveQuery">Leave Discussion</message>
+	<message key="submission.query.leaveQuery.confirm">If you leave this discussion you will no longer be notified of new messages. Would you like to leave the discussion?</message>
 	<message key="grid.action.openNoteForm">Add a new reply to the discussion</message>
 	<message key="submission.query.activity">{$responderName} replied to {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.new">{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</message>

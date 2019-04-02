@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/queries/form/QueryNoteForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteForm
@@ -132,6 +132,12 @@ class QueryNoteForm extends Form {
 
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$queryDao = DAORegistry::getDAO('QueryDAO');
+
+		// Always include current user to query participants
+		if (!in_array($user->getId(), $queryDao->getParticipantIds($query->getId()))) {
+			$queryDao->insertParticipant($query->getId(), $user->getId());
+		}
+
 		$notificationManager = new NotificationManager();
 		foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
 			// Delete any prior notifications of the same type (e.g. prior "new" comments)

@@ -54,12 +54,12 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 */
 	public function getByKey($contextId, $key) {
 		$emailTemplateQB = new PKPEmailTemplateQueryBuilder();
-		$emailTemplateQO = $emailTemplateQB
+		$emailTemplateQueryParts = $emailTemplateQB
 			->filterByContext($contextId)
 			->filterByKeys([$key])
-			->get();
+			->getCompiledQuery();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$result = $emailTemplateDao->retrieve($emailTemplateQO->toSql(), $emailTemplateQO->getBindings());
+		$result = $emailTemplateDao->retrieve($emailTemplateQueryParts[0], $emailTemplateQueryParts[1]);
 		if ($result->RecordCount() !== 0) {
 			$emailTemplate = $emailTemplateDao->_fromRow($result->GetRowAssoc(false));
 		}
@@ -82,10 +82,10 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 */
 	public function getMany($args = array()) {
 		$emailTemplateQB = $this->_getQueryBuilder($args);
-		$emailTemplateQO = $emailTemplateQB->get();
+		$emailTemplateQueryParts = $emailTemplateQB->getCompiledQuery();
 		$range = $this->getRangeByArgs($args);
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$result = $emailTemplateDao->retrieveRange($emailTemplateQO->toSql(), $emailTemplateQO->getBindings(), $range);
+		$result = $emailTemplateDao->retrieveRange($emailTemplateQueryParts[0], $emailTemplateQueryParts[1], $range);
 		$queryResults = new DAOResultFactory($result, $emailTemplateDao, '_fromRow');
 
 		return $queryResults->toArray();

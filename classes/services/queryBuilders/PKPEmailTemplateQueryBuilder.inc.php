@@ -124,11 +124,91 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Execute query builder
+	 * Do not use this method.
 	 *
-	 * @return object Query object
+	 * @see self::getCompiledQuery()
 	 */
 	public function get() {
+		throw new Exception('PKPEmailTemplateQueryBuilder::get() is not supported. Use PKPEmailTemplateQueryBuilder::getCompiledQuery() instead.');
+	}
+
+	/**
+	 * Get the compiled SQL string and bindings
+	 *
+	 * This method performs a UNION on the default and custom template
+	 * tables, and returns the final SQL string and merged bindings.
+	 *
+	 * This is required due to a bug in Laravel's QueryBuilder when
+	 * performing a UNION in postgresql. This bug was fixed in Laravel
+	 * v5.7.
+	 *
+	 * https://github.com/laravel/framework/pull/27589
+	 *
+	 * Once we can upgrade to that version, this wrapper should
+	 * be removed in favor of the QueryBuilder::get() approach used
+	 * in other QueryBuilders.
+	 *
+	 * @return array [
+	 * 	@option string The compiled query string
+	 * 	@option array The merged bindings (key/value)
+	 * ]
+	 */
+	public function getCompiledQuery() {
+		$this->setCommonColumns();
+
+		$defaultQueryObject = $this->getDefault();
+
+		// Use a UNION to ensure the query will match rows in email_templates and
+		// email_templates_default. This ensures that custom templates which have
+		// no default in email_templates_default are still returned. These templates
+		// should not be returned when a role filter is used.
+		if (empty($this->fromRoleIds) && empty($this->toRoleIds)) {
+			$customQueryObject = $this->getCustom();
+			return [
+				'(' . $defaultQueryObject->toSql() . ') union (' . $customQueryObject->toSql() . ')',
+				$defaultQueryObject->mergeBindings($customQueryObject)->getBindings(),
+			];
+		}
+
+		return [
+			$defaultQueryObject->toSql(),
+			$defaultQueryObject->getBindings(),
+		];
+	}
+
+	/**
+	 * Retrieve count of matches from query builder
+	 *
+	 * @return integer
+	 */
+	public function getCount() {
+		$compiledQuery = $this->getCompiledQuery();
+		return Capsule::table(Capsule::raw('(' . $compiledQuery[0] . ') as email_template_count'))
+			->setBindings($compiledQuery[1])
+			->count();
+	}
+
+	/**
+	 * Retrieve all matches from query builder limited by those
+	 * which are custom templates or have been modified from the
+	 * default.
+	 *
+	 * Default templates that have not been modified have no entry
+	 * in the email_templates table and so `et.email_id` is null.
+	 *
+	 * @return QueryObject
+	 */
+	public function getModified() {
+		$this->setCommonColumns();
+		$q = $this->getCustom();
+		$q->whereNotNull('et.email_id');
+		return $q;
+	}
+
+	/**
+	 * Set the columns that should be returned for most requests
+	 */
+	protected function setCommonColumns() {
 		$this->columns = [
 			'etd.can_disable',
 			'etd.can_edit',
@@ -139,7 +219,15 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			'et.context_id',
 			Capsule::raw('IFNULL(et.enabled, 1) as enabled'),
 		];
+	}
 
+	/**
+	 * Execute query builder for default email templates
+	 *
+	 * @see self::getCompiledQuery()
+	 * @return QueryObject
+	 */
+	protected function getDefault() {
 		$q = Capsule::table('email_templates_default as etd')
 			->orderBy('email_key', 'asc')
 			->groupBy('etd.email_key')
@@ -159,27 +247,12 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			$q->leftJoin('email_templates as et', 'etd.email_key', '=', 'et.email_key');
 		}
 
-		// Use a UNION to ensure the query will match rows in email_templates and
-		// email_templates_default. This ensures that custom templates which have
-		// no default in email_templates_default are still returned. These templates
-		// should not be returned when a role filter is used.
-		if (empty($this->fromRoleIds) && empty($this->toRoleIds)) {
-			$customTemplates = Capsule::table('email_templates as et')
-				->leftJoin('email_templates_default as etd', 'etd.email_key', '=', 'et.email_key');
-		}
-
 		if (!is_null($this->contextId)) {
 			$contextId = $this->contextId;
 			$q->where(function($q) use ($contextId) {
 				$q->whereNull('et.context_id')
 					->orWhere('et.context_id', '=', $this->contextId);
 			});
-			if (isset($customTemplates)) {
-				$customTemplates->where(function($customTemplates) use ($contextId) {
-					$customTemplates->whereNull('et.context_id')
-						->orWhere('et.context_id', '=', $this->contextId);
-				});
-			}
 		}
 
 		if (!empty($this->isEnabled)) {
@@ -188,26 +261,14 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 				$q->whereNull('et.enabled')
 					->orWhere('et.enabled', '=', 1);
 			});
-			if (isset($customTemplates)) {
-				$customTemplates->where('et.enabled', '=', 1);
-			}
 		} elseif ($this->isEnabled === false) {
 			$q->where('et.enabled', '!=', 1);
-			if (isset($customTemplates)) {
-				$customTemplates->where('et.enabled', '!=', 1);
-			}
 		}
 
 		if (!empty($this->isCustom)) {
 			$q->whereNull('etd.can_disable');
-			if (isset($customTemplates)) {
-				$customTemplates->whereNull('etd.can_disable');
-			}
 		} elseif ($this->isCustom === false) {
 			$q->whereNotNull('etd.can_disable');
-			if (isset($customTemplates)) {
-				$customTemplates->whereNotNull('etd.can_disable');
-			}
 		}
 
 		if (!empty($this->fromRoleIds)) {
@@ -242,24 +303,6 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 							->orWhere(Capsule::raw('lower(etddata.description)'), 'LIKE', "%{$word}%");
 					});
 				}
-
-				if (isset($customTemplates)) {
-					$customTemplates->leftJoin('email_templates_settings as ets', 'et.email_id', '=', 'ets.email_id');
-					foreach ($words as $word) {
-						$word = strtolower(addcslashes($word, '%_'));
-						$customTemplates->where(function ($customTemplates) use ($word) {
-							$customTemplates->where(Capsule::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
-								->orWhere(function($q) use ($word) {
-									$q->where('ets.setting_name', 'subject');
-									$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
-								})
-								->orWhere(function($q) use ($word) {
-									$q->where('ets.setting_name', 'body');
-									$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
-								});
-						});
-					}
-				}
 			}
 		}
 
@@ -269,12 +312,6 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 				$q->whereIn('etd.email_key', $this->keys)
 					->orWhereIn('et.email_key', $this->keys);
 			});
-			if (isset($customTemplates)) {
-				$customTemplates->where(function($customTemplates) use ($keys) {
-					$customTemplates->whereIn('etd.email_key', $this->keys)
-						->orWhereIn('et.email_key', $this->keys);
-				});
-			}
 		}
 
 		if (!empty($this->toRoleIds)) {
@@ -282,41 +319,77 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// Add app-specific query statements
-		\HookRegistry::call('EmailTemplate::getMany::queryObject', array(&$q, $this));
+		\HookRegistry::call('EmailTemplate::getMany::queryObject::default', array($q, $this));
 
 		$q->select($this->columns);
-
-		if (isset($customTemplates)) {
-			$customTemplates->select($this->columns);
-			$q->union($customTemplates);
-		}
 
 		return $q;
 	}
 
 	/**
-	 * Retrieve count of matches from query builder
+	 * Execute query builder for custom email templates
+	 * and email templates that have been modified from
+	 * the default.
 	 *
-	 * @return integer
+	 * @see self::getCompiledQuery()
+	 * @return QueryObject
 	 */
-	public function getCount() {
-		$q = $this->get();
-		return Capsule::table(Capsule::raw('(' . $q->toSql() . ') as email_template_count'))
-			->mergeBindings($q)
-			->count();
-	}
+	protected function getCustom() {
+		$q = Capsule::table('email_templates as et')
+			->leftJoin('email_templates_default as etd', 'etd.email_key', '=', 'et.email_key');
 
-	/**
-	 * Retrieve all matches from query builder limited by those
-	 * which are custom templates or have been modified from the
-	 * default.
-	 *
-	 * Default templates that have not been modified have no entry
-	 * in the email_templates table and so `et.email_id` is null.
-	 */
-	public function getModified() {
-		$q = $this->get();
-		$q->whereNotNull('et.email_id');
+		if (!is_null($this->contextId)) {
+			$q->where(function($q) {
+				$q->whereNull('et.context_id')
+					->orWhere('et.context_id', '=', $this->contextId);
+			});
+		}
+
+		if (!empty($this->isEnabled)) {
+			$q->where('et.enabled', '=', 1);
+		} elseif ($this->isEnabled === false) {
+			$q->where('et.enabled', '!=', 1);
+		}
+
+		if (!empty($this->isCustom)) {
+			$q->whereNull('etd.can_disable');
+		} elseif ($this->isCustom === false) {
+			$q->whereNotNull('etd.can_disable');
+		}
+
+		if (!empty($this->searchPhrase)) {
+			$words = explode(' ', $this->searchPhrase);
+			if (count($words)) {
+				$q->leftJoin('email_templates_settings as ets', 'et.email_id', '=', 'ets.email_id');
+				foreach ($words as $word) {
+					$word = strtolower(addcslashes($word, '%_'));
+					$q->where(function ($q) use ($word) {
+						$q->where(Capsule::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
+							->orWhere(function($q) use ($word) {
+								$q->where('ets.setting_name', 'subject');
+								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+							})
+							->orWhere(function($q) use ($word) {
+								$q->where('ets.setting_name', 'body');
+								$q->where(Capsule::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
+							});
+					});
+				}
+			}
+		}
+
+		if (!empty($this->keys)) {
+			$q->where(function($q) {
+				$q->whereIn('etd.email_key', $this->keys)
+					->orWhereIn('et.email_key', $this->keys);
+			});
+		}
+
+		// Add app-specific query statements
+		\HookRegistry::call('EmailTemplate::getMany::queryObject::custom', array($q, $this));
+
+		$q->select($this->columns);
+
 		return $q;
 	}
 }

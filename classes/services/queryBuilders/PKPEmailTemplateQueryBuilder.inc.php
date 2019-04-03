@@ -217,7 +217,7 @@ class PKPEmailTemplateQueryBuilder extends BaseQueryBuilder {
 			'etd.to_role_id',
 			'et.email_id',
 			'et.context_id',
-			Capsule::raw('IFNULL(et.enabled, 1) as enabled'),
+			Capsule::raw('COALESCE(et.enabled, 1) as enabled'),
 		];
 	}
 

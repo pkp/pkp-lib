@@ -517,7 +517,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 	/**
 	 * Delete the attached licenses of all submissions in a context.
-	 * @param $submissionId int
+	 * @param $contextId int
 	 */
 	function deletePermissions($contextId) {
 		$submissions = $this->getByContextId($contextId);
@@ -531,6 +531,21 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 					(int) $submission->getId()
 				)
 			);
+		}
+		$this->flushCache();
+	}
+
+	/**
+	 * Reset the attached licenses of all submissions in a context to context defaults.
+	 * @param $contextId int
+	 */
+	function resetPermissions($contextId) {
+		$submissions = $this->getByContextId($contextId);
+		while ($submission = $submissions->next()) {
+			$submission->setCopyrightYear($submission->_getContextLicenseFieldValue(null, PERMISSIONS_FIELD_COPYRIGHT_YEAR));
+			$submission->setCopyrightHolder($submission->_getContextLicenseFieldValue(null, PERMISSIONS_FIELD_COPYRIGHT_HOLDER), null);
+			$submission->setLicenseURL($submission->_getContextLicenseFieldValue(null, PERMISSIONS_FIELD_LICENSE_URL));
+			$this->updateObject($submission);
 		}
 		$this->flushCache();
 	}

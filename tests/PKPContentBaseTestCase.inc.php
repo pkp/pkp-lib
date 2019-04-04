@@ -72,11 +72,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Find the "Make a New Submission" link
 		if ($location == 'frontend') {
-			$this->waitForElementPresent($selector='//a[contains(text(), \'Make a New Submission\')]');
+			$this->click('//a[contains(text(), \'Make a New Submission\')]');
 		} else {
-			$this->waitForElementPresent($selector='//a[contains(text(), \'New Submission\')]');
+			$this->click('//a[contains(text(), \'New Submission\')]');
 		}
-		$this->click($selector);
 
 		// Check the default checklist items.
 		$this->waitForElementPresent('id=checklist-0');
@@ -271,12 +270,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 * @param $recommendation string
 	 */
 	protected function recordEditorialRecommendation($recommendation) {
-		$this->waitForElementPresent($selector='//a[@id[starts-with(., \'recommendation-button-\')]]');
-		$this->click($selector);
+		$this->click('//a[@id[starts-with(., \'recommendation-button-\')]]');
 		$this->waitForElementPresent($selector='id=recommendation');
 		$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
-		$this->waitForElementPresent($selector='//button[text()=\'Record Editorial Recommendation\']');
-		$this->click($selector);
+		$this->click('//button[text()=\'Record Editorial Recommendation\']');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
@@ -297,11 +294,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->type($selector, $names[1]);
 		$this->click('//form[@id=\'searchUserFilter-grid-users-userselect-userselectgrid\']//button[@id[starts-with(., \'submitFormButton-\')]]');
 		// Assume there is only one user with this last name and user group
-		$this->waitForElementPresent($selector='//input[@name=\'userId\']');
-		$this->click($selector);
+		$this->click('//input[@name=\'userId\']');
 		if ($recommendOnly) {
-			$this->waitForElementPresent($selector='//input[@name=\'recommendOnly\']');
-			$this->click($selector);
+			$this->click('//input[@name=\'recommendOnly\']');
 		}
 		$this->click('//button[text()=\'OK\']');
 		$this->waitForElementPresent('//div[@class="ui-pnotify-text" and text()="User added as a stage participant."]');
@@ -355,8 +350,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('//input[@id=\'privacyConsent\']');
 		$this->click($selector);
 
-		$this->waitForElementPresent($selector='//button[text()=\'Continue to Step #3\']');
-		$this->click($selector);
+		$this->click('//button[text()=\'Continue to Step #3\']');
 		$this->waitForElementPresent('css=[id^=comments-]');
 		$this->typeTinyMCE('comments', $comments);
 
@@ -364,10 +358,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			$this->select('id=recommendation', 'label=' . $this->escapeJS($recommendation));
 		}
 
-		$this->waitForElementPresent($selector='//button[text()=\'Submit Review\']');
-		$this->click($selector);
-		$this->waitForElementPresent($selector='link=OK');
-		$this->click($selector);
+		$this->click('//button[text()=\'Submit Review\']');
+		$this->click('link=OK');
 		$this->waitForElementPresent('//h2[contains(text(), \'Review Submitted\')]');
 		$this->logOut();
 	}

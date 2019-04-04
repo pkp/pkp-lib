@@ -138,13 +138,11 @@ abstract class WebTestCase extends PKPTestCase {
 		if ($password === null) $password = $username . $username;
 
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent($selector='link=Login');
-		$this->click($selector);
+		$this->click('link=Login');
 		$this->waitForElementPresent($selector='css=[id=username]');
 		$this->type($selector, $username);
 		$this->type('css=[id=password]', $password);
-		$this->waitForElementPresent($selector='css=#login button.submit');
-		$this->click($selector);
+		$this->click('css=#login button.submit');
 	}
 
 	/**
@@ -169,8 +167,7 @@ abstract class WebTestCase extends PKPTestCase {
 
 		// Find registration page
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent($selector='link=Register');
-		$this->click($selector);
+		$this->click('link=Register');
 
 		// Fill in user data
 		$this->waitForElementPresent('css=[id=givenName]');

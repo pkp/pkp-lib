@@ -548,6 +548,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$fileName .= $extension;
 
 		$result = $publicFileManager->copyContextFile(
+			Application::get()->getContextAssocType(),
 			$context->getId(),
 			$temporaryFile->getFilePath(),
 			$fileName

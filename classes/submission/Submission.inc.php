@@ -475,7 +475,7 @@ abstract class Submission extends DataObject {
 				}
 			}
 		} elseif ($this->getSubtitle($locale)) {
-			$fullTitle = PKPString::concatTitleFields(array($fullTitle, $subtitle));
+			$fullTitle = PKPString::concatTitleFields(array($fullTitle, $this->getSubtitle($locale)));
 		}
 
 		return $fullTitle;

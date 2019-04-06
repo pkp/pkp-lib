@@ -607,6 +607,8 @@
 	<message key="submission.query.lastReply">Последний ответ</message>
 	<message key="submission.query.closed">Закрыт</message>
 	<message key="submission.query.addNote">Добавить сообщение</message>
+	<message key="submission.query.leaveQuery">Покинуть обсуждение</message>
+	<message key="submission.query.leaveQuery.confirm">Если вы покинете это обсуждение, вы больше не будете получать уведомления о новых сообщениях. Вы действительно хотите покинуть обсуждение?</message>
 	<message key="grid.action.openNoteForm">Добавить новый ответ в обсуждение</message>
 	<message key="submission.query.activity">Пользователь «{$responderName}» ответил на «{$noteTitle}»: {$noteContents}</message>
 	<message key="submission.query.new">Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</message>

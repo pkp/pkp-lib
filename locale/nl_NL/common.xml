@@ -9,7 +9,6 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
-  *
   -->
 
 <locale name="nl_NL" full_name="Nederlands">
@@ -78,18 +77,22 @@
 	<message key="common.captcha.error.invalid-input-response">U heeft de controle of u een echte gebruiker bent, om spam-inzendingen te vermijden, niet voltooid.</message>
 	<message key="common.captchaField.description">Voer de letters uit de afbeelding hierboven in.</message>
 	<message key="common.captchaField">Validatie</message>
-	<message key="common.ccLicense"><![CDATA[<br /><br />
+	<message key="common.ccLicense"><![CDATA[
+		<br /><br />
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
-		<br/>
-		 Dit werk wordt gepubliceerd onder een <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  licentie</a>.]]></message>
-	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		Dit werk wordt gepubliceerd onder een <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  licentie</a>.
+	]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[
+	<div class="rtBlock">
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
 		Dit werk wordt gepubliceerd onder een <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 licentie</a>.
-	</div>]]></message>
+	</div>
+	]]></message>
 	<message key="common.changesSaved">Uw wijzigingen zijn opgeslagen.</message>
 	<message key="common.chooseOne">Maak een keuze</message>
 	<message key="common.close">Sluit</message>
@@ -269,6 +272,7 @@
 	<message key="common.uploadFailed">Het bestand kon niet geladen worden. Probeer het opnieuw of neem contact op met de beheerder als het probleem niet verdwijnt.</message>
 	<message key="common.invalidFileType">Geen bestand geladen of ongeldig bestandstype!</message>
 	<message key="common.homepageImage.altText">Homepage afbeelding</message><message key="common.up">Omhoog</message>
+
 	<message key="common.upload.addFile">Upload bestand</message>	
 	<message key="common.upload.changeFile">Wijzig bestand</message>
 	<message key="common.upload.dragFile">Sleep bestand hierheen om te uploaden</message>
@@ -504,11 +508,13 @@
 	<message key="dashboard.tasks">Taken</message>
 	<message key="dashboard.myQueue">Mijn wachtlijst</message>
 
-	<message key="review.blindPeerReview"><![CDATA[<p>Om de integriteit van het blinde peer-review proces te garanderen voor inzendingen voor dit tijdschrift, moeten alle maatregelen worden genomen om de identiteit van auteurs en reviewers te verbergen voor elkaar. Daarom moeten auteurs, redacteurs en reviewers (die bestanden opladen als deel van het reviewproces) nagaan of de volgende stappen werden genomen om de tekst en bestandseigenschappen te zuiveren:</p>
+	<message key="review.blindPeerReview">
+		<![CDATA[<p>Om de integriteit van het blinde peer-review proces te garanderen voor inzendingen voor dit tijdschrift, moeten alle maatregelen worden genomen om de identiteit van auteurs en reviewers te verbergen voor elkaar. Daarom moeten auteurs, redacteurs en reviewers (die bestanden opladen als deel van het reviewproces) nagaan of de volgende stappen werden genomen om de tekst en bestandseigenschappen te zuiveren:</p>
 			<ul><li>De auteurs van een document hebben hun namen uit de tekst verwijderd, en in de literatuurlijst verwijzingen naar hun eigen publicaties geanonymiseerd tot "Auteur" en publicatiejaar.</li>
 			<li>Voor  Microsoft Office documenten moet eveneens auteursidentificatie worden verwijderd van de bestandseigenschappen, door volgende handelingen: Bestand > Opslaan als > Opties > Beveiligingscentrum > Verwijder persoonlijke gegevens bij opslaan van het bestand > Opslaan.</li>
 			<li>Voor PDF bestanden moeten de auteursnamen eveneens worden verwijderd uit Documenteigenschappen, onder Bestand in het hoofdmenu van Adobe Acrobat.</li>
-		</ul>]]></message>
+		</ul>]]>
+	</message>
 	<message key="reviewer.submission.reviewSchedule">Review planning</message>
 	<message key="reviewer.submission.reviewRequestDate">Verzoek van de hoofdredacteur</message>
 	<message key="reviewer.submission.responseDueDate">Uiterste antwoorddatum</message>

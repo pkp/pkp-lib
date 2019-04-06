@@ -119,5 +119,25 @@
 	<message key="editor.publicIdentificationNumericNotAllowed">O identificador público '{$publicIdentifier}' não pode ser um número.</message>
 	<message key="editor.submission.findAndSelectUser">Localizar Usuário</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">O padrão {$pattern} não é permitido para o identificador público.</message>
-  <message key="editor.review.reviewsAdded">Sem avaliações por pares para importar</message>
+  	<message key="editor.review.reviewsAdded">Sem avaliações por pares para importar</message>
+	
+	<!-- Reviewer selection lists -->
+	<message key="reviewer.list.count">{$count} avaliadores</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} de {$total} avaliadores</message>
+	<message key="reviewer.list.filterRating">Classificação mínima</message>
+	<message key="reviewer.list.activeReviews">{$count} em andamento</message>
+	<message key="reviewer.list.activeReviewsDescription">Avaliações designadas em andamento atualmente</message>
+	<message key="reviewer.list.completedReviews">Avaliações completas</message>
+	<message key="reviewer.list.declinedReviews">Pedidos de avaliação recusados</message>
+	<message key="reviewer.list.reviewerRating">Classificação do avaliador: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} dias atrás</message>
+	<message key="reviewer.list.daySinceLastAssignment">Ontem</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Dias desde a última avaliação designada</message>
+	<message key="reviewer.list.averageCompletion">Média de dias para completar uma avaliação</message>
+	<message key="reviewer.list.neverAssigned">Nunca designado</message>
+	<message key="reviewer.list.currentlyAssigned">Esse avaliador já foi designado para avaliar essa submissão.</message>
+	<message key="reviewer.list.warnOnAssign">Esse avaliador está bloqueado porque lhe foi designado um papel que o permite ver a identidade do autor. A avaliação cega não poderá ser garantida. Gostaria de desbloquear esse avaliador mesmo assim?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Desbloquear</message>
+	<message key="reviewer.list.reviewInterests">Áreas de atuação</message>
+	<message key="reviewer.list.biography">Biografia</message>
 </locale>

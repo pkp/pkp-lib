@@ -357,7 +357,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 
 		$this->click('//button[text()=\'Submit Review\']');
-		$this->click('link=OK');
+		$this->click('//button[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Review Submitted\')]');
 		$this->logOut();
 	}

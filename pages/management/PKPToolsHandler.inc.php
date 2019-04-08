@@ -432,7 +432,7 @@ class PKPToolsHandler extends ManagementHandler {
 		}
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submissionDao->deletePermissions($context->getId());
+		$submissionDao->resetPermissions($context->getId());
 
 		$user = $request->getUser();
 		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.setup.resetPermissions.success')));

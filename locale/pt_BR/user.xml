@@ -35,10 +35,12 @@
 	<message key="user.dateRegistered">Data de cadastro</message>
 	<message key="user.editMyProfile">Editar meu perfil</message>
 	<message key="user.email">E-mail</message>
+	<message key="user.givenName">Primeiro nome</message>
 	<message key="user.interests">Área de interesse para avaliação</message>
 	<message key="user.interests.description">(Separe interesses pressionando as teclas enter ou vírgula)</message>
 	<message key="user.gossip">Notas privadas</message>
 	<message key="user.group">Grupo de usuários</message>
+	<message key="user.familyName">Sobrenome</message>
 	<message key="user.profile.form.profileImageInvalid">Formato ou tamanho de imagem inválido para o perfil. Formatos aceitos são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Sua conta foi desabilitada pelo seguinte motivo: {$reason}</message>
 	<message key="user.login.accountDisabled">Sua conta foi desativada. Entre em contato com o administrador para maiores informações.</message>
@@ -71,6 +73,8 @@
 	<message key="user.password">Senha</message>
 	<message key="user.repeatPassword">Repetir senha</message>
 	<message key="user.phone">Telefone</message>
+	<message key="user.preferredPublicName">Nome Público de Preferência</message>
+	<message key="user.preferredPublicName.description">Como você prefere ser tratado? Pronomes de tratamento, nomes do meio e sufixos podem ser adicionados aqui se você desejar.</message>
 	<message key="user.profile.changePasswordInstructions">Digite as senhas atual e nova para alterar a senha de acesso ao cadastro.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>
 	<message key="user.profile.form.countryRequired">O país é obrigatório.</message>
@@ -146,4 +150,5 @@
 	<message key="user.apiKey.generate">Gerar nova chave da API</message>
 	<message key="user.apiKey.generateWarning">Gerar uma nova chave da API irá invalidar qualquer chave já existente para este usuário.</message>
 	<message key="user.apiKey.secretRequired">Antes de gerar uma chave da API, você deve definir um código no arquivo de configuração ("api_key_secret")</message>
+	<message key="user.privacyLink"><![CDATA[Seus dados são armazenados em concordância com nossa <a href="{$privacyUrl}" target="_blank">política de privacidade</a>.]]></message>
 </locale>

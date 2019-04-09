@@ -35,9 +35,11 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 		parent::__construct($overrideRowTemplate);
 
 		$templateMgr = TemplateManager::getManager(Application::getRequest());
-		$templateMgr->setConstant('ORDER_CATEGORY_GRID_CATEGORIES_ONLY');
-		$templateMgr->setConstant('ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY');
-		$templateMgr->setConstant('ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS');
+		$templateMgr->setConstants([
+			'ORDER_CATEGORY_GRID_CATEGORIES_ONLY',
+			'ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY',
+			'ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS',
+		]);
 
 		$this->addOptions(array('type' => $typeOption));
 	}

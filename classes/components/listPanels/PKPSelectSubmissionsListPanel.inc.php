@@ -20,13 +20,15 @@ class PKPSelectSubmissionsListPanel extends ListPanel {
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
-		$config['i18n']['listSeparator'] = __('common.commaListSeparator');
-		$config['i18n']['viewSubmission'] = __('submission.list.viewSubmission');
-		$config['i18n']['paginationLabel'] = __('common.pagination.label');
-		$config['i18n']['goToLabel'] = __('common.pagination.goToPage');
-		$config['i18n']['pageLabel'] = __('common.pageNumber');
-		$config['i18n']['nextPageLabel'] = __('common.pagination.next');
-		$config['i18n']['previousPageLabel'] = __('common.pagination.previous');
+		$config['18n'] = array_merge($config['i18n'], [
+			'listSeparator' => __('common.commaListSeparator'),
+			'viewSubmission' => __('submission.list.viewSubmission'),
+			'paginationLabel' => __('common.pagination.label'),
+			'goToLabel' => __('common.pagination.goToPage'),
+			'pageLabel' => __('common.pageNumber'),
+			'nextPageLabel' => __('common.pagination.next'),
+			'previousPageLabel' => __('common.pagination.previous'),
+		]);
 		return $config;
 	}
 }

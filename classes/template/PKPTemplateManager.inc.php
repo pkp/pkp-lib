@@ -134,23 +134,25 @@ class PKPTemplateManager extends Smarty {
 			'activeTheme' => $activeTheme,
 		));
 
-		$this->setConstant('REALLY_BIG_NUMBER');
-		$this->setConstant('UPLOAD_MAX_FILESIZE');
-		$this->setConstant('WORKFLOW_STAGE_ID_PUBLISHED');
-		$this->setConstant('WORKFLOW_STAGE_ID_SUBMISSION');
-		$this->setConstant('WORKFLOW_STAGE_ID_INTERNAL_REVIEW');
-		$this->setConstant('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW');
-		$this->setConstant('WORKFLOW_STAGE_ID_EDITING');
-		$this->setConstant('WORKFLOW_STAGE_ID_PRODUCTION');
-		$this->setConstant('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT');
-		$this->setConstant('ROLE_ID_MANAGER');
-		$this->setConstant('ROLE_ID_SITE_ADMIN');
-		$this->setConstant('ROLE_ID_AUTHOR');
-		$this->setConstant('ROLE_ID_REVIEWER');
-		$this->setConstant('ROLE_ID_ASSISTANT');
-		$this->setConstant('ROLE_ID_READER');
-		$this->setConstant('ROLE_ID_SUB_EDITOR');
-		$this->setConstant('ROLE_ID_SUBSCRIPTION_MANAGER');
+		$this->setConstants([
+			'REALLY_BIG_NUMBER',
+			'UPLOAD_MAX_FILESIZE',
+			'WORKFLOW_STAGE_ID_PUBLISHED',
+			'WORKFLOW_STAGE_ID_SUBMISSION',
+			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
+			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',
+			'WORKFLOW_STAGE_ID_EDITING',
+			'WORKFLOW_STAGE_ID_PRODUCTION',
+			'INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT',
+			'ROLE_ID_MANAGER',
+			'ROLE_ID_SITE_ADMIN',
+			'ROLE_ID_AUTHOR',
+			'ROLE_ID_REVIEWER',
+			'ROLE_ID_ASSISTANT',
+			'ROLE_ID_READER',
+			'ROLE_ID_SUB_EDITOR',
+			'ROLE_ID_SUBSCRIPTION_MANAGER',
+		]);
 
 		// Always pass these ListBuilder constants to the browser
 		// because we a ListBuilder may be loaded in an ajax request
@@ -160,9 +162,11 @@ class PKPTemplateManager extends Smarty {
 		// required on the frontend. We can remove them once the
 		// ListBuilderHandler is no longer needed.
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-		$this->setConstant('LISTBUILDER_SOURCE_TYPE_TEXT');
-		$this->setConstant('LISTBUILDER_SOURCE_TYPE_SELECT');
-		$this->setConstant('LISTBUILDER_OPTGROUP_LABEL');
+		$this->setConstants([
+			'LISTBUILDER_SOURCE_TYPE_TEXT',
+			'LISTBUILDER_SOURCE_TYPE_SELECT',
+			'LISTBUILDER_OPTGROUP_LABEL',
+		]);
 
 		if (is_a($router, 'PKPPageRouter')) {
 			$this->assign(array(
@@ -611,12 +615,14 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Set a constant to be exposed in JavaScript at pkp.const.<constant>
+	 * Set constants to be exposed in JavaScript at pkp.const.<constant>
 	 *
-	 * @param string $name Name of the constant
+	 * @param array $names Array of constant names
 	 */
-	function setConstant($name) {
-		$this->_constants[$name] = constant($name);
+	function setConstants($names) {
+		foreach ($names as $name) {
+			$this->_constants[$name] = constant($name);
+		}
 	}
 
 	/**

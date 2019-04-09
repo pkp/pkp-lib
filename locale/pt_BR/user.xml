@@ -152,4 +152,5 @@
 	<message key="user.apiKey.generate">Gerar nova chave da API</message>
 	<message key="user.apiKey.generateWarning">Gerar uma nova chave da API irá invalidar qualquer chave já existente para este usuário.</message>
 	<message key="user.apiKey.secretRequired">Antes de gerar uma chave da API, você deve definir um código no arquivo de configuração ("api_key_secret")</message>
+	<message key="user.privacyLink"><![CDATA[Seus dados são armazenados em concordância com nossa <a href="{$privacyUrl}" target="_blank">política de privacidade</a>.]]></message>
 </locale>

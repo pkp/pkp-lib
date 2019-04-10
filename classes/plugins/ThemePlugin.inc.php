@@ -550,7 +550,20 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		$return = [];
 		$values = $pluginSettingsDAO->getPluginSettings($contextId, $this->getName());
 		foreach ($this->options as $optionName => $optionConfig) {
-			$return[$optionName] = isset($values[$optionName]) ? $values[$optionName] : null;
+			$value = isset($values[$optionName]) ? $values[$optionName] : null;
+			// Convert values stored in the db as strings into booleans and
+			// integers if the default value is a boolean or integer
+			if (!is_null($optionConfig->default)) {
+				switch (gettype($optionConfig->default)) {
+					case 'boolean':
+						$value = !$value || $value === 'false' ? false : true;
+						break;
+					case 'integer':
+						$value = (int) $value;
+						break;
+				}
+			}
+			$return[$optionName] = $value;
 		}
 
 		if (!$this->parent) {

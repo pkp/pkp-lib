@@ -102,6 +102,17 @@ class PKPTemplateManager extends Smarty {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
 		$currentContext = $request->getContext();
 
+		$activeTheme = null;
+		if ($currentContext) {
+			$allThemes = PluginRegistry::getPlugins('themes');
+			foreach ($allThemes as $theme) {
+				if ($currentContext->getData('themePluginPath') === $theme->getDirName()) {
+					$activeTheme = $theme;
+					break;
+				}
+			}
+		}
+
 		$this->assign(array(
 			'defaultCharset' => Config::getVar('i18n', 'client_charset'),
 			'baseUrl' => $request->getBaseUrl(),
@@ -117,6 +128,7 @@ class PKPTemplateManager extends Smarty {
 			'currentLocale' => $locale,
 			'pageTitle' => $application->getNameKey(),
 			'applicationName' => __($application->getNameKey()),
+			'activeTheme' => $activeTheme,
 		));
 
 		if (is_a($router, 'PKPPageRouter')) {

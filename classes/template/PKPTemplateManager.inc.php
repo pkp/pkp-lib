@@ -102,12 +102,14 @@ class PKPTemplateManager extends Smarty {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
 		$currentContext = $request->getContext();
 
-		$allThemes = PluginRegistry::getPlugins('themes');
 		$activeTheme = null;
-		foreach ($allThemes as $theme) {
-			if ($currentContext->getData('themePluginPath') === $theme->getDirName()) {
-				$activeTheme = $theme;
-				break;
+		if ($currentContext) {
+			$allThemes = PluginRegistry::getPlugins('themes');
+			foreach ($allThemes as $theme) {
+				if ($currentContext->getData('themePluginPath') === $theme->getDirName()) {
+					$activeTheme = $theme;
+					break;
+				}
 			}
 		}
 

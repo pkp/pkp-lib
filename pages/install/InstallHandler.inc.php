@@ -29,7 +29,7 @@ class InstallHandler extends Handler {
 		// Make sure errors are displayed to the browser during install.
 		@ini_set('display_errors', true);
 
-		$this->validate($request);
+		$this->validate(null, $request);
 		$this->setupTemplate($request);
 
 		if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
@@ -45,7 +45,7 @@ class InstallHandler extends Handler {
 	 * Redirect to index if system has already been installed.
 	 * @param $request PKPRequest
 	 */
-	function validate($request) {
+	function validate($requiredContexts = null, $request = null) {
 		if (Config::getVar('general', 'installed')) {
 			$request->redirect(null, 'index');
 		}
@@ -57,7 +57,7 @@ class InstallHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function install($args, $request) {
-		$this->validate($request);
+		$this->validate(null, $request);
 		$this->setupTemplate($request);
 
 		$installForm = new InstallForm($request);
@@ -76,7 +76,7 @@ class InstallHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function upgrade($args, $request) {
-		$this->validate($request);
+		$this->validate(null, $request);
 		$this->setupTemplate($request);
 
 		if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
@@ -94,7 +94,7 @@ class InstallHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function installUpgrade($args, $request) {
-		$this->validate($request);
+		$this->validate(null, $request);
 		$this->setupTemplate($request);
 
 		$installForm = new UpgradeForm($request);

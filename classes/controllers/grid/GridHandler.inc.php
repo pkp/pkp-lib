@@ -689,7 +689,7 @@ class GridHandler extends PKPHandler {
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object.
 	 */
-	function fetchRow(&$args, $request) {
+	function fetchRow($args, $request) {
 		// Instantiate the requested row (includes a
 		// validity check on the row id).
 		$row = $this->getRequestedRow($request, $args);

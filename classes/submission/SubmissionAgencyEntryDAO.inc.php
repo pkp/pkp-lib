@@ -31,9 +31,11 @@ class SubmissionAgencyEntryDAO extends ControlledVocabEntryDAO {
 	 * Retrieve an iterator of controlled vocabulary entries matching a
 	 * particular controlled vocabulary ID.
 	 * @param $controlledVocabId int
+	 * @param $filter null (Not yet supported)
 	 * @return object DAOResultFactory containing matching CVE objects
 	 */
-	function getByControlledVocabId($controlledVocabId, $rangeInfo = null) {
+	function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null) {
+		assert($filter == null); // Parent class supports this, but this class does not
 		$result = $this->retrieveRange(
 			'SELECT cve.* FROM controlled_vocab_entries cve WHERE cve.controlled_vocab_id = ? ORDER BY seq',
 			array((int) $controlledVocabId),

@@ -64,6 +64,15 @@ abstract class GatewayPlugin extends Plugin {
 		$context = Application::get()->getRequest()->getContext();
 		return is_null($context) ? 0 : $context->getId();
 	}
+
+	/**
+	 * Get policies to the authorization process
+	 * @param $request PKPRequest
+	 * @return array Set of authorization policies
+	 */
+
+	function getPolicies($request) {
+		return array();
+	}
+
 }
-
-

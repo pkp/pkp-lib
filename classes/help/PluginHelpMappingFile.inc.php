@@ -50,7 +50,7 @@ class PluginHelpMappingFile extends HelpMappingFile {
 	 * @return string
 	 */
 	function getTopicIdForFilename($filename) {
-		$parts = split('/', str_replace('\\', '/', $filename));
+		$parts = explode('/', str_replace('\\', '/', $filename));
 		array_shift($parts); // Knock off "plugins"
 		array_shift($parts); // Knock off category
 		array_shift($parts); // Knock off plugin name

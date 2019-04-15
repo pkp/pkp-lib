@@ -681,7 +681,7 @@ WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\'))';
 			if (strlen($db) == 0) $db = 'template1';
 			$db = adodb_addslashes($db);
 		   	if ($str)  {
-			 	$host = split(":", $str);
+				$host = explode(":", $str);
 				if ($host[0]) $str = "host=".adodb_addslashes($host[0]);
 				else $str = 'host='; // Modified 2004-07-23 by Kevin Jamieson (http://pkp.sfu.ca/)
 				// Don't specify a host if none was entered (so will connect using sockets)

@@ -35,16 +35,19 @@ class HelpHandler extends Handler {
 		$filename = $urlPart . '.md';
 
 		$language = AppLocale::getIso1FromLocale(AppLocale::getLocale());
-		if (!file_exists($path . $language)) $language = 'en'; // Default
+		$summaryFile = $path . $language . '/SUMMARY.md';
 
-		if (!$filename || !preg_match('#^([[a-zA-Z0-9_-]+/)+[a-zA-Z0-9_-]+\.\w+$#', $filename) || !file_exists($path . $filename)) {
+		// Default to English
+		if (!file_exists($path . $language) || !file_exists($summaryFile) || filesize($summaryFile)==0) $language = 'en';
+
+		if (!preg_match('#^([[a-zA-Z0-9_-]+/)+[a-zA-Z0-9_-]+\.\w+$#', $filename) || !file_exists($path . $filename)) {
 			$request->redirect(null, null, null, array($language, 'SUMMARY'));
 		}
 
 		// Use the summary document to find next/previous links.
 		// (Yes, we're grepping markdown outside the parser, but this is much faster.)
 		$previousLink = $nextLink = null;
-		if (preg_match_all('/\(([^)]+)\)/sm', file_get_contents($path . $language . '/SUMMARY.md'), $matches)) {
+		if (preg_match_all('/\(([^)]+)\)/sm', file_get_contents($summaryFile), $matches)) {
 			$matches = $matches[1];
 			if (($i = array_search(substr($urlPart, strpos($urlPart, '/')+1), $matches)) !== false) {
 				if ($i>0) $previousLink = $matches[$i-1];

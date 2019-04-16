@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR"> full_name="ελληνικά">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="api.submissions.403.csrfTokenFailure"> Το αίτημά σας απορρίφθηκε, πιθανώς λόγω λήξης της σύνδεσής σας. Επαναφορτώστε τη σελίδα και προσπαθήστε ξανά. </message>
 	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions"> Μπορείτε να δείτε μόνο τις μη δημοσιευμένες υποβολές που σας έχουν ανατεθεί. </message>
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">Είναι αδύνατη η διαγραφή μιας υποβολής που δεν περιέχεται στο εν λόγω πλαίσιο.</message>

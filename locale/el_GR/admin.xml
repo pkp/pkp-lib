@@ -12,7 +12,7 @@
   *
   -->
 
-  <locale name="el_GR"> full_name="ελληνικά">
+  <locale name="el_GR" full_name="ελληνικά">
 	<message key="admin.systemInfo.settingName">Ονομασία ρύθμισης</message>
 	<message key="admin.systemInfo.settingValue">Τιμή ρύθμισης</message>
 	<message key="admin.adminFunctions">Λειτουργίες διαχείρισης</message>

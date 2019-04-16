@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR"> full_name="ελληνικά">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="editor.submissionLibrary">Αρχείο υποβολής</message>
 	<message key="editor.review.notInitiated">Η διαδικασία αξιολόγησης δεν έχει ξεκινήσει.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Μήνυμα προς τον Χρήστη</message>

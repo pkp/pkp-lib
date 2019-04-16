@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR"> full_name="ελληνικά">
+<locale name="el_GR" full_name="ελληνικά">
 	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Διαχειριστής Ιστοτόπου</message>
 	<message key="default.groups.plural.siteAdmin">Διαχειριστές Ιστοτόπου</message>

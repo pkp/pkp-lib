@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR"> full_name="ελληνικά">
+<locale name="el_GR" full_name="ελληνικά">
 	<message key="comments.anonymous">Ανώνυμος Χρήστης</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Κείμενο μηνύματος</message>
@@ -101,7 +101,7 @@
 	<message key="rt.captureCite.format">Μορφή παραπομπής</message>
 	<message key="rt.captureCite">Οδηγίες δημιουργίας παραπομπής τεκμηρίου</message>
 	<message key="rt.captureCite.online">Διαδικτυακά</message>
-	<message key="rt.captureCite.web">Web</message>	
+	<message key="rt.captureCite.web">Web</message>
 	<message key="rt.colleague">Γνωστοπόιηση σε συναδέλφο</message>
 	<message key="rt.context.abbrev">Συντομογραφία</message>
 	<message key="rt.context.and">και</message>

@@ -12,7 +12,7 @@
   *
   -->
 
-<locale name="el_GR"> full_name="ελληνικά">
+<locale name="el_GR" full_name="ελληνικά">
 	<!-- Website settings -->
 	<message key="manager.website.information">Πληροφορίες</message>
 	<message key="manager.website.appearance">Εμφάνιση</message>
@@ -488,7 +488,7 @@
 	<message key="plugins.importexport.user.error.userHasNoPassword">Δεν υπάρχει κωδικός πρόσβασης για τον Χρήστη "{$username}". Ελέγξτε το αρχείο XML. Ο Χρήστης δεν έχει καταχωρηθεί στο σύστημα .</message>
 	<message key="plugins.importexport.user.error.passwordHasBeenChanged"> Ο κωδικός πρόσβασης του Χρήστη "{$username}" δεν μπορεί να εισαχθεί στην παρούσα του μορφή. Ένας νέος κωδικός στάλθηκε στο ηλεκτρονικό ταχυδρομείο του Χρήστη. Ο Χρήστης έχει καταχωρηθεί στο σύστημα.</message>
 	<message key="plugins.importexport.user.error.plainPasswordNotValid">Ο κωδικός πρόσβασης του Χρήστη "{$username}" δεν είναι έγκυρος. Ο Χρήστης δεν έχει καταχωρηθεί στο σύστημα.</message>
-	
+
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">Ονομασία</message>
 	<message key="manager.navigationMenus.form.path">Διαδρομή</message>

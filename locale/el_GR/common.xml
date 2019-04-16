@@ -4,8 +4,8 @@
 <!--
   * locale/el_GR/common.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -106,6 +106,7 @@
 	<message key="common.country">Χώρα</message>
 	<message key="common.create">Δημιουργία</message>
 	<message key="common.dateCompleted">Ημερομηνία ολοκλήρωσης</message>
+	<message key="common.dateDecided">Ημερομηνία απόφασης</message>
 	<message key="common.date">Ημερομηνία</message>
 	<message key="common.dateModified">Ημερομηνία τροποποίησης</message>
 	<message key="common.dateRequested">Ημερομηνία υποβολής αίτησης</message>
@@ -203,6 +204,9 @@
 	<message key="common.overdue">Εκπρόθεσμο</message>
 	<message key="common.pagination">{$start}-{$end} των {$total}</message>
 	<message key="common.pagination.label">Πλοήγηση σε περισσότερες σελίδες</message>
+	<message key="common.pagination.goToPage">Μετάβαση στη σελίδα {$page}</message>
+	<message key="common.pagination.next">Επόμενη σελίδα</message>
+	<message key="common.pagination.previous">Προηγούμενη σελίδα</message>
 	<message key="common.pageNumber">Σελίδα {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Λογότυπο κεφαλίδας σελίδας</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -211,7 +215,6 @@
 	<message key="common.pluginDisabled">Το Πρόσθετο "{$pluginName}" έχει απενεργοποιηθεί.</message>
 	<message key="common.prefix">Πρόθεμα</message>
 	<message key="common.prefixAndTitle.tip">Παραδείγματα: Α, The</message>
-	<message key="common.subtitle.tip">Ο προαιρετικός υπότιτλος θα εμφανίζεται μετά τον κύριο τίτλο, από τον οποίο θα διαχωρίζεται με άνω και κάτω τελεία (:).</message>
 	<message key="common.preview">Επισκόπηση</message>
 	<message key="common.publisher">Εκδότης</message>
 	<message key="common.quality">Ποιότητα</message>
@@ -309,6 +312,7 @@
 	<message key="email.compose">Αποστολή μηνύματος</message>
 	<message key="email.compose.tooManyRecipients">Τo μήνυμα που προσπαθείτε να στείλετε έχει μεγάλο αριθμό παραληπτών.</message>
 	<message key="email.compose.tooSoon">Προσπαθείτε να στείλετε διαδοχικά μηνύματα σε πολύ σύντομο χρόνο. Παρακαλούμε περιμένετε πριν την αποστολή νέου μηνύματος.</message>
+	<message key="email.compose.error">Υπήρξε πρόβλημα κατά την αποστολή ηλεκτρονικού μηνύματος. Παρακαλούμε δοκιμάστε αργότερα, ή επικοινωνήστε με τον Διαχειριστή του ιστοτόπου.</message>
 	<message key="email.email">Μήνυμα</message>
 	<message key="email.from">Από</message>
 	<message key="email.invalid">Η ηλεκτρονική διεύθυνση {$email} δεν είναι έκγυρη.</message>

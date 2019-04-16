@@ -4,8 +4,8 @@
 <!--
   * locale/el_GR/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -544,4 +544,45 @@
 	<message key="manager.navigationMenus.search.description">Σύνδεσμος στη σελίδα αναζήτησης.</message>
 	<message key="manager.navigationMenus.privacyStatement.description">Σύνδεσμος στη σελίδα Δήλωσης προστασίας προσωπικών δεδομένων.</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Αυτός ο σύνδεσμος θα προβάλεται εφόσον έχει καταχωρηθεί δήλωση προστασίας προσωπικών δεδομένων στο μενού Ρυθμίσεις &gt; Ροή Εργασιών &gt; Υποβολές.</message>
+
+	<message key="grid.category.add">Προσθήκη κατηγορίας</message>
+	<message key="grid.category.edit">Επεξεργασία κατηγορίας</message>
+	<message key="grid.category.name">Ονομασία</message>
+	<message key="grid.category.path">Διαδρομή</message>
+	<message key="grid.category.urlWillBe">Ο σύνδεσμος (URL) της κατηγορίας θα είναι: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Η διαδρομή (path) της κατηγορίας μπορεί να περιέχει μόνο γράμματα και αριθμούς</message>
+	<message key="grid.category.pathExists">Η συγκεκριμένη διαδρομή (path) υπάρχει ήδη. Παρακαλούμε εισάγετε μια μοναδική διαδρομή.</message>
+	<message key="grid.category.description">Περιγραφή</message>
+	<message key="grid.category.parentCategory">Υπερκείμενη κατηγορία</message>
+	<message key="grid.category.removeText">Επιβεβαιώνετε τη διαγραφή αυτής της κατηγορίας;</message>
+	<message key="grid.category.nameRequired">Παρακαλούμε εισάγετε ονομασία κατηγορίας</message>
+	<message key="grid.category.categoryDetails">Λεπτομέρειες κατηγορίας</message>
+
+	<!-- Statistics -->
+	<message key="stats.articlesOfTotal">{$count} από {$total} άρθρα</message>
+	<message key="stats.daily">Ημερησίως</message>
+	<message key="stats.dateRange">Εύρος ημερομηνιών</message>
+	<message key="stats.dateRange.allDates">Όλες οι ημερομηνίες</message>
+	<message key="stats.dateRange.apply">Εφαρμογή</message>
+	<message key="stats.dateRange.change">Αλλαγή εύρους ημερομηνιών</message>
+	<message key="stats.dateRange.customRange">Προσαρμοσμένο εύρος</message>
+	<message key="stats.dateRange.dateDoesNotExist">Κάποια από τις εισηγμένες ημερομηνίες δεν υπάρχει.</message>
+	<message key="stats.dateRange.from">Από</message>
+	<message key="stats.dateRange.instruction">Οι ημερομηνίες εισάγονται με τη μορφή ΕΕΕΕ-ΜΜ-ΗΗ (π.χ. 2019-01-15).</message>
+	<message key="stats.dateRange.invalidDate">Μη έγκυρη μορφή ημερομηνίας. Οι ημερομηνίες εισάγονται με τη μορφή ΕΕΕΕ-ΜΜ-ΗΗ.</message>
+	<message key="stats.dateRange.invalidDateRange">Η ημερομηνία έναρξης πρέπει να προηγείται της ημερομηνίας ολοκλήρωσης.</message>
+	<message key="stats.dateRange.invalidEndDateMax">Ολοκλήρωση μέχρι {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">Έναρξη από {$date}.</message>
+	<message key="stats.dateRange.last12Months">Τους τελευταίους 12 μήνες</message>
+	<message key="stats.dateRange.last30Days">Τις τελευταίες 30 ημέρες</message>
+	<message key="stats.dateRange.last90Days">Τις τελευταίες 90 ημέρες</message>
+	<message key="stats.dateRange.sinceDate">Από {$date}</message>
+	<message key="stats.dateRange.to">Προς</message>
+	<message key="stats.dateRange.untilDate">Έως {$date}</message>
+	<message key="stats.fileViews">Προβολές αρχείου</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Μηνιαίως</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Αναζήτηση με τίτλο, Συγγραφέα και ID</message>
+	<message key="stats.total">Συνολικά</message>
 </locale>

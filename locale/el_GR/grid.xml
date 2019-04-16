@@ -4,15 +4,15 @@
 <!--
   * locale/el_GR/grid.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
   *
   -->
 
-<locale name="el_GR"> full_name="ελληνικά">
+<locale name="el_GR" full_name="ελληνικά">
 	<!-- Common -->
 	<message key="grid.noItems">Δεν υπάρχουν αντικείμενα</message>
 	<message key="grid.settings">Ρυθμίσεις</message>
@@ -120,6 +120,7 @@
 	<message key="grid.action.preview">Προεπισκόπηση</message>
 	<message key="grid.action.install">Εγκατάσταση</message>
 	<message key="grid.action.moreItems">Φόρτωση περισσότερων</message>
+	<message key="grid.action.users">Δείτε/Επιλέξτε χρήστες</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">Η ενέργεια έχει ολοκληρωθεί.</message>
@@ -268,7 +269,7 @@
 	<message key="grid.submission.active.selectOrphaned">Να συμπεριληφθούν μη ολοκληρωμένες υποβολές Sυγγραφέων.</message>
 
 	<!-- Navigation Menus -->
-	<message key="grid.action.addNavigationMenu">Προσθήκη Μενού<message>
+	<message key="grid.action.addNavigationMenu">Προσθήκη Μενού</message>
 	<message key="grid.action.addNavigationMenuItem">Προσθήκη αντικειμένου</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Δεν υπάρχουν αντικέμενα στα Μενού Περιήγησης</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Δεν υπάρχουν Μενού Περιήγησης</message>

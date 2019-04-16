@@ -14,7 +14,7 @@
 <div class="pkp_structure_footer" role="contentinfo">
 	<div class="pkp_brand_footer">
 		<a href="{$pkpLink}">
-			<img alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/{$brandImage}">
+			<img alt="{translate key="common.publicKnowledgeProject"|default:'null'}" src="{$baseUrl}/{$brandImage}">
 		</a>
 	</div>
 </div>

@@ -68,13 +68,12 @@ abstract class PKPPublicFileManager extends FileManager {
 
 	/**
 	 * Copy a file to a context's public directory.
-	 * @param $assocType Assoc type for context
 	 * @param $contextId int Context ID
 	 * @param $sourceFile string the source of the file to copy
 	 * @param $destFileName string the destination file name
 	 * @return boolean
 	 */
-	public function copyContextFile($assocType, $contextId, $sourceFile, $destFileName) {
+	public function copyContextFile($contextId, $sourceFile, $destFileName) {
 		return $this->copyFile($sourceFile, $this->getContextFilesPath($contextId) . '/' . $destFileName);
 	}
 

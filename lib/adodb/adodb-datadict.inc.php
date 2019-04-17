@@ -392,7 +392,7 @@ class ADODB_DataDict {
 		if ($flds) {
 			list($lines,$pkey) = $this->_GenFields($flds);
 			list(,$first) = each($lines);
-			list(,$column_def) = split("[\t ]+",$first,2);
+			list(,$column_def) = preg_split("/[\t ]+/",$first,2);
 		} else {
 			$column_def = '';
 		}

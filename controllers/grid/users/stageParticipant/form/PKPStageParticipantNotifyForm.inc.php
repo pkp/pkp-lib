@@ -252,10 +252,10 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			case 'COPYEDIT_REQUEST':
 			case 'LAYOUT_REQUEST':
 			case 'INDEX_REQUEST': return array(
-					'participantName' => __('user.name'),
-					'participantUsername' => __('user.username'),
-					'submissionUrl' => __('common.url'),
-				);
+				'participantName' => __('user.name'),
+				'participantUsername' => __('user.username'),
+				'submissionUrl' => __('common.url'),
+			);
 			case 'LAYOUT_COMPLETE':
 			case 'INDEX_COMPLETE': return array(
 				'editorialContactName' => __('user.role.editor'),

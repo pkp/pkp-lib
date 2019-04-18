@@ -71,7 +71,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
 		$email->assignParams(array(
 			'authorName' => $submission->getAuthorString(),
-			'editorialContactSignature' => $user->getContactSignature(),
 			'submissionUrl' => $submissionUrl,
 		));
 		$email->replaceParams();

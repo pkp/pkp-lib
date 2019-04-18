@@ -1,316 +1,636 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/el_GR/submission.xml
+  * locale/en_US/submission.xml
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2000-2019 John Willinsky
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2000-2018 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the el_GR (ελληνικά) locale.
-  *
+  * Localization strings.
   -->
 
 <locale name="el_GR" full_name="ελληνικά">
-	<message key="submission.agencies">ΦορείςΓραφεία</message>
-	<message key="submission.abstractViews">Προβολές Περίληψης</message>
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Εισάγετε μια λίστα με αναφορές εργασιών που υπάρχουν σε αυτή την υποβολή. Παρακαλούμε διαχωρίστε τις αναφορές με κενές γραμμές.</message>
+	<message key="author.submission.roundStatus.reviewsReady">Νέες αξιολογήσεις έχουν υποβληθεί και εξετάζονται από τον Επιμελητή.</message>
+	<message key="submission.confirm.message">Η υποβολή σας έχει μεταφορτωθεί και είναι έτοιμη για αποστολή. Πριν συνεχίσετε, μπορείτε να ελέγξετε και να προσαρμόσετε τα δεδομένα που έχετε εισάγει. Όταν είστε έτοιμοι, επιλέξτε "Ολοκλήρωση υποβολής".</message>
+	<message key="submission.submit.availableUserGroups">Υποβολή ως</message>
+	<message key="submission.submit.availableUserGroupsDescription">Επιλέξτε τον ρόλο που περιγράφει καλύτερα τη συμβολή σας στην υποβολή αυτή.</message>
+	<message key="submission.submit.contactConsent">Πρόσωπο επικοινωνίας</message>
+	<message key="submission.submit.contactConsentDescription">Παρακαλώ επικοινωνήστε μαζί μου για την υποβολή αυτή.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Υποβάλλετε με οποιονδήποτε από τους παρακάτω ρόλους για να μπορείτε να επεξεργαστείτε και να δημοσιεύσετε την υποβολή: {$managerGroups}</message>
+	<message key="submission.submit.submissionChecklist">Προϋποθέσεις υποβολής</message>
+	<message key="submission.submit.submissionChecklistDescription">Πρέπει να διαβάσετε και να επιβεβαιώσετε ότι η υποβολή πληροί τις παρακάτω προϋποθέσεις πριν προχωρήσετε.</message>
+	<message key="submission.submit.submissionComplete">Ολοκλήρωση υποβολής</message>
+	<message key="submission.submit.submissionCompleteThanks">Ευχαριστούμε για το ενδιαφέρον σας να δημοσιεύσετε την εργασία σας στο {$contextName}.</message>
+	<message key="submission.submit.copyrightNoticeAgreementLabel">Αποδοχή της Δήλωσης Πνευματικής Ιδιοκτησίας</message>
+	<message key="submission.submit.copyrightNoticeAgree">Ναι, η υποβολή συμμορφώνεται με τους όρους της Δήλωσης Πνευματικής Ιδιοκτησίας.</message>
+	<message key="submission.submit.whatNext">Τι συμβαίνει στη συνέχεια;</message>
+	<message key="submission.submit.whatNext.forNow">Σε αυτό το στάδιο μπορείτε να:</message>
+	<message key="submission.submit.whatNext.review">Ελέγξετε τα στοιχεία της υποβολής.</message>
+	<message key="submission.submit.whatNext.create">Ξεκινήσετε μια νέα υποβολή.</message>
+	<message key="submission.submit.whatNext.return">Επιστρέψετε στον πίνακα ελέγχου.</message>
+	<message key="submission.submit.extendedMetadata">Εκτεταμένα μεταδεδομένα</message>
+
+	<!-- FIXME: move to meta-data plugins -->
+	<!-- messages used by meta-data filters -->
+	<message key="metadata.filters.crossref.settings.email.displayName">Email εγγραφής στο CrossRef</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Παρακαλούμε εισάγετε ένα έγκυρο email εγγραφής στο CrossRef. Μπορείτε να καταχωρήσετε το email σας δωρεάν στον ιστότοπο του CrossRef.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">Κλειδί ISBNdb API</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Παρακαλούμε εισάγετε το κλειδί ISBNdb API. Αν δεν έχετε ήδη, μπορείτε να αποκτήσετε ένα κλειδί δωρεάν από τον ιστότοπο του ISBNdb project.</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">Email εγγραφής στο PubMed</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">Παρακαλούμε εισάγετε ένα έγκυρο email εγγραφής στο PubMed, αν έχετε.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API κλειδί</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Παρακαλούμε εισάγετε ένα έγκυρο κλειδί WorldCat API.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Δομοστοιχείο αναφορών/παραπομπών</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Παρακαλούμε επιλέξτε ένα από τα διαθέσιμα δομοστοιχεία αναφορών.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">Να μην χρησιμοποιείται εξ'ορισμού (θα είναι ακόμα διαθέσιμο στον Επιμελητή).</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Εσωτερικό σφάλμα. Μια μη έγκυρη τιμή δηλώθηκε στη ρύθμιση "optional filter". Παρακαλούμε αναφέρατε το πρόβλημα.</message>
+
+	<!-- messages shared between MD schemas -->
+	<message key="metadata.property.displayName.author">Συγγραφείς</message>
+	<message key="metadata.property.validationMessage.author">Για καλύτερα αποτελέσματα κατά την αναζήτηση, οι Συγγραφείς θα πρέπει να εισάγονται με την εξής μορφή: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.editor">Επιμελητές</message>
+	<message key="metadata.property.validationMessage.editor">Για καλύτερα αποτελέσματα κατά την αναζήτηση, οι Επιμελητές θα πρέπει να εισάγονται με την εξής μορφή: Coleman Jr, D. (Ralf) Dr.</message>
+
+	<!-- NLM-specific messages -->
+	<message key="metadata.property.displayName.article-title">Τίτλος άρθρου</message>
+	<message key="metadata.property.validationMessage.article-title">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο άρθρου.</message>
+	<message key="metadata.property.displayName.source">Τίτλος περιοδικού/βιβλίου</message>
+	<message key="metadata.property.validationMessage.source">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο περιοδικού/βιβλίου.</message>
+	<message key="metadata.property.displayName.date">Ημερομηνία δημοσίευσης</message>
+	<message key="metadata.property.validationMessage.date">Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία δημοσίευσης (μορφή: ΕΕΕΕ-MM-ΗΗ).</message>
+	<message key="metadata.property.displayName.access-date">Ημερομηνία πρόσβασης</message>
+	<message key="metadata.property.validationMessage.access-date">Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία πρόσβασης (μορφή: ΕΕΕΕ-ΜΜ-ΗΗ).</message>
+	<message key="metadata.property.displayName.issue">Τεύχος</message>
+	<message key="metadata.property.validationMessage.issue">Παρακαλούμε εισάγετε ένα έγκυρο τεύχος.</message>
+	<message key="metadata.property.displayName.volume">Τόμος</message>
+	<message key="metadata.property.validationMessage.volume">Παρακαλούμε εισάγετε έναν έγκυρο τόμο.</message>
+	<message key="metadata.property.displayName.season">Περίοδος</message>
+	<message key="metadata.property.validationMessage.season">Παρακαλούμε εισάγετε ένα έγκυρο αναγνωριστικό περιόδου.</message>
+	<message key="metadata.property.displayName.chapter-title">Τίτλος κεφαλαίου</message>
+	<message key="metadata.property.validationMessage.chapter-title">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο κεφαλαίου.</message>
+	<message key="metadata.property.displayName.edition">Έκδοση</message>
+	<message key="metadata.property.validationMessage.edition">Παρακαλούμε εισάγετε μια έγκυρη έκδοση.</message>
+	<message key="metadata.property.displayName.series">Σειρά εκδόσεων</message>
+	<message key="metadata.property.validationMessage.series">Παρακαλούμε εισάγετε μια έγκυρη σειρά εκδόσεων.</message>
+	<message key="metadata.property.displayName.supplement">Συμπλήρωμα</message>
+	<message key="metadata.property.validationMessage.supplement">Παρακαλούμε εισάγετε ένα έγκυρο συμπλήρωμα.</message>
+	<message key="metadata.property.displayName.conf-date">Ημερομηνία συνεδρίου</message>
+	<message key="metadata.property.validationMessage.conf-date">Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία συνεδρίου (μορφή: ΕΕΕΕ-ΜΜ-ΗΗ).</message>
+	<message key="metadata.property.displayName.conf-loc">Τόπος διεξαγωγής συνεδρίου</message>
+	<message key="metadata.property.validationMessage.conf-loc">Παρακαλούμε εισάγετε έναν έγκυρο τόπο διεξαγωγής συνεδρίου.</message>
+	<message key="metadata.property.displayName.conf-name">Τίτλος συνεδρίου</message>
+	<message key="metadata.property.validationMessage.conf-name">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο συνεδρίου.</message>
+	<message key="metadata.property.displayName.conf-sponsor">Χορηγός συνεδρίου</message>
+	<message key="metadata.property.validationMessage.conf-sponsor">Παρακαλούμε εισάγετε έναν έγκυρο Χορηγό Συνεδρίου.</message>
+	<message key="metadata.property.displayName.institution">Ίδρυμα</message>
+	<message key="metadata.property.validationMessage.institution">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο Ιδρύματος.</message>
+	<message key="metadata.property.displayName.fpage">Πρώτη σελίδα</message>
+	<message key="metadata.property.validationMessage.fpage">Παρακαλούμε εισάγετε μια έγκυρη πρώτη σελίδα (πρέπει να είναι μια αριθμητική τιμή).</message>
+	<message key="metadata.property.displayName.lpage">Τελευταία σελίδα</message>
+	<message key="metadata.property.validationMessage.lpage">Παρακαλούμε εισάγετε μια έγκυρη τελευταία σελίδα (πρέπει να είναι μια αριθμητική τιμή).</message>
+	<message key="metadata.property.displayName.size">Αριθμός σελίδων</message>
+	<message key="metadata.property.validationMessage.size">Παρακαλούμε εισάγετε ένα έγκυρο σύνολο σελίδων (πρέπει να είναι μια αριθμητική τιμή).</message>
+	<message key="metadata.property.displayName.publisher-loc">Έδρα Εκδότη</message>
+	<message key="metadata.property.validationMessage.publisher-loc">Παρακαλούμε εισάγετε μια έγκυρη έδρα Εκδότη.</message>
+	<message key="metadata.property.displayName.publisher-name">Όνομα Εκδότη</message>
+	<message key="metadata.property.validationMessage.publisher-name">Παρακαλούμε εισάγετε ένα έγκυρο όνομα Εκδότη.</message>
+	<message key="metadata.property.displayName.isbn">ISBN</message>
+	<message key="metadata.property.validationMessage.isbn">Παρακαλούμε εισάγετε ένα έγκυρο ISBN (9 ή 13 στοιχεία).</message>
+	<message key="metadata.property.displayName.issn">ISSN εντύπου</message>
+	<message key="metadata.property.validationMessage.issn">Παρακαλούμε εισάγετε ένα έγκυρο ISSN εντύπου.</message>
+	<message key="metadata.property.displayName.eissn">eISSN</message>
+	<message key="metadata.property.validationMessage.eissn">Παρακαλούμε εισάγετε ένα έγκυρο eISSN.</message>
+	<message key="metadata.property.displayName.doi">DOI</message>
+	<message key="metadata.property.validationMessage.doi">Παρακαλούμε εισάγετε ένα έγκυρο DOI.</message>
+	<message key="metadata.property.displayName.publisher-id">Αναγνωριστικό ειδικής έκδοσης</message>
+	<message key="metadata.property.validationMessage.publisher-id">Παρακαλούμε εισάγετε ένα έγκυρο αναγνωριστικό ειδικής έκδοσης.</message>
+	<message key="metadata.property.displayName.coden">CODEN</message>
+	<message key="metadata.property.validationMessage.coden">Παρακαλούμε εισάγετε ένα έγκυρο CODEN.</message>
+	<message key="metadata.property.displayName.sici">SICI</message>
+	<message key="metadata.property.validationMessage.sici">Παρακαλούμε εισάγετε ένα έγκυρο SICI.</message>
+	<message key="metadata.property.displayName.pmid">PMID</message>
+	<message key="metadata.property.validationMessage.pmid">Παρακαλούμε εισάγετε ένα έγκυρο PMID.</message>
+	<message key="metadata.property.displayName.uri">Υπερσύνδεσμος προς τη δημοσίευση</message>
+	<message key="metadata.property.validationMessage.uri">Παρακαλούμε εισάγετε έναν έγκυρο εναλλακτικό υπερσύνδεσμο προς την δημοσίευση.</message>
+	<message key="metadata.property.displayName.comment">Σχόλιο</message>
+	<message key="metadata.property.validationMessage.comment">Παρακαλούμε εισάγετε ένα έγκυρο σχόλιο.</message>
+	<message key="metadata.property.displayName.annotation">Υπομνηματισμός</message>
+	<message key="metadata.property.validationMessage.annotation">Παρακαλούμε εισάγετε έναν έγκυρο υπομνηματισμό.</message>
+	<message key="metadata.property.displayName.publication-type">Τύπος δμοσίευσης</message>
+	<message key="metadata.property.validationMessage.publication-type">Παρακαλούμε σιγουρευτείτε ότι δηλώνετε πάντα κάποιον τύπο δημοσίευσης. Οι τύποι που υποστηρίζονται είναι βιβλίο (για βιβλία ή κεφάλαια βιβλίων) και περιοδικό (για άρθρα περιοδικών). Σε αντίθετη περίπτωση, η απόδοση της αναφοράς δεν θα μορφοποιηθεί σωστά.</message>
+
+	<!-- MODS-specific messages -->
+	<message key="metadata.property.displayName.title-type">Τύπος τίτλου</message>
+	<message key="metadata.property.validationMessage.title-type">Παρακαλούμε σιγουρευτείτε ότι έχετε επιλέξει έναν έγκυρο τύπο τίτλου. Οι τύποι που υποστηρίζονται είναι "συντομευμένος", "μεταφρασμένος","εναλλακτικός" ή "ενιαίος".</message>
+	<message key="metadata.property.displayName.nonSort">Μέρος του τίτλου αγνοήθηκε κατά τη διάταξη.</message>
+	<message key="metadata.property.validationMessage.nonSort">Παρακαλούμε εισάγετε μόνο τους αρχικούς χαρακτήρες του τίτλου που θα αγνοηθούν κατά τη διάταξη του τίτλου.</message>
+	<message key="metadata.property.displayName.title">Τίτλος</message>
+	<message key="metadata.property.validationMessage.title">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο.</message>
+	<message key="metadata.property.displayName.subTitle">Υπότιτλος</message>
+	<message key="metadata.property.validationMessage.subTitle">Παρακαλούμε εισάγετε έναν έγκυρο υπότιτλο.</message>
+	<message key="metadata.property.displayName.partNumber">Αριθμός τμήματος</message>
+	<message key="metadata.property.validationMessage.partNumber">Παρακαλούμε εισάγετε ένα έγκυρο αριθμό τμήματος.</message>
+	<message key="metadata.property.displayName.partName">Όνομα τμήματος</message>
+	<message key="metadata.property.validationMessage.partName">Παρακαλούμε εισάγετε ένα έγκυρο όνομα τμήματος.</message>
+	<message key="metadata.property.displayName.name-type">Τύπος ονόματος</message>
+	<message key="metadata.property.validationMessage.name-type">Παρακαλούμε σιγουρευτείτε ότι έχετε επιλέξει έναν έγκυρο τύπο ονόματος. Οι τύποι που υποστηρίζονται είναι "προσωπικός", "εταιρικός" και "συνέδριο".</message>
+	<!-- FIXME: end -->
+
+	<message key="common.queue.long.submissionsUnassigned">Χωρίς ανάθεση</message>
+	<message key="common.queue.long.myAssigned">Οι αναθέσεις μου</message>
+	<message key="common.queue.long.submissionsArchived">Υποβολές αρχείου</message>
+	<message key="submission.authors">Συγγραφείς</message>
+	<message key="submission.authorBiography">Βιογραφικό Συγγραφέα</message>
+	<message key="submission.authorBiographies">Βιογραφικά Συγγραφέων</message>
+	<message key="submission.authorWithAffiliation">{$name}, {$affiliation}</message>
+	<message key="submission.shortAuthor">{$author} et al.</message>
+	<message key="submission.mySubmissions">Οι Υποβολές μου</message>
+	<message key="submission.addFile">Προσθήκη αρχείου</message>
+	<message key="submission.agencies">Φορείς/Γραφεία</message>
+	<message key="submission.abstractViews">Προβολές περίληψης</message>
 	<message key="submission.accepted">Δεκτό</message>
 	<message key="submission.acknowledge">Ελήφθη</message>
-	<message key="submission.addSuppFile">Πρόσθεση Συμπληρωματικού Αρχείου</message>
+	<message key="submission.addSuppFile">Προσθήκη συμπληρωματικού αρχείου</message>
 	<message key="submission.ask">Ερώτημα</message>
-	<message key="submission.attachedFile">Επισυναπτόμενο Αρχείο</message>
+	<message key="submission.attachedFile">Επισυναπτόμενο αρχείο</message>
 	<message key="submission.backToSubmissionEditing">Πίσω στην επιμέλεια υποβολής</message>
 	<message key="submission.changeComments">Αλλαγή σε</message>
-	<message key="submission.citations">Αναφορές</message>
-	<message key="submission.comments.addComment"> Προσθήκη σχολίου</message>
+	<message key="submission.changeFile">Αλλαγή αρχείου</message>
+	<message key="submission.citations">Βιβλιογραφικές αναφορές</message>
+	<message key="submission.citations.description">Καταχωρίστε κάθε αναφορά σε μια νέα γραμμή, ώστε να μπορεί να εξαχθεί με σωστό τρόπο.</message>
+	<message key="submission.parsedCitations">Βιβλιογραφικές αναφορές που έχουν εξαχθεί.</message>
+	<message key="submission.parsedCitations.description">Οι παρακάτω βιβλιογραφικές αναφορές έχουν εξαχθεί και θα συνδεθούν με τα μεταδεδομένα υποβολής:</message>
+	<message key="submission.parsedAndSaveCitations">Εξαγωγή και αποθήκευση αναφορών</message>
+	<message key="submission.comments.addComment">Προσθήκη σχολίου</message>
 	<message key="submission.comments.comments">Σχόλια</message>
-	<message key="submission.comments.confirmDelete"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε το συγκεκριμένο σχόλιο;</message>
+	<message key="submission.comments.confirmDelete">Επιβεβαιώνετε τη διαγραφή του συγκεκριμένου σχολίου;</message>
 	<message key="submission.comments.corrections">Διορθώσεις</message>
-	<message key="submission.comments.editComment">Διαμόρφωση σχολίου</message>
+	<message key="submission.comments.editComment">Επεξεργασία σχολίου</message>
 	<message key="submission.comments.importPeerReviews">Εισαγωγή αξιολογήσεων</message>
-	<message key="submission.comments.importPeerReviews.reviewerLetter">Αξιολογητής  {$reviewerLetter}:</message>
+	<message key="submission.comments.addReviews">Επισύναψη αξιολογήσεων στο μήνυμα</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Αξιολογητής {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">Κανένα σχόλιο</message>
-	<message key="submission.comments.noReviews">Καμία αξιολογήσεις</message>
+	<message key="submission.comments.noReviews">Καμία αξιολόγηση</message>
 	<message key="submission.comments.review">Αξιολόγηση</message>
-	<message key="submission.comments.sendDecisionToReviewers">Αποστολή απόφασης επιμελητών στους αξιολογητές</message>
+	<message key="submission.comments.sendDecisionToReviewers">Αποστολή απόφασης Επιμελητών στους Αξιολογητές</message>
 	<message key="submission.comments.subject">Θέμα</message>
 	<message key="submission.complete">Ολοκλήρωση</message>
+	<message key="submission.contributors">Λίστα Συντελεστών</message>
+	<message key="submission.copyedited">Το κείμενο επιμελήθηκε.</message>
+	<message key="submission.copyediting">Επιμέλεια κειμένου</message>
+	<message key="submission.queryNoteFiles">Αρχεία συζητήσεων</message>
+	<message key="submission.coverage">Πληροφορίες κάλυψης</message>
 	<message key="submission.done">Τέλος</message>
-	<message key="submission.dueDate">Προσθεσμία (Due Date)</message>
-	<message key="submission.due">Στον/ην</message>
-	<message key="submission.editing">Επιμέλεια (Διαμόρφωση)</message>
-	<message key="submission.editMetadata">Διόρθωση μεταδεδομένων</message>
-	<message key="submission.email.backToEmailLog">Επιστροφή στο ημερολόγιο των email</message>
-	<message key="submission.email.confirmClearLog">Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε το ημερολόγιο των email για τη συγκεκριμένη υποβολή;</message>
-	<message key="submission.email.confirmDeleteLogEntry"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη καταχώριση από το ημερολόγιο των email;</message>
-	<message key="submission.email.deleteLogEntry">Διαγραφή καταχώρισης ημερολογίους</message>
-	<message key="submission.emailLog">Email Log</message>
+	<message key="submission.dueDate">Προσθεσμία</message>
+	<message key="submission.due">Προθεσμία</message>
+	<message key="submission.editing">Επιμέλεια</message>
+	<message key="submission.editMetadata">Επεξεργασία μεταδεδομένων</message>
+	<message key="submission.editorial">Επιμέλεια κειμένου</message>
+	<message key="submission.email.backToEmailLog">Επιστροφή στο ημερολόγιο των μηνυμάτων</message>
+	<message key="submission.email.confirmClearLog">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τα περιεχόμενα του ημερολογίου των μηνυμάτων για τη συγκεκριμένη υποβολή;</message>
+	<message key="submission.email.confirmDeleteLogEntry">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη καταχώριση από το ημερολόγιο των μηνυμάτων;</message>
+	<message key="submission.email.deleteLogEntry">Διαγραφή καταχώρισης ημερολογίου</message>
+	<message key="submission.emailLog">Ημερολόγιο μηνυμάτων</message>
 	<message key="submission.event.participantAdded">Ο/Η "{$name}" ({$username}) έχει προστεθεί ως {$userGroupName}.</message>
 	<message key="submission.event.participantRemoved">Ο/Η "{$name}" ({$username}) έχει αφαιρεθεί από {$userGroupName}.</message>
-	<message key="submission.event.backToEventLog">Επιστροφή στο ημερολόγιο συμβάντων </message>
-	<message key="submission.event.confirmClearLog"> Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε το ημερολόγιο (log) συμβάντων για τη συγκεκριμένη υποβολή;</message>
-	<message key="submission.event.confirmDeleteLogEntry"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη καταχώριση από το ημερολόγιο (Log) συμβάντων;</message>
+	<message key="submission.event.backToEventLog">Επιστροφή στο ημερολόγιο συμβάντων</message>
+	<message key="submission.event.confirmClearLog">Επιβεβαιώνετε την κατάργηση του ημερολογίου συμβάντων για τη συγκεκριμένη υποβολή;</message>
+	<message key="submission.event.confirmDeleteLogEntry">Επιβεβαιώνετε τη διαγραφή της συγκεκριμένης καταχώρισης από το ημερολόγιο συμβάντων;</message>
 	<message key="submission.event.deleteLogEntry">Διαγραφή καταχώρισης ημερολογίου</message>
-	<message key="submission.event.general.metadataUpdated">Ενημερώθηκαν τα μεταδεδομένα υποβολής</message>
-	<message key="submission.event.general.suppFileUpdated">Υποβολή ενημερωμένου αρχείου </message>
+	<message key="submission.event.submissionSubmitted">Η αρχική υποβολή ολοκληρώθηκε.</message>
+	<message key="submission.event.fileRevised">Το αναθεωρημένο κείμενο "{$name}" (file ID {$fileId}-{$fileRevision}) έχει μεταφορτωθεί στην πλατφόρμα.</message>
+	<message key="submission.event.general.metadataUpdated">Ενημερώθηκαν τα μεταδεδομένα της υποβολής.</message>
+	<message key="submission.event.general.suppFileUpdated">Υποβολή ενημερωμένου αρχείου</message>
 	<message key="submission.event.reviewer.reviewAcceptedByProxy">Αποδοχή ανάθεσης αξιολόγησης από διακομιστή μεσολάβησης</message>
 	<message key="submission.event.reviewer.reviewAccepted">Αποδοχή ανάθεσης αξιολόγησης</message>
-	<message key="submission.event.reviewer.reviewDeclined">Απόρριψη ανάθεσης αξιολόγησης από διακομιστή μεσολάβησης</message>
-	<message key="submission.event.reviewer.reviewDueDate">Αναθεώρηση Προσθεσμίας Αξιολόγησης</message>
-	<message key="submission.event.reviewer.reviewerAssigned"> Ορισμός Αξιολογητή </message>
-	<message key="submission.event.reviewer.reviewerRated">Υποβολή βαθμολογία αξιολόγησης </message>
-	<message key="submission.event.reviewer.reviewerUnassigned"> Απόσυρση Αξιολογητή </message>
+	<message key="submission.event.reviewer.reviewDeclined">Άρνηση ανάθεσης αξιολόγησης</message>
+	<message key="submission.event.reviewer.reviewDueDate">Τροποποίηση προσθεσμίας αξιολόγησης</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Η υποβολή ανατέθηκε στον Αξιολογητή</message>
+	<message key="submission.event.reviewer.reviewerRated">Η βαθμολογία του Αξιολογητή υποβλήθηκε.</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Απόσυρση Αξιολογητή</message>
 	<message key="submission.event.reviewer.reviewFile">Το αρχείο αξιολόγησης ενημερώθηκε</message>
-	<message key="submission.event.reviewer.reviewInitiated">Ενεργοποίηση ανάθεσης αξιολόγησης</message>
+	<message key="submission.event.reviewer.reviewInitiated">Η ανάθεση αξιολόγησης ξεκίνησε.</message>
 	<message key="submission.event.reviewer.reviewRecommendation">Αρχείο εισηγήσεων αξιολόγησης</message>
-	<message key="submission.event.reviewer.reviewReinitiated">Εκ νέου ενεργοποίηση ανάθεσης αξιολόγησης</message>
-	<message key="submission.event.reviewer.reviewResubmitted">Εκ νέου υποβολή αξιολόγησης</message>
-	<message key="submission.event.reviewer.reviewRevision">Το αρχείο αναθεωρήσεων του αξιολογητή ενημερώθηκε</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Έγινε εκ νέου ανάθεση αξιολόγησης.</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Έγινε επανυποβολή αξιολόγησης</message
+	<message key="submission.event.reviewer.reviewRevision">Το αρχείο αναθεωρήσεων του Αξιολογητή ενημερώθηκε</message>
+	<message key="submission.event.subjectPrefix">Στάλθηκε ηλεκτρονικό μήνυμα:</message>
+	<message key="submission.event.viewEmail">Δείτε το ηλεκτρονικό μήνυμα</message>
 	<message key="submission.files">Αρχεία</message>
-	<message key="submission.galley">Τυπογραφικό Δοκίμιο</message>
+	<message key="submission.files.downloadAll">Λήψη όλων των αρχείων</message>
+	<message key="submission.galley">Τυπογραφικό δοκίμιο</message>
 	<message key="submission.history.clearLog">Καθαρισμός ημερολογίου</message>
 	<message key="submission.history">Ιστορικό</message>
-	<message key="submission.history.noLogEntries">Δεν καταχωρίσεις στο ημερολόγιο.</message>
+	<message key="submission.history.noLogEntries">Δεν υπάρχουν καταχωρίσεις στο ημερολόγιο.</message>
 	<message key="submission.history.recentLogEntries">Πρόσφατες καταχωρίσεις</message>
-	<message key="submission.history.submissionEmailLog"> Ημερολόγιο e-mail</message>
-	<message key="submission.history.submissionEventLog">Ημερολόγιο (Log) συμβάντων</message>
+	<message key="submission.history.submissionEmailLog">Ημερολόγιο μηνυμάτων</message>
+	<message key="submission.history.submissionEventLog">Ημερολόγιο συμβάντων</message>
 	<message key="submission.history.submissionNotes">Σημειώσεις υποβολής</message>
 	<message key="submission.history.viewLog">Προβολή ημερολογίου</message>
-	<message key="submission.initiated">Ενεργοποιήθηκε)</message>
+	<message key="submission.howToCite">Βιβλιογραφική αναφορά</message>
+	<message key="submission.howToCite.citationFormats">Περισσότερες μορφές βιβλιογραφικών αναφορών</message>
+	<message key="submission.howToCite.downloadCitation">Κατεβάστε τη βιβλιογραφική αναφορά</message>
+	<message key="submission.indexing">Ευρετηρίαση</message>
+	<message key="submission.initiated">Έχει αρχίσει</message>
+
+	<!-- Identifiers -->
+	<message key="submission.identifiers">Αναγνωριστικά</message>
+	<message key="submission.publisherId">Δημόσιος σύνδεσμος (URL) αναγνωριστικού</message>
+
+	<!-- Information Center -->
+	<message key="submission.informationCenter.submissionInfo">Πληροφορίες υποβολής</message>
+	<message key="submission.informationCenter.metadata">Μεταδεδομένα</message>
+	<message key="submission.informationCenter.notes">Σημειώσεις</message>
+	<message key="submission.informationCenter.history">Ιστορικό</message>
+	<message key="submission.informationCenter.history.allEvents">Εμφάνιση συμβάντων από προηγούμενες εκδόσεις</message>
+
+	<!-- Stage Participants -->
+	<message key="submission.stageParticipants.notify">Ενημέρωση</message>
+
 	<message key="submission.lastModified">Τελευταία τροποποίηση</message>
-	<message key="submission.layout.addGalley">Προσθήκη Τυπογραφικού Δοκιμίου</message>
-	<message key="submission.layout.confirmDeleteGalley">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά αυτό το Τυπογραφικό Δοκίμιο;</message>
-	<message key="submission.layout.confirmDeleteGalleyImage"> Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε τη συγκεκριμένη εικόνα από το  Τυπογραφικό Δοκίμιο;</message>
-	<message key="submission.layout.confirmDeleteSupplementaryFile"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά το συγκεκριμένο συμπληρωματικό αρχείο;</message>
-	<message key="submission.layout.deleteGalleyStylesheet">Διαγραφή του συγκεκριμένου StyleSheet.</message>
-	<message key="submission.layout.editGalley">Διαμόρφωση Τυπογραφικού Δοκιμίου</message>
-	<message key="submission.layout.galleyFormat">Μορφή Τυπογραφικού Δοκιμίου</message>
-	<message key="submission.layout.galleyHTMLData">Αρχεία Τυπογραφικού Δοκιμίου σε μορφή HTML</message>
+	<message key="submission.layout.addGalley">Προσθήκη τυπογραφικού δοκιμίου</message>
+	<message key="submission.layout.confirmDeleteGalley">Επιβεβαιώνετε τη διαγραφή αυτού του τυπογραφικού δοκιμίου;</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Επιβεβαιώνετε την κατάργηση της συγκεκριμένης εικόνας από το τυπογραφικό δοκίμιο;</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Επιβεβαιώνετε την οριστική διαγραφή του συγκεκριμένου συμπληρωματικού αρχείου;</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Διαγραφή του συγκεκριμένου αρχείου στυλ.</message>
+	<message key="submission.layout.editGalley">Επεξεργασία τυπογραφικού δοκιμίου</message>
+	<message key="submission.layout.galleyFormat">ΜΟρφή τυπογραφικού δοκιμίου</message>
+	<message key="submission.layout.galleyHTMLData">Αρχεία τυπογραφικού δοκιμίου σε μορφή HTML</message>
 	<message key="submission.layout.galleyImages">Εικόνες</message>
-	<message key="submission.layout.galleyLabelInstructions">Η ετικέτα του Τυπογραφικού Δοκιμίου χρησιμοποιείται για αναγνώριση της μορφής αρχείου του τεκμηρίου (π.χ.,HTML, PDF, κτλ.).</message>
-	<message key="submission.layout.galleyLabel">Ετικέτα</message>
-	<message key="submission.layout.galleyLabelRequired">Απαιτείται ετικέτα Τυπογραφικού Δοκιμίου .</message>
-	<message key="submission.layout.galleyLanguageRequired">Απαιτείται ο ορισμός μιας γλώσσας για το Τυπογραφικό Δοκίμιο.</message>
-	<message key="submission.layout.galleyLocaleRequired">Απαιτείται μια τοπική ρύθμιση (locale) για το Τυπογραφικό Δοκίμιο.</message>
-	<message key="submission.layout.galleyNoImages">Καμία εικόνα δεν έχει προστεθεί σε αυτό το  Τυπογραφικό Δοκίμιο.</message>
-	<message key="submission.layout.galleys">Τυπογραφικά Δοκίμια</message>
-	<message key="submission.layout.galleyStylesheet">Αρχείο StyleSheet</message>
+	<message key="submission.layout.galleyLabel">Ετικέτα τυπογραφικού δοκιμίου</message>
+	<message key="submission.layout.galleyLabelInstructions">Η ετικέτα του τυπογραφικού δοκιμίου χρησιμοποιείται για αναγνώριση της μορφής αρχείου (π.χ.,HTML, PDF, κτλ.).</message>
+	<message key="submission.layout.galleyLabelRequired">Απαιτείται μια ετικέτα τυπογραφικού δοκιμίου.</message>
+	<message key="submission.layout.galleyLanguageRequired">Απαιτείται ο ορισμός της γλώσσας του τυπογραφικού δοκιμίου.</message>
+	<message key="submission.layout.galleyLocaleRequired">Απαιτείται μια τοπική ρύθμιση (locale) για το τυπογραφικό δοκίμιο.</message>
+	<message key="submission.layout.galleyRemoteURL">Απομακρυσμένο URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Παρακαλούμε συμπληρώστε ένα έγκυρο σύνδεσμο URL (συμπεριλάβετε και το πρόθεμα http://)</message>
+	<message key="submission.layout.galleyNoImages">Δεν υπάρχουν εικόνες.</message>
+	<message key="submission.layout.galleys">Τυπογραφικά δοκίμια</message>
+	<message key="submission.layout.galleyStylesheet">Αρχείο στυλ</message>
 	<message key="submission.layout.galleyStyle">Στυλ</message>
-	<message key="submission.layout.initialGalleyCreation">Δημιουργία αρχικού Τυπογραφικού Δοκιμίου </message>
-	<message key="submission.layout.layoutFile">Αρχείο Σελιδοποίησης</message>
+	<message key="submission.layout.initialGalleyCreation">Δημιουργία αρχικού τυπογραφικού δοκιμίου</message>
+	<message key="submission.layout.layoutFile">Αρχείο σελιδοποίησης</message>
 	<message key="submission.layout">Σελιδοποιηση</message>
-	<message key="submission.layout.layoutVersion">Έκδοση Σελιδοποίησης</message>
-	<message key="submission.layout.newGalley">Δημιουργία νέου Τυπογραφικού Δοκιμίου</message>
-	<message key="submission.layout.newSupplementaryFile">Φόρτωση νέου συμπληρωματικού αρχείου</message>
-	<message key="submission.layout.noStyleFile">Δεν έχει γίνει προσθήκη Stylesheet στο συγκεκριμένο Τυπογραφικό Δοκίμιο.</message>
-	<message key="submission.layout.supplementaryFiles">Αξιολόγηση συμπληρωματικού αρχείου </message>
-	<message key="submission.layout.viewingGalley">Προβολή Υποβληθέντων Τυπογραφικών Δοκιμίων</message>
+	<message key="submission.layout.layoutVersion">Έκδοση σελιδοποίησης</message>
+	<message key="submission.layout.newGalley">Δημιουργία νέου τυπογραφικού δοκιμίου</message>
+	<message key="submission.layout.newSupplementaryFile">Μεταφόρτωση νέου συμπληρωματικού αρχείου</message>
+	<message key="submission.layout.noStyleFile">Δεν έχει γίνει προσθήκη αρχείου στυλ στο συγκεκριμένο τυπογραφικό δοκίμιο.</message>
+	<message key="submission.layout.supplementaryFiles">Αξιολόγηση συμπληρωματικού αρχείου</message>
+	<message key="submission.layout.viewingGalley">Προβολή υποβληθέντων τυπογραφικών δοκιμίων</message>
 	<message key="submission.layout.viewProof">Προβολή επιμελημένου τυπογραφικού δοκιμίου</message>
-	<message key="submission.metadata">Υποβολή Μεταδεδομένων</message>
-	<message key="submission.noReviewAssignments">Καμία Ανάθεση Αξιολόγησης</message>
-	<message key="submission.notes.addNewNote">Προσθέστε Νέα Σημείωση </message>
-	<message key="submission.notes.attachedFile">Συνημμένο Αρχείο</message>
-	<message key="submission.notes.backToSubmissionNotes">Πίσω στις Σημειώσεις Υποβολών</message>
+	<message key="submission.metadata">Υποβολή μεταδεδομένων</message>
+	<message key="submission.noReviewAssignments">Καμία ανάθεση αξιολόγησης</message>
+	<message key="submission.notes.addNewNote">Προσθέστε νέα σημείωση</message>
+	<message key="submission.notes.attachedFile">Συνημμένο αρχείο</message>
+	<message key="submission.notes.backToSubmissionNotes">Πίσω στις σημειώσεις υποβολών</message>
 	<message key="submission.notes.breadcrumb">Σημειωσεις</message>
-	<message key="submission.notes.clearAllNotes">Καθαρισμός όλων των  σημειώσεων</message>
-	<message key="submission.notes.collapseNotes">Αναδίπλωση Σημειώσεων (Collapse Notes)</message>
-	<message key="submission.notes.confirmDeleteAll">Θέλετε να  απομακρύνετε όλες τις σημειώσεις;</message>
-	<message key="submission.notes.confirmDelete">Θέλετε να  απομακρύνετε αυτή τη σημείωση;</message>
-	<message key="submission.notes.createNewNote">Δημιουργία Νέας Σημείωσης</message>
-	<message key="submission.notes.deleteNote">Διαγραφή  Σημείωσης</message>
-	<message key="submission.notes.editNote">Επεξεργασία  Σημείωσης</message>
-	<message key="submission.notes.expandNotes">Επεξήγηση Σημειώσεων  </message>
-	<message key="submission.notes.noSubmissionNotes">Καμία σημείωση  υποβολής</message>
-	<message key="submission.notes.removeUploadedFile">Απομάκρυνση   Ανεβασμένου Αρχείου</message>
-	<message key="submission.notes">Σημειώσεις Υποβολής</message>
-	<message key="submission.notes.updateNote">Ενημέρωση  Σημείωσης</message>
-	<message key="submission.notes.viewNotes">Προβολή Σημειώσεων</message>
+	<message key="submission.notes.clearAllNotes">Καθαρισμός όλων των σημειώσεων</message>
+	<message key="submission.notes.collapseNotes">Αναδίπλωση σημειώσεων</message>
+	<message key="submission.notes.confirmDeleteAll">Επιβεβαιώνετε τη διαγραφή των σημειώσεων της υποβολής;</message>
+	<message key="submission.notes.confirmDelete">Επιβεβαιώνετε τη διαγραφή της σημείωσης;</message>
+	<message key="submission.notes.createNewNote">Δημιουργία νέας σημείωσης</message>
+	<message key="submission.notes.deleteNote">Διαγραφή σημείωσης</message>
+	<message key="submission.notes.editNote">Επεξεργασία σημείωσης</message>
+	<message key="submission.notes.expandNotes">Επεξήγηση σημειώσεων</message>
+	<message key="submission.notes.noSubmissionNotes">Καμία σημείωση υποβολής</message>
+	<message key="submission.notes.removeUploadedFile">Απομάκρυνση μεταφορτωμένου αρχείου</message>
+	<message key="submission.notes">Σημειώσεις υποβολής</message>
+	<message key="submission.notes.updateNote">Ενημέρωση σημείωσης</message>
+	<message key="submission.notes.viewNotes">Προβολή σημειώσεων</message>
 	<message key="submission.originalFile">Πρωτότυπο αρχείο</message>
 	<message key="submission.page.editing">#{$id} Επιμέλεια</message>
 	<message key="submission.page.history">#{$id} Ιστορικό</message>
 	<message key="submission.page.review">#{$id} Αξιολόγηση</message>
 	<message key="submission.page.summary">#{$id} Σύνοψη</message>
-	<message key="submission.peerReview">Ομότιμη Κρίση</message>
-	<message key="submission.recommendation">Εισήγηση Αξιολογητή: {$recommendation}</message>
+	<message key="submission.page.citations">#{$id} Βιβλιογραφικές Αναφορές</message>
+	<message key="submission.peerReview">Ομότιμη αξιολόγηση</message>
+	<message key="submission.production">Παραγωγή</message>
+	<message key="submission.recommendation">Εισήγηση: {$recommendation}</message>
 	<message key="submission.rejected">Απορριπτέο</message>
 	<message key="submission.request">Αίτημα</message>
-	<message key="submission.response">Απόκριση</message>
+	<message key="submission.response">Απάντηση</message>
 	<message key="submission.restrictions">Περιορισμοί</message>
 	<message key="submission.reviewMetadata">Επισκόπηση μεταδεδομένων</message>
 	<message key="submission.review">Αξιολόγηση</message>
-	<message key="submission.reviewVersion">Αξιολόγηση Έκδοσης</message>
+	<message key="submission.reviewed">Αξιολογήθηκε</message>
+	<message key="submission.reviewVersion">Έκδοση αξιολόγησης</message>
+	<message key="submission.rights">Δικαιώματα </message>
+	<message key="submission.rights.tip">Αν θέλετε, μπορείτε να εισαγάγετε μια σύντομη δήλωση σχετικά με τα δικαιώματα πρόσβασης σε αυτή την υποβολή.</message>
 	<message key="submissions.active">Ενεργά</message>
 	<message key="submissions.archived">Αρχειοθετημένα</message>
 	<message key="submission.saveMetadata">Αποθήκευση μεταδεδομένων</message>
-	<message key="submissions.completed">Ολοκληρώθηκε</message>
-	<message key="submissions.declined">Μη αποδεκτή</message>
-	<message key="submissions.incomplete">Ελλειπής</message>
-	<message key="submissions.noSubmissions">Καμία Υποβολή</message>
-	<message key="submissions.queuedEditing">Σε αναμονή για επιμέλεια</message>
+	<message key="submissions.completed">Ολοκληρωμένα</message>
+	<message key="submissions.declined">Μη αποδεκτά</message>
+	<message key="submissions.incomplete">Ελλιπή</message>
+	<message key="submissions.noSubmissions">Καμία υποβολή</message>
+	<message key="submissions.queuedEditing">Σε επιμέλεια</message>
 	<message key="submissions.queued">Σε αναμονή</message>
 	<message key="submissions.queuedUnassigned">Σε αναμονή για ανάθεση</message>
-	<message key="submissions.ruling">Δικαίωμα Επιμελητή (Ruling)</message>
+	<message key="submissions.ruling">Απόφαση Επιμελητή (Ruling)</message>
+	<message key="submission.source">Πηγή</message>
+	<message key="submission.source.tip">Αυτή η υποβολή προέρχεται από άλλη πηγή; Αν ναι, μπορείτε να εισάγετε ένα URL ή μια περιγραφή αυτής της πηγής.</message>
 	<message key="submissions.submit">Υποβολή</message>
 	<message key="submissions.submitted">Υποβληθέντα</message>
+	<message key="submission.submission">Υποβολή</message>
+	<message key="submission.submissionTitle">Τίτλος υποβολής:</message>
 	<message key="submission.start">Έναρξη</message>
-	<message key="submission.submissionHistory">Υποβολή Ιστορικού</message>
-	<message key="submission.submissionManuscript">Υποβολή χειρογράφου</message>
-	<message key="submission.submissionReview">Υποβολή Αξιολόγησης</message>
+	<message key="submission.submissionHistory">Ιστορικό υποβολής</message>
+	<message key="submission.submissionManuscript">Κείμενο υποβολής</message>
+	<message key="submission.submissionReview">Αξιολόγηση υποβολής</message>
 	<message key="submission.submitter">Υποβολέας</message>
+	<message key="submission.submit.finishSubmission">Ολοκλήρωση υποβολής</message>
+	<message key="submission.submit.selectFile">Επιλογή αρχείου</message>
+	<message key="submission.submit.fileInformation">Πληροφορίες αρχείου</message>
+	<message key="submission.submit.fileAdded">Το αρχείο προστέθηκε.</message>
+	<message key="submission.submit.includeInBrowse">Να συμπεριληφθεί ο Συντελεστής στις λίστες περιήγησης;</message>
+	<message key="submission.submit.newFile">Προσθήκη άλλου αρχείου</message>
+	<message key="submission.submit.metadataForm">Πρόσθετες βελτιώσεις</message>
+	<message key="submission.submit.metadataForm.tip">Προσθέστε κι άλλες πληροφορίες για την υποβολή σας. Πατήστε 'enter' μετά από κάθε όρο.</message>
+	<message key="submission.submit.submissionLocale">Γλώσσα υποβολής</message>
+	<message key="submission.submit.submissionLocaleDescription">Γίνονται δεκτές υποβολές σε διάφορες γλώσσες. Επιλέξτε τη γλώσσα της υποβολής από την παραπάνω λίστα.</message>
+	<message key="submission.submit.submissionFiles">Αρχεία υποβολής</message>
+	<message key="submission.submit.dependentFiles">Εξαρτώμενα αρχεία</message>
+	<message key="submission.manageDependentFiles">Διαχείριση εξαρτώμενων αρχείων</message>
+	<message key="submission.upload.dependent">Ανεβάστε ένα εξαρτώμενο αρχείο</message>
+	<message key="submission.upload.query">Ανεβάστε ένα αρχείο συζητήσεων</message>
 	<message key="submission.summary">Σύνοψη</message>
-	<message key="submission.supplementaryFiles">Συμπληρωματικά Αρχεία</message>
-	<message key="submission.titleAndAbstract">Τίτλος και Περίληψη</message>
+	<message key="submission.supplementaryFiles">Συμπληρωματικά αρχεία</message>
+	<message key="submission.supportingAgencies">Οργανισμοί υποστήριξης</message>
+	<message key="submission.currentAgencies">Υφιστάμενοι οργανισμοί</message>
+	<message key="submission.indexingInformation">Πληροφορίες ευρετηρίασης</message>
+	<message key="submission.titleAndAbstract">Τίτλος και περίληψη</message>
+	<message key="submission.type.tip"><![CDATA[Ο τύπος υποβολής είναι συνήθως "εικόνα", "κείμενο" ή τύποι πολυμέσων, συμπεριλαμβανομένων των τύπων 'λογισμικό' και 'διαδραστικό'. Παρακαλούμε επιλέξτε τον κατάλληλο τύπο για την υποβολή σας. Παραδείγματα υπάρχουν στο: <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></message>
 	<message key="submission.underway">Σε εξέλιξη</message>
-	<message key="submission.uploadFileTo">Ανεβάστε στο αρχείο στο</message>
-	<message key="submission.viewMetadata">Προβολή μεταδεδομένων </message>
+	<message key="submission.uploadFileTo">Μεταφορτώστε αρχείο στο</message>
+	<message key="submission.createRemote">Δημιουργήστε απομακρυσμένο</message>
+	<message key="submission.viewMetadata">Προβολή μεταδεδομένων</message>
 	<message key="submission.views">Προβολές</message>
-
-	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Παροχή μια λίστας αναφορών για εργασίες που αναφέρονται (cited) σε αυτή την υποβολή.</message>
-	<message key="metadata.filters.crossref.settings.email.displayName">Email Εγγραφής στο CrossRef</message>
-	<message key="metadata.filters.crossref.settings.email.validationMessage">Παρακαλούμε εισάγετε ένα έγκυρο email εγγραφής στο CrossRef. Μπορείτε να εγγραφείτε δωρεάν στον ιστότοπο του CrossRef.</message>
-	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API κλειδί</message>
-	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Παρακαλούμε εισάγετε το ISBNdb API κλειδί σας. Αν δεν έχετε ένα τέτοιο κλειδί μπορείτε να αποκτήσετε ένα δωρεάν από τον ιστότοπο του ISBNdb project.</message>
-	<message key="metadata.filters.pubmed.settings.email.displayName">Email Εγγραφής στο PubMed</message>
-	<message key="metadata.filters.pubmed.settings.email.validationMessage">Παρακαλούμε εισάγετε  ένα έγκυρο email εγγραφής στο PubMed αν έχετε.</message>
-	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API κλειδί</message>
-	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Παρακαλούμε εισάγετε  ένα έγκυρο WorldCat API κλειδί αν έχετε.</message>
-	<message key="metadata.filters.paracite.settings.citationModule.displayName">Module Αναφορών/Παραπομπών</message>
-	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Παρακαλούμε επιλέξτε ένα από τα διαθέσιμα module αναφορών</message>
-	<message key="metadata.filters.settings.isOptional.displayName">Μην το χρησιμοποείτε εξ'ορισμού (θα είναι ακόμα διαθέσιμο στον επιμελητή)</message>
-	<message key="metadata.filters.settings.isOptional.validationMessage">Εσωτερικό σφάλμα. Μια μη έγκυρη δηλώθηκε στην ρύθμιση "optional filter". Παρακαλούμε αναφέρατε το πρόβλημα.</message>
-	<message key="metadata.property.displayName.author">Συγγραφείς</message>
-	<message key="metadata.property.validationMessage.author">Για καλύτερα αποτελέσμα, οι συγγραφείς θα πρέπει να εισάγονται με την εξής μορφή: Coleman Jr, D. (Ralf) Dr.</message>
-	<message key="metadata.property.displayName.editor">Επιμελητές</message>
-	<message key="metadata.property.validationMessage.editor">Για καλύτερα αποτελέσμα, οι επιμελητές θα πρέπει να εισάγονται με την εξής μορφή: Coleman Jr, D. (Ralf) Dr.</message>
-	<message key="metadata.property.displayName.article-title">Τίτλος Άρθρου</message>
-	<message key="metadata.property.validationMessage.article-title">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο άρθρου</message>
-	<message key="metadata.property.displayName.source">Τίτλος Περιοδικού/Βιβλίου</message>
-	<message key="metadata.property.validationMessage.source">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο περιοδικού/βιβλίου</message>
-	<message key="metadata.property.displayName.date">Ημερομηνία Δημοσίευσης</message>
-	<message key="metadata.property.validationMessage.date">Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία δημοσίευσης (μορφή:  YYYY-MM-DD).</message>
-	<message key="metadata.property.displayName.access-date">Ημερομηνία Πρόσβασης</message>
-	<message key="metadata.property.displayName.issue">Τεύχος</message>
-	<message key="metadata.property.validationMessage.issue">Παρακαλούμε εισάγετε ένα έγκυρο τεύχος</message>
-	<message key="metadata.property.displayName.volume">Τόμος</message>
-	<message key="metadata.property.validationMessage.volume">Παρακαλούμε εισάγετε έναν έγκυρο τόμο</message>
-	<message key="metadata.property.displayName.season">Περίοδος</message>
-	<message key="metadata.property.validationMessage.season">Παρακαλούμε εισάγετε ένα έγκυρο αναγνωριστικό περιόδου</message>
-	<message key="metadata.property.displayName.chapter-title">Τίτλος κεφαλαίου</message>
-	<message key="metadata.property.validationMessage.chapter-title">Παρακαλούμε εισάγετε έναν έγκυρο τίτλος κεφαλαίου</message>
-	<message key="metadata.property.displayName.edition">Έκδοση</message>
-	<message key="metadata.property.validationMessage.edition">Παρακαλούμε εισάγετε μια έγκυρη έκδοση</message>
-	<message key="metadata.property.displayName.series">Σειρά</message>
-	<message key="metadata.property.validationMessage.series">Παρακαλούμε εισάγετε μια έγκυρη σειρά</message>
-	<message key="metadata.property.displayName.supplement">Συμπλήρωμα</message>
-	<message key="metadata.property.validationMessage.supplement">Παρακαλούμε εισάγετε ένα έγκυρο συμππλήρωμα</message>
-	<message key="metadata.property.displayName.conf-date">Ημερομηνία Συνεδρίου</message>
-	<message key="metadata.property.validationMessage.conf-date">Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία συνεδρίου (μορφή: YYYY-MM-DD).</message>
-	<message key="metadata.property.displayName.conf-loc">Τόπος διεξαγωγής συνεδρίου</message>
-	<message key="metadata.property.validationMessage.conf-loc">Παρακαλούμε εισάγετε έναν έγκυρο τόπο διεξαγωγής συνεδρίου</message>
-	<message key="metadata.property.displayName.conf-name">Τίτλος Συνεδρίου</message>
-	<message key="metadata.property.validationMessage.conf-name">Παρακαλούμε εισάγετε έναν έγκυρο τίτλος συνεδρίου</message>
-	<message key="metadata.property.displayName.conf-sponsor">Χορηγός Συνεδρίου</message>
-	<message key="metadata.property.validationMessage.conf-sponsor">Παρακαλούμε εισάγετε έναν έγκυρο Χορηγό Συνεδρίου</message>
-	<message key="metadata.property.displayName.institution">Ίδρυμα</message>
-	<message key="metadata.property.validationMessage.institution">Παρακαλούμε εισάγετε έναν έγκυρο τίτλος Ιδρύματος</message>
-	<message key="metadata.property.displayName.fpage">Πρώτη Σελίδα</message>
-	<message key="metadata.property.validationMessage.fpage">Παρακαλούμε εισάγετε μια έγκυρη πρώτη σελίδα (πρέπει να είναι μια αριθμητική τιμή)</message>
-	<message key="metadata.property.displayName.lpage">Τελευταία Σελίδα</message>
-	<message key="metadata.property.validationMessage.lpage">Παρακαλούμε εισάγετε μια έγκυρη τελευταία σελίδα (πρέπει να είναι μια αριθμητική τιμή)</message>
-	<message key="metadata.property.displayName.size">Αριθμός Σελίδων</message>
-	<message key="metadata.property.validationMessage.size">Παρακαλούμε εισάγετε ένα έγκυρο σύνολο σελίδων (πρέπει να είναι μια αριθμητική τιμή)</message>
-	<message key="metadata.property.validationMessage.access-date">Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία πρόσβασης (μορφή: YYYY-MM-DD).</message>
-	<message key="metadata.property.displayName.publisher-loc">Έδρα Εκδότη</message>
-	<message key="metadata.property.validationMessage.publisher-loc">Παρακαλούμε εισάγετε μια έγκυρη έδρα εκδότη</message>
-	<message key="metadata.property.displayName.publisher-name">Τίτλος Εκδότη</message>
-	<message key="metadata.property.validationMessage.publisher-name">Παρακαλούμε εισάγετε έναν έγκυρο τίτλος εκδότη</message>
-	<message key="metadata.property.displayName.isbn">ISBN</message>
-	<message key="metadata.property.validationMessage.isbn">Παρακαλούμε εισάγετε ένα έγκυρο ISBN (9 ή 13 νούμερα)</message>
-	<message key="metadata.property.displayName.issn">ISSN εντύπου</message>
-	<message key="metadata.property.validationMessage.issn">Παρακαλούμε εισάγετε ένα έγκυρο ISSN εντύπου</message>
-	<message key="metadata.property.displayName.eissn">eISSN</message>
-	<message key="metadata.property.validationMessage.eissn">Παρακαλούμε εισάγετε ένα έγκυρο eISSN</message>
-	<message key="metadata.property.displayName.doi">DOI</message>
-	<message key="metadata.property.validationMessage.doi">Παρακαλούμε εισάγετε ένα έγκυρο DOI</message>
-	<message key="metadata.property.displayName.publisher-id">ID Ειδικής Έκδοσης</message>
-	<message key="metadata.property.validationMessage.publisher-id">Παρακαλούμε εισάγετε ένα έγκυρο ID ειδικής έκδοσης</message>
-	<message key="metadata.property.displayName.coden">CODEN</message>
-	<message key="metadata.property.validationMessage.coden">Παρακαλούμε εισάγετε ένα έγκυρο CODEN</message>
-	<message key="metadata.property.displayName.sici">SICI</message>
-	<message key="metadata.property.validationMessage.sici">Παρακαλούμε εισάγετε ένα έγκυρο SICI</message>
-	<message key="metadata.property.displayName.pmid">PMID</message>
-	<message key="metadata.property.validationMessage.pmid">Παρακαλούμε εισάγετε ένα έγκυρο PMID</message>
-	<message key="metadata.property.displayName.uri">Υπερσύνδεσμος για την δημοσίευση</message>
-	<message key="metadata.property.validationMessage.uri">Παρακαλούμε εισάγετε έναν έγκυρο υπερσύνδεσμο για την δημοσίευση</message>
-	<message key="metadata.property.displayName.comment">Σχόλιο</message>
-	<message key="metadata.property.validationMessage.comment">Παρακαλούμε εισάγετε ένα έγκυρο σχόλιο</message>
-	<message key="metadata.property.displayName.annotation">Υπομνηματισμός</message>
-	<message key="metadata.property.validationMessage.annotation">Παρακαλούμε εισάγετε έναν έγκυρο υπομνηματισμό</message>
-	<message key="metadata.property.displayName.publication-type">Τύπος Δημοσίευσης</message>
-	<message key="metadata.property.validationMessage.publication-type">Παρακαλούμε σιγουρευτείτε ότι δηλώνετε πάντα τον τύπο δημοσίευσης. Οι τύποι που υποστηρίζονται είναι βιβλίο (για βιβλία ή κεφάλαια βιβλίων) και περιοδικό (για άρθρα περιοδικών). Σε αντίθετη περίπτωση η απόδοση της αναφοράς δεν θα μορφοποιηθεί σωστά.</message>
-	<message key="metadata.property.displayName.title-type">Τύπος τίτλου</message>
-	<message key="metadata.property.validationMessage.title-type">Παρακαλούμε σιγουρευτείρε ότι έχετε επιλέξει έναν έγκυρο τύπο τίτλου. Οι τύπου που υποστηρίζονται είναι "συντομευμένος", "μεταφρασμένος","εναλλακτικός" ή "ενιαίος".</message>
-	<message key="metadata.property.displayName.nonSort">Μέρος του τίτλου αγνοήθηκε κατά την τακτοποίηση</message>
-	<message key="metadata.property.validationMessage.nonSort">Παρακαλούμε εισάγετε μόνο τους αρχικούς χαρακτήρες του τίτλου που θα αγνοηθούν κατά την τακτοποίηση του τίτλου</message>
-	<message key="metadata.property.displayName.title">Τίτλος</message>
-	<message key="metadata.property.validationMessage.title">Παρακαλούμε εισάγετε έναν έγκυρο τίτλο</message>
-	<message key="metadata.property.displayName.subTitle">Υπότιτλο</message>
-	<message key="metadata.property.validationMessage.subTitle">Παρακαλούμε εισάγετε έναν έγκυρο υπότιτλο</message>
-	<message key="metadata.property.displayName.partNumber">Αριθμός τμήματος</message>
-	<message key="metadata.property.validationMessage.partNumber">Παρακαλούμε εισάγετε ένα έγκυρο αριθμό τμήματος</message>
-	<message key="metadata.property.displayName.partName">Όνομα τμήματος</message>
-	<message key="metadata.property.validationMessage.partName">Παρακαλούμε εισάγετε  ένα έγκυρο όνομα τμήματος</message>
-	<message key="metadata.property.displayName.name-type">Τύπος ονόματος</message>
-	<message key="metadata.property.validationMessage.name-type">Παρακαλούμε σιγουρευτείρε ότι έχετε επιλέξει έναν έγκυρο τύπο ονόματος. Οι τύποι που υποστηρίζονται είναι "προσωπικό", "επιχείρηση" και "συνέδριο".</message>
-	<message key="submission.page.citations">#{$id} Αναφορές</message>
-	<message key="submission.currentAgencies">Υφιστάμενες Υπηρεσίες</message>
-	<message key="submission.indexingInformation">Πληροφορίες Ευρετηρίασης</message>
-	<message key="submission.uploadSuccessful">Το αρχείο σας φορτώθηκε.</message>
-	<message key="submission.uploadSuccessfulContinue">Το αρχείο σας φορτώθηκε. Πατήστε Συνέχεια για να επεξεργαστείτε τα μεταδεδομένα του αρχείου.</message>
-	<message key="submission.loadMessage">Σας παρακαλούμε περιμένετε μέχρι να φορτωθεί το αρχείο.</message>
+	<message key="submission.uploadSuccessful">Το αρχείο σας μεταφορτώθηκε.</message>
+	<message key="submission.loadMessage">Παρακαλούμε περιμένετε μέχρι να μεταφορτωθεί το αρχείο σας.</message>
 	<message key="submission.artworkFileDetails">Λεπτομέρειες αρχείου artwork</message>
 	<message key="submission.fileDetails">Λεπτομέρειες αρχείου</message>
-	<message key="submission.nameRequired">Απαιτείται όνομα για αυτό το κομμάτι.</message>
+	<message key="submission.nameRequired">Απαιτείται όνομα για αυτό το αντικείμενο.</message>
 	<message key="submission.date.mmdd">MM-HH</message>
 	<message key="submission.date.yyyymmdd">EEEE-MM-HH</message>
-	<message key="reviewer.submission.reviewFiles">Αρχεία Αξιολόγησης</message>
-	<message key="submission.stageNotInitiated">Το στάδιο δεν ξεκίνησε.</message>
-	<message key="notification.type.editorDecisionTitle">Πρόσφατη απόφαση επιμελητή</message>
-	<message key="notification.type.editorDecisionAccept">Η υποβολή έχει γίνει αποδεκτή.</message>
-	<message key="notification.type.editorDecisionExternalReview">Η διαδικασία εξωτερικής αξιολόγησης έχει ξεκινήσει.</message>
-	<message key="notification.type.editorDecisionPendingRevisions">Η αναθεώρηση έχει απαιτηθεί.</message>
-	<message key="notification.type.editorDecisionResubmit">Εκ νέου υποβολή για αξιολόγηση.</message>
-	<message key="notification.type.editorDecisionDecline">Η υποβολή έχει απορριφθεί.</message>
-	<message key="notification.type.editorDecisionSendToProduction">Η διαδικασία παραγωγής έχει ξεκινήσει.</message>
-	<message key="notification.type.signoff">Έχετε έναν έλεγχο σε εκκρεμότητα.</message>
-	<message key="notification.uploadedResponse">Η απάντηση έχει μεταφορτωθεί (uploaded).</message>
-	<message key="notification.type.editorAssignment">Για να ξεκινήσει η διαδικασία αξιολόγησης πρέπει αυτή να ανατεθεί σε ένα επιμελητή (editor). Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
-	<message key="grid.reviewAttachments.title">Συνημμένα Αξιολογητή</message>
-	<message key="workflow.review.externalReview">Εξωτερική Αξιολόγηση</message>
-	<message key="log.review.reviewerAssigned">Ο/Η {$reviewerName} έχει αναλάβει την αξιολόγηση της υποβολής {$submissionId} για τo γύρο αξιολόγησης {$round}.</message>
-	<message key="log.review.reviewUnconsidered">Ο/Η {$editorName} έχει επισημάνει το αίτημα για το γύρο αξιολόγησης {$round} για την υποβολή {$submissionId} ως ανεξέταστο.</message>
-	<message key="grid.action.itemWorkflow">Πήγαινε στο ροή εργασιών της υποβολής</message>
-	<message key="notification.type.editorAssignmentProduction">Για να ξεκινήσει η διαδικασία  παραγωγής μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή παραγωγής (production editor). Παρακαλούμε προσθέστε έναν επιμελητή παραγωγής επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
-	<message key="notification.type.editorAssignmentEditing">Για να ξεκινήσει η διαδικασία  σύνταξης/επιμέλειας μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή. Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
-	<message key="submission.reviewForm">Φόρμα αξιολόγησης</message>
-	<message key="submission.reviewFormResponse">Απόκριση Φόρμας Αξιολόγησης</message>
+	<message key="submission.submit.selectPrincipalContact"> Κύρια επαφή για την επικοινωνία με τους Επιμελητές</message>
+	<message key="submission.submit.contributorRole">Ρόλος Συντελεστή</message>
+	<message key="submission.submit.addAuthor">Προσθήκη Συντελεστή</message>
+	<message key="submission.submit.form.languagesRequired">Παρακαλούμε εισάγετε μια γλώσσα.</message>
+	<message key="submission.submit.form.subjectsRequired">Παρακαλούμε εισάγετε ένα Θέμα.</message>
+	<message key="submission.submit.form.disciplinesRequired">Παρακαλούμε εισάγετε ένα επιστημονικό πεδίο.</message>
+	<message key="submission.submit.form.keywordsRequired">Παρακαλούμε εισάγετε μια λέξη κλειδί.</message>
+	<message key="submission.submit.form.agenciesRequired">Παρακαλούμε εισάγετε έναν οργανισμό υποστήριξης.</message>
+	<message key="submission.submit.form.coverageRequired">Παρακαλούμε εισάγετε τις πληροφορίες κάλυψης.</message>
+	<message key="submission.submit.form.typeRequired">Παρακαλούμε εισάγετε τον τυπο.</message>
+	<message key="submission.submit.form.sourceRequired">Παρακαλούμε εισάγετε Πηγή.</message>
+	<message key="submission.submit.form.rightsRequired">Παρακαλούμε εισάγετε τα δικαιώματα.</message>
+	<message key="submission.submit.form.citationsRequired">Παρακαλούμε εισάγετε τις βιβλιογραφικές αναφορές.</message>
 
-	<message key="grid.category.categories">Κατηγορίες</message>
-	<message key="grid.category.add">Προσθήκη Κατηγορίας</message>
-	<message key="grid.category.edit">Επεξεργασία Κατηγορίας</message>
-	<message key="grid.category.name">Όνομα</message>
-	<message key="grid.category.path">Διαδρομή (path)</message>
-	<message key="grid.category.urlWillBe">Το URL της κατηγορία θς είναι {$sampleUrl}</message>
-	<message key="grid.category.pathAlphaNumeric">Η διαδρομή μιας κατηγορίας πρέπει να αποτελείται μόνο από γράμματα και αριθμούς</message>
-	<message key="grid.category.pathExists">Η διαδρομή της κατηγορίας υπάρχει ήδη. Παρακαλούμε καταχωρήστε μια μοναδική διαδρομή.</message>
-	<message key="grid.category.description">Περιγραφή</message>
-	<message key="grid.category.parentCategory">Γονική κατηγορία</message>
-	<message key="grid.category.removeText">Είστε σίγουροι ότι επιθυμείτε να αφαιρέσετε αυτή την κατηγορία;</message>
-	<message key="grid.category.nameRequired">Παρακαλούμε καταχωρήστε ένα όνομα κατηγορίας.</message>
-	<message key="grid.category.categoryDetails">Λεπτομέρειες Κατηγορίας</message>
-	<message key="submission.submit.placement.categories">Κατηγορίες</message>
-	<message key="submission.currentCoverImage">Τρέχουσα Εικόνα</message>
-	<message key="catalog.browseTitles">Περιήγηση σε {$numTitles} Τίτλους</message>
+	<!-- Submission file upload form elements -->
+	<message key="submission.form.name">Περιγράψτε το αρχείο (π.χ. πίνακας, εικόνα, κυρίως κείμενο)</message>
+	<message key="submission.form.replaceExisting">Αντικατάσταση υπάρχοντος αρχείου;</message>
+
+	<!-- Workflow keys -->
+	<message key="workflow.review.internalReview">Εσωτερική αξιολόγηση</message>
+	<message key="workflow.stage.any">Οποιοδήποτε στάδιο</message>
+	<message key="workflow.stage">Στάδιο</message>
+
+
+	<!-- Submission status -->
+	<message key="submission.status.editorial">Στο στάδιο επιμέλειας κειμένου</message>
+	<message key="submission.status.production">Στο στάδιο ελέγχου τυπογραφικού δοκιμίου</message>
+	<message key="submission.status.review">Στο στάδιο αξιολόγησης</message>
+	<message key="submission.status.submission">Σε αναμονή για απόφαση Επιμελητή</message>
+	<message key="submission.status.unassigned">Δεν έχει ανατεθεί.</message>
+	<message key="submission.status.declined">Απορρίφθηκε.</message>
+	<message key="submission.status.published">Δημοσιεύτηκε.</message>
+
+	<message key="submission.submit.uploadStep">1. Μεταφόρτωση του αρχείου</message>
+	<message key="submission.submit.uploadSubmissionFile">Ανεβάστε το αρχείο υποβολής</message>
+	<message key="submission.submit.metadataStep">2. Έλεγχος δεδομένων</message>
+	<message key="submission.submit.finishingUpStep">3. Επιβεβαίωση</message>
+	<message key="submission.submit.fileNameRequired">Πρέπει να εισάγετε ένα όνομα για το αρχείο</message>
+
+	<!-- File upload wizard -->
+	<message key="submission.upload.noGenre">Λείπει στοιχείο ή δεν είναι έγκυρο!</message>
+	<message key="submission.upload.invalidUserGroup">Λείπει ή δεν είναι έγκυρη η ομάδα χρηστών!</message>
+	<message key="submission.upload.possibleRevision">Εντοπίστηκε πιθανή αλληλεπικάλυψη ή αναθεώρηση</message>
+	<message key="submission.upload.possibleRevisionDescription"><![CDATA[Η ονομασία του αρχείου που μεταφορτώθηκε μοιάζει με την αντίστοιχη του υπάρχοντος αρχείου, "{$revisedFileName}." Πρόκειται να ανεβάσετε μια αναθεωρημένο έκδοση του υπάρχοντος αρχείου "{$revisedFileName}"? Εάν ναι, επιλέξτε το αρχείο. Διαφορετικά, πριν συνεχίσετε επιλέξτε "Δεν αποτελεί αναθεωρημένη έκδοση υπάρχοντος αρχείου".]]></message>
+	<message key="submission.upload.selectMandatoryFileToRevise">Παρακαλώ επιλέξτε το αρχείο για αντικατάσταση.</message>
+	<message key="submission.upload.selectOptionalFileToRevise">Αν ανεβάζετε αναθεωρημένη έκδοση ενός υπάρχοντος αρχείου, παρακαλώ υποδείξτε το αρχείο που θα αντικατασταθεί.</message>
+	<message key="submission.upload.uploadNewFile">Δεν αποτελεί αναθεωρημένη έκδοση υπάρχοντος αρχείου.</message>
+	<message key="submission.upload.userGroup">Μεταφόρτωση αρχείου με τον ρόλο μου ως...</message>
+	<message key="submission.upload.userGroupDescription">Εαν υποβάλλετε επιμελημένο τόμο, θα πρέπει να μεταφορτώσετε τα κεφάλαια ξεχωριστά, με τον ρόλο σας ως Επιμελητής Τόμου.</message>
+	<message key="submission.upload.uploadLibraryFile">Μεταφόρτωση αρχείου Βιβλιοθήκης</message>
+	<message key="submission.upload.libraryCategory">Κατηγορία αρχείου υποβολής</message>
+
+	<!-- File uploads -->
+	<message key="submission.upload.finalDraft">Μεταφόρτωση αρχείου</message>
+	<message key="submission.upload.copyeditedVersion">Μεταφόρτωση αρχείου επιμελημένου κειμένου</message>
+	<message key="submission.upload.fairCopy">Μεταφόρτωση αντιγράφου Fair</message>
+	<message key="submission.upload.uploadFiles">Μεταφόρτωση αρχείων</message>
+	<message key="submission.upload.response.description">Μετά την επισκόπηση του ανατεθειμένου αρχείου, καταχωρήστε τυχόν σχόλιά σας και/ή μεταφορτώστε το επισημειωμένο αντίγραφο του αρχείου (ή ένα άλλο αρχείο).</message>
+	<message key="submission.upload.productionReady">Μεταφόρτωση αρχείου έτοιμου για παραγωγή</message>
+	<message key="submission.upload.proof">Μεταφόρτωση αρχείου έτοιμου για δημοσίευση</message>
+	<message key="submission.upload.noAvailableReviewFiles">Δεν υπάρχουν αρχεία για αναθεώρηση προς το παρόν.</message>
+
+	<!-- Review Round Status Keys -->
+	<message key="editor.submission.roundStatus.revisionsRequested">Έχει κατατεθεί αίτημα για αναθεωρήσεις.</message>
+	<message key="editor.submission.roundStatus.revisionsSubmitted">Έχουν μεταφορτωθεί αναθεωρήσεις.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Η υποβολή πρέπει να επανακατατεθεί για τη διεξαγωγή νέου γύρου αξιολόγησης.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Η υποβολή κατατέθηκε για τη δειξαγωγή νέου γύρου αξιολόγησης.</message>
+
+	<message key="editor.submission.roundStatus.sentToExternal">Αποστολή για εξωτερική αξιολόγηση.</message>
+	<message key="editor.submission.roundStatus.accepted">Η υποβολή έγινε αποδεκτή.</message>
+	<message key="editor.submission.roundStatus.declined">η υποβολή απερρίθη.</message>
+	<message key="editor.submission.roundStatus.pendingReviewers">Σε αναμονή για την ανάθεση Αξιολογητών.</message>
+	<message key="editor.submission.roundStatus.pendingReviews">Σε αναμονή της απάντησης των Αξιολογητών.</message>
+	<message key="editor.submission.roundStatus.reviewsReady">Νέες αξιολογήσεις έχουν υποβληθεί.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Όλες οι αξιολογήσεις έχουν υποβληθεί και αναμένεται η απόφαση του Επιμελητή.</message>
+	<message key="editor.submission.roundStatus.reviewOverdue">H προθεσμία μιας αξιολόγησης έχει παρέλθει.</message>
+	<message key="editor.submission.roundStatus.pendingRecommendations">Σε αναμονή των συστάσεων των Επιμελητών.</message>
+	<message key="editor.submission.roundStatus.recommendationsReady">Νέες συστάσεις Επιμελητών έχουν υποβληθεί.</message>
+	<message key="editor.submission.roundStatus.recommendationsCompleted">Όλες οι συστάσεις έχουν υποβληθεί και πρέπει να καταχωρηθεί μια απόφαση.</message>
+
+	<!-- Participants -->
+	<message key="editor.submission.stageParticipants">Συμμετέχοντες</message>
+
+	<!-- Stage Participants grid -->
+	<message key="editor.submission.noneAssigned">Κανένας Συμμετέχων</message>
+	<message key="editor.submission.participant">Συμμετέχων</message>
+	<message key="editor.submission.addStageParticipant">Προσθήκη Συμμετέχοντος</message>
+	<message key="editor.submission.addStageParticipant.userGroup">Οι Χρήστες προστίθενται στα στάδια της ροής εργασιών ανά ομάδες Χρηστών. Οι Χρήστες που προστίθενται στο συγκεκριμένο στάδιο θα προστεθούν αυτομάτως στα άλλα στάδια που συμμετέχει η ομάδα Χρηστών στην οποία ανήκουν. Αυτό αφορά συνήθως τους Επιμελητές, τους Συγγραφείς και τους Μεταφραστές.</message>
+	<message key="editor.submission.removeStageParticipant">Αφαίρεση Συμμετέχοντος</message>
+	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Πρόκειται να αφαιρέσετε τον Συμμετέχοντα από <strong>όλα</strong> τα στάδια. Εργασίες που έχουν τυχόν ανατεθεί στον Χρήστη θα τερματιστούν.]]></message>
+	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Πρέπει να επιλέξετε μια ομάδα Χρηστών.</message>
+	<message key="editor.submission.addStageParticipant.form.userRequired">Πρέπει να επιλέξετε έναν Χρήστη από τη συγκεκριμένη ομάδα Χρηστών.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Ο Συμμετέχων που έχετε επιλέξει έχει αναλάβει την αξιολόγηση της εργασίας. Για να μην αποκτήσει ο Συμμετέχων πρόσβαση στην ταυτότητα του Συγγραφέα, συστήνεται να μην τον προσθέσετε, εκτός αν μπορείτε να διασφαλίσετε με άλλο τρόπο τη διαφάνεια της αξιολόγησης.</message>
+
+	<!--  editor decisions -->
+	<message key="editor.submission.decision">Απόφαση</message>
+	<message key="editor.submission.decision.accept">Αποδοχή υποβολής</message>
+	<message key="editor.submission.decision.requestRevisions">Απαιτούνται αναθεωρήσεις</message>
+	<message key="editor.submission.decision.resubmit">Υποβολή εκ νέου για αξιολόγηση</message>
+	<message key="editor.submission.decision.decline">Απόρριψη</message>
+	<message key="editor.submission.decision.sendToProduction">Αποστολή στην παραγωγή</message>
+	<message key="editor.submission.decision.skipReview">Παράλειψη αξιολόγησης και αποδοχή</message>
+	<message key="editor.submission.decision.sendInternalReview">Αποστολή προς εσωτερική αξιολόγηση</message>
+	<message key="editor.submission.decision.approveProofsDescription">Για να θεωρηθεί "Διαθέσιμο", το αρχείο επιμελημένου κειμένου πρέπει να επισημανθεί ως αποδεκτό. Επιβεβαιώνετε την ενέργεια;</message>
+	<message key="editor.submission.decision.approveProofs">Αποδοχή επιμελημένων κειμένων</message>
+	<message key="editor.submission.decision.disapproveProofsDescription">Αυτό το επιμελημένο αρχείο δεν θα είναι πλέον δημόσια διαθέσιμο.Επιβεβαιώνετε τη μη αποδοχή του;</message>
+	<message key="editor.submission.decision.noDecisionsAvailable">Για να ενεργοποιηθεί η λειτουργία καταγραφής αποφάσεων, αναθέστε την υποβολή σε κάποιον Επιμελητή.</message>
+
+	<!--  editor recommendations -->
+	<message key="editor.submission.makeRecommendation">Υποβολή σύστασης</message>
+	<message key="editor.submission.changeRecommendation">Τροποποίηση σύστασης</message>
+	<message key="editor.submission.recommendation.display">Σύσταση: {$recommendation}</message>
+	<message key="editor.submission.allRecommendations.display">Συστάσεις: {$recommendations}</message>
+	<message key="editor.submission.recommendation">Σύσταση</message>
+	<message key="editor.submission.recommendation.description">Προτείνετε μια απόφαση Επιμελητή για αυτή την υποβολή.</message>
+	<message key="editor.submission.recordedRecommendations">Καταγεγραμμένες συστάσεις</message>
+	<message key="editor.submission.decision.nextButton">Επόμενο: Επιλογή αρχείων για {$stageName}</message>
+	<message key="editor.submission.decision.selectFiles">Επιλέξτε τα αρχεία που θέλετε να προωθηθούν στο στάδιο {$stageName}.</message>
+	<message key="editor.submission.decision.previousAuthorNotification">Προηγούμενο: ενημέρωση Συγγραφέα</message>
+
+	<!-- workflow navigation keys -->
+	<message key="submission.currentStage">Παρόν στάδιο</message>
+	<message key="submission.noActionRequired">Δεν απαιτούνται ενέργειες</message>
+	<message key="submission.actionNeeded">Απαιτούνται ενέργειες</message>
+
+	<message key="reviewer.submission.reviewFiles">Αρχεία αξιολόγησης</message>
+	<message key="submission.submit.currentFile">Παρόν αρχείο</message>
+	<message key="submission.finalDraft">Αρχεία Draft</message>
+
+	<!-- Auditor keys -->
+	<message key="editor.submission.addAuditorError">Προέκυψε λάθος κατά την ανάθεση Ελεγκτή. Παρακαλούμε προσπαθήστε ξανά.</message>
+
+	<!-- Submission event log -->
+	<message key="submission.event.fileUploaded">Ένα αρχείο με τίτλο "{$originalFileName}" μεταφορτώθηκε στην υποβολή {$submissionId} από τον/την {$username}.</message>
+	<message key="submission.event.fileDeleted">Ένα αρχείο με τίτλο "{$originalFileName}" διαγράφηκε από την υποβολή {$submissionId} από τον/την {$username}.</message>
+	<message key="submission.event.revisionUploaded">Ένα αναθεωρημένο αρχείο με τίτλο "{$originalFileName}" μεταφορτώθηκε στην υποβολή {$submissionId} από τον/την {$username}.</message>
+	<message key="submission.event.revisionDeleted">Ένα αναθεωρημένο αρχείο με τίτλο "{$originalFileName}" διαγράφηκε από την υποβολή {$submissionId} από τον/την {$username}.</message>
+	<message key="submission.event.lastRevisionDeleted">Ο/Η {$username} αφαίρεσε την τελευταία αναθεώρηση για το αρχείο "{$title}".</message>
+	<message key="submission.event.fileAuditorAdded">Ο/Η "{$name}" ({$username}) επιλέχθηκε ως Ελεγκτής για το αρχείο "{$file}."</message>
+	<message key="submission.event.fileAuditorCleared">Ο/Η "{$name}" ({$username}) αφαιρέθηκε από Ελεγκτής για το αρχείο "{$file}."</message>
+	<message key="submission.event.fileAuditUploaded">Ο/Η "{$name}" ({$username}) ολοκλήρωσε τον έλεγχο και μεταφόρτωσε το αρχείο "{$file}."</message>
+	<message key="submission.event.signoffSignoff">Ο/Η "{$name}" ({$username}) ολοκλήρωσε τις εργασίες του "{$file}."</message>
+	<message key="submission.event.proofsApproved">Ο/Η "{$name}" ({$username}) ενέκρινε τα δοκίμια για τον τύπο αρχείου "{$formatName}."</message>
+	<message key="submission.overview">Επισκόπηση υποβολής</message>
+	<message key="submission.description">Περιγραφή</message>
+	<message key="submission.stageNotInitiated">Το στάδιο δεν ξεκίνησε.</message>
+	<message key="submission.documents">Αρχεία υποβολής</message>
+	<message key="notification.type.editorAssign">Έχετε οριστεί ως Επιμελητής για την υποβολή "{$title}".</message>
+	<message key="notification.type.copyeditorRequest">Έχετε λάβει ένα αίτημα επιμέλειας των αρχείων της εργασίας "{$title}".</message>
+	<message key="notification.type.layouteditorRequest">Έχετε λάβει ένα αίτημα επιμέλειας των αρχείων της εργασίας "{$title}".</message>
+	<message key="notification.type.indexRequest">Έχετε λάβει ένα αίτημα δημιουργίας ευρετηρίου για την εργασία "{$title}".</message>
+	<message key="notification.type.editorDecisionTitle">Τελευταία απόφαση Επιμελητή</message>
+	<message key="notification.type.editorDecisionAccept">Η υποβολή έγινε αποδεκτή.</message>
+	<message key="notification.type.editorDecisionExternalReview">Η διαδικασία εξωτερικής αξιολόγησης ξεκίνησε.</message>
+	<message key="notification.type.editorDecisionPendingRevisions">Απαιτούνται αναθεωρήσεις.</message>
+	<message key="notification.type.editorDecisionResubmit">Εκ νέου υποβολή για αξιολόγηση.</message>
+	<message key="notification.type.editorDecisionDecline">Η υποβολή απορρίφθηκε</message>
+	<message key="notification.uploadedResponse">Η απάντηση έχει μεταφορτωθεί.</message>
+
+	<message key="notification.type.editorAssignment">Για την έναρξη της διαδικασίας αξιολόγησης, απαιτείται η ανάθεση της υποβολής σε Επιμελητή. Προσθέστε έναν Επιμελητή από τη λίστα με τους Συμμετέχοντες.</message>
+	<message key="grid.reviewAttachments.title">Συνημμένα Αξιολογητή</message>
+	<message key="grid.reviewAttachments.send.title">Επιλέξτε τα αρχεία αξιολογήσεων που θα κοινοποιηθούν στους Συγγραφείς.</message>
+	<message key="submission.productionReady">Βιβλίο διαθέσιμο</message>
+	<message key="submission.review.uploadRevisionToRound">Μεταφόρτωση αναθεωρημένου αρχείου</message>
+	<message key="log.review.reviewerAssigned">Ο/Η {$reviewerName} έχει αναλάβει την αξιολόγηση της υποβολής {$submissionId} για τoν γύρο αξιολόγησης {$round}.</message>
+	<message key="log.review.reviewUnconsidered">Ο/Η {$editorName} έχει επισημάνει το αίτημα για το γύρο αξιολόγησης {$round} για την υποβολή {$submissionId} ως ανεξέταστο.</message>
+	<message key="submission.review.status.awaitingResponse">Σε αναμονή της απάντησης του Αξιολογητή.</message>
+	<message key="submission.review.status.declined">Ο Αξιολογητής απέρριψε το αίτημα αξιολόγησης.</message>
+	<message key="submission.review.status.responseOverdue">Η προθεσμία απάντησης του Αξιολογητή έχει παρέλθει.</message>
+	<message key="submission.review.status.reviewOverdue">Η προθεσμία υποβολής της κρίσης του Αξιολογητή έχει παρέλθει.</message>
+	<message key="submission.review.status.accepted">Η αξιολόγηση έγινε αποδεκτή.</message>
+	<message key="submission.review.status.received">Ο Αξιολογητής κατέθεσε την αξιολόγησή του.</message>
+	<message key="submission.review.status.complete">Η αξιολόγηση ολοκληρώθηκε.</message>
+	<message key="submission.review.status.thanked">Η αξιολόγηση έχει ολοκληρωθεί και ο Αξιολογητής έχει λάβει ευχαριστήριο μήνυμα.</message>
+	<message key="submission.document">Έγγραφο</message>
+	<message key="submission.art">Artwork</message>
+	<message key="submission.supplementary">Συμπληρωματικό περιεχόμενο</message>
+	<message key="submission.supplementary.creator">Δημιουργός (ή κάτοχος) αρχείου</message>
+	<message key="submission.supplementary.subject">Θέμα</message>
+	<message key="submission.supplementary.publisher">Εκδότης</message>
+	<message key="submission.supplementary.sponsor">Συντελεστής χορηγών οργανισμός</message>
+	<message key="grid.action.itemWorkflow">Μετάβαση στη ροή εργασιών της υποβολής</message>
+	<message key="notification.type.editorDecisionSendToProduction">Η διαδικασία παραγωγής έχει ξεκινήσει.</message>
+	<message key="notification.type.editorAssignmentProduction">Για την έναρξη της διαδικασίας παραγωγής, απαιτείται η ανάθεση της υποβολής σε ένα Επιμελητή Παραγωγής. Προσθέστε έναν Επιμελητή Παραγωγής από τη λίστα με τους Συμμετέχοντες.</message>
+	<message key="notification.type.editorAssignmentEditing">Για την έναρξη της διαδικασίας επιμέλειας, απαιτείται η ανάθεση της υποβολής σε έναν Επιμελητή. Προσθέστε έναν Επιμελητή από τη λίστα με τους Συμμετέχοντες.</message>
+
+	<!--  peer review -->
+	<message key="submission.reviewForm">Φόρμα αξιολόγησης</message>
+	<message key="submission.reviewFormResponse">Απόκριση φόρμας αξιολόγησης</message>
+	<message key="grid.action.createReviewFormElement">Δημιουργία νέου στοιχείου στη φόρμα αξιολόγησης</message>
+	<message key="grid.action.editMetadata">Επιμέλεια μεταδεδομένων</message>
+
+	<!-- Permissions -->
+	<message key="submission.permissions">Άδειες</message>
+	<message key="submission.attachPermissions">Απόδοση των ακόλουθων αδειών στην υποβολή:</message>
+	<message key="submission.license">Άδεια</message>
+	<message key="submission.copyright">Πνευματικά δικαιώματα</message>
+	<message key="submission.copyrightHolder">Κάτοχος πνευματικών δικαιωμάτων</message>
+	<message key="submission.copyrightYear">Έτος</message>
+	<message key="submission.copyrightStatement">Copyright (c) {$copyrightYear} {$copyrightHolder}</message>
+	<message key="submission.licenseURLValid">Καταχωρήστε ένα σωστό σύνδεσμο URL (με το πρόθεμα http://).</message>
+	<message key="submission.licenseURL">Σύνδεσμος (URL) άδειας</message>
+	<message key="submission.license.cc.by-nc-nd4">Creative Commons Αναφορά-Μη Εμπορική Χρήση-Όχι Παράγωγα Έργα 4.0</message>
+	<message key="submission.license.cc.by-nc4">Creative Commons Αναφορά-Μη Εμπορική Χρήση 4.0</message>
+	<message key="submission.license.cc.by-nc-sa4">Creative Commons Αναφορά-Μη Εμπορική Χρήση-Παρόμοια Διανομή 4.0</message>
+	<message key="submission.license.cc.by-nd4">Creative Commons Αναφορά-Όχι Παράγωγα Έργα 4.0</message>
+	<message key="submission.license.cc.by4">Creative Commons Αναφορά 4.0</message>
+	<message key="submission.license.cc.by-sa4">Creative Commons Αναφορά-Παρόμοια Διανομή 4.0</message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.el"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Αυτό το έργο διατίθεται με άδεια <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Αναφορά-Μη Εμπορική Χρήση-Όχι Παράγωγα Έργα 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.el"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Αυτό το έργο διατίθεται με άδεια <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Αναφορά-Μη Εμπορική Χρήση 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.el"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Αυτό το έργο διατίθεται με άδεια <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Αναφορά-Μη Εμπορική Χρήση-Παρόμοια Διανομή 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/legalcode.el"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Αυτό το έργο διατίθεται με άδεια <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Αναφορά-Όχι Παράγωγα Έργα 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode.el"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Αυτό το έργο διατίθεται με άδεια <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Αναφορά 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.el"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Αυτό το έργο διατίθεται με άδεια <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Αναφορά-Παρόμοια Διανομή 4.0</p>]]></message>
+
+	<!-- Submission Queries -->
+	<message key="submission.queries.submission">Συζητήσεις πριν την αξιολόγηση</message>
+	<message key="submission.queries.review">Συζητήσεις κατά την αξιολόγηση</message>
+	<message key="submission.queries.editorial">Συζητήσεις κατά τη διαδικασία επιμέλειας κειμένων</message>
+	<message key="submission.queries.production">Συζητήσεις κατά τη διαδικασία παραγωγής</message>
+	<message key="submission.query.subject">Θέμα</message>
+	<message key="submission.query.messages">Μηνύματα</message>
+	<message key="submission.query.replies">Απαντήσεις</message>
+	<message key="submission.query.from">Από</message>
+	<message key="submission.query.lastReply">Τελευταία απάντηση</message>
+	<message key="submission.query.closed">Έκλεισε</message>
+	<message key="submission.query.addNote">Προσθήκη μηνύματος</message>
+	<message key="grid.action.openNoteForm">Προσθήκη νέας απάντησης στη συζήτηση</message>
+	<message key="submission.query.activity">Ο/Η {$responderName} απάντησε στο {$noteTitle}: {$noteContents}</message>
+	<message key="submission.query.new">Ο/Η {$creatorName} ξεκίνησε μια συζήτηση: {$noteTitle}: {$noteContents}</message>
+	<message key="submission.query.activity.contents">Υπάρχει δραστηριότητα στη συζήτηση με τίτλο "{$queryTitle}" σχετικά με την υποβολή "{$submissionTitle}".</message>
+	<message key="submission.query.new.contents">Έχετε κληθεί να συμμετάσχετε στη συζήτηση με τίτλο "{$queryTitle}" σχετικά με την υποβολή "{$submissionTitle}".</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.query.noParticipantOptions">Πρέπει να συμπεριλάβετε τουλάχιστον ένα Συμμετέχοντα στην υποβολή πριν ξεκινήσετε μια συζήτηση.</message>
+
+	<!-- Submission Lists -->
+	<message key="submission.list.infoCenter">Ημερολόγιο δραστηριοτήτων &amp; Σημειώσεις</message>
+	<message key="submission.list.count">{$count} υποβολές</message>
+	<message key="submission.list.itemsOfTotal">{$count} από {$total} υποβολές</message>
+	<message key="submission.list.responseDue">Προθεσμία απάντησης</message>
+	<message key="submission.list.reviewDue">Προθεσμία αξιολόγησης</message>
+	<message key="submission.list.reviewComplete">Η αξιολόγηση υποβλήθηκε</message>
+	<message key="submission.list.confirmDelete">Διαγραφή υποβολής?</message>
+	<message key="submission.list.itemOrdererUp">Μετακίνηση του {$itemTitle} ψηλότερα στη λίστα</message>
+	<message key="submission.list.itemOrdererDown">Μετακίνηση του {$itemTitle} χαμηλότερα στη λίστα</message>
+	<message key="submission.list.viewSubmission">Προβολή υποβολής</message>
+	<message key="submission.list.reviewsCompleted">Οι ανατεθειμένες αξιολογήσεις ολοκληρώθηκαν</message>
+	<message key="submission.list.revisionsSubmitted">Υποβλήθηκαν αναθεωρημένα κείμενα</message>
+	<message key="submission.list.copyeditsSubmitted">Υποβλήθηκαν επιμελημένα κείμενα</message>
+	<message key="submission.list.galleysCreated">Δημιουργήθηκαν δοκίμια για το στάδιο παραγωγής</message>
+	<message key="submission.list.filesPrepared">Τα αρχεία προετοιμάστηκαν</message>
+	<message key="submission.list.discussions">Ενεργές συζητήσεις</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Σας έχουν ανατεθεί πολλαπλοί ρόλοι σε αυτή την υποβολή. Θέλετε να μεταβείτε στη ροή εργασιών του <a href="{$urlAuthorWorkflow}">Συγγραφέα</a> ή της <a href="{$urlEditorialWorkflow}">Επιμέλειας</a>;]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Σας έχει ανατεθεί ρόλος σχετικός με την επιμέλεια της υποβολής. Θέλετε να μεταβείτε στη ροή εργασιών της <a href="{$urlEditorialWorkflow}">Επιμέλειας</a>;]]></message>
+	<message key="submission.list.incompleteSubmissionNotice">Η υποβολή πρέπει να ολοκληρωθεί πριν την ανάθεση σε κάποιον Επιμελητή.</message>
+	<message key="submission.list.currentStage">Βρίσκεται στο στάδιο{$stage}.</message>
+	<message key="submission.list.assignEditor">Ανάθεση Επιμελητή</message>
 </locale>

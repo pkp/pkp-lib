@@ -67,7 +67,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$dao = Application::getPublishedSubmissionDAO();
 		}
 		$result = $dao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $dao, '_fromRow');
+		$queryResults = new DAOResultFactory($result, $dao, '_fromRow', array(), array('submissionStatus' => STATUS_PUBLISHED));
 
 		return $queryResults->toArray();
 	}
@@ -84,7 +84,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$dao = Application::getPublishedSubmissionDAO();
 		}
 		$countResult = $dao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow');
+		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow', array(), array('submissionStatus' => STATUS_PUBLISHED));
 
 		return (int) $countQueryResults->getCount();
 	}

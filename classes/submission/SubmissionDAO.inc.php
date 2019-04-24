@@ -16,11 +16,12 @@
 
 import('lib.pkp.classes.submission.Submission');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
+import('lib.pkp.classes.submission.ISubmissionVersionedDAO');
 
 define('ORDERBY_DATE_PUBLISHED', 'datePublished');
 define('ORDERBY_TITLE', 'title');
 
-abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
+abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO, ISubmissionVersionedDAO {
 	var $cache;
 	var $authorDao;
 
@@ -82,6 +83,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 				'pub-id::publisher-id', // FIXME: Move this to a PID plug-in.
 				'copyrightYear',
 				'licenseURL',
+				'datePublished',
 			)
 		);
 	}
@@ -97,9 +99,23 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $row array
 	 * @return Submission
 	 */
-	function _fromRow($row) {
-		$submission = $this->newDataObject();
+	function _fromRow($row, $params) {
+		$submissionVersion = null;
+		if (is_array($params)) {
+			if (!isset($params['submissionVersion'])) {
+				if (isset($params['submissionStatus']) && $params['submissionStatus'] == STATUS_PUBLISHED) {
+					$submissionVersion = $this->getCurrentPublishedSubmissionVersion($row['submission_id']);
+				} else {
+					$submissionVersion = $this->getCurrentSubmissionVersionById($row['submission_id']);
+				}
+			} else {
+				$submissionVersion = $params['submissionVersion'];
+			}
+		} else {
+			$submissionVersion = $params;
+		}
 
+		$submission = $this->newDataObject();
 		$submission->setId($row['submission_id']);
 		$submission->setContextId($row['context_id']);
 		$submission->setLocale($row['locale']);
@@ -108,14 +124,108 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$submission->setSubmissionProgress($row['submission_progress']);
 		$submission->setDateSubmitted($this->datetimeFromDB($row['date_submitted']));
 		$submission->setDateStatusModified($this->datetimeFromDB($row['date_status_modified']));
-		$submission->setDatePublished(isset($row['date_published']) ? $this->datetimeFromDB($row['date_published']) : null);
 		$submission->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$submission->setLanguage($row['language']);
 		$submission->setCitations($row['citations']);
+		$submission->setCurrentSubmissionVersion($row['submission_version']);
 
-		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission);
+		$submission->setSubmissionVersion($submissionVersion);
+		$this->getDataObjectSettings('submission_settings', 'submission_id', $submission->getId(), $submission, $submissionVersion);
 
 		return $submission;
+	}
+
+	/**
+	 * Get all revisions for a submission
+	 * @param $submissionId int
+	 * @param $contextId int optional
+	 * $param $order string optional default: ASC
+	 * @return array
+	 */
+	function getSubmissionVersionsById($submissionId, $order = SORT_DIRECTION_ASC) {
+		$params = array((int) $submissionId);
+
+		$sql = 'SELECT DISTINCT ss.submission_version
+						FROM 	submission_settings ss
+						WHERE 	ss.submission_id = ?
+						ORDER BY ss.submission_version ' . $this->getDirectionMapping($order);
+
+		$result = $this->retrieve($sql, $params);
+
+		$submissionVersions = array();
+		while(!$result->EOF){
+			$row = $result->getRowAssoc(false);
+			$submissionVersions[] = $row['submission_version'];
+			$result->moveNext();
+		}
+
+		$result->close();
+
+		return $submissionVersions;
+	}
+
+	function getCurrentPublishedSubmissionVersion($submissionId) {
+		$params = array((int) $submissionId);
+
+		$sql = 'SELECT submission_id, MAX(published_submission_version) as submission_version
+						FROM published_submissions
+						WHERE submission_id = ?
+						GROUP BY submission_id';
+
+		$result = $this->retrieve($sql, $params);
+
+		$submissionVersion = null;
+		while(!$result->EOF){
+			$row = $result->getRowAssoc(false);
+			$submissionVersion = $row['submission_version'];
+			$result->moveNext();
+		}
+
+		$result->close();
+
+		return $submissionVersion;
+	}
+
+	function getSubmissionVersionPublicationDate($submissionId, $submissionVersion) {
+		$params = array(
+			(int) $submissionId,
+			(int) $submissionVersion,
+			'datePublished',
+		);
+
+		$sql = 'SELECT setting_value
+						FROM 	submission_settings
+						WHERE submission_id = ? AND submission_version = ? AND setting_name = ?';
+
+		$result = $this->retrieve($sql, $params);
+
+		$submissionVersionPublicationDate = null;
+		while(!$result->EOF){
+			$row = $result->getRowAssoc(false);
+			$submissionVersionPublicationDate = $row['setting_value'];
+			$result->moveNext();
+		}
+		$result->close();
+
+		return $submissionVersionPublicationDate;
+	}
+
+	/**
+	 * Get the latest revision id for a submission
+	 * @param $submissionId int
+	 * @param $contextId int
+	 * @return int
+	 */
+	function getCurrentSubmissionVersionById($submissionId) {
+		if (!$submissionId) 
+			return null;
+
+		$submission = $this->getById($submissionId);
+
+		if ($submission)
+			return $submission->getCurrentSubmissionVersion();
+
+		return null;
 	}
 
 	/**
@@ -283,10 +393,11 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function changePubId($pubObjectId, $pubIdType, $pubId) {
 		$idFields = array(
-			'submission_id', 'locale', 'setting_name'
+			'submission_id', 'submission_version', 'locale', 'setting_name'
 		);
 		$updateArray = array(
 			'submission_id' => (int) $pubObjectId,
+			'submission_version' => $this->getCurrentSubmissionVersionById($submissionId),
 			'locale' => '',
 			'setting_name' => 'pub-id::'.$pubIdType,
 			'setting_type' => 'string',
@@ -336,7 +447,8 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function updateLocaleFields($submission) {
 		$this->updateDataObjectSettings('submission_settings', $submission, array(
-			'submission_id' => $submission->getId()
+			'submission_id' => $submission->getId(),
+			'submission_version' => ($submission->getSubmissionVersion())
 		));
 	}
 
@@ -363,9 +475,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 	 * @param $submissionId int
 	 * @param $contextId int optional
 	 * @param $useCache boolean optional
+	 * @param $submissionVersion int optional
 	 * @return Submission
 	 */
-	function getById($submissionId, $contextId = null, $useCache = false) {
+	function getById($submissionId, $contextId = null, $useCache = false, $submissionVersion = null) {
 		if ($useCache) {
 			$cache = $this->_getCache();
 			$submission = $cache->get($submissionId);
@@ -380,10 +493,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
-				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id) and (ps.published_submission_version = s.submission_version) and ps.is_current_submission_version = 1
 				' . $this->getFetchJoins() . '
 			WHERE	s.submission_id = ?
 				' . ($contextId?' AND s.context_id = ?':''),
@@ -392,7 +505,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
+			$returner = $this->_fromRow($result->GetRowAssoc(false), $submissionVersion);
 		}
 
 		$result->Close();
@@ -426,10 +539,10 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
-				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id) and (ps.published_submission_version = s.submission_version) and ps.is_current_submission_version = 1
 				' . $this->getCompletionJoins() . '
 				LEFT JOIN stage_assignments asa ON (asa.submission_id = s.submission_id)
 				LEFT JOIN user_groups aug ON (asa.user_group_id = aug.user_group_id AND aug.role_id = ?)
@@ -463,12 +576,12 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		$params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
-				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id) and (ps.published_submission_version = s.submission_version) and ps.is_current_submission_version = 1
 				' . $this->getFetchJoins() . '
-			WHERE	s.context_id = ?
+			WHERE s.context_id = ?
 			ORDER BY s.submission_id',
 			$params
 		);
@@ -490,12 +603,12 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.date_published,
+			'SELECT	s.*,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
-				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)
+				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id) and (ps.published_submission_version = s.submission_version) and ps.is_current_submission_version = 1
 				' . $this->getFetchJoins() . '
-			WHERE	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
+			WHERE 	s.submission_id IN (SELECT asa.submission_id FROM stage_assignments asa, user_groups aug WHERE asa.user_group_id = aug.user_group_id AND aug.role_id = ? AND asa.user_id = ?)' .
 				($contextId?' AND s.context_id = ?':'') .
 			' ORDER BY s.submission_id',
 			$params
@@ -504,7 +617,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
-	/**
+	/*
 	 * Delete all submissions by context ID.
 	 * @param $contextId int
 	 */
@@ -803,6 +916,59 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		return $sortDir;
 	}
 
+	#region ISubmissionVersionedDAO Members
+
+	/**
+	 *
+	 * @param  $submissionId
+	 * @param  $submissionVersion
+	 */
+	function getBySubmissionId($submissionId, $submissionVersion = null) {
+		// TODO: implement the function ISubmissionVersionedDAO::getBySubmissionId
+	}
+
+	/**
+	 *
+	 * @param  $submissionId
+	 */
+	function newVersion($submissionId) {
+		$oldVersion = $this->getCurrentSubmissionVersionById($submissionId);
+		$newVersion = $oldVersion + 1;
+		$submission = $this->getById($submissionId, null, false, $oldVersion);
+
+		$submission->setData('submissionVersion', $newVersion);
+		$submission->setDatePublished(null);
+
+		foreach ($this->versioningRelatedEntityDaos() as $versioningRelatedEntityDaoName) {
+			$versioningRelatedEntityDao = DAORegistry::getDAO($versioningRelatedEntityDaoName);
+			if (is_a($versioningRelatedEntityDao, 'ISubmissionVersionedDAO')) {
+				/** @var $versioningRelatedEntityDao ISubmissionVersionedDAO */
+				$versioningRelatedEntityDao->newVersion($submissionId);
+			}
+		}
+
+		$submission->setCurrentSubmissionVersion($newVersion);
+		$submission->setSubmissionVersion($newVersion);
+		$this->updateObject($submission);
+	}
+
+	/**
+	 */
+	function getVersioningAssocType() {
+		// TODO: implement the function ISubmissionVersionedDAO::getVersioningAssocType
+	}
+
+	#endregion
+
+	function versioningRelatedEntityDaos() {
+		return array('AuthorDAO', 'SubmissionFileDAO');
+	}
+
+	#region ISubmissionVersionedDAO Members
+
+	function getMasterTableName() {
+		return;
+	}
+
+	#endregion
 }
-
-

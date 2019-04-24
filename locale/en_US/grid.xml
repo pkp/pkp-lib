@@ -157,6 +157,9 @@
 	<message key="grid.action.editContributor">Edit Contributor</message>
 	<message key="grid.action.deleteContributor">Delete Contributor</message>
 
+	<!-- Versioning Tab  -->
+	<message key="grid.action.newVersion">Create a new version</message>
+
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>
 

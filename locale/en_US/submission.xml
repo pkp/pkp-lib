@@ -648,4 +648,11 @@
 	<message key="submission.currentCoverImage">Current Image</message>
 	<message key="catalog.category.noItems">Nothing has been published in this category yet.</message>
 	<message key="catalog.category.subcategories">Subcategories</message>
+
+	<!-- Versioning -->
+	<message key="submission.production.version">Version {$submissionVersion}</message>
+	<message key="submission.production.newVersion">New Version</message>
+	<message key="submission.production.editMetadata">Metadata of this Version</message>
+	<message key="submission.production.editMetadata.info">This is the metadata of version {$version}.</message>
+	<message key="submission.production.editMetadata.previous">Previous versions can be seen at the corresponding tab at the production stage.</message>
 </locale>

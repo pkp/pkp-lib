@@ -14,8 +14,9 @@
  */
 
 import('lib.pkp.classes.core.DataObject');
+import('lib.pkp.classes.submission.SubmissionVersionedDataObject');
 
-class Representation extends DataObject {
+class Representation extends SubmissionVersionedDataObject {
 	/**
 	 * Constructor.
 	 */
@@ -153,6 +154,18 @@ class Representation extends DataObject {
 	 */
 	function getDAO() {
 		return Application::getRepresentationDAO();
+	}
+
+	function getRepresentationFiles($fileStage = null) {
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var $submissionFileDao SubmissionFileDAO */
+		return $submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
+			ASSOC_TYPE_REPRESENTATION,
+			$this->getId(),
+			$this->getSubmissionId(),
+			$fileStage,
+			null,
+			$this->getSubmissionVersion()
+		);
 	}
 }
 

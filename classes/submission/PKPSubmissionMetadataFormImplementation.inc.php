@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionMetadataFormImplementation.inc.php
+ * @file classes/submission/PKPSubmissionMetadataFormImplementation.inc.php
  *
  * Copyright (c) 2014-2018 Simon Fraser University
  * Copyright (c) 2003-2018 John Willinsky
@@ -129,6 +129,8 @@ class PKPSubmissionMetadataFormImplementation {
 			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
 			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
+			$this->_parentForm->setData('submissionVersion', $submission->getSubmissionVersion());
+			$this->_parentForm->setData('currentSubmissionVersion', $submission->getCurrentSubmissionVersion());
 		}
 	}
 
@@ -191,6 +193,10 @@ class PKPSubmissionMetadataFormImplementation {
 		if ($newLocale != $oldLocale) {
 			$authorDao->changeSubmissionLocale($submission->getId(), $oldLocale, $newLocale);
 		}
+
+		// save submission version
+		$submission->setSubmissionVersion($submission->getCurrentSubmissionVersion());
+		//$submission->setData('submissionVersion', $request->getUserVar('submissionVersion') ? (int)$request->getUserVar('submissionVersion') : $submission->getCurrentVersionId());
 
 		// Save the submission
 		$submissionDao->updateObject($submission);

@@ -109,6 +109,7 @@ class PublicationEntryHandler extends Handler {
 			'stageId' => $this->getStageId(),
 			'selectedTab' => (int) $this->getTabPosition(),
 			'hideHelp' => (boolean) $request->getUserVar('hideHelp'),
+			'submissionVersion' => $this->getSubmission()->getSubmissionVersion(),
 		));
 		// Tell the template if citation field is enabled
 		$context = $request->getContext();

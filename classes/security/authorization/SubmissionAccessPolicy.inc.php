@@ -34,6 +34,9 @@ class SubmissionAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
+		import('lib.pkp.classes.security.authorization.internal.VersioningRequiredPolicy');
+		$this->addPolicy(new VersioningRequiredPolicy($request, $args, 'submissionVersion', null, true));
+
 		// Authors, managers and sub editors potentially have
 		// access to submissions. We'll have to define differentiated
 		// policies for those roles in a policy set.

@@ -24,6 +24,8 @@ class DAOResultFactory extends ItemIterator {
 	/** @var string The name of the DAO's factory function (to be called with an associative array of values) */
 	var $functionName;
 
+	var $functionParams;
+
 	/**
 	 * @var array an array of primary key field names that uniquely
 	 *   identify a result row in the record set.
@@ -52,9 +54,10 @@ class DAOResultFactory extends ItemIterator {
 	 *  identify a result row in the record set.
 	 *  Should be data object _data array key, not database column name
 	 */
-	function __construct($records, $dao, $functionName, $idFields = array()) {
+	function __construct($records, $dao, $functionName, $idFields = array(), $functionParams = array()) {
 		parent::__construct();
 		$this->functionName = $functionName;
+		$this->functionParams = $functionParams;
 		$this->dao = $dao;
 		$this->idFields = $idFields;
 
@@ -101,7 +104,7 @@ class DAOResultFactory extends ItemIterator {
 			$functionName = $this->functionName;
 			$dao = $this->dao;
 			$row = $this->records->getRowAssoc(false);
-			$result = $dao->$functionName($row);
+			$result = $dao->$functionName($row, $this->functionParams);
 			if (!$this->records->MoveNext()) $this->close();
 			return $result;
 		} else {

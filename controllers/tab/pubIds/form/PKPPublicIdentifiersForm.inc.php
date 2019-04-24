@@ -48,6 +48,12 @@ class PKPPublicIdentifiersForm extends Form {
 		$this->_stageId = $stageId;
 		$this->_formParams = $formParams;
 
+		if (is_a($pubObject, 'Submission')) {
+			$submissionDao = Application::getSubmissionDAO();
+			$submissionVersion = isset($formParams['submissionVersion']) ? $formParams['submissionVersion'] : null;
+			$this->_pubObject = $submissionDao->getById($pubObject->getId(), null, false, $submissionVersion);
+		}
+
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();
@@ -222,5 +228,3 @@ class PKPPublicIdentifiersForm extends Form {
 		return $assocType;
 	}
 }
-
-

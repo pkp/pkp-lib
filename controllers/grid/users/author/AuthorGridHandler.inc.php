@@ -25,6 +25,9 @@ class AuthorGridHandler extends GridHandler {
 	/** @var boolean */
 	var $_readOnly;
 
+	/** @var int */
+	var $_version;
+
 	/**
 	 * Constructor
 	 */
@@ -66,7 +69,6 @@ class AuthorGridHandler extends GridHandler {
 		$this->_readOnly = $readOnly;
 	}
 
-
 	//
 	// Overridden methods from PKPHandler.
 	//
@@ -101,6 +103,7 @@ class AuthorGridHandler extends GridHandler {
 			// Grid actions
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
+
 			$this->addAction(
 				new LinkAction(
 					'addAuthor',
@@ -196,7 +199,7 @@ class AuthorGridHandler extends GridHandler {
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$submission = $this->getSubmission();
-		$author = $authorDao->getById($rowId, $submission->getId());
+		$author = $authorDao->getById($rowId, $submission->getId(), $this->_version);
 		$author->setSequence($newSequence);
 		$authorDao->updateObject($author);
 	}
@@ -206,7 +209,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @return AuthorGridRow
 	 */
 	protected function getRowInstance() {
-		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly());
+		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly(), $this->_version);
 	}
 
 	/**
@@ -228,6 +231,9 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function canAdminister($user) {
 		$submission = $this->getSubmission();
+		if ($submission->getSubmissionVersion() != $submission->getCurrentSubmissionVersion()) {
+			return false;
+		}
 
 		// Incomplete submissions can be edited. (Presumably author.)
 		if ($submission->getDateSubmitted() == null) return true;
@@ -255,7 +261,7 @@ class AuthorGridHandler extends GridHandler {
 	protected function loadData($request, $filter = null) {
 		$submission = $this->getSubmission();
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		return $authorDao->getBySubmissionId($submission->getId(), true);
+		return $authorDao->getBySubmissionId($submission->getId(), true, false, $submission->getSubmissionVersion());
 	}
 
 	//
@@ -273,7 +279,7 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Edit a author
+	 * Edit an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -284,7 +290,7 @@ class AuthorGridHandler extends GridHandler {
 		$submission = $this->getSubmission();
 
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$author = $authorDao->getById($authorId, $submission->getId());
+		$author = $authorDao->getById($authorId, $submission->getId(), $submission->getSubmissionVersion());
 
 		// Form handling
 		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
@@ -295,7 +301,7 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Edit a author
+	 * Update an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
@@ -359,10 +365,13 @@ class AuthorGridHandler extends GridHandler {
 	function deleteAuthor($args, $request) {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
 
-		$submission = $this->getSubmission();
+		// Identify the submission Id
+		$submissionId = $this->getSubmission()->getId();
+		// Identify the author to be deleted
 		$authorId = (int) $request->getUserVar('authorId');
+
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$authorDao->deleteById($authorId, $submission->getId());
+		$authorDao->deleteById($authorId, $submissionId);
 		return DAO::getDataChangedEvent($authorId);
 	}
 
@@ -393,5 +402,3 @@ class AuthorGridHandler extends GridHandler {
 		}
 	}
 }
-
-

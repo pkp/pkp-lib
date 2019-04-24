@@ -88,6 +88,26 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Get ID of file.
+	 * @return int
+	 */
+	function getId() {
+		// WARNING: Do not modernize getter/setters without considering
+		// ID clash with subclasses ArticleGalley and ArticleNote!
+		return $this->getData('fileId');
+	}
+
+	/**
+	 * Set ID of file.
+	 * @param $fileId int
+	 */
+	function setId($fileId) {
+		// WARNING: Do not modernize getter/setters without considering
+		// ID clash with subclasses ArticleGalley and ArticleNote!
+		$this->setData('fileId', $fileId);
+	}
+
+	/**
 	 * Get the locale of the submission.
 	 * This is not properly a property of the submission file
 	 * (e.g. it won't be persisted to the DB with the update function)

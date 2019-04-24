@@ -62,6 +62,9 @@ class SubmissionFileDAODelegate extends DAO {
 			is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
 			$submissionFile->getDirectSalesPrice(),
 			$submissionFile->getSalesType(),
+			$submissionFile->getSubmissionVersion(),
+			$submissionFile->getPrevVerAssocId(),
+			$submissionFile->getIsCurrentSubmissionVersion(),
 		);
 
 		if ($fileId) {
@@ -70,9 +73,9 @@ class SubmissionFileDAODelegate extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO submission_files
-				(' . ($fileId ? 'file_id, ' : '') . 'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type)
+				(' . ($fileId ? 'file_id, ' : '') . 'revision, submission_id, source_file_id, source_revision, file_type, file_size, original_file_name, file_stage, date_uploaded, date_modified, viewable, uploader_user_id, assoc_type, assoc_id, genre_id, direct_sales_price, sales_type, submission_version, prev_ver_id, is_current_submission_version)
 				VALUES
-				(' . ($fileId ? '?, ' : '') . '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?)',
+				(' . ($fileId ? '?, ' : '') . '?, ?, ?, ?, ?, ?, ?, ?, %s, %s, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
 			$params
 		);
@@ -155,7 +158,10 @@ class SubmissionFileDAODelegate extends DAO {
 					assoc_id = ?,
 					genre_id = ?,
 					direct_sales_price = ?,
-					sales_type = ?
+					sales_type = ?,
+					submission_version = ?,
+					prev_ver_id = ?,
+					is_current_submission_version = ?
 				WHERE file_id = ? AND revision = ?',
 				$this->datetimeToDB($submissionFile->getDateUploaded()), $this->datetimeToDB($submissionFile->getDateModified())),
 			array(
@@ -175,6 +181,9 @@ class SubmissionFileDAODelegate extends DAO {
 				is_null($submissionFile->getGenreId()) ? null : (int)$submissionFile->getGenreId(),
 				$submissionFile->getDirectSalesPrice(),
 				$submissionFile->getSalesType(),
+				(int) $submissionFile->getSubmissionVersion(),
+				(int) $submissionFile->getPrevVerAssocId(),
+				(int) $submissionFile->getIsCurrentSubmissionVersion(),
 				(int)$previousFile->getFileId(),
 				(int)$previousFile->getRevision(),
 			)
@@ -269,6 +278,9 @@ class SubmissionFileDAODelegate extends DAO {
 		$submissionFile->setDateModified($this->datetimeFromDB($row['date_modified']));
 		$submissionFile->setDirectSalesPrice($row['direct_sales_price']);
 		$submissionFile->setSalesType($row['sales_type']);
+		$submissionFile->setSubmissionVersion($row['submission_version']);
+		$submissionFile->setPrevVerAssocId($row['prev_ver_id']);
+		$submissionFile->setIsCurrentSubmissionVersion($row['is_current_submission_version']);
 
 		$this->getDataObjectSettings('submission_file_settings', 'file_id', $row['submission_file_id'], $submissionFile);
 

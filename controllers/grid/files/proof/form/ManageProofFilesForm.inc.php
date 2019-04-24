@@ -65,6 +65,11 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 		$newSubmissionFile->setFileStage(SUBMISSION_FILE_PROOF);
 		$newSubmissionFile->setViewable(false); // Not approved by default
 
+		// Versioning-Feature
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($this->getSubmissionId()); /** @var $submission Submission */
+		$newSubmissionFile->setSubmissionVersion($submission->getCurrentSubmissionVersion());
+
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
 		$submissionFileDao->updateObject($newSubmissionFile);
 		return $newSubmissionFile;

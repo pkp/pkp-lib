@@ -69,7 +69,8 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		return array(
 			'submissionId' => $submission->getId(),
 			'stageId' => $this->getStageId(),
-			'fileStage' => $this->getFileStage()
+			'fileStage' => $this->getFileStage(),
+			'submissionVersion' => $submission->getSubmissionVersion()
 		);
 	}
 
@@ -88,7 +89,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		// Retrieve all submission files for the given file stage.
 		$submission = $this->getSubmission();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
+		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage(), null, $submission->getSubmissionVersion());
 		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
 	}
 

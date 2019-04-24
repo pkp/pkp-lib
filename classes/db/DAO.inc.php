@@ -100,8 +100,9 @@ class DAO {
 		$result = $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
+
 		return $result;
 	}
 
@@ -131,7 +132,7 @@ class DAO {
 		$result = $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
 		return $result;
 	}
@@ -161,7 +162,7 @@ class DAO {
 		$dataSource = $this->getDataSource();
 		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
 		return $result;
 	}
@@ -193,7 +194,7 @@ class DAO {
 				$result = $dataSource->SelectLimit($sql, $dbResultRange->getCount(), $dbResultRange->getOffset(), $params);
 			}
 			if ($dataSource->errorNo()) {
-				fatalError('DB Error: ' . $dataSource->errorMsg());
+				$this->handleError($dataSource, $sql);
 			}
 		}
 		else {
@@ -227,7 +228,7 @@ class DAO {
 		$dataSource = $this->getDataSource();
 		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dieOnError && $dataSource->errorNo()) {
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
 		return $dataSource->errorNo() == 0 ? true : false;
 	}
@@ -578,16 +579,19 @@ class DAO {
 	 * @param $idFieldName string Name of ID column
 	 * @param $dataObject DataObject Object in which to store retrieved values
 	 */
-	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
+	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject, $submissionVersion = null) {
 		if ($idFieldName !== null) {
 			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
 			$params = array($idFieldValue);
+			if ($submissionVersion) {
+				$sql = $sql . ' AND submission_version = ?';
+				$params[] = (int) $submissionVersion;
+			}
 		} else {
 			$sql = "SELECT * FROM $tableName";
 			$params = false;
 		}
 		$result = $this->retrieve($sql, $params);
-
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
 			$dataObject->setData(
@@ -601,6 +605,7 @@ class DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
+
 	}
 
 	/**
@@ -697,6 +702,8 @@ class DAO {
 			return null;
 		}
 	}
+
+	function handleError($dataSource, $sql) {
+		fatalError('DB Error: ' . $dataSource->errorMsg() . ' Query: ' . $sql);
+	}
 }
-
-

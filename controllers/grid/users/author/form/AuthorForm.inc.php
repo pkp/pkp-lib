@@ -133,6 +133,7 @@ class AuthorForm extends Form {
 				'biography' => $author->getBiography(null),
 				'primaryContact' => $author->getPrimaryContact(),
 				'includeInBrowse' => $author->getIncludeInBrowse(),
+				'version' => $author->getSubmissionVersion(),
 			);
 		} else {
 			// assume authors should be listed unless otherwise specified.
@@ -221,6 +222,7 @@ class AuthorForm extends Form {
 		$author->setBiography($this->getData('biography'), null); // localized
 		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
+		$author->setSubmissionVersion($submission->getCurrentSubmissionVersion());
 
 		// in order to be able to use the hook
 		parent::execute();

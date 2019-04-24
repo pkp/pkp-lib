@@ -44,7 +44,9 @@ class PKPSubmissionMetadataViewForm extends Form {
 		parent::__construct($templateName);
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById((int) $submissionId);
+		$submissionVersion = isset($formParams['submissionVersion']) ? (int)$formParams['submissionVersion'] : null;
+		$submission = $submissionDao->getById((int) $submissionId, null, false, $submissionVersion);
+
 		if ($submission) {
 			$this->_submission = $submission;
 		}
@@ -52,6 +54,15 @@ class PKPSubmissionMetadataViewForm extends Form {
 		$this->_stageId = $stageId;
 
 		$this->_formParams = $formParams;
+
+		if ($submission->getCurrentSubmissionVersion() != $submission->getSubmissionVersion()) {
+			if (!isset($this->_formParams)) {
+				$this->_formParams = array();
+			}
+
+			$this->_formParams["readOnly"] = true;
+			$this->_formParams["hideSubmit"] = true;
+		}
 
 		$this->_metadataFormImplem = new SubmissionMetadataFormImplementation($this);
 
@@ -126,6 +137,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 			'submissionId' =>$submission->getId(),
 			'stageId' => $this->getStageId(),
 			'formParams' => $this->getFormParams(),
+			'submissionVersion' => $submission->getSubmissionVersion(),
 		));
 
 		// Tell the form what fields are enabled (and which of those are required)

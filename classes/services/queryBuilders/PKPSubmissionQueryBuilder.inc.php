@@ -58,6 +58,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	/** @var bool|null whether to return only submissions with overdue review assignments */
 	protected $isOverdue = false;
 
+	protected $submissionVersion = null;
+
 	/**
 	 * Set context submissions filter
 	 *
@@ -243,7 +245,10 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		// return object
 		if ($this->returnObject === SUBMISSION_RETURN_PUBLISHED) {
 			$this->columns[] = 'ps.*';
-			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
+			$q->leftJoin('published_submissions as ps', function($join){
+				$join->on('ps.submission_id','=','s.submission_id');
+			})
+				->where('ps.is_current_submission_version', '=', '1')
 				->groupBy('ps.date_published');
 			$q->whereNotNull('ps.published_submission_id');
 			$q->groupBy('ps.published_submission_id');
@@ -253,9 +258,17 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		if (!is_null($this->statuses)) {
 			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
 			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== SUBMISSION_RETURN_PUBLISHED) {
-				$this->columns[] = 'ps.date_published';
-				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
-					->groupBy('ps.date_published');
+				$this->columns[] = 'st.setting_value';
+				$q->leftJoin('published_submissions as ps', function($join){
+					$join->on('ps.submission_id','=','s.submission_id');
+				})
+				->leftJoin('submission_settings as st', function($join){
+					$join->on('ps.submission_id', '=', 'st.submission_id');
+					$join->on('ps.published_submission_version', '=', 'st.submission_version');
+				})
+				->where('st.setting_name', '=', 'title')
+				->where('ps.is_current_submission_version', '=', '1')
+				->groupBy('st.setting_value');
 			}
 			$q->whereIn('s.status', $this->statuses);
 		}

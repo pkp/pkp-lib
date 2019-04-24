@@ -19,7 +19,7 @@
 	  -->
 	<table name="authors">
 		<field name="author_id" type="I8">
-			<KEY />
+			<KEY/>
 			<AUTOINCREMENT/>
 		</field>
 		<field name="submission_id" type="I8">
@@ -43,6 +43,15 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>
 		</field>
+		<field name="submission_version" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="1" />
+		</field>
+		<field name="prev_ver_id" type="I8" />
+		<field name="is_current_submission_version" type="I1">
+			<NOTNULL />
+			<DEFAULT VALUE="1" />
+		</field>
 		<descr>Author metadata for submissions.</descr>
 		<index name="authors_submission_id">
 			<col>submission_id</col>
@@ -58,6 +67,7 @@
 		<field name="author_id" type="I8">
 			<NOTNULL />
 		</field>
+		<field name="submission_version" type="I8" />
 		<field name="locale" type="C2" size="14">
 			<NOTNULL />
 			<DEFAULT VALUE=""/>
@@ -76,6 +86,7 @@
 		</index>
 		<index name="author_settings_pkey">
 			<col>author_id</col>
+			<col>submission_version</col>
 			<col>locale</col>
 			<col>setting_name</col>
 			<UNIQUE/>

@@ -131,6 +131,16 @@ class SubmissionFilesGridHandler extends GridHandler {
 		// Add grid actions
 		$capabilities = $this->getCapabilities();
 		$dataProvider = $this->getDataProvider();
+
+		$submission = $this->getSubmission();
+		if ($submission->getSubmissionVersion() != $submission->getCurrentSubmissionVersion()) {
+			$capabilities->setCanAdd(false);
+			$capabilities->setCanDelete(false);
+			$capabilities->setCanEdit(false);
+			$capabilities->setCanManage(false);
+			$capabilities->setCanViewNotes(false);
+		}
+
 		if($capabilities->canAdd()) {
 			assert(isset($dataProvider));
 			$this->addAction($dataProvider->getAddFileAction($request));
@@ -138,7 +148,6 @@ class SubmissionFilesGridHandler extends GridHandler {
 
 		// Test whether an archive tool is available for the export to work, if so, add 'download all' grid action
 		if ($capabilities->canDownloadAll() && $this->hasGridDataElements($request)) {
-			$submission = $this->getSubmission();
 			$stageId = $this->getStageId();
 			$linkParams = array('submissionId' => $submission->getId(), 'stageId' => $stageId);
 			$files = $this->getFilesToDownload($request);

@@ -391,9 +391,17 @@ abstract class Plugin {
 
 		// Check if an overriding plugin exists in the plugin path.
 		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
+
+		// Parent template path if exists
+		if (isset($this->parent)) {
+			$checkParentPath = $this->parent->getTemplatePath() . DIRECTORY_SEPARATOR . $template;
+		}
+
 		if (file_exists($checkPluginPath)) {
 			$filePath = $checkPluginPath;
-		// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
+		} elseif ($checkParentPath && file_exists($checkParentPath)) {
+			$filePath = $checkParentPath;
+			// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
 		} else {
 			$checkPluginPath = preg_replace("/templates\/(?!.*templates\/)/", "", $checkPluginPath);
 			if (file_exists($checkPluginPath)) {

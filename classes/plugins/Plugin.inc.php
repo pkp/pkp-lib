@@ -700,8 +700,6 @@ abstract class Plugin {
 		$result =& $args[1];
 
 		$schemaXMLParser = new adoSchema($installer->dbconn);
-		$dict =& $schemaXMLParser->dict;
-		$dict->SetCharSet($installer->dbconn->charSet);
 		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());
 		if ($sql) {
 			$result = $installer->executeSQL($sql);

@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Садржај конфигурационог фајла</message>
 	<message key="installer.createDatabase">Креирај нову базу података</message>
 	<message key="installer.createDatabaseInstructions">Да бисте користили ову опцију, систем ваше базе података мора подржавати креирање удаљене базе података и ваш користички налог мора имати адекватне дозволе за креирање нове базе података. Уколико инсталација није успела са овом одабраном могућношћу, ручно креирајте базу података на вашем серверу и поновно покрените инсталациони програм без ове опције.</message>
-	<message key="installer.databaseCharset">Скуп знакова базе података</message>
 	<message key="installer.databaseDriver">Драјвери базе података</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Драјвери базе података излистани у угластим заградама немају потребну PHP екстензију и инсталација вероватно неће успешно завршити уколико су одабрани.</strong><br />Било који од неподржаних, доле излистаних драјвери база података су излистани искључиво за академске сврхе и вероватно неће радити.]]></message>
 	<message key="installer.databaseHost">Хост</message>

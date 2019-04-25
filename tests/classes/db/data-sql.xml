@@ -15,7 +15,7 @@
 		<query>RAW QUERY</query>
 		<query driver="mysql">RAW MYSQL QUERY</query>
 		<query driver="mysqli">RAW MYSQL QUERY</query>
-		<query driver="postgres7">RAW POSTGRESQL QUERY</query>
+		<query driver="postgres9">RAW POSTGRESQL QUERY</query>
 		<query driver="bobs-flatfiles">RAW BOBS-FLATFILE QUERY</query>
 	</sql>
 </data>

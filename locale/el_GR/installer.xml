@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Περιεχόμενα αρχείου ρυθμίσεων</message>
 	<message key="installer.createDatabase">Δημιουργία βάσης δεδομένων</message>
 	<message key="installer.createDatabaseInstructions">Για να χρησιμοποιήσετε αυτή την επιλογή, το σύστημά σας πρέπει να υποστηρίζει την απομακρυσμένη δημιουργία βάσης δεδομένων και ο λογαριασμός χρήστης σας πρέπει να διαθέτει τις απαραίτητες άδειες για τη δημιουργία νέας βάσης δεδομένων. Εάν η εγκατάσταση δεν ολοκληρωθεί επιτυχώς με την συγκεκριμένη επιλογή ενεργοποιημένη, δημιουργήστε βάση δεδομένων στον διακομιστή σας μη αυτόματα και εκτελέστε το πρόγραμμα εγκατάστασης ξανά έχοντας την συγκεκριμένη επιλογή απενεργοποιημένη.</message>
-	<message key="installer.databaseCharset"> Database character set</message>
 	<message key="installer.databaseDriver">Οδηγός βάσης δεδομένων (Database driver)</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Οι οδηγοί (drivers) της βάσης δεδομένων που παρουσιάζονται εντός αγκυλών δεν φαίνεται να έχουν φορτώσει την απαραίτητη επέκταση PHP, και, εάν επιλεχθεί η εγκατάσταση, πιθανώς να μην ολοκληρωθεί επιτυχώς.</strong><br /> Όλοι οι οδηγοί που δεν υποστηρίζονται από τους παραπάνων, παρουσιάζονται αποκλειστικά για ακαδημαϊκή χρήση και δεν είναι πιθανό να λειτουργήσουν.]]></message>
 	<message key="installer.databaseHost">Host</message>

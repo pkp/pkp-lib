@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Contenu du fichier de configuration</message>
 	<message key="installer.createDatabase">Créer une nouvelle base de données</message>
 	<message key="installer.createDatabaseInstructions">Pour utiliser cette option, votre système de base de données doit prendre en charge la création d'une base de données distante et votre compte utilisateur doit être muni des permissions appropriées pour créer de nouvelles bases de données. Si l'installation ne réussit pas avec cette option sélectionnée, créer manuellement la base de données sur votre serveur et passer l'installateur encore une fois avec cette option désactivée.</message>
-	<message key="installer.databaseCharset">Jeu de caractères de la base de données</message>
 	<message key="installer.databaseDriver">Pilote de la base de données</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Les pilotes de bases de données qui sont listés entre crochets ne semblent pas avoir chargé l'extension PHP requise et l'installation risque donc d'échouer s'ils sont sélectionnés.</strong><br />Tous les pilotes de bases de données qui ne sont pas pris en charge, tel indiqué ci-dessus, sont listés uniquement à des fins académiques et ne fonctionneront vraisemblablement pas.]]></message>
 	<message key="installer.databaseHost">Hébergeur</message>

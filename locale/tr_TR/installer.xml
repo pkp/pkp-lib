@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Konfigürasyon dosyasının içeriği</message>
 	<message key="installer.createDatabase">Yeni veri tabanı oluştur</message>
 	<message key="installer.createDatabaseInstructions">Bu seçeneği kullanmak için veri tabanı sisteminiz uzaktan erişilebilir sistemi desteklemeli ve kullanıcı hesabınız yeni veri tabanı oluşturmak için giriş iznine sahip olmalıdır. Eğer bu seçenek kullanıldığında yükleme başarısız olursa veri tabanını sunucunuzda manuel olarak oluşturun. Daha sonra bu seçeneği pasif durumda bırakarak kurulumu yeniden çalıştırın.</message>
-	<message key="installer.databaseCharset">Veri tabanı karakter seti</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Parentez içinde belirtilen veri tabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yükleme muhtemelen başarısız olacaktır. </strong><br />Yukarıda belirtilen desteklenmeyen veri tabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir.]]></message>
 	<message key="installer.databaseDriver">Veri tabanı sürücüsü</message>
 	<message key="installer.databaseHostInstructions">Alan (domain) soketleri yerine TCP/IP üzerinden bağlanmak için"hostname"i boş bırakın. "localhost" bilgisi girildiyse soketler otomatik olarak kullanılacaktır. Bu MySQL için gerekli değildir, fakat PstgreSQL gibi bazı veri tabanı sunucuları için gereklidir.</message>

@@ -16,7 +16,8 @@
 		"illuminate/database": "5.5.41",
 		"illuminate/validation": "5.5.41",
 		"firebase/php-jwt": "5.*",
-		"danielstjules/stringy": "3.*"
+		"danielstjules/stringy": "3.*",
+		"adodb/adodb-php": "dev-v5.20.14-mods"
 	},
 	"require-dev": {
 		"facebook/webdriver": "~1.6",
@@ -28,5 +29,11 @@
 		"platform": {
 			"php": "7.0.0"
 		}
-	}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/asmecher/ADOdb"
+		}
+	]
 }

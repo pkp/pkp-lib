@@ -103,10 +103,6 @@
 			{fbvFormSection label="installer.connectionCharset"}
 				{fbvElement type="select" id="connectionCharset" from=$connectionCharsetOptions selected=$connectionCharset translate=false size=$fbvStyles.size.SMALL}
 			{/fbvFormSection}
-
-			{fbvFormSection label="installer.databaseCharset"}
-				{fbvElement type="select" id="databaseCharset" from=$databaseCharsetOptions selected=$databaseCharset translate=false size=$fbvStyles.size.SMALL}
-			{/fbvFormSection}
 		{/fbvFormArea}
 
 		<!-- Files directory configuration -->

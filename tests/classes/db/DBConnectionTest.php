@@ -36,7 +36,19 @@ class DBConnectionTest extends DatabaseTestCase {
 				self::assertInstanceOf('ADODB_mysql', $dbConn);
 				break;
 			case 'postgres':
+				self::assertInstanceOf('ADODB_postgres7', $dbConn);
+				break;
+			case 'postgres64':
 				self::assertInstanceOf('ADODB_postgres64', $dbConn);
+				break;
+			case 'postgres7':
+				self::assertInstanceOf('ADODB_postgres7', $dbConn);
+				break;
+			case 'postgres8':
+				self::assertInstanceOf('ADODB_postgres8', $dbConn);
+				break;
+			case 'postgres9':
+				self::assertInstanceOf('ADODB_postgres9', $dbConn);
 				break;
 			default:
 				$this->fail('Unknown DB driver.');

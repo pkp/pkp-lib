@@ -127,7 +127,6 @@ class PluginTestCase extends DatabaseTestCase {
 		return array(
 			'clientCharset' => Config::getVar('i18n', 'client_charset'),
 			'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
-			'databaseCharset' => Config::getVar('i18n', 'database_charset'),
 			'databaseDriver' => Config::getVar('database', 'driver'),
 			'databaseHost' => Config::getVar('database', 'host'),
 			'databaseUsername' => Config::getVar('database', 'username'),

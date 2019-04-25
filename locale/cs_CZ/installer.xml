@@ -27,7 +27,6 @@
 	<message key="installer.contentsOfConfigFile">Obsah konfiguračního souboru</message>
 	<message key="installer.createDatabase">Vytvořit novou databázi</message>
 	<message key="installer.createDatabaseInstructions">Pro použití této možnosti musí Váš databázový systém podporovat vzdálené vytvoření databáze a Váš uživatelský účet musí mít potřebná oprávnění pro vytváření nových databází. Pokud byla tato možnost vybrána a instalace selže, vytvořte ručně databázi na Vašem serveru a s spusťte znovu instalaci s touto volbou vypnutou.</message>
-	<message key="installer.databaseCharset">Znaková sada databáze</message>
 	<message key="installer.databaseDriver">Ovladač databáze</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Ovladače databází uvedené v závorkách zřejmě nemají nahrané požadované PHP rozšíření a instalace pravděpodobně selže.</strong><br />Jakékoliv nepodporované ovladače databází uvedené výše, jsou uvedeny pouze pro akademické účely a nebudou pravděpodobně pracovat.]]></message>
 	<message key="installer.databaseHost">Host</message>

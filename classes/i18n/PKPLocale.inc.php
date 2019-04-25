@@ -164,6 +164,10 @@ class PKPLocale {
 					$dbconn->execute('SET time_zone = \''.$offset.'\'');
 					break;
 				case 'postgres':
+				case 'postgres64':
+				case 'postgres7':
+				case 'postgres8':
+				case 'postgres9':
 					$dbconn->execute('SET TIME ZONE INTERVAL \''.$offset.'\' HOUR TO MINUTE');
 					break;
 				default: assert(false);

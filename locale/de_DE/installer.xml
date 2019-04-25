@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
 	<message key="installer.createDatabase">Datenbank anlegen</message>
 	<message key="installer.createDatabaseInstructions">Zur Benutzung dieser Option muss Ihr Datenbanksystem das Anlegen von Datenbanken aus der Entfernung unterstützten und muss Ihr Benutzer/innen-Name die Rechte haben, Datenbanken anzulegen. Wenn die Installation unter Verwendung dieser Option scheitert, legen Sie die Datenbank manuell auf dem Server an und führen dann den Installer ohne diese Option aus.</message>
-	<message key="installer.databaseCharset">Zeichensatz für Datenbanken</message>
 	<message key="installer.databaseDriver">Datenbank-Treiber</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Zu den Datenbank-Treibern in Klammern scheinen nicht die nötigen PHP-Erweiterungen installiert zu sein, so dass die Installation vermutlich scheitern wird.</strong><br />Alle nicht unterstützten Datenbank-Treiber, die oben aufgeführt sind, sind ausschließlich aus Vollständigkeitsgründen erfasst und werden voraussichtlich nicht funktionieren.]]></message>
 	<message key="installer.databaseHost">Server</message>

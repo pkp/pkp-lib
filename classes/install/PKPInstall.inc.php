@@ -166,10 +166,6 @@ class PKPInstall extends Installer {
 		// Get database creation sql
 		$dbdict = NewDataDictionary($this->dbconn);
 
-		if ($this->getParam('databaseCharset')) {
-				$dbdict->SetCharSet($this->getParam('databaseCharset'));
-		}
-
 		list($sql) = $dbdict->CreateDatabase($this->getParam('databaseName'));
 		unset($dbdict);
 
@@ -226,7 +222,6 @@ class PKPInstall extends Installer {
 					'locale' => $this->getParam('locale'),
 					'client_charset' => $this->getParam('clientCharset'),
 					'connection_charset' => $this->getParam('connectionCharset') == '' ? 'Off' : $this->getParam('connectionCharset'),
-					'database_charset' => $this->getParam('databaseCharset') == '' ? 'Off' : $this->getParam('databaseCharset')
 				),
 				'files' => array(
 					'files_dir' => $this->getParam('filesDir')

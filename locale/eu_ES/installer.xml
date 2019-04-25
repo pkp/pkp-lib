@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Konfigurazio-fitxategiaren edukia</message>
 	<message key="installer.createDatabase">Sortu datu-base berria</message>
 	<message key="installer.createDatabaseInstructions">Aukera hau erabili ahal izateko, zure datu-base sistemak datu-baseak urrunetik sortzea onartu behar du eta zure erabiltzaile-kontuak datu-base berriak sortzeko baimena izan behar du. Aukera hau hautatuta instalazioak huts egiten badu, eskuz sortu beharko duzu datu-basea zure zerbitzarian eta instalatzailea berriro exekutatu, aukera hori desgaituta.</message>
-	<message key="installer.databaseCharset">Datu-basearen karaktere-jokoa</message>
 	<message key="installer.databaseDriver">Datu-basearen kontrolatzailea</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Kortxete artean dauden datu-base kontrolatzaileek ez du ematen behar den PHP hedapena kargatuta daukatenik eta, hautatzen badira, instalazioak huts egingo du segurutik.</strong><br />Goian zerrendatutako euskarri gabeko kontrolatzaileak xede akademikoetarako soilik zerrendatzen dira, normalean ez dute funtzionatuko.]]></message>
 	<message key="installer.databaseHost">Ostalaria</message>

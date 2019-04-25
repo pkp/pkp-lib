@@ -34,6 +34,10 @@ abstract class PKPTestHelper {
 					$createLikeSql = "CREATE TABLE backup_$table LIKE $table";
 					break;
 				case 'postgres':
+				case 'postgres64':
+				case 'postgres7':
+				case 'postgres8':
+				case 'postgres9':
 					$createLikeSql = "CREATE TABLE backup_$table (LIKE $table)";
 					break;
 				default:

@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Konfigurationsfilens innehåll</message>
 	<message key="installer.createDatabase">Skapa ny databas</message>
 	<message key="installer.createDatabaseInstructions">För att välja det här alternativet måste din databas stödja remote database creation och ditt användarkonto måste ha rätt behörighet för att skapa nya databaser. Om installationen skulle misslyckas, skapa databasen manuellt på din server och kör installationen igen, med det här valet inaktiverat.</message>
-	<message key="installer.databaseCharset">Teckenuppsättning för databas</message>
 	<message key="installer.databaseDriver">Databasdrivrutin</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Databasdrivrutiner listade inom hakparanteser verkar sakna nödvändiga PHP-tillägg och installationen kommer troligtvis misslyckas om dessa väljs.</strong><br />Databasdrivrutiner som inte stöds och listas ovan, finns med endast för pedagogisk upplysning och fungerar inte med nödvändighet.]]></message>
 	<message key="installer.databaseHost">Värd</message>

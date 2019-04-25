@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Inhoud van het configuratiebestand</message>
 	<message key="installer.createDatabase">Nieuwe database aanmaken</message>
 	<message key="installer.createDatabaseInstructions">Om deze optie te kunnen gebruiken moet uw databasesysteem het op afstand aanmaken van databases en de opgeven gebruiker moet rechten hebben om nieuwe databases aan  te maken. Als installatie met deze optie mislukt, maak de database dan met de hand aan op uw server en voer de installatie opnieuw uit zonder deze optie in te schakelen.</message>
-	<message key="installer.databaseCharset">Database karakterset</message>
 	<message key="installer.databaseDriver">Database stuurprogramma</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Database stuurprogramma's die tussen haakjes staan lijken de verplichte PHP extensie niet geladen te hebben en doen de installatie waarschijnlijk mislukken als ze geselecteerd worden.</strong><br />De niet-ondersteunde database stuurprogramma's die hierboven getoond worden zijn alleen voor academische toepassingen en werken waarschijnlijk niet.]]></message>
 	<message key="installer.databaseHost">Machine</message>

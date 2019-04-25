@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Määritystiedoston sisältö</message>
 	<message key="installer.createDatabase">Luo uusi tietokanta</message>
 	<message key="installer.createDatabaseInstructions">Käyttääksesi tätä valintaa tietokantajärjestelmäsi on tuettava tietokannan etäluontia ja käyttäjätililläsi on oltava oikeudet luoda uusia tietokantoja. Jos asennus epäonnistuu tämän vaihtoehdon ollessa valittuna, luo tietokanta palvelimellesi manuaalisesti ja suorita asennusohjelma uudelleen tämän valinnan ollessa pois käytöstä.</message>
-	<message key="installer.databaseCharset">Tietokantamerkistö</message>
 	<message key="installer.databaseDriver">Tietokantaohjain</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Sulkeissa luetelluilla tietokantaohjaimilla ei vaikuta olevan vaadittua PHP-laajennusta ladattuna ja asennus tulee todennäköisesti epäonnistumaan, jos se valitaan.</strong><br>Kaikki yllä luetellut ei-tuetut tietokantaohjaimet on lueteltu yksinomaan akateemisia tarkoituksia varten, eivätkä ne todennäköisesti toimi.]]></message>
 	<message key="installer.databaseHost">Isäntä</message>

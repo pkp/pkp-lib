@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Innholdet i konfigurasjonsfilen</message>
 	<message key="installer.createDatabase">Opprett ny database</message>
 	<message key="installer.createDatabaseInstructions">For å bruke denne valgmuligheten må ditt databasesystem støtte kreering av databaser  og din brukerkonto må ha de nødvendige rettigheter til å skape nye databaser. Hvis installasjon feiler med denne valgmuligheten valgt, skap databasen manuelt på din server og kjør installasjonsprogrammet igjen med denne valgmuligheten slått av.</message>
-	<message key="installer.databaseCharset">Databasetegnsett</message>
 	<message key="installer.databaseDriver">Databasedriver</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Databasedrivere oppført in hakeparenteser ser ikke ut til å ha den påkrevete PHP-utvidelsen lastet og installasjonen kommer trolig til å feile hvis de velges.</strong><br />Ikke-supporterte databasedrivere oppført over er oppført kun for informasjonsformål og vil trolig ikke fungere.]]></message>
 	<message key="installer.databaseHost">Vert</message>

@@ -174,6 +174,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	/**
 	 * @covers PKPRouter::getRequestedContextPaths
 	 * @runInSeparateProcess
+	 * @preserveGlobalState disabled
 	 */
 	public function testGetRequestedContextPathWithPartialContextParameters() {
 		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);

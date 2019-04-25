@@ -72,6 +72,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 	/**
 	 * @covers PKPPageRouter::isCacheable
 	 * @runInSeparateProcess
+	 * @preserveGlobalState disabled
 	 */
 	public function testIsCacheableWithPathinfoSuccess() {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // installed
@@ -110,6 +111,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 	/**
 	 * @covers PKPPageRouter::isCacheable
 	 * @runInSeparateProcess
+	 * @preserveGlobalState disabled
 	 */
 	public function testIsCacheableWithoutPathinfoSuccess() {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // installed

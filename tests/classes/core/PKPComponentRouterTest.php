@@ -213,6 +213,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
 	 * @runInSeparateProcess
+	 * @preserveGlobalState disabled
 	 */
 	public function testRoute() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);

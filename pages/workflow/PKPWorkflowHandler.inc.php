@@ -145,7 +145,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 */
-	function editorial(&$args, $request) {
+	function editorial($args, $request) {
 		$this->_redirectToIndex($args, $request);
 	}
 
@@ -154,7 +154,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 */
-	function production(&$args, $request) {
+	function production($args, $request) {
 		$this->_redirectToIndex($args, $request);
 	}
 
@@ -163,7 +163,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	protected function _redirectToIndex(&$args, $request) {
+	protected function _redirectToIndex($args, $request) {
 		// Translate the operation to a workflow stage identifier.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$router = $request->getRouter();

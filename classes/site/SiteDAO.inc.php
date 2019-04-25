@@ -111,6 +111,7 @@ class SiteDAO extends DAO {
 	 * @param $site Site
 	 */
 	function insertSite(&$site) {
+		$type = 'array';
 		$returner = $this->update(
 			'INSERT INTO site
 				(redirect, min_password_length, primary_locale, installed_locales, supported_locales)
@@ -120,8 +121,8 @@ class SiteDAO extends DAO {
 				$site->getRedirect(),
 				(int) $site->getMinPasswordLength(),
 				$site->getPrimaryLocale(),
-				$this->convertToDB($site->getInstalledLocales(), $type = 'array'),
-				$this->convertToDB($site->getInstalledLocales(), $type = 'array'),
+				$this->convertToDB($site->getInstalledLocales(), $type),
+				$this->convertToDB($site->getInstalledLocales(), $type),
 			)
 		);
 		return $returner;

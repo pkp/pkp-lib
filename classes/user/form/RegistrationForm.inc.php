@@ -164,7 +164,7 @@ class RegistrationForm extends Form {
 	/**
 	 * @copydoc Form::validate()
 	 */
-	function validate() {
+	function validate($callHooks = true) {
 		$request = Application::get()->getRequest();
 
 		// Ensure the consent checkbox has been completed for the site and any user
@@ -201,7 +201,7 @@ class RegistrationForm extends Form {
 			}
 		}
 
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 	/**

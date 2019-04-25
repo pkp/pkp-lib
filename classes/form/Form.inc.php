@@ -247,6 +247,7 @@ class Form {
 
 	/**
 	 * Validate form data.
+	 * @param $callHooks boolean True (default) iff hooks are to be called.
 	 */
 	function validate($callHooks = true) {
 		if (!isset($this->errorsArray)) {

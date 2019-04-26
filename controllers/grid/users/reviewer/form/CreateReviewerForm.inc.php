@@ -54,8 +54,10 @@ class CreateReviewerForm extends ReviewerForm {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$advancedSearchAction = $this->getAdvancedSearchAction($request);
-
 		$this->setReviewerFormAction($advancedSearchAction);
+		$site = $request->getSite();
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('sitePrimaryLocale', $site->getPrimaryLocale());
 		return parent::fetch($request, $template, $display);
 	}
 

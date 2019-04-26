@@ -23,6 +23,7 @@
 </script>
 
 <form class="pkp_form" id="createReviewerForm" method="post" action="{url op="createReviewer"}" >
+	<input type="hidden" name="sitePrimaryLocale" value="{$sitePrimaryLocale|escape}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="createReviewerFormNotification"}
 

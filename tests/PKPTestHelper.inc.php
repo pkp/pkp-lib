@@ -111,6 +111,10 @@ abstract class PKPTestHelper {
 				}
 				break;
 			case 'postgres':
+			case 'postgres64':
+			case 'postgres7':
+			case 'postgres8':
+			case 'postgres9':
 				// WARNING: Does not send a password.
 				exec($cmd = 'zcat ' .
 					escapeshellarg($filename) .

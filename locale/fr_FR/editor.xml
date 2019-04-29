@@ -94,7 +94,7 @@
 	<message key="editor.review.unconsiderReviewText">Vous souhaitez indiquer que cet examen n'a pas été considéré? L'historique des révisions sera conservé.</message>
 	<message key="editor.review.unconsiderReview">Ne pas considérer cet examen.</message>
 	<message key="editor.review.readConfirmation">Après avoir lu cet examen, choisissez "Confirmer" pour indiquer que le processus d'examen peut se poursuivre.</message>
-	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle série d'évaluations pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres séries d'évaluations sont indiqués ci-dessous. Par défaut, les rapporteurs de la série d'évaluations précédente ont été sélectionnés pour participer à cette nouvelle série.</message>
+	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer une nouvelle série d'évaluations pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres séries d'évaluations sont indiqués ci-dessous.</message>
 	<message key="editor.article.reviewForms">Formulaires d'évaluation</message>
 	<message key="editor.article.selectReviewForm">Sélectionner un formulaire d'évaluation</message>
 	<message key="editor.submission.selectedReviewer">Rapporteur sélectionné</message>

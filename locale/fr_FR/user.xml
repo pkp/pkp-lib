@@ -129,7 +129,7 @@
 	<message key="user.role.layoutEditors">Maquettistes</message>
 	<message key="user.authorization.accessibleWorkflowStage">Vous n'avez pas actuellement accès à cette étape du processus éditorial.</message>
 	<message key="user.authorization.workflowStageRequired">Une étape du processus éditorial n'est pas spécifiée</message>
-	<message key="user.authorization.pluginRequired">Un plugiciel requis n'a pas été sélectionné</message>
+	<message key="user.authorization.pluginRequired">Un module requis n'a pas été sélectionné</message>
 	<message key="user.login.registrationComplete">Inscription complétée</message>
 	<message key="user.login.registrationComplete.instructions">Merci de vous êtes inscrit(e)! Que voulez-vous faire ensuite?</message>
 	<message key="user.login.registrationComplete.manageSubmissions">Voir les évaluations</message>

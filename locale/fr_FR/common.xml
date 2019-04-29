@@ -133,7 +133,7 @@
 	<message key="common.originalFileName">Nom original du fichier</message>
 	<message key="common.or">ou</message>
 	<message key="common.other">Autre</message>
-	<message key="common.plugin">Plugiciel</message>
+	<message key="common.plugin">Module</message>
 	<message key="common.publisher">Éditeur</message>
 	<message key="common.quality">Qualité</message>
 	<message key="common.record">Consigner</message>
@@ -328,8 +328,8 @@
 	<message key="common.enable">Activer</message>
 	<message key="common.fullscreen">Plein écran</message>
 	<message key="common.fullscreenOff">Fermer le Plein écran</message>
-	<message key="common.pluginEnabled">Le plugiciel "{$pluginName}" a été activé.</message>
-	<message key="common.pluginDisabled">Le plugiciel "{$pluginName}" a été désactivé.</message>
+	<message key="common.pluginEnabled">Le module "{$pluginName}" a été activé.</message>
+	<message key="common.pluginDisabled">Le module "{$pluginName}" a été désactivé.</message>
 	<message key="common.refresh">Rafraîchir</message>
 	<message key="common.loading">Chargement ...</message>
 	<message key="common.accepted">Accepté</message>
@@ -382,7 +382,7 @@
 	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
 	<message key="notification.type.queryActivity">Activités sur la discusssion.</message>
 	<message key="notification.type.queryAdded">Discussion ajouté.</message>
-	<message key="notification.type.reviewerComment">Un réviseur a laissé un commentaire sur "{$title}".</message>
+	<message key="notification.type.reviewerComment">Un rapporteur a laissé un commentaire sur "{$title}".</message>
 	<message key="notification.type.roundStatusTitle">Statut de la série {$round} </message>
 	<message key="notification.signedFile">Fichier considéré.</message>
 	<message key="user.authorization.authorRoleMissing">Vos privilèges actuels ne vous permettent pas de visionner cette soumission. Veuillez modifier votre profil pour vous assurer que l'on vous a assigné les rôles appropriés dans la section "S'inscrire comme".</message>

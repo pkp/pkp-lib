@@ -67,7 +67,6 @@ class ThankReviewerForm extends Form {
 		$dispatcher = $request->getDispatcher();
 		$email->assignParams(array(
 			'reviewerName' => $reviewer->getFullName(),
-			'editorialContactSignature' => $user->getContactSignature(),
 			'reviewerUserName' => $reviewer->getUsername(),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId()))

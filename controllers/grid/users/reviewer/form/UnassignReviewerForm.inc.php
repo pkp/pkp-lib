@@ -67,7 +67,6 @@ class UnassignReviewerForm extends Form {
 
 			$template->assignParams(array(
 				'reviewerName' => $reviewer->getFullName(),
-				'editorialContactSignature' => $user->getContactSignature(),
 				'signatureFullName' => $user->getFullname(),
 			));
 			$template->replaceParams();

@@ -196,7 +196,7 @@ class ReviewerForm extends Form {
 
 		$context = $request->getContext();
 		$templateKey = $this->_getMailTemplateKey($context);
-		$template = new SubmissionMailTemplate($submission, $templateKey);
+		$template = new SubmissionMailTemplate($submission, $templateKey, null, null, false);
 		if ($template) {
 			$user = $request->getUser();
 			$dispatcher = $request->getDispatcher();

@@ -82,6 +82,7 @@
 	<message key="manager.emails.emailKey">Ключ письма</message>
 	<message key="manager.emails.emailKeyExists">Письмо с таким ключом уже существует. Ключи писем электронной почты должны быть уникальными.</message>
 	<message key="manager.emails.emailTemplate">Шаблон письма</message>
+	<message key="manager.emails.emailTemplate.noDuplicateKeys">Ключ, указанный вами, уже используется.</message>
 	<message key="manager.emails.enabled">Включить этот шаблон письма</message>
 	<message key="manager.emails.enable">Включить</message>
 	<message key="manager.emails.enable.message">Вы собираетесь включить этот шаблон письма электронной почты. Вы хотите подтвердить эту операцию?</message>

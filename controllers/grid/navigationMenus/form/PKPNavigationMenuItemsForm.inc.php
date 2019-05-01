@@ -157,6 +157,8 @@ class PKPNavigationMenuItemsForm extends Form {
 			$navigationMenuItem = $navigationMenuItemDao->newDataObject();
 			$navigationMenuItem->setTitle($this->getData('title'), null);
 		} else {
+			$localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
+
 			Services::get('navigationMenu')
 				->setAllNMILocalisedTitles($navigationMenuItem);
 			
@@ -164,9 +166,16 @@ class PKPNavigationMenuItemsForm extends Form {
 			$inputLocalisedTitles = $this->getData('title');
 			foreach ($localizedTitles as $locale => $title) {
 				if ($inputLocalisedTitles[$locale] != $title) {
-					$navigationMenuItem->setTitle($inputLocalisedTitles[$locale], $locale);
+					if (!isset($inputLocalisedTitles[$locale]) || trim($inputLocalisedTitles[$locale]) == '') {
+						$navigationMenuItem->setTitle(null, $locale);
+					} else {
+						$navigationMenuItem->setTitle($inputLocalisedTitles[$locale], $locale);
+					}
 				} else {
-					$navigationMenuItem->setTitle(null, $locale);
+					if (!$localizedTitlesFromDB 
+						|| !array_key_exists($locale, $localizedTitlesFromDB)) {
+						$navigationMenuItem->setTitle(null, $locale);
+					}
 				}
 			}
 		}

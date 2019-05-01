@@ -549,8 +549,6 @@
 	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
 	<message key="submission.query.noParticipantOptions">Tem de atribuir pelo menos um participante a esta submissão antes de iniciar uma discussão.</message>
 	<message key="submission.list.infoCenter"><![CDATA[Registo de Atividade & Notas]]></message>
-	<message key="submission.list.count">{$count} submissões</message>
-	<message key="submission.list.itemsOfTotal">{$count} de {$total} submissões</message>
 	<message key="submission.list.responseDue">Resposta Até</message>
 	<message key="submission.list.reviewDue">Revisão Até</message>
 	<message key="submission.list.reviewComplete">Revisão Enviada</message>

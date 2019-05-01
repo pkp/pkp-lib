@@ -646,8 +646,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Log de Atividades e Anotações</message>
-	<message key="submission.list.count">{$count} submissões</message>
-	<message key="submission.list.itemsOfTotal">{$count} de {$total} submissões</message>
 	<message key="submission.list.responseDue">Prazo de Resposta</message>
 	<message key="submission.list.reviewDue">Prazo de Avaliação</message>
 	<message key="submission.list.confirmDelete">Apagar submissão?</message>

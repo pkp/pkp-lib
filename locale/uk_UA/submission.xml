@@ -603,8 +603,6 @@
 
 	<!-- Списки подань -->
 	<message key="submission.list.infoCenter">Журнал активності та примітки</message>
-	<message key="submission.list.count">{$count} подань</message>
-	<message key="submission.list.itemsOfTotal">{$count} з {$total} подань</message>
 	<message key="submission.list.responseDue">Термін відповіді на запит</message>
 	<message key="submission.list.reviewDue">Термін подання рецензії</message>
 	<message key="submission.list.confirmDelete">Видалити подання?</message>

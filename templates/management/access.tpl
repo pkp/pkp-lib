@@ -24,17 +24,15 @@
 		<tab id="access" name="{translate key="manager.siteAccessOptions.siteAccessOptions"}">
 		{help file="users-and-roles" section="site-access" class="pkp_help_tab"}
 			<pkp-form
-				v-bind="forms.{$smarty.const.FORM_USER_ACCESS}"
-				@set-fields="setFormFields"
-				@set-errors="setFormErrors"
-				@set-visible-locales="setFormVisibleLocales"
+				v-bind="components.{$smarty.const.FORM_USER_ACCESS}"
+				@set="set"
 			/>
 		</tab>
 		{call_hook name="Template::Settings::access"}
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-access-{$uuid}', 'Container', {$settingsData|json_encode});
+	pkp.registry.init('settings-access-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
 </script>
 
 {include file="common/footer.tpl"}

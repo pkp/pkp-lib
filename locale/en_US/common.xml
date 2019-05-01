@@ -157,6 +157,7 @@
 	<message key="common.filterAdd">Add filter: {$filterTitle}</message>
 	<message key="common.filterRemove">Clear filter: {$filterTitle}</message>
 	<message key="common.from">From</message>
+	<message key="common.fromWithValue">From: {$value}</message>
 	<message key="common.until">Until</message>
 	<message key="common.go">Go</message>
 	<message key="common.height">Height</message>
@@ -186,6 +187,7 @@
 	<message key="common.noneAssigned">None assigned</message>
 	<message key="common.none">None</message>
 	<message key="common.no">No</message>
+	<message key="common.noItemsFound">No items found.</message>
 	<message key="common.noComments">No Comments</message>
 	<message key="common.notApplicable">Not applicable</message>
 	<message key="common.notApplicableShort">N/A</message>
@@ -208,7 +210,10 @@
 	<message key="common.other">Other</message>
 	<message key="common.overdue">Overdue</message>
 	<message key="common.pagination">{$start}-{$end} of {$total}</message>
-	<message key="common.pagination.label">Browse additional pages</message>
+	<message key="common.pagination.label">View additional pages</message>
+	<message key="common.pagination.goToPage">Go to {$page}</message>
+	<message key="common.pagination.next">Next page</message>
+	<message key="common.pagination.previous">Previous page</message>
 	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>
@@ -260,6 +265,7 @@
 	<message key="common.suggest">Suggest</message>
 	<message key="common.title">Title</message>
 	<message key="common.top">Top</message>
+	<message key="common.toWithValue">To: {$value}</message>
 	<message key="common.true">True</message>
 	<message key="common.type">Type</message>
 	<message key="common.component">Component</message>
@@ -592,7 +598,7 @@
 	<message key="validator.active_url">This is not a valid URL.</message>
 	<message key="validator.after">This date must be after {$date}.</message>
 	<message key="validator.alpha">This may only contain letters.</message>
-	<message key="validator.alpha_dash">This may only contain letters, numbers, and dashes.</message>
+	<message key="validator.alpha_dash">This may only contain letters, numbers, dashes and underscores.</message>
 	<message key="validator.alpha_num">This may only contain letters and numbers.</message>
 	<message key="validator.array">This is not a valid array.</message>
 	<message key="validator.before">This date must be before {$date}.</message>

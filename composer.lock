@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "58ba6aea4c58d1cd5a44af3842ea0bbc",
@@ -96,7 +96,7 @@
                 "notification",
                 "pnotify"
             ],
-            "time": "2014-07-23T11:21:47+00:00"
+            "time": "2014-07-23 11:21:47"
         },
         {
             "name": "components/jquery",

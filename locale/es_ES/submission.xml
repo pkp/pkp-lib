@@ -640,8 +640,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Registro de actividad y notas</message>
-	<message key="submission.list.count">{$count} envíos</message>
-	<message key="submission.list.itemsOfTotal">{$count} de {$total} envíos</message>
 	<message key="submission.list.responseDue">Respuesta esperada</message>
 	<message key="submission.list.reviewDue">Revisión esperada</message>
 	<message key="submission.list.confirmDelete">¿Eliminar envío?</message>

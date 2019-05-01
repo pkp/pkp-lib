@@ -609,8 +609,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Aktivitetslogg &amp; anteckningar</message>
-	<message key="submission.list.count">{$count} bidrag</message>
-	<message key="submission.list.itemsOfTotal">{$count} av {$total} bidrag</message>
 	<message key="submission.list.responseDue">Deadline för svar</message>
 	<message key="submission.list.reviewDue">Deadline för granskning</message>
 	<message key="submission.list.reviewComplete">Granskning inskickad</message>

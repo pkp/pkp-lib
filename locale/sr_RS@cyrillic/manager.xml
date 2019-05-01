@@ -60,14 +60,12 @@
 	<message key="manager.emails.emailKey">Кључ имејла</message>
 	<message key="manager.emails.emailKeyExists">Имајл с датим кључем већ постоји. Кључ имејла мора бити јединствен.</message>
 	<message key="manager.emails.emailTemplate">Шаблон имејла</message>
-	<message key="manager.emails.emailTemplates">Шаблони имејлова</message>
 	<message key="manager.emails.enabled">Омогућите овај шаблон имејла</message>
 	<message key="manager.emails.enable">Омогући</message>
 	<message key="manager.emails.form.emailKeyRequired">Јединствени кључ је обавезан за имејл.</message>
 	<message key="manager.emails.form.bodyRequired">Тело поруке је обавезно у имејлу.</message>
 	<message key="manager.emails.form.subjectRequired">Субјекат је обавезан у имејлу.</message>
 	<message key="manager.emails">Припремљени обрасци имејла</message>
-	<message key="manager.emails.resetAll">Врати текст свих шаблона у почетни облик</message>
 	<message key="manager.emails.reset">Врати на почетно</message>
 	<message key="manager.emails.resetToDefault">Вратите на почетну вредност</message>
 	<message key="manager.filesBrowser">Прегледач фајлова</message>
@@ -165,7 +163,6 @@
 	<message key="plugins.categories.themes.description">Додатак шаблона може се користити за промену изгледа целокупног система.</message>
 	<message key="plugins.categories.themes">Додаци шаблона</message>
 	<message key="manager.announcements.datePublish">Објављено</message>
-	<message key="manager.emails.addEmail">Додај шаблон имејла</message>
 	<message key="manager.emails.data">Подаци поруке шаблона</message>
 	<message key="manager.emails.details">Детаљи шаблона</message>
 	<message key="manager.emails.disable.message">Ви желите да искључите овај имејл шаблон. Уколико постоје процеси који су га користили, више га неће користити. Да ли сте сигурни да желите да наставите?</message>

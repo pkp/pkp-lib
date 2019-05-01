@@ -33,14 +33,14 @@ export default {
 			return;
 		}
 
-		if (data._constants !== undefined) {
-			Object.assign(pkp.const, data._constants);
-			delete data._constants;
+		var baseData = {};
+		if (typeof pkp.controllers[type].data === 'function') {
+			baseData = pkp.controllers[type].data();
 		}
 
 		var args = $.extend(true, {}, pkp.controllers[type], {
 			el: '#' + id,
-			data: $.extend(true, {}, pkp.controllers[type].data(), data, {id: id})
+			data: $.extend(true, {}, baseData, data, {id: id})
 		});
 
 		pkp.registry._instances[id] = new pkp.Vue(args);

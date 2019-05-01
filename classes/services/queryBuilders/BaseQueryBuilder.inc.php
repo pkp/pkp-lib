@@ -35,7 +35,7 @@ abstract class BaseQueryBuilder {
 	 */
 	protected function bootstrap() {
 
-		// Map valid OJS3 config options to Illuminate database drivers
+		// Map valid config options to Illuminate database drivers
 		$driver = strtolower(Config::getVar('database', 'driver'));
 		if (substr($driver, 0, 8) === 'postgres') {
 			$driver = 'pgsql';

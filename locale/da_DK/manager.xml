@@ -61,13 +61,11 @@
 	<message key="manager.emails.emailKey">E-mail-nøgle</message>
 	<message key="manager.emails.emailKeyExists">Der findes allerede en e-mail med den angivne nøgle. E-mail-nøgler skal være entydige.</message>
 	<message key="manager.emails.emailTemplate">E-mail-skabelon</message>
-	<message key="manager.emails.emailTemplates">E-mail-skabeloner</message>
 	<message key="manager.emails.enabled">Aktiver denne e-mail-skabelon</message>
 	<message key="manager.emails.enable">Aktiver</message>
 	<message key="manager.emails.form.bodyRequired">En brødtekst er påkrævet for denne e-mail.</message>
 	<message key="manager.emails.form.subjectRequired">Et emne er påkrævet for denne e-mail.</message>
 	<message key="manager.emails">Forberedte e-mails</message>
-	<message key="manager.emails.resetAll">Nulstil alle skabeloner</message>
 	<message key="manager.emails.reset">Nulstil</message>
 	<message key="manager.emails.resetToDefault">Nulstil til standard</message>
 	<message key="manager.filesBrowser">Filbrowser</message>
@@ -166,7 +164,6 @@
 	<message key="manager.reviewerSearch.interests">Bedømmers interesser</message>
 	<message key="manager.setup.errorDeletingItem">Der opstod en fejl i forbindelse med sletningen af dette element.</message>
 	<message key="manager.announcements.datePublish">Udgivet</message>
-	<message key="manager.emails.addEmail">Tilføj e-mail skabelon</message>
 	<message key="manager.emails.data">Skabelondata</message>
 	<message key="manager.emails.details">Skabelondetaljer</message>
 	<message key="manager.emails.disable.message">Du er i gang med at deaktivere denne e-mailskabelon. Andre processtyringssystemer, der evt. anvender denne skabelon vil ikke længere kunne benytte den. Vil du bekræfte denne handling?</message>

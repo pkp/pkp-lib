@@ -63,14 +63,12 @@
 	<message key="manager.emails.emailKey">Klíč emailu</message>
 	<message key="manager.emails.emailKeyExists">Email s daným klíčem již existuje. Klíče emailu musí být jedinečné.</message>
 	<message key="manager.emails.emailTemplate">Šablona emailu</message>
-	<message key="manager.emails.emailTemplates">Šablony emailů</message>
 	<message key="manager.emails.enabled">Povolit tuto šablonu emailu</message>
 	<message key="manager.emails.enable">Povolit</message>
 	<message key="manager.emails.form.emailKeyRequired">Pro daný email je vyžadován unikátní emailový klíč</message>
 	<message key="manager.emails.form.bodyRequired">Je vyžadován text zprávy emailu.</message>
 	<message key="manager.emails.form.subjectRequired">Je vyžadován předmět emailu.</message>
 	<message key="manager.emails">Připravené e-maily</message>
-	<message key="manager.emails.resetAll">Resetovat všechny šablony</message>
 	<message key="manager.emails.reset">Resetovat</message>
 	<message key="manager.emails.resetToDefault">Resetovat na výchozí</message>
 	<message key="manager.filesBrowser">Prohlížeč souborů</message>
@@ -211,7 +209,6 @@
 	<message key="manager.publication.editorialStage">Redakce</message>
 	<message key="manager.publication.productionStage">Produkce</message>
 	<message key="manager.publication.emails">Emaily</message>
-	<message key="manager.emails.addEmail">Přidat šablonu emailu</message>
 	<message key="manager.emails.data">Data šablony zprávy</message>
 	<message key="manager.emails.details">Podrobnosti šablony</message>
 	<message key="manager.emails.disable.message">Chystáte se zakázat tuto šablonu emailu. Pokud existují systémové procesy používající tuto šablonu, nebudou ji moci používat. Chcete tuto akci potvrdit?</message>

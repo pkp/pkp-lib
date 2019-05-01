@@ -240,7 +240,7 @@ class ContextGridHandler extends GridHandler {
 		}
 
 		$containerData = [
-			'forms' => [
+			'components' => [
 				FORM_CONTEXT => $contextFormConfig,
 			],
 		];

@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPContextHandler
- * @ingroup api_v1_users
+ * @ingroup api_v1_context
  *
  * @brief Base class to handle API requests for contexts (journals/presses).
  */

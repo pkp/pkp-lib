@@ -18,18 +18,14 @@
 			<tabs :options="{ useUrlFragment: false }">
 				<tab name="{translate key="context.context"}">
 					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_CONTEXT}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_CONTEXT}"
+						@set="set"
 					/>
 				</tab>
 				<tab name="{translate key="manager.website.appearance"}">
 					<theme-form
-						v-bind="forms.{$smarty.const.FORM_THEME}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_THEME}"
+						@set="set"
 					/>
 				</tab>
 				<tab name="{translate key="common.languages"}">
@@ -38,10 +34,8 @@
 				</tab>
 				<tab name="{translate key="manager.setup.searchEngineIndexing"}">
 					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_SEARCH_INDEXING}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_SEARCH_INDEXING}"
+						@set="set"
 					/>
 				</tab>
 				{call_hook name="Template::Settings::admin::contextSettings::setup"}
@@ -68,7 +62,7 @@
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-admin-{$uuid}', 'Container', {$settingsData|json_encode});
+	pkp.registry.init('settings-admin-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
 </script>
 
 {include file="common/footer.tpl"}

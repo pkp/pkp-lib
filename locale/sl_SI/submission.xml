@@ -19,7 +19,7 @@
 	<message key="submission.submit.availableUserGroups">Oddaj kot</message>
 	<message key="submission.submit.availableUserGroupsDescription">Izberite najbolj primerno vlogo, ki najbolje opčisuje vašo doprinos k prispevku.</message>
 	<message key="submission.submit.contactConsentDescription">Da, želim, da me kontaktirate v zvezi s tem prispevkom.</message>
-	<message key="submission.submit.userGroupDescriptionManagers">Oddajte v eni od spodnjih vlog, če želite imeti možnost sami urejati in objaviti prispevek: {$managerGroups}</message>	
+	<message key="submission.submit.userGroupDescriptionManagers">Oddajte v eni od spodnjih vlog, če želite imeti možnost sami urejati in objaviti prispevek: {$managerGroups}</message>
 	<message key="submission.submit.submissionChecklist">Zahteve za oddajo prispevka</message>
 	<message key="submission.submit.submissionChecklistDescription">Pred nadaljevanjem morate prebrati in potrditi, da ste zadostili vsem zahtevam spodaj.</message>
 	<message key="submission.submit.submissionComplete">Oddaja končana</message>
@@ -388,7 +388,7 @@
 	<message key="submission.submit.form.sourceRequired">Prosimo vnesite vir.</message>
 	<message key="submission.submit.form.rightsRequired">Prosimo vnesite pravice.</message>
 	<message key="submission.submit.form.citationsRequired">Prosimo vnesite referencirano literaturo.</message>
-	
+
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Dajte datoteki pomensko ime</message>
 	<message key="submission.form.replaceExisting">Zamenjam obstoječo datoteko?</message>
@@ -608,8 +608,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Dnevnik dogodkov &amp; Opombe</message>
-	<message key="submission.list.count">{$count} prispvekov</message>
-	<message key="submission.list.itemsOfTotal">{$count} od {$total} prispevkov</message>
 	<message key="submission.list.responseDue">Rok za odziv</message>
 	<message key="submission.list.reviewDue">Rok za recenzijo</message>
 	<message key="submission.list.reviewComplete">Recenzija oddana</message>

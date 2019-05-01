@@ -52,6 +52,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var array of HTML head content to output */
 	private $_htmlHeaders = array();
 
+	/** @var array Key/value list of constants to expose in the JS interface */
+	private $_constants = array();
+
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;
 
@@ -130,6 +133,40 @@ class PKPTemplateManager extends Smarty {
 			'applicationName' => __($application->getNameKey()),
 			'activeTheme' => $activeTheme,
 		));
+
+		$this->setConstants([
+			'REALLY_BIG_NUMBER',
+			'UPLOAD_MAX_FILESIZE',
+			'WORKFLOW_STAGE_ID_PUBLISHED',
+			'WORKFLOW_STAGE_ID_SUBMISSION',
+			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
+			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',
+			'WORKFLOW_STAGE_ID_EDITING',
+			'WORKFLOW_STAGE_ID_PRODUCTION',
+			'INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT',
+			'ROLE_ID_MANAGER',
+			'ROLE_ID_SITE_ADMIN',
+			'ROLE_ID_AUTHOR',
+			'ROLE_ID_REVIEWER',
+			'ROLE_ID_ASSISTANT',
+			'ROLE_ID_READER',
+			'ROLE_ID_SUB_EDITOR',
+			'ROLE_ID_SUBSCRIPTION_MANAGER',
+		]);
+
+		// Always pass these ListBuilder constants to the browser
+		// because we a ListBuilder may be loaded in an ajax request
+		// and won't have an opportunity to pass its constants to
+		// the template manager. This is not a recommended practice,
+		// but these are the only constants from a controller that are
+		// required on the frontend. We can remove them once the
+		// ListBuilderHandler is no longer needed.
+		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		$this->setConstants([
+			'LISTBUILDER_SOURCE_TYPE_TEXT',
+			'LISTBUILDER_SOURCE_TYPE_SELECT',
+			'LISTBUILDER_OPTGROUP_LABEL',
+		]);
 
 		if (is_a($router, 'PKPPageRouter')) {
 			$this->assign(array(
@@ -578,6 +615,17 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Set constants to be exposed in JavaScript at pkp.const.<constant>
+	 *
+	 * @param array $names Array of constant names
+	 */
+	function setConstants($names) {
+		foreach ($names as $name) {
+			$this->_constants[$name] = constant($name);
+		}
+	}
+
+	/**
 	 * Register all files required by the core JavaScript library
 	 */
 	function registerJSLibrary() {
@@ -630,28 +678,6 @@ class PKPTemplateManager extends Smarty {
 			array(
 				'priority' => STYLE_SEQUENCE_LATE,
 				'contexts' => array('backend')
-			)
-		);
-
-		// Load constants for new component library
-		$const = array(
-			'ROLE_ID_MANAGER' => ROLE_ID_MANAGER,
-			'ROLE_ID_SITE_ADMIN' => ROLE_ID_SITE_ADMIN,
-			'ROLE_ID_AUTHOR' => ROLE_ID_AUTHOR,
-			'ROLE_ID_REVIEWER' => ROLE_ID_REVIEWER,
-			'ROLE_ID_ASSISTANT' => ROLE_ID_ASSISTANT,
-			'ROLE_ID_READER' => ROLE_ID_READER,
-			'ROLE_ID_SUB_EDITOR' => ROLE_ID_SUB_EDITOR,
-			'ROLE_ID_SUBSCRIPTION_MANAGER' => ROLE_ID_SUBSCRIPTION_MANAGER,
-		);
-		$output = 'pkp.const = ' . json_encode($const) . ';';
-		$this->addJavaScript(
-			'pkpAppData',
-			$output,
-			array(
-				'priority' => STYLE_SEQUENCE_LATE,
-				'contexts' => array('backend'),
-				'inline' => true,
 			)
 		);
 
@@ -714,10 +740,7 @@ class PKPTemplateManager extends Smarty {
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
 		// Load exposed constants
-		$exposedConstants = $application->getExposedConstants();
-		if (!empty($exposedConstants)) {
-			$output .= '$.pkp.cons = ' . json_encode($exposedConstants) . ';';
-		}
+		$output .= '$.pkp.cons = ' . json_encode($this->_constants) . ';';
 
 		// Load locale keys
 		$localeKeys = $application->getJSLocaleKeys();
@@ -843,6 +866,19 @@ class PKPTemplateManager extends Smarty {
 	 * @copydoc Smarty::display()
 	 */
 	function display($template = null, $cache_id = null, $compile_id = null, $parent = null) {
+
+		// Output global constants used in new component library
+		$output = 'pkp.const = ' . json_encode($this->_constants) . ';';
+		$this->addJavaScript(
+			'pkpAppData',
+			$output,
+			array(
+				'priority' => STYLE_SEQUENCE_LATE,
+				'contexts' => array('backend'),
+				'inline' => true,
+			)
+		);
+
 		// Give any hooks registered against the TemplateManager
 		// the opportunity to modify behavior; otherwise, display
 		// the template as usual.

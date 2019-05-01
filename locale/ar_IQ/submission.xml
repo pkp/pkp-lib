@@ -442,7 +442,7 @@
 	<message key="editor.submission.roundStatus.revisionsSubmitted">تم تسليم التنقيحات.</message>
 	<message key="editor.submission.roundStatus.resubmitForReview">لا بد من إعادة تقديم الطلب إلى جولة تحكيم أخرى.</message>
 	<message key="editor.submission.roundStatus.submissionResubmitted">لقد أُعيد تقديم الطلب إلى جولة تحكيم أخرى.</message>
-	
+
 	<message key="editor.submission.roundStatus.sentToExternal">أُرسل للتحكيم الخارجي.</message>
 	<message key="editor.submission.roundStatus.accepted">المؤلَّف مقبول.</message>
 	<message key="editor.submission.roundStatus.declined">المؤلَّف مرفوض.</message>
@@ -611,8 +611,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">سجل الوقوعات والملاحظات</message>
-	<message key="submission.list.count">{$count} عدد طلبات التقديم</message>
-	<message key="submission.list.itemsOfTotal">{$count} من {$total} طلب تقديم</message>
 	<message key="submission.list.responseDue">موعد الإجابة</message>
 	<message key="submission.list.reviewDue">استيجاب التحكيم</message>
 	<message key="submission.list.reviewComplete">التحكيم مسَلم</message>

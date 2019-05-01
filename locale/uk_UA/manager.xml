@@ -66,7 +66,6 @@
 	<message key="manager.publication.emails">Електронні листи</message>
 	<message key="manager.emails.confirmDelete">Ви впевнені, що хочете видалити цей поштовий шаблон?</message>
 	<message key="manager.emails.confirmReset">Ви впевнені, що хочете відновити значення за замовчуванням для цього поштового шаблону?</message>
-	<message key="manager.emails.addEmail">Додати шаблон листа</message>
 	<message key="manager.emails.createEmail">Створити лист</message>
 	<message key="manager.emails.data">Дані про шаблон листа</message>
 	<message key="manager.emails.details">Інформація про шаблон</message>
@@ -77,7 +76,6 @@
 	<message key="manager.emails.emailKey">Ключ листа</message>
 	<message key="manager.emails.emailKeyExists">Лист із таким ключем вже існує. Ключі листів повинні бути унікальними.</message>
 	<message key="manager.emails.emailTemplate">Шаблон листа</message>
-	<message key="manager.emails.emailTemplates">Шаблони листів</message>
 	<message key="manager.emails.enabled">Включити цей шаблон листа</message>
 	<message key="manager.emails.enable">Включити</message>
 	<message key="manager.emails.enable.message">Ви намагаєтеся включити цей шаблон листа. Ви підтверджуєте цю дію?</message>
@@ -85,7 +83,6 @@
 	<message key="manager.emails.form.bodyRequired">Необхідно ввести текст листа.</message>
 	<message key="manager.emails.form.subjectRequired">Необхідно ввести тему листа.</message>
 	<message key="manager.emails">Підготовані листи</message>
-	<message key="manager.emails.resetAll">Скинути всі шаблони</message>
 	<message key="manager.emails.resetAll.message">Якщо ви скинете всі шаблони, всі зміни до шаблонів електронної пошти будуть втрачені. Ви хочете підтвердити цю операцію?</message>
 	<message key="manager.emails.reset">Скинути</message>
 	<message key="manager.emails.reset.message">Якщо ви скинете цей шаблон, усі дані повідомлення будуть скинуті до усталеного значення, втративши усі зміни. Ви хочете підтвердити цю операцію?</message>

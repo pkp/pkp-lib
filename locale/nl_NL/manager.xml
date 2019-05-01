@@ -82,7 +82,6 @@
 	<message key="manager.emails.emailKey">E-mail sleutel</message>
 	<message key="manager.emails.emailKeyExists">Een e-mail met de opgegeven sleutel bestaat al. E-mail sleutels moeten uniek zijn.</message>
 	<message key="manager.emails.emailTemplate">E-mail sjabloon</message>
-	<message key="manager.emails.emailTemplates">E-mail sjablonen</message>
 	<message key="manager.emails.enabled">Schakel dit e-mail sjabloon in</message>
 	<message key="manager.emails.enable">Schakel in</message>
 	<message key="manager.emails.enable.message">U staat op het punt deze e-mail in te schakelen. Wilt u deze bewerking bevestigen?</message>
@@ -90,8 +89,6 @@
 	<message key="manager.emails.form.bodyRequired">De e-mail moet tekst bevatten.</message>
 	<message key="manager.emails.form.subjectRequired">De e-mail moet een onderwerp hebben.</message>
 	<message key="manager.emails">Voorbereide e-mails</message>
-	<message key="manager.emails.resetAll">Alle sjablonen terugzetten</message>
-	<message key="manager.emails.resetAll.message">Als u de sjablonen herstelt gaan alle modificaties aan de sjablonen verloren. Wilt deze bewerking bevestigen?</message>
 	<message key="manager.emails.reset">Herstel</message>
 	<message key="manager.emails.reset.message">Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?</message>
 	<message key="manager.emails.resetToDefault">Standaard terugzetten</message>

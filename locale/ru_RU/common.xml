@@ -592,7 +592,6 @@
 	<message key="validator.active_url">Некорректный URL.</message>
 	<message key="validator.after">Дата должна быть после {$date}.</message>
 	<message key="validator.alpha">Здесь могут быть только буквы.</message>
-	<message key="validator.alpha_dash">Здесь могут быть только буквы, цифры и дефисы.</message>
 	<message key="validator.alpha_num">Здесь могут быть только буквы и цифры.</message>
 	<message key="validator.array">Некорректный массив.</message>
 	<message key="validator.before">Дата должна быть до {$date}.</message>

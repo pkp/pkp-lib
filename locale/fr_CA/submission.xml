@@ -665,8 +665,6 @@
 	<message key="editor.submission.decision.previousAuthorNotification">Précédent: Avis à l'auteur</message>
 	<message key="submission.howToCite.downloadCitation">Télécharger la référence</message>
 	<message key="submission.query.noParticipantOptions">Vous devez ajouter au moins un participant afin d'initier une discussion.</message>
-	<message key="submission.list.count">{$count} soumissions</message>
-	<message key="submission.list.itemsOfTotal">{$count} de {$total} soumissions</message>
 	<message key="submission.list.responseDue">Réponse due</message>
 	<message key="submission.list.reviewDue">Évaluation due</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission?</message>

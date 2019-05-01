@@ -55,5 +55,3 @@ class Role extends DataObject {
 		return $this->setId($roleId);
 	}
 }
-
-

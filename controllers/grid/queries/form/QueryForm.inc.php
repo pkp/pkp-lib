@@ -259,29 +259,32 @@ class QueryForm extends Form {
 				}
 			}
 
-			import('lib.pkp.classes.components.listPanels.users.SelectUserListPanel');
-			$queryParticipantsList = new SelectUserListPanel(array(
-				'title' => 'editor.submission.stageParticipants',
-				'inputName' => 'users[]',
-				'selected' => $selectedParticipants,
-				'getParams' => array(
-					'contextId' => $context->getId(),
-					'count' => 100, // high upper value
-					'offset' => 0,
-					'assignedToSubmission' => $query->getAssocId(),
-					'assignedToSubmissionStage' => $query->getStageId(),
-					'includeUsers' => $includeUsers,
-					'excludeUsers' => $excludeUsers,
-				),
-				// Include the full name and role in this submission in the item title
-				'setItemTitleCallback' => function($user, $userProps) use ($stageAssignmentDao, $reviewAssignments, $query) {
-					$title = $user->getFullName();
+			// Get a ListPanel to select query participants
+			$params = [
+				'contextId' => $context->getId(),
+				'count' => 100, // high upper value
+				'offset' => 0,
+				'assignedToSubmission' => $query->getAssocId(),
+				'assignedToSubmissionStage' => $query->getStageId(),
+				'includeUsers' => $includeUsers,
+				'excludeUsers' => $excludeUsers,
+			];
+
+			$userService = Services::get('user');
+			$participants = $userService->getMany($params);
+
+			$items = [];
+			$itemsMax = 0;
+			if (!empty($participants)) {
+				foreach ($participants as $user) {
+					$allUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByUserId($user->getId(), $context->getId())->toArray();
+
 					$userRoles = array();
-					$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
-					foreach ($usersAssignments as $assignment) {
-						foreach ($userProps['groups'] as $userGroup) {
-							if ($userGroup['id'] === (int) $assignment->getUserGroupId() && isset($userGroup['name'][AppLocale::getLocale()])) {
-								$userRoles[] = $userGroup['name'][AppLocale::getLocale()];
+					$userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
+					foreach ($userAssignments as $userAssignment) {
+						foreach ($allUserGroups as $userGroup) {
+							if ((int) $userGroup->getId() === (int) $userAssignment->getUserGroupId()) {
+								$userRoles[] = $userGroup->getLocalizedName();
 							}
 						}
 					}
@@ -290,19 +293,38 @@ class QueryForm extends Form {
 							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
 						}
 					}
-					$title =  __('submission.query.participantTitle', array(
-								'fullName' => $user->getFullName(),
-								'userGroup' => join(__('common.commaListSeparator'), $userRoles),
-					));
-					return $title;
-				},
-			));
 
-			$queryParticipantsListData = $queryParticipantsList->getConfig();
+					$items[] = [
+						'id' => $user->getId(),
+						'title' => __('submission.query.participantTitle', [
+							'fullName' => $user->getFullName(),
+							'userGroup' => join(__('common.commaListSeparator'), $userRoles),
+						]),
+					];
+				}
+				$itemsMax = $userService->getMax($params);
+			}
+
+			$queryParticipantsList = new \PKP\components\listPanels\ListPanel(
+				'queryParticipants',
+				__('editor.submission.stageParticipants'),
+				[
+					'canSelect' => true,
+					'getParams' => $params,
+					'items' => $items,
+					'itemsMax' => $itemsMax,
+					'selected' => $selectedParticipants,
+					'selectorName' => 'users[]',
+				]
+			);
 
 			$templateMgr->assign(array(
-				'hasParticipants' => count($queryParticipantsListData['items']),
-				'queryParticipantsListData' => $queryParticipantsListData,
+				'hasParticipants' => count($items),
+				'queryParticipantsListData' => [
+					'components' => [
+						'queryParticipants' => $queryParticipantsList->getConfig(),
+					]
+				],
 			));
 		}
 

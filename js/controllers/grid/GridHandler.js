@@ -653,9 +653,12 @@
 			opt_$gridBody.append($newRow);
 		}
 
+
 		// Hide the empty placeholder.
 		var $emptyElement = this.getEmptyElement($newRow);
-		$emptyElement.hide();
+		if ($emptyElement) {
+			$emptyElement.hide();
+		}
 
 		this.callFeaturesHook('addElement', $newRow);
 	};

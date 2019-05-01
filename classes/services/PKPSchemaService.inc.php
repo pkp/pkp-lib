@@ -16,6 +16,7 @@ namespace PKP\Services;
 
 define('SCHEMA_AUTHOR', 'author');
 define('SCHEMA_CONTEXT', 'context');
+define('SCHEMA_EMAIL_TEMPLATE', 'emailTemplate');
 define('SCHEMA_GALLEY', 'galley');
 define('SCHEMA_ISSUE', 'issue');
 define('SCHEMA_REVIEW_ASSIGNMENT', 'reviewAssignment');

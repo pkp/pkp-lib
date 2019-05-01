@@ -531,11 +531,7 @@
 			<NOTNULL/>
 			<descr>Unique identifier for this email.</descr>
 		</field>
-		<field name="assoc_type" type="I8">
-			<!-- Not null not specified for sake of upgrade. -->
-			<DEFAULT VALUE="0"/>
-		</field>
-		<field name="assoc_id" type="I8">
+		<field name="context_id" type="I8">
 			<!-- Not null not specified for sake of upgrade. -->
 			<DEFAULT VALUE="0"/>
 		</field>
@@ -546,49 +542,36 @@
 		<descr>Templates for emails.</descr>
 		<index name="email_templates_email_key">
 			<col>email_key</col>
-			<col>assoc_type</col>
-			<col>assoc_id</col>
+			<col>context_id</col>
 			<UNIQUE/>
-		</index>
-		<index name="email_templates_assoc">
-			<col>assoc_type</col>
-			<col>assoc_id</col>
 		</index>
 	</table>
 
 	<!--
 	  *
-	  * TABLE email_templates_data
+	  * TABLE email_templates_settings
 	  *
 	  -->
-	<table name="email_templates_data">
-		<field name="email_key" type="C2" size="64">
+	<table name="email_templates_settings">
+		<field name="email_id" type="I8">
 			<NOTNULL />
-			<descr>Unique identifier for this email.</descr>
 		</field>
 		<field name="locale" type="C2" size="14">
 			<NOTNULL />
-			<DEFAULT VALUE="en_US"/>
+			<DEFAULT VALUE=""/>
 		</field>
-		<field name="assoc_type" type="I8">
-			<!-- Not null not specified for sake of upgrade. -->
-			<DEFAULT VALUE="0"/>
+		<field name="setting_name" type="C2" size="255">
+			<NOTNULL />
 		</field>
-		<field name="assoc_id" type="I8">
-			<!-- Not null not specified for sake of upgrade. -->
-			<DEFAULT VALUE="0"/>
-		</field>
-		<field name="subject" type="C2" size="120">
-			<NOTNULL/>
-		</field>
-		<field name="body" type="X"/>
-		<descr>Data for email templates.</descr>
-		<index name="email_templates_data_pkey">
-			<col>email_key</col>
+		<field name="setting_value" type="X" />
+		<index name="email_settings_email_id">
+			<col>email_id</col>
+		</index>
+		<index name="email_settings_pkey">
+			<col>email_id</col>
 			<col>locale</col>
-			<col>assoc_type</col>
-			<col>assoc_id</col>
-			<UNIQUE/>
+			<col>setting_name</col>
+			<UNIQUE />
 		</index>
 	</table>
 

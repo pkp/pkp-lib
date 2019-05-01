@@ -25,10 +25,14 @@
 		{fbvFormSection}
 			{assign var="uuid" value=""|uniqid|escape}
 			<div id="userGroups-{$uuid}">
-				<script type="text/javascript">
-					pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData|json_encode});
-				</script>
+					<list-panel
+						v-bind="components.selectRole"
+						@set="set"
+					/>
 			</div>
+				<script type="text/javascript">
+					pkp.registry.init('userGroups-{$uuid}', 'Container', {$selectRoleListData|json_encode});
+				</script>
 		{/fbvFormSection}
 
 		{fbvFormButtons submitText="common.save"}

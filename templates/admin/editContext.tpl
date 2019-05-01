@@ -13,12 +13,10 @@
 	{else}
 	<pkp-form
 	{/if}
-		v-bind="forms.{$smarty.const.FORM_CONTEXT}"
-		@set-fields="setFormFields"
-		@set-errors="setFormErrors"
-		@set-visible-locales="setFormVisibleLocales"
+		v-bind="components.{$smarty.const.FORM_CONTEXT}"
+		@set="set"
 	/>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('editContext', 'Container', {$containerData|json_encode});
+	pkp.registry.init('editContext', 'SettingsContainer', {$containerData|json_encode});
 </script>

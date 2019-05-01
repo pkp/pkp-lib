@@ -137,7 +137,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitJQuery();
 		$this->click('//form[@id=\'submitStep4Form\']//button[text()=\'Finish Submission\']');
 		$this->waitJQuery();
-		$this->click('//a[text()=\'OK\']');
+		$this->click('//button[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Submission complete\')]');
 		$this->waitJQuery();
 	}
@@ -240,9 +240,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	protected function findSubmissionAsEditor($username, $password = null, $title) {
 		if ($password === null) $password = $username . $username;
 		$this->logIn($username, $password);
-		$this->waitForElementPresent('css=#dashboardTabs');
-		/*$this->click('css=[name=active]');
-		$this->waitForElementPresent('//div[contains(text(),"All Active")]');*/
+		$this->waitForElementPresent('css=[id^="dashboard-"]');
 		$xpath = '//div[contains(text(),' . $this->quoteXpath($title) . ')]';
 		$this->waitForElementPresent($xpath);
 		$this->click($xpath);
@@ -258,10 +256,10 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		if (in_array($decision, array('Accept Submission', 'Send To Production', 'Send to External Review'))) {
 			sleep(2); // FIXME: Avoid missing modal
 			$this->waitJQuery();
-			$this->click('//button[contains(.,"Next:")]');
+			$this->click('//button[contains(text(),"Next:")]');
 		}
 		$this->waitJQuery();
-		$this->click('//button[contains(.,\'Record Editorial Decision\')]');
+		$this->click('//button[contains(text(),\'Record Editorial Decision\')]');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
 	}
 
@@ -313,8 +311,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
 		$this->waitJQuery();
 		sleep(2);
-		$this->waitForElementPresent('css=div.pkpListPanel--selectReviewer');
-		$this->type('css=div.pkpListPanel--selectReviewer input.pkpListPanel__searchInput', $name);
+		$this->waitForElementPresent('css=fieldset.pkpListPanel--selectReviewer');
+		$this->type('css=fieldset.pkpListPanel--selectReviewer input.pkpSearch__input', $name);
 		$this->waitForElementPresent($xpath='//div[contains(text(),' . $this->quoteXpath($name) . ')]');
 		$this->click($xpath);
 		$this->waitJQuery();
@@ -359,7 +357,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		}
 
 		$this->click('//button[text()=\'Submit Review\']');
-		$this->click('link=OK');
+		$this->click('//button[text()=\'OK\']');
 		$this->waitForElementPresent('//h2[contains(text(), \'Review Submitted\')]');
 		$this->logOut();
 	}

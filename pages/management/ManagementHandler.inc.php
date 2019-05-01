@@ -100,7 +100,7 @@ class ManagementHandler extends Handler {
 		$mastheadForm = new APP\components\forms\context\MastheadForm($apiUrl, $locales, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_CONTACT => $contactForm->getConfig(),
 				FORM_MASTHEAD => $mastheadForm->getConfig(),
 			],
@@ -164,7 +164,7 @@ class ManagementHandler extends Handler {
 		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
 				FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
 				FORM_APPEARANCE_SETUP => $appearanceSetupForm->getConfig(),
@@ -191,7 +191,8 @@ class ManagementHandler extends Handler {
 		$context = $request->getContext();
 		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$contextApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$emailTemplatesApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'emailTemplates');
 
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_SUBMISSION,
@@ -208,19 +209,32 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($apiUrl, $locales, $context);
-		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($apiUrl, $context);
-		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($apiUrl, $locales, $context);
-		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($apiUrl, $locales, $context);
-		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($apiUrl, $locales, $context);
+		$authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
+		$metadataSettingsForm = new \PKP\components\forms\context\PKPMetadataSettingsForm($contextApiUrl, $context);
+		$emailSetupForm = new \PKP\components\forms\context\PKPEmailSetupForm($contextApiUrl, $locales, $context);
+		$reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
+		$reviewSetupForm = new \PKP\components\forms\context\PKPReviewSetupForm($contextApiUrl, $locales, $context);
+
+		$emailTemplatesListPanel = new \APP\components\listPanels\EmailTemplatesListPanel(
+			'emailTemplates',
+			__('manager.emails.emailTemplates'),
+			[
+				'apiUrl' => $emailTemplatesApiUrl,
+				'count' => 100,
+				'items' => [],
+				'itemsMax' => 0,
+				'lazyLoad' => true,
+			]
+		);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_AUTHOR_GUIDELINES => $authorGuidelinesForm->getConfig(),
 				FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
 				FORM_EMAIL_SETUP => $emailSetupForm->getConfig(),
 				FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
 				FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),
+				'emailTemplates' => $emailTemplatesListPanel->getConfig(),
 			],
 		];
 		$templateMgr->assign('settingsData', $settingsData);
@@ -256,7 +270,7 @@ class ManagementHandler extends Handler {
 		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_LICENSE => $licenseForm->getConfig(),
 				FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
 				FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
@@ -293,7 +307,7 @@ class ManagementHandler extends Handler {
 		$userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
 
 		$settingsData = [
-			'forms' => [
+			'components' => [
 				FORM_USER_ACCESS => $userAccessForm->getConfig(),
 			],
 		];

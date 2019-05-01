@@ -89,7 +89,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	/**
 	 * Build the query object for getting contexts
 	 *
-	 * @see self::get()
+	 * @see self::getMany()
 	 * @return object Query object
 	 */
 	private function _getQueryBuilder($args = array()) {
@@ -449,8 +449,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$announcementTypeDao = \DAORegistry::getDAO('AnnouncementTypeDAO');
 		$announcementTypeDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
-		$emailTemplateDao = \DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->deleteEmailTemplatesByContext($context->getId());
+		Services::get('emailTemplate')->restoreDefaults($context->getId());
 
 		$pluginSettingsDao = \DAORegistry::getDAO('PluginSettingsDAO');
 		$pluginSettingsDao->deleteByContextId($context->getId());

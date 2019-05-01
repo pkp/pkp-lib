@@ -17,10 +17,8 @@
 			<tabs :options="{ useUrlFragment: false}" class="tabs-component--side">
 				<tab name="{translate key="submission.informationCenter.metadata"}">
 					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_METADATA_SETTINGS}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_METADATA_SETTINGS}"
+						@set="set"
 					/>
 				</tab>
 				<tab name="{translate key="grid.genres.title.short"}">
@@ -33,10 +31,8 @@
 				</tab>
 				<tab name="{translate key="manager.setup.authorGuidelines"}">
 					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_AUTHOR_GUIDELINES}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_AUTHOR_GUIDELINES}"
+						@set="set"
 					/>
 				</tab>
 				{call_hook name="Template::Settings::workflow::submission"}
@@ -47,18 +43,14 @@
 			<tabs :options="{ useUrlFragment: false}" class="tabs-component--side">
 				<tab name="{translate key="navigation.setup"}">
 					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_REVIEW_SETUP}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_REVIEW_SETUP}"
+						@set="set"
 					/>
 				</tab>
 				<tab name="{translate key="manager.publication.reviewerGuidance"}">
 					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_REVIEW_GUIDANCE}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_REVIEW_GUIDANCE}"
+						@set="set"
 					/>
 				</tab>
 				<tab name="{translate key="manager.reviewForms"}">
@@ -78,13 +70,15 @@
 			<tabs :options="{ useUrlFragment: false}">
 				<tab name="{translate key="navigation.setup"}">
 					<pkp-form
-						v-bind="forms.{$smarty.const.FORM_EMAIL_SETUP}"
-						@set-fields="setFormFields"
-						@set-errors="setFormErrors"
-						@set-visible-locales="setFormVisibleLocales"
+						v-bind="components.{$smarty.const.FORM_EMAIL_SETUP}"
+						@set="set"
 					/>
 				</tab>
 				<tab name="{translate key="manager.emails.emailTemplates"}">
+					<email-templates-list-panel
+						v-bind="components.emailTemplates"
+						@set="set"
+					/>
 					{capture assign=preparedEmailsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.preparedEmails.preparedEmailsGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="preparedEmailsGridDiv" url=$preparedEmailsGridUrl}
 				</tab>
@@ -95,7 +89,7 @@
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-context-{$uuid}', 'Container', {$settingsData|json_encode});
+	pkp.registry.init('settings-context-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
 </script>
 
 {include file="common/footer.tpl"}

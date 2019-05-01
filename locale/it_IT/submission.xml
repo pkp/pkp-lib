@@ -531,8 +531,6 @@
 	<message key="submission.query.new.contents">Sei stato aggiunto alla discussione intitolata "{$queryTitle}" riguardo la proposta "{$submissionTitle}".</message>
 	<message key="submission.query.noParticipantOptions">Devi assegnare almeno un partecipante a questa proposta prima di inziare una discussione.</message>
 	<message key="submission.list.infoCenter">Log attività e note</message>
-	<message key="submission.list.count">{$count} proposte</message>
-	<message key="submission.list.itemsOfTotal">{$count} su un totale di {$total} proposte</message>
 	<message key="submission.list.responseDue">Termine per la risposta</message>
 	<message key="submission.list.reviewDue">Termine per la revisione</message>
 	<message key="submission.list.confirmDelete">Cancelli la proposta ?</message>

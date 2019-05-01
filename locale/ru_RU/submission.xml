@@ -621,6 +621,7 @@
 
 	<!-- Списки материалов -->
 	<message key="submission.list.infoCenter">Журнал активности и обсуждений</message>
+	<message key="submission.list.empty">Материалы не найдены.</message>
 	<message key="submission.list.responseDue">Срок ответа на запрос</message>
 	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
 	<message key="submission.list.reviewComplete">Рецензия отправлена</message>

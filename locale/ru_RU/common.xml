@@ -156,7 +156,8 @@
 	<message key="common.filter">Фильтры</message>
 	<message key="common.filterAdd">Добавить фильтр: {$filterTitle}</message>
 	<message key="common.filterRemove">Сбросить фильтр: {$filterTitle}</message>
-	<message key="common.from">C</message>
+	<message key="common.from">От</message>
+	<message key="common.fromWithValue">От: {$value}</message>
 	<message key="common.until">По</message>
 	<message key="common.go">Выполнить</message>
 	<message key="common.height">Высота</message>
@@ -263,6 +264,7 @@
 	<message key="common.suggest">Предложить</message>
 	<message key="common.title">Заголовок</message>
 	<message key="common.top">Верх</message>
+	<message key="common.toWithValue">Кому: {$value}</message>
 	<message key="common.true">Истина</message>
 	<message key="common.type">Тип</message>
 	<message key="common.component">Компонент</message>

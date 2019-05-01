@@ -24,6 +24,13 @@
 	<message key="api.submissions.400.invalidIssueIdentifiers">The requested volume, number or year is not valid.</message>
 	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
 	<message key="api.emailTemplates.404.templateNotFound">The email template you requested was not found.</message>
+	<message key="api.stats.400.wrongDateFormat">The date must be in the format YYYY-MM-DD.</message>
+	<message key="api.stats.400.wrongDateRange">The start date can not be later than the end date.</message>
+	<message key="api.stats.400.earlyDateRange">The start date can not be earlier than 2001-01-01.</message>
+	<message key="api.stats.400.lateDateRange">The end date can not be later than yesterday.</message>
+	<message key="api.stats.400.wrongTimeSegment">Your request was not valid. The timeSegment must be `day` or `month`.</message>
+	<message key="api.stats.400.wrongTimeSegmentDaily">Your request was not valid. The timeSegment 'daily' can only be used together with a date range (dateStart and dateEnd) within the last 90 days.</message>
+	<message key="api.stats.400.invalidOrderDirection">Your request was not valid. The orderDirection must be `desc` or `asc`.</message>
 	<message key="api.temporaryFiles.400.noUpload">No file to be uploaded could be found with the request.</message>
 	<message key="api.temporaryFiles.409.uploadFailed">One or more files could not be uploaded.</message>
 	<message key="api.temporaryFiles.400.fileSize">Files larger than {$maxSize} can not be uploaded.</message>

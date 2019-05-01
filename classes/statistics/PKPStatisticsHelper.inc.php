@@ -17,7 +17,7 @@
 // Dimensions:
 // 1) publication object dimension:
 define('STATISTICS_DIMENSION_CONTEXT_ID', 'context_id');
-define('STATISTICS_DIMENSION_PKP_SECTION_ID', 'pkp_section_id');
+define('STATISTICS_DIMENSION_PKP_SECTION_ID', 'pkp_section_id'); // OJS section i.e. OMP series ID
 define('STATISTICS_DIMENSION_ASSOC_OBJECT_TYPE', 'assoc_object_type');
 define('STATISTICS_DIMENSION_ASSOC_OBJECT_ID', 'assoc_object_id');
 define('STATISTICS_DIMENSION_SUBMISSION_ID', 'submission_id');
@@ -55,6 +55,8 @@ define('STATISTICS_UNKNOWN_COUNTRY_ID', 'ZZ');
 define('STATISTICS_YESTERDAY', 'yesterday');
 define('STATISTICS_CURRENT_MONTH', 'currentMonth');
 
+// Set the earliest date used
+define('STATISTICS_EARLIEST_DATE', '20010101');
 
 abstract class PKPStatisticsHelper {
 
@@ -329,7 +331,7 @@ abstract class PKPStatisticsHelper {
 	 * their respective names as array values.
 	 * @return array
 	 */
-	protected function getFileTypesArray() {
+	public function getFileTypesArray() {
 		return array(
 			STATISTICS_FILE_TYPE_PDF => 'PDF',
 			STATISTICS_FILE_TYPE_HTML => 'HTML',

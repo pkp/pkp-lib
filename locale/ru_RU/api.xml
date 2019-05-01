@@ -24,6 +24,7 @@
 	<message key="api.submissions.400.missingRequired">Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая информация.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">Неправильно указан запрашиваемый том, номер или год.</message>
 	<message key="api.submissions.unknownError">Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.</message>
+	<message key="api.emailTemplates.404.templateNotFound">Шаблон письма, который вы запросили, не был найден.</message>
 	<message key="api.temporaryFiles.400.noUpload">Не найдены файлы для загрузки на сервер, указанные в запросе.</message>
 	<message key="api.temporaryFiles.409.uploadFailed">Один или несколько файлов не могут быть загружены на сервер.</message>
 	<message key="api.temporaryFiles.400.fileSize">Файлы больше чем {$maxSize} нельзя загрузить на сервер.</message>

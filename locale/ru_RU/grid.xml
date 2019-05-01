@@ -157,6 +157,9 @@
 	<message key="grid.action.editContributor">Редактировать поддерживающего</message>
 	<message key="grid.action.deleteContributor">Удалить поддерживающего</message>
 
+	<!-- Вкладка «Версии»  -->
+	<message key="grid.action.newVersion">Создать новую версию</message>
+
 	<!-- Сетка «Формы рецензии» -->
 	<message key="grid.reviewForm.title">Формы рецензии</message>
 

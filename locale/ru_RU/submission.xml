@@ -648,4 +648,11 @@
 	<message key="submission.currentCoverImage">Текущее изображение</message>
 	<message key="catalog.category.noItems">В этой категории пока ничего не опубликовано.</message>
 	<message key="catalog.category.subcategories">Подкатегории</message>
+
+	<!-- Версии -->
+	<message key="submission.production.version">Версия {$submissionVersion}</message>
+	<message key="submission.production.newVersion">Новая версия</message>
+	<message key="submission.production.editMetadata">Метаданные этой версии</message>
+	<message key="submission.production.editMetadata.info">Это метаданные версии {$version}.</message>
+	<message key="submission.production.editMetadata.previous">Предыдущие версии можно найти на соответствующей вкладке стадии «Публикация».</message>
 </locale>

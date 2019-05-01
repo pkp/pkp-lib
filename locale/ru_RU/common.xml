@@ -186,6 +186,7 @@
 	<message key="common.noneAssigned">Никто не назначен</message>
 	<message key="common.none">Нет</message>
 	<message key="common.no">Нет</message>
+	<message key="common.noItemsFound">Ничего не найдено.</message>
 	<message key="common.noComments">Нет комментариев</message>
 	<message key="common.notApplicable">Неприменимо</message>
 	<message key="common.notApplicableShort">Неприм.</message>
@@ -208,7 +209,10 @@
 	<message key="common.other">Прочее</message>
 	<message key="common.overdue">Просрочено</message>
 	<message key="common.pagination">{$start}-{$end} из {$total}</message>
-	<message key="common.pagination.label">Просмотреть другие страницы</message>
+	<message key="common.pagination.label">Показать другие страницы</message>
+	<message key="common.pagination.goToPage">Перейти к странице {$page}</message>
+	<message key="common.pagination.next">Следующая страница</message>
+	<message key="common.pagination.previous">Предыдущая страница</message>
 	<message key="common.pageNumber">Страница {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Модуль</message>

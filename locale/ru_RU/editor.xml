@@ -148,4 +148,5 @@
 	<message key="reviewer.list.warnOnAssignUnlock">Разблокировать</message>
 	<message key="reviewer.list.reviewInterests">Интересы как рецензента</message>
 	<message key="reviewer.list.biography">Биография</message>
+	<message key="reviewer.list.empty">Рецензенты не найдены</message>
 </locale>

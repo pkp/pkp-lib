@@ -49,11 +49,11 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 		$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
 		$submissionComment = $submissionComments->next();
-		$this->setData('comment', $submissionComment?$submissionComment->getComments():'');
+		$this->setData('comments', $submissionComment?$submissionComment->getComments():'');
 
 		$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
 		$submissionCommentPrivate = $submissionCommentsPrivate->next();
-		$this->setData('commentPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
+		$this->setData('commentsPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
 	}
 
 	//

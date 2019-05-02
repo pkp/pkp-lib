@@ -19,7 +19,7 @@
 
 <form class="pkp_form" id="reviewStep2Form" method="post" action="{url page="reviewer" op="saveStep" path=$submission->getId() step="2" escape=false}">
 {csrf}
-{include file="common/formErrors.tpl"}
+{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewStep2FormNotification"}
 
 {fbvFormArea id="reviewStep2"}
 	{fbvFormSection label="reviewer.submission.reviewerGuidelines"}

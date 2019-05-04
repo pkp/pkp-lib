@@ -25,8 +25,8 @@ class PKPEmailTemplatesListPanel extends ListPanel {
 
 		$config = parent::getConfig();
 
-		$config['addItemUrl'] = \Application::getRequest()->getDispatcher()->url(
-			\Application::getRequest(),
+		$config['addItemUrl'] = \Application::get()->getRequest()->getDispatcher()->url(
+			\Application::get()->getRequest(),
 			ROUTE_COMPONENT,
 			null,
 			'grid.settings.preparedEmails.PreparedEmailsGridHandler',
@@ -34,8 +34,8 @@ class PKPEmailTemplatesListPanel extends ListPanel {
 			null
 		);
 
-		$config['editItemUrl'] = \Application::getRequest()->getDispatcher()->url(
-			\Application::getRequest(),
+		$config['editItemUrl'] = \Application::get()->getRequest()->getDispatcher()->url(
+			\Application::get()->getRequest(),
 			ROUTE_COMPONENT,
 			null,
 			'grid.settings.preparedEmails.PreparedEmailsGridHandler',
@@ -80,7 +80,7 @@ class PKPEmailTemplatesListPanel extends ListPanel {
 			ROLE_ID_SUBSCRIPTION_MANAGER => __('default.groups.name.subscriptionManager'),
 		];
 
-		$config['csrfToken'] = \Application::getRequest()->getSession()->getCSRFToken();
+		$config['csrfToken'] = \Application::get()->getRequest()->getSession()->getCSRFToken();
 
 		$config['filters'] = [
 			[

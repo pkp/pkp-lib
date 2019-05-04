@@ -106,7 +106,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * @return object Query object
 	 */
 	private function _getQueryBuilder($args = array()) {
-		$context = Application::getRequest()->getContext();
+		$context = Application::get()->getRequest()->getContext();
 
 		$defaultArgs = array(
 			'contextId' => $context ? $context->getId() : CONTEXT_SITE,

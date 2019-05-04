@@ -1116,7 +1116,7 @@ class SubmissionFileDAO extends SubmissionVersionedDAO implements PKPPubIdPlugin
 	public function newVersion($submissionId) {
 		list($oldVersion, $newVersion) = $this->provideSubmissionVersionsForNewVersion($submissionId);
 
-		$context = Application::getRequest()->getContext();
+		$context = Application::get()->getRequest()->getContext();
 
 		$allfiles = $this->getBySubmissionId($submissionId, null, $oldVersion);
 

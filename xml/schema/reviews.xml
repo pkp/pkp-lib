@@ -46,7 +46,7 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="replaced" type="I1">
+		<field name="cancelled" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>

@@ -344,6 +344,7 @@ class ReviewAssignmentDAO extends DAO {
 				competing_interests,
 				recommendation,
 				declined,
+				cancelled,
 				date_assigned, date_notified, date_confirmed,
 				date_completed, date_acknowledged, date_due, date_response_due,
 				quality, date_rated,
@@ -353,7 +354,7 @@ class ReviewAssignmentDAO extends DAO {
 				review_round_id,
 				unconsidered
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, %s, %s, %s, ?, ?, ?, ?
 				)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()),
 				$this->datetimeToDB($reviewAssignment->getDateNotified()),
@@ -374,6 +375,7 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getCompetingInterests(),
 				$reviewAssignment->getRecommendation(),
 				(int) $reviewAssignment->getDeclined(),
+				(int) $reviewAssignment->getCancelled(),
 				$reviewAssignment->getQuality(),
 				(int) $reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
@@ -403,6 +405,7 @@ class ReviewAssignmentDAO extends DAO {
 					competing_interests = ?,
 					recommendation = ?,
 					declined = ?,
+					cancelled = ?,
 					date_assigned = %s,
 					date_notified = %s,
 					date_confirmed = %s,
@@ -429,6 +432,7 @@ class ReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getCompetingInterests(),
 				$reviewAssignment->getRecommendation(),
 				(int) $reviewAssignment->getDeclined(),
+				(int) $reviewAssignment->getCancelled(),
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
@@ -489,6 +493,7 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setDateResponseDue($this->datetimeFromDB($row['date_response_due']));
 		$reviewAssignment->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$reviewAssignment->setDeclined($row['declined']);
+		$reviewAssignment->setCancelled($row['cancelled']);
 		$reviewAssignment->setQuality($row['quality']);
 		$reviewAssignment->setDateRated($this->datetimeFromDB($row['date_rated']));
 		$reviewAssignment->setDateReminded($this->datetimeFromDB($row['date_reminded']));

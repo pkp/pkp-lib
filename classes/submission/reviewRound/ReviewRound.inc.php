@@ -214,6 +214,7 @@ class ReviewRound extends DataObject {
 
 			switch ($assignmentStatus) {
 				case REVIEW_ASSIGNMENT_STATUS_DECLINED:
+				case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
 					break;
 
 				case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:

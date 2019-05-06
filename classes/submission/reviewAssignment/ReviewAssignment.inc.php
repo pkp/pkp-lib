@@ -45,6 +45,7 @@ define('REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE', 6); // review not submitted wi
 define('REVIEW_ASSIGNMENT_STATUS_RECEIVED', 7); // review has been submitted
 define('REVIEW_ASSIGNMENT_STATUS_COMPLETE', 8); // review has been confirmed by an editor
 define('REVIEW_ASSIGNMENT_STATUS_THANKED', 9); // reviewer has been thanked
+define('REVIEW_ASSIGNMENT_STATUS_CANCELLED', 10); // reviewer declind review request
 
 class ReviewAssignment extends DataObject {
 
@@ -396,6 +397,22 @@ class ReviewAssignment extends DataObject {
 	}
 
 	/**
+	 * Get the cancelled value.
+	 * @return boolean
+	 */
+	function getCancelled() {
+		return $this->getData('cancelled');
+	}
+
+	/**
+	 * Set the reviewer's cancelled value.
+	 * @param $cancelled boolean
+	 */
+	function setCancelled($cancelled) {
+		$this->setData('cancelled', $cancelled);
+	}
+
+	/**
 	 * Get a boolean indicating whether or not the last reminder was automatic.
 	 * @return boolean
 	 */
@@ -461,14 +478,13 @@ class ReviewAssignment extends DataObject {
 
 	/**
 	 * Get the current status of this review assignment
-	 *
-	 * @return int
+	 * @return int REVIEW_ASSIGNMENT_STATUS_...
 	 */
 	function getStatus() {
+		if ($this->getDeclined()) return REVIEW_ASSIGNMENT_STATUS_DECLINED;
+		if ($this->getCancelled()) return REVIEW_ASSIGNMENT_STATUS_CANCELLED;
 
-		if ($this->getDeclined()) {
-			return REVIEW_ASSIGNMENT_STATUS_DECLINED;
-		} elseif (!$this->getDateCompleted()) {
+		if (!$this->getDateCompleted()) {
 			$dueTimes = array_map(function($dateTime) {
 					// If no due time, set it to the end of the day
 					if (substr($dateTime, 11) === '00:00:00') {

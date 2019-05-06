@@ -26,10 +26,6 @@ class ValidatorTypeDescriptionTest extends PKPTestCase {
 		$typeDescription = new ValidatorTypeDescription('email');
 		self::assertTrue($typeDescription->isCompatible($object = 'jerico.dev@gmail.com'));
 		self::assertFalse($typeDescription->isCompatible($object = 'another string'));
-
-		$typeDescription = new ValidatorTypeDescription('uri(array("ftp"))');
-		self::assertTrue($typeDescription->isCompatible($object = 'ftp://some.domain.org/'));
-		self::assertFalse($typeDescription->isCompatible($object = 'http://some.domain.org/'));
 	}
 
 	/**

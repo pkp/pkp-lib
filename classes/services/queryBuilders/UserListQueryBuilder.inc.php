@@ -428,9 +428,9 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->getReviewerData)) {
 			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
 			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count');
+			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 AND ra.cancelled <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
+			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 AND ra.cancelled <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
+			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.declined = 1 AND ra.cancelled <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count');
 			switch (\Config::getVar('database', 'driver')) {
 				case 'mysql':
 				case 'mysqli':
@@ -460,7 +460,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			// active reviews
 			if (!empty($this->reviewsActive)) {
 				$activeMin = is_array($this->reviewsActive) ? $this->reviewsActive[0] : $this->reviewsActive;
-				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
+				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 AND ra.cancelled <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
 				$q->having(Capsule::raw($subqueryStatement), '>=', $activeMin);
 				if (is_array($this->reviewsActive) && !empty($this->reviewsActive[1])) {
 					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsActive[1]);

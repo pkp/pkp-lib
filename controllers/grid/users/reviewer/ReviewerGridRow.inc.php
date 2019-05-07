@@ -109,7 +109,6 @@ class ReviewerGridRow extends GridRow {
 					)
 				);
 
-				// Only assign this action if the reviewer has not acknowledged yet.
 				if (!$reviewAssignment->getCancelled()) $this->addAction(
 					new LinkAction(
 						'unassignReviewer',

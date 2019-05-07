@@ -25,6 +25,9 @@ class PKPStatsComponent {
 	/** @var string Which time segment (eg - month) is displayed in the graph */
 	public $timelineInterval = STATISTICS_DIMENSION_MONTH;
 
+	/** @var string Which views to show in the graph. Supports `abstract` or `galley`. */
+	public $timelineType = '';
+
 	/** @var array List of items to display stats for */
 	public $items = [];
 
@@ -95,8 +98,9 @@ class PKPStatsComponent {
 
 		$config = [
 			'apiUrl' => $this->apiUrl,
-			'timelineInterval' => $this->timelineInterval,
 			'timeline' => $this->timeline,
+			'timelineInterval' => $this->timelineInterval,
+			'timelineType' => $this->timelineType,
 			'items' => $this->items,
 			'itemsMax' => $this->itemsMax,
 			'tableColumns' => $this->tableColumns,
@@ -142,6 +146,8 @@ class PKPStatsComponent {
 					'invalidStartDateMin' => __('stats.dateRange.invalidStartDateMin'),
 					'daily' => __('stats.daily'),
 					'monthly' => __('stats.monthly'),
+					'abstracts' => __('stats.publications.abstracts'),
+					'galleys' => __('stats.publications.galleys'),
 				],
 				$this->i18n
 			),

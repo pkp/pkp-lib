@@ -72,28 +72,45 @@
 			<div class="pkpStats__content">
 				<div v-if="chartData" class="pkpStats__graph">
 					<div class="pkpStats__graphHeader">
-						<h2 class="pkpStats__graphTitle" id="publication-stats-time-segment">
-							{translate key="submission.abstractViews"}
+						<h2 class="pkpStats__graphTitle -screenReader" id="publication-stats-graph-title">
+							{translate key="submission.views"}
 						</h2>
-						<div class="pkpStats__graphSegment">
-							<pkp-button
-								:label="i18n.daily"
-								:aria-pressed="timelineInterval === 'day'"
-								aria-describedby="publication-stats-time-segment"
-								:disabled="!isDailySegmentEnabled"
-								@click="setTimelineInterval('day')"
-							></pkp-button>
-							<pkp-button
-								:label="i18n.monthly"
-								:aria-pressed="timelineInterval === 'month'"
-								aria-describedby="publication-stats-time-segment"
-								:disabled="!isMonthlySegmentEnabled"
-								@click="setTimelineInterval('month')"
-							></pkp-button>
+						<div class="pkpStats__graphSelectors">
+							<div class="pkpStats__graphSelector pkpStats__graphSelector--timelineType">
+								<pkp-button
+									:label="i18n.abstracts"
+									:aria-pressed="timelineType === 'abstract'"
+									aria-describedby="publication-stats-graph-title"
+									@click="setTimelineType('abstract')"
+								></pkp-button>
+								<pkp-button
+									:label="i18n.galleys"
+									:aria-pressed="timelineType === 'galley'"
+									aria-describedby="publication-stats-graph-title"
+									@click="setTimelineType('galley')"
+								></pkp-button>
+							</div>
+							<div class="pkpStats__graphSelector pkpStats__graphSelector--timelineInterval">
+								<pkp-button
+									:label="i18n.daily"
+									:aria-pressed="timelineInterval === 'day'"
+									aria-describedby="publication-stats-graph-title"
+									:disabled="!isDailyIntervalEnabled"
+									@click="setTimelineInterval('day')"
+								></pkp-button>
+								<pkp-button
+									:label="i18n.monthly"
+									:aria-pressed="timelineInterval === 'month'"
+									aria-describedby="publication-stats-graph-title"
+									:disabled="!isMonthlyIntervalEnabled"
+									@click="setTimelineInterval('month')"
+								></pkp-button>
+							</div>
 						</div>
 					</div>
 					<table class="-screenReader" role="region" aria-live="polite">
-						<caption>{translate key="stats.publications.totalAbstractViews.timelineInterval"}</caption>
+						<caption v-if="timelineType === 'galley'">{translate key="stats.publications.totalGalleyViews.timelineInterval"}</caption>
+						<caption v-else>{translate key="stats.publications.totalAbstractViews.timelineInterval"}</caption>
 						<thead>
 							<tr>
 								<th scope="col">{translate key="common.date"}</th>

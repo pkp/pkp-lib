@@ -89,11 +89,11 @@ class PKPStatsService {
 	/**
 	 * Get the sum of a set of metrics broken down by day or month
 	 *
-	 * @param string $timeSegment STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
+	 * @param string $timelineInterval STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
 	 * @param array $args Filter the records to include. See self::getRecords()
 	 * @return array
 	 */
-	public function getTimeline($timeSegment, $args = []) {
+	public function getTimeline($timelineInterval, $args = []) {
 
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
@@ -111,23 +111,23 @@ class PKPStatsService {
 		\HookRegistry::call('Stats::getTimeline::queryBuilder', array($timelineQB, $args));
 
 		$timelineQO = $timelineQB
-			->getSum([$timeSegment])
-			->orderBy($timeSegment);
+			->getSum([$timelineInterval])
+			->orderBy($timelineInterval);
 
 		$result = \DAORegistry::getDAO('MetricsDAO')
 			->retrieve($timelineQO->toSql(), $timelineQO->getBindings());
 
 		$dateValues = [];
 		while (!$result->EOF) {
-			$date = substr($result->fields[$timeSegment], 0, 4) . '-' . substr($result->fields[$timeSegment], 4, 2);
-			if ($timeSegment === STATISTICS_DIMENSION_DAY) {
-				$date = substr($date, 0, 7) . '-' . substr($result->fields[$timeSegment], 6, 2);
+			$date = substr($result->fields[$timelineInterval], 0, 4) . '-' . substr($result->fields[$timelineInterval], 4, 2);
+			if ($timelineInterval === STATISTICS_DIMENSION_DAY) {
+				$date = substr($date, 0, 7) . '-' . substr($result->fields[$timelineInterval], 6, 2);
 			}
 			$dateValues[$date] = (int) $result->fields['metric'];
 			$result->MoveNext();
 		}
 
-		$timeline = $this->getEmptyTimeSegments($args['dateStart'], $args['dateEnd'], $timeSegment);
+		$timeline = $this->getEmptyTimelineIntervals($args['dateStart'], $args['dateEnd'], $timelineInterval);
 
 		$timeline = array_map(function($entry) use ($dateValues) {
 			foreach ($dateValues as $date => $value) {
@@ -261,16 +261,16 @@ class PKPStatsService {
 	 *
 	 * @param $startDate string
 	 * @param $endDate string
-	 * @param $timeSegment string STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
+	 * @param $timelineInterval string STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
 	 * @return array of time segments in ASC order
 	 */
-	public function getEmptyTimeSegments($startDate, $endDate, $timeSegment) {
+	public function getEmptyTimelineIntervals($startDate, $endDate, $timelineInterval) {
 
-		if ($timeSegment === STATISTICS_DIMENSION_MONTH) {
+		if ($timelineInterval === STATISTICS_DIMENSION_MONTH) {
 			$dateFormat = 'Y-m';
 			$labelFormat = '%B %Y';
 			$interval = 'P1M';
-		} elseif ($timeSegment === STATISTICS_DIMENSION_DAY) {
+		} elseif ($timelineInterval === STATISTICS_DIMENSION_DAY) {
 			$dateFormat = 'Y-m-d';
 			$labelFormat = \Config::getVar('general', 'date_format_long');
 			$interval = 'P1D';
@@ -279,9 +279,9 @@ class PKPStatsService {
 		$startDate = new \DateTime($startDate);
 		$endDate = new \DateTime($endDate);
 
-		$timeSegments = [];
+		$timelineIntervals = [];
 		while ($startDate->format($dateFormat) <= $endDate->format($dateFormat)) {
-			$timeSegments[] = [
+			$timelineIntervals[] = [
 				'date' => $startDate->format($dateFormat),
 				'label' => strftime($labelFormat, strftime($startDate->getTimestamp())),
 				'value' => 0,
@@ -289,7 +289,7 @@ class PKPStatsService {
 			$startDate->add(new \DateInterval($interval));
 		}
 
-		return $timeSegments;
+		return $timelineIntervals;
 	}
 
 	/**

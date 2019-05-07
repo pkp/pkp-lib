@@ -181,6 +181,18 @@ class PKPStatsQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Get a list of submission ids that have matching records
+	 * for the query
+	 *
+	 * @return QueryObject
+	 */
+	public function getSubmissionIds() {
+		return $this->_getObject()
+			->select('submission_id')
+			->groupBy('submission_id');
+	}
+
+	/**
 	 * Generate a query object based on the configured conditions.
 	 *
 	 * Public methods should call this method to set up the query

@@ -18,6 +18,7 @@ import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.Services');
 import('lib.pkp.classes.validation.ValidatorFactory');
 import('classes.statistics.StatisticsHelper');
+import('lib.pkp.classes.submission.Submission'); // import STATUS_ constants
 
 abstract class PKPStatsPublicationHandler extends APIHandler {
 
@@ -149,7 +150,10 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			$allowedParams['submissionIds'] = $this->_processSearchPhrase($allowedParams['searchPhrase'], $allowedSubmissionIds);
 
 			if (empty($allowedParams['submissionIds'])) {
-				return $response->withJson([], 200);
+				return $response->withJson([
+					'items' => [],
+					'itemsMax' => 0,
+				], 200);
 			}
 		}
 
@@ -160,8 +164,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		]));
 
 		// Get the stats for each publication
-		$data = [];
+		$items = [];
 		foreach ($totals as $total) {
+
 			$galleyRecords = $statsService->getRecords(array_merge($allowedParams, [
 				'assocTypes' => ASSOC_TYPE_SUBMISSION_FILE,
 				'submissionIds' => [$total['id']],
@@ -196,7 +201,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 				);
 			}
 
-			$data[] = [
+			$items[] = [
 				'abstractViews' => $total['total'],
 				'galleyViews' => $galleyViews,
 				'pdfViews' => $pdfViews,
@@ -206,7 +211,24 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			];
 		}
 
-		return $response->withJson($data, 200);
+		// Get a count of all submission ids that have stats matching this request
+		$statsQB = new \APP\Services\QueryBuilders\StatsQueryBuilder();
+		$statsQB
+			->filterByContexts(\Application::get()->getRequest()->getContext()->getId())
+			->before(isset($allowedParams['dateEnd']) ? $allowedParams['dateEnd'] : STATISTICS_YESTERDAY)
+			->after(isset($allowedParams['dateStart']) ? $allowedParams['dateStart'] : STATISTICS_EARLIEST_DATE);
+		if (isset($allowedParams[$this->sectionIdsQueryParam])) {
+			$statsQB->filterBySections($allowedParams[$this->sectionIdsQueryParam]);
+		}
+		$statsQO = $statsQB->getSubmissionIds();
+		$result = \DAORegistry::getDAO('MetricsDAO')
+			->retrieve($statsQO->toSql(), $statsQO->getBindings());
+		$itemsMax = $result->RecordCount();
+
+		return $response->withJson([
+			'items' => $items,
+			'itemsMax' => $itemsMax,
+		], 200);
 	}
 
 	/**
@@ -226,7 +248,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		$defaultParams = [
-			'timeSegment' => STATISTICS_DIMENSION_MONTH,
+			'timelineInterval' => STATISTICS_DIMENSION_MONTH,
 		];
 
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
@@ -234,7 +256,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$allowedParams = $this->_processAllowedParams($requestParams, [
 			'dateStart',
 			'dateEnd',
-			'timeSegment',
+			'timelineInterval',
 			'searchPhrase',
 			$this->sectionIdsQueryParam,
 			'submissionIds',
@@ -242,8 +264,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publications::abstract::params', array(&$allowedParams, $slimRequest));
 
-		if (!in_array($allowedParams['timeSegment'], [STATISTICS_DIMENSION_DAY, STATISTICS_DIMENSION_MONTH])) {
-			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimeSegment');
+		if (!in_array($allowedParams['timelineInterval'], [STATISTICS_DIMENSION_DAY, STATISTICS_DIMENSION_MONTH])) {
+			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
 		}
 
 		$result = $this->_validateDates($allowedParams);
@@ -262,12 +284,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			if (empty($allowedParams['submissionIds'])) {
 				$dateStart = empty($allowedParams['dateStart']) ? STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
 				$dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
-				$emptyTimeline = \Services::get('stats')->getEmptyTimeSegments($dateStart, $dateEnd, $allowedParams['timeSegment']);
+				$emptyTimeline = \Services::get('stats')->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
 				return $response->withJson($emptyTimeline, 200);
 			}
 		}
 
-		$data = \Services::get('stats')->getTimeline($allowedParams['timeSegment'], $allowedParams);
+		$data = \Services::get('stats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
 		return $response->withJson($data, 200);
 	}
@@ -289,7 +311,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		$defaultParams = [
-			'timeSegment' => STATISTICS_DIMENSION_MONTH,
+			'timelineInterval' => STATISTICS_DIMENSION_MONTH,
 		];
 
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
@@ -297,7 +319,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$allowedParams = $this->_processAllowedParams($requestParams, [
 			'dateStart',
 			'dateEnd',
-			'timeSegment',
+			'timelineInterval',
 			'searchPhrase',
 			$this->sectionIdsQueryParam,
 			'submissionIds',
@@ -305,8 +327,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publications::galley::params', array(&$allowedParams, $slimRequest));
 
-		if (!in_array($allowedParams['timeSegment'], [STATISTICS_DIMENSION_DAY, STATISTICS_DIMENSION_MONTH])) {
-			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimeSegment');
+		if (!in_array($allowedParams['timelineInterval'], [STATISTICS_DIMENSION_DAY, STATISTICS_DIMENSION_MONTH])) {
+			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
 		}
 
 		$result = $this->_validateDates($allowedParams);
@@ -325,12 +347,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			if (empty($allowedParams['submissionIds'])) {
 				$dateStart = empty($allowedParams['dateStart']) ? STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
 				$dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
-				$emptyTimeline = \Services::get('stats')->getEmptyTimeSegments($dateStart, $dateEnd, $allowedParams['timeSegment']);
+				$emptyTimeline = \Services::get('stats')->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
 				return $response->withJson($emptyTimeline, 200);
 			}
 		}
 
-		$data = \Services::get('stats')->getTimeline($allowedParams['timeSegment'], $allowedParams);
+		$data = \Services::get('stats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
 		return $response->withJson($data, 200);
 	}
@@ -343,14 +365,15 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 	 * @return object Response
 	 */
 	public function get($slimRequest, $response, $args) {
-		$request = \Application::get()->getRequest();
+		$request = $this->getRequest();
+
+		if (!$request->getContext()) {
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+		}
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-		$defaultParams = ['timeSegment' => 'month'];
-		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-		$allowedParams = $this->_processAllowedParams($requestParams, [
+		$allowedParams = $this->_processAllowedParams($slimRequest->getQueryParams(), [
 			'dateStart',
 			'dateEnd',
 		]);
@@ -362,13 +385,39 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError($result);
 		}
 
-		$data = Services::get('stats')->getFullProperties($submission, array(
-				'request' => $request,
-				'slimRequest' 	=> $slimRequest,
-				'params' => $allowedParams
-			));
+		$allowedParams['submissionIds'] = [$submission->getId()];
+		$allowedParams['contextIds'] = $request->getContext()->getId();
 
-		return $response->withJson($data, 200);
+		$statsService = Services::get('stats');
+
+		$abstractRecords = $statsService->getRecords(array_merge($allowedParams, [
+			'assocTypes' => [ASSOC_TYPE_SUBMISSION],
+		]));
+		$abstractViews = array_reduce($abstractRecords, [$statsService, 'sumMetric'], 0);
+
+		// Get the galley totals for each file type (pdf, html, other)
+		$galleyRecords = $statsService->getRecords(array_merge($allowedParams, [
+			'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
+		]));
+		$galleyViews = array_reduce($galleyRecords, [$statsService, 'sumMetric'], 0);
+		$pdfViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordPdf']), [$statsService, 'sumMetric'], 0);
+		$htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
+		$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
+
+		$publicationProps = Services::get('submission')->getFullProperties($submission, array(
+			'request' => $request,
+			'slimRequest' 	=> $slimRequest,
+			'params' => $allowedParams
+		));
+
+		return $response->withJson([
+			'abstractViews' => $abstractViews,
+			'galleyViews' => $galleyViews,
+			'pdfViews' => $pdfViews,
+			'htmlViews' => $htmlViews,
+			'otherViews' => $otherViews,
+			'publication' => $publicationProps,
+		], 200);
 	}
 
 	/**
@@ -393,7 +442,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		$defaultParams = [
-			'timeSegment' => STATISTICS_DIMENSION_MONTH,
+			'timelineInterval' => STATISTICS_DIMENSION_MONTH,
 		];
 
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
@@ -401,7 +450,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$allowedParams = $this->_processAllowedParams($requestParams, [
 			'dateStart',
 			'dateEnd',
-			'timeSegment',
+			'timelineInterval',
 		]);
 
 		$allowedParams['contextIds'] = $request->getContext()->getId();
@@ -417,7 +466,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		$statsService = \Services::get('stats');
-		$data = $statsService->getTimeline($allowedParams['timeSegment'], $allowedParams);
+		$data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
 		return $response->withJson($data, 200);
 	}
@@ -445,7 +494,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		$defaultParams = [
-			'timeSegment' => STATISTICS_DIMENSION_MONTH,
+			'timelineInterval' => STATISTICS_DIMENSION_MONTH,
 		];
 
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
@@ -453,7 +502,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$allowedParams = $this->_processAllowedParams($requestParams, [
 			'dateStart',
 			'dateEnd',
-			'timeSegment',
+			'timelineInterval',
 		]);
 
 		$allowedParams['contextIds'] = $request->getContext()->getId();
@@ -468,7 +517,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		$statsService = \Services::get('stats');
-		$data = $statsService->getTimeline($allowedParams['timeSegment'], $allowedParams);
+		$data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
 		return $response->withJson($data, 200);
 	}
@@ -493,7 +542,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			switch ($requestParam) {
 				case 'dateStart':
 				case 'dateEnd':
-				case 'timeSegment':
+				case 'timelineInterval':
 				case 'searchPhrase':
 					$returnParams[$requestParam] = $value;
 					break;
@@ -593,6 +642,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$submissions = \Services::get('submission')->getMany([
 			'contextId' => \Application::get()->getRequest()->getContext()->getId(),
 			'searchPhrase' => $searchPhrase,
+			'status' => STATUS_PUBLISHED,
 		]);
 
 		$searchPhraseSubmissionIds = array_map(function($submission) {

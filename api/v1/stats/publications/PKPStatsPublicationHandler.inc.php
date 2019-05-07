@@ -404,11 +404,21 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
 		$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
 
-		$publicationProps = Services::get('submission')->getFullProperties($submission, array(
-			'request' => $request,
-			'slimRequest' 	=> $slimRequest,
-			'params' => $allowedParams
-		));
+		$publicationProps = Services::get('submission')->getProperties(
+			$submission,
+			[
+				'_href',
+				'id',
+				'fullTitle',
+				'shortAuthorString',
+				'urlWorkflow',
+				'urlPublished',
+			],
+			[
+				'request' => $request,
+				'slimRequest' => $slimRequest,
+			]
+		);
 
 		return $response->withJson([
 			'abstractViews' => $abstractViews,

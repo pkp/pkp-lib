@@ -59,7 +59,7 @@ abstract class SubmissionSearch {
 		$return = array('+' => array(), '' => array(), '-' => array());
 		$postBool = $preBool = '';
 
-		$submissionSearchIndex = new SubmissionSearchIndex();
+		$submissionSearchIndex = Application::getSubmissionSearchIndex();
 
 		$notOperator = PKPString::strtolower(__('search.operator.not'));
 		$andOperator = PKPString::strtolower(__('search.operator.and'));

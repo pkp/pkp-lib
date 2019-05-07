@@ -22,16 +22,16 @@ define('SEARCH_STOPWORDS_FILE', 'lib/pkp/registry/stopwords.txt');
 // Words are truncated to at most this length
 define('SEARCH_KEYWORD_MAX_LENGTH', 40);
 
-class SubmissionSearchIndex {
+abstract class SubmissionSearchIndex {
 	/**
 	 * Split a string into a clean array of keywords
 	 * @param $text string
 	 * @param $allowWildcards boolean
 	 * @return array of keywords
 	 */
-	static function filterKeywords($text, $allowWildcards = false) {
+	public function filterKeywords($text, $allowWildcards = false) {
 		$minLength = Config::getVar('search', 'min_word_length');
-		$stopwords = self::_loadStopwords();
+		$stopwords = $this->_loadStopwords();
 
 		// Join multiple lines into a single string
 		if (is_array($text)) $text = join("\n", $text);
@@ -62,7 +62,7 @@ class SubmissionSearchIndex {
 	 * FIXME: Should this be locale-specific?
 	 * @return array with stopwords as keys
 	 */
-	static function _loadStopwords() {
+	protected function _loadStopwords() {
 		static $searchStopwords;
 
 		if (!isset($searchStopwords)) {
@@ -80,6 +80,24 @@ class SubmissionSearchIndex {
 
 		return $searchStopwords;
 	}
-}
 
+	/**
+	 * Let the indexing back-end know that the current transaction
+	 * finished so that the index can be batch-updated.
+	 */
+	abstract function submissionChangesFinished();
+
+	/**
+	 * Signal to the indexing back-end that the metadata of a submission
+	 * changed.
+	 *
+	 * Push indexing implementations will try to immediately update
+	 * the index to reflect the changes. Pull implementations will
+	 * mark articles as "changed" and let the indexing back-end decide
+	 * the best point in time to actually index the changed data.
+	 *
+	 * @param $submission Submission
+	 */
+	abstract public function submissionMetadataChanged($submission);
+}
 

@@ -145,12 +145,6 @@ class PKPStatsHandler extends Handler {
 						'label' => __('stats.dateRange.allDates'),
 					],
 				],
-				'filters' => [
-					[
-						'heading' => __('section.sections'),
-						'filters' => APP\components\listPanels\SubmissionsListPanel::getSectionFilters(),
-					],
-				],
 				'orderBy' => 'total',
 				'orderDirection' => true,
 			]

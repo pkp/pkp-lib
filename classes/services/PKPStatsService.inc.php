@@ -296,10 +296,10 @@ class PKPStatsService {
 	 * Get a QueryBuilder object with the passed args
 	 *
 	 * @param array $args See self::getRecords()
-	 * @return \APP\Services\QueryBuilders\StatsQueryBuilder
+	 * @return \PKP\Services\QueryBuilders\PKPStatsQueryBuilder
 	 */
 	protected function _getQueryBuilder($args = []) {
-		$statsQB = new \APP\Services\QueryBuilders\StatsQueryBuilder();
+		$statsQB = new \PKP\Services\QueryBuilders\PKPStatsQueryBuilder();
 		$statsQB
 			->filterByContexts($args['contextIds'])
 			->before($args['dateEnd'])

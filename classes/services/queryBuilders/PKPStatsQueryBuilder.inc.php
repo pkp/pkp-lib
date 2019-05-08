@@ -108,6 +108,18 @@ class PKPStatsQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set the to get records for. This is stored under the section_id
+	 * db column but in OMP refers to seriesIds.
+	 *
+	 * @param array|int $sectionIds
+	 * @return \PKP\Services\QueryBuilders\PKPStatsQueryBuilder
+	 */
+	public function filterBySections($sectionIds) {
+		$this->sectionIds = is_array($sectionIds) ? $sectionIds : [$sectionIds];
+		return $this;
+	}
+
+	/**
 	 * Set the date before which to get records
 	 *
 	 * @param string $dateEnd YYYY-MM-DD

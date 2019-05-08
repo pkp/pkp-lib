@@ -212,7 +212,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		// Get a count of all submission ids that have stats matching this request
-		$statsQB = new \APP\Services\QueryBuilders\StatsQueryBuilder();
+		$statsQB = new \PKP\Services\QueryBuilders\PKPStatsQueryBuilder();
 		$statsQB
 			->filterByContexts(\Application::get()->getRequest()->getContext()->getId())
 			->before(isset($allowedParams['dateEnd']) ? $allowedParams['dateEnd'] : STATISTICS_YESTERDAY)

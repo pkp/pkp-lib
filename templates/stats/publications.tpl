@@ -149,6 +149,9 @@
 						labelled-by="publicationDetailTableLabel"
 						:columns="tableColumns"
 						:rows="items"
+						:order-by="orderBy"
+						:order-direction="orderDirection"
+						@order-by="setOrderBy"
 					>
 						<search
 							slot="thead-title"

@@ -100,9 +100,7 @@
 	<message key="admin.scheduledTask.confirmClearLogs">Sei sicuro di voler cancellare tutti i log della procedure programmate ?</message>
 	<message key="admin.scheduledTask.reviewReminder">Promemoria per la revisione</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Promemoria per la scadenza dell'abbonamento</message>
-	<message key="admin.settings.defaultMetricDescription">La tua installazione è configurata per registrare più di una metrica d'uso. Le statistiche d'uso sono visualizzate in diversi contesti.
- Ci sono casi dove una singola metodologia va usata, ad esempio per visualizzare una lista delle pubblicazioni più usate o per ordinare 
- risultati di ricerca. Per favore scegli una delle metriche configurate come default.</message>
+	<message key="admin.settings.defaultMetricDescription">La tua installazione è configurata per registrare più di una metrica d'uso. Le statistiche d'uso sono visualizzate in diversi contesti. Ci sono casi dove una singola metodologia va usata, ad esempio per visualizzare una lista delle pubblicazioni più usate o per ordinare risultati di ricerca. Per favore scegli una delle metriche configurate come default.</message>
 	<message key="admin.fileLoader.moveFileFailed">Il file {$filename} non può essre mosso da {$currentFilePath} a {$destinationPath}</message>
 	<message key="admin.fileLoader.fileProcessed">Il file {$filename} è stato lavorato e salvato.</message>
 	<message key="admin.fileLoader.emailSubject">Caricamento file</message>

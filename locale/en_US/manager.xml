@@ -651,7 +651,7 @@
 	<message key="stats.dateRange.customRange">Custom Range</message>
 	<message key="stats.dateRange.dateDoesNotExist">One of the dates entered does not exist.</message>
 	<message key="stats.dateRange.from">From</message>
-	<message key="stats.dateRange.instruction">Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</message>
+	<message key="stats.dateRange.instructions">Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</message>
 	<message key="stats.dateRange.invalidDate">The date format is not valid. Enter each date in the format YYYY-MM-DD.</message>
 	<message key="stats.dateRange.invalidDateRange">The start date must be before the end date.</message>
 	<message key="stats.dateRange.invalidEndDateMax">The end date may not be later than {$date}.</message>

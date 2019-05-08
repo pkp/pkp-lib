@@ -2,8 +2,8 @@
 
 # @file tools/travis/start-selenium.sh
 #
-# Copyright (c) 2014-2018 Simon Fraser University
-# Copyright (c) 2010-2018 John Willinsky
+# Copyright (c) 2014-2019 Simon Fraser University
+# Copyright (c) 2010-2019 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to install and start a Selenium server.

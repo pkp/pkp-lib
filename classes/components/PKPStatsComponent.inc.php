@@ -147,7 +147,7 @@ class PKPStatsComponent {
 					'daily' => __('stats.daily'),
 					'monthly' => __('stats.monthly'),
 					'abstracts' => __('stats.publications.abstracts'),
-					'galleys' => __('stats.publications.galleys'),
+					'files' => __('submission.files'),
 				],
 				$this->i18n
 			),

@@ -84,7 +84,7 @@
 									@click="setTimelineType('abstract')"
 								></pkp-button>
 								<pkp-button
-									:label="i18n.galleys"
+									:label="i18n.files"
 									:aria-pressed="timelineType === 'galley'"
 									aria-describedby="publication-stats-graph-title"
 									@click="setTimelineType('galley')"
@@ -114,7 +114,8 @@
 						<thead>
 							<tr>
 								<th scope="col">{translate key="common.date"}</th>
-								<th scope="col">{translate key="submission.abstractViews"}</th>
+								<th v-if="timelineType === 'galley'" scope="col">{translate key="stats.fileViews"}</th>
+								<th v-else scope="col">{translate key="submission.abstractViews"}</th>
 							</tr>
 						</thead>
 						<tbody>

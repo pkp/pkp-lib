@@ -125,6 +125,9 @@
 						</tbody>
 					</table>
 					<line-chart :chart-data="chartData" aria-hidden="true"></line-chart>
+					<span v-if="isLoadingTimeline" class="pkpStats__loadingCover">
+						<spinner></spinner>
+					</span>
 				</div>
 				<div class="pkpStats__table" role="region" aria-live="polite">
 					<div class="pkpStats__tableHeader">
@@ -147,6 +150,7 @@
 					</div>
 					<pkp-table
 						labelled-by="publicationDetailTableLabel"
+						:class="tableClasses"
 						:columns="tableColumns"
 						:rows="items"
 						:order-by="orderBy"
@@ -182,14 +186,6 @@
 							</table-cell>
 						</template>
 					</pkp-table>
-					<pagination
-						v-if="lastPage > 1"
-						id="publicationDetailTablePagination"
-						:current-page="currentPage"
-						:last-page="lastPage"
-						:i18n="i18n"
-						@set-page="setPage"
-					></pagination>
 					<div v-if="!items.length" class="pkpStats__noRecords">
 						<template v-if="isLoadingItems">
 							<spinner></spinner>
@@ -199,6 +195,15 @@
 							{translate key="stats.publications.none"}
 						</template>
 					</div>
+					<pagination
+						v-if="lastPage > 1"
+						id="publicationDetailTablePagination"
+						:current-page="currentPage"
+						:is-loading="isLoadingItems"
+						:last-page="lastPage"
+						:i18n="i18n"
+						@set-page="setPage"
+					></pagination>
 				</div>
 			</div>
 		</div>

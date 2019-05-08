@@ -220,6 +220,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		if (isset($allowedParams[$this->sectionIdsQueryParam])) {
 			$statsQB->filterBySections($allowedParams[$this->sectionIdsQueryParam]);
 		}
+		if (isset($allowedParams['submissionIds'])) {
+			$statsQB->filterBySubmissions($allowedParams['submissionIds']);
+		}
 		$statsQO = $statsQB->getSubmissionIds();
 		$result = \DAORegistry::getDAO('MetricsDAO')
 			->retrieve($statsQO->toSql(), $statsQO->getBindings());

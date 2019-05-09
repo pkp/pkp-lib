@@ -380,7 +380,6 @@
 	<message key="common.reminded.date">Подсећен: {$dateReminded}</message>
 	<message key="common.searchQuery">Упит за претрагу</message>
 	<message key="common.sendEmail">Пошаљи имејл</message>
-	<message key="common.startTyping">Започни са писањем</message>
 	<message key="common.subjects">Субјекти</message>
 	<message key="common.subtitle">Поднаслов</message>
 	<message key="common.component">Компонента</message>

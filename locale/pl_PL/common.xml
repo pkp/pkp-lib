@@ -406,7 +406,6 @@
 	<message key="common.reminded.date">Powiadomiony: {$dateReminded}</message>
 	<message key="common.searchQuery">Zapytanie</message>
 	<message key="common.sendEmail">Wyślij e-mail</message>
-	<message key="common.startTyping">Zacznij pisać</message>
 	<message key="common.subjects">Przedmioty</message>
 	<message key="common.subtitle">Podtytuł</message>
 	<message key="common.component">Element</message>

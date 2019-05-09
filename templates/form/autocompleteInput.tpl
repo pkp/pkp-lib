@@ -7,14 +7,12 @@
  *
  * an autocomplete input
  *}
-{capture assign="jLabelText"}{translate key="common.startTyping"}{/capture}
 <script>
 	$(function() {ldelim}
 		$('#{$FBV_id}_container').pkpHandler('$.pkp.controllers.AutocompleteHandler',
 			{ldelim}
 				{if $FBV_disableSync}disableSync: true,{/if}
 				sourceUrl: {$FBV_autocompleteUrl|json_encode},
-				jLabelText: {$jLabelText|json_encode}
 			{rdelim});
 	{rdelim});
 </script>

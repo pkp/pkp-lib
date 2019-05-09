@@ -442,7 +442,6 @@
 	<message key="common.clearSearch">Arama ifadesini temizle</message>
 	<message key="common.sendEmail">Email gönder</message>
 	<message key="common.range">{$min}-{$max}</message>
-	<message key="common.startTyping">Yazmaya Başla</message>
 	<message key="common.subjects">Konular</message>
 	<message key="common.subtitle">Alt Başlık</message>
 	<message key="common.component">Bileşen</message>

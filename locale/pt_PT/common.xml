@@ -479,7 +479,7 @@
 	<message key="notification.addedReviewer">{$reviewerName} foi indicado para rever esta submissão e foi enviado um email de notificação</message>
 	<message key="notification.removedReviewer">Removido revisor</message>
 	<message key="notification.addedStageParticipant">Utilizador adicionado como participante da etapa.</message>
-	<message key="notification.type.newAnnouncement">Nova notícia</message>
+	<message key="notification.type.newAnnouncement">Nova notícia:{$content}</message>
 	<message key="notification.type.reviewAssignment">Revisão pendente.</message>
 	<message key="notification.type.auditorRequest">Pedido de auditoria para "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Todas as revisões estão dentro e uma decisão é necessária em {$stage}.</message>

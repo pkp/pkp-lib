@@ -538,6 +538,6 @@
 	<message key="grid.action.markRead">Marcar com a llegit</message>
 	<message key="dashboard.myQueue">La meva llista</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} ha estat assignat per revisar aquesta tramesa i no se li ha enviat cap correu electrònic de notificació.</message>
-	<message key="notification.type.newAnnouncement">Anunci nou</message>
+	<message key="notification.type.newAnnouncement">Anunci nou:{$content}</message>
 	<message key="notification.type.awaitingCopyedits">Esperant les correccions.</message>
 </locale>

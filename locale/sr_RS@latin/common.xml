@@ -481,7 +481,7 @@
 	<message key="navigation.goBack">Povratak</message>
 	<message key="notification.addedReviewer">Recenzent dodat.</message>
 	<message key="notification.removedReviewer">Recenzent uklonjen.</message>
-	<message key="notification.type.newAnnouncement">Novo obaveštenje</message>
+	<message key="notification.type.newAnnouncement">Novo obaveštenje:{$content}</message>
 	<message key="notification.type.reviewAssignment">Recenzija čeka.</message>
 	<message key="notification.type.allReviewsIn">Sve recenzije su stigle i čeka se odluka u fazi: {$stage}.</message>
 	<message key="notification.type.metadataModified">Metapodaci naslova "{$title}" su izmenjeni.</message>

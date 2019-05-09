@@ -478,7 +478,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} برای داوری این مقاله ارسالی، انتساب داده شد و ایمیل اطلاع‌رسانی ارسال نشد.</message>
 	<message key="notification.removedReviewer">داور حذف شد</message>
 	<message key="notification.addedStageParticipant">کاربر به عنوان همکار به این مرحله افزوده شد</message>
-	<message key="notification.type.newAnnouncement">یک اطلاعیه جدید ایجاد شده است</message>
+	<message key="notification.type.newAnnouncement">یک اطلاعیه جدید ایجاد شده است:{$content}</message>
 	<message key="notification.type.reviewAssignment">در انتظار داوری</message>
 	<message key="notification.type.auditorRequest">درخواست حسابرسی برای "{$file}"</message>
 	<message key="notification.type.allReviewsIn">تمامی داوری‌های در حال اجرا و تصمیم اتخاذ شده در  {$stage} نیاز است.</message>

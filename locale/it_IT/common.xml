@@ -513,7 +513,7 @@
 	<message key="notification.addedReviewer">{$reviewerName} è stato designato come revisore di questa proposta e gli è stata inviato un avviso per email.</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} è stato designato come revisore di questa proposta e  non gli è stata inviata una email.</message>
 	<message key="notification.removedReviewer">Revisore rimosso.</message>
-	<message key="notification.type.newAnnouncement">Nuovo annuncio</message>
+	<message key="notification.type.newAnnouncement">Nuovo annuncio:{$content}</message>
 	<message key="notification.type.reviewAssignment">Revisione in attesa</message>
 	<message key="notification.type.allRevisionsIn">Un file rivisto è stato caricato per permetterti di fare considerazioni editoriali nel passaggio {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Revisioni da prendere in considerazione in {$stage}.</message>

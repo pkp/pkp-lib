@@ -388,7 +388,6 @@
 	<message key="common.reminded.date">Podsećen: {$dateReminded}</message>
 	<message key="common.searchQuery">Upit za pretragu</message>
 	<message key="common.sendEmail">Pošalji imejl</message>
-	<message key="common.startTyping">Započni sa pisanjem</message>
 	<message key="common.subjects">Subjekti</message>
 	<message key="common.subtitle">Podnaslov</message>
 	<message key="common.component">Komponenta</message>

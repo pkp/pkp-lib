@@ -443,7 +443,6 @@
 	<message key="common.reminded.date">Påmindet: {$dateReminded}</message>
 	<message key="common.searchQuery">Søgeforespørgsel</message>
 	<message key="common.sendEmail">Sendt e-mail</message>
-	<message key="common.startTyping">Begynd indtastning</message>
 	<message key="common.subjects">Emner</message>
 	<message key="common.component">Dele</message>
 	<message key="common.metric">Mål</message>

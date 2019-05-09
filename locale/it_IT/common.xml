@@ -417,7 +417,6 @@
 	<message key="common.reminded.date">Data invio promemoria: {$dateReminded}</message>
 	<message key="common.saving">Salvando</message>
 	<message key="common.searchQuery">Stringa di ricerca</message>
-	<message key="common.startTyping">Inizia a scrivere</message>
 	<message key="common.subjects">Soggetti</message>
 	<message key="common.component">Componente</message>
 	<message key="common.homepageImage.altText">Immagine della homepage</message>

@@ -366,7 +366,6 @@
 	<message key="common.reset">Resetovat</message>
 	<message key="common.searchQuery">Vyhledávací dotaz</message>
 	<message key="common.sendEmail">Poslat email</message>
-	<message key="common.startTyping">Začněte psát</message>
 	<message key="common.subjects">Předměty</message>
 	<message key="common.subtitle">Podtitul</message>
 	<message key="common.notes.tooltip">Poznámky (žluté: nové poznámky; modré: přečtené poznámky; šedé: poznámky nejsou)</message>

@@ -32,9 +32,6 @@
 		this.sourceUrl_ = options.sourceUrl;
 		options.sourceUrl = undefined;
 
-		// Get the label passed in
-		this.jLabelText_ = options.jLabelText;
-
 		this.disableSync_ = options.disableSync;
 
 		// Create autocomplete settings.
@@ -55,16 +52,6 @@
 		// Create the autocomplete field with the jqueryUI plug-in.
 		this.textInput.autocomplete(autocompleteOptions);
 
-		// Assign our title text to our label. We assign and then
-		// clear or else the title value is displayed as the validation
-		// message.
-		this.textInput.attr('title', this.jLabelText_);
-		$('#' + this.textInput.attr('id')).jLabel();
-		this.textInput.attr('title', '');
-
-		// Get the new label inside of this Div.
-		this.textLabel_ = $autocompleteField.find('label');
-
 		// Get the text input inside of this Div.
 		this.hiddenInput_ = $autocompleteField.find('input:hidden');
 
@@ -79,22 +66,6 @@
 	//
 	// Private static properties
 	//
-	/**
-	 * The label inside the autocomplete div that is created by jLabel.
-	 * @private
-	 * @type {HTMLElement}
-	 */
-	$.pkp.controllers.AutocompleteHandler.textLabel_ = null;
-
-
-	/**
-	 * The label to be included as the default term for jLabel.
-	 * @private
-	 * @type {HTMLElement}
-	 */
-	$.pkp.controllers.AutocompleteHandler.jLabelText_ = null;
-
-
 	/**
 	 * Whether or not to disable syncing the text and hidden field.
 	 * @private
@@ -160,11 +131,10 @@
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.itemSelected =
 			function(autocompleteElement, event, ui) {
-		var $hiddenInput, $textInput, $textLabel;
+		var $hiddenInput, $textInput;
 
 		$hiddenInput = this.hiddenInput_;
 		$textInput = this.textInput;
-		$textLabel = this.textLabel_;
 
 		// only update the text field if the item has a value
 		// this allows us to return a 'no items' label with
@@ -173,8 +143,6 @@
 		if (ui.item.value !== '') {
 			$hiddenInput.val(ui.item.value);
 			$textInput.val(ui.item.label);
-			// Let jLabel know that we have set a value.
-			$textInput.trigger('keyup');
 		}
 		return false;
 	};

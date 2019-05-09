@@ -544,7 +544,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} werd toegewezen als reviewer voor deze inzending, zonder dat een bevestigings-e-mail werd verstuurd.</message>
 	<message key="notification.removedReviewer">Reviewer verwijderd.</message>
 	<message key="notification.addedStageParticipant">Gebruiker toegevoegd als deelnemer.</message>
-	<message key="notification.type.newAnnouncement">Nieuw nieuwsbericht.</message>
+	<message key="notification.type.newAnnouncement">Nieuw nieuwsbericht:{$content}</message>
 	<message key="notification.type.reviewAssignment">U heeft een actief reviewverzoek.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Reviewverzoek bijgewerkt.</message>
 	<message key="notification.type.auditorRequest">Correctieverzoek voor "{$file}"</message>

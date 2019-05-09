@@ -520,7 +520,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا الشأن بعد.</message>
 	<message key="notification.removedReviewer">المحكم أُزيل.</message>
 	<message key="notification.addedStageParticipant">أضيف المستخدم بمثابة مشارك مرحلي.</message>
-	<message key="notification.type.newAnnouncement">إشعار جديد.</message>
+	<message key="notification.type.newAnnouncement">إشعار جديد:{$content}</message>
 	<message key="notification.type.reviewAssignment">التحكيم مؤجل.</message>
 	<message key="notification.type.reviewAssignmentUpdated">مهمة التحكيم حُدِّثَت.</message>
 	<message key="notification.type.auditorRequest">إلتماس متابعة للملف "{$file}"</message>

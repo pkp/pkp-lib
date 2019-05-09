@@ -377,7 +377,7 @@
 	<message key="notification.type.assignCopyeditors">Affectez un réviseur à l'aide du lien "Ajouter" dans la liste "Participants".</message>
 	<message key="notification.type.awaitingCopyedits">En attente de copies.</message>
 	<message key="notification.type.metadataModified">Les metadata de "{$title}" ont été modifiées.</message>
-	<message key="notification.type.newAnnouncement">Nouvelle annonce.</message>
+	<message key="notification.type.newAnnouncement">Nouvelle annonce:{$content}</message>
 	<message key="notification.type.pendingRevisions">Vous devez tenir compte des révisions à cette étape: {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Révisions soumises à {$stage}.</message>
 	<message key="notification.type.queryActivity">Activités sur la discusssion.</message>

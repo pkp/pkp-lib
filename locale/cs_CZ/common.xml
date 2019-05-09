@@ -476,7 +476,7 @@
 	<message key="notification.addedReviewer">{$reviewerName} byl přiřazen k recenzi tohoto příspěvku a bylo mu odesláno upozornění emailem.</message>
 	<message key="notification.removedReviewer">Recenzent odebrán.</message>
 	<message key="notification.addedStageParticipant">Uživatel přidán jako účastník této fáze.</message>
-	<message key="notification.type.newAnnouncement">Nové oznámení.</message>
+	<message key="notification.type.newAnnouncement">Nové oznámení:{$content}</message>
 	<message key="notification.type.reviewAssignment">Probíhá recenze.</message>
 	<message key="notification.type.auditorRequest">Je požadováno posouzení pro soubor "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Všechny recenze jsou nahrány a je třeba rozhodnout ve fázi {$stage}.</message>

@@ -521,7 +521,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} har utsetts som granskare för det här bidraget men har inte meddelats via e-post.</message>
 	<message key="notification.removedReviewer">Granskare borttagen.</message>
 	<message key="notification.addedStageParticipant">Användaren tillagd som deltagare i steget.</message>
-	<message key="notification.type.newAnnouncement">Nytt meddelande.</message>
+	<message key="notification.type.newAnnouncement">Nytt meddelande:{$content}</message>
 	<message key="notification.type.reviewAssignment">Väntar på granskning.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Granskningsuppdrag uppdaterat.</message>
 	<message key="notification.type.auditorRequest">Förfrågan om manusgranskning av "{$file}"</message>

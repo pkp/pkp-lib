@@ -487,7 +487,7 @@
 	<message key="grid.action.showReviewPolicy">Læs den gældende bedømmelsespraksis</message>
 	<message key="grid.action.deleteNotification">Slet opgave</message>
 	<message key="notification.removedReviewer">Bedømmer fjernet.</message>
-	<message key="notification.type.newAnnouncement">Ny meddelelse.</message>
+	<message key="notification.type.newAnnouncement">Ny meddelelse:{$content}</message>
 	<message key="notification.type.auditorRequest">Revisionsanmodning til "{$file}"</message>
 	<message key="notification.type.pendingRevisions">Overvej revisioner på  {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisioner indsendt til {$stage}.</message>

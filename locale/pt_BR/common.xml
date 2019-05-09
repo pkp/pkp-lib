@@ -493,7 +493,7 @@
 	<message key="notification.addedReviewer">Avaliador adicionado.</message>
 	<message key="notification.removedReviewer">Avaliador removido.</message>
 	<message key="notification.addedStageParticipant">Usuário adicionado como participante do estágio.</message>
-	<message key="notification.type.newAnnouncement">Nova notícia.</message>
+	<message key="notification.type.newAnnouncement">Nova notícia:{$content}</message>
 	<message key="notification.type.reviewAssignment">Avaliação pendente.</message>
 	<message key="notification.type.auditorRequest">Solicitação de auditoria de "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Todas as avaliações entregues e aguardando decisão final no estágio {$stage}.</message>

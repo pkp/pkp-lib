@@ -557,7 +557,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} was assigned to review this submission and was not sent an email notification.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
-	<message key="notification.type.newAnnouncement">New announcement.</message>
+	<message key="notification.type.newAnnouncement">New announcement:{$content}</message>
 	<message key="notification.type.reviewAssignment">Review pending.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Review assignment updated.</message>
 	<message key="notification.type.auditorRequest">Audit request for "{$file}"</message>

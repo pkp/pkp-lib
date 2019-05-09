@@ -490,7 +490,7 @@
 	<message key="notification.addedReviewer">{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem został wysłany.</message>
 	<message key="notification.removedReviewer">Recenzent usunięty.</message>
 	<message key="notification.addedStageParticipant">Użytkownik dodany jako uczestnik etapu.</message>
-	<message key="notification.type.newAnnouncement">Nowe powiadomienie.</message>
+	<message key="notification.type.newAnnouncement">Nowe powiadomienie:{$content}</message>
 	<message key="notification.type.reviewAssignment">Recenzja w trakcie.</message>
 	<message key="notification.type.auditorRequest">Przejrzyj zapytanie dla "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Wszystkie recenzje są gotowe - decyzja jest niezbędna w etapie {$stage}.</message>

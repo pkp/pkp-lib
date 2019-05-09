@@ -513,7 +513,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} je bil dodeljen za recenzijo prispevka, email obvestilo ni bilo poslano.</message>
 	<message key="notification.removedReviewer">Recenzent je bil odstranjen.</message>
 	<message key="notification.addedStageParticipant">Uporabnik je bil dodan kot udeleženec v fazi.</message>
-	<message key="notification.type.newAnnouncement">Novo obvestilo.</message>
+	<message key="notification.type.newAnnouncement">Novo obvestilo:{$content}</message>
 	<message key="notification.type.reviewAssignment">Recenzija poteka.</message>
 	<message key="notification.type.auditorRequest">Zahteva za revizijo datoteke "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Vse recenzije so končane in potrebna je odločitev v {$stage}.</message>

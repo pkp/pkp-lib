@@ -519,7 +519,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} adlı hakem bu gönderiyi incelemek üzere atandı ve ancak bir e-posta bildirimi gönderilmedi.</message>
 	<message key="notification.removedReviewer">Hakem iptal edildi.</message>
 	<message key="notification.addedStageParticipant">Kullanıcı düzey katılımcısı olarak eklendi.</message>
-	<message key="notification.type.newAnnouncement">Yeni duyuru.</message>
+	<message key="notification.type.newAnnouncement">Yeni duyuru:{$content}</message>
 	<message key="notification.type.reviewAssignment">Bekleyen değerlendirme.</message>
 	<message key="notification.type.auditorRequest">"{$file}" için denetim isteği</message>
 	<message key="notification.type.allReviewsIn">Tüm yorumlar mevcut ve {$stage} kısmında bir karar gereklidir.</message>

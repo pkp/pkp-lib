@@ -522,7 +522,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} war nicht zur Begutachtung dieses Beitrags vorgesehen und hat keine E-Mail-Benachrichtigung erhalten.</message>
 	<message key="notification.removedReviewer">Gutachter/in entfernt.</message>
 	<message key="notification.addedStageParticipant">Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt.</message>
-	<message key="notification.type.newAnnouncement">Neue Ankündigung.</message>
+	<message key="notification.type.newAnnouncement">Neue Ankündigung:{$content}</message>
 	<message key="notification.type.reviewAssignment">Sie haben ein ausstehendes Gutachten.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Begutachtungsbitte aktualisiert.</message>
 	<message key="notification.type.auditorRequest">Sie sind gebeten worden, die Datei "{$file}" zu prüfen.</message>

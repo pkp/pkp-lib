@@ -551,7 +551,7 @@
 	<message key="notification.addedReviewerNoEmail">Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено.</message>
 	<message key="notification.removedReviewer">Рецензент удален.</message>
 	<message key="notification.addedStageParticipant">Пользователь добавлен в качестве участника этапа.</message>
-	<message key="notification.type.newAnnouncement">Новое объявление.</message>
+	<message key="notification.type.newAnnouncement">Новое объявление:{$content}</message>
 	<message key="notification.type.reviewAssignment">Ожидание рецензии.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Обновлено задание на рецензию.</message>
 	<message key="notification.type.auditorRequest">Запрос аудита для «{$file}»</message>

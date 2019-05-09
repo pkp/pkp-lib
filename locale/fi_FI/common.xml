@@ -483,7 +483,7 @@
 	<message key="notification.addedReviewer">{$reviewerName} valittiin käsikirjoituksen arvioijaksi ja sähköposti-ilmoitus lähetettiin.</message>
 	<message key="notification.removedReviewer">Arvioija poistettu.</message>
 	<message key="notification.addedStageParticipant">Käyttäjä lisätty työvaiheeseen osallistujaksi.</message>
-	<message key="notification.type.newAnnouncement">Uusi ilmoitus.</message>
+	<message key="notification.type.newAnnouncement">Uusi ilmoitus:{$content}</message>
 	<message key="notification.type.reviewAssignment">Arviointia odotetaan.</message>
 	<message key="notification.type.auditorRequest">Tarkastuspyyntö tiedostoa "{$file}" koskien</message>
 	<message key="notification.type.allReviewsIn">Kaikki arvioinnit ovat saapuneet ja {$stage}-vaiheessa tarvitaan päätös.</message>

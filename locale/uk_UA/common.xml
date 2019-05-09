@@ -521,7 +521,7 @@
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} було призначено рецензентом цього подання але не було надіслано повідомлення електронною поштою.</message>
 	<message key="notification.removedReviewer">Рецензента видалено.</message>
 	<message key="notification.addedStageParticipant">Користувача додано як учасника етапу.</message>
-	<message key="notification.type.newAnnouncement">Нове оголошення.</message>
+	<message key="notification.type.newAnnouncement">Нове оголошення:{$content}</message>
 	<message key="notification.type.reviewAssignment">Відгук очікує на розгляд.</message>
 	<message key="notification.type.auditorRequest">Запит аудиту для "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Усі рецензії є і необхідно прийняти рішення на етапі {$stage}.</message>

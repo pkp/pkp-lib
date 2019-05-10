@@ -283,7 +283,7 @@ class PKPStatsService {
 		while ($startDate->format($dateFormat) <= $endDate->format($dateFormat)) {
 			$timelineIntervals[] = [
 				'date' => $startDate->format($dateFormat),
-				'label' => strftime($labelFormat, strftime($startDate->getTimestamp())),
+				'label' => strftime($labelFormat, $startDate->getTimestamp()),
 				'value' => 0,
 			];
 			$startDate->add(new \DateInterval($interval));

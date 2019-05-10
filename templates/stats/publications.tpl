@@ -121,7 +121,7 @@
 						<tbody>
 							<tr	v-for="segment in timeline" :key="segment.date">
 								<th scope="row">{{ segment.label }}</th>
-								<th>{{ segment.value }}</th>
+								<td>{{ segment.value }}</td>
 							</tr>
 						</tbody>
 					</table>

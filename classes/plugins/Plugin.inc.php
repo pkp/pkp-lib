@@ -390,8 +390,8 @@ abstract class Plugin {
 		if (strpos($checkFilePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
 
 		// Check if an overriding plugin exists in the plugin path.
-		if ($this->_findOverriddenTemplate($checkFilePath)) {
-			$filePath = $this->_findOverriddenTemplate($checkFilePath);
+		if ($overriddenFilePath = $this->_findOverriddenTemplate($checkFilePath)) {
+			$filePath = $overriddenFilePath;
 		}
 
 		return false;

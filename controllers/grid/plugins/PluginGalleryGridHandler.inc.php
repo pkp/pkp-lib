@@ -220,7 +220,7 @@ class PluginGalleryGridHandler extends GridHandler {
 				$request->getSession(),
 				__($installConfirmKey),
 				__($installActionKey),
-				$router->url($request, null, null, $installOp, null, array('rowId' => $request->getUserVar('rowId'))),
+				$router->url($request, null, null, $installOp, null, array('product' => $plugin->getProduct())),
 				'modal_information'
 			),
 			__($installActionKey),
@@ -289,11 +289,13 @@ class PluginGalleryGridHandler extends GridHandler {
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
 		$plugins = $pluginGalleryDao->getNewestCompatible(Application::getApplication());
 
-		// Get specified plugin. Indexes into $plugins are 0-based
-		// but row IDs are 1-based; compensate.
-		$rowId = (int) $request->getUserVar('rowId')-1;
-		if (!isset($plugins[$rowId])) fatalError('Invalid row ID!');
-		return $plugins[$rowId];
+		$product = $request->getUserVar('product');
+		foreach ($plugins as $plugin) {
+			if ($plugin->getProduct() === $product) {
+				return $plugin;
+			}
+		}
+		throw new Exception('Invalid plugin product name.');
 	}
 }
 

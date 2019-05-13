@@ -66,7 +66,9 @@ class DataObjectGridCellProvider extends GridCellProvider {
 		// For localized fields, $data will be an array; otherwise,
 		// it will be a value suitable for conversion to string.
 		// If it's localized, fetch the value in the current locale.
-		if (is_array($data)) $data=$data[$this->getLocale()];
+		if (is_array($data)) {
+			$data = $element->getLocalizedData($columnId);
+		}
 
 		return array('label' => $data);
 	}

@@ -104,7 +104,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 				'getParams' => [
 					'contextId' => $submissionContext->getId(),
 					'count' => 15,
-					'roleIds' => [ROLE_ID_REVIEWER],
+					'reviewStage' => $reviewRound->getStageId(),
 				],
 				'items' => $items,
 				'itemsMax' => $itemsMax,

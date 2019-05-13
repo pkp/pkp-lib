@@ -256,10 +256,22 @@ class PKPUserHandler extends APIHandler {
 		$contextId = $returnParams['contextId'];
 		$requestParams = $slimRequest->getQueryParams();
 
+		// Delete params from /users that we do not support
+		if (isset($returnParams['assignedToSubmission'])) {
+			unset($returnParams['assignedToSubmission']);
+		}
+		if (isset($returnParams['assignedToSubmissionStage'])) {
+			unset($returnParams['assignedToSubmissionStage']);
+		}
+		if (isset($returnParams['roleIds'])) {
+			unset($returnParams['roleIds']);
+		}
+
 		foreach ($requestParams as $param => $val) {
 			switch ($param) {
 
 				case 'reviewerRating':
+				case 'reviewStage':
 					$returnParams[$param] = (int) $val;
 					break;
 
@@ -279,9 +291,6 @@ class PKPUserHandler extends APIHandler {
 
 		// Don't allow the contextId to be overridden
 		$returnParams['contextId'] = $contextId;
-
-		// Restrict role IDs to reviewer roles
-		$returnParams['roleIds'] = array(ROLE_ID_REVIEWER);
 
 		\HookRegistry::call('API::users::reviewers::params', array(&$returnParams, $slimRequest));
 

@@ -141,6 +141,17 @@ class PKPUserHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
+		// We do not support these params from /users
+		if (isset($returnParams['assignedToSubmission'])) {
+			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'assignedToSubmission');
+		}
+		if (isset($returnParams['assignedToSubmissionStage'])) {
+			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'assignedToSubmissionStage');
+		}
+		if (isset($returnParams['roleIds'])) {
+			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'roleIds');
+		}
+
 		$params = $this->_buildReviewerListRequestParams($slimRequest);
 
 		$items = array();
@@ -255,17 +266,6 @@ class PKPUserHandler extends APIHandler {
 		$returnParams = $this->_buildListRequestParams($slimRequest);
 		$contextId = $returnParams['contextId'];
 		$requestParams = $slimRequest->getQueryParams();
-
-		// Delete params from /users that we do not support
-		if (isset($returnParams['assignedToSubmission'])) {
-			unset($returnParams['assignedToSubmission']);
-		}
-		if (isset($returnParams['assignedToSubmissionStage'])) {
-			unset($returnParams['assignedToSubmissionStage']);
-		}
-		if (isset($returnParams['roleIds'])) {
-			unset($returnParams['roleIds']);
-		}
 
 		foreach ($requestParams as $param => $val) {
 			switch ($param) {

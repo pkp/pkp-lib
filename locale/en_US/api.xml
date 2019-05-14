@@ -12,6 +12,7 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
+	<message key="api.400.paramNotSupported">The {$param} parameter is not supported.</message>
 	<message key="api.403.unauthorized">You are not authorized to access the requested resource.</message>
 	<message key="api.404.resourceNotFound">The requested resource was not found.</message>
 	<message key="api.404.endpointNotFound">The requested URL was not recognized.</message>

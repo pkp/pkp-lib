@@ -9,8 +9,8 @@
 /**
  * @file classes/plugins/Plugin.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Plugin
@@ -390,21 +390,41 @@ abstract class Plugin {
 		if (strpos($checkFilePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
 
 		// Check if an overriding plugin exists in the plugin path.
-		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
-		if (file_exists($checkPluginPath)) {
-			$filePath = $checkPluginPath;
-		// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
-		} else {
-			$checkPluginPath = preg_replace("/templates\/(?!.*templates\/)/", "", $checkPluginPath);
-			if (file_exists($checkPluginPath)) {
-				if (Config::getVar('debug', 'deprecation_warnings')) {
-					trigger_error('Deprecated: The template at ' . $checkPluginPath . ' has moved and will not be found in the future.');
-				}
-				$filePath = $checkPluginPath;
-			}
+		if ($overriddenFilePath = $this->_findOverriddenTemplate($checkFilePath)) {
+			$filePath = $overriddenFilePath;
 		}
 
 		return false;
+	}
+
+	/**
+	 * Recursive check for existing templates
+	 * @param $path string
+	 * @return string|null
+	 */
+	private function _findOverriddenTemplate($path) {
+		$fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
+
+		if (file_exists($fullPath)) {
+			return $fullPath;
+		}
+
+		// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
+		if (($fullPath = preg_replace("/templates\/(?!.*templates\/)/", "", $fullPath)) && file_exists($fullPath)) {
+			if (Config::getVar('debug', 'deprecation_warnings')) {
+				trigger_error('Deprecated: The template at ' . $fullPath . ' has moved and will not be found in the future.');
+			}
+			return $fullPath;
+		}
+
+		// Recursive check for templates in ancestors of a current theme plugin
+		if (is_a($this, 'ThemePlugin')
+			&& $this->parent
+			&& $fullPath = $this->parent->_findOverriddenTemplate($path)) {
+			return $fullPath;
+		}
+
+		return null;
 	}
 
 	/**

@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/feature/OrderCategoryGridItemsFeature.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OrderCategoryGridItemsFeature
@@ -34,7 +34,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 	function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
 		parent::__construct($overrideRowTemplate);
 
-		$templateMgr = TemplateManager::getManager(Application::getRequest());
+		$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
 		$templateMgr->setConstants([
 			'ORDER_CATEGORY_GRID_CATEGORIES_ONLY',
 			'ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY',

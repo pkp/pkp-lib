@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/common.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -355,7 +355,6 @@
 	<message key="common.remoteURL">URL remoto</message>
 	<message key="common.reset">Restaurar</message>
 	<message key="common.sendEmail">Enviar E-mail</message>
-	<message key="common.startTyping">Começar a Escrever</message>
 	<message key="common.subjects">Assuntos</message>
 	<message key="common.subtitle">Subtítulo</message>
 	<message key="common.component">Componente</message>

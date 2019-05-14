@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/SubmissionFileDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileDAO
@@ -1116,7 +1116,7 @@ class SubmissionFileDAO extends SubmissionVersionedDAO implements PKPPubIdPlugin
 	public function newVersion($submissionId) {
 		list($oldVersion, $newVersion) = $this->provideSubmissionVersionsForNewVersion($submissionId);
 
-		$context = Application::getRequest()->getContext();
+		$context = Application::get()->getRequest()->getContext();
 
 		$allfiles = $this->getBySubmissionId($submissionId, null, $oldVersion);
 

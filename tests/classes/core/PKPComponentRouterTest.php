@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/core/PKPComponentRouterTest.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPComponentRouterTest
@@ -42,6 +42,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
 		);
 		self::assertTrue($this->router->supports($this->request));
@@ -58,6 +59,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/page/operation'
 		);
 		self::assertEquals('', $this->router->getRequestedComponent($this->request));
@@ -75,6 +77,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/path/to/handler/operation'
 		);
 		self::assertEquals('', $this->router->getRequestedComponent($this->request));
@@ -93,6 +96,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/$$$call$$$/inexistent/component/fetch-grid'
 		);
 		self::assertEquals('inexistent.ComponentHandler', $this->router->getRequestedComponent($this->request));
@@ -109,6 +113,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-component/operation'
 		);
 		self::assertEquals('path.to.SomeComponentHandler', $this->router->getRequestedComponent($this->request));
@@ -124,6 +129,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-#component/operation'
 		);
 		self::assertEquals('', $this->router->getRequestedComponent($this->request));
@@ -155,6 +161,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-component/some-op'
 		);
 		self::assertEquals('someOp', $this->router->getRequestedOp($this->request));
@@ -201,6 +208,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/$$$call$$$/path/to/some-component/so#me-op'
 		);
 		self::assertEquals('', $this->router->getRequestedOp($this->request));
@@ -219,6 +227,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/notifications/task-notifications-grid/fetch-grid'
 		);
 		$_GET = array(

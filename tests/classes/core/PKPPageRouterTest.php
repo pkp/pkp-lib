@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/core/PKPPageRouterTest.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPageRouterTest
@@ -60,7 +60,8 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_GET = array('somevar' => 'someval');
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/somepage'
+			'PATH_INFO' => '/context1/context2/somepage',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertFalse($this->router->isCacheable($this->request));
 
@@ -79,7 +80,8 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_GET = array();
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/cacheable'
+			'PATH_INFO' => '/context1/context2/cacheable',
+			'SCRIPT_NAME' => '/index.php',
 		);
 
 		self::assertTrue($this->router->isCacheable($this->request, true));
@@ -137,7 +139,8 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 	public function testGetCacheFilenameWithPathinfo() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/index'
+			'PATH_INFO' => '/context1/context2/index',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		$expectedId = '/context1/context2/index-en_US';
 		self::assertEquals(Core::getBaseDir().'/cache/wc-'.md5($expectedId).'.html', $this->router->getCacheFilename($this->request));
@@ -164,7 +167,8 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/some#page'
+			'PATH_INFO' => '/context1/context2/some#page',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('somepage', $this->router->getRequestedPage($this->request));
 	}
@@ -186,7 +190,8 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2'
+			'PATH_INFO' => '/context1/context2',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('', $this->router->getRequestedPage($this->request));
 	}
@@ -208,7 +213,8 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/somepage/some#op'
+			'PATH_INFO' => '/context1/context2/somepage/some#op',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('someop', $this->router->getRequestedOp($this->request));
 	}
@@ -230,7 +236,8 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/somepage'
+			'PATH_INFO' => '/context1/context2/somepage',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('index', $this->router->getRequestedOp($this->request));
 	}

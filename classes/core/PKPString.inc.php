@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPString.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPString
@@ -144,6 +144,7 @@ class PKPString {
 	 * @see http://ca.php.net/manual/en/function.strrpos.php
 	 * @param $haystack string Haystack to search
 	 * @param $needle string Needle to search haystack for
+	 * @return int Last index of Needle in Haystack
 	 */
 	static function strrpos($haystack, $needle) {
 		return Stringy\Stringy::create($haystack)->indexOfLast($needle);
@@ -157,7 +158,7 @@ class PKPString {
 	 * @return string Substring of $string
 	 */
 	static function substr($string, $start, $length = null) {
-		return Stringy\Stringy::create($string)->substr($start, $length);
+		return (string) Stringy\Stringy::create($string)->substr($start, $length);
 	}
 
 	/**
@@ -166,7 +167,7 @@ class PKPString {
 	 * @return string Lower case version of input string
 	 */
 	static function strtolower($string) {
-		return Stringy\Stringy::create($string)->toLowerCase();
+		return (string) Stringy\Stringy::create($string)->toLowerCase();
 	}
 
 	/**
@@ -175,7 +176,7 @@ class PKPString {
 	 * @return string Upper case version of input string
 	 */
 	static function strtoupper($string) {
-		return Stringy\Stringy::create($string)->toUpperCase();
+		return (string) Stringy\Stringy::create($string)->toUpperCase();
 	}
 
 	/**
@@ -184,7 +185,7 @@ class PKPString {
 	 * @return string ucfirst version of input string
 	 */
 	static function ucfirst($string) {
-		return Stringy\Stringy::create($string)->upperCaseFirst();
+		return (string) Stringy\Stringy::create($string)->upperCaseFirst();
 	}
 
 	/**

@@ -3,8 +3,8 @@
 /**
  * @file classes/search/SubmissionSearch.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionSearch
@@ -59,7 +59,7 @@ abstract class SubmissionSearch {
 		$return = array('+' => array(), '' => array(), '-' => array());
 		$postBool = $preBool = '';
 
-		$submissionSearchIndex = new SubmissionSearchIndex();
+		$submissionSearchIndex = Application::getSubmissionSearchIndex();
 
 		$notOperator = PKPString::strtolower(__('search.operator.not'));
 		$andOperator = PKPString::strtolower(__('search.operator.and'));

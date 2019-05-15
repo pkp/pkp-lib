@@ -328,11 +328,16 @@ class PKPNavigationMenuService {
 					break;
 				case NMI_TYPE_CUSTOM:
 					if ($navigationMenuItem->getPath()) {
+						$path = explode("/", $navigationMenuItem->getPath());
+						$page = array_shift($path);
+						$op = array_shift($path);
 						$navigationMenuItem->setUrl($dispatcher->url(
 							$request,
 							ROUTE_PAGE,
 							null,
-							$navigationMenuItem->getPath()
+							$page,
+							$op,
+							$path
 						));
 					}
 					break;

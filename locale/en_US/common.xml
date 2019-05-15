@@ -560,7 +560,7 @@
 	<message key="notification.type.reviewAssignment">Review pending.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Review assignment updated.</message>
 	<message key="notification.type.auditorRequest">Audit request for "{$file}"</message>
-	<message key="notification.type.allReviewsIn">All reviews are in and a decision is needed in {$stage}.</message>
+	<message key="notification.type.allReviewsIn">All reviewers have responded and a decision is needed in {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">A revised file has been uploaded for your editorial consideration in {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Revisions to consider in {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>

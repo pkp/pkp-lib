@@ -96,8 +96,6 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$this->initialize($request);
-
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
@@ -147,15 +145,17 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 			/** @var $userGroup UserGroup */
 			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 
-			$templateMgr->assign('assignmentId', $this->_assignmentId);
-			$templateMgr->assign('currentUserName', $currentUser->getFullName());
-			$templateMgr->assign('currentUserGroup', $userGroup->getLocalizedName());
-			$templateMgr->assign('userGroupId', $stageAssignment->getUserGroupId());
-			$templateMgr->assign('userIdSelected', $stageAssignment->getUserId());
-			$templateMgr->assign('currentAssignmentRecommentOnly', $stageAssignment->getRecommendOnly());
-			$templateMgr->assign('currentAssignmentPermitMetadataEdit', $stageAssignment->getCanChangeMetadata());
-			$templateMgr->assign('isChangePermitMetadataAllowed', $this->_isChangePermitMetadataAllowed);
-			$templateMgr->assign('isChangeRecommentOnlyAllowed', $this->_isChangeRecommentOnlyAllowed);
+			$templateMgr->assign(array(
+				'assignmentId' => $this->_assignmentId,
+				'currentUserName' => $currentUser->getFullName(),
+				'currentUserGroup' => $userGroup->getLocalizedName(),
+				'userGroupId' => $stageAssignment->getUserGroupId(),
+				'userIdSelected' => $stageAssignment->getUserId(),
+				'currentAssignmentRecommentOnly' => $stageAssignment->getRecommendOnly(),
+				'currentAssignmentPermitMetadataEdit' => $stageAssignment->getCanChangeMetadata(),
+				'isChangePermitMetadataAllowed' => $this->_isChangePermitMetadataAllowed,
+				'isChangeRecommentOnlyAllowed' => $this->_isChangeRecommentOnlyAllowed,
+			));
 		}
 
 

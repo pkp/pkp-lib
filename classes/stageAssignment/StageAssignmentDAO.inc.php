@@ -219,8 +219,8 @@ class StageAssignmentDAO extends DAO {
 				$stageAssignment->getSubmissionId(),
 				$this->nullOrInt($stageAssignment->getUserGroupId()),
 				$this->nullOrInt($stageAssignment->getUserId()),
-				$stageAssignment->getRecommendOnly()?$stageAssignment->getRecommendOnly():0,
-				$stageAssignment->getCanChangeMetadata()?$stageAssignment->getCanChangeMetadata():0
+				(int) $stageAssignment->getRecommendOnly(),
+				(int) $stageAssignment->getCanChangeMetadata()
 			)
 		);
 	}
@@ -246,8 +246,8 @@ class StageAssignmentDAO extends DAO {
 				(int) $stageAssignment->getSubmissionId(),
 				$this->nullOrInt($stageAssignment->getUserGroupId()),
 				$this->nullOrInt($stageAssignment->getUserId()),
-				$stageAssignment->getRecommendOnly()?$stageAssignment->getRecommendOnly():0,
-				$stageAssignment->getCanChangeMetadata()?$stageAssignment->getCanChangeMetadata():0,
+				(int) $stageAssignment->getRecommendOnly(),
+				(int) $stageAssignment->getCanChangeMetadata(),
 				(int) $stageAssignment->getId()
 			)
 		);

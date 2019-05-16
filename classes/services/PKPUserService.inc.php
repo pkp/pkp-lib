@@ -260,6 +260,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 				case 'reviewsDeclined':
 					$values[$prop] = $user->getData('declinedCount');
 					break;
+				case 'reviewsCancelled':
+					$values[$prop] = $user->getData('cancelledCount');
+					break;
 				case 'averageReviewCompletionDays':
 					$values[$prop] = $user->getData('averageTime');
 					break;
@@ -393,7 +396,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	public function getReviewerSummaryProperties($user, $args = null) {
 		$props = array (
 			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
-			'reviewsActive','reviewsCompleted','reviewsDeclined','averageReviewCompletionDays',
+			'reviewsActive','reviewsCompleted','reviewsDeclined','reviewsCancelled','averageReviewCompletionDays',
 			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
 		);
 

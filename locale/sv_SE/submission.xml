@@ -538,6 +538,8 @@
 	<message key="submission.productionReady">Bok tillgänglig</message>
 	<message key="submission.review.uploadRevisionToRound">Ladda upp bearbetad fil</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} har fått uppdraget att granska bidrag {$submissionId}, granskningsomgång {$round}.</message>
+	<message key="log.review.reviewCleared">Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har tagits bort.</message>
+	<message key="log.review.reviewReinstated">Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har börjat om på nytt.</message>
 	<message key="submission.review.status.awaitingResponse">Väntar på svar från granskaren.</message>
 	<message key="submission.review.status.declined">Granskaren avböjde denna granskningsfrågan.</message>
 	<message key="submission.review.status.responseOverdue">Granskaren har missat deadline för svar.</message>

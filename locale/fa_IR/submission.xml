@@ -562,6 +562,8 @@
 	<message key="submission.productionReady">کتاب در دسترس است</message>
 	<message key="submission.review.uploadRevisionToRound">آپلود فایل‌های اصلاح شده شده</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} برای داوری مقاله  {$submissionId} در دور {$round} داوری انتساب یافت.</message>
+	<message key="log.review.reviewCleared">دور {$round} داوری {$reviewerName} برای مقاله {$submissionId} پاک شد.</message>
+	<message key="log.review.reviewReinstated">دور {$round} داوری {$reviewerName} برای مقاله  {$submissionId} از نو شروع شد.</message>
 	<message key="submission.review.status.awaitingResponse">در انتظار پاسخ داور</message>
 	<message key="submission.review.status.declined">داور، انجام این داوری را نپذیرفت</message>
 	<message key="submission.review.status.responseOverdue">مهلت زمان پاسخ به پذیرش داوری سپری شده است.</message>

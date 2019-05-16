@@ -232,6 +232,8 @@
 	<message key="metadata.property.validationMessage.source">Vennligs oppgi en gyldig publikasjonstittel</message>
 	<message key="submission.form.replaceExisting">Erstatte eksisterende fil?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} er oppnevnt for å vurdere manuskriptet {$submissionId} for vurderingsrunde {$round}.</message>
+	<message key="log.review.reviewCleared">Vurderingsrunde {$round} av manuskript {$submissionId} ved {$reviewerName}  er fjernet.</message>
+	<message key="log.review.reviewReinstated">Vurderingsrunde {$round} av manuskript {$submissionId} ved {$reviewerName}  er igangsatt på nytt.</message>
 	<message key="submission.reviewForm">Vurderingsskjema</message>
 	<message key="submission.reviewFormResponse">Vurderingsskjema-respons</message>
 </locale>

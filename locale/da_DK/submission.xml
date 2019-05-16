@@ -280,6 +280,8 @@
 	<message key="submission.form.name">Giv denne fil et sigendenavn</message>
 	<message key="submission.form.replaceExisting">Erstat en eksisterende fil?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} er blevet tildelt til at bedømme manuskriptet {$submissionId} for bedømmelsesrunde {$round}.</message>
+	<message key="log.review.reviewCleared">Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er ryddet.</message>
+	<message key="log.review.reviewReinstated">Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er startet igen.</message>
 	<message key="submission.reviewForm">Review formular</message>
 	<message key="submission.reviewFormResponse">Review formular respons</message>
 	<message key="submission.submission">Indsendelse</message>

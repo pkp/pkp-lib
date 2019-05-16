@@ -1,5 +1,5 @@
 {**
- * templates/controllers/grid/user/reviewer/form/unassignReviewerForm.tpl
+ * templates/controllers/grid/user/reviewer/form/reinstateReviewerForm.tpl
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -12,11 +12,11 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#unassignReviewerForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#reinstateReviewerForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="unassignReviewerForm" method="post" action="{url op="updateUnassignReviewer"}" >
+<form class="pkp_form" id="reinstateReviewerForm" method="post" action="{url op="updateReinstateReviewer"}" >
 	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
@@ -34,9 +34,6 @@
 		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.review.skipEmail"}
 	{/fbvFormSection}
 
-	{if $dateConfirmed}
-		{fbvFormButtons submitText="editor.review.cancelReviewer"}
-	{else}
-		{fbvFormButtons submitText="editor.review.unassignReviewer"}
-	{/if}
+	{fbvFormButtons submitText="editor.review.reinstateReviewer"}
 </form>
+

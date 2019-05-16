@@ -122,6 +122,18 @@ class ReviewerGridRow extends GridRow {
 					'delete'
 					)
 				);
+				else $this->addAction(
+					new LinkAction(
+						'reinstateReviewer',
+						new AjaxModal(
+							$router->url($request, null, null, 'reinstateReviewer', null, $actionArgs),
+							__('editor.review.reinstateReviewer'),
+							'modal_add'
+						),
+					__('editor.review.reinstateReviewer'),
+					'add'
+					)
+				);
 			}
 
 			$this->addAction(

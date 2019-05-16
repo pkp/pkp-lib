@@ -401,7 +401,9 @@
 	<message key="notification.type.editorAssignment">Um editor deve ser designado antes de iniciar a avaliação. Inclua um editor usando o link de Participantes acima.</message>
 	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} designado para avaliar a submissão {$submissionId} na rodada de avaliação {$round}.</message>
+	<message key="log.review.reviewCleared">{$reviewerName} foi liberada(o) da rodada {$round} de avaliação da submissão {$submissionId}.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} marcou realizar a rodada {$round} de avaliação da submissão {$submissionId} como não considerada.</message>
+	<message key="log.review.reviewReinstated">Iniciada novamente a rodada {$round} de avaliação da submissão {$submissionId}, designada a {$reviewerName}.</message>
 	<message key="submission.review.status.awaitingResponse">Esperando uma resposta do avaliador.</message>
 	<message key="submission.review.status.declined">O avaliador recusou a proposta de avaliação.</message>
 	<message key="submission.review.status.responseOverdue">O avaliador perdeu o prazo de resposta.</message>

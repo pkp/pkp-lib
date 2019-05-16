@@ -538,7 +538,9 @@
 	<message key="submission.productionReady">Boek beschikbaar</message>
 	<message key="submission.review.uploadRevisionToRound">Laad een gereviseerde versie op</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} is toegekend voor het reviewen van inzending {$submissionId} voor reviewronde {$round}.</message>
+	<message key="log.review.reviewCleared">De review voor ronde {$round} door {$reviewerName} voor inzending {$submissionId} is gewist.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} heeft de review voor ronde {$round} van de inzending {$submissionId} gemarkeerd als 'niet in rekening genomen'.</message>
+	<message key="log.review.reviewReinstated">De review voor ronde {$round} door {$reviewerName} voor inzending {$submissionId} is opnieuw gestart.</message>
 	<message key="submission.review.status.awaitingResponse">In afwachting van een antwoord van de reviewer.</message>
 	<message key="submission.review.status.declined">De reviewer heeft dit reviewverzoek afgewezen.</message>
 	<message key="submission.review.status.responseOverdue">De reviewer heeft te laat geantwoord op het reviewverzoek.</message>

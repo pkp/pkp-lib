@@ -492,6 +492,8 @@
 	<message key="submission.productionReady">Varaa saatavilla oleva</message>
 	<message key="submission.review.uploadRevisionToRound">Lataa korjattu tiedosto</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} on valittu käsikirjoituksen {$submissionId} arviointiin arviointikierroksella {$round}.</message>
+	<message key="log.review.reviewCleared">{$reviewerName}:n arviointi käsikirjoituksesta {$submissionId} kierroksella {$round} on poistettu.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} on aloittanut uudelleen käsikirjoituksen {$submissionId} arvioinnin kierroksella {$round}.</message>
 	<message key="submission.document">Asiakirja</message>
 	<message key="submission.art">Kuvamateriaali</message>
 	<message key="submission.supplementary">Lisäsisältö</message>

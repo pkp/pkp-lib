@@ -432,6 +432,49 @@ class PKPReviewerGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Reinstate a reviewer
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	public function reinstateReviewer($args, $request) {
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$reviewRound = $this->getReviewRound();
+		$submission = $this->getSubmission();
+
+		import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
+		$reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+		$reinstateReviewerForm->initData();
+
+		return new JSONMessage(true, $reinstateReviewerForm->fetch($request));
+	}
+
+	/**
+	 * Save the reviewer reinstatement
+	 * @param mixed $args
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	public function updateReinstateReviewer($args, $request) {
+		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+		$reviewRound = $this->getReviewRound();
+		$submission = $this->getSubmission();
+
+		import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
+		$reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+		$reinstateReviewerForm->readInputData();
+
+		// Reinstate the reviewer and return status message
+		if ($reinstateReviewerForm->validate()) {
+			if ($reinstateReviewerForm->execute()) {
+				return DAO::getDataChangedEvent($reviewAssignment->getId());
+			} else {
+				return new JSONMessage(false, __('editor.review.errorReinstatingReviewer'));
+			}
+		}
+	}
+
+	/**
 	 * Save the reviewer unassignment
 	 *
 	 * @param mixed $args
@@ -870,7 +913,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 */
 	function _getReviewAssignmentOps() {
 		// Define operations that need a review assignment policy.
-		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'sendEmail', 'unconsiderReview', 'editReview', 'updateReview', 'gossip');
+		return array('readReview', 'reviewHistory', 'reviewRead', 'editThankReviewer', 'thankReviewer', 'editReminder', 'sendReminder', 'unassignReviewer', 'updateUnassignReviewer', 'reinstateReviewer', 'updateReinstateReviewer', 'sendEmail', 'unconsiderReview', 'editReview', 'updateReview', 'gossip');
 
 	}
 
@@ -906,11 +949,10 @@ class PKPReviewerGridHandler extends GridHandler {
 			'thankReviewer',
 			'editReminder',
 			'sendReminder',
-			'unassignReviewer',
-			'updateUnassignReviewer',
+			'unassignReviewer', 'updateUnassignReviewer',
+			'reinstateReviewer', 'updateReinstateReviewer',
 			'unconsiderReview',
-			'editReview',
-			'updateReview',
+			'editReview', 'updateReview',
 		);
 	}
 

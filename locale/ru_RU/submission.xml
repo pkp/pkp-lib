@@ -449,7 +449,7 @@
 	<message key="editor.submission.roundStatus.pendingReviewers">Ожидает назначения рецензентов.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Ожидает ответа от рецензентов.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Новые рецензии были отправлены.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензии пришли, нужно принять решение.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензенты прислали свои рецензии, нужно принять решение.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">Срок рецензии прошел.</message>
 	<message key="editor.submission.roundStatus.pendingRecommendations">Ожидает рекомендаций от редакторов.</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">Новые рекомендации редакторов были отправлены.</message>

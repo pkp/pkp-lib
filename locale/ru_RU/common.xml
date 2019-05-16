@@ -560,7 +560,7 @@
 	<message key="notification.type.reviewAssignment">Ожидание рецензии.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Обновлено задание на рецензию.</message>
 	<message key="notification.type.auditorRequest">Запрос аудита для «{$file}»</message>
-	<message key="notification.type.allReviewsIn">Все рецензии загружены и необходимо принять решение на этапе «{$stage}».</message>
+	<message key="notification.type.allReviewsIn">Все рецензенты прислали свои рецензии и необходимо принять решение на этапе «{$stage}».</message>
 	<message key="notification.type.allRevisionsIn">Новая версия файла была загружена для рассмотрения редакцией на этапе «{$stage}».</message>
 	<message key="notification.type.pendingRevisions">Новые версии рассматриваются на этапе «{$stage}».</message>
 	<message key="notification.type.pendingRevisions.title">Новые версии отправлены на этап «{$stage}».</message>

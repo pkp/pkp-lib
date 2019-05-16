@@ -465,13 +465,12 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reinstateReviewerForm->readInputData();
 
 		// Reinstate the reviewer and return status message
-		if ($reinstateReviewerForm->validate()) {
-			if ($reinstateReviewerForm->execute()) {
-				return DAO::getDataChangedEvent($reviewAssignment->getId());
-			} else {
-				return new JSONMessage(false, __('editor.review.errorReinstatingReviewer'));
-			}
+		if (!$reinstateReviewerForm->validate()) {
+			return new JSONMessage(false, __('editor.review.errorReinstatingReviewer'));
 		}
+
+		$reinstateReviewerForm->execute();
+		return DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 
 	/**
@@ -491,13 +490,12 @@ class PKPReviewerGridHandler extends GridHandler {
 		$unassignReviewerForm->readInputData();
 
 		// Unassign the reviewer and return status message
-		if ($unassignReviewerForm->validate()) {
-			if ($unassignReviewerForm->execute()) {
-				return DAO::getDataChangedEvent($reviewAssignment->getId());
-			} else {
-				return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
-			}
+		if (!$unassignReviewerForm->validate()) {
+			return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
 		}
+
+		$unassignReviewerForm->execute();
+		return DAO::getDataChangedEvent($reviewAssignment->getId());
 	}
 
 	/**

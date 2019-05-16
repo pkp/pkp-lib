@@ -63,15 +63,6 @@ class PKPSelectReviewerListPanel extends ListPanel {
 						'formatter' => str_replace('$', '', __('common.moreThan')),
 					],
 					[
-						'param' => 'reviewsCancelled',
-						'title' => __('reviewer.list.cancelledReviews'),
-						'value' => 10,
-						'min' => 0,
-						'max' => 20,
-						// The slider component expects variables in the format {var}
-						'formatter' => str_replace('$', '', __('common.moreThan')),
-					],
-					[
 						'param' => 'daysSinceLastAssignment',
 						'title' => __('reviewer.list.daysSinceLastAssignmentDescription'),
 						'value' => [0, 365],

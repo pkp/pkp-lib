@@ -95,7 +95,7 @@ class ReviewerGridRow extends GridRow {
 				)
 			);
 
-			if (!$this->_isCurrentUserAssignedAuthor) {
+			if (!$this->_isCurrentUserAssignedAuthor && !$reviewAssignment->getCancelled()) {
 				$this->addAction(
 					new LinkAction(
 						'manageAccess',
@@ -153,7 +153,8 @@ class ReviewerGridRow extends GridRow {
 			if (
 				!Validation::isLoggedInAs() &&
 				$user->getId() != $reviewAssignment->getReviewerId() &&
-				Validation::canAdminister($reviewAssignment->getReviewerId(), $user->getId())
+				Validation::canAdminister($reviewAssignment->getReviewerId(), $user->getId()) &&
+				!$reviewAssignment->getCancelled()
 			) {
 				$dispatcher = $router->getDispatcher();
 				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');

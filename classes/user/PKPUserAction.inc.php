@@ -20,7 +20,7 @@ class PKPUserAction {
 	 * @param $oldUserId int The user ID to remove
 	 * @param $newUserId int The user ID to receive all "assets" (i.e. submissions) from old user
 	 */
-	function mergeUsers($oldUserId, $newUserId) {
+	public function mergeUsers($oldUserId, $newUserId) {
 		// Need both user ids for merge
 		if (empty($oldUserId) || empty($newUserId)) {
 			return false;

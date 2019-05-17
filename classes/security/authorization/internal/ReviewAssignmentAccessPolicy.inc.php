@@ -58,7 +58,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
 
 		// Ensure that the assignment isn't declined or cancelled, unless that's permitted
-		if (!$this->_permitDeclinedOrCancelled && ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled())) return AUTHORIZATION_DENY;
+		if (!$this->_permitDeclinedOrCancelled && ($reviewAssignment->getDeclined())) return AUTHORIZATION_DENY;
 
 		// Save the review assignment to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

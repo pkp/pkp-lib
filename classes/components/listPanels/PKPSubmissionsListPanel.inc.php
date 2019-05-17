@@ -103,6 +103,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'responseDue' => __('submission.list.responseDue'),
 			'reviewDue' => __('submission.list.reviewDue'),
 			'reviewComplete' => __('submission.list.reviewComplete'),
+			'reviewCancelled' => __('submission.list.reviewCancelled'),
 			'viewSubmission' => __('submission.list.viewSubmission'),
 			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
 			'revisionsSubmitted' => __('submission.list.revisionsSubmitted'),

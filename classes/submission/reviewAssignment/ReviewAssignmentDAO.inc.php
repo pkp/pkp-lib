@@ -250,7 +250,7 @@ class ReviewAssignmentDAO extends DAO {
 	}
 
 	/**
-	 * Check if a reviewer is assigned to a specified submisssion.
+	 * Check if a reviewer is assigned to a specified submission.
 	 * @param $reviewRoundId int
 	 * @param $reviewerId int
 	 * @return boolean

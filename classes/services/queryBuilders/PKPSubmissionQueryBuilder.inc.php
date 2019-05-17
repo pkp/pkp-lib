@@ -283,7 +283,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			$q->where('s.submission_progress', '>', 0);
 		}
 
-		// overdue submisions
+		// overdue submissions
 		if ($this->isOverdue) {
 			$q->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
 				->leftJoin('review_rounds as rr', function($table) {
@@ -298,6 +298,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_DECLINED);
 			$q->where(function ($q) {
 				$q->where('raod.declined', '<>', 1);
+				$q->where('raod.cancelled', '<>', 1);
 				$q->where(function ($q) {
 					$q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
 					$q->whereNull('raod.date_completed');

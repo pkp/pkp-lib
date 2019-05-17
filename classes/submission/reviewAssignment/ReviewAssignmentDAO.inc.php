@@ -180,7 +180,8 @@ class ReviewAssignmentDAO extends DAO {
 	function getIncompleteReviewAssignmentsWhereString() {
 		return ' r.date_notified IS NOT NULL AND
 		r.date_completed IS NULL AND
-		r.declined <> 1';
+		r.declined <> 1 AND
+		r.cancelled <> 1';
 	}
 
 	/**

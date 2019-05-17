@@ -418,6 +418,7 @@
 	<message key="notification.editedAuthor">Autor editado.</message>
 	<message key="notification.confirmError">Ocorreu um erro ao confirmar sua assinatura.</message>
 	<message key="notification.confirmSuccess">Assinatura realizada com sucesso.</message>
+	<message key="notification.email">Não me envie um email para esses tipos de notificações.</message>
 	<message key="notification.noneExist">Não há notificações no momento.</message>
 	<message key="notification.addedNote">Nota enviada.</message>
 	<message key="notification.removedNote">Nota apagada.</message>

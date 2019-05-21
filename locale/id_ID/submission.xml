@@ -283,6 +283,8 @@ Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "disingkat",
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} telah ditugaskan untuk mereview naskah {$submissionId} untuk tahapan review {$round}.</message>
+	<message key="log.review.reviewCleared">Ronde {$round} review oleh {$reviewerName} untuk naskah {$submissionId} telah selesai.</message>
+	<message key="log.review.reviewReinstated">Ronde {$round} review oleh {$reviewerName} untuk naskah {$submissionId} telah dimulai ulang.</message>
 
 	<!--  peer review -->
 	<message key="submission.reviewForm">Form Review</message>

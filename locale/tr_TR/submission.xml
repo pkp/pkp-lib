@@ -291,6 +291,8 @@
 	<message key="submission.form.replaceExisting">Mevcut Dosya Değiştirilsin mi?</message>
 	<message key="submission.addFile">Dosya Yükle</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} {$submissionId} numaralı gönderiyi değerlendirmeyi {$round}. kez kabul etti.</message>
+	<message key="log.review.reviewCleared">{$submissionId} numaralı gönderinin {$round}. tur değerlendirmesi {$reviewerName} tarafından kaldırıldı.</message>
+	<message key="log.review.reviewReinstated">{$submissionId} numaralı gönderinin {$round}.  değerlendirme turu {$reviewerName} tarafından yeniden başlatıldı.</message>
 	<!--  peer review -->
 	<message key="submission.reviewForm">Değerlendirme Formu</message>
 	<message key="submission.reviewFormResponse">Değerlendirme Formu Yanıtı</message>

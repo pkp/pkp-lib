@@ -559,6 +559,8 @@
 	<message key="notification.addedReviewer">{$reviewerName} was assigned to review this submission and sent an email notification.</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} was assigned to review this submission and was not sent an email notification.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
+	<message key="notification.cancelledReviewer">Reviewer cancelled.</message>
+	<message key="notification.reinstatedReviewer">Reviewer reinstated.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
 	<message key="notification.editStageParticipant">The stage assignment has been changed.</message>
 	<message key="notification.type.newAnnouncement">New announcement.</message>

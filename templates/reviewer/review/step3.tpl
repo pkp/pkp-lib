@@ -38,16 +38,16 @@
 			{include file="reviewer/review/reviewFormResponse.tpl"}
 		{else}
 			{fbvFormSection}
-				{fbvElement type="textarea" id="comments" name="comments" value=$comments readonly=$reviewIsComplete label="submission.comments.canShareWithAuthor" rich=true}
+				{fbvElement type="textarea" id="comments" name="comments" value=$comments readonly=$reviewIsClosed label="submission.comments.canShareWithAuthor" rich=true}
 			{/fbvFormSection}
 			{fbvFormSection}
-				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentsPrivate readonly=$reviewIsComplete label="submission.comments.cannotShareWithAuthor" rich=true}
+				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentsPrivate readonly=$reviewIsClosed label="submission.comments.cannotShareWithAuthor" rich=true}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormSection}
 
 	{fbvFormSection label="common.upload" description="reviewer.submission.uploadDescription"}
-		{capture assign="reviewAttachmentsGridUrl"}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.ReviewerReviewAttachmentsGridHandler" op="fetchGrid" assocType=$smarty.const.ASSOC_TYPE_REVIEW_ASSIGNMENT assocId=$submission->getReviewId() submissionId=$submission->getId() stageId=$submission->getStageId() reviewIsComplete=$reviewIsComplete escape=false}{/capture}
+		{capture assign="reviewAttachmentsGridUrl"}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.ReviewerReviewAttachmentsGridHandler" op="fetchGrid" assocType=$smarty.const.ASSOC_TYPE_REVIEW_ASSIGNMENT assocId=$submission->getReviewId() submissionId=$submission->getId() stageId=$submission->getStageId() reviewIsClosed=$reviewIsClosed escape=false}{/capture}
 		{load_url_in_div id="reviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 	{/fbvFormSection}
 
@@ -58,7 +58,7 @@
 	{$additionalFormFields}	
 
 	{capture assign="cancelUrl"}{url page="reviewer" op="submission" path=$submission->getId() step=2 escape=false}{/capture}
-	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsComplete}
+	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsClosed}
 {/fbvFormArea}
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>

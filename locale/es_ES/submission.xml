@@ -551,6 +551,8 @@
 	<message key="submission.productionReady">Libro disponible</message>
 	<message key="submission.review.uploadRevisionToRound">Subir archivo revisado</message>
 	<message key="log.review.reviewerAssigned">Se asignó a {$reviewerName} para la revisión del envío {$submissionId} de la ronda de revisión {$round}.</message>
+	<message key="log.review.reviewCleared">La ronda {$round} que {$reviewerName} revisa para el envío {$submissionId} se eliminó.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} reinició la ronda de revisión {$round} del envío {$submissionId}.</message>
 	<message key="submission.document">Documento</message>
 	<message key="submission.art">Archivo de ilustración</message>
 	<message key="grid.action.itemWorkflow">Ir al circuito de publicación de este envío</message>

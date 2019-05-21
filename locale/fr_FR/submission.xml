@@ -353,6 +353,8 @@
 	<message key="submission.review.uploadRevisionToRound">Transférer le fichier révisé</message>
 	<message key="workflow.review.externalReview">Évaluation externe</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} a été choisi pour évaluer la soumission {$submissionId} pour la {$round}e série d'évaluations.</message>
+	<message key="log.review.reviewCleared">Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été effacé.</message>
+	<message key="log.review.reviewReinstated">Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été recommencé.</message>
 	<message key="submission.art">Illustrations</message>
 	<message key="submission.document">Document</message>
 	<message key="grid.action.itemWorkflow">Aller au flux des travaux de cette soumission.</message>

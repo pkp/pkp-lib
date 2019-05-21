@@ -460,6 +460,8 @@
 	<message key="submission.productionReady">Książka dostępna</message>
 	<message key="submission.review.uploadRevisionToRound">Prześlij poprawiony plik</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} został przypisany do recenzji zgłoszenia {$submissionId} w rundzie {$round}.</message>
+	<message key="log.review.reviewCleared">{$reviewerName} usunął(ęła) recenzję tekstu {$submissionId} w {$round} rundzie.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} ponownie rozpoczął(ęła) recenzję tekstu {$submissionId} w {$round} rundzie.</message>
 	<message key="submission.document">Dokument</message>
 	<message key="submission.art">Materiały graficzne</message>
 	<message key="submission.supplementary">Zawartość dodatkowa</message>

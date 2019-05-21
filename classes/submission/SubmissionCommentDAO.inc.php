@@ -85,35 +85,6 @@ class SubmissionCommentDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve most recent SubmissionComment
-	 * @param $submissionId int
-	 * @param $commentType int
-	 * @return SubmissionComment
-	 */
-	function getMostRecentSubmissionComment($submissionId, $commentType = null, $assocId = null) {
-		$params = array((int) $submissionId);
-		if ($commentType) $params[] = (int) $commentType;
-		if ($assocId) $params[] = (int) $assocId;
-
-		$result = $this->retrieveLimit(
-			'SELECT a.* FROM submission_comments a WHERE submission_id = ?'
-			. ($commentType?' AND comment_type = ?':'')
-			. ($assocId?' AND assoc_id = ?':'')
-			. ' ORDER BY date_posted DESC',
-			$params,
-			1
-		);
-
-		$returner = null;
-		if (isset($result) && $result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Retrieve submission comment by id
 	 * @param $commentId int Comment ID.
 	 * @return SubmissionComment object

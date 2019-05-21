@@ -539,7 +539,9 @@
 	<message key="submission.productionReady">الكتاب متوافر</message>
 	<message key="submission.review.uploadRevisionToRound">إرفع ملفاً محكماً</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} قد تم تعيينه لتحكيم المؤلَّف {$submissionId} لجولة التحكيم {$round}.</message>
+	<message key="log.review.reviewCleared">جولة التحكيم {$round} من قبل {$reviewerName} للمؤلَّف {$submissionId} قد إزيلت.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} قد أشر على الجولة {$round} لطلب النشر {$submissionId} بأنها غير معتبرة.</message>
+	<message key="log.review.reviewReinstated">جولة التحكيم {$round} من قبل {$reviewerName} للمؤلَّف {$submissionId} قد أعيد الشروع بها.</message>
 	<message key="submission.review.status.awaitingResponse">بانتظار استجابة المحكم.</message>
 	<message key="submission.review.status.declined">لقد أعرض المحكم عن معاينة هذا المؤلَّف.</message>
 	<message key="submission.review.status.responseOverdue">لقد تجاوز المحكم موعد إبداء الرأي بشأن تولي التحكيم.</message>

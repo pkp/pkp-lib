@@ -38,13 +38,14 @@ define('REVIEW_ASSIGNMENT_UNCONSIDERED', 1); // Has been unconsindered and is aw
 define('REVIEW_ASSIGNMENT_UNCONSIDERED_READ', 2); // Has been reconfirmed by an editor
 
 define('REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE', 0); // request has been sent but reviewer has not responded
-define('REVIEW_ASSIGNMENT_STATUS_DECLINED', 1); // reviewer declind review request
+define('REVIEW_ASSIGNMENT_STATUS_DECLINED', 1); // reviewer declined review request
 define('REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE', 4); // review not responded within due date
 define('REVIEW_ASSIGNMENT_STATUS_ACCEPTED', 5); // reviewer has agreed to the review
 define('REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE', 6); // review not submitted within due date
 define('REVIEW_ASSIGNMENT_STATUS_RECEIVED', 7); // review has been submitted
 define('REVIEW_ASSIGNMENT_STATUS_COMPLETE', 8); // review has been confirmed by an editor
 define('REVIEW_ASSIGNMENT_STATUS_THANKED', 9); // reviewer has been thanked
+define('REVIEW_ASSIGNMENT_STATUS_CANCELLED', 10); // reviewer cancelled review request
 
 class ReviewAssignment extends DataObject {
 
@@ -396,6 +397,22 @@ class ReviewAssignment extends DataObject {
 	}
 
 	/**
+	 * Get the cancelled value.
+	 * @return boolean
+	 */
+	function getCancelled() {
+		return $this->getData('cancelled');
+	}
+
+	/**
+	 * Set the reviewer's cancelled value.
+	 * @param $cancelled boolean
+	 */
+	function setCancelled($cancelled) {
+		$this->setData('cancelled', $cancelled);
+	}
+
+	/**
 	 * Get a boolean indicating whether or not the last reminder was automatic.
 	 * @return boolean
 	 */
@@ -461,14 +478,13 @@ class ReviewAssignment extends DataObject {
 
 	/**
 	 * Get the current status of this review assignment
-	 *
-	 * @return int
+	 * @return int REVIEW_ASSIGNMENT_STATUS_...
 	 */
 	function getStatus() {
+		if ($this->getDeclined()) return REVIEW_ASSIGNMENT_STATUS_DECLINED;
+		if ($this->getCancelled()) return REVIEW_ASSIGNMENT_STATUS_CANCELLED;
 
-		if ($this->getDeclined()) {
-			return REVIEW_ASSIGNMENT_STATUS_DECLINED;
-		} elseif (!$this->getDateCompleted()) {
+		if (!$this->getDateCompleted()) {
 			$dueTimes = array_map(function($dateTime) {
 					// If no due time, set it to the end of the day
 					if (substr($dateTime, 11) === '00:00:00') {

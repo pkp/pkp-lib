@@ -280,6 +280,8 @@
 	<message key="submission.form.name">Eman fitxategi honi izen erabilgarri bat</message>
 	<message key="submission.form.replaceExisting">Ordeztu jada badagoen fitxategi bat?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} izendatu da {$submissionId}</message>
+	<message key="log.review.reviewCleared">{$reviewerName} ebaluatzailearen {$submissionId} artikuluaren {$round}. ebaluazio-buelta ezabatu egin da.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} berriro hasi da {$submissionId} artikulua {$round}. bueltan ebaluatzen.</message>
 
 	<!--  peer review -->
 	<message key="submission.reviewForm">Ebaluazio-inprimakia</message>

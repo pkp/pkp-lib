@@ -65,12 +65,12 @@
 
 	{if $currentContext->getData('competingInterests')}
 		{fbvFormSection list=true}
-			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=!$reviewerCompetingInterests label="reviewer.submission.noCompetingInterests" disabled=$reviewIsComplete}
-			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=!!$reviewerCompetingInterests label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsComplete}
+			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=!$reviewerCompetingInterests label="reviewer.submission.noCompetingInterests" disabled=$reviewIsClosed}
+			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=!!$reviewerCompetingInterests label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsClosed}
 		{/fbvFormSection}
 
 		{fbvFormSection}
-			{fbvElement type="textarea" name="reviewerCompetingInterests" id="reviewerCompetingInterests" value=$reviewerCompetingInterests size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete rich=true}
+			{fbvElement type="textarea" name="reviewerCompetingInterests" id="reviewerCompetingInterests" value=$reviewerCompetingInterests size=$fbvStyles.size.MEDIUM disabled=$reviewIsClosed rich=true}
 		{/fbvFormSection}
 	{/if}
 
@@ -83,9 +83,9 @@
 	{/if}
 
 	{if $reviewAssignment->getDateConfirmed()}
-		{fbvFormButtons hideCancel=true submitText="common.saveAndContinue" submitDisabled=$reviewIsComplete}
+		{fbvFormButtons hideCancel=true submitText="common.saveAndContinue" submitDisabled=$reviewIsClosed}
 	{elseif !$reviewAssignment->getDateConfirmed()}
-		{fbvFormButtons submitText="reviewer.submission.acceptReview" cancelText="reviewer.submission.declineReview" cancelAction=$declineReviewAction submitDisabled=$reviewIsComplete}
+		{fbvFormButtons submitText="reviewer.submission.acceptReview" cancelText="reviewer.submission.declineReview" cancelAction=$declineReviewAction submitDisabled=$reviewIsClosed}
 	{/if}
 {/fbvFormArea}
 </form>

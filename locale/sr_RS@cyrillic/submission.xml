@@ -142,6 +142,8 @@
 	<message key="submission.form.name">Унесите име документа (нпр. Рукопис; Табела 1)</message>
 	<message key="submission.form.replaceExisting">Заменити постојећи фајл?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} је додељен(а) као рецензент предаје {$submissionId} у {$round}. кругу рецензије.</message>
+	<message key="log.review.reviewCleared">Рецензија {$round}. круга рецензента {$reviewerName} за прилог {$submissionId} је обрисана.</message>
+	<message key="log.review.reviewReinstated">{$round}. круг рецензије рецензента {$reviewerName} за прилог {$submissionId} је изнова покренут.</message>
 	<message key="submission.reviewForm">Рецензентски образац</message>
 	<message key="submission.reviewFormResponse">Одговор на рецензентски образац</message>
 	<message key="submission.query.from">Од</message>

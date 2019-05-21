@@ -626,7 +626,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$reviews = array();
 		foreach($reviewAssignments as $reviewAssignment) {
 			// @todo for now, only show reviews that haven't been
-			// declined
+			// declined or cancelled
 			if ($reviewAssignment->getDeclined()) {
 				continue;
 			}
@@ -763,7 +763,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			switch ($stageId) {
 
 				case WORKFLOW_STAGE_ID_SUBMISSION:
-					import('lib.pkp.classes.stageAssignment/StageAssignmentDAO');
+					import('lib.pkp.classes.stageAssignment.StageAssignmentDAO');
 					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 					$assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
 					if (!$assignedEditors) {

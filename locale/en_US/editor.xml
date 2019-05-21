@@ -34,6 +34,8 @@
 	<message key="editor.review.createReviewer">Create New Reviewer</message>
 	<message key="editor.review.enrollReviewer.short">Enroll Existing User</message>
 	<message key="editor.review.unassignReviewer">Unassign Reviewer</message>
+	<message key="editor.review.cancelReviewer">Cancel Reviewer</message>
+	<message key="editor.review.reinstateReviewer">Reinstate Reviewer</message>
 	<message key="editor.submissionReview.reviewType">Review Type</message>
 	<message key="editor.submissionReview.sendEmail">Send an email notification to the author(s): {$authorName}</message>
 	<message key="editor.submissionReview.sendEmail.editors">Send an email notification to the editor(s): {$editorNames}</message>
@@ -66,7 +68,9 @@
 	<message key="editor.review.requestSent">Request Sent</message>
 	<message key="editor.review.requestAccepted">Request Accepted</message>
 	<message key="editor.review.requestDeclined">Request Declined</message>
+	<message key="editor.review.requestCancelled">Request Cancelled</message>
 	<message key="editor.review.requestDeclined.tooltip">The reviewer declined this review request.</message>
+	<message key="editor.review.requestCancelled.tooltip">The editor cancelled this review request.</message>
 	<message key="editor.review.revertDecision">Revert Decision</message>
 	<message key="editor.review.reviewDue">Review due: {$date}</message>
 	<message key="editor.review.reviewDueDate">Review Due Date</message>
@@ -80,6 +84,7 @@
 	<message key="editor.review.mustSelect">You must select a reviewer</message>
 	<message key="editor.review.errorAddingReviewer">There was an error adding the reviewer.  Please try again.</message>
 	<message key="editor.review.errorDeletingReviewer">There was an error deleting the reviewer.  Please try again.</message>
+	<message key="editor.review.errorReinstatingReviewer">There was an error reinstating the reviewer.  Please try again.</message>
 	<message key="editor.review.userGroupSelect">Enroll the user with this reviewer user group</message>
 	<message key="editor.review.unconsiderReviewText">Do you wish to mark this review as unconsidered?  The review history will be preserved.</message>
 	<message key="editor.review.unconsiderReview">Unconsider this Review</message>
@@ -137,6 +142,7 @@
 	<message key="reviewer.list.activeReviewsDescription">Active reviews currently assigned</message>
 	<message key="reviewer.list.completedReviews">Reviews completed</message>
 	<message key="reviewer.list.declinedReviews">Review requests declined</message>
+	<message key="reviewer.list.cancelledReviews">Review requests cancelled</message>
 	<message key="reviewer.list.reviewerRating">Reviewer rating: {$rating}</message>
 	<message key="reviewer.list.daysSinceLastAssignment">{$days} days ago</message>
 	<message key="reviewer.list.daySinceLastAssignment">Yesterday</message>

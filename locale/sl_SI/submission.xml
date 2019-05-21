@@ -537,6 +537,8 @@
 	<message key="submission.productionReady">Knjiga je na voljo</message>
 	<message key="submission.review.uploadRevisionToRound">Naloži posodobljeno datoteko</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} je bil dodeljen za recenzijo prispevka {$submissionId} v recenzentskem krogu {$round}.</message>
+	<message key="log.review.reviewCleared">Recenzija {$round}. kroga recenzije recenzenta {$reviewerName} za prispevek {$submissionId} je bila zbrisana.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} je ponovno začel(a) {$round}. krog recenzije  prispevka {$submissionId}.</message>
 	<message key="submission.review.status.awaitingResponse">Čaka na odziv recenzenta.</message>
 	<message key="submission.review.status.declined">Recenzent je zavrnil to prošnjo za recenzijo.</message>
 	<message key="submission.review.status.responseOverdue">Recenzent je zamudil rok za potrditev.</message>

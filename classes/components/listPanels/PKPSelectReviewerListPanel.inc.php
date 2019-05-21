@@ -102,6 +102,7 @@ class PKPSelectReviewerListPanel extends ListPanel {
 			'activeReviewsDescription' => __('reviewer.list.activeReviewsDescription'),
 			'completedReviews' => __('reviewer.list.completedReviews'),
 			'declinedReviews' => __('reviewer.list.declinedReviews'),
+			'cancelledReviews' => __('reviewer.list.cancelledReviews'),
 			'reviewerRating' => __('reviewer.list.reviewerRating'),
 			'daySinceLastAssignment' => __('reviewer.list.daySinceLastAssignment'),
 			'daysSinceLastAssignment' => __('reviewer.list.daysSinceLastAssignment'),

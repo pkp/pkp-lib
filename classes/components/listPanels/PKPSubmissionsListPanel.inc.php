@@ -103,6 +103,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'responseDue' => __('submission.list.responseDue'),
 			'reviewDue' => __('submission.list.reviewDue'),
 			'reviewComplete' => __('submission.list.reviewComplete'),
+			'reviewCancelled' => __('submission.list.reviewCancelled'),
 			'viewSubmission' => __('submission.list.viewSubmission'),
 			'reviewsCompleted' => __('submission.list.reviewsCompleted'),
 			'revisionsSubmitted' => __('submission.list.revisionsSubmitted'),
@@ -153,6 +154,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'REVIEW_ASSIGNMENT_STATUS_RECEIVED',
 			'REVIEW_ASSIGNMENT_STATUS_COMPLETE',
 			'REVIEW_ASSIGNMENT_STATUS_THANKED',
+			'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
 			'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY',
 			'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED',
 		]);

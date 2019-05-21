@@ -164,6 +164,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				return '<span class="state overdue">'.__('common.overdue').'</span><span class="details">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
 			case REVIEW_ASSIGNMENT_STATUS_DECLINED:
 				return '<span class="state declined" title="' . __('editor.review.requestDeclined.tooltip') . '">'.__('editor.review.requestDeclined').'</span>';
+			case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+				return '<span class="state declined" title="' . __('editor.review.requestCancelled.tooltip') . '">'.__('editor.review.requestCancelled').'</span>';
 			case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
 				return  $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
 			default:

@@ -279,6 +279,8 @@
 	<message key="submission.form.replaceExisting">Sostituire un file esistente?</message>
 	<message key="submission.addFile">Carica file</message>
 	<message key="log.review.reviewerAssigned">A {$reviewerName} è stato assegnato il compito di revisionare la proposta {$submissionId} per il {$round} ciclo di revisione.</message>
+	<message key="log.review.reviewCleared">Il ciclo di review nr. {$round} assegnato a {$reviewerName} per la proposta {$submissionId} è stato portato a termine.</message>
+	<message key="log.review.reviewReinstated">Il {$round} ciclo di revisione, assegnato a {$reviewerName} per la proposta {$submissionId} è riniziato.</message>
 
 	<message key="submission.reviewForm">Modulo di revisione</message>
 	<message key="submission.reviewFormResponse">Risposta del modulo di revisione</message>

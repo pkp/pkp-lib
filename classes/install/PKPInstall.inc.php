@@ -298,7 +298,7 @@ class PKPInstall extends Installer {
 		// Install default site settings
 		$schemaService = Services::get('schema');
 		$site = $schemaService->setDefaults(SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
-		$site->setData('contactEmail', $this->getParam('adminEmail'));
+		$site->setData('contactEmail', $this->getParam('adminEmail'), $site->getPrimaryLocale());
 		$siteDao->updateObject($site);
 
 		return true;

@@ -632,6 +632,7 @@
 	<message key="submission.list.responseDue">Response Due</message>
 	<message key="submission.list.reviewDue">Review Due</message>
 	<message key="submission.list.reviewComplete">Review Submitted</message>
+	<message key="submission.list.reviewCancelled">Review Cancelled</message>
 	<message key="submission.list.confirmDelete">Delete submission?</message>
 	<message key="submission.list.viewSubmission">View Submission</message>
 	<message key="submission.list.reviewsCompleted">Assigned reviews completed</message>

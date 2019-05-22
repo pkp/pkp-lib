@@ -641,4 +641,31 @@
 	<message key="grid.category.removeText">Are you sure you wish to remove this category?</message>
 	<message key="grid.category.nameRequired">Please enter a category name.</message>
 	<message key="grid.category.categoryDetails">Category Details</message>
+
+	<!-- Statistics -->
+	<message key="stats.daily">Daily</message>
+	<message key="stats.dateRange">Date Range</message>
+	<message key="stats.dateRange.allDates">All dates</message>
+	<message key="stats.dateRange.apply">Apply</message>
+	<message key="stats.dateRange.change">Change date range</message>
+	<message key="stats.dateRange.customRange">Custom Range</message>
+	<message key="stats.dateRange.dateDoesNotExist">One of the dates entered does not exist.</message>
+	<message key="stats.dateRange.from">From</message>
+	<message key="stats.dateRange.instructions">Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</message>
+	<message key="stats.dateRange.invalidDate">The date format is not valid. Enter each date in the format YYYY-MM-DD.</message>
+	<message key="stats.dateRange.invalidDateRange">The start date must be before the end date.</message>
+	<message key="stats.dateRange.invalidEndDateMax">The end date may not be later than {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">The start date may not be earlier than {$date}.</message>
+	<message key="stats.dateRange.last12Months">Last 12 months</message>
+	<message key="stats.dateRange.last30Days">Last 30 days</message>
+	<message key="stats.dateRange.last90Days">Last 90 days</message>
+	<message key="stats.dateRange.sinceDate">Since {$date}</message>
+	<message key="stats.dateRange.to">To</message>
+	<message key="stats.dateRange.untilDate">Until {$date}</message>
+	<message key="stats.fileViews">File Views</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Monthly</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Search by title, author and ID</message>
+	<message key="stats.total">Total</message>
 </locale>

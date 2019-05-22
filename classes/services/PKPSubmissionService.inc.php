@@ -375,7 +375,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$authorService = \Services::get('author');
 		$request = \Application::get()->getRequest();
 		$dispatcher = $request->getDispatcher();
-		$router = $request->getRouter();
 
 		// Retrieve the submission's context for properties that require it
 		if (array_intersect(array('urlAuthorWorkflow', 'urlEditorialWorkflow'), $props)) {

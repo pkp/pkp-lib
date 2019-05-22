@@ -193,6 +193,7 @@ class APIHandler extends PKPHandler {
 	public function setupEndpoints() {
 		$app = $this->getApp();
 		$endpoints = $this->getEndpoints();
+		HookRegistry::call('APIHandler::endpoints', [&$endpoints, $this]);
 		foreach ($endpoints as $method => $definitions) {
 			foreach ($definitions as $parameters) {
 				$method = strtolower($method);

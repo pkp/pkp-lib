@@ -20,7 +20,7 @@ class PKPSelectSubmissionsListPanel extends ListPanel {
 	 */
 	public function getConfig() {
 		$config = parent::getConfig();
-		$config['18n'] = array_merge($config['i18n'], [
+		$config['i18n'] = array_merge($config['i18n'], [
 			'listSeparator' => __('common.commaListSeparator'),
 			'viewSubmission' => __('submission.list.viewSubmission'),
 			'paginationLabel' => __('common.pagination.label'),

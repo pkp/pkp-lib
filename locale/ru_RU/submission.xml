@@ -221,6 +221,8 @@
 	<message key="submission.event.reviewer.reviewRevision">Файл с правками рецензента обновлен</message>
 	<message key="submission.event.subjectPrefix">Письмо электронной почты было отправлено:</message>
 	<message key="submission.event.viewEmail">Показать письмо электронной почты</message>
+	<message key="submission.event.addedStageToAllowedAuthorMetadataChange">Теперь авторам разрешено редактировать метаданные, когда материал находится на этапе «{stage}».</message>
+	<message key="submission.event.removedStageToAllowedAuthorMetadataChange">Теперь авторам запрещено редактировать метаданные, когда материал находится на этапе «{stage}».</message>
 	<message key="submission.files">Файлы</message>
 	<message key="submission.files.downloadAll">Скачать все файлы</message>
 	<message key="submission.galley">Гранка</message>
@@ -462,12 +464,17 @@
 	<message key="editor.submission.noneAssigned">Никто не назначен</message>
 	<message key="editor.submission.participant">Участник</message>
 	<message key="editor.submission.addStageParticipant">Назначить участника</message>
+	<message key="editor.submission.editStageParticipant">Редактировать назначение</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками.</message>
 	<message key="editor.submission.removeStageParticipant">Удалить участника</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов. Если у пользователя также есть приостановленные задачи аудитора, они также будут удалены.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Вы должны выбрать группу пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Вы должны выбрать пользователя для указанной группы пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Выбранный вами пользователь назначен проводить «слепое» рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования.</message>
+	<message key="editor.submission.removePermissionToEdit">Запретить редактировать метаданные</message>
+	<message key="editor.submission.addPermissionToEdit">Разрешить редактировать метаданные</message>
+	<message key="editor.submission.removePermissionToEditDescription">Вы уверены, что хотите запретить авторам этого материала редактирование метаданных на этом этапе?</message>
+	<message key="editor.submission.addPermissionToEditDescription">Вы уверены, что хотите разрешить авторам этого материала редактирование метаданных на этом этапе?</message>
 
 	<!--  решения редакции -->
 	<message key="editor.submission.decision">Решение</message>

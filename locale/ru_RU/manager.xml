@@ -414,6 +414,7 @@
 	<message key="settings.roles.uniqueAbbrev">Вам нужно задать уникальную аббревиатуру роли.</message>
 	<message key="settings.roles.roleIdRequired">Вам нужно задать уровень прав роли.</message>
 	<message key="settings.roles.stageIdRequired">Вам нужно задать этап для назначения.</message>
+	<message key="settings.roles.permitMetadataEdit">Разрешить редактирование метаданных материала.</message>
 
 	<!-- Файлы библиотеки -->
 	<message key="settings.libraryFiles.fileRequired">Файл библиотеки обязателен. Пожалуйста, убедитесь, что вы выбрали и загрузили файл на сайт.</message>

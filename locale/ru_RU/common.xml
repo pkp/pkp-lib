@@ -418,6 +418,10 @@
 	<message key="stageParticipants.notify.warning">Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в обсуждение кого-то, кроме себя.</message>
 	<message key="stageParticipants.options">Назначенные права</message>
 	<message key="stageParticipants.recommendOnly">Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами.</message>
+	<message key="stageParticipants.submissionEditMetadataOptions">Разрешение на редактирование метаданных материала.</message>
+	<message key="stageParticipants.canChangeMetadata">Разрешить изменять метаданные материала этому пользователю</message>
+	<message key="stageParticipants.selectedUser">Участник</message>
+	<message key="stageParticipants.noOptionsToHandle">Этому участнику нельзя внести изменения</message>
 
 	<message key="locale.primary">Основной язык</message>
 	<message key="locale.supported">Поддерживаемые языки</message>
@@ -556,6 +560,7 @@
 	<message key="notification.addedReviewerNoEmail">Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено.</message>
 	<message key="notification.removedReviewer">Рецензент удален.</message>
 	<message key="notification.addedStageParticipant">Пользователь добавлен в качестве участника этапа.</message>
+	<message key="notification.editStageParticipant">Назначение этапа было изменено.</message>
 	<message key="notification.type.newAnnouncement">Новое объявление.</message>
 	<message key="notification.type.reviewAssignment">Ожидание рецензии.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Обновлено задание на рецензию.</message>

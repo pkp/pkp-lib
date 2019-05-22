@@ -24,11 +24,8 @@
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
-	<div class="cmp_skip_to_content">
-		<a href="#pkp_content_main">{translate key="navigation.skip.main"}</a>
-		<a href="#pkp_content_nav">{translate key="navigation.skip.nav"}</a>
-		<a href="#pkp_content_footer">{translate key="navigation.skip.footer"}</a>
-	</div>
+	{include file="frontend/components/skipLinks.tpl"}
+
 	<div class="pkp_structure_page">
 
 		{* Header *}

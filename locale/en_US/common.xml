@@ -455,6 +455,7 @@
 	<message key="navigation.settings">Settings</message>
 	<message key="navigation.setup">Setup</message>
 	<message key="navigation.sitemap">Site Map</message>
+	<message key="navigation.skip.announcements">Skip to announcements</message>
 	<message key="navigation.skip.main">Skip to main content</message>
 	<message key="navigation.skip.nav">Skip to main navigation menu</message>
 	<message key="navigation.skip.footer">Skip to site footer</message>

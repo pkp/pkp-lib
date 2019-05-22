@@ -34,6 +34,8 @@
 	<message key="editor.review.createReviewer">Создать нового рецензента</message>
 	<message key="editor.review.enrollReviewer.short">Записать существующего пользователя</message>
 	<message key="editor.review.unassignReviewer">Отменить назначение рецензента</message>
+	<message key="editor.review.cancelReviewer">Отменить запрос на рецензию</message>
+	<message key="editor.review.reinstateReviewer">Восстановить в роли рецензента</message>
 	<message key="editor.submissionReview.reviewType">Тип рецензирования</message>
 	<message key="editor.submissionReview.sendEmail">Отправить уведомление электронной почтой автору(авторам): {$authorName}</message>
 	<message key="editor.submissionReview.sendEmail.editors">Отправить уведомление электронной почтой редактору(редакторам): {$editorNames}</message>
@@ -66,7 +68,9 @@
 	<message key="editor.review.requestSent">Запрос отправлен</message>
 	<message key="editor.review.requestAccepted">Запрос принят</message>
 	<message key="editor.review.requestDeclined">Запрос отклонен</message>
+	<message key="editor.review.requestCancelled">Запрос отменён</message>
 	<message key="editor.review.requestDeclined.tooltip">Рецензент отклонил этот запрос на рецензию.</message>
+	<message key="editor.review.requestCancelled.tooltip">Редактор отменил этот запрос на рецензию.</message>
 	<message key="editor.review.revertDecision">Отмена решения</message>
 	<message key="editor.review.reviewDue">Срок сдачи рецензии: {$date}</message>
 	<message key="editor.review.reviewDueDate">Дата предоставления рецензии</message>
@@ -80,6 +84,7 @@
 	<message key="editor.review.mustSelect">Вы должны выбрать рецензента</message>
 	<message key="editor.review.errorAddingReviewer">Произошла ошибка при добавлении рецензента. Пожалуйста, попробуйте снова.</message>
 	<message key="editor.review.errorDeletingReviewer">Произошла ошибка при удалении рецензента. Пожалуйста, попробуйте снова.</message>
+	<message key="editor.review.errorReinstatingReviewer">Произошла ошибка при восстановлении рецензента.  Пожалуйста, попробуйте снова.</message>
 	<message key="editor.review.userGroupSelect">Записать пользователя в эту группу рецензентов</message>
 	<message key="editor.review.unconsiderReviewText">Вы хотите отметить эту рецензию как не рассмотренную? История рецензирования будет сохранена.</message>
 	<message key="editor.review.unconsiderReview">Отметить рецензию как не рассмотренную</message>
@@ -137,6 +142,7 @@
 	<message key="reviewer.list.activeReviewsDescription">Число рецензий в работе</message>
 	<message key="reviewer.list.completedReviews">Завершено рецензий</message>
 	<message key="reviewer.list.declinedReviews">Отклонено запросов на рецензию</message>
+	<message key="reviewer.list.cancelledReviews">Отменено запросов на рецензию</message>
 	<message key="reviewer.list.reviewerRating">Рейтинг рецензента: {$rating}</message>
 	<message key="reviewer.list.daysSinceLastAssignment">{$days} дней назад</message>
 	<message key="reviewer.list.daySinceLastAssignment">Вчера</message>

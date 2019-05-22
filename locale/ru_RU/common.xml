@@ -559,6 +559,8 @@
 	<message key="notification.addedReviewer">Назначен рецензент данного материала ({$reviewerName}), отправлено уведомление электронной почтой.</message>
 	<message key="notification.addedReviewerNoEmail">Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено.</message>
 	<message key="notification.removedReviewer">Рецензент удален.</message>
+	<message key="notification.cancelledReviewer">Рецензент отменён.</message>
+	<message key="notification.reinstatedReviewer">Рецензент восстановлен.</message>
 	<message key="notification.addedStageParticipant">Пользователь добавлен в качестве участника этапа.</message>
 	<message key="notification.editStageParticipant">Назначение этапа было изменено.</message>
 	<message key="notification.type.newAnnouncement">Новое объявление.</message>

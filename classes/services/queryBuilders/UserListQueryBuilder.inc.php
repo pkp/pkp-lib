@@ -60,6 +60,9 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	/** @var bool whether to return reviewer activity data */
 	protected $getReviewerData = null;
 
+	/** @var int filter by review stage id */
+	protected $reviewStageId = null;
+
 	/** @var int filter by minimum reviewer rating */
 	protected $reviewerRating = null;
 
@@ -216,6 +219,21 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function getReviewerData($enable = true) {
 		$this->getReviewerData = $enable;
+		return $this;
+	}
+
+	/**
+	 * Limit results to reviewers for a particular stage
+	 *
+	 * @param $reviewStageId int WORKFLOW_STAGE_ID_*_REVIEW
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function filterByReviewStage($reviewStageId = null) {
+		if (!is_null($reviewStageId)) {
+			$this->reviewStageId = $reviewStageId;
+		}
+
 		return $this;
 	}
 
@@ -384,6 +402,12 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 			});
 
 			$q->whereNotNull('se.section_id');
+		}
+
+		// review stage id
+		if (!is_null($this->reviewStageId)) {
+			$q->leftJoin('user_group_stage as ugs', 'uug.user_group_id', '=', 'ugs.user_group_id');
+			$q->where('ugs.stage_id', '=', Capsule::raw((int) $this->reviewStageId));
 		}
 
 		// search phrase

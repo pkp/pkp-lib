@@ -161,6 +161,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		$defaultArgs = array(
 			'contextId' => CONTEXT_ID_NONE,
+			'reviewStage' => null,
 			'reviewsCompleted' => null,
 			'reviewsActive' => null,
 			'daysSinceLastAssignment' => null,
@@ -169,10 +170,12 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		);
 
 		$args = array_merge($defaultArgs, $args);
+		$args['roleIds'] = [ROLE_ID_REVIEWER];
 
 		$reviewerListQB = $this->_getQueryBuilder($args);
 		$reviewerListQB
 			->getReviewerData(true)
+			->filterByReviewStage($args['reviewStage'])
 			->filterByReviewerRating($args['reviewerRating'])
 			->filterByReviewsCompleted($args['reviewsCompleted'])
 			->filterByReviewsActive($args['reviewsActive'])

@@ -141,6 +141,17 @@ class PKPUserHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
+		// We do not support these params from /users
+		if (isset($returnParams['assignedToSubmission'])) {
+			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'assignedToSubmission');
+		}
+		if (isset($returnParams['assignedToSubmissionStage'])) {
+			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'assignedToSubmissionStage');
+		}
+		if (isset($returnParams['roleIds'])) {
+			return $response->withStatus(400)->withJsonError('api.400.paramNotSupported', 'roleIds');
+		}
+
 		$params = $this->_buildReviewerListRequestParams($slimRequest);
 
 		$items = array();
@@ -260,6 +271,7 @@ class PKPUserHandler extends APIHandler {
 			switch ($param) {
 
 				case 'reviewerRating':
+				case 'reviewStage':
 					$returnParams[$param] = (int) $val;
 					break;
 
@@ -279,9 +291,6 @@ class PKPUserHandler extends APIHandler {
 
 		// Don't allow the contextId to be overridden
 		$returnParams['contextId'] = $contextId;
-
-		// Restrict role IDs to reviewer roles
-		$returnParams['roleIds'] = array(ROLE_ID_REVIEWER);
 
 		\HookRegistry::call('API::users::reviewers::params', array(&$returnParams, $slimRequest));
 

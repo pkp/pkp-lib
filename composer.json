@@ -13,8 +13,8 @@
 		"michelf/php-markdown": "1.*",
 		"slim/slim": "3.*",
 		"pimple/pimple": "3.*",
-		"illuminate/database": "5.5.41",
-		"illuminate/validation": "5.5.41",
+		"illuminate/database": "^5.5.41",
+		"illuminate/validation": "^5.5.41",
 		"firebase/php-jwt": "5.*",
 		"danielstjules/stringy": "3.*",
 		"adodb/adodb-php": "dev-v5.20.14-mods"

@@ -231,7 +231,7 @@ class QueryForm extends Form {
 				}
 
 				// if current user is editor, add all reviewers
-				if ( $user->hasRole(array(ROLE_ID_MANAGER), $context->getId()) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE) || array_intersect(array(ROLE_ID_SUB_EDITOR), $userRoles) ) {
+				if ($user->hasRole(array(ROLE_ID_MANAGER), $context->getId()) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE) || array_intersect(array(ROLE_ID_SUB_EDITOR), $userRoles)) {
 					foreach ($reviewAssignments as $reviewAssignment) {
 						$includeUsers[] = $reviewAssignment->getReviewerId();
 					}
@@ -293,7 +293,9 @@ class QueryForm extends Form {
 							$userRoles[] =  __('user.role.reviewer') . " (" . __($assignment->getReviewMethodKey()) . ")";
 						}
 					}
-
+					if (!count($userRoles)) {
+						$userRoles[] = __('submission.status.unassigned');
+					}
 					$items[] = [
 						'id' => $user->getId(),
 						'title' => __('submission.query.participantTitle', [

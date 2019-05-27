@@ -88,6 +88,7 @@
 	<message key="grid.action.notify">Notify this user</message>
 	<message key="grid.action.addUserGroup">Add a new User Group</message>
 	<message key="grid.action.editUserGroup">Edit this user group</message>
+	<message key="grid.action.removeUserGroup">Remove this user group</message>
 	<message key="grid.action.disable">Disable</message>
 	<message key="grid.action.details">View this item</message>
 	<message key="grid.action.enrolExisting">Enrol an existing user as a reviewer</message>

@@ -58,7 +58,7 @@ class HelpHandler extends Handler {
 		// Use a URL filter to prepend the current path to relative URLs.
 		$parser = new \Michelf\Markdown;
 		$parser->url_filter_func = function ($url) use ($filename) {
-			return dirname($filename) . '/' . $url;
+			return (empty(parse_url($url)['host']) ? dirname($filename) . '/' : '') . $url;
 		};
 		return new JSONMessage(
 			true,

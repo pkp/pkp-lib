@@ -220,6 +220,11 @@ abstract class PKPManageFileApiHandler extends Handler {
 				array('fileStage' => $submissionFile->getFileStage(), 'fileId' => $submissionFile->getFileId(), 'fileRevision' => $submissionFile->getRevision(), 'originalFileName' => $submissionFile->getOriginalFileName(), 'submissionId' => $submissionFile->getSubmissionId(), 'username' => $user->getUsername(), 'name' => $submissionFile->getLocalizedName())
 			);
 
+			// Inform SearchIndex of changes
+			$articleSearchIndex = Application::getSubmissionSearchIndex();
+			$articleSearchIndex->submissionFilesChanged($submission);
+			$articleSearchIndex->submissionChangesFinished();
+
 			return DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(true, $metadataForm->fetch($request));

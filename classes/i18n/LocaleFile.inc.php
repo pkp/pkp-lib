@@ -119,18 +119,10 @@ class LocaleFile {
 	 */
 	static function &load($filename) {
 		$localeData = array();
-
-		// Reload localization XML file
-		$xmlDao = new XMLDAO();
-		$data = $xmlDao->parseStruct($filename, array('message'));
-
-		// Build array with ($key => $string)
-		if (isset($data['message'])) {
-			foreach ($data['message'] as $messageData) {
-				$localeData[$messageData['attributes']['key']] = $messageData['value'];
-			}
+		$translations = Gettext\Translations::fromXliffFile($filename);
+		foreach ($translations as $translation) {
+			$localeData[$translation->getOriginal()] = $translation->getTranslation();
 		}
-
 		return $localeData;
 	}
 

@@ -62,13 +62,13 @@
 	<message key="editor.review.sendReminder">Verstuur herinnering</message>
 	<message key="editor.review.readReview">Lees review</message>
 	<message key="editor.review.readNewReview">Lees nieuwe review</message>
-	<message key="editor.review.responseDue">Review wordt verwacht voor {$date}</message>
+	<message key="editor.review.responseDue">Antwoord wordt verwacht voor: {$date}</message>
 	<message key="editor.review.requestSent">Verzoek is verzonden</message>
 	<message key="editor.review.requestAccepted">Verzoek is aanvaard</message>
 	<message key="editor.review.requestDeclined">Verzoek is afgewezen</message>
 	<message key="editor.review.requestDeclined.tooltip">De reviewer heeft het reviewverzoek afgewezen.</message>
 	<message key="editor.review.revertDecision">Maak beslissing ongedaan</message>
-	<message key="editor.review.reviewDue">Review wordt verwacht op: {$date}</message>
+	<message key="editor.review.reviewDue">Review wordt verwacht voor: {$date}</message>
 	<message key="editor.review.reviewDueDate">Uiterste reviewdatum</message>
 	<message key="editor.review.reviewCompleted">Review voltooid</message>
 	<message key="editor.review.reviewConfirmed">Review aanvaard</message>

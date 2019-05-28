@@ -24,7 +24,7 @@
 	<message key="default.groups.name.proofreader">Proeflezer</message>
 	<message key="default.groups.plural.proofreader">Proeflezers</message>
 	<message key="default.groups.abbrev.proofreader">PL</message>
-	<message key="default.groups.name.designer">Vormeger</message>
+	<message key="default.groups.name.designer">Vormgever</message>
 	<message key="default.groups.plural.designer">Vormgevers</message>
 	<message key="default.groups.abbrev.designer">VG</message>
 	<message key="default.groups.name.internalReviewer">Interne reviewer</message>

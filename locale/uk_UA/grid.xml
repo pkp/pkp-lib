@@ -272,4 +272,6 @@
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Немає пунктів меню навігації</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Немає меню навігації</message>
 	<message key="grid.navigationMenus.navigationMenu.selectType">Оберіть тип...</message>
+	<message key="grid.action.users">Переглянути / вибрати користувачів</message>
+	<message key="grid.action.addContributor">Додати учасника</message>
 </locale>

@@ -13,6 +13,7 @@
  -->
 
 <locale name="ru_RU" full_name="Русский">
+	<message key="api.400.paramNotSupported">Параметр «{$param}» не поддерживается.</message>
 	<message key="api.403.unauthorized">Вы не авторизованы для доступа к запрашиваемому ресурсу.</message>
 	<message key="api.404.resourceNotFound">Запрашиваемый ресурс не найден.</message>
 	<message key="api.404.endpointNotFound">Запрошенный URL не распознан.</message>
@@ -25,6 +26,12 @@
 	<message key="api.submissions.400.invalidIssueIdentifiers">Неправильно указан запрашиваемый том, номер или год.</message>
 	<message key="api.submissions.unknownError">Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова.</message>
 	<message key="api.emailTemplates.404.templateNotFound">Шаблон письма, который вы запросили, не был найден.</message>
+	<message key="api.stats.400.wrongDateFormat">Дата должна быть в формате ГГГГ-ММ-ДД.</message>
+	<message key="api.stats.400.wrongDateRange">Дата начала не может быть позже даты окончания.</message>
+	<message key="api.stats.400.earlyDateRange">Дата начала не может быть ранее 2001-01-01.</message>
+	<message key="api.stats.400.lateDateRange">Дата окончания не может быть позже чем вчера.</message>
+	<message key="api.stats.400.wrongTimelineInterval">Неправильный запрос. Параметр timelineInterval должен быть `day` или `month`.</message>
+	<message key="api.stats.400.invalidOrderDirection">Неправильный запрос. Параметр orderDirection должен быть `desc` or `asc`.</message>
 	<message key="api.temporaryFiles.400.noUpload">Не найдены файлы для загрузки на сервер, указанные в запросе.</message>
 	<message key="api.temporaryFiles.409.uploadFailed">Один или несколько файлов не могут быть загружены на сервер.</message>
 	<message key="api.temporaryFiles.400.fileSize">Файлы больше чем {$maxSize} нельзя загрузить на сервер.</message>

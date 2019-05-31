@@ -455,6 +455,7 @@
 	<message key="navigation.settings">Настройки</message>
 	<message key="navigation.setup">Установка</message>
 	<message key="navigation.sitemap">Карта сайта</message>
+	<message key="navigation.skip.announcements">Перейти к объявлениям</message>
 	<message key="navigation.skip.main">Перейти к основному контенту</message>
 	<message key="navigation.skip.nav">Перейти к главному меню навигации</message>
 	<message key="navigation.skip.footer">Перейти к нижнему колонтитулу сайта</message>

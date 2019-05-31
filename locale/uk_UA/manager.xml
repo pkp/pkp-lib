@@ -66,6 +66,7 @@
 	<message key="manager.publication.emails">Електронні листи</message>
 	<message key="manager.emails.confirmDelete">Ви впевнені, що хочете видалити цей поштовий шаблон?</message>
 	<message key="manager.emails.confirmReset">Ви впевнені, що хочете відновити значення за замовчуванням для цього поштового шаблону?</message>
+	<message key="manager.emails.addEmail">Додати шаблон листа</message>
 	<message key="manager.emails.createEmail">Створити лист</message>
 	<message key="manager.emails.data">Дані про шаблон листа</message>
 	<message key="manager.emails.details">Інформація про шаблон</message>
@@ -76,6 +77,7 @@
 	<message key="manager.emails.emailKey">Ключ листа</message>
 	<message key="manager.emails.emailKeyExists">Лист із таким ключем вже існує. Ключі листів повинні бути унікальними.</message>
 	<message key="manager.emails.emailTemplate">Шаблон листа</message>
+	<message key="manager.emails.emailTemplates">Шаблони листів</message>
 	<message key="manager.emails.enabled">Включити цей шаблон листа</message>
 	<message key="manager.emails.enable">Включити</message>
 	<message key="manager.emails.enable.message">Ви намагаєтеся включити цей шаблон листа. Ви підтверджуєте цю дію?</message>
@@ -83,6 +85,7 @@
 	<message key="manager.emails.form.bodyRequired">Необхідно ввести текст листа.</message>
 	<message key="manager.emails.form.subjectRequired">Необхідно ввести тему листа.</message>
 	<message key="manager.emails">Підготовані листи</message>
+	<message key="manager.emails.resetAll">Скинути всі шаблони</message>
 	<message key="manager.emails.resetAll.message">Якщо ви скинете всі шаблони, всі зміни до шаблонів електронної пошти будуть втрачені. Ви хочете підтвердити цю операцію?</message>
 	<message key="manager.emails.reset">Скинути</message>
 	<message key="manager.emails.reset.message">Якщо ви скинете цей шаблон, усі дані повідомлення будуть скинуті до усталеного значення, втративши усі зміни. Ви хочете підтвердити цю операцію?</message>
@@ -210,23 +213,27 @@
 	<message key="manager.statistics.reports.filters.byLocation.description">Відібрати результати за країною, регіоном та/або містом.</message>
 	<message key="manager.affiliationAndSupport">Спонсорство</message>
 	<message key="manager.setup.additionalContent">Додатковий вміст</message>
-	<message key="manager.setup.additionalContent.description">Все, що вводиться тут, з'явиться на вашій домашній сторінці.</message>
-	<message key="manager.setup.copyrightNotice">Умови передачі авторських прав</message>
-	<message key="manager.setup.copyrightNotice.description">Вимагати в авторів погодитись із умовами передачі авторських прав в процесі подання матеріалів.</message>
+	<message key="manager.setup.additionalContentDescription">Все, що вводиться тут, з'явиться на вашій домашній сторінці.</message>
+	<message key="manager.setup.authorCopyrightNotice">Умови передачі авторських прав</message>
+	<message key="manager.setup.authorCopyrightNoticeAgree">Вимагати в авторів погодитись із умовами передачі авторських прав в процесі подання матеріалів.</message>
 	<message key="manager.setup.authorGuidelines">Довідник для авторів</message>
 	<message key="manager.setup.authorGuidelines.description">Рекомендовані правила містять бібліографічні стандарти та стандарти форматування разом із прикладами оформлення цитувань, котрі використовуватимуться під час подання матеріалів.</message>
 	<message key="manager.setup.competingInterests">Конфлікт інтересів</message>
+	<message key="manager.setup.competingInterestsDescription">Рецензентів проситимуть дотримуватися правил декларування конфлікту інтересів, які ви навели нижче.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.errorDeletingItem">Під час видалення цього об'єкту виникла помилка.</message>
-	<message key="manager.setup.favicon">Іконка</message>
+	<message key="manager.setup.favicon">Неправильний формат favicon. Прийнятними форматами є .ico, .png та .gif.</message>
 	<message key="manager.setup.groupType">Групування типів файлів</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Завантаження невдале або неправильний формат зображення для логотипу заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.homepageImage">Зображення на домашній сторінці</message>
-	<message key="manager.setup.homepageImage.description">Завантажте зображення для відображення на домашній сторінці.</message>
+	<message key="manager.setup.homepageImageDescription">Завантажте зображення для відображення на домашній сторінці.</message>
 	<message key="manager.setup.homepageImageInvalid">Завантаження невдале або неправильний формат зображення домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Завантаження невдале або неправильний формат зображення для заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Описи</message>
-	<message key="manager.setup.theme">Теми</message>
-	<message key="manager.setup.theme.description">Нові теми можуть бути встановлені на вкладці "Модулі" у верхній частині цієї сторінки.</message>
+	<message key="manager.setup.layout.theme">Теми</message>
+	<message key="manager.setup.layout.themeDescription">Нові теми можуть бути встановлені на вкладці "Модулі" у верхній частині цієї сторінки.</message>
+	<message key="manager.setup.layout.blockManagement">Налаштування бічних панелей</message>
 	<message key="manager.setup.layout.sidebar">Бічна панель</message>
+	<message key="manager.setup.layout.unselected">Не вибрано</message>
 	<message key="manager.setup.loggingAndAuditing">Журналізація та аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
 	<message key="manager.setup.notifications">Повідомлення про подання матеріалів автором</message>
@@ -236,7 +243,7 @@
 	<message key="manager.setup.openAccessPolicy.description">Якщо ви надаєте негайний вільний доступ до всього опублікованого вмісту, ви можете навести опис ваших правил відкритого доступу.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Завантаження невдале або неправильний формат зображення для логотипу заголовку сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.pageFooter">Нижній колонтитул сторінки</message>
-	<message key="manager.setup.pageFooter.description">Вкажіть будь-які зображення, текст або HTML-код, які ви хочете відобразити в нижній частині вашого веб-сайту.</message>
+	<message key="manager.setup.pageFooterDescription">Вкажіть будь-які зображення, текст або HTML-код, які ви хочете відобразити в нижній частині вашого веб-сайту.</message>
 	<message key="manager.setup.peerReview.description">Опишіть правила та процес рецензування для читачів та авторів. Це опис переважно містить кількість рецензентів, які зазвичай долучаються до рецензування, критерії, за якими рецензентів просять оцінити подання, очікуваний час, необхідний для рецензування, та принципи відбору рецензентів.</message>
 	<message key="manager.setup.principalContact">Контактна особа</message>
 	<message key="manager.setup.principalContactDescription">Введіть контактні дані, як правило, це головний редактор, керуючий редактор чи хтось з адміністрації. Ці дані можуть відображатися на вашому сайті у відкритому доступі.</message>
@@ -245,9 +252,12 @@
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Тижнів на рецензування</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Ніколи не нагадувати</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Усталені значення, які можна змінити для кожної рецензії під час редакційного процесу.</message>
-	<message key="manager.setup.reviewOptions.reminders.response.description">Надсилати нагадування, якщо рецензент не відповів на запит на рецензування протягом наступного часу (днів) після закінчення терміну відповіді:</message>
-	<message key="manager.setup.reviewOptions.reminders.submit.description">Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:</message>
+	<message key="manager.setup.reviewOptions.remindForInvite">Надсилати нагадування, якщо рецензент не відповів на запит на рецензування протягом наступного часу (днів) після закінчення терміну відповіді:</message>
+	<message key="manager.setup.reviewOptions.remindForSubmit">Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:</message>
 	<message key="manager.setup.reviewOptions.reviewTime">Усталений термін рецензування</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink">Додати посилання "Забезпечення сліпого рецензування" під час завантаження</message>
+	<message key="manager.setup.searchEngineIndexing.sitemap">Мапа сайту</message>
+	<message key="manager.setup.searchEngineIndexing.sitemapDescription"><![CDATA[XML мапи сайту для подання в пошукові системи знаходиться за адресою <a href="{$path}" target="_blank">{$path}</a>]]></message>
 	<message key="manager.setup.sponsors.note">Опис правил та стосунків зі спонсорами</message>
 	<message key="manager.setup.sponsors.description">Приклади: наукові товариства, університетські підрозділи, спілки тощо. Інформація про спонсорів оприлюднюється у відкритому доступі.</message>
 	<message key="manager.setup.styleSheetDescription">Досвідчені веб-розробники можуть завантажувати файл CSS для додаткового оформлення веб-сайту.</message>
@@ -346,12 +356,16 @@
 	<message key="notification.localeSettingsSaved">Налаштування мови збережені.</message>
 	<message key="notification.editedUser">Користувача відредаговано.</message>
 
+	<!-- Налаштування процесу поширення -->
+	<message key="manager.distribution.indexing">Індексування</message>
+
 	<!-- Налштування способу оплати -->
 	<message key="manager.paymentMethod">Платежі</message>
 	<message key="manager.paymentMethod.title">Способи оплати</message>
 	<message key="manager.paymentMethod.none">Спосіб оплати не обрано</message>
 	<message key="manager.paymentMethod.method">Спосіб оплати</message>
 	<message key="manager.paymentMethod.currency">Валюта</message>
+	<message key="manager.paymentMethod.currency.description">Платежі, здійснені безпосередньо через цей веб-сайт, будуть деноміновані у вибраній валюті.</message>
 
 	<!-- Налаштування сітки Ролі -->
 	<message key="settings.roles.roleOptions">Параметри ролі</message>
@@ -447,6 +461,7 @@
 	<message key="manager.reviewFormElements.textfield">Текстове поле з одним рядком</message>
 	<message key="manager.reviewFormElements.viewable">Видимий (для авторів)</message>
 	<message key="grid.action.createReviewForm">Створити нову форму рецензії</message>
+	<message key="manager.setup.reviewerCompetingInterestsRequired.description">Заява про конфлікт інтересів рецензента</message>
 	<message key="manager.setup.competingInterests.required">Запит на заяву про конфлікт інтерсів під час рецензування.</message>
 
 	<message key="manager.setup.licenseURLDescription">URL-адреса веб-сторінки, що описує ліцензію, якщо така є.</message>
@@ -521,4 +536,49 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Це посилання відображатиметься лише в разі активації платежів у Налаштування > Розповсюдження > Платежі.</message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Це посилання відображатиметься, лише якщо відвідувач увійшов у систему, платежі увімкнені в розділі Налаштування> Розповсюдження> Платежі та обов'язкові підписки в Налаштування > Розповсюдження > Доступ.</message>
 	<message key="manager.navigationMenus.search.description">Посилання на сторінку пошуку.</message>
+	<message key="manager.setup.privacyStatement.description">Ця заява з'явиться під час реєстрації користувача, подання автора та на загальнодоступній сторінці конфіденційності. У деяких юрисдикціях ви юридично зобов'язані розкривати, як ви обробляєте дані користувача в цій політиці конфіденційності.</message>
+	<message key="manager.reviewFormElements.description">Опис</message>
+	<message key="plugins.importexport.common.error.missingGivenName">Автор {$authorName} не має даного імені у мові подання, {$localeName}. Не можна імпортувати подання без цієї інформації.</message>
+	<message key="plugins.importexport.user.importExportErrors">Помилки імпорту/експорту:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">Користувач "{$username}", що імпортується, не має пароля. Перевірте формат імпорту XML. Користувача не було імпортовано.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Посилання на сторінку, на якій відображається ваша заява про конфіденційність.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning"><![CDATA[Це посилання відображатиметься, лише якщо ви ввели заяву про конфіденційність у розділі Налаштування> Робочий процес> Представлення.]]></message>
+	<message key="grid.category.add">Додати категорію</message>
+	<message key="grid.category.edit">Редагувати категорію</message>
+	<message key="grid.category.name">Ім'я</message>
+	<message key="grid.category.path">Шлях</message>
+	<message key="grid.category.urlWillBe">URL-адреса категорії буде: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Шлях категорії повинен складатися лише з літер і цифр.</message>
+	<message key="grid.category.pathExists">Шлях категорії вже існує. Введіть унікальний шлях.</message>
+	<message key="grid.category.description">Опис</message>
+	<message key="grid.category.parentCategory">Батьківська категорія</message>
+	<message key="grid.category.removeText">Ви впевнені, що хочете видалити цю категорію?</message>
+	<message key="grid.category.nameRequired">Введіть назву категорії.</message>
+	<message key="grid.category.categoryDetails">Деталі категорії</message>
+	<message key="stats.articlesOfTotal">{$count} з {$total} статей</message>
+	<message key="stats.daily">Щодня</message>
+	<message key="stats.dateRange">Проміжок часу</message>
+	<message key="stats.dateRange.allDates">Всі дати</message>
+	<message key="stats.dateRange.apply">Застосувати</message>
+	<message key="stats.dateRange.change">Змінити діапазон дат</message>
+	<message key="stats.dateRange.customRange">Спеціальний діапазон</message>
+	<message key="stats.dateRange.dateDoesNotExist">Одна з введених дат не існує.</message>
+	<message key="stats.dateRange.from">Від</message>
+	<message key="stats.dateRange.instruction">Введіть кожну дату у форматі YYYY-MM-DD. Наприклад, якщо ви хочете дату 15 січня 2019 року, введіть 2019-01-15.</message>
+	<message key="stats.dateRange.invalidDate">Формат дати недійсний. Введіть кожну дату у форматі YYYY-MM-DD.</message>
+	<message key="stats.dateRange.invalidDateRange">Дата початку повинна бути раніше дати закінчення.</message>
+	<message key="stats.dateRange.invalidEndDateMax">Дата закінчення не може бути пізніше, ніж {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">Дата початку не може бути раніше, ніж {$date}.</message>
+	<message key="stats.dateRange.last12Months">Останні 12 місяців</message>
+	<message key="stats.dateRange.last30Days">Останні 30 днів</message>
+	<message key="stats.dateRange.last90Days">Останні 90 днів</message>
+	<message key="stats.dateRange.sinceDate">З {$date}</message>
+	<message key="stats.dateRange.to">До</message>
+	<message key="stats.dateRange.untilDate">До {$date}</message>
+	<message key="stats.fileViews">Перегляди файлів</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Щомісячно</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Пошук за назвою, автором та ідентифікатором</message>
+	<message key="stats.total">Усього</message>
 </locale>

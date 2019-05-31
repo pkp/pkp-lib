@@ -142,4 +142,10 @@
 	<message key="reviewer.list.currentlyAssigned">Цей рецензент уже був призначений для рецензування цього матеріалу.</message>
 	<message key="reviewer.list.reviewInterests">Наукові інтереси рецензента</message>
 	<message key="reviewer.list.biography">Біографія</message>
+	<message key="editor.review.anonymousReviewer">Анонімний рецензент</message>
+	<message key="editor.review.requestDeclined">Запит відхилено</message>
+	<message key="editor.review.requestDeclined.tooltip">Рецензент відхилив цей запит на перегляд.</message>
+	<message key="reviewer.list.declinedReviews">Запити на перегляд відхилено</message>
+	<message key="reviewer.list.warnOnAssign">Цей рецензент заблокований, оскільки йому призначено роль, яка дозволяє переглядати ідентифікацію автора. Сліпа експертна оцінка не може бути гарантована. Хочете розблокувати цього рецензента?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Розблокувати</message>
 </locale>

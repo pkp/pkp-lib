@@ -229,6 +229,7 @@
 	<message key="submission.howToCite">Як цитувати</message>
 	<message key="submission.howToCite.citationFormats">Формати цитування</message>
 	<message key="submission.howToCite.downloadCitation">Завантажити посилання</message>
+	<message key="submission.indexing">Індексна інформація</message>
 	<message key="submission.initiated">Розпочато</message>
 
 	<!-- Ідентифікатори -->
@@ -377,6 +378,7 @@
 	<message key="submission.submit.form.subjectsRequired">Будь ласка, вкажіть тему.</message>
 	<message key="submission.submit.form.disciplinesRequired">Будь ласка, вкажіть предмет.</message>
 	<message key="submission.submit.form.keywordsRequired">Будь ласка, вкажіть ключове слово.</message>
+	<message key="submission.submit.form.agenciesRequired">Будь ласка, вкажіть спонсорів.</message>
 	<message key="submission.submit.form.coverageRequired">Будь ласка, вкажіть інформацію про охоплення.</message>
 	<message key="submission.submit.form.typeRequired">Будь ласка, вкажіть тип.</message>
 	<message key="submission.submit.form.sourceRequired">Будь ласка, вкажіть джерело.</message>
@@ -532,8 +534,6 @@
 	<message key="submission.productionReady">Книга доступна</message>
 	<message key="submission.review.uploadRevisionToRound">Завантажити нову версію файлу</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} був призначений для проведення {$round} раунду рецензування подання {$submissionId}.</message>
-	<message key="log.review.reviewCleared">Були скасовані дані про {$round} раунд рецензування подання {$submissionId} фахівцем {$reviewerName}.</message>
-	<message key="log.review.reviewReinstated">Був повторно розпочатий {$round} раунд рецензування подання {$submissionId} фахівцем {$reviewerName}.</message>
 	<message key="submission.review.status.awaitingResponse">Очікування відповіді від рецензента.</message>
 	<message key="submission.review.status.declined">Рецензент відхилив цей запит на рецензію.</message>
 	<message key="submission.review.status.responseOverdue">Рецензент пропустив термін відповіді на запит.</message>
@@ -605,9 +605,13 @@
 
 	<!-- Списки подань -->
 	<message key="submission.list.infoCenter">Журнал активності та примітки</message>
+	<message key="submission.list.count">{$count} подань</message>
+	<message key="submission.list.itemsOfTotal">{$count} з {$total} подань</message>
 	<message key="submission.list.responseDue">Термін відповіді на запит</message>
 	<message key="submission.list.reviewDue">Термін подання рецензії</message>
 	<message key="submission.list.confirmDelete">Видалити подання?</message>
+	<message key="submission.list.itemOrdererUp">Підняти нагору {$itemTitle}</message>
+	<message key="submission.list.itemOrdererDown">Опустити донизу {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Переглянути подання</message>
 	<message key="submission.list.reviewsCompleted">Завершено призначених рецензій</message>
 	<message key="submission.list.revisionsSubmitted">Надіслано нових версій</message>
@@ -617,4 +621,23 @@
 	<message key="submission.list.discussions">Відкритих обговорень</message>
 	<message key="submission.list.incompleteSubmissionNotice">Це подання необхідно завершити, перш ніж редактор рецензуватиме його.</message>
 	<message key="submission.list.currentStage">Зараз на етапі {$stage}.</message>
+	<message key="submission.submit.availableUserGroups">Надіслати як</message>
+	<message key="submission.submit.availableUserGroupsDescription">Виберіть роль, яка найкраще описує ваш внесок у подання.</message>
+	<message key="submission.submit.contactConsent">Відповідний контакт</message>
+	<message key="submission.submit.contactConsentDescription">Я погоджуюся з вами зв’язатися щодо цього подання.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Подати в будь-якому з наступних ролей, якщо ви хочете, щоб мати можливість редагувати і публікувати це представлення себе: {$managerGroups}</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Обраний учасник був призначений для проведення сліпого огляду. Якщо призначити їх в якості учасника, вони матимуть доступ до особистості автора. Вам не рекомендується призначати цього учасника, якщо ви не можете самостійно забезпечити цілісність процесу експертної оцінки.</message>
+	<message key="submission.list.assignEditor">Призначений редактор</message>
+	<message key="grid.category.categories">Категорії</message>
+	<message key="catalog.sortBy.titleAsc">Назва (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Назва (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Дата публікації (спочатку найстаріша)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Дата публікації (спочатку нова)</message>
+	<message key="category.coverImage">Зображення обкладинки</message>
+	<message key="submission.submit.placement.categories">Категорії</message>
+	<message key="submission.currentCoverImage">Поточне зображення</message>
+	<message key="catalog.category.noItems">У цій категорії ще нічого не опубліковано.</message>
+	<message key="catalog.category.subcategories">Підкатегорії</message>
+	<message key="submission.list.reviewComplete">Опублікований огляд</message>
 </locale>

@@ -642,4 +642,31 @@
 	<message key="grid.category.removeText">Вы уверены, что хотите удалить эту категорию?</message>
 	<message key="grid.category.nameRequired">Пожалуйста, введите название категории.</message>
 	<message key="grid.category.categoryDetails">Информаци о категории</message>
+
+	<!-- Статистика -->
+	<message key="stats.daily">Ежедневно</message>
+	<message key="stats.dateRange">Диапазон дат</message>
+	<message key="stats.dateRange.allDates">Все даты</message>
+	<message key="stats.dateRange.apply">Применить</message>
+	<message key="stats.dateRange.change">Изменить диапазон дат</message>
+	<message key="stats.dateRange.customRange">Пользовательский диапазон</message>
+	<message key="stats.dateRange.dateDoesNotExist">Одна из введенных дат не существует.</message>
+	<message key="stats.dateRange.from">С</message>
+	<message key="stats.dateRange.instructions">Введите каждую дату в формате ГГГГ-ММ-ДД. Например, если вы хотите задать дату 15 января 2019 года, введите 2019-01-15.</message>
+	<message key="stats.dateRange.invalidDate">Неправильный формат даты. Каждая дата должна быть в формате ГГГГ-ММ-ДД.</message>
+	<message key="stats.dateRange.invalidDateRange">Дата начала должна быть до даты окончания.</message>
+	<message key="stats.dateRange.invalidEndDateMax">Дата окончания не может быть позже чем {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">Дата начала не может быть раньше чем {$date}.</message>
+	<message key="stats.dateRange.last12Months">Последние 12 месяцев</message>
+	<message key="stats.dateRange.last30Days">Последние 30 дней</message>
+	<message key="stats.dateRange.last90Days">Последние 90 дней</message>
+	<message key="stats.dateRange.sinceDate">Начиная с {$date}</message>
+	<message key="stats.dateRange.to">До</message>
+	<message key="stats.dateRange.untilDate">До {$date}</message>
+	<message key="stats.fileViews">Просмотры файлов</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Ежемесячно</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Искать по названию, автору и ID</message>
+	<message key="stats.total">Всего</message>
 </locale>

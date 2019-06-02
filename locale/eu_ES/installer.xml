@@ -4,8 +4,8 @@
 <!--
   * locale/eu_ES/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Euskara) locale.
@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Konfigurazio-fitxategiaren edukia</message>
 	<message key="installer.createDatabase">Sortu datu-base berria</message>
 	<message key="installer.createDatabaseInstructions">Aukera hau erabili ahal izateko, zure datu-base sistemak datu-baseak urrunetik sortzea onartu behar du eta zure erabiltzaile-kontuak datu-base berriak sortzeko baimena izan behar du. Aukera hau hautatuta instalazioak huts egiten badu, eskuz sortu beharko duzu datu-basea zure zerbitzarian eta instalatzailea berriro exekutatu, aukera hori desgaituta.</message>
-	<message key="installer.databaseCharset">Datu-basearen karaktere-jokoa</message>
 	<message key="installer.databaseDriver">Datu-basearen kontrolatzailea</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Kortxete artean dauden datu-base kontrolatzaileek ez du ematen behar den PHP hedapena kargatuta daukatenik eta, hautatzen badira, instalazioak huts egingo du segurutik.</strong><br />Goian zerrendatutako euskarri gabeko kontrolatzaileak xede akademikoetarako soilik zerrendatzen dira, normalean ez dute funtzionatuko.]]></message>
 	<message key="installer.databaseHost">Ostalaria</message>
@@ -57,7 +56,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Errorea datu-basea instalatzeko <tt>{$file}</tt> fitxategia analizatzean.]]></message>
 	<message key="installer.locale">Localea</message>
 	<message key="installer.localeSettings">Localearen ezarpenak</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Metadatuak Biltzeko <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting protokoloaren bidez gune honetan indexatutako metadatuen erregistroak identifikatzeko erabiltzen da identifikatzaile uniboko hau.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Metadatuak Biltzeko <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting protokoloaren bidez gune honetan indexatutako metadatuen erregistroak identifikatzeko erabiltzen da identifikatzaile uniboko hau.]]></message>
 	<message key="installer.oaiRepositoryId">OAI gordailu-identifikatzailea</message>
 	<message key="installer.publicFilesDirError">Fitxategi publikoen direktorioa ez dago edo ez da idazgarria.</message>
 	<message key="installer.releaseNotes">Bertsio-oharrak</message>

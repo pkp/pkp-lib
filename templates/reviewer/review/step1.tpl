@@ -1,8 +1,8 @@
 {**
  * templates/reviewer/review/step1.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Show the review step 1 page
@@ -19,7 +19,7 @@
 
 <form class="pkp_form" id="reviewStep1Form" method="post" action="{url page="reviewer" op="saveStep" path=$submission->getId() step="1" escape=false}">
 {csrf}
-{include file="common/formErrors.tpl"}
+{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewStep1FormNotification"}
 
 {fbvFormArea id="reviewStep1"}
 	{fbvFormSection title="reviewer.step1.request"}
@@ -65,12 +65,12 @@
 
 	{if $currentContext->getData('competingInterests')}
 		{fbvFormSection list=true}
-			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=!$reviewerCompetingInterests label="reviewer.submission.noCompetingInterests" disabled=$reviewIsComplete}
-			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=!!$reviewerCompetingInterests label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsComplete}
+			{fbvElement type="radio" value="noCompetingInterests" id="noCompetingInterests" name="competingInterestOption" checked=!$reviewerCompetingInterests label="reviewer.submission.noCompetingInterests" disabled=$reviewIsClosed}
+			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=!!$reviewerCompetingInterests label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsClosed}
 		{/fbvFormSection}
 
 		{fbvFormSection}
-			{fbvElement type="textarea" name="reviewerCompetingInterests" id="reviewerCompetingInterests" value=$reviewerCompetingInterests size=$fbvStyles.size.MEDIUM disabled=$reviewIsComplete rich=true}
+			{fbvElement type="textarea" name="reviewerCompetingInterests" id="reviewerCompetingInterests" value=$reviewerCompetingInterests size=$fbvStyles.size.MEDIUM disabled=$reviewIsClosed rich=true}
 		{/fbvFormSection}
 	{/if}
 
@@ -83,9 +83,9 @@
 	{/if}
 
 	{if $reviewAssignment->getDateConfirmed()}
-		{fbvFormButtons hideCancel=true submitText="common.saveAndContinue" submitDisabled=$reviewIsComplete}
+		{fbvFormButtons hideCancel=true submitText="common.saveAndContinue" submitDisabled=$reviewIsClosed}
 	{elseif !$reviewAssignment->getDateConfirmed()}
-		{fbvFormButtons submitText="reviewer.submission.acceptReview" cancelText="reviewer.submission.declineReview" cancelAction=$declineReviewAction submitDisabled=$reviewIsComplete}
+		{fbvFormButtons submitText="reviewer.submission.acceptReview" cancelText="reviewer.submission.declineReview" cancelAction=$declineReviewAction submitDisabled=$reviewIsClosed}
 	{/if}
 {/fbvFormArea}
 </form>

@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/notification/PKPNotificationManagerTest.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationManagerTest
@@ -33,7 +33,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		$notification->setType(NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
 		$notification->setAssocType(ASSOC_TYPE_ANNOUNCEMENT);
 
-		$requestDummy = $this->getMock('PKPRequest');
+		$requestDummy = $this->getMockBuilder(PKPRequest::class)->getMock();
 		$result = $this->notificationMgr->getNotificationMessage($requestDummy, $notification);
 
 		$this->assertContains('notification.type.newAnnouncement', $result);
@@ -187,7 +187,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 */
 	private function exerciseCreateNotification($notificationMgr, $notificationToCreate, $notificationToCreateParams = array(), $request = null) {
 		if (is_null($request)) {
-			$request = $this->getMock('PKPRequest');
+			$request = $this->getMockBuilder(PKPRequest::class)->getMock();
 		}
 
 		return $notificationMgr->createNotification(
@@ -204,6 +204,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 * Setup the fixture for all tests that covers the
 	 * PKPNotificationManager::createNotification() method in
 	 * a send email scenario.
+	 * @runInSeparateProcess
 	 * @return array Fixture objects.
 	 */
 	private function getFixtureCreateNotificationSendEmail($expectedNotification) {
@@ -212,7 +213,9 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		$notificationMgrStub = $this->getMgrStubForCreateNotificationTests(array(), $emailedNotifications, array('getMailTemplate'));
 
 		// Stub a PKPRequest object.
-		$requestStub = $this->getMock('PKPRequest', array('getSite', 'getContext'));
+		$requestStub = $this->getMockBuilder(PKPRequest::class)
+			->setMethods(array('getSite', 'getContext', 'getUserVar'))
+			->getMock();
 
 		// Some site, user and notification data are required for composing the email.
 		// Retrieve/define them so we can check later.
@@ -236,11 +239,59 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		// Get the user full name to check.
 		$userFullName = $testUser->getFullName();
 
+		// Stub context.
+		$application = Application::get();
+		$contextDao = $application->getContextDAO();
+		$contextStub = $this->getMockBuilder(get_class($contextDao->newDataObject()))
+			->setMethods(array('getLocalizedName', 'getContactName', 'getContactEmail'))
+			->getMock();
+		$contextStub->expects($this->any())
+		            ->method('getLocalizedName')
+		            ->will($this->returnValue($contextTitle));
+		$contextStub->expects($this->any())
+		            ->method('getContactName')
+		            ->will($this->returnValue($siteContactName));
+		$contextStub->expects($this->any())
+		            ->method('getContactEmail')
+		            ->will($this->returnValue($siteEmail));
+
+		// Inject context stub into our request stub.
+		$requestStub->expects($this->any())
+		            ->method('getContext')
+		            ->will($this->returnValue($contextStub));
+		$requestStub->expects($this->any())
+			->method('getUserVar')
+			->will($this->returnValue(null));
+		Registry::set('request', $requestStub);
+
+		// Stub site.
+		$siteStub = $this->getMockBuilder(Site::class)
+			->setMethods(array('getLocalizedContactName', 'getLocalizedTitle', 'getLocalizedContactEmail'))
+			->getMock();
+
+		$siteStub->expects($this->any())
+		         ->method('getLocalizedContactName')
+		         ->will($this->returnValue($siteContactName));
+		$siteStub->expects($this->any())
+		         ->method('getLocalizedTitle')
+		         ->will($this->returnValue($siteTitle));
+		$siteStub->expects($this->any())
+		         ->method('getLocalizedContactEmail')
+		         ->will($this->returnValue($siteEmail));
+
+		// Inject site stub into our request stub.
+		$requestStub->expects($this->any())
+		            ->method('getSite')
+		            ->will($this->returnValue($siteStub));
+
 		// Mock MailTemplate class so we can verify
 		// notification manager interaction with it. Avoid
 		// calling the mail template original constructor.
-		$mailTemplateMock = $this->getMock('MailTemplate',
-			array('setReplyTo', 'addRecipient', 'assignParams', 'send'), array(), '', false);
+		$mailTemplateMock = $this->getMockBuilder(MailTemplate::class)
+			->setMethods(array('setReplyTo', 'addRecipient', 'assignParams', 'send'))
+			->setConstructorArgs(array(null, 'en_US', $contextStub))
+			->getMock();
+
 		$mailTemplateMock->expects($this->any())
 		                 ->method('setReplyTo')
 		                 ->with($this->equalTo($siteEmail), $this->equalTo($siteContactName));
@@ -259,44 +310,10 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		                    ->method('getMailTemplate')
 		                    ->will($this->returnValue($mailTemplateMock));
 
-		// Stub site.
-		$siteStub = $this->getMock('Site',
-			array('getLocalizedContactName', 'getLocalizedTitle', 'getLocalizedContactEmail'));
-		$siteStub->expects($this->any())
-		         ->method('getLocalizedContactName')
-		         ->will($this->returnValue($siteContactName));
-		$siteStub->expects($this->any())
-		         ->method('getLocalizedTitle')
-		         ->will($this->returnValue($siteTitle));
-		$siteStub->expects($this->any())
-		         ->method('getLocalizedContactEmail')
-		         ->will($this->returnValue($siteEmail));
-
-		// Inject site stub into our request stub.
-		$requestStub->expects($this->any())
-		            ->method('getSite')
-		            ->will($this->returnValue($siteStub));
-
-		// Stub context.
-		$contextStub = $this->getMock('Context',
-			array('getLocalizedName', 'getContactName', 'getContactEmail'));
-		$contextStub->expects($this->any())
-		            ->method('getLocalizedName')
-		            ->will($this->returnValue($contextTitle));
-		$contextStub->expects($this->any())
-		            ->method('getContactName')
-		            ->will($this->returnValue($siteContactName));
-		$contextStub->expects($this->any())
-		            ->method('getContactEmail')
-		            ->will($this->returnValue($siteEmail));
-
-		// Inject context stub into our request stub.
-		$requestStub->expects($this->any())
-		            ->method('getContext')
-		            ->will($this->returnValue($contextStub));
-
 		// Register a UserDao stub to return the test user.
-		$userDaoStub = $this->getMock('UserDAO', array('getById'));
+		$userDaoStub = $this->getMockBuilder(UserDAO::class)
+			->setMethods(array('getById'))
+			->getMock();
 		$userDaoStub->expects($this->any())
 		            ->method('getById')
 		            ->will($this->returnValue($testUser));
@@ -320,20 +337,21 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 * @return PHPUnit_Framework_MockObject_MockObject
 	 */
 	private function getMgrStubForCreateNotificationTests($blockedNotifications = array(), $emailedNotifications = array(), $extraOpToStub = array()) {
-		$notificationMgrStub = $this->getMock('PKPNotificationManager',
-			array_merge($extraOpToStub, array('getUserBlockedNotifications', 'getEmailedNotifications', 'getNotificationUrl')));
+		$notificationMgrStub = $this->getMockBuilder(PKPNotificationManager::class)
+			->setMethods(array_merge($extraOpToStub, array('getUserBlockedNotifications', 'getEmailedNotifications', 'getNotificationUrl')))
+			->getMock();
 
 		$notificationMgrStub->expects($this->any())
-		                    ->method('getUserBlockedNotifications')
-		                    ->will($this->returnValue($blockedNotifications));
+			->method('getUserBlockedNotifications')
+			->will($this->returnValue($blockedNotifications));
 
 		$notificationMgrStub->expects($this->any())
-		                    ->method('getEmailedNotifications')
-		                    ->will($this->returnValue($emailedNotifications));
+			->method('getEmailedNotifications')
+			->will($this->returnValue($emailedNotifications));
 
 		$notificationMgrStub->expects($this->any())
-							->method('getNotificationUrl')
-							->will($this->returnValue('anyNotificationUrl'));
+			->method('getNotificationUrl')
+			->will($this->returnValue('anyNotificationUrl'));
 
 		return $notificationMgrStub;
 	}
@@ -344,7 +362,9 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 * expected to be inserted by the DAO.
 	 */
 	private function injectNotificationDaoMock($notification) {
-		$notificationDaoMock = $this->getMock('NotificationDAO', array('insertObject'));
+		$notificationDaoMock = $this->getMockBuilder(NotificationDAO::class)
+			->setMethods(array('insertObject'))
+			->getMock();
 		$notificationDaoMock->expects($this->once())
 		                    ->method('insertObject')
 		                    ->with($this->equalTo($notification))
@@ -359,7 +379,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 	 */
 	private function injectNotificationSettingsDaoMock($notificationParams) {
 		// Mock NotificationSettingsDAO.
-		$notificationSettingsDaoMock = $this->getMock('NotificationSettingsDAO');
+		$notificationSettingsDaoMock = $this->getMockBuilder(NotificationSettingsDAO::class)->getMock();
 		$notificationSettingsDaoMock->expects($this->any())
 		                            ->method('updateNotificationSetting')
 		                            ->with($this->equalTo(NOTIFICATION_ID),

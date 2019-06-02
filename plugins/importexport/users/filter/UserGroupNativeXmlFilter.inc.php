@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/users/filter/UserGroupNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserGroupNativeXmlFilter
@@ -84,6 +84,7 @@ class UserGroupNativeXmlFilter extends NativeExportFilter {
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'is_default', $userGroup->getDefault() ? 'true' : 'false'));
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'show_title', $userGroup->getShowTitle() ? 'true' : 'false'));
 		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_self_registration', $userGroup->getPermitSelfRegistration() ? 'true' : 'false'));
+		$userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadata_edit', $userGroup->getpPermitMetadataEdit() ? 'true' : 'false'));
 
 		$this->createLocalizedNodes($doc, $userGroupNode, 'name', $userGroup->getName(null));
 		$this->createLocalizedNodes($doc, $userGroupNode, 'abbrev', $userGroup->getAbbrev(null));

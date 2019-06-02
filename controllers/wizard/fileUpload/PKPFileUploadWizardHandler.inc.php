@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/FileUploadWizardHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadWizardHandler
@@ -319,7 +319,7 @@ class PKPFileUploadWizardHandler extends Handler {
 					// Update the task notifications
 					$notificationMgr = new NotificationManager();
 					$notificationMgr->updateNotification(
-						Application::getRequest(),
+						Application::get()->getRequest(),
 						array(NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS),
 						$authorUserIds,
 						ASSOC_TYPE_SUBMISSION,
@@ -333,7 +333,7 @@ class PKPFileUploadWizardHandler extends Handler {
 
 					// Notify editors about the revision upload
 					$submission = $this->getSubmission();
-					$request = Application::getRequest();
+					$request = Application::get()->getRequest();
 					$router = $request->getRouter();
 					$dispatcher = $router->getDispatcher();
 					$context = $request->getContext();

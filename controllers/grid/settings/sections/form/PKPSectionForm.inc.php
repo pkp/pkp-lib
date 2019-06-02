@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/sections/form/PKPSectionForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSectionForm
@@ -103,21 +103,40 @@ class PKPSectionForm extends Form {
 	 *
 	 * @param $contextId int
 	 * @param $request Request
-	 * @return array
+	 * @return \PKP\components\listPanels\ListPanel
 	 */
-	public function _getSubEditorsListPanelData($contextId, $request) {
-		import('lib.pkp.classes.components.listPanels.users.SelectUserListPanel');
-		$data = new SelectUserListPanel(array(
-			'title' => 'user.role.subEditors',
-			'inputName' => 'subEditors[]',
-			'selected' => $this->getData('subEditors'),
-			'getParams' => array(
-				'contextId' => $contextId,
-				'roleIds' => ROLE_ID_SUB_EDITOR,
-			),
-		));
+	public function _getSubEditorsListPanel($contextId, $request) {
 
-		return $data->getConfig();
+		$params = [
+			'contextId' => $contextId,
+			'roleIds' => ROLE_ID_SUB_EDITOR,
+		];
+
+		import('classes.core.Services');
+		$userService = Services::get('user');
+		$users = $userService->getMany($params);
+		$items = [];
+		foreach ($users as $user) {
+			$items[] = [
+				'id' => (int) $user->getId(),
+				'title' => $user->getFullName()
+			];
+		}
+
+		return new \PKP\components\listPanels\ListPanel(
+			'subeditors',
+			__('user.role.subEditors'),
+			[
+				'canSelect' => true,
+				'getParams' => $params,
+				'items' => $items,
+				'itemsmax' => $userService->getMax($params),
+				'selected' => $this->getData('subEditors')
+						? $this->getData('subEditors')
+						: [],
+				'selectorName' => 'subEditors[]',
+			]
+		);
 	}
 
 	/**

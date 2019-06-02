@@ -4,8 +4,8 @@
 <!--
   * locale/da_DK/user.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
@@ -115,7 +115,7 @@
 	<message key="user.role.author_s">Forfatter(e)</message>
 	<message key="user.role.authors">Forfattere</message>
 	<message key="user.orcid">ORCID iD</message>
-	<message key="user.orcid.orcidInvalid">Det ORCID iD du angav er ikke gyldig. Husk at inkludere den hele URI (e.g. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Det ORCID iD du angav er ikke gyldig. Husk at inkludere den hele URI (e.g. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.login.registerNewAccount">Registrér</message>
 	<message key="user.authorization.accessibleWorkflowStage">Du har på nuværende tidspunkt ikke adgang til dette workflow-trin.</message>
 	<message key="user.authorization.workflowStageRequired">Der blev ikke angivet et workflow-trin.</message>

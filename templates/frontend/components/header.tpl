@@ -1,8 +1,8 @@
 {**
  * lib/pkp/templates/frontend/components/header.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Common frontend site header.
@@ -24,11 +24,8 @@
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
-	<div class="cmp_skip_to_content">
-		<a href="#pkp_content_main">{translate key="navigation.skip.main"}</a>
-		<a href="#pkp_content_nav">{translate key="navigation.skip.nav"}</a>
-		<a href="#pkp_content_footer">{translate key="navigation.skip.footer"}</a>
-	</div>
+	{include file="frontend/components/skipLinks.tpl"}
+
 	<div class="pkp_structure_page">
 
 		{* Header *}

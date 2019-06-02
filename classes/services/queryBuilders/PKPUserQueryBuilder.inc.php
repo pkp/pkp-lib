@@ -2,8 +2,8 @@
 /**
  * @file classes/services/QueryBuilders/PKPUserQueryBuilder.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUserQueryBuilder
@@ -56,6 +56,9 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 
 	/** @var bool whether to return reviewer activity data */
 	protected $getReviewerData = null;
+
+	/** @var int filter by review stage id */
+	protected $reviewStageId = null;
 
 	/** @var int filter by minimum reviewer rating */
 	protected $reviewerRating = null;
@@ -207,6 +210,21 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Limit results to reviewers for a particular stage
+	 *
+	 * @param $reviewStageId int WORKFLOW_STAGE_ID_*_REVIEW
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function filterByReviewStage($reviewStageId = null) {
+		if (!is_null($reviewStageId)) {
+			$this->reviewStageId = $reviewStageId;
+		}
+
+		return $this;
+	}
+
+	/**
 	 * Limit results to those who have a minimum reviewer rating
 	 *
 	 * @param $reviewerRating int
@@ -292,7 +310,7 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 		$locale = \AppLocale::getLocale();
 		// the users register for the site, thus
 		// the site primary locale should be the default locale
-		$site = \Application::getRequest()->getSite();
+		$site = \Application::get()->getRequest()->getSite();
 		$primaryLocale = $site->getPrimaryLocale();
 
 		$this->columns[] = 'u.*';
@@ -369,6 +387,12 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 			}
 		}
 
+		// review stage id
+		if (!is_null($this->reviewStageId)) {
+			$q->leftJoin('user_group_stage as ugs', 'uug.user_group_id', '=', 'ugs.user_group_id');
+			$q->where('ugs.stage_id', '=', Capsule::raw((int) $this->reviewStageId));
+		}
+
 		// search phrase
 		if (!empty($this->searchPhrase)) {
 			$words = explode(' ', $this->searchPhrase);
@@ -414,6 +438,7 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
 			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
 			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count');
+			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count');
 			switch (\Config::getVar('database', 'driver')) {
 				case 'mysql':
 				case 'mysqli':

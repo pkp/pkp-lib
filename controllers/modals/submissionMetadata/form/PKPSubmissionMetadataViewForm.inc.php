@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/submissionMetadata/form/PKPSubmissionMetadataViewForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionMetadataViewForm
@@ -17,6 +17,7 @@ import('lib.pkp.classes.form.Form');
 
 // Use this class to handle the submission metadata.
 import('classes.submission.SubmissionMetadataFormImplementation');
+import('lib.pkp.classes.controllers.modals.submissionMetadata.SubmissionMetadataHandler');
 
 class PKPSubmissionMetadataViewForm extends Form {
 
@@ -44,7 +45,9 @@ class PKPSubmissionMetadataViewForm extends Form {
 		parent::__construct($templateName);
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById((int) $submissionId);
+		$submissionVersion = isset($formParams['submissionVersion']) ? (int)$formParams['submissionVersion'] : null;
+		$submission = $submissionDao->getById((int) $submissionId, null, false, $submissionVersion);
+
 		if ($submission) {
 			$this->_submission = $submission;
 		}
@@ -52,6 +55,15 @@ class PKPSubmissionMetadataViewForm extends Form {
 		$this->_stageId = $stageId;
 
 		$this->_formParams = $formParams;
+
+		if ($submission->getCurrentSubmissionVersion() != $submission->getSubmissionVersion()) {
+			if (!isset($this->_formParams)) {
+				$this->_formParams = array();
+			}
+
+			$this->_formParams["readOnly"] = true;
+			$this->_formParams["hideSubmit"] = true;
+		}
 
 		$this->_metadataFormImplem = new SubmissionMetadataFormImplementation($this);
 
@@ -121,11 +133,22 @@ class PKPSubmissionMetadataViewForm extends Form {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$submission = $this->getSubmission();
+
+		// user permit edit control
+		/** @var $currentUser User */
+		$currentUser = $request->getUser();
+
+		if (!SubmissionMetadataHandler::getUserAllowEditMetadata($submission->getId(), $currentUser->getId(), $this->_stageId)) {
+			$this->_formParams['hideSubmit'] = true;
+			$this->_formParams['readOnly'] = true;
+		}
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'submissionId' =>$submission->getId(),
 			'stageId' => $this->getStageId(),
 			'formParams' => $this->getFormParams(),
+			'submissionVersion' => $submission->getSubmissionVersion(),
 		));
 
 		// Tell the form what fields are enabled (and which of those are required)
@@ -164,22 +187,39 @@ class PKPSubmissionMetadataViewForm extends Form {
 			$selectedIds[] = $category->getId();
 		}
 
-		// Get SelectCategoryListPanel data
-		import('lib.pkp.classes.components.listPanels.SelectCategoryListPanel');
-		$selectCategoryList = new SelectCategoryListPanel(array(
-			'title' => 'submission.submit.placement.categories',
-			'inputName' => 'categories[]',
-			'selected' => $selectedIds,
-			'getParams' => array(
-				'contextId' => $submission->getContextId(),
-			),
-		));
+		// Categories list
+		$items = [];
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categories = $categoryDao->getByContextId($context->getId());
+		if (!$categories->wasEmpty) {
+			while ($category = $categories->next()) {
+				$items[] = array(
+					'id' => $category->getId(),
+					'title' => $category->getLocalizedTitle(),
+				);
+			}
+		}
 
-		$selectCategoryListData = $selectCategoryList->getConfig();
+		$categoriesList = new \PKP\components\listPanels\ListPanel(
+			'categories',
+			__('grid.category.categories'),
+			[
+				'canSelect' => true,
+				'items' => $items,
+				'itemsMax' => count($items),
+				'selected' => $selectedIds,
+				'selectorName' => 'categories[]',
+			]
+		);
+
 		$templateMgr->assign(array(
-			'hasCategories' => !empty($selectCategoryListData['items']),
-			'selectCategoryListData' => $selectCategoryListData,
 			'assignedCategories' => $assignedCategories,
+			'hasCategories' => !empty($categoriesList->items),
+			'categoriesListData' => [
+				'components' => [
+					'categories' => $categoriesList->getConfig(),
+				]
+			]
 		));
 
 		return parent::fetch($request, $template, $display);
@@ -199,7 +239,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 		$submission = $this->getSubmission();
 		parent::execute();
 		// Execute submission metadata related operations.
-		$this->_metadataFormImplem->execute($submission, Application::getRequest());
+		$this->_metadataFormImplem->execute($submission, Application::get()->getRequest());
 
 		$submissionDao = Application::getSubmissionDAO();
 		$submissionDao->removeCategories($submission->getId());
@@ -209,5 +249,6 @@ class PKPSubmissionMetadataViewForm extends Form {
 			}
 		}
 	}
+
 
 }

@@ -4,8 +4,8 @@
 <!--
   * locale/nb_NO/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nb_NO (Norsk bokmål) locale.
@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Innholdet i konfigurasjonsfilen</message>
 	<message key="installer.createDatabase">Opprett ny database</message>
 	<message key="installer.createDatabaseInstructions">For å bruke denne valgmuligheten må ditt databasesystem støtte kreering av databaser  og din brukerkonto må ha de nødvendige rettigheter til å skape nye databaser. Hvis installasjon feiler med denne valgmuligheten valgt, skap databasen manuelt på din server og kjør installasjonsprogrammet igjen med denne valgmuligheten slått av.</message>
-	<message key="installer.databaseCharset">Databasetegnsett</message>
 	<message key="installer.databaseDriver">Databasedriver</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Databasedrivere oppført in hakeparenteser ser ikke ut til å ha den påkrevete PHP-utvidelsen lastet og installasjonen kommer trolig til å feile hvis de velges.</strong><br />Ikke-supporterte databasedrivere oppført over er oppført kun for informasjonsformål og vil trolig ikke fungere.]]></message>
 	<message key="installer.databaseHost">Vert</message>
@@ -57,7 +56,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Feil ved lesing av databaseinstallasjonsfilen <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Lokalinnstilling</message>
 	<message key="installer.localeSettings">Lokalinnstillinger</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator brukt for å identifisere metadatafiler indeksert fra dette nettstedet ved bruk av <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator brukt for å identifisere metadatafiler indeksert fra dette nettstedet ved bruk av <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI-arkividentifikator</message>
 	<message key="installer.publicFilesDirError">Mappen for offentlige filer finnes ikke eller er ikke overskrivbar.</message>
 	<message key="installer.releaseNotes">Releasenotater</message>

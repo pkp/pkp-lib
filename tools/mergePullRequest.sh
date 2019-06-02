@@ -3,8 +3,8 @@
 #
 # lib/pkp/tools/mergePullRequest.sh
 #
-# Copyright (c) 2013-2018 Simon Fraser University
-# Copyright (c) 2010-2018 John Willinsky
+# Copyright (c) 2013-2019 Simon Fraser University
+# Copyright (c) 2010-2019 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to perform a pull request merge correctly updating the library submodule hashes.

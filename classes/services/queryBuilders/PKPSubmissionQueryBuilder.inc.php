@@ -3,8 +3,8 @@
 /**
  * @file classes/services/QueryBuilders/PKPSubmissionQueryBuilder.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionQueryBuilder
@@ -57,6 +57,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 	/** @var bool|null whether to return only submissions with overdue review assignments */
 	protected $isOverdue = false;
+
+	protected $submissionVersion = null;
 
 	/**
 	 * Set context submissions filter
@@ -243,7 +245,10 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		// return object
 		if ($this->returnObject === SUBMISSION_RETURN_PUBLISHED) {
 			$this->columns[] = 'ps.*';
-			$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
+			$q->leftJoin('published_submissions as ps', function($join){
+				$join->on('ps.submission_id','=','s.submission_id');
+			})
+				->where('ps.is_current_submission_version', '=', '1')
 				->groupBy('ps.date_published');
 			$q->whereNotNull('ps.published_submission_id');
 			$q->groupBy('ps.published_submission_id');
@@ -253,9 +258,17 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		if (!is_null($this->statuses)) {
 			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
 			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== SUBMISSION_RETURN_PUBLISHED) {
-				$this->columns[] = 'ps.date_published';
-				$q->leftJoin('published_submissions as ps','ps.submission_id','=','s.submission_id')
-					->groupBy('ps.date_published');
+				$this->columns[] = 'st.setting_value';
+				$q->leftJoin('published_submissions as ps', function($join){
+					$join->on('ps.submission_id','=','s.submission_id');
+				})
+				->leftJoin('submission_settings as st', function($join){
+					$join->on('ps.submission_id', '=', 'st.submission_id');
+					$join->on('ps.published_submission_version', '=', 'st.submission_version');
+				})
+				->where('st.setting_name', '=', 'title')
+				->where('ps.is_current_submission_version', '=', '1')
+				->groupBy('st.setting_value');
 			}
 			$q->whereIn('s.status', $this->statuses);
 		}
@@ -270,7 +283,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			$q->where('s.submission_progress', '>', 0);
 		}
 
-		// overdue submisions
+		// overdue submissions
 		if ($this->isOverdue) {
 			$q->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
 				->leftJoin('review_rounds as rr', function($table) {
@@ -285,6 +298,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			$q->where('rr.status', '!=', REVIEW_ROUND_STATUS_DECLINED);
 			$q->where(function ($q) {
 				$q->where('raod.declined', '<>', 1);
+				$q->where('raod.cancelled', '<>', 1);
 				$q->where(function ($q) {
 					$q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
 					$q->whereNull('raod.date_completed');
@@ -336,7 +350,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 			if (count($words)) {
 				$q->leftJoin('submission_settings as ss','s.submission_id','=','ss.submission_id')
 					->leftJoin('authors as au','s.submission_id','=','au.submission_id')
-					->leftJoin('author_settings as as', 'as.author_id', '=', 'au.author_id');
+					->leftJoin('author_settings as aus', 'aus.author_id', '=', 'au.author_id');
 
 				foreach ($words as $word) {
 					$word = strtolower(addcslashes($word, '%_'));
@@ -346,12 +360,12 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 							$q->where(Capsule::raw('lower(ss.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word) {
-							$q->where('as.setting_name', IDENTITY_SETTING_GIVENNAME);
-							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where('aus.setting_name', IDENTITY_SETTING_GIVENNAME);
+							$q->where(Capsule::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word, $isAssignedOnly) {
-							$q->where('as.setting_name', IDENTITY_SETTING_FAMILYNAME);
-							$q->where(Capsule::raw('lower(as.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where('aus.setting_name', IDENTITY_SETTING_FAMILYNAME);
+							$q->where(Capsule::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
 						});
 						// Prevent reviewers from matching searches by author name
 						if ($isAssignedOnly) {

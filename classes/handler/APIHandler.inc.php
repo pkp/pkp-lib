@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/classes/handler/APIHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class APIHandler
@@ -122,7 +122,7 @@ class APIHandler extends PKPHandler {
 			$response = $response->withHeader('Access-Control-Allow-Origin', '*');
 			return $next($request, $response);
 		});
-		$this->_request = Application::getRequest();
+		$this->_request = Application::get()->getRequest();
 		$this->setupEndpoints();
 	}
 
@@ -193,6 +193,7 @@ class APIHandler extends PKPHandler {
 	public function setupEndpoints() {
 		$app = $this->getApp();
 		$endpoints = $this->getEndpoints();
+		HookRegistry::call('APIHandler::endpoints', [&$endpoints, $this]);
 		foreach ($endpoints as $method => $definitions) {
 			foreach ($definitions as $parameters) {
 				$method = strtolower($method);

@@ -3,8 +3,8 @@
 /**
  * @file pages/workflow/PKPWorkflowHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WorkflowHandler
@@ -145,7 +145,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 */
-	function editorial(&$args, $request) {
+	function editorial($args, $request) {
 		$this->_redirectToIndex($args, $request);
 	}
 
@@ -154,7 +154,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 */
-	function production(&$args, $request) {
+	function production($args, $request) {
 		$this->_redirectToIndex($args, $request);
 	}
 
@@ -163,7 +163,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	protected function _redirectToIndex(&$args, $request) {
+	protected function _redirectToIndex($args, $request) {
 		// Translate the operation to a workflow stage identifier.
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$router = $request->getRouter();
@@ -290,7 +290,7 @@ abstract class PKPWorkflowHandler extends Handler {
 						if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
 							if (array_key_exists($editorDecision['editorId'], $recommendations)) {
 								if ($editorDecision['dateDecided'] >= $recommendations[$editorDecision['editorId']]['dateDecided']) {
-									$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);;
+									$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);
 								}
 							} else {
 								$recommendations[$editorDecision['editorId']] = array('dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']);

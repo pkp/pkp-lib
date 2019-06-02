@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/users/filter/NativeXmlUserGroupFilter.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlUserGroupFilter
@@ -87,6 +87,7 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 				case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale')); break;
 				case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale')); break;
 				case 'permit_self_registration': $userGroup->setPermitSelfRegistration($n->textContent); break;
+				case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit($n->textContent); break;
 			}
 
 			$userGroupId = $userGroupDao->insertObject($userGroup);

@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/roles/form/userGroupForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form to edit or create a user group
@@ -16,6 +16,7 @@
 			selfRegistrationRoleIds: {$selfRegistrationRoleIds|@json_encode},
 			recommendOnlyRoleIds: {$recommendOnlyRoleIds|@json_encode},
 			roleForbiddenStagesJSON: {$roleForbiddenStagesJSON},
+			notChangeMetadataEditPermissionRoles: {$notChangeMetadataEditPermissionRoles|@json_encode},
 			stagesSelector: '[id^="assignedStages"]'
 		{rdelim});
 	{rdelim});
@@ -54,9 +55,11 @@
 				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
 				{fbvElement type="checkbox" name="permitSelfRegistration" id="permitSelfRegistration" checked=$permitSelfRegistration label="settings.roles.permitSelfRegistration"}
 				{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" checked=$recommendOnly label="settings.roles.recommendOnly"}
+				{fbvElement type="checkbox" name="permitMetadataEdit" id="permitMetadataEdit" checked=$permitMetadataEdit label="settings.roles.permitMetadataEdit"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>
+
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{fbvFormButtons}
 </form>

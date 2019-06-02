@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/languages/LanguageGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LanguageGridCellProvider
@@ -91,7 +91,12 @@ class LanguageGridCellProvider extends GridCellProvider {
 				$primary = $element['primary'];
 				if (!$primary) {
 					$action = 'setPrimary-' . $row->getId();
-					$actionRequest = new AjaxAction($router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs));
+					$actionRequest = new RemoteActionConfirmationModal(
+						$request->getSession(),
+						__('admin.languages.confirmSitePrimaryLocaleChange'),
+						__('locale.primary'),
+						$router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs)
+					);
 				}
 				break;
 			case 'contextPrimary':

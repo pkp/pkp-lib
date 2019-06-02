@@ -4,8 +4,8 @@
 <!--
   * locale/id_ID/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2003-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -60,7 +60,6 @@
 	<message key="manager.emails.emailKey">Kunci Email</message>
 	<message key="manager.emails.emailfile:///usr/share/blankon-artwork/home/index.htmlKeyExists">Email dengan kunci yang telah diberikan sudah ada. Kunci email harus unik.</message>
 	<message key="manager.emails.emailTemplate">Template Email</message>
-	<message key="manager.emails.emailTemplates">Templates Email</message>
 	<message key="manager.emails.enabled">Aktifkan template email ini</message>
 	<message key="manager.emails.enable">Aktifkan</message>
 	<message key="manager.emails.form.emailKeyRequired">Kunci email unik dibutuhkan untuk email ini.</message>

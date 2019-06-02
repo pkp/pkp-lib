@@ -3,63 +3,46 @@
 /**
  * @file classes/mail/EmailTemplate.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class BaseEmailTemplate
+ * @class EmailTemplate
  * @ingroup mail
  * @see EmailTemplateDAO
  *
  * @brief Describes basic email template properties.
  */
 
-
-/**
- * Email template base class.
- */
-class BaseEmailTemplate extends DataObject {
+class EmailTemplate extends DataObject {
 
 	//
 	// Get/set methods
 	//
 
 	/**
-	 * Get association type.
-	 * @return int
-	 */
-	function getAssocType() {
-		return $this->getData('assocType');
-	}
-
-	/**
-	 * Set association type.
-	 * @param $assocType int
-	 */
-	function setAssocType($assocType) {
-		$this->setData('assocType', $assocType);
-	}
-
-	/**
 	 * Get ID of journal/conference/...
+	 * @deprecated 3.2
 	 * @return int
 	 */
 	function getAssocId() {
-		return $this->getData('assocId');
+		return $this->getData('contextId');
 	}
 
 	/**
 	 * Set ID of journal/conference/...
+	 * @deprecated 3.2
 	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
-		$this->setData('assocId', $assocId);
+		$this->setData('contextId', $assocId);
 	}
 
 	/**
 	 * Determine whether or not this is a custom email template
 	 * (ie one that was created by the journal/conference/... manager and
 	 * is not part of the system upon installation)
+	 * @deprecated 3.2
 	 */
 	function isCustomTemplate() {
 		return false;
@@ -67,6 +50,7 @@ class BaseEmailTemplate extends DataObject {
 
 	/**
 	 * Get sender role ID.
+	 * @deprecated 3.2
 	 */
 	function getFromRoleId() {
 		return $this->getData('fromRoleId');
@@ -75,6 +59,7 @@ class BaseEmailTemplate extends DataObject {
 	/**
 	 * Set sender role ID.
 	 * @param $fromRoleId int
+	 * @deprecated 3.2
 	 */
 	function setFromRoleId($fromRoleId) {
 		$this->setData('fromRoleId', $fromRoleId);
@@ -82,6 +67,7 @@ class BaseEmailTemplate extends DataObject {
 
 	/**
 	 * Get recipient role ID.
+	 * @deprecated 3.2
 	 */
 	function getToRoleId() {
 		return $this->getData('toRoleId');
@@ -89,6 +75,7 @@ class BaseEmailTemplate extends DataObject {
 
 	/**
 	 * Set recipient role ID.
+	 * @deprecated 3.2
 	 * @param $toRoleId int
 	 */
 	function setToRoleId($toRoleId) {
@@ -97,38 +84,43 @@ class BaseEmailTemplate extends DataObject {
 
 	/**
 	 * Get ID of email template.
+	 * @deprecated 3.2
 	 * @return int
 	 */
 	function getEmailId() {
-		return $this->getData('emailId');
+		return $this->getData('id');
 	}
 
 	/**
 	 * Set ID of email template.
+	 * @deprecated 3.2
 	 * @param $emailId int
 	 */
 	function setEmailId($emailId) {
-		$this->setData('emailId', $emailId);
+		$this->setData('id', $emailId);
 	}
 
 	/**
 	 * Get key of email template.
+	 * @deprecated 3.2
 	 * @return string
 	 */
 	function getEmailKey() {
-		return $this->getData('emailKey');
+		return $this->getData('key');
 	}
 
 	/**
 	 * Set key of email template.
-	 * @param $emailKey string
+	 * @deprecated 3.2
+	 * @param $key string
 	 */
-	function setEmailKey($emailKey) {
-		$this->setData('emailKey', $emailKey);
+	function setEmailKey($key) {
+		$this->setData('key', $key);
 	}
 
 	/**
 	 * Get the enabled setting of email template.
+	 * @deprecated 3.2
 	 * @return boolean
 	 */
 	function getEnabled() {
@@ -137,6 +129,7 @@ class BaseEmailTemplate extends DataObject {
 
 	/**
 	 * Set the enabled setting of email template.
+	 * @deprecated 3.2
 	 * @param $enabled boolean
 	 */
 	function setEnabled($enabled) {
@@ -145,6 +138,7 @@ class BaseEmailTemplate extends DataObject {
 
 	/**
 	 * Check if email template is allowed to be disabled.
+	 * @deprecated 3.2
 	 * @return boolean
 	 */
 	function getCanDisable() {
@@ -153,173 +147,16 @@ class BaseEmailTemplate extends DataObject {
 
 	/**
 	 * Set whether or not email template is allowed to be disabled.
+	 * @deprecated 3.2
 	 * @param $canDisable boolean
 	 */
 	function setCanDisable($canDisable) {
 		$this->setData('canDisable', $canDisable);
 	}
 
-}
-
-
-/**
- * Email template with data for all supported locales.
- */
-class LocaleEmailTemplate extends BaseEmailTemplate {
-
-	/** @var array of localized email template data */
-	var $localeData;
-
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->localeData = array();
-	}
-
-	/**
-	 * Set whether or not this is a custom template.
-	 */
-	function setCustomTemplate($isCustomTemplate) {
-		$this->isCustomTemplate = $isCustomTemplate;
-	}
-
-	/**
-	 * Determine whether or not this is a custom email template
-	 * (ie one that was created by the journal/conference/... manager and
-	 * is not part of the system upon installation)
-	 */
-	function isCustomTemplate() {
-		return $this->isCustomTemplate;
-	}
-
-	/**
-	 * Add a new locale to store data for.
-	 * @param $locale string
-	 */
-	function addLocale($locale) {
-		$this->localeData[$locale] = array();
-	}
-
-	/**
-	 * Get set of supported locales for this template.
-	 * @return array
-	 */
-	function getLocales() {
-		return array_keys($this->localeData);
-	}
-
-	//
-	// Get/set methods
-	//
-
-	/**
-	 * Get description of email template.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getDescription($locale) {
-		return isset($this->localeData[$locale]['description']) ? $this->localeData[$locale]['description'] : '';
-	}
-
-	/**
-	 * Set description of email template.
-	 * @param $locale string
-	 * @param $description string
-	 */
-	function setDescription($locale, $description) {
-		$this->localeData[$locale]['description'] = $description;
-	}
-
 	/**
 	 * Get subject of email template.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getSubject($locale) {
-		return isset($this->localeData[$locale]['subject']) ? $this->localeData[$locale]['subject'] : '';
-	}
-
-	/**
-	 * Set subject of email template.
-	 * @param $locale string
-	 * @param $subject string
-	 */
-	function setSubject($locale, $subject) {
-		$this->localeData[$locale]['subject'] = $subject;
-	}
-
-	/**
-	 * Get body of email template.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getBody($locale) {
-		return isset($this->localeData[$locale]['body']) ? $this->localeData[$locale]['body'] : '';
-	}
-
-	/**
-	 * Set body of email template.
-	 * @param $locale string
-	 * @param $body string
-	 */
-	function setBody($locale, $body) {
-		$this->localeData[$locale]['body'] = $body;
-	}
-}
-
-
-/**
- * Email template for a specific locale.
- */
-class EmailTemplate extends BaseEmailTemplate {
-
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-	}
-
-	/**
-	 * Set whether or not this is a custom template.
-	 */
-	function setCustomTemplate($isCustomTemplate) {
-		$this->isCustomTemplate = $isCustomTemplate;
-	}
-
-	/**
-	 * Determine whether or not this is a custom email template
-	 * (ie one that was created by the journal/conference/... manager and
-	 * is not part of the system upon installation)
-	 */
-	function isCustomTemplate() {
-		return $this->isCustomTemplate;
-	}
-
-	//
-	// Get/set methods
-	//
-
-	/**
-	 * Get locale of email template.
-	 * @return string
-	 */
-	function getLocale() {
-		return $this->getData('locale');
-	}
-
-	/**
-	 * Set locale of email template.
-	 * @param $locale string
-	 */
-	function setLocale($locale) {
-		$this->setData('locale', $locale);
-	}
-
-	/**
-	 * Get subject of email template.
+	 * @deprecated 3.2
 	 * @return string
 	 */
 	function getSubject() {
@@ -328,6 +165,7 @@ class EmailTemplate extends BaseEmailTemplate {
 
 	/**
 	 * Set subject of email.
+	 * @deprecated 3.2
 	 * @param $subject string
 	 */
 	function setSubject($subject) {
@@ -336,6 +174,7 @@ class EmailTemplate extends BaseEmailTemplate {
 
 	/**
 	 * Get body of email template.
+	 * @deprecated 3.2
 	 * @return string
 	 */
 	function getBody() {
@@ -344,6 +183,7 @@ class EmailTemplate extends BaseEmailTemplate {
 
 	/**
 	 * Set body of email template.
+	 * @deprecated 3.2
 	 * @param $body string
 	 */
 	function setBody($body) {

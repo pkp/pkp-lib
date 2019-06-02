@@ -1,23 +1,23 @@
 {**
  * templates/controllers/grid/files/copyedit/manageCopyeditFiles.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Allows users to manage the list of copyedit files, potentially adding more
  *}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#manageCopyeditFilesForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
 
-<!-- Current copyedited files -->
-<div id="existingFilesContainer">
-	<form class="pkp_form" id="manageCopyeditFilesForm" action="{url component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="updateCopyeditFiles" submissionId=$submissionId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
+<form class="pkp_form" id="manageCopyeditFilesForm" action="{url component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="updateCopyeditFiles" submissionId=$submissionId stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING}" method="post">
+	<!-- Current copyedited files -->
+	<div id="existingFilesContainer">
 		{csrf}
 		{fbvFormArea id="manageCopyeditFiles"}
 			{fbvFormSection}
@@ -27,5 +27,5 @@
 
 			{fbvFormButtons}
 		{/fbvFormArea}
-	</form>
-</div>
+	</div>
+</form>

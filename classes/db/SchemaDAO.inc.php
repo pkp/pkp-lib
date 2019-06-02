@@ -2,8 +2,8 @@
 /**
  * @file classes/db/SchemaDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SchemaDAO
@@ -57,7 +57,7 @@ abstract class SchemaDAO extends DAO {
 		}
 
 		if (empty($primaryDbProps)) {
-			fatalError('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
+			throw new Exception('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
 		}
 
 		$columnsList = join(', ', array_keys($primaryDbProps));
@@ -144,7 +144,7 @@ abstract class SchemaDAO extends DAO {
 				foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
 					// Delete rows with a null value
 					if (is_null($localeValue)) {
-						$this->update("DELETE FROM $this->settingsTableName WHERE setting_name = ? AND locale = ?",[
+						$this->update("DELETE FROM $this->settingsTableName WHERE setting_name = ? AND locale = ?", [
 							$propName,
 							$localeKey,
 						]);
@@ -246,5 +246,13 @@ abstract class SchemaDAO extends DAO {
 		}
 
 		return $object;
+	}
+
+	/**
+	 * Get the ID of the last inserted context.
+	 * @return int
+	 */
+	public function getInsertId() {
+		return $this->_getInsertId($this->tableName, $this->primaryKeyColumn);
 	}
 }

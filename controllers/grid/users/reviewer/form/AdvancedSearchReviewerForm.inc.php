@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/AdvancedSearchReviewerForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdvancedSearchReviewerForm
@@ -42,6 +42,9 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
+		// Get submission context
+		$submissionContext = Services::get('context')->get($this->getSubmission()->getContextId());
+
 		// Pass along the request vars
 		$actionArgs = $request->getUserVars();
 		$reviewRound = $this->getReviewRound();
@@ -66,8 +69,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			}
 		}
 
-		// Get user IDs already assigned to this submission, and global admins and
-		// managers, who may have access to author identities and can not guarantee
+		// Get user IDs already assigned to this submission, and admins and
+		// managers who may have access to author identities and can not guarantee
 		// blind reviews
 		$warnOnAssignment = array();
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
@@ -76,26 +79,51 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			$warnOnAssignment[] = $stageAssignment->getUserId();
 		}
 		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$managerUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $this->getSubmission()->getContextId());
+		$managerUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $submissionContext->getId());
 		while ($manager = $managerUsersResults->next()) {
 			$warnOnAssignment[] = $manager->getId();
 		}
-		$adminUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN, $this->getSubmission()->getContextId());
+		$adminUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN, $submissionContext->getId());
 		while ($admin = $adminUsersResults->next()) {
 			$warnOnAssignment[] = $admin->getId();
 		}
 		$warnOnAssignment = array_map('intval', array_values(array_unique($warnOnAssignment)));
 
-		import('lib.pkp.classes.components.listPanels.users.SelectReviewerListPanel');
-		$selectReviewerListPanel = new SelectReviewerListPanel(array(
-			'title' => 'editor.submission.findAndSelectReviewer',
-			'inputName' => 'reviewerId',
-			'inputType' => 'radio',
-			'currentlyAssigned' => $currentlyAssigned,
-			'warnOnAssignment' => $warnOnAssignment,
-		));
+		// Get reviewers list
+		$selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(
+			'selectReviewer',
+			__('editor.submission.findAndSelectReviewer'),
+			[
+				'apiUrl' => $request->getDispatcher()->url(
+					$request,
+					ROUTE_API,
+					$submissionContext->getPath(),
+					'users/reviewers'
+				),
+				'currentlyAssigned' => $currentlyAssigned,
+				'getParams' => [
+					'contextId' => $submissionContext->getId(),
+					'count' => 15,
+					'reviewStage' => $reviewRound->getStageId(),
+				],
+				'items' => $items,
+				'itemsMax' => $itemsMax,
+				'selectorName' => 'reviewerId',
+				'selectorType' => 'radio',
+				'warnOnAssignment' => $warnOnAssignment,
+			]
+		);
+		$selectReviewerListPanel->set([
+			'items' => $selectReviewerListPanel->getItems($request),
+			'itemsMax' => $selectReviewerListPanel->getItemsMax(),
+		]);
+
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('selectReviewerListData', $selectReviewerListPanel->getConfig());
+		$templateMgr->assign('selectReviewerListData', [
+			'components' => [
+				'selectReviewer' => $selectReviewerListPanel->getConfig(),
+			]
+		]);
 
 		// Only add actions to forms where user can operate.
 		if (array_intersect($this->getUserRoles(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) {

@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/reviewer/form/ReviewerReviewStep3Form.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewStep3Form
@@ -49,11 +49,11 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 		$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
 		$submissionComment = $submissionComments->next();
-		$this->setData('comment', $submissionComment?$submissionComment->getComments():'');
+		$this->setData('comments', $submissionComment?$submissionComment->getComments():'');
 
 		$submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
 		$submissionCommentPrivate = $submissionCommentsPrivate->next();
-		$this->setData('commentPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
+		$this->setData('commentsPrivate', $submissionCommentPrivate?$submissionCommentPrivate->getComments():'');
 	}
 
 	//
@@ -209,7 +209,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR)) || in_array($userId, $receivedList)) continue;
 
 			$notificationMgr->createNotification(
-				Application::getRequest(), $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
+				Application::get()->getRequest(), $userId, NOTIFICATION_TYPE_REVIEWER_COMMENT,
 				$submission->getContextId(), ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId()
 			);
 

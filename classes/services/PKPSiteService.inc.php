@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPSiteService.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteService
@@ -109,7 +109,7 @@ class PKPSiteService implements EntityPropertyInterface {
 
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
-		$user = Application::getRequest()->getUser();
+		$user = Application::get()->getRequest()->getUser();
 		\ValidatorFactory::temporaryFilesExist(
 			$validator,
 			['pageHeaderTitleImage', 'styleSheet'],

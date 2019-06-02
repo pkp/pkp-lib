@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/library/form/NewLibraryFileForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileForm
@@ -40,7 +40,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 	 * @return $fileId int The new library file id.
 	 */
 	function execute() {
-		$userId = Application::getRequest()->getUser()->getId();
+		$userId = Application::get()->getRequest()->getUser()->getId();
 
 		// Fetch the temporary file storing the uploaded library file
 		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');

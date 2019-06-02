@@ -4,8 +4,8 @@
 <!--
   * locale/ca_ES/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Continguts del fitxer de configuració</message>
 	<message key="installer.createDatabase">Crea una base de dades nova</message>
 	<message key="installer.createDatabaseInstructions">Per utilitzar aquesta opció, el vostre sistema de bases de dades ha d'admetre la creació remota de bases de dades i el vostre compte d'usuari/ària ha de tenir els permisos adequats per crear noves bases de dades. Si heu seleccionat aquesta opció i la instal·lació falla, creeu la base de dades manualment al servidor i torneu a executar l'instal·lador amb l'opció desactivada.</message>
-	<message key="installer.databaseCharset">Joc de caràcters de la base de dades</message>
 	<message key="installer.databaseDriver">Controlador de la base de dades</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Els controladors de bases de dades llistats entre parèntesis no sembla que tinguin carregada l'extensió PHP requerida, per la qual cosa si els seleccioneu és probable que la instal·lació falli.</strong><br />Els controladors de bases de dades no acceptats només es llisten per a finalitats acadèmiques i és poc probable que funcionin.]]></message>
 	<message key="installer.databaseHost">Amfitrió</message>
@@ -62,7 +61,7 @@
 	<message key="installer.locale.maybeIncomplete">Les configuracions regionals marcades poden estar incompletes.</message>
 	<message key="installer.localeSettings">Paràmetres de configuració regional</message>
 	<message key="installer.oaiSettings">Configuració OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificador únic utilitzat per identificar els registres de metadades indexats des d'aquest lloc web mitjançant el Protocol for Metadata Harvesting (protocol per a la recopilació de metadades) de <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificador únic utilitzat per identificar els registres de metadades indexats des d'aquest lloc web mitjançant el Protocol for Metadata Harvesting (protocol per a la recopilació de metadades) de <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador del dipòsit OAI</message>
 	<message key="installer.publicFilesDirError">El directori per als fitxers públics no existeix o no té permís d’escriptura.</message>
 	<message key="installer.releaseNotes">Notes de la versió</message>

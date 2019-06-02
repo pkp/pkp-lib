@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/user.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -95,7 +95,7 @@
 	<message key="user.authorization.processAuthenticationTokenRequired">O token de autenticação de processo não existe ou é inválido.</message>
 	<message key="user.accountInformation">Informação sobre Conta</message>
 	<message key="user.orcid">iD ORCID</message>
-	<message key="user.orcid.orcidInvalid">O ORCID iD fornecido é inválido. Inclua o URI completo (por exemplo, "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">O ORCID iD fornecido é inválido. Inclua o URI completo (por exemplo, "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identidade</message>
 	<message key="user.profile.contact">Contacto</message>
 	<message key="user.profile.public">Público</message>

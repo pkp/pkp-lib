@@ -8,8 +8,8 @@
 /**
  * @file classes/mail/Mail.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mail
@@ -496,6 +496,7 @@ class Mail extends DataObject {
 		foreach ((array) $this->getHeaders() as $header) {
 			$mailer->AddCustomHeader($header['key'], $mailer->SecureHeader($header['content']));
 		}
+		$request = Application::get()->getRequest();
 		if (($f = $this->getFrom()) != null) {
 			if (Config::getVar('email', 'force_default_envelope_sender') && Config::getVar('email', 'default_envelope_sender') && Config::getVar('email', 'force_dmarc_compliant_from')) {
 				/* If a DMARC compliant RFC5322.From was requested we need to promote the original RFC5322.From into a Reply-to header
@@ -510,7 +511,6 @@ class Mail extends DataObject {
 					$mailer->AddReplyTo($f['email'], $f['name']);
 				}
 
-				$request = Application::getRequest();
 				$site = $request->getSite();
 
 				// Munge the RFC5322.From
@@ -544,7 +544,7 @@ class Mail extends DataObject {
 		$mailer->Body = $mailBody;
 		$mailer->AltBody = PKPString::html2text($mailBody);
 
-		$remoteAddr = $mailer->SecureHeader(Request::getRemoteAddr());
+		$remoteAddr = $mailer->SecureHeader($request->getRemoteAddr());
 		if ($remoteAddr != '') $mailer->AddCustomHeader("X-Originating-IP: $remoteAddr");
 
 		foreach ((array) $this->getAttachments() as $attachmentInfo) {

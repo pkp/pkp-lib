@@ -3,8 +3,8 @@
 <!--
   * locale/fa_IR/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
@@ -22,7 +22,6 @@
 	<message key="installer.contentsOfConfigFile">محتوای فایل تنظیمات</message>
 	<message key="installer.createDatabase">ایجاد بانک اطلاعاتی جدید</message>
 	<message key="installer.createDatabaseInstructions">برای استفاده از این امکان، سیستم بانک اطلاعاتی شما می‌بایست از ایجاد بانک اطلاعاتی از راه دور پشتیبانی کند و حساب کاربری شما می‌بایست مجوزهای لازم برای ایجاد یک بانک اطلاعاتی جدید را داشته باشد. چنانچه با انتخاب این گزینه، نصب نرم‌افزار شکست خورد لازم است به‌صورت دستی بانک اطلاعاتی را بر روی سیستم خود ایجاد کنید و برنامه نصب نرم‌افزار را از نو اجرا کنید ولی این بار این گزینه را غیرفعال کنید.</message>
-	<message key="installer.databaseCharset">سیستم کاراکتری بانک اطلاعاتی</message>
 	<message key="installer.databaseDriver">درایور بانک اطلاعاتی</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>درایورهای بانک‌های اطلاعاتی که در کروشه آمده است نصب نشده یا توسط PHP قابل دسترسی نمی‌باشند..</strong><br />تمام درایورهای نصب نشده فقط به منظور آکادمیک در اینجا لیست شده‌اند و بعید است که در حال حاضر کارکرد داشته باشند.]]></message>
 	<message key="installer.databaseHost">میزبان</message>
@@ -57,7 +56,7 @@
 	<message key="installer.locale.maybeIncomplete">زبان‌های مشخص شده ممکن است ناکامل باشند.</message>
 	<message key="installer.localeSettings">تنظیمات زبان</message>
 	<message key="installer.oaiSettings">تنظیماتOAI </message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[یک شناسه منحصربه‌فرد برای استفاده در تشخیص فراداده‌های نمایه شده از این سایت توسط پروتکل  <a href="http://www.openarchives.org/" target="_blank"> Open Archives Initiative </a> ]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[یک شناسه منحصربه‌فرد برای استفاده در تشخیص فراداده‌های نمایه شده از این سایت توسط پروتکل  <a href="https://www.openarchives.org/" target="_blank"> Open Archives Initiative </a> ]]></message>
 	<message key="installer.oaiRepositoryId">شناسه مخزن OAI</message>
 	<message key="installer.publicFilesDirError">پوشه فایل‌های عمومی وجود ندارد و یا قابل نوشتن نیست</message>
 	<message key="installer.releaseNotes">یادداشت‌های منتشره</message>

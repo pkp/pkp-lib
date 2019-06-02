@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/AuthorReviewerGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorReviewerGridCellProvider
@@ -131,6 +131,8 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider {
 				return '<span class="state overdue">'.__('common.overdue').'</span><span class="details">'.__('editor.review.responseDue', array('date' => substr($reviewAssignment->getDateResponseDue(),0,10))).'</span>';
 			case REVIEW_ASSIGNMENT_STATUS_DECLINED:
 				return '<span class="state declined">'.__('common.declined').'</span>';
+			case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+				return '<span class="state cancelled">'.__('common.cancelled').'</span>';
 			case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
 				return  $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
 			default:

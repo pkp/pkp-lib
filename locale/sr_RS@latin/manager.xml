@@ -4,8 +4,8 @@
 <!--
   * locale/sr_RS@latin/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *  Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings.
@@ -60,14 +60,12 @@
 	<message key="manager.emails.emailKey">Ključ imejla</message>
 	<message key="manager.emails.emailKeyExists">Imajl s datim ključem već postoji. Ključ imejla mora biti jedinstven.</message>
 	<message key="manager.emails.emailTemplate">Šablon imejla</message>
-	<message key="manager.emails.emailTemplates">Šabloni imejlova</message>
 	<message key="manager.emails.enabled">Omogućite ovaj šablon imejla</message>
 	<message key="manager.emails.enable">Omogući</message>
 	<message key="manager.emails.form.emailKeyRequired">Jedinstveni ključ je obavezan za imejl.</message>
 	<message key="manager.emails.form.bodyRequired">Telo poruke je obavezno u imejlu.</message>
 	<message key="manager.emails.form.subjectRequired">Subjekat je obavezan u imejlu.</message>
 	<message key="manager.emails">Pripremljeni obrasci imejla</message>
-	<message key="manager.emails.resetAll">Vrati tekst svih šablona u početni oblik</message>
 	<message key="manager.emails.reset">Vrati na početno</message>
 	<message key="manager.emails.resetToDefault">Vratite na početnu vrednost</message>
 	<message key="manager.filesBrowser">Pregledač fajlova</message>
@@ -165,7 +163,6 @@
 	<message key="plugins.categories.themes.description">Dodatak šablona može se koristiti za promenu izgleda celokupnog sistema.</message>
 	<message key="plugins.categories.themes">Dodaci šablona</message>
 	<message key="manager.announcements.datePublish">Objavljeno</message>
-	<message key="manager.emails.addEmail">Dodaj šablon imejla</message>
 	<message key="manager.emails.data">Podaci poruke šablona</message>
 	<message key="manager.emails.details">Detalji šablona</message>
 	<message key="manager.emails.disable.message">Vi želite da isključite ovaj imejl šablon. Ukoliko postoje procesi koji su ga koristili, više ga neće koristiti. Da li ste sigurni da želite da nastavite?</message>

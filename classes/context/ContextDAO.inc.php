@@ -3,8 +3,8 @@
 /**
  * @file classes/context/ContextDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ContextDAO
@@ -159,15 +159,6 @@ abstract class ContextDAO extends SchemaDAO {
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
-	}
-
-
-	/**
-	 * Get the ID of the last inserted context.
-	 * @return int
-	 */
-	function getInsertId() {
-		return $this->_getInsertId($this->tableName, $this->primaryKeyColumn);
 	}
 
 	/**

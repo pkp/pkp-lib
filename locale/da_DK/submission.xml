@@ -4,8 +4,8 @@
 <!--
   * locale/da_DK/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
@@ -280,6 +280,8 @@
 	<message key="submission.form.name">Giv denne fil et sigendenavn</message>
 	<message key="submission.form.replaceExisting">Erstat en eksisterende fil?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} er blevet tildelt til at bedømme manuskriptet {$submissionId} for bedømmelsesrunde {$round}.</message>
+	<message key="log.review.reviewCleared">Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er ryddet.</message>
+	<message key="log.review.reviewReinstated">Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er startet igen.</message>
 	<message key="submission.reviewForm">Review formular</message>
 	<message key="submission.reviewFormResponse">Review formular respons</message>
 	<message key="submission.submission">Indsendelse</message>
@@ -483,12 +485,12 @@
 	<message key="submission.copyright">Ophavsret</message>
 	<message key="submission.copyrightStatement">Ophavsret (c) {$copyrightYear} {$copyrightHolder}</message>
 	<message key="submission.licenseURLValid">Indsæt en valid ekstern URL (inkludér http://).</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Navngivelse – Ikke-kommerciel – Ingen Bearbejdede Værker (by-nc-nd)</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Navngivelse –Ikke-kommerciel (by-nc)</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Navngivelse – Ikke-kommerciel – Del på samme vilkår (ShareAlike) (by-nc-sa)</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Navngivelse – Ingen bearbejdelser (by-nd)</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Navngivelse (by)</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Del på samme vilkår (ShareAlike) (by-sa)</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Navngivelse – Ikke-kommerciel – Ingen Bearbejdede Værker (by-nc-nd)</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Navngivelse –Ikke-kommerciel (by-nc)</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Navngivelse – Ikke-kommerciel – Del på samme vilkår (ShareAlike) (by-nc-sa)</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Navngivelse – Ingen bearbejdelser (by-nd)</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Navngivelse (by)</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Dette værk er under følgende licens <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Del på samme vilkår (ShareAlike) (by-sa)</a>.</p>]]></message>
 	<message key="submission.query.subject">Emne</message>
 	<message key="submission.query.messages">Beskeder</message>
 	<message key="submission.query.addNote">Tilføj besked</message>
@@ -531,8 +533,6 @@
 	<message key="submission.review.status.thanked">Denne bedømmelse er afsluttet og bedømmeren har modtaget tak for deltagelse.</message>
 	<message key="submission.query.noParticipantOptions">Der skal udpeges mindst én deltager i forbindelse med denne indsendelse før en drøftelse kan påbegyndes.</message>
 	<message key="submission.list.infoCenter"><![CDATA[Historik & Noter]]></message>
-	<message key="submission.list.count">{$count} indsendelser</message>
-	<message key="submission.list.itemsOfTotal">{$count} ud af {$total} indsendelser</message>
 	<message key="submission.list.responseDue">Svar forfalden</message>
 	<message key="submission.list.reviewDue">Bedømmelse forfalden</message>
 	<message key="submission.list.confirmDelete">Slet indsendelse?</message>

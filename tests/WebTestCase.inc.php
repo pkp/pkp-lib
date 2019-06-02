@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/tests/WebTestCase.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WebTestCase
@@ -14,10 +14,18 @@
  */
 
 import('lib.pkp.tests.PKPTestHelper');
+import('lib.pkp.tests.PKPTestCase');
 
-class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
+use Facebook\WebDriver\Remote\DesiredCapabilities;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Interactions\WebDriverActions;
+use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverSelect;
+
+abstract class WebTestCase extends PKPTestCase {
 	/** @var string Base URL provided from environment */
-	static protected $baseUrl;
+	public static $baseUrl;
 
 	/** @var int Timeout limit for tests in seconds */
 	static protected $timeout;
@@ -27,6 +35,13 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 	protected $coverageScriptPath = 'lib/pkp/lib/vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php';
 	protected $coverageScriptUrl = '';
+
+	protected static $driver;
+
+	const CSS_PREFIX = 'css=';
+	const ID_PREFIX = 'id=';
+	const LABEL_PREFIX='label=';
+	const LINK_PREFIX='link=';
 
 	/**
 	 * Override this method if you want to backup/restore
@@ -45,6 +60,12 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		self::$baseUrl = getenv('BASEURL');
 		self::$timeout = (int) getenv('TIMEOUT');
 		if (!self::$timeout) self::$timeout = 60; // Default 60 seconds
+		if (!self::$driver) self::$driver = RemoteWebDriver::create(
+			'http://localhost:4444/wd/hub',
+			DesiredCapabilities::chrome(),
+			self::$timeout * 1000,
+			self::$timeout * 1000
+		);
 		parent::setUpBeforeClass();
 	}
 
@@ -65,8 +86,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		// Set the URL for the script that generates the selenium coverage reports
 		$this->coverageScriptUrl = self::$baseUrl . '/' .  $this->coverageScriptPath;
 
-		$this->setTimeout(self::$timeout);
-
 		// See PKPTestCase::setUp() for an explanation
 		// of this code.
 		if(function_exists('_array_change_key_case')) {
@@ -74,11 +93,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$ADODB_INCLUDED_LIB = 1;
 		}
 
-		// This is not Google Chrome but the Firefox Heightened
-		// Privilege mode required e.g. for file upload.
-		$this->setBrowser('*chrome');
-
-		$this->setBrowserUrl(self::$baseUrl . '/');
 		if (Config::getVar('general', 'installed')) {
 			$affectedTables = $this->getAffectedTables();
 			if (is_array($affectedTables)) {
@@ -124,14 +138,11 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		if ($password === null) $password = $username . $username;
 
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent($selector='link=Login');
-		$this->clickAndWait($selector);
+		$this->click('link=Login');
 		$this->waitForElementPresent($selector='css=[id=username]');
 		$this->type($selector, $username);
 		$this->type('css=[id=password]', $password);
-		$this->waitForElementPresent($selector='css=#login button.submit');
-		$this->click($selector);
-		$this->waitForElementPresent('link=Logout');
+		$this->click('css=#login button.submit');
 	}
 
 	/**
@@ -156,8 +167,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 
 		// Find registration page
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent($selector='link=Register');
-		$this->click($selector);
+		$this->click('link=Register');
 
 		// Fill in user data
 		$this->waitForElementPresent('css=[id=givenName]');
@@ -168,7 +178,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->type('css=[id=password]', $data['password']);
 		$this->type('css=[id=password2]', $data['password2']);
 		if (isset($data['affiliation'])) $this->type('css=[id=affiliation]', $data['affiliation']);
-		if (isset($data['country'])) $this->select('id=country', $data['country']);
+		if (isset($data['country'])) $this->select('id=country', 'label=' . $data['country']);
 
 		// Select the specified roles
 		foreach ($data['roles'] as $role) {
@@ -180,7 +190,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		// Save the new user
 		$this->waitForElementPresent($formButtonSelector = '//button[contains(.,\'Register\')]');
 		$this->click($formButtonSelector);
-		$this->waitForElementPresent('link=Logout');
+		$this->waitForElementPresent('css=ul#navigationUser>li.profile>a');
 
 		if (in_array('Author', $data['roles'])) {
 			$this->waitForElementPresent('//h4[contains(.,\'My Authored\')]');
@@ -192,9 +202,10 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function logOut() {
 		$this->open(self::$baseUrl);
-		$this->waitForElementPresent('link=Logout');
-		$this->click('link=Logout');
-		$this->waitForElementPresent('link=Login');
+		$actions = new WebDriverActions(self::$driver);
+		$actions->moveToElement($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
+			->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Logout")]'))
+			->perform();
 	}
 
 	/**
@@ -247,22 +258,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * Make the exception message more informative.
-	 * @param $e Exception
-	 * @param $testObject string
-	 * @return Exception
-	 */
-	protected function improveException($e, $testObject) {
-		$improvedMessage = "Error while testing $testObject: ".$e->getMessage();
-		if (is_a($e, 'PHPUnit_Framework_ExpectationFailedException')) {
-			$e = new PHPUnit_Framework_ExpectationFailedException($improvedMessage, $e->getComparisonFailure());
-		} elseif (is_a($e, 'PHPUnit_Framework_Exception')) {
-			$e = new PHPUnit_Framework_Exception($improvedMessage, $e->getCode());
-		}
-		return $e;
-	}
-
-	/**
 	 * Save an Ajax form, waiting for the loading sprite
 	 * to be hidden to continue the test execution.
 	 * @param $formLocator String
@@ -271,13 +266,12 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->assertElementPresent($formId, 'The passed form locator do not point to any form element at the current page.');
 		$this->click('css=#' . $formId . ' #submitFormButton');
 
-		$progressIndicatorSelector = '#' . $formId . ' .formButtons .pkp_spinner';
-
 		// First make sure that the progress indicator is visible.
-		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 1", 2000);
+		$element = $this->find($selector = "css=#$formId .formButtons .pkp_spinner");
+		self::$driver->wait()->until($visibilityCondition = WebDriverExpectedCondition::visibilityOf($element));
 
 		// Wait until it disappears (the form submit process is finished).
-		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 0");
+		self::$driver->wait()->until(WebDriverExpectedCondition::not($visibilityCondition));
 	}
 
 	/**
@@ -304,7 +298,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$fileXPath = $this->getEscapedXPathForLink($filename);
 		$this->waitForElementPresent($fileXPath);
 		$this->click($fileXPath);
-		$this->waitJQuery();
 		$this->assertAlertNotPresent(); // An authentication failure will lead to a js alert.
 		$downloadLinkId = $this->getAttribute($fileXPath . '/@id');
 		$this->waitForCondition("window.jQuery('#" . htmlspecialchars($downloadLinkId) . "').hasClass('ui-state-disabled') == false");
@@ -319,11 +312,11 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	protected function typeTinyMCE($controlPrefix, $value, $inline = false) {
 		if ($inline) {
 			$this->waitForElementPresent('css=div[id^="' . $controlPrefix . '"].mce-content-body');
-			$this->runScript("tinyMCE.get('" . $controlPrefix . "').setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
-			$this->runScript("tinyMCE.get('" . $controlPrefix . "').fire('blur');");
+			self::$driver->executeScript("tinyMCE.get('" . $controlPrefix . "').setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+			self::$driver->executeScript("tinyMCE.get('" . $controlPrefix . "').fire('blur');");
 		} else {
 			$this->waitForElementPresent('css=iframe[id^="' . $controlPrefix . '"]'); // Wait for TinyMCE to init
-			$this->runScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
+			self::$driver->executeScript("tinyMCE.get($('textarea[id^=\\'" . htmlspecialchars($controlPrefix) . "\\']').attr('id')).setContent('" . htmlspecialchars($value, ENT_QUOTES) . "');");
 		}
 	}
 
@@ -339,13 +332,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function setInputValue($selector, $value) {
 		$this->waitForElementPresent('css=' . $selector);
-		$this->type('css=' . $selector);
-		$this->runScript("
-			var el = document.querySelector('" . $selector . "');
-			el.value = " . json_encode($value) . ";
-			var e = new Event('input');
-			el.dispatchEvent(e);
-		");
+		$this->type('css=' . $selector, $value);
 	}
 
 	/**
@@ -354,7 +341,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * @param $value string Value of new tag
 	 */
 	protected function addTag($controlPrefix, $value) {
-		$this->runScript('$(\'[id^=\\\'' . htmlspecialchars($controlPrefix) . '\\\']\').tagit(\'createTag\', \'' . htmlspecialchars($value) . '\');');
+		self::$driver->executeScript('$(\'[id^=\\\'' . htmlspecialchars($controlPrefix) . '\\\']\').tagit(\'createTag\', \'' . htmlspecialchars($value) . '\');');
 	}
 
 	/**
@@ -362,9 +349,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * @param $text string
 	 */
 	protected function clickButton($text) {
-		$selector = '//button[text()=\'' . $this->escapeJS($text) . '\']';
-		$this->waitForElementPresent($selector);
-		$this->click($selector);
+		$this->click('//button[text()=\'' . $this->escapeJS($text) . '\']');
 	}
 
 	/**
@@ -373,13 +358,6 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function clickLinkActionNamed($name) {
 		$this->clickButton($name);
-	}
-
-	/**
-	 * Wait for active JQuery requests to complete.
-	 */
-	protected function waitJQuery() {
-		$this->waitForCondition('window.jQuery.active == 0');
 	}
 
 	/**
@@ -401,8 +379,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$loadedItems = 0;
 		$totalItems = 1; // Just to start.
 		while($loadedItems < $totalItems) {
-			$this->runScript('$(\'.scrollable\', \'#' . $gridContainerId . '\').find(\'tr:visible\').last()[0].scrollIntoView()');
-			$this->waitJQuery();
+			self::$driver->executeScript('$(\'.scrollable\', \'#' . $gridContainerId . '\').find(\'tr:visible\').last()[0].scrollIntoView()');
 			$this->waitForElementPresent($selector='css=#' . $gridContainerId . ' .gridPagingScrolling');
 			$pagingInfo = $this->getText($selector);
 			if (!$pagingInfo) break;
@@ -417,7 +394,76 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 * Scroll page down until the end.
 	 */
 	protected function scrollPageDown() {
-		$this->waitJQuery();
-		$this->runScript('scroll(0, document.body.scrollHeight()');
+		self::$driver->executeScript('scroll(0, document.body.scrollHeight()');
+	}
+
+	protected function _webDriverBy($selector) {
+		if (substr($selector,0,strlen(self::CSS_PREFIX))==self::CSS_PREFIX) return WebDriverBy::cssSelector(substr($selector,strlen(self::CSS_PREFIX)));
+		if (substr($selector,0,strlen(self::LINK_PREFIX))==self::LINK_PREFIX) return WebDriverBy::linkText(substr($selector,strlen(self::LINK_PREFIX)));
+		if (substr($selector,0,strlen(self::ID_PREFIX))==self::ID_PREFIX) return WebDriverBy::id(substr($selector,strlen(self::ID_PREFIX)));
+		return WebDriverBy::xpath($selector);
+		
+	}
+
+	protected function find($selector) {
+		$element = self::$driver->findElement($this->_webDriverBy($selector));
+		$element->getLocationOnScreenOnceScrolledIntoView();
+		return $element;
+	}
+
+	protected function waitForElementPresent($selector) {
+		self::$driver->wait()->until(WebDriverExpectedCondition::presenceOfElementLocated($this->_webDriverBy($selector)));
+		$element = $this->find($selector);
+		$this->assertFalse(empty($element));
+		return $element;
+	}
+
+	protected function waitForTextPresent($text) {
+		$this->waitForElementPresent('//*[contains(text(),' . $this->quoteXpath($text) . ')]');
+	}
+
+	protected function assertTextPresent($text) {
+		$element = self::$driver->findElement(WebDriverBy::xpath('//*[contains(text(),' . $this->quoteXpath($text) . ')]'));
+		$this->assertFalse(empty($element));
+	}
+
+	protected function type($selector, $text) {
+		$element = $this->waitForElementPresent($selector);
+		$element->clear();
+		$element->sendKeys($text);
+	}
+
+	protected function select($elementSelector, $optionSelector) {
+		$element = $this->waitForElementPresent($elementSelector);
+		$select = new \Facebook\WebDriver\WebDriverSelect($element);
+		if (substr($optionSelector,0,strlen(self::LABEL_PREFIX))==self::LABEL_PREFIX) return $select->selectByVisibleText(substr($optionSelector,strlen(self::LABEL_PREFIX)));
+		else throw new Exception('Unknown selector type!');
+	}
+
+	protected function click($selector) {
+		self::$driver->wait()->until(WebDriverExpectedCondition::elementToBeClickable($findBy = $this->_webDriverBy($selector)));
+		$actions = new WebDriverActions(self::$driver);
+		$actions->click(self::$driver->findElement($findBy))->perform();
+	}
+
+	protected function quoteXpath($string) {
+		// Use an xpath concat to escape quotes in literals.
+		// http://kushalm.com/the-perils-of-xpath-expressions-specifically-escaping-quotes
+		return 'concat(\'' . strtr($this->escapeJS($string),
+			array(
+				'\\\'' => '\', "\'", \''
+			)
+		) . '\',\'\')';
+	}
+
+	protected function open($url) {
+		self::$driver->get($url);
+	}
+
+	protected function waitJQuery() {
+		$driver = self::$driver;
+		self::$driver->wait()->until(function() use ($driver) {
+			return $driver->executeScript('return jQuery.active == 0;');
+		});
 	}
 }

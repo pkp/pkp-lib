@@ -3,8 +3,8 @@
 /**
  * @file classes/user/PKPUserAction.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUserAction
@@ -20,7 +20,7 @@ class PKPUserAction {
 	 * @param $oldUserId int The user ID to remove
 	 * @param $newUserId int The user ID to receive all "assets" (i.e. submissions) from old user
 	 */
-	function mergeUsers($oldUserId, $newUserId) {
+	public function mergeUsers($oldUserId, $newUserId) {
 		// Need both user ids for merge
 		if (empty($oldUserId) || empty($newUserId)) {
 			return false;

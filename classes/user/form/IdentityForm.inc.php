@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/IdentityForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPProfileForm
@@ -27,7 +27,7 @@ class IdentityForm extends BaseProfileForm {
 
 		// the users register for the site, thus
 		// the site primary locale is the required default locale
-		$site = Application::getRequest()->getSite();
+		$site = Application::get()->getRequest()->getSite();
 		$this->addSupportedFormLocale($site->getPrimaryLocale());
 
 		// Validation checks for this form
@@ -87,7 +87,7 @@ class IdentityForm extends BaseProfileForm {
 	 * Save identity settings.
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
 		$user->setGivenName($this->getData('givenName'), null);

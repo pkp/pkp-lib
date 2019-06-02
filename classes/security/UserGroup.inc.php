@@ -3,8 +3,8 @@
 /**
  * @file classes/security/UserGroup.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserGroup
@@ -187,6 +187,22 @@ class UserGroup extends DataObject {
 	 */
 	function setAbbrev($abbrev, $locale) {
 		$this->setData('abbrev', $abbrev, $locale);
+	}
+
+	/**
+	 * Getter for permitMetadataEdit attribute.
+	 * @return boolean
+	 */
+	function getPermitMetadataEdit() {
+		return $this->getData('permitMetadataEdit');
+	}
+
+	/**
+	 * Setter for permitMetadataEdit attribute.
+	 * @param $permitMetadataEdit boolean
+	 */
+	function setPermitMetadataEdit($permitMetadataEdit) {
+		$this->setData('permitMetadataEdit', $permitMetadataEdit);
 	}
 }
 

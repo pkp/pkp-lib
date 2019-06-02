@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/navigationMenus/form/PKPNavigationMenuItemsForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNavigationMenuItemsForm
@@ -93,10 +93,13 @@ class PKPNavigationMenuItemsForm extends Form {
 			}
 		}
 
+		$customTemplates = Services::get('navigationMenu')->getMenuItemCustomEditTemplates();
+
 		$templateArray = array(
 			'navigationMenuItemTypeTitles' => $typeTitles,
 			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
 			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
+			'customTemplates' => $customTemplates,
 		);
 
 		$templateMgr->assign($templateArray);
@@ -112,6 +115,9 @@ class PKPNavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
 		if ($navigationMenuItem) {
+			Services::get('navigationMenu')
+				->setAllNMILocalisedTitles($navigationMenuItem);
+			
 			$formData = array(
 				'path' => $navigationMenuItem->getPath(),
 				'title' => $navigationMenuItem->getTitle(null),
@@ -129,7 +135,7 @@ class PKPNavigationMenuItemsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url','menuItemType'));
+		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'url', 'menuItemType'));
 	}
 
 	/**
@@ -149,10 +155,32 @@ class PKPNavigationMenuItemsForm extends Form {
 		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 		if (!$navigationMenuItem) {
 			$navigationMenuItem = $navigationMenuItemDao->newDataObject();
+			$navigationMenuItem->setTitle($this->getData('title'), null);
+		} else {
+			$localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
+
+			Services::get('navigationMenu')
+				->setAllNMILocalisedTitles($navigationMenuItem);
+			
+			$localizedTitles = $navigationMenuItem->getTitle(null);
+			$inputLocalisedTitles = $this->getData('title');
+			foreach ($localizedTitles as $locale => $title) {
+				if ($inputLocalisedTitles[$locale] != $title) {
+					if (!isset($inputLocalisedTitles[$locale]) || trim($inputLocalisedTitles[$locale]) == '') {
+						$navigationMenuItem->setTitle(null, $locale);
+					} else {
+						$navigationMenuItem->setTitle($inputLocalisedTitles[$locale], $locale);
+					}
+				} else {
+					if (!$localizedTitlesFromDB 
+						|| !array_key_exists($locale, $localizedTitlesFromDB)) {
+						$navigationMenuItem->setTitle(null, $locale);
+					}
+				}
+			}
 		}
 
 		$navigationMenuItem->setPath($this->getData('path'));
-		$navigationMenuItem->setTitle($this->getData('title'), null); // Localized
 		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
 		$navigationMenuItem->setContextId($this->getContextId());
 		$navigationMenuItem->setUrl($this->getData('url'));

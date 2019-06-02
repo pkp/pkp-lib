@@ -4,8 +4,8 @@
 <!--
   * locale/zh_CN/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -60,14 +60,12 @@
 	<message key="manager.emails.emailKey">电子邮件键</message>
 	<message key="manager.emails.emailKeyExists">一个给定的电子邮件键已经存在，电子邮件键必须是唯一的.</message>
 	<message key="manager.emails.emailTemplate">电子邮件模板</message>
-	<message key="manager.emails.emailTemplates">电子邮件模板</message>
 	<message key="manager.emails.enabled">启用此电子邮件模板</message>
 	<message key="manager.emails.enable">启用</message>
 	<message key="manager.emails.form.emailKeyRequired">一个唯一的电子邮件键是必须的.</message>
 	<message key="manager.emails.form.bodyRequired">这个电子邮件的内容是必须的.</message>
 	<message key="manager.emails.form.subjectRequired">这个电子邮件的主题是必须的.</message>
 	<message key="manager.emails">编写电子邮件</message>
-	<message key="manager.emails.resetAll">重置所有模板</message>
 	<message key="manager.emails.reset">重置</message>
 	<message key="manager.emails.resetToDefault">重置到默认</message>
 	<message key="manager.filesBrowser">文件浏览</message>
@@ -166,7 +164,6 @@
 	<message key="manager.reviewerSearch.interests">审阅兴趣</message>
 	<message key="manager.setup.errorDeletingItem">在删除这个项目过程中发生了一个错误</message>
 	<message key="manager.announcements.datePublish">已出版</message>
-	<message key="manager.emails.addEmail">添加电子邮件模版</message>
 	<message key="manager.emails.details">模板详细</message>
 	<message key="manager.reviewerSearch.searchByName.short">根据名字检索</message>
 	<message key="manager.emails.data">模板信息数据</message>

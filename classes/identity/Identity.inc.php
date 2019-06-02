@@ -8,8 +8,8 @@
 /**
  * @file classes/identity/Identity.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Identity
@@ -18,10 +18,12 @@
  * @brief Basic class providing common functionality for users and authors in the system.
  */
 
+import('lib.pkp.classes.submission.SubmissionVersionedDataObject');
+
 define('IDENTITY_SETTING_GIVENNAME', 'givenName');
 define('IDENTITY_SETTING_FAMILYNAME', 'familyName');
 
-class Identity extends DataObject {
+class Identity extends SubmissionVersionedDataObject {
 
 	/**
 	 * Get a piece of data for this object, localized to the current
@@ -35,7 +37,7 @@ class Identity extends DataObject {
 		$localePrecedence = array($preferredLocale);
 		// the users register for the site, thus
 		// the site primary locale is the default locale
-		$site = Application::getRequest()->getSite();
+		$site = Application::get()->getRequest()->getSite();
 		if (!in_array($site->getPrimaryLocale(), $localePrecedence)) $localePrecedence[] = $site->getPrimaryLocale();
 		// for settings other than givenName, familyName and affiliation (that are required for registration)
 		// consider also the context primary locale
@@ -79,7 +81,7 @@ class Identity extends DataObject {
 			if (is_null($defaultLocale)) {
 				// the users register for the site, thus
 				// the site primary locale is the default locale
-				$site = Application::getRequest()->getSite();
+				$site = Application::get()->getRequest()->getSite();
 				$defaultLocale = $site->getPrimaryLocale();
 			}
 			$locale = $defaultLocale;
@@ -150,7 +152,7 @@ class Identity extends DataObject {
 			if (is_null($defaultLocale)) {
 				// the users register for the site, thus
 				// the site primary locale is the default locale
-				$site = Application::getRequest()->getSite();
+				$site = Application::get()->getRequest()->getSite();
 				$defaultLocale =  $site->getPrimaryLocale();
 			}
 			$locale = $defaultLocale;

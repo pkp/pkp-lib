@@ -3,8 +3,8 @@
 /**
  * @file classes/security/UserGroupDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserGroupDAO
@@ -55,6 +55,7 @@ class UserGroupDAO extends DAO {
 		$userGroup->setDefault($row['is_default']);
 		$userGroup->setShowTitle($row['show_title']);
 		$userGroup->setPermitSelfRegistration($row['permit_self_registration']);
+		$userGroup->setPermitMetadataEdit($row['permit_metadata_edit']);
 
 		$this->getDataObjectSettings('user_group_settings', 'user_group_id', $row['user_group_id'], $userGroup);
 
@@ -71,15 +72,16 @@ class UserGroupDAO extends DAO {
 	function insertObject($userGroup) {
 		$this->update(
 			'INSERT INTO user_groups
-				(role_id, context_id, is_default, show_title, permit_self_registration)
+				(role_id, context_id, is_default, show_title, permit_self_registration, permit_metadata_edit)
 				VALUES
-				(?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				(int) $userGroup->getRoleId(),
 				(int) $userGroup->getContextId(),
 				$userGroup->getDefault()?1:0,
 				$userGroup->getShowTitle()?1:0,
 				$userGroup->getPermitSelfRegistration()?1:0,
+				$userGroup->getPermitMetadataEdit()?1:0,
 			)
 		);
 
@@ -99,7 +101,8 @@ class UserGroupDAO extends DAO {
 				context_id = ?,
 				is_default = ?,
 				show_title = ?,
-				permit_self_registration = ?
+				permit_self_registration = ?,
+				permit_metadata_edit = ?
 			WHERE	user_group_id = ?',
 			array(
 				(int) $userGroup->getRoleId(),
@@ -107,6 +110,7 @@ class UserGroupDAO extends DAO {
 				$userGroup->getDefault()?1:0,
 				$userGroup->getShowTitle()?1:0,
 				$userGroup->getPermitSelfRegistration()?1:0,
+				$userGroup->getPermitMetadataEdit()?1:0,
 				(int) $userGroup->getId(),
 			)
 		);
@@ -177,6 +181,7 @@ class UserGroupDAO extends DAO {
 	function getAdditionalFieldNames() {
 		return array_merge(parent::getAdditionalFieldNames(), array(
 			'recommendOnly',
+
 		));
 	}
 
@@ -724,6 +729,13 @@ class UserGroupDAO extends DAO {
 			$nameKey = $setting->getAttribute('name');
 			$abbrevKey = $setting->getAttribute('abbrev');
 			$permitSelfRegistration = $setting->getAttribute('permitSelfRegistration');
+			$permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
+
+			// If has manager role then permitMetadataEdit can't be overriden
+			if (in_array($roleId, array(ROLE_ID_MANAGER))) {
+				$permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
+			}
+
 			$defaultStages = explode(',', $setting->getAttribute('stages'));
 
 			// create a role associated with this user group
@@ -731,6 +743,7 @@ class UserGroupDAO extends DAO {
 			$userGroup->setRoleId($roleId);
 			$userGroup->setContextId($contextId);
 			$userGroup->setPermitSelfRegistration($permitSelfRegistration);
+			$userGroup->setPermitMetadataEdit($permitMetadataEdit);
 			$userGroup->setDefault(true);
 
 			// insert the group into the DB
@@ -994,6 +1007,42 @@ class UserGroupDAO extends DAO {
 		return $userGroupIds;
 	}
 
+	/**
+	 * Get all user group IDs with permit_metadata_edit option enabled.
+	 * @param $contextId integer
+	 * @param $roleId integer (optional)
+	 * @return array
+	 */
+	function getPermitMetadataEditGroupIds($contextId, $roleId = null) {
+		$params = array((int) $contextId);
+		if ($roleId) $params[] = (int) $roleId;
+
+		$result = $this->retrieve(
+			'SELECT	ug.user_group_id
+			FROM user_groups ug
+			WHERE permit_metadata_edit = 1 AND
+			ug.context_id = ?
+			' . ($roleId?' AND ug.role_id = ?':''),
+			$params
+		);
+
+		$userGroupIds = array();
+		while (!$result->EOF) {
+			$userGroupIds[] = (int) $result->fields[0];
+			$result->MoveNext();
+		}
+
+		$result->Close();
+		return $userGroupIds;
+	}
+
+	/**
+	 * Get a list of roles not able to change submissionMetadataEdit permission option.
+	 * @return array
+	 */
+	static function getNotChangeMetadataEditPermissionRoles() {
+		return array(ROLE_ID_MANAGER);
+	}
 }
 
 

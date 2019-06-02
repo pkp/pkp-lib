@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   * Localization strings.
@@ -163,6 +163,7 @@
 	<message key="submission.citations">Библиографические ссылки</message>
 	<message key="submission.citations.description">Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь.</message>
 	<message key="submission.parsedCitations">Извлеченные ссылки</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
 	<message key="submission.parsedCitations.description">Следующие ссылки были извлечены и будут связаны с метаданными материала.</message>
 	<message key="submission.parsedAndSaveCitations">Извлечь и сохранить ссылки</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
@@ -538,6 +539,8 @@
 	<message key="submission.productionReady">Книга доступна</message>
 	<message key="submission.review.uploadRevisionToRound">Загрузить новую версию файла</message>
 	<message key="log.review.reviewerAssigned">Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round}).</message>
+	<message key="log.review.reviewCleared">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был очищен.</message>
+	<message key="log.review.reviewReinstated">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был начат заново.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} отметил раунд {$round} рецензирования для материала {$submissionId} как нерассмотренный.</message>
 	<message key="submission.review.status.awaitingResponse">Ожидает ответа от рецензента.</message>
 	<message key="submission.review.status.declined">Рецензент отклонил этот запрос на рецензию.</message>
@@ -581,18 +584,18 @@
 	<message key="submission.license.cc.by-nd4">CC «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0</message>
 	<message key="submission.license.cc.by4">CC «Attribution» («Атрибуция») 4.0</message>
 	<message key="submission.license.cc.by-sa4">CC «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">лицензии Creative Commons «Attribution» («Атрибуция») 4.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-nd3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-nd/3.0/">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Всемирная</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa3.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">лицензии Creative Commons «Attribution» («Атрибуция») 4.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd3.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc3.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa3.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd3.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by3.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Всемирная</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa3.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Всемирная</a>.</p>]]></message>
 
 	<!-- Запросы отправки -->
 	<message key="submission.queries.submission">Обсуждения до рецензирования</message>
@@ -606,6 +609,8 @@
 	<message key="submission.query.lastReply">Последний ответ</message>
 	<message key="submission.query.closed">Закрыт</message>
 	<message key="submission.query.addNote">Добавить сообщение</message>
+	<message key="submission.query.leaveQuery">Покинуть обсуждение</message>
+	<message key="submission.query.leaveQuery.confirm">Если вы покинете это обсуждение, то больше не будете получать уведомления о новых сообщениях. Вы действительно хотите покинуть обсуждение?</message>
 	<message key="grid.action.openNoteForm">Добавить новый ответ в обсуждение</message>
 	<message key="submission.query.activity">Пользователь «{$responderName}» ответил на «{$noteTitle}»: {$noteContents}</message>
 	<message key="submission.query.new">Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</message>
@@ -616,8 +621,6 @@
 
 	<!-- Списки материалов -->
 	<message key="submission.list.infoCenter">Журнал активности и обсуждений</message>
-	<message key="submission.list.count">{$count} материалов</message>
-	<message key="submission.list.itemsOfTotal">{$count} из {$total} материалов</message>
 	<message key="submission.list.responseDue">Срок ответа на запрос</message>
 	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
 	<message key="submission.list.reviewComplete">Рецензия отправлена</message>
@@ -643,6 +646,6 @@
 	<message key="category.coverImage">Изображение обложки</message>
 	<message key="submission.submit.placement.categories">Категории</message>
 	<message key="submission.currentCoverImage">Текущее изображение</message>
-	<message key="catalog.browseTitles">{$numTitles} названий</message>
-	<message key="catalog.noTitlesSection">В этом разделе пока не опубликованы какие-либо названия.</message>
+	<message key="catalog.category.noItems">В этой категории пока ничего не опубликовано.</message>
+	<message key="catalog.category.subcategories">Подкатегории</message>
 </locale>

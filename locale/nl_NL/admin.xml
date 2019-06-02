@@ -4,14 +4,16 @@
 <!--
   * locale/nl_NL/admin.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings.
+  * Localization strings for the nl_NL (Nederlands) locale.
+  *
   -->
-
 <locale name="nl_NL" full_name="Nederlands">
+	<message key="admin.systemInfo.settingName">Naam van de instelling</message>
+	<message key="admin.systemInfo.settingValue">Waarde van de instelling</message>
 	<message key="admin.adminFunctions">Administratieve functies</message>
 	<message key="admin.auth.confirmDelete">Weet u zeker dat u deze authenticatiebron wilt verwijderen?</message>
 	<message key="admin.auth.create">Creëer authenticatiebron</message>
@@ -23,48 +25,71 @@
 	<message key="admin.confirmClearTemplateCache">Weet u zeker dat u de cache met  gecompileerde templates wilt legen?</message>
 	<message key="admin.confirmExpireSessions">Weet u seker dat u alle gebruikerssessies wilt laten verlopen? Alle gebruikes die momenteel ingelogd zijn zullen opnieuw in moeten inloggen (inclusief uzelf).</message>
 	<message key="admin.contentsOfConfigFile">Inhoud van het instellingenbestand</message>
+	<message key="admin.contexts.confirmDelete">Weet u zeker dat u {$contextName} en alle inhoud wilt verwijderen?</message>
 	<message key="admin.currentVersion">Actuele versie</message>
 	<message key="admin.dateInstalled">Installatiedatum</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Uw gewijzigde instellingen worden hieronder getoond. Om uw wijzigingen te effectueren moet u <tt>config.inc.php</tt> openen in een geschikte teksteditor en de inhoud van het bestand vervangen door de inhoud van het tekstveld hieronder.]]></message>
 	<message key="admin.displayNewSystemConfig">Bekijk nieuwe instellingen</message>
 	<message key="admin.expireSessions">Laat gebruikerssessies verlopen</message>
+	<message key="admin.languages.download">Download taalbestand</message>
+	<message key="admin.languages.downloadLocales">Download taalbestanden</message>
+	<message key="admin.languages.download.cannotOpen">De taalbeschrijving kan niet worden opgehaald van de PKP website.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">De nieuwe vertaling kan niet worden toegevoegd aan het register met vertalingen, dat zich doorgaans bevindt in "registry/locales.xml".</message>
+	<message key="admin.languages.cantDisable">Deze taal is de hoofdtaal voor de website. Ze kan niet worden uitgeschakeld voor u een andere hoofdtaal selecteert.</message>
+
 	<message key="admin.languages.confirmReload">Weet u zeker dat u deze taalbestanden opnieuw wilt laden? Eigen aanpassingen zoals in e-mail sjablonen zullen verloren gaan.</message>
 	<message key="admin.languages.installedLocales">Geïnstalleerde talen</message>
 	<message key="admin.languages.installLanguages">Beheer talen</message>
+	<message key="admin.languages.availableLocales">Beschikbare talen</message>
+	<message key="admin.languages.installLocale">Installeer taalbestanden</message>
 	<message key="admin.languages.installLocales">Installeer</message>
 	<message key="admin.languages.installNewLocales">Installeer nieuwe talen</message>
 	<message key="admin.languages.languageSettings">Taalinstellingen</message>
-	<message key="admin.languages.noLocalesAvailable">Er zijn geen additionele talen die geïnstalleerd kunnen worden.</message>
+	<message key="admin.languages.noLocalesAvailable">Er zijn geen bijkomende talen die geïnstalleerd kunnen worden.</message>
 	<message key="admin.languages.reload">Taalbestanden opnieuw laden</message>
 	<message key="admin.languages.uninstall">De-installeer taal</message>
 	<message key="admin.phpInfo">Uitgebreide PHP informatie</message>
+	<message key="admin.scheduledTask">Geplande taak</message>
+	<message key="admin.scheduledTask.startTime">Geplande taak is gestart.</message>
+	<message key="admin.scheduledTask.stopTime">Geplande taak is gestopt.</message>
+	<message key="admin.scheduledTask.noLog">De taak heeft niets gelogd.</message>
+	<message key="admin.scheduledTask.downloadLog">Uw {$softwareName} installatie heeft deze taak automatisch uitgevoerd en beëindigd, en u kan het logbestand hier downloaden: {$url}</message>
+	<message key="admin.scheduledTask.confirmClearLogs">Weet u zeker dat u alle logbestanden van geplande taken wil verwijderen?</message>
+	<message key="admin.scheduledTask.clearLogs">Verwijder alle logbestanden van geplande taken</message>
+	<message key="admin.scheduledTask.reviewReminder">Reviewherinnering</message>
+	<message key="admin.scheduledTask.subscriptionExpiryReminder">Herinnering aan vervaldatum van het abonnement</message>
 	<message key="admin.server.apacheVersion">Apache versie</message>
 	<message key="admin.server.dbDriver">Database driver</message>
 	<message key="admin.server.dbVersion">Database server versie</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Besturingssysteem en server programmatuur versies. Klik op <span class="highlight">Uitgebreide PHP informatie</span> om de details van de PHP configuratie van de server te bekijken.]]></message>
 	<message key="admin.serverInformation">Server informatie</message>
 	<message key="admin.server.phpVersion">PHP versie</message>
 	<message key="admin.server.platform">Besturingssysteem</message>
-	<message key="admin.settings.about">Over de site-beschrijving</message>
-	<message key="admin.settings.contactEmail">E-mail van de eerste contactpersoon</message>
+	<message key="admin.settings">Instelligen</message>
+	<message key="admin.settings.about">Over de site</message>
+	<message key="admin.settings.contactEmail">E-mailadres van de eerste contactpersoon</message>
 	<message key="admin.settings.contactName">Naam van de eerste contactpersoon</message>
+	<message key="admin.settings.defaultMetricDescription">Uw OJS installatie is geconfigureerd voor meer dan een gebruiksmeting. Gebruiksstatistieken worden in verschillende contexten getoond.
+		Soms wordt een enkele statistiek getoond, bv, om een lijst van meestgebruikte artikels te tonen of om
+		zoekresultaten te wegen. Kies een van de methodes als standaard.</message>
 	<message key="admin.settings.introduction">Introductie</message>
 	<message key="admin.settings.minPasswordLength">Minimale wachtwoordlengte</message>
-	<message key="admin.settings.passwordCharacters">tekens</message>
 	<message key="admin.settings.siteLanguage">Taal van de site</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Onjuist bestandstype voor site stylesheet. Geldig bestandstype is .css.</message>
 	<message key="admin.settings.siteStyleSheet">Site stylesheet</message>
+	<message key="admin.settings.siteLogo">Website logo</message>
 	<message key="admin.settings.siteTitle">Site titel</message>
+	<message key="admin.settings.siteTheme">Site thema</message>
 	<message key="admin.siteAdmin">Sitebeheer</message>
 	<message key="admin.siteManagement">Sitebeheer</message>
 	<message key="admin.siteSettings">Site instellingen</message>
+	<message key="admin.siteSetup">Site instellingen</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Het instellingenbestand <tt>config.inc.php</tt> bestaat niet, is niet leesbaar of is onbruikbaar.]]></message>
 	<message key="admin.systemInformation">Systeeminformatie</message>
 	<message key="admin.versionBuild">Build</message>
-	<message key="admin.version.checkForUpdates">Zoek naar verbeteringen</message>
+	<message key="admin.version.checkForUpdates">Zoek naar updates</message>
 	<message key="admin.version.downloadPackage">Download</message>
-	<message key="admin.version.downloadPatch">Download verbetering</message>
-	<message key="admin.versionHistory">Versiehistorie</message>
+	<message key="admin.version.downloadPatch">Download update</message>
+	<message key="admin.versionHistory">Versiegeschiedenis</message>
 	<message key="admin.version.latest">Nieuwste versie</message>
 	<message key="admin.versionMajor">Majeur</message>
 	<message key="admin.versionMinor">Mineur</message>
@@ -73,7 +98,26 @@
 	<message key="admin.version.updateAvailable">Er is een bijgewerkte versie beschikbaar</message>
 	<message key="admin.version.upToDate">Uw systeem is up-to-date</message>
 	<message key="admin.version">Versie</message>
-	<message key="admin.settings">Instelligen</message>
-	<message key="admin.settings.siteTheme">Site thema</message>
-	<message key="admin.siteSetup">Site instellingen</message>
+
+	<message key="admin.fileLoader.wrongBasePathLocation">Het basispad {$path} moet zich bevinden in een publiek toegankelijke folder.</message>
+	<message key="admin.fileLoader.pathNotAccessible">Het opgegeven pad {$path} is geen folder of niet leesbaar.</message>
+	<message key="admin.fileLoader.moveFileFailed">Het bestand {$filename} kon niet worden verplaatst van {$currentFilePath} naar {$destinationPath}</message>
+	<message key="admin.fileLoader.fileProcessed">Het bestand {$filename} is verwerkt en gearchiveerd.</message>
+	<message key="admin.fileLoader.emailSubject">Uploader</message>
+
+	<message key="admin.copyAccessLogFileTool.usage">Kopieer de doorgegeven apache toegangslogbestanden, waaruit de meldingen werden gefilterd die betrekking hebben op deze installatie, naar de folder van de gebruiksstatistieken plugin. Moet worden uitgevoerd door een gebruiker met voldoende rechten om apache toegangslogbestanden te lezen.
+
+Deze tool zal uitsluitend bestanden kopiëren die nog niet aanwezig zijn in de folders van de gebruiksstatistieken plugin (voorbereiding, bewerking, archief, geweigerd).
+
+Gebruik: {$scriptName} pad/naar/apache/log/file.log
+Gebruik (om alle bestanden in een folder te verwerken): {$scriptName} pad/naar/apache/directory</message>
+	<message key="admin.copyAccessLogFileTool.error.creatingFolder">Fout: kan geen tijdelijke folder maken {$tmpDir}</message>
+	<message key="admin.copyAccessLogFileTool.error.acessingFile">Fout: bestand {$filePath} bestaat niet of kan niet worden geopend.</message>
+	<message key="admin.copyAccessLogFileTool.error.copyingFile">Fout: kan bestand niet kopiëren van {$filePath} naar {$tmpFilePath}</message>
+	<message key="admin.copyAccessLogFileTool.error.deletingFile">Fout: kan bestand {$tmpFilePath} niet verwijderen</message>
+	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Waarschuwing: bestand {$filePath} bestaat al in de folder met gebruiksstatistieken.</message>
+	<message key="admin.copyAccessLogFileTool.success">Succes: {$filePath} naar {$destinationPath}</message>
+	<message key="admin.error.utilExecutionProblem">Het "{$utilPath}" programma eindigde met volgende fout: {$output}</message>
+	<message key="admin.error.executingUtil">Fout: kan "{$utilPath}" niet uitvoeren.  Controleer de instelling voor {$utilVar} in config.inc.php.</message>
+	<message key="admin.languages.noLocalesToDownload">Er zijn geen taalbestanden om te downloaden.</message>
 </locale>

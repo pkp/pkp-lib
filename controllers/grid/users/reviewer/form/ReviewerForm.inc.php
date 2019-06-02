@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewerForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerForm
@@ -131,7 +131,7 @@ class ReviewerForm extends Form {
 	 * @copydoc Form::initData
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$reviewerId = (int) $request->getUserVar('reviewerId');
 		$context = $request->getContext();
 		$reviewRound = $this->getReviewRound();
@@ -196,7 +196,7 @@ class ReviewerForm extends Form {
 
 		$context = $request->getContext();
 		$templateKey = $this->_getMailTemplateKey($context);
-		$template = new SubmissionMailTemplate($submission, $templateKey);
+		$template = new SubmissionMailTemplate($submission, $templateKey, null, null, false);
 		if ($template) {
 			$user = $request->getUser();
 			$dispatcher = $request->getDispatcher();
@@ -257,9 +257,14 @@ class ReviewerForm extends Form {
 		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-				$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-				$customTemplates = $emailTemplateDao->getCustomTemplateKeys($submission->getContextId());
-				$templateKeys = array_merge($templateKeys, $customTemplates);
+				$customTemplates = Services::get('emailTemplate')->getMany([
+					'contextId' => $submission->getContextId(),
+					'isCustom' => true,
+				]);
+				$customTemplateKeys = array_map(function($emailTemplate) {
+					return $emailTemplate->getData('key');
+				}, $customTemplates);
+				$templateKeys = array_merge($templateKeys, $customTemplateKeys);
 				break;
 			}
 		}
@@ -314,7 +319,7 @@ class ReviewerForm extends Form {
 	 */
 	function execute() {
 		$submission = $this->getSubmission();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		$currentReviewRound = $this->getReviewRound();

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/AuthorGridRow.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorGridRow
@@ -22,12 +22,16 @@ class AuthorGridRow extends GridRow {
 	/** @var boolean */
 	var $_readOnly;
 
+	/** @var int */
+	var $_version;
+
 	/**
 	 * Constructor
 	 */
-	function __construct($submission, $readOnly = false) {
+	function __construct($submission, $readOnly = false, $version = null) {
 		$this->_submission = $submission;
 		$this->_readOnly = $readOnly;
+		$this->_version = $version;
 		parent::__construct();
 	}
 
@@ -51,6 +55,7 @@ class AuthorGridRow extends GridRow {
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
 			$actionArgs['authorId'] = $rowId;
+			$actionArgs['version'] = $this->_version;
 
 			if (!$this->isReadOnly()) {
 				// Add row-level actions

@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -66,7 +66,6 @@
 	<message key="manager.publication.emails">Sähköpostit</message>
 	<message key="manager.emails.confirmDelete">Haluatko varmasti poistaa tämän sähköpostipohjan?</message>
 	<message key="manager.emails.confirmReset">Haluatko varmasti palauttaa tähän sähköpostipohjaan sen oletusarvot?</message>
-	<message key="manager.emails.addEmail">Lisää sähköpostipohja</message>
 	<message key="manager.emails.createEmail">Luo sähköposti</message>
 	<message key="manager.emails.data">Mallipohjan viestitiedot</message>
 	<message key="manager.emails.details">Mallipohjan tiedot</message>
@@ -77,7 +76,6 @@
 	<message key="manager.emails.emailKey">Sähköpostiavain</message>
 	<message key="manager.emails.emailKeyExists">Sähköposti, jolla on kyseinen avain, on jo olemassa. Sähköpostiavainten on oltava uniikkeja.</message>
 	<message key="manager.emails.emailTemplate">Sähköpostipohja</message>
-	<message key="manager.emails.emailTemplates">Sähköpostipohjat</message>
 	<message key="manager.emails.enabled">Ota tämä sähköpostipohja käyttöön</message>
 	<message key="manager.emails.enable">Ota käyttöön</message>
 	<message key="manager.emails.enable.message">Olet ottamassa tämän sähköpostipohjan käyttöön. Haluatko vahvistaa tämän toimenpiteen?</message>
@@ -85,7 +83,6 @@
 	<message key="manager.emails.form.bodyRequired">Sähköpostin leipäteksti vaaditaan.</message>
 	<message key="manager.emails.form.subjectRequired">Sähköpostin aihe vaaditaan.</message>
 	<message key="manager.emails">Valmiit sähköpostit</message>
-	<message key="manager.emails.resetAll">Palauta kaikki mallipohjat oletusarvoisiksi</message>
 	<message key="manager.emails.resetAll.message">Jos palautat kaikki mallipohjat oletusarvoisiksi, kaikki sähköpostipohjiin tehdyt muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?</message>
 	<message key="manager.emails.reset">Palauta</message>
 	<message key="manager.emails.reset.message">Jos palautat tämän mallipohjan, kaikki viestitiedot palautetaan oletusarvoisiksi ja kaikki muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?</message>

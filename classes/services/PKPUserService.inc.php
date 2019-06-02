@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPUserService.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUserService
@@ -161,6 +161,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		$defaultArgs = array(
 			'contextId' => CONTEXT_ID_NONE,
+			'reviewStage' => null,
 			'reviewsCompleted' => null,
 			'reviewsActive' => null,
 			'daysSinceLastAssignment' => null,
@@ -169,10 +170,12 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		);
 
 		$args = array_merge($defaultArgs, $args);
+		$args['roleIds'] = [ROLE_ID_REVIEWER];
 
 		$reviewerListQB = $this->_getQueryBuilder($args);
 		$reviewerListQB
 			->getReviewerData(true)
+			->filterByReviewStage($args['reviewStage'])
 			->filterByReviewerRating($args['reviewerRating'])
 			->filterByReviewsCompleted($args['reviewsCompleted'])
 			->filterByReviewsActive($args['reviewsActive'])
@@ -260,6 +263,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 				case 'reviewsDeclined':
 					$values[$prop] = $user->getData('declinedCount');
 					break;
+				case 'reviewsCancelled':
+					$values[$prop] = $user->getData('cancelledCount');
+					break;
 				case 'averageReviewCompletionDays':
 					$values[$prop] = $user->getData('averageTime');
 					break;
@@ -315,6 +321,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 								'roleId' => (int) $userGroup->getRoleId(),
 								'showTitle' => (boolean) $userGroup->getShowTitle(),
 								'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
+								'permitMetadataEdit' => (boolean) $userGroup->getPermitMetadataEdit(),
 								'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
 							);
 						}
@@ -392,7 +399,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	public function getReviewerSummaryProperties($user, $args = null) {
 		$props = array (
 			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
-			'reviewsActive','reviewsCompleted','reviewsDeclined','averageReviewCompletionDays',
+			'reviewsActive','reviewsCompleted','reviewsDeclined','reviewsCancelled','averageReviewCompletionDays',
 			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
 		);
 
@@ -421,7 +428,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return boolean
 	 */
 	public function canCurrentUserGossip($userId) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$currentUser = $request->getUser();

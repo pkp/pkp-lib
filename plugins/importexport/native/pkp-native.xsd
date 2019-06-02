@@ -3,8 +3,8 @@
 <!--
   * plugins/importexport/native/pkp-native.xsd
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2003-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Schema describing native XML import/export elements shared across PKP applications
@@ -149,6 +149,7 @@
 			<element name="is_default" type="boolean" />
 			<element name="show_title" type="boolean" />
 			<element name="permit_self_registration" type="boolean" />
+			<element name="permit_metadata_edit" type="boolean" />
 			<element name="name" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="abbrev" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="stage_assignments" type="string" minOccurs="1" maxOccurs="1" />

@@ -4,8 +4,8 @@
 <!--
   * locale/sv_SE/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Swedish_(sv_SE)
   * Localization strings.
@@ -538,6 +538,8 @@
 	<message key="submission.productionReady">Bok tillgänglig</message>
 	<message key="submission.review.uploadRevisionToRound">Ladda upp bearbetad fil</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} har fått uppdraget att granska bidrag {$submissionId}, granskningsomgång {$round}.</message>
+	<message key="log.review.reviewCleared">Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har tagits bort.</message>
+	<message key="log.review.reviewReinstated">Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har börjat om på nytt.</message>
 	<message key="submission.review.status.awaitingResponse">Väntar på svar från granskaren.</message>
 	<message key="submission.review.status.declined">Granskaren avböjde denna granskningsfrågan.</message>
 	<message key="submission.review.status.responseOverdue">Granskaren har missat deadline för svar.</message>
@@ -580,12 +582,12 @@
 	<message key="submission.license.cc.by-nd4">CC Erkännande-IngaBearbetningar 4.0</message>
 	<message key="submission.license.cc.by4">CC Erkännande 4.0</message>
 	<message key="submission.license.cc.by-sa4">CC Erkännande-DelaLika 4.0</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell-licens</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons-licens" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Erkännande-IckeKommersiell 4.0 Internationell-licens</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Erkännande-IckeKommersiell-DelaLika 4.0 Internationell Licens</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Erkännande-IngaBearbetningar 4.0 Internationell-licens</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons-license" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Det här verket är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Erkännande 4.0 Internationell-licens</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Det här verket är licensierat under en <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Erkännande-DelaLika 4.0 Internationell-licens</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell-licens</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons-licens" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Detta verk är licensierat under en <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Erkännande-IckeKommersiell 4.0 Internationell-licens</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Erkännande-IckeKommersiell-DelaLika 4.0 Internationell Licens</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Detta verk är licensierat under en <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Erkännande-IngaBearbetningar 4.0 Internationell-licens</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons-license" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Det här verket är licensierat under en <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Erkännande 4.0 Internationell-licens</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons-licens" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Det här verket är licensierat under en <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Erkännande-DelaLika 4.0 Internationell-licens</a>.</p>]]></message>
 
 	<!-- Submission Queries -->
 	<message key="submission.queries.submission">Diskussioner före granskning</message>
@@ -609,8 +611,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Aktivitetslogg &amp; anteckningar</message>
-	<message key="submission.list.count">{$count} bidrag</message>
-	<message key="submission.list.itemsOfTotal">{$count} av {$total} bidrag</message>
 	<message key="submission.list.responseDue">Deadline för svar</message>
 	<message key="submission.list.reviewDue">Deadline för granskning</message>
 	<message key="submission.list.reviewComplete">Granskning inskickad</message>

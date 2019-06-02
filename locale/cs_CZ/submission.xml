@@ -4,8 +4,8 @@
 <!--
   * locale/cs_CZ/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Čeština) locale.
@@ -213,6 +213,8 @@
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Uveďte formátovaný seznam referencí pro práce citované v tomto příspěvku. Jednotlivé reference oddělujte, prosím, prázdným řádkem.</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} byl přidělen pro recenzování příspěvku {$submissionId} v recenzním kole {$round}.</message>
+	<message key="log.review.reviewCleared">Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek {$submissionId} bylo vyčíštěno.</message>
+	<message key="log.review.reviewReinstated">Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek {$submissionId} bylo znovu zahájeno.</message>
 
 	<message key="submission.reviewForm">Formulář posudku</message>
 	<message key="submission.reviewFormResponse">Odpovědi na formulář posudku</message>
@@ -485,12 +487,12 @@
 	<message key="submission.license.cc.by-nd4">CC Attribution-NoDerivatives 4.0</message>
 	<message key="submission.license.cc.by4">CC Attribution 4.0</message>
 	<message key="submission.license.cc.by-sa4">CC Attribution-ShareAlike 4.0</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial 4.0</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Mezinárodní licencí Creative Commons Attribution-NoDerivatives 4.0</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Mezinárodní licencí Creative Commons Attribution 4.0 </a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Mezinárodní licencí Creative Commons Attribution-ShareAlike 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Mezinárodní licencí Creative Commons Attribution-NoDerivatives 4.0</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Mezinárodní licencí Creative Commons Attribution 4.0 </a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Mezinárodní licencí Creative Commons Attribution-ShareAlike 4.0</a>.</p>]]></message>
 	<message key="submission.queries.submission">Diskuse před recenzním procesem</message>
 	<message key="submission.queries.review">Diskuse během recenzního procesu</message>
 	<message key="submission.queries.editorial">Diskuse během redakčního procesu</message>
@@ -529,8 +531,6 @@
 	<message key="submission.review.status.awaitingResponse">Čeká se na odpověď recenzenta.</message>
 	<message key="submission.query.noParticipantOptions">Musíte přidělit jednoho účastníka k tomuto příspěvku aby mohla být zahájena diskuse.</message>
 	<message key="submission.list.infoCenter">Záznam aktivit a poznámek</message>
-	<message key="submission.list.count">{$count} příspěvků</message>
-	<message key="submission.list.itemsOfTotal">{$count} z {$total} příspěvků</message>
 	<message key="submission.list.responseDue">Očekává se odpověď</message>
 	<message key="submission.list.reviewDue">Očekává se recenze</message>
 	<message key="submission.list.confirmDelete">Smazat příspěvek?</message>

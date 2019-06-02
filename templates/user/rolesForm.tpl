@@ -1,17 +1,13 @@
 {**
  * templates/user/rolesForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Roles area of user profile form tabset.
  *}
-
-{* Help Link *}
-{help file="user-profile" class="pkp_help_tab"}
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#rolesForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
@@ -19,6 +15,9 @@
 </script>
 
 <form class="pkp_form" id="rolesForm" method="post" action="{url op="saveRoles"}" enctype="multipart/form-data">
+	{* Help Link *}
+	{help file="user-profile" class="pkp_help_tab"}
+
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="rolesFormNotification"}

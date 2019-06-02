@@ -2,8 +2,8 @@
 /**
  * @filecontrollers/grid/files/attachment/ReviewerReviewAttachmentsGridHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewAttachmentsGridHandler
@@ -45,7 +45,7 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler {
 		// Watch for flag from including template to warn about the
 		// review already being complete. If so, remove some capabilities.
 		$capabilities = $this->getCapabilities();
-		if ($request->getUserVar('reviewIsComplete')) {
+		if ($request->getUserVar('reviewIsClosed')) {
 			$capabilities->setCanAdd(false);
 			$capabilities->setCanDelete(false);
 		}

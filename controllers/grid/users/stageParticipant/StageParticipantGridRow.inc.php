@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/StageParticipantGridRow.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridRow
@@ -54,20 +54,33 @@ class StageParticipantGridRow extends GridRow {
 			$router = $request->getRouter();
 
 			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-			if ($this->_canAdminister) $this->addAction(
-				new LinkAction(
+			if ($this->_canAdminister) {
+				$this->addAction(new LinkAction(
 					'delete',
 					new RemoteActionConfirmationModal(
-						$request->getSession(),
-						__('editor.submission.removeStageParticipant.description'),
-						__('editor.submission.removeStageParticipant'),
-						$router->url($request, null, null, 'deleteParticipant', null, $this->getRequestArgs()),
-						'modal_delete'
+							$request->getSession(),
+							__('editor.submission.removeStageParticipant.description'),
+							__('editor.submission.removeStageParticipant'),
+							$router->url($request, null, null, 'deleteParticipant', null, $this->getRequestArgs()),
+							'modal_delete'
+							),
+						__('grid.action.remove'),
+						'delete'
+					)
+				);
+
+				$this->addAction(new LinkAction(
+						'requestAccount',
+						new AjaxModal(
+							$router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
+							__('editor.submission.editStageParticipant'),
+							'modal_edit_user'
 						),
-					__('grid.action.remove'),
-					'delete'
-				)
-			);
+						__('common.edit'),
+						'edit_user'
+					)
+				);
+			}
 
 			import('lib.pkp.controllers.grid.users.stageParticipant.linkAction.NotifyLinkAction');
 			$submission = $this->getSubmission();

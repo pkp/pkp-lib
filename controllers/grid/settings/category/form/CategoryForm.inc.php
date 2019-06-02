@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/controllers/grid/settings/category/form/CategoryForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CategoryForm
@@ -42,7 +42,7 @@ class CategoryForm extends Form {
 		$this->_contextId = $contextId;
 		$this->_categoryId = $categoryId;
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$this->_userId = $user->getId();
 
@@ -244,7 +244,7 @@ class CategoryForm extends Form {
 			}
 			assert($image);
 
-			$context = Application::getRequest()->getContext();
+			$context = Application::get()->getRequest()->getContext();
 			$coverThumbnailsMaxWidth = $context->getSetting('coverThumbnailsMaxWidth');
 			$coverThumbnailsMaxHeight = $context->getSetting('coverThumbnailsMaxHeight');
 			$thumbnailFilename = $category->getId() . '-category-thumbnail' . $this->_imageExtension;

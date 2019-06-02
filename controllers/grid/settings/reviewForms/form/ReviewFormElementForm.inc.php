@@ -3,8 +3,8 @@
 /**
  * @file classes/manager/form/ReviewFormElementForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormElementForm
@@ -74,7 +74,7 @@ class ReviewFormElementForm extends Form {
 	 */
 	function initData() {
 		if ($this->reviewFormElementId) {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId, $this->reviewFormId);
@@ -107,7 +107,7 @@ class ReviewFormElementForm extends Form {
 	 */
 	function execute() {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		if ($this->reviewFormElementId) {
 			$context = $request->getContext();

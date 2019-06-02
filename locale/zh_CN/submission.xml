@@ -4,8 +4,8 @@
 <!--
   * locale/zh_CN/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -279,6 +279,8 @@
 	<message key="submission.form.replaceExisting">替换现有的文件吗？</message>
 	<message key="submission.addFile">上传文件</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName}已经被指派审稿稿件{$submissionId} ，进行{$round}审.</message>
+	<message key="log.review.reviewCleared">{$reviewerName}对稿件{$submissionId}进行{$round}审的工作已经被清除.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName}对稿件{$submissionId}进行{$round}审的工作已经重新开始进行.</message>
 
 	<!--  peer review -->
 	<message key="submission.reviewForm">审稿单</message>

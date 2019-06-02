@@ -3,8 +3,8 @@
 /**
  * @file classes/security/Validation.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Validation
@@ -175,7 +175,8 @@ class Validation {
 			$args['loginMessage'] = $message;
 		}
 
-		Request::redirect(null, 'login', null, null, $args);
+		$request = Application::get()->getRequest();
+		$request->redirect(null, 'login', null, null, $args);
 	}
 
 	/**
@@ -228,7 +229,7 @@ class Validation {
 
 		if ($contextId === -1) {
 			// Get context ID from request
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 			$contextId = $context == null ? 0 : $context->getId();
 		}

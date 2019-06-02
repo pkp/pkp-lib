@@ -1,8 +1,8 @@
 {**
  * templates/management/announcements.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Add and edit announcements and announcement types
@@ -24,7 +24,7 @@
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-announcements-{$uuid}', 'Container', {ldelim}{rdelim});
+	pkp.registry.init('settings-announcements-{$uuid}', 'SettingsContainer', {ldelim}{rdelim});
 </script>
 
 {include file="common/footer.tpl"}

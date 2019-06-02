@@ -4,8 +4,8 @@
 <!--
   * locale/uk_UA/common.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Ukrainian_(uk_UA)
   * Localization strings.
@@ -78,18 +78,18 @@
 	<message key="common.captchaField">Перевірка</message>
 	<message key="common.ccLicense"><![CDATA[
 	<br /><br />
-	<target="_blank"a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+	<target="_blank"a rel="license" href="https://creativecommons.org/licenses/by/3.0/">
 		<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 	</a>
 	<br />
-	Ця робота ліцензована <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
+	Ця робота ліцензована <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
 	<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		Ця робота ліцензована <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
+		Ця робота ліцензована <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
 	</div>
 	]]></message>
 	<message key="common.changesSaved">Ваші зміни були збережені.</message>
@@ -251,7 +251,6 @@
 	<message key="common.size">Розмір</message>
 	<message key="common.source">Джерело</message>
 	<message key="common.status">Статус</message>
-	<message key="common.startTyping">Почати писати</message>
 	<message key="common.subject">Тема</message>
 	<message key="common.subjects">Теми</message>
 	<message key="common.subtitle">Підзаголовок</message>

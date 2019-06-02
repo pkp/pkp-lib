@@ -4,8 +4,8 @@
 <!--
   * locale/tr_TR/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -60,14 +60,12 @@
 	<message key="manager.emails.emailKey">E-posta Anahtarı</message>
 	<message key="manager.emails.emailKeyExists">Belirtilen anahtara sahip bir e-posta zaten var. E-posta anahtarları tekil olmalıdır.</message>
 	<message key="manager.emails.emailTemplate">E-posta Şablonu</message>
-	<message key="manager.emails.emailTemplates">E-posta Şablonları</message>
 	<message key="manager.emails.enabled">Bu e-posta şablonu etkinleştir</message>
 	<message key="manager.emails.enable">Etkinleştir</message>
 	<message key="manager.emails.form.emailKeyRequired">E-posta için tekil bir e-posta anahtarı gerekli.</message>
 	<message key="manager.emails.form.bodyRequired">E-posta için bir metin oluşturulması gereklidir.</message>
 	<message key="manager.emails.form.subjectRequired">E-posta için bir konu belirlenmesi gereklidir.</message>
 	<message key="manager.emails">Hazırlanmış E-postalar</message>
-	<message key="manager.emails.resetAll">Bütün Şablonları Sıfırla</message>
 	<message key="manager.emails.reset">Sıfırla</message>
 	<message key="manager.emails.resetToDefault">Ön Tanımlı Biçime Dön</message>
 	<message key="manager.filesBrowser">Dosya Tarayıcı</message>
@@ -166,7 +164,6 @@
 	<message key="plugins.categories.themes.description">Tema eklentileri sistemin görünüşünü değiştirmek için kullanılabilir.</message>
 	<message key="plugins.categories.themes">Tema Eklentileri</message>
 	<message key="manager.announcements.datePublish">Yayımlandı</message>
-	<message key="manager.emails.addEmail">E-posta Şablonu Ekle</message>
 	<message key="manager.emails.data">Mesaj Veri Şablonu</message>
 	<message key="manager.emails.details">Şablon Detayları</message>
 	<message key="manager.emails.disable.message">You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?</message>

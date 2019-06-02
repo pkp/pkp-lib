@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/nl_NL/default.xml
+  *
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the nl_NL (Nederlands) locale.
+  -->
+<locale name="nl_NL" full_name="Nederlands">
+	<!-- Group defaults -->
+	<message key="default.groups.name.siteAdmin">Website beheerder</message>
+	<message key="default.groups.plural.siteAdmin">Website beheerders</message>
+	<message key="default.groups.name.productionEditor">Productieredacteur</message>
+	<message key="default.groups.plural.productionEditor">Productieredacteurs</message>
+	<message key="default.groups.abbrev.productionEditor">PR</message>
+	<message key="default.groups.name.copyeditor">Tekstredacteur</message>
+	<message key="default.groups.plural.copyeditor">Tekstredacteurs</message>
+	<message key="default.groups.abbrev.copyeditor">TR</message>
+	<message key="default.groups.name.proofreader">Proeflezer</message>
+	<message key="default.groups.plural.proofreader">Proeflezers</message>
+	<message key="default.groups.abbrev.proofreader">PL</message>
+	<message key="default.groups.name.designer">Vormeger</message>
+	<message key="default.groups.plural.designer">Vormgevers</message>
+	<message key="default.groups.abbrev.designer">VG</message>
+	<message key="default.groups.name.internalReviewer">Interne reviewer</message>
+	<message key="default.groups.plural.internalReviewer">Interne reviewers</message>
+	<message key="default.groups.abbrev.internalReviewer">IR</message>
+	<message key="default.groups.name.marketing">Marketing- en verkoopscoördinator</message>
+	<message key="default.groups.plural.marketing">Marketing- en verkoopscoördinators</message>
+	<message key="default.groups.abbrev.marketing">MV</message>
+	<message key="default.groups.name.funding">Financieel coördinator</message>
+	<message key="default.groups.plural.funding">Financieel coördinators</message>
+	<message key="default.groups.abbrev.funding">FC</message>
+	<message key="default.groups.name.indexer">Indexeerder</message>
+	<message key="default.groups.plural.indexer">Indexeerders</message>
+	<message key="default.groups.abbrev.indexer">IN</message>
+	<message key="default.groups.name.layoutEditor">Opmaakredacteur</message>
+	<message key="default.groups.plural.layoutEditor">Opmaakredacteurs</message>
+	<message key="default.groups.abbrev.layoutEditor">OR</message>
+	<message key="default.groups.name.author">Auteur</message>
+	<message key="default.groups.plural.author">Auteurs</message>
+	<message key="default.groups.abbrev.author">AU</message>
+	<message key="default.groups.name.translator">Vertaler</message>
+	<message key="default.groups.plural.translator">Vertalers</message>
+	<message key="default.groups.abbrev.translator">V</message>
+	<message key="default.groups.name.reader">Lezer</message>
+	<message key="default.groups.plural.reader">Lezers</message>
+	<message key="default.groups.abbrev.reader">L</message>
+
+	<!--  common app genre defaults -->
+	<message key="default.genres.other">Andere</message>
+	<message key="default.genres.multimedia">Multimedia</message>
+	<message key="default.genres.image">Afbeelding</message>
+	<message key="default.genres.styleSheet">HTML stylesheet</message>
+</locale>

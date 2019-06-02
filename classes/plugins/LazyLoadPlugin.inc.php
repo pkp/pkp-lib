@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/LazyLoadPlugin.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CachedPlugin
@@ -99,7 +99,7 @@ abstract class LazyLoadPlugin extends Plugin {
 	 * can be found.
 	 */
 	function getCurrentContextId() {
-		$context = Application::getRequest()->getContext();
+		$context = Application::get()->getRequest()->getContext();
 		return is_null($context) ? 0 : $context->getId();
 	}
 }

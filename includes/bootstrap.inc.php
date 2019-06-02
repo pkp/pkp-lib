@@ -8,8 +8,8 @@
 /**
  * @file includes/bootstrap.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup index
@@ -42,7 +42,7 @@ ini_set('include_path', '.'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/classes'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/pages'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/adodb'
+	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/vendor/adodb/adodb-php'
 	. ENV_SEPARATOR . ini_get('include_path')
 );
 

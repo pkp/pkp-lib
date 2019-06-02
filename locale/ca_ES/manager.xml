@@ -4,8 +4,8 @@
 <!--
   * locale/ca_ES/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
@@ -67,7 +67,6 @@
 	<message key="manager.publication.libraryDescription"><![CDATA[Aquests fitxers s'han preparat per utilitzar-los com a plantilles i guies i formen part dels <span class="pkp_help_title">Documents enviats</span>.]]></message>
 	<message key="manager.emails.confirmDelete">Esteu segur/a que voleu suprimir aquesta plantilla de missatge de correu electrònic?</message>
 	<message key="manager.emails.confirmReset">Esteu segur/a que voleu reiniciar aquesta plantilla de missatge de correu electrònic als seus valors predeterminats?</message>
-	<message key="manager.emails.addEmail">Afegeix una plantilla de missatge de correu electrònic</message>
 	<message key="manager.emails.createEmail">Crea un missatge de correu electrònic</message>
 	<message key="manager.emails.data">Dades de plantilla de correu electrònic</message>
 	<message key="manager.emails.details">Detalls de plantilla</message>
@@ -78,7 +77,6 @@
 	<message key="manager.emails.emailKey">Clau per al missatge de correu electrònic</message>
 	<message key="manager.emails.emailKeyExists">Ja existeix un missatge de correu electrònic amb la clau indicada. Les claus de correu electrònic han de ser úniques.</message>
 	<message key="manager.emails.emailTemplate">Plantilla de missatge de correu electrònic</message>
-	<message key="manager.emails.emailTemplates">Plantilles de missatges de correu electrònic</message>
 	<message key="manager.emails.enabled">Habilita aquesta plantilla de missatge de correu electrònic</message>
 	<message key="manager.emails.enable">Habilita</message>
 	<message key="manager.emails.enable.message">Ara s'activarà aquest correu electrònic.  Voleu confirmar aquesta operació?</message>
@@ -86,7 +84,6 @@
 	<message key="manager.emails.form.bodyRequired">Heu d’introduir un cos per al missatge de correu electrònic.</message>
 	<message key="manager.emails.form.subjectRequired">Heu d’introduir un assumpte per al missatge de correu electrònic.</message>
 	<message key="manager.emails">Plantilles de missatges de correu electrònic</message>
-	<message key="manager.emails.resetAll">Reinicia totes les plantilles</message>
 	<message key="manager.emails.resetAll.message">Si restabliu totes les plantilles, es perdran totes les modificacions fetes a les plantilles de missatge de correu electrònic.  Voleu confirmar aquesta operació?</message>
 	<message key="manager.emails.reset">Reinicia</message>
 	<message key="manager.emails.reset.message">Si restabliu aquesta plantilla, totes les dades del missatge es restabliran als valors per defecte i es perdran totes les modificacions.  Voleu confirmar aquesta operació?</message>

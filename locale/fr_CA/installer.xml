@@ -4,8 +4,8 @@
 <!--
   * locale/fr_CA/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Contenu du fichier de configuration</message>
 	<message key="installer.createDatabase">Créer une nouvelle base de données</message>
 	<message key="installer.createDatabaseInstructions">Pour utiliser cette option, votre système de base de données doit prendre en charge la création d'une base de données distante et votre compte utilisateur doit être muni des permissions appropriées pour créer de nouvelles bases de données. Si l'installation ne réussit pas avec cette option sélectionnée, créer manuellement la base de données sur votre serveur et passer l'installateur encore une fois avec cette option désactivée.</message>
-	<message key="installer.databaseCharset">Jeu de caractères de la base de données</message>
 	<message key="installer.databaseDriver">Pilote de la base de données</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Les pilotes de bases de données qui sont listés entre crochets ne semblent pas avoir chargé l'extension PHP requise et l'installation risque donc d'échouer s'ils sont sélectionnés.</strong><br />Tous les pilotes de bases de données qui ne sont pas pris en charge, tel indiqué ci-dessus, sont listés uniquement à des fins académiques et ne fonctionneront vraisemblablement pas.]]></message>
 	<message key="installer.databaseHost">Hébergeur</message>
@@ -57,7 +56,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Erreur d'analyse du fichier d'installation de la base de données <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Langue</message>
 	<message key="installer.localeSettings">Paramètres de langue</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identifiant unique utilisé pour identifier les enregistrements de métadonnées indexées à partir de ce site à l'aide du protocole<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> pour la collecte de métadonnées.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identifiant unique utilisé pour identifier les enregistrements de métadonnées indexées à partir de ce site à l'aide du protocole<a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> pour la collecte de métadonnées.]]></message>
 	<message key="installer.oaiRepositoryId">Identifiant du dépôt OAI</message>
 	<message key="installer.publicFilesDirError">Le répertoire des fichiers publics n'existe pas ou n'est pas disponible en écriture.</message>
 	<message key="installer.releaseNotes">Instructions d'utilisation</message>

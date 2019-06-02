@@ -1,13 +1,13 @@
 {**
  * templates/controllers/grid/settings/user/form/userEmailForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display form to send user an email.
  *}
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#sendEmailForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
@@ -31,5 +31,6 @@
 	{/fbvFormSection}
 
 	{fbvFormButtons submitText="common.sendEmail"}
+
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

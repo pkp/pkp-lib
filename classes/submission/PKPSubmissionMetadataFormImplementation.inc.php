@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionMetadataFormImplementation.inc.php
+ * @file classes/submission/PKPSubmissionMetadataFormImplementation.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionMetadataFormImplementation
@@ -129,6 +129,8 @@ class PKPSubmissionMetadataFormImplementation {
 			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($submission->getId(), $locales));
 			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($submission->getId(), $locales));
 			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
+			$this->_parentForm->setData('submissionVersion', $submission->getSubmissionVersion());
+			$this->_parentForm->setData('currentSubmissionVersion', $submission->getCurrentSubmissionVersion());
 		}
 	}
 
@@ -165,6 +167,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function execute($submission, $request) {
 		$submissionDao = Application::getSubmissionDAO();
+		$authorDao = DAORegistry::getDAO('AuthorDAO');
 
 		// Update submission
 		$submission->setTitle($this->_parentForm->getData('title'), null); // Localized
@@ -181,11 +184,19 @@ class PKPSubmissionMetadataFormImplementation {
 		}
 
 		// Update submission locale
+		$oldLocale = $submission->getLocale();
 		$newLocale = $this->_parentForm->getData('locale');
 		$context = $request->getContext();
 		$supportedSubmissionLocales = $context->getData('supportedSubmissionLocales');
 		if (empty($supportedSubmissionLocales)) $supportedSubmissionLocales = array($context->getPrimaryLocale());
 		if (in_array($newLocale, $supportedSubmissionLocales)) $submission->setLocale($newLocale);
+		if ($newLocale != $oldLocale) {
+			$authorDao->changeSubmissionLocale($submission->getId(), $oldLocale, $newLocale);
+		}
+
+		// save submission version
+		$submission->setSubmissionVersion($submission->getCurrentSubmissionVersion());
+		//$submission->setData('submissionVersion', $request->getUserVar('submissionVersion') ? (int)$request->getUserVar('submissionVersion') : $submission->getCurrentVersionId());
 
 		// Save the submission
 		$submissionDao->updateObject($submission);
@@ -226,7 +237,6 @@ class PKPSubmissionMetadataFormImplementation {
 		$submissionSubjectDao->insertSubjects($subjects, $submission->getId());
 
 		// Resequence the authors (this ensures a primary contact).
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$authorDao->resequenceAuthors($submission->getId());
 
 		// Save the submission categories

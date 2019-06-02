@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/CitationDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationDAO
@@ -126,6 +126,53 @@ class CitationDAO extends DAO {
 	}
 
 	/**
+	 * Find citations by querying citation settings.
+	 * @param $settingName string
+	 * @param $settingValue mixed
+	 * @param $submissionId int optional
+	 * @return array Citations identified by setting.
+	 */
+	function getCitationsBySetting($settingName, $settingValue, $submissionId = null) {
+		$params = array($settingName);
+
+		$sql = 'SELECT	c.*
+			FROM	citations c ';
+		if (is_null($settingValue)) {
+			$sql .= 'LEFT JOIN citation_settings cs ON c.citation_id = cs.citation_id AND cs.setting_name = ?
+				WHERE	(cs.setting_value IS NULL OR cs.setting_value = \'\')';
+		} else {
+			$params[] = (string) $settingValue;
+			$sql .= 'INNER JOIN citation_settings cs ON c.citation_id = cs.citation_id
+				WHERE	cs.setting_name = ? AND cs.setting_value = ?';
+		}
+		if ($submissionId) {
+			$params[] = (int) $submissionId;
+			$sql .= ' AND c.submission_id = ?';
+		}
+		$sql .= ' ORDER BY c.citation_id';
+		$result = $this->retrieve($sql, $params);
+
+		$citations = array();
+		while (!$result->EOF) {
+			$citation = $this->_fromRow($result->GetRowAssoc(false));
+			$citations[$citation->getId()] = $citation;
+			$result->MoveNext();
+		}
+		$result->Close();
+		return $citations;
+	}
+
+	/**
+	 * Get a list of additional fields that do not have
+	 * dedicated accessors.
+	 * @return array
+	 */
+	function getAdditionalFieldNames() {
+		$additionalFields = parent::getAdditionalFieldNames();
+		return $additionalFields;
+	}
+
+	/**
 	 * Update an existing citation.
 	 * @param $citation Citation
 	 */
@@ -134,7 +181,7 @@ class CitationDAO extends DAO {
 			'UPDATE	citations
 			SET	submission_id = ?,
 				raw_citation = ?,
-				seq = ?,
+				seq = ?
 			WHERE	citation_id = ?',
 			array(
 				(integer)$citation->getSubmissionId(),

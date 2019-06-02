@@ -4,8 +4,8 @@
 <!--
   * locale/sl_SI/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -23,7 +23,6 @@
 	<message key="installer.contentsOfConfigFile">Vsebina nastavitvene datoteke</message>
 	<message key="installer.createDatabase">Ustvari novo bazo podatkov</message>
 	<message key="installer.createDatabaseInstructions">Če želite uporabiti to opcijo, mora vaša baza podatkov podpirati oddaljeno ustvarjane baze podatkov, vaš uporabniški račun pa mora imeti ustrezne pravice. Če namestitev s to opcijo ni uspešna, ustvarite bazo podatkov ročno in ponovno zaženite namestitev brez te opcije.</message>
-	<message key="installer.databaseCharset">Nabor znakov baze podatkov</message>
 	<message key="installer.databaseDriver">Gonilnik baze podatkov</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Gonilniki za bazo podatkov v oklepajih nimajo potrebne podpore za PHP, zato bo namestitev z njimi najverjetneje neuspešna.</strong><br />Vsi nepodprti gonilniki za baze podatkov zgoraj so našteti le zaradi akademskih potreb in najverjetneje ne bodo delovali.]]></message>
 	<message key="installer.databaseHost">Gostitelj "Host"</message>
@@ -58,7 +57,7 @@
 	<message key="installer.locale.maybeIncomplete">Označeni jeziki so lahko nepopolni.</message>
 	<message key="installer.localeSettings">Jezikovne nastavitve</message>
 	<message key="installer.oaiSettings">OAI nastavitve</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Enoznačen identifikator, ki se uporablja za identifikacijo zapisov metapodatkov  pridobljenih na tem spletišču z uporabo <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokola za zajemanje metapodatkov.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Enoznačen identifikator, ki se uporablja za identifikacijo zapisov metapodatkov  pridobljenih na tem spletišču z uporabo <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokola za zajemanje metapodatkov.]]></message>
 	<message key="installer.oaiRepositoryId">OAI identifikator repozitorija</message>
 	<message key="installer.publicFilesDirError">Mapa za javne datoteke ne obstaja ali vanj ne moremo pisati.</message>
 	<message key="installer.releaseNotes">Opombe k izdaji</message>

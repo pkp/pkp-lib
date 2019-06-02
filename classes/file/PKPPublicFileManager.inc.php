@@ -3,8 +3,8 @@
 /**
  * @file classes/file/PKPPublicFileManager.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicFileManager
@@ -68,13 +68,12 @@ abstract class PKPPublicFileManager extends FileManager {
 
 	/**
 	 * Copy a file to a context's public directory.
-	 * @param $assocType Assoc type for context
 	 * @param $contextId int Context ID
 	 * @param $sourceFile string the source of the file to copy
 	 * @param $destFileName string the destination file name
 	 * @return boolean
 	 */
-	public function copyContextFile($assocType, $contextId, $sourceFile, $destFileName) {
+	public function copyContextFile($contextId, $sourceFile, $destFileName) {
 		return $this->copyFile($sourceFile, $this->getContextFilesPath($contextId) . '/' . $destFileName);
 	}
 

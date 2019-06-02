@@ -4,8 +4,8 @@
 <!--
   * locale/fr_CA/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -442,7 +442,9 @@
 	<message key="submission.review.uploadRevisionToRound">Téléverser le fichier révisé</message>
 	<message key="workflow.review.externalReview">Évaluation externe</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} a été choisi(e) pour évaluer la soumission {$submissionId} pour la {$round}e série d'évaluation.</message>
+	<message key="log.review.reviewCleared">Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été effacé.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} a indiqué que la {$round}e série de révisions de la soumission {$submissionId} n'a pas été considérée.</message>
+	<message key="log.review.reviewReinstated">Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été recommencé.</message>
 	<message key="submission.art">Illustrations</message>
 	<message key="submission.document">Document</message>
 	<message key="grid.action.itemWorkflow">Aller au flux des travaux de cette soumission.</message>
@@ -611,12 +613,12 @@
 	<message key="submission.license.cc.by-nd4">Attribution - Pas de Modification 4.0 International (CC BY-ND 4.0)</message>
 	<message key="submission.license.cc.by4">Attribution 4.0 International (CC BY 4.0)</message>
 	<message key="submission.license.cc.by-sa4">Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0)</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de Modification 4.0 International</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.fr">Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/deed.fr">Creative Commons Attribution - Pas de Modification 4.0 International</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Ce travail est disponible sous la licence  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr">Creative Commons Attribution 4.0 International </a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.fr">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de Modification 4.0 International</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.fr">Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/deed.fr">Creative Commons Attribution - Pas de Modification 4.0 International</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Ce travail est disponible sous la licence  <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fr">Creative Commons Attribution 4.0 International </a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International</a>.</p>]]></message>
 	<message key="submission.queries.submission">Discussions pré-évaluation</message>
 	<message key="submission.queries.review">Discussions sur l'évaluation</message>
 	<message key="submission.queries.editorial">Discussions sur la révision</message>
@@ -665,8 +667,6 @@
 	<message key="editor.submission.decision.previousAuthorNotification">Précédent: Avis à l'auteur</message>
 	<message key="submission.howToCite.downloadCitation">Télécharger la référence</message>
 	<message key="submission.query.noParticipantOptions">Vous devez ajouter au moins un participant afin d'initier une discussion.</message>
-	<message key="submission.list.count">{$count} soumissions</message>
-	<message key="submission.list.itemsOfTotal">{$count} de {$total} soumissions</message>
 	<message key="submission.list.responseDue">Réponse due</message>
 	<message key="submission.list.reviewDue">Évaluation due</message>
 	<message key="submission.list.confirmDelete">Supprimer la soumission?</message>

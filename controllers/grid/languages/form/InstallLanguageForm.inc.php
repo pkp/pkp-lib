@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/languages/form/InstallLanguageForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InstallLanguageForm
@@ -34,7 +34,7 @@ class InstallLanguageForm extends Form {
 	function initData() {
 		parent::initData();
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$this->setData('installedLocales', $site->getInstalledLocales());
 	}
@@ -83,7 +83,7 @@ class InstallLanguageForm extends Form {
 	function readInputData() {
 		parent::readInputData();
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$localesToInstall = $request->getUserVar('localesToInstall');
 		$this->setData('localesToInstall', $localesToInstall);
 	}
@@ -92,7 +92,7 @@ class InstallLanguageForm extends Form {
 	 * @copydoc Form::execute()
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$localesToInstall = $this->getData('localesToInstall');
 

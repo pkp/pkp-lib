@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Содержимое конфигурационного файла</message>
 	<message key="installer.createDatabase">Создать новую базу данных</message>
 	<message key="installer.createDatabaseInstructions">Для использования этого параметра необходимо, чтобы ваша СУБД поддерживала возможность удаленного создания базы данных, а ваша учетная запись пользователя БД имела соответствующие права на создание новых баз данных. Если установка завершается неудачей при использовании этого параметра, создайте базу данных на сервере вручную и запустите установку снова, отключив этот параметр.</message>
-	<message key="installer.databaseCharset">Кодировка базы данных</message>
 	<message key="installer.databaseDriver">Драйвер базы данных</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Для драйверов, приведенных в квадратных скобках, похоже не загруженны необходимые расширения PHP, и, в случае выбора одного из них, установка скорее всего закончится неудачно.</strong><br />Любые неподдерживаемые драйверы базы данных, указанные в приведенном выше списке, находятся там исключительно с информационными целями и скорее всего не будут работать.]]></message>
 	<message key="installer.databaseHost">Хост</message>
@@ -59,7 +58,7 @@
 	<message key="installer.locale.maybeIncomplete">Поддержка отмеченных языков может быть неполной.</message>
 	<message key="installer.localeSettings">Настройки языка</message>
 	<message key="installer.oaiSettings">Настройки OAI</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Уникальный идентификатор используется для идентификации записей метаданных, проиндексированных с этого сайта, при использовании протокола сбора метаданных <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Уникальный идентификатор используется для идентификации записей метаданных, проиндексированных с этого сайта, при использовании протокола сбора метаданных <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Идентификатор хранилища</message>
 	<message key="installer.publicFilesDirError">Каталог public для файлов не существует или не доступен для записи.</message>
 	<message key="installer.releaseNotes">Примечания к выпуску</message>

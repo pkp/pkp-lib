@@ -4,14 +4,15 @@
 <!--
   * locale/en_US/api.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the REST API.
   -->
 
 <locale name="en_US" full_name="U.S. English">
+	<message key="api.400.paramNotSupported">The {$param} parameter is not supported.</message>
 	<message key="api.403.unauthorized">You are not authorized to access the requested resource.</message>
 	<message key="api.404.resourceNotFound">The requested resource was not found.</message>
 	<message key="api.404.endpointNotFound">The requested URL was not recognized.</message>
@@ -23,6 +24,13 @@
 	<message key="api.submissions.400.missingRequired">Your request could not be fulfilled because it is missing required information.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">The requested volume, number or year is not valid.</message>
 	<message key="api.submissions.unknownError">An unexpected error has occurred. Please reload the page and try again.</message>
+	<message key="api.emailTemplates.404.templateNotFound">The email template you requested was not found.</message>
+	<message key="api.stats.400.wrongDateFormat">The date must be in the format YYYY-MM-DD.</message>
+	<message key="api.stats.400.wrongDateRange">The start date can not be later than the end date.</message>
+	<message key="api.stats.400.earlyDateRange">The start date can not be earlier than 2001-01-01.</message>
+	<message key="api.stats.400.lateDateRange">The end date can not be later than yesterday.</message>
+	<message key="api.stats.400.wrongTimelineInterval">Your request was not valid. The timelineInterval must be `day` or `month`.</message>
+	<message key="api.stats.400.invalidOrderDirection">Your request was not valid. The orderDirection must be `desc` or `asc`.</message>
 	<message key="api.temporaryFiles.400.noUpload">No file to be uploaded could be found with the request.</message>
 	<message key="api.temporaryFiles.409.uploadFailed">One or more files could not be uploaded.</message>
 	<message key="api.temporaryFiles.400.fileSize">Files larger than {$maxSize} can not be uploaded.</message>

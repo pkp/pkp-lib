@@ -6,8 +6,8 @@
 /**
  * @file classes/user/form/RegistrationForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationForm
@@ -19,6 +19,9 @@
 import('lib.pkp.classes.form.Form');
 
 class RegistrationForm extends Form {
+
+	/** @var User The user object being created (available to hooks during registrationform::execute hook) */
+	var $user;
 
 	/** @var boolean user is already registered with another context */
 	var $existingUser;
@@ -56,7 +59,8 @@ class RegistrationForm extends Form {
 
 		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
 		if ($this->captchaEnabled) {
-			$this->addCheck(new FormValidatorReCaptcha($this, Request::getRemoteAddr(), 'common.captcha.error.invalid-input-response', Request::getServerHost()));
+			$request = Application::get()->getRequest();
+			$this->addCheck(new FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
 		}
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');
@@ -68,7 +72,7 @@ class RegistrationForm extends Form {
 			}));
 		}
 
-		$context = Application::getRequest()->getContext();
+		$context = Application::get()->getRequest()->getContext();
 		if ($context && $context->getData('privacyStatement')) {
 			$this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
 		}
@@ -160,8 +164,8 @@ class RegistrationForm extends Form {
 	/**
 	 * @copydoc Form::validate()
 	 */
-	function validate() {
-		$request = Application::getRequest();
+	function validate($callHooks = true) {
+		$request = Application::get()->getRequest();
 
 		// Ensure the consent checkbox has been completed for the site and any user
 		// group signups if we're in the site-wide registration form
@@ -197,7 +201,7 @@ class RegistrationForm extends Form {
 			}
 		}
 
-		return parent::validate();
+		return parent::validate($callHooks);
 	}
 
 	/**
@@ -209,13 +213,13 @@ class RegistrationForm extends Form {
 		$userDao = DAORegistry::getDAO('UserDAO');
 
 		// New user
-		$user = $userDao->newDataObject();
+		$this->user = $user = $userDao->newDataObject();
 
 		$user->setUsername($this->getData('username'));
 
 		// The multilingual user data (givenName, familyName and affiliation) will be saved
 		// in the current UI locale and copied in the site's primary locale too
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$site = $request->getSite();
 		$sitePrimaryLocale = $site->getPrimaryLocale();
 		$currentLocale = AppLocale::getLocale();
@@ -323,7 +327,7 @@ class RegistrationForm extends Form {
 			if (!$mail->send()) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
-				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
 			}
 			unset($mail);
 		}

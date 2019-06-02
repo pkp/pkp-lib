@@ -4,8 +4,8 @@
 <!--
   * locale/pt_PT/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Conteúdo para ficheiro de configuração</message>
 	<message key="installer.createDatabase">Criar nova base de dados</message>
 	<message key="installer.createDatabaseInstructions">Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente a base de dados no servidor e execute novamente o instalador desactivando esta opção.</message>
-	<message key="installer.databaseCharset">Conjunto de Caracteres da Base de Dados</message>
 	<message key="installer.databaseDriver">Driver da Base de Dados</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Drivers de bases de dados relacionados entre chaves ([]) não tiveram as suas extensões PHP reconhecidas pelo sistema, e portanto não devem funcionar.</strong><br />Os drivers não suportados, listados acima, são exibidos apenas em carácter académico e experimental, não devendo funcionar por padrão. Somente poderão ser utilizados pelo sistema os drivers que tiverem as suas extensões PHP prévia e correctamente instaladas no servidor.]]></message>
 	<message key="installer.databaseHost">Servidor</message>
@@ -54,7 +53,7 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Erro na execução do documento de instalação da base de dados <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Idioma</message>
 	<message key="installer.localeSettings">Configurações de Idioma</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registos de metadados indexados através do protocolo de Recolha de Metadados do <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registos de metadados indexados através do protocolo de Recolha de Metadados do <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador para repositório OAI</message>
 	<message key="installer.publicFilesDirError">A pasta de documentos públicos não existe ou não possui permissão de escrita.</message>
 	<message key="installer.releaseNotes">Notas da Versão</message>

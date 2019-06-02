@@ -10,8 +10,8 @@
 /**
  * @file classes/form/Form.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Form
@@ -247,6 +247,7 @@ class Form {
 
 	/**
 	 * Validate form data.
+	 * @param $callHooks boolean True (default) iff hooks are to be called.
 	 */
 	function validate($callHooks = true) {
 		if (!isset($this->errorsArray)) {
@@ -281,7 +282,7 @@ class Form {
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$user = $request->getUser();
 
 			if (!$this->isValid() && $user) {
@@ -351,7 +352,7 @@ class Form {
 	 */
 	function addSupportedFormLocale($supportedLocale) {
 		if (!in_array($supportedLocale, $this->supportedLocales)) {
-			$site = Application::getRequest()->getSite();
+			$site = Application::get()->getRequest()->getSite();
 			$siteSupportedLocales = $site->getSupportedLocaleNames();
 			if (array_key_exists($supportedLocale, $siteSupportedLocales)) {
 				$this->supportedLocales[$supportedLocale] = $siteSupportedLocales[$supportedLocale];
@@ -370,8 +371,9 @@ class Form {
 		// Note that class and function names are always lower
 		// case.
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserVars'), array($this, &$vars));
+		$request = Application::get()->getRequest();
 		foreach ($vars as $k) {
-			$this->setData($k, Request::getUserVar($k));
+			$this->setData($k, $request->getUserVar($k));
 		}
 	}
 

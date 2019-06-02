@@ -3,8 +3,8 @@
 <!--
   * locale/fa_IR/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
@@ -562,6 +562,8 @@
 	<message key="submission.productionReady">کتاب در دسترس است</message>
 	<message key="submission.review.uploadRevisionToRound">آپلود فایل‌های اصلاح شده شده</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} برای داوری مقاله  {$submissionId} در دور {$round} داوری انتساب یافت.</message>
+	<message key="log.review.reviewCleared">دور {$round} داوری {$reviewerName} برای مقاله {$submissionId} پاک شد.</message>
+	<message key="log.review.reviewReinstated">دور {$round} داوری {$reviewerName} برای مقاله  {$submissionId} از نو شروع شد.</message>
 	<message key="submission.review.status.awaitingResponse">در انتظار پاسخ داور</message>
 	<message key="submission.review.status.declined">داور، انجام این داوری را نپذیرفت</message>
 	<message key="submission.review.status.responseOverdue">مهلت زمان پاسخ به پذیرش داوری سپری شده است.</message>
@@ -602,12 +604,12 @@
 	<message key="submission.license.cc.by-nd4">CC Attribution-NoDerivatives 4.0</message>
 	<message key="submission.license.cc.by4">CC Attribution 4.0</message>
 	<message key="submission.license.cc.by-sa4">CC Attribution-ShareAlike 4.0</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a> می باشد.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 </a> می باشد.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> می باشد.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 </a> می باشد.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 </a> می باشد.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> می باشد.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a> می باشد.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 </a> می باشد.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> می باشد.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 </a> می باشد.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 </a> می باشد.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> می باشد.</p>]]></message>
 	<!-- Submission Queries -->
 	<message key="submission.queries.submission">گفتگوهای قبل از ارسال به داوری</message>
 	<message key="submission.queries.review">مرور گفتگو ها</message>
@@ -628,8 +630,6 @@
 	<message key="submission.query.noParticipantOptions">قبل از آغاز گفتگو باید حداقل یک همکار به این مقاله انتساب داده شود.</message>
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">گزارش فعالیت‌ها</message>
-	<message key="submission.list.count">{$count} مقاله ارسالی</message>
-	<message key="submission.list.itemsOfTotal">{$count} از {$total} مقاله ارسالی</message>
 	<message key="submission.list.responseDue">مهلت پاسخ</message>
 	<message key="submission.list.reviewDue">مهلت داوری</message>
 	<message key="submission.list.confirmDelete">حذف مقاله ارسالی؟</message>

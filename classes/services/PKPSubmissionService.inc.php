@@ -3,8 +3,8 @@
 /**
  * @file classes/services/PKPSubmissionService.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionService
@@ -67,7 +67,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$dao = Application::getPublishedSubmissionDAO();
 		}
 		$result = $dao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $dao, '_fromRow');
+		$queryResults = new DAOResultFactory($result, $dao, '_fromRow', array(), array('submissionStatus' => STATUS_PUBLISHED));
 
 		return $queryResults->toArray();
 	}
@@ -84,7 +84,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$dao = Application::getPublishedSubmissionDAO();
 		}
 		$countResult = $dao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow');
+		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow', array(), array('submissionStatus' => STATUS_PUBLISHED));
 
 		return (int) $countQueryResults->getCount();
 	}
@@ -147,7 +147,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function getWorkflowUrlByUserRoles($submission, $userId = null) {
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		if (is_null($userId)) {
 			$user = $request->getUser();
@@ -258,7 +258,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			}
 		}
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$contextId = $submission->getContextId();
 
 		$currentUser = $request->getUser();
@@ -373,9 +373,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		\PluginRegistry::loadCategory('pubIds', true);
 		$values = array();
 		$authorService = \Services::get('author');
-		$request = \Application::getRequest();
+		$request = \Application::get()->getRequest();
 		$dispatcher = $request->getDispatcher();
-		$router = $request->getRouter();
 
 		// Retrieve the submission's context for properties that require it
 		if (array_intersect(array('urlAuthorWorkflow', 'urlEditorialWorkflow'), $props)) {
@@ -626,12 +625,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$reviews = array();
 		foreach($reviewAssignments as $reviewAssignment) {
 			// @todo for now, only show reviews that haven't been
-			// declined
+			// declined or cancelled
 			if ($reviewAssignment->getDeclined()) {
 				continue;
 			}
 
-			$currentUser = \Application::getRequest()->getUser();
+			$currentUser = \Application::get()->getRequest()->getUser();
 			$dateFormatShort = \Config::getVar('general', 'date_format_short');
 			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
 			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
@@ -709,8 +708,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$stageIds = array($stageIds);
 		}
 
-		$currentUser = \Application::getRequest()->getUser();
-		$context = \Application::getRequest()->getContext();
+		$currentUser = \Application::get()->getRequest()->getUser();
+		$context = \Application::get()->getRequest()->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$stages = array();
@@ -726,7 +725,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 			// Discussions in this stage
 			$stage['queries'] = array();
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			import('lib.pkp.classes.query.QueryDAO');
 			$queryDao = DAORegistry::getDAO('QueryDAO');
 			$queries = $queryDao->getByAssoc(
@@ -763,7 +762,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			switch ($stageId) {
 
 				case WORKFLOW_STAGE_ID_SUBMISSION:
-					import('lib.pkp.classes.stageAssignment/StageAssignmentDAO');
+					import('lib.pkp.classes.stageAssignment.StageAssignmentDAO');
 					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 					$assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
 					if (!$assignedEditors) {

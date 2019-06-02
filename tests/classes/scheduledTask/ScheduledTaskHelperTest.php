@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/scheduledTask/ScheduledTaskHelperTest.inc.php
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTaskHelperTest
@@ -93,14 +93,19 @@ class ScheduledTaskHelperTest extends PKPTestCase {
 	 * @return ScheduledTaskHelper
 	 */
 	private function _getHelper($expectedSubject, $message) {
-		$helperMock = $this->getMock('ScheduledTaskHelper', array('getMail', 'getMessage'), array('some@email.com', 'Contact name'));
+		$helperMock = $this->getMockBuilder(ScheduledTaskHelper::class)
+			->setMethods(array('getMail', 'getMessage'))
+			->setConstructorArgs(array('some@email.com', 'Contact name'))
+			->getMock();
 		$helperMock->expects($this->any())
 				->method('getMessage')
 				->will($this->returnValue($message));
 
 		// Helper will use the Mail::send() method. Mock it.
 		import('lib.pkp.classes.mail.Mail');
-		$mailMock = $this->getMock('Mail', array('send', 'setBody', 'setSubject'));
+		$mailMock = $this->getMockBuilder(Mail::class)
+			->setMethods(array('send', 'setBody', 'setSubject'))
+			->getMock();
 
 		$mailMock->expects($this->any())
 			 	 ->method('send');

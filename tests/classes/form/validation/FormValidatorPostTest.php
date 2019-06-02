@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/form/validation/FormValidatorPostTest.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorPostTest
@@ -33,10 +33,11 @@ class FormValidatorPostTest extends PKPTestCase {
 
 		$this->markTestSkipped('Disabled for static invocation of Request.');
 
-		Request::setRequestMethod('POST');
+		$request = Application::get()->getRequest();
+		$request->setRequestMethod('POST');
 		self::assertTrue($validator->isValid());
 
-		Request::setRequestMethod('GET');
+		$request->setRequestMethod('GET');
 		self::assertFalse($validator->isValid());
 	}
 }

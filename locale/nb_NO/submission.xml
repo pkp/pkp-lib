@@ -4,8 +4,8 @@
 <!--
   * locale/nb_NO/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nb_NO (Norsk bokmål) locale.
@@ -232,6 +232,8 @@
 	<message key="metadata.property.validationMessage.source">Vennligs oppgi en gyldig publikasjonstittel</message>
 	<message key="submission.form.replaceExisting">Erstatte eksisterende fil?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} er oppnevnt for å vurdere manuskriptet {$submissionId} for vurderingsrunde {$round}.</message>
+	<message key="log.review.reviewCleared">Vurderingsrunde {$round} av manuskript {$submissionId} ved {$reviewerName}  er fjernet.</message>
+	<message key="log.review.reviewReinstated">Vurderingsrunde {$round} av manuskript {$submissionId} ved {$reviewerName}  er igangsatt på nytt.</message>
 	<message key="submission.reviewForm">Vurderingsskjema</message>
 	<message key="submission.reviewFormResponse">Vurderingsskjema-respons</message>
 </locale>

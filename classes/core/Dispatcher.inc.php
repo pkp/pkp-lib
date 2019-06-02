@@ -3,8 +3,8 @@
 /**
  * @file classes/core/Dispatcher.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Dispatcher
@@ -248,8 +248,6 @@ class Dispatcher {
 	 * Handle a 404 error (page not found).
 	 */
 	function handle404() {
-		PKPRequest::_checkThis();
-
 		header('HTTP/1.0 404 Not Found');
 		fatalError('404 Not Found');
 	}

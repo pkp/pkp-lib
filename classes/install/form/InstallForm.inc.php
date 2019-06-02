@@ -3,8 +3,8 @@
 /**
  * @file classes/install/form/InstallForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InstallForm
@@ -70,7 +70,7 @@ class InstallForm extends MaintenanceForm {
 			// <adodb-driver> => array(<php-module>, <name>)
 			'mysql' => array('mysql', 'MySQL'),
 			'mysqli' => array('mysqli', 'MySQLi'),
-			'postgres' => array('pgsql', 'PostgreSQL'),
+			'postgres9' => array('pgsql', 'PostgreSQL'),
 			'oracle' => array('oci8', 'Oracle'),
 			'mssql' => array('mssql', 'MS SQL Server'),
 			'fbsql' => array('fbsql', 'FrontBase'),
@@ -109,7 +109,6 @@ class InstallForm extends MaintenanceForm {
 			'localesComplete' => $this->localesComplete,
 			'clientCharsetOptions' => $this->supportedClientCharsets,
 			'connectionCharsetOptions' => $this->supportedConnectionCharsets,
-			'databaseCharsetOptions' => $this->supportedDatabaseCharsets,
 			'allowFileUploads' => get_cfg_var('file_uploads') ? __('common.yes') : __('common.no'),
 			'maxFileUploadSize' => get_cfg_var('upload_max_filesize'),
 			'databaseDriverOptions' => $this->checkDBDrivers(),
@@ -142,7 +141,6 @@ class InstallForm extends MaintenanceForm {
 			'additionalLocales' => array(),
 			'clientCharset' => 'utf-8',
 			'connectionCharset' => 'utf8',
-			'databaseCharset' => 'utf8',
 			'filesDir' =>  $docRoot . 'files',
 			'databaseDriver' => 'mysql',
 			'databaseHost' => 'localhost',
@@ -164,7 +162,6 @@ class InstallForm extends MaintenanceForm {
 			'additionalLocales',
 			'clientCharset',
 			'connectionCharset',
-			'databaseCharset',
 			'filesDir',
 			'adminUsername',
 			'adminPassword',

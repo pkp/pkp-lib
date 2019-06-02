@@ -4,8 +4,8 @@
 <!--
   * lib/pkp/locale/sl_SI/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -19,7 +19,7 @@
 	<message key="submission.submit.availableUserGroups">Oddaj kot</message>
 	<message key="submission.submit.availableUserGroupsDescription">Izberite najbolj primerno vlogo, ki najbolje opčisuje vašo doprinos k prispevku.</message>
 	<message key="submission.submit.contactConsentDescription">Da, želim, da me kontaktirate v zvezi s tem prispevkom.</message>
-	<message key="submission.submit.userGroupDescriptionManagers">Oddajte v eni od spodnjih vlog, če želite imeti možnost sami urejati in objaviti prispevek: {$managerGroups}</message>	
+	<message key="submission.submit.userGroupDescriptionManagers">Oddajte v eni od spodnjih vlog, če želite imeti možnost sami urejati in objaviti prispevek: {$managerGroups}</message>
 	<message key="submission.submit.submissionChecklist">Zahteve za oddajo prispevka</message>
 	<message key="submission.submit.submissionChecklistDescription">Pred nadaljevanjem morate prebrati in potrditi, da ste zadostili vsem zahtevam spodaj.</message>
 	<message key="submission.submit.submissionComplete">Oddaja končana</message>
@@ -388,7 +388,7 @@
 	<message key="submission.submit.form.sourceRequired">Prosimo vnesite vir.</message>
 	<message key="submission.submit.form.rightsRequired">Prosimo vnesite pravice.</message>
 	<message key="submission.submit.form.citationsRequired">Prosimo vnesite referencirano literaturo.</message>
-	
+
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Dajte datoteki pomensko ime</message>
 	<message key="submission.form.replaceExisting">Zamenjam obstoječo datoteko?</message>
@@ -537,6 +537,8 @@
 	<message key="submission.productionReady">Knjiga je na voljo</message>
 	<message key="submission.review.uploadRevisionToRound">Naloži posodobljeno datoteko</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} je bil dodeljen za recenzijo prispevka {$submissionId} v recenzentskem krogu {$round}.</message>
+	<message key="log.review.reviewCleared">Recenzija {$round}. kroga recenzije recenzenta {$reviewerName} za prispevek {$submissionId} je bila zbrisana.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} je ponovno začel(a) {$round}. krog recenzije  prispevka {$submissionId}.</message>
 	<message key="submission.review.status.awaitingResponse">Čaka na odziv recenzenta.</message>
 	<message key="submission.review.status.declined">Recenzent je zavrnil to prošnjo za recenzijo.</message>
 	<message key="submission.review.status.responseOverdue">Recenzent je zamudil rok za potrditev.</message>
@@ -579,12 +581,12 @@
 	<message key="submission.license.cc.by-nd4">CC Priznanje avtorstva-Brez predelav 4.0</message>
 	<message key="submission.license.cc.by4">CC Priznanje avtorstva 4.0</message>
 	<message key="submission.license.cc.by-sa4">CC Priznanje avtorstva-Deljenje pod enakimi pogoji 4.0</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Priznanje avtorstva-Nekomercialno-Brez predelav 4.0 mednarodno licenco</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Priznanje avtorstva-Nekomercialno 4.0 mednarodno licenco</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Priznanje avtorstva-Nekomercialno-Deljenje pod enakimi pogoji 4.0 mednarodno licenco</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Priznanje avtorstva-Brez predelav 4.0 mednarodno licenco</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Priznanje avtorstva 4.0 mednarodno licenco</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Priznanje avtorstva-Deljenje pod enakimi 4.0 mednarodno licenco</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Priznanje avtorstva-Nekomercialno-Brez predelav 4.0 mednarodno licenco</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Priznanje avtorstva-Nekomercialno 4.0 mednarodno licenco</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Priznanje avtorstva-Nekomercialno-Deljenje pod enakimi pogoji 4.0 mednarodno licenco</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Priznanje avtorstva-Brez predelav 4.0 mednarodno licenco</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Priznanje avtorstva 4.0 mednarodno licenco</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons licenca" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>To delo je licencirano pod <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Priznanje avtorstva-Deljenje pod enakimi 4.0 mednarodno licenco</a>.</p>]]></message>
 
 	<!-- Submission Queries -->
 	<message key="submission.queries.submission">Predrecenzijska diskusija</message>
@@ -608,8 +610,6 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Dnevnik dogodkov &amp; Opombe</message>
-	<message key="submission.list.count">{$count} prispvekov</message>
-	<message key="submission.list.itemsOfTotal">{$count} od {$total} prispevkov</message>
 	<message key="submission.list.responseDue">Rok za odziv</message>
 	<message key="submission.list.reviewDue">Rok za recenzijo</message>
 	<message key="submission.list.reviewComplete">Recenzija oddana</message>

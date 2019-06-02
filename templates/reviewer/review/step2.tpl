@@ -1,8 +1,8 @@
 {**
  * templates/reviewer/review/step2.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Show the step 2 review page
@@ -19,7 +19,7 @@
 
 <form class="pkp_form" id="reviewStep2Form" method="post" action="{url page="reviewer" op="saveStep" path=$submission->getId() step="2" escape=false}">
 {csrf}
-{include file="common/formErrors.tpl"}
+{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewStep2FormNotification"}
 
 {fbvFormArea id="reviewStep2"}
 	{fbvFormSection label="reviewer.submission.reviewerGuidelines"}
@@ -27,6 +27,6 @@
 	{/fbvFormSection}
 
 	{capture assign=cancelUrl}{url page="reviewer" op="submission" path=$submission->getId() step=1 escape=false}{/capture}
-	{fbvFormButtons submitText="reviewer.submission.continueToStepThree" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsComplete}
+	{fbvFormButtons submitText="reviewer.submission.continueToStepThree" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsClosed}
 {/fbvFormArea}
 </form>

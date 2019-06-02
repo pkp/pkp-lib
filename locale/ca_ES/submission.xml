@@ -4,8 +4,8 @@
 <!--
   * locale/ca_ES/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OMP:_Catalan_(ca_ES)
   * Localization strings.
@@ -491,7 +491,9 @@
 	<message key="submission.productionReady">Llibre disponible</message>
 	<message key="submission.review.uploadRevisionToRound">Carrega un fitxer de revisió</message>
 	<message key="log.review.reviewerAssigned">S'ha assignat a {$reviewerName} la revisió de la tramesa {$submissionId} per a la ronda de revisió {$round}.</message>
+	<message key="log.review.reviewCleared">S’ha esborrat la ronda {$round} de revisió feta per {$reviewerName} per a la tramesa {$submissionId}.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} ha marcat la ronda {$round} de revisió per a la tramesa {$submissionId} com a no considerada.</message>
+	<message key="log.review.reviewReinstated">S’ha reiniciat la ronda {$round} de revisió feta per {$reviewerName} per a la tramesa {$submissionId}.</message>
 	<message key="submission.document">Document</message>
 	<message key="submission.art">Il·lustració</message>
 	<message key="grid.action.itemWorkflow">Aneu al circuit de treball d'aquesta tramesa</message>

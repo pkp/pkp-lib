@@ -4,8 +4,8 @@
 <!--
   * locale/id_ID/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2003-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -26,7 +26,6 @@
 	<message key="installer.contentsOfConfigFile">Isi file konfigurasi</message>
 	<message key="installer.createDatabase">Membuat database baru</message>
 	<message key="installer.createDatabaseInstructions">Untuk menggunakan opsi ini sistem database Anda harus support pembuatan database dengan kendali jauh dan akun Anda harus memiliki hak akses yang sesuai untuk membuat database baru. Jika instalasi gagal dengan opsi ini, buat database secara manual pada server Anda dan lakukan instalasi lagi dengan menonaktifkan pilihan ini.</message>
-	<message key="installer.databaseCharset">Database karakter set</message>
 	<message key="installer.databaseDriver">Database Driver</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Driver database yang tercantum dalam tanda kurung tidak memiliki ekstensi PHP yang diperlukan dan instalasi mungkin akan gagal.</strong><br />Setiap driver database yang tidak didukung diatas hanya untuk tujuan akademi dan tidak akan bekerja baik pada OJS.]]></message>
 	<message key="installer.databaseHost">Host</message>
@@ -62,7 +61,7 @@
 	<message key="installer.localeSettings">Setting Bahasa</message>
 	<message key="installer.manualInstall">Instal Manual</message>
 	<message key="installer.miscSettings">Pengaturan Lain</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Repositori yang menyimpan OAI identifier untuk memudahkan metadata harvesting situs Anda oleh <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protokol untuk Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Repositori yang menyimpan OAI identifier untuk memudahkan metadata harvesting situs Anda oleh <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protokol untuk Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Repositori identifier OAI</message>
 	<message key="installer.pleaseUpgradeAfterManualInstall">Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi utama untuk upgrade ini.</message>
 	<message key="installer.publicFilesDirError">Direktori file umum tidak ada atau tidak dapat diisi.</message>

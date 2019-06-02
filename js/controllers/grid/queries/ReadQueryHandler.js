@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/grid/queries/ReadQueryHandler.js
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReadQueryHandler
@@ -42,6 +42,10 @@
 
 		$containerElement.bind('dataChanged',
 				this.callbackWrapper(this.reloadParticipantsList_));
+
+		$containerElement.bind('user-left-discussion', function() {
+			$containerElement.parent().trigger('modalFinished');
+		});
 
 		this.loadParticipantsList();
 	};
@@ -94,7 +98,7 @@
 	 */
 	$.pkp.controllers.grid.queries.ReadQueryHandler.prototype.
 			showNoteFormHandler_ = function(element) {
-		$(element).parents('.openNoteForm').addClass('is_loading');
+		$(element).parents('.queryEditButtons').addClass('is_loading');
 		$.get(this.fetchNoteFormUrl_,
 				this.callbackWrapper(this.showFetchedNoteForm_), 'json');
 	};
@@ -111,10 +115,10 @@
 
 		var processedJsonData = this.handleJson(jsonData),
 				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement()),
-				$openNoteForm = $('.openNoteForm.is_loading', this.getHtmlElement());
+				$queryEditButtons = $('.queryEditButtons.is_loading', this.getHtmlElement());
 
-		this.unbindPartial($openNoteForm);
-		$openNoteForm.remove();
+		this.unbindPartial($queryEditButtons);
+		$queryEditButtons.remove();
 		this.unbindPartial($noteFormContainer);
 		$noteFormContainer.html(processedJsonData.content);
 	};
@@ -130,8 +134,14 @@
 			showFetchedParticipantsList_ = function(ajaxContext, jsonData) {
 
 		var processedJsonData = this.handleJson(jsonData),
-				$participantsListContainer = $(
-				'#participantsListPlaceholder', this.getHtmlElement());
+				$participantsListContainer = $('#participantsListPlaceholder', this.getHtmlElement()),
+				$leaveQueryButton = $('.leaveQueryForm', this.getHtmlElement());
+
+		if (processedJsonData.showLeaveQueryButton) {
+			$leaveQueryButton.show();
+		} else {
+			$leaveQueryButton.hide();
+		}
 
 		this.unbindPartial($participantsListContainer);
 		$participantsListContainer.children().remove();

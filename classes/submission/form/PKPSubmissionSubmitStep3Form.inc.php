@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/form/PKPSubmissionSubmitStep3Form.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionSubmitStep3Form
@@ -82,7 +82,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 	 */
 	function execute() {
 		// Execute submission metadata related operations.
-		$this->_metadataFormImplem->execute($this->submission, Application::getRequest());
+		$this->_metadataFormImplem->execute($this->submission, Application::get()->getRequest());
 
 		// Get an updated version of the submission.
 		$submissionDao = Application::getSubmissionDAO();

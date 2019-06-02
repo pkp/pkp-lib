@@ -4,8 +4,8 @@
 <!--
   * locale/eu_ES/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Euskara) locale.
@@ -280,6 +280,8 @@
 	<message key="submission.form.name">Eman fitxategi honi izen erabilgarri bat</message>
 	<message key="submission.form.replaceExisting">Ordeztu jada badagoen fitxategi bat?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} izendatu da {$submissionId}</message>
+	<message key="log.review.reviewCleared">{$reviewerName} ebaluatzailearen {$submissionId} artikuluaren {$round}. ebaluazio-buelta ezabatu egin da.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} berriro hasi da {$submissionId} artikulua {$round}. bueltan ebaluatzen.</message>
 
 	<!--  peer review -->
 	<message key="submission.reviewForm">Ebaluazio-inprimakia</message>

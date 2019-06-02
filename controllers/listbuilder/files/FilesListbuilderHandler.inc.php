@@ -3,8 +3,8 @@
 /**
  * @file controllers/listbuilder/files/FilesListbuilderHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FilesListbuilderHandler
@@ -85,10 +85,11 @@ class FilesListbuilderHandler extends ListbuilderHandler {
 
 	/**
 	 * Load possible items to populate drop-down list with.
+	 * @param $request PKPRequest
 	 * @param $submissionFiles Array Submission files of this submission.
 	 * @return Array
 	 */
-	function getOptions($submissionFiles) {
+	function getOptions($request, $submissionFiles = null) {
 		$itemList = array();
 		foreach ($submissionFiles as $submissionFile) {
 			$itemList[$submissionFile->getFileId()] = $submissionFile->getFileId() . '-' . $submissionFile->getRevision() . ' ' . $submissionFile->getFileLabel();

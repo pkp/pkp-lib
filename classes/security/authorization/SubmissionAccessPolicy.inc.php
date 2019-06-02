@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/SubmissionAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAccessPolicy
@@ -33,6 +33,9 @@ class SubmissionAccessPolicy extends ContextPolicy {
 		// We need a submission in the request.
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
+
+		import('lib.pkp.classes.security.authorization.internal.VersioningRequiredPolicy');
+		$this->addPolicy(new VersioningRequiredPolicy($request, $args, 'submissionVersion', null, true));
 
 		// Authors, managers and sub editors potentially have
 		// access to submissions. We'll have to define differentiated

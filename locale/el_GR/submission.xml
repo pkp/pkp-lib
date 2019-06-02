@@ -4,8 +4,8 @@
 <!--
   * locale/el_GR/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the el_GR (ελληνικά) locale.
@@ -290,7 +290,9 @@
 	<message key="grid.reviewAttachments.title">Συνημμένα Αξιολογητή</message>
 	<message key="workflow.review.externalReview">Εξωτερική Αξιολόγηση</message>
 	<message key="log.review.reviewerAssigned">Ο/Η {$reviewerName} έχει αναλάβει την αξιολόγηση της υποβολής {$submissionId} για τo γύρο αξιολόγησης {$round}.</message>
+	<message key="log.review.reviewCleared">Εκκαθαρίστηκε ο γύρος αξιολόγησης {$round} από τον/ην {$reviewerName} για την υποβολή {$submissionId}.</message>
 	<message key="log.review.reviewUnconsidered">Ο/Η {$editorName} έχει επισημάνει το αίτημα για το γύρο αξιολόγησης {$round} για την υποβολή {$submissionId} ως ανεξέταστο.</message>
+	<message key="log.review.reviewReinstated">Ξεκίνησε εκ νέου ο γύρος αξιολόγησης {$round} από τον/ην {$reviewerName} για την υποβολή {$submissionId}.</message>
 	<message key="grid.action.itemWorkflow">Πήγαινε στο ροή εργασιών της υποβολής</message>
 	<message key="notification.type.editorAssignmentProduction">Για να ξεκινήσει η διαδικασία  παραγωγής μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή παραγωγής (production editor). Παρακαλούμε προσθέστε έναν επιμελητή παραγωγής επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>
 	<message key="notification.type.editorAssignmentEditing">Για να ξεκινήσει η διαδικασία  σύνταξης/επιμέλειας μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή. Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες.</message>

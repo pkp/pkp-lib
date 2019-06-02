@@ -4,8 +4,8 @@
 <!--
   * locale/sr_RS@cyrillic/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings.
@@ -142,6 +142,8 @@
 	<message key="submission.form.name">Унесите име документа (нпр. Рукопис; Табела 1)</message>
 	<message key="submission.form.replaceExisting">Заменити постојећи фајл?</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} је додељен(а) као рецензент предаје {$submissionId} у {$round}. кругу рецензије.</message>
+	<message key="log.review.reviewCleared">Рецензија {$round}. круга рецензента {$reviewerName} за прилог {$submissionId} је обрисана.</message>
+	<message key="log.review.reviewReinstated">{$round}. круг рецензије рецензента {$reviewerName} за прилог {$submissionId} је изнова покренут.</message>
 	<message key="submission.reviewForm">Рецензентски образац</message>
 	<message key="submission.reviewFormResponse">Одговор на рецензентски образац</message>
 	<message key="submission.query.from">Од</message>
@@ -170,12 +172,12 @@
 	<message key="submission.license.cc.by-nd4">CC Aуторство-Без прераде 4.0</message>
 	<message key="submission.license.cc.by4">CC Aуторство 4.0</message>
 	<message key="submission.license.cc.by-sa4">CC Aуторство-Дели под истим условима 4.0</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Aуторство-Nекомерцијално-Без прераде 4.0 Интернационална лиценца</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Aуторство-Nекомерцијално 4.0 Интернационална лиценца</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Aуторство-Nекомерцијално-Дели под истим условима 4.0 Интернационална лиценца</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Aуторство-Без прерада 4.0 Интернационална лиценца</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Aуторство 4.0 Интернационална лиценца</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Aуторство-Дели под истим условима 4.0 Интернационална лиценца</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Aуторство-Nекомерцијално-Без прераде 4.0 Интернационална лиценца</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Aуторство-Nекомерцијално 4.0 Интернационална лиценца</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Aуторство-Nекомерцијално-Дели под истим условима 4.0 Интернационална лиценца</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Aуторство-Без прерада 4.0 Интернационална лиценца</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Aуторство 4.0 Интернационална лиценца</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Овај рад је под <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Aуторство-Дели под истим условима 4.0 Интернационална лиценца</a>.</p>]]></message>
 	<message key="submission.queries.submission">Пред рецензентске дискусије</message>
 	<message key="submission.queries.review">Рецензентске дискусије</message>
 	<message key="submission.queries.production">Продукционе дискусије</message>

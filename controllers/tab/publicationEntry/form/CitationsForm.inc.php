@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/publicationEntry/form/CitationsForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationsForm
@@ -102,6 +102,9 @@ class CitationsForm extends Form {
 		$context = $request->getContext();
 		$citationDao = DAORegistry::getDAO('CitationDAO');
 		$parsedCitations = $citationDao->getBySubmissionId($submission->getId());
+		$actionNames = array(
+			'parse' => __('submission.parsedAndSaveCitations'),
+		);
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'submission' => $this->getSubmission(),
@@ -110,6 +113,7 @@ class CitationsForm extends Form {
 			'formParams' => $this->getFormParams(),
 			'citationsRequired' => $context->getData('citations') === METADATA_REQUIRE,
 			'parsedCitations' => $parsedCitations,
+			'actionNames' => $actionNames,
 		));
 		return parent::fetch($request, $template, $display);
 	}
@@ -133,17 +137,17 @@ class CitationsForm extends Form {
 	 * Parse and store the submission citations.
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		parent::execute();
-		$submission = $this->getSubmission();
-
-		$rawCitationList = $this->getData('citations');
-		$citationDao = DAORegistry::getDAO('CitationDAO');
-		$citationDao->importCitations($submission->getId(), $rawCitationList);
-
-		$submission->setCitations($rawCitationList);
-		$submissionDao = Application::getSubmissionDAO();
-		$submissionDao->updateObject($submission);
+	function execute($request) {
+		parent::execute($request);
+		if ($request->getUserVar('parse')) {
+			$submission = $this->getSubmission();
+			$rawCitationList = $this->getData('citations');
+			$citationDao = DAORegistry::getDAO('CitationDAO');
+			$citationDao->importCitations($submission->getId(), $rawCitationList);
+			$submission->setCitations($rawCitationList);
+			$submissionDao = Application::getSubmissionDAO();
+			$submissionDao->updateObject($submission);
+		}
 	}
 
 }

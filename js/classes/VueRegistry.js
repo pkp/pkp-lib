@@ -1,8 +1,8 @@
 /**
  * @file js/classes/VueRegistry.js
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class VueRegistry
@@ -33,14 +33,14 @@ export default {
 			return;
 		}
 
-		if (data._constants !== undefined) {
-			Object.assign(pkp.const, data._constants);
-			delete data._constants;
+		var baseData = {};
+		if (typeof pkp.controllers[type].data === 'function') {
+			baseData = pkp.controllers[type].data();
 		}
 
 		var args = $.extend(true, {}, pkp.controllers[type], {
 			el: '#' + id,
-			data: $.extend(true, {}, pkp.controllers[type].data(), data, {id: id})
+			data: $.extend(true, {}, baseData, data, {id: id})
 		});
 
 		pkp.registry._instances[id] = new pkp.Vue(args);

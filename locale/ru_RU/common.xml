@@ -4,8 +4,8 @@
 <!--
   * locale/ru_RU/common.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Russian_(ru_RU)
   * Localization strings.
@@ -79,18 +79,18 @@
 	<message key="common.captchaField">Проверка</message>
 	<message key="common.ccLicense"><![CDATA[
 		<br /><br />
-		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
 			<img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br />
-		Эта работа распространяется по <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons Attribution 3.0</a>.
+		Эта работа распространяется по <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons Attribution 3.0</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
 	<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		Эта работа распространяется по <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">лицензии Creative Commons Attribution 3.0</a>.
+		Эта работа распространяется по <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">лицензии Creative Commons Attribution 3.0</a>.
 	</div>
 	]]></message>
 	<message key="common.changesSaved">Ваши изменения были сохранены.</message>
@@ -110,6 +110,7 @@
 	<message key="common.country">Страна</message>
 	<message key="common.create">Создать</message>
 	<message key="common.dateCompleted">Дата завершения</message>
+	<message key="common.dateDecided">Дата принятия решения</message>
 	<message key="common.date">Дата</message>
 	<message key="common.dateModified">Дата изменения</message>
 	<message key="common.dateRequested">Дата запроса</message>
@@ -252,7 +253,6 @@
 	<message key="common.size">Размер</message>
 	<message key="common.source">Источник</message>
 	<message key="common.status">Статус</message>
-	<message key="common.startTyping">Начать вводить с клавиатуры</message>
 	<message key="common.subject">Тема</message>
 	<message key="common.subjects">Темы</message>
 	<message key="common.subtitle">Подзаголовок</message>
@@ -591,7 +591,6 @@
 	<message key="validator.active_url">Некорректный URL.</message>
 	<message key="validator.after">Дата должна быть после {$date}.</message>
 	<message key="validator.alpha">Здесь могут быть только буквы.</message>
-	<message key="validator.alpha_dash">Здесь могут быть только буквы, цифры и дефисы.</message>
 	<message key="validator.alpha_num">Здесь могут быть только буквы и цифры.</message>
 	<message key="validator.array">Некорректный массив.</message>
 	<message key="validator.before">Дата должна быть до {$date}.</message>

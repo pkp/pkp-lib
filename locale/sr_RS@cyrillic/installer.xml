@@ -4,8 +4,8 @@
 <!--
   * locale/sr_RS@cyrillic/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Serbian_(sr_RS)
   * Localization strings.
@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Садржај конфигурационог фајла</message>
 	<message key="installer.createDatabase">Креирај нову базу података</message>
 	<message key="installer.createDatabaseInstructions">Да бисте користили ову опцију, систем ваше базе података мора подржавати креирање удаљене базе података и ваш користички налог мора имати адекватне дозволе за креирање нове базе података. Уколико инсталација није успела са овом одабраном могућношћу, ручно креирајте базу података на вашем серверу и поновно покрените инсталациони програм без ове опције.</message>
-	<message key="installer.databaseCharset">Скуп знакова базе података</message>
 	<message key="installer.databaseDriver">Драјвери базе података</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Драјвери базе података излистани у угластим заградама немају потребну PHP екстензију и инсталација вероватно неће успешно завршити уколико су одабрани.</strong><br />Било који од неподржаних, доле излистаних драјвери база података су излистани искључиво за академске сврхе и вероватно неће радити.]]></message>
 	<message key="installer.databaseHost">Хост</message>
@@ -56,7 +55,7 @@
 	<message key="installer.locale">Превод</message>
 	<message key="installer.locale.maybeIncomplete">Означене локализације су некомплетне.</message>
 	<message key="installer.localeSettings">Подешавање локализације</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Јединствени идентификатор који се користи за идентификацију записа метаподатака индексираних на овом сајту користећи <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Протокол за сакупљање метаподатака.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Јединствени идентификатор који се користи за идентификацију записа метаподатака индексираних на овом сајту користећи <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Протокол за сакупљање метаподатака.]]></message>
 	<message key="installer.oaiRepositoryId">Идентификатор репозиторијума</message>
 	<message key="installer.publicFilesDirError">Фолдер јавних фајлова не постоји или се не може писати по њему.</message>
 	<message key="installer.releaseNotes">Напомене о издању</message>

@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/user/form/userDetailsForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form for creating/editing a user.
@@ -57,10 +57,14 @@
 			{fbvFormSection}
 				{assign var="uuid" value=""|uniqid|escape}
 				<div id="userGroups-{$uuid}">
-					<script type="text/javascript">
-						pkp.registry.init('userGroups-{$uuid}', 'SelectListPanel', {$selectUserListData|json_encode});
-					</script>
+						<list-panel
+							v-bind="components.selectRole"
+							@set="set"
+						/>
 				</div>
+					<script type="text/javascript">
+						pkp.registry.init('userGroups-{$uuid}', 'Container', {$selectRoleListData|json_encode});
+					</script>
 			{/fbvFormSection}
 		{/if}
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

@@ -4,8 +4,8 @@
 <!--
   * lib/pkp/locale/sl_SI/user.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -148,7 +148,7 @@
 	<message key="user.username">Uporabniško ime</message>
 	<message key="user.workingLanguages">Delovni jeziki</message>
 	<message key="user.orcid">ORCID ID</message>
-	<message key="user.orcid.orcidInvalid">Vnešeni ORCID ID je napačen. Prosimo vnesite celotno URL povezavo (npr. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Vnešeni ORCID ID je napačen. Prosimo vnesite celotno URL povezavo (npr. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Identiteta</message>
 	<message key="user.profile.contact">Kontakt</message>
 	<message key="user.profile.public">Javno</message>

@@ -4,8 +4,8 @@
 <!--
   * locale/fi_FI/submission.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -492,6 +492,8 @@
 	<message key="submission.productionReady">Varaa saatavilla oleva</message>
 	<message key="submission.review.uploadRevisionToRound">Lataa korjattu tiedosto</message>
 	<message key="log.review.reviewerAssigned">{$reviewerName} on valittu käsikirjoituksen {$submissionId} arviointiin arviointikierroksella {$round}.</message>
+	<message key="log.review.reviewCleared">{$reviewerName}:n arviointi käsikirjoituksesta {$submissionId} kierroksella {$round} on poistettu.</message>
+	<message key="log.review.reviewReinstated">{$reviewerName} on aloittanut uudelleen käsikirjoituksen {$submissionId} arvioinnin kierroksella {$round}.</message>
 	<message key="submission.document">Asiakirja</message>
 	<message key="submission.art">Kuvamateriaali</message>
 	<message key="submission.supplementary">Lisäsisältö</message>
@@ -526,12 +528,12 @@
 	<message key="submission.license.cc.by-nd4">CC Nimeä-EiMuutoksia 4.0 Kansainvälinen Julkinen Lisenssi</message>
 	<message key="submission.license.cc.by4">CC Nimeä 4.0 Kansainvälinen Julkinen Lisenssi</message>
 	<message key="submission.license.cc.by-sa4">CC Nimeä-JaaSamoin 4.0 Kansainvälinen Julkinen Lisenssi</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.fi">Creative Commons Nimeä-EiKaupallinen-EiMuutoksia 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.fi">Creative Commons Nimeä-EiKaupallinen 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.fi">Creative Commons Nimeä-EiKaupallinen-JaaSamoin 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/deed.fi">Creative Commons Nimeä-EiMuutoksia 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fi">Creative Commons Nimeä 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.fi">Creative Commons Nimeä-JaaSamoin 4.0 Kansainvälinen Julkinen-lisenssillä</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fi">Creative Commons Nimeä-EiKaupallinen-EiMuutoksia 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.fi">Creative Commons Nimeä-EiKaupallinen 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fi">Creative Commons Nimeä-EiKaupallinen-JaaSamoin 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/deed.fi">Creative Commons Nimeä-EiMuutoksia 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fi">Creative Commons Nimeä 4.0 Kansainvälinen Julkinen -lisenssillä</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Tämä työ on lisensoitu <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fi">Creative Commons Nimeä-JaaSamoin 4.0 Kansainvälinen Julkinen-lisenssillä</a>.</p>]]></message>
 
 	<!-- Submission Queries -->
 	<message key="submission.queries.submission">Arviointia edeltävät keskustelut</message>
@@ -563,12 +565,10 @@
 	<message key="submission.list.incompleteSubmissionNotice">Käsikirjoituksen lähetys pitää viimeistellä ennen kuin toimittaja tarkistaa sen.</message>
 	<message key="submission.list.confirmDelete">Poista käsikirjoitus?</message>
 	<message key="submission.list.viewSubmission">Katso käsikirjoitusta</message>
-	<message key="submission.list.itemsOfTotal">{$count} / {$total} käsikirjoitusta</message>
 	<message key="submission.list.responseDue">Vastausaika umpeutuu</message>
 	<message key="submission.list.reviewDue">Arviointiaika umpeutuu</message>
 	<message key="submission.query.noParticipantOptions">Käsikirjoitukseen pitää lisätä vähintään yksi osallistuja ennen keskustelun aloittamista.</message>
 	<message key="submission.list.infoCenter">Tapahtumaloki ja muistiinpanot</message>
-	<message key="submission.list.count">{$count} käsikirjoitusta</message>
 	<message key="submission.review.status.responseOverdue">Arvioija ei ole vastannyt pyyntöön määräaikaan mennessä.</message>
 	<message key="submission.review.status.reviewOverdue">Arvioija ei ole tehnyt arviota määräaikaan mennessä.</message>
 	<message key="submission.review.status.accepted">Tämä arviopyyntö on hyväksytty</message>

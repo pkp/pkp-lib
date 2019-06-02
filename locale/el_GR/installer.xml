@@ -4,8 +4,8 @@
 <!--
   * locale/el_GR/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the el_GR (ελληνικά) locale.
@@ -25,7 +25,6 @@
 	<message key="installer.contentsOfConfigFile">Περιεχόμενα αρχείου ρυθμίσεων</message>
 	<message key="installer.createDatabase">Δημιουργία βάσης δεδομένων</message>
 	<message key="installer.createDatabaseInstructions">Για να χρησιμοποιήσετε αυτή την επιλογή, το σύστημά σας πρέπει να υποστηρίζει την απομακρυσμένη δημιουργία βάσης δεδομένων και ο λογαριασμός χρήστης σας πρέπει να διαθέτει τις απαραίτητες άδειες για τη δημιουργία νέας βάσης δεδομένων. Εάν η εγκατάσταση δεν ολοκληρωθεί επιτυχώς με την συγκεκριμένη επιλογή ενεργοποιημένη, δημιουργήστε βάση δεδομένων στον διακομιστή σας μη αυτόματα και εκτελέστε το πρόγραμμα εγκατάστασης ξανά έχοντας την συγκεκριμένη επιλογή απενεργοποιημένη.</message>
-	<message key="installer.databaseCharset"> Database character set</message>
 	<message key="installer.databaseDriver">Οδηγός βάσης δεδομένων (Database driver)</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Οι οδηγοί (drivers) της βάσης δεδομένων που παρουσιάζονται εντός αγκυλών δεν φαίνεται να έχουν φορτώσει την απαραίτητη επέκταση PHP, και, εάν επιλεχθεί η εγκατάσταση, πιθανώς να μην ολοκληρωθεί επιτυχώς.</strong><br /> Όλοι οι οδηγοί που δεν υποστηρίζονται από τους παραπάνων, παρουσιάζονται αποκλειστικά για ακαδημαϊκή χρήση και δεν είναι πιθανό να λειτουργήσουν.]]></message>
 	<message key="installer.databaseHost">Host</message>
@@ -58,7 +57,7 @@
 	<message key="installer.locale">Τοπικές ρυθμίσεις</message>
 	<message key="installer.localeSettings">Τοπικές ρυθμίσεις</message>
 	<message key="installer.miscSettings">Λοιπές Ρυθμίσεις </message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Ένα μοναδικό αναγνωριστικό χρησιμοποιείται για την αναγνώριση των εγγραφών μεταδεδομένων των ευρετηρίων του συγκεκριμένου ιστοτόπου με χρήση του <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Ένα μοναδικό αναγνωριστικό χρησιμοποιείται για την αναγνώριση των εγγραφών μεταδεδομένων των ευρετηρίων του συγκεκριμένου ιστοτόπου με χρήση του <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Αναγνωριστικό (identifier) OAI καταθετηρίου</message>
 	<message key="installer.publicFilesDirError">Ο κατάλογος των δημόσιων αρχείων δεν υπάρχει ή δεν είναι εγγράψιμος (writable).</message>
 	<message key="installer.releaseNotes">Σημιεώσεις έκδοσης</message>

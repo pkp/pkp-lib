@@ -6,8 +6,8 @@
 /**
  * @file classes/submission/reviewRound/ReviewRound.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewRound
@@ -214,6 +214,7 @@ class ReviewRound extends DataObject {
 
 			switch ($assignmentStatus) {
 				case REVIEW_ASSIGNMENT_STATUS_DECLINED:
+				case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
 					break;
 
 				case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:

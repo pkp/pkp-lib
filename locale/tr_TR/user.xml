@@ -4,8 +4,8 @@
 <!--
   * locale/tr_TR/user.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -144,7 +144,7 @@
 	<message key="user.role.layoutEditor">Tasarım Editörü</message>
 	<message key="user.role.layoutEditors">Tasarım Editörleri</message>
 	<message key="user.orcid">ORCID ID</message>
-	<message key="user.orcid.orcidInvalid">Belirttiğiniz ORCID id geçerli değil. Lütfen tam URI'yi ekleyin (Ör. "http://orcid.org/0000-0002-1825-0097").</message>
+	<message key="user.orcid.orcidInvalid">Belirttiğiniz ORCID id geçerli değil. Lütfen tam URI'yi ekleyin (Ör. "https://orcid.org/0000-0002-1825-0097").</message>
 	<message key="user.profile.identity">Kimlik</message>
 	<message key="user.profile.contact">İletişim</message>
 	<message key="user.profile.public">Genel</message>

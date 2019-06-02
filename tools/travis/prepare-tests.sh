@@ -2,8 +2,8 @@
 
 # @file tools/travis/prepare-tests.sh
 #
-# Copyright (c) 2014-2018 Simon Fraser University
-# Copyright (c) 2010-2018 John Willinsky
+# Copyright (c) 2014-2019 Simon Fraser University
+# Copyright (c) 2010-2019 John Willinsky
 # Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
 #
 # Script to prepare the environment for the test suite.
@@ -23,7 +23,7 @@ export FILESDIR=files # Files directory (relative to OJS installation -- do not 
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
 
 # Install required software
-sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl
+sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl chromium-chromedriver chromium-browser
 
 # Generate sample files to use for testing.
 echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # Generate a dummy PDF file
@@ -61,3 +61,5 @@ sed -i -e "s/enable_cdn = On/enable_cdn = Off/" config.inc.php
 
 # Make the files directory (this will be files_dir in config.inc.php after installation).
 mkdir --parents ${FILESDIR}
+
+set +e

@@ -4,8 +4,8 @@
 <!--
   * locale/zh_CN/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -24,7 +24,6 @@
 	<message key="installer.contentsOfConfigFile">配置文件内容</message>
 	<message key="installer.createDatabase">创建新数据库</message>
 	<message key="installer.createDatabaseInstructions">若要使用此选项，您的数据库系统必须支持远程数据库的建立和您的用户帐户必须具有适当的权限来创建新的数据库.如果选择此选项的时候安装失败，请在服务器上手动创建数据库，并禁用此项后重新执行安装.</message>
-	<message key="installer.databaseCharset">数据库字符设置</message>
 	<message key="installer.databaseDriver">数据库驱动</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>如果选择括弧中所列的数据库驱动程序，但没有安装与启用所需的PHP函数的话，可能无法执行。</strong><br />上面个别列出由于学术目的而不支持的数据库驱动程序，而且不太可能运作。]]></message>
 	<message key="installer.databaseHost">主机</message>
@@ -58,7 +57,7 @@
 	<message key="installer.locale">语言设置</message>
 	<message key="installer.locale.maybeIncomplete">标记的语言环境尚未完成.</message>
 	<message key="installer.localeSettings">语言环境设置</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[一个独一无二的识别码，用来识别本站使用<a href="http://www.openarchives.org/" target="_blank">开放存档计划(Open Archives Initiative)</a>元数据搜集协定所索引的元数据记录 ]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[一个独一无二的识别码，用来识别本站使用<a href="https://www.openarchives.org/" target="_blank">开放存档计划(Open Archives Initiative)</a>元数据搜集协定所索引的元数据记录 ]]></message>
 	<message key="installer.oaiRepositoryId">OAI库标识符</message>
 	<message key="installer.publicFilesDirError">Public的文件的目录不存在或不可写.</message>
 	<message key="installer.releaseNotes">发行说明</message>

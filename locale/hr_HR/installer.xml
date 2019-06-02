@@ -4,8 +4,8 @@
 <!--
   * locale/hr_HR/installer.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -24,8 +24,6 @@
 	<message key="installer.contentsOfConfigFile">Sadržaj konfiguracijske datoteke</message>
 	<message key="installer.createDatabase">Kreiraj novu bazu podataka</message>
 	<message key="installer.createDatabaseInstructions">Da biste koristili ovu opciju, sustav vaše baze podataka mora podržavati kreiranje udaljene baze podataka i vaš koristički račun mora imati prikladne dozvole za kreiranje nove baze podataka. Ukoliko instalacija nije uspjela s ovom odabranom mogućnošću, ručno kreirajte bazu podataka na vašem poslužitelju i ponovno pokrenite instalacijski program bez ove opcije.</message>
-	<message key="installer.databaseCharset">Skupina znakova baze podataka</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[Enkoding koji se koristi za podatke pohranjene u bazi podataka.]]></message>
 	<message key="installer.databaseDriver">Upravljač baze podataka</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Upravljači baze podataka izlistani u uglatim zagradama nemaju učitanu potrebnu PHP ekstenziju i instalacija će vjerovatno podbaciti ukoliko su odabrani.</strong><br />Bilo koji nepodržani dolje izlistani upravljači baza podataka su izlistani isključivo za akademske svrhe i vjerovatno neće raditi.]]></message>
 	<message key="installer.databaseHost">Domaćin</message>
@@ -58,7 +56,7 @@
 	<message key="installer.locale">Prijevod</message>
 	<message key="installer.localeSettings">Postavke prijevoda sustava</message>
 	<message key="installer.miscSettings">Razne postavke</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih s ove stranice koristeći <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka.]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih s ove stranice koristeći <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka.]]></message>
 	<message key="installer.oaiRepositoryId">Identifikator OAI repozitorija</message>
 	<message key="installer.publicFilesDirError">Direktorij javnih datoteka ne postoji ili se ne može pisati po njemu.</message>
 	<message key="installer.releaseNotes">Bilješke o izdanju</message>

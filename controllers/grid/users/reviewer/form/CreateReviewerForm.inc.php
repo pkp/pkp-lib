@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/CreateReviewerForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CreateReviewerForm
@@ -27,7 +27,7 @@ class CreateReviewerForm extends ReviewerForm {
 
 		// the users register for the site, thus
 		// the site primary locale is the required default locale
-		$site = Application::getRequest()->getSite();
+		$site = Application::get()->getRequest()->getSite();
 		$this->addSupportedFormLocale($site->getPrimaryLocale());
 
 		$form = $this;
@@ -54,8 +54,10 @@ class CreateReviewerForm extends ReviewerForm {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$advancedSearchAction = $this->getAdvancedSearchAction($request);
-
 		$this->setReviewerFormAction($advancedSearchAction);
+		$site = $request->getSite();
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('sitePrimaryLocale', $site->getPrimaryLocale());
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -130,7 +132,7 @@ class CreateReviewerForm extends ReviewerForm {
 			import('lib.pkp.classes.mail.MailTemplate');
 			$mail = new MailTemplate('REVIEWER_REGISTER');
 			if ($mail->isEnabled()) {
-				$request = Application::getRequest();
+				$request = Application::get()->getRequest();
 				$context = $request->getContext();
 				$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 				$mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()));

@@ -3,8 +3,8 @@
 <!--
   * locale/fa_IR/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Farsi_(fa_IR)
@@ -62,7 +62,6 @@
 	<message key="manager.publication.emails">ایمیل</message>
 	<message key="manager.emails.confirmDelete">آیا می‌خواهید این الگوی ایمیل را حذف کنید؟</message>
 	<message key="manager.emails.confirmReset">آیا می‌خواهید این الگوی ایمیل را به حالت نخست برگردانید؟</message>
-	<message key="manager.emails.addEmail">افزودن الگوی ایمیل</message>
 	<message key="manager.emails.createEmail">ایجاد ایمیل</message>
 	<message key="manager.emails.data">الگوی پیام</message>
 	<message key="manager.emails.details">جزئیات الگو</message>
@@ -73,7 +72,6 @@
 	<message key="manager.emails.emailKey">شناسه ایمیل</message>
 	<message key="manager.emails.emailKeyExists">ایمیلی با این شناسه در حال حاضر موجود است. کلید ایمیل می‌بایست منحصربه‌فرد باشد.</message>
 	<message key="manager.emails.emailTemplate">الگوی ایمیل</message>
-	<message key="manager.emails.emailTemplates">الگو‌های ایمیل</message>
 	<message key="manager.emails.enabled">فعال ساختن این الگوی ایمیل</message>
 	<message key="manager.emails.enable">فعال ساختن</message>
 	<message key="manager.emails.enable.message">در حال فعال‌سازی این ایمیل، از این عمل مطمئنید؟</message>
@@ -81,7 +79,6 @@
 	<message key="manager.emails.form.bodyRequired">متن اصلی برای این ایمیل لازم است</message>
 	<message key="manager.emails.form.subjectRequired">یک موضوع برای این ایمیل لازم است.</message>
 	<message key="manager.emails">ایمیل‌های از پیش آماده شده</message>
-	<message key="manager.emails.resetAll">برگرداندن تمام الگو‌ها به حالت نخست</message>
 	<message key="manager.emails.resetAll.message">اگر تمامی الگوها را رست کنید، تمامی تغییرات انجام شده بر روی الگوها از دست خواهد رفت. مطمئن به ادامه این کار هستید؟</message>
 	<message key="manager.emails.reset">ریست</message>
 	<message key="manager.emails.reset.message">اگر این الگو را رست کنید، تمامی تغییرات آن به حالت پیش‌فرض بر خواهد گشت. مطمئن به ادامه این کار هستید؟</message>

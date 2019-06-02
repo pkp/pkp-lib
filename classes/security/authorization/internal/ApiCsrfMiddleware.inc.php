@@ -3,8 +3,8 @@
 /**
  * @file classes/security/authorization/internal/ApiCsrfMiddleware.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ApiCsrfMiddleware
@@ -72,7 +72,7 @@ class ApiCsrfMiddleware {
 		if (empty($server['HTTP_X_CSRF_TOKEN'])) {
 			return false;
 		}
-		$session = Application::getRequest()->getSession();
+		$session = Application::get()->getRequest()->getSession();
 		return $session && $session->getCSRFToken() === $server['HTTP_X_CSRF_TOKEN'];
 	}
 }

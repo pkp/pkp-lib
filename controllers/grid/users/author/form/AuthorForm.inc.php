@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/form/AuthorForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorForm
@@ -133,6 +133,7 @@ class AuthorForm extends Form {
 				'biography' => $author->getBiography(null),
 				'primaryContact' => $author->getPrimaryContact(),
 				'includeInBrowse' => $author->getIncludeInBrowse(),
+				'version' => $author->getSubmissionVersion(),
 			);
 		} else {
 			// assume authors should be listed unless otherwise specified.
@@ -221,6 +222,7 @@ class AuthorForm extends Form {
 		$author->setBiography($this->getData('biography'), null); // localized
 		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
+		$author->setSubmissionVersion($submission->getCurrentSubmissionVersion());
 
 		// in order to be able to use the hook
 		parent::execute();

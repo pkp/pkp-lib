@@ -4,8 +4,8 @@
 <!--
   * locale/en_US/common.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -79,18 +79,18 @@
 	<message key="common.captchaField">Validation</message>
 	<message key="common.ccLicense"><![CDATA[
 		<br /><br />
-		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br />
-		This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
+		This work is licensed under a <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
 	<div class="rtBlock">
 		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
+		This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
 	</div>
 	]]></message>
 	<message key="common.changesSaved">Your changes have been saved.</message>
@@ -157,6 +157,7 @@
 	<message key="common.filterAdd">Add filter: {$filterTitle}</message>
 	<message key="common.filterRemove">Clear filter: {$filterTitle}</message>
 	<message key="common.from">From</message>
+	<message key="common.fromWithValue">From: {$value}</message>
 	<message key="common.until">Until</message>
 	<message key="common.go">Go</message>
 	<message key="common.height">Height</message>
@@ -186,6 +187,7 @@
 	<message key="common.noneAssigned">None assigned</message>
 	<message key="common.none">None</message>
 	<message key="common.no">No</message>
+	<message key="common.noItemsFound">No items found.</message>
 	<message key="common.noComments">No Comments</message>
 	<message key="common.notApplicable">Not applicable</message>
 	<message key="common.notApplicableShort">N/A</message>
@@ -208,7 +210,10 @@
 	<message key="common.other">Other</message>
 	<message key="common.overdue">Overdue</message>
 	<message key="common.pagination">{$start}-{$end} of {$total}</message>
-	<message key="common.pagination.label">Browse additional pages</message>
+	<message key="common.pagination.label">View additional pages</message>
+	<message key="common.pagination.goToPage">Go to {$page}</message>
+	<message key="common.pagination.next">Next page</message>
+	<message key="common.pagination.previous">Previous page</message>
 	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Plugin</message>
@@ -253,13 +258,13 @@
 	<message key="common.size">Size</message>
 	<message key="common.source">Source</message>
 	<message key="common.status">Status</message>
-	<message key="common.startTyping">Start Typing</message>
 	<message key="common.subject">Subject</message>
 	<message key="common.subjects">Subjects</message>
 	<message key="common.subtitle">Subtitle</message>
 	<message key="common.suggest">Suggest</message>
 	<message key="common.title">Title</message>
 	<message key="common.top">Top</message>
+	<message key="common.toWithValue">To: {$value}</message>
 	<message key="common.true">True</message>
 	<message key="common.type">Type</message>
 	<message key="common.component">Component</message>
@@ -413,6 +418,10 @@
 	<message key="stageParticipants.notify.warning">Please ensure that you have filled out the message field and included someone other than yourself in the discussion.</message>
 	<message key="stageParticipants.options">Assignment privileges</message>
 	<message key="stageParticipants.recommendOnly">This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions.</message>
+	<message key="stageParticipants.submissionEditMetadataOptions">Submission metadata edit permission.</message>
+	<message key="stageParticipants.canChangeMetadata">Allow submission metadata changes by this user</message>
+	<message key="stageParticipants.selectedUser">Participant</message>
+	<message key="stageParticipants.noOptionsToHandle">No changes can be made to this participant</message>
 
 	<message key="locale.primary">Primary locale</message>
 	<message key="locale.supported">Supported locales</message>
@@ -446,6 +455,7 @@
 	<message key="navigation.settings">Settings</message>
 	<message key="navigation.setup">Setup</message>
 	<message key="navigation.sitemap">Site Map</message>
+	<message key="navigation.skip.announcements">Skip to announcements</message>
 	<message key="navigation.skip.main">Skip to main content</message>
 	<message key="navigation.skip.nav">Skip to main navigation menu</message>
 	<message key="navigation.skip.footer">Skip to site footer</message>
@@ -550,12 +560,15 @@
 	<message key="notification.addedReviewer">{$reviewerName} was assigned to review this submission and sent an email notification.</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} was assigned to review this submission and was not sent an email notification.</message>
 	<message key="notification.removedReviewer">Reviewer removed.</message>
+	<message key="notification.cancelledReviewer">Reviewer cancelled.</message>
+	<message key="notification.reinstatedReviewer">Reviewer reinstated.</message>
 	<message key="notification.addedStageParticipant">User added as a stage participant.</message>
+	<message key="notification.editStageParticipant">The stage assignment has been changed.</message>
 	<message key="notification.type.newAnnouncement">New announcement.</message>
 	<message key="notification.type.reviewAssignment">Review pending.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Review assignment updated.</message>
 	<message key="notification.type.auditorRequest">Audit request for "{$file}"</message>
-	<message key="notification.type.allReviewsIn">All reviews are in and a decision is needed in {$stage}.</message>
+	<message key="notification.type.allReviewsIn">All reviewers have responded and a decision is needed in {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">A revised file has been uploaded for your editorial consideration in {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Revisions to consider in {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>
@@ -592,7 +605,7 @@
 	<message key="validator.active_url">This is not a valid URL.</message>
 	<message key="validator.after">This date must be after {$date}.</message>
 	<message key="validator.alpha">This may only contain letters.</message>
-	<message key="validator.alpha_dash">This may only contain letters, numbers, and dashes.</message>
+	<message key="validator.alpha_dash">This may only contain letters, numbers, dashes and underscores.</message>
 	<message key="validator.alpha_num">This may only contain letters and numbers.</message>
 	<message key="validator.array">This is not a valid array.</message>
 	<message key="validator.before">This date must be before {$date}.</message>

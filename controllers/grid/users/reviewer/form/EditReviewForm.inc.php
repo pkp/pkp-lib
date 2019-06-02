@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/EditReviewForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditReviewForm
@@ -108,7 +108,7 @@ class EditReviewForm extends Form {
 	 * Save review assignment
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		// Get the list of available files for this review.
@@ -132,7 +132,7 @@ class EditReviewForm extends Form {
 		// Send notification to reviewer if details have changed.
 		if (strtotime($reviewAssignment->getDateDue()) != strtotime($this->getData('reviewDueDate')) || strtotime($reviewAssignment->getDateResponseDue()) != strtotime($this->getData('responseDueDate')) || $reviewAssignment->getReviewMethod() != $this->getData('reviewMethod')){
 			$notificationManager = new NotificationManager();
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 
 			$notificationManager->createNotification(

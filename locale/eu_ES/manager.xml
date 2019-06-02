@@ -4,8 +4,8 @@
 <!--
   * locale/eu_ES/manager.xml
   *
-  * Copyright (c) 2014-2018 Simon Fraser University
-  * Copyright (c) 2000-2018 John Willinsky
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Euskara) locale.
@@ -61,13 +61,11 @@
 	<message key="manager.emails.emailKey">Posta elektronikoko gakoa</message>
 	<message key="manager.emails.emailKeyExists">Gako hori beste posta elektroniko batek erabiltzen du. Gako unibokoa izan behar du.</message>
 	<message key="manager.emails.emailTemplate">Mezu elektronikoen txantiloia</message>
-	<message key="manager.emails.emailTemplates">Mezu elektronikoen txantiloiak</message>
 	<message key="manager.emails.enabled">Gaitu mezu-txantiloi hau</message>
 	<message key="manager.emails.enable">Gaitu</message>
 	<message key="manager.emails.form.bodyRequired">Mezuak gorputza eduki behar du.</message>
 	<message key="manager.emails.form.subjectRequired">Mezuak gaia eduki behar du.</message>
 	<message key="manager.emails">Prestatutako mezu elektronikoak</message>
-	<message key="manager.emails.resetAll">Berrezarri txantiloi guztiak</message>
 	<message key="manager.emails.reset">Berrezarri</message>
 	<message key="manager.emails.resetToDefault">Berrezarri lehenetsia</message>
 	<message key="manager.filesBrowser">Fitxategi-arakatzailea</message>
@@ -167,7 +165,6 @@
 	<message key="manager.reviewerSearch.searchByName">Ebaluatzailea izenez bilatu</message>
 	<message key="manager.reviewerSearch.interests">Interesak ebaluatzen</message>
 	<message key="manager.announcements.datePublish">Argitaratua</message>
-	<message key="manager.emails.addEmail">Erantsi helbide elektronikoaren txantiloia</message>
 	<message key="manager.emails.details">Txantiloiaren xehetasunak</message>
 	<message key="manager.emails.data">Txantiloiko mezuaren datuak</message>
 	<message key="manager.emails.disable.message">Posta elektronikoaren txantiloi hau desaktibatzeko zorian zaude. Sistemaren prozesu batzuk baleude txantiloi hau erabiltzen, ez lukete aurrerantzean erabiliko. Eragiketa baieztatu nahi duzu?</message>

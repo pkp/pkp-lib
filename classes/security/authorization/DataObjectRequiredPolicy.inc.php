@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/DataObjectRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataObjectRequiredPolicy
@@ -94,7 +94,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 	 * Identifies a submission id in the request.
 	 * @return integer|false returns false if no valid submission id could be found.
 	 */
-	function getDataObjectId() {
+	function getDataObjectId($lookOnlyByParameterName = false) {
 		// Identify the data object id.
 		$router = $this->_request->getRouter();
 		switch(true) {
@@ -102,7 +102,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 				if ( ctype_digit((string) $this->_request->getUserVar($this->_parameterName)) ) {
 					// We may expect a object id in the user vars
 					return (int) $this->_request->getUserVar($this->_parameterName);
-				} else if (isset($this->_args[0]) && ctype_digit((string) $this->_args[0])) {
+				} else if (!$lookOnlyByParameterName && isset($this->_args[0]) && ctype_digit((string) $this->_args[0])) {
 					// Or the object id can be expected as the first path in the argument list
 					return (int) $this->_args[0];
 				}

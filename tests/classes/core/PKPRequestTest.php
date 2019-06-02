@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/core/PKPRequestTest.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPRequestTest
@@ -101,7 +101,9 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetBaseUrl() {
 		$this->setTestConfiguration('request1', 'classes/core/config'); // baseurl1
-		$_SERVER = array();
+		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
+		);
 		self::assertEquals('http://baseurl1/', $this->request->getBaseUrl());
 
 		// Two hooks should have been triggered.
@@ -241,7 +243,9 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetServerHostLocalhost() {
 		// if none of the server variables is set then return the default
-		$_SERVER = array();
+		$_SERVER = array(
+			'SCRIPT_NAME' => '/index.php',
+		);
 		self::assertEquals('localhost', $this->request->getServerHost());
 	}
 
@@ -252,7 +256,8 @@ class PKPRequestTest extends PKPTestCase {
 	public function testGetServerHostWithHostname() {
 		// if SERVER_NAME is set then return it
 		$_SERVER = array(
-			'SERVER_NAME' => 'hostname'
+			'SERVER_NAME' => 'hostname',
+			'SCRIPT_NAME' => ''
 		);
 		self::assertEquals('hostname', $this->request->getServerHost());
 	}
@@ -264,7 +269,8 @@ class PKPRequestTest extends PKPTestCase {
 	public function testGetServerHostWithServerName() {
 		// if SERVER_NAME is set then return it
 		$_SERVER = array(
-			'SERVER_NAME' => 'hostname'
+			'SERVER_NAME' => 'hostname',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('hostname', $this->request->getServerHost());
 	}
@@ -277,7 +283,8 @@ class PKPRequestTest extends PKPTestCase {
 		// if HTTP_HOST is set then return it
 		$_SERVER = array(
 			'SERVER_NAME' => 'hostname',
-			'HTTP_HOST' => 'http_host'
+			'HTTP_HOST' => 'http_host',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('http_host', $this->request->getServerHost());
 	}
@@ -291,7 +298,8 @@ class PKPRequestTest extends PKPTestCase {
 		$_SERVER = array(
 			'SERVER_NAME' => 'hostname',
 			'HTTP_HOST' => 'http_host',
-			'HTTP_X_FORWARDED_HOST' => 'x_host'
+			'HTTP_X_FORWARDED_HOST' => 'x_host',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('x_host', $this->request->getServerHost());
 	}
@@ -323,7 +331,8 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetProtocolHttpsVariableOff() {
 		$_SERVER = array(
-			'HTTPS' => 'OFF'
+			'HTTPS' => 'OFF',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('http', $this->request->getProtocol());
 	}
@@ -333,7 +342,8 @@ class PKPRequestTest extends PKPTestCase {
 	 */
 	public function testGetProtocolHttpsVariableOn() {
 		$_SERVER = array(
-			'HTTPS' => 'ON'
+			'HTTPS' => 'ON',
+			'SCRIPT_NAME' => '/index.php',
 		);
 		self::assertEquals('https', $this->request->getProtocol());
 	}

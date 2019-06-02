@@ -2,12 +2,12 @@
 /**
  * @file api/v1/contexts/PKPContextHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPContextHandler
- * @ingroup api_v1_users
+ * @ingroup api_v1_context
  *
  * @brief Base class to handle API requests for contexts (journals/presses).
  */
@@ -447,7 +447,7 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		// Clear the template cache so that new settings can take effect
-		$templateMgr = TemplateManager::getManager(Application::getRequest());
+		$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
 		$templateMgr->clearTemplateCache();
 		$templateMgr->clearCssCache();
 

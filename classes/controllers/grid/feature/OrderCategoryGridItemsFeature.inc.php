@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/feature/OrderCategoryGridItemsFeature.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OrderCategoryGridItemsFeature
@@ -16,9 +16,9 @@
 
 import('lib.pkp.classes.controllers.grid.feature.OrderItemsFeature');
 
-define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_ONLY', 0x01);
-define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY', 0x02);
-define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS', 0x03);
+define('ORDER_CATEGORY_GRID_CATEGORIES_ONLY', 0x01);
+define('ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY', 0x02);
+define('ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS', 0x03);
 
 class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 
@@ -33,6 +33,13 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 	 */
 	function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
 		parent::__construct($overrideRowTemplate);
+
+		$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+		$templateMgr->setConstants([
+			'ORDER_CATEGORY_GRID_CATEGORIES_ONLY',
+			'ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY',
+			'ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS',
+		]);
 
 		$this->addOptions(array('type' => $typeOption));
 	}

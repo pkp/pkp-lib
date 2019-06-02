@@ -159,6 +159,8 @@ class UserService extends PKPBaseEntityPropertyService {
 	private function _buildGetReviewersQueryObject($contextId, $args = array()) {
 
 		$defaultArgs = array(
+			'contextId' => CONTEXT_ID_NONE,
+			'reviewStage' => null,
 			'reviewsCompleted' => null,
 			'reviewsActive' => null,
 			'daysSinceLastAssignment' => null,
@@ -167,9 +169,12 @@ class UserService extends PKPBaseEntityPropertyService {
 		);
 
 		$args = array_merge($defaultArgs, $args);
+		$args['roleIds'] = [ROLE_ID_REVIEWER];
 
 		$reviewerListQB = $this->_buildGetUsersQueryObject($contextId, $args);
-		$reviewerListQB->getReviewerData(true)
+		$reviewerListQB
+			->getReviewerData(true)
+			->filterByReviewStage($args['reviewStage'])
 			->filterByReviewerRating($args['reviewerRating'])
 			->filterByReviewsCompleted($args['reviewsCompleted'])
 			->filterByReviewsActive($args['reviewsActive'])

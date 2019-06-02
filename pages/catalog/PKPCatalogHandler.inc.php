@@ -140,7 +140,7 @@ class PKPCatalogHandler extends Handler {
 	 * Set up the basic template.
 	 */
 	function setupTemplate($request) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
 		parent::setupTemplate($request);
 	}
 
@@ -169,4 +169,3 @@ class PKPCatalogHandler extends Handler {
 		));
 	}
 }
-

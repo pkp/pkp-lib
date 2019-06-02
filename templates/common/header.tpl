@@ -102,7 +102,14 @@
 								<a href="#">{translate key="navigation.tools"}</a>
 								<ul>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="importexport"}">{translate key="navigation.tools.importExport"}</a></li>
-									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="statistics"}">{translate key="navigation.tools.statistics"}</a></li>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="statistics"}">{translate key="manager.statistics.reports"}</a></li>
+								</ul>
+							</li>
+							<li aria-haspopup="true" aria-expanded="false">
+								<a href="#">{translate key="navigation.tools.statistics"}</a>
+								<ul>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="stats" op="publishedSubmissions"}">{translate key="common.publishedSubmissions"}</a></li>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="statistics"}">{translate key="manager.statistics.reports"}</a></li>
 								</ul>
 							</li>
 						{/if}

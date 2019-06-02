@@ -93,6 +93,11 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 			'inputType' => 'radio',
 			'currentlyAssigned' => $currentlyAssigned,
 			'warnOnAssignment' => $warnOnAssignment,
+			'getParams' => [
+				'contextId' => $this->getSubmission()->getContextId(),
+				'count' => 15,
+				'reviewStage' => $reviewRound->getStageId(),
+			],
 		));
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('selectReviewerListData', $selectReviewerListHandler->getConfig());

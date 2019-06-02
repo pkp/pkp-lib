@@ -91,7 +91,12 @@ class LanguageGridCellProvider extends GridCellProvider {
 				$primary = $element['primary'];
 				if (!$primary) {
 					$action = 'setPrimary-' . $row->getId();
-					$actionRequest = new AjaxAction($router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs));
+					$actionRequest = new RemoteActionConfirmationModal(
+						$request->getSession(),
+						__('admin.languages.confirmSitePrimaryLocaleChange'),
+						__('locale.primary'),
+						$router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs)
+					);
 				}
 				break;
 			case 'contextPrimary':

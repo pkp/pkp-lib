@@ -56,6 +56,7 @@ class FileCache extends GenericCache {
 	function flush() {
 		unset($this->cache);
 		$this->cache = null;
+		if (function_exists('opcache_invalidate')) opcache_invalidate($this->filename, true);
 		@unlink($this->filename);
 	}
 

@@ -451,7 +451,7 @@
 	<message key="editor.submission.roundStatus.pendingReviewers">Waiting for reviewers to be assigned.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Awaiting responses from reviewers.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">New reviews have been submitted.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">All reviews are in and a decision is needed.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">All reviewers have responded and a decision is needed.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">A review is overdue.</message>
 	<message key="editor.submission.roundStatus.pendingRecommendations">Awaiting recommendations from editors.</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">New editorial recommendations have been submitted.</message>
@@ -642,6 +642,6 @@
 	<message key="category.coverImage">Cover Image</message>
 	<message key="submission.submit.placement.categories">Categories</message>
 	<message key="submission.currentCoverImage">Current Image</message>
-	<message key="catalog.browseTitles">{$numTitles} Titles</message>
-	<message key="catalog.noTitlesSection">No titles have been published yet for this section.</message>
+	<message key="catalog.category.noItems">Nothing has been published in this category yet.</message>
+	<message key="catalog.category.subcategories">Subcategories</message>
 </locale>

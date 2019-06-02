@@ -42,11 +42,11 @@ class PKPOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
 	}
 
 	static function getSchema() {
-		return 'https://www.openarchives.org/OAI/2.0/oai_dc.xsd';
+		return 'http://www.openarchives.org/OAI/2.0/oai_dc.xsd';
 	}
 
 	static function getNamespace() {
-		return 'https://www.openarchives.org/OAI/2.0/oai_dc/';
+		return 'http://www.openarchives.org/OAI/2.0/oai_dc/';
 	}
 }
 

@@ -132,7 +132,7 @@ class PKPSiteSettingsForm extends Form {
 		$setting = $site->getSetting('pageHeaderTitleImage');
 		if (!empty($setting)) {
 			$imageAltText = $this->getData('pageHeaderTitleImageAltText');
-			$locale = $this->getFormLocale();
+			$locale = $this->getDefaultFormLocale();
 			$setting[$locale]['altText'] = $imageAltText[$locale];
 			$site->updateSetting('pageHeaderTitleImage', $setting, 'object', true);
 		}

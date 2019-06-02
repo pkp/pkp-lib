@@ -18,7 +18,7 @@
 
 <form class="pkp_form" id="reviewStep3Form" method="post" action="{url op="saveStep" path=$submission->getId() step="3"}">
 	{csrf}
-	{include file="common/formErrors.tpl"}
+	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewStep3FormNotification"}
 
 {fbvFormArea id="reviewStep3"}
 
@@ -38,10 +38,10 @@
 			{include file="reviewer/review/reviewFormResponse.tpl"}
 		{else}
 			{fbvFormSection}
-				{fbvElement type="textarea" id="comments" name="comments" value=$comment readonly=$reviewIsComplete label="submission.comments.canShareWithAuthor" rich=true}
+				{fbvElement type="textarea" id="comments" name="comments" value=$comments readonly=$reviewIsComplete label="submission.comments.canShareWithAuthor" rich=true}
 			{/fbvFormSection}
 			{fbvFormSection}
-				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentPrivate readonly=$reviewIsComplete label="submission.comments.cannotShareWithAuthor" rich=true}
+				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentsPrivate readonly=$reviewIsComplete label="submission.comments.cannotShareWithAuthor" rich=true}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormSection}

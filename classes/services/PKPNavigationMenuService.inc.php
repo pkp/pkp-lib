@@ -45,7 +45,7 @@ class PKPNavigationMenuService {
 				'conditionalWarning' => __('manager.navigationMenus.editorialTeam.conditionalWarning'),
 			),
 			NMI_TYPE_SUBMISSIONS => array(
-				'title' => __('navigation.submissions'),
+				'title' => __('about.submissions'),
 				'description' => __('manager.navigationMenus.submissions.description'),
 			),
 			NMI_TYPE_ANNOUNCEMENTS => array(
@@ -328,11 +328,16 @@ class PKPNavigationMenuService {
 					break;
 				case NMI_TYPE_CUSTOM:
 					if ($navigationMenuItem->getPath()) {
+						$path = explode("/", $navigationMenuItem->getPath());
+						$page = array_shift($path);
+						$op = array_shift($path);
 						$navigationMenuItem->setUrl($dispatcher->url(
 							$request,
 							ROUTE_PAGE,
 							null,
-							$navigationMenuItem->getPath()
+							$page,
+							$op,
+							$path
 						));
 					}
 					break;
@@ -577,6 +582,32 @@ class PKPNavigationMenuService {
 				$nmi->setTitle($localisedTitle, \AppLocale::getLocale());
 			} else {
 				$nmi->setTitle(__($nmi->getTitleLocaleKey()), \AppLocale::getLocale());
+			}
+		}
+	}
+
+	/**
+	 * Sets the title of a navigation menu item, depending on its title or locale-key
+	 * @param $nmi \NavigationMenuItem The NMI to set its title
+	 */
+	public function setAllNMILocalisedTitles($nmi) {
+		if ($nmi) {
+			$supportedFormLocales = \AppLocale::getSupportedFormLocales();
+
+			foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
+				\AppLocale::requireComponents(
+					LOCALE_COMPONENT_PKP_COMMON,
+					LOCALE_COMPONENT_PKP_MANAGER,
+					LOCALE_COMPONENT_APP_COMMON,
+					LOCALE_COMPONENT_PKP_USER,
+					$supportedFormLocale
+				);
+
+				if ($localisedTitle = $nmi->getTitle($supportedFormLocale)) {
+					$nmi->setTitle($localisedTitle, $supportedFormLocale);
+				} else {
+					$nmi->setTitle(__($nmi->getTitleLocaleKey(), array(), $supportedFormLocale), $supportedFormLocale);
+				}
 			}
 		}
 	}

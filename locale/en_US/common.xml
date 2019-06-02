@@ -207,7 +207,10 @@
 	<message key="common.other">Other</message>
 	<message key="common.overdue">Overdue</message>
 	<message key="common.pagination">{$start}-{$end} of {$total}</message>
-	<message key="common.pagination.label">Browse additional pages</message>
+	<message key="common.pagination.label">View additional pages</message>
+	<message key="common.pagination.goToPage">Go to {$page}</message>
+	<message key="common.pagination.next">Next page</message>
+	<message key="common.pagination.previous">Previous page</message>
 	<message key="common.pageNumber">Page {$pageNumber}</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
 	<message key="common.percentage">{$percentage}%</message>
@@ -253,7 +256,6 @@
 	<message key="common.size">Size</message>
 	<message key="common.source">Source</message>
 	<message key="common.status">Status</message>
-	<message key="common.startTyping">Start Typing</message>
 	<message key="common.subject">Subject</message>
 	<message key="common.subjects">Subjects</message>
 	<message key="common.subtitle">Subtitle</message>
@@ -532,7 +534,7 @@
 	<message key="notification.type.reviewAssignment">Review pending.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Review assignment updated.</message>
 	<message key="notification.type.auditorRequest">Audit request for "{$file}"</message>
-	<message key="notification.type.allReviewsIn">All reviews are in and a decision is needed in {$stage}.</message>
+	<message key="notification.type.allReviewsIn">All reviewers have responded and a decision is needed in {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">A revised file has been uploaded for your editorial consideration in {$stage}.</message>
 	<message key="notification.type.pendingRevisions">Revisions to consider in {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>

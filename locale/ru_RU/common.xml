@@ -110,6 +110,7 @@
 	<message key="common.country">Страна</message>
 	<message key="common.create">Создать</message>
 	<message key="common.dateCompleted">Дата завершения</message>
+	<message key="common.dateDecided">Дата принятия решения</message>
 	<message key="common.date">Дата</message>
 	<message key="common.dateModified">Дата изменения</message>
 	<message key="common.dateRequested">Дата запроса</message>
@@ -252,7 +253,6 @@
 	<message key="common.size">Размер</message>
 	<message key="common.source">Источник</message>
 	<message key="common.status">Статус</message>
-	<message key="common.startTyping">Начать вводить с клавиатуры</message>
 	<message key="common.subject">Тема</message>
 	<message key="common.subjects">Темы</message>
 	<message key="common.subtitle">Подзаголовок</message>

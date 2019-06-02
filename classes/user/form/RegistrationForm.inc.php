@@ -323,7 +323,7 @@ class RegistrationForm extends Form {
 			if (!$mail->send()) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
-				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
+				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
 			}
 			unset($mail);
 		}

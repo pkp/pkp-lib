@@ -461,7 +461,7 @@ class QueriesGridHandler extends GridHandler {
 			$query->getId()
 		);
 		$queryForm->initData();
-		return new JSONMessage(true, $queryForm->fetch($request, $this->getRequestArgs()));
+		return new JSONMessage(true, $queryForm->fetch($request, null, false, $this->getRequestArgs()));
 	}
 
 	/**

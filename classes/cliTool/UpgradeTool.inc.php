@@ -94,7 +94,7 @@ class UpgradeTool extends CommandLineTool {
 				}
 			}
 
-			$newVersion =& $installer->getNewVersion();
+			$newVersion = $installer->getNewVersion();
 			printf("Successfully upgraded to version %s\n", $newVersion->getVersionString(false));
 
 		} else {

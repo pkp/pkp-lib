@@ -128,7 +128,8 @@ class PluginRegistry {
 			closedir($handle);
 		}
 
-		// If anyone else wants to jump category, here is the chance.
+		// Fire a hook prior to registering plugins for a category
+		// n.b.: this should not be used from a PKPPlugin::register() call to "jump categories"
 		HookRegistry::call('PluginRegistry::loadCategory', array(&$category, &$plugins));
 
 		// Register the plugins in sequence.

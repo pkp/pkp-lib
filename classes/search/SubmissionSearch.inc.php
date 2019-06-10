@@ -226,7 +226,7 @@ abstract class SubmissionSearch {
 	 * @param $rangeInfo Information on the range of results to return
 	 * @param $exclude array An array of article IDs to exclude from the result.
 	 * @return VirtualArrayIterator An iterator with one entry per retrieved
-	 *  article containing the article, published article, issue, context, etc.
+	 *  article containing the article, published submission, issue, context, etc.
 	 */
 	function retrieveResults($request, $context, $keywords, &$error, $publishedFrom = null, $publishedTo = null, $rangeInfo = null, $exclude = array()) {
 		// Pagination

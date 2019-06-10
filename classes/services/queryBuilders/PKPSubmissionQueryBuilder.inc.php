@@ -46,7 +46,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	/** @var string|null search phrase */
 	protected $searchPhrase = null;
 
-	/** @var string|null return a Submission or PublishedArticle\PublishedMonograph */
+	/** @var string|null return a Submission or PublishedSubmission\PublishedMonograph */
 	protected $returnObject = null;
 
 	/** @var bool|null whether to return only a count of results */
@@ -186,7 +186,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Return Submission or PublishedArticle|PublishedMonograph objects
+	 * Return Submission or PublishedSubmission|PublishedMonograph objects
 	 *
 	 * @param string $returnObject
 	 *

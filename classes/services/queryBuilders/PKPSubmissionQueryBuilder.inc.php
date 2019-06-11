@@ -256,7 +256,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 		// statuses
 		if (!is_null($this->statuses)) {
-			import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
+			import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_ constants
 			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== SUBMISSION_RETURN_PUBLISHED) {
 				$this->columns[] = 'st.setting_value';
 				$q->leftJoin('published_submissions as ps', function($join){

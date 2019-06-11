@@ -8,15 +8,15 @@
  */
 
 /**
- * @file classes/submission/Submission.inc.php
+ * @file classes/submission/PKPSubmission.inc.php
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Submission
+ * @class PKPSubmission
  * @ingroup submission
- * @see SubmissionDAO
+ * @see PKPSubmissionDAO
  *
  * @brief The Submission class implements the abstract data model of a
  * scholarly submission.
@@ -32,7 +32,7 @@ define ('PERMISSIONS_FIELD_LICENSE_URL', 1);
 define ('PERMISSIONS_FIELD_COPYRIGHT_HOLDER', 2);
 define ('PERMISSIONS_FIELD_COPYRIGHT_YEAR', 3);
 
-abstract class Submission extends DataObject {
+abstract class PKPSubmission extends DataObject {
 	/**
 	 * Constructor.
 	 */

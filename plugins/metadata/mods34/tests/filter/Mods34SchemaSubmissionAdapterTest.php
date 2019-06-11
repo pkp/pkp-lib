@@ -15,7 +15,7 @@
  */
 
 import('lib.pkp.plugins.metadata.mods34.tests.filter.Mods34DescriptionTestCase');
-import('lib.pkp.classes.submission.Submission');
+import('lib.pkp.classes.submission.PKPSubmission');
 import('lib.pkp.plugins.metadata.mods34.filter.Mods34SchemaSubmissionAdapter');
 
 class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {

@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionDAO.inc.php
+ * @file classes/submission/PKPSubmissionDAO.inc.php
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionDAO
+ * @class PKPSubmissionDAO
  * @ingroup submission
  * @see Submission
  *
  * @brief Operations for retrieving and modifying Submission objects.
  */
 
-import('lib.pkp.classes.submission.Submission');
+import('lib.pkp.classes.submission.PKPSubmission');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 import('lib.pkp.classes.submission.ISubmissionVersionedDAO');
 
 define('ORDERBY_DATE_PUBLISHED', 'datePublished');
 define('ORDERBY_TITLE', 'title');
 
-abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO, ISubmissionVersionedDAO {
+abstract class PKPSubmissionDAO extends DAO implements PKPPubIdPluginDAO, ISubmissionVersionedDAO {
 	var $cache;
 	var $authorDao;
 

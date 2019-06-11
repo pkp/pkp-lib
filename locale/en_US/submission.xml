@@ -138,6 +138,7 @@
 	<message key="metadata.property.validationMessage.partName">Please enter a valid part name.</message>
 	<message key="metadata.property.displayName.name-type">Name Type</message>
 	<message key="metadata.property.validationMessage.name-type">Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</message>
+	<message key="metadata.property.displayName.abstract">Abstract</message>
 	<!-- FIXME: end -->
 
 	<message key="common.queue.long.submissionsUnassigned">Unassigned</message>

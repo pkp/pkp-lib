@@ -153,10 +153,10 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				$currentSubmissionVersion = $submission->getCurrentSubmissionVersion();
 				$templateMgr->assign('currentSubmissionVersion', $currentSubmissionVersion);
 
-				$publishedSubmissionDao = Application::getPublishedSubmissionDAO(); /** @var $publishedSubmissionDao PublishedArticleDAO */
-				$publishedArticle = $publishedSubmissionDao->getBySubmissionId($submission->getId(), $submission->getContextId(), false, $currentSubmissionVersion);
+				$publishedSubmissionDao = Application::getPublishedSubmissionDAO(); /** @var $publishedSubmissionDao PublishedSubmissionDAO */
+				$publishedSubmission = $publishedSubmissionDao->getBySubmissionId($submission->getId(), $submission->getContextId(), false, $currentSubmissionVersion);
 
-				if ($publishedArticle){
+				if ($publishedSubmission){
 
 					$dispatcher = $request->getDispatcher();
 					import('lib.pkp.classes.linkAction.request.AjaxAction');

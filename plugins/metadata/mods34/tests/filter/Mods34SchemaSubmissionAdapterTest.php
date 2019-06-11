@@ -36,7 +36,7 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 		// Test constructor.
 		$adapter = new Mods34SchemaSubmissionAdapter(PersistableFilter::tempGroup(
 				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)',
-				'class::lib.pkp.classes.submission.Submission'));
+				'class::lib.pkp.classes.submission.PKPSubmission'));
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
 		self::assertInstanceOf('Mods34Schema', $adapter->getMetadataSchema());
 		self::assertEquals('Submission', $adapter->getDataObjectClass());
@@ -78,7 +78,7 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 
 		// Test meta-data extraction.
 		$adapter = new Mods34SchemaSubmissionAdapter(PersistableFilter::tempGroup(
-				'class::lib.pkp.classes.submission.Submission',
+				'class::lib.pkp.classes.submission.PKPSubmission',
 				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)'));
 		$extractedDescription = $adapter->extractMetadataFromDataObject($submission);
 		$submissionDescription->removeStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]');

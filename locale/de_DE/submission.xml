@@ -138,6 +138,7 @@
 	<message key="metadata.property.validationMessage.partName">Bitte geben Sie einen gültigen Teil-Namen ein.</message>
 	<message key="metadata.property.displayName.name-type">Namenstyp</message>
 	<message key="metadata.property.validationMessage.name-type">Bitte stellen Sie sicher, dass Sie einen gültigen Namenstyp setzen. Unterstützte Werte sind 'personal', 'corporate' und 'conference'.</message>
+	<message key="metadata.property.displayName.abstract">Zusammenfassung</message>
 	<!-- FIXME: end -->
 
 	<message key="common.queue.long.submissionsUnassigned">Nicht zugewiesene Beiträge</message>

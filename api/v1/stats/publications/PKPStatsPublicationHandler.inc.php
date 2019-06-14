@@ -18,7 +18,7 @@ import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.Services');
 import('lib.pkp.classes.validation.ValidatorFactory');
 import('classes.statistics.StatisticsHelper');
-import('lib.pkp.classes.submission.Submission'); // import STATUS_ constants
+import('lib.pkp.classes.submission.PKPSubmission'); // import STATUS_ constants
 
 abstract class PKPStatsPublicationHandler extends APIHandler {
 

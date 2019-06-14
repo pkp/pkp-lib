@@ -15,7 +15,7 @@
 namespace PKP\components\listPanels;
 use PKP\components\listPanels\ListPanel;
 
-import('lib.pkp.classes.submission.Submission');
+import('lib.pkp.classes.submission.PKPSubmission');
 import('classes.core.Services');
 
 abstract class PKPSubmissionsListPanel extends ListPanel {

@@ -52,7 +52,7 @@ class PKPCatalogHandler extends Handler {
 		if (!$category) $this->getDispatcher()->handle404();
 
 		$this->setupTemplate($request);
-		import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
+		import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_ constants
 
 		$orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
 		list($orderBy, $orderDir) = explode('-', $orderOption);

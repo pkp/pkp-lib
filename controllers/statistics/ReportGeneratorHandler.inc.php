@@ -98,8 +98,8 @@ class ReportGeneratorHandler extends Handler {
 		if (!$issueId) {
 			return new JSONMessage(false);
 		} else {
-			$articleDao = DAORegistry::getDAO('PublishedSubmissionDAO'); /* @var $articleDao PublishedSubmissionDAO */
-			$articles = $articleDao->getPublishedSubmissions($issueId);
+			$submissionDao = DAORegistry::getDAO('PublishedSubmissionDAO'); /* @var $submissionDao PublishedSubmissionDAO */
+			$articles = $submissionDao->getPublishedSubmissions($issueId);
 			$articlesInfo = array();
 			foreach ($articles as $article) {
 				$articlesInfo[] = array('id' => $article->getId(), 'title' => $article->getLocalizedTitle());

@@ -1,0 +1,90 @@
+* {
+	outline: none;
+}
+
+body {
+	background-color: #F0F0EE;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 0.8em;
+}
+
+h1 {
+	font-weight: normal;
+	color: #000;
+	font-size: 120%;
+}
+
+div.container_upload {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #ccc;
+	padding: 10px;
+	margin: 10px;
+	position: relative;
+	max-height: 240px;
+	overflow-y: auto;
+}
+
+a#link_filemanager {
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+div#upload_in_progress {
+	display: none;
+}
+
+form#upload_form {
+}
+
+input#uploader {
+	width: 280px;
+	border-radius: 3px;
+}
+
+input[type=submit] {
+	padding: 5px;
+	margin: 20px 0 0 0;
+	border-radius: 4px;
+	color: #000;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+div#file_url {
+	max-width: 350px;
+	word-wrap: break-word;
+}
+
+p.upload_more {
+	margin: 30px 0 0 0;
+}
+
+small#storage_info {
+	display: block;
+}
+
+ul#publicfileslist {
+	margin: 15px 0 0 0;
+	padding: 0;
+}
+
+ul#publicfileslist li {
+	list-style-type: none;
+	margin: 0 0 5px 0;
+	padding: 0 0 5px 0;
+	border-bottom: 1px dotted #ccc;
+}
+
+ul#publicfileslist li a.link_url {
+	display: inline-block;
+	margin: 0 0 0 10px;
+}
+
+ul#publicfileslist li a.link_delete {
+	display: inline-block;
+	margin: 0 0 0 10px;
+	color: #f00;
+}

@@ -138,6 +138,7 @@
 	<message key="metadata.property.validationMessage.partName">Пожалуйста, введите правильное название части.</message>
 	<message key="metadata.property.displayName.name-type">Тип названия</message>
 	<message key="metadata.property.validationMessage.name-type">Пожалуйста, убедитесь, что вы задали правильный тип названия. Поддерживаемые значения: personal, corporate и conference.</message>
+	<message key="metadata.property.displayName.abstract">Аннотация</message>
 	<!-- ИСПРАВИТЬ: конец -->
 
 	<message key="common.queue.long.submissionsUnassigned">Не назначенные</message>

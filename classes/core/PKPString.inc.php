@@ -720,7 +720,7 @@ class PKPString {
 
 		// use PCRE-aware replace function to replace numeric entities
                 $str = PKPString::regexp_replace_callback('~&#x([0-9a-f]+);~i', function ($matches) { return PKPString::code2utf(hexdec($matches[0])); }, $str);
-                $str = PKPString::regexp_replace_callback('~&#([0-9]+);~', function ($matches) { return PKPString::code2utf(matches[0]); }, $str);
+                $str = PKPString::regexp_replace_callback('~&#([0-9]+);~', function ($matches) { return PKPString::code2utf($matches[0]); }, $str);
 
 
 		return $str;

@@ -40,7 +40,7 @@
 		{/if}
 		{if $rightsEnabled}
 			{fbvFormSection label="submission.rights" for="rights" required=$rightsRequired}
-				{fbvElement type="text" label="submission.rights.tip" multilingual=true name="rights" id="rights" value=$rights maxlength="255" readonly=$readOnly required=$rightsRequired}
+				{fbvElement type="text" label="submission.rights.tip" multilingual=true name="rights" id="rights" value=$rights readonly=$readOnly required=$rightsRequired}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}

@@ -13,6 +13,8 @@
 
 <locale name="en_US" full_name="U.S. English">
 	<!-- Author Submission -->
+	<message key="author.editPublishedDisabled">The authors of this publication can not be edited because it has already been published.</message>
+	<message key="author.publicationNotFound">The publication for this author could not be found.</message>
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
 	<message key="author.submission.roundStatus.reviewsReady">New reviews have been submitted and are being considered by the editor.</message>
 	<message key="submission.confirm.message">Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</message>
@@ -162,7 +164,7 @@
 	<message key="submission.changeComments">Change to</message>
 	<message key="submission.changeFile">Change File</message>
 	<message key="submission.citations">References</message>
-	<message key="submission.citations.description">Enter each reference on a new line so that it can be extracted.</message>
+	<message key="submission.citations.description">Enter each reference on a new line so that they can be extracted and recorded separately.</message>
 	<message key="submission.parsedCitations">Extracted References</message>
 	<message key="submission.parsedCitations.DOI">DOI</message>
 	<message key="submission.parsedCitations.description">The following references have been extracted and will be linked to the submission metadata.</message>
@@ -410,6 +412,8 @@
 	<message key="submission.status.unassigned">Unassigned</message>
 	<message key="submission.status.declined">Declined</message>
 	<message key="submission.status.published">Published</message>
+	<message key="submission.status.scheduled">Scheduled</message>
+
 
 	<message key="submission.submit.uploadStep">1. Upload File</message>
 	<message key="submission.submit.uploadSubmissionFile">Upload Submission File</message>
@@ -468,7 +472,7 @@
 	<message key="editor.submission.editStageParticipant">Edit Assignment</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Users are assigned to stages of the workflow by user group. Any user assigned to this stage will automatically be assigned to other stages to which their user group has been assigned. This is commonly reserved for editors, authors and translators.</message>
 	<message key="editor.submission.removeStageParticipant">Remove Participant</message>
-	<message key="editor.submission.removeStageParticipant.description"><![CDATA[You are about to remove this participant from <strong>all</strong> stages. If the user also have pending auditor tasks, they will be removed too.]]></message>
+	<message key="editor.submission.removeStageParticipant.description"><![CDATA[You are about to remove this participant from <strong>all</strong> stages.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">You must select a user group.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">You must select a user for the specified user group.</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</message>
@@ -525,6 +529,7 @@
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) has completed an audit and uploaded "{$file}."</message>
 	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) has signed off on the signoff for "{$file}."</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) has approved the proofs for "{$formatName}."</message>
+
 	<message key="submission.overview">Submission Overview</message>
 	<message key="submission.description">Description</message>
 	<message key="submission.stageNotInitiated">Stage not initiated.</message>
@@ -633,6 +638,7 @@
 	<message key="submission.list.infoCenter">Activity Log &amp; Notes</message>
 	<message key="submission.list.empty">No submissions found.</message>
 	<message key="submission.list.responseDue">Response Due</message>
+	<message key="submission.list.reviewAssignment">Review Assignment</message>
 	<message key="submission.list.reviewDue">Review Due</message>
 	<message key="submission.list.reviewComplete">Review Submitted</message>
 	<message key="submission.list.reviewCancelled">Review Cancelled</message>
@@ -661,10 +667,42 @@
 	<message key="catalog.category.noItems">Nothing has been published in this category yet.</message>
 	<message key="catalog.category.subcategories">Subcategories</message>
 
-	<!-- Versioning -->
-	<message key="submission.production.version">Version {$submissionVersion}</message>
-	<message key="submission.production.newVersion">New Version</message>
-	<message key="submission.production.editMetadata">Metadata of this Version</message>
-	<message key="submission.production.editMetadata.info">This is the metadata of version {$version}.</message>
-	<message key="submission.production.editMetadata.previous">Previous versions can be seen at the corresponding tab at the production stage.</message>
+	<!-- Publication -->
+	<message key="submission.publication">Publication</message>
+	<message key="publication.citations.success">The references have been updated.</message>
+	<message key="publication.contributors">Contributors</message>
+	<message key="publication.copyrightYearBasis.issueDescription">The copyright year will be set automatically when this is published in an issue.</message>
+	<message key="publication.createVersion">Create New Version</message>
+	<message key="publication.datePublished">Date Published</message>
+	<message key="publication.editDisabled">This version has been published and can not be edited.</message>
+	<message key="publication.event.published">The submission was published.</message>
+	<message key="publication.event.scheduled">The submission was scheduled for publication.</message>
+	<message key="publication.event.unpublished">The submission was unpublished.</message>
+	<message key="publication.event.versionCreated">A new version was created.</message>
+	<message key="publication.event.versionPublished">A new version was published.</message>
+	<message key="publication.event.versionScheduled">A new version was scheduled for publication.</message>
+	<message key="publication.event.versionUnpublished">A version was removed from publication.</message>
+	<message key="publication.invalidSubmission">The submission for this publication could not be found.</message>
+	<message key="publication.metadata.success">The metadata have been updated.</message>
+	<message key="publication.publicationLicense">Permissions &amp; Disclosure</message>
+	<message key="publication.publicationLicense.success">The copyright and license information have been updated.</message>
+	<message key="publication.publish">Publish</message>
+	<message key="publication.publish.confirmation">All publication requirements have been met. Are you sure you want to publish this?</message>
+	<message key="publication.publish.requirements">The following requirements must be met before this can be published.</message>
+	<message key="publication.publish.success">The publication status has been successfully changed.</message>
+	<message key="publication.required.declined">A declined submission can not be published.</message>
+	<message key="publication.required.reviewStage">The submission must be in the Copyediting or Production stages before it can be published.</message>
+	<message key="publication.status.published">Published</message>
+	<message key="publication.status.scheduled">Scheduled</message>
+	<message key="publication.status.unpublished">Unpublished</message>
+	<message key="publication.status.unscheduled">Unscheduled</message>
+	<message key="publication.titleAbstract">Title &amp; Abstract</message>
+	<message key="publication.titleAbstract.success">The title and abstract have been updated.</message>
+	<message key="publication.unpublish">Unpublish</message>
+	<message key="publication.unpublish.confirm">Are you sure you don't want this to be published?</message>
+	<message key="publication.unschedule">Unschedule</message>
+	<message key="publication.unschedule.confirm">Are you sure you don't want this scheduled for publication?</message>
+	<message key="publication.version.all">All Versions</message>
+	<message key="publication.version.details">Publication details for version {$version}</message>
+	<message key="publication.wordCountLong">The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long.</message>
 </locale>

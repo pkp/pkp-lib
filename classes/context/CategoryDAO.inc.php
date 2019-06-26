@@ -101,6 +101,24 @@ class CategoryDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve categories by publication id
+	 *
+	 * @param int $publicationId
+	 * @return DAOResultFactory
+	 */
+	public function getByPublicationId($publicationId) {
+		$result = $this->retrieve(
+			'SELECT	c.*
+			FROM categories c
+			INNER JOIN publication_categories pc ON (pc.category_id = c.category_id)
+			WHERE pc.publication_id = ?',
+			(int) $publicationId
+		);
+
+		return new DAOResultFactory($result, $this, '_fromRow');
+	}
+
+	/**
 	 * Check if a category exists with a specified path.
 	 * @param $path the path for the category
 	 * @return boolean
@@ -297,7 +315,7 @@ class CategoryDAO extends DAO {
 
 			// remove any monograph assignments for this category.
 			$this->update(
-				'DELETE FROM submission_categories WHERE category_id = ?',
+				'DELETE FROM publication_categories WHERE category_id = ?',
 				array((int) $categoryId)
 			);
 		}
@@ -314,6 +332,32 @@ class CategoryDAO extends DAO {
 		while ($category = $categories->next()) {
 			$this->deleteObject($category, $contextId);
 		}
+	}
+
+	/**
+	 * Assign a publication to a category
+	 *
+	 * @param int $categoryId
+	 * @param int $publicationId
+	 */
+	public function insertPublicationAssignment($categoryId, $publicationId) {
+		$this->update(
+			'INSERT INTO publication_categories (category_id, publication_id)
+			VALUES (?, ?)',
+			array((int) $categoryId, (int) $publicationId)
+		);
+	}
+
+	/**
+	 * Delete the assignment of a category to a publication
+	 *
+	 * @param int $publicationId
+	 */
+	public function deletePublicationAssignments($publicationId) {
+		$this->update(
+			'DELETE FROM publication_categories WHERE publication_id = ?',
+			array((int) $publicationId)
+		);
 	}
 
 	/**
@@ -375,36 +419,6 @@ class CategoryDAO extends DAO {
 			$params
 		);
 		return new DAOResultFactory($result, $this, '_fromRow');
-	}
-
-	/**
-	 * Retrieve all categories assigned to a submission
-	 * @param $submissionId int Submission ID
-	 * @return DAOResultFactory containing Category ordered by sequence
-	 */
-	public function getBySubmissionId($submissionId) {
-		$result = $this->retrieveRange(
-			'SELECT *
-			FROM	categories
-			LEFT JOIN submission_categories AS sc ON (sc.category_id = categories.category_id)
-			WHERE	sc.submission_id = ?
-			ORDER BY seq',
-			array((int) $submissionId)
-		);
-
-		$categories = array();
-		while (!$result->EOF) {
-			$categories[] = array(
-				'id' => (int) $result->fields['category_id'],
-				'context_id' => (int) $result->fields['context_id'],
-				'parent_id' => (int) $result->fields['parent_id'],
-				'path' => $result->fields['path'],
-				'image' => $result->fields['image'],
-				'seq' => (int) $result->fields['seq'],
-			);
-			$result->MoveNext();
-		}
-		return $categories;
 	}
 
 	/**

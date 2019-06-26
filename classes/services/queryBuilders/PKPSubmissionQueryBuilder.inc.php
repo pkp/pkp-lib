@@ -46,9 +46,6 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	/** @var string|null search phrase */
 	protected $searchPhrase = null;
 
-	/** @var string|null return a Submission or PublishedSubmission */
-	protected $returnObject = null;
-
 	/** @var bool|null whether to return only a count of results */
 	protected $countOnly = null;
 
@@ -57,8 +54,6 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 	/** @var bool|null whether to return only submissions with overdue review assignments */
 	protected $isOverdue = false;
-
-	protected $submissionVersion = null;
 
 	/**
 	 * Set context submissions filter
@@ -81,10 +76,16 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
 	 */
 	public function orderBy($column, $direction = 'DESC') {
+		// Bring in orderby constants
+		import('classes.submission.SubmissionDAO');
 		if ($column === 'lastModified') {
 			$this->orderColumn = 's.last_modified';
 		} elseif ($column === 'title') {
-			$this->orderColumn = Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)');
+			$this->orderColumn = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
+		} elseif ($column === 'seq') {
+			$this->orderColumn = 'publication_seq.setting_value';
+		} elseif ($column === ORDERBY_DATE_PUBLISHED) {
+			$this->orderColumn = 'po.date_published';
 		} else {
 			$this->orderColumn = 's.date_submitted';
 		}
@@ -186,18 +187,6 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Return Submission or PublishedSubmission objects
-	 *
-	 * @param string $returnObject
-	 *
-	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
-	 */
-	public function returnObject($returnObject) {
-		$this->returnObject = $returnObject;
-		return $this;
-	}
-
-	/**
 	 * Whether to return only a count of results
 	 *
 	 * @param bool $enable
@@ -230,46 +219,37 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		}
 
 		// order by title
-		if ($this->orderColumn == Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)')) {
+		if (is_object($this->orderColumn) && $this->orderColumn->getValue() === 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)') {
 			$locale = \AppLocale::getLocale();
-			$this->columns[] = Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)');
-			$q->leftJoin('submission_settings as submission_tl', 's.submission_id', '=', 'submission_tl.submission_id')
-				->where('submission_tl.setting_name', '=', 'title')
-				->where('submission_tl.locale', '=', $locale);
-			$q->leftJoin('submission_settings as submission_tpl', 's.submission_id', '=', 'submission_tpl.submission_id')
-				->where('submission_tpl.setting_name', '=', 'title')
-				->where('submission_tpl.locale', '=', Capsule::raw('s.locale'));
-			$q->groupBy(Capsule::raw('COALESCE(submission_tl.setting_value, submission_tpl.setting_value)'));
+			$this->columns[] = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
+			$q->leftJoin('publications as publication_tlp', 's.submission_id', '=', 'publication_tlp.submission_id')
+				->leftJoin('publication_settings as publication_tlps', 'publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
+				->where('publication_tlps.setting_name', '=', 'title')
+				->where('publication_tlps.locale', '=', $locale);
+			$q->leftJoin('publications as publication_tlpl', 's.submission_id', '=', 'publication_tlpl.submission_id')
+				->leftJoin('publication_settings as publication_tlpsl', 'publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
+				->where('publication_tlpsl.setting_name', '=', 'title')
+				->where('publication_tlpsl.locale', '=', Capsule::raw('publication_tlpl.locale'));
+			$q->groupBy(Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)'));
 		}
 
-		// return object
-		if ($this->returnObject === SUBMISSION_RETURN_PUBLISHED) {
-			$this->columns[] = 'ps.*';
-			$q->leftJoin('published_submissions as ps', function($join){
-				$join->on('ps.submission_id','=','s.submission_id');
-			})
-				->where('ps.is_current_submission_version', '=', '1')
-				->groupBy('ps.date_published');
-			$q->whereNotNull('ps.published_submission_id');
-			$q->groupBy('ps.published_submission_id');
+		// order by publication sequence
+		if ($this->orderColumn === 'publication_seq.setting_value') {
+			$this->columns[] = 'publication_seq.setting_value';
+			$q->leftJoin('publications as publication_seqp', 's.submission_id', '=', 'publication_seqp.submission_id')
+				->leftJoin('publication_settings as publication_seqps', 'publication_seqp.publication_id', '=', 'publication_seqps.publication_id')
+				->where('publication_seqps.setting_name', '=', 'seq');
+			$q->groupBy('publication_seq.setting_value');
+		}
+
+		// order by date of current version's publication
+		if ($this->orderColumn === 'po.date_published') {
+			$this->columns[] = 'po.date_published';
+			$q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
 		}
 
 		// statuses
 		if (!is_null($this->statuses)) {
-			import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_ constants
-			if (in_array(STATUS_PUBLISHED, $this->statuses) && $this->returnObject !== SUBMISSION_RETURN_PUBLISHED) {
-				$this->columns[] = 'st.setting_value';
-				$q->leftJoin('published_submissions as ps', function($join){
-					$join->on('ps.submission_id','=','s.submission_id');
-				})
-				->leftJoin('submission_settings as st', function($join){
-					$join->on('ps.submission_id', '=', 'st.submission_id');
-					$join->on('ps.published_submission_version', '=', 'st.submission_version');
-				})
-				->where('st.setting_name', '=', 'title')
-				->where('ps.is_current_submission_version', '=', '1')
-				->groupBy('st.setting_value');
-			}
 			$q->whereIn('s.status', $this->statuses);
 		}
 
@@ -348,16 +328,17 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->searchPhrase)) {
 			$words = explode(' ', $this->searchPhrase);
 			if (count($words)) {
-				$q->leftJoin('submission_settings as ss','s.submission_id','=','ss.submission_id')
-					->leftJoin('authors as au','s.submission_id','=','au.submission_id')
+				$q->leftJoin('publications as p', 'p.submission_id', '=', 's.submission_id')
+					->leftJoin('publication_settings as ps','p.publication_id','=','ps.publication_id')
+					->leftJoin('authors as au','p.publication_id','=','au.publication_id')
 					->leftJoin('author_settings as aus', 'aus.author_id', '=', 'au.author_id');
 
 				foreach ($words as $word) {
 					$word = strtolower(addcslashes($word, '%_'));
 					$q->where(function($q) use ($word, $isAssignedOnly)  {
 						$q->where(function($q) use ($word) {
-							$q->where('ss.setting_name', 'title');
-							$q->where(Capsule::raw('lower(ss.setting_value)'), 'LIKE', "%{$word}%");
+							$q->where('ps.setting_name', 'title');
+							$q->where(Capsule::raw('lower(ps.setting_value)'), 'LIKE', "%{$word}%");
 						})
 						->orWhere(function($q) use ($word) {
 							$q->where('aus.setting_name', IDENTITY_SETTING_GIVENNAME);
@@ -382,8 +363,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 		// Category IDs
 		if (!empty($this->categoryIds)) {
-			$q->leftJoin('submission_categories as sc', 's.submission_id', '=', 'sc.submission_id')
-				->whereIn('sc.category_id', $this->categoryIds);
+			$q->leftJoin('publication_categories as pc', 's.current_publication_id', '=', 'pc.publication_id')
+				->whereIn('pc.category_id', $this->categoryIds);
 		}
 
 		// Add app-specific query statements

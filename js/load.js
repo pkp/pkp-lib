@@ -13,14 +13,12 @@ import Vue from 'vue';
 import GlobalMixins from '@/mixins/global.js';
 import VTooltip from 'v-tooltip';
 import VueScrollTo from 'vue-scrollto';
-import Tabs from 'vue-tabs-component';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
-Vue.use(Tabs);
 Vue.mixin(GlobalMixins);
 
 export default {

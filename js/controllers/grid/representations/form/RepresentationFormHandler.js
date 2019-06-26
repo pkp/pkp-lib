@@ -70,7 +70,7 @@
 		} else {
 			// hide and clear the remote URL input field
 			$('#remote').hide(20);
-			$('input[id^="remoteURL"]').val('');
+			$('input[id^="urlRemote"]').val('');
 		}
 		return true;
 	};

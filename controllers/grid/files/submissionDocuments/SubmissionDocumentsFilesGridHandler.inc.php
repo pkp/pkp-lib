@@ -119,7 +119,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('isModal', true);
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$templateMgr->assign('canEdit', !empty(array_intersect([ROLE_ID_ADMIN, ROLE_ID_MANAGER], $userRoles)));
+		$templateMgr->assign('canEdit', !empty(array_intersect([ROLE_ID_MANAGER], $userRoles)));
 		return $templateMgr->fetchJson('controllers/modals/documentLibrary/publisherLibrary.tpl');
 	}
 

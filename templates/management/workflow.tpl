@@ -12,24 +12,24 @@
 {assign var="uuid" value=""|uniqid|escape}
 <div id="settings-context-{$uuid}">
 	<tabs>
-		<tab id="submission" name="{translate key="manager.publication.submissionStage"}">
+		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
 			{help file="settings" section="workflow-submission" class="pkp_help_tab"}
-			<tabs :options="{ useUrlFragment: false}" class="tabs-component--side">
-				<tab name="{translate key="submission.informationCenter.metadata"}">
+			<tabs :is-side-tabs="true">
+				<tab id="metadata" label="{translate key="submission.informationCenter.metadata"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_METADATA_SETTINGS}"
 						@set="set"
 					/>
 				</tab>
-				<tab name="{translate key="grid.genres.title.short"}">
+				<tab id="components" label="{translate key="grid.genres.title.short"}">
 					{capture assign=genresUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="genresGridContainer" url=$genresUrl}
 				</tab>
-				<tab name="{translate key="manager.setup.checklist"}">
+				<tab id="submissionChecklist" label="{translate key="manager.setup.checklist"}">
 					{capture assign=submissionChecklistGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="submissionChecklistGridContainer" url=$submissionChecklistGridUrl}
 				</tab>
-				<tab name="{translate key="manager.setup.authorGuidelines"}">
+				<tab id="authorGuidelines" label="{translate key="manager.setup.authorGuidelines"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_AUTHOR_GUIDELINES}"
 						@set="set"
@@ -38,43 +38,43 @@
 				{call_hook name="Template::Settings::workflow::submission"}
 			</tabs>
 		</tab>
-		<tab id="review" name="{translate key="manager.publication.reviewStage"}">
+		<tab id="review" label="{translate key="manager.publication.reviewStage"}">
 			{help file="settings" section="workflow-review" class="pkp_help_tab"}
-			<tabs :options="{ useUrlFragment: false}" class="tabs-component--side">
-				<tab name="{translate key="navigation.setup"}">
+			<tabs :is-side-tabs="true">
+				<tab id="reviewSetup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_REVIEW_SETUP}"
 						@set="set"
 					/>
 				</tab>
-				<tab name="{translate key="manager.publication.reviewerGuidance"}">
+				<tab id="reviewerGuidance" label="{translate key="manager.publication.reviewerGuidance"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_REVIEW_GUIDANCE}"
 						@set="set"
 					/>
 				</tab>
-				<tab name="{translate key="manager.reviewForms"}">
+				<tab id="reviewForms" label="{translate key="manager.reviewForms"}">
 					{capture assign=reviewFormsUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 				</tab>
 				{call_hook name="Template::Settings::workflow::review"}
 			</tabs>
 		</tab>
-		<tab id="library" name="{translate key="manager.publication.library"}">
+		<tab id="library" label="{translate key="manager.publication.library"}">
 			{help file="settings" section="workflow-library" class="pkp_help_tab"}
 			{capture assign=libraryGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=true escape=false}{/capture}
 			{load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}
 		</tab>
-		<tab id="emails" name="{translate key="manager.publication.emails"}">
+		<tab id="emails" label="{translate key="manager.publication.emails"}">
 			{help file="settings" section="workflow-emails" class="pkp_help_tab"}
-			<tabs :options="{ useUrlFragment: false}">
-				<tab name="{translate key="navigation.setup"}">
+			<tabs>
+				<tab id="emailsSetup" label="{translate key="navigation.setup"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_EMAIL_SETUP}"
 						@set="set"
 					/>
 				</tab>
-				<tab name="{translate key="manager.emails.emailTemplates"}">
+				<tab id="emailTemplates" label="{translate key="manager.emails.emailTemplates"}">
 					<email-templates-list-panel
 						v-bind="components.emailTemplates"
 						@set="set"

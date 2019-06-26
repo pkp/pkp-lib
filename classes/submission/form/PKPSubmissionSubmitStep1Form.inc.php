@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
+import('classes.publication.Publication');
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	/** @var boolean Is there a privacy statement to be confirmed? */
@@ -202,15 +203,23 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 	/**
 	 * Set the submission data from the form.
-	 * @param $submission Submission
+	 * @param Submission $submission
 	 */
-	function setSubmissionData($submission) {
-		$oldLocale = $this->submission->getLocale();
-		$this->submission->setLocale($this->getData('locale'));
-		$this->submission->setLanguage(PKPString::substr($this->submission->getLocale(), 0, 2));
-		if ($oldLocale != $this->getData('locale')) {
+	function setSubmissionData($submission) { }
+
+	/**
+	 * Set the publication data from the form.
+	 * @param Publication $publication
+	 * @param Submission $submission
+	 */
+	function setPublicationData($publication, $submission) {
+		$publication->setData('submissionId', $submission->getId());
+		$oldLocale = $publication->getData('locale');
+		$publication->setData('locale', $this->getData('locale'));
+		$publication->setData('language', PKPString::substr($this->getData('locale'), 0, 2));
+		if ($oldLocale && $oldLocale != $this->getData('locale')) {
 			$authorDao = DAORegistry::getDAO('AuthorDAO');
-			$authorDao->changeSubmissionLocale($this->submission->getId(), $oldLocale, $this->getData('locale'));
+			$authorDao->changePublicationLocale($publication->getId(), $oldLocale, $this->getData('locale'));
 		}
 	}
 
@@ -305,6 +314,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
 
 			$submissionDao->updateObject($this->submission);
+
+			$publication = $this->submission->getCurrentPublication();
+			$this->setPublicationData($publication, $this->submission);
+			$publication = Services::get('publication')->edit($publication, $publication->_data, $request);
+
 		} else {
 			// Create new submission
 			$this->submission = $submissionDao->newDataObject();
@@ -315,9 +329,16 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$this->submission->stampStatusModified();
 			$this->submission->setSubmissionProgress($this->step + 1);
 			$this->submission->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
-			$this->submission->setCopyrightNotice($this->context->getLocalizedData('copyrightNotice'), $this->getData('locale'));
 			// Insert the submission
-			$this->submissionId = $submissionDao->insertObject($this->submission);
+			$this->submission = Services::get('submission')->add($this->submission, $request);
+			$this->submissionId = $this->submission->getId();
+
+			// Create a publication
+			$publication = new Publication();
+			$this->setPublicationData($publication, $this->submission);
+			$publication->setData('status', STATUS_QUEUED);
+			$publication = Services::get('publication')->add($publication, $request);
+			$this->submission = Services::get('submission')->edit($this->submission, ['currentPublicationId' => $publication->getId()], $request);
 
 			// Set user to initial author
 			$authorDao = DAORegistry::getDAO('AuthorDAO');
@@ -340,15 +361,15 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			$author->setEmail($user->getEmail());
 			$author->setUrl($user->getUrl());
 			$author->setBiography($user->getBiography(null), null);
-			$author->setPrimaryContact(1);
 			$author->setIncludeInBrowse(1);
 			$author->setOrcid($user->getOrcid());
+			$author->setData('publicationId', $publication->getId());
 
 			// Get the user group to display the submitter as
 			$author->setUserGroupId($userGroupId);
 
-			$author->setSubmissionId($this->submissionId);
-			$authorDao->insertObject($author);
+			$authorId = $authorDao->insertObject($author);
+			$publication = Services::get('publication')->edit($publication, ['primaryContactId' => $authorId], $request);
 
 			// Assign the user author to the stage
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
@@ -358,7 +379,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			if ($this->getData('commentsToEditor')){
 				$this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId());
 			}
-
 		}
 
 		return $this->submissionId;

@@ -97,7 +97,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
 		// Get representations
 		$representationDao = Application::getRepresentationDAO();
-		$representations = $representationDao->getBySubmissionId($submissionId, $contextId);
+		$representations = $representationDao->getByPublicationId($submission->getLatestPublication()->getId());
 
 		$notificationType = $this->getNotificationType();
 

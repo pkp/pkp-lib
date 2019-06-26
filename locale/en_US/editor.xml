@@ -12,7 +12,8 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="editor.submissionLibrary">Submission Library</message>
+	<message key="editor.activityLog">Activity Log</message>
+	<message key="editor.submissionLibrary">Library</message>
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Message to user</message>
 	<message key="editor.submission.externalReviewDescription">Select files below to send them to the review stage.</message>

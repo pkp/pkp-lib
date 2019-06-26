@@ -73,7 +73,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 
 		// "View metadata" action.
-		import('lib.pkp.controllers.modals.submissionMetadata.linkAction.ReviewerViewMetadataLinkAction');
+		import('lib.pkp.controllers.modals.review.ReviewerViewMetadataLinkAction');
 		$viewMetadataLinkAction = new ReviewerViewMetadataLinkAction($request, $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
 		$templateMgr->assign('viewMetadataAction', $viewMetadataLinkAction);
 

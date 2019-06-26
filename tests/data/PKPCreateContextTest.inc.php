@@ -79,29 +79,30 @@ abstract class PKPCreateContextTest extends WebTestCase {
 		$this->click($selector);
 		$this->waitForElementPresent('//h1[contains(text(),"Settings Wizard")]');
 
-		$this->click('//a[contains(text(),"Appearance")]');
+		$this->click('//button[contains(text(),"Appearance")]');
 		$this->waitForElementPresent($selector = '//*[@id="appearance"]//button[contains(text(),"Save")]');
 		$this->click($selector);
 		$this->waitForTextPresent('The theme has been updated.');
 
 		sleep(5); // FIXME: Avoid intermittent failure to scroll to top of page
 		self::$driver->executeScript('window.scrollTo(0,0);'); // Scroll to top of page
-		$this->click('//a[text()="Languages"]');
+		$this->click('//button[contains(text(),"Languages")]');
 		$this->waitForElementPresent($selector = '//input[@id="select-cell-fr_CA-contextPrimary"]');
 		$this->click($selector);
 		$this->waitForTextPresent('Locale settings saved.');
 		$this->click('css=input#select-cell-en_US-contextPrimary');
 
-		$this->click('//a[contains(text(),"Search Indexing")]');
+		$this->click('//button[contains(text(),"Search Indexing")]');
 		$this->setInputValue('[name="searchDescription-en_US"]', $this->contextDescription);
 		$this->setInputValue('[name="customHeaders-en_US"]', '<meta name="pkp" content="Test metatag.">');
-		$this->click('//*[@id="search-indexing"]//button[contains(text(),"Save")]');
+		$this->click('//*[@id="indexing"]//button[contains(text(),"Save")]');
 		$this->waitForTextPresent('The search engine index settings have been updated.');
 
 		// Test the form tooltip
 		sleep(5); // FIXME: Avoid intermittent failure to open tooltip
 		$this->click('//label[@for="searchIndexing-searchDescription-control-en_US"]/../button[contains(@class,"tooltipButton")]');
 		$this->waitForElementPresent('//div[starts-with(@id,"tooltip_")]//div[contains(text(),"Provide a brief description")]');
+		$this->click('//label[@for="searchIndexing-searchDescription-control-en_US"]/../button[contains(@class,"tooltipButton")]');
 	}
 
 	/**
@@ -113,7 +114,8 @@ abstract class PKPCreateContextTest extends WebTestCase {
 		$actions->moveToElement($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Settings"]'))
 			->click($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Journal" or text()="Press"]'))
 			->perform();
-		$this->click('link=Contact');
+		$this->click('//button[contains(text(),"Contact")]');
+
 
 		// Required fields
 		$this->waitForElementPresent($selector = '//*[@id="contact"]//button[contains(text(),"Save")]');

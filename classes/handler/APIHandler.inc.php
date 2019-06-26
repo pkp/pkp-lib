@@ -302,8 +302,8 @@ class APIHandler extends PKPHandler {
 	 * @param $type One of boolean, integer or number
 	 */
 	private function _convertStringsToSchema($value, $type, $schema) {
-		// Convert all empty strings to null
-		if (is_string($value) && !strlen($value)) {
+		// Convert all empty strings to null except arrays (see note below)
+		if (is_string($value) && !strlen($value) && $type !== 'array') {
 			return null;
 		}
 		switch ($type) {
@@ -339,6 +339,12 @@ class APIHandler extends PKPHandler {
 						}
 					}
 					return $newArray;
+
+				// An empty string is accepted as an empty array. This addresses the
+				// issue where browsers strip empty arrays from post data before sending.
+				// See: https://bugs.jquery.com/ticket/6481
+				} elseif (is_string($value) && !strlen($value)) {
+					return [];
 				}
 				break;
 			case 'object':

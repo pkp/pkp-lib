@@ -26,13 +26,30 @@ abstract class PKPStatsTest extends WebTestCase {
    */
   public function generateUsageStats() {
 
+		// Fix missing schema constant error
+		Services::get('schema');
+
 		// Generate some usage statistics for the last 90 days
 		import('lib.pkp.classes.submission.PKPSubmission');
 		import('classes.statistics.StatisticsHelper');
 		$metricsDao = DAORegistry::getDAO('MetricsDAO');
 		$submissionIds = array_map(function($submission) {
-			return $submission->getId();
-		}, Services::get('submission')->getMany(['contextId' => 1, 'status' => STATUS_PUBLISHED]));
+				return $submission->getId();
+			},
+			// Filter out submissions that do not have a current publication.
+			// This should not be necessary under normal circumstances but is
+			// a temporary workaround until import/export is working properly
+			// with the changes for versioning. Until then, the import leads
+			// to a couple of bad submissions that don't get publications
+			// created.
+			// See: https://github.com/pkp/pkp-lib/issues/4880
+			array_filter(
+				Services::get('submission')->getMany(['contextId' => 1, 'status' => STATUS_PUBLISHED]),
+				function($submission) {
+					return $submission->getCurrentPublication();
+				}
+			)
+		);
 		$currentDate = new DateTime();
 		$currentDate->sub(new DateInterval('P90D'));
 		$dateEnd = new DateTime();
@@ -80,11 +97,12 @@ abstract class PKPStatsTest extends WebTestCase {
 		$this->waitForElementPresent('//span[contains(text(), "' . $daysAgo90 . ' — ' . $yesterday .'")]');
 		$this->click($dateRangeToggle);
 		$this->waitForElementPresent($selector='css=.pkpDateRange__input--start');
-		$this->type($selector, $daysAgo50);
-		$this->type('css=.pkpDateRange__input--end', $daysAgo10);
+		self::$driver->executeScript('$("input.pkpDateRange__input--start").val("' . $daysAgo50 . '"); document.querySelector("input.pkpDateRange__input--start").dispatchEvent(new Event("input"));');
+		self::$driver->executeScript('$("input.pkpDateRange__input--end").val("' . $daysAgo10 . '"); document.querySelector("input.pkpDateRange__input--end").dispatchEvent(new Event("input"));');
+		self::$driver->executeScript('$(".pkpDateRange__form .pkpButton").focus();');
 		$this->click('//button[contains(text(), "Apply")]');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('.pkpDateRange__options')));
-		$this->waitForElementPresent('//span[contains(text(), "' . $daysAgo50 . ' — ' . $daysAgo10 .'")]');
+		$this->waitForTextPresent($daysAgo50 . ' — ' . $daysAgo10);
 
 		// Test that the hidden timeline table for screen readers is getting populated
 		// with rows of content.

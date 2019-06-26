@@ -21,7 +21,6 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
-import('lib.pkp.classes.controllers.modals.submissionMetadata.SubmissionMetadataHandler');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 class StageParticipantGridHandler extends CategoryGridHandler {

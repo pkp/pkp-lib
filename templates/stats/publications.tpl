@@ -180,7 +180,7 @@
 										class="pkpStats__itemLink"
 										target="_blank"
 									>
-										<span class="pkpStats__itemAuthors" v-html="row.publication.shortAuthorString"></span>
+										<span class="pkpStats__itemAuthors" v-html="row.publication.authorsStringShort"></span>
 										<span class="pkpStats__itemTitle" v-html="localize(row.publication.fullTitle)"></span>
 									</a>
 								</template>

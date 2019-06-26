@@ -42,6 +42,7 @@ abstract class WebTestCase extends PKPTestCase {
 	const ID_PREFIX = 'id=';
 	const LABEL_PREFIX='label=';
 	const LINK_PREFIX='link=';
+	const VALUE_PREFIX='value=';
 
 	/**
 	 * Override this method if you want to backup/restore
@@ -282,12 +283,10 @@ abstract class WebTestCase extends PKPTestCase {
 	protected function uploadFile($file) {
 		$this->assertTrue(file_exists($file), 'Test file does not exist.');
 		$testFile = realpath($file);
-		$fileName = basename($testFile);
 
-		$this->waitForElementPresent('//input[@type="file"]');
-		$this->type('css=input[type="file"]', $testFile);
+		$this->waitForElementPresent('css=div.moxie-shim-html5 input[type="file"]');
+		$this->type('css=div.moxie-shim-html5 input[type="file"]', $testFile);
 		$this->waitForElementPresent('css=span.pkpUploaderFilename');
-		//$this->waitForElementPresent('css=div.ui-icon-circle-check');
 	}
 
 	/**
@@ -402,7 +401,7 @@ abstract class WebTestCase extends PKPTestCase {
 		if (substr($selector,0,strlen(self::LINK_PREFIX))==self::LINK_PREFIX) return WebDriverBy::linkText(substr($selector,strlen(self::LINK_PREFIX)));
 		if (substr($selector,0,strlen(self::ID_PREFIX))==self::ID_PREFIX) return WebDriverBy::id(substr($selector,strlen(self::ID_PREFIX)));
 		return WebDriverBy::xpath($selector);
-		
+
 	}
 
 	protected function find($selector) {
@@ -437,6 +436,7 @@ abstract class WebTestCase extends PKPTestCase {
 		$element = $this->waitForElementPresent($elementSelector);
 		$select = new \Facebook\WebDriver\WebDriverSelect($element);
 		if (substr($optionSelector,0,strlen(self::LABEL_PREFIX))==self::LABEL_PREFIX) return $select->selectByVisibleText(substr($optionSelector,strlen(self::LABEL_PREFIX)));
+		elseif (substr($optionSelector,0,strlen(self::VALUE_PREFIX))==self::VALUE_PREFIX) return $select->selectByValue(substr($optionSelector,strlen(self::VALUE_PREFIX)));
 		else throw new Exception('Unknown selector type!');
 	}
 

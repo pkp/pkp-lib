@@ -22,39 +22,24 @@
 			<KEY/>
 			<AUTOINCREMENT/>
 		</field>
-		<field name="submission_id" type="I8">
+		<field name="email" type="C2" size="90">
 			<NOTNULL/>
 		</field>
-		<field name="primary_contact" type="I1">
+		<field name="include_in_browse" type="I1">
 			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
+			<DEFAULT VALUE="1"/>
+		</field>
+		<field name="publication_id" type="I8">
+			<NOTNULL/>
 		</field>
 		<field name="seq" type="F">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="country" type="C2" size="90"/>
-		<field name="email" type="C2" size="90">
-			<NOTNULL/>
-		</field>
-		<field name="url" type="C2" size="2047"/>
 		<field name="user_group_id" type="I8" />
-		<field name="include_in_browse" type="I1">
-			<NOTNULL/>
-			<DEFAULT VALUE="1"/>
-		</field>
-		<field name="submission_version" type="I8">
-			<NOTNULL/>
-			<DEFAULT VALUE="1" />
-		</field>
-		<field name="prev_ver_id" type="I8" />
-		<field name="is_current_submission_version" type="I1">
-			<NOTNULL />
-			<DEFAULT VALUE="1" />
-		</field>
-		<descr>Author metadata for submissions.</descr>
-		<index name="authors_submission_id">
-			<col>submission_id</col>
+		<descr>Authors for submissions.</descr>
+		<index name="authors_publication_id">
+			<col>publication_id</col>
 		</index>
 	</table>
 
@@ -67,7 +52,6 @@
 		<field name="author_id" type="I8">
 			<NOTNULL />
 		</field>
-		<field name="submission_version" type="I8" />
 		<field name="locale" type="C2" size="14">
 			<NOTNULL />
 			<DEFAULT VALUE=""/>
@@ -76,17 +60,12 @@
 			<NOTNULL />
 		</field>
 		<field name="setting_value" type="X"/>
-		<field name="setting_type" type="C2" size="6">
-			<NOTNULL/>
-			<descr>(bool|int|float|string|object)</descr>
-		</field>
 		<descr>Language dependent author metadata.</descr>
 		<index name="author_settings_author_id">
 			<col>author_id</col>
 		</index>
 		<index name="author_settings_pkey">
 			<col>author_id</col>
-			<col>submission_version</col>
 			<col>locale</col>
 			<col>setting_name</col>
 			<UNIQUE/>

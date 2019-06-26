@@ -12,7 +12,7 @@
 {assign var="uuid" value=""|uniqid|escape}
 <div id="dashboard-{$uuid}">
 	<tabs>
-		<tab id="myQueue" name="{translate key="dashboard.myQueue"}">
+		<tab id="myQueue" label="{translate key="dashboard.myQueue"}">
 			{help file="submissions" class="pkp_help_tab"}
 			<submissions-list-panel
 				v-bind="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}"
@@ -20,14 +20,14 @@
 			/>
 		</tab>
 		{if array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), (array)$userRoles)}
-			<tab id="unassigned" name="{translate key="common.queue.long.submissionsUnassigned"}">
+			<tab id="unassigned" label="{translate key="common.queue.long.submissionsUnassigned"}">
 				{help file="submissions" section="unassigned" class="pkp_help_tab"}
 				<submissions-list-panel
 					v-bind="components.{$smarty.const.SUBMISSIONS_LIST_UNASSIGNED}"
 					@set="set"
 				/>
 			</tab>
-			<tab id="active" name="{translate key="common.queue.long.active"}">
+			<tab id="active" label="{translate key="common.queue.long.active"}">
 				{help file="submissions" section="active" class="pkp_help_tab"}
 				<submissions-list-panel
 					v-bind="components.{$smarty.const.SUBMISSIONS_LIST_ACTIVE}"
@@ -35,7 +35,7 @@
 				/>
 			</tab>
 		{/if}
-		<tab id="archive" name="{translate key="navigation.archives"}">
+		<tab id="archive" label="{translate key="navigation.archives"}">
 			{help file="submissions" section="archives" class="pkp_help_tab"}
 			<submissions-list-panel
 				v-bind="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}"

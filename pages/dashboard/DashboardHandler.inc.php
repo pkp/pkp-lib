@@ -112,7 +112,7 @@ class DashboardHandler extends Handler {
 
 		// Archived
 		$params = [
-			'status' => [STATUS_DECLINED, STATUS_PUBLISHED],
+			'status' => [STATUS_DECLINED, STATUS_PUBLISHED, STATUS_SCHEDULED],
 		];
 		if (empty(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN], $userRoles))) {
 			$params['assignedTo'] = (int) $currentUser->getId();

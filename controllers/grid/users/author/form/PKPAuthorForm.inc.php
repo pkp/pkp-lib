@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/users/author/form/AuthorForm.inc.php
+ * @file controllers/grid/users/author/form/PKPAuthorForm.inc.php
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AuthorForm
+ * @class PKPAuthorForm
  * @ingroup controllers_grid_users_author_form
  *
  * @brief Form for adding/editing a author
@@ -15,27 +15,23 @@
 
 import('lib.pkp.classes.form.Form');
 
-class AuthorForm extends Form {
-	/** The submission associated with the submission contributor being edited **/
-	var $_submission;
+class PKPAuthorForm extends Form {
+	/** The publication associated with the contributor being edited **/
+	var $_publication;
 
 	/** Author the author being edited **/
 	var $_author;
 
-	/** The type of submission Id **/
-	var $_submissionIdFieldName;
-
 	/**
 	 * Constructor.
 	 */
-	function __construct($submission, $author, $submissionIdFieldName) {
+	function __construct($publication, $author) {
 		parent::__construct('controllers/grid/users/author/form/authorForm.tpl');
-		$this->setSubmission($submission);
+		$this->setPublication($publication);
 		$this->setAuthor($author);
-		$this->setSubmissionIdFieldName($submissionIdFieldName);
 
-		// the submission locale should be the default/required locale
-		$this->setDefaultFormLocale($submission->getLocale());
+		// the publication locale should be the default/required locale
+		$this->setDefaultFormLocale($publication->getData('locale'));
 
 		// Validation checks for this form
 		$form = $this;
@@ -77,35 +73,19 @@ class AuthorForm extends Form {
 	}
 
 	/**
-	 * Get the Submission
-	 * @return Submission
+	 * Get the Publication
+	 * @return Publication
 	 */
-	function getSubmission() {
-		return $this->_submission;
+	function getPublication() {
+		return $this->_publication;
 	}
 
 	/**
-	 * Set the Submission
-	 * @param Submission
+	 * Set the Publication
+	 * @param Publication
 	 */
-	function setSubmission($submission) {
-		$this->_submission = $submission;
-	}
-
-	/**
-	 * Get the Submission Id field name
-	 * @return String
-	 */
-	function getSubmissionIdFieldName() {
-		return $this->_submissionIdFieldName;
-	}
-
-	/**
-	 * Set the Submission Id field name
-	 * @param String
-	 */
-	function setSubmissionIdFieldName($submissionIdFieldName) {
-		$this->_submissionIdFieldName = $submissionIdFieldName;
+	function setPublication($publication) {
+		$this->_publication = $publication;
 	}
 
 
@@ -131,9 +111,8 @@ class AuthorForm extends Form {
 				'orcid' => $author->getOrcid(),
 				'userGroupId' => $author->getUserGroupId(),
 				'biography' => $author->getBiography(null),
-				'primaryContact' => $author->getPrimaryContact(),
+				'primaryContact' => $this->getPublication()->getData('primaryContactId') === $author->getId(),
 				'includeInBrowse' => $author->getIncludeInBrowse(),
-				'version' => $author->getSubmissionVersion(),
 			);
 		} else {
 			// assume authors should be listed unless otherwise specified.
@@ -161,9 +140,9 @@ class AuthorForm extends Form {
 		$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
 		$templateMgr->assign('authorUserGroups', $authorUserGroups);
 
-		$submission = $this->getSubmission();
-		$templateMgr->assign('submissionIdFieldName', $this->getSubmissionIdFieldName());
-		$templateMgr->assign('submissionId', $submission->getId());
+		$publication = $this->getPublication();
+		$templateMgr->assign('submissionId', $publication->getData('submissionId'));
+		$templateMgr->assign('publicationId', $publication->getId());
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -196,18 +175,18 @@ class AuthorForm extends Form {
 	 */
 	function execute() {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$submission = $this->getSubmission();
+		$publication = $this->getPublication();
 
 		$author = $this->getAuthor();
 		if (!$author) {
 			// this is a new submission contributor
 			$this->_author = $authorDao->newDataObject();
 			$author = $this->getAuthor();
-			$author->setSubmissionId($submission->getId());
+			$author->setData('publicationId', $publication->getId());
 			$existingAuthor = false;
 		} else {
 			$existingAuthor = true;
-			if ($submission->getId() !== $author->getSubmissionId()) fatalError('Invalid author!');
+			if ($publication->getId() !== $author->getData('publicationId')) fatalError('Invalid author!');
 		}
 
 		$author->setGivenName($this->getData('givenName'), null);
@@ -220,9 +199,7 @@ class AuthorForm extends Form {
 		$author->setOrcid($this->getData('orcid'));
 		$author->setUserGroupId($this->getData('userGroupId'));
 		$author->setBiography($this->getData('biography'), null); // localized
-		$author->setPrimaryContact(($this->getData('primaryContact') ? true : false));
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
-		$author->setSubmissionVersion($submission->getCurrentSubmissionVersion());
 
 		// in order to be able to use the hook
 		parent::execute();
@@ -232,6 +209,22 @@ class AuthorForm extends Form {
 			$authorId = $author->getId();
 		} else {
 			$authorId = $authorDao->insertObject($author);
+		}
+
+		if ($this->getData('primaryContact')) {
+			$submission = Services::get('submission')->get($publication->getData('submissionId'));
+			$context = Services::get('context')->get($submission->getData('contextId'));
+			$params = ['primaryContactId' => $authorId];
+			$errors = Services::get('publication')->validate(
+				VALIDATE_ACTION_EDIT,
+				$params,
+				$context->getData('supportedLocales'),
+				$publication->getData('locale')
+			);
+			if (!empty($errors)) {
+				throw new Exception('Invalid primary contact ID. This author can not be a primary contact.');
+			}
+			$publication = Services::get('publication')->edit($publication, $params, Application::get()->getRequest());
 		}
 
 		return $authorId;

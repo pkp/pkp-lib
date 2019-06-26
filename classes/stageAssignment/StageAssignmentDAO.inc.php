@@ -124,7 +124,7 @@ class StageAssignmentDAO extends DAO {
 	 */
 	function getByUserGroupId($userGroupId, $contextId) {
 		$params = array(
-			(int) $userGroupId, 
+			(int) $userGroupId,
 			(int) $contextId
 		);
 

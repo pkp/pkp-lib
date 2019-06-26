@@ -132,7 +132,8 @@ class NotificationsGridCellProvider extends GridCellProvider {
 					case ASSOC_TYPE_REPRESENTATION:
 						$representationDao = Application::getRepresentationDAO();
 						$representation = $representationDao->getById($query->getAssocId());
-						$submissionId = $representation->getSubmissionId();
+						$publication = Services::get('publication')->get($representation->getData('publicationId'));
+						$submissionId = $publication->getData('submissionId');
 						break;
 					default: assert(false);
 				}

@@ -48,11 +48,15 @@
 		{fbvFormSection list="true"}
 			{fbvElement type="checkbox" label="submission.submit.selectPrincipalContact" id="primaryContact" checked=$primaryContact}
 			{fbvElement type="checkbox" label="submission.submit.includeInBrowse" id="includeInBrowse" checked=$includeInBrowse}
+			{$additionalCheckboxes}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{if $submissionId}
 		<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
+	{/if}
+	{if $publicationId}
+		<input type="hidden" name="publicationId" value="{$publicationId|escape}" />
 	{/if}
 	{if $gridId}
 		<input type="hidden" name="gridId" value="{$gridId|escape}" />

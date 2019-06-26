@@ -69,7 +69,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 		// Create the data object
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$author = $authorDao->newDataObject();
-		$author->setSubmissionId($submission->getId());
+		$author->setData('publicationId', $submission->getCurrentPublication()->getId());
 		if ($node->getAttribute('primary_contact')) $author->setPrimaryContact(true);
 		if ($node->getAttribute('include_in_browse')) $author->setIncludeInBrowse(true);
 

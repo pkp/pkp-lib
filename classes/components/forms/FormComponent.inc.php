@@ -29,6 +29,7 @@ class FormComponent {
 	public $action = '';
 
 	/** @var string The message to display when this form is successfully submitted */
+	public $successMessage = '';
 
 	/** @var array Key/value list of languages this form should support. Key = locale code. Value = locale name */
 	public $locales = [];

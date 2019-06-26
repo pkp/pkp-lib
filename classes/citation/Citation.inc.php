@@ -32,21 +32,6 @@ class Citation extends DataObject {
 	//
 	// Getters and Setters
 	//
-	/**
-	 * Get the submission id
-	 * @return integer
-	 */
-	function getSubmissionId() {
-		return $this->getData('submissionId');
-	}
-
-	/**
-	 * Set the submission id
-	 * @param $submissionId integer
-	 */
-	function setSubmissionId($submissionId) {
-		$this->setData('submissionId', $submissionId);
-	}
 
 	/**
 	 * Replace URLs through HTML links, if the citation does not already contain HTML links

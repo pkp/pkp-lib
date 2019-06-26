@@ -9,93 +9,46 @@
  *
  */
 
-// Title and author
-.pkp_page_header {
-	position: relative;
 
-	.pkp_submission_author {
-		margin-right: 1em;
-		max-width: 50%; // @todo We can work out a more responsive width system when we improve tablet/phone support
-		overflow: hidden;
-		font-size: @font-sml;
-		font-weight: @normal;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		// This ensures the author will align horizontally with the actions
-		// which follow it. It's complicated: http://stackoverflow.com/a/20566810/1723499
-		vertical-align: bottom;
-	}
-
-	// Adjust the title area for title + author
-	.pkp_page_title {
-		padding-top: @base + @half;
-		padding-bottom: @base + @half;
-	}
-
-	.pkp_submission_title,
-	.pkp_submission_author {
-		line-height: @line-base;
-	}
-
+.pkp_page_workflow .pkp_submission_workflow,
+.pkp_page_workflow #informationCenterDiv,
+.pkp_page_authorDashboard #informationCenterDiv,
+.pkp_page_authorDashboard #stageTabs {
+	margin-left: -@double;
+	margin-right: -@double;
 }
 
-// Action links alongside author
-@pkp_submission_actions_height: @base + @double;
-.pkp_submission_workflow .pkp_page_title {
-	margin-top: @pkp_submission_actions_height;
-}
+.pkp_page_workflow,
+.pkp_page_authorDashboard {
 
-.pkp_submission_actions {
-	&:extend(.pkp_unstyled_list);
-	position: absolute;
-	top: -@pkp_submission_actions_height;
-	left: 0;
-	right: 0;
-	height: @pkp_submission_actions_height;
-	line-height: @pkp_submission_actions_height;
-	padding-left: @double;
-	padding-right: @double;
-	border-bottom: @bg-border-light;
-	text-align: right;
+	.pkpTab {
 
-	li {
-		display: inline-block;
-	}
-
-	a {
-		position: relative;
-		display: block;
-		padding-left: 1em;
-		padding-right: 1em;
-		font-size: @font-sml;
-		font-weight: @bold;
-		text-decoration: none;
-
-		&:before {
-			position: absolute;
-			content: '';
-			top: 100%;
-			left: 50%;
-			width: 25%;
-			height: 2px;
+		.ui-tabs-nav {
 			background: transparent;
-			transition: width 0.2s;
-			transform: translateX(-50%);
+			padding-left: @base;
+			border-bottom: @bg-border-light;
+
+			a {
+				position: relative;
+				top: 1px;
+				border-left: 1px solid transparent;
+				border-right: 1px solid transparent;
+			}
+
+			.ui-tabs-active a {
+				border-color: @bg-border-color-light;
+				background: #fff;
+			}
 		}
 
-		&:focus {
-			outline: 0;
-		}
-
-		&:hover:before,
-		&:focus:before {
-			width: 100%;
-			background: @primary;
+		.ui-tabs-panel .pkp_help_tab {
+			border: @bg-border-light;
+			border-bottom: none;
+			margin-top: -1px;
 		}
 	}
 }
 
-// Tabs
 .pkp_submission_workflow {
 
 	.ui-tabs-nav {
@@ -115,6 +68,10 @@
 	}
 }
 
+#submissionProgressBarDiv > .pkp_loading {
+	text-align: center;
+}
+
 .pkp_workflow_decisions {
 
 	a {
@@ -127,10 +84,10 @@
 
 		&.pkp_linkaction_externalReview,
 		&.pkp_linkaction_sendToProduction,
-		&.pkp_linkaction_schedulePublication {
+		&.pkp_linkaction_schedulePublication,
+		&.pkp_linkaction_toPublication {
 			&:extend(.pkp_button_primary all);
 		}
-
 	}
 }
 

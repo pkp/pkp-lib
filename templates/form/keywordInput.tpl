@@ -19,7 +19,7 @@
 					{if $FBV_sourceUrl && !$FBV_disabled}
 						tagSource: function(search, showChoices) {ldelim}
 							$.ajax({ldelim}
-								url: "{$FBV_sourceUrl}", {* this url should return a JSON array of possible keywords *}
+								url: "{$FBV_sourceUrl}&locale={$thisFormLocale|escape}", {* this url should return a JSON array of possible keywords *}
 								data: search,
 								success: function(choices) {ldelim}
 									showChoices(choices);

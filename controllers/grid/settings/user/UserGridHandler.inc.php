@@ -359,7 +359,7 @@ class UserGridHandler extends GridHandler {
 			$userRoleForm->execute();
 
 			// Successfully managed newly created user's roles.
-			return DAO::getDataChangedEvent($userId);
+			return DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(false);
 		}

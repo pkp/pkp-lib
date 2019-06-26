@@ -86,7 +86,8 @@ class QueryNotificationManager extends NotificationManagerDelegate {
 			case ASSOC_TYPE_REPRESENTATION:
 				$representationDao = Application::getRepresentationDAO();
 				$representation = $representationDao->getById($query->getAssocId());
-				return $submissionDao->getById($representation->getSubmissionId());
+				$publication = Services::get('publication')->get($representation->getData('publicationId'));
+				return Services::get('submission')->get($publication->getData('submissionId'));
 		}
 		assert(false);
 	}

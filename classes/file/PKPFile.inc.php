@@ -13,9 +13,7 @@
  * @brief Base PKP file class.
  */
 
-import('lib.pkp.classes.submission.SubmissionVersionedDataObject');
-
-class PKPFile extends SubmissionVersionedDataObject {
+class PKPFile extends DataObject {
 
 	//
 	// Get/set methods

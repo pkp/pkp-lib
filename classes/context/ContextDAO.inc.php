@@ -17,25 +17,6 @@ import('lib.pkp.classes.db.SchemaDAO');
 
 abstract class ContextDAO extends SchemaDAO {
 	/**
-	 * Retrieve a context by context ID.
-	 * @param $contextId int
-	 * @return Context
-	 */
-	function getById($contextId) {
-		$result = $this->retrieve(
-			'SELECT * FROM ' . $this->tableName . ' WHERE ' . $this->primaryKeyColumn . ' = ?',
-			(int) $contextId
-		);
-
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Retrieve the IDs and names of all contexts in an associative array.
 	 * @param $enabledOnly true iff only enabled contexts are to be included
 	 * @return array

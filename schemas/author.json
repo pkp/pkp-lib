@@ -1,62 +1,88 @@
 {
 	"title": "Author",
-	"description": "An author of a submission.",
+	"description": "An author of a publication.",
+	"required": [
+		"email",
+		"givenName",
+		"publicationId",
+		"userGroupId"
+	],
 	"properties": {
-		"id": {
-			"type": "integer",
-			"apiSummary": true
-		},
-		"seq": {
-			"type": "integer",
-			"apiSummary": true
-		},
-		"givenName": {
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"familyName": {
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"fullName": {
+		"affilation": {
 			"type": "string",
-			"apiSummary": true,
-			"readOnly": true
+			"description": "The scholarly institution this contributor is employed by or affiliated with.",
+			"multilingual": "true",
+			"apiSummary": true
+		},
+		"biography": {
+			"type": "string",
+			"description": "An optional bio statement about this contributor.",
+			"multilingual": "true"
 		},
 		"country": {
 			"type": "string"
 		},
 		"email": {
 			"type": "string",
+			"apiSummary": true,
 			"validation": [
 				"email_or_localhost"
 			]
 		},
+		"familyName": {
+			"type": "string",
+			"multilingual": "true",
+			"apiSummary": true
+		},
+		"givenName": {
+			"type": "string",
+			"multilingual": "true",
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"includeInBrowse": {
+			"type": "boolean",
+			"description": "Whether or not to include this contributor in author lists when the publication appears in search results, tables of content and catalog entries.",
+			"default": true,
+			"apiSummary": true
+		},
+		"orcid": {
+			"type": "string",
+			"description": "The ORCID of this contributor. See: https://orcid.org/",
+			"apiSummary": true,
+			"validation": [
+				"orcid"
+			]
+		},
+		"preferredPublicName": {
+			"type": "string",
+			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
+			"multilingual": "true",
+			"apiSummary": true
+		},
+		"publicationId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"seq": {
+			"type": "integer",
+			"description": "The order in which this contributor should appear in a list of contriibutors.",
+			"apiSummary": true
+		},
 		"url": {
 			"type": "string",
+			"description": "An optional URL to this contributor's webpage.",
 			"validation": [
 				"url"
 			]
 		},
 		"userGroupId": {
-			"type": "integer"
-		},
-		"includeInBrowse": {
-			"type": "boolean"
-		},
-		"primaryContact": {
-			"type": "boolean"
-		},
-		"biography": {
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"affilation": {
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"orcid": {
-			"type": "string",
-			"apiSummary": true,
-			"validation": [
-				"orcid"
-			]
+			"type": "integer",
+			"description": "in which user group should this contributor be identified. Usually one of the author roles, such as Author or Translator.",
+			"apiSummary": true
 		}
 	}
 }

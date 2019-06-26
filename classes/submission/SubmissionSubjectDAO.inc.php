@@ -22,12 +22,12 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 
 	/**
 	 * Build/fetch and return a controlled vocabulary for subjects.
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @return ControlledVocab
 	 */
-	function build($submissionId) {
+	function build($publicationId) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ASSOC_TYPE_SUBMISSION, $submissionId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ASSOC_TYPE_PUBLICATION, $publicationId);
 	}
 
 	/**
@@ -40,26 +40,29 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 
 	/**
 	 * Get Subjects for a submission.
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @param $locales array
 	 * @return array
 	 */
-	function getSubjects($submissionId, $locales) {
-		$returner = array();
-		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
-		foreach ($locales as $locale) {
-			$returner[$locale] = array();
-			$subjects = $this->build($submissionId);
-			$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
+	function getSubjects($publicationId, $locales = []) {
+		$result = [];
 
-			while ($subject = $submissionSubjects->next()) {
-				$subject = $subject->getSubject();
-				if (array_key_exists($locale, $subject)) { // quiets PHP when there are no Subjects for a given locale
-					$returner[$locale][] = $subject[$locale];
+		$subjects = $this->build($publicationId);
+		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
+		$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
+		while ($subjectEntry = $submissionSubjects->next()) {
+			$subject = $subjectEntry->getSubject();
+			foreach ($subject as $locale => $value) {
+				if (empty($locales) || in_array($locale, $locales)) {
+					if (!array_key_exists($locale, $result)) {
+						$result[$locale] = [];
+					}
+					$result[$locale][] = $value;
 				}
 			}
 		}
-		return $returner;
+
+		return $result;
 	}
 
 	/**
@@ -83,41 +86,16 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	}
 
 	/**
-	 * Get an array of submissionIds that have a given subject
-	 * @param $subject string
-	 * @return array
-	 */
-	function getSubmissionIdsBySubject($subject) {
-		$result = $this->retrieve(
-			'SELECT assoc_id
-			 FROM controlled_vocabs cv
-			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
-			 INNER JOIN controlled_vocab_entry_settings cves ON cve.controlled_vocab_entry_id = cves.controlled_vocab_entry_id
-			 WHERE cves.setting_name = ? AND cves.setting_value = ?',
-			array(CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $subject)
-		);
-
-		$returner = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$returner[] = $row['assoc_id'];
-			$result->MoveNext();
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Add an array of subjects
 	 * @param $subjects array
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @param $deleteFirst boolean
 	 * @return int
 	 */
-	function insertSubjects($subjects, $submissionId, $deleteFirst = true) {
+	function insertSubjects($subjects, $publicationId, $deleteFirst = true) {
 		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
 		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
-		$currentSubjects = $this->build($submissionId);
+		$currentSubjects = $this->build($publicationId);
 
 		if ($deleteFirst) {
 			$existingEntries = $subjectDao->enumerate($currentSubjects->getId(), CONTROLLED_VOCAB_SUBMISSION_SUBJECT);

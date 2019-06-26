@@ -105,8 +105,8 @@ class CategoryForm extends Form {
 			$this->setData('path', $category->getPath());
 			$this->setData('image', $category->getImage());
 
-			$publishedSubmissionDao = Application::getSubmissionDAO();
-			$sortOption = $category->getSortOption() ? $category->getSortOption() : $publishedSubmissionDao->getDefaultSortOption();
+			$submissionDao = Application::get()->getSubmissionDAO();
+			$sortOption = $category->getSortOption() ? $category->getSortOption() : $submissionDao->getDefaultSortOption();
 			$this->setData('sortOption', $sortOption);
 		}
 	}

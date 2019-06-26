@@ -136,51 +136,7 @@ abstract class PKPWorkflowTabHandler extends Handler {
 				$templateMgr = TemplateManager::getManager($request);
 				$notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId());
 				$selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-				$representationDao = Application::getRepresentationDAO();
-				$representations = $representationDao->getBySubmissionId($submission->getId());
-				$templateMgr->assign('representations', $representations->toAssociativeArray());
-
 				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
-
-				// Versioning
-				$submissionDao = Application::getSubmissionDAO();
-				$context = $request->getContext();
-
-				// all versions of this submission
-				$templateMgr->assign('submissionVersions', $submissionDao->getSubmissionVersionsById($submission->getId()));
-
-				// latest submission version
-				$currentSubmissionVersion = $submission->getCurrentSubmissionVersion();
-				$templateMgr->assign('currentSubmissionVersion', $currentSubmissionVersion);
-
-				$publishedSubmissionDao = Application::getPublishedSubmissionDAO(); /** @var $publishedSubmissionDao PublishedSubmissionDAO */
-				$publishedSubmission = $publishedSubmissionDao->getBySubmissionId($submission->getId(), $submission->getContextId(), false, $currentSubmissionVersion);
-
-				if ($publishedSubmission){
-
-					$dispatcher = $request->getDispatcher();
-					import('lib.pkp.classes.linkAction.request.AjaxAction');
-
-					$newVersionAction = new LinkAction(
-						'newVersion',
-						new AjaxAction(
-							$dispatcher->url(
-								$request, ROUTE_COMPONENT, null,
-								'tab.workflow.VersioningTabHandler',
-								'newVersion', null, array(
-									'submissionId' => $submission->getId(),
-									'stageId' => $selectedStageId,
-									'submissionVersion' => $currentSubmissionVersion
-								)
-							),
-							__('submission.production.newVersion'),
-							'modal_add_item'
-						),
-						__('submission.production.newVersion'),
-						'add_item_small'
-					);
-					$templateMgr->assign('newVersionAction', $newVersionAction);
-				}
 
 				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
 		}

@@ -69,6 +69,12 @@ class PKPAssignPublicIdentifiersForm extends Form {
 			'approval' => $this->getApproval(),
 			'confirmationText' => $this->getConfirmationText(),
 		));
+		if ($request->getUserVar('submissionId')) {
+			$templateMgr->assign('submissionId', $request->getUserVar('submissionId'));
+		}
+		if ($request->getUserVar('publicationId')) {
+			$templateMgr->assign('publicationId', $request->getUserVar('publicationId'));
+		}
 		return parent::fetch($request, $template, $display);
 	}
 

@@ -115,6 +115,32 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			$cellProvider
 		));
 
+		if (Validation::isLoggedInAs() && isset($this->getRequestArgs()['submissionId']) && !empty( $this->getRequestArgs()['submissionId'] ) ) 
+		{
+			$router = $request->getRouter();
+			$dispatcher = $router->getDispatcher();
+			$user = $request->getUser();
+			$submissionId = $this->getRequestArgs()['submissionId'];
+			$redirectUrl = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						null,
+						'workflow',
+						'access',
+						$submissionId
+					);
+			import('lib.pkp.classes.linkAction.request.RedirectAction');
+			$this->addAction(
+					new LinkAction(
+						'signOutAsUser',
+						new RedirectAction(
+							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signOutAsUser', null, array('redirectUrl'=> $redirectUrl))
+						),
+						__('user.logOutAs') . ' '. $user->getUsername() 
+					)
+				);
+		}
+
 		// The "Add stage participant" grid action is available to
 		// Editors and Managers only
 		if ($this->_canAdminister()) {

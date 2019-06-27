@@ -114,13 +114,13 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			null,
 			$cellProvider
 		));
-
-		if (Validation::isLoggedInAs() && isset($this->getRequestArgs()['submissionId']) && !empty( $this->getRequestArgs()['submissionId'] ) ) 
+		$submission = $this->getSubmission();
+		$submissionId = $submission->getId();
+		if ( Validation::isLoggedInAs() ) 
 		{
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();
 			$user = $request->getUser();
-			$submissionId = $this->getRequestArgs()['submissionId'];
 			$redirectUrl = $dispatcher->url(
 						$request,
 						ROUTE_PAGE,

@@ -52,7 +52,6 @@ class StageParticipantGridRow extends GridRow {
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row.
 			$router = $request->getRouter();
-			$context = $request->getContext();
 			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 			if ($this->_canAdminister) $this->addAction(
 				new LinkAction(
@@ -116,11 +115,11 @@ class StageParticipantGridRow extends GridRow {
 							__('grid.user.confirmLogInAs'),
 							__('grid.action.logInAs'),
 							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $userId, array('redirectUrl'=> $redirectUrl))
-							),
+						),
 						__('grid.action.logInAs'),
 						'enroll_user'
-					)
-				);
+						)
+					);
 			}
 		}
 	}

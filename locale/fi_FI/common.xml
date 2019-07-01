@@ -542,4 +542,8 @@
 	<message key="common.commaListSeparator">,</message>
 	<message key="common.semicolonListSeparator">;</message>
 	<message key="email.compose.error">Sähköpostin lähetyksessä tapahtui virhe. Ole hyvä ja yritä uudelleen tai ota yhteyttä sivuston ylläpitäjään.</message>
+	<message key="common.dateDecided">Päätös tehty</message>
+	<message key="common.pagination.goToPage">Siirry sivulle {$page}</message>
+	<message key="common.pagination.next">Seuraava sivu</message>
+	<message key="common.pagination.previous">Edellinen sivu</message>
 </locale>

@@ -20,4 +20,12 @@
 	<message key="api.submissions.400.missingRequired">Pyyntöäsi ei voitu suorittaa, koska siitä puuttuu pakollisia tietoja.</message>
 	<message key="api.submissions.unknownError">Tapahtui virhe. Ole hyvä yritä uudelleen.</message>
 	<message key="api.submissions.400.stageNotValid">Pyyntöäsi ei voitu suorittaa, koska annettu työvaiheen tunniste on virheellinen.</message>
+	<message key="api.400.paramNotSupported">Parametria {$param} ei tueta.</message>
+	<message key="api.403.unauthorized">Sinulla ei ole pääsyä pyydettyyn resurssiin.</message>
+	<message key="api.404.resourceNotFound">Pyydettyä resurssia ei löytynyt.</message>
+	<message key="api.404.endpointNotFound">Pyydettyä URL-osoitetta ei tunnistettu.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Pyydetty volyymi, numero tai vuosi on virheellinen.</message>
+	<message key="api.stats.400.wrongDateFormat">Tehty pyyntö oli virheellinen. Päivämäärä pitää antaa muodossa VVVV-KK-PP.</message>
+	<message key="api.stats.400.wrongDateRange">Tehty pyyntö oli virheellinen. Arvo dateStart ei voi myöhäisempi kuin arvo dateEnd.</message>
+	<message key="api.stats.400.wrongTimeSegmentDaily">Tehty pyyntö oli virheellinen. Valinnan timeSegment arvoa 'daily' voi käyttää vain yhdessä viimeisen 90 päivän ajalle ulottuvan rajauksen kanssa. </message>
 </locale>

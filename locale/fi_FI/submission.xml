@@ -639,4 +639,6 @@
 	<message key="submission.currentCoverImage">Nykyinen kuva</message>
 	<message key="catalog.browseTitles">{$numTitles} nimikettä</message>
 	<message key="catalog.noTitlesSection">Osastoon ei ole lisätty vielä yhtään nimikettä.</message>
+	<message key="catalog.category.noItems">Tässä kategoriassa ei ole vielä julkaistu.</message>
+	<message key="catalog.category.subcategories">Alikategoriat</message>
 </locale>

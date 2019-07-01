@@ -122,4 +122,5 @@
 	<message key="admin.error.executingUtil">Virhe: ei voi suorittaa "{$utilPath}". Tarkista {$utilVar}-asetuksesi config.inc.php -tiedostosta.</message>
 	<message key="admin.languages.noLocalesToDownload">Kielialueita ei ole ladattavissa.</message>
 	<message key="admin.contexts.confirmDelete">Haluatko varmasti pysyvästi poistaa {$contextName} ja kaikki siihen liittyvät sisällöt?</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">Haluatko varmasti vaihtaa sivuston ensisijaisen kielialueen? Mikäli käyttäjä ei ole syöttänyt nimeään nyt valittavalla kielellä, nimeksi kopioidaan sama nimi, jonka hän on täyttänyt entisen ensisijaisen kielialueen mukaiseen asetukseen.</message>
 </locale>

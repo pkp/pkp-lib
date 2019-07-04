@@ -226,7 +226,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					$values[$prop] = $user->getEmail();
 					break;
 				case 'orcid':
-					$values[$prop] = $user->getOrcid(null);
+					$values[$prop] = $user->getOrcid();
 					break;
 				case 'biography':
 					$values[$prop] = $user->getBiography(null);

@@ -1553,8 +1553,10 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
-		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$appVersion = $versionDao->getCurrentVersion()->getVersionString();
+		} else $appVersion = null;
 
 		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);
 
@@ -1566,7 +1568,7 @@ class PKPTemplateManager extends Smarty {
 				if (!empty($style['inline'])) {
 					$output .= '<style type="text/css">' . $style['style'] . '</style>';
 				} else {
-					if (strpos($style['style'], '?') === false) {
+					if ($appVersion && strpos($style['style'], '?') === false) {
 						$style['style'] .= '?v=' . $appVersion;
 					}
 					$output .= '<link rel="stylesheet" href="' . $style['style'] . '" type="text/css" />';
@@ -1633,8 +1635,10 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
-		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
+		} else $appVersion = null;
 
 		$scripts = $this->getResourcesByContext($this->_javaScripts, $params['context']);
 
@@ -1646,7 +1650,7 @@ class PKPTemplateManager extends Smarty {
 				if ($data['inline']) {
 					$output .= '<script type="text/javascript">' . $data['script'] . '</script>';
 				} else {
-					if (strpos($data['script'], '?') === false) {
+					if ($appVersion && strpos($data['script'], '?') === false) {
 						$data['script'] .= '?v=' . $appVersion;
 					}
 					$output .= '<script src="' . $data['script'] . '" type="text/javascript"></script>';

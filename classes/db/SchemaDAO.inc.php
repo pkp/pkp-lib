@@ -144,7 +144,8 @@ abstract class SchemaDAO extends DAO {
 				foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
 					// Delete rows with a null value
 					if (is_null($localeValue)) {
-						$this->update("DELETE FROM $this->settingsTableName WHERE setting_name = ? AND locale = ?", [
+						$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name = ? AND locale = ?", [
+							$object->getId(),
 							$propName,
 							$localeKey,
 						]);
@@ -173,7 +174,9 @@ abstract class SchemaDAO extends DAO {
 			$deleteSettingNames = join(',', array_map(function($settingName) {
 				return "'$settingName'";
 			}, $deleteSettings));
-			$this->update("DELETE FROM $this->settingsTableName WHERE setting_name in ($deleteSettingNames)");
+			$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name in ($deleteSettingNames)", [
+				$object->getId(),
+			]);
 		}
 	}
 

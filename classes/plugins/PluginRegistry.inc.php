@@ -26,10 +26,14 @@ class PluginRegistry {
 	 * category is not specified, all plugins in an associative array of
 	 * arrays by category.
 	 * @param $category String the name of the category to retrieve
+	 * @return array
 	 */
 	static function &getPlugins($category = null) {
 		$plugins =& Registry::get('plugins', true, array());
-		if ($category !== null) return $plugins[$category];
+		if ($category !== null) {
+			if (!isset($plugins[$category])) $plugins[$category] = array();
+			return $plugins[$category];
+		}
 		return $plugins;
 	}
 

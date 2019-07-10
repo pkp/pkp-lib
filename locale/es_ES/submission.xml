@@ -727,5 +727,4 @@
 	<message key="submission.submit.placement.categories">Categorías</message>
 	<message key="submission.currentCoverImage">Imagen actual</message>
 	<message key="catalog.browseTitles">Explorar {$numTitles} títulos</message>
-	<message key="catalog.noTitlesSection">No se ha publicado ningún título aún para esta sección.</message>
 </locale>

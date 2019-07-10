@@ -23,11 +23,14 @@
 	<message key="user.authorization.privateOperation">Об'єкт, до якого ви намагаєтеся отримати доступ, приватний або не існує.</message>
 	<message key="user.authorization.restrictedSiteAccess">Вам було відмовлено у доступі. Наразі доступ до цього сайту обмежений.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Ваша поточна роль не передбачає прав на виконання цієї дії.</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Вас не призначено до цього подання із роллю, яка надає дозвіл до цієї операції.</message>
 	<message key="user.authorization.userGroupRequired">Для виконання цієї дії вам необхідно коректно вказати групу користувачів.</message>
 	<message key="user.authorization.managerRequired">Перед тим, як продовжити, Вам необхідно вказати користувача, який виконуватиме роль менеджера видавництва (тобто видавця або шеф-редактора).</message>
 	<message key="user.authorization.accessibleWorkflowStage">Ви не маєте доступу до цього етапу робочого процесу.</message>
 	<message key="user.authorization.workflowStageRequired">Не зазначено стадію робочого процесу.</message>
 	<message key="user.authorization.pluginRequired">Модуль обов'язковий але він не вказаний.</message>
+	<message key="user.authorization.invalidReviewAssignment">Ви не маєте дозволу на доступ до цього призначення рецензентів.</message>
+	<message key="user.authorization.submissionQuery">Ви не маєте дозволу на доступ до цього обговорення.</message>
 	<message key="user.biography">Біографічна довідка</message>
 	<message key="user.changeMyPassword">Змінити мій пароль</message>
 	<message key="user.changePassword">Змінити пароль</message>
@@ -35,11 +38,13 @@
 	<message key="user.dateRegistered">Дата реєстрації</message>
 	<message key="user.editMyProfile">Редагувати мій профіль</message>
 	<message key="user.email">Email</message>
+	<message key="user.givenName">Ім'я</message>
 	<message key="user.interests">Наукові інтереси</message>
 	<message key="user.interests.description">(вказуйте кожний інтерес з нового рядку або розділяйте їх комами)</message>
 	<message key="user.gossip">Приватні нотатки</message>
 	<message key="user.gossip.description">Нотатки, додані сюди, будуть відображені тільки лоя адміністраторів, менеджерів жураналу та редакторам.</message>
 	<message key="user.group">Група користувачів</message>
+	<message key="user.familyName">Прізвище</message>
 	<message key="user.profile.form.profileImageInvalid">Неприпустимий формат фото або зображення занадто великого розміру. Припустимими форматами є .gif, .jpg, або .png, розмір зображення не повинен бути більшим 150x150 пікселів.</message>
 	<message key="user.login.accountDisabledWithReason">Ваш обліковий запис був відключений через таку причину: {$reason}</message>
 	<message key="user.login.accountDisabled">Ваш обліковий запис був відключений. Будь ласка, контактуйте з адміністратором для додаткової інформації.</message>
@@ -72,11 +77,15 @@
 	<message key="user.password">Пароль</message>
 	<message key="user.repeatPassword">Повторіть пароль</message>
 	<message key="user.phone">Телефон</message>
+	<message key="user.preferredPublicName">Публічне ім'я для звернення до Вас</message>
+	<message key="user.preferredPublicName.description">Як ви бажаєте, щоб до Вас звертались? Якщо бажаєте, тут можуть бути додані форми звертання, титули, по-батькові та ін.</message>
 	<message key="user.profile.changePasswordInstructions">Щоб змінити пароль для вашого облікового запису, введіть нижче старий і новий паролі.</message>
 	<message key="user.profile.editProfile">Редагування профілю</message>
 	<message key="user.profile.form.countryRequired">Необхідно вказати країну.</message>
 	<message key="user.profile.form.emailRequired">Необхідно вказати коректну адресу email.</message>
 	<message key="user.profile.form.affiliationRequired">Необхідно вказати місце роботи.</message>
+	<message key="user.profile.form.givenNameRequired">Необхідно ввести ім'я.</message>
+	<message key="user.profile.form.givenNameRequired.locale">Ви додали прізвище для мови, де необхідне також ім'я. Будь ласка, додайте ім'я для цієї мови.</message>
 	<message key="user.profile.form.mailingAddressRequired">Необхідно вказати поштову адресу</message>
 	<message key="user.profile.form.newPasswordRequired">Вам необхідно ввести новий пароль.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Ви вказали невірний старий пароль.</message>
@@ -88,6 +97,7 @@
 	<message key="user.profile.form.urlInvalid">Вказана адреса URL некоректна. Будь ласка, перевірте URL та спробуйте знову. (підказка: Спробуйте додати http:// перед адресою URL.)</message>
 	<message key="user.profile.form.usergroupRequired">Необхідно вказати групу користувачів.</message>
 	<message key="user.profile.form.usernameRequired">Необхідно вказати ім'я користувача.</message>
+	<message key="user.profile.form.privacyConsentRequired">Ви маєте погодитись із умовами політики приватності.</message>
 	<message key="user.profile.leavePasswordBlank">Залиште поле паролю пустим, щоб зберегти старий пароль.</message>
 	<message key="user.profile.newPassword">Новий пароль</message>
 	<message key="user.profile.oldPassword">Старий пароль</message>
@@ -98,6 +108,8 @@
 	<message key="user.login.registerNewAccount">Реєстрація</message>
 	<message key="user.login.resetPasswordInstructions">Введіть електронну адресу вашого облікового запису нижче, і вам буде надіслано лист з інструкцією як скинути ваш пароль.</message>
 
+	<message key="user.register.form.privacyConsent"><![CDATA[Так, Я погоджуюся на те, що мої дані будуть збиратись та зберігатись відповідно до <a href="{$privacyUrl}" target="_blank">політики приватності</a>.]]></message>
+	<message key="user.register.form.emailConsent">Так, я бажаю отримувати повідомлення про нові публікації та оголошення.</message>
 	<message key="user.register.form.emailExists">Вказана адреса email вже використовується іншим користувачем.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Введені паролі не збігаються.</message>
 	<message key="user.register.form.emailsDoNotMatch">Поля адрес email не збігаються.</message>
@@ -146,4 +158,5 @@
 	<message key="user.apiKey.generate">Згенерувати новий ключ API</message>
 	<message key="user.apiKey.generateWarning">Створення нового ключа API призведе до того, що існуючий ключ стане недійсним для цього користувача.</message>
 	<message key="user.apiKey.secretRequired">Перед створенням ключа API адміністратор вашого сайту повинен встановити таємний код у файлі конфігурації ("api_key_secret").</message>
+	<message key="user.privacyLink"><![CDATA[Ваші дані зберігаються у відповідності до нашої <a href="{$privacyUrl}" target="_blank">політики приватності</a>.]]></message>
 </locale>

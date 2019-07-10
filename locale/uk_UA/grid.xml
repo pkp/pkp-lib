@@ -88,6 +88,7 @@
 	<message key="grid.action.notify">Повідомити цього користувача</message>
 	<message key="grid.action.addUserGroup">Додати нову групу користувачів</message>
 	<message key="grid.action.editUserGroup">Редагувати цю групу користувачів</message>
+	<message key="grid.action.removeUserGroup">Видалити цю групу користувачів</message>
 	<message key="grid.action.disable">Вимкнути</message>
 	<message key="grid.action.details">Показати цей елемент</message>
 	<message key="grid.action.enrolExisting">Записати існуючого користувача в рецензенти</message>
@@ -119,6 +120,7 @@
 	<message key="grid.action.preview">Попередній перегляд</message>
 	<message key="grid.action.install">Встановити</message>
 	<message key="grid.action.moreItems">Завантажити ще</message>
+	<message key="grid.action.users">Переглянути/Обрати користувачів</message>
 
 	<!--  Сітка статус задач -->
 	<message key="grid.task.status.completed">Це завдання виконане</message>
@@ -152,9 +154,12 @@
 
 	<!-- Сітка Учасники -->
 	<message key="grid.contributor.title">Учасник</message>
-	<message key="grid.action.addAuthor">Додати учасника</message>
+	<message key="grid.action.addContributor">Додати автора/учасника</message>
 	<message key="grid.action.editContributor">Редагувати учасника</message>
 	<message key="grid.action.deleteContributor">Видалити учасника</message>
+
+	<!-- Вкладка версій  -->
+	<message key="grid.action.newVersion">Створити нову версію</message>
 
 	<!-- Сітка Форми рецензування -->
 	<message key="grid.reviewForm.title">Форми рецензування</message>
@@ -231,11 +236,11 @@
 	<message key="grid.user.mergeUsers.mergeIntoUser">Об'єднати в цього користувача</message>
 	<message key="grid.user.mergeUsers.allUsers">Усі зареєстровані користувачі</message>
 	<message key="grid.user.mergeUsers.confirm">Ви впевнені, що хочете об'єднати обліковий запис з іменем користувача "{$oldUsername}" в обліковий запис з ім'ям користувача "{$newUsername}"? Обліковий запис з ім'ям користувача "{$oldUsername}" зникне. Цю дію неможливо відмінити.</message>
-	
+
 	<!-- Підготовлені електронні листи -->
 	<message key="grid.preparedEmails.title">Шаблони підготовлених електронних листів</message>
 	<message key="grid.preparedEmails.currentList">Поточний список</message>
-	
+
 	<!-- Модулі -->
 	<message key="grid.plugin.allCategories">Усі категорії</message>
 	<message key="grid.plugin.disable">Ви впевнені, що хочете відключити цей модуль?</message>

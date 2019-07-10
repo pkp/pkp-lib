@@ -34,6 +34,8 @@
 	<message key="editor.review.createReviewer">Створити нового рецензента</message>
 	<message key="editor.review.enrollReviewer.short">Записати існуючого користувача</message>
 	<message key="editor.review.unassignReviewer">Скасувати призначення рецензента</message>
+	<message key="editor.review.cancelReviewer">Відмінити рецензента</message>
+	<message key="editor.review.reinstateReviewer">Відновити рецензента</message>
 	<message key="editor.submissionReview.reviewType">Тип рецензування</message>
 	<message key="editor.submissionReview.sendEmail">Надішліть сповіщення електронною поштою автору (авторам): {$authorName}</message>
 	<message key="editor.submissionReview.sendEmail.editors">Надішліть сповіщення електронною поштою редактору (редакторам): {$editorNames}</message>
@@ -44,6 +46,7 @@
 	<message key="editor.submissionReview.restrictFiles">Файли для рецензування</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Закрити вибір файлу</message>
 	<message key="editor.submissionReview.editReview">Редагувати рецензію</message>
+	<message key="editor.review.anonymousReviewer">Анонімний рецензент</message>
 	<message key="editor.review.personalMessageToReviewer">Електронний лист для надсилання рецензенту</message>
 	<message key="editor.review.importantDates">Важливі дати</message>
 	<message key="editor.review.uploadRevision">Завантажити нову версію</message>
@@ -64,6 +67,10 @@
 	<message key="editor.review.responseDue">Термін відповіді: {$date}</message>
 	<message key="editor.review.requestSent">Запит надіслано</message>
 	<message key="editor.review.requestAccepted">Запит прийнято</message>
+	<message key="editor.review.requestDeclined">Запит відхилено</message>
+	<message key="editor.review.requestCancelled">Запит відмінено</message>
+	<message key="editor.review.requestDeclined.tooltip">Рецензент відхилив цей запит на рецензування.</message>
+	<message key="editor.review.requestCancelled.tooltip">Редактор відмінив цей запит на рецензування.</message>
 	<message key="editor.review.revertDecision">Скасування рішення</message>
 	<message key="editor.review.reviewDue">Термін подання рецензії: {$date}</message>
 	<message key="editor.review.reviewDueDate">Термін подання рецензії</message>
@@ -77,6 +84,7 @@
 	<message key="editor.review.mustSelect">Ви маєте вибрати рецензента</message>
 	<message key="editor.review.errorAddingReviewer">Під час додавання рецензента сталася помилка. Будь ласка спробуйте ще раз.</message>
 	<message key="editor.review.errorDeletingReviewer">Під час видалення рецензента сталася помилка. Будь ласка спробуйте ще раз.</message>
+	<message key="editor.review.errorReinstatingReviewer">Трапилась помилка у відновленні рецензента. Будь ласка, спробуйте знову.</message>
 	<message key="editor.review.userGroupSelect">Записати користувача до цієї групи рецензентів</message>
 	<message key="editor.review.unconsiderReviewText">Ви хочете позначити, що ця рецензія нерозглянута? Історія рецензування буде збережена.</message>
 	<message key="editor.review.unconsiderReview">Позначте,що цю рецензію розглянуто</message>
@@ -133,6 +141,8 @@
 	<message key="reviewer.list.activeReviews">{$count} активних</message>
 	<message key="reviewer.list.activeReviewsDescription">Поточні активні рецензії</message>
 	<message key="reviewer.list.completedReviews">Завершені рецензії</message>
+	<message key="reviewer.list.declinedReviews">Запити на рецензування відхилено</message>
+	<message key="reviewer.list.cancelledReviews">Запити на рецензування відмінено</message>
 	<message key="reviewer.list.reviewerRating">Оцінка рецензента: {$rating}</message>
 	<message key="reviewer.list.daysSinceLastAssignment">{$days} днів тому</message>
 	<message key="reviewer.list.daySinceLastAssignment">Вчора</message>
@@ -140,6 +150,8 @@
 	<message key="reviewer.list.averageCompletion">Середня кількість днів для завершення рецензії</message>
 	<message key="reviewer.list.neverAssigned">Ніколи не призначено</message>
 	<message key="reviewer.list.currentlyAssigned">Цей рецензент уже був призначений для рецензування цього матеріалу.</message>
+	<message key="reviewer.list.warnOnAssign">Цей рецензент заблокований через те, що вона/він має роль, яка дозволяє переглядати особисті дані автора. Сліпе рецензування не може бути гарантованим. Чи бажаєте Ви в будь-якому випадку розблокувати цього рецензента?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Розблокувати</message>
 	<message key="reviewer.list.reviewInterests">Наукові інтереси рецензента</message>
 	<message key="reviewer.list.biography">Біографія</message>
 </locale>

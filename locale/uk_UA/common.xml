@@ -56,6 +56,7 @@
 	<message key="common.titleSmallWords">а або але бо в де для з з-під зі і із й коли крізь на не під при про у та там тоді що</message>
 	<message key="common.alreadyAssigned">Призначений</message>
 	<message key="common.altText">Альтернативний текст</message>
+	<message key="common.altTextInstructions">Опишіть це зображення для відвідувачів сайту, які його переглядають через текстові браузери або за допомогою спеціальних засобів, наприклад, із читачем екрану для людей із порушенням зору. Приклад: "Наш редактор доповідає на PKP конференції."</message>
 	<message key="common.and">та</message>
 	<message key="common.applyAction">Застосувати дію</message>
 	<message key="common.assign">Призначити</message>
@@ -78,7 +79,7 @@
 	<message key="common.captchaField">Перевірка</message>
 	<message key="common.ccLicense"><![CDATA[
 	<br /><br />
-	<target="_blank"a rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+	<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
 		<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 	</a>
 	<br />
@@ -100,7 +101,7 @@
 	<message key="common.complete">Завершити</message>
 	<message key="common.completed">Завершено</message>
 	<message key="common.completed.date">Завершено: {$dateCompleted}</message>
-	<message key="common.continue">Продовжити</message>
+	<message key="common.confirm">Підтвердити</message>
 	<message key="common.confirmed.date">Продовжити: {$dateConfirmed}</message>
 	<message key="common.content">Вміст</message>
 	<message key="common.contents">Зміст</message>
@@ -109,6 +110,7 @@
 	<message key="common.country">Країна</message>
 	<message key="common.create">Створити</message>
 	<message key="common.dateCompleted">Дата завершення</message>
+	<message key="common.dateDecided">Дата рішення</message>
 	<message key="common.date">Дата</message>
 	<message key="common.dateModified">Дата зміни</message>
 	<message key="common.dateRequested">Дата запиту</message>
@@ -154,7 +156,8 @@
 	<message key="common.filter">Фільтри</message>
 	<message key="common.filterAdd">Додати фільтр: {$filterTitle}</message>
 	<message key="common.filterRemove">Скасувати фільтр: {$filterTitle}</message>
-	<message key="common.from">Від</message>
+	<message key="common.from">З</message>
+	<message key="common.fromWithValue">З: {$value}</message>
 	<message key="common.until">До</message>
 	<message key="common.go">Вперед</message>
 	<message key="common.height">Висота</message>
@@ -184,6 +187,7 @@
 	<message key="common.noneAssigned">Немає призначень</message>
 	<message key="common.none">Немає</message>
 	<message key="common.no">Ні</message>
+	<message key="common.noItemsFound">Нічого не знайдено.</message>
 	<message key="common.noComments">Немає коментарів</message>
 	<message key="common.notApplicable">Неприпустимо</message>
 	<message key="common.notApplicableShort">N/A</message>
@@ -207,6 +211,9 @@
 	<message key="common.overdue">Прострочений</message>
 	<message key="common.pagination">{$start}-{$end} з {$total}</message>
 	<message key="common.pagination.label">Переглянути додаткові сторінки</message>
+	<message key="common.pagination.goToPage">Перейти на {$page}</message>
+	<message key="common.pagination.next">Наступна сторінка</message>
+	<message key="common.pagination.previous">Попередня сторінка</message>
 	<message key="common.pageNumber">Сторінка {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Модуль</message>
@@ -257,6 +264,7 @@
 	<message key="common.suggest">Запропонувати</message>
 	<message key="common.title">Заголовок</message>
 	<message key="common.top">До початку</message>
+	<message key="common.toWithValue">До: {$value}</message>
 	<message key="common.true">Істина</message>
 	<message key="common.type">Тип</message>
 	<message key="common.component">Компонент</message>
@@ -269,6 +277,8 @@
 	<message key="common.uploadFailed">Цей файл не може бути завантажений або змінений.</message>
 	<message key="common.up">Нагору</message>
 	<message key="common.upload.addFile">Завантажити файл</message>
+	<message key="common.upload.restore">Відновити попереднє</message>
+	<message key="common.upload.thumbnailPreview">Попередній перегляд обраного зображення.</message>
 	<message key="common.upload.changeFile">Змінити файл</message>
 	<message key="common.upload.dragFile">Перетягніть файл для початку завантаження</message>
 	<message key="common.url">URL</message>
@@ -307,6 +317,7 @@
 	<message key="email.compose">Відправити листа</message>
 	<message key="email.compose.tooManyRecipients">Ви намагаєтеся відправити листа надто великій кількості отримувачів.</message>
 	<message key="email.compose.tooSoon">Ви намагаєтеся відправити листа надто швидко після надсилання попереднього. Будь ласка, зачекайте перед відправленням листа.</message>
+	<message key="email.compose.error">Сталася хиба із надсиланням email повідомлення. Будь ласка, спробуйте пізніше або зконтактуйте із вашим системним адміністратором.</message>
 	<message key="email.email">Email</message>
 	<message key="email.from">Від</message>
 	<message key="email.invalid">Адреса електронної пошти {$email} некоректна.</message>
@@ -327,20 +338,45 @@
 	<message key="form.confirmSubmit.title">Підтвердження</message>
 	<message key="form.emailRequired">Необхідно ввести email</message>
 	<message key="form.dataHasChanged">Дані цієї форми були змінені.Бажаєте продовжити без збереження?</message>
+	<message key="form.disallowedLocales">Тільки наступні мови дозволені: {$languages}.</message>
+	<message key="form.disallowedProp">Ця властивість не дозволена.</message>
+	<message key="form.dropzone.dictDefaultMessage">Перетягніть файли сюди для завантаження</message>
+	<message key="form.dropzone.dictFallbackMessage">Ваш бразуер не підтримує drag'n'drop для завантаження файлів.</message>
+	<message key="form.dropzone.dictFallbackText">Будь ласка, використовуйте форму нижче для завантаження ваших файлів.</message>
+	<message key="form.dropzone.dictFileTooBig">Файл занадато великий ({{filesize}}МБ). Файли більші, ніж {{maxFilesize}}МБ не можуть бути завантаженими.</message>
+	<message key="form.dropzone.dictInvalidFileType">Файли цього типу не можуть бути завантаженими.</message>
+	<message key="form.dropzone.dictResponseError">Сервер відповів із кодом {{statusCode}}. Будь ласка, зконтактуйте із системним адміністратором, якщо ця проблема продовжується.</message>
+	<message key="form.dropzone.dictCancelUpload">Вімінити завантаження</message>
+	<message key="form.dropzone.dictUploadCanceled">Завантаження відмінено</message>
+	<message key="form.dropzone.dictCancelUploadConfirmation">Ви впевнені, що хочете відмінити це завантаження?</message>
+	<message key="form.dropzone.dictRemoveFile">Видалити файл</message>
+	<message key="form.dropzone.dictMaxFilesExceeded">Ви більше не можете завантажувати файли.</message>
+	<message key="form.errorA11y">Перейдіть до {$fieldLabel}: {$errorMessage}</message>
+	<message key="form.errorGoTo">Перейти до наступної помилки</message>
+	<message key="form.errorOne">Будь ласка, виправіть помилку.</message>
+	<message key="form.errorMany">Будь ласка, виправте {$count} помил(ки/ок).</message>
+	<message key="form.errors">Форма не збереглася через {$count} помилк(у/и). Будь ласка, виправте її/їх та спробуйте знову.</message>
+	<message key="form.errorUnknown">Виникла неочікувана помилка. Ви могли вийти із свого акаунта. Будь ласка, перезавантажте сторінку та спробуйте ща раз.</message>
 	<message key="form.errorsOccurred">Під час обробки цієї форми виникли помилки</message>
 	<message key="form.formLanguage.description">Для того, щоб ввести інформацію нижче додатковими мовами, спершу оберіть мову.</message>
 	<message key="form.formLanguage">Мова форми</message>
 	<message key="form.contains">містить</message>
 	<message key="form.is">дорівнює</message>
+	<message key="form.missingRequired">Це поле необхідно заповнити.</message>
 	<message key="form.startsWith">починається з</message>
 	<message key="form.postRequired">Форма не була надіслана належним чином.</message>
+	<message key="form.csrfInvalid">Форма не може бути надіслана. Ви могли вийти із свого акаунта. Будь ласка, перезавантажте сторінку та спробуйте ща раз.</message>
 	<message key="form.fileRequired">Необхідно завантажити файл.</message>
 	<message key="form.required">(* обов'язкове)</message>
+	<message key="form.requirePrimaryLocale">Ви повинні заповнити це поле {$language}.</message>
+	<message key="form.requireId">Ви повинні надати валідний ID.</message>
 	<message key="form.resubmit">Відправити знову</message>
 	<message key="form.saveToUpload">Для завантаження файлу використовуйте кнопку "Зберегти".</message>
 	<message key="form.send">Надіслати</message>
 	<message key="form.submit">Відправити</message>
 	<message key="form.invalidImage">Неправильне зображення. Допустимими форматами є: .png, .gif, або .jpg.</message>
+	<message key="form.multilingualLabel">{$label} в {$localeName}</message>
+	<message key="form.multilingualProgress">{$count}/{$total} мов завершено</message>
 	<message key="help.help">Допомога</message>
 	<message key="help.toc">Зміст</message>
 	<message key="help.previous">Попереднє</message>
@@ -382,6 +418,10 @@
 	<message key="stageParticipants.notify.warning">Будь ласка, переконайтесь, що ви заповнили поле повідомлення та вибрали хоча б одного одержувача.</message>
 	<message key="stageParticipants.options">Назначення привілеїв</message>
 	<message key="stageParticipants.recommendOnly">Цей учасник має право лише рекомендувати редакційне рішення і необхідно бути авторизованим редактором,щоб записувати редакційні рішення.</message>
+	<message key="stageParticipants.submissionEditMetadataOptions">Дозвіл на редагування метаданих подання.</message>
+	<message key="stageParticipants.canChangeMetadata">Дозволити зміну метаданих для цього користувача</message>
+	<message key="stageParticipants.selectedUser">Учасник</message>
+	<message key="stageParticipants.noOptionsToHandle">Для цього користувача не дозволено робити змін</message>
 
 	<message key="locale.primary">Основна локалізація</message>
 	<message key="locale.supported">Локалізації, що підтримуються</message>
@@ -415,6 +455,7 @@
 	<message key="navigation.settings">Налаштування</message>
 	<message key="navigation.setup">Встановлення</message>
 	<message key="navigation.sitemap">Мапа сайту</message>
+	<message key="navigation.skip.announcements">Перейти до оголошень</message>
 	<message key="navigation.skip.main">Перейти до головного</message>
 	<message key="navigation.skip.nav">Перейти в головне навігаційне меню</message>
 	<message key="navigation.skip.footer">Перейти на нижній колонтитул сайту</message>
@@ -519,9 +560,13 @@
 	<message key="notification.addedReviewer">{$reviewerName} було призначено рецензентом цього подання та надіслано повідомлення електронною поштою.</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} було призначено рецензентом цього подання але не було надіслано повідомлення електронною поштою.</message>
 	<message key="notification.removedReviewer">Рецензента видалено.</message>
+	<message key="notification.cancelledReviewer">Рецензента відмінено.</message>
+	<message key="notification.reinstatedReviewer">Рецензування розпочато заново.</message>
 	<message key="notification.addedStageParticipant">Користувача додано як учасника етапу.</message>
+	<message key="notification.editStageParticipant">Етап призначення було змінено.</message>
 	<message key="notification.type.newAnnouncement">Нове оголошення.</message>
 	<message key="notification.type.reviewAssignment">Відгук очікує на розгляд.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Призначення для рецензування було оновлено.</message>
 	<message key="notification.type.auditorRequest">Запит аудиту для "{$file}"</message>
 	<message key="notification.type.allReviewsIn">Усі рецензії є і необхідно прийняти рішення на етапі {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">Нова версія файлу була завантажена для редакційного розгляду на етапі {$stage}.</message>
@@ -554,4 +599,68 @@
 	<!-- List Handlers -->
 	<message key="list.viewMore">Показати подробиці щодо {$name}</message>
 	<message key="list.viewLess">Приховати подробиці щодо {$name}</message>
+
+	<!-- Error messages for the validation rules in the Validator-->
+	<message key="validator.accepted">Будь ласка, прийміть цей пункт.</message>
+	<message key="validator.active_url">Ця URL адреса не валідна.</message>
+	<message key="validator.after">Це повинна бути дата після {$date}.</message>
+	<message key="validator.alpha">Це може містити тільки букви.</message>
+	<message key="validator.alpha_dash">Це може містити тільки букви, числа, дефіс, тире та нижнє підкреслення.</message>
+	<message key="validator.alpha_num">Це може містити тільки букви та числа.</message>
+	<message key="validator.array">Це не є валідним масивом.</message>
+	<message key="validator.before">Ця дата має бути до {$date}.</message>
+	<message key="validator.between.numeric">Це має бути між {$min} та {$max}.</message>
+	<message key="validator.between.file">Це має бути між {$min} та {$max} кілобайтами.</message>
+	<message key="validator.between.string">Це має бути між {$min} та {$max} знаками.</message>
+	<message key="validator.between.array">Це має бути між {$min} та {$max} пунктами.</message>
+	<message key="validator.boolean">Це поле повинно бути так або ні.</message>
+	<message key="validator.confirmed">Підтвердження для цього поля не співпадає.</message>
+	<message key="validator.currency">Це не є валідною валютою.</message>
+	<message key="validator.date">Ця дата не валідна.</message>
+	<message key="validator.date_format">Це не співпадає із форматом {$format}.</message>
+	<message key="validator.different">{$attribute} та {$other} повинні бути різними.</message>
+	<message key="validator.digits">Це має містити {$digits} цифр.</message>
+	<message key="validator.digits_between">Це має бути між {$min} та {$max} цифрами.</message>
+	<message key="validator.email">Ця email адреса не валідна.</message>
+	<message key="validator.exists">Обраний {$attribute} не є валідним.</message>
+	<message key="validator.filled">Це поле повинно бути заповненим.</message>
+	<message key="validator.image">Це повинно бути зображенням.</message>
+	<message key="validator.in">Обраний {$attribute} не є валідним.</message>
+	<message key="validator.integer">Це не є валідним числом.</message>
+	<message key="validator.ip">Це не є валідною IP адресою.</message>
+	<message key="validator.issn">Це не є валідним ISSN.</message>
+	<message key="validator.json">Ця не є валідною JSON строкою.</message>
+	<message key="validator.locale">Ця мова не може бути прийнятою.</message>
+	<message key="validator.localeExpected">Це поле є багатомовним. Окремі значення мають бути наданими для кожної мови, яка підтримується.</message>
+	<message key="validator.localeKey">Мови мають бути зазначені за допомогою мовних кодів. Приклади: en_US, fr_CA, sr_RS@cyrillic.</message>
+	<message key="validator.max.numeric">Це не повинно бути більшим, ніж {$max}.</message>
+	<message key="validator.max.file">Це не повинно бути більшим, ніж {$max} кілобайт.</message>
+	<message key="validator.max.string">Це не повинно бути більшим, ніж {$max} знаків.</message>
+	<message key="validator.max.array">Це не повинно бути більшим, ніж {$max} пунктів.</message>
+	<message key="validator.mimes">Це має бути файл типу {$values}.</message>
+	<message key="validator.min.numeric">Це має бути щонайменше {$min}.</message>
+	<message key="validator.min.file">Це має бути щонайменше {$min} кілобайт.</message>
+	<message key="validator.min.string">Це має бути щонайменше {$min} знаків.</message>
+	<message key="validator.min.array">Це має бути щонайменше {$min} пунктів.</message>
+	<message key="validator.not_in">Обраний {$attribute} не є валідним.</message>
+	<message key="validator.numeric">Це число не є валідним.</message>
+	<message key="validator.orcid">Це не є валідним ORCID.</message>
+	<message key="validator.present">{$attribute} поле має бути присутнім.</message>
+	<message key="validator.regex">Це не представлено у правильному форматі.</message>
+	<message key="validator.required">Це поле необхідно заповнити.</message>
+	<message key="validator.required_if">Це поле необхідно заповнити, коли {$other} складає {$value}.</message>
+	<message key="validator.required_unless">Це поле необхідно заповнити тільки якщо {$other} у значеннях {$values}.</message>
+	<message key="validator.required_with">Це поле необхідно заповнити, коли {$values} є присутніми.</message>
+	<message key="validator.required_with_all">Це поле необхідно заповнити, коли {$values} є присутніми.</message>
+	<message key="validator.required_without">Це поле необхідно заповнити, коли {$values} не є присутніми.</message>
+	<message key="validator.required_without_all">Це поле необхідно заповнити, коли жоден із {$values} є присутнім.</message>
+	<message key="validator.same">{$attribute} та {$other} мають співпадати.</message>
+	<message key="validator.size.numeric">Це має бути {$size}.</message>
+	<message key="validator.size.file">Це має бути {$size} кілобайтів.</message>
+	<message key="validator.size.string">Це має бути {$size} знаків.</message>
+	<message key="validator.size.array">Це має містити {$size} пункти.</message>
+	<message key="validator.string">Це не є валідною строкою.</message>
+	<message key="validator.timezone">Це не є валідним часовим поясом.</message>
+	<message key="validator.unique">{$attribute} уже є обраним.</message>
+	<message key="validator.url">Це не є валідною URL адресою.</message>
 </locale>

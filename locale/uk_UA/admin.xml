@@ -36,6 +36,7 @@
 	<message key="admin.languages.download.cannotOpen">Не вдається відкрити дескриптор мови з веб-сайту PKP.</message>
 	<message key="admin.languages.download.cannotModifyRegistry">Не вдається додати нову мову до файлу списку мов, як правило, це "registry/locales.xml".</message>
 	<message key="admin.languages.cantDisable">Ця мова є основною мовою сайту. Ви не можете відключити її, доки не оберете іншу основну мову.</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">Ви впевнені, що бажаєте змінити основну мову сайту? Ім'я користувачів, які необхідні для основної мови сайту, будуть скопійовані із існуючої основної мови, якщо вони не зазначені.</message>
 
 	<message key="admin.languages.confirmReload">Ви впевнені, що бажаєте перезавантажити мову? Це призведе до знищення усіх існуючих мовних даних, таких як шаблони листів.</message>
 	<message key="admin.languages.installedLocales">Встановлені мови</message>

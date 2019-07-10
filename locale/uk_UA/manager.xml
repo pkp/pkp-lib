@@ -64,18 +64,31 @@
 	<message key="manager.publication.editorialStage">Редагування</message>
 	<message key="manager.publication.productionStage">Публікація</message>
 	<message key="manager.publication.emails">Електронні листи</message>
+	<message key="manager.publication.emailSetup.success">Налаштування електронних листів оновлено.</message>
+	<message key="manager.publication.reviewerGuidance">Настанови для рецензента</message>
+	<message key="manager.publication.reviewerGuidance.success">Настанови для рецензента оновлено.</message>
+	<message key="manager.publication.reviewSetup.success">Налаштування рецензування оновлено.</message>
+	<message key="manager.publication.reviewReminders.success">Деталі нагадування для рецензентів оновлено.</message>
 	<message key="manager.emails.confirmDelete">Ви впевнені, що хочете видалити цей поштовий шаблон?</message>
 	<message key="manager.emails.confirmReset">Ви впевнені, що хочете відновити значення за замовчуванням для цього поштового шаблону?</message>
+	<message key="manager.emails.addEmail">Додати шаблон</message>
+	<message key="manager.emails.addEmail.success">Шаблон для електронних листів оновлено.</message>
 	<message key="manager.emails.createEmail">Створити лист</message>
+	<message key="manager.emails.customTemplate">Власний шаблон</message>
 	<message key="manager.emails.data">Дані про шаблон листа</message>
 	<message key="manager.emails.details">Інформація про шаблон</message>
 	<message key="manager.emails.disable">Відключити</message>
 	<message key="manager.emails.disable.message">Ви намагаєтеся відключити цей шаблон листа. Якщо система була налаштована на використання цього шаблону, вона не зможе надалі його використовувати. Ви підтверджуєте цю дію?</message>
 	<message key="manager.emails.editEmail">Редагувати лист</message>
+	<message key="manager.emails.editEmail.success">Шаблон для електронних листів був оновлений.</message>
 	<message key="manager.emails.editTestExample">Редагувати тестовий лист</message>
 	<message key="manager.emails.emailKey">Ключ листа</message>
+	<message key="manager.emails.emailKey.description">Ключ для електронних листів може включати лише букви, числа та нижні підкреслення.</message>
 	<message key="manager.emails.emailKeyExists">Лист із таким ключем вже існує. Ключі листів повинні бути унікальними.</message>
 	<message key="manager.emails.emailTemplate">Шаблон листа</message>
+	<message key="manager.emails.emailTemplates">Шаблони для Email</message>
+	<message key="manager.emails.emailTemplate.contextRequired">Ви повинні зазначити ID при додаванні шаблона для email.</message>
+	<message key="manager.emails.emailTemplate.noDuplicateKeys">Ключ, який зазначено, вже у використанні.</message>
 	<message key="manager.emails.enabled">Включити цей шаблон листа</message>
 	<message key="manager.emails.enable">Включити</message>
 	<message key="manager.emails.enable.message">Ви намагаєтеся включити цей шаблон листа. Ви підтверджуєте цю дію?</message>
@@ -83,10 +96,14 @@
 	<message key="manager.emails.form.bodyRequired">Необхідно ввести текст листа.</message>
 	<message key="manager.emails.form.subjectRequired">Необхідно ввести тему листа.</message>
 	<message key="manager.emails">Підготовані листи</message>
+	<message key="manager.emails.resetAll">Скинути все</message>
 	<message key="manager.emails.resetAll.message">Якщо ви скинете всі шаблони, всі зміни до шаблонів електронної пошти будуть втрачені. Ви хочете підтвердити цю операцію?</message>
 	<message key="manager.emails.reset">Скинути</message>
 	<message key="manager.emails.reset.message">Якщо ви скинете цей шаблон, усі дані повідомлення будуть скинуті до усталеного значення, втративши усі зміни. Ви хочете підтвердити цю операцію?</message>
 	<message key="manager.emails.resetToDefault">Скинути до стандартних</message>
+	<message key="manager.emails.sentFrom">Надіслано від</message>
+	<message key="manager.emails.sentTo">Відправлено до</message>
+	<message key="manager.emails.subjectWithValue">Предмет: {$subject}</message>
 	<message key="manager.filesBrowser">Браузер файлів</message>
 	<message key="manager.files.confirmDelete">Видалити цей файл або теку? Зауважте, що тека повинна бути пустою, перш ніж її можна буде видалити.</message>
 	<message key="manager.files.createDir">Створити теку</message>
@@ -211,10 +228,15 @@
 	<message key="manager.affiliationAndSupport">Спонсорство</message>
 	<message key="manager.setup.additionalContent">Додатковий вміст</message>
 	<message key="manager.setup.additionalContent.description">Все, що вводиться тут, з'явиться на вашій домашній сторінці.</message>
+	<message key="manager.setup.advanced">Додаткові налаштування</message>
+	<message key="manager.setup.appearance.success">Налаштування вигляду оновлено.</message>
+	<message key="manager.setup.contact.success">Контактні деталі для цього видавничого продукту оновлено.</message>
 	<message key="manager.setup.copyrightNotice">Умови передачі авторських прав</message>
 	<message key="manager.setup.copyrightNotice.description">Вимагати в авторів погодитись із умовами передачі авторських прав в процесі подання матеріалів.</message>
 	<message key="manager.setup.authorGuidelines">Довідник для авторів</message>
 	<message key="manager.setup.authorGuidelines.description">Рекомендовані правила містять бібліографічні стандарти та стандарти форматування разом із прикладами оформлення цитувань, котрі використовуватимуться під час подання матеріалів.</message>
+	<message key="manager.setup.authorGuidelines.success">Настанови для авторів успішно оновлено.</message>
+	<message key="manager.setup.checklist">Контрольний список</message>
 	<message key="manager.setup.competingInterests">Конфлікт інтересів</message>
 	<message key="manager.setup.errorDeletingItem">Під час видалення цього об'єкту виникла помилка.</message>
 	<message key="manager.setup.favicon">Іконка</message>
@@ -224,11 +246,11 @@
 	<message key="manager.setup.homepageImageInvalid">Завантаження невдале або неправильний формат зображення домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Завантаження невдале або неправильний формат зображення для заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png.</message>
 	<message key="manager.setup.information.descriptionTitle">Описи</message>
-	<message key="manager.setup.theme">Теми</message>
-	<message key="manager.setup.theme.description">Нові теми можуть бути встановлені на вкладці "Модулі" у верхній частині цієї сторінки.</message>
 	<message key="manager.setup.layout.sidebar">Бічна панель</message>
+	<message key="manager.setup.layout.sidebar.invalidBlock">Блок {$name} не знайдено. Будь ласка, впевніться, що плагін встановлено та увімкнено.</message>
 	<message key="manager.setup.loggingAndAuditing">Журналізація та аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
+	<message key="manager.setup.noTemporaryFile">Файл, який Ви завантажили не може бути знайдено. Спробуйте, будь ласка, пізніше.</message>
 	<message key="manager.setup.notifications">Повідомлення про подання матеріалів автором</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Надіслати копію на цю електронну адресу</message>
 	<message key="manager.setup.notifications.description">Авторам автоматично надсилається електронний лист із підтвердженням їх подання. Ви можете надіслати копії цього електронного листа до нижчевказаним:</message>
@@ -241,18 +263,29 @@
 	<message key="manager.setup.principalContact">Контактна особа</message>
 	<message key="manager.setup.principalContactDescription">Введіть контактні дані, як правило, це головний редактор, керуючий редактор чи хтось з адміністрації. Ці дані можуть відображатися на вашому сайті у відкритому доступі.</message>
 	<message key="manager.setup.privacyStatement">Заява про конфіденційність</message>
+	<message key="manager.setup.privacyStatement.description">Ця заява з'явиться під час реєстрації, надсилання подання автором та стане доступною для користувачі на сторінці конфіденційності. В деяких юрисдикціях, Ви послуговуючись законом вказувати як використовуються дані згідно із політикою про конфіденційність.</message>
+	<message key="manager.setup.reviewOptions.defaultReviewResponseTime">Дедлайн для відповіді за замовчуванням</message>
+	<message key="manager.setup.reviewOptions.defaultReviewCompletionTime">Дедлайн для завершення за замовчуванням</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Тижнів на згоду або відмову на запит про рецензію</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">Тижнів на рецензування</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">Ніколи не нагадувати</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">Усталені значення, які можна змінити для кожної рецензії під час редакційного процесу.</message>
+	<message key="manager.setup.reviewOptions.reminders.response">Нагадування для відповіді</message>
 	<message key="manager.setup.reviewOptions.reminders.response.description">Надсилати нагадування, якщо рецензент не відповів на запит на рецензування протягом наступного часу (днів) після закінчення терміну відповіді:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit">Нагадування для рецензування</message>
 	<message key="manager.setup.reviewOptions.reminders.submit.description">Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:</message>
-	<message key="manager.setup.reviewOptions.reviewTime">Усталений термін рецензування</message>
+	<message key="manager.setup.reviewOptions.reviewMode">Спосіб рецензування за замовчуванням</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink"><![CDATA[Показувати посилання на <button type="button">Упевнитись у сліпому рецензуванні</button> під час завантаження]]></message>
 	<message key="manager.setup.sponsors.note">Опис правил та стосунків зі спонсорами</message>
 	<message key="manager.setup.sponsors.description">Приклади: наукові товариства, університетські підрозділи, спілки тощо. Інформація про спонсорів оприлюднюється у відкритому доступі.</message>
 	<message key="manager.setup.styleSheetDescription">Досвідчені веб-розробники можуть завантажувати файл CSS для додаткового оформлення веб-сайту.</message>
 	<message key="manager.setup.technicalSupportContact">Контакти технічної підтримки</message>
 	<message key="manager.setup.technicalSupportContactDescription">Контактна особа, яка може допомогти редакторам, авторам та рецензентам у будь-яких проблемах, з якими вони стикаються під час редагування, перегляду чи публікації матеріалів.</message>
+	<message key="manager.setup.theme.success"><![CDATA[Тему було оновлено. <a href="{$url}" target="_blank">Переглянути зараз</a>]]></message>
+	<message key="manager.setup.theme">Теми</message>
+	<message key="manager.setup.theme.description">Нові теми можуть бути встановлені на вкладці "Модулі" у верхній частині цієї сторінки.</message>
+	<message key="manager.setup.theme.notFound">Тема, яку ви обрали, не інстальована або не увімкнена.</message>
+	<message key="manager.setup.userAccess.success">The user access details for this press have been updated.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Параметри доступу до сайту</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} нових)</message>
@@ -310,7 +343,7 @@
 	<message key="manager.plugins.pluginGallery.homepage">Головна сторінка</message>
 	<message key="manager.plugins.pluginGallery.summary">Загальна інформація</message>
 	<message key="manager.plugins.pluginGallery.status">Статус</message>
-	<message key="manager.plugins.noInstalledVersion">Модудль ще не встановлений.</message>
+	<message key="manager.plugins.noInstalledVersion">Модуль ще не встановлений.</message>
 	<message key="manager.plugins.noCompatibleVersion">Наразі не існує сумісної версії цього модуля.</message>
 	<message key="manager.plugins.installedVersionNewer">Модуль уже встановлений, і є новішою версією, ніж наявна в галереї.</message>
 	<message key="manager.plugins.installedVersionOlder">Модуль уже встановлений, але може бути оновлений до новішої версії.</message>
@@ -323,8 +356,8 @@
 	<message key="manager.plugins.installSuccessful">Успішно встановлена версія {$versionNumber}</message>
 	<message key="manager.plugins.invalidPluginArchive">Завантажений архів модуля не містить каталога, який відповідає назві модуля.</message>
 	<message key="manager.plugins.wrongCategory">Завантажений модуль не відповідає категорії оновлюваного модуля.</message>
-	<message key="manager.plugins.pleaseInstall">Plugin does not exist.  Please Install instead</message>
 	<message key="manager.plugins.wrongName">version.xml у завантаженому модулі містить назву модуля, яка не відповідає назві оновлюваного модуля.</message>
+	<message key="manager.plugins.pleaseInstall">Модуль не існує. Будь ласка, встановіть його</message>
 	<message key="manager.plugins.pleaseUpgrade">Модуль уже існує, але є новішим, ніж встановлена версія. Будь ласка, скористайтеся оновленням</message>
 	<message key="manager.plugins.settings">Налаштування</message>
 	<message key="manager.plugins.tarCommandNotFound">Команда tar не доступна. Будь ласка, правильно налаштуйте її в "config.inc.php".</message>
@@ -346,7 +379,16 @@
 	<message key="notification.localeSettingsSaved">Налаштування мови збережені.</message>
 	<message key="notification.editedUser">Користувача відредаговано.</message>
 
-	<!-- Налштування способу оплати -->
+	<!-- Distribution Process settings -->
+	<message key="manager.distribution.license">Ліцензія</message>
+	<message key="manager.distribution.license.success">Деталі щодо ліцензії оновлено. </message>
+	<message key="manager.distribution.license.other">Інша URL для ліцензії</message>
+	<message key="manager.distribution.licenseTerms">Умови ліцензії</message>
+	<message key="manager.distribution.licenseTerms.description">Введіть публічні умови ліцензії, які б Ви хотіли відображати поруч із опублікованими роботами.</message>
+	<message key="manager.distribution.customHeaders">Теги користувача</message>
+	<message key="manager.distribution.customHeaders.description">Додати власні HTML теги, також відомі як мета теги, які ви бажаєте вставити у голову (head) кожної сторінки. Проконсультуйтесь із технічним радником перед тим як додавати ці теги.</message>
+
+	<!-- Налаштування способу оплати -->
 	<message key="manager.paymentMethod">Платежі</message>
 	<message key="manager.paymentMethod.title">Способи оплати</message>
 	<message key="manager.paymentMethod.none">Спосіб оплати не обрано</message>
@@ -439,6 +481,7 @@
 	<message key="manager.reviewFormElements.noneCreated">Жодних елементів форми не було створено.</message>
 	<message key="manager.reviewFormElements.possibleResponse">Варіант відповіді</message>
 	<message key="manager.reviewFormElements.question">Питання</message>
+	<message key="manager.reviewFormElements.description">Опис</message>
 	<message key="manager.reviewFormElements.radiobuttons">Радіокнопка (вибір одного варіанту з запропонованих)</message>
 	<message key="manager.reviewFormElements.required">Рецензент зобов'язаний відповісти на питання</message>
 	<message key="manager.reviewFormElements.included">Включити відповідь до листа автору</message>
@@ -451,7 +494,60 @@
 
 	<message key="manager.setup.licenseURLDescription">URL-адреса веб-сторінки, що описує ліцензію, якщо така є.</message>
 
-	<message key="manager.setup.metadata.submission">Форма подання матеріалів</message>
+	<message key="manager.setup.metadata.submission">Форма подання</message>
+	<message key="manager.setup.metadata.success">Метадані подання успішно оновлено.</message>
+	<message key="manager.setup.metadata.coverage">Охоплення</message>
+	<message key="manager.setup.metadata.coverage.description">Охоплення зазвичай вказує на місце або географічні координати, де робота була створена, часовий період (період, дата, розмах дат) або юрисдикцію (наприклад, адміністративна одиниця).</message>
+	<message key="manager.setup.metadata.coverage.enable">Включити метадані по охопленню</message>
+	<message key="manager.setup.metadata.coverage.noRequest">Не вимагати дані по охопленню від авторів під час подання.</message>
+	<message key="manager.setup.metadata.coverage.request">Запитати у автора пропозиції щодо охоплення під час подання.</message>
+	<message key="manager.setup.metadata.coverage.require">Вимагати у автора пропозиції щодо охоплення перед прийняттям подання.</message>
+	<message key="manager.setup.metadata.keywords.description">Ключові слова це зазвичай фрази, які складаються від одного до трьох слів та використовуються для опису основних тем подання.</message>
+	<message key="manager.setup.metadata.keywords.enable">Включити ключові слова у метадані</message>
+	<message key="manager.setup.metadata.keywords.noRequest">Не вимагати ключові слова від авторів під час подання.</message>
+	<message key="manager.setup.metadata.keywords.request">Прохати автора пропозиції щодо ключових слів під час подання.</message>
+	<message key="manager.setup.metadata.keywords.require">Вимагати у автора пропозиції щодо ключових слів перед прийняттям подання.</message>
+	<message key="manager.setup.metadata.languages.description">Мова вказує на основу мову, яка використовувалася у цій роботі, позначається спеціальним кодом мови ("en") та (опціонально) країни ("en_US").</message>
+	<message key="manager.setup.metadata.languages.enable">Включити мову у метадані</message>
+	<message key="manager.setup.metadata.languages.noRequest">Не вимагати у авторів вказувати мову роботи під час подання.</message>
+	<message key="manager.setup.metadata.languages.request">Прохати авторів вказати мову роботи під час подання.</message>
+	<message key="manager.setup.metadata.languages.require">Вимагати від авторів ввести дані про мову роботи перед його прийняттям подання.</message>
+	<message key="manager.setup.metadata.rights.description">Будь-які права над  поданням, які можуть включати Права інтелектуальної власності, Авторське право та різноманітні права на володіння.</message>
+	<message key="manager.setup.metadata.rights.enable">Включити права у метадані</message>
+	<message key="manager.setup.metadata.rights.noRequest">Не вимагати від авторів вказувати права під час подання.</message>
+	<message key="manager.setup.metadata.rights.request">Прохати авторів зазначати будь-які попередні права доступу під час подання.</message>
+	<message key="manager.setup.metadata.rights.require">Вимагати від автірів вказувати будь-які попередні права доступу перед прийняттям подання.</message>
+	<message key="manager.setup.metadata.source.description">Джерелом може бути ID, наприклад, таке як DOI, або інша робота або ресурс, від якого робота є похідною.</message>
+	<message key="manager.setup.metadata.source.enable">Включити джерело у метадані</message>
+	<message key="manager.setup.metadata.source.noRequest">Не вимагати URL на джерело у автора під час подання.</message>
+	<message key="manager.setup.metadata.source.request">Прохати автора вказати URL на джерело під час подання.</message>
+	<message key="manager.setup.metadata.source.require">Вимагати від автора зазначати URL на джерело перед прийняттям подання.</message>
+	<message key="manager.setup.metadata.subjects.description">Об'єктами мають бути ключові слова, фрази або класифікаційні коди, які описуються тему подання.</message>
+	<message key="manager.setup.metadata.subjects.enable">Включити об'єкт у метадані</message>
+	<message key="manager.setup.metadata.subjects.noRequest">Не вимагати від авторів вказувати об'єкт(и) під час подання.</message>
+	<message key="manager.setup.metadata.subjects.request">Прохати авторів зазначати об'єкт(и) під час подання.</message>
+	<message key="manager.setup.metadata.subjects.require">Вимагати від авторів зазначати об'єкт(и) перед прийняттм подання.</message>
+	<message key="manager.setup.metadata.type.description"><![CDATA[Природа або жарн основного контенту подання. Цей тип зазвичай це "Текст", "Набір даних", "Зображеня" або будь-який із <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">типів згідно із Dublin Core</a>.]]></message>
+	<message key="manager.setup.metadata.type.enable">Включити тип у метадані</message>
+	<message key="manager.setup.metadata.type.noRequest">Не вимагати від авторів вказання типу під час подання.</message>
+	<message key="manager.setup.metadata.type.request">Прохати авторів зазначати тип під час подання.</message>
+	<message key="manager.setup.metadata.type.require">Вимагати від авторів зазначати тип перед прийняттям подання.</message>
+	<message key="manager.setup.metadata.disciplines.description">Disciplines are types of study or branches of knowledge as described by university faculties and learned societies.</message>
+	<message key="manager.setup.metadata.disciplines.enable">Включити дисципліни у метадані</message>
+	<message key="manager.setup.metadata.disciplines.noRequest">Не вимагати від авторів вказувати дисципліни під час подання.</message>
+	<message key="manager.setup.metadata.disciplines.request">Прохати авторів зазначати дисципліни під час подання.</message>
+	<message key="manager.setup.metadata.disciplines.require">Вимагати від авторів зазначати дисипліни перед прийняттям подання.</message>
+	<message key="manager.setup.metadata.agencies.description">Підтримуючі агенції можуть вказувати на джерела фінансування, гранти або будь-яку іншу інституційну підтримку дослідження.</message>
+	<message key="manager.setup.metadata.agencies.enable">Включити підтримуючі агенції у метадані</message>
+	<message key="manager.setup.metadata.agencies.noRequest">Не вимагати від авторів вказання підтримуючих агенцій під час подання.</message>
+	<message key="manager.setup.metadata.agencies.request">Прохати авторів зазначати всі дотичні підтримуючі агенції під час подання.</message>
+	<message key="manager.setup.metadata.agencies.require">Вимгати від авторів зазначити всі дотичні підтримючі агенції перед прийняттям подання.</message>
+	<message key="manager.setup.metadata.citations.description">Збирати бібліографічний опис (список використаної літератури) у окремому полі. Це може бути потрібно для виконання вимог служб, які збирають/аналізують цитування, наприклад, Crossref.</message>
+	<message key="manager.setup.metadata.citations.enable">Включити бібліографічний опис у метадані</message>
+	<message key="manager.setup.metadata.citations.noRequest">Не вимагати бібліографічний опис у авторів під час подання.</message>
+	<message key="manager.setup.metadata.citations.request">Прохати авторів зазначати бібліографічний опис під час подання.</message>
+	<message key="manager.setup.metadata.citations.require">Вимагати від авторів зазначати бібліографічний опис перед прийняттям подання.</message>
+
 	<!--  загальні ключі імпорту/експорту -->
 	<message key="plugins.importexport.common.validationErrors">Помилки перевірки:</message>
 	<message key="plugins.importexport.common.warningsEncountered">Трапилися попередження:</message>
@@ -461,12 +557,20 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">Невідоме кодування {$param}</message>
 	<message key="plugins.importexport.common.error.encodingError">Вміст не закодований як {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">Невідома група користувачів {$param}</message>
+	<message key="plugins.importexport.common.error.missingGivenName">Автор {$authorName} не має вказаного ім'я мовою подання {$localeName} у відповідному полі. Подання не може бути імпортовано без цієї інформації.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">Невідомий завантажувач {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">Тимчасовий файл {$dest} не може бути створено з {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">Вказаний розмір файлу "{$expected}" та фактичний розмір файлу "($actual)" не співпадають</message>
 	<message key="plugins.importexport.common.error.duplicateRevisionForSubmission">Нова версія "{$revisionId}" для файлу "{$fileId}" створить дублюючий запис</message>
 	<!-- рідні ключі імпорту/експорту -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">Файл подання неможливо імпортувати</message>
+
+	<!-- нативні ключі імпорту користувачів -->
+	<message key="plugins.importexport.user.importExportErrors">Помилки Імпорту/Експорту:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">Імпортований користувач "{$username}" не має паролю. Перевірте формат XML файлу, який імпортується. Користувача не було внесено.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">Пароль імпортованого користувача "{$username}" не може бути внесено в такому вигляді. Новий пароль надіслано на електронну адресу користувача. Користувача внесено.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">Імпортований користувач "{$username}" має простий пароль, який не є валідним. Користувача не було внесено.</message>
+	<message key="plugins.importexport.user.error.usernameEmailMismatch">Користувач "{$username}" та електронна адреса "{$email}" не співпадають із одним і тим же існуючим користувачем.</message>
 
 	<!-- Меню навігації -->
 	<message key="manager.navigationMenus.form.title">Назва</message>
@@ -521,4 +625,46 @@
 	<message key="manager.navigationMenus.subscriptions.conditionalWarning">Це посилання відображатиметься лише в разі активації платежів у Налаштування > Розповсюдження > Платежі.</message>
 	<message key="manager.navigationMenus.mySubscriptions.conditionalWarning">Це посилання відображатиметься, лише якщо відвідувач увійшов у систему, платежі увімкнені в розділі Налаштування> Розповсюдження> Платежі та обов'язкові підписки в Налаштування > Розповсюдження > Доступ.</message>
 	<message key="manager.navigationMenus.search.description">Посилання на сторінку пошуку.</message>
+	<message key="manager.navigationMenus.privacyStatement.description">Посилання на сторінку із відображенням вашої заяви конфіденційності.</message>
+	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">Це посилання буде відображеним тільки якщо Ви ввели заяву про конфіденційність в Налаштування > Робочий процес > Подання.</message>
+
+	<message key="grid.category.add">Додати категорію</message>
+	<message key="grid.category.edit">Редагувтаи категорію</message>
+	<message key="grid.category.name">Ім'я</message>
+	<message key="grid.category.path">Шлях</message>
+	<message key="grid.category.urlWillBe">URL для категорії буде: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">Шлях до категорії має складатися тільки із букв та чисел.</message>
+	<message key="grid.category.pathExists">Такий шлях до категорії вже існує. Будь ласка, введіть унікальний шлях.</message>
+	<message key="grid.category.description">Опис</message>
+	<message key="grid.category.parentCategory">Батьківська категорія</message>
+	<message key="grid.category.removeText">Ви впевнені щодо видалення цієї категорії?</message>
+	<message key="grid.category.nameRequired">Будь ласка, введіть ім'я для категорії.</message>
+	<message key="grid.category.categoryDetails">Деталі категорії</message>
+
+	<!-- Statistics -->
+	<message key="stats.daily">Щодня</message>
+	<message key="stats.dateRange">Межі дат</message>
+	<message key="stats.dateRange.allDates">Всі дати</message>
+	<message key="stats.dateRange.apply">Застосувати</message>
+	<message key="stats.dateRange.change">Змінити межі дат</message>
+	<message key="stats.dateRange.customRange">Власні межі</message>
+	<message key="stats.dateRange.dateDoesNotExist">Одна із введних дат не існує.</message>
+	<message key="stats.dateRange.from">З</message>
+	<message key="stats.dateRange.instructions">Введіть кожну дату у форматі YYYY-MM-DD (РРРР-ММ-ДД). Наприклад, якщо потрібна дата це 15 Січня 2019 року, введіть 2019-01-15.</message>
+	<message key="stats.dateRange.invalidDate">Формат дати не є валідним. Введіть кожну дату у форматі YYYY-MM-DD (РРРР-ММ-ДД).</message>
+	<message key="stats.dateRange.invalidDateRange">Початкова дата має бути перед кінцевою.</message>
+	<message key="stats.dateRange.invalidEndDateMax">Кінцева дата не може бути пізніше, ніж {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">Початкова дата не може бути раніше, ніж {$date}.</message>
+	<message key="stats.dateRange.last12Months">Останні 12 місяців</message>
+	<message key="stats.dateRange.last30Days">Останні 30 днів</message>
+	<message key="stats.dateRange.last90Days">Останні 90 днів</message>
+	<message key="stats.dateRange.sinceDate">З {$date}</message>
+	<message key="stats.dateRange.to">До</message>
+	<message key="stats.dateRange.untilDate">По {$date}</message>
+	<message key="stats.fileViews">Перегляди файлів</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">За місяць</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Пошук за назвою, автором та ID</message>
+	<message key="stats.total">Всього</message>
 </locale>

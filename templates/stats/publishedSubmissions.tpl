@@ -135,7 +135,7 @@
 										target="_blank"
 									>
 										<span class="pkpStatistics__itemAuthors" v-html="row.object.shortAuthorString"></span>
-										<span class="pkpStatistics__itemTitle" v-html="row.object.fullTitle.en_US"></span>
+										<span class="pkpStatistics__itemTitle" v-html="localize(row.object.fullTitle)"></span>
 									</a>
 								</template>
 							</table-cell>

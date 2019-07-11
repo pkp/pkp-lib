@@ -23,7 +23,7 @@
 {if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
-
+	
 	{include file="frontend/components/skipLinks.tpl"}
 
 	<div class="pkp_structure_page">
@@ -32,7 +32,11 @@
 		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
 			<div class="pkp_head_wrapper">
 
+			{* Test *}
+			<div class="wrapper">
+
 				<div class="pkp_site_name_wrapper">
+					<button class="toggle"></button>
 					{* Logo or site title. Only use <h1> heading on the homepage.
 					   Otherwise that should go to the page title. *}
 					{if $requestedOp == 'index'}
@@ -40,6 +44,7 @@
 					{else}
 						<div class="pkp_site_name">
 					{/if}
+
 						{capture assign="homeUrl"}
 							{if $currentContext && $multipleContexts}
 								{url page="index" router=$smarty.const.ROUTE_PAGE}
@@ -69,6 +74,7 @@
 					{/if}
 				</div>
 
+				<div class="menu">
 				{* Primary site navigation *}
 				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
@@ -88,9 +94,13 @@
 					</nav>
 				{/if}
 
+				</div>
 				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
 					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 				</nav>
+			
+			</div><!-- mobile menu -->
+			
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
 

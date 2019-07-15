@@ -643,5 +643,4 @@
 	<message key="submission.submit.placement.categories">Categorieën</message>
 	<message key="submission.currentCoverImage">Huidige omslagafbeelding</message>
 	<message key="catalog.browseTitles">{$numTitles} titels</message>
-	<message key="catalog.noTitlesSection">Er zijn nog geen titels gepubliceerd voor deze sectie</message>
 </locale>

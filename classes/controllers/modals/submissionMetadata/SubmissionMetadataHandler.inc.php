@@ -100,17 +100,39 @@ class SubmissionMetadataHandler extends Handler {
 	 * @param $stageId int
 	 * @return boolean true if the user is allowed to edit metadata
 	 */
-	static function getUserAllowEditMetadata($submissionId, $currentUserId, $stageId) {
+	static function getUserAllowEditMetadata($journalId, $submissionId, $currentUserId, $stageId) {
 		/** @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$stageAssignmentsArray = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submissionId, $currentUserId, $stageId);
 		$stageAssignments = $stageAssignmentsArray->toArray();
+
+		if (empty($stageAssigments)) {
+            return self::isUserDefaultAllowedEditMetadata($journalId, $currentUserId);
+        }
 
 		/** @var $stageAssignment StageAssignment */
 		foreach($stageAssignments as $stageAssignment) {
 			if ($stageAssignment->getCanChangeMetadata()) {
 				return true;
 			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Get whether the user is by default allowed to edit submission metadata
+	 * @param $journalId int
+	 * @param $currentUserId int
+	 * @return boolean true if the user is allowed to edit metadata by default
+	 */
+	private static function isUserDefaultAllowedEditMetadata($journalId, $currentUserId) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+
+		$roles = $roleDao->getByUserId($currentUserId, $journalId);
+		foreach ($roles as $role) {
+			if (in_array($role->getRoleId(), UserGroupDAO::getNotChangeMetadataEditPermissionRoles())) 
+				return true;
 		}
 
 		return false;

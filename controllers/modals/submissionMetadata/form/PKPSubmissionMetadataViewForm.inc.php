@@ -138,7 +138,7 @@ class PKPSubmissionMetadataViewForm extends Form {
 		/** @var $currentUser User */
 		$currentUser = $request->getUser();
 
-		if (!SubmissionMetadataHandler::getUserAllowEditMetadata($submission->getId(), $currentUser->getId(), $this->_stageId)) {
+		if (!SubmissionMetadataHandler::getUserAllowEditMetadata($submission->getJournalId(), $submission->getId(), $currentUser->getId(), $this->_stageId)) {
 			$this->_formParams['hideSubmit'] = true;
 			$this->_formParams['readOnly'] = true;
 		}

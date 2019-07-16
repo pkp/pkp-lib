@@ -721,7 +721,7 @@ class Installer {
 		foreach ($categories as $category) {
 			PluginRegistry::loadCategory($category);
 			$plugins = PluginRegistry::getPlugins($category);
-			if (is_array($plugins)) {
+			if (!empty($plugins)) {
 				foreach ($plugins as $plugin) {
 					$versionFile = $plugin->getPluginPath() . '/version.xml';
 

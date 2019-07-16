@@ -56,7 +56,7 @@ class NavigationMenuForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$themePlugins = PluginRegistry::getPlugins('themes');
-		if (is_null($themePlugins)) {
+		if (empty($themePlugins)) {
 			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
 

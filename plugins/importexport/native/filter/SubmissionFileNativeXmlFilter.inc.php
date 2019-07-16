@@ -150,7 +150,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		// Add pub IDs by plugin
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-		foreach ((array) $pubIdPlugins as $pubIdPlugin) {
+		foreach ($pubIdPlugins as $pubIdPlugin) {
 			$this->addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin);
 		}
 	}

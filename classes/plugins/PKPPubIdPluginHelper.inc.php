@@ -25,7 +25,7 @@ class PKPPubIdPluginHelper {
 	 */
 	function validate($contextId, $form, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				$fieldNames = $pubIdPlugin->getFormFieldNames();
 				foreach ($fieldNames as $fieldName) {
@@ -48,7 +48,7 @@ class PKPPubIdPluginHelper {
 	 */
 	function setLinkActions($contextId, $form, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				$linkActions = $pubIdPlugin->getLinkActions($pubObject);
 				foreach ($linkActions as $linkActionName => $linkAction) {
@@ -67,7 +67,7 @@ class PKPPubIdPluginHelper {
 	 */
 	function addJavaScripts($contextId, $request, $templateMgr) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				$pubIdPlugin->addJavaScript($request, $templateMgr);
 			}
@@ -84,7 +84,7 @@ class PKPPubIdPluginHelper {
 	function init($contextId, $form, $pubObject) {
 		if (isset($pubObject)) {
 			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-			if (is_array($pubIdPlugins)) {
+			if (!empty($pubIdPlugins)) {
 				foreach ($pubIdPlugins as $pubIdPlugin) {
 					$fieldNames = $pubIdPlugin->getFormFieldNames();
 					foreach ($fieldNames as $fieldName) {
@@ -102,7 +102,7 @@ class PKPPubIdPluginHelper {
 	 */
 	function readInputData($contextId, $form) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				$form->readUserVars($pubIdPlugin->getFormFieldNames());
 				$form->readUserVars(array($pubIdPlugin->getAssignFormFieldName()));
@@ -120,7 +120,7 @@ class PKPPubIdPluginHelper {
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				$form->readUserVars(array($pubIdPlugin->getAssignFormFieldName()));
 			}
@@ -136,7 +136,7 @@ class PKPPubIdPluginHelper {
 	 */
 	function execute($contextId, $form, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				// Public ID data can only be changed as long
 				// as no ID has been generated.
@@ -166,7 +166,7 @@ class PKPPubIdPluginHelper {
 	 */
 	function assignPubId($contextId, $form, $pubObject, $save = false) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				if ($form->getData($pubIdPlugin->getAssignFormFieldName())) {
 					$pubId = $pubIdPlugin->getPubId($pubObject);
@@ -189,7 +189,7 @@ class PKPPubIdPluginHelper {
 	 */
 	function clearPubId($contextId, $pubIdPlugInClassName, $pubObject) {
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
-		if (is_array($pubIdPlugins)) {
+		if (!empty($pubIdPlugins)) {
 			foreach ($pubIdPlugins as $pubIdPlugin) {
 				if (get_class($pubIdPlugin) == $pubIdPlugInClassName) {
 					// clear the pubId:

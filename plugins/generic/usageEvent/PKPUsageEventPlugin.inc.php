@@ -228,7 +228,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		// 2) Standardized public identifiers, e.g. DOI, URN, etc.
 		if ($this->isPubIdObjectType($pubObject)) {
 			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-			if (is_array($pubIdPlugins)) {
+			if (!empty($pubIdPlugins)) {
 				foreach ($pubIdPlugins as $pubIdPlugin) {
 					if (!$pubIdPlugin->getEnabled()) continue;
 					$pubId = $pubObject->getStoredPubId($pubIdPlugin->getPubIdType());

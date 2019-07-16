@@ -622,7 +622,7 @@ abstract class Plugin {
 
 		if ($sql === false) {
 			// The template file seems to be invalid.
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseEmailTemplatesFileError')));
+			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallEmailTemplatesFile(), __('installer.installParseEmailTemplatesFileError')));
 			$result = false;
 		} else {
 			// Are there any yet uninstalled email templates?

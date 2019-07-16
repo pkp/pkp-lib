@@ -68,6 +68,16 @@ class CategoryDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve all categories for a press.
+	 * @param $pressId int
+	 * @param $rangeInfo Object Optional range information.
+	 * @return DAOResultFactory containing Category ordered by sequence
+	 */
+	function getByPressId($pressId, $rangeInfo = null) {
+	    return $this->getByContextId($pressId, $rangeInfo);
+	}
+
+	/**
 	 * Retrieve an category by title.
 	 * @param $categoryTitle string
 	 * @param $contextId int

@@ -75,8 +75,8 @@ class PKPAcronPlugin extends GenericPlugin {
 	}
 
 	/**
-	* @copydoc Plugin::getInstallSitePluginSettingsFile()
-	*/
+	 * @copydoc Plugin::getInstallSitePluginSettingsFile()
+	 */
 	function getInstallSitePluginSettingsFile() {
 		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/settings.xml';
 	}

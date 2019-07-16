@@ -495,7 +495,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	function getMetricTypes($withDisplayNames = false) {
 		// Retrieve site-level report plugins.
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
-		if (!is_array($reportPlugins)) return array();
+		if (empty($reportPlugins)) return array();
 
 		// Run through all report plugins and retrieve all supported metrics.
 		$metricTypes = array();
@@ -600,7 +600,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$contextId = CONTEXT_SITE;
 		}
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, $contextId);
-		if (!is_array($reportPlugins)) return null;
+		if (empty($reportPlugins)) return null;
 
 		// Run through all report plugins and try to retrieve the requested metrics.
 		$report = array();

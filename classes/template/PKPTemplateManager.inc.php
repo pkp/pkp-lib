@@ -878,7 +878,7 @@ class PKPTemplateManager extends Smarty {
 		if ($instance === null) {
 			$instance = new TemplateManager();
 			$themes = PluginRegistry::getPlugins('themes');
-			if (is_null($themes)) {
+			if (empty($themes)) {
 				$themes = PluginRegistry::loadCategory('themes', true);
 			}
 			$instance->initialize($request);
@@ -1590,7 +1590,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Don't load menus for an area that's not registered by the active theme
 		$themePlugins = PluginRegistry::getPlugins('themes');
-		if (is_null($themePlugins)) {
+		if (empty($themePlugins)) {
 			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
 		$activeThemeNavigationAreas = array();

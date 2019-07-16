@@ -380,7 +380,7 @@ abstract class SubmissionDAO extends DAO implements PKPPubIdPluginDAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
-			'SELECT	s.*, ps.*,
+			'SELECT	s.*, ps.issue_id, ps.date_published, ps.seq, ps.access_status,
 				' . $this->getFetchColumns() . '
 			FROM	submissions s
 				LEFT JOIN published_submissions ps ON (s.submission_id = ps.submission_id)

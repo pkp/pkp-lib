@@ -14,6 +14,7 @@
  * Currently integrated with ADOdb (from http://adodb.sourceforge.net).
  */
 
+define('ADODB_OUTP', array('DBConnection', 'logAdodbMessage'));
 
 class DBConnection {
 
@@ -54,6 +55,16 @@ class DBConnection {
 			$args = func_get_args();
 			call_user_func_array(array($this, 'initCustomDBConnection'), $args);
 		}
+	}
+
+	/**
+	 * Log message handler for ADODB.
+	 * @param $msg string
+	 * @param $newline boolean
+	 * @see ADOConnection::outp
+	 */
+	static function logAdodbMessage($msg, $newline=true) {
+		error_log(Registry::get('system.debug.startTime') . ': ' . PKPString::html2text($msg));
 	}
 
 	/**

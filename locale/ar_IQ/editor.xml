@@ -34,6 +34,8 @@
 	<message key="editor.review.createReviewer">إنشاء محكم جديد</message>
 	<message key="editor.review.enrollReviewer.short">إمنح الدور لمستخدم مسجل</message>
 	<message key="editor.review.unassignReviewer">إلغاء تعيين المحكم</message>
+	<message key="editor.review.cancelReviewer">إلغاء المحكم</message>
+	<message key="editor.review.reinstateReviewer">إعادة المحكم</message>
 	<message key="editor.submissionReview.reviewType">نوع التحكيم</message>
 	<message key="editor.submissionReview.sendEmail">أرسل إشعاراً برسالة الكترونية إلى المؤلف/المؤلفين: {$authorName}</message>
 	<message key="editor.submissionReview.sendEmail.editors">رسل إشعاراً برسالة الكترونية إلى المحرر/المحررين: {$editorNames}</message>
@@ -65,7 +67,11 @@
 	<message key="editor.review.responseDue">موعد الاستجابة: {$date}</message>
 	<message key="editor.review.requestSent">أُرسل الطلب</message>
 	<message key="editor.review.requestAccepted">قُبل الطلب</message>
-	<message key="editor.review.revertDecision">تغيير القرار</message>
+	<message key="editor.review.requestDeclined">الطلب مرفوض</message>
+	<message key="editor.review.requestCancelled">الطلب مُلغى</message>
+	<message key="editor.review.requestDeclined.tooltip">المحكم رفض التماس التحكيم هذا.</message>
+	<message key="editor.review.requestCancelled.tooltip">المحرر ألغى التماس التحكيم هذا.</message>
+	<message key="editor.review.revertDecision">استرجاع القرار</message>
 	<message key="editor.review.reviewDue">موعد تسليم التحكيم: {$date}</message>
 	<message key="editor.review.reviewDueDate">تاريخ استيجاب التحكيم</message>
 	<message key="editor.review.reviewCompleted">إكتمل التحكيم</message>
@@ -78,6 +84,7 @@
 	<message key="editor.review.mustSelect">عليك أن تختار محكماً</message>
 	<message key="editor.review.errorAddingReviewer">حدث خطأ عند إضافة المحكم. لطفاً، حاول مرة أخرى.</message>
 	<message key="editor.review.errorDeletingReviewer">حدث خطأ عند إزالة المحكم. لطفاً، حاول مرة أخرى.</message>
+	<message key="editor.review.errorReinstatingReviewer">حدث خطأ ما عند إعادة الالتماس من المحكم. لطفاً، حاول مجدداً.</message>
 	<message key="editor.review.userGroupSelect">إمنح الدور للمستخدم المسجل ضمن مجموعة المحكم هذه</message>
 	<message key="editor.review.unconsiderReviewText">هل تريد تأشير هذا التحكيم على أنه غير معتبر؟ سيتم الاحتفاظ به ضمن وقائع التحكيم.</message>
 	<message key="editor.review.unconsiderReview">هذا التحكيم غير معتبر</message>
@@ -135,6 +142,7 @@
 	<message key="reviewer.list.activeReviewsDescription">المحكمون النشطون المعينون حالياً</message>
 	<message key="reviewer.list.completedReviews">التحكيمات المكتملة</message>
 	<message key="reviewer.list.declinedReviews">إلتماسات التحكيم المرفوضة</message>
+	<message key="reviewer.list.cancelledReviews">إلتماسات التحكيم الملغاة</message>
 	<message key="reviewer.list.reviewerRating">تقييم المحكم: {$rating}</message>
 	<message key="reviewer.list.daysSinceLastAssignment">{$days} يوم/أيام مضت</message>
 	<message key="reviewer.list.daySinceLastAssignment">البارحة</message>
@@ -146,4 +154,5 @@
 	<message key="reviewer.list.warnOnAssignUnlock">رفع الاستبعاد</message>
 	<message key="reviewer.list.reviewInterests">إهتمامات التحكيم</message>
 	<message key="reviewer.list.biography">السيرة الذاتية</message>
+	<message key="reviewer.list.empty">تعذر العثور على محكمين</message>
 </locale>

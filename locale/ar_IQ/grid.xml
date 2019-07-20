@@ -88,6 +88,7 @@
 	<message key="grid.action.notify">بلِّغ هذا المستخدم</message>
 	<message key="grid.action.addUserGroup">أضف مجموعة مستخدمين جديدة</message>
 	<message key="grid.action.editUserGroup">تعديل مجموعة المستخدمين هذه</message>
+	<message key="grid.action.removeUserGroup">إزالة مجموعة المستخدمين هذه</message>
 	<message key="grid.action.disable">تعطيل</message>
 	<message key="grid.action.details">معاينة هذه الفقرة</message>
 	<message key="grid.action.enrolExisting">كلف مستخدماً مسجلاً بدور المحكم</message>
@@ -156,7 +157,10 @@
 	<message key="grid.action.addContributor">إضافة مساهم</message>
 	<message key="grid.action.editContributor">تعديل المساهم</message>
 	<message key="grid.action.deleteContributor">حذف المساهم</message>
-	
+
+	<!-- Versioning Tab  -->
+	<message key="grid.action.newVersion">إنشاء نسخة جديدة</message>
+
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">معاينة النماذج</message>
 	

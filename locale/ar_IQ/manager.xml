@@ -64,18 +64,31 @@
 	<message key="manager.publication.editorialStage">التحرير</message>
 	<message key="manager.publication.productionStage">الإنتاج</message>
 	<message key="manager.publication.emails">رسائل البريد الالكتروني</message>
+	<message key="manager.publication.emailSetup.success">إعدادات البريد الالكتروني تغيرت بنجاح.</message>
+	<message key="manager.publication.reviewerGuidance">دليل المحكم</message>
+	<message key="manager.publication.reviewerGuidance.success">دليل المحكم تغير بنجاح.</message>
+	<message key="manager.publication.reviewSetup.success">إعدادات التحكيم تغيرت بنجاح.</message>
+	<message key="manager.publication.reviewReminders.success">تفاصيل تذكير المحكمين تغيرت بنجاح.</message>
 	<message key="manager.emails.confirmDelete">هل أنت متأكد من رغبتك في حذف قالب الرسالة هذا؟</message>
 	<message key="manager.emails.confirmReset">هل أنت متأكد من رغبتك في استعادة إفتراضات قالب الرسالة هذا؟</message>
+	<message key="manager.emails.addEmail">إضافة قالب</message>
+	<message key="manager.emails.addEmail.success">إضافة القالب تمت بنجاح.</message>
 	<message key="manager.emails.createEmail">إنشاء رسالة</message>
+	<message key="manager.emails.customTemplate">قالب مخصص</message>
 	<message key="manager.emails.data">بيانات رسالة القالب</message>
 	<message key="manager.emails.details">تفاصيل القالب</message>
 	<message key="manager.emails.disable">تعطيل</message>
 	<message key="manager.emails.disable.message">أنت على وشك تعطيل قالب الرسالة هذا. إذا كانت هناك عمليات للنظام تستعمل هذا القالب، فلن تستعمله من الآن فصاعداً. هل تؤكد رغبتك في تعطيله؟</message>
 	<message key="manager.emails.editEmail">تعديل الرسالة</message>
+	<message key="manager.emails.editEmail.success">قالب الرسالة تغير بنجاح.</message>
 	<message key="manager.emails.editTestExample">تعديل نموذج إختبار القالب</message>
 	<message key="manager.emails.emailKey">مفتاح الرسالة</message>
+	<message key="manager.emails.emailKey.description">مفتاح الرسالة يمكنه فقط أن يحتوي حروفاً، أرقاماً وخطوطاً تحتانية.</message>
 	<message key="manager.emails.emailKeyExists">هناك رسالة بنفس المفتاح موجود مسبقاً. على تلك المفاتيح أن تكون قيمها فريدة.</message>
 	<message key="manager.emails.emailTemplate">قالب الرسالة</message>
+	<message key="manager.emails.emailTemplates">قوالب الرسائل</message>
+	<message key="manager.emails.emailTemplate.contextRequired">عليك أن تعطي رمزاً تعريفياً فريداً لكل قالب رسالة تضيفه.</message>
+	<message key="manager.emails.emailTemplate.noDuplicateKeys">المفتاح الذي أدخلته مستعمل سلفاً.</message>
 	<message key="manager.emails.enabled">تمكين قالب الرسالة هذا</message>
 	<message key="manager.emails.enable">تمكين</message>
 	<message key="manager.emails.enable.message">هل أنت متأكد من رغبتك في تمكين هذا القالب. هل تؤكد هذا العمل؟</message>
@@ -83,10 +96,14 @@
 	<message key="manager.emails.form.bodyRequired">متن الرسالة مطلوب حتماً.</message>
 	<message key="manager.emails.form.subjectRequired">موضوع الرسالة مطلوب حتماً.</message>
 	<message key="manager.emails">رسائل البريد المحضرة</message>
+	<message key="manager.emails.resetAll">إعادة ضبط الكل</message>
 	<message key="manager.emails.resetAll.message">إذا أعدت ضبط كل القوالب، فإن أي تعديلات عليها ستفقد. هل تؤكد هذا الإجراء؟</message>
 	<message key="manager.emails.reset">إعادة الضبط</message>
 	<message key="manager.emails.reset.message">إذا أعدت ضبط هذا القالب، فإن بيانات كل الرسائل المرتبطة به ستتغير إلى القيم الافتراضية، مما يزيل أية تعديلات. هل تريد تأكيد هذا الإجراء؟</message>
 	<message key="manager.emails.resetToDefault">إعادة الافتراضات</message>
+	<message key="manager.emails.sentFrom">مرسل من</message>
+	<message key="manager.emails.sentTo">مرسل إلى</message>
+	<message key="manager.emails.subjectWithValue">الموضوع: {$subject}</message>
 	<message key="manager.filesBrowser">مستعرض الملفات</message>
 	<message key="manager.files.confirmDelete">أتريد حذف هذا الملف أو الدليل؟ لاحظ أن الدليل ينبغي أن يكون فارغاً قبل أن يكون متاحاً للحذف.</message>
 	<message key="manager.files.createDir">إنشاء حافظة ملفات (دليل)</message>
@@ -211,10 +228,15 @@
 	<message key="manager.affiliationAndSupport">الراعي</message>
 	<message key="manager.setup.additionalContent">المحتوى الإضافي</message>
 	<message key="manager.setup.additionalContent.description">أي شيء تكتبه هنا سيظهر في صفحتك الرئيسية.</message>
+	<message key="manager.setup.advanced">متقدم</message>
+	<message key="manager.setup.appearance.success">إعدادات المظهر تغيرت بنجاح.</message>
+	<message key="manager.setup.contact.success">تفاصيل عنوان الاتصال لهذه المؤسسة تغير ت بنجاح.</message>
 	<message key="manager.setup.copyrightNotice">بيان الحقوق الفكرية</message>
 	<message key="manager.setup.copyrightNotice.description">يتطلب من المؤلفين الموافقة على بيان الحقوق الفكرية كجزء من عملية التقديم.</message>
 	<message key="manager.setup.authorGuidelines">إرشادات المؤلف</message>
 	<message key="manager.setup.authorGuidelines.description">الإرشادات الموصى بها تتضمن المعايير القياسية للسيرة والتنسيق جنباً إلى جنب مع أمثلة لتنسيقات شائعة من الاقتباسات التي بالإمكان استعمالها في المؤلفات.</message>
+	<message key="manager.setup.authorGuidelines.success">إرشادات المؤلف تغيرت بنجاح.</message>
+	<message key="manager.setup.checklist">قائمة التأشير</message>
 	<message key="manager.setup.competingInterests">المصالح المتضاربة</message>
 	<message key="manager.setup.errorDeletingItem">حدث خطأ ما عند حذف هذه الفقرة.</message>
 	<message key="manager.setup.favicon">الصورة المصغرة</message>
@@ -224,12 +246,12 @@
 	<message key="manager.setup.homepageImageInvalid">صيغة ملف صورة الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">صيغة ملف صورة عنوان رأس الصفحة الرئيسية غير صحيحة أو فشل تحميلها. الصيغ المدعومة هي: .gif، .jpg، أو .png.</message>
 	<message key="manager.setup.information.descriptionTitle">الأوصاف</message>
-	<message key="manager.setup.theme">النمط</message>
-	<message key="manager.setup.theme.description">يمكن تنصيب الأنماط الجديدة عبر باب الإضافة المتوضع في أعلى هذه الصفحة.</message>
 	<message key="manager.setup.layout.sidebar">الشريط الجانبي</message>
+	<message key="manager.setup.layout.sidebar.invalidBlock">تعذر العثور على الكتلة {$name}. لطفاً، تأكد من أن الإضافة المعنية منصبة بشكل صحيح ومُمَكنة.</message>
 	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
 	<message key="manager.setup.logo">الصورة المصغرة</message>
-	<message key="manager.setup.notifications">إشعار تقديم المؤلف لطلب نشر</message>
+	<message key="manager.setup.noTemporaryFile">تعذر العثور على الملف الذي قمت برفعه. لطفاً، حاول رفعه مرة أخرى.</message>
+	<message key="manager.setup.notifications">إشعار بتقديم المؤلف للطلب</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">أرسل نسخة إلى هذا العنوان</message>
 	<message key="manager.setup.notifications.description">يحصل المؤلفون تلقائياً على رسالة تبلغهم باستلام طلبهم. يمكنك الحصول على نسخ من هذه الرسالة موجهة إلى العناوين الآتية:</message>
 	<message key="manager.setup.openAccessPolicy">سياسة الوصول المفتوح</message>
@@ -242,18 +264,28 @@
 	<message key="manager.setup.principalContactDescription">أدخل تفاصيل العنوان التي عادة ما تكون لعضو أساسي في هيئة التحرير أو لرئيس التحرير أو لصاحب منصب إداري رئيسي، إذ أن هذا العنوان سيظهر علانية على موقعك.</message>
 	<message key="manager.setup.privacyStatement">بيان الخصوصية</message>
 	<message key="manager.setup.privacyStatement.description">هذا البيان سيظهر خلال مرحلة تسجيل المستخدم، تقديم طلب النشر من قبل المؤلف، وعلى صفحة التعريف بالخصوصية الشخصية المتاحة للعامة. حسب بعض التشريعات، لا بد من الناحية القانونية الإفصاح عن كيفية معالجة وتداول بيانات المستخدمين ضمن بيان الخصوصية.</message>
-	<message key="manager.setup.reviewOptions.numWeeksPerResponse">الأسابيع المسموح بها لقبول أو رفض طلب التحكيم</message>
+	<message key="manager.setup.reviewOptions.defaultReviewResponseTime">المدة الافتراضية للإجابة</message>
+	<message key="manager.setup.reviewOptions.defaultReviewCompletionTime">المدة الافتراضية للإكمال</message>
+	<message key="manager.setup.reviewOptions.numWeeksPerResponse">عدد الأسابيع المسموح بها لقبول أو رفض طلب التحكيم</message>
 	<message key="manager.setup.reviewOptions.numWeeksPerReview">الأسابيع المسموح بها لإكمال مهمة التحكيم</message>
 	<message key="manager.setup.reviewOptions.neverSendReminder">لا تذكرني مطلقاً</message>
 	<message key="manager.setup.reviewOptions.noteOnModification">الإعدادات الإفتراضية بالإمكان تعديلها لكل مهمة تحكيم خلال مرحلة التحرير.</message>
+	<message key="manager.setup.reviewOptions.reminders.response">تذكير الإجابة</message>
 	<message key="manager.setup.reviewOptions.reminders.response.description">أرسل تذكيراً إذا تأخر المحكم في الاستجابة لطلب التحكيم بعد مرور فترة (بالأيام) تتجاوز الموعد المحدد:</message>
+	<message key="manager.setup.reviewOptions.reminders.submit">تذكير التحكيم</message>
 	<message key="manager.setup.reviewOptions.reminders.submit.description">أرسل تذكيراً إذا لم يرسل المحكم توصيته بعد مرور فترة (بالأيام) من انقضاء فترة التحكيم:</message>
-	<message key="manager.setup.reviewOptions.reviewTime">المواعيد النهائية للتحكيم إفتراضياً</message>
+	<message key="manager.setup.reviewOptions.reviewMode">نمط التحكيم الإفتراضي</message>
+	<message key="manager.setup.reviewOptions.showBlindReviewLink"><![CDATA[وفر رابطاً <button type="button">لضمان التحكيم السري</button> خلال مرحلة رفع الملفات]]></message>
 	<message key="manager.setup.sponsors.note">وصف علاقة الجهة الراعية وسياستها</message>
 	<message key="manager.setup.sponsors.description">أمثلة: الرابطات الطلابية، أقسام الجامعات، جهات متعاونة... وما شابه. يتم عرض هذه الجهات علانية في الموقع.</message>
 	<message key="manager.setup.styleSheetDescription">مطورو مواقع الإنترنت ذوو الخبرة بإمكانهم رفع ملف أنماط بصيغة CSS لمزيد من التحكم بمظهر الموقع.</message>
 	<message key="manager.setup.technicalSupportContact">عنوان الاتصال للدعم الفني</message>
 	<message key="manager.setup.technicalSupportContactDescription">شخص بإمكانه مساعدة المحررين، المؤلفين، والمحكمين إذا واجهتهم أي صعوبات عند العمل على الموقع.</message>
+	<message key="manager.setup.theme.success"><![CDATA[النمط تغير بنجاح. <a href="{$url}" target="_blank">عاينه الآن</a>]]></message>
+	<message key="manager.setup.theme">النمط</message>
+	<message key="manager.setup.theme.description">يمكن تنصيب المزيد من الأنماط عبر تبويب الإضافات في أعلى هذه الصفحة.</message>
+	<message key="manager.setup.theme.notFound">النمط الذي اخترته غير منصب أو غير مُمَكن.</message>
+	<message key="manager.setup.userAccess.success">تفاصيل خيارات وصول المستخدمين لهذه المؤسسة تغيرت بنجاح.</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">خيارات الوصول في الموقع</message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} جديد)</message>
@@ -343,15 +375,24 @@
 	<message key="notification.primaryLocaleDefined">اللغة {$locale} معرفة على أنها اللغة الأساسية.</message>
 	<message key="notification.localeInstalled">جميع اللغات المختارة منصبة وممكنة.</message>
 	<message key="notification.localeUninstalled">أُلغي تنصيب اللغة {$locale}.</message>
-	<message key="notification.localeReloaded">أُعيد تحميل اللغة {$locale}.</message>
+	<message key="notification.localeReloaded">أُعيد تحميل اللغة {$locale} بالنسبة إلى {$contextName}.</message>
 	<message key="notification.localeSettingsSaved">حُفِظت إعدادات اللغة.</message>
 	<message key="notification.editedUser">تم تعديل المستخدم.</message>
 
+	<!-- Distribution Process settings -->
+	<message key="manager.distribution.license">الترخيص</message>
+	<message key="manager.distribution.license.success">تفاصيل الترخيص تغيرت بنجاح. </message>
+	<message key="manager.distribution.license.other">رابط تراخيص أخرى</message>
+	<message key="manager.distribution.licenseTerms">شروط الترخيص</message>
+	<message key="manager.distribution.licenseTerms.description">أدخل شروط الترخيص العامة التي تريد أن يتم عرضها رفقة الأعمال المنشورة.</message>
+	<message key="manager.distribution.customHeaders">العلامات المخصصة</message>
+	<message key="manager.distribution.customHeaders.description">أضف علامات مخصصة بلغة HTML، والتي تعرف أيضاً بالعلامات الوصفية، والتي تريد إدراجها عند رأس كل صفحة. يُنصح باستشارة خبير فني قبل وضع العلامات هنا.</message>
+
 	<!-- Payment Method settings -->
 	<message key="manager.paymentMethod">المدفوعات</message>
-	<message key="manager.paymentMethod.title">طرائق الدفع</message>
-	<message key="manager.paymentMethod.none">لم يتم اختيار طريقة الدفع</message>
-	<message key="manager.paymentMethod.method">طريقة الدفع</message>
+	<message key="manager.paymentMethod.title">طرائق التسديد</message>
+	<message key="manager.paymentMethod.none">لم يتم اختيار طريقة التسديد</message>
+	<message key="manager.paymentMethod.method">طريقة التسديد</message>
 	<message key="manager.paymentMethod.currency">العملة</message>
 
 	<!-- Roles grid settings -->
@@ -372,6 +413,7 @@
 	<message key="settings.roles.uniqueAbbrev">عليك أن تعطي ملخصاً فريداً للدور.</message>
 	<message key="settings.roles.roleIdRequired">عليك أن تعطي مستوى صلاحيات للدور.</message>
 	<message key="settings.roles.stageIdRequired">عليك أن تحدد المرحلة التي يتكفل بها.</message>
+	<message key="settings.roles.permitMetadataEdit">السماح بتعديل البيانات الوصفية لطلب التقديم.</message>
 
 	<!-- Library Files -->
 	<message key="settings.libraryFiles.fileRequired">ملف المكتبة مطلوب حتماً. لطفاً، تأكد من اختيار ملف ورفعه.</message>
@@ -440,6 +482,7 @@
 	<message key="manager.reviewFormElements.noneCreated">لم يتم إنشاء فقرات النموذج بعد.</message>
 	<message key="manager.reviewFormElements.possibleResponse">الاختيار</message>
 	<message key="manager.reviewFormElements.question">الفقرة</message>
+	<message key="manager.reviewFormElements.description">الوصف</message>
 	<message key="manager.reviewFormElements.radiobuttons">إزرار الاختيار (يمكنك اختيار واحداً منها فقط)</message>
 	<message key="manager.reviewFormElements.required">على المحكمين إكمال هذه الفقرة</message>
 	<message key="manager.reviewFormElements.included">يمكن تضمينها في الرسائل إلى المؤلفين</message>
@@ -453,6 +496,59 @@
 	<message key="manager.setup.licenseURLDescription">رابط إلى موقع يصف الرخصة، لو توافر ذلك.</message>
 
 	<message key="manager.setup.metadata.submission">نموذج تقديم طلب النشر</message>
+	<message key="manager.setup.metadata.success">البيانات الوصفية لطلب التقديم تغيرت بنجاح.</message>
+	<message key="manager.setup.metadata.coverage">التغطية</message>
+	<message key="manager.setup.metadata.coverage.description">التغطية ستؤشر عادة لصفة العمل المكانية (اسم مكان أو إحداثيات جغرافية)، فترة زمانية (اسم الفترة، تأريخ، أو حقبة زمنية) أو فترة ولاية (مثل تسمية كيان حكم).</message>
+	<message key="manager.setup.metadata.coverage.enable">تمكين البيانات الوصفية للتغطية</message>
+	<message key="manager.setup.metadata.coverage.noRequest">لا تطالب المؤلف بالبيانات الوصفية للتغطية خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.coverage.request">أطلب من المؤلف اقتراح البيانات الوصفية للتغطية خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.coverage.require">ينبغي على المؤلف اقتراح البيانات الوصفية للتغطية قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.keywords.description">الكلمات المفتاحية هي عبارة إلى ثلاث عبارات تستعمل للدلالة على المواضيع الأساسية لطلب التقديم.</message>
+	<message key="manager.setup.metadata.keywords.enable">تمكين الكلمات المفتاحية</message>
+	<message key="manager.setup.metadata.keywords.noRequest">لا تطالب المؤلف بالكلمات المفتاحية خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.keywords.request">أطلب من المؤلف اقتراح الكلمات المفتاحية خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.keywords.require">ينبغي على المؤلف اقتراح الكلمات المفتاحية قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.languages.description">اللغة تعني اللغة الأساسية التي كُتب بها العمل وهي تكون بصيغة رمز اللغة ("ar") مع ترميز اختياري يمثل الدولة ("ar_IQ").</message>
+	<message key="manager.setup.metadata.languages.enable">تمكين البيانات الوصفية للغة</message>
+	<message key="manager.setup.metadata.languages.noRequest">لا تطالب المؤلف بلغة العمل خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.languages.request">أطلب من المؤلف تحديد لغة العمل خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.languages.require">ينبغي على المؤلف تحديد لغة العمل قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.rights.description">أية حقوق محفوظة يتضمنها طلب التقديم، والتي قد تشمل حقوق الملكية الفكرية، حقوق النسخ، وغيرها من حقوق الملكية.</message>
+	<message key="manager.setup.metadata.rights.enable">تمكين البيانات الوصفية للحقوق</message>
+	<message key="manager.setup.metadata.rights.noRequest">لا تطالب المؤلف بالإفصاح عن الحقوق خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.rights.request">أطلب من المؤلف الإفصاح عن أية حقوق يتضمنها العمل خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.rights.require">ينبغي على المؤلف الإفصاح عن أية حقوق يتضمنها العمل قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.source.description">المصدر قد يكون رمزاً تعريفياً، كما هو الحال مع معرف المكون الرقمي DOI الخاص بعمل آخر أو المصدر الذي تم اقتصاص طلب التقديم منه.</message>
+	<message key="manager.setup.metadata.source.enable">تكين البيانات الوصفية للمصدر</message>
+	<message key="manager.setup.metadata.source.noRequest">لا تطالب المؤلف برابط المصدر خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.source.request">أطلب من المؤلف تحديد رابط المصدر خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.source.require">ينبغي على المؤلف تحديد رابط المصدر قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.subjects.description">المواضيع قد تكون كلمات مفتاحية، عبارات أساسية، أو رموز تصنيفية من شأنها إعطاء وصف عام لطلب التقديم.</message>
+	<message key="manager.setup.metadata.subjects.enable">تمكين البيانات الوصفية للمواضيع</message>
+	<message key="manager.setup.metadata.subjects.noRequest">لا تطالب المؤلف بالمواضيع خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.subjects.request">أطلب من المؤلف تحديد المواضيع خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.subjects.require">ينبغي على المؤلف تحديد المواضيع قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.type.description"><![CDATA[طبيعة أو نوع المحتوى الرئيسي لطلب التقديم. النوع عادة ما يكون "Text"، ولكنه قد يكون أحياناً "Dataset"، "Image" أو أي من <a target="_blank" href="http://www.dublincore.org/specifications/dublin-core/dcmi-type-vocabulary/">أنواع دبلن الأساسية</a>.]]></message>
+	<message key="manager.setup.metadata.type.enable">تمكين البيانات الوصفية للنوع</message>
+	<message key="manager.setup.metadata.type.noRequest">لا تطالب المؤلف بالنوع خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.type.request">أطلب من المؤلف تحديد النوع خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.type.require">ينبغي على المؤلف تحديد النوع قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.disciplines.description">التخصصات هي أنواع من الدراسة أو فروع من العلوم كما يصفها أساتذة الجامعات والمجتمعات العلمية.</message>
+	<message key="manager.setup.metadata.disciplines.enable">تمكين البيانات الوصفية للتخصصات</message>
+	<message key="manager.setup.metadata.disciplines.noRequest">لا تطالب المؤلف بالتخصصات خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.disciplines.request">أطلب من المؤلف تحديد التخصصات خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.disciplines.require">ينبغي على المؤلف تحديد التخصصات قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.agencies.description">الجهات الداعمة قد تشير إلى مصادر تمويل البحوث أو غير ذلك من أنواع الدعم المؤسساتي التي من شأنها تسهيل مجريات البحث.</message>
+	<message key="manager.setup.metadata.agencies.enable">تمكين البيانات الوصفية لمصادر الدعم</message>
+	<message key="manager.setup.metadata.agencies.noRequest">لا تطالب المؤلف بمصادر الدعم خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.agencies.request">أطلب من المؤلف تحديد مصادر الدعم خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.agencies.require">ينبغي على المؤلف تحديد مصادر الدعم قبل حصوله على موافقة طلب التقديم.</message>
+	<message key="manager.setup.metadata.citations.description">إجمع مراجع العمل في حقل مستقل. هذا قد يتطلب التوافق مع خدمات تقصي الاقتباسات مثل Crossref.</message>
+	<message key="manager.setup.metadata.citations.enable">تمكين البيانات الوصفية للمراجع</message>
+	<message key="manager.setup.metadata.citations.noRequest">لا تطالب المؤلف بالمراجع  خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.citations.request">أطلب من المؤلف تحديد المراجع خلال مرحلة التقديم.</message>
+	<message key="manager.setup.metadata.citations.require">ينبغي على المؤلف تحديد المراجع قبل حصوله على موافقة طلب التقديم.</message>
+
 	<!--  common importexport keys -->
 	<message key="plugins.importexport.common.validationErrors">أخطاء التحقق:</message>
 	<message key="plugins.importexport.common.warningsEncountered">هناك تحذيرات:</message>
@@ -462,6 +558,7 @@
 	<message key="plugins.importexport.common.error.unknownEncoding">ترميز مجهول {$param}</message>
 	<message key="plugins.importexport.common.error.encodingError">إن المحتوى غير مرمز بصيغة {$param}</message>
 	<message key="plugins.importexport.common.error.unknownUserGroup">مجموعة مستخدم مجهولة {$param}</message>
+	<message key="plugins.importexport.common.error.missingGivenName">إن المؤلف {$authorName} لم يتم إدخال اسمه بلغة العمل الرئيسية، {$localeName}. يتعذر استيراد طلب التقديم بدون توفر هذه المعلومة.</message>
 	<message key="plugins.importexport.common.error.unknownUploader">رافع مجهول {$param}</message>
 	<message key="plugins.importexport.common.error.temporaryFileFailed">تعذر إنشاء الملف المؤقت {$dest} من {$source}</message>
 	<message key="plugins.importexport.common.error.filesizeMismatch">إن حجم الملف المعطى "{$expected}" وحجم الملف الفعلي "{$actual}" لا يتطابقان</message>
@@ -469,10 +566,17 @@
 	<!-- native importexport keys -->
 	<message key="plugins.importexport.native.error.submissionFileImportFailed">تعذر استيراد ملف التقديم</message>
 
+	<!-- native import user keys -->
+	<message key="plugins.importexport.user.importExportErrors">أخطاء الاستيراد/التصدير:</message>
+	<message key="plugins.importexport.user.error.userHasNoPassword">المستخدم المستورد "{$username}" ليس لديه كلمة مرور. تحقق من بيانات الاستيراد التي بلغة XML. لم يتم استيراد هذا المستخدم بعد.</message>
+	<message key="plugins.importexport.user.error.passwordHasBeenChanged">كلمة مرور المستخدم المستورد "{$username}" تعذر الحصول عليها كما هي. لقد تم إرسال كلمة مرور جديدة إليه عبر بريده الالكتروني. هذا المستخدم تم استيراده بنجاح.</message>
+	<message key="plugins.importexport.user.error.plainPasswordNotValid">المستخدم المستورد "{$username}" لديه كلمة مرور غير مشفرة وبالتالي غير مقبولة. لم يتم استيراد هذا المستخدم بعد.</message>
+	<message key="plugins.importexport.user.error.usernameEmailMismatch">إن اسم المستخدم "{$username}" وعنوان المراسلة "{$email}" لا يتطابقان مع ما هو مسجل في النظام لنفس المستخدم.</message>
+
 	<!-- Navigation Menus -->
 	<message key="manager.navigationMenus.form.title">العنوان</message>
 	<message key="manager.navigationMenus.form.path">المسار</message>
-	<message key="manager.navigationMenus">قوائم التنقل</message>
+	<message key="manager.navigationMenus">التنقل</message>
 	<message key="manager.navigationMenus.form.viewInstructions"><![CDATA[<p>هذه الصفحة ستكون متاحة للوصول عند: <blockquote>{$pagesPath}</blockquote>... حيث أن %PATH% هو المسار المدخل أعلاه. <strong>ملاحظة:</strong> لا يمكن لأكثر من صفحة أن يكون لها نفس المسار. استعمالك لتسميات مسارات مطابقة لمسارات النظام قد يؤدي إلى فقدانك لبعض وظائفه الهامة.</p>]]></message>
 	<message key="manager.navigationMenus.form.content">المحتوى</message>
 	<message key="manager.navigationMenus.form.pathRegEx">حقل المسار ينبغي أن يتضمن فقط حروفاً إنجليزية وأرقاماً فضلاً عن '.'، '/'، '-'، و '_'.</message>
@@ -524,4 +628,44 @@
 	<message key="manager.navigationMenus.search.description">رابط إلى صفحة البحث.</message>
 	<message key="manager.navigationMenus.privacyStatement.description">رابط إلى الصفحة التي تعرض بيان الخصوصية.</message>
 	<message key="manager.navigationMenus.privacyStatement.conditionalWarning">هذا الرابط سيظهر فقط إذا سبق لك إدخال بيان الخصوصية ضمن: الإعدادات > المخطط الانسيابي > طلبات التقديم.</message>
+
+	<message key="grid.category.add">إضافة فئة</message>
+	<message key="grid.category.edit">تعديل الفئة</message>
+	<message key="grid.category.name">الاسم</message>
+	<message key="grid.category.path">المسار</message>
+	<message key="grid.category.urlWillBe">رابط مسار الفئة سيكون: {$sampleUrl}</message>
+	<message key="grid.category.pathAlphaNumeric">مسار الفئة لا بد أن يحتوي حروفاً وأرقاماً فقط.</message>
+	<message key="grid.category.pathExists">هذا المسار موجود سلفاً. لطفاً، أدخل مساراً فريداً.</message>
+	<message key="grid.category.description">الوصف</message>
+	<message key="grid.category.parentCategory">الفئة الأعلى</message>
+	<message key="grid.category.removeText">هل أنت متأكد من رغبتك في حذف هذه الفئة؟</message>
+	<message key="grid.category.nameRequired">لطفاً، أدخل اسم الفئة.</message>
+	<message key="grid.category.categoryDetails">تفاصيل الفئة</message>
+
+	<!-- Statistics -->
+	<message key="stats.daily">يومياً</message>
+	<message key="stats.dateRange">مدى زمي</message>
+	<message key="stats.dateRange.allDates">كل التواريخ</message>
+	<message key="stats.dateRange.apply">تطبيق</message>
+	<message key="stats.dateRange.change">تعديل المدى الزمني</message>
+	<message key="stats.dateRange.customRange">مدى مخصص</message>
+	<message key="stats.dateRange.dateDoesNotExist">أحد التواريخ المدخلة غير موجود.</message>
+	<message key="stats.dateRange.from">من</message>
+	<message key="stats.dateRange.instructions">أدخل كل تأريخ بتنسيق YYYY-MM-DD. على سبيل المثال، إذا أردت يوم الخامس عشر من تموز، 2019، أدخل 2019-07-15.</message>
+	<message key="stats.dateRange.invalidDate">تنسيق التأريخ غير صحيح. أدخل كل تأريخ بتنسيق YYYY-MM-DD.</message>
+	<message key="stats.dateRange.invalidDateRange">تأريخ البدء لا بد له أن يكون قبل تأريخ الانتهاء.</message>
+	<message key="stats.dateRange.invalidEndDateMax">تأريخ الانتهاء لا يمكن له أن يكون بعد {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">تأريخ البدء لا يمكن له أن يكون قبل {$date}.</message>
+	<message key="stats.dateRange.last12Months">آخر 12 شهر</message>
+	<message key="stats.dateRange.last30Days">آخر 30 يوم</message>
+	<message key="stats.dateRange.last90Days">آخر 90 يوم</message>
+	<message key="stats.dateRange.sinceDate">منذ {$date}</message>
+	<message key="stats.dateRange.to">إلى</message>
+	<message key="stats.dateRange.untilDate">حتى {$date}</message>
+	<message key="stats.fileViews">معاينات الملف</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">شهرياً</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">البحث حسب العنوان، المؤلف، أو الرمز التعريفي</message>
+	<message key="stats.total">الإجمالي</message>
 </locale>

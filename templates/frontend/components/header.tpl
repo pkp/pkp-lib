@@ -33,7 +33,7 @@
 			<div class="pkp_head_wrapper">
 
 				<div class="pkp_site_name_wrapper">
-					<button class="toggle">
+					<button class="pkp_site_nav_toggle">
 						<span>Open Menu</span>
 					</button>
 					{* Logo or site title. Only use <h1> heading on the homepage.
@@ -73,7 +73,7 @@
 					{/if}
 				</div>
 
-				<div class="menu">
+				<div class="pkp_site_nav_menu">
 				{* Primary site navigation *}
 				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}

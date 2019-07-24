@@ -540,6 +540,11 @@ abstract class PKPSubmissionService {
 								break;
 							}
 						}
+					} else {
+						// workaround for pkp/pkp-lib#4231, pending formal data model
+						$stage['files'] = array(
+							 'count' => 0
+						);
 					}
 					break;
 

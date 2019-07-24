@@ -806,6 +806,11 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 								break;
 							}
 						}
+					} else {
+						// workaround for pkp/pkp-lib#4231, pending formal data model
+						$stage['files'] = array(
+							 'count' => 0
+						);
 					}
 					break;
 

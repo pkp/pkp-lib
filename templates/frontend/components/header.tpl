@@ -85,17 +85,27 @@
 							{* Primary navigation menu for current application *}
 							{$primaryMenu}
 
+
+						<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
+							{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+						</nav>
+
 							{if $currentContext}
 								{* Search form *}
-								{include file="frontend/components/searchForm_simple.tpl"}
+								<nav class="pkp_search_desktop">
+									{include file="frontend/components/searchForm_simple.tpl"}
+								</nav>
+							{/if}
+
+							{if $currentContext}
+								{* Search form *}
+								<nav class="pkp_search_mobile">
+									{include file="frontend/components/searchForm_simple.tpl"}
+								</nav>
 							{/if}
 						</div>
 					</nav>
 				{/if}
-
-				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
-					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
-				</nav>
 				</div>
 
 			</div><!-- .pkp_head_wrapper -->

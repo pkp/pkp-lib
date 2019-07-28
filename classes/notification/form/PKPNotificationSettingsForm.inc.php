@@ -71,6 +71,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
 				'emailSettingName' => 'emailNotificationNewAnnouncement',
 				'settingKey' => 'notification.type.newAnnouncement'),
+			NOTIFICATION_TYPE_EDITORIAL_REPORT => array('settingName' => 'notificationEditorialReport',
+				'emailSettingName' => 'emailNotificationEditorialReport',
+				'settingKey' => 'notification.type.editorialReport')
 		);
 	}
 
@@ -96,6 +99,7 @@ class PKPNotificationSettingsForm extends Form {
 					NOTIFICATION_TYPE_METADATA_MODIFIED,
 					NOTIFICATION_TYPE_NEW_QUERY,
 					NOTIFICATION_TYPE_QUERY_ACTIVITY,
+					NOTIFICATION_TYPE_EDITORIAL_REPORT
 				)
 			),
 			array('categoryKey' => 'notification.type.reviewing',

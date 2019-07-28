@@ -144,11 +144,11 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $level int
 	 * @param $params array
 	 * @param $suppressEmail boolean Whether or not to suppress the notification email.
+	 * @param $mailConfigurator callable Enables the customization of the Notification email
 	 * @return Notification object
 	 */
-	public function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false) {
+	public function createNotification(Request $request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null) {
 		$blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
-
 		if(!in_array($notificationType, $blockedNotifications)) {
 			$notificationDao = DAORegistry::getDAO('NotificationDAO');
 			$notification = $notificationDao->newDataObject(); /** @var $notification Notification */
@@ -166,7 +166,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				$notificationEmailSettings = $this->getUserBlockedEmailedNotifications($userId, $contextId);
 
 				if(!in_array($notificationType, $notificationEmailSettings)) {
-					$this->sendNotificationEmail($request, $notification);
+					$this->sendNotificationEmail($request, $notification, $contextId, $mailConfigurator);
 				}
 			}
 
@@ -367,8 +367,9 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * Send an email to a user regarding the notification
 	 * @param $request PKPRequest
 	 * @param $notification object Notification
+	 * @param $mailConfigurator callable If specified, must return a MailTemplate instance. A ready TemplateMail object will be provided as argument
 	 */
-	private function sendNotificationEmail($request, $notification) {
+	private function sendNotificationEmail(Request $request, Notification $notification, $contextId, callable $mailConfigurator) {
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);
@@ -376,6 +377,11 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 			$context = $request->getContext();
+			if ($contextId && (!$context || $context->getId() != $contextId)) {
+				$contextDao = Application::getContextDAO();
+				$context = $contextDao->getById($contextId);
+			}
+
 			$site = $request->getSite();
 			$mail = $this->getMailTemplate('NOTIFICATION');
 
@@ -391,7 +397,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 				'siteTitle' => $context?$context->getLocalizedName():$site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			if (!$mail->send()) {
+			if (is_callable($mailConfigurator)) {
+				$mail = $mailConfigurator($mail);
+			}
+			if (!$mail->send() && $request->getUser()) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

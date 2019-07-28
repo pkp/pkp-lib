@@ -423,7 +423,6 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		return $values;
 	}
 
-
 	/**
 	 * Build the stats query object for getOrderedSubmissions requests
 	 *
@@ -570,4 +569,13 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 		return $timeSegments;
 	}
 
+	public function getUserStatistics($contextId, $args = array()) {
+		return \DAORegistry::getDAO('MetricsDAO')
+			->getUserStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null, $args['timeSegment'] ?? null);
+	}
+
+	public function getSubmissionStatistics($contextId, $args = array()) {
+		return \DAORegistry::getDAO('MetricsDAO')
+			->getSubmissionStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null, $args['sectionIds'] ?? null, $args['timeSegment'] ?? null);
+	}
 }

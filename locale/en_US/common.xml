@@ -63,6 +63,7 @@
 	<message key="common.assigned">Assigned</message>
 	<message key="common.assigned.date">Assigned: {$dateAssigned}</message>
 	<message key="common.available">Available</message>
+	<message key="common.average">Average</message>
 	<message key="common.back">Back</message>
 	<message key="common.between">between</message>
 	<message key="common.cancel">Cancel</message>
@@ -540,6 +541,7 @@
 	<message key="notification.type.pendingRevisions.title">Revisions submitted to {$stage}.</message>
 	<message key="notification.type.metadataModified">"{$title}'s" metadata has been modified.</message>
 	<message key="notification.type.reviewerComment">A reviewer has commented on "{$title}".</message>
+	<message key="notification.type.editorialReport">Statistics report summary.</message>
 	<message key="notification.signedFile">File considered.</message>
 	<message key="user.authorization.submissionFile">The current user is not authorized to access the specified submission file.</message>
 	<message key="user.authorization.invalidSubmission">Invalid submission.</message>

@@ -23,7 +23,7 @@ class PKPStatsHandler extends Handler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			[ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
-			array('publishedSubmissions')
+			['publishedSubmissions', 'editorialReport']
 		);
 	}
 
@@ -39,14 +39,13 @@ class PKPStatsHandler extends Handler {
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
-
 	//
 	// Public handler methods.
 	//
 	/**
 	 * Display published submissions statistics page
-	 * @param $request PKPRequest
 	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	public function publishedSubmissions($args, $request) {
 		$dispatcher = $request->getDispatcher();
@@ -87,10 +86,10 @@ class PKPStatsHandler extends Handler {
 
 		$items = [];
 		if (!empty($submissionsRecords)) {
-			$propertyArgs = array(
+			$propertyArgs = [
 				'request' => $request,
 				'params' => $params
-			);
+			];
 			$slicedSubmissionsRecords = array_slice($submissionsRecords, 0, $params['count']);
 			foreach ($slicedSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = Application::getPublishedSubmissionDAO();
@@ -175,13 +174,111 @@ class PKPStatsHandler extends Handler {
 			]
 		);
 
-		$data = array(
+		$data = [
 			'itemsMax' => count($submissionsRecords),
 			'items' => $items,
-		);
-
+		];
 		$templateMgr->assign('statsComponent', $statsHandler);
 
 		$templateMgr->display('stats/publishedSubmissions.tpl');
+	}
+
+	/**
+	 * Display editorial report page
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	public function editorialReport($args, Request $request) {
+		$dispatcher = $request->getDispatcher();
+		$context = $request->getContext();
+		$user = $request->getUser();
+
+		if (!$context) {
+			$dispatcher->handle404();
+		}
+
+		AppLocale::requireComponents(
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_PKP_MANAGER,
+			LOCALE_COMPONENT_PKP_SUBMISSION
+		);
+
+		$templateMgr = TemplateManager::getManager($request);
+		$this->setupTemplate($request);
+
+		$dateStart = (new DateTime('-31 days'))->format('Y-m-d');
+		$dateEnd = (new DateTime('yesterday'))->format('Y-m-d');
+
+		$defaultParams = ['timeSegment' => 'year'];
+		$params = [
+			'dateStart' => $dateStart,
+			'dateEnd' => $dateEnd
+		] + $defaultParams;
+
+		import('lib.pkp.controllers.stats.EditorialReportComponentHandler');
+
+		$statsService = \ServicesContainer::instance()->get('stats');
+		$statistics = $statsService->getSubmissionStatistics($context->getId(), $defaultParams);
+		$rangedStatistics = $statsService->getSubmissionStatistics($context->getId(), $params);
+
+		$submissionChartData = EditorialReportComponentHandler::extractSubmissionChartData($statistics);
+
+		$userStatistics = $statsService->getUserStatistics($context->getId(), $defaultParams);
+		$rangedUserStatistics = $statsService->getUserStatistics($context->getId(), $params);
+
+		$editorialStatistics = EditorialReportComponentHandler::extractEditorialStatistics($rangedStatistics, $statistics);
+		$userStatistics = EditorialReportComponentHandler::extractUserStatistics($rangedUserStatistics, $userStatistics);
+
+		$statsHandler = new EditorialReportComponentHandler(
+			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorialReport'),
+			[
+				'submissionsStage' => $submissionChartData,
+				'editorialChartData' => [
+					'labels' => array_map(function ($stage) {
+						return $stage['name'];
+					}, $submissionChartData),
+					'datasets' => [
+						[
+							'label' => __('stats.activeSubmissions'),
+							'data' => array_map(function ($stage) {
+								return $stage['value'];
+							}, $submissionChartData),
+							'backgroundColor' => array_map(function ($stage) {
+								return $stage['color'];
+							}, $submissionChartData)
+						]
+					],
+				],
+				'editorialItems' => $editorialStatistics,
+				'userItems' => $userStatistics,
+				'dateStart' => $dateStart,
+				'dateEnd' => $dateEnd,
+				'dateRangeOptions' => [
+					[
+						'dateStart' => $dateStart,
+						'dateEnd' => $dateEnd,
+						'label' => __('stats.dateRange.last30Days'),
+					],
+					[
+						'dateStart' => (new DateTime('-91 days'))->format('Y-m-d'),
+						'dateEnd' => $dateEnd,
+						'label' => __('stats.dateRange.last90Days'),
+					],
+					[
+						'dateStart' => (new DateTime('-12 months'))->format('Y-m-d'),
+						'dateEnd' => $dateEnd,
+						'label' => __('stats.dateRange.last12Months'),
+					],
+					[
+						'dateStart' => '',
+						'dateEnd' => '',
+						'label' => __('stats.dateRange.allDates'),
+					]
+				]
+			]
+		);
+
+		$templateMgr->assign('statsComponent', $statsHandler);
+		$templateMgr->display('stats/editorialReport.tpl');
 	}
 }

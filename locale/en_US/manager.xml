@@ -170,6 +170,29 @@
 	<message key="manager.reviewerSearch.interests">Reviewing Interests</message>
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.roles">Roles</message>
+	<message key="manager.statistics.editorial">Editorial</message>
+	<message key="manager.statistics.totalWithinDateRange">Total Within Date Range</message>
+	<message key="manager.statistics.editorial.editorialActivity">Editorial Activity</message>
+	<message key="manager.statistics.editorial.trends">Trends</message>
+	<message key="manager.statistics.editorial.externalReview">External Review</message>
+	<message key="manager.statistics.editorial.submissionsActive">Active submissions</message>
+	<message key="manager.statistics.editorial.submissionsReceived">Submissions Received</message>
+	<message key="manager.statistics.editorial.submissionsAccepted">Submissions Accepted</message>
+	<message key="manager.statistics.editorial.submissionsDeclined">Submissions Declined</message>
+	<message key="manager.statistics.editorial.submissionsDeclined.deskReject">Submissions Declined (Desk Reject)</message>
+	<message key="manager.statistics.editorial.submissionsDeclined.postReview">Submissions Declined (Post-Review)</message>
+	<message key="manager.statistics.editorial.submissionsDeclined.other">Submissions Declined (Other)</message>
+	<message key="manager.statistics.editorial.submissionsPublished">Submissions Published</message>
+	<message key="manager.statistics.editorial.averageDaysToDecide">Average Days to First Editorial Decision</message>
+	<message key="manager.statistics.editorial.averageDaysToAccept">Average # Days to Accept</message>
+	<message key="manager.statistics.editorial.averageDaysToReject">Average # Days to Reject</message>
+	<message key="manager.statistics.editorial.acceptanceRate">Acceptance Rate</message>
+	<message key="manager.statistics.editorial.rejectionRate">Rejection Rate</message>
+	<message key="manager.statistics.editorial.deskRejectRate">Desk Reject Rate</message>
+	<message key="manager.statistics.editorial.postReviewRejectRate">Post-Review Reject Rate</message>
+	<message key="manager.statistics.editorial.otherRejectRate">Other Reject Rate</message>
+	<message key="manager.statistics.editorial.registeredUsers">Registered Users</message>
+
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
 		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
@@ -563,6 +586,7 @@
 	<message key="grid.category.categoryDetails">Category Details</message>
 
 	<!-- Statistics -->
+	<message key="stats.activeSubmissions">Active Submissions</message>	
 	<message key="stats.articlesOfTotal">{$count} of {$total} articles</message>
 	<message key="stats.daily">Daily</message>
 	<message key="stats.dateRange">Date Range</message>

@@ -176,27 +176,35 @@ abstract class PKPSubmission extends DataObject {
 	 * locale if possible.
 	 * @param $key string
 	 * @param $preferredLocale string
+	 * @param $returnLocale string Optional reference to string receiving return value's locale
 	 * @return mixed
 	 */
-	function &getLocalizedData($key, $preferredLocale = null) {
+	function &getLocalizedData($key, $preferredLocale = null, &$returnLocale = null) {
 		if (is_null($preferredLocale)) $preferredLocale = AppLocale::getLocale();
 		$localePrecedence = array($preferredLocale, $this->getLocale());
 		foreach ($localePrecedence as $locale) {
 			if (empty($locale)) continue;
 			$value =& $this->getData($key, $locale);
-			if (!empty($value)) return $value;
+			if (!empty($value)) {
+				$returnLocale = $locale;
+				return $value;
+			}
 			unset($value);
 		}
 
 		// Fallback: Get the first available piece of data.
 		$data =& $this->getData($key, null);
-		foreach ((array) $data as $dataValue) {
-			if (!empty($dataValue)) return $dataValue;
+		foreach ((array) $data as $locale => $dataValue) {
+			if (!empty($dataValue)) {
+				$returnLocale = $locale;
+				return $dataValue;
+			}
 		}
 
 		// No data available; return null.
 		unset($data);
 		$data = null;
+		$returnLocale = null;
 		return $data;
 	}
 
@@ -405,9 +413,10 @@ abstract class PKPSubmission extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedTitle($preferredLocale = null, $includePrefix = true) {
-		$title = $this->getLocalizedData('title', $preferredLocale);
+		$titleLocale = null;
+		$title = $this->getLocalizedData('title', $preferredLocale, $titleLocale);
 		if ($includePrefix) {
-			$prefix = $this->getLocalizedPrefix();
+			$prefix = $this->getPrefix($titleLocale);
 			if (!empty($prefix)) $prefix .= ' ';
 			$title = $prefix . $title;
 		}

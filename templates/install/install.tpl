@@ -39,8 +39,8 @@
 			<div class="pkp_notification">
 				{if $dbErrorMsg}
 					{capture assign="errorMsg"}{translate key="common.error.databaseError" error=$dbErrorMsg}{/capture}
-				{else}
-					{capture assign="errorMsg"}{translate key=$errorMsg}{/capture}
+				{elseif $translateErrorMsg}
+					{capture assign="errorMsg"}{translate key=$errorMsg}{/capture}a
 				{/if}
 				{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=installer notificationStyleClass=notifyError notificationTitle="installer.installErrorsOccurred"|translate notificationContents=$errorMsg}
 			</div>

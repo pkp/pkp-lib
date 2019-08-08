@@ -66,7 +66,9 @@ class InstallHandler extends Handler {
 		if ($installForm->validate()) {
 			$installForm->execute();
 		} else {
-			$installForm->display($request);
+			$errors = $installForm->getErrorsArray();
+			$error = array_shift($errors);
+			$installForm->installError($error, false);
 		}
 	}
 

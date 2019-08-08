@@ -41,10 +41,11 @@ class MaintenanceForm extends Form {
 	/**
 	 * Fail with a generic installation error.
 	 * @param $errorMsg string
+	 * @param $translate boolean
 	 */
-	function installError($errorMsg) {
+	function installError($errorMsg, $translate = true) {
 		$templateMgr = TemplateManager::getManager($this->_request);
-		$templateMgr->assign(array('isInstallError' => true, 'errorMsg' => $errorMsg));
+		$templateMgr->assign(array('isInstallError' => true, 'errorMsg' => $errorMsg, 'translateErrorMsg' => $translate));
 		$this->display($this->_request);
 	}
 

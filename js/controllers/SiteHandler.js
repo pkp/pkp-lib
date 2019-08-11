@@ -472,12 +472,13 @@
 			return;
 		}
 
-		if (eventParams.callback === undefined) {
-			return;
-		}
-
 		var id = eventParams.container.attr('id');
-		this.outsideClickChecks_[id] = eventParams;
+
+		if (eventParams.clear) {
+			delete this.outsideClickChecks_[id];
+		} else if (eventParams.callback !== undefined) {
+			this.outsideClickChecks_[id] = eventParams;
+		}
 	};
 
 

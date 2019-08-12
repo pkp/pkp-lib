@@ -86,7 +86,7 @@ class StageParticipantGridRow extends GridRow {
 				$dispatcher = $router->getDispatcher();
 				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
 				$userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
-				$userGroup = $userGroupDAO->getById($userGroupId, $context->getId()); 
+				$userGroup = $userGroupDAO->getById($userGroupId, $context->getId());
 
 				if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
 					$redirectUrl = $dispatcher->url(
@@ -107,7 +107,7 @@ class StageParticipantGridRow extends GridRow {
 						$submission->getId()
 					);
 				}
-				
+
 				$this->addAction(
 					new LinkAction(
 						'logInAs',

@@ -356,7 +356,7 @@ class LoginHandler extends Handler {
 	function signOutAsUser($args, $request) {
 		$session = $request->getSession();
 		$signedInAs = $session->getSessionVar('signedInAs');
-		
+
 		if (isset($signedInAs) && !empty($signedInAs)) {
 			$signedInAs = (int)$signedInAs;
 
@@ -376,7 +376,7 @@ class LoginHandler extends Handler {
 			$redirectUrl = $requestVars['redirectUrl'];
 			$request->redirectUrl($redirectUrl);
 		}
-		else {	
+		else {
 			$this->sendHome($request);
 		}
 	}

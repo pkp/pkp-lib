@@ -52,7 +52,6 @@ class StageParticipantGridRow extends GridRow {
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row.
 			$router = $request->getRouter();
-
 			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 			if ($this->_canAdminister) {
 				$this->addAction(new LinkAction(
@@ -87,6 +86,8 @@ class StageParticipantGridRow extends GridRow {
 			$stageId = $this->getStageId();
 			$stageAssignment = $this->getData();
 			$userId = $stageAssignment->getUserId();
+			$userGroupId = $stageAssignment->getUserGroupId();
+			$context = $request->getContext();
 			$this->addAction(new NotifyLinkAction($request, $submission, $stageId, $userId));
 
 			$user = $request->getUser();
@@ -97,13 +98,36 @@ class StageParticipantGridRow extends GridRow {
 			) {
 				$dispatcher = $router->getDispatcher();
 				import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
+				$userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
+				$userGroup = $userGroupDAO->getById($userGroupId, $context->getId()); 
+
+				if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+					$redirectUrl = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						$context->getPath(),
+						'authorDashboard',
+						'submission',
+						$submission->getId()
+					);
+				} else {
+					$redirectUrl = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						$context->getPath(),
+						'workflow',
+						'access',
+						$submission->getId()
+					);
+				}
+				
 				$this->addAction(
 					new LinkAction(
 						'logInAs',
 						new RedirectConfirmationModal(
 							__('grid.user.confirmLogInAs'),
 							__('grid.action.logInAs'),
-							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $userId)
+							$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signInAsUser', $userId, array('redirectUrl'=> $redirectUrl))
 						),
 						__('grid.action.logInAs'),
 						'enroll_user'

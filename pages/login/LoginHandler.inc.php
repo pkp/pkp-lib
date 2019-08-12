@@ -314,7 +314,6 @@ class LoginHandler extends Handler {
 		if (isset($args[0]) && !empty($args[0])) {
 			$userId = (int)$args[0];
 			$session = $request->getSession();
-
 			if (!Validation::canAdminister($userId, $session->getUserId())) {
 				$this->setupTemplate($request);
 				// We don't have administrative rights
@@ -337,7 +336,12 @@ class LoginHandler extends Handler {
 				$session->setSessionVar('userId', $userId);
 				$session->setUserId($userId);
 				$session->setSessionVar('username', $newUser->getUsername());
-				$this->sendHome($request);
+				$requestVars  = $request->getUserVars();
+				if (isset($requestVars['redirectUrl']) && !empty($requestVars['redirectUrl']) ) {
+					$request->redirectUrl( $requestVars['redirectUrl'] );
+				} else {
+					$this->sendHome($request);
+				}
 			}
 		}
 
@@ -352,7 +356,7 @@ class LoginHandler extends Handler {
 	function signOutAsUser($args, $request) {
 		$session = $request->getSession();
 		$signedInAs = $session->getSessionVar('signedInAs');
-
+		
 		if (isset($signedInAs) && !empty($signedInAs)) {
 			$signedInAs = (int)$signedInAs;
 
@@ -367,8 +371,14 @@ class LoginHandler extends Handler {
 				$session->setSessionVar('username', $oldUser->getUsername());
 			}
 		}
-
-		$this->sendHome($request);
+		$requestVars  = $request->getUserVars();
+		if (isset($requestVars['redirectUrl']) && !empty($requestVars['redirectUrl']) ) {
+			$redirectUrl = $requestVars['redirectUrl'];
+			$request->redirectUrl($redirectUrl);
+		}
+		else {	
+			$this->sendHome($request);
+		}
 	}
 
 

@@ -134,6 +134,7 @@ jQueryObject.prototype.newTab.index = function() {};
 jQueryObject.prototype.newTab.find = function() {};
 jQueryObject.prototype.newPanel = null;
 jQueryObject.prototype.ajaxSettings = null;
+jQueryObject.prototype.jqXHR = null;
 
 /**
  * @constructor

@@ -115,7 +115,8 @@
 
 		var processedJsonData = this.handleJson(jsonData),
 				$noteFormContainer = $('#newNotePlaceholder', this.getHtmlElement()),
-				$queryEditButtons = $('.queryEditButtons.is_loading', this.getHtmlElement());
+				$queryEditButtons = $('.queryEditButtons.is_loading',
+						this.getHtmlElement());
 
 		this.unbindPartial($queryEditButtons);
 		$queryEditButtons.remove();
@@ -134,7 +135,8 @@
 			showFetchedParticipantsList_ = function(ajaxContext, jsonData) {
 
 		var processedJsonData = this.handleJson(jsonData),
-				$participantsListContainer = $('#participantsListPlaceholder', this.getHtmlElement()),
+				$participantsListContainer = $('#participantsListPlaceholder',
+						this.getHtmlElement()),
 				$leaveQueryButton = $('.leaveQueryForm', this.getHtmlElement());
 
 		if (processedJsonData.showLeaveQueryButton) {

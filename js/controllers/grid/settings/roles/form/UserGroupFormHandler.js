@@ -55,7 +55,8 @@
 		// Set the roles that are not able to change
 		// submission metadata edit perissions
 		if (options.notChangeMetadataEditPermissionRoles) {
-			this.notChangeMetadataEditPermissionRoles_ = options.notChangeMetadataEditPermissionRoles;
+			this.notChangeMetadataEditPermissionRoles_ =
+					options.notChangeMetadataEditPermissionRoles;
 		}
 
 		this.roleForbiddenStages_ = options.roleForbiddenStagesJSON.content;
@@ -69,7 +70,7 @@
 		// Initialize the "permit metadata edit" checkbox disabled
 		// state based on the form's current selection
 		this.updatePermitMetadataEdit(
-				/** @type {string} */ ($roleId.val()));
+				/** @type {string} */ ($roleId.val()), false);
 
 		// ...also initialize the stage options, disabling the ones
 		// that are forbidden for the current role.
@@ -127,6 +128,7 @@
 	$.pkp.controllers.grid.settings.roles.form.
 			UserGroupFormHandler.prototype.notChangeMetadataEditPermissionRoles_ = null;
 
+
 	//
 	// Private methods.
 	//
@@ -140,7 +142,7 @@
 		var dropDownValue = $(dropdown).val(); /** @type {string} */
 
 		this.updatePermitSelfRegistration((dropDownValue));
-		this.updatePermitMetadataEdit((dropDownValue), true);
+		this.updatePermitMetadataEdit(/** @type {string} */ (dropDownValue), true);
 
 		// Also update the stages options.
 		this.updateStageOptions(/** @type {string} */ (dropDownValue));
@@ -179,14 +181,16 @@
 		}
 	};
 
+
 	/**
 	 * Update the enabled/disabled state of the PermitMetadataEdit
 	 * checkbox.
 	 * @param {number|string} roleId The role ID to select.
+	 * @param {boolean} roleIdChanged True iff the role ID changed.
 	 */
 	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
-			updatePermitMetadataEdit = function (roleId, roleIdChanged) {
-		var $checkbox = $('[id^="permitMetadataEdit"]'),
+			updatePermitMetadataEdit = function(roleId, roleIdChanged) {
+		var i, $checkbox = $('[id^="permitMetadataEdit"]'),
 				found = false;
 
 		for (i = 0; i < this.notChangeMetadataEditPermissionRoles_.length; i++) {
@@ -207,6 +211,7 @@
 			}
 		}
 	};
+
 
 	/**
 	 * Update the stage options.

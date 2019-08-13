@@ -27,11 +27,9 @@
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.controllers.TabHandler = function($tabs, options) {
-		var pageUrl, pageAnchor, pattern, pageAnchors, tabAnchors, i;
+		var pageUrl, pageAnchor, pattern, pageAnchors, tabAnchors, i,
+				self = this;
 
-		// To make this accessible inside callback functions
-		var self = this;
-		
 		this.parent($tabs, options);
 
 		// Attach the tabs event handlers.
@@ -66,13 +64,13 @@
 		// Render the tabs as jQueryUI tabs.
 		$tabs.tabs({
 			// Enable AJAX-driven tabs with JSON messages.
-			beforeLoad: function (event, ui) {
+			beforeLoad: function(event, ui) {
 				ui.ajaxSettings.dataType = 'json';
 				ui.jqXHR.setRequestHeader('Accept', 'application/json');
 				ui.ajaxSettings.dataFilter = self.callbackWrapper(self.dataFilter);
 			},
 			disabled: options.disabled,
-			active: options.selected,
+			active: options.selected
 		});
 
 		// Load a tab when the URL hash changes to a named tab

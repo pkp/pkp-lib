@@ -120,7 +120,6 @@ class PKPTemplateManager extends Smarty {
 			'currentLocale' => $locale,
 			'pageTitle' => $application->getNameKey(),
 			'applicationName' => __($application->getNameKey()),
-			'activeTheme' => $activeTheme,
 		));
 
 		if (Config::getVar('general', 'installed')) {

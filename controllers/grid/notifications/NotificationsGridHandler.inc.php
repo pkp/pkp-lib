@@ -72,7 +72,7 @@ class NotificationsGridHandler extends GridHandler {
 		$router = $request->getRouter();
 		$this->addAction(
 			new LinkAction(
-				'deleteNotifications',
+				'deleteNotification',
 				new NullAction(),
 				__('grid.action.delete'),
 				'delete'

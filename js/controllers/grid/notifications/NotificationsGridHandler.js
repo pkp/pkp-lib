@@ -36,7 +36,7 @@
 		$grid.find('a[id*="markRead"]').click(
 				this.callbackWrapper(this.markReadHandler_));
 
-		$grid.find('a[id*="deleteNotifications"]').click(
+		$grid.find('a[id*="deleteNotification"]').click(
 				this.callbackWrapper(this.deleteHandler_));
 
 		this.parent($grid, options);

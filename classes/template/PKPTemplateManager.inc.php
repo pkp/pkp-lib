@@ -105,16 +105,6 @@ class PKPTemplateManager extends Smarty {
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
 		$currentContext = $request->getContext();
 
-		$activeTheme = null;
-		$contextOrSite = $currentContext ? $currentContext : $request->getSite();
-		$allThemes = PluginRegistry::getPlugins('themes');
-		foreach ($allThemes as $theme) {
-			if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
-				$activeTheme = $theme;
-				break;
-			}
-		}
-
 		$this->assign(array(
 			'defaultCharset' => Config::getVar('i18n', 'client_charset'),
 			'baseUrl' => $request->getBaseUrl(),
@@ -132,6 +122,19 @@ class PKPTemplateManager extends Smarty {
 			'applicationName' => __($application->getNameKey()),
 			'activeTheme' => $activeTheme,
 		));
+
+		if (Config::getVar('general', 'installed')) {
+			$activeTheme = null;
+			$contextOrSite = $currentContext ? $currentContext : $request->getSite();
+			$allThemes = PluginRegistry::getPlugins('themes');
+			foreach ($allThemes as $theme) {
+				if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
+					$activeTheme = $theme;
+					break;
+				}
+			}
+			$this->assign(['activeTheme' => $activeTheme]);
+		}
 
 		$this->setConstants([
 			'REALLY_BIG_NUMBER',

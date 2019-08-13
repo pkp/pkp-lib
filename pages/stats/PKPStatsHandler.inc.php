@@ -95,7 +95,9 @@ class PKPStatsHandler extends Handler {
 			foreach ($slicedSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = Application::getPublishedSubmissionDAO();
 				$submission = $publishedSubmissionDao->getById($submissionsRecord['submission_id']);
-				$items[] = $statsService->getSummaryProperties($submission, $propertyArgs);
+				if ($submission) {
+					$items[] = $statsService->getSummaryProperties($submission, $propertyArgs);
+				}
 			}
 		}
 

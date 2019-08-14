@@ -543,58 +543,6 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return the localized discipline
-	 * @return string
-	 */
-	function getLocalizedDiscipline() {
-		return $this->getLocalizedData('discipline');
-	}
-
-	/**
-	 * Get discipline
-	 * @param $locale
-	 * @return string
-	 */
-	function getDiscipline($locale) {
-		return $this->getData('discipline', $locale);
-	}
-
-	/**
-	 * Set discipline
-	 * @param $discipline string
-	 * @param $locale
-	 */
-	function setDiscipline($discipline, $locale) {
-		$this->setData('discipline', $discipline, $locale);
-	}
-
-	/**
-	 * Return the localized subject
-	 * @return string
-	 */
-	function getLocalizedSubject() {
-		return $this->getLocalizedData('subject');
-	}
-
-	/**
-	 * Get subject.
-	 * @param $locale
-	 * @return string
-	 */
-	function getSubject($locale) {
-		return $this->getData('subject', $locale);
-	}
-
-	/**
-	 * Set subject.
-	 * @param $subject string
-	 * @param $locale
-	 */
-	function setSubject($subject, $locale) {
-		$this->setData('subject', $subject, $locale);
-	}
-
-	/**
 	 * Return the localized coverage
 	 * @return string
 	 */

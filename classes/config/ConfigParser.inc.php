@@ -103,6 +103,8 @@ class ConfigParser {
 					} else if (defined($value)) {
 						// The value matches a named constant
 						$value = constant($value);
+					} else if (preg_match('/^[A-Z_]+$/', $value) && getenv($value) !== false) {
+						$value = getenv($value);
 					}
 				}
 

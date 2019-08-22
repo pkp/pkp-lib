@@ -581,6 +581,27 @@ class PKPReviewerGridHandler extends GridHandler {
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 
+		//if the review was read by an editor, log event
+		if ($reviewAssignment->isRead()) {
+			import('lib.pkp.classes.log.SubmissionLog');
+			import('classes.log.SubmissionEventLogEntry');
+
+			$submissionId = $reviewAssignment->getSubmissionId();
+			$submissionDao = Application::getSubmissionDAO();
+			$submission = $submissionDao->getById($submissionId);
+
+			SubmissionLog::logEvent(
+				$request,
+				$submission,
+				SUBMISSION_LOG_REVIEW_CONFIRMED,
+				'log.review.reviewConfirmed',
+				array(
+					'userName' => $user->getFullName(),
+					'submissionId' => $reviewAssignment->getSubmissionId(),
+					'round' => $reviewAssignment->getRound()
+				)
+			);
+		}
 		// Remove the reviewer task.
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->deleteByAssoc(

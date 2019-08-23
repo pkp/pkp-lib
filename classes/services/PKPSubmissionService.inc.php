@@ -473,7 +473,10 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $submission->getDateSubmitted();
 					break;
 				case 'dateStatusModified':
-					$values[$prop] = $submission->getDateStatusModified();
+					$values[$prop] = array(
+						'value' => $submission->getDateStatusModified(),
+						'label' => __('common.updated'),
+					);
 					break;
 				case 'lastModified':
 					$values[$prop] = $submission->getLastModified();
@@ -616,6 +619,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$props = array (
 			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
 			'locale', 'urlWorkflow','urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
+			'dateStatusModified',
 		);
 
 		if ($this->canUserViewAuthor($currentUser, $submission)) {

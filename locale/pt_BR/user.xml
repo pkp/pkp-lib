@@ -35,10 +35,12 @@
 	<message key="user.dateRegistered">Data de cadastro</message>
 	<message key="user.editMyProfile">Editar meu perfil</message>
 	<message key="user.email">E-mail</message>
+	<message key="user.givenName">Nome Próprio</message>
 	<message key="user.interests">Área de interesse para avaliação</message>
 	<message key="user.interests.description">(Separe interesses pressionando as teclas enter ou vírgula)</message>
 	<message key="user.gossip">Notas privadas</message>
 	<message key="user.group">Grupo de usuários</message>
+	<message key="user.familyName">Sobrenome</message>
 	<message key="user.profile.form.profileImageInvalid">Formato ou tamanho de imagem inválido para o perfil. Formatos aceitos são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Sua conta foi desabilitada pelo seguinte motivo: {$reason}</message>
 	<message key="user.login.accountDisabled">Sua conta foi desativada. Entre em contato com o administrador para maiores informações.</message>
@@ -71,6 +73,8 @@
 	<message key="user.password">Senha</message>
 	<message key="user.repeatPassword">Repetir senha</message>
 	<message key="user.phone">Telefone</message>
+	<message key="user.preferredPublicName">Nome Público de Preferência</message>
+	<message key="user.preferredPublicName.description">Como você prefere ser tratado(a)? Pronomes de tratamento, nomes do meio e sufixos podem ser adicionados aqui.</message>
 	<message key="user.profile.changePasswordInstructions">Digite as senhas atual e nova para alterar a senha de acesso ao cadastro.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>
 	<message key="user.profile.form.countryRequired">O país é obrigatório.</message>
@@ -98,6 +102,8 @@
 	<message key="user.login.resetPasswordInstructions"><![CDATA[Por razões de segurança, este sistema envia por e-mail uma nova senha ao usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu email abaixo para redefinir sua senha. Uma confirmação será enviada para este endereço de e-mail.]]></message>
 	<message key="user.login.rememberUsernameAndPassword">Mantenha-me conectado</message>
 
+	<message key="user.register.form.privacyConsent"><![CDATA[Sim, eu concordo em ter meus dados coletados e armazenados de acordo com a <a href="{$privacyUrl}" target="_blank">declaração de privacidade</a>.]]></message>
+	<message key="user.register.form.emailConsent">Sim, eu gostaria de ser notificado(a) de novas publicações e anúncios.</message>
 	<message key="user.register.form.emailExists">O endereço de e-mail digitado já está cadastrado.</message>
 	<message key="user.register.form.passwordsDoNotMatch">As senhas não combinam.</message>
 	<message key="user.register.form.emailsDoNotMatch">O e-mail informado nos campos não correspondem.</message>

@@ -32,7 +32,7 @@
 	<div class="pkp_structure_page">
 
 		{* Header *}
-		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
+		<header class="pkp_structure_head" id="headerNavigationContainer">
 			<div class="pkp_head_wrapper">
 
 				<div class="pkp_site_name_wrapper">

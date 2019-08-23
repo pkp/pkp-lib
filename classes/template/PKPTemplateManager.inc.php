@@ -1519,7 +1519,7 @@ class PKPTemplateManager extends Smarty {
 				if ($data['inline']) {
 					$output .= '<script type="text/javascript">' . $data['script'] . '</script>';
 				} else {
-					$output .= '<script src="' . $data['script'] . '" type="text/javascript"></script>';
+					$output .= '<script src="' . $data['script'] . '"></script>';
 				}
 			}
 		}

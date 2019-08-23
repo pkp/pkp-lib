@@ -146,4 +146,17 @@
 	<message key="user.apiKey.generate">Згенерувати новий ключ API</message>
 	<message key="user.apiKey.generateWarning">Створення нового ключа API призведе до того, що існуючий ключ стане недійсним для цього користувача.</message>
 	<message key="user.apiKey.secretRequired">Перед створенням ключа API адміністратор вашого сайту повинен встановити таємний код у файлі конфігурації ("api_key_secret").</message>
+	<message key="user.authorization.assignedStageRoleBasedAccessDenied">Ви не були призначені для цього подання з роллю, що дозволяє доступ до цієї операції. Роль, яка Вам надана, не дозволяє робити таку операцію.</message>
+	<message key="user.authorization.invalidReviewAssignment">Ви не маєте дозволу на доступ до цього призначення перегляду.</message>
+	<message key="user.authorization.submissionQuery">Ви не маєте дозволу на доступ до цієї дискусії.</message>
+	<message key="user.givenName">Ім'я</message>
+	<message key="user.familyName">Прізвище</message>
+	<message key="user.preferredPublicName">Бажане загальнодоступне ім’я</message>
+	<message key="user.preferredPublicName.description">Як ви вважаєте за краще звертатися? Привітання, прізвища та суфікси можна додати тут, якщо хочете.</message>
+	<message key="user.profile.form.givenNameRequired">Потрібне ім'я.</message>
+	<message key="user.profile.form.givenNameRequired.locale">Ви додали прізвище для мови, на якій відсутнє вказане ім'я. Будь ласка, додайте дане ім'я для цієї мови.</message>
+	<message key="user.profile.form.privacyConsentRequired">Ви повинні погодитися з умовами заяви про конфіденційність.</message>
+	<message key="user.register.form.emailConsent">Так, я хотів би отримувати повідомлення про нові публікації та оголошення.</message>
+	<message key="user.register.form.privacyConsent"><![CDATA[Так, я згоден, що мої дані збираються і зберігаються відповідно до <a href="{$privacyUrl}" target="_blank"> заяви про конфіденційність </a>.]]></message>
+	<message key="user.privacyLink"><![CDATA[Ваші дані зберігаються відповідно до нашої <a href="{$privacyUrl}" target="_blank"> заяви про конфіденційність</a>.]]></message>
 </locale>

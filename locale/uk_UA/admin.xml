@@ -65,14 +65,20 @@
 	<message key="admin.server.phpVersion">Версія PHP</message>
 	<message key="admin.server.platform">Операційна платформа</message>
 	<message key="admin.settings">Налаштування</message>
-	<message key="admin.settings.about">Інформація про сайт</message>
+	<message key="admin.settings.aboutDescription">Інформація про сайт</message>
 	<message key="admin.settings.contactEmail">Email основної контактної особи</message>
 	<message key="admin.settings.contactName">Ім'я основної контактної особи</message>
+	<message key="admin.settings.form.contactEmailRequired">Необхідно вказати адресу електронної пошти основної контактної особи.</message>
+	<message key="admin.settings.form.contactNameRequired">Необхідно вказати ім'я основної контактної особи.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Необхідно вказати мінімальну довжину пароля (не менше 4 символів).</message>
+	<message key="admin.settings.form.titleRequired">Необхідно вказати назву.</message>
 	<message key="admin.settings.defaultMetricDescription">
 		Ваша установка налаштована для запису більш ніж одного показника використання. Статистика використання відображатиметься в декількох контекстах.
 		Трапляються випадки, коли має бути використана лише одна статистика використання, наприклад, щоб відобразити впорядкований список матеріалів, які використовуються найчастіше або ранжувати результати пошуку.
 		Будь ласка, оберіть одну з налаштованих метрик як усталену.
 	</message>
+	<message key="admin.settings.homeHeaderImage.altText">Логотип сайту</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Неприпустимий формат зображення логотипу. Припустимі формати .gif, .jpg, або .png.</message>
 	<message key="admin.settings.introduction">Вступ</message>
 	<message key="admin.settings.minPasswordLength">Мінімальна довжина пароля</message>
 	<message key="admin.settings.siteLanguage">Мова сайту</message>
@@ -124,4 +130,5 @@
 	<message key="admin.error.utilExecutionProblem">Виконання програми «{$utilPath}» завершилось такою помилкою: {$output}</message>
 	<message key="admin.error.executingUtil">Помилка: не можу виконати «{$utilPath}». Перевірте ваші налаштування {$utilVar} у файлі config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">Відсутні мови для завантаження.</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">Дійсно змінити основну локалізацію сайту? Імена користувачів, які потрібні на основній локалі сайту, будуть скопійовані з існуючої основної локалі, де вони відсутні.</message>
 </locale>

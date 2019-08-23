@@ -58,6 +58,9 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/** @var bool|null whether to return only submissions with overdue review assignments */
 	protected $isOverdue = false;
 
+	/** @var bool whether to return only submissions that have not been modified for last 30 days */
+	protected $isInactive = false;
+
 	/**
 	 * Constructor
 	 *
@@ -154,6 +157,18 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function filterByOverdue($isOverdue) {
 		$this->isOverdue = $isOverdue;
+		return $this;
+	}
+
+	/**
+	 * Set inactive submissions filter
+	 *
+	 * @param boolean $isInactive
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByInactivity($isInactive) {
+		$this->isInactive = $isInactive;
 		return $this;
 	}
 
@@ -258,6 +273,11 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		// incomplete submissions
 		if ($this->isIncomplete) {
 			$q->where('s.submission_progress', '>', 0);
+		}
+
+		//inactive for 30 days
+		if ($this->isInactive) {
+			$q->where('s.date_status_modified', '<', \Core::getCurrentDate(strtotime('-30 days')));
 		}
 
 		// overdue submisions

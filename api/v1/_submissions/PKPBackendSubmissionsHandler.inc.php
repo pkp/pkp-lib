@@ -134,6 +134,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 					break;
 
 				case 'isIncomplete':
+				case 'isInactive':
 				case 'isOverdue':
 					$params[$param] = true;
 			}

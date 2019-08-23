@@ -328,6 +328,7 @@
 	<message key="submissions.completed">Completed</message>
 	<message key="submissions.declined">Declined</message>
 	<message key="submissions.incomplete">Incomplete</message>
+	<message key="submissions.inactive">Inactive for {$days} days</message>
 	<message key="submissions.noSubmissions">No Submissions</message>
 	<message key="submissions.queuedEditing">In Editing</message>
 	<message key="submissions.queued">Queued</message>

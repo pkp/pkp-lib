@@ -104,6 +104,11 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 						'val' => true,
 						'title' => __('submissions.incomplete'),
 					),
+					array(
+						'param' => 'isInactive',
+						'val' => true,
+						'title' => __('submissions.inactive',array('days' => '30')),
+					),
 				),
 			),
 			'stageIds' => array(

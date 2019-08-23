@@ -878,7 +878,7 @@ class PKPTemplateManager extends Smarty {
 		if ($instance === null) {
 			$instance = new TemplateManager();
 			$themes = PluginRegistry::getPlugins('themes');
-			if (is_null($themes)) {
+			if (empty($themes)) {
 				$themes = PluginRegistry::loadCategory('themes', true);
 			}
 			$instance->initialize($request);
@@ -1435,6 +1435,11 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$appVersion = $versionDao->getCurrentVersion()->getVersionString();
+		} else $appVersion = null;
+
 		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);
 
 		ksort($stylesheets);
@@ -1445,6 +1450,9 @@ class PKPTemplateManager extends Smarty {
 				if (!empty($style['inline'])) {
 					$output .= '<style type="text/css">' . $style['style'] . '</style>';
 				} else {
+					if ($appVersion && strpos($style['style'], '?') === false) {
+						$style['style'] .= '?v=' . $appVersion;
+					}
 					$output .= '<link rel="stylesheet" href="' . $style['style'] . '" type="text/css" />';
 				}
 			}
@@ -1509,6 +1517,11 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
+		} else $appVersion = null;
+
 		$scripts = $this->getResourcesByContext($this->_javaScripts, $params['context']);
 
 		ksort($scripts);
@@ -1519,6 +1532,9 @@ class PKPTemplateManager extends Smarty {
 				if ($data['inline']) {
 					$output .= '<script type="text/javascript">' . $data['script'] . '</script>';
 				} else {
+					if ($appVersion && strpos($data['script'], '?') === false) {
+						$data['script'] .= '?v=' . $appVersion;
+					}
 					$output .= '<script src="' . $data['script'] . '"></script>';
 				}
 			}
@@ -1574,7 +1590,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Don't load menus for an area that's not registered by the active theme
 		$themePlugins = PluginRegistry::getPlugins('themes');
-		if (is_null($themePlugins)) {
+		if (empty($themePlugins)) {
 			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
 		$activeThemeNavigationAreas = array();

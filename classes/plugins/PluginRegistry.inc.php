@@ -26,10 +26,14 @@ class PluginRegistry {
 	 * category is not specified, all plugins in an associative array of
 	 * arrays by category.
 	 * @param $category String the name of the category to retrieve
+	 * @return array Reference to array of plugins
 	 */
 	static function &getPlugins($category = null) {
 		$plugins =& Registry::get('plugins', true, array());
-		if ($category !== null) return $plugins[$category];
+		if ($category !== null) {
+			if (!isset($plugins[$category])) $plugins[$category] = array();
+			return $plugins[$category];
+		}
 		return $plugins;
 	}
 
@@ -39,7 +43,7 @@ class PluginRegistry {
 	static function &getAllPlugins() {
 		$plugins =& PluginRegistry::getPlugins();
 		$allPlugins = array();
-		if (is_array($plugins)) foreach ($plugins as $list) {
+		if (!empty($plugins)) foreach ($plugins as $list) {
 			if (is_array($list)) $allPlugins += $list;
 		}
 		return $allPlugins;
@@ -94,6 +98,7 @@ class PluginRegistry {
 	 *  request but sometimes there is no context in the request
 	 *  (e.g. when executing CLI commands). Then the main context
 	 *  can be given as an explicit ID.
+	 * @return array Set of plugins, sorted in sequence.
 	 */
 	static function loadCategory ($category, $enabledOnly = false, $mainContextId = null) {
 		$plugins = array();
@@ -146,6 +151,11 @@ class PluginRegistry {
 		// Fire a hook after all plugins of a category have been loaded, so they
 		// are able to interact if required
 		HookRegistry::call('PluginRegistry::categoryLoaded::' . $category, array(&$plugins));
+
+		// Sort the plugins by priority before returning.
+		uasort($plugins, function($a, $b) {
+			return $a->getSeq() - $b->getSeq();
+		});
 
 		return $plugins;
 	}

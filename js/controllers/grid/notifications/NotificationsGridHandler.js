@@ -29,13 +29,14 @@
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler =
 			function($grid, options) {
-		$grid.find('a[id*="markNew"]').mousedown(
+
+		$grid.find('a[id*="markNew"]').click(
 				this.callbackWrapper(this.markNewHandler_));
 
-		$grid.find('a[id*="markRead"]').mousedown(
+		$grid.find('a[id*="markRead"]').click(
 				this.callbackWrapper(this.markReadHandler_));
 
-		$grid.find('a[id*="deleteNotifications"]').mousedown(
+		$grid.find('a[id*="deleteNotifications"]').click(
 				this.callbackWrapper(this.deleteHandler_));
 
 		this.parent($grid, options);

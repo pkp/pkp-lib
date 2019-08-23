@@ -495,7 +495,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	function getMetricTypes($withDisplayNames = false) {
 		// Retrieve site-level report plugins.
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
-		if (!is_array($reportPlugins)) return array();
+		if (empty($reportPlugins)) return array();
 
 		// Run through all report plugins and retrieve all supported metrics.
 		$metricTypes = array();
@@ -600,7 +600,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$contextId = CONTEXT_SITE;
 		}
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, $contextId);
-		if (!is_array($reportPlugins)) return null;
+		if (empty($reportPlugins)) return null;
 
 		// Run through all report plugins and try to retrieve the requested metrics.
 		$report = array();
@@ -675,9 +675,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the Creative Commons license badge associated with a given
 	 * license URL.
 	 * @param $ccLicenseURL URL to creative commons license
+	 * @param $locale string Optional locale to return badge in
 	 * @return string HTML code for CC license
 	 */
-	function getCCLicenseBadge($ccLicenseURL) {
+	function getCCLicenseBadge($ccLicenseURL, $locale = null) {
 		$licenseKeyMap = array(
 			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc-nd/4.0[/]?|' => 'submission.license.cc.by-nc-nd4.footer',
 			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc/4.0[/]?|' => 'submission.license.cc.by-nc4.footer',
@@ -686,11 +687,12 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'|http[s]?://(www\.)?creativecommons.org/licenses/by/4.0[/]?|' => 'submission.license.cc.by4.footer',
 			'|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/4.0[/]?|' => 'submission.license.cc.by-sa4.footer',
 		);
+		if ($locale === null) $locale = AppLocale::getLocale();
 
 		foreach($licenseKeyMap as $pattern => $key) {
 			if (preg_match($pattern, $ccLicenseURL)) {
-				PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-				return __($key);
+				PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, $locale);
+				return __($key, array(), $locale);
 			}
 		}
 		return null;

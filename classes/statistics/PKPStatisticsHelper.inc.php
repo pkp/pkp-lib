@@ -150,7 +150,7 @@ abstract class PKPStatisticsHelper {
 
 		// Retrieve site-level report plugins.
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
-		if (!is_array($reportPlugins) || empty($metricType)) {
+		if (empty($reportPlugins) || empty($metricType)) {
 			return $returner;
 		}
 
@@ -180,7 +180,7 @@ abstract class PKPStatisticsHelper {
 	function getAllMetricTypeStrings() {
 		$allMetricTypes = array();
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
-		if (is_array($reportPlugins)) {
+		if (!empty($reportPlugins)) {
 			foreach ($reportPlugins as $reportPlugin) {
 				/* @var $reportPlugin ReportPlugin */
 				$reportMetricTypes = $reportPlugin->getMetricTypes();

@@ -53,9 +53,10 @@
 	<message key="common.name">الاسم</message>
 	<message key="common.all">الكل</message>
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z أ ب  ت ث  ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي</message>
-	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with و أو من إلى في على عن كل إلا</message>
+	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم</message>
 	<message key="common.alreadyAssigned">معيَّن سابقاً</message>
 	<message key="common.altText">النص البديل</message>
+	<message key="common.altTextInstructions">أعط وصفاً لزوار الموقع عن هذه الصورة ليظهر لهم عند استعمالهم لمستعرضات لا تدعم الصور أو تلك المخصصة لأجهزة مساعدة ذوي الاحتياجات الخاصة. مثلاً: "محررنا يتحدث في المؤتمر."</message>
 	<message key="common.and">و</message>
 	<message key="common.applyAction">أجرِ اللازم</message>
 	<message key="common.assign">عيِّن</message>
@@ -82,14 +83,14 @@
 			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br />
-		هذا العمل مرخص ضمن رخصة <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
+		هذا العمل مرخص بموجب رخصة <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
 	]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[
 	<div class="rtBlock">
 		<br />
 		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		هذا العمل مرخص ضمن رخصة <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
+		هذا العمل مرخص بموجب رخصة <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
 	</div>
 	]]></message>
 	<message key="common.changesSaved">تم حفظ تعديلاتك.</message>
@@ -109,6 +110,7 @@
 	<message key="common.country">البلد</message>
 	<message key="common.create">أنشئ</message>
 	<message key="common.dateCompleted">تأريخ إكماله</message>
+	<message key="common.dateDecided">تأريخ تقريره</message>
 	<message key="common.date">التأريخ</message>
 	<message key="common.dateModified">تأريخ تعديله</message>
 	<message key="common.dateRequested">تأريخ استدعائه</message>
@@ -155,6 +157,7 @@
 	<message key="common.filterAdd">إضافة التصفية: {$filterTitle}</message>
 	<message key="common.filterRemove">تصفير التصفية: {$filterTitle}</message>
 	<message key="common.from">من</message>
+	<message key="common.fromWithValue">من: {$value}</message>
 	<message key="common.until">حتى</message>
 	<message key="common.go">إذهب</message>
 	<message key="common.height">الارتفاع</message>
@@ -171,7 +174,8 @@
 	<message key="common.languages">اللغات</message>
 	<message key="common.less">أقل</message>
 	<message key="common.lessThan">{$value} أو أقل</message>
-	<message key="common.listSeparator">، </message>
+	<message key="common.commaListSeparator">، </message>
+	<message key="common.semicolonListSeparator">؛ </message>
 	<message key="common.manage">إدارة</message>
 	<message key="common.mailingAddress">عنوان المراسلة</message>
 	<message key="common.billingAddress">عنوان الفواتير (إذا اختلف)</message>
@@ -183,6 +187,7 @@
 	<message key="common.noneAssigned">لا أحد معَيَّن</message>
 	<message key="common.none">لا أحد</message>
 	<message key="common.no">لا</message>
+	<message key="common.noItemsFound">لا فقرات هنا.</message>
 	<message key="common.noComments">لا تعليقات</message>
 	<message key="common.notApplicable">غير مطبق</message>
 	<message key="common.notApplicableShort">بلا</message>
@@ -198,14 +203,17 @@
 	<message key="common.ok">تمام</message>
 	<message key="common.options">خيارات</message>
 	<message key="common.order">ترتيب</message>
-	<message key="common.orderUp">زيادة موقع {$itemTitle}</message>
-	<message key="common.orderDown">تقليل موقع {$itemTitle}</message>
+	<message key="common.orderUp">رفع موضع {$itemTitle}</message>
+	<message key="common.orderDown">تنزيل موضع {$itemTitle}</message>
 	<message key="common.originalFileName">الاسم الأصلي للملف</message>
 	<message key="common.or">أو</message>
 	<message key="common.other">غير ذلك</message>
 	<message key="common.overdue">متأخر</message>
 	<message key="common.pagination">{$start}-{$end} من {$total}</message>
-	<message key="common.pagination.label">إستعرض المزيد من الصفحات</message>
+	<message key="common.pagination.label">معاينة الصفحات الإضافية</message>
+	<message key="common.pagination.goToPage">إذهب إلى {$page}</message>
+	<message key="common.pagination.next">الصفحة التالية</message>
+	<message key="common.pagination.previous">الصفحة السابقة</message>
 	<message key="common.pageNumber">الصفحة {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">البرنامج الإضافي</message>
@@ -256,6 +264,7 @@
 	<message key="common.suggest">إقترح</message>
 	<message key="common.title">العنوان</message>
 	<message key="common.top">أعلى</message>
+	<message key="common.toWithValue">إلى: {$value}</message>
 	<message key="common.true">صحيح</message>
 	<message key="common.type">النوع</message>
 	<message key="common.component">المكون</message>
@@ -268,6 +277,8 @@
 	<message key="common.uploadFailed">تعذر رفع الملف أو تنقيحه.</message>
 	<message key="common.up">أعلى</message>
 	<message key="common.upload.addFile">رفع الملف</message>
+	<message key="common.upload.restore">استعادة الأصلي</message>
+	<message key="common.upload.thumbnailPreview">معاينة الصورة المختارة حالياً.</message>
 	<message key="common.upload.changeFile">تغيير الملف</message>
 	<message key="common.upload.dragFile">إسحب الملف وأسقطه هنا للبدء برفعه</message>
 	<message key="common.url">الرابط</message>
@@ -306,6 +317,7 @@
 	<message key="email.compose">أرسل رسالة الكترونية</message>
 	<message key="email.compose.tooManyRecipients">الرسالة التي تحاول إرسالها تتضمن العديد من العناوين.</message>
 	<message key="email.compose.tooSoon">لم تمض إلا برهة على إرسال رسالتك الأخيرة. لطفاً، تريث قليلاً قبل إرسال المزيد من الرسائل.</message>
+	<message key="email.compose.error">حدثت مشكلة عند إرسال الرسالة. لطفاً، حاول فيما بعد، أو اتصل بالمشرف على النظام.</message>
 	<message key="email.email">البريد الالكتروني</message>
 	<message key="email.from">من</message>
 	<message key="email.invalid">عنوان البريد الالكتروني {$email} غير صحيح.</message>
@@ -325,21 +337,46 @@
 	<message key="form.confirmSubmit">هل أنت متأكد من رغبتك في تقديم هذا النموذج؟</message>
 	<message key="form.confirmSubmit.title">تأكيد</message>
 	<message key="form.emailRequired">عنوان البريد الالكتروني مطلوب حتماً.</message>
-	<message key="form.dataHasChanged">البيانات في هذا النموذج تغيرت. تستمر رغم ذلك؟</message>
+	<message key="form.dataHasChanged">البيانات في هذا النموذج تغيرت. تستمر رغم ذلك وبدون حفظها؟</message>
+	<message key="form.disallowedLocales">اللغات الآتية فقط متاحة: {$languages}.</message>
+	<message key="form.disallowedProp">هذه الخاصية غير متاحة.</message>
+	<message key="form.dropzone.dictDefaultMessage">أفلت الملفات هنا لرفعها</message>
+	<message key="form.dropzone.dictFallbackMessage">مستعرض الإنترنت الذي تستعمله لا يدعم رفع الملفات عبر السحب والإفلات.</message>
+	<message key="form.dropzone.dictFallbackText">لطفاً، استعمل النموذج البديل أدناه لرفع ملفاتك.</message>
+	<message key="form.dropzone.dictFileTooBig">حجم الملف كبير جداً ({{filesize}}mb). الملفات الأكبر من {{maxFilesize}}mb لا يمكن رفعها إلى الموقع.</message>
+	<message key="form.dropzone.dictInvalidFileType">الملفات من هذا النوع لا يمكن رفعها هنا.</message>
+	<message key="form.dropzone.dictResponseError">أجاب الملقم برسالة الخطأ ذات الرمز {{statusCode}}. لطفاً، اتصل بالمشرف على النظام إذا تكرر هذا الخطأ مراراً.</message>
+	<message key="form.dropzone.dictCancelUpload">إلغاء الرفع</message>
+	<message key="form.dropzone.dictUploadCanceled">ألغيت عملية الرفع</message>
+	<message key="form.dropzone.dictCancelUploadConfirmation">هل أنت متأكد من رغبتك في إلغاء رفع الملفات؟</message>
+	<message key="form.dropzone.dictRemoveFile">إزالة الملف</message>
+	<message key="form.dropzone.dictMaxFilesExceeded">يتعذر عليك رفع المزيد من الملفات هنا.</message>
+	<message key="form.errorA11y">إذهب إلى {$fieldLabel}: {$errorMessage}</message>
+	<message key="form.errorGoTo">الفقز إلى الخطأ التالي</message>
+	<message key="form.errorOne">لطفاً، صحح خطأً واحداً.</message>
+	<message key="form.errorMany">لطفاً، صحح {$count} خطأ/أخطاء.</message>
+	<message key="form.errors">تعذر حفظ النموذج لوجود {$count} خطأ/أخطاء. لطفاً، أجر التصحيحات اللازمة ثم حاول مجدداً.</message>
+	<message key="form.errorUnknown">حدث خطأ غير متوقع. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم حاول مجدداً.</message>
 	<message key="form.errorsOccurred">حدثت أخطاء عند معالجة هذا النموذج</message>
 	<message key="form.formLanguage.description">لإدخال البيانات أدناه بلغات أخرى أيضاً، لطفاً، إختر اللغة أولاً.</message>
 	<message key="form.formLanguage">لغة النموذج</message>
 	<message key="form.contains">يتضمن</message>
 	<message key="form.is">هو</message>
+	<message key="form.missingRequired">هذا الحقل مطلوب حتماً.</message>
 	<message key="form.startsWith">يبدأ بـ</message>
 	<message key="form.postRequired">لم يتم تقديم النموذج بالشكل الصحيح.</message>
+	<message key="form.csrfInvalid">تعذر تقديم النموذج. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم حاول مجدداً.</message>
 	<message key="form.fileRequired">لا بد من تحميل ملف.</message>
 	<message key="form.required">(* مطلوب حتماً)</message>
+	<message key="form.requirePrimaryLocale">عليك إدخال محتوى في هذا الحقل بلغة {$language}.</message>
+	<message key="form.requireId">لا بد لك من تقديم رمز تعريف صحيح.</message>
 	<message key="form.resubmit">إعادة التقديم</message>
 	<message key="form.saveToUpload">استعمل (حفظ) لرفع الملف.</message>
 	<message key="form.send">إرسال</message>
 	<message key="form.submit">تقديم</message>
 	<message key="form.invalidImage">تم رفع صورة غير صحيحة. الصيغ المقبولة هي .png، .gif، أو .jpg.</message>
+	<message key="form.multilingualLabel">{$label} بـ {$localeName}</message>
+	<message key="form.multilingualProgress">{$count}/{$total} من اللغات مكتملة</message>
 	<message key="help.help">المساعدة</message>
 	<message key="help.toc">جدول المحتويات</message>
 	<message key="help.previous">السابق</message>
@@ -378,9 +415,13 @@
 	<message key="stageParticipants.notify.startDiscussion.description">إبدأ المناقشة فيما بينك و {$userFullName}.</message>
 	<message key="stageParticipants.notify.chooseMessage">إختر رسالة مسبقة التعريف لإرسالها، أو إملأ النموذج أدناه.</message>
 	<message key="stageParticipants.notify.message">الرسالة</message>
-	<message key="stageParticipants.notify.warning">لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت جهة واحدة على الأقل لمراسلتها.</message>
+	<message key="stageParticipants.notify.warning">لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت شخصاً آخر غيرك لمراسلته.</message>
 	<message key="stageParticipants.options">صلاحيات التعيين</message>
 	<message key="stageParticipants.recommendOnly">هذا المشارك يُسمح له فقط بتقديم التوصية بشأن قرار التحرير وسيكون بحاجة إلى الاستعانة بمحرر مخول لتسجيل قرارات هيئة التحرير.</message>
+	<message key="stageParticipants.submissionEditMetadataOptions">صلاحيات تعديل البيانات الوصفية لطلب التقديم.</message>
+	<message key="stageParticipants.canChangeMetadata">السماح لهذا المستخدم بتعديل البيانات الوصفية لطلب التقديم</message>
+	<message key="stageParticipants.selectedUser">المشارك</message>
+	<message key="stageParticipants.noOptionsToHandle">لا يمكن إجراء تعديلات على هذا المشارك</message>
 
 	<message key="locale.primary">اللغة الأولية</message>
 	<message key="locale.supported">اللغات المدعومة</message>
@@ -414,6 +455,7 @@
 	<message key="navigation.settings">الإعدادات</message>
 	<message key="navigation.setup">التهيئة</message>
 	<message key="navigation.sitemap">خارطة الموقع</message>
+	<message key="navigation.skip.announcements">إقفز إلى الإعلانات</message>
 	<message key="navigation.skip.main">إقفز إلى المحتوى الرئيسي</message>
 	<message key="navigation.skip.nav">إقفز إلى قائمة التنقل الرئيسية</message>
 	<message key="navigation.skip.footer">إقفز إلى نهاية الموقع</message>
@@ -471,7 +513,7 @@
 	<message key="search.dateFrom">من</message>
 	<message key="search.dateTo">حتى</message>
 	<message key="search.deleteFilter">حذف</message>
-	<message key="search.discipline">التخصص أو التخصصات العلمية</message>
+	<message key="search.discipline">التخصصات العلمية</message>
 	<message key="search.fullText">النص الكامل</message>
 	<message key="search.indexTerms">عبارات الفهرسة</message>
 	<message key="search.indexTermsLong">كل حقول عبارة الفهرسة</message>
@@ -518,12 +560,15 @@
 	<message key="notification.addedReviewer">{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا كما قد تمت مراسلته بهذا الشأن.</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا الشأن بعد.</message>
 	<message key="notification.removedReviewer">المحكم أُزيل.</message>
+	<message key="notification.cancelledReviewer">المحكم أُلغي.</message>
+	<message key="notification.reinstatedReviewer">المحكم أُعيد.</message>
 	<message key="notification.addedStageParticipant">أضيف المستخدم بمثابة مشارك مرحلي.</message>
+	<message key="notification.editStageParticipant">تعيينات المرحلة قد تغيرت.</message>
 	<message key="notification.type.newAnnouncement">إشعار جديد.</message>
 	<message key="notification.type.reviewAssignment">التحكيم مؤجل.</message>
 	<message key="notification.type.reviewAssignmentUpdated">مهمة التحكيم حُدِّثَت.</message>
 	<message key="notification.type.auditorRequest">إلتماس متابعة للملف "{$file}"</message>
-	<message key="notification.type.allReviewsIn">كل التحكيمات واردة والقرار مطلوب في {$stage}.</message>
+	<message key="notification.type.allReviewsIn">كل المحكمين وردت تحكيماتهم والقرار مطلوب في {$stage}.</message>
 	<message key="notification.type.allRevisionsIn">تم رفع ملف منقح ليأخذ به المحرر في {$stage}.</message>
 	<message key="notification.type.pendingRevisions">التحكيمات التي ينبغي الأخذ بها في {$stage}.</message>
 	<message key="notification.type.pendingRevisions.title">التحكيمات المقدمة إلى {$stage}.</message>
@@ -554,4 +599,68 @@
 	<!-- List Handlers -->
 	<message key="list.viewMore">أظهر المزيد من التفاصيل عن {$name}</message>
 	<message key="list.viewLess">أخفِ التفاصيل الموسعة بشأن {$name}</message>
+
+	<!-- Error messages for the validation rules in the Validator-->
+	<message key="validator.accepted">لطفاً، إقبل هذه الفقرة..</message>
+	<message key="validator.active_url">هذا ليس رابطاً صحيحاً.</message>
+	<message key="validator.after">هذا التأريخ لا بد أن يكون بعد {$date}.</message>
+	<message key="validator.alpha">هذا ينبغي أن يحتوي حروفاً فقط.</message>
+	<message key="validator.alpha_dash">هذا ينبغي أن يحتوي حروفاً، أرقاماً، شُرطاً وخطوطاً تحتانية فقط.</message>
+	<message key="validator.alpha_num">هذا ينبغي أن يحتوي حروفاً وأرقاماً فقط.</message>
+	<message key="validator.array">هذه ليست مصفوفة صحيحة.</message>
+	<message key="validator.before">هذا التأريخ لا بد أن يكون قبل {$date}.</message>
+	<message key="validator.between.numeric">هذا ينبغي أن يكون ما بين {$min} و {$max}.</message>
+	<message key="validator.between.file">هذا ينبغي أن يكون ما بين {$min} و {$max} كيلو بايت.</message>
+	<message key="validator.between.string">هذا ينبغي أن يكون ما بين {$min} و {$max} حرفاً/حروفاً.</message>
+	<message key="validator.between.array">هذا ينبغي أن يحتوي ما بين {$min} و {$max} فقرة/فقرات.</message>
+	<message key="validator.boolean">هذا الحقل لا بد أن يكون صحيحاً أو خاطئاً.</message>
+	<message key="validator.confirmed">التحقق من هذا الحقل لا يتوافق.</message>
+	<message key="validator.currency">هذه ليست عملة صحيحة.</message>
+	<message key="validator.date">هذا ليس تأريخاً صحيحاً.</message>
+	<message key="validator.date_format">هذا لا يتوافق مع التنسيق {$format}.</message>
+	<message key="validator.different">إن {$attribute} و {$other} لا بد لهما أن يكونا مختلفين.</message>
+	<message key="validator.digits">هذا لا بد له أن يكون من {$digits} مرتبة رقمية.</message>
+	<message key="validator.digits_between">هذا لا بد له أن يكون ما بين {$min} و {$max} مرتبة رقمية.</message>
+	<message key="validator.email">هذا ليس عنواناً بريدياً صحيحاً.</message>
+	<message key="validator.exists">إن {$attribute} المختارة غير صحيحة.</message>
+	<message key="validator.filled">هذا الحقل مطلوب.</message>
+	<message key="validator.image">هذه لا بد أن تكون صورة.</message>
+	<message key="validator.in">إن {$attribute} المختارة غير صحيحة.</message>
+	<message key="validator.integer">هذا ليس عدداً صحيحاً.</message>
+	<message key="validator.ip">هذا ليس عنواناً صحيحاً لـ IP.</message>
+	<message key="validator.issn">هذا ليس رقماً معيارياً صحيحاً.</message>
+	<message key="validator.json">هذه ليست عبارة صحيحة بلغة JSON.</message>
+	<message key="validator.locale">هذه اللغة غير مقبولة.</message>
+	<message key="validator.localeExpected">هذا الحقل متعدد اللغات. قيم مختلفة ينبغي إدخالها لكل من اللغات المتاحة.</message>
+	<message key="validator.localeKey">لا بد من تحديد اللغات عبر استعمال رموزها. مثلاً: ar_IQ، en_US، fr_CA، sr_RS@cyrillic.</message>
+	<message key="validator.max.numeric">هذا ليس له أن يكون أكبر من {$max}.</message>
+	<message key="validator.max.file">هذا ليس له أن يكون أكبر من {$max} كيلو بايت.</message>
+	<message key="validator.max.string">هذا ليس له أن يكون أكبر من {$max} حرفاً.</message>
+	<message key="validator.max.array">هذا ليس له أن يحتوي أكثر من {$max} فقرة/فقرات.</message>
+	<message key="validator.mimes">هذا لا بد أن يكون ملفاً بصيغة {$values}.</message>
+	<message key="validator.min.numeric">هذا لا بد أن يكون على الأقل {$min}.</message>
+	<message key="validator.min.file">هذا لا بد أن يكون على الأقل {$min} كيلو بايت.</message>
+	<message key="validator.min.string">هذا لا بد أن يكون على الأقل {$min} حرفاً.</message>
+	<message key="validator.min.array">هذا لا بد أن يحتوي على الأقل {$min} فقرة/فقرات.</message>
+	<message key="validator.not_in">إن {$attribute} المختارة غير صحيحة.</message>
+	<message key="validator.numeric">هذا ليس رقماً.</message>
+	<message key="validator.orcid">هذا ليس معرفاً صحيحاً لحساب ORCID.</message>
+	<message key="validator.present">إن الحقل {$attribute} لا بد أن يكون موجوداً.</message>
+	<message key="validator.regex">هذا ليس بالتنسيق الصحيح.</message>
+	<message key="validator.required">هذا الحقل مطلوب حتماً.</message>
+	<message key="validator.required_if">هذا الحقل مطلوب عندما يكون {$other} بقيمة {$value}.</message>
+	<message key="validator.required_unless">هذا الحقل مطلوب ما لم يكن {$other} بقيمة {$values}.</message>
+	<message key="validator.required_with">هذا الحقل مطلوب عندما يكون {$values} موجوداً.</message>
+	<message key="validator.required_with_all">هذا الحقل مطلوب عندما تكون {$values} موجودة.</message>
+	<message key="validator.required_without">هذا الحقل مطلوب عندما يكون {$values} غير موجود.</message>
+	<message key="validator.required_without_all">هذا الحقل مطلوب عندما لا يكون أي من {$values} موجوداً.</message>
+	<message key="validator.same">على كل من {$attribute} و {$other} أن يتطابقا.</message>
+	<message key="validator.size.numeric">هذا لا بد أن يكون بحجم {$size}.</message>
+	<message key="validator.size.file">هذا لا بد أن يكون بحجم {$size} كيلو بايت.</message>
+	<message key="validator.size.string">هذا لا بد أن يكون من {$size} حرف/حروف.</message>
+	<message key="validator.size.array">هذا لا بد أن يحتوي {$size} فقرة/فقرات.</message>
+	<message key="validator.string">هذا ليس نصاً صحيحاً.</message>
+	<message key="validator.timezone">هذه ليست منطقة زمنية صحيحة.</message>
+	<message key="validator.unique">إن {$attribute} قد سبق اختياره.</message>
+	<message key="validator.url">هذا ليس رابطاً صحيحاً.</message>
 </locale>

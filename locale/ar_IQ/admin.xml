@@ -36,6 +36,7 @@
 	<message key="admin.languages.download.cannotOpen">تعذر فتح موصف اللغة من موقع مشروع المعرفة العامة.</message>
 	<message key="admin.languages.download.cannotModifyRegistry">تعذرت إضافة اللغة الجديدة إلى ملف سجل اللغات، والذي هو عادة: "registry/locales.xml".</message>
 	<message key="admin.languages.cantDisable">هذه اللغة هي اللغة الأولية للموقع. لا يمكنك تعطيلها ما لم تختر لغة أولية أخرى.</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">هل أنت متأكد من رغبتك في تغيير اللغة الأساسية في الموقع؟ أسماء المستخدمين المطلوبة إلزاماً بلغة الموقع الأساسية سيتم نسخها من اللغة الأساسية الحالية حيثما كانت مفقودة.</message>
 
 	<message key="admin.languages.confirmReload">هل أنت متأكد من رغبتك في إعادة تحميل هذه اللغة؟ هذا من شأنه حذف أي بيانات تخصيصية للغة مثل قوالب المراسلات الالكترونية المخصصة.</message>
 	<message key="admin.languages.installedLocales">اللغات المنصبة</message>
@@ -65,7 +66,7 @@
 	<message key="admin.server.phpVersion">رقم نسخة PHP</message>
 	<message key="admin.server.platform">منصة نظام التشغيل</message>
 	<message key="admin.settings">الإعدادات</message>
-	<message key="admin.settings.about">عن أوصاف الموقع</message>
+	<message key="admin.settings.about">عن الموقع</message>
 	<message key="admin.settings.contactEmail">البريد الالكتروني لعنوان الاتصال الأساسي</message>
 	<message key="admin.settings.contactName">اسم عنوان الاتصال الأساسي</message>
 	<message key="admin.settings.defaultMetricDescription">

@@ -138,6 +138,7 @@
 	<message key="metadata.property.validationMessage.partName">لطفاً، أدخل اسماً صحيحاً للجزء.</message>
 	<message key="metadata.property.displayName.name-type">نوعية الاسم</message>
 	<message key="metadata.property.validationMessage.name-type">لطفاً، تأكد من تحديدك نوعية صحيحة للاسم. النوعيات المدعومة هي: 'personal'، 'corporate' و 'conference' ومعانيها على التوالي: شخصي، مؤسساتي، ومؤتمر.</message>
+	<message key="metadata.property.displayName.abstract">الملخص</message>
 	<!-- FIXME: end -->
 
 	<message key="common.queue.long.submissionsUnassigned">غير معيّن</message>
@@ -163,6 +164,7 @@
 	<message key="submission.citations">المراجع</message>
 	<message key="submission.citations.description">أدخل كل مرجع في سطر جديد من أجل استخلاصه.</message>
 	<message key="submission.parsedCitations">المراجع المستخلصة</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
 	<message key="submission.parsedCitations.description">المراجع الآتية قد تم استخلاصها وسيتم ربطها بالبيانات الوصفية للمؤلَّف.</message>
 	<message key="submission.parsedAndSaveCitations">إستخلص المراجع واحفظها</message>
 	<message key="submission.comments.addComment">أضف تعليقاً</message>
@@ -220,6 +222,8 @@
 	<message key="submission.event.reviewer.reviewRevision">ملف التحكيمات تم تحديثه</message>
 	<message key="submission.event.subjectPrefix">الرسالة قد أُرسلت:</message>
 	<message key="submission.event.viewEmail">معاينة الرسالة</message>
+	<message key="submission.event.addedStageToAllowedAuthorMetadataChange">يمكن للمؤلفين الآن تعديل البيانات الوصفية عندما يكون طلب التقديم في مرحلة {stage}.</message>
+	<message key="submission.event.removedStageToAllowedAuthorMetadataChange">لا يمكن للمؤلفين الآن تعديل البيانات الوصفية عندما يكون طلب التقديم في مرحلة {stage}.</message>
 	<message key="submission.files">الملفات</message>
 	<message key="submission.files.downloadAll">تنزيل كل الملفات</message>
 	<message key="submission.galley">ألواح الطباعة</message>
@@ -382,7 +386,6 @@
 	<message key="submission.submit.form.subjectsRequired">لطفاً، أدخل الموضوع.</message>
 	<message key="submission.submit.form.disciplinesRequired">لطفاً، أدخل التخصص.</message>
 	<message key="submission.submit.form.keywordsRequired">لطفاً، أدخل كلمة مفتاحية.</message>
-	<message key="submission.submit.form.agenciesRequired">لطفاً، أدخل الجهة الداعمة.</message>
 	<message key="submission.submit.form.coverageRequired">لطفاً، أدخل معلومات التغطية.</message>
 	<message key="submission.submit.form.typeRequired">لطفاً، أدخل النوع.</message>
 	<message key="submission.submit.form.sourceRequired">لطفاً، أدخل المصدر.</message>
@@ -449,7 +452,7 @@
 	<message key="editor.submission.roundStatus.pendingReviewers">بانتظار تكليف المحكمين.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">بانتظار إجابات المحكمين.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">تحكيمات جديدة قد تم تقديمها.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">كل التحكيمات مستلمة وبانتظار اتخاذ القرار.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">كل المحكمين وردت تحكيماتهم وبصدد اتخاذ القرار.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">أحد التحكيمات تجاوز مهلة التحكيم.</message>
 	<message key="editor.submission.roundStatus.pendingRecommendations">بانتظار التوصيات من المحررين.</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">توصيات تحرير جديدة قد وصلت.</message>
@@ -462,12 +465,17 @@
 	<message key="editor.submission.noneAssigned">لا أحد معيَّن</message>
 	<message key="editor.submission.participant">المشارك</message>
 	<message key="editor.submission.addStageParticipant">عيِّن مشاركاً</message>
+	<message key="editor.submission.editStageParticipant">تعديل التعيين</message>
 	<message key="editor.submission.addStageParticipant.userGroup">يتم تعيين المستخدمين لمراحل المخطط الانسيابي حسب مجموعاتهم. أي مستخدم معين لهذه المرحلة سيتم تعيينه تلقائياً لمراحل أخرى بناءً على ما تم تعيينه لمجموعته. هذا الأمر عادة ما يكون محفوظاً للمحررين، المؤلفين والمترجمين.</message>
 	<message key="editor.submission.removeStageParticipant">إزالة المشارك</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[أنت على وشك إزالة هذا المشارك من <strong>كل</strong> المراحل. إن كان لهذا المستخدم أيضاً مهام متابعة معلقة، ستتم إزالتها أيضاً.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">عليك أن تختار مجموعة مستخدمين.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">عليك أن تختار مستخدماً لهذه المجموعة.</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">المشارك الذي اخترته قد سبق تعيينه لإجراء التحكيم السري. إذا عينته بدور مشارك، سيكون له إمكانية التعرف على هوية المؤلف. من الأفضل تجنب تعيين هذا المشارك إلا إذا كان بإمكانك وبشكل مستقل ضمان نزاهة عملية التحكيم السري.</message>
+	<message key="editor.submission.removePermissionToEdit">منع تعديل البيانات الوصفية</message>
+	<message key="editor.submission.addPermissionToEdit">السماح بتعديل البيانات الوصفية</message>
+	<message key="editor.submission.removePermissionToEditDescription">هل أنت متأكد من رغبتك في منع مؤلفي هذا العمل من تعديل البيانات الوصفية لطلب التقديم في تلك المرحلة؟</message>
+	<message key="editor.submission.addPermissionToEditDescription">هل أنت متأكد من رغبتك في السماح لمؤلفي هذا العمل بتعديل البيانات الوصفية لطلب التقديم في تلك المرحلة؟</message>
 
 	<!--  editor decisions -->
 	<message key="editor.submission.decision">القرار</message>
@@ -584,12 +592,18 @@
 	<message key="submission.license.cc.by-nd4">CC Attribution-NoDerivatives 4.0</message>
 	<message key="submission.license.cc.by4">CC Attribution 4.0</message>
 	<message key="submission.license.cc.by-sa4">CC Attribution-ShareAlike 4.0</message>
-	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>هذا العمل مرخص حسب الرخصة <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>هذا العمل مرخص حسب الرخصة <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>هذا العمل مرخص حسب الرخصة <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>]]></message>
-	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>هذا العمل مرخص حسب الرخصة <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>]]></message>
-	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>هذا العمل مرخص حسب الرخصة <a rel="الرخصة" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>]]></message>
-	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>هذا العمل مرخص حسب الرخصة <a rel="الرخصة" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-nd3.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc3.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nc-sa3.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-nd3.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by3.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 International License</a>.</p>]]></message>
+	<message key="submission.license.cc.by-sa3.footer"><![CDATA[<a rel="الرخصة" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>هذا العمل مرخص بموجب <a rel="الرخصة" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>]]></message>
 
 	<!-- Submission Queries -->
 	<message key="submission.queries.submission">مناقشات ما قبل التحكيم</message>
@@ -603,6 +617,8 @@
 	<message key="submission.query.lastReply">آخر إجابة</message>
 	<message key="submission.query.closed">مغلق</message>
 	<message key="submission.query.addNote">أضف رسالة</message>
+	<message key="submission.query.leaveQuery">مغادرة المناقشة</message>
+	<message key="submission.query.leaveQuery.confirm">إذا غادرت هذه المناقشة، لن يتم إشعارك لاحقاً بالرسائل المستجدة. هل تريد فعلاً مغادرة المناقشة؟</message>
 	<message key="grid.action.openNoteForm">أضف رداً جديداً إلى المناقشة</message>
 	<message key="submission.query.activity">{$responderName} أجاب عن {$noteTitle}: {$noteContents}</message>
 	<message key="submission.query.new">{$creatorName} بدأ المناقشة: {$noteTitle}: {$noteContents}</message>
@@ -613,9 +629,11 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">سجل الوقوعات والملاحظات</message>
+	<message key="submission.list.empty">لا طلبات تقديم هنا.</message>
 	<message key="submission.list.responseDue">موعد الإجابة</message>
 	<message key="submission.list.reviewDue">استيجاب التحكيم</message>
 	<message key="submission.list.reviewComplete">التحكيم مسَلم</message>
+	<message key="submission.list.reviewCancelled">التحكيم مُلغى</message>
 	<message key="submission.list.confirmDelete">أتريد حذف الطلب؟</message>
 	<message key="submission.list.viewSubmission">معاينة الطلب</message>
 	<message key="submission.list.reviewsCompleted">مهام التحكيم مكتملة</message>
@@ -628,4 +646,23 @@
 	<message key="submission.list.reviewerWorkflowLink"><![CDATA[لقد عينت دوراً تحريرياً لطلب التقديم هذا. هل ترغب بالوصول إلى <a href="{$urlEditorialWorkflow}">المخطط الانسيابي للتحرير</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">لا بد من إكمال طلب التقديم هذا قبل أن يتسنى للمحرر معاينته.</message>
 	<message key="submission.list.currentStage">حالياً، في مرحلة {$stage}.</message>
+	<message key="submission.list.assignEditor">تعيين المحرر</message>
+
+	<message key="grid.category.categories">الفئات</message>
+	<message key="catalog.sortBy.titleAsc">العنوان (أ-ي)</message>
+	<message key="catalog.sortBy.titleDesc">العنوان (ي-أ)</message>
+	<message key="catalog.sortBy.datePublishedAsc">تأريخ النشر (الأقدم أولاً)</message>
+	<message key="catalog.sortBy.datePublishedDesc">تأريخ النشر (الأحدث أولاً)</message>
+	<message key="category.coverImage">صورة الغلاف</message>
+	<message key="submission.submit.placement.categories">الفئات</message>
+	<message key="submission.currentCoverImage">الصورة الحالية</message>
+	<message key="catalog.category.noItems">لم يتم نشر أي شيء من هذه الفئة بعد.</message>
+	<message key="catalog.category.subcategories">الفئات الفرعية</message>
+
+	<!-- Versioning -->
+	<message key="submission.production.version">النسخة {$submissionVersion}</message>
+	<message key="submission.production.newVersion">نسخة جديدة</message>
+	<message key="submission.production.editMetadata">البيانات الوصفية لهذه النسخة</message>
+	<message key="submission.production.editMetadata.info">هذه هي البيانات الوصفية للنسخة {$version}.</message>
+	<message key="submission.production.editMetadata.previous">النسخ السابقة يمكن معاينتها في التبويب المعني عند مرحلة الإنتاج.</message>
 </locale>

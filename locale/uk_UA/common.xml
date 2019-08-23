@@ -56,6 +56,7 @@
 	<message key="common.titleSmallWords">а або але бо в де для з з-під зі і із й коли крізь на не під при про у та там тоді що</message>
 	<message key="common.alreadyAssigned">Призначений</message>
 	<message key="common.altText">Альтернативний текст</message>
+	<message key="common.altTextInstructions">Будь ласка, додайте до цього зображення альтернативний текст, щоби підвищити доступність для користувачів, які використовують текстові браузери та допоміжні пристрої.</message>
 	<message key="common.and">та</message>
 	<message key="common.applyAction">Застосувати дію</message>
 	<message key="common.assign">Призначити</message>
@@ -158,7 +159,7 @@
 	<message key="common.until">До</message>
 	<message key="common.go">Вперед</message>
 	<message key="common.height">Висота</message>
-	<message key="common.homepageNavigationLabel">Home</message>
+	<message key="common.homepageNavigationLabel">Головна</message>
 	<message key="common.homePageHeaderLogo.altText">Логотип заголовку домашньої сторінки</message>
 	<message key="common.hour">Година</message>
 	<message key="common.id">ID</message>
@@ -166,6 +167,7 @@
 	<message key="common.initiate">Розпочати</message>
 	<message key="common.inProgress">Триває</message>
 	<message key="common.itemsPerPage">Об'єкти на сторінці</message>
+	<message key="common.favicon.altText">Іконка</message>
 	<message key="common.keywords">Ключові слова</message>
 	<message key="common.language">Мова</message>
 	<message key="common.languages">Мови</message>
@@ -199,8 +201,6 @@
 	<message key="common.ok">OK</message>
 	<message key="common.options">Опції</message>
 	<message key="common.order">Сортування</message>
-	<message key="common.orderUp">Підняти нагору {$itemTitle}</message>
-	<message key="common.orderDown">Опустити донизу {$itemTitle}</message>
 	<message key="common.originalFileName">Оригінальне ім'я файлу</message>
 	<message key="common.or">або</message>
 	<message key="common.other">Інше</message>
@@ -208,6 +208,7 @@
 	<message key="common.pagination">{$start}-{$end} з {$total}</message>
 	<message key="common.pagination.label">Переглянути додаткові сторінки</message>
 	<message key="common.pageNumber">Сторінка {$pageNumber}</message>
+	<message key="common.pageHeaderLogo.altText">Логотип заголовку сторінки</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Модуль</message>
 	<message key="common.pluginEnabled">Модуль "{$pluginName}" був включений.</message>
@@ -251,6 +252,7 @@
 	<message key="common.size">Розмір</message>
 	<message key="common.source">Джерело</message>
 	<message key="common.status">Статус</message>
+	<message key="common.startTyping">Почати писати</message>
 	<message key="common.subject">Тема</message>
 	<message key="common.subjects">Теми</message>
 	<message key="common.subtitle">Підзаголовок</message>
@@ -265,8 +267,11 @@
 	<message key="common.untitled">Без заголовку</message>
 	<message key="common.updated">Оновлено</message>
 	<message key="common.uploadedDate">Дата завантаження</message>
+	<message key="common.uploadedFile">Завантажений файл</message>
 	<message key="common.upload">Завантажити</message>
 	<message key="common.uploadFailed">Цей файл не може бути завантажений або змінений.</message>
+	<message key="common.invalidFileType">Не завантажено жодного файлу або неправильний тип файлу!</message>
+	<message key="common.homepageImage.altText">Зображення домашньої сторінки</message>
 	<message key="common.up">Нагору</message>
 	<message key="common.upload.addFile">Завантажити файл</message>
 	<message key="common.upload.changeFile">Змінити файл</message>
@@ -334,6 +339,7 @@
 	<message key="form.is">дорівнює</message>
 	<message key="form.startsWith">починається з</message>
 	<message key="form.postRequired">Форма не була надіслана належним чином.</message>
+	<message key="form.csrfInvalid">Форма не була надіслана належним чином.</message>
 	<message key="form.fileRequired">Необхідно завантажити файл.</message>
 	<message key="form.required">(* обов'язкове)</message>
 	<message key="form.resubmit">Відправити знову</message>
@@ -554,4 +560,11 @@
 	<!-- List Handlers -->
 	<message key="list.viewMore">Показати подробиці щодо {$name}</message>
 	<message key="list.viewLess">Приховати подробиці щодо {$name}</message>
+	<message key="common.pagination.goToPage">Перейти до {$page}</message>
+	<message key="common.pagination.next">Наступна сторінка</message>
+	<message key="common.pagination.previous">Попередня сторінка</message>
+	<message key="common.confirm">Підтвердьте</message>
+	<message key="common.dateDecided">Дата вирішена</message>
+	<message key="notification.type.reviewAssignmentUpdated">Переглянути призначення оновлено.</message>
+	<message key="email.compose.error">Під час надсилання повідомлення електронної пошти виникла проблема. Повторіть спробу пізніше або зверніться до системного адміністратора.</message>
 </locale>

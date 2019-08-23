@@ -550,6 +550,8 @@
 	<message key="log.review.reviewCleared">The round {$round} review by {$reviewerName} for submission {$submissionId} has been cleared.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} has marked the round {$round} review for submission {$submissionId} as unconsidered.</message>
 	<message key="log.review.reviewReinstated">The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated.</message>
+	<message key="log.review.reviewConfirmed">Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}.</message>
+	<message key="log.review.reviewReady">{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}.</message>
 	<message key="submission.review.status.awaitingResponse">Waiting for a response from the reviewer.</message>
 	<message key="submission.review.status.declined">The reviewer declined this review request.</message>
 	<message key="submission.review.status.responseOverdue">The reviewer has missed the response due date.</message>

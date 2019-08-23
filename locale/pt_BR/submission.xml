@@ -678,8 +678,12 @@
 	<message key="catalog.sortBy.titleDesc">Título (Z-A)</message>
 	<message key="catalog.sortBy.datePublishedAsc">Data de publicação (antigos primeiro)</message>
 	<message key="catalog.sortBy.datePublishedDesc">Data de publicação (novos primeiro)</message>
+	<message key="category.coverImage">Imagem de Capa</message>
 	<message key="submission.submit.placement.categories">Categorias</message>
 	<message key="submission.currentCoverImage">Imagem atual</message>
+	<message key="catalog.category.noItems">Sem publicações para esta categoria no momento.</message>
+	<message key="catalog.category.subcategories">Subcategorias</message>
+	
 	<message key="catalog.browseTitles">{$numTitles} títulos</message>
 	<message key="catalog.noTitlesSection">Sem publicações para esta seção no momento.</message>
 </locale>

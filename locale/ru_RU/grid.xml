@@ -88,6 +88,7 @@
 	<message key="grid.action.notify">Уведомить этого пользователя</message>
 	<message key="grid.action.addUserGroup">Добавить новую группу пользователей</message>
 	<message key="grid.action.editUserGroup">Редактировать эту группу пользователей</message>
+	<message key="grid.action.removeUserGroup">Удалить эту группу пользователей</message>
 	<message key="grid.action.disable">Отключить</message>
 	<message key="grid.action.details">Показать этот элемент</message>
 	<message key="grid.action.enrolExisting">Записать существующего пользователя в рецензенты</message>
@@ -156,6 +157,9 @@
 	<message key="grid.action.addContributor">Добавить поддерживающего</message>
 	<message key="grid.action.editContributor">Редактировать поддерживающего</message>
 	<message key="grid.action.deleteContributor">Удалить поддерживающего</message>
+
+	<!-- Вкладка «Версии»  -->
+	<message key="grid.action.newVersion">Создать новую версию</message>
 
 	<!-- Сетка «Формы рецензии» -->
 	<message key="grid.reviewForm.title">Формы рецензии</message>

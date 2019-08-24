@@ -72,16 +72,24 @@
 	<message key="manager.publication.reviewReminders.success">Настройки напоминаний рецензентам были обновлены.</message>
 	<message key="manager.emails.confirmDelete">Вы уверены, что хотите удалить этот шаблон письма электронной почты?</message>
 	<message key="manager.emails.confirmReset">Вы уверены, что хотите вернуть этот шаблон письма электронной почты к его виду по умолчанию?</message>
+	<message key="manager.emails.addEmail">Добавить шаблон</message>
+	<message key="manager.emails.addEmail.success">Шаблон письма был добавлен.</message>
 	<message key="manager.emails.createEmail">Создать письмо</message>
+	<message key="manager.emails.customTemplate">Пользовательский шаблон</message>
 	<message key="manager.emails.data">Данные шаблона письма</message>
 	<message key="manager.emails.details">Детали шаблона</message>
 	<message key="manager.emails.disable">Выключить</message>
 	<message key="manager.emails.disable.message">Вы собираетесь отключить этот шаблон письма электронной почты. Если в системе есть процессы, использующие этот шаблон, они больше не смогут его использовать. Вы хотите подтвердить эту операцию?</message>
 	<message key="manager.emails.editEmail">Редактировать письмо</message>
+	<message key="manager.emails.editEmail.success">Шаблон письма был изменен.</message>
 	<message key="manager.emails.editTestExample">Редактировать тестовый пример письма</message>
 	<message key="manager.emails.emailKey">Ключ письма</message>
+	<message key="manager.emails.emailKey.description">Ключ письма может содержать только буквы, цифры и подчеркивания.</message>
 	<message key="manager.emails.emailKeyExists">Письмо с таким ключом уже существует. Ключи писем электронной почты должны быть уникальными.</message>
 	<message key="manager.emails.emailTemplate">Шаблон письма</message>
+	<message key="manager.emails.emailTemplates">Шаблоны писем</message>
+	<message key="manager.emails.emailTemplate.contextRequired">Вы должны указать ID контекста при добавлении шаблона письма.</message>
+	<message key="manager.emails.emailTemplate.noDuplicateKeys">Ключ, указанный вами, уже используется.</message>
 	<message key="manager.emails.enabled">Включить этот шаблон письма</message>
 	<message key="manager.emails.enable">Включить</message>
 	<message key="manager.emails.enable.message">Вы собираетесь включить этот шаблон письма электронной почты. Вы хотите подтвердить эту операцию?</message>
@@ -89,10 +97,14 @@
 	<message key="manager.emails.form.bodyRequired">Текст письма электронной почты обязателен.</message>
 	<message key="manager.emails.form.subjectRequired">Тема письма электронной почты обязательна.</message>
 	<message key="manager.emails">Подготовленные письма электронной почты</message>
+	<message key="manager.emails.resetAll">Сбросить все</message>
 	<message key="manager.emails.resetAll.message">Если вы сбросите все шаблоны, все изменения, сделанные в шаблонах писем электронной почты, будут потеряны. Вы хотите подтвердить эту операцию?</message>
 	<message key="manager.emails.reset">Сбросить</message>
 	<message key="manager.emails.reset.message">Если вы сбросите этот шаблон, все данные сообщения будут заменены на их значения по умолчанию, все изменения будут потеряны. Вы хотите подтвердить эту операцию?</message>
 	<message key="manager.emails.resetToDefault">Сбросить в значение по умолчанию</message>
+	<message key="manager.emails.sentFrom">Отправитель</message>
+	<message key="manager.emails.sentTo">Получатель</message>
+	<message key="manager.emails.subjectWithValue">Тема: {$subject}</message>
 	<message key="manager.filesBrowser">Браузер файлов</message>
 	<message key="manager.files.confirmDelete">Удалить этот файл или каталог? Обратите внимание, что удаляемый каталог должен быть пустым до того, как вы попытаетесь его удалить.</message>
 	<message key="manager.files.createDir">Создать каталог</message>
@@ -402,6 +414,7 @@
 	<message key="settings.roles.uniqueAbbrev">Вам нужно задать уникальную аббревиатуру роли.</message>
 	<message key="settings.roles.roleIdRequired">Вам нужно задать уровень прав роли.</message>
 	<message key="settings.roles.stageIdRequired">Вам нужно задать этап для назначения.</message>
+	<message key="settings.roles.permitMetadataEdit">Разрешить редактирование метаданных материала.</message>
 
 	<!-- Файлы библиотеки -->
 	<message key="settings.libraryFiles.fileRequired">Файл библиотеки обязателен. Пожалуйста, убедитесь, что вы выбрали и загрузили файл на сайт.</message>
@@ -629,4 +642,31 @@
 	<message key="grid.category.removeText">Вы уверены, что хотите удалить эту категорию?</message>
 	<message key="grid.category.nameRequired">Пожалуйста, введите название категории.</message>
 	<message key="grid.category.categoryDetails">Информаци о категории</message>
+
+	<!-- Статистика -->
+	<message key="stats.daily">Ежедневно</message>
+	<message key="stats.dateRange">Диапазон дат</message>
+	<message key="stats.dateRange.allDates">Все даты</message>
+	<message key="stats.dateRange.apply">Применить</message>
+	<message key="stats.dateRange.change">Изменить диапазон дат</message>
+	<message key="stats.dateRange.customRange">Пользовательский диапазон</message>
+	<message key="stats.dateRange.dateDoesNotExist">Одна из введенных дат не существует.</message>
+	<message key="stats.dateRange.from">С</message>
+	<message key="stats.dateRange.instructions">Введите каждую дату в формате ГГГГ-ММ-ДД. Например, если вы хотите задать дату 15 января 2019 года, введите 2019-01-15.</message>
+	<message key="stats.dateRange.invalidDate">Неправильный формат даты. Каждая дата должна быть в формате ГГГГ-ММ-ДД.</message>
+	<message key="stats.dateRange.invalidDateRange">Дата начала должна быть до даты окончания.</message>
+	<message key="stats.dateRange.invalidEndDateMax">Дата окончания не может быть позже чем {$date}.</message>
+	<message key="stats.dateRange.invalidStartDateMin">Дата начала не может быть раньше чем {$date}.</message>
+	<message key="stats.dateRange.last12Months">Последние 12 месяцев</message>
+	<message key="stats.dateRange.last30Days">Последние 30 дней</message>
+	<message key="stats.dateRange.last90Days">Последние 90 дней</message>
+	<message key="stats.dateRange.sinceDate">Начиная с {$date}</message>
+	<message key="stats.dateRange.to">До</message>
+	<message key="stats.dateRange.untilDate">До {$date}</message>
+	<message key="stats.fileViews">Просмотры файлов</message>
+	<message key="stats.html">HTML</message>
+	<message key="stats.monthly">Ежемесячно</message>
+	<message key="stats.pdf">PDF</message>
+	<message key="stats.searchSubmissionDescription">Искать по названию, автору и ID</message>
+	<message key="stats.total">Всего</message>
 </locale>

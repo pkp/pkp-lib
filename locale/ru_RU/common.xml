@@ -156,7 +156,8 @@
 	<message key="common.filter">Фильтры</message>
 	<message key="common.filterAdd">Добавить фильтр: {$filterTitle}</message>
 	<message key="common.filterRemove">Сбросить фильтр: {$filterTitle}</message>
-	<message key="common.from">C</message>
+	<message key="common.from">От</message>
+	<message key="common.fromWithValue">От: {$value}</message>
 	<message key="common.until">По</message>
 	<message key="common.go">Выполнить</message>
 	<message key="common.height">Высота</message>
@@ -186,6 +187,7 @@
 	<message key="common.noneAssigned">Никто не назначен</message>
 	<message key="common.none">Нет</message>
 	<message key="common.no">Нет</message>
+	<message key="common.noItemsFound">Ничего не найдено.</message>
 	<message key="common.noComments">Нет комментариев</message>
 	<message key="common.notApplicable">Неприменимо</message>
 	<message key="common.notApplicableShort">Неприм.</message>
@@ -208,7 +210,10 @@
 	<message key="common.other">Прочее</message>
 	<message key="common.overdue">Просрочено</message>
 	<message key="common.pagination">{$start}-{$end} из {$total}</message>
-	<message key="common.pagination.label">Просмотреть другие страницы</message>
+	<message key="common.pagination.label">Показать другие страницы</message>
+	<message key="common.pagination.goToPage">Перейти к странице {$page}</message>
+	<message key="common.pagination.next">Следующая страница</message>
+	<message key="common.pagination.previous">Предыдущая страница</message>
 	<message key="common.pageNumber">Страница {$pageNumber}</message>
 	<message key="common.percentage">{$percentage}%</message>
 	<message key="common.plugin">Модуль</message>
@@ -259,6 +264,7 @@
 	<message key="common.suggest">Предложить</message>
 	<message key="common.title">Заголовок</message>
 	<message key="common.top">Верх</message>
+	<message key="common.toWithValue">Кому: {$value}</message>
 	<message key="common.true">Истина</message>
 	<message key="common.type">Тип</message>
 	<message key="common.component">Компонент</message>
@@ -412,6 +418,10 @@
 	<message key="stageParticipants.notify.warning">Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в обсуждение кого-то, кроме себя.</message>
 	<message key="stageParticipants.options">Назначенные права</message>
 	<message key="stageParticipants.recommendOnly">Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами.</message>
+	<message key="stageParticipants.submissionEditMetadataOptions">Разрешение на редактирование метаданных материала.</message>
+	<message key="stageParticipants.canChangeMetadata">Разрешить изменять метаданные материала этому пользователю</message>
+	<message key="stageParticipants.selectedUser">Участник</message>
+	<message key="stageParticipants.noOptionsToHandle">Этому участнику нельзя внести изменения</message>
 
 	<message key="locale.primary">Основной язык</message>
 	<message key="locale.supported">Поддерживаемые языки</message>
@@ -445,6 +455,7 @@
 	<message key="navigation.settings">Настройки</message>
 	<message key="navigation.setup">Установка</message>
 	<message key="navigation.sitemap">Карта сайта</message>
+	<message key="navigation.skip.announcements">Перейти к объявлениям</message>
 	<message key="navigation.skip.main">Перейти к основному контенту</message>
 	<message key="navigation.skip.nav">Перейти к главному меню навигации</message>
 	<message key="navigation.skip.footer">Перейти к нижнему колонтитулу сайта</message>
@@ -549,12 +560,15 @@
 	<message key="notification.addedReviewer">Назначен рецензент данного материала ({$reviewerName}), отправлено уведомление электронной почтой.</message>
 	<message key="notification.addedReviewerNoEmail">Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено.</message>
 	<message key="notification.removedReviewer">Рецензент удален.</message>
+	<message key="notification.cancelledReviewer">Рецензент отменён.</message>
+	<message key="notification.reinstatedReviewer">Рецензент восстановлен.</message>
 	<message key="notification.addedStageParticipant">Пользователь добавлен в качестве участника этапа.</message>
+	<message key="notification.editStageParticipant">Назначение этапа было изменено.</message>
 	<message key="notification.type.newAnnouncement">Новое объявление.</message>
 	<message key="notification.type.reviewAssignment">Ожидание рецензии.</message>
 	<message key="notification.type.reviewAssignmentUpdated">Обновлено задание на рецензию.</message>
 	<message key="notification.type.auditorRequest">Запрос аудита для «{$file}»</message>
-	<message key="notification.type.allReviewsIn">Все рецензии загружены и необходимо принять решение на этапе «{$stage}».</message>
+	<message key="notification.type.allReviewsIn">Все рецензенты прислали свои рецензии и необходимо принять решение на этапе «{$stage}».</message>
 	<message key="notification.type.allRevisionsIn">Новая версия файла была загружена для рассмотрения редакцией на этапе «{$stage}».</message>
 	<message key="notification.type.pendingRevisions">Новые версии рассматриваются на этапе «{$stage}».</message>
 	<message key="notification.type.pendingRevisions.title">Новые версии отправлены на этап «{$stage}».</message>
@@ -591,6 +605,7 @@
 	<message key="validator.active_url">Некорректный URL.</message>
 	<message key="validator.after">Дата должна быть после {$date}.</message>
 	<message key="validator.alpha">Здесь могут быть только буквы.</message>
+	<message key="validator.alpha_dash">Здесь могут быть только буквы, цифры, дефисы и подчеркивания.</message>
 	<message key="validator.alpha_num">Здесь могут быть только буквы и цифры.</message>
 	<message key="validator.array">Некорректный массив.</message>
 	<message key="validator.before">Дата должна быть до {$date}.</message>

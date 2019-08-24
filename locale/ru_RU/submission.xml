@@ -138,6 +138,7 @@
 	<message key="metadata.property.validationMessage.partName">Пожалуйста, введите правильное название части.</message>
 	<message key="metadata.property.displayName.name-type">Тип названия</message>
 	<message key="metadata.property.validationMessage.name-type">Пожалуйста, убедитесь, что вы задали правильный тип названия. Поддерживаемые значения: personal, corporate и conference.</message>
+	<message key="metadata.property.displayName.abstract">Аннотация</message>
 	<!-- ИСПРАВИТЬ: конец -->
 
 	<message key="common.queue.long.submissionsUnassigned">Не назначенные</message>
@@ -221,6 +222,8 @@
 	<message key="submission.event.reviewer.reviewRevision">Файл с правками рецензента обновлен</message>
 	<message key="submission.event.subjectPrefix">Письмо электронной почты было отправлено:</message>
 	<message key="submission.event.viewEmail">Показать письмо электронной почты</message>
+	<message key="submission.event.addedStageToAllowedAuthorMetadataChange">Теперь авторам разрешено редактировать метаданные, когда материал находится на этапе «{stage}».</message>
+	<message key="submission.event.removedStageToAllowedAuthorMetadataChange">Теперь авторам запрещено редактировать метаданные, когда материал находится на этапе «{stage}».</message>
 	<message key="submission.files">Файлы</message>
 	<message key="submission.files.downloadAll">Скачать все файлы</message>
 	<message key="submission.galley">Гранка</message>
@@ -449,7 +452,7 @@
 	<message key="editor.submission.roundStatus.pendingReviewers">Ожидает назначения рецензентов.</message>
 	<message key="editor.submission.roundStatus.pendingReviews">Ожидает ответа от рецензентов.</message>
 	<message key="editor.submission.roundStatus.reviewsReady">Новые рецензии были отправлены.</message>
-	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензии пришли, нужно принять решение.</message>
+	<message key="editor.submission.roundStatus.reviewsCompleted">Все рецензенты прислали свои рецензии, нужно принять решение.</message>
 	<message key="editor.submission.roundStatus.reviewOverdue">Срок рецензии прошел.</message>
 	<message key="editor.submission.roundStatus.pendingRecommendations">Ожидает рекомендаций от редакторов.</message>
 	<message key="editor.submission.roundStatus.recommendationsReady">Новые рекомендации редакторов были отправлены.</message>
@@ -462,12 +465,17 @@
 	<message key="editor.submission.noneAssigned">Никто не назначен</message>
 	<message key="editor.submission.participant">Участник</message>
 	<message key="editor.submission.addStageParticipant">Назначить участника</message>
+	<message key="editor.submission.editStageParticipant">Редактировать назначение</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками.</message>
 	<message key="editor.submission.removeStageParticipant">Удалить участника</message>
 	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов. Если у пользователя также есть приостановленные задачи аудитора, они также будут удалены.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Вы должны выбрать группу пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Вы должны выбрать пользователя для указанной группы пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Выбранный вами пользователь назначен проводить «слепое» рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования.</message>
+	<message key="editor.submission.removePermissionToEdit">Запретить редактировать метаданные</message>
+	<message key="editor.submission.addPermissionToEdit">Разрешить редактировать метаданные</message>
+	<message key="editor.submission.removePermissionToEditDescription">Вы уверены, что хотите запретить авторам этого материала редактирование метаданных на этом этапе?</message>
+	<message key="editor.submission.addPermissionToEditDescription">Вы уверены, что хотите разрешить авторам этого материала редактирование метаданных на этом этапе?</message>
 
 	<!--  решения редакции -->
 	<message key="editor.submission.decision">Решение</message>
@@ -539,9 +547,9 @@
 	<message key="submission.productionReady">Книга доступна</message>
 	<message key="submission.review.uploadRevisionToRound">Загрузить новую версию файла</message>
 	<message key="log.review.reviewerAssigned">Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round}).</message>
-	<message key="log.review.reviewCleared">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был очищен.</message>
-	<message key="log.review.reviewReinstated">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был начат заново.</message>
+	<message key="log.review.reviewCleared">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был сброшен.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} отметил раунд {$round} рецензирования для материала {$submissionId} как нерассмотренный.</message>
+	<message key="log.review.reviewReinstated">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был начат заново.</message>
 	<message key="submission.review.status.awaitingResponse">Ожидает ответа от рецензента.</message>
 	<message key="submission.review.status.declined">Рецензент отклонил этот запрос на рецензию.</message>
 	<message key="submission.review.status.responseOverdue">Рецензент пропустил срок ответа на запрос.</message>
@@ -621,9 +629,11 @@
 
 	<!-- Списки материалов -->
 	<message key="submission.list.infoCenter">Журнал активности и обсуждений</message>
+	<message key="submission.list.empty">Материалы не найдены.</message>
 	<message key="submission.list.responseDue">Срок ответа на запрос</message>
 	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
 	<message key="submission.list.reviewComplete">Рецензия отправлена</message>
+	<message key="submission.list.reviewCancelled">Рецензия отменена</message>
 	<message key="submission.list.confirmDelete">Удалить материал?</message>
 	<message key="submission.list.viewSubmission">Показать материал</message>
 	<message key="submission.list.reviewsCompleted">Завершено назначенных рецензий</message>
@@ -648,4 +658,11 @@
 	<message key="submission.currentCoverImage">Текущее изображение</message>
 	<message key="catalog.category.noItems">В этой категории пока ничего не опубликовано.</message>
 	<message key="catalog.category.subcategories">Подкатегории</message>
+
+	<!-- Версии -->
+	<message key="submission.production.version">Версия {$submissionVersion}</message>
+	<message key="submission.production.newVersion">Новая версия</message>
+	<message key="submission.production.editMetadata">Метаданные этой версии</message>
+	<message key="submission.production.editMetadata.info">Это метаданные версии {$version}.</message>
+	<message key="submission.production.editMetadata.previous">Предыдущие версии можно найти на соответствующей вкладке стадии «Публикация».</message>
 </locale>

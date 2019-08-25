@@ -571,11 +571,11 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 
 	public function getUserStatistics($contextId, $args = array()) {
 		return \DAORegistry::getDAO('MetricsDAO')
-			->getUserStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null, $args['timeSegment'] ?? null);
+			->getUserStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null);
 	}
 
 	public function getSubmissionStatistics($contextId, $args = array()) {
 		return \DAORegistry::getDAO('MetricsDAO')
-			->getSubmissionStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null, $args['sectionIds'] ?? null, $args['timeSegment'] ?? null);
+			->getSubmissionStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null, $args['sectionIds'] ?? null);
 	}
 }

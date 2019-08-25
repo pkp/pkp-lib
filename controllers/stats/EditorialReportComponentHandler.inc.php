@@ -62,96 +62,6 @@ class EditorialReportComponentHandler extends PKPHandler {
 	}
 
 	/**
-	 * Given an array with statistics extracts the required editorial information to display in the component
-	 * @param $rangedStatistics array An array with a subset of the results from a call to PKPStatsService::getSubmissionStatistics
-	 * @param $statistics array An array with the results from a call to PKPStatsService::getSubmissionStatistics
-	 */
-	public static function extractEditorialStatistics($rangedStatistics, $statistics) {
-		$editorialStatistics = [];
-		$percentageField = 1;
-		$averageField = 2;
-		foreach ([
-			'SUBMISSION_RECEIVED' => [__('manager.statistics.editorial.submissionsReceived')],
-			'SUBMISSION_ACCEPTED' => [__('manager.statistics.editorial.submissionsAccepted')],
-			'SUBMISSION_DECLINED_TOTAL' => [__('manager.statistics.editorial.submissionsDeclined')],
-			'SUBMISSION_DECLINED_INITIAL' => ['&emsp;' . __('manager.statistics.editorial.submissionsDeclined.deskReject')],
-			'SUBMISSION_DECLINED' => ['&emsp;' . __('manager.statistics.editorial.submissionsDeclined.postReview')],
-			'SUBMISSION_DECLINED_OTHER' => ['&emsp;' . __('manager.statistics.editorial.submissionsDeclined.other')],
-			'SUBMISSION_PUBLISHED' => [__('manager.statistics.editorial.submissionsPublished')],
-			'SUBMISSION_DAYS_TO_FIRST_DECIDE' => [__('manager.statistics.editorial.averageDaysToDecide'), $averageField],
-			'SUBMISSION_DAYS_TO_ACCEPT' => ['&emsp;' . __('manager.statistics.editorial.averageDaysToAccept'), $averageField],
-			'SUBMISSION_DAYS_TO_REJECT' => ['&emsp;' . __('manager.statistics.editorial.averageDaysToReject'), $averageField],
-			'SUBMISSION_ACCEPTANCE_RATE' => [__('manager.statistics.editorial.acceptanceRate'), $percentageField],
-			'SUBMISSION_REJECTION_RATE' => [__('manager.statistics.editorial.rejectionRate'), $percentageField],
-			'SUBMISSION_DECLINED_INITIAL_RATE' => ['&emsp;' . __('manager.statistics.editorial.deskRejectRate'), $percentageField],
-			'SUBMISSION_DECLINED_RATE' => ['&emsp;' . __('manager.statistics.editorial.postReviewRejectRate'), $percentageField],
-			'SUBMISSION_DECLINED_OTHER_RATE' => ['&emsp;' . __('manager.statistics.editorial.otherRejectRate'), $percentageField]
-		] as $field => list($name, $type)) {
-			$isPercentage = $type == $percentageField;
-			$isAverage = $type == $averageField || $isPercentage;
-			$editorialStatistics[] = [
-				'name' => $name,
-				'period' => round($rangedStatistics[$field], $isPercentage ? 2 : 0) . ($isPercentage ? '%' : ''),
-				'average' => round($statistics[($isAverage ? '' : 'AVG_') . $field], $isPercentage ? 2 : 0) . ($isPercentage ? '%' : ''),
-				'total' => round($statistics[$field], $isPercentage ? 2 : 0) . ($isPercentage ? '%' : '')
-			];
-		}
-		return $editorialStatistics;
-	}
-
-	/**
-	 * Given an array with statistics extracts the required user statistics to display in the component
-	 * @param $rangedStatistics array An array with a subset of the results from a call to PKPStatsService::getUserStatistics
-	 * @param $statistics array An array with the results from a call to PKPStatsService::getUserStatistics
-	 */
-	public static function extractUserStatistics($rangedStatistics, $statistics) {
-		$userStatistics = [];
-		foreach ([0 => 'manager.statistics.editorial.registeredUsers'] + Application::getRoleNames(true) as $id => $role) {
-			$userStatistics[] = [
-				'name' => __($role),
-				'period' => (int)$rangedStatistics[$id]['total'],
-				'average' => round($statistics[$id]['average']),
-				'total' => (int)$statistics[$id]['total']
-			];
-		}
-		return $userStatistics;
-	}
-
-	/**
-	 * Given an array with statistics extracts the required submission information to display in the chart component
-	 * @param $statistics array An array with the results from a call to PKPStatsService::getSubmissionStatistics
-	 */
-	public static function extractSubmissionChartData($statistics) {
-		return [
-			[
-				'name' => __('manager.publication.submissionStage'),
-				'value' => (int)$statistics['ACTIVE_SUBMISSION'],
-				'color' => '#d00a0a',
-			],
-			[
-				'name' => __('workflow.review.internalReview'),
-				'value' => (int)$statistics['ACTIVE_INTERNAL_REVIEW'],
-				'color' => '#e05c14',
-			],
-			[
-				'name' => __('manager.statistics.editorial.externalReview'),
-				'value' => (int)$statistics['ACTIVE_EXTERNAL_REVIEW'],
-				'color' => '#e08914',
-			],
-			[
-				'name' => __('submission.copyediting'),
-				'value' => (int)$statistics['ACTIVE_EDITING'],
-				'color' => '#007ab2',
-			],
-			[
-				'name' => __('manager.publication.productionStage'),
-				'value' => (int)$statistics['ACTIVE_PRODUCTION'],
-				'color' => '#00b28d',
-			]
-		];
-	}
-
-	/**
 	 * Initialize the handler with config parameters
 	 *
 	 * @param $args array Configuration params
@@ -160,7 +70,6 @@ class EditorialReportComponentHandler extends PKPHandler {
 		foreach ($args as $key => $value) {
 			$property = '_' . $key;
 			if (property_exists($this, $property)) {
-
 				$this->{$property} = $value;
 			}
 		}

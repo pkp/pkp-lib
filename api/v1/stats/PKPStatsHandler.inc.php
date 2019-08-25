@@ -282,16 +282,10 @@ class PKPStatsHandler extends APIHandler {
 			LOCALE_COMPONENT_PKP_SUBMISSION
 		);
 
-		// Convert params passed to the api end point
-		// Merge query params over default params
-		$defaultParams = ['timeSegment' => 'year'];
-		$requestParams = $slimRequest->getQueryParams() + $defaultParams;
-
 		$params = [];
 		// Process query params to format incoming data as needed
-		foreach ($requestParams as $param => $val) {
+		foreach ($slimRequest->getQueryParams() as $param => $val) {
 			switch ($param) {
-				case 'timeSegment':
 				case 'dateStart':
 				case 'dateEnd':
 					$params[$param] = $val;
@@ -327,21 +321,19 @@ class PKPStatsHandler extends APIHandler {
 			}
 		}
 
-		import('lib.pkp.controllers.stats.EditorialReportComponentHandler');
-
 		$paramsWithoutDateRange = array_diff_key($params, ['dateStart' => null, 'dateEnd' => '']);
 
-		$statsService = \ServicesContainer::instance()->get('stats');
-		$statistics = $statsService->getSubmissionStatistics($context->getId(), $paramsWithoutDateRange);
-		$rangedStatistics = $statsService->getSubmissionStatistics($context->getId(), $params);
+		$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
+		$statistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $paramsWithoutDateRange);
+		$rangedStatistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $params);
 
-		$submissionChartData = EditorialReportComponentHandler::extractSubmissionChartData($statistics);
+		$submissionChartData = $editorialStatisticsService->compileSubmissionChartData($statistics);
 
-		$userStatistics = $statsService->getUserStatistics($context->getId(), $paramsWithoutDateRange);
-		$rangedUserStatistics = $statsService->getUserStatistics($context->getId(), $params);
+		$userStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $paramsWithoutDateRange);
+		$rangedUserStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $params);
 
-		$editorialStatistics = EditorialReportComponentHandler::extractEditorialStatistics($rangedStatistics, $statistics);
-		$userStatistics = EditorialReportComponentHandler::extractUserStatistics($rangedUserStatistics, $userStatistics);
+		$editorialStatistics = $editorialStatisticsService->compileEditorialStatistics($rangedStatistics, $statistics);
+		$userStatistics = $editorialStatisticsService->compileUserStatistics($rangedUserStatistics, $userStatistics);
 
 		return $response->withJson([
 			'submissionsStage' => $submissionChartData,

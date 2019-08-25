@@ -56,17 +56,17 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 		$this->_dateStart = $dateStart;
 		$this->_dateEnd = $dateEnd;
 
-		$statsService = \ServicesContainer::instance()->get('stats');
+		$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
 		
 		$params = [
 			'dateStart' => $this->_dateStart->format('Y-m-d H:i:s'),
 			'dateEnd' => $this->_dateEnd->format('Y-m-d H:i:s')
 		];
 
-		$this->_statistics = $statsService->getSubmissionStatistics($this->_context->getId());
-		$this->_rangedStatistics = $statsService->getSubmissionStatistics($this->_context->getId(), $params);
-		$this->_userStatistics = $statsService->getUserStatistics($this->_context->getId());
-		$this->_rangedUserStatistics = $statsService->getUserStatistics($this->_context->getId(), $params);
+		$this->_statistics = $editorialStatisticsService->getSubmissionStatistics($this->_context->getId());
+		$this->_rangedStatistics = $editorialStatisticsService->getSubmissionStatistics($this->_context->getId(), $params);
+		$this->_userStatistics = $editorialStatisticsService->getUserStatistics($this->_context->getId());
+		$this->_rangedUserStatistics = $editorialStatisticsService->getUserStatistics($this->_context->getId(), $params);
 	}
 
 	/**
@@ -176,11 +176,13 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 */
 	private function _getMessageAttachment() {
 		if (!$this->_attachmentFilename) {
-			import('lib.pkp.controllers.stats.EditorialReportComponentHandler');
+			import('classes.core.ServicesContainer');
 
-			$submissionChartData = EditorialReportComponentHandler::extractSubmissionChartData($this->_statistics);
-			$editorialStatistics = EditorialReportComponentHandler::extractEditorialStatistics($this->_rangedStatistics, $this->_statistics);
-			$userStatistics = EditorialReportComponentHandler::extractUserStatistics($this->_rangedUserStatistics, $this->_userStatistics);
+			$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
+
+			$submissionChartData = $editorialStatisticsService->compileSubmissionChartData($this->_statistics);
+			$editorialStatistics = $editorialStatisticsService->compileEditorialStatistics($this->_rangedStatistics, $this->_statistics);
+			$userStatistics = $editorialStatisticsService->compileUserStatistics($this->_rangedUserStatistics, $this->_userStatistics);
 
 			$path = tempnam(sys_get_temp_dir(), 'tmp');
 			if ($handle = fopen($path, 'wb')) {

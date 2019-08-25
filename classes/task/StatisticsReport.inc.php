@@ -37,6 +37,7 @@ class StatisticsReport extends ScheduledTask {
 	 * @copydoc ScheduledTask::executeActions()
 	 */
 	public function executeActions() {
+		@set_time_limit(0);
 		import('lib.pkp.classes.notification.managerDelegate.EditorialReportNotificationManager');
 		
 		AppLocale::requireComponents(

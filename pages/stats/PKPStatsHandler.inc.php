@@ -209,25 +209,24 @@ class PKPStatsHandler extends Handler {
 		$dateStart = (new DateTime('-31 days'))->format('Y-m-d');
 		$dateEnd = (new DateTime('yesterday'))->format('Y-m-d');
 
-		$defaultParams = ['timeSegment' => 'year'];
 		$params = [
 			'dateStart' => $dateStart,
 			'dateEnd' => $dateEnd
-		] + $defaultParams;
+		];
 
 		import('lib.pkp.controllers.stats.EditorialReportComponentHandler');
 
-		$statsService = \ServicesContainer::instance()->get('stats');
-		$statistics = $statsService->getSubmissionStatistics($context->getId(), $defaultParams);
-		$rangedStatistics = $statsService->getSubmissionStatistics($context->getId(), $params);
+		$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
+		$statistics = $editorialStatisticsService->getSubmissionStatistics($context->getId());
+		$rangedStatistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $params);
 
-		$submissionChartData = EditorialReportComponentHandler::extractSubmissionChartData($statistics);
+		$submissionChartData = $editorialStatisticsService->compileSubmissionChartData($statistics);
 
-		$userStatistics = $statsService->getUserStatistics($context->getId(), $defaultParams);
-		$rangedUserStatistics = $statsService->getUserStatistics($context->getId(), $params);
+		$userStatistics = $editorialStatisticsService->getUserStatistics($context->getId());
+		$rangedUserStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $params);
 
-		$editorialStatistics = EditorialReportComponentHandler::extractEditorialStatistics($rangedStatistics, $statistics);
-		$userStatistics = EditorialReportComponentHandler::extractUserStatistics($rangedUserStatistics, $userStatistics);
+		$editorialStatistics = $editorialStatisticsService->compileEditorialStatistics($rangedStatistics, $statistics);
+		$userStatistics = $editorialStatisticsService->compileUserStatistics($rangedUserStatistics, $userStatistics);
 
 		$statsHandler = new EditorialReportComponentHandler(
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorialReport'),

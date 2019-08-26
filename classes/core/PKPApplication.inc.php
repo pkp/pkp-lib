@@ -50,6 +50,8 @@ class PKPApplication {
 		$errorReportingLevel = E_ALL;
 		if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
 		if (defined('E_DEPRECATED')) $errorReportingLevel &= ~E_DEPRECATED;
+		if (defined('E_WARNING')) $errorReportingLevel &= ~E_WARNING;
+		if (defined('E_NOTICE')) $errorReportingLevel &= ~E_NOTICE;
 		@error_reporting($errorReportingLevel);
 
 		// Instantiate the profiler

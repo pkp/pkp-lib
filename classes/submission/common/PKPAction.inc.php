@@ -37,7 +37,7 @@ class PKPAction {
 	 */
 	function editCitations(&$request, &$submission) {
 		$router =& $request->getRouter();
-		$dispatcher =& $this->getDispatcher();
+		$dispatcher =& $request->getDispatcher();
 		$templateMgr =& TemplateManager::getManager();
 
 		// Add extra style sheets required for ajax components

@@ -566,6 +566,9 @@
 	<message key="common.moreThan">{$value} ou plus</message>
 	<message key="common.pagination">{$start}-{$end} sur {$total}</message>
 	<message key="common.pagination.label">Parcourir la suite</message>
+	<message key="common.pagination.goToPage">Aller à{$page}</message>
+	<message key="common.pagination.next">Page suivante</message>
+	<message key="common.pagination.previous">Page précédente</message>
 	<message key="common.publicAccess">Accès public</message>
 	<message key="stageParticipants.notify.startDiscussion">Commencer une discussion</message>
 	<message key="stageParticipants.notify.startDiscussion.description">Initier une discussion entre vous et {$userFullName}.</message>

@@ -243,6 +243,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
 
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 		SubmissionLog::logEvent(
 			$request,
 			$submission,

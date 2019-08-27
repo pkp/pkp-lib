@@ -58,6 +58,56 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			));
 		}
 
+		// Get assigned categories
+		// We need an array of IDs for the SelectListPanel, but we also need an
+		// array of Category objects to use when the metadata form is viewed in
+		// readOnly mode. This mode is invoked on the SubmissionMetadataHandler
+		// is not available here
+		$submissionDao = Application::getSubmissionDAO();
+		$submission = $submissionDao->getById($this->submissionId);
+		$categories = $submissionDao->getCategories($submission->getId(), $submission->getContextId());
+		$assignedCategories = array();
+		$selectedIds = array();
+		while ($category = $categories->next()) {
+			$assignedCategories[] = $category;
+			$selectedIds[] = $category->getId();
+		}
+
+		// Categories list
+		$items = [];
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categories = $categoryDao->getByContextId($context->getId());
+		if (!$categories->wasEmpty) {
+			while ($category = $categories->next()) {
+				$items[] = array(
+					'id' => $category->getId(),
+					'title' => $category->getLocalizedTitle(),
+				);
+			}
+		}
+
+		$categoriesList = new \PKP\components\listPanels\ListPanel(
+			'categories',
+			__('grid.category.categories'),
+			[
+				'canSelect' => true,
+				'items' => $items,
+				'itemsMax' => count($items),
+				'selected' => $selectedIds,
+				'selectorName' => 'categories[]',
+			]
+		);
+
+		$templateMgr->assign(array(
+			'assignedCategories' => $assignedCategories,
+			'hasCategories' => !empty($categoriesList->items),
+			'categoriesListData' => [
+				'components' => [
+					'categories' => $categoriesList->getConfig(),
+				]
+			]
+		));
+
 		return parent::fetch($request, $template, $display);
 	}
 

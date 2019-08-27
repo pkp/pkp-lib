@@ -226,7 +226,7 @@
 	<message key="grid.preparedEmails.title">Modèles de courriels préparés</message>
 	<message key="grid.preparedEmails.currentList">Liste actuelle</message>
 	<message key="grid.plugin.allCategories">Toutes les catégories</message>
-	<message key="grid.plugin.disable">Vous voulez vraiment désactiver ce plugiciel?</message>
+	<message key="grid.plugin.disable">Vous voulez vraiment désactiver ce module?</message>
 	<message key="grid.user.mergeUsers.confirm">Vous voulez vraiment fusionner le compte dont le nom d'utilisateur est "{$oldUsername}" au compte dont le nom d'utilisateur est "{$newUsername}"? Le compte "{$oldUsername}" n'existera plus. Cette action n'est pas réversible.</message>
 	<message key="grid.preparedEmails.description">La presse facilite le bon déroulement de la communication par l'usage de courriers électroniques rédigés à l'avance. La formulation par défaut des modèles peut facilement être modifée ci-dessous.</message>
 	<message key="grid.remotelyHostedItem">Cet item est hébergé sur un site distant.</message>

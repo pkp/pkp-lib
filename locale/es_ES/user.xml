@@ -85,6 +85,9 @@
 	<message key="user.profile.form.urlInvalid">La URL especificada no es válida. Compruebe la URL e inténtelo de nuevo. (Sugerencia: añada http:// al principio de la URL.)</message>
 	<message key="user.profile.form.usergroupRequired">Introduzca un grupo de usuarios/as.</message>
 	<message key="user.profile.form.usernameRequired">Es necesario el nombre de usuario.</message>
+	<message key="user.profile.form.givenNameRequired">Debe ingresar un nombre</message>
+	<message key="user.profile.form.givenNameRequired.locale">Ha agregado un apellido para un idioma en el que no ha ingresado el nombre. Por favor, ingrese un nombre en ese idioma</message>
+	
 	<message key="user.profile.leavePasswordBlank">Deje el campo de contraseña en blanco para mantener la contraseña actual.</message>
 	<message key="user.profile.newPassword">Nueva contraseña</message>
 	<message key="user.profile.oldPassword">Contraseña actual</message>
@@ -163,5 +166,7 @@
 	<message key="user.register.form.privacyConsent"><![CDATA[Sí, consiento que mis datos se recopilen y se almacenen de acuerdo con la <a href="{$privacyUrl}" target="_blank">declaración de políticas</a>.]]></message>
 	<message key="user.register.form.emailConsent">Sí, deseo que me notifiquen acerca de nuevas publicaciones y avisos.</message>
 	<message key="user.privacyLink"><![CDATA[Sus datos se han almacenado de acuerdo con nuestra <a href="{$privacyUrl}" target="_blank">declaración de privacidad</a>.]]></message>
+	<message key="user.preferredPublicName">Nombre público preferido</message>
+	<message key="user.preferredPublicNameuser.preferredPublicName.description">Cómo prefiere ser mencionado? Títulos, segundos nombres y sufijos pueden utilizarse aquí si lo desea</message>
 </locale>
 

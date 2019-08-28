@@ -17,17 +17,6 @@ import VueRegistry from './classes/VueRegistry.js';
 
 Vue.mixin(GlobalMixins);
 
-// adapt locale from $.pkp.app.currentLocale
-let momentLocale = $.pkp.app.currentLocale.toLowerCase();
-momentLocale = momentLocale.split('_')[0];
-momentLocale = momentLocale == 'en' ? 'en-gb' : momentLocale;
-const moment = require('moment');
-require('moment/locale/' + momentLocale);
-
-Vue.use(require('vue-moment'), {
-	moment,
-});
-
 export default {
 	Vue: Vue,
 	registry: VueRegistry,

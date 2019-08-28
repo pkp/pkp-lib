@@ -105,8 +105,8 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 						'title' => __('submissions.incomplete'),
 					),
 					array(
-						'param' => 'isInactive',
-						'val' => true,
+						'param' => 'daysInactive',
+						'val' => 30,
 						'title' => __('submissions.inactive',array('days' => '30')),
 					),
 				),
@@ -160,6 +160,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'selectAllLabel' => __('common.selectAll'),
 			'viewMore' => __('list.viewMore'),
 			'viewLess' => __('list.viewLess'),
+			'updated' => __('common.updated'),
 		);
 
 		// Attach a CSRF token for post requests

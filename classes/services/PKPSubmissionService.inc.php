@@ -107,7 +107,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
-			'isInactive' => false,
+			'daysInactive' => null,
 			'returnObject' => SUBMISSION_RETURN_SUBMISSION,
 		);
 
@@ -121,7 +121,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
-			->filterByInactivity($args['isInactive'])
+			->filterByDaysInactive($args['daysInactive'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
 			->searchPhrase($args['searchPhrase'])
 			->returnObject($args['returnObject']);
@@ -475,10 +475,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $submission->getDateSubmitted();
 					break;
 				case 'dateStatusModified':
-					$values[$prop] = array(
-						'value' => $submission->getDateStatusModified(),
-						'label' => __('common.updated'),
-					);
+					$values[$prop] =  $submission->getDateStatusModified();
 					break;
 				case 'lastModified':
 					$values[$prop] = $submission->getLastModified();

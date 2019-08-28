@@ -132,9 +132,10 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				case 'orderDirection':
 					$params[$param] = $val === 'ASC' ? $val : 'DESC';
 					break;
-
+				case 'daysInactive':
+					$params[$param] = (int) $val[0];
+					break;
 				case 'isIncomplete':
-				case 'isInactive':
 				case 'isOverdue':
 					$params[$param] = true;
 			}

@@ -111,11 +111,11 @@ class PluginHelper {
 
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
+		$pluginDest = Core::getBaseDir() . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
 
 		$fileManager = new FileManager();
-		if (!$installedPlugin) {
+		if (!$installedPlugin || !file_exists($pluginDest)) {
 			$pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
-			$pluginDest = Core::getBaseDir() . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
@@ -190,8 +190,6 @@ class PluginHelper {
 	 * @param $category string
 	 * @param $plugin string
 	 * @param $path string path to plugin Directory
-	 * @param $category string
-	 * @param $plugin string
 	 * @return Version|null The upgraded version, on success; null on fail
 	 */
 	function upgradePlugin($category, $plugin, $path, &$errorMsg) {

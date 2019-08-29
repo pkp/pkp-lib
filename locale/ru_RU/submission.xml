@@ -550,6 +550,8 @@
 	<message key="log.review.reviewCleared">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был сброшен.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} отметил раунд {$round} рецензирования для материала {$submissionId} как нерассмотренный.</message>
 	<message key="log.review.reviewReinstated">{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был начат заново.</message>
+	<message key="log.review.reviewConfirmed">Редактор {$userName} подтвердил рецензию на раунде {$round} рецензирования для материала «{$submissionId}».</message>
+	<message key="log.review.reviewReady">{$reviewerName} завершил рецензию на раунде {$round} рецензирования для материала «{$submissionId}».</message>
 	<message key="submission.review.status.awaitingResponse">Ожидает ответа от рецензента.</message>
 	<message key="submission.review.status.declined">Рецензент отклонил этот запрос на рецензию.</message>
 	<message key="submission.review.status.responseOverdue">Рецензент пропустил срок ответа на запрос.</message>

@@ -14,7 +14,7 @@
  *
  */
 
-define('PHP_REQUIRED_VERSION', '7.0.0');
+define('PHP_REQUIRED_VERSION', '7.1.0');
 
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');

@@ -27,7 +27,7 @@
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor",
 		"platform": {
-			"php": "7.0.0"
+			"php": "7.2.0"
 		}
 	},
 	"repositories": [

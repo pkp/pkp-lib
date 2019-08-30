@@ -14,6 +14,8 @@
  *
  */
 
+define('PHP_REQUIRED_VERSION', '7.2.0');
+
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 define('ROUTE_API', 'api');

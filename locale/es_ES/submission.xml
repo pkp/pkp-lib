@@ -204,6 +204,7 @@
 	<message key="submission.history.submissionEventLog">Registro de evento</message>
 	<message key="submission.history.submissionNotes">Notas de envío</message>
 	<message key="submission.history.viewLog">Ver registro</message>
+	<message key="submission.indexing">Indexación</message>
 	<message key="submission.initiated">Iniciado</message>
 
 	<!-- Information Center -->
@@ -551,8 +552,6 @@
 	<message key="submission.productionReady">Libro disponible</message>
 	<message key="submission.review.uploadRevisionToRound">Subir archivo revisado</message>
 	<message key="log.review.reviewerAssigned">Se asignó a {$reviewerName} para la revisión del envío {$submissionId} de la ronda de revisión {$round}.</message>
-	<message key="log.review.reviewCleared">La ronda {$round} que {$reviewerName} revisa para el envío {$submissionId} se eliminó.</message>
-	<message key="log.review.reviewReinstated">{$reviewerName} reinició la ronda de revisión {$round} del envío {$submissionId}.</message>
 	<message key="submission.document">Documento</message>
 	<message key="submission.art">Archivo de ilustración</message>
 	<message key="grid.action.itemWorkflow">Ir al circuito de publicación de este envío</message>
@@ -642,10 +641,14 @@
 
 	<!-- Submission Lists -->
 	<message key="submission.list.infoCenter">Registro de actividad y notas</message>
+	<message key="submission.list.count">{$count} envíos</message>
+	<message key="submission.list.itemsOfTotal">{$count} de {$total} envíos</message>
 	<message key="submission.list.responseDue">Respuesta esperada</message>
 	<message key="submission.list.reviewDue">Revisión esperada</message>
 	<message key="submission.list.confirmDelete">¿Eliminar envío?</message>
 	<message key="submission.list.viewSubmission">Ver {$title}</message>
+	<message key="submission.list.itemOrdererUp">Incrementar posición de {$itemTitle}</message>
+	<message key="submission.list.itemOrdererDown">Decrementar posición de {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Ver Envío</message>
 	<message key="submission.list.reviewsCompleted">Revisiones asignadas completadas</message>
 	<message key="submission.list.revisionsSubmitted">Revisiones enviadas</message>
@@ -725,4 +728,10 @@
 	<message key="submission.currentCoverImage">Imagen actual</message>
 	<message key="catalog.browseTitles">Explorar {$numTitles} títulos</message>
 	<message key="catalog.noTitlesSection">No se ha publicado ningún título aún para esta sección.</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} marcó la ronda de revisión {$round} para el envío {$submissionId} como sin consideración.</message>
+	<message key="submission.list.assignEditor">Asignar Editor</message>
+	<message key="category.coverImage">Imagen de tapa</message>
+	<message key="catalog.category.noItems">Aún no se ha publicado nada en esta categoría.</message>
+	<message key="catalog.category.subcategories">Subcategorías</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
 </locale>

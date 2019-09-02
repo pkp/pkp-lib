@@ -86,18 +86,18 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 
 		// Get an updated version of the submission.
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->submissionId);
+		$this->submission = $submissionDao->getById($this->submissionId);
 
 		// Set other submission data.
-		if ($submission->getSubmissionProgress() <= $this->step) {
-			$submission->setSubmissionProgress($this->step + 1);
-			$submission->stampStatusModified();
+		if ($this->submission->getSubmissionProgress() <= $this->step) {
+			$this->submission->setSubmissionProgress($this->step + 1);
+			$this->submission->stampStatusModified();
 		}
 
 		parent::execute();
 
 		// Save the submission.
-		$submissionDao->updateObject($submission);
+		$submissionDao->updateObject($this->submission);
 
 		return $this->submissionId;
 	}

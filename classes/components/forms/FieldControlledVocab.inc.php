@@ -9,7 +9,7 @@
  * @class FieldControlledVocab
  * @ingroup classes_controllers_form
  *
- * @brief A basic text field in a form.
+ * @brief A type of autosuggest field for controlled vocabulary like keywords.
  */
 namespace PKP\components\forms;
 

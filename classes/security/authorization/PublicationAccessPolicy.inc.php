@@ -9,7 +9,7 @@
  * @class PublicationAccessPolicy
  * @ingroup security_authorization
  *
- * @brief Base class to control access to a publication
+ * @brief Class to control access to a publication
  */
 
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
@@ -28,16 +28,16 @@ class PublicationAccessPolicy extends ContextPolicy {
 	 *  expect the submission id in.
 	 */
 	function __construct($request, $args, $roleAssignments, $publicationParameterName = 'publicationId') {
-    parent::__construct($request);
+		parent::__construct($request);
 
-    // Can the user access this submission? (parameter name: 'submissionId')
-    $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+		// Can the user access this submission? (parameter name: 'submissionId')
+		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
-    // Does the publication exist?
-    $this->addPolicy(new PublicationRequiredPolicy($request, $args));
+		// Does the publication exist?
+		$this->addPolicy(new PublicationRequiredPolicy($request, $args));
 
-    // Is the publication attached to the correct submission?
-    $this->addPolicy(new PublicationIsSubmissionPolicy(__('api.publications.403.submissionsDidNotMatch')));
+		// Is the publication attached to the correct submission?
+		$this->addPolicy(new PublicationIsSubmissionPolicy(__('api.publications.403.submissionsDidNotMatch')));
 	}
 }
 

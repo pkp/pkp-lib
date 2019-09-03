@@ -540,7 +540,6 @@ abstract class PKPWorkflowHandler extends Handler {
 				'publicationTabsLabel' => __('publication.version.details'),
 				'publish' => __('publication.publish'),
 				'save' => __('common.save'),
-				'schedulePublication' => __('editor.article.schedulePublication'),
 				'status' => __('semicolon', ['label' => __('common.status')]),
 				'submissionLibrary' => __('grid.libraryFiles.submission.title'),
 				'unpublishConfirm' => __('publication.unpublish.confirm'),

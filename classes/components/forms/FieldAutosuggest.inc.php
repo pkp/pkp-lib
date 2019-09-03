@@ -9,7 +9,7 @@
  * @class FieldAutosuggest
  * @ingroup classes_controllers_form
  *
- * @brief A basic text field in a form.
+ * @brief A text field that provides suggested values while typing.
  */
 namespace PKP\components\forms;
 
@@ -20,7 +20,7 @@ class FieldAutosuggest extends Field {
 	/** @copydoc Field::$component */
 	public $component = 'field-autosuggest';
 
-	/** @var string Whether selections should be displayed inline or below the input. One of the AUTOSUGGEST_POSITION_* constants. */
+	/** @var string Displayed in the text box or below the input. One of the AUTOSUGGEST_POSITION_* constants. */
 	public $initialPosition = AUTOSUGGEST_POSITION_INLINE;
 
 	/** @var string A URL to retrieve suggestions. */

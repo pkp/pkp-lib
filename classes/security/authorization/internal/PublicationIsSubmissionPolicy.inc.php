@@ -21,13 +21,13 @@ class PublicationIsSubmissionPolicy extends AuthorizationPolicy {
 	 */
 	function effect() {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-    $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
 
-    if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
-      return AUTHORIZATION_PERMIT;
-    }
+		if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
+			return AUTHORIZATION_PERMIT;
+		}
 
-    return AUTHORIZATION_DENY;
+		return AUTHORIZATION_DENY;
 	}
 }
 

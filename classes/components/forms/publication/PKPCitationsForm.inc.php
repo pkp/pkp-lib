@@ -34,10 +34,10 @@ class PKPCitationsForm extends FormComponent {
 		$this->action = $action;
 		$this->successMessage = __('publication.citations.success');
 
-    $this->addField(new FieldTextarea('citationsRaw', [
-        'label' => __('submission.citations'),
-        'description' => __('submission.citations.description'),
-        'value' => $publication->getData('citations'),
-      ]));
+		$this->addField(new FieldTextarea('citationsRaw', [
+				'label' => __('submission.citations'),
+				'description' => __('submission.citations.description'),
+				'value' => $publication->getData('citations'),
+			]));
 	}
 }

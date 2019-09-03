@@ -36,34 +36,34 @@ class PKPPublicationLicenseForm extends FormComponent {
 	public function __construct($action, $locales, $publication, $context) {
 		$this->action = $action;
 		$this->successMessage = __('publication.publicationLicense.success');
-    $this->locales = $locales;
+		$this->locales = $locales;
 
-    // Don't allow the user to set a copyright year when it is meant
-    // to be set by the issue's publication date.
-    if ($context->getData('copyrightYearBasis') === 'issue') {
-      $copyrightYear = new FieldHTML('copyrightYear', [
-        'label' => __('submission.copyrightYear'),
-        'description' => __('publication.copyrightYearBasis.issueDescription'),
-      ]);
-    } else {
-      $copyrightYear = new FieldText('copyrightYear', [
-        'label' => __('submission.copyrightYear'),
-        'size' => 'small',
-        'value' => $publication->getData('copyrightYear'),
-      ]);
-    }
+		// Don't allow the user to set a copyright year when it is meant
+		// to be set by the issue's publication date.
+		if ($context->getData('copyrightYearBasis') === 'issue') {
+			$copyrightYear = new FieldHTML('copyrightYear', [
+				'label' => __('submission.copyrightYear'),
+				'description' => __('publication.copyrightYearBasis.issueDescription'),
+			]);
+		} else {
+			$copyrightYear = new FieldText('copyrightYear', [
+				'label' => __('submission.copyrightYear'),
+				'size' => 'small',
+				'value' => $publication->getData('copyrightYear'),
+			]);
+		}
 
-    $this->addField(new FieldText('copyrightHolder', [
-        'label' => __('submission.copyrightHolder'),
-        'size' => 'large',
-        'isMultilingual' => true,
-        'value' => $publication->getData('coyrightHolder'),
-      ]))
-      ->addField($copyrightYear)
-      ->addField(new FieldText('licenseUrl', [
-        'label' => __('submission.licenseURL'),
-        'size' => 'large',
-        'value' => $publication->getData('licenseUrl'),
-      ]));
+		$this->addField(new FieldText('copyrightHolder', [
+				'label' => __('submission.copyrightHolder'),
+				'size' => 'large',
+				'isMultilingual' => true,
+				'value' => $publication->getData('coyrightHolder'),
+			]))
+			->addField($copyrightYear)
+			->addField(new FieldText('licenseUrl', [
+				'label' => __('submission.licenseURL'),
+				'size' => 'large',
+				'value' => $publication->getData('licenseUrl'),
+			]));
 	}
 }

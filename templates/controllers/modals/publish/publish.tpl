@@ -10,7 +10,7 @@
 
 
 {assign var="uuid" value=""|uniqid|escape}
-<div id="publish-{$uuid}" class="pkpWorflow__publishModal">
+<div id="publish-{$uuid}" class="pkpWorkflow__publishModal">
   <pkp-form v-bind="components.{$smarty.const.FORM_PUBLISH}" @set="set" />
 	<script type="text/javascript">
 		pkp.registry.init('publish-{$uuid}', 'Container', {$publishData|json_encode});

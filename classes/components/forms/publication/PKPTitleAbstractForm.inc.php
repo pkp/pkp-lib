@@ -35,31 +35,31 @@ class PKPTitleAbstractForm extends FormComponent {
 	public function __construct($action, $locales, $publication) {
 		$this->action = $action;
 		$this->successMessage = __('publication.titleAbstract.success');
-    $this->locales = $locales;
+		$this->locales = $locales;
 
-    $this->addField(new FieldText('prefix', [
-        'label' => __('common.prefix'),
-        'description' => __('common.prefixAndTitle.tip'),
-        'size' => 'small',
-        'isMultilingual' => true,
-        'value' => $publication->getData('prefix'),
-      ]))
-      ->addField(new FieldText('title', [
-        'label' => __('common.title'),
-        'size' => 'large',
-        'isMultilingual' => true,
-        'value' => $publication->getData('title'),
-      ]))
-      ->addField(new FieldText('subtitle', [
-        'label' => __('common.subtitle'),
-        'size' => 'large',
-        'isMultilingual' => true,
-        'value' => $publication->getData('subtitle'),
-      ]))
-      ->addField(new FieldRichTextarea('abstract', [
-        'label' => __('common.abstract'),
-        'isMultilingual' => true,
-        'value' => $publication->getData('abstract'),
-      ]));
+		$this->addField(new FieldText('prefix', [
+				'label' => __('common.prefix'),
+				'description' => __('common.prefixAndTitle.tip'),
+				'size' => 'small',
+				'isMultilingual' => true,
+				'value' => $publication->getData('prefix'),
+			]))
+			->addField(new FieldText('title', [
+				'label' => __('common.title'),
+				'size' => 'large',
+				'isMultilingual' => true,
+				'value' => $publication->getData('title'),
+			]))
+			->addField(new FieldText('subtitle', [
+				'label' => __('common.subtitle'),
+				'size' => 'large',
+				'isMultilingual' => true,
+				'value' => $publication->getData('subtitle'),
+			]))
+			->addField(new FieldRichTextarea('abstract', [
+				'label' => __('common.abstract'),
+				'isMultilingual' => true,
+				'value' => $publication->getData('abstract'),
+			]));
 	}
 }

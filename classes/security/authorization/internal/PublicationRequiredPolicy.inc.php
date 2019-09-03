@@ -43,7 +43,7 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy {
 		$publicationId = $this->getDataObjectId();
 		if ($publicationId === false) return AUTHORIZATION_DENY;
 
-    $publication = Services::get('publication')->get($publicationId);
+		$publication = Services::get('publication')->get($publicationId);
 		if (!is_a($publication, 'Publication')) return AUTHORIZATION_DENY;
 
 		// Save the publication to the authorization context.

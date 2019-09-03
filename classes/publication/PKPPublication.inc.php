@@ -16,125 +16,125 @@
 
 class PKPPublication extends DataObject {
 
-  /**
-   * Get localized data for this object.
-   *
-   * It selects the locale in the following order:
-   * - $preferredLocale
-   * - the user's current locale
-   * - the publication's primary locale
-   * - the first locale we find data for
-   *
-   * @param string $key
-   * @param string $preferredLocale
-   * @return mixed
-   */
-  public function getLocalizedData($key, $preferredLocale = null) {
-    // 1. Preferred locale
-    if ($preferredLocale && $this->getData($key, $preferredLocale)) {
-      return $this->getData($key, $preferredLocale);
-    }
-    // 2. User's current locale
-    if (!empty($this->getData($key, AppLocale::getLocale()))) {
-      return $this->getData($key, AppLocale::getLocale());
-    }
-    // 3. Publication's primary locale
-    if (!empty($this->getData($key, $this->getData('locale')))) {
-      return $this->getData($key, $this->getData('locale'));
-    }
-    // 4. The first locale we can find data for
-    $data = $this->getData($key, null);
-    foreach ((array) $data as $value) {
-      if (!empty($value)) {
-        return $value;
-      }
-    }
-
-    return null;
-  }
-
-  /**
-   * Combine the localized title, prefix and subtitle
-   *
-   * @param string $preferredLocale Override the publication's default
-   *  locale and return the title in a specified locale.
-   * @return string
-   */
-  public function getLocalizedFullTitle($preferredLocale = null) {
-    $fullTitle = $this->getLocalizedTitle($preferredLocale);
-    $subtitle = $this->getLocalizedData('subtitle', $preferredLocale);
-    if ($subtitle) {
-      return PKPString::concatTitleFields([$fullTitle, $subtitle]);
-    }
-    return $fullTitle;
-  }
-
-  /**
-   * Return the combined prefix, title and subtitle for all locales
-   *
-   * @return array
-   */
-  public function getFullTitles() {
-    $allTitles = (array) $this->getData('title');
-    $return = [];
-    foreach ($allTitles as $locale => $title) {
-      if (!$title) {
-        continue;
-      }
-      $return[$locale] = $this->getLocalizedFullTitle($locale);
-    }
-    return $return;
-  }
-
-  /**
-   * Combine the localized title and prefix
-   *
-   * @param string $preferredLocale Override the publication's default
-   *  locale and return the title in a specified locale.
-   * @return string
-   */
-  public function getLocalizedTitle($preferredLocale = null) {
-    $prefix = $this->getLocalizedData('prefix', $preferredLocale);
-    $title = $this->getLocalizedData('title', $preferredLocale);
-    if ($prefix) {
-      return $prefix . ' ' . $title;
-    }
-    return $title;
-  }
-
-  /**
-   * Return the combined title and prefix for all locales
-   *
-   * @return array
-   */
-  public function getTitles() {
-    $allTitles = $this->getData('title');
-    $return = [];
-    foreach ($allTitles as $locale => $title) {
-      if (!$title) {
-        continue;
-      }
-      $return[] = $this->getLocalizedTitle($locale);
-    }
-    return $return;
-  }
-
-  /**
-   * Combine author names and roles into a string
-   *
-   * Eg - Daniel Barnes, Carlo Corino (Author); John Mwandenga (Translator)
-   *
-	 * @param array $userGroups List of UserGroup objects
-   * @return string
-   */
-  public function getAuthorString($userGroups) {
-    $authors = $this->getData('authors');
-
-    if (empty($authors)) {
-      return '';
+	/**
+	 * Get localized data for this object.
+	 *
+	 * It selects the locale in the following order:
+	 * - $preferredLocale
+	 * - the user's current locale
+	 * - the publication's primary locale
+	 * - the first locale we find data for
+	 *
+	 * @param string $key
+	 * @param string $preferredLocale
+	 * @return mixed
+	 */
+	public function getLocalizedData($key, $preferredLocale = null) {
+		// 1. Preferred locale
+		if ($preferredLocale && $this->getData($key, $preferredLocale)) {
+			return $this->getData($key, $preferredLocale);
+		}
+		// 2. User's current locale
+		if (!empty($this->getData($key, AppLocale::getLocale()))) {
+			return $this->getData($key, AppLocale::getLocale());
+		}
+		// 3. Publication's primary locale
+		if (!empty($this->getData($key, $this->getData('locale')))) {
+			return $this->getData($key, $this->getData('locale'));
+		}
+		// 4. The first locale we can find data for
+		$data = $this->getData($key, null);
+		foreach ((array) $data as $value) {
+			if (!empty($value)) {
+				return $value;
+			}
 		}
 
-    $str = '';
+		return null;
+	}
+
+	/**
+	 * Combine the localized title, prefix and subtitle
+	 *
+	 * @param string $preferredLocale Override the publication's default
+	 *  locale and return the title in a specified locale.
+	 * @return string
+	 */
+	public function getLocalizedFullTitle($preferredLocale = null) {
+		$fullTitle = $this->getLocalizedTitle($preferredLocale);
+		$subtitle = $this->getLocalizedData('subtitle', $preferredLocale);
+		if ($subtitle) {
+			return PKPString::concatTitleFields([$fullTitle, $subtitle]);
+		}
+		return $fullTitle;
+	}
+
+	/**
+	 * Return the combined prefix, title and subtitle for all locales
+	 *
+	 * @return array
+	 */
+	public function getFullTitles() {
+		$allTitles = (array) $this->getData('title');
+		$return = [];
+		foreach ($allTitles as $locale => $title) {
+			if (!$title) {
+				continue;
+			}
+			$return[$locale] = $this->getLocalizedFullTitle($locale);
+		}
+		return $return;
+	}
+
+	/**
+	 * Combine the localized title and prefix
+	 *
+	 * @param string $preferredLocale Override the publication's default
+	 *  locale and return the title in a specified locale.
+	 * @return string
+	 */
+	public function getLocalizedTitle($preferredLocale = null) {
+		$prefix = $this->getLocalizedData('prefix', $preferredLocale);
+		$title = $this->getLocalizedData('title', $preferredLocale);
+		if ($prefix) {
+			return $prefix . ' ' . $title;
+		}
+		return $title;
+	}
+
+	/**
+	 * Return the combined title and prefix for all locales
+	 *
+	 * @return array
+	 */
+	public function getTitles() {
+		$allTitles = $this->getData('title');
+		$return = [];
+		foreach ($allTitles as $locale => $title) {
+			if (!$title) {
+				continue;
+			}
+			$return[] = $this->getLocalizedTitle($locale);
+		}
+		return $return;
+	}
+
+	/**
+	 * Combine author names and roles into a string
+	 *
+	 * Eg - Daniel Barnes, Carlo Corino (Author); John Mwandenga (Translator)
+	 *
+	 * @param array $userGroups List of UserGroup objects
+	 * @return string
+	 */
+	public function getAuthorString($userGroups) {
+		$authors = $this->getData('authors');
+
+		if (empty($authors)) {
+			return '';
+		}
+
+		$str = '';
 		$lastUserGroupId = null;
 		foreach($authors as $author) {
 			if (!empty($str)) {
@@ -173,13 +173,13 @@ class PKPPublication extends DataObject {
 
 	/**
 	 * Combine the author names into a shortened string
-   *
-   * Eg - Barnes, et al.
-   *
-   * @return string
-   */
-  public function getShortAuthorString() {
-    $authors = $this->getData('authors');
+	 *
+	 * Eg - Barnes, et al.
+	 *
+	 * @return string
+	 */
+	public function getShortAuthorString() {
+		$authors = $this->getData('authors');
 
 		if (empty($authors)) {
 			return '';
@@ -193,26 +193,26 @@ class PKPPublication extends DataObject {
 		if (count($authors) > 1) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 			return __('submission.shortAuthor', ['author' => $str]);
-    }
+		}
 
 		return $str;
-  }
+	}
 
-  /**
-   * Get the primary contact
-   *
-   * @return Author|null
-   */
-  public function getPrimaryAuthor() {
-    if (empty($this->getData('authors'))) {
-      return null;
-    }
-    foreach ($this->getData('authors') as $author) {
-      if ($author->getId() === $this->getData('primaryContactId')) {
-        return $author;
-      }
-    }
-  }
+	/**
+	 * Get the primary contact
+	 *
+	 * @return Author|null
+	 */
+	public function getPrimaryAuthor() {
+		if (empty($this->getData('authors'))) {
+			return null;
+		}
+		foreach ($this->getData('authors') as $author) {
+			if ($author->getId() === $this->getData('primaryContactId')) {
+				return $author;
+			}
+		}
+	}
 
 	/**
 	 * Stamp the date of the last modification to the current time.
@@ -223,10 +223,10 @@ class PKPPublication extends DataObject {
 
 	/**
 	 * Get the starting page of this publication
-   *
-   * Note the return type of string - this is not to be used for
-   * page counting.
-   *
+	 *
+	 * Note the return type of string - this is not to be used for
+	 * page counting.
+	 *
 	 * @return string
 	 */
 	public function getStartingPage() {
@@ -240,10 +240,10 @@ class PKPPublication extends DataObject {
 
 	/**
 	 * Get ending page of a this publication
-   *
-   * Note the return type of string - this is not to be used for
-   * page counting.
-   *
+	 *
+	 * Note the return type of string - this is not to be used for
+	 * page counting.
+	 *
 	 * @return string
 	 */
 	public function getEndingPage() {
@@ -255,17 +255,17 @@ class PKPPublication extends DataObject {
 
 	/**
 	 * Get pages converted to a nested array of page ranges
-   *
+	 *
 	 * For example, pages of "pp. ii-ix, 9,15-18,a2,b2-b6" will return:
-   *
-   * [
-   *  ['ii', 'ix'],
-   *  ['9'],
-   *  ['15', '18'],
-   *  ['a2'],
-   *  ['b2', 'b6'],
-   * ]
-   *
+	 *
+	 * [
+	 *  ['ii', 'ix'],
+	 *  ['9'],
+	 *  ['15', '18'],
+	 *  ['a2'],
+	 *  ['b2', 'b6'],
+	 * ]
+	 *
 	 * @return array
 	 */
 	public function getPageArray() {
@@ -292,11 +292,11 @@ class PKPPublication extends DataObject {
 			$pageArray[] = array_map('trim', explode('-', str_replace('--', '-', $range), 2));
 		}
 		return $pageArray;
-  }
+	}
 
 	/**
 	 * Is the license for copyright on this publication a Creative Commons license?
-   *
+	 *
 	 * @return boolean
 	 */
 	function isCCLicense() {

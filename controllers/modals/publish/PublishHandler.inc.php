@@ -31,8 +31,8 @@ class PublishHandler extends Handler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			[ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER],
-      ['publish']
-    );
+			['publish']
+		);
 	}
 
 
@@ -66,14 +66,14 @@ class PublishHandler extends Handler {
 	//
 	/**
 	 * Display a publishing confirmation form
-   *
+	 *
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function publish($args, $request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR);
-    $templateMgr = TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		$submissionContext = $request->getContext();
 		if (!$submissionContext || $submissionContext->getId() !== $this->submission->getData('contextId')) {
@@ -93,7 +93,7 @@ class PublishHandler extends Handler {
 			],
 		];
 
-    $templateMgr->assign('publishData', $settingsData);
+		$templateMgr->assign('publishData', $settingsData);
 
 		return $templateMgr->fetchJson('controllers/modals/publish/publish.tpl');
 	}

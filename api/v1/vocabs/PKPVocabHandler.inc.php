@@ -48,7 +48,7 @@ class PKPVocabHandler extends APIHandler {
 
 	/**
 	 * Get the controlled vocab entries available in this context
-   *
+	 *
 	 * @param $slimRequest Request Slim request object
 	 * @param $response Response object
 	 * @param array $args arguments
@@ -59,15 +59,15 @@ class PKPVocabHandler extends APIHandler {
 		$context = $request->getContext();
 
 		if (!$context) {
-      return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-    }
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+		}
 
-    $requestParams = $slimRequest->getQueryParams();
+		$requestParams = $slimRequest->getQueryParams();
 
-    $vocab = !empty($requestParams['vocab']) ? $requestParams['vocab'] : '';
-    $locale = !empty($requestParams['locale']) ? $requestParams['locale'] : AppLocale::getLocale();
+		$vocab = !empty($requestParams['vocab']) ? $requestParams['vocab'] : '';
+		$locale = !empty($requestParams['locale']) ? $requestParams['locale'] : AppLocale::getLocale();
 
-    if (!in_array($locale, $context->getData('supportedLocales'))) {
+		if (!in_array($locale, $context->getData('supportedLocales'))) {
 			return $response->withStatus(400)->withJsonError('api.vocabs.400.localeNotSupported', ['locale' => $locale]);
 		}
 
@@ -102,13 +102,13 @@ class PKPVocabHandler extends APIHandler {
 				\HookRegistry::call('API::vocabs::getMany', [$vocab, &$entries, $slimRequest, $response, $this->request]);
 		}
 
-    $data = [];
-    foreach ($entries as $entry) {
-      $data[] = $entry->getData($vocab, $locale);
-    }
+		$data = [];
+		foreach ($entries as $entry) {
+			$data[] = $entry->getData($vocab, $locale);
+		}
 
-    $data = array_values(array_unique($data));
+		$data = array_values(array_unique($data));
 
-    return $response->withJson($data, 200);
+		return $response->withJson($data, 200);
 	}
 }

@@ -80,8 +80,8 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder {
 	 * @return object Query object
 	 */
 	public function get() {
-    $this->columns = ['*'];
-    $q = Capsule::table('publications as p');
+		$this->columns = ['*'];
+		$q = Capsule::table('publications as p');
 
 		if (!empty($this->contextIds)) {
 			$q->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')

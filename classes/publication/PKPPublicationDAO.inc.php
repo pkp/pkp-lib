@@ -178,7 +178,7 @@ class PKPPublicationDAO extends SchemaDAO {
 	}
 
 	/**
-	 * @copydoc	SchemaDAO::deleteById()
+	 * @copydoc SchemaDAO::deleteById()
 	 */
 	public function deleteById($publicationId) {
 		parent::deleteById($publicationId);

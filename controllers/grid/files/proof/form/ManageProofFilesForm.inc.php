@@ -23,10 +23,12 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	/**
 	 * Constructor.
 	 * @param $submissionId int Submission ID.
+	 * @param $publicationId int Publication ID
 	 * @param $representationId int Representation ID.
 	 */
-	function __construct($submissionId, $representationId) {
+	function __construct($submissionId, $publicationId, $representationId) {
 		parent::__construct($submissionId, 'controllers/grid/files/proof/manageProofFiles.tpl');
+		$this->_publicationId = $publicationId;
 		$this->_representationId = $representationId;
 	}
 
@@ -39,6 +41,7 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('publicationId', $this->_publicationId);
 		$templateMgr->assign('representationId', $this->_representationId);
 		return parent::fetch($request, $template, $display);
 	}

@@ -13,7 +13,6 @@
  */
 
 namespace PKP\components\listPanels;
-use PKP\components\listPanels;
 
 class ListPanel {
 	/** @var string URL to the API endpoint where items can be retrieved */

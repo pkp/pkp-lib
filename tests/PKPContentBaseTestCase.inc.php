@@ -319,7 +319,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click($xpath);
 		$this->waitJQuery();
 		sleep(2);
-		$this->click('css=[id^=selectReviewerButton]');
+		$this->click('//button[@id="selectReviewerButton"]');
 		$this->waitJQuery();
 		sleep(2);
 		$this->click('//button[text()=\'Add Reviewer\']');

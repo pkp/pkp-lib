@@ -46,6 +46,8 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
 		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
+		import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
+		$this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
 		import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
 		$this->addPolicy(new RepresentationRequiredPolicy($request, $args));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -56,10 +58,14 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 	 * @return array
 	 */
 	function getRequestArgs() {
+		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
 		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
 		return array_merge(
 			parent::getRequestArgs(),
-			array('representationId' => $representation->getId())
+			array(
+				'publicationId' => $publication->getId(),
+				'representationId' => $representation->getId()
+			)
 		);
 	}
 
@@ -74,10 +80,11 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
 	 */
 	function updateProofFiles($args, $request) {
 		$submission = $this->getSubmission();
+		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
 		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
 
 		import('lib.pkp.controllers.grid.files.proof.form.ManageProofFilesForm');
-		$manageProofFilesForm = new ManageProofFilesForm($submission->getId(), $representation->getId());
+		$manageProofFilesForm = new ManageProofFilesForm($submission->getId(), $publication->getId(), $representation->getId());
 		$manageProofFilesForm->readInputData();
 
 		if ($manageProofFilesForm->validate()) {

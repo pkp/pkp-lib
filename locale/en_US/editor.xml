@@ -77,6 +77,7 @@
 	<message key="editor.review.reviewCompleted">Review Completed</message>
 	<message key="editor.review.reviewConfirmed">Review Confirmed</message>
 	<message key="editor.review.reviewSubmitted">Review Submitted</message>
+	<message key="editor.review.reviewerThanked">Reviewer Thanked</message>
 	<message key="editor.review.reviewerComments">Reviewer Comments</message>
 	<message key="editor.review.rateReviewer">Reviewer rating</message>
 	<message key="editor.review.rateReviewer.description">Rate the quality of the review provided. This rating is not shared with the reviewer.</message>

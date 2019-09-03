@@ -166,6 +166,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider {
 				return '<span class="state declined" title="' . __('editor.review.requestDeclined.tooltip') . '">'.__('editor.review.requestDeclined').'</span>';
 			case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
 				return  $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
+			case REVIEW_ASSIGNMENT_STATUS_THANKED:
+				return  $this->_getStatusWithRecommendation('editor.review.reviewerThanked', $reviewAssignment);
 			default:
 				return '';
 		}

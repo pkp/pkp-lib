@@ -18,6 +18,9 @@ class ListPanel {
 	/** @var string URL to the API endpoint where items can be retrieved */
 	public $apiUrl = '';
 
+	/** @var bool Whether items in this list can be reordered */
+	public $canOrder = false;
+
 	/** @var bool Whether items in this list can be selected */
 	public $canSelect = false;
 
@@ -98,6 +101,7 @@ class ListPanel {
 	public function getConfig() {
 		$config = [
 			'apiUrl' => $this->apiUrl,
+			'canOrder' => $this->canOrder,
 			'canSelect' => $this->canSelect,
 			'canSelectAll' => $this->canSelectAll,
 			'count' => $this->count,

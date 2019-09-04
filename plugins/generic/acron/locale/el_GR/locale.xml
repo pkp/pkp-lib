@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/generic/acron/locale/el_GR/locale.xml
+  *
+  * Copyright (c) 2013-2019 Simon Fraser University
+  * Copyright (c) 2000-2019 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  *
+  -->
+ 
+<locale name="el_GR" full_name="ελληνικά">
+	<message key="plugins.generic.acron.name">Acron</message>
+	<message key="plugins.generic.acron.description">Αυτό το Πρόσθετο χρησιμοποιείται για την ελαχιστοποίηση της εξάρτησης από εργαλεία περιοδικού προγραμματισμού, όπως το 'cron.'</message>
+	<message key="plugins.generic.acron.enabled">To Πρόσθετο Acron έχει ενεργοποιηθεί.</message>
+	<message key="plugins.generic.acron.disabled">To Πρόσθετο Acron έχει απενεργοποιηθεί.</message>
+	<message key="plugins.generic.acron.reloadedCronTab">Το Cron tab επαναφορτώθηκε επιτυχώς.</message>
+
+	<message key="plugins.generic.acron.reload">Επαναφόρτωση προγραμματισμένων εργασιών</message>
+	<message key="plugins.generic.acron.tasksReloaded">Οι προγραμματισμένες εργασίες επαναφορτώθηκαν επιτυχώς.</message>
+</locale>

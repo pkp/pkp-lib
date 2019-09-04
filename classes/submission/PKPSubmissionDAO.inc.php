@@ -17,6 +17,7 @@
 import('lib.pkp.classes.submission.PKPSubmission');
 import('lib.pkp.classes.db.SchemaDAO');
 import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
+import('lib.pkp.classes.services.PKPSchemaService'); // SCHEMA_ constants
 
 define('ORDERBY_DATE_PUBLISHED', 'datePublished');
 define('ORDERBY_TITLE', 'title');

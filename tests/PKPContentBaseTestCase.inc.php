@@ -311,7 +311,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->waitJQuery();
 		sleep(2);
 		$this->waitForElementPresent($selector = 'css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
-		$this->click($element);
+		$this->click($selector);
 		$this->waitJQuery();
 		sleep(2);
 		$this->waitForElementPresent('css=fieldset.pkpListPanel--selectReviewer');

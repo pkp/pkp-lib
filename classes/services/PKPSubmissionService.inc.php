@@ -15,6 +15,7 @@
 
 namespace PKP\Services;
 
+use \Core;
 use \DBResultRange;
 use \Application;
 use \DAOResultFactory;
@@ -22,14 +23,13 @@ use \DAORegistry;
 use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
+use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\traits\EntityReadTrait;
 use \APP\Services\QueryBuilders\SubmissionQueryBuilder;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
-define('SUBMISSION_RETURN_SUBMISSION', 0);
-define('SUBMISSION_RETURN_PUBLISHED', 1);
 
-abstract class PKPSubmissionService implements EntityPropertyInterface, EntityReadInterface {
+abstract class PKPSubmissionService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
 	use EntityReadTrait;
 
 	/**
@@ -53,21 +53,15 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
-	 *		@option string returnObject Whether to return submission or published
-	 *			objects. SUBMISSION_RETURN_SUBMISSION or SUBMISSION_RETURN_PUBLISHED.
-	 *			Default: SUBMISSION_RETURN_SUBMISSION.
 	 * @return array
 	 */
 	public function getMany($args = array()) {
 		$submissionListQB = $this->_getQueryBuilder($args);
 		$submissionListQO = $submissionListQB->get();
 		$range = $this->getRangeByArgs($args);
-		$dao = Application::getSubmissionDAO();
-		if (!empty($args['returnObject']) && $args['returnObject'] === SUBMISSION_RETURN_PUBLISHED) {
-			$dao = Application::getPublishedSubmissionDAO();
-		}
-		$result = $dao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $dao, '_fromRow', array(), array('submissionStatus' => STATUS_PUBLISHED));
+		$submissionDao = Application::get()->getSubmissionDAO();
+		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
+		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow');
 
 		return $queryResults->toArray();
 	}
@@ -79,12 +73,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$submissionListQB = $this->_getQueryBuilder($args);
 		$countQO = $submissionListQB->countOnly()->get();
 		$countRange = new DBResultRange($args['count'], 1);
-		$dao = Application::getSubmissionDAO();
-		if (!empty($args['returnObject']) && $args['returnObject'] === SUBMISSION_RETURN_PUBLISHED) {
-			$dao = Application::getPublishedSubmissionDAO();
-		}
-		$countResult = $dao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $dao, '_fromRow', array(), array('submissionStatus' => STATUS_PUBLISHED));
+		$submissionDao = Application::get()->getSubmissionDAO();
+		$countResult = $submissionDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
+		$countQueryResults = new DAOResultFactory($countResult, $submissionDao, '_fromRow');
 
 		return (int) $countQueryResults->getCount();
 	}
@@ -109,7 +100,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
-			'returnObject' => SUBMISSION_RETURN_SUBMISSION,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -124,245 +114,11 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
-			->searchPhrase($args['searchPhrase'])
-			->returnObject($args['returnObject']);
+			->searchPhrase($args['searchPhrase']);
 
 		\HookRegistry::call('Submission::getMany::queryBuilder', array($submissionListQB, $args));
 
 		return $submissionListQB;
-	}
-
-	/**
-	 * Get the correct access URL for a submission's workflow based on a user's
-	 * role.
-	 *
-	 * The returned URL will point to the correct workflow page based on whether
-	 * the user should be treated as an author, reviewer or editor/assistant for
-	 * this submission.
-	 *
-	 * @param $submission Submission
-	 * @param $userId an optional user id
-	 * @return string|false URL; false if the user does not exist or an
-	 *   appropriate access URL could not be determined
-	 */
-	public function getWorkflowUrlByUserRoles($submission, $userId = null) {
-
-		$request = Application::get()->getRequest();
-
-		if (is_null($userId)) {
-			$user = $request->getUser();
-		} else {
-			$userDao = DAORegistry::getDAO('UserDAO');
-			$user = $userDao->getById($userId);
-		}
-
-		if (is_null($user)) {
-			return false;
-		}
-
-		$submissionContext = $request->getContext();
-
-		if (!$submissionContext || $submissionContext->getId() != $submission->getContextId()) {
-			$contextDao = Application::getContextDAO();
-			$submissionContext = $contextDao->getById($submission->getContextId());
-		}
-
-		$dispatcher = $request->getDispatcher();
-
-		// Check if the user is an author of this submission
-		$authorUserGroupIds = DAORegistry::getDAO('UserGroupDAO')->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
-		$stageAssignmentsFactory = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
-
-		$authorDashboard = false;
-		while ($stageAssignment = $stageAssignmentsFactory->next()) {
-			if (in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
-				$authorDashboard = true;
-			}
-		}
-
-		// Send authors, journal managers and site admins to the submission
-		// wizard for incomplete submissions
-		if ($submission->getSubmissionProgress() > 0 &&
-			($authorDashboard ||
-				$user->hasRole(array(ROLE_ID_MANAGER), $submissionContext->getId()) ||
-				$user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE))) {
-			return $dispatcher->url(
-				$request,
-				ROUTE_PAGE,
-				$submissionContext->getPath(),
-				'submission',
-				'wizard',
-				$submission->getSubmissionProgress(),
-				array('submissionId' => $submission->getId())
-			);
-		}
-
-		// Send authors to author dashboard
-		if ($authorDashboard) {
-			return $dispatcher->url(
-				$request,
-				ROUTE_PAGE,
-				$submissionContext->getPath(),
-				'authorDashboard',
-				'submission',
-				$submission->getId()
-			);
-		}
-
-		// Send reviewers to review wizard
-		$reviewAssignment = DAORegistry::getDAO('ReviewAssignmentDAO')->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
-		if ($reviewAssignment) {
-			return $dispatcher->url(
-				$request,
-				ROUTE_PAGE,
-				$submissionContext->getPath(),
-				'reviewer',
-				'submission',
-				$submission->getId()
-			);
-		}
-
-		// Give any other users the editorial workflow URL. If they can't access
-		// it, they'll be blocked there.
-		return $dispatcher->url(
-			$request,
-			ROUTE_PAGE,
-			$submissionContext->getPath(),
-			'workflow',
-			'access',
-			$submission->getId()
-		);
-	}
-
-	/**
-	 * Delete a submission
-	 *
-	 * @param $id int
-	 */
-	public function delete($id) {
-		Application::getSubmissionDAO()->deleteById((int) $id);
-	}
-
-	/**
-	 * Check if a user can delete a submission
-	 *
-	 * @param $submission Submission|int Submission object or submission ID
-	 * @return bool
-	 */
-	public function canCurrentUserDelete($submission) {
-
-		if (!is_a($submission, 'Submission')) {
-			$submission = $this->get((int) $submission);
-			if (!$submission) {
-				return false;
-			}
-		}
-
-		$request = Application::get()->getRequest();
-		$contextId = $submission->getContextId();
-
-		$currentUser = $request->getUser();
-		if (!$currentUser) {
-			return false;
-		}
-
-		$canDelete = false;
-
-		// Only allow admins and journal managers to delete submissions, except
-		// for authors who can delete their own incomplete submissions
-		if ($currentUser->hasRole(array(ROLE_ID_MANAGER), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
-			$canDelete = true;
-		} else {
-			if ($submission->getSubmissionProgress() != 0 ) {
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-				$assignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, 1, $currentUser->getId());
-				$assignment = $assignments->next();
-				if ($assignment) {
-					$canDelete = true;
-				}
-			}
-		}
-
-		return $canDelete;
-	}
-
-	/**
-	 * Get review rounds for a submission
-	 *
-	 * @param $submission Submission
-	 * @return array
-	 */
-	public function getReviewRounds($submission) {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		return $reviewRoundDao->getBySubmissionId($submission->getId())->toArray();
-	}
-
-	/**
-	 * Get review assignments for a submission
-	 *
-	 * @param $submission Submission
-	 * @return array
-	 */
-	public function getReviewAssignments($submission) {
-		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		return $reviewAssignmentDao->getBySubmissionId($submission->getId());
-	}
-
-	/**
-	 * Is this submission public?
-	 *
-	 * @param $submission Submission
-	 * @return boolean
-	 */
-	public function isPublic($submission) {
-		$isPublic = false;
-		\HookRegistry::call('Submission::isPublic', array(&$isPublic, $submission));
-		return $isPublic;
-	}
-
-	/**
-	 * Is this user allowed to view the author details?
-	 *
-	 * - Anyone can view published submission authors
-	 * - Reviewers can only view authors in open reviews
-	 * - Managers and admins can view authors of any submission
-	 * - Subeditors, authors and assistants can only view authors in assigned subs
-	 *
-	 * @param $user User
-	 * @param $submission Submission
-	 * @return boolean
-	 */
-	public function canUserViewAuthor($user, $submission) {
-
-		if ($this->isPublic($submission)) {
-			return true;
-		}
-
-		$reviewAssignments = $this->getReviewAssignments($submission);
-		foreach ($reviewAssignments as $reviewAssignment) {
-			if ($user->getId() == $reviewAssignment->getReviewerId()) {
-				return $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEBLIND ? false : true;
-			}
-		}
-
-		$contextId = $submission->getContextId();
-
-		if ($user->hasRole(array(ROLE_ID_MANAGER), $contextId) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
-			return true;
-		}
-
-		if ($user->hasRole(array(ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT), $contextId)) {
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId());
-			while ($stageAssignment = $stageAssignments->next()) {
-				if ($user->getId() == $stageAssignment->getUserId()) {
-					return true;
-				}
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -372,114 +128,52 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 		\PluginRegistry::loadCategory('pubIds', true);
 		$values = array();
-		$authorService = \Services::get('author');
-		$request = \Application::get()->getRequest();
+		$request = $args['request'];
 		$dispatcher = $request->getDispatcher();
 
 		// Retrieve the submission's context for properties that require it
-		if (array_intersect(array('urlAuthorWorkflow', 'urlEditorialWorkflow'), $props)) {
+		if (array_intersect(['_href', 'urlAuthorWorkflow', 'urlEditorialWorkflow'], $props)) {
 			$submissionContext = $request->getContext();
-			if (!$submissionContext || $submissionContext->getId() != $submission->getContextId()) {
-				$contextDao = Application::getContextDAO();
-				$submissionContext = $contextDao->getById($submission->getContextId());
+			if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
+				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 			}
 		}
 
 		foreach ($props as $prop) {
 			switch ($prop) {
-				case 'id':
-					$values[$prop] = (int) $submission->getId();
+				case '_href':
+					$values[$prop] = $dispatcher->url(
+						$request,
+						ROUTE_API,
+						$submissionContext->getData('urlPath'),
+						'submissions/' . $submission->getId()
+					);
 					break;
-				case 'title':
-					$values[$prop] = $submission->getTitle(null);
+					case 'publications':
+						$values[$prop] = array_map(
+							function($publication) use ($args) {
+								return Services::get('publication')->getFullProperties($publication, $args);
+							},
+							(array) $submission->getData('publications')
+						);
+						break;
+				case 'reviewAssignments':
+					$values[$prop] = $this->getPropertyReviewAssignments($submission);
 					break;
-				case 'subtitle':
-					$values[$prop] = $submission->getSubtitle(null);
+				case 'reviewRounds':
+					$values[$prop] = $this->getPropertyReviewRounds($submission);
 					break;
-				case 'fullTitle':
-					$values[$prop] = $submission->getFullTitle(null);
-					break;
-				case 'prefix':
-					$values[$prop] = $submission->getPrefix(null);
-					break;
-				case 'authorString':
-					$values[$prop] = $submission->getAuthorString();
-					break;
-				case 'shortAuthorString':
-					$values[$prop] = $submission->getShortAuthorString();
-					break;
-				case 'authors':
-				case 'authorsSummary';
-					$authors = $submission->getAuthors();
-					$values['authors'] = [];
-					foreach ($authors as $author) {
-						$values['authors'][] = ($prop === 'authors')
-							? $authorService->getFullProperties($author, $args)
-							: $authorService->getSummaryProperties($author, $args);
-					}
-					break;
-				case 'abstract':
-					$values[$prop] = $submission->getAbstract(null);
-					break;
-				case 'discipline':
-					$values[$prop] = $submission->getDiscipline(null);
-					break;
-				case 'subject':
-					$values[$prop] = $submission->getSubject(null);
-					break;
-				case 'type':
-					$values[$prop] = $submission->getType(null);
-					break;
-				case 'language':
-					$values[$prop] = $submission->getLanguage();
-					break;
-				case 'sponsor':
-					$values[$prop] = $submission->getSponsor(null);
-					break;
-				case 'pages':
-					$values[$prop] = $submission->getPages();
-					break;
-				case 'copyrightHolder':
-					$values[$prop] = $submission->getCopyrightHolder(null);
-					break;
-				case 'copyrightYear':
-					$values[$prop] = $submission->getCopyrightYear();
-					break;
-				case 'licenseUrl':
-					$values[$prop] = $submission->getLicenseURL();
-					break;
-				case 'locale':
-					$values[$prop] = $submission->getLocale();
-					break;
-				case 'dateSubmitted':
-					$values[$prop] = $submission->getDateSubmitted();
-					break;
-				case 'dateStatusModified':
-					$values[$prop] = $submission->getDateStatusModified();
-					break;
-				case 'lastModified':
-					$values[$prop] = $submission->getLastModified();
-					break;
-				case 'datePublished':
-					$values[$prop] = $submission->getDatePublished();
-					break;
-				case 'status':
-					$values[$prop] = (int) $submission->getStatus();
+				case 'stages':
+					$values[$prop] = $this->getPropertyStages($submission);
 					break;
 				case 'statusLabel':
 					$values[$prop] = __($submission->getStatusKey());
-					break;
-				case 'submissionProgress':
-					$values[$prop] = (int) $submission->getSubmissionProgress();
-					break;
-				case 'urlWorkflow':
-					$values[$prop] = $this->getWorkflowUrlByUserRoles($submission);
 					break;
 				case 'urlAuthorWorkflow':
 					$values[$prop] = $dispatcher->url(
 						$request,
 						ROUTE_PAGE,
-						$submissionContext->getPath(),
+						$submissionContext->getData('urlPath'),
 						'authorDashboard',
 						'submission',
 						$submission->getId()
@@ -489,33 +183,17 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 					$values[$prop] = $dispatcher->url(
 						$request,
 						ROUTE_PAGE,
-						$submissionContext->getPath(),
+						$submissionContext->getData('urlPath'),
 						'workflow',
 						'access',
 						$submission->getId()
 					);
 					break;
-				case '_href':
-					$values[$prop] = null;
-					if (!empty($args['slimRequest'])) {
-						$route = $args['slimRequest']->getAttribute('route');
-						$arguments = $route->getArguments();
-						$values[$prop] = $dispatcher->url(
-							$args['request'],
-							ROUTE_API,
-							$arguments['contextPath'],
-							'submissions/' . $submission->getId()
-						);
-					}
+				case 'urlWorkflow':
+					$values[$prop] = $this->getWorkflowUrlByUserRoles($submission);
 					break;
-				case 'stages':
-					$values[$prop] = $this->getPropertyStages($submission);
-					break;
-				case 'reviewAssignments':
-					$values[$prop] = $this->getPropertyReviewAssignments($submission);
-					break;
-				case 'reviewRounds':
-					$values[$prop] = $this->getPropertyReviewRounds($submission);
+				default:
+					$values[$prop] = $submission->getData($prop);
 					break;
 			}
 		}
@@ -533,24 +211,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
 	 */
 	public function getSummaryProperties($submission, $args = null) {
-		\PluginRegistry::loadCategory('pubIds', true);
-		$request = $args['request'];
-		$context = $request->getContext();
-		$currentUser = $request->getUser();
-
-		$props = array (
-			'id','title','subtitle','fullTitle','prefix',
-			'abstract','language','pages','datePublished','status','statusLabel',
-			'submissionProgress','urlWorkflow','urlPublished','galleysSummary','_href',
-		);
-
-		if ($this->canUserViewAuthor($currentUser, $submission)) {
-			$props[] = 'authorString';
-			$props[] = 'shortAuthorString';
-			$props[] = 'authorsSummary';
-		}
-
-		\HookRegistry::call('Submission::getProperties::summaryProperties', array(&$props, $submission, $args));
+		$props = Services::get('schema')->getSummaryProps(SCHEMA_SUBMISSION);
 
 		return $this->getProperties($submission, $props, $args);
 	}
@@ -559,27 +220,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
 	 */
 	public function getFullProperties($submission, $args = null) {
-		\PluginRegistry::loadCategory('pubIds', true);
-		$request = $args['request'];
-		$context = $request->getContext();
-		$currentUser = $request->getUser();
-
-		$props = array (
-			'id','title','subtitle','fullTitle','prefix','abstract',
-			'discipline','subject','type','language','sponsor','pages',
-			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
-			'status','statusLabel','submissionProgress','urlWorkflow','urlPublished',
-			'galleys','_href',
-		);
-
-		if ($this->canUserViewAuthor($currentUser, $submission)) {
-			$props[] = 'authorString';
-			$props[] = 'shortAuthorString';
-			$props[] = 'authors';
-			$props[] = 'copyrightHolder';
-		}
-
-		\HookRegistry::call('Submission::getProperties::fullProperties', array(&$props, $submission, $args));
+		$props = Services::get('schema')->getFullProps(SCHEMA_SUBMISSION);
 
 		return $this->getProperties($submission, $props, $args);
 	}
@@ -593,19 +234,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function getBackendListProperties($submission, $args = null) {
 		\PluginRegistry::loadCategory('pubIds', true);
-		$request = $args['request'];
-		$context = $request->getContext();
-		$currentUser = $request->getUser();
 
 		$props = array (
-			'id','fullTitle','status','statusLabel','submissionProgress','stages',
-			'reviewRounds','reviewAssignments','locale', 'urlWorkflow',
-			'urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
+			'_href', 'contextId', 'currentPublicationId','dateStatusModified','dateSubmitted','id',
+			'lastModified','publications','reviewAssignments','reviewRounds','stageId','stages','status',
+			'statusLabel','submissionProgress','urlAuthorWorkflow','urlEditorialWorkflow','urlWorkflow','urlPublished',
 		);
-
-		if ($this->canUserViewAuthor($currentUser, $submission)) {
-			$props[] = 'authorString';
-		}
 
 		\HookRegistry::call('Submission::getBackendListProperties::properties', array(&$props, $submission, $args));
 
@@ -832,5 +466,351 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		}
 
 		return $stages;
+	}
+
+	/**
+	 * Get the correct access URL for a submission's workflow based on a user's
+	 * role.
+	 *
+	 * The returned URL will point to the correct workflow page based on whether
+	 * the user should be treated as an author, reviewer or editor/assistant for
+	 * this submission.
+	 *
+	 * @param $submission Submission
+	 * @param $userId an optional user id
+	 * @return string|false URL; false if the user does not exist or an
+	 *   appropriate access URL could not be determined
+	 */
+	public function getWorkflowUrlByUserRoles($submission, $userId = null) {
+
+		$request = Application::get()->getRequest();
+
+		if (is_null($userId)) {
+			$user = $request->getUser();
+		} else {
+			$userDao = DAORegistry::getDAO('UserDAO');
+			$user = $userDao->getById($userId);
+		}
+
+		if (is_null($user)) {
+			return false;
+		}
+
+		$submissionContext = $request->getContext();
+
+		if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
+			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
+		}
+
+		$dispatcher = $request->getDispatcher();
+
+		// Check if the user is an author of this submission
+		$authorUserGroupIds = DAORegistry::getDAO('UserGroupDAO')->getUserGroupIdsByRoleId(ROLE_ID_AUTHOR);
+		$stageAssignmentsFactory = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
+
+		$authorDashboard = false;
+		while ($stageAssignment = $stageAssignmentsFactory->next()) {
+			if (in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
+				$authorDashboard = true;
+			}
+		}
+
+		// Send authors, journal managers and site admins to the submission
+		// wizard for incomplete submissions
+		if ($submission->getSubmissionProgress() > 0 &&
+			($authorDashboard ||
+				$user->hasRole(array(ROLE_ID_MANAGER), $submissionContext->getId()) ||
+				$user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE))) {
+			return $dispatcher->url(
+				$request,
+				ROUTE_PAGE,
+				$submissionContext->getPath(),
+				'submission',
+				'wizard',
+				$submission->getSubmissionProgress(),
+				array('submissionId' => $submission->getId())
+			);
+		}
+
+		// Send authors to author dashboard
+		if ($authorDashboard) {
+			return $dispatcher->url(
+				$request,
+				ROUTE_PAGE,
+				$submissionContext->getPath(),
+				'authorDashboard',
+				'submission',
+				$submission->getId()
+			);
+		}
+
+		// Send reviewers to review wizard
+		$reviewAssignment = DAORegistry::getDAO('ReviewAssignmentDAO')->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+		if ($reviewAssignment) {
+			return $dispatcher->url(
+				$request,
+				ROUTE_PAGE,
+				$submissionContext->getPath(),
+				'reviewer',
+				'submission',
+				$submission->getId()
+			);
+		}
+
+		// Give any other users the editorial workflow URL. If they can't access
+		// it, they'll be blocked there.
+		return $dispatcher->url(
+			$request,
+			ROUTE_PAGE,
+			$submissionContext->getPath(),
+			'workflow',
+			'access',
+			$submission->getId()
+		);
+	}
+
+	/**
+	 * Check if a user can delete a submission
+	 *
+	 * @param $submission Submission|int Submission object or submission ID
+	 * @return bool
+	 */
+	public function canCurrentUserDelete($submission) {
+
+		if (!is_a($submission, 'Submission')) {
+			$submission = $this->get((int) $submission);
+			if (!$submission) {
+				return false;
+			}
+		}
+
+		$request = Application::get()->getRequest();
+		$contextId = $submission->getContextId();
+
+		$currentUser = $request->getUser();
+		if (!$currentUser) {
+			return false;
+		}
+
+		$canDelete = false;
+
+		// Only allow admins and journal managers to delete submissions, except
+		// for authors who can delete their own incomplete submissions
+		if ($currentUser->hasRole(array(ROLE_ID_MANAGER), $contextId) || $currentUser->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE)) {
+			$canDelete = true;
+		} else {
+			if ($submission->getSubmissionProgress() != 0 ) {
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$assignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, 1, $currentUser->getId());
+				$assignment = $assignments->next();
+				if ($assignment) {
+					$canDelete = true;
+				}
+			}
+		}
+
+		return $canDelete;
+	}
+
+	/**
+	 * Get review rounds for a submission
+	 *
+	 * @param $submission Submission
+	 * @return array
+	 */
+	public function getReviewRounds($submission) {
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		return $reviewRoundDao->getBySubmissionId($submission->getId())->toArray();
+	}
+
+	/**
+	 * Get review assignments for a submission
+	 *
+	 * @param $submission Submission
+	 * @return array
+	 */
+	public function getReviewAssignments($submission) {
+		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		return $reviewAssignmentDao->getBySubmissionId($submission->getId());
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::validate()
+	 */
+	public function validate($action, $props, $allowedLocales, $primaryLocale) {
+		$schemaService = Services::get('schema');
+
+		import('lib.pkp.classes.validation.ValidatorFactory');
+		$validator = \ValidatorFactory::make(
+			$props,
+			$schemaService->getValidationRules(SCHEMA_SUBMISSION, $allowedLocales)
+		);
+
+		// Check required fields if we're adding the object
+		if ($action === VALIDATE_ACTION_ADD) {
+			\ValidatorFactory::required(
+				$validator,
+				$schemaService->getRequiredProps(SCHEMA_SUBMISSION),
+				$schemaService->getMultilingualProps(SCHEMA_SUBMISSION),
+				$primaryLocale
+			);
+		}
+
+		// Check for input from disallowed locales
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_SUBMISSION), $allowedLocales);
+
+		// The contextId must match an existing context
+		$validator->after(function($validator) use ($props) {
+			if (isset($props['contextid']) && !$validator->errors()->get('contextid')) {
+				$submissionContext = Services::get('context')->get($props['contextid']);
+				if (!$submissionContext) {
+					$validator->errors()->add('contextId', __('submission.submit.noContext'));
+				}
+			}
+		});
+
+		if ($validator->fails()) {
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_SUBMISSION), $allowedLocales);
+		}
+
+		\HookRegistry::call('Submission::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
+
+		return $errors;
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
+	 */
+	public function add($submission, $request) {
+		$submission->setData('dateStatusModified', Core::getCurrentDate());
+		$submission->setData('lastModified', Core::getCurrentDate());
+		if (!$submission->getData('dateSubmitted')) {
+			$submission->setData('dateSubmitted', Core::getCurrentDate());
+		}
+		$submissionId = Application::get()->getSubmissionDAO()->insertObject($submission);
+		$submission = $this->get($submissionId);
+
+		\HookRegistry::call('Submission::add', [$submission, $request]);
+
+		return $submission;
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
+	 */
+	public function edit($submission, $params, $request) {
+		$submissionDao = Application::get()->getSubmissionDAO();
+
+		$newSubmission = $submissionDao->newDataObject();
+		$newSubmission->_data = array_merge($submission->_data, $params);
+		$newSubmission->setData('lastModified', Core::getCurrentDate());
+
+		if ($newSubmission->getData('status') !== $submission->getData('status')) {
+			$newSubmission->setData('dateStatusModified', Core::getCurrentDate());
+		}
+
+		\HookRegistry::call('Submission::edit', [$newSubmission, $submission, $params, $request]);
+
+		$submissionDao->updateObject($newSubmission);
+		$newSubmission = $this->get($newSubmission->getId());
+
+		return $newSubmission;
+	}
+
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
+	 */
+	public function delete($submission) {
+		\HookRegistry::call('Submission::delete::before', [$submission]);
+
+		Application::get()->getSubmissionDAO()->deleteObject($submission);
+
+		$contributors = Services::get('author')->getMany(['publicationIds' => $submission->getId()]);
+		foreach ($contributors as $contributor) {
+			Services::get('author')->delete($contributor);
+		}
+
+		\HookRegistry::call('Submission::delete', [$submission]);
+	}
+
+	/**
+	 * Check if a user can edit a submission's metadata
+	 *
+	 * @param int $submissionId
+	 * @param int $userId
+	 * @return boolean
+	 */
+	public function canUserEditMetadata($submissionId, $userId) {
+		$stageAssignments = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null)->toArray();
+		foreach($stageAssignments as $stageAssignment) {
+			if ($stageAssignment->getCanChangeMetadata()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Update a submission's status and current publication id if necessary
+	 *
+	 * Checks the status of the submission's publications and sets
+	 * the appropriate status and current publication id.
+	 *
+	 * @param Submission $submission
+	 * @return Submission
+	 */
+	public function updateStatus($submission) {
+		$status = $newStatus = $submission->getData('status');
+		$currentPublicationId = $submission->getData('currentPublicationId');
+		$publications = $submission->getData('publications');
+
+		// There should always be at least one publication for a submission. If
+		// not, an error has occurred in the code and will cause problems.
+		if (empty($publications)) {
+			throw new Exception('Tried to update the status of submission ' . $submission->getId() . ' and no publications were found.');
+		}
+
+		// Get the new current publication after status changes or deletions
+		// Use the latest published publication or, failing that, the latest publication
+		$newCurrentPublicationId = array_reduce($publications, function($a, $b) {
+			return $b->getData('status') === STATUS_PUBLISHED && $b->getId() > $a ? $b->getId() : $a;
+		}, 0);
+		if (!$newCurrentPublicationId) {
+			$newCurrentPublicationId = array_reduce($publications, function($a, $b) {
+				return $a > $b->getId() ? $a : $b->getId();
+			}, 0);
+		}
+
+		// Declined submissions should remain declined even if their
+		// publications change
+		if ($status !== STATUS_DECLINED) {
+			$newStatus = STATUS_QUEUED;
+			foreach ($publications as $publication) {
+				if ($publication->getData('status') === STATUS_PUBLISHED) {
+					$newStatus = STATUS_PUBLISHED;
+					break;
+				}
+				if ($publication->getData('status') === STATUS_SCHEDULED) {
+					$newStatus = STATUS_SCHEDULED;
+					continue;
+				}
+			}
+		}
+
+		\HookRegistry::call('Submission::updateStatus', [&$status, $submission]);
+
+		$updateParams = [];
+		if ($status !== $newStatus) {
+			$updateParams['status'] = $newStatus;
+		}
+		if ($currentPublicationId !== $newCurrentPublicationId) {
+			$updateParams['currentPublicationId'] = $newCurrentPublicationId;
+		}
+		if (!empty($updateParams)) {
+			$submission = $this->edit($submission, $updateParams, Application::get()->getRequest());
+		}
+
+		return $submission;
 	}
 }

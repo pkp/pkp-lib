@@ -9,7 +9,7 @@
  * @class PKPEmailTemplateQueryBuilder
  * @ingroup query_builders
  *
- * @brief Base class for context (journals/presses) list query builder
+ * @brief Class for building database queries for email templates
  */
 
 namespace PKP\Services\QueryBuilders;

@@ -455,4 +455,30 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		return true;
 	}
+
+	/**
+	 * Can this user access the requested workflow stage
+	 *
+	 * The user must have an assigned role in the specified stage or
+	 * be a manager or site admin that has no assigned role in the
+	 * submission.
+	 *
+	 * @param string $stageId One of the WORKFLOW_STAGE_ID_* contstants.
+	 * @param string $workflowType Accessing the editorial or author workflow? WORKFLOW_TYPE_*
+	 * @param array $userAccessibleStages User's assignments to the workflow stages. ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES
+	 * @param array $userRoles User's roles in the context
+	 * @return Boolean
+	 */
+	public function canUserAccessStage($stageId, $workflowType, $userAccessibleStages, $userRoles) {
+		$workflowRoles = Application::get()->getWorkflowTypeRoles()[$workflowType];
+
+		if (array_key_exists($stageId, $userAccessibleStages)
+			&& !empty(array_intersect($workflowRoles, $userAccessibleStages[$stageId]))) {
+				return true;
+		}
+		if (empty($userAccessibleStages) && in_array(ROLE_ID_MANAGER, $userRoles)) {
+			return true;
+		}
+		return false;
+	}
 }

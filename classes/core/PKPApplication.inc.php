@@ -38,7 +38,6 @@ define('ASSOC_TYPE_REPRESENTATION',		0x0000209);
 define('ASSOC_TYPE_ANNOUNCEMENT',		0x000020A);
 define('ASSOC_TYPE_REVIEW_ROUND',		0x000020B);
 define('ASSOC_TYPE_SUBMISSION_FILES',		0x000020F);
-define('ASSOC_TYPE_PUBLISHED_SUBMISSION',	0x0000210);
 define('ASSOC_TYPE_PLUGIN',			0x0000211);
 define('ASSOC_TYPE_SECTION',			0x0000212);
 define('ASSOC_TYPE_USER',			0x0001000); // This value used because of bug #6068
@@ -51,6 +50,7 @@ define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 define('ASSOC_TYPE_QUERY',			0x010000a);
 define('ASSOC_TYPE_QUEUED_PAYMENT',		0x010000b);
+define('ASSOC_TYPE_PUBLICATION', 0x010000c);
 
 // Constant used in UsageStats for submission files that are not full texts
 define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
@@ -407,6 +407,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
 			'PluginGalleryDAO' => 'lib.pkp.classes.plugins.PluginGalleryDAO',
 			'PluginSettingsDAO' => 'lib.pkp.classes.plugins.PluginSettingsDAO',
+			'PublicationDAO' => 'classes.publication.PublicationDAO',
 			'QueuedPaymentDAO' => 'lib.pkp.classes.payment.QueuedPaymentDAO',
 			'ReviewAssignmentDAO' => 'lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO',
 			'ReviewFilesDAO' => 'lib.pkp.classes.submission.ReviewFilesDAO',

@@ -296,7 +296,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		// Subject
 		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
 		$supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
-		$this->addLocalizedStatements($mods34Description, 'subject/topic', (array) $submissionSubjectDao->getSubjects($submission->getId(), $supportedLocales));
+		$this->addLocalizedStatements($mods34Description, 'subject/topic', (array) $submissionSubjectDao->getSubjects($submission->getCurrentPublication()->getId(), $supportedLocales));
 
 		// FIXME: Coverage not included
 

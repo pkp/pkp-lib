@@ -27,10 +27,10 @@ class PKPStatsQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Include records for these object types.
 	 *
-	 * One of ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_CONTEXT, ASSOC_TYPE_ISSUE,
+	 * One or more of ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_CONTEXT, ASSOC_TYPE_ISSUE,
 	 * 	ASSOC_TYPE_SUBMISSION_FILE, ASSOC_TYPE_REPRESENTATION
 	 *
-	 * @var int
+	 * @var array
 	 */
 	protected $assocTypes = [];
 

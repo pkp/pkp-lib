@@ -55,7 +55,6 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 		// Test metadata injection (no replace).
 		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission);
 		$expectedResult = array(
-			'cleanTitle' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
 			'title' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
 			'abstract' => array('en_US' => 'previous abstract'),
 			'sponsor' => array('en_US' => 'Some Sponsor'),

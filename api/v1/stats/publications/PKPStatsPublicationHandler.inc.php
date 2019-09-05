@@ -181,23 +181,33 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			// Get the publication
 			$submissionService = \Services::get('submission');
 			$submission = $submissionService->get($total['id']);
+			$getPropertiesArgs = [
+				'request' => $request,
+				'slimRequest' => $slimRequest,
+			];
 			// Stats may still exist for deleted publications
-			$publicationProps = ['id' => $total['id']];
+			$submissionProps = ['id' => $total['id']];
 			if ($submission) {
-				$publicationProps = $submissionService->getProperties(
+				$submissionProps = $submissionService->getProperties(
 					$submission,
 					[
 						'_href',
 						'id',
-						'fullTitle',
-						'shortAuthorString',
 						'urlWorkflow',
 						'urlPublished',
 					],
-					[
-						'request' => $request,
-						'slimRequest' => $slimRequest,
-					]
+					$getPropertiesArgs
+				);
+				$submissionProps = array_merge(
+					$submissionProps,
+					\Services::get('publication')->getProperties(
+						$submission->getCurrentPublication(),
+						[
+							'authorsStringShort',
+							'fullTitle',
+						],
+						$getPropertiesArgs
+					)
 				);
 			}
 
@@ -207,7 +217,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 				'pdfViews' => $pdfViews,
 				'htmlViews' => $htmlViews,
 				'otherViews' => $otherViews,
-				'publication' => $publicationProps,
+				'publication' => $submissionProps,
 			];
 		}
 

@@ -63,8 +63,8 @@ class SubmissionLog {
 		$submissionEventLogDao->insertObject($entry);
 
 		// Stamp the submission status modification date.
-		$submissionDao = Application::getSubmissionDAO();
-		$submissionDao->stampStatusModified($submission);
+		$submission->stampStatusModified();
+		Application::getSubmissionDAO()->updateObject($submission);
 
 		return $entry;
 	}

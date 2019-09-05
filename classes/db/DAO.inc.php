@@ -579,14 +579,10 @@ class DAO {
 	 * @param $idFieldName string Name of ID column
 	 * @param $dataObject DataObject Object in which to store retrieved values
 	 */
-	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject, $submissionVersion = null) {
+	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject) {
 		if ($idFieldName !== null) {
 			$sql = "SELECT * FROM $tableName WHERE $idFieldName = ?";
 			$params = array($idFieldValue);
-			if ($submissionVersion) {
-				$sql = $sql . ' AND submission_version = ?';
-				$params[] = (int) $submissionVersion;
-			}
 		} else {
 			$sql = "SELECT * FROM $tableName";
 			$params = false;

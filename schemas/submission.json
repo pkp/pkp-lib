@@ -1,117 +1,63 @@
 {
 	"title": "Submission",
-	"description": "A submission to the journal or press, including published submissions.",
+	"description": "A submission to the journal or press.",
+	"required": [
+		"contextId"
+	],
 	"properties": {
 		"_href": {
 			"type": "string",
 			"readOnly": true,
 			"apiSummary": true
 		},
-		"abstract": {
-			"apiSummary": true,
-			"$ref": "#/definitions/LocaleObject"
+		"contextId": {
+			"type": "integer",
+			"apiSummary": true
 		},
-		"authors": {
-			"type": "array",
-			"apiSummary": true,
-			"items": {
-				"$ref": "#/definitions/Author"
-			}
-		},
-		"authorString": {
-			"type": "string",
-			"apiSummary": true,
-			"readOnly": true
-		},
-		"copyrightHolder": {
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"copyrightYear": {
-			"type": "string"
-		},
-		"coverImageUrl": {
-			"apiSummary": true,
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"coverImageAltText": {
-			"apiSummary": true,
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"datePublished": {
-			"type": "string",
-			"apiSummary": true,
-			"validation": [
-				"date:Y-m-d H:i:s"
-			]
+		"currentPublicationId": {
+			"type": "integer",
+			"description": "Which publication is the latest published version.",
+			"apiSummary": true
 		},
 		"dateStatusModified": {
 			"type": "string",
+			"description": "The last time the `status` of this submission was modified.",
+			"apiSummary": true,
 			"validation": [
 				"date:Y-m-d H:i:s"
 			]
 		},
 		"dateSubmitted": {
 			"type": "string",
+			"apiSummary": true,
 			"validation": [
 				"date:Y-m-d H:i:s"
 			]
-		},
-		"discipline": {
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"doi": {
-			"type": "string",
-			"apiSummary": true
-		},
-		"fulltitle": {
-			"$ref": "#/definitions/LocaleObject",
-			"apiSummary": true,
-			"readOnly": true
-		},
-		"galleys": {
-			"type": "array",
-			"apiSummary": true,
-			"items": {
-				"$ref": "#/definitions/Galley"
-			}
 		},
 		"id": {
 			"type": "integer",
 			"apiSummary": true
 		},
-		"issue": {
-			"apiSummary": true,
-			"$ref": "#/definitions/IssueSummary"
-		},
-		"language": {
-			"type": "string",
-			"apiSummary": true
-		},
 		"lastModified": {
 			"type": "string",
+			"description": "The last time a modification was made to this submission or any of its associated objects.",
+			"apiSummary": true,
 			"validation": [
 				"date:Y-m-d H:i:s"
 			]
 		},
-		"licenseUrl": {
-			"type": "string",
-			"validation": [
-				"url"
-			]
-		},
-		"locale": {
-			"type": "string"
-		},
-		"pages": {
-			"type": "string",
-			"apiSummary": true
-		},
-		"prefix": {
+		"publications": {
+			"type": "array",
+			"description": "A list of publications that have been created for this submission.",
 			"apiSummary": true,
-			"$ref": "#/definitions/LocaleObject"
+			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/Publication"
+			}
 		},
 		"reviewRounds": {
 			"type": "array",
+			"description": "A list of review rounds that have been opened for this submission.",
 			"readOnly": true,
 			"items": {
 				"$ref": "#/definitions/ReviewRound"
@@ -119,63 +65,60 @@
 		},
 		"reviewAssignments": {
 			"type": "array",
+			"description": "Information about pending and completed review assignments.",
 			"readOnly": "true",
 			"items": {
 				"type": "object",
 				"properties": {
-					"type": "object",
-					"properties": {
-						"id": {
-							"type": "integer"
-						},
-						"isCurrentUserAssigned": {
-							"type": "integer",
-							"readOnly": true
-						},
-						"status": {
-							"type": "integer",
-							"readOnly": true
-						},
-						"statusLabel": {
-							"type": "integer",
-							"readOnly": true
-						},
-						"dateDue": {
-							"type": "integer",
-							"validation": [
-								"date|Y-m-d H:i:s"
-							]
-						},
-						"dateResponseDue": {
-							"type": "integer",
-							"validation": [
-								"date|Y-m-d H:i:s"
-							]
-						},
-						"round": {
-							"type": "integer"
-						},
-						"reviewRoundId": {
-							"type": "integer"
-						}
+					"id": {
+						"type": "integer"
+					},
+					"isCurrentUserAssigned": {
+						"type": "integer",
+						"readOnly": true
+					},
+					"status": {
+						"type": "integer",
+						"readOnly": true
+					},
+					"statusLabel": {
+						"type": "integer",
+						"readOnly": true
+					},
+					"dateDue": {
+						"type": "integer",
+						"validation": [
+							"date|Y-m-d H:i:s"
+						]
+					},
+					"dateResponseDue": {
+						"type": "integer",
+						"validation": [
+							"date|Y-m-d H:i:s"
+						]
+					},
+					"round": {
+						"type": "integer"
+					},
+					"reviewRoundId": {
+						"type": "integer"
 					}
 				}
 			}
 		},
-		"section": {
+		"stageId": {
+			"type": "integer",
+			"description": "The stage of the editorial workflow that this submission is currently in. One of the `WORKFLOW_STAGE_` constants. Default is `WORKFLOW_STAGE_SUBMISSION`.",
 			"apiSummary": true,
-			"$ref": "#/definitions/SectionSummary"
-		},
-		"shortAuthorString": {
-			"type": "string",
-			"apiSummary": true,
-			"readOnly": true
-		},
-		"sponsor": {
-			"$ref": "#/definitions/LocaleObject"
+			"default": 1,
+			"validation": [
+				"min:1",
+				"max:5"
+			]
 		},
 		"stages": {
 			"type": "array",
+			"description": "Key data about the status, files and discussions of each stage.",
 			"readOnly": true,
 			"items": {
 				"type": "object",
@@ -237,43 +180,49 @@
 		},
 		"status": {
 			"type": "integer",
+			"description": "Whether the submission is Published, Declined, Scheduled or Queued (still in the workflow). One of the `STATUS_*` constants. Default is `STATUS_QUEUED`.",
 			"apiSummary": true,
+			"default": 1,
 			"validation": [
-				"in:1,2,3,4"
+				"in:1,2,3,4,5"
 			]
 		},
 		"statusLabel": {
 			"type": "string",
+			"description": "A human-readable version of the submission's status. It will be Published, Declined, Queued (still in the workflow) or Scheduled.",
+			"readOnly": true,
 			"apiSummary": true
-		},
-		"subject": {
-			"$ref": "#/definitions/LocaleObject"
 		},
 		"submissionProgress": {
 			"type": "integer",
+			"description": "This number tracks a submission's progress before it is submitted to the journal or press. After submission, it will be set to `0`, indicating it is ready for an editor's consideration.",
 			"apiSummary": true,
+			"default": 1,
 			"validation": [
 				"in:0,1,2,3,4"
 			]
 		},
-		"subtitle": {
+		"urlAuthorWorkflow": {
+			"type": "string",
+			"description": "A URL to the author's editorial workflow.",
 			"apiSummary": true,
-			"$ref": "#/definitions/LocaleObject"
+			"readOnly": true
 		},
-		"title": {
+		"urlEditorialWorkflow": {
+			"type": "string",
+			"description": "A URL to the editors' and assistants' editorial workflow.",
 			"apiSummary": true,
-			"$ref": "#/definitions/LocaleObject"
-		},
-		"type": {
-			"$ref": "#/definitions/LocaleObject"
+			"readOnly": true
 		},
 		"urlWorkflow": {
 			"type": "string",
+			"description": "A URL to the workflow most appropriate for the current user. It will match the `urlAuthorWorkflow` or `urlEditorialWorkflow.",
 			"apiSummary": true,
 			"readOnly": true
 		},
 		"urlPublished": {
 			"type": "string",
+			"description": "A URL to the current publication or where it will be published.",
 			"apiSummary": true,
 			"readOnly": true
 		}

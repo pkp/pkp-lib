@@ -80,7 +80,6 @@ class UserEmailForm extends Form {
 		$email->setSubject($this->getData('subject'));
 		$email->setBody($this->getData('message'));
 		$email->assignParams();
-error_log('here');
 		if (!$email->send()) {
 			import('classes.notification.NotificationManager');
 			$notificationMgr = new NotificationManager();

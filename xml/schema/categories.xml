@@ -77,19 +77,19 @@
 
 	<!--
 	  *
-	  * TABLE submission_categories
+	  * TABLE publication_categories
 	  *
 	  -->
-	<table name="submission_categories">
-		<field name="submission_id" type="I8">
+	<table name="publication_categories">
+		<field name="publication_id" type="I8">
 			<NOTNULL/>
 		</field>
 		<field name="category_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<descr>Associations for categories and submissions.</descr>
-		<index name="submission_categories_id">
-			<col>submission_id</col>
+		<descr>Associations for categories and publications.</descr>
+		<index name="publication_categories_id">
+			<col>publication_id</col>
 			<col>category_id</col>
 			<UNIQUE/>
 		</index>

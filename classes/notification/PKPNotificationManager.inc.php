@@ -141,7 +141,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
 				return __('notification.type.reviewAssignment');
 			case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
-				return __('notification.type.reviewAssignmentUpdated');	
+				return __('notification.type.reviewAssignmentUpdated');
 			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
@@ -397,8 +397,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 			case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
 			case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-				import('classes.notification.managerDelegate.EditingProductionStatusNotificationManager');
-				return new EditingProductionStatusNotificationManager($notificationType);
+				import('lib.pkp.classes.notification.managerDelegate.PKPEditingProductionStatusNotificationManager');
+				return new PKPEditingProductionStatusNotificationManager($notificationType);
 		}
 		return null; // No delegate required, let calling context handle null.
 	}

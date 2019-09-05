@@ -40,9 +40,13 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 
+		// Need a valid publication in request
+		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+		if (!is_a($publication, 'Publication')) return AUTHORIZATION_DENY;
+
 		// Make sure the representation belongs to the submission.
 		$representationDao = Application::getRepresentationDAO();
-		$representation = $representationDao->getById($representationId, $submission->getId(), null, $submission->getSubmissionVersion());
+		$representation = $representationDao->getById($representationId, $publication->getId(), null);
 		if (!is_a($representation, 'Representation')) return AUTHORIZATION_DENY;
 
 		// Save the representation to the authorization context.

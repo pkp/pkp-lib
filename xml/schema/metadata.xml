@@ -22,7 +22,7 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
-		<field name="submission_id" type="I8">
+		<field name="publication_id" type="I8">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
@@ -34,11 +34,11 @@
 			<DEFAULT VALUE="0"/>
 		</field>
 		<descr>Citations</descr>
-		<index name="citations_submission">
-			<col>submission_id</col>
+		<index name="citations_publication">
+			<col>publication_id</col>
 		</index>
-		<index name="citations_submission_seq">
-			<col>submission_id</col>
+		<index name="citations_publication_seq">
+			<col>publication_id</col>
 			<col>seq</col>
 			<UNIQUE/>
 		</index>

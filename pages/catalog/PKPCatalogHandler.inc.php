@@ -71,22 +71,21 @@ class PKPCatalogHandler extends Handler {
 			'count' => $count,
 			'offset' => $offset,
 			'status' => STATUS_PUBLISHED,
-			'returnObject' => SUBMISSION_RETURN_PUBLISHED,
 		);
-		$publishedSubmissions = $submissionService->getMany($params);
+		$submissions = $submissionService->getMany($params);
 		$total = $submissionService->getMax($params);
 
 		// Provide the parent category and a list of subcategories
 		$parentCategory = $categoryDao->getById($category->getParentId());
 		$subcategories = $categoryDao->getByParentId($category->getId());
 
-		$this->_setupPaginationTemplate($request, $publishedSubmissions, $page, $count, $offset, $total);
+		$this->_setupPaginationTemplate($request, $submissions, $page, $count, $offset, $total);
 
 		$templateMgr->assign(array(
 			'category' => $category,
 			'parentCategory' => $parentCategory,
 			'subcategories' => $subcategories,
-			'publishedSubmissions' => $publishedSubmissions,
+			'publishedSubmissions' => $submissions,
 		));
 
 		return $templateMgr->display('frontend/pages/catalogCategory.tpl');
@@ -147,15 +146,15 @@ class PKPCatalogHandler extends Handler {
 	/**
 	 * Assign the pagination template variables
 	 * @param $request PKPRequest
-	 * @param $publishedMonographs array Monographs being shown
+	 * @param $submissions array Monographs being shown
 	 * @param $page int Page number being shown
 	 * @param $count int Max number of monographs being shown
 	 * @param $offset int Starting position of monographs
 	 * @param $total int Total number of monographs available
 	 */
-	protected function _setupPaginationTemplate($request, $publishedMonographs, $page, $count, $offset, $total) {
+	protected function _setupPaginationTemplate($request, $submissions, $page, $count, $offset, $total) {
 		$showingStart = $offset + 1;
-		$showingEnd = min($offset + $count, $offset + count($publishedMonographs));
+		$showingEnd = min($offset + $count, $offset + count($submissions));
 		$nextPage = $total > $showingEnd ? $page + 1 : null;
 		$prevPage = $showingStart > 1 ? $page - 1 : null;
 

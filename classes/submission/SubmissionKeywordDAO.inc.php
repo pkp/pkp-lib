@@ -22,12 +22,12 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 
 	/**
 	 * Build/fetch and return a controlled vocabulary for keywords.
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @return ControlledVocab
 	 */
-	function build($submissionId) {
+	function build($publicationId) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ASSOC_TYPE_SUBMISSION, $submissionId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ASSOC_TYPE_PUBLICATION, $publicationId);
 	}
 
 	/**
@@ -40,27 +40,29 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 
 	/**
 	 * Get keywords for a submission.
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @param $locales array
 	 * @return array
 	 */
-	function getKeywords($submissionId, $locales) {
+	function getKeywords($publicationId, $locales = []) {
+		$result = [];
 
-		$returner = array();
-		foreach ($locales as $locale) {
-			$returner[$locale] = array();
-			$keywords = $this->build($submissionId);
-			$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
-			$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
-
-			while ($keyword = $submissionKeywords->next()) {
-				$keyword = $keyword->getKeyword();
-				if (array_key_exists($locale, $keyword)) { // quiets PHP when there are no keywords for a given locale
-					$returner[$locale][] = $keyword[$locale];
+		$keywords = $this->build($publicationId);
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
+		while ($keywordEntry = $submissionKeywords->next()) {
+			$keyword = $keywordEntry->getKeyword();
+			foreach ($keyword as $locale => $value) {
+				if (empty($locales) || in_array($locale, $locales)) {
+					if (!array_key_exists($locale, $result)) {
+						$result[$locale] = [];
+					}
+					$result[$locale][] = $value;
 				}
 			}
 		}
-		return $returner;
+
+		return $result;
 	}
 
 	/**
@@ -84,49 +86,20 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	}
 
 	/**
-	 * Get an array of submissionIds that have a given keyword
-	 * @param $content string
-	 * @return array
-	 */
-	function getSubmissionIdsByKeyword($keyword) {
-		$result = $this->retrieve(
-			'SELECT assoc_id
-			 FROM controlled_vocabs cv
-			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
-			 INNER JOIN controlled_vocab_entry_settings cves ON cve.controlled_vocab_entry_id = cves.controlled_vocab_entry_id
-			 WHERE cves.setting_name = ? AND cves.setting_value = ?',
-			array(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $keyword)
-		);
-
-		$returner = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$returner[] = $row['assoc_id'];
-			$result->MoveNext();
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Add an array of keywords
 	 * @param $keywords array
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @param $deleteFirst boolean
 	 * @return int
 	 */
-	function insertKeywords($keywords, $submissionId, $deleteFirst = true) {
+	function insertKeywords($keywords, $publicationId, $deleteFirst = true) {
 		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
 		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
-		$currentKeywords = $this->build($submissionId);
 
 		if ($deleteFirst) {
-			$existingEntries = $keywordDao->enumerate($currentKeywords->getId(), CONTROLLED_VOCAB_SUBMISSION_KEYWORD);
-
-			foreach ($existingEntries as $id => $entry) {
-				$entry = trim($entry);
-				$submissionKeywordEntryDao->deleteObjectById($id);
-			}
+			$currentKeywords = $this->deleteByPublicationId($publicationId);
+		} else {
+			$currentKeywords = $this->build($publicationId);
 		}
 		if (is_array($keywords)) { // localized, array of arrays
 
@@ -146,6 +119,28 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 			}
 		}
 	}
+
+	/**
+	 * Delete keywords by publication ID
+	 *
+	 * @param int $publicationid
+	 * @return int|array Controlled Vocab
+	 */
+	public function deleteByPublicationId($publicationId) {
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$currentKeywords = $this->build($publicationId);
+
+		$existingEntries = $keywordDao->enumerate($currentKeywords->getId(), CONTROLLED_VOCAB_SUBMISSION_KEYWORD);
+		foreach ($existingEntries as $id => $entry) {
+			$entry = trim($entry);
+			$entryObj = $submissionKeywordEntryDao->getById($id);
+			$submissionKeywordEntryDao->deleteObjectById($id);
+		}
+
+		return $currentKeywords;
+	}
+
 }
 
 

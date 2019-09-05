@@ -57,8 +57,7 @@ class CitationsParsingTool extends CommandLineTool {
 				while ($context = $contexts->next()) {
 					$submissions = $submissionDao->getByContextId($context->getId());
 					while ($submission = $submissions->next()) {
-						$rawCitationList = $submission->getCitations();
-						$citationDao->importCitations($submission->getId(), $rawCitationList);
+						$this->__parseSubmission($submission);
 					}
 				}
 				break;
@@ -71,8 +70,7 @@ class CitationsParsingTool extends CommandLineTool {
 					}
 					$submissions = $submissionDao->getByContextId($contextId);
 					while ($submission = $submissions->next()) {
-						$rawCitationList = $submission->getCitations();
-						$citationDao->importCitations($submission->getId(), $rawCitationList);
+						$this->__parseSubmission($submission);
 					}
 				}
 				break;
@@ -83,13 +81,24 @@ class CitationsParsingTool extends CommandLineTool {
 						printf("Error: Skipping $submissionId. Unknown submission.\n");
 						continue;
 					}
-					$rawCitationList = $submission->getCitations();
-					$citationDao->importCitations($submission->getId(), $rawCitationList);
+					$this->__parseSubmission($submission);
 				}
 				break;
 			default:
 				$this->usage();
 				break;
+		}
+	}
+
+	/**
+	 * Parse the citations of one submission
+	 * @param Submission $submission
+	 */
+	private function _parseSubmission($submission) {
+		foreach ((array) $submission->getData('publications') as $publication) {
+			if (!empty($publication->getData('citationsRaw'))) {
+				DAORegistry::getDAO('CitationDAO')->importCitations($publication->getId(), $publication->getData('citationsRaw'));
+			}
 		}
 	}
 }

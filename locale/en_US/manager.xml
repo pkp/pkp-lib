@@ -178,6 +178,7 @@
 	<message key="manager.plugins">System Plugins</message>
 	<message key="manager.readingTools">Reading Tools</message>
 	<message key="manager.userSearch.searchByName">Search User By Name</message>
+	<message key="manager.representative.inUse">You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission.</message>
 	<message key="manager.reviewerSearch.change">Change</message>
 	<message key="manager.reviewerSearch.searchByName">Search Reviewers By Name</message>
 	<message key="manager.reviewerSearch.searchByName.short">Search By Name</message>

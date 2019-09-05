@@ -133,13 +133,6 @@ class SubmissionFilesGridHandler extends GridHandler {
 		$dataProvider = $this->getDataProvider();
 
 		$submission = $this->getSubmission();
-		if ($submission->getSubmissionVersion() != $submission->getCurrentSubmissionVersion()) {
-			$capabilities->setCanAdd(false);
-			$capabilities->setCanDelete(false);
-			$capabilities->setCanEdit(false);
-			$capabilities->setCanManage(false);
-			$capabilities->setCanViewNotes(false);
-		}
 
 		if($capabilities->canAdd()) {
 			assert(isset($dataProvider));

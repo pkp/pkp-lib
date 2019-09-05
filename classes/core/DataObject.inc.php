@@ -48,9 +48,10 @@ class DataObject {
 	 * Get a piece of data for this object, localized to the current
 	 * locale if possible.
 	 * @param $key string
+	 * @param $preferredLocale string
 	 * @return mixed
 	 */
-	function &getLocalizedData($key) {
+	public function getLocalizedData($key, $preferredLocale = null) {
 		$localePrecedence = AppLocale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {
 			$value =& $this->getData($key, $locale);

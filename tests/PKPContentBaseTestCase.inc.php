@@ -197,7 +197,9 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Validate the form and finish
 		self::$driver->executeScript('$("form[id^=uploadForm]").valid();');
-		$this->click('css=[id=continueButton]');
+		sleep(1); // Address persistent failures where it does not move to the File Added screen
+		$this->waitForElementPresent('//button[@id="continueButton"]');
+		$this->click('//button[@id="continueButton"]');
 		$this->waitForElementPresent('//h2[contains(text(), "File Added")]');
 		$this->click('//button[@id="continueButton"]');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
@@ -308,7 +310,8 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	function assignReviewer($name) {
 		$this->waitJQuery();
 		sleep(2);
-		$this->click('css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
+		$this->waitForElementPresent($selector = 'css=[id^=component-grid-users-reviewer-reviewergrid-addReviewer-button-]');
+		$this->click($selector);
 		$this->waitJQuery();
 		sleep(2);
 		$this->waitForElementPresent('css=fieldset.pkpListPanel--selectReviewer');
@@ -317,7 +320,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click($xpath);
 		$this->waitJQuery();
 		sleep(2);
-		$this->click('css=[id^=selectReviewerButton]');
+		$this->click('//button[@id="selectReviewerButton"]');
 		$this->waitJQuery();
 		sleep(2);
 		$this->click('//button[text()=\'Add Reviewer\']');

@@ -369,7 +369,8 @@ class PKPMetricsDAO extends DAO {
 					if (!$isFile) $isRepresentation = true;
 
 					$contextId = $representation->getContextId();
-					$submissionId = $representation->getSubmissionId();
+					$publication = Services::get('publication')->get($representation->getData('publicationId'));
+					$submissionId = $publication->getData('submissionId');
 				} else {
 					throw new Exception('Cannot load record: invalid representation id.');
 				}

@@ -66,24 +66,12 @@ class AuthorDashboardTabHandler extends Handler {
 
 		// Workflow-stage specific "upload file" action.
 		$currentStage = $submission->getStageId();
-		$fileStage = $this->_fileStageFromWorkflowStage($currentStage);
 
 		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumber($submission, $currentStage));
 
 		if (in_array($stageId, array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
 			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$templateMgr->assign('reviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId));
-
-			// Get the last review round.
-			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $currentStage);
-
-			// Create and assign add file link action.
-			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-				import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-				$templateMgr->assign('uploadFileAction', new AddFileLinkAction(
-					$request, $submission->getId(), $currentStage,
-					array(ROLE_ID_AUTHOR), $fileStage, null, null, $lastReviewRound->getId()));
-			}
 		}
 
 		// If the submission is in or past the editorial stage,
@@ -110,10 +98,8 @@ class AuthorDashboardTabHandler extends Handler {
 				$templateMgr->assign('copyeditingEmails', $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId()));
 				return $templateMgr->fetchJson('controllers/tab/authorDashboard/editorial.tpl');
 			case WORKFLOW_STAGE_ID_PRODUCTION:
-				$representationDao = Application::getRepresentationDAO();
 				$templateMgr->assign(array(
 					'productionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId()),
-					'representations' => $representationDao->getBySubmissionId($submission->getId())->toArray(),
 				));
 				return $templateMgr->fetchJson('controllers/tab/authorDashboard/production.tpl');
 		}
@@ -153,25 +139,6 @@ class AuthorDashboardTabHandler extends Handler {
 				NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION => $submissionAssocTypeAndIdArray),
 			NOTIFICATION_LEVEL_TRIVIAL => array()
 		);
-	}
-
-	/**
-	 * Get the SUBMISSION_FILE_... file stage based on the current
-	 * WORKFLOW_STAGE_... workflow stage.
-	 * @param $currentStage int WORKFLOW_STAGE_...
-	 * @return int SUBMISSION_FILE_...
-	 */
-	protected function _fileStageFromWorkflowStage($currentStage) {
-		switch ($currentStage) {
-			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return SUBMISSION_FILE_SUBMISSION;
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				return SUBMISSION_FILE_REVIEW_REVISION;
-			case WORKFLOW_STAGE_ID_EDITING:
-				return SUBMISSION_FILE_FINAL;
-			default:
-				return null;
-		}
 	}
 }
 

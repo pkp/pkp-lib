@@ -106,8 +106,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 					'count' => 15,
 					'reviewStage' => $reviewRound->getStageId(),
 				],
-				'items' => $items,
-				'itemsMax' => $itemsMax,
 				'selectorName' => 'reviewerId',
 				'selectorType' => 'radio',
 				'warnOnAssignment' => $warnOnAssignment,

@@ -14,25 +14,25 @@
 {assign var="uuid" value=""|uniqid|escape}
 <div id="settings-admin-{$uuid}">
 	<tabs>
-		<tab id="setup" name="{translate key="manager.setup"}">
-			<tabs :options="{ useUrlFragment: false }">
-				<tab name="{translate key="context.context"}">
+		<tab id="setup" label="{translate key="manager.setup"}">
+			<tabs>
+				<tab id="context" label="{translate key="context.context"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_CONTEXT}"
 						@set="set"
 					/>
 				</tab>
-				<tab name="{translate key="manager.website.appearance"}">
+				<tab id="appearance" label="{translate key="manager.website.appearance"}">
 					<theme-form
 						v-bind="components.{$smarty.const.FORM_THEME}"
 						@set="set"
 					/>
 				</tab>
-				<tab name="{translate key="common.languages"}">
+				<tab id="languages" label="{translate key="common.languages"}">
 					{capture assign=languagesUrl}{url router=$smarty.const.ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.languages.ManageLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="languageGridContainer" url=$languagesUrl}
 				</tab>
-				<tab name="{translate key="manager.setup.searchEngineIndexing"}">
+				<tab id="indexing" label="{translate key="manager.setup.searchEngineIndexing"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_SEARCH_INDEXING}"
 						@set="set"
@@ -41,20 +41,20 @@
 				{call_hook name="Template::Settings::admin::contextSettings::setup"}
 			</tabs>
 		</tab>
-		<tab id="plugins" name="{translate key="common.plugins"}">
-			<tabs :options="{ useUrlFragment: false }">
-				<tab name="{translate key="manager.plugins.installed"}">
+		<tab id="plugins" label="{translate key="common.plugins"}">
+			<tabs>
+				<tab id="installed" label="{translate key="manager.plugins.installed"}">
 					{capture assign=pluginGridUrl}{url router=$smarty.const.ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
 				</tab>
-				<tab name="{translate key="manager.plugins.pluginGallery"}">
+				<tab id="gallery" label="{translate key="manager.plugins.pluginGallery"}">
 					{capture assign=pluginGalleryGridUrl}{url router=$smarty.const.ROUTE_COMPONENT context=$editContext->getPath() component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}
 				</tab>
 				{call_hook name="Template::Settings::admin::contextSettings::plugins"}
 			</tabs>
 		</tab>
-		<tab id="users" name="{translate key="manager.users"}">
+		<tab id="users" label="{translate key="manager.users"}">
 			{capture assign=usersUrl}{url router=$smarty.const.ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.user.UserGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="userGridContainer" url=$usersUrl}
 		</tab>

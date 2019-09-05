@@ -48,12 +48,6 @@ class PKPPublicIdentifiersForm extends Form {
 		$this->_stageId = $stageId;
 		$this->_formParams = $formParams;
 
-		if (is_a($pubObject, 'Submission')) {
-			$submissionDao = Application::getSubmissionDAO();
-			$submissionVersion = isset($formParams['submissionVersion']) ? $formParams['submissionVersion'] : null;
-			$this->_pubObject = $submissionDao->getById($pubObject->getId(), null, false, $submissionVersion);
-		}
-
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();
@@ -79,6 +73,13 @@ class PKPPublicIdentifiersForm extends Form {
 			'stageId' => $this->getStageId(),
 			'formParams' => $this->getFormParams(),
 		));
+		if (is_a($this->getPubObject(), 'Representation') || is_a($this->getPubObject(), 'Chapter')) {
+			$publicationId = $this->getPubObject()->getData('publicationId');
+			$publication = Services::get('publication')->get($publicationId);
+			$templateMgr->assign([
+				'submissionId' => $publication->getData('submissionId'),
+			]);
+		}
 		// consider JavaScripts
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->addJavaScripts($this->getContextId(), $request, $templateMgr);
@@ -193,6 +194,8 @@ class PKPPublicIdentifiersForm extends Form {
 		if (is_a($pubObject, 'Submission')) {
 			$submissionDao = Application::getSubmissionDAO();
 			$submissionDao->updateObject($pubObject);
+		} elseif (is_a($pubObject, 'Publication')) {
+			DAORegistry::getDAO('PublicationDAO')->updateObject($pubObject);
 		} elseif (is_a($pubObject, 'Representation')) {
 			$representationDao = Application::getRepresentationDAO();
 			$representationDao->updateObject($pubObject);
@@ -220,6 +223,8 @@ class PKPPublicIdentifiersForm extends Form {
 		$assocType = null;
 		if (is_a($pubObject, 'Submission')) {
 			$assocType = ASSOC_TYPE_SUBMISSION;
+		} elseif (is_a($pubObject, 'Publication')) {
+			$assocType = ASSOC_TYPE_PUBLICATION;
 		} elseif (is_a($pubObject, 'Representation')) {
 			$assocType = ASSOC_TYPE_REPRESENTATION;
 		} elseif (is_a($pubObject, 'SubmissionFile')) {

@@ -14,9 +14,8 @@
  */
 
 import('lib.pkp.classes.core.DataObject');
-import('lib.pkp.classes.submission.SubmissionVersionedDataObject');
 
-class Representation extends SubmissionVersionedDataObject {
+class Representation extends DataObject {
 	/**
 	 * Constructor.
 	 */
@@ -70,22 +69,6 @@ class Representation extends SubmissionVersionedDataObject {
 	}
 
 	/**
-	 * Set submission ID.
-	 * @param $submissionId int
-	 */
-	function setSubmissionId($submissionId) {
-		$this->setData('submissionId', $submissionId);
-	}
-
-	/**
-	 * Get submission id
-	 * @return int
-	 */
-	function getSubmissionId() {
-		return $this->getData('submissionId');
-	}
-
-	/**
 	 * Determines if a representation is approved or not.
 	 * @return boolean
 	 */
@@ -126,17 +109,19 @@ class Representation extends SubmissionVersionedDataObject {
 	/**
 	 * Get the remote URL at which this representation is retrievable.
 	 * @return string
+	 * @deprecated 3.2.0.0
 	 */
 	function getRemoteURL() {
-		return $this->getData('remoteUrl');
+		return $this->getData('urlRemote');
 	}
 
 	/**
 	 * Set the remote URL for retrieving this representation.
 	 * @param $remoteURL string
+	 * @deprecated 3.2.0.0
 	 */
 	function setRemoteURL($remoteURL) {
-		return $this->setData('remoteUrl', $remoteURL);
+		return $this->setData('urlRemote', $remoteURL);
 	}
 
 	/**
@@ -157,14 +142,14 @@ class Representation extends SubmissionVersionedDataObject {
 	}
 
 	function getRepresentationFiles($fileStage = null) {
+		$publication = Services::get('publication')->get($this->getData('publicationId'));
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var $submissionFileDao SubmissionFileDAO */
-		return $submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
+		return $submissionFileDao->getLatestRevisionsByAssocId(
 			ASSOC_TYPE_REPRESENTATION,
 			$this->getId(),
-			$this->getSubmissionId(),
+			$publication->getData('submissionId'),
 			$fileStage,
-			null,
-			$this->getSubmissionVersion()
+			null
 		);
 	}
 }

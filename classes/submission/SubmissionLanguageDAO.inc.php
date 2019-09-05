@@ -22,12 +22,12 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 
 	/**
 	 * Build/fetch and return a controlled vocabulary for languages.
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @return ControlledVocab
 	 */
-	function build($submissionId) {
+	function build($publicationId) {
 		// may return an array of ControlledVocabs
-		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, ASSOC_TYPE_SUBMISSION, $submissionId);
+		return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, ASSOC_TYPE_PUBLICATION, $publicationId);
 	}
 
 	/**
@@ -40,27 +40,29 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 
 	/**
 	 * Get Languages for a submission.
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @param $locales array
 	 * @return array
 	 */
-	function getLanguages($submissionId, $locales) {
+	function getLanguages($publicationId, $locales = []) {
+		$result = [];
 
-		$returner = array();
-		foreach ($locales as $locale) {
-			$returner[$locale] = array();
-			$languages = $this->build($submissionId);
-			$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
-			$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
-
-			while ($language = $submissionLanguages->next()) {
-				$language = $language->getLanguage();
-				if (array_key_exists($locale, $language)) { // quiets PHP when there are no Languages for a given locale
-					$returner[$locale][] = $language[$locale];
+		$languages = $this->build($publicationId);
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+		$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
+		while ($languageEntry = $submissionLanguages->next()) {
+			$language = $languageEntry->getLanguage();
+			foreach ($language as $locale => $value) {
+				if (empty($locales) || in_array($locale, $locales)) {
+					if (!array_key_exists($locale, $result)) {
+						$result[$locale] = [];
+					}
+					$result[$locale][] = $value;
 				}
 			}
 		}
-		return $returner;
+
+		return $result;
 	}
 
 	/**
@@ -84,41 +86,16 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	}
 
 	/**
-	 * Get an array of submissionIds that have a given language
-	 * @param $language string
-	 * @return array
-	 */
-	function getSubmissionIdsByLanguage($language) {
-		$result = $this->retrieve(
-			'SELECT assoc_id
-			 FROM controlled_vocabs cv
-			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
-			 INNER JOIN controlled_vocab_entry_settings cves ON cve.controlled_vocab_entry_id = cves.controlled_vocab_entry_id
-			 WHERE cves.setting_name = ? AND cves.setting_value = ?',
-			array(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $language)
-		);
-
-		$returner = array();
-		while (!$result->EOF) {
-			$row = $result->GetRowAssoc(false);
-			$returner[] = $row['assoc_id'];
-			$result->MoveNext();
-		}
-		$result->Close();
-		return $returner;
-	}
-
-	/**
 	 * Add an array of languages
 	 * @param $languages array
-	 * @param $submissionId int
+	 * @param $publicationId int
 	 * @param $deleteFirst boolean
 	 * @return int
 	 */
-	function insertLanguages($languages, $submissionId, $deleteFirst = true) {
+	function insertLanguages($languages, $publicationId, $deleteFirst = true) {
 		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
 		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
-		$currentLanguages = $this->build($submissionId);
+		$currentLanguages = $this->build($publicationId);
 
 		if ($deleteFirst) {
 			$existingEntries = $languageDao->enumerate($currentLanguages->getId(), CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);

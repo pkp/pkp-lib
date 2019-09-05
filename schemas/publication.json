@@ -1,0 +1,312 @@
+{
+	"title": "Publication",
+	"description": "A published version of a submission.",
+	"type": "object",
+	"required": [
+		"locale",
+		"submissionId",
+		"title"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"abstract": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"authors": {
+			"type": "array",
+			"description": "A list of the authors for this publication.",
+			"apiSummary": true,
+			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"authorsString": {
+			"type": "string",
+			"description": "All of the authors rendered with the appropriate separators according to the locale.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"authorsStringShort": {
+			"type": "string",
+			"description": "A shortened version of the authors rendered with the appropriate separators according to the locale.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"categoryIds": {
+			"type": "array",
+			"apiSummary": true,
+			"items": {
+				"type": "integer"
+			}
+		},
+		"citations": {
+			"type": "array",
+			"description": "Optional metadata that contains an array of references for works cited in this submission. References have been split and parsed from the raw text.",
+			"readOnly": true,
+			"items": {
+				"type": "string"
+			}
+		},
+		"citationsRaw": {
+			"type": "string",
+			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"copyrightHolder": {
+			"type": "string",
+			"description": "The copyright statement for this publication.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"copyrightYear": {
+			"type": "integer",
+			"description": "The copyright year for this publication.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"coverage": {
+			"type": "string",
+			"description": "Optional metadata that usually indicates a work's location, time period or jurisdiction.",
+			"multilingual": "true",
+			"validation": [
+				"nullable"
+			]
+		},
+		"coverImage": {
+			"type": "object",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string"
+				}
+			}
+		},
+		"datePublished": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"disciplines": {
+			"type": "array",
+			"description": "Optional metadata that describes the submission's types of study or branches of knowledge.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"fullTitle": {
+			"type": "string",
+			"description": "The combined prefix, title and subtitle.",
+			"multilingual": true,
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"keywords": {
+			"type": "array",
+			"description": "Optional metadata, usually one- to three-word phrases that are used to indicate the main topics of a submission.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"languages": {
+			"type": "array",
+			"description": "Optional metadata that identifies the submission's primary language.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"lastModified": {
+			"type": "string",
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"licenseUrl": {
+			"type": "string",
+			"description": "A URL to a webpage describing the license terms for this publication."
+		},
+		"locale": {
+			"type": "string",
+			"description": "The primary locale of this publication.",
+			"apiSummary": true,
+			"validation": [
+				"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+			]
+		},
+		"prefix": {
+			"type": "string",
+			"description": "A prefix to be prepended to the title. In English, words such as \"The\" and \"A\" are commonly entered in the prefix instead of the title.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"primaryContactId": {
+			"type": "integer",
+			"description": "Which `contributor` is the primary contact for this publication.",
+			"apiSummary": true
+		},
+		"pub-id::publisher-id": {
+			"type": "string",
+			"description": "A unique ID provided by the publisher. It will be used in the publication's URL path instead of the `id` when present.",
+			"apiSummary": true
+		},
+		"publicationDateType": {
+			"type": "string",
+			"description": "The type of date that the `datePublished` describes. Typically `pub` or `preprint`. See [date-type](https://jats.nlm.nih.gov/archiving/tag-library/1.1d1/n-u252.html).",
+			"apiSummary": true,
+			"validation": [
+				"in:accepted,corrected,pub,preprint,retracted,received,rev-recd,rev-request"
+			]
+		},
+		"publicationSummary": {
+			"type": "string",
+			"description": "An optional human-readable summary of the `publicationType`.",
+			"apiSummary": true,
+			"multilingual": true
+		},
+		"publicationType": {
+			"type": "string",
+			"description": "The type of publication should correspond to a known format such as a `preprint` or `publication`.",
+			"apiSummary": true,
+			"validation": [
+				"in:preprint,publication"
+			]
+		},
+		"rights": {
+			"type": "string",
+			"description": "Optional metadata that describes any rights held over the submission.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"source": {
+			"type": "string",
+			"description": "Optional metadata that may be an ID, such as a DOI, of another work from which the submission is derived.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"subjects": {
+			"type": "array",
+			"description": "Optional metadata that consists of keywords, key phrases or classification codes that describe the submission's topics.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"submissionId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"subtitle": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"supportingAgencies": {
+			"type": "array",
+			"description": "Optional metadata that indicates the source of research funding or other institutional support.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"status": {
+			"type": "integer",
+			"description": "Whether the publication is Queued (not yet scheduled for publication), Declined, Published or Scheduled (scheduled for publication at a future date). One of the `STATUS_*` constants. Default is `STATUS_QUEUED`.",
+			"apiSummary": true,
+			"default": 1,
+			"validation": [
+				"in:1,3,4,5"
+			]
+		},
+		"title": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true
+		},
+		"type": {
+			"type": "string",
+			"description": "Optional metadata that describes the type of the submission and usually matches on of the [Dublin Core Types](http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary).",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"urlPublished": {
+			"type": "string",
+			"description": "The public URL for this publication or where it will be available if it has not yet been published.",
+			"apiSummary": true,
+			"readOnly": true
+		}
+	}
+}

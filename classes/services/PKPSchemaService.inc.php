@@ -19,6 +19,7 @@ define('SCHEMA_CONTEXT', 'context');
 define('SCHEMA_EMAIL_TEMPLATE', 'emailTemplate');
 define('SCHEMA_GALLEY', 'galley');
 define('SCHEMA_ISSUE', 'issue');
+define('SCHEMA_PUBLICATION', 'publication');
 define('SCHEMA_REVIEW_ASSIGNMENT', 'reviewAssignment');
 define('SCHEMA_REVIEW_ROUND', 'reviewRound');
 define('SCHEMA_SECTION', 'section');
@@ -199,7 +200,7 @@ class PKPSchemaService {
 		foreach ($props as $propName => $propValue) {
 			if (empty($schema->properties->{$propName})
 				|| empty($schema->properties->{$propName}->type)
-				|| !empty($schema->properties->{$propName}->readonly)) {
+				|| !empty($schema->properties->{$propName}->readOnly)) {
 				continue;
 			}
 			$propSchema = $schema->properties->{$propName};

@@ -19,6 +19,9 @@ class AuthorGridRow extends GridRow {
 	/** @var Submission **/
 	var $_submission;
 
+	/** @var Publication **/
+	var $_publication;
+
 	/** @var boolean */
 	var $_readOnly;
 
@@ -28,10 +31,10 @@ class AuthorGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function __construct($submission, $readOnly = false, $version = null) {
+	function __construct($submission, $publication, $readOnly = false) {
 		$this->_submission = $submission;
+		$this->_publication = $publication;
 		$this->_readOnly = $readOnly;
-		$this->_version = $version;
 		parent::__construct();
 	}
 
@@ -45,9 +48,6 @@ class AuthorGridRow extends GridRow {
 		// Do the default initialization
 		parent::initialize($request, $template);
 
-		// Retrieve the submission from the request
-		$submission = $this->getSubmission();
-
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();
 		if (!empty($rowId) && is_numeric($rowId)) {
@@ -55,7 +55,6 @@ class AuthorGridRow extends GridRow {
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
 			$actionArgs['authorId'] = $rowId;
-			$actionArgs['version'] = $this->_version;
 
 			if (!$this->isReadOnly()) {
 				// Add row-level actions
@@ -120,13 +119,23 @@ class AuthorGridRow extends GridRow {
 	}
 
 	/**
+	 * Get the publication for this row (already authorized)
+	 * @return Publication
+	 */
+	function getPublication() {
+		return $this->_publication;
+	}
+
+	/**
 	 * Get the base arguments that will identify the data in the grid.
 	 * @return array
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
+		$publication = $this->getPublication();
 		return array(
-			'submissionId' => $submission->getId()
+			'submissionId' => $submission->getId(),
+			'publicationId' => $publication->getId()
 		);
 	}
 

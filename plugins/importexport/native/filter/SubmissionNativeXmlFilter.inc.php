@@ -253,7 +253,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$exportFilter->setDeployment($this->getDeployment());
 
 		$representationDao = Application::getRepresentationDAO();
-		$representations = $representationDao->getBySubmissionId($submission->getId());
+		$representations = $representationDao->getByPublicationId($submission->getCurrentPublication()->getId());
 		while ($representation = $representations->next()) {
 			$representationDoc = $exportFilter->execute($representation);
 			$clone = $doc->importNode($representationDoc->documentElement, true);

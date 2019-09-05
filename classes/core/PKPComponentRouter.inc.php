@@ -262,7 +262,9 @@ class PKPComponentRouter extends PKPRouter {
 	 */
 	function url($request, $newContext = null, $component = null, $op = null, $path = null,
 			$params = null, $anchor = null, $escape = false) {
-		assert(is_null($path));
+		if (!is_null($path)) {
+			throw new Exception('Path must be null when calling PKPComponentRouter::url()');
+		}
 		$pathInfoEnabled = $request->isPathInfoEnabled();
 
 		//

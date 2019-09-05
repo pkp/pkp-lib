@@ -203,7 +203,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
 		}
 
-		$submissionService->delete($submissionId);
+		$submissionService->delete($submission);
 
 		return $response->withJson(true);
 	}

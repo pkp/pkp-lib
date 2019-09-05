@@ -58,6 +58,49 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 			));
 		}
 
+		// Categories list
+		$assignedCategories = [];
+		$result = DAORegistry::getDAO('CategoryDAO')->getByPublicationId($this->submission->getCurrentPublication()->getId());
+		while (!$result->eof()) {
+			$assignedCategory = $result->next();
+			$assignedCategories[] = $assignedCategory->getId();
+		}
+
+		$items = [];
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categories = $categoryDao->getByContextId($context->getId());
+		if (!$categories->wasEmpty) {
+			while ($category = $categories->next()) {
+				$items[] = array(
+					'id' => $category->getId(),
+					'title' => $category->getLocalizedTitle(),
+				);
+			}
+		}
+		$categoriesList = new \PKP\components\listPanels\ListPanel(
+			'categories',
+			__('grid.category.categories'),
+			[
+				'canSelect' => true,
+				'items' => $items,
+				'itemsMax' => count($items),
+				'selected' => $assignedCategories,
+				'selectorName' => 'categories[]',
+			]
+		);
+
+		$templateMgr->assign(array(
+			'assignedCategories' => $assignedCategories,
+			'hasCategories' => !empty($categoriesList->items),
+			'categoriesListData' => [
+				'components' => [
+					'categories' => $categoriesList->getConfig(),
+				]
+			]
+		));
+
+		$templateMgr->assign('publicationId', $this->submission->getCurrentPublication()->getId());
+
 		return parent::fetch($request, $template, $display);
 	}
 

@@ -8,10 +8,11 @@
  * Display information center's main modal.
  *}
 
+{assign var="rootId" value="informationCenter-"|uniqid|escape}
 <script type="text/javascript">
 	// Attach the Information Center handler.
 	$(function() {ldelim}
-		$('#informationCenter').pkpHandler(
+		$('#{$rootId}').pkpHandler(
 			'$.pkp.controllers.TabHandler', {ldelim}
 				selected: {$selectedTabIndex|escape:"javascript"}
 			{rdelim}
@@ -19,7 +20,7 @@
 	{rdelim});
 </script>
 
-<div id="informationCenter" class="pkp_controllers_informationCenter pkp_controllers_tab">
+<div id="{$rootId}" class="pkp_controllers_informationCenter pkp_controllers_tab">
 	<ul>
 		{if !$removeHistoryTab}
 			<li><a href="{url op="viewHistory" params=$linkParams}">{translate key="submission.informationCenter.history"}</a></li>

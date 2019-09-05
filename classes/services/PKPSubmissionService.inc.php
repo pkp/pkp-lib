@@ -107,6 +107,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
+			'daysInactive' => null,
 			'returnObject' => SUBMISSION_RETURN_SUBMISSION,
 		);
 
@@ -120,6 +121,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
+			->filterByDaysInactive($args['daysInactive'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
 			->searchPhrase($args['searchPhrase'])
 			->returnObject($args['returnObject']);
@@ -473,7 +475,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $submission->getDateSubmitted();
 					break;
 				case 'dateStatusModified':
-					$values[$prop] = $submission->getDateStatusModified();
+					$values[$prop] =  $submission->getDateStatusModified();
 					break;
 				case 'lastModified':
 					$values[$prop] = $submission->getLastModified();
@@ -616,6 +618,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$props = array (
 			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
 			'locale', 'urlWorkflow','urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
+			'dateStatusModified',
 		);
 
 		if ($this->canUserViewAuthor($currentUser, $submission)) {

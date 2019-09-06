@@ -22,6 +22,7 @@ use Facebook\WebDriver\Interactions\WebDriverActions;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverSelect;
+use Facebook\WebDriver\Chrome\ChromeOptions;
 
 abstract class WebTestCase extends PKPTestCase {
 	/** @var string Base URL provided from environment */
@@ -59,14 +60,19 @@ abstract class WebTestCase extends PKPTestCase {
 	public static function setUpBeforeClass() {
 		// Retrieve and check configuration.
 		self::$baseUrl = getenv('BASEURL');
-		self::$timeout = (int) getenv('TIMEOUT');
-		if (!self::$timeout) self::$timeout = 60; // Default 60 seconds
-		if (!self::$driver) self::$driver = RemoteWebDriver::create(
-			'http://localhost:4444/wd/hub',
-			DesiredCapabilities::chrome(),
-			self::$timeout * 1000,
-			self::$timeout * 1000
-		);
+		self::$timeout = ((int) getenv('TIMEOUT')) ?? 60; // Default 60 seconds
+		if (!self::$driver) {
+			$options = new ChromeOptions();
+			$options->addArguments(array('--window-size=' . getenv('BROWSERSIZE') ?? '1280,768'));
+			$caps = DesiredCapabilities::chrome();
+			$caps->setCapability(ChromeOptions::CAPABILITY, $options);
+			self::$driver = RemoteWebDriver::create(
+				'http://localhost:4444/wd/hub',
+				$caps,
+				self::$timeout * 1000,
+				self::$timeout * 1000
+			);
+		}
 		parent::setUpBeforeClass();
 	}
 

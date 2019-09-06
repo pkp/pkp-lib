@@ -60,10 +60,13 @@ abstract class WebTestCase extends PKPTestCase {
 	public static function setUpBeforeClass() {
 		// Retrieve and check configuration.
 		self::$baseUrl = getenv('BASEURL');
-		self::$timeout = ((int) getenv('TIMEOUT')) ?? 60; // Default 60 seconds
+		self::$timeout = (int) getenv('TIMEOUT');
+		if (!self::$timeout) self::$timeout = 60; // Default 60 seconds
 		if (!self::$driver) {
 			$options = new ChromeOptions();
-			$options->addArguments(array('--window-size=' . getenv('BROWSERSIZE') ?? '1280,768'));
+			$browsersize = getenv('BROWSERSIZE');
+			if (!$browsersize) $browsersize = '1280,768';
+			$options->addArguments(array('--window-size=' . $browsersize));
 			$caps = DesiredCapabilities::chrome();
 			$caps->setCapability(ChromeOptions::CAPABILITY, $options);
 			self::$driver = RemoteWebDriver::create(

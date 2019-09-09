@@ -104,6 +104,8 @@ class HookRegistry {
 			ksort($hooks[$hookName], SORT_NUMERIC);
 			foreach ($hooks[$hookName] as $priority => $hookList) {
 				foreach ($hookList as $hook) {
+					if (!is_callable($hook))
+						continue;  // else broken plugins break OJS if display_errors = On
 					if ($result = call_user_func($hook, $hookName, $args)) return true;
 				}
 			}

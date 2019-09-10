@@ -418,7 +418,7 @@ class Mail extends DataObject {
 					$addressString .= ', ';
 				}
 
-				if (Core::isWindows() || empty($address['name']) || !$includeNames) {
+				if (empty($address['name']) || !$includeNames) {
 					$addressString .= $address['email'];
 
 				} else {

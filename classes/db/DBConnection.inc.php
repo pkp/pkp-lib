@@ -64,7 +64,7 @@ class DBConnection {
 	 * @see ADOConnection::outp
 	 */
 	static function logAdodbMessage($msg, $newline=true) {
-		error_log(Registry::get('system.debug.startTime') . ': ' . PKPString::html2text($msg));
+		error_log('PKP-Database-Logger ' . Registry::get('system.debug.startTime') . ': ' . PKPString::html2text($msg));
 	}
 
 	/**

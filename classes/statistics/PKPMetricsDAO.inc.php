@@ -146,13 +146,16 @@ class PKPMetricsDAO extends DAO {
 				if (is_scalar($values)) {
 					$currentClause .= "$column = ?";
 					$params[] = $values;
-				} else {
+				} elseif (count($values)) {
 					$placeholders = array_pad(array(), count($values), '?');
 					$placeholders = implode(', ', $placeholders);
 					$currentClause .= "$column IN ($placeholders)";
 					foreach ($values as $value) {
 						$params[] = $value;
 					}
+				} else {
+					// count($values) == 0: No matches should be returned.
+					$currentClause .= '1=0';
 				}
 			}
 

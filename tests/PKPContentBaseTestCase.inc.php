@@ -254,6 +254,7 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 	 */
 	protected function recordEditorialDecision($decision) {
 		$this->waitJQuery();
+		sleep(2);
 		$this->click('//a[contains(.,\'' . $this->escapeJS($decision) . '\')]');
 		if (in_array($decision, array('Accept Submission', 'Send To Production', 'Send to External Review'))) {
 			sleep(2); // FIXME: Avoid missing modal

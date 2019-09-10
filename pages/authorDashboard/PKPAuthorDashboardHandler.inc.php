@@ -15,6 +15,7 @@
 
 // Import base class
 import('classes.handler.Handler');
+import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_REVIEW_...
 
 abstract class PKPAuthorDashboardHandler extends Handler {
 
@@ -180,7 +181,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			null,
 			'grid.users.author.AuthorGridHandler',
 			'fetchGrid',
-			$submission->getId(),
+			null,
 			[
 				'submissionId' => $submission->getId(),
 				'publicationId' => '__publicationId__',

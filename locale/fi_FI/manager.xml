@@ -163,7 +163,7 @@
 	<message key="manager.reviewerSearch.change">Muuta</message>
 	<message key="manager.reviewerSearch.searchByName">Hae arvioijia nimen mukaan</message>
 	<message key="manager.reviewerSearch.searchByName.short">Hae nimen mukaan</message>
-	<message key="manager.reviewerSearch.interests">Kiinnostavat arviointiaiheet</message>
+	<message key="manager.reviewerSearch.interests">Sisällölliset ja tutkimusmenetelmälliset osaamisalueet?</message>
 	<message key="manager.reviewerSearch.form.instructions">Käytä alla olevaa lomaketta asettaaksesi maksimiarvot termeille, joita haluat hakea. Lomakkeeseen on esitäytetty kyseisten kenttien laskennalliset keskiarvot.</message>
 	<message key="manager.roles">Roolit</message>
 	<message key="manager.statistics"><![CDATA[Tilastot &amp; Raportit]]></message>

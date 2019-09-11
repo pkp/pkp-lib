@@ -35,8 +35,8 @@
 	<message key="user.dateRegistered">Rekisteröitymispäivämäärä</message>
 	<message key="user.editMyProfile">Muokkaa profiilia</message>
 	<message key="user.email">Sähköposti</message>
-	<message key="user.interests">Kiinnostavat arviointiaiheet</message>
-	<message key="user.interests.description">(Erittele kiinnostavat aiheet enterillä tai pilkulla)</message>
+	<message key="user.interests">Sisällölliset ja tutkimusmenetelmälliset osaamisalueet?</message>
+	<message key="user.interests.description">(Erittele enterillä tai pilkulla)</message>
 	<message key="user.gossip">Yksityiset muistiinpanot</message>
 	<message key="user.group">Käyttäjäryhmä</message>
 	<message key="user.profile.form.profileImageInvalid">Virheellinen profiilikuvan muoto tai liian suuri kuva. Hyväksytyt muodot ovat .gif, .jpg ja .png, ja kuvan maksimikoko on 150 x 150 pikseliä.</message>

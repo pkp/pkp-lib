@@ -349,6 +349,7 @@ class PKPString {
 		}
 		// SUGGESTED_EXTENSION:DETECTED_MIME_TYPE => OVERRIDE_MIME_TYPE
 		$ambiguities = array(
+			'html:text/xml' => 'text/html',
 			'css:text/x-c' => 'text/css',
 			'css:text/plain' => 'text/css',
 			'xlsx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',

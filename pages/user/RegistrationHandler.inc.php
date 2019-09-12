@@ -46,7 +46,7 @@ class RegistrationHandler extends UserHandler {
 			return $templateMgr->display('frontend/pages/userRegisterComplete.tpl');
 		}
 
-		$this->validate($request);
+		$this->validate(null, $request);
 		$this->setupTemplate($request);
 
 		import('lib.pkp.classes.user.form.RegistrationForm');
@@ -157,11 +157,9 @@ class RegistrationHandler extends UserHandler {
 	}
 
 	/**
-	 * Validation check.
-	 * Checks if context allows user registration.
-	 * @param $request PKPRequest
+	 * @copydoc PKPHandler::validate
 	 */
-	function validate($request) {
+	function validate($requiredContexts = null, $request = null) {
 		$context = $request->getContext();
 		$disableUserReg = false;
 		if(!$context) {

@@ -56,8 +56,9 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider {
 	 * @see ReviewerReviewFilesGridDataProvider
 	 * Extend the parent class to filter out review round files that aren't allowed
 	 * for this reviewer according to ReviewFilesDAO.
+	 * @param $filter array
 	 */
-	function loadData() {
+	function loadData($filter = array()) {
 		$submissionFileData = parent::loadData();
 		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);

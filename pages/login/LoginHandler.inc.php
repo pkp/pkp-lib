@@ -336,17 +336,13 @@ class LoginHandler extends Handler {
 				$session->setSessionVar('userId', $userId);
 				$session->setUserId($userId);
 				$session->setSessionVar('username', $newUser->getUsername());
-				$requestVars  = $request->getUserVars();
-				if (isset($requestVars['redirectUrl']) && !empty($requestVars['redirectUrl']) ) {
-					$request->redirectUrl( $requestVars['redirectUrl'] );
-				} else {
-					$this->sendHome($request);
-				}
+				$this->_redirectByURL($request);
 			}
 		}
 
 		$request->redirect(null, $request->getRequestedPage());
 	}
+
 
 	/**
 	 * Restore original user account after signing in as a user.
@@ -371,12 +367,19 @@ class LoginHandler extends Handler {
 				$session->setSessionVar('username', $oldUser->getUsername());
 			}
 		}
+		$this->_redirectByURL($request);
+	}
+
+
+	/**
+	 * Redirect to redirectURL if exists else send to Home
+	 * @param $request PKPRequest
+	 */
+	function _redirectByURL($request) {
 		$requestVars  = $request->getUserVars();
-		if (isset($requestVars['redirectUrl']) && !empty($requestVars['redirectUrl']) ) {
-			$redirectUrl = $requestVars['redirectUrl'];
-			$request->redirectUrl($redirectUrl);
-		}
-		else {
+		if (isset($requestVars['redirectUrl']) && !empty($requestVars['redirectUrl'])) {
+			$request->redirectUrl($requestVars['redirectUrl']);
+		} else {
 			$this->sendHome($request);
 		}
 	}

@@ -102,24 +102,20 @@ class StageParticipantGridRow extends GridRow {
 				$userGroup = $userGroupDAO->getById($userGroupId, $context->getId());
 
 				if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
-					$redirectUrl = $dispatcher->url(
-						$request,
-						ROUTE_PAGE,
-						$context->getPath(),
-						'authorDashboard',
-						'submission',
-						$submission->getId()
-					);
+					$handler = 'authorDashboard';
+					$op = 'submission';
 				} else {
-					$redirectUrl = $dispatcher->url(
-						$request,
-						ROUTE_PAGE,
-						$context->getPath(),
-						'workflow',
-						'access',
-						$submission->getId()
-					);
+					$handler = 'workflow';
+					$op = 'access';
 				}
+				$redirectUrl = $dispatcher->url(
+					$request,
+					ROUTE_PAGE,
+					$context->getPath(),
+					$handler,
+					$op,
+					$submission->getId()
+				);
 
 				$this->addAction(
 					new LinkAction(

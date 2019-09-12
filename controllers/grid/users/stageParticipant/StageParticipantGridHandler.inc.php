@@ -135,9 +135,11 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 				new LinkAction(
 					'signOutAsUser',
 					new RedirectAction(
-						$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signOutAsUser', null, array('redirectUrl'=> $redirectUrl))
+						$dispatcher->url($request, ROUTE_PAGE, null, 'login', 'signOutAsUser', null, array('redirectUrl' => $redirectUrl))
 					),
-					__('user.logOutAs') . ' '. $user->getUsername() 
+					__('user.logOutAs').' '. $user->getUsername(),
+					null,
+					__('user.logOutAs')
 				)
 			);
 		}

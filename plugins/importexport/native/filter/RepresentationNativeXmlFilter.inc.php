@@ -79,7 +79,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		// Add metadata
 		$this->createLocalizedNodes($doc, $representationNode, 'name', $representation->getName(null));
 		$sequenceNode = $doc->createElementNS($deployment->getNamespace(), 'seq');
-		$sequenceNode->appendChild($doc->createTextNode(((int) $representation->getSequence()));
+		$sequenceNode->appendChild($doc->createTextNode((int) $representation->getSequence()));
 		$representationNode->appendChild($sequenceNode);
 
 		$urlRemote = $representation->getData('urlRemote');

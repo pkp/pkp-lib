@@ -237,6 +237,7 @@
 	<message key="common.remote">Удаленный</message>
 	<message key="common.remoteURL">URL удаленного сервера</message>
 	<message key="common.remove">Удалить</message>
+	<message key="common.removeItem">Удалить {$item}</message>
 	<message key="common.removeSelection">Удалить выбранное</message>
 	<message key="common.replaced">Заменен</message>
 	<message key="common.replaceFile">Заменить файл</message>
@@ -252,6 +253,7 @@
 	<message key="common.clearSearch">Очистить фразу поиска</message>
 	<message key="common.second">Секунд</message>
 	<message key="common.selectAll">Выбрать все</message>
+	<message key="common.selectedPrefix">Выбраны:</message>
 	<message key="common.selectNone">Отменить выбор</message>
 	<message key="common.select">Выбрать</message>
 	<message key="common.sendEmail">Отправить письмо электронной почтой</message>
@@ -260,6 +262,7 @@
 	<message key="common.status">Статус</message>
 	<message key="common.subject">Тема</message>
 	<message key="common.subjects">Темы</message>
+	<message key="common.submenu">Подменю</message>
 	<message key="common.subtitle">Подзаголовок</message>
 	<message key="common.suggest">Предложить</message>
 	<message key="common.title">Заголовок</message>
@@ -576,6 +579,7 @@
 	<message key="notification.type.reviewerComment">Рецензент прокомментировал «{$title}».</message>
 	<message key="notification.signedFile">Файл рассмотрен.</message>
 	<message key="user.authorization.submissionFile">Данному пользователю не разрешен доступ к файлу указанного материала.</message>
+	<message key="user.authorization.invalidPublication">Неправильная публикация.</message>
 	<message key="user.authorization.invalidSubmission">Неправильный материал.</message>
 	<message key="user.authorization.invalidRepresentation">Неправильное представление.</message>
 	<message key="user.authorization.authorRoleMissing">В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как».</message>

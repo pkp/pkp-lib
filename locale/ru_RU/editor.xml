@@ -12,7 +12,8 @@
   -->
 
 <locale name="ru_RU" full_name="Русский">
-	<message key="editor.submissionLibrary">Поступившие материалы: библиотека</message>
+	<message key="editor.activityLog">Журнал активности</message>
+	<message key="editor.submissionLibrary">Библиотека</message>
 	<message key="editor.review.notInitiated">Процесс рецензирования еще не был начат.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Сообщение пользователю</message>
 	<message key="editor.submission.externalReviewDescription">Выберите файлы ниже для отправки их на этап «Рецензирование».</message>

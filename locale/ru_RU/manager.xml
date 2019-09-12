@@ -179,6 +179,7 @@
 	<message key="manager.plugins">Системные модули</message>
 	<message key="manager.readingTools">Инструменты читателя</message>
 	<message key="manager.userSearch.searchByName">Поиск пользователя по имени</message>
+	<message key="manager.representative.inUse">Вы не можете удалить этого представителя, так как они назначены для продвижения метаданных по одному или нескольким форматам публикаций для этого материала.</message>
 	<message key="manager.reviewerSearch.change">Изменить</message>
 	<message key="manager.reviewerSearch.searchByName">Поиск рецензента по имени</message>
 	<message key="manager.reviewerSearch.searchByName.short">Поиск по имени</message>

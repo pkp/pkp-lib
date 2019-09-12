@@ -13,6 +13,8 @@
 
 <locale name="ru_RU" full_name="Русский">
 	<!-- Отправка материала автором -->
+	<message key="author.editPublishedDisabled">Авторов этой публикации нельзя отредактировать, так как она уже была опубликована.</message>
+	<message key="author.publicationNotFound">Публикацию для этого автора не удаётся найти.</message>
 	<message key="author.submit.submissionCitations">Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Новые рецензии были отправлены рецензентами и рассмотрены редактором.</message>
 	<message key="submission.confirm.message">Ваш материал был загружен на сервер и готов к отправке. Вы можете вернуться назад, чтобы проверить и откорректировать любую информацию, которую вы ввели, перед тем как продолжить. Когда вы будете готовы, щелкните на кнопке «Завершить отправку».</message>
@@ -162,7 +164,7 @@
 	<message key="submission.changeComments">Заменить на</message>
 	<message key="submission.changeFile">Изменить файл</message>
 	<message key="submission.citations">Библиографические ссылки</message>
-	<message key="submission.citations.description">Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь.</message>
+	<message key="submission.citations.description">Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь и записать отдельно.</message>
 	<message key="submission.parsedCitations">Извлеченные ссылки</message>
 	<message key="submission.parsedCitations.DOI">DOI</message>
 	<message key="submission.parsedCitations.description">Следующие ссылки были извлечены и будут связаны с метаданными материала.</message>
@@ -410,6 +412,7 @@
 	<message key="submission.status.unassigned">Не назначен</message>
 	<message key="submission.status.declined">Отклонен</message>
 	<message key="submission.status.published">Опубликован</message>
+	<message key="submission.status.scheduled">Запланирован</message>
 
 	<message key="submission.submit.uploadStep">1. Загрузить файл</message>
 	<message key="submission.submit.uploadSubmissionFile">Загрузить файл материала</message>
@@ -468,7 +471,7 @@
 	<message key="editor.submission.editStageParticipant">Редактировать назначение</message>
 	<message key="editor.submission.addStageParticipant.userGroup">Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками.</message>
 	<message key="editor.submission.removeStageParticipant">Удалить участника</message>
-	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов. Если у пользователя также есть приостановленные задачи аудитора, они также будут удалены.]]></message>
+	<message key="editor.submission.removeStageParticipant.description"><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов.]]></message>
 	<message key="editor.submission.addStageParticipant.form.userGroupRequired">Вы должны выбрать группу пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.userRequired">Вы должны выбрать пользователя для указанной группы пользователей.</message>
 	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Выбранный вами пользователь назначен проводить «слепое» рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования.</message>
@@ -633,6 +636,7 @@
 	<message key="submission.list.infoCenter">Журнал активности и обсуждений</message>
 	<message key="submission.list.empty">Материалы не найдены.</message>
 	<message key="submission.list.responseDue">Срок ответа на запрос</message>
+	<message key="submission.list.reviewAssignment">Назначение на рецензию</message>
 	<message key="submission.list.reviewDue">Срок сдачи рецензии</message>
 	<message key="submission.list.reviewComplete">Рецензия отправлена</message>
 	<message key="submission.list.reviewCancelled">Рецензия отменена</message>
@@ -661,10 +665,42 @@
 	<message key="catalog.category.noItems">В этой категории пока ничего не опубликовано.</message>
 	<message key="catalog.category.subcategories">Подкатегории</message>
 
-	<!-- Версии -->
-	<message key="submission.production.version">Версия {$submissionVersion}</message>
-	<message key="submission.production.newVersion">Новая версия</message>
-	<message key="submission.production.editMetadata">Метаданные этой версии</message>
-	<message key="submission.production.editMetadata.info">Это метаданные версии {$version}.</message>
-	<message key="submission.production.editMetadata.previous">Предыдущие версии можно найти на соответствующей вкладке стадии «Публикация».</message>
+	<!-- Публикация -->
+	<message key="submission.publication">Публикация</message>
+	<message key="publication.citations.success">Ссылки были обновлены.</message>
+	<message key="publication.contributors">Авторы</message>
+	<message key="publication.copyrightYearBasis.issueDescription">Дата копирайта будет задана автоматически, когда выпуск будет опубликован.</message>
+	<message key="publication.createVersion">Создать новую версию</message>
+	<message key="publication.datePublished">Дата публикации</message>
+	<message key="publication.editDisabled">Эта версия была опубликована, её нельзя отредактировать.</message>
+	<message key="publication.event.published">Материал был опубликован.</message>
+	<message key="publication.event.scheduled">Материал запланирован к публикации.</message>
+	<message key="publication.event.unpublished">Материал был снят с публикации.</message>
+	<message key="publication.event.versionCreated">Создана новая версия.</message>
+	<message key="publication.event.versionPublished">Опубликована новая версия.</message>
+	<message key="publication.event.versionScheduled">Новая версия запланирована к публикации.</message>
+	<message key="publication.event.versionUnpublished">Версия была убрана с публикации.</message>
+	<message key="publication.invalidSubmission">Материал для этой публикации не удаётся найти.</message>
+	<message key="publication.metadata.success">Метаданные были обновлены.</message>
+	<message key="publication.publicationLicense">Разрешения и соглашения</message>
+	<message key="publication.publicationLicense.success">Информация о лицензии и авторском праве была обновлена.</message>
+	<message key="publication.publish">Опубликовать</message>
+	<message key="publication.publish.confirmation">Все требования к публикации были выполнены. Вы уверены, что хотите опубликовать этот материал?</message>
+	<message key="publication.publish.requirements">Перед публикацией необходимо выполнить следующие требования.</message>
+	<message key="publication.publish.success">Статус публикации был успешно изменён.</message>
+	<message key="publication.required.declined">Отклонённый материал нельзя опубликовать.</message>
+	<message key="publication.required.reviewStage">Перед публикацией материал должен быть на этапе «Литературное редактирование» или «Публикация».</message>
+	<message key="publication.status.published">Опубликовано</message>
+	<message key="publication.status.scheduled">Запланировано</message>
+	<message key="publication.status.unpublished">Снято с публикации</message>
+	<message key="publication.status.unscheduled">Снято с плана</message>
+	<message key="publication.titleAbstract">Название и аннотация</message>
+	<message key="publication.titleAbstract.success">Название и аннотация были обновлены.</message>
+	<message key="publication.unpublish">Снять с публикации</message>
+	<message key="publication.unpublish.confirm">Вы уверены, что не хотите публиковать этот материал? </message>
+	<message key="publication.unschedule">Снять с плана</message>
+	<message key="publication.unschedule.confirm">Вы уверены, что не хотите запланировать этот материал к публикации?</message>
+	<message key="publication.version.all">Все версии</message>
+	<message key="publication.version.details">Информация о публикации для версии {$version}</message>
+	<message key="publication.wordCountLong">Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В данный момент её длина {$count} слов.</message>
 </locale>

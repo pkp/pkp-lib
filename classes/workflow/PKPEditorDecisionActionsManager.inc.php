@@ -33,10 +33,13 @@ abstract class PKPEditorDecisionActionsManager {
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_SUBMISSION:
 				$result = $this->_submissionStageDecisions($stageId, $makeDecision);
+				break;
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 				$result = $this->_externalReviewStageDecisions($context, $makeDecision);
+				break;
 			case WORKFLOW_STAGE_ID_EDITING:
 				$result = $this->_editorialStageDecisions($makeDecision);
+				break;
 			default:
 				assert(false);
 		}

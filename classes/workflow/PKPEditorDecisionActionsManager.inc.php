@@ -29,16 +29,20 @@ abstract class PKPEditorDecisionActionsManager {
 	 * @param $makeDecision boolean If the user can make decisions
 	 */
 	public function getStageDecisions($context, $stageId, $makeDecision = true) {
+		$result = null;
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return $this->_submissionStageDecisions($stageId, $makeDecision);
+				$result = $this->_submissionStageDecisions($stageId, $makeDecision);
 			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				return $this->_externalReviewStageDecisions($context, $makeDecision);
+				$result = $this->_externalReviewStageDecisions($context, $makeDecision);
 			case WORKFLOW_STAGE_ID_EDITING:
-				return $this->_editorialStageDecisions($makeDecision);
+				$result = $this->_editorialStageDecisions($makeDecision);
 			default:
 				assert(false);
 		}
+		HookRegistry::call('EditorAction::modifyDecisionOptions',
+			array($context, $stageId, &$makeDecision, &$result));
+		return $result;
 	}
 
 	/**

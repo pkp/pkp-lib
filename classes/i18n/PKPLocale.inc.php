@@ -136,7 +136,7 @@ class PKPLocale {
 			}
 		}
 
-		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xliff");
+		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xlf");
 
 		// Set site time zone
 		// Starting from PHP 5.3.0 PHP will throw an E_WARNING if the default
@@ -185,18 +185,18 @@ class PKPLocale {
 		$baseDir = "lib/pkp/locale/$locale/";
 
 		return array(
-			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.xliff',
-			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.xliff',
-			LOCALE_COMPONENT_PKP_INSTALLER => $baseDir . 'installer.xliff',
-			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.xliff',
-			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.xliff',
-			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.xliff',
-			LOCALE_COMPONENT_PKP_EDITOR => $baseDir . 'editor.xliff',
-			LOCALE_COMPONENT_PKP_REVIEWER => $baseDir . 'reviewer.xliff',
-			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xliff',
-			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.xliff',
-			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.xliff',
-			LOCALE_COMPONENT_PKP_API => $baseDir . 'api.xliff',
+			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.xlf',
+			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.xlf',
+			LOCALE_COMPONENT_PKP_INSTALLER => $baseDir . 'installer.xlf',
+			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.xlf',
+			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.xlf',
+			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.xlf',
+			LOCALE_COMPONENT_PKP_EDITOR => $baseDir . 'editor.xlf',
+			LOCALE_COMPONENT_PKP_REVIEWER => $baseDir . 'reviewer.xlf',
+			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xlf',
+			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.xlf',
+			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.xlf',
+			LOCALE_COMPONENT_PKP_API => $baseDir . 'api.xlf',
 		);
 	}
 

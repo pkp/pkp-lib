@@ -1,0 +1,5434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-08-19T12:40:45-07:00</note>
+      <note id="PO-Revision-Date">2019-08-19T12:40:45-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="manager-website-information">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information</source>
+        <target>Information</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-appearance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Appearance</source>
+        <target>Appearance</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-imageFileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An image file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>An image file is required. Please ensure that you have chosen and uploaded a file.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Announcements</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this announcement?</source>
+        <target>Are you sure you want to permanently delete this announcement?</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Announcement</source>
+        <target>Create New Announcement</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Create</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry</source>
+        <target>Expiry</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-datePublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>Published</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement</source>
+        <target>Edit Announcement</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Edit</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireDayIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or month in addition to the expiry date day.</source>
+        <target>Please select a year and/or month in addition to the expiry date day.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry Date</source>
+        <target>Expiry Date</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The announcement will be displayed to readers until this date. Leave blank if the announcement should be displayed indefinitely.</source>
+        <target>The announcement will be displayed to readers until this date. Leave blank if the announcement should be displayed indefinitely.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireMonthIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or day in addition to the expiry date month.</source>
+        <target>Please select a year and/or day in addition to the expiry date month.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement expiry date.</source>
+        <target>Please select a valid announcement expiry date.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireYearIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a month and/or day in addition to the expiry date year.</source>
+        <target>Please select a month and/or day in addition to the expiry date year.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Description</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The full text of the announcement.</source>
+        <target>The full text of the announcement.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement description is required.</source>
+        <target>An announcement description is required.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A brief description to appear along with the announcement title.</source>
+        <target>A brief description to appear along with the announcement title.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A short announcement description is required.</source>
+        <target>A short announcement description is required.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Short Description</source>
+        <target>Short Description</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Save and Create Another</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement title is required.</source>
+        <target>An announcement title is required.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Title</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeIdValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement type.</source>
+        <target>Please select a valid announcement type.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcements have been created.</source>
+        <target>No announcements have been created.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Types</source>
+        <target>Announcement Types</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning! All announcements with this announcement type will also be deleted. Are you sure you want to continue and delete this announcement type?</source>
+        <target>Warning! All announcements with this announcement type will also be deleted. Are you sure you want to continue and delete this announcement type?</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Announcement Type</source>
+        <target>Create Announcement Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement Type</source>
+        <target>Edit Announcement Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type with this name already exists.</source>
+        <target>An announcement type with this name already exists.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type name is required.</source>
+        <target>An announcement type name is required.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcement types have been created.</source>
+        <target>No announcement types have been created.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Type</source>
+        <target>Announcement Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-submissionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>Submission</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Review</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-editorialStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial</source>
+        <target>Editorial</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-productionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>Production</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Emails</source>
+        <target>Emails</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emailSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email settings have been updated.</source>
+        <target>The email settings have been updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Guidance</source>
+        <target>Reviewer Guidance</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer guidance has been updated.</source>
+        <target>Reviewer guidance has been updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review settings have been updated.</source>
+        <target>The review settings have been updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewReminders-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review reminder details have been updated.</source>
+        <target>The review reminder details have been updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email template?</source>
+        <target>Are you sure you want to delete this email template?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmReset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to reset this email template to its default values?</source>
+        <target>Are you sure you want to reset this email template to its default values?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Template</source>
+        <target>Add Template</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was added.</source>
+        <target>The email template was added.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-createEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Email</source>
+        <target>Create Email</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-customTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Template</source>
+        <target>Custom Template</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-data">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Message Data</source>
+        <target>Template Message Data</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Details</source>
+        <target>Template Details</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Disable</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?</source>
+        <target>You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email</source>
+        <target>Edit Email</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was modified.</source>
+        <target>The email template was modified.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editTestExample">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email Test Example</source>
+        <target>Edit Email Test Example</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Key</source>
+        <target>Email Key</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email key can only contain letters, numbers and underscores.</source>
+        <target>The email key can only contain letters, numbers and underscores.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKeyExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email with the given key already exists. Email keys must be unique.</source>
+        <target>An email with the given key already exists. Email keys must be unique.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Template</source>
+        <target>Email Template</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Templates</source>
+        <target>Email Templates</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must provide a context ID when adding an email template.</source>
+        <target>You must provide a context ID when adding an email template.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-noDuplicateKeys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key you provided is already in use.</source>
+        <target>The key you provided is already in use.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable this email template</source>
+        <target>Enable this email template</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Enable</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to enable this email.  Do you want to confirm this operation?</source>
+        <target>You are about to enable this email.  Do you want to confirm this operation?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-emailKeyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A unique email key containing no spaces or special characters is required for the email.</source>
+        <target>A unique email key containing no spaces or special characters is required for the email.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-bodyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A body is required for the email.</source>
+        <target>A body is required for the email.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A subject is required for the email.</source>
+        <target>A subject is required for the email.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Emails</source>
+        <target>Prepared Emails</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset All</source>
+        <target>Reset All</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</source>
+        <target>If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset</source>
+        <target>Reset</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</source>
+        <target>If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetToDefault">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset To Default</source>
+        <target>Reset To Default</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentFrom">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent From</source>
+        <target>Sent From</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent To</source>
+        <target>Sent To</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-subjectWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject: {$subject}</source>
+        <target>Subject: {$subject}</target>
+      </segment>
+    </unit>
+    <unit id="manager-filesBrowser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files Browser</source>
+        <target>Files Browser</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this file or directory? Note that a directory must be empty before it can be deleted.</source>
+        <target>Delete this file or directory? Note that a directory must be empty before it can be deleted.</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-createDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Directory</source>
+        <target>Create Directory</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-emptyDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No files were found in this directory.</source>
+        <target>No files were found in this directory.</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-indexOfDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Index of {$dir}</source>
+        <target>Index of {$dir}</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-parentDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Directory</source>
+        <target>Parent Directory</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadedFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uploaded Files</source>
+        <target>Uploaded Files</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Upload File</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group?</source>
+        <target>Are you sure you wish to delete this group?</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Title</source>
+        <target>Create Title</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Title</source>
+        <target>Edit Title</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-form-groupTitleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A group title is required.</source>
+        <target>A group title is required.</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-addMember">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Member</source>
+        <target>Add Member</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group membership?</source>
+        <target>Are you sure you wish to delete this group membership?</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Membership</source>
+        <target>Membership</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This group has no members.</source>
+        <target>This group has no members.</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No users were found.</source>
+        <target>No users were found.</target>
+      </segment>
+    </unit>
+    <unit id="manager-importExport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Data</source>
+        <target>Import/Export Data</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-ui">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>UI</source>
+        <target>UI</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-submissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions</source>
+        <target>Submissions</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-forms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forms</source>
+        <target>Forms</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-reloadLocalizedDefaultSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload defaults</source>
+        <target>Reload defaults</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-alternateLocaleInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</source>
+        <target>This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-supportedLocalesInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</source>
+        <target>Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</target>
+      </segment>
+    </unit>
+    <unit id="manager-payment-timestamp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Timestamp</source>
+        <target>Timestamp</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-existingUserRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An existing user must be entered.</source>
+        <target>An existing user must be entered.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>Authentication source</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-confirmUnenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll this user?</source>
+        <target>Unenroll this user?</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New User</source>
+        <target>Create New User</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserGeneratePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate a random password.</source>
+        <target>Generate a random password.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserSendNotify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send the user a welcome email containing their username and password.</source>
+        <target>Send the user a welcome email containing their username and password.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-doNotEnroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With no role</source>
+        <target>With no role</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>Edit Profile</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>Edit User</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailSelectedUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email selected users</source>
+        <target>Email selected users</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailUsersEnrolledAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email users enrolled as</source>
+        <target>Email users enrolled as</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Users</source>
+        <target>Email Users</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a locale</source>
+        <target>Select a locale</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the users you would like to email by checking the boxes beside their names</source>
+        <target>Select the users you would like to email by checking the boxes beside their names</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>Enroll User</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrollment</source>
+        <target>Enrollment</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSelected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll Selected Users</source>
+        <target>Enroll Selected Users</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSyncRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize role</source>
+        <target>Synchronize role</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSync">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sync Enrollment</source>
+        <target>Sync Enrollment</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users can be assigned to, or removed from, a role at any point.</source>
+        <target>Users can be assigned to, or removed from, a role at any point.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll user as</source>
+        <target>Enroll user as</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the requested user does not exist.</source>
+        <target>Sorry, the requested user does not exist.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>Merge User</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</source>
+        <target>Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>Merge Users</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustChooseRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a role at the top of the page before clicking "Enroll User".</source>
+        <target>Please select a role at the top of the page before clicking "Enroll User".</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>Please provide at least a last name for the user first.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noMatchingUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No matching users.</source>
+        <target>No matching users.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noneEnrolled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No enrolled users.</source>
+        <target>No enrolled users.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>People</source>
+        <target>People</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>Remove</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In As</source>
+        <target>Log In As</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAsUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In as User</source>
+        <target>Log In as User</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-syncUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize User Enrollment</source>
+        <target>Synchronize User Enrollment</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-unenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll</source>
+        <target>Unenroll</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userCreatedSuccessfully">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User created successfully.</source>
+        <target>User created successfully.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userMustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>Require the user to change their password the next time they log in.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-action">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Action:</source>
+        <target>Action:</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Management</source>
+        <target>Plugin Management</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-sitePlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is a site-wide plugin. Only the Site Administrator may manage this plugin.</source>
+        <target>This is a site-wide plugin. Only the Site Administrator may manage this plugin.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System Plugins</source>
+        <target>System Plugins</target>
+      </segment>
+    </unit>
+    <unit id="manager-readingTools">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reading Tools</source>
+        <target>Reading Tools</target>
+      </segment>
+    </unit>
+    <unit id="manager-userSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search User By Name</source>
+        <target>Search User By Name</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change</source>
+        <target>Change</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Reviewers By Name</source>
+        <target>Search Reviewers By Name</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search By Name</source>
+        <target>Search By Name</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing Interests</source>
+        <target>Reviewing Interests</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-form-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</source>
+        <target>Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</target>
+      </segment>
+    </unit>
+    <unit id="manager-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>Roles</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Stats &amp; Reports]]></source>
+        <target><![CDATA[Stats &amp; Reports]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-defaultMetricDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>
+		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</source>
+        <target>
+		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-city">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>City</source>
+        <target>City</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-region">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Region</source>
+        <target>Region</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Generator</source>
+        <target>Report Generator</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</source>
+        <target>The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-aggregationColumns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Aggregate stats by:</source>
+        <target>Aggregate stats by:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-optionalColumns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</source>
+        <target>Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-defaultReportTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default report templates</source>
+        <target>Default report templates</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-generateReport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate custom report</source>
+        <target>Generate custom report</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Options</source>
+        <target>Advanced Options</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions-hide">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide Advanced Options</source>
+        <target>Hide Advanced Options</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Columns</source>
+        <target>Columns</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day.</source>
+        <target>Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Filters</source>
+        <target>Filters</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object not found in database</source>
+        <target>Object not found in database</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object Type</source>
+        <target>Object Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object id</source>
+        <target>Object id</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define one or more object ids, comma separated (e.g. 1,2,3,4,5).</source>
+        <target>Define one or more object ids, comma separated (e.g. 1,2,3,4,5).</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-yesterday">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yesterday</source>
+        <target>Yesterday</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-currentMonth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current month</source>
+        <target>Current month</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderBy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order by</source>
+        <target>Order by</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Direction</source>
+        <target>Direction</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-asc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ascending</source>
+        <target>Ascending</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-desc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descending</source>
+        <target>Descending</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-month-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMM format.</source>
+        <target>Use the YYYYMM format.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-day-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMMDD format.</source>
+        <target>Use the YYYYMMDD format.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-cities-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One or more city names, comma separated (e.g. City Name 1,City Name 2)</source>
+        <target>One or more city names, comma separated (e.g. City Name 1,City Name 2)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-form-columnsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to select at least one column to generate the report.</source>
+        <target>You have to select at least one column to generate the report.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report URL</source>
+        <target>Report URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks.</source>
+        <target>The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By context</source>
+        <target>By context</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byObject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By object type and/or object id</source>
+        <target>By object type and/or object id</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select report range</source>
+        <target>Select report range</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime-dimensionSelector">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Or select range by:</source>
+        <target>Or select range by:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By geo location</source>
+        <target>By geo location</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Narrow results by country, region and/or city.</source>
+        <target>Narrow results by country, region and/or city.</target>
+      </segment>
+    </unit>
+    <unit id="manager-affiliationAndSupport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor</source>
+        <target>Sponsor</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Content</source>
+        <target>Additional Content</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anything entered here will appear on your homepage.</source>
+        <target>Anything entered here will appear on your homepage.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-advanced">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced</source>
+        <target>Advanced</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-appearance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The appearance settings have been updated.</source>
+        <target>The appearance settings have been updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-contact-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The contact details for this press have been updated.</source>
+        <target>The contact details for this press have been updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Notice</source>
+        <target>Copyright Notice</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require authors to agree to the following copyright notice as part of the submission process.</source>
+        <target>Require authors to agree to the following copyright notice as part of the submission process.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Guidelines</source>
+        <target>Author Guidelines</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</source>
+        <target>Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author guidelines have been successfully updated.</source>
+        <target>The author guidelines have been successfully updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-checklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist</source>
+        <target>Checklist</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Competing Interests</source>
+        <target>Competing Interests</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-errorDeletingItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error when deleting this item.</source>
+        <target>There was an error when deleting this item.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-favicon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Favicon</source>
+        <target>Favicon</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-groupType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File type grouping</source>
+        <target>File type grouping</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage Image</source>
+        <target>Homepage Image</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload an image to display prominently on the homepage.</source>
+        <target>Upload an image to display prominently on the homepage.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homeTitleImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-information-descriptionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descriptions</source>
+        <target>Descriptions</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sidebar</source>
+        <target>Sidebar</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar-invalidBlock">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$name} block can not be found. Please make sure the plugin is installed and enabled.</source>
+        <target>The {$name} block can not be found. Please make sure the plugin is installed and enabled.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-loggingAndAuditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logging and Auditing</source>
+        <target>Logging and Auditing</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-logo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logo</source>
+        <target>Logo</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-noTemporaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The file you uploaded could not be found. Please try to upload it again.</source>
+        <target>The file you uploaded could not be found. Please try to upload it again.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification of Author Submission</source>
+        <target>Notification of Author Submission</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-copySpecifiedAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a copy to this email address</source>
+        <target>Send a copy to this email address</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:</source>
+        <target>Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open Access Policy</source>
+        <target>Open Access Policy</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If providing immediate free access to all published content, you may enter a description of your Open Access Policy.</source>
+        <target>If providing immediate free access to all published content, you may enter a description of your Open Access Policy.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageHeaderLogoImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page Footer</source>
+        <target>Page Footer</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter any images, text or HTML code that you'd like to appear at the bottom of your website.</source>
+        <target>Enter any images, text or HTML code that you'd like to appear at the bottom of your website.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-peerReview-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Outline the peer review policy and processes for readers and authors. This description often includes the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, expected time required to conduct the reviews, and the principles used to select reviewers.</source>
+        <target>Outline the peer review policy and processes for readers and authors. This description often includes the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, expected time required to conduct the reviews, and the principles used to select reviewers.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal Contact</source>
+        <target>Principal Contact</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</source>
+        <target>Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Privacy Statement</source>
+        <target>Privacy Statement</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</source>
+        <target>This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewResponseTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Response Deadline</source>
+        <target>Default Response Deadline</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewCompletionTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Completion Deadline</source>
+        <target>Default Completion Deadline</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of weeks to accept or decline a review request.</source>
+        <target>Number of weeks to accept or decline a review request.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Weeks allowed for review completion</source>
+        <target>Weeks allowed for review completion</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-neverSendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Never Remind</source>
+        <target>Never Remind</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-noteOnModification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Defaults can be modified for each review during the editorial process.</source>
+        <target>Defaults can be modified for each review during the editorial process.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Reminder</source>
+        <target>Response Reminder</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not responded to a review request this many days after the response due date.</source>
+        <target>Send an email reminder if a reviewer has not responded to a review request this many days after the response due date.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Reminder</source>
+        <target>Review Reminder</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date.</source>
+        <target>Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reviewMode">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Review Mode</source>
+        <target>Default Review Mode</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-showBlindReviewLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Present a link to <button type="button">Ensuring a Blind Review</button> during upload]]></source>
+        <target><![CDATA[Present a link to <button type="button">Ensuring a Blind Review</button> during upload]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-note">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor Relationship and Policy Description</source>
+        <target>Sponsor Relationship and Policy Description</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</source>
+        <target>Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-styleSheetDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Experienced web developers can upload a CSS file to further customize the website's appearance.</source>
+        <target>Experienced web developers can upload a CSS file to further customize the website's appearance.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Technical Support Contact</source>
+        <target>Technical Support Contact</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material.</source>
+        <target>A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The theme has been updated. <a href="{$url}" target="_blank">View Now</a>]]></source>
+        <target><![CDATA[The theme has been updated. <a href="{$url}" target="_blank">View Now</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme</source>
+        <target>Theme</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New themes may be installed from the Plugins tab at the top of this page.</source>
+        <target>New themes may be installed from the Plugins tab at the top of this page.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-notFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The theme you selected is not installed or enabled.</source>
+        <target>The theme you selected is not installed or enabled.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-userAccess-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The user access details for this press have been updated.</source>
+        <target>The user access details for this press have been updated.</target>
+      </segment>
+    </unit>
+    <unit id="manager-siteAccessOptions-siteAccessOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Access Options</source>
+        <target>Site Access Options</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-count-value">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} ({$percentage}%)</source>
+        <target>{$count} ({$percentage}%)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-totalNewValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$numTotal} ({$numNew} new)</source>
+        <target>{$numTotal} ({$numNew} new)</target>
+      </segment>
+    </unit>
+    <unit id="manager-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Users</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins</source>
+        <target>Metadata Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins implement additional meta-data standards.</source>
+        <target>Metadata Plugins implement additional meta-data standards.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-auth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authorization Plugins</source>
+        <target>Authorization Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins</source>
+        <target>Block Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins are pluggable UI components, such as the various sidebar tools.</source>
+        <target>Block Plugins are pluggable UI components, such as the various sidebar tools.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins provide live data to external systems.</source>
+        <target>Gateway Plugins provide live data to external systems.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins</source>
+        <target>Gateway Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-generic">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generic Plugins</source>
+        <target>Generic Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins can be used to transfer content to and from other systems.</source>
+        <target>Import/Export Plugins can be used to transfer content to and from other systems.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins</source>
+        <target>Import/Export Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method plugins implement support for various ways of processing payments online.</source>
+        <target>Payment Method plugins implement support for various ways of processing payments online.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Plugins</source>
+        <target>Payment Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins are used to implement various types of reports and data extracts.</source>
+        <target>Report Plugins are used to implement various types of reports and data extracts.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins</source>
+        <target>Report Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins can be used to change the system's appearance.</source>
+        <target>Theme Plugins can be used to change the system's appearance.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins</source>
+        <target>Theme Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Metadata Format Plugins</source>
+        <target>OAI Metadata Format Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These format plugins express metadata in OAI communications.</source>
+        <target>These format plugins express metadata in OAI communications.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Identifier Plugins</source>
+        <target>Public Identifier Plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These plugins implement support for a public identifier.</source>
+        <target>These plugins implement support for a public identifier.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-copyError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Plugin</source>
+        <target>Delete Plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to install this plugin?</source>
+        <target>Are you sure you wish to install this plugin?</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to upgrade this plugin?</source>
+        <target>Are you sure you wish to upgrade this plugin?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-installPlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install or upgrade this plugin</source>
+        <target>Install or upgrade this plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this plugin from the system?</source>
+        <target>Are you sure you wish to delete this plugin from the system?</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By clicking delete, you will delete the plugin from the server's file system.</source>
+        <target>By clicking delete, you will delete the plugin from the server's file system.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>Plugin "{$pluginName}" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteSuccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" successfuly deleted</source>
+        <target>Plugin "{$pluginName}" successfuly deleted</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins.</source>
+        <target>This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-doesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" does not exist</source>
+        <target>Plugin "{$pluginName}" does not exist</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-fileSelectError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a file first</source>
+        <target>Please select a file first</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload A New Plugin</source>
+        <target>Upload A New Plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please ensure a file was selected for upload.</source>
+        <target>Please ensure a file was selected for upload.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installed Plugins</source>
+        <target>Installed Plugins</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Gallery</source>
+        <target>Plugin Gallery</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Overview</source>
+        <target>Overview</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-installation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation</source>
+        <target>Installation</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-latestCompatible">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest Compatible Release</source>
+        <target>Latest Compatible Release</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Official</source>
+        <target>Official</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is developed and maintained by the Public Knowledge Project team.</source>
+        <target>This plugin is developed and maintained by the Public Knowledge Project team.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>Reviewed</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin has been reviewed and approved by the Public Knowledge Project team.</source>
+        <target>This plugin has been reviewed and approved by the Public Knowledge Project team.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Partner</source>
+        <target>Partner</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is provided by one of our development partners.</source>
+        <target>This plugin is provided by one of our development partners.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-maintainer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Maintainer</source>
+        <target>Maintainer</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-version">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>v{$version} released on {$date}</source>
+        <target>v{$version} released on {$date}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-homepage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage</source>
+        <target>Homepage</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>Summary</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-status">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noInstalledVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin has not yet been installed.</source>
+        <target>The plugin has not yet been installed.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is currently no compatible version of this plugin available.</source>
+        <target>There is currently no compatible version of this plugin available.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, and is newer than the version available in the gallery.</source>
+        <target>Plugin already installed, and is newer than the version available in the gallery.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, but can be updated to a newer version.</source>
+        <target>Plugin already installed, but can be updated to a newer version.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed and up-to-date.</source>
+        <target>Plugin already installed and up-to-date.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Newer than available version</source>
+        <target>Newer than available version</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can be upgraded</source>
+        <target>Can be upgraded</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up to date</source>
+        <target>Up to date</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not Available</source>
+        <target>Not Available</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation failed. {$errorString}</source>
+        <target>Installation failed. {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully installed version {$versionNumber}</source>
+        <target>Successfully installed version {$versionNumber}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-invalidPluginArchive">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin archive does not contain a folder that corresponds to the plugin name.</source>
+        <target>The uploaded plugin archive does not contain a folder that corresponds to the plugin name.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin does not fit the category of the upgraded plugin.</source>
+        <target>The uploaded plugin does not fit the category of the upgraded plugin.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The version.xml in the uploaded plugin contains a plugin name that does not fit the name of the upgraded plugin.</source>
+        <target>The version.xml in the uploaded plugin contains a plugin name that does not fit the name of the upgraded plugin.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseInstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin does not exist.  Please Install instead</source>
+        <target>Plugin does not exist.  Please Install instead</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseUpgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already exists, but is newer than installed version.  Please upgrade instead</source>
+        <target>Plugin already exists, but is newer than installed version.  Please upgrade instead</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Settings</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-tarCommandNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The tar command is not available. Please correctly configure it in your "config.inc.php".</source>
+        <target>The tar command is not available. Please correctly configure it in your "config.inc.php".</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade Plugin</source>
+        <target>Upgrade Plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upgrade a plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>This form allows you to upgrade a plugin.  Please ensure the plugin is compressed as a .tar.gz file.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade failed. {$errorString}</source>
+        <target>Upgrade failed. {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully upgraded to version {$versionString}</source>
+        <target>Successfully upgraded to version {$versionString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error uploading file</source>
+        <target>Error uploading file</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadPluginDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select plugin file</source>
+        <target>Select plugin file</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml in plugin directory contains invalid data.</source>
+        <target>version.xml in plugin directory contains invalid data.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml not found in plugin directory</source>
+        <target>version.xml not found in plugin directory</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale enabled.</source>
+        <target>Locale enabled.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale disabled.</source>
+        <target>Locale disabled.</target>
+      </segment>
+    </unit>
+    <unit id="notification-primaryLocaleDefined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} defined as primary locale.</source>
+        <target>{$locale} defined as primary locale.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeInstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All selected locale(s) installed and activated.</source>
+        <target>All selected locale(s) installed and activated.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeUninstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale uninstalled.</source>
+        <target>{$locale} locale uninstalled.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeReloaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale reloaded for {$contextName}.</source>
+        <target>{$locale} locale reloaded for {$contextName}.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeSettingsSaved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale settings saved.</source>
+        <target>Locale settings saved.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User edited.</source>
+        <target>User edited.</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target>License</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The licensing details have been updated. </source>
+        <target>The licensing details have been updated. </target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other license URL</source>
+        <target>Other license URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License Terms</source>
+        <target>License Terms</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter public licensing terms you would like to display alongside published work.</source>
+        <target>Enter public licensing terms you would like to display alongside published work.</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Tags</source>
+        <target>Custom Tags</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add custom HTML tags, also known as meta tags, that you would like to be inserted in the head of every page. Consult a technical advisor before adding tags here.</source>
+        <target>Add custom HTML tags, also known as meta tags, that you would like to be inserted in the head of every page. Consult a technical advisor before adding tags here.</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payments</source>
+        <target>Payments</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Methods</source>
+        <target>Payment Methods</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No payment method selected</source>
+        <target>No payment method selected</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-method">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method</source>
+        <target>Payment Method</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-currency">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currency</source>
+        <target>Currency</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Options</source>
+        <target>Role Options</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-showTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show role title in contributor list</source>
+        <target>Show role title in contributor list</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitSelfRegistration">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow user self-registration</source>
+        <target>Allow user self-registration</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-recommendOnly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This role is only allowed to recommend a review decision and will require an authorised editor to record a final decision.</source>
+        <target>This role is only allowed to recommend a review decision and will require an authorised editor to record a final decision.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Name</source>
+        <target>Role Name</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abbreviation</source>
+        <target>Abbreviation</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-assignedStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Stages</source>
+        <target>Assigned Stages</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stages</source>
+        <target>Stages</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role details</source>
+        <target>Role details</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission level</source>
+        <target>Permission level</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?</source>
+        <target>You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role name.</source>
+        <target>You need to define a role name.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-abbrevRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role abbreviature.</source>
+        <target>You need to define a role abbreviature.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role name.</source>
+        <target>You need to define an unique role name.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role abbreviature.</source>
+        <target>You need to define an unique role abbreviature.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role permission level.</source>
+        <target>You need to define a role permission level.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stageIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a stage to assign to.</source>
+        <target>You need to define a stage to assign to.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitMetadataEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permit submission metadata edit.</source>
+        <target>Permit submission metadata edit.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A library file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>A library file is required. Please ensure that you have chosen and uploaded a file.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this library file.</source>
+        <target>A name is required for this library file.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file type is required for this library file.</source>
+        <target>A file type is required for this library file.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-contracts">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contracts</source>
+        <target>Contracts</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing</source>
+        <target>Marketing</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>Permissions</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reports</source>
+        <target>Reports</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Other</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></source>
+        <target><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-selectLibraryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Library Files to attach</source>
+        <target>Select Library Files to attach</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Component</source>
+        <target>Add a Component</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this Component</source>
+        <target>Edit this Component</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this Component</source>
+        <target>Delete this Component</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreGenres">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore the components to the default settings</source>
+        <target>Restore the components to the default settings</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as dependent files (e.g. not to be listed with published content)</source>
+        <target>Mark files of this type as dependent files (e.g. not to be listed with published content)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as supplementary files (e.g. not primary submission content)</source>
+        <target>Mark files of this type as supplementary files (e.g. not primary submission content)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Key</source>
+        <target>Key</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An optional short symbolic identifer for this genre.</source>
+        <target>An optional short symbolic identifer for this genre.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-exists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key already exists.</source>
+        <target>The key already exists.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-alphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</target>
+      </segment>
+    </unit>
+    <unit id="manager-settings-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings Wizard</source>
+        <target>Settings Wizard</target>
+      </segment>
+    </unit>
+    <unit id="manager-users-roleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to select at least one role to be associated with this user.</source>
+        <target>You need to select at least one role to be associated with this user.</target>
+      </segment>
+    </unit>
+    <unit id="manager-website">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website</source>
+        <target>Website</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website Settings</source>
+        <target>Website Settings</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow</source>
+        <target>Workflow</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow Settings</source>
+        <target>Workflow Settings</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution</source>
+        <target>Distribution</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution Settings</source>
+        <target>Distribution Settings</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Review Forms</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmActivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to activate this review form? Once it's assigned to a review you will no longer be able to deactivate it.</source>
+        <target>Are you sure you wish to activate this review form? Once it's assigned to a review you will no longer be able to deactivate it.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDeactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to deactivate this review form? It will no longer be available for new review assignments.</source>
+        <target>Are you sure you wish to deactivate this review form? It will no longer be available for new review assignments.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to create a copy of this review form?</source>
+        <target>Are you sure you wish to create a copy of this review form?</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Completed</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this review form?</source>
+        <target>Are you sure you wish to delete this review form?</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Review Form</source>
+        <target>Create Review Form</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description and Instructions</source>
+        <target>Description and Instructions</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>Review Form</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A title is required for the review form.</source>
+        <target>A title is required for the review form.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-inReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>In Review</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-list-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific press section, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</source>
+        <target>The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific press section, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneChosen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None / Free Form Review</source>
+        <target>None / Free Form Review</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been created.</source>
+        <target>No review forms have been created.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneUsed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been used.</source>
+        <target>No review forms have been used.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview Form</source>
+        <target>Preview Form</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-reviewFormData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Data</source>
+        <target>Review Form Data</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElement-changeType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Changing the form item type...</source>
+        <target>Changing the form item type...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Form Items</source>
+        <target>Form Items</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-addResponseItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add selection</source>
+        <target>Add selection</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-checkboxes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checkboxes (you can choose one or more)</source>
+        <target>Checkboxes (you can choose one or more)</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-chooseType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose item type</source>
+        <target>Choose item type</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm delete of a published form item...</source>
+        <target>Confirm delete of a published form item...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-copyTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy to:</source>
+        <target>Copy to:</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Item</source>
+        <target>Create New Item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-dropdownbox">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drop-down box</source>
+        <target>Drop-down box</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Form Item</source>
+        <target>Edit Form Item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-elementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item type</source>
+        <target>Item type</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-elementTypeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An item type is required for the form item.</source>
+        <target>An item type is required for the form item.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-questionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A question is required for the form item.</source>
+        <target>A question is required for the form item.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No form items have been created.</source>
+        <target>No form items have been created.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-possibleResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selection</source>
+        <target>Selection</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-question">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item</source>
+        <target>Item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-radiobuttons">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Radio buttons (you can only choose one)</source>
+        <target>Radio buttons (you can only choose one)</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers required to complete item</source>
+        <target>Reviewers required to complete item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-included">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Included in message to author</source>
+        <target>Included in message to author</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-smalltextfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single word text box</source>
+        <target>Single word text box</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textarea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended text box</source>
+        <target>Extended text box</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single line text box</source>
+        <target>Single line text box</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-viewable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewable (for authors)</source>
+        <target>Viewable (for authors)</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new Review Form</source>
+        <target>Create a new Review Form</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request a Competing Interest statement during the peer review.</source>
+        <target>Request a Competing Interest statement during the peer review.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-licenseURLDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL to a webpage describing the license, if available.</source>
+        <target>URL to a webpage describing the license, if available.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Form</source>
+        <target>Submission Form</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission metadata has been updated successfully.</source>
+        <target>The submission metadata has been updated successfully.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage</source>
+        <target>Coverage</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage will typically indicate a work's spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range) or jurisdiction (such as a named administrative entity).</source>
+        <target>Coverage will typically indicate a work's spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range) or jurisdiction (such as a named administrative entity).</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable coverage metadata</source>
+        <target>Enable coverage metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request coverage metadata from the author during submission.</source>
+        <target>Do not request coverage metadata from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest coverage metadata during submission.</source>
+        <target>Ask the author to suggest coverage metadata during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest coverage metadata before accepting their submission.</source>
+        <target>Require the author to suggest coverage metadata before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keywords are typically one- to three-word phrases that are used to indicate the main topics of a submission.</source>
+        <target>Keywords are typically one- to three-word phrases that are used to indicate the main topics of a submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable keyword metadata</source>
+        <target>Enable keyword metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request keywords from the author during submission.</source>
+        <target>Do not request keywords from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest keywords during submission.</source>
+        <target>Ask the author to suggest keywords during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest keywords before accepting their submission.</source>
+        <target>Require the author to suggest keywords before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language indicates the work's primary language using a language code ("en") with an optional country code ("en_US").</source>
+        <target>Language indicates the work's primary language using a language code ("en") with an optional country code ("en_US").</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable language metadata</source>
+        <target>Enable language metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the submission's languages from the author during submission.</source>
+        <target>Do not request the submission's languages from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to indication the submission's languages during submission.</source>
+        <target>Ask the author to indication the submission's languages during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to enter the submission's languages before accepting their submission.</source>
+        <target>Require the author to enter the submission's languages before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any rights held over the submission, which may include Intellectual Property Rights (IPR), Copyright, and various Property Rights.</source>
+        <target>Any rights held over the submission, which may include Intellectual Property Rights (IPR), Copyright, and various Property Rights.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable rights metadata</source>
+        <target>Enable rights metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a rights disclosure from the author during submission.</source>
+        <target>Do not request a rights disclosure from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any prior access rights during submission.</source>
+        <target>Ask the author to disclose any prior access rights during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any prior access rights before accepting their submission.</source>
+        <target>Require the author to disclose any prior access rights before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The source may be an ID, such as a DOI, of another work or resource from which the submission is derived.</source>
+        <target>The source may be an ID, such as a DOI, of another work or resource from which the submission is derived.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable source metadata</source>
+        <target>Enable source metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a source URL from the author during submission.</source>
+        <target>Do not request a source URL from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide a source URL during submission.</source>
+        <target>Ask the author to provide a source URL during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide a source URL before accepting their submission.</source>
+        <target>Require the author to provide a source URL before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subjects will be keywords, key phrases or classification codes that describe a topic of the submission.</source>
+        <target>Subjects will be keywords, key phrases or classification codes that describe a topic of the submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable subject metadata</source>
+        <target>Enable subject metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request subjects from the author during submission.</source>
+        <target>Do not request subjects from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide subjects during submission.</source>
+        <target>Ask the author to provide subjects during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide subjects before accepting their submission.</source>
+        <target>Require the author to provide subjects before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The nature or genre of the main content of the submission. The type is usually "Text", but may also be "Dataset", "Image" or any of the <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">Dublin Core types</a>.]]></source>
+        <target><![CDATA[The nature or genre of the main content of the submission. The type is usually "Text", but may also be "Dataset", "Image" or any of the <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">Dublin Core types</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable type metadata</source>
+        <target>Enable type metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the type from the author during submission.</source>
+        <target>Do not request the type from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide the type during submission.</source>
+        <target>Ask the author to provide the type during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide the type before accepting their submission.</source>
+        <target>Require the author to provide the type before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disciplines are types of study or branches of knowledge as described by university faculties and learned societies.</source>
+        <target>Disciplines are types of study or branches of knowledge as described by university faculties and learned societies.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable disciplines metadata</source>
+        <target>Enable disciplines metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request disciplines from the author during submission.</source>
+        <target>Do not request disciplines from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide disciplines during submission.</source>
+        <target>Ask the author to provide disciplines during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide disciplines before accepting their submission.</source>
+        <target>Require the author to provide disciplines before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting agencies may indicate the source of research funding or other institutional support that facilitated the research.</source>
+        <target>Supporting agencies may indicate the source of research funding or other institutional support that facilitated the research.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable supporting agencies metadata</source>
+        <target>Enable supporting agencies metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request supporting agencies from the author during submission.</source>
+        <target>Do not request supporting agencies from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any supporting agencies during submission.</source>
+        <target>Ask the author to disclose any supporting agencies during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any supporting agencies before accepting their submission.</source>
+        <target>Require the author to disclose any supporting agencies before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collect a submission's references in a separate field. This may be required to comply with citation-tracking services such as Crossref.</source>
+        <target>Collect a submission's references in a separate field. This may be required to comply with citation-tracking services such as Crossref.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable references metadata</source>
+        <target>Enable references metadata</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request references from the author during submission.</source>
+        <target>Do not request references from the author during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide references during submission.</source>
+        <target>Ask the author to provide references during submission.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide references before accepting their submission.</source>
+        <target>Require the author to provide references before accepting their submission.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-validationErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Validation errors:</source>
+        <target>Validation errors:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-warningsEncountered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warnings encountered:</source>
+        <target>Warnings encountered:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-errorsOccured">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occured:</source>
+        <target>Errors occured:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown element {$param}</source>
+        <target>Unknown element {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown genre {$param}</source>
+        <target>Unknown genre {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownEncoding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown encoding {$param}</source>
+        <target>Unknown encoding {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-encodingError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The content is not encoded as {$param}</source>
+        <target>The content is not encoded as {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown user group {$param}</source>
+        <target>Unknown user group {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-missingGivenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</source>
+        <target>The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUploader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown uploader {$param}</source>
+        <target>Unknown uploader {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-temporaryFileFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Temporary file {$dest} could not be created from {$source}</source>
+        <target>Temporary file {$dest} could not be created from {$source}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-filesizeMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</source>
+        <target>The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-duplicateRevisionForSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</source>
+        <target>The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-native-error-submissionFileImportFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission file could not be imported</source>
+        <target>The submission file could not be imported</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-importExportErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export errors:</source>
+        <target>Import/Export errors:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-userHasNoPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</source>
+        <target>The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-passwordHasBeenChanged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</source>
+        <target>The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-plainPasswordNotValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</source>
+        <target>The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-usernameEmailMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</source>
+        <target>The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>Path</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation</source>
+        <target>Navigation</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></source>
+        <target><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-content">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Content</source>
+        <target>Content</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-pathRegEx">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</source>
+        <target>The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicatePath">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This path already exists for another navigation menu item.</source>
+        <target>This path already exists for another navigation menu item.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicateTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This title already exists for another navigation menu.</source>
+        <target>This title already exists for another navigation menu.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title is required</source>
+        <target>The title is required</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Items</source>
+        <target>Navigation Menu Items</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-assignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Menu Items</source>
+        <target>Assigned Menu Items</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-unassignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned Menu Items</source>
+        <target>Unassigned Menu Items</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuArea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active Theme Navigation Areas</source>
+        <target>Active Theme Navigation Areas</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuAreaMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a navigation area</source>
+        <target>Select a navigation area</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-menuAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A navigation menu is already assigned to this area.</source>
+        <target>A navigation menu is already assigned to this area.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-customUrlError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A URL must be provided</source>
+        <target>A URL must be provided</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-conditionalDisplay">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Learn more about when this menu item will be displayed or hidden.</source>
+        <target>Learn more about when this menu item will be displayed or hidden.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-submenuWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an "About" item which opens a submenu with "Contact" and "Editorial Team", the "About" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, "About the Journal", which appears in the submenu.</source>
+        <target>When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an "About" item which opens a submenu with "Contact" and "Editorial Team", the "About" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, "About the Journal", which appears in the submenu.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Type</source>
+        <target>Navigation Menu Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemTypeMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a Navigation Menu Type or Custom to make your own</source>
+        <target>Select a Navigation Menu Type or Custom to make your own</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Page</source>
+        <target>Custom Page</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a custom page on your site and link to it from a navigation menu.</source>
+        <target>Create a custom page on your site and link to it from a navigation menu.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>Remote URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to any URL on another site, like https://pkp.sfu.ca.</source>
+        <target>Link to any URL on another site, like https://pkp.sfu.ca.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the About the Journal content in Settings > Journal]]></source>
+        <target><![CDATA[Link to a page displaying the About the Journal content in Settings > Journal]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the About the Journal section under Settings > Journal.]]></source>
+        <target><![CDATA[This link will only be displayed if you have filled out the About the Journal section under Settings > Journal.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the Masthead content in Settings > Journal.]]></source>
+        <target><![CDATA[Link to a page displaying the Masthead content in Settings > Journal.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Editorial Team section under Settings > Journal.]]></source>
+        <target><![CDATA[This link will only be displayed if you have filled out the Editorial Team section under Settings > Journal.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-submissions-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying submission instructions.</source>
+        <target>Link to the page displaying submission instructions.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-current-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your current issue.</source>
+        <target>Link to your current issue.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-archives-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your issue archive.</source>
+        <target>Link to your issue archive.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your announcements.</source>
+        <target>Link to the page displaying your announcements.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have enabled announcements under Settings > Website.]]></source>
+        <target><![CDATA[This link will only be displayed if you have enabled announcements under Settings > Website.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-login-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user login page.</source>
+        <target>Link to the user login page.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-register-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user registration page.</source>
+        <target>Link to the user registration page.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-dashboard-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the editorial dashboard.</source>
+        <target>Link to the editorial dashboard.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-profile-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user profile page.</source>
+        <target>Link to the user profile page.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the site-wide administration tools.</source>
+        <target>Link to the site-wide administration tools.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed to administrative users.</source>
+        <target>This link will only be displayed to administrative users.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-logOut-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A link that will log the user out.</source>
+        <target>A link that will log the user out.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedOut-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is logged in.</source>
+        <target>This link will only be displayed when the visitor is logged in.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedIn-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is not logged in.</source>
+        <target>This link will only be displayed when the visitor is not logged in.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to a page displaying your contact information.</source>
+        <target>Link to a page displaying your contact information.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Contact information under Settings > Contact.]]></source>
+        <target><![CDATA[This link will only be displayed if you have filled out the Contact information under Settings > Contact.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-typeMissing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a navigation menu type.</source>
+        <target>Please select a navigation menu type.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-subscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if payments are enabled under Settings > Distribution > Payments.]]></source>
+        <target><![CDATA[This link will only be displayed if payments are enabled under Settings > Distribution > Payments.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-mySubscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.]]></source>
+        <target><![CDATA[This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-search-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the search page.</source>
+        <target>Link to the search page.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your privacy statement.</source>
+        <target>Link to the page displaying your privacy statement.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions.]]></source>
+        <target><![CDATA[This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions.]]></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target>Add Category</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target>Edit Category</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-urlWillBe">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category's URL will be: {$sampleUrl}</source>
+        <target>The category's URL will be: {$sampleUrl}</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path must consist of only letters and numbers.</source>
+        <target>The category path must consist of only letters and numbers.</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path already exists. Please enter a unique path.</source>
+        <target>The category path already exists. Please enter a unique path.</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-parentCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Category</source>
+        <target>Parent Category</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to remove this category?</source>
+        <target>Are you sure you wish to remove this category?</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a category name.</source>
+        <target>Please enter a category name.</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categoryDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Category Details</source>
+        <target>Category Details</target>
+      </segment>
+    </unit>
+    <unit id="stats-daily">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Daily</source>
+        <target>Daily</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Range</source>
+        <target>Date Range</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-allDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All dates</source>
+        <target>All dates</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-apply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apply</source>
+        <target>Apply</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change date range</source>
+        <target>Change date range</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-customRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Range</source>
+        <target>Custom Range</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-dateDoesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One of the dates entered does not exist.</source>
+        <target>One of the dates entered does not exist.</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>From</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</source>
+        <target>Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The date format is not valid. Enter each date in the format YYYY-MM-DD.</source>
+        <target>The date format is not valid. Enter each date in the format YYYY-MM-DD.</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date must be before the end date.</source>
+        <target>The start date must be before the end date.</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidEndDateMax">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The end date may not be later than {$date}.</source>
+        <target>The end date may not be later than {$date}.</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidStartDateMin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date may not be earlier than {$date}.</source>
+        <target>The start date may not be earlier than {$date}.</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last12Months">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 12 months</source>
+        <target>Last 12 months</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last30Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 30 days</source>
+        <target>Last 30 days</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last90Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 90 days</source>
+        <target>Last 90 days</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-sinceDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Since {$date}</source>
+        <target>Since {$date}</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-to">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To</source>
+        <target>To</target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-untilDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Until {$date}</source>
+        <target>Until {$date}</target>
+      </segment>
+    </unit>
+    <unit id="stats-fileViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Views</source>
+        <target>File Views</target>
+      </segment>
+    </unit>
+    <unit id="stats-html">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML</source>
+        <target>HTML</target>
+      </segment>
+    </unit>
+    <unit id="stats-monthly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Monthly</source>
+        <target>Monthly</target>
+      </segment>
+    </unit>
+    <unit id="stats-pdf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PDF</source>
+        <target>PDF</target>
+      </segment>
+    </unit>
+    <unit id="stats-searchSubmissionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search by title, author and ID</source>
+        <target>Search by title, author and ID</target>
+      </segment>
+    </unit>
+    <unit id="stats-total">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

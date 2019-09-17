@@ -121,7 +121,7 @@ class LocaleFile {
 		$localeData = array();
 		$translations = Gettext\Translations::fromXliffFile($filename);
 		foreach ($translations as $translation) {
-			$localeKey = $translation->getUnitId();
+			$localeKey = Gettext\Generators\Xliff::getUnitID($translation);
 			// Decode '-' (allowed in XLIFF unit IDs) into '.' (not allowed)
 			$localeKey = str_replace('-', '.', $localeKey);
 			if ($localeKey) $localeData[$localeKey] = $translation->getTranslation();

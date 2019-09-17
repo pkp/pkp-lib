@@ -172,6 +172,7 @@
 	<message key="common.keywords">Keywords</message>
 	<message key="common.language">Language</message>
 	<message key="common.languages">Languages</message>
+	<message key="common.lastActivity">Last activity recorded on</message>
 	<message key="common.less">Less</message>
 	<message key="common.lessThan">{$value} or less</message>
 	<message key="common.commaListSeparator">, </message>

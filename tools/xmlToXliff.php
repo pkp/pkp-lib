@@ -60,7 +60,7 @@ class xmlToXLiff extends CommandLineTool {
 	 */
 	function usage() {
 		echo "Script to convert XML locale file to XLIFF format\n"
-			. "Usage: {$this->scriptName} source-locale-file.xml input-locale-file.xml output-xliff-file.xliff\n";
+			. "Usage: {$this->scriptName} source-locale-file.xml input-locale-file.xml output-xliff-file.xlf\n";
 	}
 
 	/**
@@ -94,10 +94,10 @@ class xmlToXLiff extends CommandLineTool {
 
 		$translations = new \Gettext\Translations();
 		foreach ($referenceData as $key => $referenceTranslation) {
-			$translation = new \Gettext\XliffTranslation('', $referenceTranslation);
+			$translation = new \Gettext\Translation('', $referenceTranslation);
 			// Translate '.' into '-' (. is not allowed in XLIFF unit IDs)
-			$translation->setUnitId(str_replace('.', '-', $key));
-			@$translation->setTranslation($sourceData[$key]);
+			$translation->addComment('XLIFF_UNIT_ID: ' . str_replace('.', '-', $key));
+			$translation->setTranslation($sourceData[$key]);
 			$translations->append($translation);
 		}
 

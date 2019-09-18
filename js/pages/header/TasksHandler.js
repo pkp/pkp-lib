@@ -78,6 +78,12 @@
 			setTimeout(this.callbackWrapper(this.setPopoverSize_), 500);
 		} else {
 			$popover.css('height', '').css('overflow-y', '');
+			if (event) {
+				this.trigger('callWhenClickOutside', [{
+					container: $header,
+					clear: true
+				}]);
+			}
 		}
 	};
 

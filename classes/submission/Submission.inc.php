@@ -543,6 +543,68 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
+	 * Return the localized discipline. DEPRECATED: DO NOT USE!
+	 * @deprecated
+	 * @return string
+	 */
+	function getLocalizedDiscipline() {
+		error_log('WARNING: Call to deprecated/non-functional Submission::getLocalizedDiscipline.');
+		return '';
+	}
+
+	/**
+	 * Get discipline. DEPRECATED: DO NOT USE!
+	 * @deprecated
+	 * @param $locale
+	 * @return string
+	 */
+	function getDiscipline($locale) {
+		error_log('WARNING: Call to deprecated/non-functional Submission::getDiscipline.');
+		return '';
+	}
+
+	/**
+	 * Set discipline. DEPRECATED: DO NOT USE!
+	 * @deprecated
+	 * @param $discipline string
+	 * @param $locale
+	 */
+	function setDiscipline($discipline, $locale) {
+		error_log('WARNING: Call to deprecated/non-functional Submission::setDiscipline.');
+	}
+
+	/**
+	 * Return the localized subject. DEPRECATED: DO NOT USE!
+	 * @deprecated
+	 * @return string
+	 */
+	function getLocalizedSubject() {
+		error_log('WARNING: Call to deprecated/non-functional Submission::getLocalizedSubject.');
+		return '';
+	}
+
+	/**
+	 * Get subject. DEPRECATED: DO NOT USE!
+	 * @deprecated
+	 * @param $locale
+	 * @return string
+	 */
+	function getSubject($locale) {
+		error_log('WARNING: Call to deprecated/non-functional Submission::getSubject.');
+		return '';
+	}
+
+	/**
+	 * Set subject. DEPRECATED: DO NOT USE!
+	 * @deprecated
+	 * @param $subject string
+	 * @param $locale
+	 */
+	function setSubject($subject, $locale) {
+		error_log('WARNING: Call to deprecated/non-functional Submission::setSubject.');
+	}
+
+	/**
 	 * Return the localized coverage
 	 * @return string
 	 */

@@ -534,4 +534,9 @@
 	<message key="list.viewMore">Vis flere detaljer om {$name}</message>
 	<message key="list.viewLess">Skjul flere detaljer om {$name}</message>
 	<message key="notification.type.reviewAssignmentUpdated">Bedømmelsestildeling opdateret</message>
+	<message key="common.dateDecided">Dato besluttet</message>
+	<message key="email.compose.error">Der opstod et problem med at sende en e-mail-besked. Prøv igen senere, eller kontakt din systemadministrator.</message>
+	<message key="common.pagination.previous">Forrige side</message>
+	<message key="common.pagination.goToPage">Gå til {$page}</message>
+	<message key="common.pagination.next">Næste side</message>
 </locale>

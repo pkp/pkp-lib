@@ -152,4 +152,10 @@
 	<message key="user.register.form.privacyConsent"><![CDATA[Ja, jeg accepterer at få mine data indsamlet og opbevaret i overensstemmelse med vores <a href="{$privacyUrl}" target="_blank">Erklæring om beskyttelse af personlige oplysninger</a>.]]></message>
 	<message key="user.register.form.emailConsent">Ja, jeg vil gerne holdes underrettet om nye publikationer og meddelelser.</message>
 	<message key="user.privacyLink"><![CDATA[Dine data er gemt i overensstemmelse med vores <a href="{$privacyUrl}" target="_blank">Erklæring om beskyttelse af personlige oplysninger</a>.]]></message>
+	<message key="user.givenName">Fornavn</message>
+	<message key="user.familyName">Efternavn</message>
+	<message key="user.profile.form.givenNameRequired">Der kræves et fornavn.</message>
+	<message key="user.profile.form.givenNameRequired.locale">Du har tilføjet et efternavn til et sprog, der mangler fornavnet. Tilføj et fornavn til dette sprog.</message>
+	<message key="user.preferredPublicName">Foretrukket offentligt navn</message>
+	<message key="user.preferredPublicName.description">Hvordan foretrækker du at blive adresseret? Indledende hilsen, mellemnavne og suffikser kan tilføjes her, hvis du ønsker det.</message>
 </locale>

@@ -119,4 +119,5 @@ Anvendelse: {$scriptName} path/to/apache/log/file.log
 Anvendelse (databehandling af alle filer inde i et indeks): {$ scriptName} path/to/apache/directory</message>
 	<message key="admin.copyAccessLogFileTool.warning.fileAlreadyExists">Advarsel: filen {$filePath} eksisterer allerede inde i brugerstatistik-indekset</message>
 	<message key="admin.copyAccessLogFileTool.success">Succes: {$filePath} til {$destinationPath}</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">Er du sikker på at du vil ændre den primære landestandard? Brugernes navne, der kræves under sitets primære landestandard vil, hvor de mangler, blive kopieret fra den eksisterende landestandard.</message>
 </locale>

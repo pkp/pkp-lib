@@ -571,4 +571,16 @@
 	<message key="submission.submit.contactConsentDescription">Ja, jeg vil gerne kontaktes i forbindelse med denne indsendelse.</message>
 	<message key="submission.submit.userGroupDescriptionManagers">Indsend med en af følgende roller, hvis du gerne selv vil kunne redigere og publicere denne indsendelse: {$managerGroups}</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} har markeret runde {$round} bedømmelsen til indsendelse {$submissionId} som værende ikke overvejet.</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
+	<message key="submission.list.assignEditor">Tildel Redaktør</message>
+	<message key="grid.category.categories">Kategorier</message>
+	<message key="catalog.sortBy.titleAsc">Titel (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Titel (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Udgivelsesdato (ældste først)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Udgivelsesdato (nyeste først)</message>
+	<message key="category.coverImage">Forsidebillede</message>
+	<message key="submission.submit.placement.categories">Kategorier</message>
+	<message key="submission.currentCoverImage">Nyeste billede</message>
+	<message key="catalog.category.noItems">Intet er endnu blevet offentliggjort i denne kategori.</message>
+	<message key="catalog.category.subcategories">Underkategorier</message>
 </locale>

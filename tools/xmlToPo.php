@@ -71,7 +71,7 @@ class xmlToPo extends CommandLineTool {
 	}
 
 	/**
-	 * Rebuild the search index for all articles in all journals.
+	 * Convert an XML locale file to a PO file.
 	 */
 	function execute() {
 		$localeData = array();

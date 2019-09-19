@@ -90,14 +90,17 @@ class xmlToXLiff extends CommandLineTool {
 		$localeData = array();
 
 		$referenceData = self::parseLocaleFile($this->referenceXmlFile);
+		if (!$referenceData) throw new Exception('Unable to load ' .$this->referenceXmlFile);
 		$sourceData = self::parseLocaleFile($this->sourceXmlFile);
+		if (!$sourceData) throw new Exception('Unable to load ' .$this->sourceXmlFile);
 
 		$translations = new \Gettext\Translations();
 		foreach ($referenceData as $key => $referenceTranslation) {
 			$translation = new \Gettext\Translation('', $referenceTranslation);
 			// Translate '.' into '-' (. is not allowed in XLIFF unit IDs)
 			$translation->addComment('XLIFF_UNIT_ID: ' . str_replace('.', '-', $key));
-			$translation->setTranslation($sourceData[$key]);
+			$translation->setId($key);
+			if (isset($sourceData[$key])) $translation->setTranslation($sourceData[$key]);
 			$translations->append($translation);
 		}
 

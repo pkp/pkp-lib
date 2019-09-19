@@ -1,31 +1,24 @@
 <?php
 
 /**
- * @file tools/xmlToXLiff.php
+ * @file tools/xmlToPo.php
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class xmlToXLiff
+ * @class xmlToPo
  * @ingroup tools
- *
- * @brief CLI tool to convert a .PO file for ISO3166 into the countries.xml format
- * supported by the PKP suite. These .po files can be sourced from e.g.:
- * https://packages.debian.org/source/sid/iso-codes
  */
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class xmlToXLiff extends CommandLineTool {
-	/** @var string Name of reference XML locale file */
-	protected $referenceXmlFile;
-
+class xmlToPo extends CommandLineTool {
 	/** @var string Name of source XML locale file */
 	protected $sourceXmlFile;
 
-	/** @var string Name of target XLIFF file */
-	protected $xliffFile;
+	/** @var string Name of target PO file */
+	protected $poFile;
 
 	/**
 	 * Constructor
@@ -35,21 +28,15 @@ class xmlToXLiff extends CommandLineTool {
 
 		array_shift($argv); // Shift the tool name off the top
 
-		$this->referenceXmlFile = array_shift($argv);
 		$this->sourceXmlFile = array_shift($argv);
-		$this->xliffFile = array_shift($argv);
-
-		if (empty($this->referenceXmlFile) || !file_exists($this->referenceXmlFile)) {
-			$this->usage();
-			exit(1);
-		}
+		$this->poFile = array_shift($argv);
 
 		if (empty($this->sourceXmlFile) || !file_exists($this->sourceXmlFile)) {
 			$this->usage();
 			exit(2);
 		}
 
-		if (empty($this->xliffFile)) {
+		if (empty($this->poFile)) {
 			$this->usage();
 			exit(3);
 		}
@@ -59,8 +46,8 @@ class xmlToXLiff extends CommandLineTool {
 	 * Print command usage information.
 	 */
 	function usage() {
-		echo "Script to convert XML locale file to XLIFF format\n"
-			. "Usage: {$this->scriptName} source-locale-file.xml input-locale-file.xml output-xliff-file.xlf\n";
+		echo "Script to convert XML locale file to PO format\n"
+			. "Usage: {$this->scriptName} input-locale-file.xml output-file.po\n";
 	}
 
 	/**
@@ -89,23 +76,21 @@ class xmlToXLiff extends CommandLineTool {
 	function execute() {
 		$localeData = array();
 
-		$referenceData = self::parseLocaleFile($this->referenceXmlFile);
 		$sourceData = self::parseLocaleFile($this->sourceXmlFile);
+		if (!$sourceData) throw new Exception('Unable to load source file ' . $this->sourceXmlFile);
 
 		$translations = new \Gettext\Translations();
-		foreach ($referenceData as $key => $referenceTranslation) {
-			$translation = new \Gettext\Translation('', $referenceTranslation);
-			// Translate '.' into '-' (. is not allowed in XLIFF unit IDs)
-			$translation->addComment('XLIFF_UNIT_ID: ' . str_replace('.', '-', $key));
-			$translation->setTranslation($sourceData[$key]);
+		foreach ($sourceData as $key => $sourceTranslation) {
+			$translation = new \Gettext\Translation('', $key);
+			$translation->setTranslation("$sourceTranslation");
 			$translations->append($translation);
 		}
 
-		$translations->toXliffFile($this->xliffFile);
+		$translations->toPoFile($this->poFile);
 	}
 }
 
-$tool = new xmlToXLiff(isset($argv) ? $argv : array());
+$tool = new xmlToPo(isset($argv) ? $argv : array());
 $tool->execute();
 
 

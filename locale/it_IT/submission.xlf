@@ -1,0 +1,5696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:06-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:06-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="author-editPublishedDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors of this publication can not be edited because it has already been published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="author-publicationNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication for this author could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="author-submit-submissionCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</source>
+        <target>Fornisci un elenco formattato delle opere citate in questa proposta. Separa ciascuna citazione con una riga vuota.</target>
+      </segment>
+    </unit>
+    <unit id="author-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted and are being considered by the editor.</source>
+        <target>Nuove revisioni sono state inviate e sono in analisi da parte dell'editor.</target>
+      </segment>
+    </unit>
+    <unit id="submission-confirm-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</source>
+        <target>La tua proposta è stata caricata ed è pronta per essere inviata. Puoi tornare indietro per rivedere e modificare i dati inseriti. Quando sei pronto, clicca su "Proposta finita".</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroups">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit As</source>
+        <target>Carica come</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroupsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the role that best describes your contribution to this submission.</source>
+        <target>Seleziona il ruolo che meglio descrive il tuo contributo a questa proposta.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corresponding Contact</source>
+        <target>Indirizzo di contatto</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsentDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be contacted about this submission.</source>
+        <target>Si, voglio essere contattato al riguardo di questa proposta.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-userGroupDescriptionManagers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit in any of the following roles if you would like to be able to edit and publish this submission yourself: {$managerGroups}</source>
+        <target>Carica in uno dei seguenti ruoli se vuoi essere in grado di modificare e pubblicare direttamente tua la proposta: {$managerGroups}</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Requirements</source>
+        <target>Requisiti per le proposte</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklistDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must read and acknowledge that you've completed the requirements below before proceeding.</source>
+        <target>Devi aver letto e completato i requisiti qui indicati prima di procedere.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission complete</source>
+        <target>Proposta completata</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionCompleteThanks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for your interest in publishing with {$contextName}.</source>
+        <target>Grazie per il tuo interesse a pubblicare su {$contextName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgreementLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge the copyright statement</source>
+        <target>Leggi la dichiarazione di copyright</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgree">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I agree to abide by the terms of the copyright statement.</source>
+        <target>Sono d'accordo e acconsento ai termi di copyright qui espressi.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>What Happens Next?</source>
+        <target>Cosa succede dopo ?</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-forNow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For now, you can:</source>
+        <target>Ora puoi:</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review this submission</source>
+        <target>Controllare la proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new submission</source>
+        <target>Creare una proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-return">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Return to your dashboard</source>
+        <target>Tornare alla tua bacheca</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-extendedMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended Metadata</source>
+        <target>Inserire ulteriori metadati</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CrossRef Registration Email</source>
+        <target>Email di registrazione a CrossRef</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CrossRef registration email. You can register your email for free on the CrossRef web site.</source>
+        <target>Inserisci la email di registrazione a CrossRef. Puoi registrare gratuitamente la tua email sul sito web di CrossRef.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBNdb API Key</source>
+        <target>ISBNdb API Key</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter your ISBNdb API key. If you don't have a key yet you can request one for free from the ISBNdb project.</source>
+        <target>Inserisci il tuo identificativo ISBNdb API. Se non ne possiedi ancora uno puoi richiederlo gratuitamente sul sito del progetto ISBNdb.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PubMed Registration Email</source>
+        <target>Email di registrazione a PubMed</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PubMed registration email if you have one.</source>
+        <target>Inserisci la email di registrazione a PubMed se ne possiedi una.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>WorldCat API Key</source>
+        <target>WorldCat API Key</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid WorldCat API key if you have one.</source>
+        <target>Inserisci una WorldCat API Key valida, se ne hai una.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Citation Module</source>
+        <target>Modulo delle citazioni</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select one of the given citation modules.</source>
+        <target>Seleziona uno dei moduli di citazione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Don't use by default (will still be available to the editor)</source>
+        <target>Non usare per default (sarà comunque disponibile agli editor)</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal error. A non-valid value has been posted for the 'optional filter' setting. Please report this as a bug.</source>
+        <target>Errore interno. E' stato inserito un carattere non valido per l'impostazione dei 'filtri opzionali'. Segnala l'errore come bug.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Autori.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>Per un risultato ottimale, gli autori vanno inseriti nel formato: Coleman Jr, D. (Ralf) Dr.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>Curatori</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, editors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>Per un risultato ottimale, i curatori vanno inseriti nel formato: Coleman Jr, D. (Ralf) Dr.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Article/Paper Title</source>
+        <target>Titolo dell'articolo/contributo</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid article/paper title.</source>
+        <target>Inserisci il titolo dell'articolo/contributo.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Title</source>
+        <target>Titolo del libro/rivista</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication title.</source>
+        <target>Inserisci il titolo del libero/rivista.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Date</source>
+        <target>Data di pubblicazione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication date (format: YYYY-MM-DD).</source>
+        <target>Inserisci la data di pubblicazione (formato: AAAA-MM-AA).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access Date</source>
+        <target>Data di accesso</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid access date (format: YYYY-MM-DD).</source>
+        <target>Inserisci la data di accesso (formato: AAAA-MM-AA).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue</source>
+        <target>Fascicolo</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid issue.</source>
+        <target>Inserisci un fascicolo valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Volume</source>
+        <target>Volume</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid volume.</source>
+        <target>Inserisci il numero del volume</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Season</source>
+        <target>Stagione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid season identifier.</source>
+        <target>Inserisci una stagione valida.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Chapter Title</source>
+        <target>Titolo del capitolo</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid chapter title.</source>
+        <target>Inserisci il titolo del capitolo.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edition</source>
+        <target>Edizione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid edition.</source>
+        <target>Inserisci un'edizione valida.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Series</source>
+        <target>Serie</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid series.</source>
+        <target>Inserisci una serie valida</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplement</source>
+        <target>Supplemento</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid supplement.</source>
+        <target>Inserisci il titolo del supplemento.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Date</source>
+        <target>Data del convegno</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference date (format: YYYY-MM-DD).</source>
+        <target>Inserisci la data del convegno (formato: AAAA-MM-AA).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Location</source>
+        <target>Luogo del convegno</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference location.</source>
+        <target>Inserisci il luogo del convegno.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Name</source>
+        <target>Titolo del convegno</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference name.</source>
+        <target>Inserisci il titolo del convegno.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Sponsor</source>
+        <target>Sponsor del convegno</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference sponsor.</source>
+        <target>Inserisci i nomi degli sponsor del convegno</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>Istituzione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid institution.</source>
+        <target>Inserisci un'istituzione valida</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>First Page</source>
+        <target>Pagina iniziale</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid first page (must be a numeric value).</source>
+        <target>Inserisci il numero della prima pagina (deve essere un valore numerico).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Page</source>
+        <target>Ultima pagina</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid last page (must be a numeric value).</source>
+        <target>Inserisci il numero dell'ultima pagina (deve essere un valore numerico).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of Pages</source>
+        <target>Numero di pagine</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid total number of pages (must be a numeric value).</source>
+        <target>Inserisci il numero totale di pagine (deve essere un valore numerico).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Location</source>
+        <target>Luogo di pubblicazione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher location.</source>
+        <target>Inserisci il luogo di pubblicazione.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Name</source>
+        <target>Editore</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher name.</source>
+        <target>Inserisci il nome dell'editore.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBN</source>
+        <target>ISBN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid ISBN (9 or 13 numbers).</source>
+        <target>Inserisci il numero ISBN (9 o 13 cifre).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Print ISSN</source>
+        <target>ISSN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid Print ISSN.</source>
+        <target>Inserisci un ISSN valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>eISSN</source>
+        <target>eISSN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid eISSN.</source>
+        <target>Inserisci un eISSN valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target>DOI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid DOI.</source>
+        <target>Inserisci un DOI valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Publication ID</source>
+        <target>ID personalizzato</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid custom publication ID.</source>
+        <target>Inserisci un ID personalizzato valido</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CODEN</source>
+        <target>CODEN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CODEN.</source>
+        <target>Inserisci un CODEN valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SICI</source>
+        <target>SICI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid SICI.</source>
+        <target>Inserisci un SICI valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PMID</source>
+        <target>PMID</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PMID.</source>
+        <target>Inserisci un PMID valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the Publication</source>
+        <target>Link alla pubblicazione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid alternative link to the publication.</source>
+        <target>Inserisci un link alternativo alla pubblicazione.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comment</source>
+        <target>Commento</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid comment.</source>
+        <target>Inserisci un commento valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Annotation</source>
+        <target>Annotazione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid annotation.</source>
+        <target>Inserisci un'annotazione valida</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Type</source>
+        <target>Tipo di pubblicazione</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you always set a publication type. Currently supported values are book (for books or book chapters) and journal (for journal articles). Otherwise the citation output formatting will not work correctly.</source>
+        <target>Assicurati di indicare sempre il tipo di pubblicazione. Le tipologie supportate al momento sono libro (per monografie o capitoli) e rivista (per articoli di rivista). Inserendo altri valori l'esportazione della citazione non funzionerà correttamente.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title Type</source>
+        <target>Tipo di titolo</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid title type. Supported values are 'abbreviated', 'translated', 'alternative' and 'uniform'.</source>
+        <target>Assicurati di aver selezionato un tipo valido. I valori permessi sono: abbreviato, tradotto, alternativo e uniforme.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part of title ignored while sorting</source>
+        <target>Parte del titolo ignorata ai fini dell'ordinamento</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please only enter the initial characters of the title that should be ignored when sorting the title.</source>
+        <target>Inserisci solo i caratteri iniziali del titolo che devono essere ignorati nell'ordinamento dei titoli</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titolo</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid title.</source>
+        <target>Inserisci un titolo valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subtitle</source>
+        <target>Sottotitolo</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid subtitle.</source>
+        <target>Inserisci un sottotitolo valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Number</source>
+        <target>Numero della parte</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part number.</source>
+        <target>Inserisci un numero della parte valido.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Name</source>
+        <target>Nome della parte</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part name.</source>
+        <target>Inserisci un nome della parte valido</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name Type</source>
+        <target>Tipo di nome</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</source>
+        <target>Assicurati di aver selezionato un tipo di nome valido. Valori ammessi sono: personale, ente, convegno.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>Non assegnati</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-myAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Assigned</source>
+        <target>Assegnati a me</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsArchived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived Submissions</source>
+        <target>Proposte archiviate</target>
+      </segment>
+    </unit>
+    <unit id="submission-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Autori</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biography</source>
+        <target>Biografia autore</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiographies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biographies</source>
+        <target>Biografie autore</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorWithAffiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name}, {$affiliation}</source>
+        <target>{$name}, {$affiliation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-shortAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$author} et al.</source>
+        <target>{$author} et al.</target>
+      </segment>
+    </unit>
+    <unit id="submission-mySubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Authored</source>
+        <target>Le mie proposte</target>
+      </segment>
+    </unit>
+    <unit id="submission-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Carica file</target>
+      </segment>
+    </unit>
+    <unit id="submission-agencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Agencies</source>
+        <target>Agenzie</target>
+      </segment>
+    </unit>
+    <unit id="submission-abstractViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract Views</source>
+        <target>Viste dell'abstract</target>
+      </segment>
+    </unit>
+    <unit id="submission-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accepted</source>
+        <target>Accetta</target>
+      </segment>
+    </unit>
+    <unit id="submission-acknowledge">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge</source>
+        <target>Ringraziamenti</target>
+      </segment>
+    </unit>
+    <unit id="submission-addSuppFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Supplementary File</source>
+        <target>Aggiungi un file supplementare</target>
+      </segment>
+    </unit>
+    <unit id="submission-ask">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask</source>
+        <target>Richiesta</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attached file</source>
+        <target>File collegato</target>
+      </segment>
+    </unit>
+    <unit id="submission-backToSubmissionEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Submission Editing</source>
+        <target>Torna alla schermata di modifica</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change to</source>
+        <target>Cambia con</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change File</source>
+        <target>Cambia file</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>References</source>
+        <target>Riferimenti bibliografici</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each reference on a new line so that they can be extracted and recorded separately.</source>
+        <target>Inserisci ogni riferimento bibliografico in una nuova linea, cosi possono essere estratti.</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extracted References</source>
+        <target>Riferimenti bibliografici estratti</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-DOI">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following references have been extracted and will be linked to the submission metadata.</source>
+        <target>I seguenti riferimenti bibliografico sono stati estratti e saranno collegati ai metadati della proposta.</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedAndSaveCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extract and Save References</source>
+        <target>Estrai e salva i riferimenti bibliografici</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Comment</source>
+        <target>Aggiungi commento</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-comments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comments</source>
+        <target>Commenti</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you would like to delete this comment?</source>
+        <target>Sei sicuro di voler eliminare questo commento?</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-corrections">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corrections</source>
+        <target>Correzioni</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-editComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Comment</source>
+        <target>Modifica commento</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import Peer Reviews</source>
+        <target>Importa parere dei revisori</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Reviews to Email</source>
+        <target>Aggiungi il commento del revisore al messaggio</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews-reviewerLetter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer {$reviewerLetter}:</source>
+        <target>Revisore {$reviewerLetter}:</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Comments</source>
+        <target>Nessun commento</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Reviews</source>
+        <target>Nessuna revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-sendDecisionToReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Reviewers editorial decision</source>
+        <target>Comunica ai revisori la decisione dell'editor</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Oggetto</target>
+      </segment>
+    </unit>
+    <unit id="submission-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Complete</source>
+        <target>Completata</target>
+      </segment>
+    </unit>
+    <unit id="submission-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List of Contributors</source>
+        <target>Lista degli autori</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyedited">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited</source>
+        <target>Revisionato</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyediting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>Copyediting</target>
+      </segment>
+    </unit>
+    <unit id="submission-queryNoteFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion Files</source>
+        <target>File della discussione</target>
+      </segment>
+    </unit>
+    <unit id="submission-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage Information</source>
+        <target>Informazione sulla copertura</target>
+      </segment>
+    </unit>
+    <unit id="submission-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Done</source>
+        <target>Completata</target>
+      </segment>
+    </unit>
+    <unit id="submission-dueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due Date</source>
+        <target>Scadenza</target>
+      </segment>
+    </unit>
+    <unit id="submission-due">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due</source>
+        <target>Scadenza</target>
+      </segment>
+    </unit>
+    <unit id="submission-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editing</source>
+        <target>Lavorazione</target>
+      </segment>
+    </unit>
+    <unit id="submission-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>Modifica i Metadati</target>
+      </segment>
+    </unit>
+    <unit id="submission-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>Copyediting</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-backToEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Email Log</source>
+        <target>Torna al registro delle email</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the email log for this submission?</source>
+        <target>Sei sicuro di voler svuotare il registro delle email di questa proposta?</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email log entry?</source>
+        <target>Sei sicuro di voler svuotare il registro delle email?</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>Svuota il registro</target>
+      </segment>
+    </unit>
+    <unit id="submission-emailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>Registro delle email</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name} ({$username}) was assigned to this submission as a {$userGroupName}.</source>
+        <target>{$name} ({$username}) è stato assegnato a questa proposta come {$userGroupName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantRemoved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) is removed as a {$userGroupName}.</source>
+        <target>"{$name}" ({$username}) è stato rimosso come {$userGroupName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-backToEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Event Log</source>
+        <target>Torna al registro degli eventi</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the event log for this submission?</source>
+        <target>Sei sicuro di voler svuotare il registro degli eventi per questa proposta?</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this event log entry?</source>
+        <target>Sei sicuro di voler svuotare questa registro degli eventi?</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>Svuota il registro</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-submissionSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial submission completed.</source>
+        <target>Invio iniziale completato.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileRevised">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision "{$name}" (file ID {$fileId}-{$fileRevision}) was uploaded.</source>
+        <target>La revisione "{$name}" (file ID {$fileId}-{$fileRevision}) è stata caricata.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-metadataUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata updated</source>
+        <target>Aggiornati i metadati di questa proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-suppFileUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission file updated</source>
+        <target>Aggiornato il file della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAcceptedByProxy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted by proxy</source>
+        <target>Incarico di revisione accettato per procura</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted</source>
+        <target>Incarico di revisione accettato</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDeclined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment declined</source>
+        <target>Incarico di revisione rifiutato</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review due date modified</source>
+        <target>Modificata la data di consegna della revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer assigned to submission</source>
+        <target>Revisore assegnato alla proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerRated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating submitted</source>
+        <target>Valutazione del revisore inviata</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer unassigned from submission</source>
+        <target>Revisore tolto dalla proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review file updated</source>
+        <target>Aggiornato il file di revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment initiated</source>
+        <target>Revisione iniziata</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review recommendation file</source>
+        <target>File di segnalazioni della revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewReinitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment reinitiated</source>
+        <target>Riavviato l'incarico di revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review resubmitted</source>
+        <target>Inviato nuovamente in revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer revisions file updated</source>
+        <target>Aggiornato il file di revisioni del revisore</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-subjectPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email has been sent:</source>
+        <target>Una email è stata mandata:</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-viewEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Email</source>
+        <target>Vedi email</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-addedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now allowed to edit metadata when submission in stage {stage}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-event-removedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now not allowed to edit metadata when submission in stage {stage}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>File</target>
+      </segment>
+    </unit>
+    <unit id="submission-files-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download All Files</source>
+        <target>Scarica tutti i file</target>
+      </segment>
+    </unit>
+    <unit id="submission-galley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley</source>
+        <target>Gabbia</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-clearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Log</source>
+        <target>Svuota il registro</target>
+      </segment>
+    </unit>
+    <unit id="submission-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>Registro</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-noLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No log entries.</source>
+        <target>Registro vuoto</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-recentLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recent Entries</source>
+        <target>Registrazioni recenti</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>Registro delle email</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Event Log</source>
+        <target>Registro degli eventi</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>Note alla proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-viewLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Log</source>
+        <target>Vedi il Registro</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How to Cite</source>
+        <target>Come citare</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-citationFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Citation Formats</source>
+        <target>Ulteriori formati di citazione</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-downloadCitation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Citation</source>
+        <target>Scarica citazione</target>
+      </segment>
+    </unit>
+    <unit id="submission-initiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initiated</source>
+        <target>Iniziato</target>
+      </segment>
+    </unit>
+    <unit id="submission-identifiers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identifiers</source>
+        <target>Identificativi</target>
+      </segment>
+    </unit>
+    <unit id="submission-publisherId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public URL identifier</source>
+        <target>Public URL identifier</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-submissionInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>Informazioni proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata</source>
+        <target>Metadati</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Note</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>Storico</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history-allEvents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show events from prior versions</source>
+        <target>Mostra gli eventi partendo dalle precedenti versioni</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageParticipants-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify</source>
+        <target>Notifica</target>
+      </segment>
+    </unit>
+    <unit id="submission-lastModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last modified</source>
+        <target>Ultima modifica</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-addGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Layout Galley</source>
+        <target>Aggiungi una gabbia</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this galley?</source>
+        <target>Sei sicuro di eliminare definitivamente questa gabbia?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalleyImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to remove this image from the galley?</source>
+        <target>Sei sicuro di rimuovere questa immagine dalla gabbia?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this supplementary file?</source>
+        <target>Sei sicuro di eliminare definitivamente questo file aggiuntivo?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-deleteGalleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this style sheet.</source>
+        <target>Elimina questo foglio di stile.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-editGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a Layout Galley</source>
+        <target>Modifica la gabbia</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyFormat">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Format</source>
+        <target>Formato della gabbia</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyHTMLData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML Galley Files</source>
+        <target>File HTML della gabbia</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Images</source>
+        <target>Immagini</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Label</source>
+        <target>Etichetta</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Typically used to identify the file format (e.g. PDF, HTML, etc.).</source>
+        <target>L'etichetta per le gabbie viene usata per identificare formato del file dell'articolo (es. HTML, PDF etc.).</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley label is required.</source>
+        <target>Inserire un'etichetta per la gabbia.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLanguageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley language is required.</source>
+        <target>Inserire la lingua della gabbia.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLocaleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley locale is required.</source>
+        <target>E' necessario indicare la lingua della gabbia.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>URL remota</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>Inserisci una URL remota valida (includi http://)</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyNoImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No images</source>
+        <target>Nessuna immagine</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galleys</source>
+        <target>Gabbie</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stylesheet File</source>
+        <target>File del foglio di stile</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStyle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Style</source>
+        <target>Stile</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-initialGalleyCreation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial Galley Creation</source>
+        <target>Creazione della gabbia iniziale</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout File</source>
+        <target>File di layout</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout</source>
+        <target>Layout</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Version</source>
+        <target>Versione di Layout</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Galley</source>
+        <target>Crea una nuova gabbia</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload New Supplementary File</source>
+        <target>Invia un nuovo file aggiuntivo</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-noStyleFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No style sheet file has been added to this galley.</source>
+        <target>Nessun foglio di stile è stato associato a questa gabbia.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary File Review</source>
+        <target>REvisione dei file supplementari</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewingGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewing Submission Galley</source>
+        <target>Vedi la gabbia dell'articolo</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewProof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Proof</source>
+        <target>Vedi la bozza</target>
+      </segment>
+    </unit>
+    <unit id="submission-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Metadata</source>
+        <target>Metadati</target>
+      </segment>
+    </unit>
+    <unit id="submission-noReviewAssignments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Review Assignments</source>
+        <target>Nessun revisore assegnato</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-addNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add New Note</source>
+        <target>Aggiungi una nuova nota</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Attachment</source>
+        <target>File allegato</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-backToSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back To Submission Notes</source>
+        <target>Ritorna alle note della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-breadcrumb">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Note</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-clearAllNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear All Notes</source>
+        <target>Elimina tutte le note</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-collapseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse Notes</source>
+        <target>Chiudi le note</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDeleteAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove All Submission Notes?</source>
+        <target>Rimuovere tutte le note della proposta?</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove This Submission Note?</source>
+        <target>Rimuovere le note?</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-createNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Note</source>
+        <target>Crea una nuova nota</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-deleteNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Note</source>
+        <target>Elimina la nota</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-editNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Note</source>
+        <target>Modifica la nota</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-expandNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand Notes</source>
+        <target>Espandi le note</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-noSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submission Notes</source>
+        <target>Nessuna nota</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-removeUploadedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Uploaded File</source>
+        <target>Rimuovi il file</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>Note per la proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-updateNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update Note</source>
+        <target>Aggiorna la nota</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-viewNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Notes</source>
+        <target>Vedi le note</target>
+      </segment>
+    </unit>
+    <unit id="submission-originalFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Original file</source>
+        <target>File originale</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Editing</source>
+        <target>#{$id} Lavorazione</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} History</source>
+        <target>#{$id} Storico</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Review</source>
+        <target>#{$id} Revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Summary</source>
+        <target>#{$id} Riassunto</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Citations</source>
+        <target>#{$id} Citazioni</target>
+      </segment>
+    </unit>
+    <unit id="submission-peerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Peer&nbsp;Review]]></source>
+        <target>Peer review</target>
+      </segment>
+    </unit>
+    <unit id="submission-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>Produzione</target>
+      </segment>
+    </unit>
+    <unit id="submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>Parere: {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-rejected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rejected</source>
+        <target>Rifiutato</target>
+      </segment>
+    </unit>
+    <unit id="submission-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request</source>
+        <target>Richiesta</target>
+      </segment>
+    </unit>
+    <unit id="submission-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response</source>
+        <target>Risposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-restrictions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restrictions</source>
+        <target>Restrizioni</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Metadata</source>
+        <target>Modifica i metadati</target>
+      </segment>
+    </unit>
+    <unit id="submission-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>Revisionato</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Version</source>
+        <target>Versione per la revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rights</source>
+        <target>Diritti</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you wish, you may enter a brief statement about the access rights held in or over this submission.</source>
+        <target>Se vuoi inserisci una breve dichiarazione sui diritti di accesso per o sopra questa proposta.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active</source>
+        <target>Attivo</target>
+      </segment>
+    </unit>
+    <unit id="submissions-archived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived</source>
+        <target>Archiviato</target>
+      </segment>
+    </unit>
+    <unit id="submission-saveMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save Metadata</source>
+        <target>Salva i metadati</target>
+      </segment>
+    </unit>
+    <unit id="submissions-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Completato</target>
+      </segment>
+    </unit>
+    <unit id="submissions-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Rifiutata</target>
+      </segment>
+    </unit>
+    <unit id="submissions-incomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Incomplete</source>
+        <target>Incompleta</target>
+      </segment>
+    </unit>
+    <unit id="submissions-noSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submissions</source>
+        <target>Nessuna proposta</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Editing</source>
+        <target>In lavorazione</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queued">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Queued</source>
+        <target>Accodato</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No editor has been assigned to this submission.</source>
+        <target>In attesa di assegnazione</target>
+      </segment>
+    </unit>
+    <unit id="submissions-ruling">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ruling</source>
+        <target>Parere</target>
+      </segment>
+    </unit>
+    <unit id="submission-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Source</source>
+        <target>Fonte</target>
+      </segment>
+    </unit>
+    <unit id="submission-source-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</source>
+        <target>Questa proposta deriva da un'altra opera ? Se si, dovresti inserire un URL o una descrizione dell'opera in questione</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>Invio</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitted</source>
+        <target>Inviata</target>
+      </segment>
+    </unit>
+    <unit id="submission-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>Proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Title:</source>
+        <target>Titolo della proposta:</target>
+      </segment>
+    </unit>
+    <unit id="submission-start">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Start</source>
+        <target>Inizia</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission History</source>
+        <target>Storia della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionManuscript">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Manuscript</source>
+        <target>Manoscritto della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Review</source>
+        <target>Revisione della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submitter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitter</source>
+        <target>Proponente</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Finish Submission</source>
+        <target>Proposta finita</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select File</source>
+        <target>Seleziona file</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Information</source>
+        <target>Informazioni file</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Added</source>
+        <target>File aggiunto</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include this contributor in browse lists?</source>
+        <target>Includi questo contributore alle liste di scorrimento ?</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-newFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Another File</source>
+        <target>Aggiungi un altro file</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Refinements</source>
+        <target>Ulteriori informazioni</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add additional information for your submission.  Press 'enter' after each term.</source>
+        <target>Aggiungi ulteriori informazioni sulla tua proposta. Premi 'Invio' dopo ogni termine.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Language</source>
+        <target>Lingua della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocaleDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions in several languages are accepted. Choose the primary language of the submission from the pulldown above.</source>
+        <target>Sono accettate proposte in numerose lingue. Scegli la lingua primaria della proposta da questa lista a menu.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Files</source>
+        <target>Files della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-dependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Dependent Files</source>
+        <target>File in subordine al/ai principale/i</target>
+      </segment>
+    </unit>
+    <unit id="submission-manageDependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Dependent Files</source>
+        <target>Gestisci i file in subordine</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Dependent File</source>
+        <target>Carica un file in subordine.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-query">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Discussion File</source>
+        <target>Carica un file di discussione</target>
+      </segment>
+    </unit>
+    <unit id="submission-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>Riepilogo</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Files</source>
+        <target>File supplementari</target>
+      </segment>
+    </unit>
+    <unit id="submission-supportingAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting Agencies</source>
+        <target>Agenzie di supporto</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Agencies</source>
+        <target>Agenzie correnti</target>
+      </segment>
+    </unit>
+    <unit id="submission-indexingInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexing Information</source>
+        <target>Informazioni di indicizzazione</target>
+      </segment>
+    </unit>
+    <unit id="submission-titleAndAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title and Abstract</source>
+        <target>Titolo e abstract</target>
+      </segment>
+    </unit>
+    <unit id="submission-type-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The submission type is usually one of 'image', 'text', or other multimedia types including 'software' or 'interactive'.  Please choose the one most relevant for your submission.  Examples may be found at <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></source>
+        <target><![CDATA[La tipologia di solito è qualcosa come 'image', 'text', o formati multimediali come 'software' o 'interactive'. Per favore scegli quello più rilevante per la tua proposta. Esempi possono essere trovarti in <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-underway">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Underway</source>
+        <target>Avviata</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadFileTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload file to</source>
+        <target>Carica un file</target>
+      </segment>
+    </unit>
+    <unit id="submission-createRemote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create remote</source>
+        <target>Crea remoto</target>
+      </segment>
+    </unit>
+    <unit id="submission-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Metadata</source>
+        <target>Vedi i Metadati</target>
+      </segment>
+    </unit>
+    <unit id="submission-views">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Views</source>
+        <target>Viste</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your file has been uploaded.</source>
+        <target><![CDATA[Il file &#232; stato caricato.]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-loadMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please wait while your file is uploaded to the server.</source>
+        <target>Attendi il caricamento del file sul server.</target>
+      </segment>
+    </unit>
+    <unit id="submission-artworkFileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork File Details</source>
+        <target>Dettagli dell'immagine</target>
+      </segment>
+    </unit>
+    <unit id="submission-fileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Details</source>
+        <target>Dettagli del file</target>
+      </segment>
+    </unit>
+    <unit id="submission-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this item.</source>
+        <target>Inserisci un nome per questa risorsa</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-mmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>MM-DD</source>
+        <target>MM-GG</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-yyyymmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>YYYY-MM-DD</source>
+        <target>AAA-MM-GG</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectPrincipalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal contact for editorial correspondence.</source>
+        <target>Principale contatto per la corrispondenza editoriale.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contributorRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor's role</source>
+        <target>Ruolo del contributore</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>Aggiungi contributore</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-languagesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a language.</source>
+        <target>Per favore inserisci una lingua</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-subjectsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a subject.</source>
+        <target>Per favore inserisci un soggetto</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-disciplinesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a discipline.</source>
+        <target>Per favore inserisci una disciplina</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-keywordsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a keyword.</source>
+        <target>Per favore inserisci le parole chiave.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-coverageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the coverage information.</source>
+        <target>Per favore inserisci la copertura della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the type.</source>
+        <target>Per favore inserisci il tipo</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-sourceRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the source.</source>
+        <target>Per favore inserisci la fonte</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-rightsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the rights.</source>
+        <target>Per favore inserisci i diritti sulla proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-citationsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the references.</source>
+        <target>Per favore inserisci le citazioni.</target>
+      </segment>
+    </unit>
+    <unit id="submission-form-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name the file (e.g., Manuscript; Table 1)</source>
+        <target>Dai al file un nome comprensibile</target>
+      </segment>
+    </unit>
+    <unit id="submission-form-replaceExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replacing an Existing File?</source>
+        <target>Sostituire un file esistente?</target>
+      </segment>
+    </unit>
+    <unit id="workflow-review-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Review</source>
+        <target>Revisione interna</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage-any">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any Stage</source>
+        <target>Ogni fase</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage</source>
+        <target>Fase</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Copyediting</source>
+        <target>In copyediting</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Proofreading</source>
+        <target>In controllo bozze</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>In revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting Editor Decision</source>
+        <target>In attesa decisione editoriale</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-unassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>Non assegnato</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Scartato</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>Pubblicato</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>1. Upload File</source>
+        <target>1. Carica file</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadSubmissionFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Submission File</source>
+        <target>Carica il file della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>2. Review Details</source>
+        <target>2. Dettagli revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishingUpStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>3. Confirm</source>
+        <target>3. Conferma</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter a file name for this file</source>
+        <target>Devi inserire un nome file per questo file</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid component!</source>
+        <target>Componente mancante o invalido!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-invalidUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid user group!</source>
+        <target>Ruolo mancante o invalido!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Possible Duplication or Revision Detected</source>
+        <target>Trovata una possibile duplicazione o revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevisionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The name of the uploaded file resembles the name of a previously uploaded file, "{$revisedFileName}." Is this file intended to replace "{$revisedFileName}"? If so, select the file below. Otherwise, select "This is not a revision of an existing file" before proceeding.</source>
+        <target>Il nome del file caricato ricorda molto un file già caricato, "{$revisedFileName}." Con questo file si intende sovrascrivere "{$revisedFileName}"? Se è cosi, seleziona il file qui sotto. Altrimenti seleziona "Questa non è una revisione di un file esistente" prima di procedere</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectMandatoryFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select the file you would like to revise.</source>
+        <target>Per favore selezionea il file che vuoi revisionare</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectOptionalFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are uploading a revision of an existing file, please indicate which file.</source>
+        <target>Se stai caricando una revisione di un file già esistente, selezionare il file da sostituire.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadNewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a revision of an existing file</source>
+        <target>Questa non è una revisione di un file esistente</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload this file in my role as...</source>
+        <target>Carica questo file nel mio ruolo come ...</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroupDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</source>
+        <target>Se stai inserndo un Volume, puoi caricare tutti i capitoli del volume, usando il tuo ruolo di edtor di voume.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadLibraryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Library File</source>
+        <target>Carica un file come materiale di supporto</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-libraryCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Document Category</source>
+        <target>Categoria del documento che riporta la proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Carica files</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-copyeditedVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Copyedited File</source>
+        <target>Carica file (versione dopo il copyediting)</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-fairCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Fair Copy</source>
+        <target>Carica copia di cortesia</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Files</source>
+        <target>Carica files</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</source>
+        <target>Dopo aver revisionato il file assegnato, registra ogni commente nel file qui sotto e/o carica una copia annotata del dile (o un altro file).</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Production Ready File</source>
+        <target>Carica un file pronto per la produzione</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-proof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a File Ready for Publication</source>
+        <target>Carica un file pronto per la pubblicazione</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noAvailableReviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no files for you to revise at this time.</source>
+        <target>Non ci sono file da revisionare da parte tua in questo momento.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been requested.</source>
+        <target>Le revisioni sono state richieste.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been submitted.</source>
+        <target>Le revisioni sono state inviate.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-resubmitForReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be resubmitted for another review round.</source>
+        <target>La proposta deve essere inviata di nuovo per un altro giro di revisione.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-submissionResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission has been resubmitted for another review round.</source>
+        <target>La proposta è stata inviata di nuovo per un altro giro di revisione.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-sentToExternal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent to external review.</source>
+        <target>Inviata ad una revisione esterna</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>Accettata.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>Non accettata.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for reviewers to be assigned.</source>
+        <target>In attesa che i revisiori vengano assegnati</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting responses from reviewers.</source>
+        <target>In attesa delle risposte dai revisori.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted.</source>
+        <target>Nuove revisioni sono state inviate.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All reviewers have responded and a decision is needed.</source>
+        <target>Sono giunte tutte le revisioni ed ora è necessaria una decisione.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A review is overdue.</source>
+        <target>Una revisione è in ritardo.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting recommendations from editors.</source>
+        <target>Si è in attesa delle valutazioni da parte degli editors</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New editorial recommendations have been submitted.</source>
+        <target>Sono state inviate nuove valutazioni da parte degli editor</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All recommendations are in and a decision is needed.</source>
+        <target>Sono giunte tutte le valutazioni ed ora è necessaria una decisione.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-stageParticipants">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participants</source>
+        <target>Partecipanti</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noneAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None Assigned</source>
+        <target>Non assegnata</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-participant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participant</source>
+        <target>Partecipante</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Participant</source>
+        <target>Assegna partecipante</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Assignment</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users are assigned to stages of the workflow by user group. Any user assigned to this stage will automatically be assigned to other stages to which their user group has been assigned. This is commonly reserved for editors, authors and translators.</source>
+        <target>Gli utenti sono assegnati alle fasi del flusso di lavoro dal loro ruolo / gruppo di utenti. Ogni utente assegnato a questa fase, verrà in automatico abilitato a tutte le fasi a cui è abilitato il suo ruolo / gruppo di utenti. Questo è di norma riservato agli editor, agli autori e ai traduttori.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Participant</source>
+        <target>Rimuovi partecipante</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You are about to remove this participant from <strong>all</strong> stages.]]></source>
+        <target><![CDATA[Stai per rimuove questo utente dal partecipare a <strong>tutte</strong> le fasi. Se l'utente ha in corso dei lavori da valutatore, verrà rimosso anche da lì.]]></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user group.</source>
+        <target>Devi selezionare un gruppo di utenti</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user for the specified user group.</source>
+        <target>Devi selezionare un utente per questo specifico gruppo di utenti.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-reviewerWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</source>
+        <target>Il partecipante che hai selezionato è già stato indicato per fare una revisione cieca. Se lo assegni com partecipante avrà accesso all'identità dell'autore. Ti chiediamo di non assegnare questa persona come partecipante se non quando puoi assicurare la sua integrità nel condurre la revisione.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disallow Edit Metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow Edit Metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be unable to edit the submission's metadata at that stage?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be able to edit the submission's metadata at that stage?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decision</source>
+        <target>Decisione</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept Submission</source>
+        <target>Accettata</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Revisions</source>
+        <target>Richiedi revisioni</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-resubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for Review</source>
+        <target>Invia di nuovo per revisione</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline Submission</source>
+        <target>Non accettata</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send To Production</source>
+        <target>Invia in produzione</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-skipReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept and Skip Review</source>
+        <target>Accetta e salta la revisione</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendInternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send to Internal Review</source>
+        <target>Invia alla revisione interna</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The page proof file must be checked as approved to be made Available. Do you want to approve it?</source>
+        <target>Il file delle bozze deve essere segnato come approvato per renderlo disponibile al pubblico. Vuoi approvarlo?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve Proofs</source>
+        <target>Approva le bozze</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-disapproveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?</source>
+        <target>Il file non sarà disponibile al pubblico o acquistabile. Vuoi non approvarlo ?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-noDecisionsAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign an editor to enable the editorial decisions for this stage.</source>
+        <target>Assegna un editor a prende le decisioni per questa fase.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-makeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make Recommendation</source>
+        <target>Fai una valutazione</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-changeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Recommendation</source>
+        <target>Cambia la valutazione</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>Valutazione:  {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-allRecommendations-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendations: {$recommendations}</source>
+        <target>Valutazioni: {$recommendations}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation</source>
+        <target>Valutazione</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommend an editorial decision for this submission.</source>
+        <target>Proponi una decisione editoriale per questa proposta</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recordedRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recorded Recommendations</source>
+        <target>Registra le valutazioni</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-nextButton">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next: Select Files for {$stageName}</source>
+        <target>Successiva: Seleziona files per {$stageName}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the files you would like to forward to the {$stageName} stage.</source>
+        <target>Seleziona i files che vuoi portare avanti alla fase di  {$stageName}.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-previousAuthorNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous: Author Notification</source>
+        <target>Precedente: Notifica all'autore</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current stage</source>
+        <target>Attuale fase</target>
+      </segment>
+    </unit>
+    <unit id="submission-noActionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No action required</source>
+        <target>Nessuna azione richiesta</target>
+      </segment>
+    </unit>
+    <unit id="submission-actionNeeded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Needs action</source>
+        <target>E' richiesta un'azione</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Files</source>
+        <target>File della revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-currentFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current file</source>
+        <target>File corrente</target>
+      </segment>
+    </unit>
+    <unit id="submission-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Draft Files</source>
+        <target>File di draft</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addAuditorError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error trying to assign the auditor. Please Try again.</source>
+        <target>C'è stato un errore nel tentativo di assegnare un valutatore. Prova ancora.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>Un file "{$originalFileName}" è stato caricato per la proposta {$submissionId} da parte di {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>Il file "{$originalFileName}" è stato cancellato dalla proposta {$submissionId} da parte di {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>Una revisione del file "{$originalFileName}" è stato caricato per la proposta {$submissionId} da parte di {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>Una revisione del file "{$originalFileName}" è stata cancellata per la proposta {$submissionId} da parte di {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-lastRevisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$title}" had its last revision removed by {$username}.</source>
+        <target>Per il file "{$title}" l'ultima revisione è stata rimossa da {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was added as an auditor for the file "{$file}."</source>
+        <target>"{$name}" ({$username}) è stato aggiunto come valutatore per il file "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was removed as an auditor for the file "{$file}."</source>
+        <target>"{$name}" ({$username}) è stato tolto da valutatore per il file "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has completed an audit and uploaded "{$file}."</source>
+        <target>"{$name}" ({$username}) ha finito l'audit come valutatore e ha caricato il file "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-signoffSignoff">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has signed off on the signoff for "{$file}."</source>
+        <target>"{$name}" ({$username}) è uscito dal sistema durante la lavorazione finale di "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-proofsApproved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has approved the proofs for "{$formatName}."</source>
+        <target>"{$name}" ({$username}) ha approvato le bozze per "{$formatName}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Overview</source>
+        <target>Visione d'insieme della proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Descrizione</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageNotInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage not initiated.</source>
+        <target>Fase non iniziata</target>
+      </segment>
+    </unit>
+    <unit id="submission-documents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Documents</source>
+        <target>Documenti della proposta</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been assigned as an editor to the submission "{$title}".</source>
+        <target>Sei stato asseganto come editor alla proposta "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-copyeditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review copyedits for "{$title}".</source>
+        <target>Ti è stato chiesto di revisonare il copyediting per il titolo "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-layouteditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review layouts for "{$title}".</source>
+        <target>Ti è stato chiesto di revisonare il layouts per "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-indexRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to create an index for "{$title}".</source>
+        <target>Ti è stato chiesto di creare un indice per "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest editor decision.</source>
+        <target>Ultima decisione dell'editor.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionAccept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>Proposta accettata</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionExternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>External review process started.</source>
+        <target>La revisione esterna è inziata.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionPendingRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision required.</source>
+        <target>Una revisione è richiesta.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionResubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for review.</source>
+        <target>Invia di nuovo per una revisione.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionDecline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>Proposta non accettata.</target>
+      </segment>
+    </unit>
+    <unit id="notification-uploadedResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response uploaded.</source>
+        <target>Responso caricato.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An editor must be assigned before review is initiated. Please add editor using the Participants list.</source>
+        <target>Un editor deve essere assegnato prima che la revisione sia iniziata. Per favore aggiungi un edtor usando la lista dei partecipanti.</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer's Attachments</source>
+        <target>Allegati del revisore</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-send-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select review files to share with the author(s)</source>
+        <target>Seleziona i file della revisione da condividere con l'autore/i</target>
+      </segment>
+    </unit>
+    <unit id="submission-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Book available</source>
+        <target>Libro disponibile</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-uploadRevisionToRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Revised File</source>
+        <target>Carica file revisionato</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</source>
+        <target>A {$reviewerName} è stato assegnato il compito di revisionare la proposta {$submissionId} per il {$round} ciclo di revisione.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been cleared.</source>
+        <target>Il ciclo di review nr. {$round} assegnato a {$reviewerName} per la proposta {$submissionId} è stato portato a termine.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewUnconsidered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$editorName} has marked the round {$round} review for submission {$submissionId} as unconsidered.</source>
+        <target>{$editorName} ha segnalato il {$round} ciclio di revisione per la proposta {$submissionId} come da non considerare.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReinstated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated.</source>
+        <target>Il {$round} ciclo di revisione, assegnato a {$reviewerName} per la proposta {$submissionId} è riniziato.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-awaitingResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for a response from the reviewer.</source>
+        <target>In attesa di una risposta dal revisore.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer declined this review request.</source>
+        <target>Il revisore ha declinato questa richiesta di revisione.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-responseOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the response due date.</source>
+        <target>Il revisore non ha risposto entro la data definita.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the review due date.</source>
+        <target>Il revisore non ha consegnato la revisione entro la data definita.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been accepted.</source>
+        <target>Questa revisione è stata accettata.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-received">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has submitted their review.</source>
+        <target>Il revisore ha inviato la sua revisione.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been completed.</source>
+        <target>Questa revisione è stata completata.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-thanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete and the reviewer has been thanked for their contribution.</source>
+        <target>Questa revisione è stata completata e il revisore è stato ringraziato per il suo contributo.</target>
+      </segment>
+    </unit>
+    <unit id="submission-document">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Document</source>
+        <target>Documento</target>
+      </segment>
+    </unit>
+    <unit id="submission-art">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork</source>
+        <target>Grafica</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Content</source>
+        <target>Contenuto supplementare</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-creator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Creator (or owner) of file</source>
+        <target>Creatore (o proprietario) del file</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Soggetto</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-publisher">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher</source>
+        <target>Editore</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor or sponsoring agency</source>
+        <target>Sponsor</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-itemWorkflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to this submission's workflow</source>
+        <target>Vai al flusso di lavoro di questa proposta</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionSendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production process started.</source>
+        <target>La fse di produzione è inziata.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before production process can be initiated. Please add a production editor using the Participants list.</source>
+        <target>Un editor deve essere assegnato alla produzione affinchè possa iniziare la fase di produzione. Per favore aggiungi un editor alla produzione usando la lista dei partecipanti.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before editorial process is initiated. Please add a production editor using the Participants list.</source>
+        <target>Un editor deve essere assegnato alla produzione affinchè possa iniziare il processo editoriale. Per favore aggiungi un editor alla produzione usando la lista dei partecipanti.</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>Modulo di revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewFormResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Response</source>
+        <target>Risposta del modulo di revisione</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewFormElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new review form element</source>
+        <target>Crea un nuovo elemento per il modulo di revisione</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>Modifica i metadati</target>
+      </segment>
+    </unit>
+    <unit id="submission-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>Permessi</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachPermissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attach the following permissions to the submission:</source>
+        <target>Collega i seguenti permessi alla proposta:</target>
+      </segment>
+    </unit>
+    <unit id="submission-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target>Licenza</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyright">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright</source>
+        <target>Copyright</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightHolder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Holder</source>
+        <target>Detentore del copyright</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightYear">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Year</source>
+        <target>Anno del copyright</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright (c) {$copyrightYear} {$copyrightHolder}</source>
+        <target>Copyright (c) {$copyrightYear} {$copyrightHolder}</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>Per favore fornisci un valido URL remoto (includi http://).</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License URL</source>
+        <target>URL della licenza</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-NoDerivatives 4.0</source>
+        <target>CC Attribuzione - Non commerciale - Non opere derivate 4.0 Internazionale</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial 4.0</source>
+        <target>CC Attribuzione - Non commerciale 4.0 Internazionale</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-ShareAlike 4.0</source>
+        <target>CC Attribuzione - Non commerciale - Condividi allo stesso modo 4.0 Internazionale</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NoDerivatives 4.0</source>
+        <target>CC Attribuzione - Non opere derivate 4.0 Internazionale</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution 4.0</source>
+        <target>CC Attribuzione 4.0 Internazionale</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-ShareAlike 4.0</source>
+        <target>CC Attribuzione - Condividi allo stesso modo 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Questo lavoro è fornito con la licenza <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribuzione - Non commerciale - Non opere derivate 4.0 Internazionale</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Questo lavoro è fornito con la licenza <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribuzione - Non commerciale 4.0 Internazionale</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Questo lavoro è fornito con la licenza <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribuzione - Non commerciale - Condividi allo stesso modo 4.0 Internazionale</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Questo lavoro è fornito con la licenza <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribuzione - Non opere derivate 4.0 Internazionale</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>TQuesto lavoro è fornito con la licenza <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribuzione 4.0 Internazionale</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Questo lavoro è fornito con la licenza <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribuzione - Condividi allo stesso modo 4.0</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Review Discussions</source>
+        <target>Discussioni prima della revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Discussions</source>
+        <target>Discussioni della revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting Discussions</source>
+        <target>Discussione durante il copyediting</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Discussions</source>
+        <target>Discussioni durante la produzione</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Soggetto</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-messages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Messages</source>
+        <target>Messaggi</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>Repliche</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>Da parte di</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-lastReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Reply</source>
+        <target>Ultima replica</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-closed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Closed</source>
+        <target>Chiusa</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Message</source>
+        <target>Aggiungi messaggio</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave Discussion</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you leave this discussion you will no longer be notified of new messages. Would you like to leave the discussion?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-openNoteForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new reply to the discussion</source>
+        <target>Aggiungi una nuova replica alla discussione</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$responderName} replied to {$noteTitle}: {$noteContents}</source>
+        <target>{$responderName} ha scritto {$noteTitle}: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</source>
+        <target>{$creatorName} ha iniziato una discussione: {$noteTitle}: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>C'è una nuova attività nella discussione intitolata  "{$queryTitle}" riguardo la proposta "{$submissionTitle}".</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>Sei stato aggiunto alla discussione intitolata "{$queryTitle}" riguardo la proposta "{$submissionTitle}".</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-participantTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$fullName}, {$userGroup}</source>
+        <target>{$fullName}, {$userGroup}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-noParticipantOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must assign at least one participant to this submission before initiating a discussion.</source>
+        <target>Devi assegnare almeno un partecipante a questa proposta prima di inziare una discussione.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-infoCenter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Activity Log & Notes]]></source>
+        <target>Log attività e note</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-empty">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No submissions found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-responseDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due</source>
+        <target>Termine per la risposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Assignment</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due</source>
+        <target>Termine per la revisione</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Revisione inviata</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewCancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete submission?</source>
+        <target>Cancelli la proposta ?</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-viewSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submission</source>
+        <target>Vedi proposta</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned reviews completed</source>
+        <target>Revisioni assegnate completate</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions submitted</source>
+        <target>Revisioni inviate</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-copyeditsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited files submitted</source>
+        <target>Inviati i file che hanno subito il copyediting</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-galleysCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production galleys created</source>
+        <target>Gabbie di produzione create</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-filesPrepared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files prepared</source>
+        <target>File preparati</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-discussions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open discussions</source>
+        <target>Apri le discussioni</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-dualWorkflowLinks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target><![CDATA[Ti sono stati assegnati molteplici ruoli per questa proposta. Vuoi accedere come <a href="{$urlAuthorWorkflow}">Autoe</a>  o come <a href="{$urlEditorialWorkflow}">Editor</a>?]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewerWorkflowLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target><![CDATA[Ti è stato assegnato il ruolo di editor per questa proposta. Voi accedere al <a href="{$urlEditorialWorkflow}">flusso di lavoro editoriale</a>?]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-incompleteSubmissionNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This submission must be completed before an editor will review it.</source>
+        <target>Questa proposta deve essere completata prima che un editor possa revisionarla.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currently in the {$stage} stage.</source>
+        <target>Attualmente nella fase: {$stage}</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-assignEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Editor</source>
+        <target>Assegna editor</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (A-Z)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (Z-A)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (oldest first)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (newest first)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="category-coverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cover Image</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-placement-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-currentCoverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Image</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Nothing has been published in this category yet.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-subcategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subcategories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-publication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-citations-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The references have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributors</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-copyrightYearBasis-issueDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright year will be set automatically when this is published in an issue.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-createVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Version</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-datePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-editDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This version has been published and can not be edited.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was unpublished.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was created.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionScheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A version was removed from publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission for this publication could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The metadata have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Permissions & Disclosure]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright and license information have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-confirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All publication requirements have been met. Are you sure you want to publish this?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-requirements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following requirements must be met before this can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication status has been successfully changed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A declined submission can not be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be in the Copyediting or Production stages before it can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublished</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unscheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unscheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Title & Abstract]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title and abstract have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this to be published?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unschedule</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this scheduled for publication?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Versions</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication details for version {$version}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-wordCountLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,1997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="grid-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Items</source>
+        <target>لا فقرات</target>
+      </segment>
+    </unit>
+    <unit id="grid-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>الإعدادات</target>
+      </segment>
+    </unit>
+    <unit id="grid-noAuditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Auditors</source>
+        <target>بلا مراقبين</target>
+      </segment>
+    </unit>
+    <unit id="grid-remotelyHostedItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This item is remotely hosted.</source>
+        <target>هذه الفقرة مستضافة خارجياً.</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uninstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninstall</source>
+        <target>إلغاء التنصيب</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-manageAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Access</source>
+        <target>إدارة الوصول</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sort</source>
+        <target>الفرز</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Item</source>
+        <target>إضافة فقرة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Note</source>
+        <target>إضافة ملاحظة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add discussion</source>
+        <target>إضافة مناقشة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read discussion</source>
+        <target>قراءة المناقشة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete discussion</source>
+        <target>حذف المناقشة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-updateQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update discussion</source>
+        <target>تعديل المناقشة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>إضافة مستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign this reviewer</source>
+        <target>ألغ تعيين هذا المحكم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approveCopyedit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve this copyedit file for sending it to the next stage</source>
+        <target>وافق على هذا الملف المدقق لإرساله إلى المرحلة الآتية</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-reload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload</source>
+        <target>إعادة تحميل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete File</source>
+        <target>حذف ملف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Media</source>
+        <target>حذف الوسط</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Media</source>
+        <target>تعديل الوسط</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Section</source>
+        <target>تعديل المقطع</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-export">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export</source>
+        <target>تصدير</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Section</source>
+        <target>حذف المقطع</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editorialHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial History</source>
+        <target>تاريخ هيئة التحرير</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>إزالة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>تعديل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approve">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve</source>
+        <target>موافقة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disapprove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disapprove</source>
+        <target>رفض</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-setApproval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Set Approval</source>
+        <target>ضع الموافقة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Information</source>
+        <target>مزيد من المعلومات</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore Defaults</source>
+        <target>استعادة الإفتراضات</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to restore the defaults?</source>
+        <target>هل أنت متأكد من رغبتك في استعادة الإعدادات الافتراضية؟</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Author</source>
+        <target>أضف مؤلف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Author</source>
+        <target>تعديل المؤلف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Author</source>
+        <target>حذف المؤلف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add an Auditor</source>
+        <target>أضف مدقق</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade</source>
+        <target>ترقية</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-order">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order</source>
+        <target>الفرز</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-cancelOrdering">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel ordering</source>
+        <target>إلغاء الفرز</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-extendAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extend all</source>
+        <target>توسيع الكل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse</source>
+        <target>طي</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapseAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse all</source>
+        <target>طي الكل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings wizard</source>
+        <target>معالج الإعدادات</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moveItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Move Item</source>
+        <target>نقل الفقرة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download all files as an archive</source>
+        <target>تنزيل كل الملفات ضمن أرشيف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read this review</source>
+        <target>إقرأ هذا التحكيم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send email</source>
+        <target>راسله</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a reviewer</source>
+        <target>أضف محكماً</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a file</source>
+        <target>أضف ملفاً</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a file</source>
+        <target>عدل ملفاً</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select files to manage</source>
+        <target>إختر الملفات التي ترغب بإدارتها</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request revisions for this submission</source>
+        <target>طالب بتحكيمات لطلب النشر هذا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept this submission</source>
+        <target>إقبل طلب التقديم هذا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline this Submission</source>
+        <target>أرفض طلب التقديم هذا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to internal review</source>
+        <target>أرسل طلب التقديم هذا للتحكيم الداخلي</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-externalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to external review</source>
+        <target>أرسل طلب التقديم هذا للتحكيم الخارجي</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to production</source>
+        <target>أرسل طلب التقديم هذا لمرحلة الإنتاج</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>الإعدادات</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import or export content or site data</source>
+        <target>استيراد أو تصدير محتوى أو بيانات الموقع</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-orderItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable ordering mode</source>
+        <target>تمكين نمط الفرز</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this checklist item</source>
+        <target>تعديل فقرة التأشير هذه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this checklist item</source>
+        <target>حذف فقرة التأشير هذه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset all items to default values</source>
+        <target>استعادة الإعدادات الإفتراضية لجميع الفقرات</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new email template</source>
+        <target>إضافة قالب جديد لرسالة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this email template</source>
+        <target>تعديل قالب الرسالة هذا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disableEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable this email template</source>
+        <target>تعطيل قالب الرسالة هذا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset this email template to the default</source>
+        <target>استعادة الوضع الافتراضي لقالب الرسالة هذا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expandAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand All</source>
+        <target>توسيع الكل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a participant</source>
+        <target>أضف مشاركاً</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expand">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand</source>
+        <target>توسيع</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify this user</source>
+        <target>بلِّغ هذا المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new User Group</source>
+        <target>أضف مجموعة مستخدمين جديدة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this user group</source>
+        <target>تعديل مجموعة المستخدمين هذه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-removeUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove this user group</source>
+        <target>إزالة مجموعة المستخدمين هذه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>تعطيل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View this item</source>
+        <target>معاينة هذه الفقرة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enrolExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrol an existing user as a reviewer</source>
+        <target>كلف مستخدماً مسجلاً بدور المحكم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectCreate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new reviewer</source>
+        <target>أنشئ محكماً جديداً</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>البحث</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-advancedSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Search</source>
+        <target>البحث المتقدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewLibrary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Document Library</source>
+        <target>معاينة مكتبة الوثائق</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the metadata for this submission</source>
+        <target>معاينة البيانات الوصفية لطلب التقديم هذا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a task reminder to this user</source>
+        <target>أرسل تذكيراً بالمهمة لهذا المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new round</source>
+        <target>أنشئ جولة جديدة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewReviewGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the review guidelines</source>
+        <target>معاينة إرشادات التحكيم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewCompetingInterestGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the competing interests guidelines policy</source>
+        <target>معاينة سياسة إرشادات تضارب المصالح</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-thankReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a thank you message to this reviewer</source>
+        <target>إبعث برسالة شكر لهذا المحكم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a file</source>
+        <target>رفع ملف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement Type</source>
+        <target>أضف نوعية إعلان</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement</source>
+        <target>أضف إعلاناً</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge user</source>
+        <target>دمج المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign User</source>
+        <target>فُكَّ تعيين المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View History</source>
+        <target>معاينة التأريخ</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unconsiderReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete, but you may unconsider it</source>
+        <target>هذا التحكيم مكتمل، لكنك قد تطعن به</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>تمكين</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-bookInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>معلومات طلب النشر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-logInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login As</source>
+        <target>سجل دخولك باسمه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-exportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export All Users</source>
+        <target>تصدير كل المستخدمين</target>
+      </segment>
+    </unit>
+    <unit id="grid-users-confirmExportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to export all users?</source>
+        <target>هل أنت متأكد من رغبتك في تصدير كل المستخدمين؟</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate</source>
+        <target>تفعيل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deactivate</source>
+        <target>إبطال</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-copy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy</source>
+        <target>نسخ</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview</source>
+        <target>معاينة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-install">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install</source>
+        <target>تنصيب</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Load more</source>
+        <target>تحميل المزيد</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View/Select users</source>
+        <target>معاينة وتحديد المستخدمين</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This task is completed</source>
+        <target>هذه المهمة إكتملت</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checked when considered</source>
+        <target>هذه فقرة جديدة وتستدعي الانتباه</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-uploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The column title indicates who uploaded this file</source>
+        <target>عنوان العمود يشير إلى من قام برفع الملف إلى الموقع</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-unfinished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task unfinished</source>
+        <target>المهمة لم تُنجز</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is ready. Click the note icon to the left to read it.</source>
+        <target>هذا التحكيم جاهز. أنقر إيقونة الملاحظات على اليسار لقراءته.</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-actions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Actions</source>
+        <target>أفعال</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>مؤسسة</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>رابط إنترنت</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-auditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor</source>
+        <target>مدقق</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>اللغة</target>
+      </segment>
+    </unit>
+    <unit id="grid-sponsor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsoring Organizations</source>
+        <target>الرعاة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Sponsor</source>
+        <target>أضف جهة راعية</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Sponsor</source>
+        <target>حذف الجهة الراعية</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Sponsor</source>
+        <target>تعديل الجهة الراعية</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Series</source>
+        <target>إضافة متسلسلة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Series</source>
+        <target>تعديل المتسلسلة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Series</source>
+        <target>حذف المتسلسلة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target>إضافة فئة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target>تعديل الفئة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Category</source>
+        <target>حذف الفئة</target>
+      </segment>
+    </unit>
+    <unit id="grid-contributor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sources of Support</source>
+        <target>المساهمون</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>إضافة مساهم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Contributor</source>
+        <target>تعديل المساهم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Contributor</source>
+        <target>حذف المساهم</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new version</source>
+        <target>إنشاء نسخة جديدة</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewForm-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>معاينة النماذج</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewFormElement-responseItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Options</source>
+        <target>خيارات الاستجابة</target>
+      </segment>
+    </unit>
+    <unit id="grid-noFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files</source>
+        <target>لا ملفات</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-column-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>الملفات</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-submission-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Library</source>
+        <target>مكتبة طلبات النشر</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-editorial-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Library</source>
+        <target>مكتبة التحرير</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-review-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Library</source>
+        <target>مكتبة التحكيم</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-production-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Library</source>
+        <target>مكتبة الإنتاج</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-productionTemplate-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Template Library</source>
+        <target>مكتبة قوالب الإنتاج</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Checklist</source>
+        <target>قائمة تأشيرات طلب التقديم</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-column-checklistItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist Item</source>
+        <target>فقرة قائمة التأشير</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>الاسم</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>E-mail</source>
+        <target>البريد الالكتروني</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-role">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role</source>
+        <target>الدور</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Primary Contact</source>
+        <target>عنوان الاتصال الرئيسي</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Browse Lists</source>
+        <target>ضمن قوائم التصفح</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-currentRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Roles</source>
+        <target>الأدوار الحالية</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Role</source>
+        <target>إنشاء دور جديد</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-stageAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage Assignment</source>
+        <target>تعيين المرحلة</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Users</source>
+        <target>المستخدمون الحاليون</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentEnrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Enrollment</source>
+        <target>توزيع الأدوار الحالي</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Roles</source>
+        <target>كل الأدوار</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allPermissionLevels">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Permission Levels</source>
+        <target>كل مستويات الصلاحيات</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>إضافة مستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>تكليف المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>تعديل المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>مراسلة المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>تمكين</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>تعطيل</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for disabling user</source>
+        <target>سبب تعطيل المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for enabling user</source>
+        <target>سبب تمكين المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered administrating this user. Please try again.</source>
+        <target>حدث خطأ ما عند تنفيذ الإجراء الإداري لهذا المستخدم. لطفاً، حاول مجدداً.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-errorEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator.</source>
+        <target>حدث خطأ ما عند إرسال هذه الرسالة. لطفاً، تحقق من كون إعدادات ملقم البريد الالكتروني عندك تعمل بالشكل الصحيح و/أو اتصل بالمشرف الإداري للنظام.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-cannotAdminister">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have sufficient permissions to administer this user. In order to administer a user, you must either be site administrator, or administer all contexts that this user is enrolled in.</source>
+        <target>ليس لديك الصلاحيات الكافية لتعديل هذا المستخدم.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>مصدر المصادقة</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>لطفاً، أعطِ على الأقل الاسم الأخير للمستخدم أولاً.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate Password</source>
+        <target>توليد كلمة المرور</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate random password for this user.</source>
+        <target>أوجد كلمة مرور عشوائية لهذا المستخدم.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify User</source>
+        <target>أبلغ المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUserDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send user a welcome email.</source>
+        <target>إبعث للمستخدم رسالة ترحيب.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>غيِّر كلمة المرور</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User must change password on next log in.</source>
+        <target>على المستخدم تغيير كلمة مروره عند دخوله الموقع المرة القادمة.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescriptionOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>يتطلب من المستخدم تغيير كلمة مروره عند دخوله الموقع المرة القادمة.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-moreDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More User Details</source>
+        <target>المزيد من التفاصيل عن المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-lessDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Less User Details</source>
+        <target>تفاصيل أقل عن المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Details</source>
+        <target>تفاصيل المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Roles</source>
+        <target>أدوار المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userNoRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user does not have any roles.</source>
+        <target>ليس لهذا المستخدم أي دور حالياً.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step1">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #1: Fill in User Details</source>
+        <target>الخطوة الأولى: إملأ تفاصيل بيانات المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step2">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #2: Add User Roles to {$userFullName}</source>
+        <target>الخطوة الثانية: أضف أدواراً للمستخدم {$userFullName}</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Roles</source>
+        <target>أضف الأدوار</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Role</source>
+        <target>أضف دوراً</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-selectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select User</source>
+        <target>إختر المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-pleaseSelectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a user</source>
+        <target>لطفاً، إختر مستخدماً</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-confirmLogInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log in as this user? All actions you perform will be attributed to this user.</source>
+        <target>هل تريد دخول الموقع كأنك هذا المستخدم؟ كل ما ستقوم به من أفعال، سيتم إلحاقها بهذا المستخدم.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>دمج المستخدمين</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>دمج المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeIntoUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge into this User</source>
+        <target>إدمجه بهذا المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-allUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Enrolled Users</source>
+        <target>كل المستخدمين الممنوحين أدواراً</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</source>
+        <target>هل أنت متأكد من رغبتك في دمج هذا الحساب صاحب اسم الدخول "{$oldUsername}" مع الحساب صاحب اسم الدخول "{$newUsername}"؟ إن الحساب ذو الاسم "{$oldUsername}" لن يكون له وجود بعد ذلك. هذا الإجراء لا يمكن التراجع عنه.</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Email Templates</source>
+        <target>قوالب الرسائل المحضرة</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-currentList">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current List</source>
+        <target>القائمة الحالية</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-allCategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Categories</source>
+        <target>كل الفئات</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to disable this plugin?</source>
+        <target>هل أنت متأكد من رغبتك في تعطيل هذا البرنامج الإضافي؟</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-fileUnconsider">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofing corrections made. You may unconsider this task</source>
+        <target>إجراءات القراءة التصحيحة أنجزت. بإمكانك تجاهل هذه المهمة</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-caption">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Caption</source>
+        <target>العبارة التوضيحية</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-credit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Credit</source>
+        <target>الرصيد</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightOwner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Owner</source>
+        <target>مالك الحقوق الفكرية</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact Info (if not author/publisher)</source>
+        <target>معلومات الاتصال (إن لم يكن المؤلف/الناشر)</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-permissionTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission Terms</source>
+        <target>شروط الترخيص</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-placement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Placement in submission</source>
+        <target>الموضع ضمن طلب النشر</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign stage</source>
+        <target>مرحلة التعيين</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign stage</source>
+        <target>مرحلة اللاتعيين</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-allStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Workflow Stages</source>
+        <target>كل مراحل المخطط الانسيابي</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-listRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List roles assigned to</source>
+        <target>عرض الأدوار الممنوحة إلى</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-permissionLevel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With permission level set to</source>
+        <target>مع ضبط مستوى الصلاحيات على</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveDefaultUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The role {$userGroupName} is a default one and can't be removed.</source>
+        <target>إن دور {$userGroupName} هو دور إفتراضي ولا يمكن حذفه.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it.</source>
+        <target>تعذر حذف دور {$userGroupName}. حالياً، {$usersCount} مستخدم/مستخدمون يضطلعون به.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-removed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role removed.</source>
+        <target>دور {$userGroupName} تم حذفه.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role assigned to {$stageName} stage.</source>
+        <target>دور {$userGroupName} تم تعيينه لمرحلة {$stageName}.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role unassigned from {$stageName} stage.</source>
+        <target>دور {$userGroupName} تم إلغاء تعيينه لمرحلة {$stageName}.</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-itemTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author; Title</source>
+        <target>المؤلف؛ العنوان</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-active-selectOrphaned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include incomplete submissions not submitted by an author.</source>
+        <target>إشمل طلبات النشر غير المكتملة التي لم تقدم من قبل أي مؤلف.</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Menu</source>
+        <target>إضافة قائمة</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add item</source>
+        <target>إضافة عنصر</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenuItems-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menu Items</source>
+        <target>لا عناصر في قائمة التنقل بعد</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menus</source>
+        <target>لا توجد قوائم تنقل بعد</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-selectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose a type...</source>
+        <target>إختر من القائمة...</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

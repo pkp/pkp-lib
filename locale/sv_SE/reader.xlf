@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:17-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:17-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="comments-anonymous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anonymous User</source>
+        <target>Anonym användare</target>
+      </segment>
+    </unit>
+    <unit id="comments-anonymousNamed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$userName}"</source>
+        <target>"{$userName}"</target>
+      </segment>
+    </unit>
+    <unit id="comments-body">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Body</source>
+        <target>Text</target>
+      </segment>
+    </unit>
+    <unit id="comments-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A comment title is required.</source>
+        <target>Det krävs en titel på kommentaren.</target>
+      </segment>
+    </unit>
+    <unit id="comments-confirmDeleteChildren">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deleting this comment will also delete any replies to it. Are you sure you wish to do this?</source>
+        <target>Om du tar bort kommentaren kommer även alla svar på den att raderas. Är du säker på att du vill göra det?</target>
+      </segment>
+    </unit>
+    <unit id="comments-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this comment</source>
+        <target>Ta bort kommentar</target>
+      </segment>
+    </unit>
+    <unit id="comments-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Email</source>
+        <target>Kommentators e-postadress</target>
+      </segment>
+    </unit>
+    <unit id="comments-emailReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Reply</source>
+        <target>Svara via e-post</target>
+      </segment>
+    </unit>
+    <unit id="comments-enterComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter Comment</source>
+        <target>Kommentera</target>
+      </segment>
+    </unit>
+    <unit id="comments-inResponseTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[In response to <a href="{$url}">{$title}</a>]]></source>
+        <target><![CDATA[Som svar på <a href="{$url}">{$title}</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="comments-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Name</source>
+        <target>Namn på kommentator</target>
+      </segment>
+    </unit>
+    <unit id="comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No reader comments have been posted.</source>
+        <target>Inga läsarkommentarer har lämnats.</target>
+      </segment>
+    </unit>
+    <unit id="comments-nReplies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>({$num} Replies)</source>
+        <target>({$num} svar)</target>
+      </segment>
+    </unit>
+    <unit id="comments-oneReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(1 Reply)</source>
+        <target>(1 svar)</target>
+      </segment>
+    </unit>
+    <unit id="comments-postAnonymously">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post this comment anonymously</source>
+        <target>Kommentera anonymt</target>
+      </segment>
+    </unit>
+    <unit id="comments-postReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post Reply</source>
+        <target>Skicka svar</target>
+      </segment>
+    </unit>
+    <unit id="comments-readerComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader Comments</source>
+        <target>Läsarkommentarer</target>
+      </segment>
+    </unit>
+    <unit id="comments-readMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read more</source>
+        <target>Läs mer</target>
+      </segment>
+    </unit>
+    <unit id="comments-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>Svar</target>
+      </segment>
+    </unit>
+    <unit id="comments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="comments-viewAllComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View all comments</source>
+        <target>Visa alla kommentarer</target>
+      </segment>
+    </unit>
+    <unit id="reader-fullText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Full Text:</source>
+        <target>Fulltext:</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

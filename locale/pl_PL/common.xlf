@@ -1,0 +1,5591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:08-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:08-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="common-publicKnowledgeProject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Knowledge Project</source>
+        <target>Public Knowledge Project</target>
+      </segment>
+    </unit>
+    <unit id="common-currentStyleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Stylesheet</source>
+        <target>Aktualny szablon</target>
+      </segment>
+    </unit>
+    <unit id="about-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Opis</target>
+      </segment>
+    </unit>
+    <unit id="about-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Guides</source>
+        <target>Wytyczne</target>
+      </segment>
+    </unit>
+    <unit id="about-aboutSite">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About the Site</source>
+        <target>O stronie</target>
+      </segment>
+    </unit>
+    <unit id="about-contact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact</source>
+        <target>Kontakt</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-phone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Phone</source>
+        <target>Tel.</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal Contact</source>
+        <target>Główna osoba do kontaktu</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-supportContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Support Contact</source>
+        <target>Wsparcie techniczne</target>
+      </segment>
+    </unit>
+    <unit id="about-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Inne</target>
+      </segment>
+    </unit>
+    <unit id="about-people">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>People</source>
+        <target>Redakcja</target>
+      </segment>
+    </unit>
+    <unit id="about-policies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Policies</source>
+        <target>Zasady</target>
+      </segment>
+    </unit>
+    <unit id="about-siteMap">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Map</source>
+        <target>Mapa strony</target>
+      </segment>
+    </unit>
+    <unit id="announcement-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Ogłoszenia</target>
+      </segment>
+    </unit>
+    <unit id="announcement-announcementsHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Ogłoszenia</target>
+      </segment>
+    </unit>
+    <unit id="announcement-moreAnnouncements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Announcements...</source>
+        <target>Więcej ogłoszeń...</target>
+      </segment>
+    </unit>
+    <unit id="announcement-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcements have been published.</source>
+        <target>Żadne ogłoszenie nie zostało opublikowane.</target>
+      </segment>
+    </unit>
+    <unit id="announcement-posted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted</source>
+        <target>Opublikowane</target>
+      </segment>
+    </unit>
+    <unit id="announcement-postedOn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted on {$postDate}</source>
+        <target>Opublikowany {$postDate}</target>
+      </segment>
+    </unit>
+    <unit id="announcement-view">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Announcement</source>
+        <target>Pokaż ogłoszenie</target>
+      </segment>
+    </unit>
+    <unit id="common-allDownloads">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Downloads</source>
+        <target>Wszystkie do pobrania</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-sidebar">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sidebar</source>
+        <target>Pasek boczny</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-site">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Navigation</source>
+        <target>Nawigacja</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-siteContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Context Navigation</source>
+        <target>Nawigacja kontekstowa</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Navigation</source>
+        <target>Nawigacja użytkownika</target>
+      </segment>
+    </unit>
+    <unit id="common-tasks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tasks</source>
+        <target>Zadania</target>
+      </segment>
+    </unit>
+    <unit id="common-list">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List</source>
+        <target>Lista</target>
+      </segment>
+    </unit>
+    <unit id="common-grid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Grid</source>
+        <target>Siatka</target>
+      </segment>
+    </unit>
+    <unit id="common-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this item? This action cannot be undone.</source>
+        <target>Czy na pewno usunąć ten element? Po usunięciu nie będzie go można przywrócić.</target>
+      </segment>
+    </unit>
+    <unit id="common-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>Abstrakt</target>
+      </segment>
+    </unit>
+    <unit id="common-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accepted</source>
+        <target>Zaakceptowany</target>
+      </segment>
+    </unit>
+    <unit id="common-acknowledged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledged</source>
+        <target>Potwierdzony</target>
+      </segment>
+    </unit>
+    <unit id="common-action">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Action</source>
+        <target>Działanie</target>
+      </segment>
+    </unit>
+    <unit id="common-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate</source>
+        <target>Aktywuj</target>
+      </segment>
+    </unit>
+    <unit id="common-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active</source>
+        <target>Aktywne</target>
+      </segment>
+    </unit>
+    <unit id="common-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add</source>
+        <target>Dodaj</target>
+      </segment>
+    </unit>
+    <unit id="common-addSelf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Self</source>
+        <target>Dodaj siebie</target>
+      </segment>
+    </unit>
+    <unit id="common-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nazwa</target>
+      </segment>
+    </unit>
+    <unit id="common-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All</source>
+        <target>Wszystkie</target>
+      </segment>
+    </unit>
+    <unit id="common-alphaList">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</source>
+        <target>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</target>
+      </segment>
+    </unit>
+    <unit id="common-titleSmallWords">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>of a the and an or nor but is if then else when at from by on off for in out over to into with</source>
+        <target>of a the and an or nor but is if then else when at from by on off for in out over to into with</target>
+      </segment>
+    </unit>
+    <unit id="common-alreadyAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned</source>
+        <target>Przypisany</target>
+      </segment>
+    </unit>
+    <unit id="common-altText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Alternate text</source>
+        <target>Alternatywny tekst</target>
+      </segment>
+    </unit>
+    <unit id="common-altTextInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Describe this image for visitors viewing the site in a text-only browser or with assistive devices. Example: "Our editor speaking at the PKP conference."</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-and">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>and</source>
+        <target>oraz</target>
+      </segment>
+    </unit>
+    <unit id="common-applyAction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apply Action</source>
+        <target>Zastosuj działanie</target>
+      </segment>
+    </unit>
+    <unit id="common-assign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign</source>
+        <target>Przypisz</target>
+      </segment>
+    </unit>
+    <unit id="common-assigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned</source>
+        <target>Przypisany</target>
+      </segment>
+    </unit>
+    <unit id="common-assigned-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned: {$dateAssigned}</source>
+        <target>Przypisany: {$dateAssigned}</target>
+      </segment>
+    </unit>
+    <unit id="common-available">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available</source>
+        <target>Dostępny</target>
+      </segment>
+    </unit>
+    <unit id="common-back">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back</source>
+        <target>Wróć</target>
+      </segment>
+    </unit>
+    <unit id="common-between">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>between</source>
+        <target>pomiędzy</target>
+      </segment>
+    </unit>
+    <unit id="common-cancel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel</source>
+        <target>Anuluj</target>
+      </segment>
+    </unit>
+    <unit id="common-cancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancelled</source>
+        <target>Anulowany</target>
+      </segment>
+    </unit>
+    <unit id="common-warning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning</source>
+        <target>Ostrzeżenie</target>
+      </segment>
+    </unit>
+    <unit id="common-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error</source>
+        <target>Błąd</target>
+      </segment>
+    </unit>
+    <unit id="common-notice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notice</source>
+        <target>Uwaga</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-missing-input-secret">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The captcha validation for this website is not configured correctly. The secret key is missing.</source>
+        <target>Konfiguracja systemu captcha dla tej strony nie jest poprawna. Brakuje tajnego klucza (secret key).</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-invalid-input-secret">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The captcha validation for this website is not configured correctly. The secret key is invalid.</source>
+        <target>Konfiguracja systemu captcha dla tej strony nie jest poprawna. Wprowadzony tajny klucz (secret key) jest niepoprawny.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-missing-input-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must complete the validation check used to prevent spam submissions.</source>
+        <target>Aby przejść dalej musisz potwierdzić captcha.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-invalid-input-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You did not pass the validation check used to prevent spam submissions.</source>
+        <target>Błąd sprawdzania systemu captcha.</target>
+      </segment>
+    </unit>
+    <unit id="common-captchaField-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the letters as they appear in the image above.</source>
+        <target>Wprowadź znaki, które wyświetlają się na obrazku powyżej.</target>
+      </segment>
+    </unit>
+    <unit id="common-captchaField">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Validation</source>
+        <target>Weryfikacja</target>
+      </segment>
+    </unit>
+    <unit id="common-ccLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<br /><br />
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br />
+		This work is licensed under a <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
+	]]></source>
+        <target><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Utwór dostępny na licencji <a rel="license" target="_new" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Uznanie autorstwa 3.0</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="common-ccLicense-rt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+	<div class="rtBlock">
+		<br />
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
+	</div>
+	]]></source>
+        <target><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Utwór dostępny na licencji <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Uznanie autorstwa 3.0</a>.
+	</div>]]></target>
+      </segment>
+    </unit>
+    <unit id="common-changesSaved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your changes have been saved.</source>
+        <target>Twoje zmiany zostały zapisane.</target>
+      </segment>
+    </unit>
+    <unit id="common-chooseOne">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose One</source>
+        <target>Wybierz z listy</target>
+      </segment>
+    </unit>
+    <unit id="common-close">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close</source>
+        <target>Zamknij</target>
+      </segment>
+    </unit>
+    <unit id="common-closePanel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close Panel</source>
+        <target>Zamknij panel</target>
+      </segment>
+    </unit>
+    <unit id="common-closeWindow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close Window</source>
+        <target>Zamknij okno</target>
+      </segment>
+    </unit>
+    <unit id="common-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Complete</source>
+        <target>Dokończ</target>
+      </segment>
+    </unit>
+    <unit id="common-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Skończone</target>
+      </segment>
+    </unit>
+    <unit id="common-completed-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed: {$dateCompleted}</source>
+        <target>Ukończone: {$dateCompleted}</target>
+      </segment>
+    </unit>
+    <unit id="common-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm</source>
+        <target>Potwierdź</target>
+      </segment>
+    </unit>
+    <unit id="common-confirmed-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirmed: {$dateConfirmed}</source>
+        <target>Potwierdzone: {$dateConfirmed}</target>
+      </segment>
+    </unit>
+    <unit id="common-content">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Content</source>
+        <target>Zawartość</target>
+      </segment>
+    </unit>
+    <unit id="common-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents</source>
+        <target>Zawartość</target>
+      </segment>
+    </unit>
+    <unit id="common-continue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue</source>
+        <target>Kontynuuj</target>
+      </segment>
+    </unit>
+    <unit id="common-copy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy</source>
+        <target>Kopiuj</target>
+      </segment>
+    </unit>
+    <unit id="common-country">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Country</source>
+        <target>Kraj</target>
+      </segment>
+    </unit>
+    <unit id="common-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Utwórz</target>
+      </segment>
+    </unit>
+    <unit id="common-dateCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date completed</source>
+        <target>Data ukończenia</target>
+      </segment>
+    </unit>
+    <unit id="common-dateDecided">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date decided</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date</source>
+        <target>Data</target>
+      </segment>
+    </unit>
+    <unit id="common-dateModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date modified</source>
+        <target>Data modyfikacji</target>
+      </segment>
+    </unit>
+    <unit id="common-dateRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date requested</source>
+        <target>Data prośby</target>
+      </segment>
+    </unit>
+    <unit id="common-dateSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date submitted</source>
+        <target>Data przesłania</target>
+      </segment>
+    </unit>
+    <unit id="common-dateUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date uploaded</source>
+        <target>Data przesłania</target>
+      </segment>
+    </unit>
+    <unit id="common-dateHijri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hijri Calendar</source>
+        <target>Kalendarz Hijri</target>
+      </segment>
+    </unit>
+    <unit id="common-day">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Day</source>
+        <target>Dzień</target>
+      </segment>
+    </unit>
+    <unit id="common-deactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deactivate</source>
+        <target>Dezaktywuj</target>
+      </segment>
+    </unit>
+    <unit id="common-default">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default</source>
+        <target>Domyślny</target>
+      </segment>
+    </unit>
+    <unit id="common-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Odrzucony</target>
+      </segment>
+    </unit>
+    <unit id="common-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Usuń</target>
+      </segment>
+    </unit>
+    <unit id="common-deleting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deleting</source>
+        <target>Usuwanie</target>
+      </segment>
+    </unit>
+    <unit id="common-deleteSelection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Selection</source>
+        <target>Usuń zaznaczone</target>
+      </segment>
+    </unit>
+    <unit id="common-designation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designation</source>
+        <target>Przeznaczenie</target>
+      </segment>
+    </unit>
+    <unit id="common-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Opis</target>
+      </segment>
+    </unit>
+    <unit id="common-dimensionsInches">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI]]></source>
+        <target><![CDATA[{$width}&Prime;&times;{$height}&Prime; przy {$dpi} DPI/PPI]]></target>
+      </segment>
+    </unit>
+    <unit id="common-dimensionsPixels">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[{$width}&times;{$height} pixels]]></source>
+        <target><![CDATA[{$width}&times;{$height} pikseli]]></target>
+      </segment>
+    </unit>
+    <unit id="common-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Wyłącz</target>
+      </segment>
+    </unit>
+    <unit id="common-disabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disabled</source>
+        <target>Wyłączone</target>
+      </segment>
+    </unit>
+    <unit id="common-discipline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discipline</source>
+        <target>Dyscyplina</target>
+      </segment>
+    </unit>
+    <unit id="common-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Done</source>
+        <target>Skończone</target>
+      </segment>
+    </unit>
+    <unit id="common-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download</source>
+        <target>Pobierz</target>
+      </segment>
+    </unit>
+    <unit id="common-downloadPdf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download PDF</source>
+        <target>Pobierz PDF</target>
+      </segment>
+    </unit>
+    <unit id="common-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Edycja</target>
+      </segment>
+    </unit>
+    <unit id="common-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Włącz</target>
+      </segment>
+    </unit>
+    <unit id="common-enabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enabled</source>
+        <target>Włączone</target>
+      </segment>
+    </unit>
+    <unit id="common-error-databaseError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A database error has occurred: {$error}</source>
+        <target>Wystąpił błąd bazy danych: {$error}</target>
+      </segment>
+    </unit>
+    <unit id="common-error-databaseErrorUnknown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unknown database connection error has occurred.</source>
+        <target>Wystąpił nieznany błąd połączenia z bazą danych.</target>
+      </segment>
+    </unit>
+    <unit id="common-error-framesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This page requires frames. <a href="{$url}">Click here</a> for the non-frames version.]]></source>
+        <target><![CDATA[Ta strona wymaga ramek. <a href="{$url}">Kliknij tutaj</a> aby zobaczyć wersję pozbawioną ramek.]]></target>
+      </segment>
+    </unit>
+    <unit id="common-event">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Event</source>
+        <target>Zdarzenie</target>
+      </segment>
+    </unit>
+    <unit id="common-export">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export</source>
+        <target>Eksportuj</target>
+      </segment>
+    </unit>
+    <unit id="common-finish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Finish</source>
+        <target>Zakończ</target>
+      </segment>
+    </unit>
+    <unit id="common-fullscreen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Fullscreen</source>
+        <target>Pełny ekran</target>
+      </segment>
+    </unit>
+    <unit id="common-fullscreenOff">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Fullscreen Off</source>
+        <target>Wyłącz pełny ekran</target>
+      </segment>
+    </unit>
+    <unit id="common-false">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>False</source>
+        <target>Nieprawdziwy</target>
+      </segment>
+    </unit>
+    <unit id="common-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File</source>
+        <target>Plik</target>
+      </segment>
+    </unit>
+    <unit id="common-file-namingPattern">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$username}, {$originalFilename}</source>
+        <target>{$username}, {$userGroup}, {$originalFilename}</target>
+      </segment>
+    </unit>
+    <unit id="common-file-anonymousNamingPattern">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$genre}, {$originalFilename}</source>
+        <target>{$userGroup}, {$originalFilename}</target>
+      </segment>
+    </unit>
+    <unit id="common-fileName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Name</source>
+        <target>Nazwa pliku</target>
+      </segment>
+    </unit>
+    <unit id="common-fileSize">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Size</source>
+        <target>Rozmiar pliku</target>
+      </segment>
+    </unit>
+    <unit id="common-fileType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Type</source>
+        <target>Rodzaj pliku</target>
+      </segment>
+    </unit>
+    <unit id="common-fileUploaderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</source>
+        <target>Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy.</target>
+      </segment>
+    </unit>
+    <unit id="common-filter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Filters</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-filterAdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add filter: {$filterTitle}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-filterRemove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear filter: {$filterTitle}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>Od</target>
+      </segment>
+    </unit>
+    <unit id="common-fromWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From: {$value}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-until">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Until</source>
+        <target>Do</target>
+      </segment>
+    </unit>
+    <unit id="common-go">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go</source>
+        <target>Idź</target>
+      </segment>
+    </unit>
+    <unit id="common-height">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Height</source>
+        <target>Wysokość</target>
+      </segment>
+    </unit>
+    <unit id="common-homepageNavigationLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>Strona domowa</target>
+      </segment>
+    </unit>
+    <unit id="common-homePageHeaderLogo-altText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage Header Logo</source>
+        <target>Logo nagłówka strony głównej</target>
+      </segment>
+    </unit>
+    <unit id="common-hour">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hour</source>
+        <target>Godzina</target>
+      </segment>
+    </unit>
+    <unit id="common-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ID</source>
+        <target>ID</target>
+      </segment>
+    </unit>
+    <unit id="common-import">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import</source>
+        <target>Importuj</target>
+      </segment>
+    </unit>
+    <unit id="common-initiate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initiate</source>
+        <target>Inicjuj</target>
+      </segment>
+    </unit>
+    <unit id="common-inProgress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In progress</source>
+        <target>W trakcie</target>
+      </segment>
+    </unit>
+    <unit id="common-itemsPerPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Items per page</source>
+        <target>Elementów na stronę</target>
+      </segment>
+    </unit>
+    <unit id="common-keywords">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keywords</source>
+        <target>Słowa kluczowe</target>
+      </segment>
+    </unit>
+    <unit id="common-language">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language</source>
+        <target>Język / Language</target>
+      </segment>
+    </unit>
+    <unit id="common-languages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Languages</source>
+        <target>Języki</target>
+      </segment>
+    </unit>
+    <unit id="common-less">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Less</source>
+        <target>Mniej</target>
+      </segment>
+    </unit>
+    <unit id="common-lessThan">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$value} or less</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-commaListSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>, </source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-semicolonListSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>; </source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-manage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage</source>
+        <target>Zarządzaj</target>
+      </segment>
+    </unit>
+    <unit id="common-mailingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mailing Address</source>
+        <target>Adres</target>
+      </segment>
+    </unit>
+    <unit id="common-billingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Billing address (if different)</source>
+        <target>Adres rozliczeniowy (jeżeli inny)</target>
+      </segment>
+    </unit>
+    <unit id="common-minute">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Minute(s)</source>
+        <target>Minut</target>
+      </segment>
+    </unit>
+    <unit id="common-modify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Modify</source>
+        <target>Modyfikuj</target>
+      </segment>
+    </unit>
+    <unit id="common-month">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Month</source>
+        <target>Miesiąc</target>
+      </segment>
+    </unit>
+    <unit id="common-more">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More</source>
+        <target>Więcej</target>
+      </segment>
+    </unit>
+    <unit id="common-moreThan">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$value} or more</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-noneAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None assigned</source>
+        <target>Żaden nie przypisany</target>
+      </segment>
+    </unit>
+    <unit id="common-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None</source>
+        <target>Brak</target>
+      </segment>
+    </unit>
+    <unit id="common-no">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No</source>
+        <target>Nie</target>
+      </segment>
+    </unit>
+    <unit id="common-noItemsFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No items found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Comments</source>
+        <target>Brak komentarzy</target>
+      </segment>
+    </unit>
+    <unit id="common-notApplicable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not applicable</source>
+        <target>Nieodpowiedni</target>
+      </segment>
+    </unit>
+    <unit id="common-notApplicableShort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>N/A</source>
+        <target>N/A</target>
+      </segment>
+    </unit>
+    <unit id="common-notAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not available</source>
+        <target>Niedostępny</target>
+      </segment>
+    </unit>
+    <unit id="common-note">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note</source>
+        <target>Uwaga</target>
+      </segment>
+    </unit>
+    <unit id="common-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Uwagi</target>
+      </segment>
+    </unit>
+    <unit id="common-notes-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes (yellow: has new notes; blue: has viewed notes; grey: no notes)</source>
+        <target>Uwagi (żółty: nowe; niebieski: przeczytane; szary: brak)</target>
+      </segment>
+    </unit>
+    <unit id="common-notified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notified</source>
+        <target>Powiadomiony</target>
+      </segment>
+    </unit>
+    <unit id="common-notified-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notified: {$dateNotified}</source>
+        <target>Powiadomiony: {$dateNotified}</target>
+      </segment>
+    </unit>
+    <unit id="common-noMatches">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Matches</source>
+        <target>Brak dopasowań</target>
+      </segment>
+    </unit>
+    <unit id="common-off">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Off</source>
+        <target>Wyłączone</target>
+      </segment>
+    </unit>
+    <unit id="common-on">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>On</source>
+        <target>Włączone</target>
+      </segment>
+    </unit>
+    <unit id="common-ok">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OK</source>
+        <target>OK</target>
+      </segment>
+    </unit>
+    <unit id="common-options">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Options</source>
+        <target>Opcje</target>
+      </segment>
+    </unit>
+    <unit id="common-order">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order</source>
+        <target>Kolejność</target>
+      </segment>
+    </unit>
+    <unit id="common-orderUp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Increase position of {$itemTitle}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-orderDown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decrease position of {$itemTitle}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-originalFileName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Original file name</source>
+        <target>Nazwa pliku</target>
+      </segment>
+    </unit>
+    <unit id="common-or">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>or</source>
+        <target>lub</target>
+      </segment>
+    </unit>
+    <unit id="common-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Inny</target>
+      </segment>
+    </unit>
+    <unit id="common-overdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Overdue</source>
+        <target>Opóźniony</target>
+      </segment>
+    </unit>
+    <unit id="common-pagination">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$start}-{$end} of {$total}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View additional pages</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-goToPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to {$page}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-next">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next page</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-previous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous page</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pageNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page {$pageNumber}</source>
+        <target>Strona {$pageNumber}</target>
+      </segment>
+    </unit>
+    <unit id="common-percentage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$percentage}%</source>
+        <target>{$percentage}%</target>
+      </segment>
+    </unit>
+    <unit id="common-plugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin</source>
+        <target>Wtyczka</target>
+      </segment>
+    </unit>
+    <unit id="common-pluginEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin "{$pluginName}" has been enabled.</source>
+        <target>Wtyczka "{$pluginName}" została włączona.</target>
+      </segment>
+    </unit>
+    <unit id="common-pluginDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin "{$pluginName}" has been disabled.</source>
+        <target>Wtyczka "{$pluginName}" zosała wyłączona.</target>
+      </segment>
+    </unit>
+    <unit id="common-prefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prefix</source>
+        <target>Prefiks</target>
+      </segment>
+    </unit>
+    <unit id="common-prefixAndTitle-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Examples: A, The</source>
+        <target>Przykłady: A, The</target>
+      </segment>
+    </unit>
+    <unit id="common-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview</source>
+        <target>Podgląd</target>
+      </segment>
+    </unit>
+    <unit id="common-publisher">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher</source>
+        <target>Wydawca</target>
+      </segment>
+    </unit>
+    <unit id="common-quality">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Quality</source>
+        <target>Jakość</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Active</source>
+        <target>Wszystkie aktywne</target>
+      </segment>
+    </unit>
+    <unit id="common-range">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$min}-{$max}</source>
+        <target>{$min}-{$max}</target>
+      </segment>
+    </unit>
+    <unit id="common-re">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Re:</source>
+        <target>Re:</target>
+      </segment>
+    </unit>
+    <unit id="common-readMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read More</source>
+        <target>Czytaj więcej</target>
+      </segment>
+    </unit>
+    <unit id="common-readMoreWithTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read more about {$title}</source>
+        <target>Przeczytaj więcej na temat {$title}</target>
+      </segment>
+    </unit>
+    <unit id="common-record">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record</source>
+        <target>Zapisz</target>
+      </segment>
+    </unit>
+    <unit id="common-refresh">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Refresh</source>
+        <target>Odśwież</target>
+      </segment>
+    </unit>
+    <unit id="common-related">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Related</source>
+        <target>Powiązane</target>
+      </segment>
+    </unit>
+    <unit id="common-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reminder</source>
+        <target>Przypomnienie</target>
+      </segment>
+    </unit>
+    <unit id="common-reminded-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reminded: {$dateReminded}</source>
+        <target>Powiadomiony: {$dateReminded}</target>
+      </segment>
+    </unit>
+    <unit id="common-remote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote</source>
+        <target>Zdalny</target>
+      </segment>
+    </unit>
+    <unit id="common-remoteURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>RemoteURL</source>
+        <target>Zdalny URL</target>
+      </segment>
+    </unit>
+    <unit id="common-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>Usuń</target>
+      </segment>
+    </unit>
+    <unit id="common-removeItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove {$item}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-removeSelection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Selection</source>
+        <target>Usuń zaznaczone</target>
+      </segment>
+    </unit>
+    <unit id="common-replaced">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replaced</source>
+        <target>Zamienione</target>
+      </segment>
+    </unit>
+    <unit id="common-replaceFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replace file</source>
+        <target>Zamień plik</target>
+      </segment>
+    </unit>
+    <unit id="common-requiredField">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>* Denotes required field</source>
+        <target>* Oznacza wymagane pole</target>
+      </segment>
+    </unit>
+    <unit id="common-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Required</source>
+        <target>Wymagane</target>
+      </segment>
+    </unit>
+    <unit id="common-reset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset</source>
+        <target>Reset</target>
+      </segment>
+    </unit>
+    <unit id="common-saveAndContinue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and continue</source>
+        <target>Zapisz i kontynuuj</target>
+      </segment>
+    </unit>
+    <unit id="common-saveAndEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and email</source>
+        <target>Zapisz i wyślij e-mail</target>
+      </segment>
+    </unit>
+    <unit id="common-save">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save</source>
+        <target>Zapisz</target>
+      </segment>
+    </unit>
+    <unit id="common-saving">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Saving</source>
+        <target>Zapisywanie</target>
+      </segment>
+    </unit>
+    <unit id="common-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>Szukaj</target>
+      </segment>
+    </unit>
+    <unit id="common-searchQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Query</source>
+        <target>Zapytanie</target>
+      </segment>
+    </unit>
+    <unit id="common-clearSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear search phrase</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-second">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Second(s)</source>
+        <target>Sekunda</target>
+      </segment>
+    </unit>
+    <unit id="common-selectAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select All</source>
+        <target>Zaznacz wszystkie</target>
+      </segment>
+    </unit>
+    <unit id="common-selectedPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selected:</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-selectNone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select None</source>
+        <target>Odznacz wszystkie</target>
+      </segment>
+    </unit>
+    <unit id="common-select">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select</source>
+        <target>Zaznacz</target>
+      </segment>
+    </unit>
+    <unit id="common-sendEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Email</source>
+        <target>Wyślij e-mail</target>
+      </segment>
+    </unit>
+    <unit id="common-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Size</source>
+        <target>Rozmiar</target>
+      </segment>
+    </unit>
+    <unit id="common-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Source</source>
+        <target>Źródło</target>
+      </segment>
+    </unit>
+    <unit id="common-status">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="common-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Przedmiot</target>
+      </segment>
+    </unit>
+    <unit id="common-subjects">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subjects</source>
+        <target>Przedmioty</target>
+      </segment>
+    </unit>
+    <unit id="common-submenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submenu</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-subtitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subtitle</source>
+        <target>Podtytuł</target>
+      </segment>
+    </unit>
+    <unit id="common-suggest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Suggest</source>
+        <target>Zasugeruj</target>
+      </segment>
+    </unit>
+    <unit id="common-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Tytuł</target>
+      </segment>
+    </unit>
+    <unit id="common-top">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Top</source>
+        <target>Góra</target>
+      </segment>
+    </unit>
+    <unit id="common-toWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To: {$value}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-true">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>True</source>
+        <target>Prawda</target>
+      </segment>
+    </unit>
+    <unit id="common-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Typ</target>
+      </segment>
+    </unit>
+    <unit id="common-component">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Component</source>
+        <target>Element</target>
+      </segment>
+    </unit>
+    <unit id="common-uninitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninitiated</source>
+        <target>Niewprowadzone</target>
+      </segment>
+    </unit>
+    <unit id="common-unread">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unread</source>
+        <target>Nieczytany</target>
+      </segment>
+    </unit>
+    <unit id="common-untitled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Untitled</source>
+        <target>Bez nazwy</target>
+      </segment>
+    </unit>
+    <unit id="common-updated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Updated</source>
+        <target>Zaktualizowany</target>
+      </segment>
+    </unit>
+    <unit id="common-uploadedDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uploaded date</source>
+        <target>Data przesłania</target>
+      </segment>
+    </unit>
+    <unit id="common-upload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload</source>
+        <target>Prześlij</target>
+      </segment>
+    </unit>
+    <unit id="common-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The file could not be uploaded or revised.</source>
+        <target>Plik nie może zostać przesłany. Spróbuj ponownie lub skontaktuj się z administratorem.</target>
+      </segment>
+    </unit>
+    <unit id="common-up">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up</source>
+        <target>W górę</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Prześlij plik</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-restore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore Original</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-upload-thumbnailPreview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview of the currently selected image.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-upload-changeFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change File</source>
+        <target>Zamień plik</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-dragFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drag and drop a file here to begin upload</source>
+        <target>Przeciągnij i upuść plik tutaj, aby rozpocząć przesyłanie</target>
+      </segment>
+    </unit>
+    <unit id="common-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="common-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User</source>
+        <target>Użytkownik</target>
+      </segment>
+    </unit>
+    <unit id="common-view">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View</source>
+        <target>Widok</target>
+      </segment>
+    </unit>
+    <unit id="common-viewProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Profile</source>
+        <target>Wyświetl profil</target>
+      </segment>
+    </unit>
+    <unit id="common-weeks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>weeks</source>
+        <target>Tygodnie</target>
+      </segment>
+    </unit>
+    <unit id="common-width">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Width</source>
+        <target>Szerokość</target>
+      </segment>
+    </unit>
+    <unit id="common-year">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Year</source>
+        <target>Rok</target>
+      </segment>
+    </unit>
+    <unit id="common-yes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes</source>
+        <target>Tak</target>
+      </segment>
+    </unit>
+    <unit id="common-loading">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loading</source>
+        <target>Ładowanie...</target>
+      </segment>
+    </unit>
+    <unit id="common-plugins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugins</source>
+        <target>Wtyczki</target>
+      </segment>
+    </unit>
+    <unit id="common-metric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metric</source>
+        <target>Metryka</target>
+      </segment>
+    </unit>
+    <unit id="common-count">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Count</source>
+        <target>Zlicz</target>
+      </segment>
+    </unit>
+    <unit id="common-publicAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Access</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="debug-databaseQueries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of database queries</source>
+        <target>Liczba kwerend w bazie danych</target>
+      </segment>
+    </unit>
+    <unit id="debug-executionTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page generated in</source>
+        <target>Strona wygenerowana w</target>
+      </segment>
+    </unit>
+    <unit id="debug-memoryUsage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Memory Usage</source>
+        <target>Zużycie pamięci</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-localeListLoad">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loaded locale list "{$localeList}" from XML</source>
+        <target>Tłumaczenie "{$localeList}" załadowano z XML</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-localeLoad">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loaded locale file "{$localeFile}" from XML</source>
+        <target>Tłumaczenie "{$localeFile}" załadowano z XML</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-missingLocaleKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing locale key "{$key}".</source>
+        <target>Brak tłumaczenia dla klucza "{$key}".</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes:</source>
+        <target>Notatki:</target>
+      </segment>
+    </unit>
+    <unit id="defaultMetric-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Metric</source>
+        <target>Domyślna metryka</target>
+      </segment>
+    </unit>
+    <unit id="defaultMetric-availableMetrics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available Metrics</source>
+        <target>Dostępne metryki</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Review File</source>
+        <target>Prześlij plik recenzji</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-uploadAttachment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Prześlij plik</target>
+      </segment>
+    </unit>
+    <unit id="email-addAttachment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Attachment</source>
+        <target>Dodaj załącznik</target>
+      </segment>
+    </unit>
+    <unit id="email-addBccRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add BCC</source>
+        <target>Dodaj odbiorców ukrytych (UDW)</target>
+      </segment>
+    </unit>
+    <unit id="email-addCcRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add CC</source>
+        <target>Dodaj odbiorców w kopii (DW)</target>
+      </segment>
+    </unit>
+    <unit id="email-addToRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Recipient</source>
+        <target>Dodaj odbiorców</target>
+      </segment>
+    </unit>
+    <unit id="email-attachments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attachments</source>
+        <target>Załączniki</target>
+      </segment>
+    </unit>
+    <unit id="email-bcc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>BCC</source>
+        <target>UDW</target>
+      </segment>
+    </unit>
+    <unit id="email-bccSender">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a copy of this message to my address ({$address})</source>
+        <target>Wyślij kopię tej wiadomości na mój adres e-mail ({$address})</target>
+      </segment>
+    </unit>
+    <unit id="email-body">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Body</source>
+        <target>Treść</target>
+      </segment>
+    </unit>
+    <unit id="email-cc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC</source>
+        <target>DW</target>
+      </segment>
+    </unit>
+    <unit id="email-compose">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Email</source>
+        <target>Wyślij e-mail</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-tooManyRecipients">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The message you are attempting to send has too many recipients.</source>
+        <target>Wiadomość, którą wysyłasz ma zbyt wielu odbiorców.</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-tooSoon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are attempting to send a message too recently after your last message was sent. Please wait before sending another message.</source>
+        <target>Od wysłania ostatniej wiadomości upłynęło zbyt mało czasu. Spróbuj poczekać zanim wyślesz kolejną wiadomość.</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was a problem sending an email message. Please try again later, or contact your system administrator.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="email-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="email-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>Od</target>
+      </segment>
+    </unit>
+    <unit id="email-invalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email address {$email} is invalid.</source>
+        <target>Adres e-mail {$email} jest nieprawidłowy.</target>
+      </segment>
+    </unit>
+    <unit id="email-multipart">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is a multi-part message in MIME format.</source>
+        <target>To jest wieloczęściowa wiadomość w formacie MIME.</target>
+      </segment>
+    </unit>
+    <unit id="email-recipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recipient</source>
+        <target>Odbiorca</target>
+      </segment>
+    </unit>
+    <unit id="email-recipients">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recipients</source>
+        <target>Odbiorcy</target>
+      </segment>
+    </unit>
+    <unit id="email-sender">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender</source>
+        <target>Nadawca</target>
+      </segment>
+    </unit>
+    <unit id="email-senderName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender Name</source>
+        <target>Nadawca</target>
+      </segment>
+    </unit>
+    <unit id="email-senderEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender Email</source>
+        <target>Adres e-mail nadawcy</target>
+      </segment>
+    </unit>
+    <unit id="email-send">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send</source>
+        <target>Wyślij</target>
+      </segment>
+    </unit>
+    <unit id="email-skip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip Email</source>
+        <target>Pomiń e-mail</target>
+      </segment>
+    </unit>
+    <unit id="email-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Temat</target>
+      </segment>
+    </unit>
+    <unit id="email-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide an email subject.</source>
+        <target>Podaj tytuł wiadomości.</target>
+      </segment>
+    </unit>
+    <unit id="email-bodyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide the email body text.</source>
+        <target>Wpisz treść wiadomości.</target>
+      </segment>
+    </unit>
+    <unit id="email-to">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To</source>
+        <target>Do</target>
+      </segment>
+    </unit>
+    <unit id="form-url-invalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The specified URL is invalid. Please check it and try again.</source>
+        <target>Podany URL jest niepoprawny. Sprawdź adres i spróbuj ponownie.</target>
+      </segment>
+    </unit>
+    <unit id="form-confirmSubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to submit this form?</source>
+        <target>Czy na pewno przesłać ten formularz?</target>
+      </segment>
+    </unit>
+    <unit id="form-confirmSubmit-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm</source>
+        <target>Potwierdź</target>
+      </segment>
+    </unit>
+    <unit id="form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email address is required.</source>
+        <target>Adres e-mail jest wymagany.</target>
+      </segment>
+    </unit>
+    <unit id="form-dataHasChanged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The data on this form has changed. Do you wish to continue without saving?</source>
+        <target>Dane w tym formularzu uległy zmianie. Kontynuować?</target>
+      </segment>
+    </unit>
+    <unit id="form-disallowedLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Only the following languages are allowed: {$languages}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-disallowedProp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This property is not allowed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictDefaultMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drop files here to upload</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFallbackMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your browser does not support drag'n'drop file uploads.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFallbackText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please use the fallback form below to upload your files.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFileTooBig">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File is too big ({{filesize}}mb). Files larger than {{maxFilesize}}mb can not be uploaded.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictInvalidFileType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files of this type can not be uploaded.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictResponseError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Server responded with {{statusCode}} code. Please contact the system administrator if this problem persists.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictCancelUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel upload</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictUploadCanceled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload canceled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictCancelUploadConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to cancel this upload?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictRemoveFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove file</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictMaxFilesExceeded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not upload any more files.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorA11y">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to {$fieldLabel}: {$errorMessage}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorGoTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Jump to next error</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorOne">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please correct one error.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorMany">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please correct {$count} errors.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form was not saved because {$count} error(s) were encountered. Please correct these errors and try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorUnknown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unexpected error occurred. You may have been logged out. Please reload the page and try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorsOccurred">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occurred processing this form</source>
+        <target>Wystąpiły błędy podczas przetwarzania tego formularza.</target>
+      </segment>
+    </unit>
+    <unit id="form-formLanguage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To enter the information below in additional languages, first select the language.</source>
+        <target>Aby umieścić poniżej informację w innym języku, najpierw wybierz język z listy rozwijanej.</target>
+      </segment>
+    </unit>
+    <unit id="form-formLanguage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Form Language</source>
+        <target>Język formularza</target>
+      </segment>
+    </unit>
+    <unit id="form-contains">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>contains</source>
+        <target>zawiera</target>
+      </segment>
+    </unit>
+    <unit id="form-is">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>is</source>
+        <target>jest</target>
+      </segment>
+    </unit>
+    <unit id="form-missingRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-startsWith">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>starts with</source>
+        <target>zaczyna się od</target>
+      </segment>
+    </unit>
+    <unit id="form-postRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form was not submitted properly.</source>
+        <target>Formularz nie został wysłany poprawnie.</target>
+      </segment>
+    </unit>
+    <unit id="form-csrfInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form could not be submitted. You may have been logged out. Please reload the page and try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file upload is required.</source>
+        <target>Plik jest wymagany.</target>
+      </segment>
+    </unit>
+    <unit id="form-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(* Required)</source>
+        <target>(* Wymagane)</target>
+      </segment>
+    </unit>
+    <unit id="form-requirePrimaryLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must complete this field in {$language}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-requireId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must provide a valid ID.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-resubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit</source>
+        <target>Wyślij ponownie</target>
+      </segment>
+    </unit>
+    <unit id="form-saveToUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use Save to upload file.</source>
+        <target>Wybierz plik do przesłania na stronę.</target>
+      </segment>
+    </unit>
+    <unit id="form-send">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send</source>
+        <target>Wyślij</target>
+      </segment>
+    </unit>
+    <unit id="form-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>Wyślij</target>
+      </segment>
+    </unit>
+    <unit id="form-invalidImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</source>
+        <target>Został przesłany obraz o niepoprawnym rozszerzeniu. Akceptowane formaty to PNG, GIF lub JPG.</target>
+      </segment>
+    </unit>
+    <unit id="form-multilingualLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$label} in {$localeName}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-multilingualProgress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count}/{$total} languages completed</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="help-help">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Help</source>
+        <target>Pomoc</target>
+      </segment>
+    </unit>
+    <unit id="help-toc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Table of Contents</source>
+        <target>Spis treści</target>
+      </segment>
+    </unit>
+    <unit id="help-previous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous</source>
+        <target>Poprzedni</target>
+      </segment>
+    </unit>
+    <unit id="help-next">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next</source>
+        <target>Następny</target>
+      </segment>
+    </unit>
+    <unit id="help-upALevel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up a Level</source>
+        <target>Wyżej o jeden poziom</target>
+      </segment>
+    </unit>
+    <unit id="icon-checked-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checked</source>
+        <target>Zaznaczone</target>
+      </segment>
+    </unit>
+    <unit id="icon-comment-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comment</source>
+        <target>Komentarz</target>
+      </segment>
+    </unit>
+    <unit id="icon-delete-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Usuń</target>
+      </segment>
+    </unit>
+    <unit id="icon-edit-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Edytuj</target>
+      </segment>
+    </unit>
+    <unit id="icon-folder-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Folder</source>
+        <target>Folder</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_large-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Large</source>
+        <target>Powiększ</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_medium-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Medium</source>
+        <target>Rozmiar normalny</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_small-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Small</source>
+        <target>Pomniejsz</target>
+      </segment>
+    </unit>
+    <unit id="icon-info-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Info</source>
+        <target>Informacje</target>
+      </segment>
+    </unit>
+    <unit id="icon-letter-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Letter</source>
+        <target>List</target>
+      </segment>
+    </unit>
+    <unit id="icon-mail-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mail</source>
+        <target>Poczta</target>
+      </segment>
+    </unit>
+    <unit id="icon-unchecked-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unchecked</source>
+        <target>Niezaznaczone</target>
+      </segment>
+    </unit>
+    <unit id="icon-view-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View</source>
+        <target>Widok</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-informationCenter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information Center</source>
+        <target>Centrum informacji</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-editorialHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial History</source>
+        <target>Historia redakcji</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Note</source>
+        <target>Dodaj uwagę</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-noNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no notes to display.</source>
+        <target>Brak uwag do wyświetlenia</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-pastNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Earlier Revision Notes</source>
+        <target>Poprzednie uwagi</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-deleteConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this note?</source>
+        <target>Czy na pewno usunąć uwagę?</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-currentHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Revision</source>
+        <target>Aktualna wersja</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-pastHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Earlier Revisions</source>
+        <target>Poprzednie wersje</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no events logged.</source>
+        <target>Brak elementów do wyświetlenia.</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-notePosted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted new note.</source>
+        <target>Utworzono nową uwagę.</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-messageSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent to users.</source>
+        <target>Powiadomienia wysłane do użytkowników.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-history-messageSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent to users.</source>
+        <target>Powiadomienia wysłane do użytkowników.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-startDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Start Discussion</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-startDiscussion-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Begin a discussion between yourself and {$userFullName}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-chooseMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose a predefined message to use, or fill out the form below.</source>
+        <target>Wybierz przygotowaną wcześniej wiadomość lub wypełnij formularz widoczny poniżej.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Message</source>
+        <target>Wiadomość</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-warning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please ensure that you have filled out the message field and included someone other than yourself in the discussion.</source>
+        <target>Upewnij się, że wypełniłeś(aś) wszystkie pola oraz wybrałeś(aś) przynajmniej jednego odbiorcę.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-options">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assignment privileges</source>
+        <target>Uprawnienia</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-recommendOnly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions.</source>
+        <target>Ten uczestnik jest uprawniony jedynie do zarekomendowania decyzji i wymaga działania redaktora w celu zapisania decyzji.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-submissionEditMetadataOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata edit permission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-canChangeMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow submission metadata changes by this user</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-selectedUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participant</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-noOptionsToHandle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No changes can be made to this participant</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="locale-primary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Primary locale</source>
+        <target>Podstawowy język</target>
+      </segment>
+    </unit>
+    <unit id="locale-supported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supported locales</source>
+        <target>Wspierane języki</target>
+      </segment>
+    </unit>
+    <unit id="navigation-access">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Users &amp; Roles]]></source>
+        <target>Użytkownicy i ich role</target>
+      </segment>
+    </unit>
+    <unit id="navigation-about">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About</source>
+        <target>O czasopiśmie</target>
+      </segment>
+    </unit>
+    <unit id="navigation-admin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administration</source>
+        <target>Administracja</target>
+      </segment>
+    </unit>
+    <unit id="navigation-archives">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archives</source>
+        <target>Archiwum</target>
+      </segment>
+    </unit>
+    <unit id="navigation-breadcrumbLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are here:</source>
+        <target>Jesteś tutaj:</target>
+      </segment>
+    </unit>
+    <unit id="navigation-breadcrumbSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>/</source>
+        <target>/</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tools</source>
+        <target>Narzędzia</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools-importExport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export</source>
+        <target>Import/Eksport</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools-statistics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Statistics</source>
+        <target>Statystyki</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Browse</source>
+        <target>Przeglądaj</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browseByAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Author</source>
+        <target>Wg autora</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browseByTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Title</source>
+        <target>Wg tytułu</target>
+      </segment>
+    </unit>
+    <unit id="navigation-dashboard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+        <target>Panel roboczy</target>
+      </segment>
+    </unit>
+    <unit id="navigation-data">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Data</source>
+        <target>Dane</target>
+      </segment>
+    </unit>
+    <unit id="navigation-home">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>Start</target>
+      </segment>
+    </unit>
+    <unit id="navigation-infoForReaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For Readers</source>
+        <target>dla czytelników</target>
+      </segment>
+    </unit>
+    <unit id="navigation-infoForReaders-long">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information For Readers</source>
+        <target>Informacje dla czytelników</target>
+      </segment>
+    </unit>
+    <unit id="navigation-items">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$from} - {$to} of {$total} items</source>
+        <target>{$from} - {$to} z {$total} elementów</target>
+      </segment>
+    </unit>
+    <unit id="navigation-items-shownTotal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$shown} of {$total} items</source>
+        <target>{$shown} z {$total} elementów</target>
+      </segment>
+    </unit>
+    <unit id="navigation-login">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login</source>
+        <target>Zaloguj</target>
+      </segment>
+    </unit>
+    <unit id="navigation-nextPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[&gt;&gt;]]></source>
+        <target><![CDATA[&gt;&gt;]]></target>
+      </segment>
+    </unit>
+    <unit id="navigation-nextStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next Step</source>
+        <target>Następny krok</target>
+      </segment>
+    </unit>
+    <unit id="navigation-previousPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[&lt;&lt;]]></source>
+        <target><![CDATA[&lt;&lt;]]></target>
+      </segment>
+    </unit>
+    <unit id="navigation-previousStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous Step</source>
+        <target>Poprzedni krok</target>
+      </segment>
+    </unit>
+    <unit id="navigation-publicMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Menu</source>
+        <target>Menu publiczne</target>
+      </segment>
+    </unit>
+    <unit id="navigation-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Zarejestruj</target>
+      </segment>
+    </unit>
+    <unit id="navigation-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>Wyszukaj</target>
+      </segment>
+    </unit>
+    <unit id="navigation-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Ustawienia</target>
+      </segment>
+    </unit>
+    <unit id="navigation-setup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Setup</source>
+        <target>Konfiguracja</target>
+      </segment>
+    </unit>
+    <unit id="navigation-sitemap">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Map</source>
+        <target>Mapa strony</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to announcements</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-main">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to main content</source>
+        <target>Przejdź do sekcji głównej</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-nav">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to main navigation menu</source>
+        <target>Przejdź do głównego menu</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to site footer</source>
+        <target>Przejdź do stopki</target>
+      </segment>
+    </unit>
+    <unit id="navigation-stepNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step {$step}</source>
+        <target>Krok {$step}</target>
+      </segment>
+    </unit>
+    <unit id="navigation-submissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions</source>
+        <target>Zgłoszenia</target>
+      </segment>
+    </unit>
+    <unit id="navigation-system">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System</source>
+        <target>System</target>
+      </segment>
+    </unit>
+    <unit id="navigation-userHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Home</source>
+        <target>Moje konto</target>
+      </segment>
+    </unit>
+    <unit id="navigation-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User</source>
+        <target>Użytkownik</target>
+      </segment>
+    </unit>
+    <unit id="navigation-userManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Management</source>
+        <target>Zarządzanie użytkownikami</target>
+      </segment>
+    </unit>
+    <unit id="navigation-viewFrontend">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Site</source>
+        <target>Wyświetl stronę</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor added.</source>
+        <target>Dodano kontrolera.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor removed.</source>
+        <target>Usunięto kontrolera</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Added Discussion</source>
+        <target>Dodano dyskusję</target>
+      </segment>
+    </unit>
+    <unit id="notification-reviewAcknowledged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review marked as acknowledged. Email not sent.</source>
+        <target>Recenzja oznaczona jako potwierdzona. E-mail nie został wysłany.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reviewerThankedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you email sent to reviewer.</source>
+        <target>Wiadomość z podziękowaniem została przesłana do recenzenta.</target>
+      </segment>
+    </unit>
+    <unit id="notification-updatedReviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review files updated.</source>
+        <target>Pliki recenzji zaktualizowane.</target>
+      </segment>
+    </unit>
+    <unit id="notification-allow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable these types of notifications.</source>
+        <target>Pozwól, aby ten rodzaj powiadomień wyświetlał się w moim czytniku powiadomień.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type added.</source>
+        <target>Rodzaj powiadomienia dodany.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type edited.</source>
+        <target>Rodzaj powiadomienia zmieniony.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type removed.</source>
+        <target>Rodzaj powiadomienia usunięty.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement added.</source>
+        <target>Powiadomienie dodane.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement edited.</source>
+        <target>Powiadomienie zmienione.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement removed.</source>
+        <target>Powiadomienie usunięte.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author added.</source>
+        <target>Autor dodany.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author edited.</source>
+        <target>Autor zmieniony.</target>
+      </segment>
+    </unit>
+    <unit id="notification-confirmError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error confirming your subscription.</source>
+        <target>Wystąpił błąd podczas potwierdzania twojej subskrypcji.</target>
+      </segment>
+    </unit>
+    <unit id="notification-confirmSuccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been successfully subscribed.</source>
+        <target>Zostałeś zasubskrybowany(a).</target>
+      </segment>
+    </unit>
+    <unit id="notification-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send me an email for these types of notifications.</source>
+        <target>Wyślij e-mail dla tych rodzajów powiadomień.</target>
+      </segment>
+    </unit>
+    <unit id="notification-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have no notifications at this time.</source>
+        <target>Nie masz powiadomień.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note posted.</source>
+        <target>Powiadomienie opublikowane.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note deleted.</source>
+        <target>Powiadomienie usunięte.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Removed file.</source>
+        <target>Plik usunięty.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Removed submission.</source>
+        <target>Zgłoszenie usunięte.</target>
+      </segment>
+    </unit>
+    <unit id="notification-notification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification</source>
+        <target>Powiadomienie</target>
+      </segment>
+    </unit>
+    <unit id="notification-notifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notifications</source>
+        <target>Powiadomienia RSS / Atom</target>
+      </segment>
+    </unit>
+    <unit id="notification-sentNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent.</source>
+        <target>Powiadomienie wysłane.</target>
+      </segment>
+    </unit>
+    <unit id="notification-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification Settings</source>
+        <target>Ustawienia powiadomień</target>
+      </segment>
+    </unit>
+    <unit id="notification-settingsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the system events that you wish to be notified about. Unchecking an item will prevent notifications of the event from showing up in the system and also from being emailed to you. Checked events will appear in the system and you have an extra option to receive or not the same notification by email.</source>
+        <target>Zaznacz wydarzenia, o których chcesz być informowany(a). Odznaczenie wpisu spowoduje, że nie będziesz informowany(a) o tego rodzaju wydarzeniach.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reminderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error sending your password, please ensure you've entered your email address correctly.</source>
+        <target>Wystąpił błąd podczas wysyłania twojego hasła, upewnij się, że poprawnie podałeś(aś) swój adres e-mail.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reminderSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your new password has been sent to the email address provided.</source>
+        <target>Twoje nowe hasło zostało wysłane na e-mail, który podałeś(aś).</target>
+      </segment>
+    </unit>
+    <unit id="notification-savedSubmissionMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata saved.</source>
+        <target>Metadane przesłanego tekstu zapisane.</target>
+      </segment>
+    </unit>
+    <unit id="notification-sendNotificationConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send notification email to all registered users</source>
+        <target>Wyślij e-mail z podziękowaniem do wszystkich zarejestrowanych użytkowników</target>
+      </segment>
+    </unit>
+    <unit id="search-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Author</source>
+        <target>Według autora</target>
+      </segment>
+    </unit>
+    <unit id="search-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>Abstrakt</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedFilters">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced filters</source>
+        <target>Filtry zaawansowane</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedSearchMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More search options</source>
+        <target>Dodatkowe opcje wyszukiwania (kliknij, aby wyświetlić)</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedSearchLess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide more search options</source>
+        <target>Dodatkowe opcje wyszukiwania (kliknij, aby ukryć)</target>
+      </segment>
+    </unit>
+    <unit id="search-searchAgain">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search again</source>
+        <target>Wyszukaj ponownie</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-clearingIndex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clearing index</source>
+        <target>Czyszczenie indeksu</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>done</source>
+        <target>wykonano</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>error</source>
+        <target>błąd</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-result">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$numIndexed} articles indexed</source>
+        <target>Zaindeksowano {$numIndexed} artykułów</target>
+      </segment>
+    </unit>
+    <unit id="search-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage</source>
+        <target>Zasięg</target>
+      </segment>
+    </unit>
+    <unit id="search-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Date</source>
+        <target>Data</target>
+      </segment>
+    </unit>
+    <unit id="search-dateFrom">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published After</source>
+        <target>Od</target>
+      </segment>
+    </unit>
+    <unit id="search-dateTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published Before</source>
+        <target>Do</target>
+      </segment>
+    </unit>
+    <unit id="search-deleteFilter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Usuń</target>
+      </segment>
+    </unit>
+    <unit id="search-discipline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disciplines</source>
+        <target>Dyscyplina</target>
+      </segment>
+    </unit>
+    <unit id="search-fullText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Full Text</source>
+        <target>Pełny tekst</target>
+      </segment>
+    </unit>
+    <unit id="search-indexTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Index terms</source>
+        <target>Słowa kluczowe</target>
+      </segment>
+    </unit>
+    <unit id="search-indexTermsLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All index term fields</source>
+        <target>Wszystkie indeksowane terminy</target>
+      </segment>
+    </unit>
+    <unit id="search-matchAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Match all categories</source>
+        <target>Wszystkie kategorie</target>
+      </segment>
+    </unit>
+    <unit id="search-noKeywordError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter at least one search keyword.</source>
+        <target>Musisz podać przynajmniej jedno słowo kluczowe.</target>
+      </segment>
+    </unit>
+    <unit id="search-noResults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Results</source>
+        <target>Brak wyników</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-and">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>and</source>
+        <target>oraz</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-not">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>not</source>
+        <target>nie</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-or">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>or</source>
+        <target>lub</target>
+      </segment>
+    </unit>
+    <unit id="search-SearchFor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search for</source>
+        <target>Znajdź</target>
+      </segment>
+    </unit>
+    <unit id="search-searchResults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Results</source>
+        <target>Wyniki wyszukiwania</target>
+      </segment>
+    </unit>
+    <unit id="search-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keyword(s)</source>
+        <target>Słowa kluczowe</target>
+      </segment>
+    </unit>
+    <unit id="search-titleIndex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Browse Title Index</source>
+        <target>Przeszukaj indeks tytułów</target>
+      </segment>
+    </unit>
+    <unit id="search-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Tytuł</target>
+      </segment>
+    </unit>
+    <unit id="search-typeMethodApproach">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type (method/approach)</source>
+        <target>Typ (metoda/podejście)</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-downloadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download this file</source>
+        <target>Pobierz plik</target>
+      </segment>
+    </unit>
+    <unit id="context-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>Ścieżka</target>
+      </segment>
+    </unit>
+    <unit id="review-ensuringBlindReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ensuring a Blind Review</source>
+        <target>Zapewnienie podwójnej ślepej recenzji</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-showReviewPolicy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read the current review policy</source>
+        <target>Wyświetl warunki recenzji</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Task</source>
+        <target>Usuń zadanie</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-markNew">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark New</source>
+        <target>Oznacz nowe</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-markRead">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark Read</source>
+        <target>Oznacz przeczytane</target>
+      </segment>
+    </unit>
+    <unit id="dashboard-tasks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tasks</source>
+        <target>Zadania</target>
+      </segment>
+    </unit>
+    <unit id="dashboard-myQueue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Queue</source>
+        <target>Moja kolejka</target>
+      </segment>
+    </unit>
+    <unit id="review-blindPeerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<p>To ensure the integrity of the blind peer-review for submission to this press, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>
+			<ul><li>The authors of the document have deleted their names from the text, with "Author" and year used in the references and footnotes, instead of the authors' name, article title, etc.</li>
+			<li>With Microsoft Office documents, author identification should also be removed from the properties for the file (see under File in Word), by clicking on the following, beginning with File on the main menu of the Microsoft application: File &gt; Save As &gt; Tools (or Options with a Mac) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>
+			<li>With PDFs, the authors' names should also be removed from Document Properties found under File on Adobe Acrobat's main menu.</li>
+		</ul>
+	]]></source>
+        <target><![CDATA[<p>Aby umożliwić wykonanie podwójnej ślepej recenzji, wszystkie dane autorów oraz recenzentów lub inne elementy mogące pomóc w ich zidentyfikowaniu muszą zostać bezwzględnie usunięte z przesłanych plików. W tym celu sprawdź czy:</p><ul><li>Autorzy dokumentu usunęli swoje dane z tekstu.</li><li>Medatane w plikach Microsoft Word i podobnych programów zostały usunięte (zobacz Plik &gt; Zapisz jako &gt; Narzędzia &gt; Bezpieczeństwo &gt; Usuń informacje o autorze przy zapisywaniu &gt; Zapisz).</li><li>W przypadku plików PDF informacje o autorach powinny być usunięte z właściwości dokumentu. Ustawienia te możesz znaleźć przechodząc z poziomu głównego menu Adobe Acrobat do zakładki Plik.</li></ul>]]></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewSchedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Schedule</source>
+        <target>Harmonogram recenzji</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewRequestDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor's Request</source>
+        <target>Prośba redaktora</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-responseDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due Date</source>
+        <target>Odpowiedz do</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due Date</source>
+        <target>Wykonaj recenzję do</target>
+      </segment>
+    </unit>
+    <unit id="submission-task-responseDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due Date</source>
+        <target>Odpowiedz do</target>
+      </segment>
+    </unit>
+    <unit id="navigation-goBack">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go Back</source>
+        <target>Wróć</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} was assigned to review this submission and sent an email notification.</source>
+        <target>{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem został wysłany.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedReviewerNoEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} was assigned to review this submission and was not sent an email notification.</source>
+        <target>{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem nie został wysłany.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer removed.</source>
+        <target>Recenzent usunięty.</target>
+      </segment>
+    </unit>
+    <unit id="notification-cancelledReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer cancelled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-reinstatedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer reinstated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-addedStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User added as a stage participant.</source>
+        <target>Użytkownik dodany jako uczestnik etapu.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The stage assignment has been changed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-type-newAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New announcement.</source>
+        <target>Nowe powiadomienie.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review pending.</source>
+        <target>Recenzja w trakcie.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewAssignmentUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-type-auditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Audit request for "{$file}"</source>
+        <target>Przejrzyj zapytanie dla "{$file}"</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-allReviewsIn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All reviewers have responded and a decision is needed in {$stage}.</source>
+        <target>Wszystkie recenzje są gotowe - decyzja jest niezbędna w etapie {$stage}.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-allRevisionsIn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A revised file has been uploaded for your editorial consideration in {$stage}.</source>
+        <target>Przejrzany plik został przesłany i jest dostępny w etapie {$stage}.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-pendingRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions to consider in {$stage}.</source>
+        <target>Poprawiony tekst do rozważenia w etapie {$stage}.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-pendingRevisions-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions submitted to {$stage}.</source>
+        <target>Poprawiony tekst przesłany do etapu {$stage}.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-metadataModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$title}'s" metadata has been modified.</source>
+        <target>Metadane tytułu "{$title}" zmodyfikowane.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewerComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A reviewer has commented on "{$title}".</source>
+        <target>Recenzent dodał komentarz do "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-signedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File considered.</source>
+        <target>Plik rozpatrzony.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not authorized to access the specified submission file.</source>
+        <target>Wybrany użytkownik nie posiada praw dostępu do zgłoszonego pliku.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidPublication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid submission.</source>
+        <target>Nieprawidłowo przesłany tekst.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidRepresentation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid representation.</source>
+        <target>Nieprawidłowa reprezentacja.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-authorRoleMissing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</source>
+        <target>Nie posiadasz odpowiednich uprawnień, aby przeglądać zgłoszenie. Wprowadź zmiany w swoim profilu, aby upewnić się, że otrzymałeś(aś) odpowiednie uprawnienia (rolę).</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</source>
+        <target>Nie jesteś autorem zgłoszonego tekstu. Sprawdź, czy jesteś zalogowany(a) korzystając z poprawnego konta użytkownika.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-queryActivity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion activity.</source>
+        <target>Aktywność.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-queryAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion added.</source>
+        <target>Dyskusja dodana.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-assignCopyeditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign a copyeditor using the Assign link in the Participants list.</source>
+        <target>Przypisz korektora. Użyj linku Dodaj w części Uczestnicy.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-awaitingCopyedits">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting Copyedits.</source>
+        <target>Oczekujące na korektę.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-roundStatusTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Round {$round} Status</source>
+        <target>Status rundy {$round}</target>
+      </segment>
+    </unit>
+    <unit id="semicolon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$label}:</source>
+        <target>{$label}:</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully updated</source>
+        <target>Element menu został zaktualizowany</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully removed</source>
+        <target>Element menu został usunięty</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully added</source>
+        <target>Element menu został dodany</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully added</source>
+        <target>Menu zostało dodane</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully updated</source>
+        <target>Menu zostało zaktualizowane</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully removed</source>
+        <target>Menu zostało usunięte</target>
+      </segment>
+    </unit>
+    <unit id="list-viewMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show more details about {$name}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="list-viewLess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide expanded details about {$name}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please accept this item..</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-active_url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid URL.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-after">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This date must be after {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha_dash">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters, numbers, dashes and underscores.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha_num">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters and numbers.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid array.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-before">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This date must be before {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must have between {$min} and {$max} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-boolean">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field must be true or false.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-confirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The confirmation for this field does not match.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-currency">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid currency.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid date.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-date_format">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This does not match the format {$format}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-different">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} and {$other} must be different.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-digits">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$digits} digits long.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-digits_between">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} digits.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid email address.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-exists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-filled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-image">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be an image.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-integer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid integer.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-ip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid IP address.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid ISSN.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-json">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid JSON string.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This language is not accepted.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-localeExpected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is multilingual. Separate values must be provided for each supported language.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-localeKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Languages must be specified using the locale code. Examples: en_US, fr_CA, sr_RS@cyrillic.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not have more than {$max} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-mimes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be a file of type {$values}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must have at least {$min} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-not_in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid number.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-orcid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid ORCID.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-present">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} field must be present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-regex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not formatted correctly.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_if">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$other} is {$value}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_unless">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required unless {$other} is in {$values}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_with">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_with_all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_without">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is not present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_without_all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when none of {$values} are present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-same">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} and {$other} must match.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must contain {$size} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid string.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-timezone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid timezone.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-unique">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} has already been taken.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid URL.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

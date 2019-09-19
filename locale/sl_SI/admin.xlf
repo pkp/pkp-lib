@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:13-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:13-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="admin-systemInfo-settingName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Setting Name</source>
+        <target>Ime nastavitve</target>
+      </segment>
+    </unit>
+    <unit id="admin-systemInfo-settingValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Setting Value</source>
+        <target>Vrednost nastavitve</target>
+      </segment>
+    </unit>
+    <unit id="admin-adminFunctions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administrative Functions</source>
+        <target>Administrativne funkcije</target>
+      </segment>
+    </unit>
+    <unit id="admin-auth-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this authentication source?</source>
+        <target>Ste prepričani, da želite trajno odstraniti za vir avtentikacije?</target>
+      </segment>
+    </unit>
+    <unit id="admin-auth-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create authentication source</source>
+        <target>Ustvari vir za avtentikacijo</target>
+      </segment>
+    </unit>
+    <unit id="admin-auth-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No authentication sources have been defined.</source>
+        <target>Na voljo ni nobenega vira za avtentikacijo.</target>
+      </segment>
+    </unit>
+    <unit id="admin-authSources">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication Sources</source>
+        <target>Viri za avtentikacijo</target>
+      </segment>
+    </unit>
+    <unit id="admin-clearDataCache">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Data Caches</source>
+        <target>Izbriši začasen pomnilnik (cash) za podatke</target>
+      </segment>
+    </unit>
+    <unit id="admin-clearTemplateCache">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Template Cache</source>
+        <target>Izbriši začasen pomnilnik (cash) za predloge</target>
+      </segment>
+    </unit>
+    <unit id="admin-configFileUpdatedInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Your configuration file has been successfully updated. Please note that if your site no longer functions correctly you may need to manually fix your configuration by editing <tt>config.inc.php</tt> directly.]]></source>
+        <target><![CDATA[Konfiguracijska datoteka je bila uspešno posodobljena. Opozorilo: v primeru, da spletišče ne bo pravilno delovalo, boste morda morali ročno popraviti konfiguracijsko datoteko <tt>config.inc.php</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="admin-confirmClearTemplateCache">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the cache of compiled templates?</source>
+        <target>Ste prepričani, da želite izbrisati začasen pomnilnik za predloge?</target>
+      </segment>
+    </unit>
+    <unit id="admin-confirmExpireSessions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to expire all user sessions? All users who are currently logged into the system will be forced to log in again (yourself included).</source>
+        <target>Ste prepričani, da želite prekiniti vse uporabniške seje? Vsi uporabniki, ki so trenutno prijavljeni v sistem, se bodo morali ponovno prijaviti v sistem (vključno z vami).</target>
+      </segment>
+    </unit>
+    <unit id="admin-contentsOfConfigFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents of configuration file</source>
+        <target>Vsebina konfiguracijske datoteke</target>
+      </segment>
+    </unit>
+    <unit id="admin-contexts-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete {$contextName} and all of its contents?</source>
+        <target>Ste prepričani, da želite trajno izbrisati  {$contextName} skupaj z vso pripadajočo vsebino?</target>
+      </segment>
+    </unit>
+    <unit id="admin-currentVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current version</source>
+        <target>Trenutna verzija</target>
+      </segment>
+    </unit>
+    <unit id="admin-dateInstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date installed</source>
+        <target>Datum namestitve</target>
+      </segment>
+    </unit>
+    <unit id="admin-displayConfigFileInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The contents of your updated configuration are displayed below. To apply the configuration changes you must open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below.]]></source>
+        <target><![CDATA[Spodaj je prikazana posodobljena vsebina konfiguracijske datoteke. Odprite datoteko <tt>config.inc.php</tt> v primernem urejevalniku in zamenjajte vsebino datoteke s spodnjo.]]></target>
+      </segment>
+    </unit>
+    <unit id="admin-displayNewSystemConfig">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Display New Configuration</source>
+        <target>Prikaži novo konfiguracijo</target>
+      </segment>
+    </unit>
+    <unit id="admin-expireSessions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expire User Sessions</source>
+        <target>Prekini uporabniške seje</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Locale</source>
+        <target>Prenesi jezikovni paket</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-downloadLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Locales</source>
+        <target>Prenesi jezikovne pakete</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-download-cannotOpen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cannot open language descriptor from PKP web site.</source>
+        <target>Opis jezikovnega paketa ni bilo mogoče odpreti iz PKP spletne strani.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-download-cannotModifyRegistry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cannot add the new locale to the locale registry file, typically "registry/locales.xml".</source>
+        <target>Vpis novega jezika v registracijsko datoteko, običajno "registry/locales.xml" ni bilo mogoče.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-cantDisable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This locale is the primary language of the site. You can't disable it until you choose another primary locale.</source>
+        <target>Ta jezik je primaren za to spletišče. Ne morete ga izključiti, dokler ne izberete drugega primarnega jezika.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-confirmSitePrimaryLocaleChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to change the site primary locale? Users' names, which are required in the site's primary locale, will be copied from the existing primary locale where they are missing.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-confirmReload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to reload this locale? This will erase any existing locale-specific data such as customized email templates.</source>
+        <target>Ste prepričani, da želite ponovno naložiti ta jezik? To bo izbrisalo vse obstoječe specifike, kot so email predloge.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installedLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installed Locales</source>
+        <target>Nameščeni jeziki</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installLanguages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Locales</source>
+        <target>Upravljaj jezike</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-availableLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available Locales</source>
+        <target>Jeziki, ki so na voljo</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install Locale</source>
+        <target>Namesti jezik</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install</source>
+        <target>Namesti</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installNewLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install New Locales</source>
+        <target>Namesti nov jezik</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-languageSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language Settings</source>
+        <target>Nastavitve jezika</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-noLocalesAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No additional locales are available for installation.</source>
+        <target>Za namestitev ni na voljo drugih jezikov.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-reload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload Locale</source>
+        <target>Ponastavi jezik</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-uninstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninstall Locale</source>
+        <target>Odstrani jezik</target>
+      </segment>
+    </unit>
+    <unit id="admin-phpInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended PHP Information</source>
+        <target>Razširjene informacije o PHP</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled task</source>
+        <target>Razporejevalnik opravil</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-startTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task process started.</source>
+        <target>Proces opravila se je začel.</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-stopTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task process stopped.</source>
+        <target>Proces opravila se je ustavil.</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-noLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task produced no log.</source>
+        <target>Opravilo ni povzročila nobenega zapisa v "log".</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-downloadLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your {$softwareName} installation automatically executed and finished this task and you can download the log file here: {$url}</source>
+        <target>Izvršila se je avtomatska namestitev programske opreme {$softwareName}. Zapis v "log" datoteki lahko preneste tukaj: {$url}</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-confirmClearLogs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete all scheduled task execution logs?</source>
+        <target>Ste prepričani, da želite izbrisati vse "log" zapise opravil, ki so se zagnale iz razporejevalnika opravil?</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-clearLogs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Scheduled Task Execution Logs</source>
+        <target>Izbriši "log" zapise izvajanj opravil iz raporejevalnika opravil.</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-reviewReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review reminder</source>
+        <target>Opomnik za recenzijo</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-subscriptionExpiryReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subscription expiry reminder</source>
+        <target>Opomnik za potek naročnine</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-apacheVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apache version</source>
+        <target>Apache verzija</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-dbDriver">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database driver</source>
+        <target>Gonilnik baze podatkov</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-dbVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database server version</source>
+        <target>Verzija podatkovnega strežnika</target>
+      </segment>
+    </unit>
+    <unit id="admin-serverInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Server Information</source>
+        <target>Informacije o strežniku</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-phpVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PHP version</source>
+        <target>PHP verzija</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-platform">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OS platform</source>
+        <target>OS platforma</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Nastavitve</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-about">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About the Site</source>
+        <target>O tem spletišču</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-contactEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email of principal contact</source>
+        <target>Email glavnega stika</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-contactName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name of principal contact</source>
+        <target>Ime glavnega stika</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-defaultMetricDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>
+		Your installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</source>
+        <target>
+		Vaša OJS namestitev beleži več kot le eno metriko uporabe, ki so prikazane v različnih kontekstih.
+		V nekaterih primerih mora biti uporabljena le ena metrika (npr. vrstni red najbolj branih člankov ali vrstni red iskalnih rezultatof. Prosimo izberite eno od konfiguriranih metrik kot privzetot.
+	</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-introduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Introduction</source>
+        <target>Uvod</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-minPasswordLength">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Minimum password length (characters)</source>
+        <target>Najmanjša dolžina gesla (znakov)</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteLanguage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site language</source>
+        <target>Jezik spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteStyleSheetInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid site style sheet format. Accepted format is .css.</source>
+        <target>Napačen format stilske tablice. Dovoljeni formati je .css.</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteStyleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site style sheet</source>
+        <target>Stilska tablica spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteLogo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Logo</source>
+        <target>Logotip spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Name</source>
+        <target>Ime spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteTheme">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Theme</source>
+        <target>Tema spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administration</source>
+        <target>Administracija spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Management</source>
+        <target>Upravljanje spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Settings</source>
+        <target>Nastavitve spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteSetup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Setup</source>
+        <target>Namestitev spletišča</target>
+      </segment>
+    </unit>
+    <unit id="admin-systemConfigFileReadError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist, is not readable, or is invalid.]]></source>
+        <target><![CDATA[Konfiguracijska datoteka <tt>config.inc.php</tt> ne obstaja, ni berljiva ali je neveljavna.]]></target>
+      </segment>
+    </unit>
+    <unit id="admin-systemInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System Information</source>
+        <target>Informacije o sistemu</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionBuild">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Build</source>
+        <target>Popravek</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-checkForUpdates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Check for updates</source>
+        <target>Preveri za posodobitve</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-downloadPackage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download</source>
+        <target>Prenesi</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-downloadPatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Patch</source>
+        <target>Prenesi popravek</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Version history</source>
+        <target>Zgodovina verzij</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-latest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest version</source>
+        <target>Zadnja verzija</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionMajor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Major</source>
+        <target>Glavna</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionMinor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Minor</source>
+        <target>Manjša</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-moreInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Information</source>
+        <target>Več informacij</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision</source>
+        <target>Revizija</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-updateAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An updated version is available</source>
+        <target>Na voljo je posodobljena verzija</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-upToDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your system is up-to-date</source>
+        <target>Vaš sistem je posodobljen</target>
+      </segment>
+    </unit>
+    <unit id="admin-version">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Različica</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-wrongBasePathLocation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Base path {$path} must be inside the public files directory.</source>
+        <target>Osnovna pot {$path} mora biti znotraj  mape z javnimi datotekami.</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-pathNotAccessible">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Folder {$path} is not a directory or is not readable.</source>
+        <target>Mapa {$path} ni mapa ali pa ni dosegljiva.</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-moveFileFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</source>
+        <target>Dadoteke {$filename} ni bilo mogoče premakniti iz {$currentFilePath} v {$destinationPath}</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-fileProcessed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File {$filename} was processed and archived.</source>
+        <target>Datoteka {$filename} je bial obdelana in arhivirana.</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-emailSubject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File loader</source>
+        <target>Nalagalnik datotek</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-usage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy the passed apache access log file(s), filtering the entries related with this installation,
+to the current files directory, inside the UsageStatsPlugin stage directory. Must run under user with enough privilegies to read access apache log files.
+
+This tool will only copy files that aren't already inside the usageStats file loader directories (stage, processing, archive, reject).
+
+Usage: {$scriptName} path/to/apache/log/file.log
+Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory
+	</source>
+        <target>Kopiranje preteklih apache dnevnikov, filtriranje zapisov vezanih na to namestitev, filtering the entries related with this installation, znotraj mape vtičnika za statistične podatke o uporabi. Zagnano mora biti pod uporabnikom, ki ima dovolj privilegijev za bralni dostop do apache dnevnikov.
+
+	To orodje bo skopiralo le datoteke, ki še niso v usageStats mapah (stage, processing, archive, reject).
+
+Uporaba: {$scriptName} pot/do/apache/log/file.log
+Uporaba (obdelva vseh datotek znotraj mape): {$scriptName} pot/do/apache/directory
+	</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-creatingFolder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't create temporary folder {$tmpDir}</source>
+        <target>Napaka: ni bilo mogoče ustvariti začasne mape {$tmpDir}</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-acessingFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: File {$filePath} don't exist or can't be accessed.</source>
+        <target>Napaka: datoteka {$filePath} ne obstja ali ni dostopna.</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-copyingFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't copy file from {$filePath} to {$tmpFilePath}</source>
+        <target>Napaka: kopiranje datoteke iz {$filePath} v {$tmpFilePath} ni bilo mogoče</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-deletingFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't delete file {$tmpFilePath}</source>
+        <target>Napaka: datoteke {$tmpFilePath} ni bilo mogoče odstraniti</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-warning-fileAlreadyExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning: file {$filePath} already exists inside the usage stats directory.</source>
+        <target>Opozorilo: datoteka {$filePath} že obstaja znotraj usageStats mape.</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Success: {$filePath} to {$destinationPath}</source>
+        <target>Uspešno: {$filePath} v {$destinationPath}</target>
+      </segment>
+    </unit>
+    <unit id="admin-error-utilExecutionProblem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The "{$utilPath}" program execution returned the following error: {$output}</source>
+        <target>Izvajanje programa "{$utilPath}" je vrnilo naslednjo napako: {$output}</target>
+      </segment>
+    </unit>
+    <unit id="admin-error-executingUtil">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't execute "{$utilPath}".  Check your {$utilVar} setting in config.inc.php.</source>
+        <target>Napaka: "{$utilPath}" ni možno zagnati. Preverite {$utilVar} nastavitve v config.inc.php.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-noLocalesToDownload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no locales available for download.</source>
+        <target>Na voljo ni nobneih jezikovnih paketov za prenos.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,5696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:12-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:12-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="author-editPublishedDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors of this publication can not be edited because it has already been published.</source>
+        <target>Авторов этой публикации нельзя отредактировать, так как она уже была опубликована.</target>
+      </segment>
+    </unit>
+    <unit id="author-publicationNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication for this author could not be found.</source>
+        <target>Публикацию для этого автора не удаётся найти.</target>
+      </segment>
+    </unit>
+    <unit id="author-submit-submissionCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</source>
+        <target>Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки.</target>
+      </segment>
+    </unit>
+    <unit id="author-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted and are being considered by the editor.</source>
+        <target>Новые рецензии были отправлены рецензентами и рассмотрены редактором.</target>
+      </segment>
+    </unit>
+    <unit id="submission-confirm-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</source>
+        <target>Ваш материал был загружен на сервер и готов к отправке. Вы можете вернуться назад, чтобы проверить и откорректировать любую информацию, которую вы ввели, перед тем как продолжить. Когда вы будете готовы, щелкните на кнопке «Завершить отправку».</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroups">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit As</source>
+        <target>Отправить как</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroupsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the role that best describes your contribution to this submission.</source>
+        <target>Выберите роль, которая лучше всего описывает ваш вклад в этот материал.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corresponding Contact</source>
+        <target>Контакт для переписки</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsentDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be contacted about this submission.</source>
+        <target>Да, я согласен, чтобы вы связывались со мной по поводу этого материала.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-userGroupDescriptionManagers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit in any of the following roles if you would like to be able to edit and publish this submission yourself: {$managerGroups}</source>
+        <target>Отправьте под одной из следующих ролей, если вы хотите иметь возможность редактировать и публиковать этот материал самостоятельно: {$managerGroups}</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Requirements</source>
+        <target>Требования к отправляемому материалу</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklistDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must read and acknowledge that you've completed the requirements below before proceeding.</source>
+        <target>Вы должны прочесть и подтвердить, что вы выполнили все приведенные ниже требования, перед тем как продолжить.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission complete</source>
+        <target>Отправка материала завершена</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionCompleteThanks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for your interest in publishing with {$contextName}.</source>
+        <target>Спасибо вам за интерес к публикации в «{$contextName}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgreementLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge the copyright statement</source>
+        <target>Принятие Условий передачи авторских прав</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgree">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I agree to abide by the terms of the copyright statement.</source>
+        <target>Да, я согласен выполнять Условия передачи авторских прав.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>What Happens Next?</source>
+        <target>Что делать дальше?</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-forNow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For now, you can:</source>
+        <target>На текущий момент вы можете:</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review this submission</source>
+        <target>Просмотреть этот материал</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new submission</source>
+        <target>Создать новый материал для отправки</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-return">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Return to your dashboard</source>
+        <target>Вернуться в личный кабинет</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-extendedMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended Metadata</source>
+        <target>Расширенные метаданные</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CrossRef Registration Email</source>
+        <target>Адрес электронной почты, зарегистрированный в CrossRef</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CrossRef registration email. You can register your email for free on the CrossRef web site.</source>
+        <target>Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в CrossRef. Вы можете бесплатно зарегистрировать свой адрес электронной почты на веб-сайте CrossRef.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBNdb API Key</source>
+        <target>Ключ ISBNdb API</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter your ISBNdb API key. If you don't have a key yet you can request one for free from the ISBNdb project.</source>
+        <target>Пожалуйста, введите ваш ключ ISBNdb API. Если у вас еще нет такого ключа, вы можете бесплатно запросить его на сайте проекта ISBNdb.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PubMed Registration Email</source>
+        <target>Адрес электронной почты, зарегистрированный в PubMed</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PubMed registration email if you have one.</source>
+        <target>Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в PubMed, если он у вас есть.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>WorldCat API Key</source>
+        <target>Ключ WorldCat API</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid WorldCat API key if you have one.</source>
+        <target>Пожалуйста, введите правильный ключ WorldCat API, если он у вас есть.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Citation Module</source>
+        <target>Модуль библиографических ссылок</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select one of the given citation modules.</source>
+        <target>Пожалуйста, выберите один из указанных модулей библиографических ссылок.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Don't use by default (will still be available to the editor)</source>
+        <target>Не использовать по умолчанию (по-прежнему будет доступен редактору)</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal error. A non-valid value has been posted for the 'optional filter' setting. Please report this as a bug.</source>
+        <target>Внутренняя ошибка. Неверное значение было передано настройке «необязательный фильтр». Пожалуйста, сообщите об этой ошибке разработчикам.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Авторы</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>Для получения наилучшего результата авторы должны быть введены в следующем формате: Бородин, А. А.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>Редакторы</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, editors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>Для получения наилучшего результата редакторы должны быть введены в следующем формате: Бородин, А. А.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Article/Paper Title</source>
+        <target>Название статьи/материала</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid article/paper title.</source>
+        <target>Пожалуйста, введите правильное название статьи/материала.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Title</source>
+        <target>Название публикации</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication title.</source>
+        <target>Пожалуйста, введите правильное название публикации.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Date</source>
+        <target>Дата публикации</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication date (format: YYYY-MM-DD).</source>
+        <target>Пожалуйста, введите правильную дату публикации (формат: ГГГГ-ММ-ДД).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access Date</source>
+        <target>Дата доступа</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid access date (format: YYYY-MM-DD).</source>
+        <target>Пожалуйста, введите правильную дату доступа (формат: ГГГГ-ММ-ДД).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue</source>
+        <target>Выпуск</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid issue.</source>
+        <target>Пожалуйста, введите правильный выпуск.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Volume</source>
+        <target>Том</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid volume.</source>
+        <target>Пожалуйста, введите правильный том.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Season</source>
+        <target>Сезон</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid season identifier.</source>
+        <target>Пожалуйста, введите правильный идентификатор сезона.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Chapter Title</source>
+        <target>Название главы</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid chapter title.</source>
+        <target>Пожалуйста, введите правильное название главы.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edition</source>
+        <target>Издание</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid edition.</source>
+        <target>Пожалуйста, введите правильное издание.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Series</source>
+        <target>Серия</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid series.</source>
+        <target>Пожалуйста, введите правильную серию.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplement</source>
+        <target>Дополнение</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid supplement.</source>
+        <target>Пожалуйста, введите правильное дополнение.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Date</source>
+        <target>Дата конференции</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference date (format: YYYY-MM-DD).</source>
+        <target>Пожалуйста, введите правильную дату конференции (формат: ГГГГ-ММ-ДД).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Location</source>
+        <target>Место проведения конференции</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference location.</source>
+        <target>Пожалуйста, введите правильное место проведения конференции.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Name</source>
+        <target>Название конференции</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference name.</source>
+        <target>Пожалуйста, введите правильное название конференции.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Sponsor</source>
+        <target>Спонсор конференции</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference sponsor.</source>
+        <target>Пожалуйста, введите правильно спонсора конференции.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>Организация</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid institution.</source>
+        <target>Пожалуйста, введите правильно организацию.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>First Page</source>
+        <target>Первая страница</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid first page (must be a numeric value).</source>
+        <target>Пожалуйста, введите правильно первую страницу (должна быть числом).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Page</source>
+        <target>Последняя страница</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid last page (must be a numeric value).</source>
+        <target>Пожалуйста, введите правильно последнюю страницу (должна быть числом).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of Pages</source>
+        <target>Количество страниц</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid total number of pages (must be a numeric value).</source>
+        <target>Пожалуйста, введите правильно общее количество страниц (должно быть числом).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Location</source>
+        <target>Место издания</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher location.</source>
+        <target>Пожалуйста, введите правильное место издания.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Name</source>
+        <target>Название издателя</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher name.</source>
+        <target>Пожалуйста, введите правильное название издателя.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBN</source>
+        <target>ISBN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid ISBN (9 or 13 numbers).</source>
+        <target>Пожалуйста, введите правильный ISBN (9 или 13 цифр).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Print ISSN</source>
+        <target>Печатный ISSN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid Print ISSN.</source>
+        <target>Пожалуйста, введите правильный ISSN печатного издания.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>eISSN</source>
+        <target>Электронный ISSN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid eISSN.</source>
+        <target>Пожалуйста, введите правильный ISSN электронного издания.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target>DOI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid DOI.</source>
+        <target>Пожалуйста, введите правильный DOI.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Publication ID</source>
+        <target>Пользовательский ID публикации</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid custom publication ID.</source>
+        <target>Пожалуйста, введите правильный пользовательский ID публикации.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CODEN</source>
+        <target>CODEN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CODEN.</source>
+        <target>Пожалуйста, введите правильный CODEN.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SICI</source>
+        <target>SICI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid SICI.</source>
+        <target>Пожалуйста, введите правильный SICI.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PMID</source>
+        <target>PMID</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PMID.</source>
+        <target>Пожалуйста, введите правильный PMID.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the Publication</source>
+        <target>Ссылка на публикацию</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid alternative link to the publication.</source>
+        <target>Пожалуйста, введите правильную альтернативную ссылку на публикацию.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comment</source>
+        <target>Комментарий</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid comment.</source>
+        <target>Пожалуйста, введите правильный комментарий.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Annotation</source>
+        <target>Аннотация</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid annotation.</source>
+        <target>Пожалуйста, введите правильную аннотацию.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Type</source>
+        <target>Тип публикации</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you always set a publication type. Currently supported values are book (for books or book chapters) and journal (for journal articles). Otherwise the citation output formatting will not work correctly.</source>
+        <target>Пожалуйста, убедитесь, что вы всегда задаете тип публикации. На текущий момент поддерживаются значения book (для книг или глав книги) и journal (для журнальных статей). Если тип не указан или указан неверно, форматирование библиографической ссылки на источник будет работать неправильно.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title Type</source>
+        <target>Тип заголовка</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid title type. Supported values are 'abbreviated', 'translated', 'alternative' and 'uniform'.</source>
+        <target>Пожалуйста, убедитесь, что вы задали правильный тип заголовка. Поддерживаемые значения: abbreviated, translated, alternative и uniform.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part of title ignored while sorting</source>
+        <target>Часть заголовка, игнорируемая при сортировке</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please only enter the initial characters of the title that should be ignored when sorting the title.</source>
+        <target>Пожалуйста, введите только первые буквы заголовка, которые должны быть проигнорированы при сортировке заголовков.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid title.</source>
+        <target>Пожалуйста, введите правильный заголовок.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subtitle</source>
+        <target>Подзаголовок</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid subtitle.</source>
+        <target>Пожалуйста, введите правильный подзаголовок.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Number</source>
+        <target>Номер части</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part number.</source>
+        <target>Пожалуйста, введите правильный номер части.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Name</source>
+        <target>Название части</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part name.</source>
+        <target>Пожалуйста, введите правильное название части.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name Type</source>
+        <target>Тип названия</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</source>
+        <target>Пожалуйста, убедитесь, что вы задали правильный тип названия. Поддерживаемые значения: personal, corporate и conference.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>Аннотация</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>Не назначенные</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-myAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Assigned</source>
+        <target>Назначенные мне</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsArchived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived Submissions</source>
+        <target>Архивные материалы</target>
+      </segment>
+    </unit>
+    <unit id="submission-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Авторы</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biography</source>
+        <target>Биография автора</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiographies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biographies</source>
+        <target>Биографии авторов</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorWithAffiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name}, {$affiliation}</source>
+        <target>{$name}, {$affiliation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-shortAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$author} et al.</source>
+        <target>{$author} и др.</target>
+      </segment>
+    </unit>
+    <unit id="submission-mySubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Authored</source>
+        <target>С моим авторством</target>
+      </segment>
+    </unit>
+    <unit id="submission-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Загрузить файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-agencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Agencies</source>
+        <target>Организации</target>
+      </segment>
+    </unit>
+    <unit id="submission-abstractViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract Views</source>
+        <target>Просмотры аннотации</target>
+      </segment>
+    </unit>
+    <unit id="submission-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accepted</source>
+        <target>Принята</target>
+      </segment>
+    </unit>
+    <unit id="submission-acknowledge">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge</source>
+        <target>Подтвердить</target>
+      </segment>
+    </unit>
+    <unit id="submission-addSuppFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Supplementary File</source>
+        <target>Добавить дополнительный файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-ask">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask</source>
+        <target>Запрос</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attached file</source>
+        <target>Прикрепленный файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-backToSubmissionEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Submission Editing</source>
+        <target>Назад к редактированию материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change to</source>
+        <target>Заменить на</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change File</source>
+        <target>Изменить файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>References</source>
+        <target>Библиографические ссылки</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each reference on a new line so that they can be extracted and recorded separately.</source>
+        <target>Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь и записать отдельно.</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extracted References</source>
+        <target>Извлеченные ссылки</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-DOI">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target>DOI</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following references have been extracted and will be linked to the submission metadata.</source>
+        <target>Следующие ссылки были извлечены и будут связаны с метаданными материала.</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedAndSaveCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extract and Save References</source>
+        <target>Извлечь и сохранить ссылки</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Comment</source>
+        <target>Добавить комментарий</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-comments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comments</source>
+        <target>Комментарии</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you would like to delete this comment?</source>
+        <target>Вы уверены, что хотите удалить этот комментарий?</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-corrections">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corrections</source>
+        <target>Исправления</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-editComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Comment</source>
+        <target>Редактировать комментарий</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import Peer Reviews</source>
+        <target>Импортировать рецензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Reviews to Email</source>
+        <target>Добавить рецензии к письму электронной почты</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews-reviewerLetter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer {$reviewerLetter}:</source>
+        <target>Рецензент {$reviewerLetter}:</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Comments</source>
+        <target>Нет комментариев</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Reviews</source>
+        <target>Нет рецензий</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Рецензия</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-sendDecisionToReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Reviewers editorial decision</source>
+        <target>Отправить рецензентам решение редакции</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Тема</target>
+      </segment>
+    </unit>
+    <unit id="submission-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Complete</source>
+        <target>Закончен</target>
+      </segment>
+    </unit>
+    <unit id="submission-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List of Contributors</source>
+        <target>Список авторов</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyedited">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited</source>
+        <target>Прошел литературное редактирование</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyediting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>В процессе литературного редактирования</target>
+      </segment>
+    </unit>
+    <unit id="submission-queryNoteFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion Files</source>
+        <target>Файлы обсуждения</target>
+      </segment>
+    </unit>
+    <unit id="submission-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage Information</source>
+        <target>Информация об охвате</target>
+      </segment>
+    </unit>
+    <unit id="submission-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Done</source>
+        <target>Готово</target>
+      </segment>
+    </unit>
+    <unit id="submission-dueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due Date</source>
+        <target>Срок выполнения</target>
+      </segment>
+    </unit>
+    <unit id="submission-due">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due</source>
+        <target>Срок выполн.</target>
+      </segment>
+    </unit>
+    <unit id="submission-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editing</source>
+        <target>Редактирование</target>
+      </segment>
+    </unit>
+    <unit id="submission-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>Редактировать метаданные</target>
+      </segment>
+    </unit>
+    <unit id="submission-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>Литературное редактирование</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-backToEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Email Log</source>
+        <target>Назад к журналу писем электронной почты</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the email log for this submission?</source>
+        <target>Вы уверены, что хотите очистить журнал писем электронной почты для этого материала?</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email log entry?</source>
+        <target>Вы уверены, что хотите удалить эту запись из журнала писем электронной почты?</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>Удалить запись журнала</target>
+      </segment>
+    </unit>
+    <unit id="submission-emailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>Журнал электронной почты</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name} ({$username}) was assigned to this submission as a {$userGroupName}.</source>
+        <target>{$name} ({$username}) был назначен в этот материал как {$userGroupName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantRemoved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) is removed as a {$userGroupName}.</source>
+        <target>«{$name}» ({$username}) удален как {$userGroupName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-backToEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Event Log</source>
+        <target>Назад к журналу событий</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the event log for this submission?</source>
+        <target>Вы уверены, что хотите очистить журнал событий для этого материала?</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this event log entry?</source>
+        <target>Вы уверены, что хотите удалить эту запись из журнала событий?</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>Удалить запись журнала</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-submissionSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial submission completed.</source>
+        <target>Первоначальная отправка материала завершена.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileRevised">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision "{$name}" (file ID {$fileId}-{$fileRevision}) was uploaded.</source>
+        <target>Версия «{$name}» (ID файла {$fileId}-{$fileRevision}) была загружена.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-metadataUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata updated</source>
+        <target>Метаданные материала обновлены</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-suppFileUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission file updated</source>
+        <target>Файл материала обновлен</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAcceptedByProxy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted by proxy</source>
+        <target>Согласие на рецензирование получено через посредника</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted</source>
+        <target>Согласие на рецензирование получено</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDeclined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment declined</source>
+        <target>Рецензент отказался от рецензирования</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review due date modified</source>
+        <target>Срок предоставления рецензии изменен</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer assigned to submission</source>
+        <target>Назначен рецензент для материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerRated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating submitted</source>
+        <target>Оценена работа рецензента</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer unassigned from submission</source>
+        <target>Отменено назначение рецензента для материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review file updated</source>
+        <target>Файл рецензии обновлен</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment initiated</source>
+        <target>Рецензирование начато</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review recommendation file</source>
+        <target>Файл с рекомендацией рецензента</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewReinitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment reinitiated</source>
+        <target>Рецензирование начато повторно</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review resubmitted</source>
+        <target>Рецензия отправлена повторно</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer revisions file updated</source>
+        <target>Файл с правками рецензента обновлен</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-subjectPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email has been sent:</source>
+        <target>Письмо электронной почты было отправлено:</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-viewEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Email</source>
+        <target>Показать письмо электронной почты</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-addedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now allowed to edit metadata when submission in stage {stage}.</source>
+        <target>Теперь авторам разрешено редактировать метаданные, когда материал находится на этапе «{stage}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-removedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now not allowed to edit metadata when submission in stage {stage}.</source>
+        <target>Теперь авторам запрещено редактировать метаданные, когда материал находится на этапе «{stage}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>Файлы</target>
+      </segment>
+    </unit>
+    <unit id="submission-files-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download All Files</source>
+        <target>Скачать все файлы</target>
+      </segment>
+    </unit>
+    <unit id="submission-galley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley</source>
+        <target>Гранка</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-clearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Log</source>
+        <target>Очистить журнал</target>
+      </segment>
+    </unit>
+    <unit id="submission-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>История</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-noLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No log entries.</source>
+        <target>Нет записей.</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-recentLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recent Entries</source>
+        <target>Последние записи</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>Журнал писем электронной почты</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Event Log</source>
+        <target>Журнал событий</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>Заметки к материалу</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-viewLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Log</source>
+        <target>Просмотреть журнал</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How to Cite</source>
+        <target>Как цитировать</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-citationFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Citation Formats</source>
+        <target>Другие форматы библиографических ссылок</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-downloadCitation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Citation</source>
+        <target>Скачать ссылку</target>
+      </segment>
+    </unit>
+    <unit id="submission-initiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initiated</source>
+        <target>Начата</target>
+      </segment>
+    </unit>
+    <unit id="submission-identifiers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identifiers</source>
+        <target>Идентификаторы</target>
+      </segment>
+    </unit>
+    <unit id="submission-publisherId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public URL identifier</source>
+        <target>URL открытого идентификатора</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-submissionInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>Информация о материале</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata</source>
+        <target>Метаданные</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Заметки</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>История</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history-allEvents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show events from prior versions</source>
+        <target>Показать события из предыдущих версий</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageParticipants-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify</source>
+        <target>Уведомить</target>
+      </segment>
+    </unit>
+    <unit id="submission-lastModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last modified</source>
+        <target>Последнее изменение</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-addGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Layout Galley</source>
+        <target>Добавить макет гранки</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this galley?</source>
+        <target>Вы уверены, что хотите навсегда удалить эту гранку?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalleyImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to remove this image from the galley?</source>
+        <target>Вы уверены, что хотите удалить это изображение из гранки?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this supplementary file?</source>
+        <target>Вы уверены, что хотите навсегда удалить этот дополнительный файл?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-deleteGalleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this style sheet.</source>
+        <target>Удалить эту таблицу стилей.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-editGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a Layout Galley</source>
+        <target>Редактировать макет гранки</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyFormat">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Format</source>
+        <target>Формат гранки</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyHTMLData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML Galley Files</source>
+        <target>Файлы гранок HTML</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Images</source>
+        <target>Изображения</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Label</source>
+        <target>Метка гранки</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Typically used to identify the file format (e.g. PDF, HTML, etc.).</source>
+        <target>Обычно используется для идентификации формата файла (например, HTML, PDF и т. д.).</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley label is required.</source>
+        <target>Метка гранки обязательна.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLanguageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley language is required.</source>
+        <target>Язык гранки обязателен.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLocaleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley locale is required.</source>
+        <target>Язык гранки обязателен.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>URL-адрес удаленного сервера</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>Пожалуйста, введите правильный URL-адрес удаленного сервера (включая http://).</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyNoImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No images</source>
+        <target>Нет изображений</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galleys</source>
+        <target>Гранки</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stylesheet File</source>
+        <target>Файл таблицы стилей</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStyle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Style</source>
+        <target>Стиль</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-initialGalleyCreation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial Galley Creation</source>
+        <target>Первоначальное создание гранки</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout File</source>
+        <target>Файл макета</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout</source>
+        <target>Верстка</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Version</source>
+        <target>Версия для верстки</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Galley</source>
+        <target>Создать новую гранку</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload New Supplementary File</source>
+        <target>Загрузить новый дополнительный файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-noStyleFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No style sheet file has been added to this galley.</source>
+        <target>Файл таблицы стилей не был добавлен к этой гранке.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary File Review</source>
+        <target>Рецензия на дополнительный файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewingGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewing Submission Galley</source>
+        <target>Просмотр гранки материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewProof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Proof</source>
+        <target>Показать гранку</target>
+      </segment>
+    </unit>
+    <unit id="submission-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Metadata</source>
+        <target>Метаданные материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-noReviewAssignments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Review Assignments</source>
+        <target>Нет назначенных рецензентов</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-addNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add New Note</source>
+        <target>Добавить новую заметку</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Attachment</source>
+        <target>Прикрепленный файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-backToSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back To Submission Notes</source>
+        <target>Назад к заметкам</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-breadcrumb">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Заметки</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-clearAllNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear All Notes</source>
+        <target>Удалить все заметки</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-collapseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse Notes</source>
+        <target>Свернуть заметки</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDeleteAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove All Submission Notes?</source>
+        <target>Удалить все заметки к материалу?</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove This Submission Note?</source>
+        <target>Удалить эту заметку к материалу?</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-createNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Note</source>
+        <target>Создать новую заметку</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-deleteNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Note</source>
+        <target>Удалить заметку</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-editNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Note</source>
+        <target>Редактировать заметку</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-expandNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand Notes</source>
+        <target>Развернуть заметки</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-noSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submission Notes</source>
+        <target>Нет заметок к материалу</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-removeUploadedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Uploaded File</source>
+        <target>Удалить загруженный файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>Заметки к материалу</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-updateNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update Note</source>
+        <target>Обновить заметку</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-viewNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Notes</source>
+        <target>Просмотреть заметки</target>
+      </segment>
+    </unit>
+    <unit id="submission-originalFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Original file</source>
+        <target>Исходный файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Editing</source>
+        <target>#{$id} Редактирование</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} History</source>
+        <target>#{$id} История</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Review</source>
+        <target>#{$id} Рецензирование</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Summary</source>
+        <target>#{$id} Сводка</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Citations</source>
+        <target>#{$id} Библиографические ссылки</target>
+      </segment>
+    </unit>
+    <unit id="submission-peerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Peer&nbsp;Review]]></source>
+        <target>Рецензирование</target>
+      </segment>
+    </unit>
+    <unit id="submission-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>Публикация</target>
+      </segment>
+    </unit>
+    <unit id="submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>Рекомендация: {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-rejected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rejected</source>
+        <target>Отклонена</target>
+      </segment>
+    </unit>
+    <unit id="submission-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request</source>
+        <target>Запрос</target>
+      </segment>
+    </unit>
+    <unit id="submission-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response</source>
+        <target>Ответ</target>
+      </segment>
+    </unit>
+    <unit id="submission-restrictions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restrictions</source>
+        <target>Ограничения</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Metadata</source>
+        <target>Проверить метаданные</target>
+      </segment>
+    </unit>
+    <unit id="submission-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Рецензия</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>Отрецензирована</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Version</source>
+        <target>Версия для рецензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rights</source>
+        <target>Права</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you wish, you may enter a brief statement about the access rights held in or over this submission.</source>
+        <target>Если хотите, вы можете ввести краткое уведомление о правах доступа, сохраняющихся или переходящих для этого материала.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active</source>
+        <target>В работе</target>
+      </segment>
+    </unit>
+    <unit id="submissions-archived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived</source>
+        <target>В архиве</target>
+      </segment>
+    </unit>
+    <unit id="submission-saveMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save Metadata</source>
+        <target>Сохранить метаданные</target>
+      </segment>
+    </unit>
+    <unit id="submissions-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Завершены</target>
+      </segment>
+    </unit>
+    <unit id="submissions-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Отклонены</target>
+      </segment>
+    </unit>
+    <unit id="submissions-incomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Incomplete</source>
+        <target>Не закончены</target>
+      </segment>
+    </unit>
+    <unit id="submissions-noSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submissions</source>
+        <target>Нет материалов</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Editing</source>
+        <target>На редакции</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queued">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Queued</source>
+        <target>В очереди</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No editor has been assigned to this submission.</source>
+        <target>Этому материалу не назначен редактор.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-ruling">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ruling</source>
+        <target>Решение</target>
+      </segment>
+    </unit>
+    <unit id="submission-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Source</source>
+        <target>Источник</target>
+      </segment>
+    </unit>
+    <unit id="submission-source-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</source>
+        <target>Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес или описание этого ресурса.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>Отправка</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitted</source>
+        <target>Прислана</target>
+      </segment>
+    </unit>
+    <unit id="submission-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>Материал</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Title:</source>
+        <target>Название материала:</target>
+      </segment>
+    </unit>
+    <unit id="submission-start">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Start</source>
+        <target>Начало</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission History</source>
+        <target>История материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionManuscript">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Manuscript</source>
+        <target>Рукопись материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Review</source>
+        <target>Рецензирование материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-submitter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitter</source>
+        <target>Прислал</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Finish Submission</source>
+        <target>Завершить отправку</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select File</source>
+        <target>Выбрать файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Information</source>
+        <target>Информация файла</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Added</source>
+        <target>Файл добавлен</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include this contributor in browse lists?</source>
+        <target>Включить этого автора в список поиска?</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-newFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Another File</source>
+        <target>Добавить другой файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Refinements</source>
+        <target>Дополнительные уточнения</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add additional information for your submission.  Press 'enter' after each term.</source>
+        <target>Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Language</source>
+        <target>Язык материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocaleDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions in several languages are accepted. Choose the primary language of the submission from the pulldown above.</source>
+        <target>Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню выше.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Files</source>
+        <target>Файлы материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-dependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Dependent Files</source>
+        <target>Зависимые файлы</target>
+      </segment>
+    </unit>
+    <unit id="submission-manageDependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Dependent Files</source>
+        <target>Управление зависимыми файлами</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Dependent File</source>
+        <target>Загрузить зависимый файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-query">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Discussion File</source>
+        <target>Загрузить файл обсуждения</target>
+      </segment>
+    </unit>
+    <unit id="submission-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>Сводка</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Files</source>
+        <target>Дополнительные файлы</target>
+      </segment>
+    </unit>
+    <unit id="submission-supportingAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting Agencies</source>
+        <target>Поддерживающие организации</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Agencies</source>
+        <target>Текущие организации</target>
+      </segment>
+    </unit>
+    <unit id="submission-indexingInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexing Information</source>
+        <target>Информация для индексирования</target>
+      </segment>
+    </unit>
+    <unit id="submission-titleAndAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title and Abstract</source>
+        <target>Название и аннотация</target>
+      </segment>
+    </unit>
+    <unit id="submission-type-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The submission type is usually one of 'image', 'text', or other multimedia types including 'software' or 'interactive'.  Please choose the one most relevant for your submission.  Examples may be found at <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></source>
+        <target><![CDATA[Тип материала обычно что-то из «изображение», «текст» или другие типы мультимедиа, включая «программное обеспечение» или «интерактив». Пожалуйста, выберите один наиболее подходящий тип для вашего материала. Примеры можно найти на <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-underway">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Underway</source>
+        <target>В процессе</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadFileTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload file to</source>
+        <target>Загрузить файл в</target>
+      </segment>
+    </unit>
+    <unit id="submission-createRemote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create remote</source>
+        <target>Создать удаленный</target>
+      </segment>
+    </unit>
+    <unit id="submission-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Metadata</source>
+        <target>Просмотреть метаданные</target>
+      </segment>
+    </unit>
+    <unit id="submission-views">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Views</source>
+        <target>Просмотры</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your file has been uploaded.</source>
+        <target>Ваш файл был загружен.</target>
+      </segment>
+    </unit>
+    <unit id="submission-loadMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please wait while your file is uploaded to the server.</source>
+        <target>Пожалуйста, подождите пока ваш файл загрузится на сервер.</target>
+      </segment>
+    </unit>
+    <unit id="submission-artworkFileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork File Details</source>
+        <target>Информация о графическом файле</target>
+      </segment>
+    </unit>
+    <unit id="submission-fileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Details</source>
+        <target>Информация о файле</target>
+      </segment>
+    </unit>
+    <unit id="submission-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this item.</source>
+        <target>Название обязательно для этого элемента.</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-mmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>MM-DD</source>
+        <target>ММ-ДД</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-yyyymmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>YYYY-MM-DD</source>
+        <target>ГГГГ-ММ-ДД</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectPrincipalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal contact for editorial correspondence.</source>
+        <target>Контактное лицо для переписки с редакцией.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contributorRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor's role</source>
+        <target>Роль автора</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>Добавить автора</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-languagesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a language.</source>
+        <target>Пожалуйста, укажите язык.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-subjectsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a subject.</source>
+        <target>Пожалуйста, укажите тему.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-disciplinesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a discipline.</source>
+        <target>Пожалуйста, укажите предмет.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-keywordsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a keyword.</source>
+        <target>Пожалуйста, укажите ключевое слово.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-coverageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the coverage information.</source>
+        <target>Пожалуйста, укаэите информацию об охвате.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the type.</source>
+        <target>Пожалуйста, укажите тип.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-sourceRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the source.</source>
+        <target>Пожалуйста, укажите источник.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-rightsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the rights.</source>
+        <target>Пожалуйста, укажите права на материал.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-citationsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the references.</source>
+        <target>Пожалуйста, укажите библиографические ссылки.</target>
+      </segment>
+    </unit>
+    <unit id="submission-form-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name the file (e.g., Manuscript; Table 1)</source>
+        <target>Назовите файл (например, Рукопись; Таблица 1)</target>
+      </segment>
+    </unit>
+    <unit id="submission-form-replaceExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replacing an Existing File?</source>
+        <target>Заменить существующий файл?</target>
+      </segment>
+    </unit>
+    <unit id="workflow-review-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Review</source>
+        <target>Внутренне рецензирование</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage-any">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any Stage</source>
+        <target>Любой этап</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage</source>
+        <target>Этап</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Copyediting</source>
+        <target>На литературном редактировании</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Proofreading</source>
+        <target>На корректуре</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>На рецензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting Editor Decision</source>
+        <target>Ждет решения редакции</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-unassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>Не назначен</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Отклонен</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>Опубликован</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target>Запланирован</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>1. Upload File</source>
+        <target>1. Загрузить файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadSubmissionFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Submission File</source>
+        <target>Загрузить файл материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>2. Review Details</source>
+        <target>2. Проверить детали</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishingUpStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>3. Confirm</source>
+        <target>3. Подтвердить</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter a file name for this file</source>
+        <target>Вы должны ввести имя файла для этого файла</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid component!</source>
+        <target>Отсутствующий или некорректный компонент!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-invalidUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid user group!</source>
+        <target>Отсутствующая или некорректная группа пользователей!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Possible Duplication or Revision Detected</source>
+        <target>Обнаружено возможное дублирование или новая версия</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevisionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The name of the uploaded file resembles the name of a previously uploaded file, "{$revisedFileName}." Is this file intended to replace "{$revisedFileName}"? If so, select the file below. Otherwise, select "This is not a revision of an existing file" before proceeding.</source>
+        <target>Название загружаемого файла совпадает с именем ранее загруженного файла «{$revisedFileName}». Должен ли этот файл должен заменить «{$revisedFileName}»? Если да, то выберите файл ниже, иначе выберите «Это не новая версия существующего файла», перед тем как продолжить.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectMandatoryFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select the file you would like to revise.</source>
+        <target>Пожалуйста, выберите файл, который вы хотите заменить.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectOptionalFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are uploading a revision of an existing file, please indicate which file.</source>
+        <target>Если вы загружаете новую версию существующего файла, пожалуйста, укажите для какого файла.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadNewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a revision of an existing file</source>
+        <target>Это не новая версия существующего файла</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload this file in my role as...</source>
+        <target>Загрузить этот файл с моей ролью...</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroupDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</source>
+        <target>Если вы отправляете отредактированный том, вы должны загрузить все главы тома отдельно, под вашей ролью редактора тома.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadLibraryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Library File</source>
+        <target>Загрузить файл библиотеки</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-libraryCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Document Category</source>
+        <target>Категория отправляемого документа</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Загрузить файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-copyeditedVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Copyedited File</source>
+        <target>Загрузить файл после литературного редактирования</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-fairCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Fair Copy</source>
+        <target>Загрузить окончательный вариант</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Files</source>
+        <target>Загрузить файлы</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</source>
+        <target>После рецензирования назначенного файла, запишите все комментарии о файле ниже и/или загрузите копию с пометками в файле (или другой файл).</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Production Ready File</source>
+        <target>Загрузить файл для публикации</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-proof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a File Ready for Publication</source>
+        <target>Загрузить файл, готовый к публикации</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noAvailableReviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no files for you to revise at this time.</source>
+        <target>На данный момент нет файлов, которые вы могли бы откорректировать.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been requested.</source>
+        <target>Новые версии были запрошены.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been submitted.</source>
+        <target>Новые версии были отправлены.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-resubmitForReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be resubmitted for another review round.</source>
+        <target>Материал нужно повторно отправить на рецензирование.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-submissionResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission has been resubmitted for another review round.</source>
+        <target>Материал был повторно отправлен на рецензирование.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-sentToExternal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent to external review.</source>
+        <target>Отправлен на внешнее рецензирование.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>Материал принят.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>Материал отклонен.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for reviewers to be assigned.</source>
+        <target>Ожидает назначения рецензентов.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting responses from reviewers.</source>
+        <target>Ожидает ответа от рецензентов.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted.</source>
+        <target>Новые рецензии были отправлены.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All reviewers have responded and a decision is needed.</source>
+        <target>Все рецензенты прислали свои рецензии, нужно принять решение.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A review is overdue.</source>
+        <target>Срок рецензии прошел.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting recommendations from editors.</source>
+        <target>Ожидает рекомендаций от редакторов.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New editorial recommendations have been submitted.</source>
+        <target>Новые рекомендации редакторов были отправлены.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All recommendations are in and a decision is needed.</source>
+        <target>Все рекомендации пришли, нужно принять решение.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-stageParticipants">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participants</source>
+        <target>Участники</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noneAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None Assigned</source>
+        <target>Никто не назначен</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-participant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participant</source>
+        <target>Участник</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Participant</source>
+        <target>Назначить участника</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Assignment</source>
+        <target>Редактировать назначение</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users are assigned to stages of the workflow by user group. Any user assigned to this stage will automatically be assigned to other stages to which their user group has been assigned. This is commonly reserved for editors, authors and translators.</source>
+        <target>Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Participant</source>
+        <target>Удалить участника</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You are about to remove this participant from <strong>all</strong> stages.]]></source>
+        <target><![CDATA[Вы собираетесь удалить этого участника со <strong>всех</strong> этапов.]]></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user group.</source>
+        <target>Вы должны выбрать группу пользователей.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user for the specified user group.</source>
+        <target>Вы должны выбрать пользователя для указанной группы пользователей.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-reviewerWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</source>
+        <target>Выбранный вами пользователь назначен проводить «слепое» рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disallow Edit Metadata</source>
+        <target>Запретить редактировать метаданные</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow Edit Metadata</source>
+        <target>Разрешить редактировать метаданные</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be unable to edit the submission's metadata at that stage?</source>
+        <target>Вы уверены, что хотите запретить авторам этого материала редактирование метаданных на этом этапе?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be able to edit the submission's metadata at that stage?</source>
+        <target>Вы уверены, что хотите разрешить авторам этого материала редактирование метаданных на этом этапе?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decision</source>
+        <target>Решение</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept Submission</source>
+        <target>Принять материал</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Revisions</source>
+        <target>Запросить новые версии</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-resubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for Review</source>
+        <target>Отправить повторно на рецензию</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline Submission</source>
+        <target>Отклонить материал</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send To Production</source>
+        <target>Отправить на публикацию</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-skipReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept and Skip Review</source>
+        <target>Принять материал и пропустить рецензирование</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendInternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send to Internal Review</source>
+        <target>Отправить на внутреннее рецензирование</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The page proof file must be checked as approved to be made Available. Do you want to approve it?</source>
+        <target>Файл с корректурой страницы должен быть отмечен как одобренный, чтобы его можно было опубликовать. Вы хотите одобрить его?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve Proofs</source>
+        <target>Одобрить корректуры</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-disapproveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?</source>
+        <target>Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-noDecisionsAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign an editor to enable the editorial decisions for this stage.</source>
+        <target>Назначить редактора, чтобы включить решения редакции для этого этапа.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-makeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make Recommendation</source>
+        <target>Дать рекомендацию</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-changeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Recommendation</source>
+        <target>Изменить рекомендацию</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>Рекомендация: {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-allRecommendations-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendations: {$recommendations}</source>
+        <target>Рекомендации: {$recommendations}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation</source>
+        <target>Рекомендация</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommend an editorial decision for this submission.</source>
+        <target>Рекомендовать решение редакции для этого материала.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recordedRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recorded Recommendations</source>
+        <target>Записанные рекомендации</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-nextButton">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next: Select Files for {$stageName}</source>
+        <target>Далее: Выбрать файлы для {$stageName}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the files you would like to forward to the {$stageName} stage.</source>
+        <target>Выберите файлы: которые вы хотите отправить на этап «{$stageName}».</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-previousAuthorNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous: Author Notification</source>
+        <target>Назад: Уведомление автора</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current stage</source>
+        <target>Текущий этап</target>
+      </segment>
+    </unit>
+    <unit id="submission-noActionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No action required</source>
+        <target>Ничего не нужно делать</target>
+      </segment>
+    </unit>
+    <unit id="submission-actionNeeded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Needs action</source>
+        <target>Необходимо действие</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Files</source>
+        <target>Файлы для рецензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-currentFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current file</source>
+        <target>Текущий файл</target>
+      </segment>
+    </unit>
+    <unit id="submission-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Draft Files</source>
+        <target>Файлы черновиков</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addAuditorError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error trying to assign the auditor. Please Try again.</source>
+        <target>Произошла ошибка при попытке назначить аудитора. Пожалуйста, попробуйте снова.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>Файл «{$originalFileName}» был загружен для материала «{$submissionId}» пользователем «{$username}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>Файл «{$originalFileName}» был удален из материала «{$submissionId}» пользователем «{$username}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>Новая версия файла «{$originalFileName}» была загружена для материала «{$submissionId}» пользователем «{$username}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>Версия файла «{$originalFileName}» была удалена из материала «{$submissionId}» пользователем «{$username}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-lastRevisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$title}" had its last revision removed by {$username}.</source>
+        <target>У файла «{$title}» последняя версия была удалена пользователем «{$username}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was added as an auditor for the file "{$file}."</source>
+        <target>«{$name}» ({$username}) был добавлен как аудитор для файла «{$file}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was removed as an auditor for the file "{$file}."</source>
+        <target>«{$name}» ({$username}) был удален как аудитор для файла «{$file}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has completed an audit and uploaded "{$file}."</source>
+        <target>«{$name}» ({$username}) выполнил аудит и загрузил «{$file}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-signoffSignoff">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has signed off on the signoff for "{$file}."</source>
+        <target>«{$name}» ({$username}) окончательно одобрил новый выпуск для «{$file}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-proofsApproved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has approved the proofs for "{$formatName}."</source>
+        <target>«{$name}» ({$username}) одобрил корректуры для «{$formatName}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Overview</source>
+        <target>Обзор отправленного материала</target>
+      </segment>
+    </unit>
+    <unit id="submission-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Описание</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageNotInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage not initiated.</source>
+        <target>Этап не начался.</target>
+      </segment>
+    </unit>
+    <unit id="submission-documents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Documents</source>
+        <target>Документы отправленного материала</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been assigned as an editor to the submission "{$title}".</source>
+        <target>Вы были назначены редактором для материала «{$title}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-copyeditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review copyedits for "{$title}".</source>
+        <target>Вас попросили выполнить литературное редактирование для «{$title}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-layouteditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review layouts for "{$title}".</source>
+        <target>Вас попросили выполнить верстку для «{$title}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-indexRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to create an index for "{$title}".</source>
+        <target>Вас попросили сделать индекс для «{$title}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest editor decision.</source>
+        <target>Последнее решение редакции.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionAccept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>Материал принят.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionExternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>External review process started.</source>
+        <target>Начат процесс внешнего рецензирования.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionPendingRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision required.</source>
+        <target>Требуется новая версия материала.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionResubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for review.</source>
+        <target>Повторно отправить а рецензирование.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionDecline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>Материал отклонен.</target>
+      </segment>
+    </unit>
+    <unit id="notification-uploadedResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response uploaded.</source>
+        <target>Загружен ответ.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An editor must be assigned before review is initiated. Please add editor using the Participants list.</source>
+        <target>Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники».</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer's Attachments</source>
+        <target>Файлы, прикрепленные рецензентом</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-send-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select review files to share with the author(s)</source>
+        <target>Выбрать файлы рецензии для отправки автору(авторам)</target>
+      </segment>
+    </unit>
+    <unit id="submission-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Book available</source>
+        <target>Книга доступна</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-uploadRevisionToRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Revised File</source>
+        <target>Загрузить новую версию файла</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</source>
+        <target>Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round}).</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been cleared.</source>
+        <target>{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был сброшен.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewUnconsidered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$editorName} has marked the round {$round} review for submission {$submissionId} as unconsidered.</source>
+        <target>{$editorName} отметил раунд {$round} рецензирования для материала {$submissionId} как нерассмотренный.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReinstated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated.</source>
+        <target>{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был начат заново.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}.</source>
+        <target>Редактор {$userName} подтвердил рецензию на раунде {$round} рецензирования для материала «{$submissionId}».</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}.</source>
+        <target>Рецензент {$reviewerName} завершил рецензию на раунде {$round} рецензирования для материала «{$submissionId}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-awaitingResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for a response from the reviewer.</source>
+        <target>Ожидает ответа от рецензента.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer declined this review request.</source>
+        <target>Рецензент отклонил этот запрос на рецензию.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-responseOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the response due date.</source>
+        <target>Рецензент пропустил срок ответа на запрос.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the review due date.</source>
+        <target>Рецензент пропустил срок предоставления рецензии.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been accepted.</source>
+        <target>Рецензия была принята.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-received">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has submitted their review.</source>
+        <target>Рецензент отправил свою рецензию.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been completed.</source>
+        <target>Рецензирование было завершено.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-thanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete and the reviewer has been thanked for their contribution.</source>
+        <target>Рецензирование завершено и рецензент получил благодарность.</target>
+      </segment>
+    </unit>
+    <unit id="submission-document">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Document</source>
+        <target>Документ</target>
+      </segment>
+    </unit>
+    <unit id="submission-art">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork</source>
+        <target>Изображение</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Content</source>
+        <target>Дополнительный контент</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-creator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Creator (or owner) of file</source>
+        <target>Создатель (или владелец) файла</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Тема</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-publisher">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher</source>
+        <target>Издатель</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor or sponsoring agency</source>
+        <target>Спонсор или автор</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-itemWorkflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to this submission's workflow</source>
+        <target>Перейти к рабочему потоку материала</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionSendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production process started.</source>
+        <target>Начат процесс публикации.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before production process can be initiated. Please add a production editor using the Participants list.</source>
+        <target>Выпускающий редактор должен быть назначен до начала процесса публикации. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before editorial process is initiated. Please add a production editor using the Participants list.</source>
+        <target>Выпускающий редактор должен быть назначен до начала процесса редактирования. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники».</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>Форма рецензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewFormResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Response</source>
+        <target>Ответ на форму рецензии</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewFormElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new review form element</source>
+        <target>Создать новый элемент формы рецензии</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>Редактировать метаданные</target>
+      </segment>
+    </unit>
+    <unit id="submission-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>Права</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachPermissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attach the following permissions to the submission:</source>
+        <target>Добавить следующие права к материалу:</target>
+      </segment>
+    </unit>
+    <unit id="submission-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target>Лицензия</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyright">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright</source>
+        <target>Авторское право</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightHolder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Holder</source>
+        <target>Владелец авторского права</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightYear">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Year</source>
+        <target>Год авторского права</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright (c) {$copyrightYear} {$copyrightHolder}</source>
+        <target>Copyright (c) {$copyrightYear} {$copyrightHolder}</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>Пожалуйста, укажите правильный URL-адрес удаленного сервера (включая http://).</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License URL</source>
+        <target>URL-адрес лицензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-NoDerivatives 4.0</source>
+        <target>CC «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial 4.0</source>
+        <target>CC «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-ShareAlike 4.0</source>
+        <target>CC «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NoDerivatives 4.0</source>
+        <target>CC «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution 4.0</source>
+        <target>CC «Attribution» («Атрибуция») 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-ShareAlike 4.0</source>
+        <target>CC «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">лицензии Creative Commons «Attribution» («Атрибуция») 4.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Лицензия Creative Commons" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>Это произведение доступно по <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Всемирная</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Review Discussions</source>
+        <target>Обсуждения до рецензирования</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Discussions</source>
+        <target>Обсуждения рецензирования</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting Discussions</source>
+        <target>Обсуждения литературного редактирования</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Discussions</source>
+        <target>Обсуждения публикации</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Тема</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-messages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Messages</source>
+        <target>Сообщения</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>Ответы</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>От</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-lastReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Reply</source>
+        <target>Последний ответ</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-closed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Closed</source>
+        <target>Закрыт</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Message</source>
+        <target>Добавить сообщение</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave Discussion</source>
+        <target>Покинуть обсуждение</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you leave this discussion you will no longer be notified of new messages. Would you like to leave the discussion?</source>
+        <target>Если вы покинете это обсуждение, то больше не будете получать уведомления о новых сообщениях. Вы действительно хотите покинуть обсуждение?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-openNoteForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new reply to the discussion</source>
+        <target>Добавить новый ответ в обсуждение</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$responderName} replied to {$noteTitle}: {$noteContents}</source>
+        <target>Пользователь «{$responderName}» ответил на «{$noteTitle}»: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</source>
+        <target>Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-participantTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$fullName}, {$userGroup}</source>
+        <target>{$fullName}, {$userGroup}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-noParticipantOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must assign at least one participant to this submission before initiating a discussion.</source>
+        <target>До начала обсуждения вы должны назначить хотя бы одного участника в этот материал.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-infoCenter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Activity Log & Notes]]></source>
+        <target>Журнал активности и обсуждений</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-empty">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No submissions found.</source>
+        <target>Материалы не найдены.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-responseDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due</source>
+        <target>Срок ответа на запрос</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Assignment</source>
+        <target>Назначение на рецензию</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due</source>
+        <target>Срок сдачи рецензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Рецензия отправлена</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewCancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Cancelled</source>
+        <target>Рецензия отменена</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete submission?</source>
+        <target>Удалить материал?</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-viewSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submission</source>
+        <target>Показать материал</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned reviews completed</source>
+        <target>Завершено назначенных рецензий</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions submitted</source>
+        <target>Отправлено новых версий</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-copyeditsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited files submitted</source>
+        <target>Отправлено файлов, прошедших литературное редактирование</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-galleysCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production galleys created</source>
+        <target>Создано гранок</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-filesPrepared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files prepared</source>
+        <target>Подготовлено файлов</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-discussions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open discussions</source>
+        <target>Открытых обсуждений</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-dualWorkflowLinks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target><![CDATA[Вам назначили несколько ролей для этого материала. Вы хотите воспользоваться <a href="{$urlAuthorWorkflow}">Рабочим потоком автора</a>  или <a href="{$urlEditorialWorkflow}">Рабочим потоком редакции</a>?]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewerWorkflowLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target><![CDATA[Вам назначена роль в редакции для этого материала. Вы хотите воспользоваться <a href="{$urlEditorialWorkflow}">Рабочим потоком редакции</a>?]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-incompleteSubmissionNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This submission must be completed before an editor will review it.</source>
+        <target>Этот материал должен быть завершен до того, как редактор будет его рецензировать.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currently in the {$stage} stage.</source>
+        <target>Сейчас на этапе «{$stage}».</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-assignEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Editor</source>
+        <target>Назначить редактора</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target>Категории</target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (A-Z)</source>
+        <target>Название (А-Я)</target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (Z-A)</source>
+        <target>Название (Я-А)</target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (oldest first)</source>
+        <target>Дата публикации (сначала старые)</target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (newest first)</source>
+        <target>Дата публикации (сначала новые)</target>
+      </segment>
+    </unit>
+    <unit id="category-coverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cover Image</source>
+        <target>Изображение обложки</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-placement-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target>Категории</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentCoverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Image</source>
+        <target>Текущее изображение</target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Nothing has been published in this category yet.</source>
+        <target>В этой категории пока ничего не опубликовано.</target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-subcategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subcategories</source>
+        <target>Подкатегории</target>
+      </segment>
+    </unit>
+    <unit id="submission-publication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication</source>
+        <target>Публикация</target>
+      </segment>
+    </unit>
+    <unit id="publication-citations-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The references have been updated.</source>
+        <target>Ссылки были обновлены.</target>
+      </segment>
+    </unit>
+    <unit id="publication-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributors</source>
+        <target>Авторы</target>
+      </segment>
+    </unit>
+    <unit id="publication-copyrightYearBasis-issueDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright year will be set automatically when this is published in an issue.</source>
+        <target>Дата копирайта будет задана автоматически, когда выпуск будет опубликован.</target>
+      </segment>
+    </unit>
+    <unit id="publication-createVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Version</source>
+        <target>Создать новую версию</target>
+      </segment>
+    </unit>
+    <unit id="publication-datePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Published</source>
+        <target>Дата публикации</target>
+      </segment>
+    </unit>
+    <unit id="publication-editDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This version has been published and can not be edited.</source>
+        <target>Эта версия была опубликована, её нельзя отредактировать.</target>
+      </segment>
+    </unit>
+    <unit id="publication-event-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was published.</source>
+        <target>Материал был опубликован.</target>
+      </segment>
+    </unit>
+    <unit id="publication-event-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was scheduled for publication.</source>
+        <target>Материал запланирован к публикации.</target>
+      </segment>
+    </unit>
+    <unit id="publication-event-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was unpublished.</source>
+        <target>Материал был снят с публикации.</target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was created.</source>
+        <target>Создана новая версия.</target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was published.</source>
+        <target>Опубликована новая версия.</target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionScheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was scheduled for publication.</source>
+        <target>Новая версия запланирована к публикации.</target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A version was removed from publication.</source>
+        <target>Версия была убрана с публикации.</target>
+      </segment>
+    </unit>
+    <unit id="publication-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission for this publication could not be found.</source>
+        <target>Материал для этой публикации не удаётся найти.</target>
+      </segment>
+    </unit>
+    <unit id="publication-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The metadata have been updated.</source>
+        <target>Метаданные были обновлены.</target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Permissions & Disclosure]]></source>
+        <target>Разрешения и соглашения</target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright and license information have been updated.</source>
+        <target>Информация о лицензии и авторском праве была обновлена.</target>
+      </segment>
+    </unit>
+    <unit id="publication-publish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publish</source>
+        <target>Опубликовать</target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-confirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All publication requirements have been met. Are you sure you want to publish this?</source>
+        <target>Все требования к публикации были выполнены. Вы уверены, что хотите опубликовать этот материал?</target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-requirements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following requirements must be met before this can be published.</source>
+        <target>Перед публикацией необходимо выполнить следующие требования.</target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication status has been successfully changed.</source>
+        <target>Статус публикации был успешно изменён.</target>
+      </segment>
+    </unit>
+    <unit id="publication-required-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A declined submission can not be published.</source>
+        <target>Отклонённый материал нельзя опубликовать.</target>
+      </segment>
+    </unit>
+    <unit id="publication-required-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be in the Copyediting or Production stages before it can be published.</source>
+        <target>Перед публикацией материал должен быть на этапе «Литературное редактирование» или «Публикация».</target>
+      </segment>
+    </unit>
+    <unit id="publication-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>Опубликовано</target>
+      </segment>
+    </unit>
+    <unit id="publication-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target>Запланировано</target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublished</source>
+        <target>Снято с публикации</target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unscheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unscheduled</source>
+        <target>Снято с плана</target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Title & Abstract]]></source>
+        <target>Название и аннотация</target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title and abstract have been updated.</source>
+        <target>Название и аннотация были обновлены.</target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublish</source>
+        <target>Снять с публикации</target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this to be published?</source>
+        <target>Вы уверены, что не хотите публиковать этот материал? </target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unschedule</source>
+        <target>Снять с плана</target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this scheduled for publication?</source>
+        <target>Вы уверены, что не хотите запланировать этот материал к публикации?</target>
+      </segment>
+    </unit>
+    <unit id="publication-version-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Versions</source>
+        <target>Все версии</target>
+      </segment>
+    </unit>
+    <unit id="publication-version-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication details for version {$version}</source>
+        <target>Информация о публикации для версии {$version}</target>
+      </segment>
+    </unit>
+    <unit id="publication-wordCountLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long.</source>
+        <target>Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В данный момент её длина {$count} слов.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

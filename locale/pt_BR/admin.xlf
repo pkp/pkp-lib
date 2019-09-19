@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:09-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:09-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="admin-systemInfo-settingName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Setting Name</source>
+        <target>Nome da Configuração</target>
+      </segment>
+    </unit>
+    <unit id="admin-systemInfo-settingValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Setting Value</source>
+        <target>Valor da Configuração</target>
+      </segment>
+    </unit>
+    <unit id="admin-adminFunctions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administrative Functions</source>
+        <target>Funções Administrativas</target>
+      </segment>
+    </unit>
+    <unit id="admin-auth-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this authentication source?</source>
+        <target>Deseja realmente excluir permanentemente esta fonte de autenticação?</target>
+      </segment>
+    </unit>
+    <unit id="admin-auth-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create authentication source</source>
+        <target>Criar fonte de autenticação</target>
+      </segment>
+    </unit>
+    <unit id="admin-auth-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No authentication sources have been defined.</source>
+        <target>Nenhuma fonte de autenticação definida.</target>
+      </segment>
+    </unit>
+    <unit id="admin-authSources">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication Sources</source>
+        <target>Fontes de Autenticação</target>
+      </segment>
+    </unit>
+    <unit id="admin-clearDataCache">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Data Caches</source>
+        <target>Limpar Caches de dados</target>
+      </segment>
+    </unit>
+    <unit id="admin-clearTemplateCache">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Template Cache</source>
+        <target>Limpar Caches de template</target>
+      </segment>
+    </unit>
+    <unit id="admin-configFileUpdatedInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Your configuration file has been successfully updated. Please note that if your site no longer functions correctly you may need to manually fix your configuration by editing <tt>config.inc.php</tt> directly.]]></source>
+        <target><![CDATA[O documento de configuração foi atualizado com sucesso. Caso as alterações incorram em erros no sistema será necessário atualizar manualmente o arquivo <tt>config.inc.php</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="admin-confirmClearTemplateCache">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the cache of compiled templates?</source>
+        <target>Deseja realmente limpar o Cache das templates compiladas?</target>
+      </segment>
+    </unit>
+    <unit id="admin-confirmExpireSessions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to expire all user sessions? All users who are currently logged into the system will be forced to log in again (yourself included).</source>
+        <target>Deseja realmente expirar todas as sessões de todos os usuários? Todos os usuário conectados serão forçados a acessar novamente o sistema (incluindo o usuário atual).</target>
+      </segment>
+    </unit>
+    <unit id="admin-contentsOfConfigFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents of configuration file</source>
+        <target>Conteúdo do arquivo de configuração</target>
+      </segment>
+    </unit>
+    <unit id="admin-contexts-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete {$contextName} and all of its contents?</source>
+        <target>Tem certeza que deseja apagar permanentemente a {$contextName} e todo seu conteudo?</target>
+      </segment>
+    </unit>
+    <unit id="admin-currentVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current version</source>
+        <target>Versão Atual</target>
+      </segment>
+    </unit>
+    <unit id="admin-dateInstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date installed</source>
+        <target>Data de instalação</target>
+      </segment>
+    </unit>
+    <unit id="admin-displayConfigFileInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The contents of your updated configuration are displayed below. To apply the configuration changes you must open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below.]]></source>
+        <target><![CDATA[As configurações atuais são exibidas abaixo. Para alterar as configurações é necessário editar o arquivo <tt>config.inc.php</tt> manualmente em um editor de texto, substituindo-o com o conteúdo do campo a seguir.]]></target>
+      </segment>
+    </unit>
+    <unit id="admin-displayNewSystemConfig">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Display New Configuration</source>
+        <target>Exibir Configuração Atual</target>
+      </segment>
+    </unit>
+    <unit id="admin-expireSessions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expire User Sessions</source>
+        <target>Expirar sessões de usuários</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Locale</source>
+        <target>Baixar idioma</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-downloadLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Locales</source>
+        <target>Baixar idiomas</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-download-cannotOpen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cannot open language descriptor from PKP web site.</source>
+        <target>Não foi possível abrir a descição de idioma do site PKP.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-download-cannotModifyRegistry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cannot add the new locale to the locale registry file, typically "registry/locales.xml".</source>
+        <target>Não foi possível adicionar o novo idioma ao registro de idiomas, normalmente localizado em "registry/locales.xml".</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-cantDisable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This locale is the primary language of the site. You can't disable it until you choose another primary locale.</source>
+        <target>Este idioma é o padrão do site. Você não pode desativá-lo até que escolha outro idioma padrão.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-confirmSitePrimaryLocaleChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to change the site primary locale? Users' names, which are required in the site's primary locale, will be copied from the existing primary locale where they are missing.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-confirmReload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to reload this locale? This will erase any existing locale-specific data such as customized email templates.</source>
+        <target>Deseja realmente recarregar este idioma? A execução irá apagar qualquer informação de idioma específico como customização de e-mails.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installedLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installed Locales</source>
+        <target>Idiomas Instalados</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installLanguages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Locales</source>
+        <target>Administrar idiomas</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-availableLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available Locales</source>
+        <target>Idiomas disponíveis</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install Locale</source>
+        <target>Instalar Idioma</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install</source>
+        <target>Instalar</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-installNewLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install New Locales</source>
+        <target>Instalar Novos Idiomas</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-languageSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language Settings</source>
+        <target>Configurações de Idioma</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-noLocalesAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No additional locales are available for installation.</source>
+        <target>Nenhum idioma adicional disponível para instalação.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-reload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload Locale</source>
+        <target>Recarregar idioma</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-uninstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninstall Locale</source>
+        <target>Desinstalar idioma</target>
+      </segment>
+    </unit>
+    <unit id="admin-phpInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended PHP Information</source>
+        <target>Informações do PHP</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled task</source>
+        <target>Tarefa Agendada</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-startTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task process started.</source>
+        <target>Iniciada tarefa agendada.</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-stopTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task process stopped.</source>
+        <target>Tarefa agendada parou.</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-noLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task produced no log.</source>
+        <target>Tarefa não produziu log.</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-downloadLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your {$softwareName} installation automatically executed and finished this task and you can download the log file here: {$url}</source>
+        <target>Sua instalação {$softwareName} executou automaticamente e finalizou esta tarefa. Você pode baixar o arquivo de registros (logs) aqui: {$url}</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-confirmClearLogs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete all scheduled task execution logs?</source>
+        <target>Você tem certeza de que deseja excluir todos os registros de execução de tarefas agendadas?</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-clearLogs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Scheduled Task Execution Logs</source>
+        <target>Limpar Registros (logs) de Tarefas Agendadas</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-reviewReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review reminder</source>
+        <target>Lembrete de avaliador</target>
+      </segment>
+    </unit>
+    <unit id="admin-scheduledTask-subscriptionExpiryReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subscription expiry reminder</source>
+        <target>Lembrete de expiração de assinatura.</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-apacheVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apache version</source>
+        <target>Versão do Apache</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-dbDriver">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database driver</source>
+        <target>Driver da base de dados</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-dbVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database server version</source>
+        <target>Versão do servidor de base de dados</target>
+      </segment>
+    </unit>
+    <unit id="admin-serverInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Server Information</source>
+        <target>Informações do servidor</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-phpVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PHP version</source>
+        <target>Versão do PHP</target>
+      </segment>
+    </unit>
+    <unit id="admin-server-platform">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OS platform</source>
+        <target>Sistema Operacional</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Configurações</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-about">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About the Site</source>
+        <target>Descrição sobre o Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-contactEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email of principal contact</source>
+        <target>E-mail do Contato Principal</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-contactName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name of principal contact</source>
+        <target>Nome do contato principal</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-defaultMetricDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>
+		Your installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</source>
+        <target>
+		Sua instalação está configurada para gravar mais de uma métrica de uso. Estatísticas de uso serão mostradas de diferentes modos.
+		Existem casos onde uma única estatística de uso deve ser usada, por exemplo: para mostrar uma lista ordenada das submissões mais usadas
+		ou para rankear resultados de busca. Por favor selecione uma das métricas configuradas como padrão.
+	</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-introduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Introduction</source>
+        <target>Introdução</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-minPasswordLength">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Minimum password length (characters)</source>
+        <target>Tamanho mínimo de senha</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteLanguage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site language</source>
+        <target>Idioma do Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteStyleSheetInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid site style sheet format. Accepted format is .css.</source>
+        <target>Formato de folha de estilo inválido. Formato aceitável é .css. Verifique as configuração de mime_type, permissões e dono de pasta.</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteStyleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site style sheet</source>
+        <target>Folha de Estilos do Portal (CSS)</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteLogo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Logo</source>
+        <target>Logotipo do Site</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Name</source>
+        <target>Título do Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-settings-siteTheme">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Theme</source>
+        <target>Tema do Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administration</source>
+        <target>Administração do Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Management</source>
+        <target>Administração do Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Settings</source>
+        <target>Configurações do Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-siteSetup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Setup</source>
+        <target>Configuração do Portal</target>
+      </segment>
+    </unit>
+    <unit id="admin-systemConfigFileReadError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist, is not readable, or is invalid.]]></source>
+        <target><![CDATA[O documento de configuração <tt>config.inc.php</tt> não existe, não possui permissão de leitura ou está corrompido.]]></target>
+      </segment>
+    </unit>
+    <unit id="admin-systemInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System Information</source>
+        <target>Informações sobre o Sistema</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionBuild">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Build</source>
+        <target>Construção</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-checkForUpdates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Check for updates</source>
+        <target>Buscar atualizações</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-downloadPackage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download</source>
+        <target>Baixar</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-downloadPatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Patch</source>
+        <target>Baixar atualização (Patch)</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Version history</source>
+        <target>Histórico de versões</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-latest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest version</source>
+        <target>Última versão</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionMajor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Major</source>
+        <target>Maior</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionMinor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Minor</source>
+        <target>Menor</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-moreInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Information</source>
+        <target>Detalhar</target>
+      </segment>
+    </unit>
+    <unit id="admin-versionRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision</source>
+        <target>Revisão</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-updateAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An updated version is available</source>
+        <target>Uma versão atualizada está disponível</target>
+      </segment>
+    </unit>
+    <unit id="admin-version-upToDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your system is up-to-date</source>
+        <target>O sistema está atualizado</target>
+      </segment>
+    </unit>
+    <unit id="admin-version">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Versão</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-wrongBasePathLocation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Base path {$path} must be inside the public files directory.</source>
+        <target>O caminho base {$path} deve estar dentro do diretório de arquivos públicos.</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-pathNotAccessible">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Folder {$path} is not a directory or is not readable.</source>
+        <target>O diretório {$path} não é um diretório ou não é acessível.</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-moveFileFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}</source>
+        <target>O arquivo {$filename} não pôde ser movido de {$currentFilePath} para {$destinationPath}</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-fileProcessed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File {$filename} was processed and archived.</source>
+        <target>O arquivo {$filename} foi processado e arquivado.</target>
+      </segment>
+    </unit>
+    <unit id="admin-fileLoader-emailSubject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File loader</source>
+        <target>Carregador de arquivo</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-usage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy the passed apache access log file(s), filtering the entries related with this installation,
+to the current files directory, inside the UsageStatsPlugin stage directory. Must run under user with enough privilegies to read access apache log files.
+
+This tool will only copy files that aren't already inside the usageStats file loader directories (stage, processing, archive, reject).
+
+Usage: {$scriptName} path/to/apache/log/file.log
+Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory
+	</source>
+        <target>Copia o(s) arquivo(s) de log do apache repassado(s), filtrando as entradas relacionadas a este portal,
+para o diretório de arquivos atual, dentro do diretório stage do UsageStatsPlugin. Deve ser executado por um usuário com permissão para ler os logs do apache.
+
+Esta ferramenta irá apenas copiar os arquivos que já não estão dentro dos diretórios do usageStats (stage, processing, archive, reject).
+
+Uso: {$scriptName} caminho/para/arquivo/de/log/doapache.log
+Uso (processando todos os arquivos dentro de um diretório): {$scriptName} caminho/para/diretório/doapache
+	</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-creatingFolder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't create temporary folder {$tmpDir}</source>
+        <target>Erro: não foi possível criar a pasta temporária {$tmpDir}</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-acessingFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: File {$filePath} don't exist or can't be accessed.</source>
+        <target>Erro: Arquivo {$filePath} não existe ou não pode ser acessado.</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-copyingFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't copy file from {$filePath} to {$tmpFilePath}</source>
+        <target>Erro: não foi possível copiar o arquivo {$filePath} para {$tmpFilePath}</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-error-deletingFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't delete file {$tmpFilePath}</source>
+        <target>Erro: não foi possível apagar o arquivo {$tmpFilePath}</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-warning-fileAlreadyExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning: file {$filePath} already exists inside the usage stats directory.</source>
+        <target>Aviso: o arquivo {$filePath} já existe dentro do diretório de estatísticas de uso.</target>
+      </segment>
+    </unit>
+    <unit id="admin-copyAccessLogFileTool-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Success: {$filePath} to {$destinationPath}</source>
+        <target>Sucesso: {$filePath} para {$destinationPath}</target>
+      </segment>
+    </unit>
+    <unit id="admin-error-utilExecutionProblem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The "{$utilPath}" program execution returned the following error: {$output}</source>
+        <target>"{$utilPath}" retornou o seguinte erro após executado: {$output}</target>
+      </segment>
+    </unit>
+    <unit id="admin-error-executingUtil">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error: can't execute "{$utilPath}".  Check your {$utilVar} setting in config.inc.php.</source>
+        <target>Erro: não foi possível executar "{$utilPath}".  Cheque a configuração de {$utilVar} em config.inc.php.</target>
+      </segment>
+    </unit>
+    <unit id="admin-languages-noLocalesToDownload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no locales available for download.</source>
+        <target>Sem idiomas disponíveis para download.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

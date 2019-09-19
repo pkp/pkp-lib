@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:11-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:11-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="reviewer-reviewSteps-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>1. Request</source>
+        <target>1. Pedido</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>2. Guidelines</source>
+        <target>2. Directrizes</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[3. Download & Review]]></source>
+        <target><![CDATA[3. Download & Revisão]]></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-completion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>4. Completion</source>
+        <target>4. Conclusão</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request for Review</source>
+        <target>Pedido para Revisão</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-requestBoilerplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been selected as a potential reviewer of the following submission.  Below is an overview of the submission, as well as the timeline for this review.  We hope that you are able to participate.</source>
+        <target>Foi seleccionado(a) como um revisor potencial do seguinte artigo. Abaixo está uma visão geral da submissão, bem como a linha de tempo para esta revisão. Esperamos que possa participar nesta tarefa!</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-viewAllDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View All Submission Details</source>
+        <target>Ver Todos Detalhes Artigo</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewerFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Files</source>
+        <target>Ficheiros para Revisão</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-declineReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline Review Request</source>
+        <target>Recusar Pedido Revisão</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-declineReviewMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You may provide the editor with any reasons why you are declining this review in the field below.</source>
+        <target>Pode fornecer ao Editor os motivos da recusa desta revisão no campo abaixo.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-acceptReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept Review, Continue to Step #2</source>
+        <target>Aceitar Revisão, Avançar para Passo #2</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-continueToStepThree">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue to Step #3</source>
+        <target>Continuar para Passo #3</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-submitReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit Review</source>
+        <target>Enviar Revisão</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewerGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Guidelines</source>
+        <target>Directrizes Revisão</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-enterCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This publisher has a policy for disclosure of potential competing interests from its reviewers.  Please take a moment to review this policy.</source>
+        <target>Este Editor tem uma política de divulgação de potenciais interesses concorrentes dos seus revisores. Por favor, tome algum do seu tempo para avaliar esta política.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-noCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>I do not have any competing interests</source>
+        <target>Não tenho interesses concorrentes</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-hasCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>I may have competing interests (Specify below)</source>
+        <target>Posso ter interesses concorrentes (especificar abaixo)</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-competingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Competing Interests</source>
+        <target>Interesses concorrentes</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Guidelines</source>
+        <target>Directrizes Revisão</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-noGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This publisher has not set any reviewer guidelines.</source>
+        <target>Este Editor ainda não definiu as directrizes de revisão.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-downloadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Click on the file names below to download the files associated with this submission.</source>
+        <target>Clique nos nomes dos ficheiros abaixo para fazer download de todos os ficheiros associados a esta submissão.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter (or paste) your review of this submission into the form below.</source>
+        <target>Insira (ou cole) a sua revisão deste artigo no formulário abaixo.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-uploadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload files you would like the editor and/or author to consult, including revised versions of the original review file(s).</source>
+        <target>Faça upload de ficheiros que gostaria que o Editor e/ou autor consultassem, incluindo versões revistas do(s) ficheiro (s) original.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Revisão Enviada</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-confirmSubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to submit this review?</source>
+        <target>Tem certeza de que deseja enviar esta revisão?</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-complete-whatNext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for completing the review of this submission. Your review has been submitted successfully. We appreciate your contribution to the quality of the work that we publish; the editor may contact you again for more information if needed.</source>
+        <target>Obrigado por concluirs a revisão deste artigo. A sua revisão foi enviada com sucesso. Agradecemos a sua contribuição para a qualidade do trabalho que publicamos; O Editor pode contatá-lo novamente para obter mais informações, se necessário.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-aboutDueDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About Due Dates</source>
+        <target>Sobre Prazos</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-aboutDueDates-text">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The editor asks that you either accept or decline the review before the Response Due Date and complete the review by the Review Due Date.</source>
+        <target>O Editor pede que aceite ou recuse a revisão antes da data de resposta devida e conclua a revisão até à data de devolução da revisão.</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-canShareWithAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For author and editor</source>
+        <target>Para o autor e Editor</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-cannotShareWithAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For editor only</source>
+        <target>Apenas para o Editor</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not assigned as a reviewer for the requested document.</source>
+        <target>O utilizador actual não foi designado como revisor para o artigo solicitado.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:15-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:15-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="reviewer-reviewSteps-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>1. Request</source>
+        <target>1. Захтев</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>2. Guidelines</source>
+        <target>2. Упутства</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[3. Download & Review]]></source>
+        <target>3. Преузми и уради рецензију</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-completion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>4. Completion</source>
+        <target>4. Завршетак</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request for Review</source>
+        <target>Захтев за рецензирање</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-requestBoilerplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been selected as a potential reviewer of the following submission.  Below is an overview of the submission, as well as the timeline for this review.  We hope that you are able to participate.</source>
+        <target>Одабрани сте као потенцијални рецензент за следећи рад. Ниже се налази преглед предаје као и рокови за завршетак рецензије. Надамо се Вашем доприносу.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-viewAllDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View All Submission Details</source>
+        <target>Погледај све детаље предаје</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewerFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Files</source>
+        <target>Рецензентски фајлови</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-declineReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline Review Request</source>
+        <target>Добиј захтев за рецензирање</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-declineReviewMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You may provide the editor with any reasons why you are declining this review in the field below.</source>
+        <target>У пољу ниже можете навести разлоге одбијања рецензирања и послати их уреднику.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-acceptReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept Review, Continue to Step #2</source>
+        <target>Прихвати захтев и пређи на 2. корак</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-continueToStepThree">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue to Step #3</source>
+        <target>Настави на 3. корак</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-submitReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit Review</source>
+        <target>Пошаљи рецензију</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewerGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Guidelines</source>
+        <target>Упутства за рецензенте</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-enterCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This publisher has a policy for disclosure of potential competing interests from its reviewers.  Please take a moment to review this policy.</source>
+        <target>Овај издавач има политику обелодањивања потенцијалних сукоба интереса рецензената. Молимо идзвојите мало времена и прочитајте.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-noCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>I do not have any competing interests</source>
+        <target>Немам сукоба интереса</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-hasCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>I may have competing interests (Specify below)</source>
+        <target>Можда имам сукоба интереса (наведите ниже)</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-competingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Competing Interests</source>
+        <target>Сукоби интереса</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Guidelines</source>
+        <target>Упутства за рецензирање</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-noGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This publisher has not set any reviewer guidelines.</source>
+        <target>Издавач није дао упутства за рецензирање.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-downloadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Click on the file names below to download the files associated with this submission.</source>
+        <target>Кликните на имена докумената који су везани за пријаву да бисте их преузели на ваш рачунар.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter (or paste) your review of this submission into the form below.</source>
+        <target>Упиштите или копирајте вашу рецензију у форму ниже.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-uploadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload files you would like the editor and/or author to consult, including revised versions of the original review file(s).</source>
+        <target>Доставите документе које би желели да уредник и/или аутор консултују, укључујући и ревидиране верзије рецензентских фајлова.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Рецензија је послата</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-confirmSubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to submit this review?</source>
+        <target>Да ли сте сигурни да желите да пошаљете ову рецензију?</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-complete-whatNext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for completing the review of this submission. Your review has been submitted successfully. We appreciate your contribution to the quality of the work that we publish; the editor may contact you again for more information if needed.</source>
+        <target>Хвала Вам што сте урадили рецензију за овај рад. Ваша рецензија је успешно послата, захваљујемо Вам се на доприносу квалитету радова које објављујемо. Уколико буде потребно уредни ће вас контактирати за додатне информације.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-aboutDueDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About Due Dates</source>
+        <target>О роковима</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-aboutDueDates-text">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The editor asks that you either accept or decline the review before the Response Due Date and complete the review by the Review Due Date.</source>
+        <target>Уредник захтева да или прихватие или одбијете рецензирање пре истека рока за одговор и завршите рецензију до истека рока за рецензирање</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-canShareWithAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For author and editor</source>
+        <target>За уредника и аутора</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-cannotShareWithAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For editor only</source>
+        <target>Само за уредника</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not assigned as a reviewer for the requested document.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

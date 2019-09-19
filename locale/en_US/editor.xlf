@@ -9,17 +9,26 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:45-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:45-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:57-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:57-07:00</note>
       <note id="Language"></note>
     </notes>
+    <unit id="editor-activityLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activity Log</source>
+        <target>Activity Log</target>
+      </segment>
+    </unit>
     <unit id="editor-submissionLibrary">
       <notes>
         <note category="context"></note>
       </notes>
       <segment>
-        <source>Submission Library</source>
-        <target>Submission Library</target>
+        <source>Library</source>
+        <target>Library</target>
       </segment>
     </unit>
     <unit id="editor-review-notInitiated">
@@ -587,6 +596,15 @@
       <segment>
         <source>Review Submitted</source>
         <target>Review Submitted</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerThanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Thanked</source>
+        <target>Reviewer Thanked</target>
       </segment>
     </unit>
     <unit id="editor-review-reviewerComments">

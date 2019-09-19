@@ -1,0 +1,5696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:00-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:00-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="author-editPublishedDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors of this publication can not be edited because it has already been published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="author-publicationNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication for this author could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="author-submit-submissionCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</source>
+        <target>لیست مرتب شده‌ای از مراجع بکار رفته در این مقاله ارسالی را وارد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="author-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted and are being considered by the editor.</source>
+        <target>داوری جدید ثبت شده و توسط سردبیر بررسی خواهد شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-confirm-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</source>
+        <target>مقاله ی شما با موفقیت بر روی این سامانه بارگذاری گردیده و آماده ی ارسال میباشد . شما میتوانید قبل از عبور از این مرحله برای بازنگری یا اصلاح موارد وارد شده به مراحل قبلی بازگردید</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroups">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit As</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroupsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the role that best describes your contribution to this submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corresponding Contact</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsentDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be contacted about this submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-userGroupDescriptionManagers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit in any of the following roles if you would like to be able to edit and publish this submission yourself: {$managerGroups}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Requirements</source>
+        <target>موارد ضروری برای ارسال</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklistDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must read and acknowledge that you've completed the requirements below before proceeding.</source>
+        <target>قبل از ورود به قسمت های بعدی نسبت به موارد زیر اطمینان حاصل کنید</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission complete</source>
+        <target>ثبت مقاله تکمیل شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionCompleteThanks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for your interest in publishing with {$contextName}.</source>
+        <target>ممنونیم که در {$contextName} مقاله خود را ثبت نمودید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgreementLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge the copyright statement</source>
+        <target>قوانین و شرایط ثبت</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgree">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I agree to abide by the terms of the copyright statement.</source>
+        <target>تمامی شرایط را میپذیرم</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>What Happens Next?</source>
+        <target>برای ادامه ؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-forNow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For now, you can:</source>
+        <target>شما می توانید:</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review this submission</source>
+        <target>وضعیت مقاله ثبت شده را مرور کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new submission</source>
+        <target>مقاله جدیدی ثبت کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-return">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Return to your dashboard</source>
+        <target>به داشبورد برگردید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-extendedMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended Metadata</source>
+        <target>فراداده ها را گسترش دهید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CrossRef Registration Email</source>
+        <target>ایمیل ثبت‌نام CrossRef</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CrossRef registration email. You can register your email for free on the CrossRef web site.</source>
+        <target>لطفاً ایمیل ثبت‌نام   CrossRef   معتبری را وارد کنید. می تونید با ایمیل خود به رایگان در وب‌سایت  CrossRef  ثبت‌نام کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBNdb API Key</source>
+        <target>کلید ISBNdb API</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter your ISBNdb API key. If you don't have a key yet you can request one for free from the ISBNdb project.</source>
+        <target>لطفاً کلید   ISBNdb API  خود را وارد کنید. اگر ندارید می‌توانید به رایگان آن را از پروژه  ISBNdb  درخواست کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PubMed Registration Email</source>
+        <target>ایمیل ثبت‌نام PubMed</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PubMed registration email if you have one.</source>
+        <target>لطفاً ایمیل ثبت‌نام PubMed معتبری را در صورتی که دارید وارد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>WorldCat API Key</source>
+        <target>کلید WorldCat API</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid WorldCat API key if you have one.</source>
+        <target>لطفاً کلید معتبر WorldCat API معتبری را در صورتی که دارید وارد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Citation Module</source>
+        <target>ماژول ارجاعات</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select one of the given citation modules.</source>
+        <target>لطفاً یکی از ماژول‌های ارجاعات ارائه شده را انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Don't use by default (will still be available to the editor)</source>
+        <target>به‌صورت پیش‌فرض به کار برده نشود. (البته در دسترس سردبیر خواهد بود)</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal error. A non-valid value has been posted for the 'optional filter' setting. Please report this as a bug.</source>
+        <target>خطای داخلی. یک مقدار غیر معتبر برای «فیلتر اختیاری» ارسال شده است. لطفاً این را به عنوان باگ گزارش کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>نویسندگان</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>برای حصول بهترین نتیجه نویسندگان را با فرمت زیر وارد کنید  Coleman Jr, D. (Ralf) Dr</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>دبیران</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, editors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>برای حصول بهترین نتیجه نام دبیران را با فرمت زیر وارد کنید  Coleman Jr, D. (Ralf) Dr</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Article/Paper Title</source>
+        <target>عنوان مقاله</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid article/paper title.</source>
+        <target>لطفاً عنوان مقاله معتبری را وارد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Title</source>
+        <target>عنوان مجله/کتاب</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication title.</source>
+        <target>لطفاً عنوان مجله / کتاب را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Date</source>
+        <target>تاریخ چاپ</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication date (format: YYYY-MM-DD).</source>
+        <target>لطفاً تاریخ چاپ را وارد کنید: YYYY-MM-DD</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access Date</source>
+        <target>تاریخ دسترسی</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid access date (format: YYYY-MM-DD).</source>
+        <target>لطفاً تاریخ دسترسی را وارد کنید: YYYY-MM-DD</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue</source>
+        <target>شماره مجله</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid issue.</source>
+        <target>لطفاً شماره مجله را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Volume</source>
+        <target>دوره</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid volume.</source>
+        <target>لطفاً دوره را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Season</source>
+        <target>فصل</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid season identifier.</source>
+        <target>لطفاً فصل را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Chapter Title</source>
+        <target>عنوان فصل</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid chapter title.</source>
+        <target>لطفاً عنوان فصل را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edition</source>
+        <target>شماره ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid edition.</source>
+        <target>لطفاً شماره ویرایش را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Series</source>
+        <target>سری‌ها</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid series.</source>
+        <target>لطفاً شماره سری را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplement</source>
+        <target>ویژه‌نامه</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid supplement.</source>
+        <target>لطفاً ویژه نامه را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Date</source>
+        <target>تاریخ کنفرانس</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference date (format: YYYY-MM-DD).</source>
+        <target>لطفاً تاریخ کنفرانس را وارد کنید: YYYY-MM-DD</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Location</source>
+        <target>محل کنفرانس</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference location.</source>
+        <target>لطفاً محل کنفرانس را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Name</source>
+        <target>نام کنفرانس</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference name.</source>
+        <target>لطفاً نام کنفرانس را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Sponsor</source>
+        <target>حامی کنفرانس</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference sponsor.</source>
+        <target>لطفاً حامی کنفرانس را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>موسسه</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid institution.</source>
+        <target>لطفاً موسسه را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>First Page</source>
+        <target>صفحه شروع</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid first page (must be a numeric value).</source>
+        <target>لطفاً صفحه شروع را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Page</source>
+        <target>صفحه پایان</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid last page (must be a numeric value).</source>
+        <target>لطفاً صفحه پایان را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of Pages</source>
+        <target>تعداد صفحات</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid total number of pages (must be a numeric value).</source>
+        <target>لطفاً تعداد صفحات را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Location</source>
+        <target>محل ناشر</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher location.</source>
+        <target>لطفاً محل ناشر را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Name</source>
+        <target>نام ناشر</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher name.</source>
+        <target>لطفاً نام ناشر را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBN</source>
+        <target>شابک</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid ISBN (9 or 13 numbers).</source>
+        <target>لطفاً شاپا را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Print ISSN</source>
+        <target>شاپا چاپی</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid Print ISSN.</source>
+        <target>لطفاً شاپا چاپی را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>eISSN</source>
+        <target>شاپا الکترونیکی</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid eISSN.</source>
+        <target>لطفاً شاپا الکترونیکی را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target>DOI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid DOI.</source>
+        <target>لطفاً DOI را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Publication ID</source>
+        <target>شناسه نشر سفارشی</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid custom publication ID.</source>
+        <target>لطفاً شناسه محلی چاپ را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CODEN</source>
+        <target>CODEN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CODEN.</source>
+        <target>لطفاً CODEN را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SICI</source>
+        <target>SICI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid SICI.</source>
+        <target>لطفاً SICI را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PMID</source>
+        <target>PMID</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PMID.</source>
+        <target>لطفاً PMID را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the Publication</source>
+        <target>لینک به چاپ</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid alternative link to the publication.</source>
+        <target>لطفاً لینک به صفحه چاپ را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comment</source>
+        <target>نظرات</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid comment.</source>
+        <target>لطفاً توضیح را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Annotation</source>
+        <target>یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid annotation.</source>
+        <target>لطفاً یادداشت را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Type</source>
+        <target>نوع نشر</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you always set a publication type. Currently supported values are book (for books or book chapters) and journal (for journal articles). Otherwise the citation output formatting will not work correctly.</source>
+        <target>لطفاً مطمئن شوید که نوع نشر را تنظیم کرده‌اید. گزینه‌های ممکن عبارتند از: کتاب و مجله. در غیر این صورت فرمت خروجی ارجاع صحیح نخواهد بود.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title Type</source>
+        <target>نوع عنوان</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid title type. Supported values are 'abbreviated', 'translated', 'alternative' and 'uniform'.</source>
+        <target>لطفاً یک نوع عنوان معتبر وارد کنید، که می‌تواند شامل: "خلاصه"، "ترجمه"، "جایگزین" و یا "یکنواخت" باشد.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part of title ignored while sorting</source>
+        <target>قسمتی از عنوان که در زمان مرتب‌سازی نادیده گرفته می‌شود.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please only enter the initial characters of the title that should be ignored when sorting the title.</source>
+        <target>لطفاً تنها کاراکترهای آغازین عنوان را که در زمان مرتب‌سازی بایستی نادیده گرفته شوند وارد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid title.</source>
+        <target>لطفاً یک عنوان معتبر وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subtitle</source>
+        <target>زیر عنوان</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid subtitle.</source>
+        <target>لطفاً یک زیر عنوان معتبر وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Number</source>
+        <target>شماره قطعه</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part number.</source>
+        <target>لطفاً یک شماره قطعه معتبر وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Name</source>
+        <target>نام قطعه</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part name.</source>
+        <target>لطفاً یک نام قطعه معتبر وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name Type</source>
+        <target>نوع نام</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</source>
+        <target>یک نوع برای نام خود وارد کنید. این نوع می‌تواند: "حقیقی"، "سازمانی" یا "کنفرانس" باشد</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>انتساب نشده</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-myAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Assigned</source>
+        <target>انتساب شده برای من</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsArchived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived Submissions</source>
+        <target>بایگانی مقالات ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>نویسنده ی مقاله</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biography</source>
+        <target>بیوگرافی نویسنده</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiographies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biographies</source>
+        <target>بیوگرافی نویسندگان</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorWithAffiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name}, {$affiliation}</source>
+        <target>{$name}, {$affiliation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-shortAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$author} et al.</source>
+        <target>{$author} و سایر همکاران.</target>
+      </segment>
+    </unit>
+    <unit id="submission-mySubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Authored</source>
+        <target>نوشته های من</target>
+      </segment>
+    </unit>
+    <unit id="submission-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>اضافه کردن فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-agencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Agencies</source>
+        <target>آژانسها</target>
+      </segment>
+    </unit>
+    <unit id="submission-abstractViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract Views</source>
+        <target>مشاهده چکیده</target>
+      </segment>
+    </unit>
+    <unit id="submission-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accepted</source>
+        <target>پذیرش</target>
+      </segment>
+    </unit>
+    <unit id="submission-acknowledge">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge</source>
+        <target>تشکر</target>
+      </segment>
+    </unit>
+    <unit id="submission-addSuppFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Supplementary File</source>
+        <target>اضافه کردن فایل مکمل</target>
+      </segment>
+    </unit>
+    <unit id="submission-ask">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask</source>
+        <target>درخواست</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attached file</source>
+        <target>فایل ضمیمه</target>
+      </segment>
+    </unit>
+    <unit id="submission-backToSubmissionEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Submission Editing</source>
+        <target>بازگشت به صفحه ویرایش مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change to</source>
+        <target>تغییر بده به</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change File</source>
+        <target>تغییر فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>References</source>
+        <target>مراجع</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each reference on a new line so that they can be extracted and recorded separately.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extracted References</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-DOI">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following references have been extracted and will be linked to the submission metadata.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedAndSaveCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extract and Save References</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Comment</source>
+        <target>اضافه کردن نقطه نظر</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-comments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comments</source>
+        <target>نظرات</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you would like to delete this comment?</source>
+        <target>آیا میخواهید این نظر را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-corrections">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corrections</source>
+        <target>اصلاحات</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-editComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Comment</source>
+        <target>ویرایش نقطه نظر</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import Peer Reviews</source>
+        <target>درج نظرات داوران</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Reviews to Email</source>
+        <target>افزودن داوری به ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews-reviewerLetter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer {$reviewerLetter}:</source>
+        <target>داور {$reviewerLetter}:</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Comments</source>
+        <target>هیچ اظهار نظری نیست</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Reviews</source>
+        <target>فاقد داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-sendDecisionToReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Reviewers editorial decision</source>
+        <target>ارسال تصمیم داوران</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>موضوع</target>
+      </segment>
+    </unit>
+    <unit id="submission-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Complete</source>
+        <target>کامل</target>
+      </segment>
+    </unit>
+    <unit id="submission-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List of Contributors</source>
+        <target>لیست پدید آورندگان</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyedited">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited</source>
+        <target>ویراستاری شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyediting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>ویراستاری</target>
+      </segment>
+    </unit>
+    <unit id="submission-queryNoteFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion Files</source>
+        <target>فایل بررسی</target>
+      </segment>
+    </unit>
+    <unit id="submission-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage Information</source>
+        <target>اطلاعات پوشش داده شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Done</source>
+        <target>انجام شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-dueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due Date</source>
+        <target>مهلت</target>
+      </segment>
+    </unit>
+    <unit id="submission-due">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due</source>
+        <target>مهلت</target>
+      </segment>
+    </unit>
+    <unit id="submission-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editing</source>
+        <target>ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="submission-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>ویرایش فراداده</target>
+      </segment>
+    </unit>
+    <unit id="submission-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>ویرایش شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-backToEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Email Log</source>
+        <target>بازگشت به سوابق ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the email log for this submission?</source>
+        <target>آیا میخواهید سوابق ایمیل این مقاله ارسالی را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email log entry?</source>
+        <target>آیا میخواهید این سابقه ایمیل را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>حذف سابقه</target>
+      </segment>
+    </unit>
+    <unit id="submission-emailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>سوابق ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name} ({$username}) was assigned to this submission as a {$userGroupName}.</source>
+        <target>{$name} به این مقاله به عنوان {$userGroupName} انتساب داده شدند  .</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantRemoved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) is removed as a {$userGroupName}.</source>
+        <target>«{$name}» ({$username}) به عنوان یک {$userGroupName} حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-backToEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Event Log</source>
+        <target>بازگشت به سابقه رویدادها</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the event log for this submission?</source>
+        <target>آیا میخواهید سوابق رویدادهای این مقاله ارسال را حذف کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this event log entry?</source>
+        <target>آیا میخواهید این سابقه رویداد را از لیست حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>حذف سابقه</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-submissionSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial submission completed.</source>
+        <target>مقاله اراسل شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileRevised">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision "{$name}" (file ID {$fileId}-{$fileRevision}) was uploaded.</source>
+        <target>اصلاحات "{$name}" (با شناسه فایل {$fileId}-{$fileRevision}) آپلود شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-metadataUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata updated</source>
+        <target>فراداده ارسال شده به روز رسانی شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-suppFileUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission file updated</source>
+        <target>فایل ارسال شده به روز رسانی شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAcceptedByProxy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted by proxy</source>
+        <target>داوری به وسیله پروکسی مورد قبول واقع شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted</source>
+        <target>انجام داوری مورد قبول واقع شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDeclined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment declined</source>
+        <target>از انجام داوری خود داری شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review due date modified</source>
+        <target>مهلت داوری تعیین شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer assigned to submission</source>
+        <target>داور تعیین شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerRated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating submitted</source>
+        <target>تخصیص امتیاز به داور</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer unassigned from submission</source>
+        <target>داور تعیین شده لغو شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review file updated</source>
+        <target>نسخه داوری به روز رسانی شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment initiated</source>
+        <target>داوری آغاز شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review recommendation file</source>
+        <target>نظرات داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewReinitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment reinitiated</source>
+        <target>داوری دوباره از سرگرفته شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review resubmitted</source>
+        <target>داوری دوباره اغاز شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer revisions file updated</source>
+        <target>نسخه داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-subjectPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email has been sent:</source>
+        <target>یک ایمیل ارسال شده است</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-viewEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Email</source>
+        <target>نمایش ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-addedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now allowed to edit metadata when submission in stage {stage}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-event-removedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now not allowed to edit metadata when submission in stage {stage}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>فایل ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-files-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download All Files</source>
+        <target>دانلود همه ی فایل ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-galley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley</source>
+        <target>کلیشه چاپی</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-clearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Log</source>
+        <target>پاک کردن سوابق</target>
+      </segment>
+    </unit>
+    <unit id="submission-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>سوابق</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-noLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No log entries.</source>
+        <target>هیج سابقه ای وجود ندارد</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-recentLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recent Entries</source>
+        <target>سوابق اخیر</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>سوابق ایمیل ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Event Log</source>
+        <target>سوابق رویدادها</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>یاداشتهای ارسال شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-viewLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Log</source>
+        <target>مشاهده سوابق</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How to Cite</source>
+        <target>ارجاع به مقاله</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-citationFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Citation Formats</source>
+        <target>شیوه ی ارجاع دهی</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-downloadCitation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Citation</source>
+        <target>دانلود ارجاعات</target>
+      </segment>
+    </unit>
+    <unit id="submission-initiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initiated</source>
+        <target>آغاز پردازش</target>
+      </segment>
+    </unit>
+    <unit id="submission-identifiers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identifiers</source>
+        <target>شناسه ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-publisherId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public URL identifier</source>
+        <target>شناسه عمومی URL</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-submissionInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>اطلاعات مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata</source>
+        <target>فراداده</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>سوابق</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history-allEvents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show events from prior versions</source>
+        <target>رخدادهای نسخه های قبلی را نیز نمایش بده</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageParticipants-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify</source>
+        <target>اطلاع‌رسانی</target>
+      </segment>
+    </unit>
+    <unit id="submission-lastModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last modified</source>
+        <target>تاریخ آخرین تغییر در وضعیت</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-addGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Layout Galley</source>
+        <target>افزودن کلیشه چاپی</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this galley?</source>
+        <target>آیا میخواهید برای همیشه این کلیشه چاپی را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalleyImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to remove this image from the galley?</source>
+        <target>آیا میخواهید این تصویر را از این کلیشه چاپی حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this supplementary file?</source>
+        <target>آیا میخواهید برای همیشه این فایل مکمل را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-deleteGalleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this style sheet.</source>
+        <target>حذف این استایل شیت</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-editGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a Layout Galley</source>
+        <target>ویرایش کلیشه چاپی</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyFormat">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Format</source>
+        <target>فرمت کلیشه چاپی</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyHTMLData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML Galley Files</source>
+        <target>فایل های کلیشه چاپی  HTML</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Images</source>
+        <target>تصاویر</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Label</source>
+        <target>برچسب کلیشه چاپی</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Typically used to identify the file format (e.g. PDF, HTML, etc.).</source>
+        <target>برچسب کلیشه چاپی برای شناسایی فرمت فایل میباشد. مانند  HTML, PDF</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley label is required.</source>
+        <target>برچسبی برای این کلیشه چاپی لازم است</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLanguageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley language is required.</source>
+        <target>زبان کلیشه چاپی می بایست مشخص شود</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLocaleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley locale is required.</source>
+        <target>زبان کلیشه چاپی می بایست مشخص شود</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>آدرس اینترنتی</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>لطفاً یک آدرس اینترنتی صحیح وارد کنید (شامل http://).</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyNoImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No images</source>
+        <target>فاقد تصویر</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galleys</source>
+        <target>کلیشه های چاپی</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stylesheet File</source>
+        <target>فایل استایل شیت</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStyle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Style</source>
+        <target>استایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-initialGalleyCreation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial Galley Creation</source>
+        <target>ایجاد کلیشه چاپی اولیه</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout File</source>
+        <target>فایل صفحه‌آرا</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout</source>
+        <target> صفحه‌آرایی</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Version</source>
+        <target>نسخه صفحه‌آرا</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Galley</source>
+        <target>ایجاد کلیشه چاپی جدید</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload New Supplementary File</source>
+        <target>آپلود فایل مکمل جدید</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-noStyleFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No style sheet file has been added to this galley.</source>
+        <target>هیچ فایل استایل شیتی برای این کلیشه چاپی تعیین نشده است</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary File Review</source>
+        <target>بررسی فایل های مکمل</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewingGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewing Submission Galley</source>
+        <target>مشاهده کلیشه چاپی ارسال شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewProof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Proof</source>
+        <target>مشاهده نسخه بازبینی</target>
+      </segment>
+    </unit>
+    <unit id="submission-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Metadata</source>
+        <target>فراداده </target>
+      </segment>
+    </unit>
+    <unit id="submission-noReviewAssignments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Review Assignments</source>
+        <target>داوری منتسب نشده است</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-addNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add New Note</source>
+        <target>اضافه کردن یادداشت جدید</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Attachment</source>
+        <target>ضمیمه فایل </target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-backToSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back To Submission Notes</source>
+        <target>بازگشت به یادداشتهای ارسال شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-breadcrumb">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>یادداشت ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-clearAllNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear All Notes</source>
+        <target>پاک کردن تمام یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-collapseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse Notes</source>
+        <target>جمع کردن یادداشتها</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDeleteAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove All Submission Notes?</source>
+        <target>آیا تمام یادداشتها ی ارسال شده پاک شود؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove This Submission Note?</source>
+        <target>آیا این یادداشت ارسال شده پاک شود؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-createNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Note</source>
+        <target>ایجاد یادداشت جدید</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-deleteNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Note</source>
+        <target>پاک کردن یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-editNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Note</source>
+        <target>ویرایش یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-expandNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand Notes</source>
+        <target>باز کردن یادداشتها</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-noSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submission Notes</source>
+        <target>بدون یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-removeUploadedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Uploaded File</source>
+        <target>حذف فایل بارگذاری شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>یادداشتهای مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-updateNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update Note</source>
+        <target>به روز کردن یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-viewNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Notes</source>
+        <target>مشاهده یادداشتها</target>
+      </segment>
+    </unit>
+    <unit id="submission-originalFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Original file</source>
+        <target>فایل اصلی</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Editing</source>
+        <target>#{$id} ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} History</source>
+        <target>#{$id} سوابق</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Review</source>
+        <target>#{$id} داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Summary</source>
+        <target>#{$id} خلاصه</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Citations</source>
+        <target>#{$id} ارجاعات</target>
+      </segment>
+    </unit>
+    <unit id="submission-peerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Peer&nbsp;Review]]></source>
+        <target>داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>تولید</target>
+      </segment>
+    </unit>
+    <unit id="submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>توصیه و نظرات: {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-rejected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rejected</source>
+        <target>رد</target>
+      </segment>
+    </unit>
+    <unit id="submission-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request</source>
+        <target>درخواست</target>
+      </segment>
+    </unit>
+    <unit id="submission-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response</source>
+        <target>پاسخ</target>
+      </segment>
+    </unit>
+    <unit id="submission-restrictions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restrictions</source>
+        <target>محدودیت ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Metadata</source>
+        <target>بررسی فراداده</target>
+      </segment>
+    </unit>
+    <unit id="submission-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>داوری شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Version</source>
+        <target>نسخه داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rights</source>
+        <target>حقوق</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you wish, you may enter a brief statement about the access rights held in or over this submission.</source>
+        <target>در صورت تمایل می توانید بیانیه کوتاهی در مورد حق دسترسی به این مقاله ارسالی بنویسید.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active</source>
+        <target>جاری</target>
+      </segment>
+    </unit>
+    <unit id="submissions-archived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived</source>
+        <target>آرشیو</target>
+      </segment>
+    </unit>
+    <unit id="submission-saveMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save Metadata</source>
+        <target>ذخیره کردن فراداده</target>
+      </segment>
+    </unit>
+    <unit id="submissions-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>تکمیل شده</target>
+      </segment>
+    </unit>
+    <unit id="submissions-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>رد</target>
+      </segment>
+    </unit>
+    <unit id="submissions-incomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Incomplete</source>
+        <target>ناتمام</target>
+      </segment>
+    </unit>
+    <unit id="submissions-noSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submissions</source>
+        <target>خالی</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Editing</source>
+        <target>در نوبت ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queued">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Queued</source>
+        <target>در نوبت</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No editor has been assigned to this submission.</source>
+        <target>منتظر انتساب</target>
+      </segment>
+    </unit>
+    <unit id="submissions-ruling">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ruling</source>
+        <target>اتخاذ تصمیم</target>
+      </segment>
+    </unit>
+    <unit id="submission-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Source</source>
+        <target>منبع</target>
+      </segment>
+    </unit>
+    <unit id="submission-source-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</source>
+        <target>آیا این مقاله از منابع دیگری بهره برده است. در صورت تمایل می توانید آدرس اینترنتی صفحه ای که در مورد این منابع توضیح می دهد را وارد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>ثبت</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitted</source>
+        <target>ثبت شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Title:</source>
+        <target>عنوان مقاله مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-start">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Start</source>
+        <target>شروع</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission History</source>
+        <target>سوابق مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionManuscript">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Manuscript</source>
+        <target>فایل مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Review</source>
+        <target>داوری مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-submitter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitter</source>
+        <target>ارسال کننده</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Finish Submission</source>
+        <target>نهایی کردن ارسال</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select File</source>
+        <target>انتخاب فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Information</source>
+        <target>اطلاعات فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Added</source>
+        <target>فایل شما با موفقیت اضافه شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include this contributor in browse lists?</source>
+        <target>این پدیدآورنده در فهرست پدید آورندگان نمایش داده شود</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-newFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Another File</source>
+        <target>اضافه کردن فایل جدید</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Refinements</source>
+        <target>پالایش بیشتر</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add additional information for your submission.  Press 'enter' after each term.</source>
+        <target>اطلاعات تکمیلی در مورد مقاله ثبت شده خود وارد کنید. هر مورد را با زدن اینتر مشخص کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Language</source>
+        <target>زبان مقاله</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocaleDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions in several languages are accepted. Choose the primary language of the submission from the pulldown above.</source>
+        <target>مقاله را می توانید در چندین زبان مختلف ارسال کنید. از منوی زیر می توانید زبان اصلی مقاله را انتخاب نمایید</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Files</source>
+        <target>فایل مقاله</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-dependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Dependent Files</source>
+        <target>فایل های وابسته</target>
+      </segment>
+    </unit>
+    <unit id="submission-manageDependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Dependent Files</source>
+        <target>مدیریت فایل های وابسته</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Dependent File</source>
+        <target>آپلود یک فایل وابسته</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-query">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Discussion File</source>
+        <target>آپلود فایل گفتگو</target>
+      </segment>
+    </unit>
+    <unit id="submission-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>خلاصه</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Files</source>
+        <target>فایل های مکمل</target>
+      </segment>
+    </unit>
+    <unit id="submission-supportingAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting Agencies</source>
+        <target>آژانس های پشتیبانی کننده</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Agencies</source>
+        <target>نمایندگان جاری</target>
+      </segment>
+    </unit>
+    <unit id="submission-indexingInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexing Information</source>
+        <target>اطلاعات نمایه</target>
+      </segment>
+    </unit>
+    <unit id="submission-titleAndAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title and Abstract</source>
+        <target>عنوان و چکیده</target>
+      </segment>
+    </unit>
+    <unit id="submission-type-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The submission type is usually one of 'image', 'text', or other multimedia types including 'software' or 'interactive'.  Please choose the one most relevant for your submission.  Examples may be found at <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></source>
+        <target><![CDATA[نوع داده ارسالی معمولاً متن، تصویر و یا محتوای چند رسانه ای مانند نرم‌افزار است. لطفاً نوع داده ای که بیشترین ارتباط را با محتوای شما دارد را انتخاب کنید. می توانید مثالهایی را در لینک زیر مشاهده کنید:   <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-underway">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Underway</source>
+        <target>شروع</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadFileTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload file to</source>
+        <target>آپلود فایل در</target>
+      </segment>
+    </unit>
+    <unit id="submission-createRemote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create remote</source>
+        <target>ایجاد از راه دور</target>
+      </segment>
+    </unit>
+    <unit id="submission-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Metadata</source>
+        <target>مشاهده فراداده</target>
+      </segment>
+    </unit>
+    <unit id="submission-views">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Views</source>
+        <target>دیده شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your file has been uploaded.</source>
+        <target>فایل شما آپلود شد</target>
+      </segment>
+    </unit>
+    <unit id="submission-loadMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please wait while your file is uploaded to the server.</source>
+        <target>لطفا تا آپلود کامل فایل صبر کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-artworkFileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork File Details</source>
+        <target>جزئیات فایل هنری</target>
+      </segment>
+    </unit>
+    <unit id="submission-fileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Details</source>
+        <target>جزئیات فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this item.</source>
+        <target>برای این مورد یک نام لازم است</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-mmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>MM-DD</source>
+        <target>MM-DD</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-yyyymmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>YYYY-MM-DD</source>
+        <target>YYYY-MM-DD</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectPrincipalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal contact for editorial correspondence.</source>
+        <target>نویسنده مسئول مکاتبات است</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contributorRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor's role</source>
+        <target>نقش پدیدآورنده</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>افزودن مشارکت کننده</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-languagesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a language.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-subjectsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a subject.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-disciplinesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a discipline.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-keywordsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a keyword.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-coverageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the coverage information.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the type.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-sourceRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the source.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-rightsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the rights.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-citationsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the references.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-form-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name the file (e.g., Manuscript; Table 1)</source>
+        <target>نام فایل را مشخص کنید( برای مثال: متن مقاله؛ جدول 1)</target>
+      </segment>
+    </unit>
+    <unit id="submission-form-replaceExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replacing an Existing File?</source>
+        <target>جایگزینی با فایل موجود؟</target>
+      </segment>
+    </unit>
+    <unit id="workflow-review-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Review</source>
+        <target>داور داخلی</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage-any">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any Stage</source>
+        <target>همه ی مراحل</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage</source>
+        <target>مرحله</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Copyediting</source>
+        <target>در حال ویراستیاری</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Proofreading</source>
+        <target>در حل بازبینی نهایی</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>در حال داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting Editor Decision</source>
+        <target>منتظر تصمیم سردبیر</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-unassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>مشخص نشده</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>رد شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>منتشر شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>1. Upload File</source>
+        <target>1. آپلود فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadSubmissionFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Submission File</source>
+        <target>آپلود فایل مقاله</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>2. Review Details</source>
+        <target>2. بازبینی جزییات</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishingUpStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>3. Confirm</source>
+        <target>3. تایید</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter a file name for this file</source>
+        <target>باید برای این فایل یک نام مشخص کنید</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid component!</source>
+        <target>اجزاء نامعتبر یا ناموجود!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-invalidUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid user group!</source>
+        <target>گروه کاربری نامعتبر یا ناموجود!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Possible Duplication or Revision Detected</source>
+        <target>شناسایی احتمالی فایل تکراری</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevisionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The name of the uploaded file resembles the name of a previously uploaded file, "{$revisedFileName}." Is this file intended to replace "{$revisedFileName}"? If so, select the file below. Otherwise, select "This is not a revision of an existing file" before proceeding.</source>
+        <target>نام فایل آپلودی با فایل آپلود شده قبلی شباهت داد ({$revisedFileName}). آیا میخواهید این فایل جایگزین شود؟ اگر بله که فایل را از زیر انتخاب کنید. وگرنه گزینه "این فایل نسخه اصلاحی فایل موجود نیست" را انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectMandatoryFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select the file you would like to revise.</source>
+        <target>لطفاً فایلی که مایلید اصلاح کنید را انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectOptionalFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are uploading a revision of an existing file, please indicate which file.</source>
+        <target>اگر قصد تغییر فایلی که پیشتر بارگذاری کرده اید را دارید ، نوع آن را مشخص کنید</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadNewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a revision of an existing file</source>
+        <target>این فایل نسخه اصلاحی فایل موجود نیست</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload this file in my role as...</source>
+        <target>این فایل تحت کدام نقش ثبت شود؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroupDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</source>
+        <target>اگر د رحال ثبت شماره ویراش شده هستید، باید تمامی فصل های این شماره را به صورت جداگانه آپلود کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadLibraryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Library File</source>
+        <target>آپلود فایل کتابخانه</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-libraryCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Document Category</source>
+        <target>ثبت حوزه سند</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>آپلود فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-copyeditedVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Copyedited File</source>
+        <target>آپلود فایل ویراستاری شده</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-fairCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Fair Copy</source>
+        <target>آپلود کپی منصفانه</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Files</source>
+        <target>آپلود فایل‌ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</source>
+        <target>بعد از داوری فایل اختصاص یافته، بر روی فایل، نظرات خود را بگذارید و یا آنکه نظرات خود را در فایل جداگانه ای نوشته و آپلود نمایید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Production Ready File</source>
+        <target>فایل آماده به تولید را آپلود کنید</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-proof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a File Ready for Publication</source>
+        <target>فایل آماده به انتشار را آپلود کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noAvailableReviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no files for you to revise at this time.</source>
+        <target>هیچ فایلی برای بررسی در این مرحله وجود ندارد.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been requested.</source>
+        <target>نیازمند انجام اصلاحات</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been submitted.</source>
+        <target>اصلاحات ثبت شد.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-resubmitForReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be resubmitted for another review round.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-submissionResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission has been resubmitted for another review round.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-sentToExternal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent to external review.</source>
+        <target>ارسال به داور خارجی</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>مقاله ارسالی پذیرش شد.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>مقاله ارسالی پذیرش نشد.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for reviewers to be assigned.</source>
+        <target>در حال انتظار برای انتخاب داور</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting responses from reviewers.</source>
+        <target>درخواست‌های داوری در انتظار تأیید</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted.</source>
+        <target>داوری جدید ثبت شد.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All reviewers have responded and a decision is needed.</source>
+        <target>داوری تکمیل شد.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A review is overdue.</source>
+        <target>مهلت داوری سپری شده است.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting recommendations from editors.</source>
+        <target>در انتظار توصیه دبیر</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New editorial recommendations have been submitted.</source>
+        <target>یک توصیه جدید ثبت شد.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All recommendations are in and a decision is needed.</source>
+        <target>تمام توصیه‌ها ثبت شده است و نیازمند اتخاذ تصمیم است</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-stageParticipants">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participants</source>
+        <target>همکاران</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noneAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None Assigned</source>
+        <target>انتساب داده نشده</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-participant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participant</source>
+        <target>همکار</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Participant</source>
+        <target>افزودن همکار</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Assignment</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users are assigned to stages of the workflow by user group. Any user assigned to this stage will automatically be assigned to other stages to which their user group has been assigned. This is commonly reserved for editors, authors and translators.</source>
+        <target>کاربران بر اساس گروه کاربری‌شان به مراحل گردش کار انتساب داده می‌شوند.هر کاربری که به این مرحله افزوده شود. به صورت خودکار به تمامی مرحله‌هایی که آن گروه کاربری می‌تواند انتساب یابد، انتساب داده می‌شود. این عمل به صورت معمول برای سردبیر، نویسنده و مترجمان است.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Participant</source>
+        <target>حذف همکار</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You are about to remove this participant from <strong>all</strong> stages.]]></source>
+        <target><![CDATA[شما در حال حذف این همکار از <strong>تمامی</strong> مراحل هستید. حتی اگر یک حسابرسی در حال انجام نیز داشته باشد، تمامی آن‌ها حذف خواهند شد.]]></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user group.</source>
+        <target>باید یک گروه کاربری انتخاب شود.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user for the specified user group.</source>
+        <target>باید کاربری را برای گروه کاربری مشخص شده انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-reviewerWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disallow Edit Metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow Edit Metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be unable to edit the submission's metadata at that stage?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be able to edit the submission's metadata at that stage?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decision</source>
+        <target>تصمیم</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept Submission</source>
+        <target>ارسال برای ویراستاری</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Revisions</source>
+        <target>درخواست اصلاحات</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-resubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for Review</source>
+        <target>ارسال مجدد برای داوری</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline Submission</source>
+        <target>عدم پذیرش مقاله</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send To Production</source>
+        <target>ارسال برای چاپ</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-skipReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept and Skip Review</source>
+        <target>پذیرفتن و نادیده گرفتن داوری</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendInternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send to Internal Review</source>
+        <target>ارسال به داور داخلی</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The page proof file must be checked as approved to be made Available. Do you want to approve it?</source>
+        <target>برای آنکه نسخه بازبینی نهایی قابل دسترسی باشد باید صفحه قابل بازبینی نهایی به عنوان تأیید شده، تیک خورده باشد.  مایلید که تأیید کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve Proofs</source>
+        <target>تأیید نسخه بازبینی نهایی</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-disapproveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?</source>
+        <target>این نسخه بازبینی نهایی دیگر برای دانلود و یا خرید در دسترس نخواهد بود. آیا می‌خواهید این نسخه را لغو تأیید کنید.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-noDecisionsAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign an editor to enable the editorial decisions for this stage.</source>
+        <target>یک دبیر انتساب کنید تا اتخاذ تصمیم برای این مرحله قابل اجرا باشد</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-makeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make Recommendation</source>
+        <target>ایجاد توصیه</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-changeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Recommendation</source>
+        <target>تغییر توصیه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>توصیه: {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-allRecommendations-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendations: {$recommendations}</source>
+        <target>توصیه‌ها: {$recommendations}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation</source>
+        <target>توصیه</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommend an editorial decision for this submission.</source>
+        <target>توصیه یک تصمیم برای این مقاله ارسالی </target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recordedRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recorded Recommendations</source>
+        <target>توصیه‌های ثبت شده</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-nextButton">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next: Select Files for {$stageName}</source>
+        <target>بعدی: فایل‌ها را از {$stageName} انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the files you would like to forward to the {$stageName} stage.</source>
+        <target>فایل‌های که مایلید به مرحله {$stageName} انتقال داده شوند را انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-previousAuthorNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous: Author Notification</source>
+        <target>قبلی: اطلاع‌رسانی‌هایاطلاع‌رسانی نویسنده</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current stage</source>
+        <target>مرحله جاری</target>
+      </segment>
+    </unit>
+    <unit id="submission-noActionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No action required</source>
+        <target>هیچ فعالیتی نیاز نیست</target>
+      </segment>
+    </unit>
+    <unit id="submission-actionNeeded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Needs action</source>
+        <target>فعالیت های مورد نیاز</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Files</source>
+        <target>فایل داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-currentFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current file</source>
+        <target>فایل جاری</target>
+      </segment>
+    </unit>
+    <unit id="submission-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Draft Files</source>
+        <target>فایل های پیشنویس</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addAuditorError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error trying to assign the auditor. Please Try again.</source>
+        <target>در انتساب حسابرس خطایی رخ داد. لطفاً دوباره تلاش کنید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>فایل «{$originalFileName}» توسط {$username} برای مقاله شماره  {$submissionId} آپلود شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>فایل "{$originalFileName}" مربوط به مقاله ارسالی {$submissionId} توسط {$username} حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>فایل اصلاحی "{$originalFileName}" مربوط به مقاله ارسالی {$submissionId} توسط {$username} آپلود شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>فایل اصلاحی "{$originalFileName}" مربوط به مقاله ارسالی {$submissionId} توسط {$username} حدف شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-lastRevisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$title}" had its last revision removed by {$username}.</source>
+        <target>آخرین  نسخه اصلاحی فایل "{$title}" توسط {$username} حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was added as an auditor for the file "{$file}."</source>
+        <target>"{$name}" ({$username}) به عنوان حسابرس فایل "{$file}" افزوده شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was removed as an auditor for the file "{$file}."</source>
+        <target>"{$name}" ({$username}) از حسابرسی فایل "{$file}" حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has completed an audit and uploaded "{$file}."</source>
+        <target>"{$name}" ({$username}) آپلود و بررسی فایل "{$file}" تکمیل کرد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-signoffSignoff">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has signed off on the signoff for "{$file}."</source>
+        <target>"{$name}" ({$username}) فایل "{$file}"  را امضا کرد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-proofsApproved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has approved the proofs for "{$formatName}."</source>
+        <target>"{$name}" ({$username}) نسخه بازبینی شده نهایی "{$formatName}" را تایید کرد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Overview</source>
+        <target>شمای کلی مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>توضیح</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageNotInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage not initiated.</source>
+        <target>مرحله آغاز نشده است</target>
+      </segment>
+    </unit>
+    <unit id="submission-documents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Documents</source>
+        <target>اسناد ارسال شده.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been assigned as an editor to the submission "{$title}".</source>
+        <target>شما به عنوان دبیر به مقاله‌ای با عنوان «{$title}» انتساب شده‌اید.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-copyeditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review copyedits for "{$title}".</source>
+        <target>از شما خواسته شده است تا ویراستاری "{$title}" را بررسی کنید.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-layouteditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review layouts for "{$title}".</source>
+        <target>از شما خواسته شده است تا صفحه‌بندی "{$title}" را بررسی کنید.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-indexRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to create an index for "{$title}".</source>
+        <target>از شما خواسته شده است که نمایه‌ای برای "{$title}" ایجاد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest editor decision.</source>
+        <target>آخرین تصمیم سردبیر</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionAccept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>مقاله ارسالی پذیرفته شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionExternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>External review process started.</source>
+        <target>روند داوری (داور خارجی) آغاز شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionPendingRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision required.</source>
+        <target>نیازمند اصلاحات</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionResubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for review.</source>
+        <target>ارسال دوباره برای داوری</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionDecline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>مقاله ارسالی رد شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-uploadedResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response uploaded.</source>
+        <target>پاسخ آپلود شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An editor must be assigned before review is initiated. Please add editor using the Participants list.</source>
+        <target>باید قبل از آغاز روند داوری سردبیر مشخص شود. لطفاً با استفاده از گزینه بالا یک سردبیر بی افزایید.</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer's Attachments</source>
+        <target>فایل‌های ضمیمه داوری </target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-send-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select review files to share with the author(s)</source>
+        <target>انتخاب فایل‌های داوری برای اشتراک گداری با نویسنده(گان)</target>
+      </segment>
+    </unit>
+    <unit id="submission-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Book available</source>
+        <target>کتاب در دسترس است</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-uploadRevisionToRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Revised File</source>
+        <target>آپلود فایل‌های اصلاح شده شده</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</source>
+        <target>{$reviewerName} برای داوری مقاله  {$submissionId} در دور {$round} داوری انتساب یافت.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been cleared.</source>
+        <target>دور {$round} داوری {$reviewerName} برای مقاله {$submissionId} پاک شد.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewUnconsidered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$editorName} has marked the round {$round} review for submission {$submissionId} as unconsidered.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReinstated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated.</source>
+        <target>دور {$round} داوری {$reviewerName} برای مقاله  {$submissionId} از نو شروع شد.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-awaitingResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for a response from the reviewer.</source>
+        <target>در انتظار پاسخ داور</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer declined this review request.</source>
+        <target>داور، انجام این داوری را نپذیرفت</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-responseOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the response due date.</source>
+        <target>مهلت زمان پاسخ به پذیرش داوری سپری شده است.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the review due date.</source>
+        <target>مهلت زمان انجام داوری سپری شده است.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been accepted.</source>
+        <target>داوری پذیرفته شده است.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-received">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has submitted their review.</source>
+        <target>داور، نتیجه داوری خود را ثبت کرده است.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been completed.</source>
+        <target>این داوری تکمیل شده است.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-thanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete and the reviewer has been thanked for their contribution.</source>
+        <target>این داوری تکمیل شده است و از داور قدردانی شده است.</target>
+      </segment>
+    </unit>
+    <unit id="submission-document">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Document</source>
+        <target>سند</target>
+      </segment>
+    </unit>
+    <unit id="submission-art">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork</source>
+        <target>اثار هنری</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Content</source>
+        <target>محتویات مکمل</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-creator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Creator (or owner) of file</source>
+        <target>سازنده (یا صاحب) فایل</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>موضوع</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-publisher">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher</source>
+        <target>ناشر</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor or sponsoring agency</source>
+        <target>مراکز مشارکت کننده یا حمایت کننده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-itemWorkflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to this submission's workflow</source>
+        <target>رفتن به گردش کار این مقاله </target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionSendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production process started.</source>
+        <target>پروسه انتشار آغاز شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before production process can be initiated. Please add a production editor using the Participants list.</source>
+        <target>قبل از شروع روند انتشار باید یک دبیر تولید انتساب داده شود. می‌توانید از قسمت افزودن لینک یک دبیر تولید را به همکاران بی افزایید.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before editorial process is initiated. Please add a production editor using the Participants list.</source>
+        <target>قبل از شروع روند داوری باید یک دبیر تولید انتساب داده شود. می‌توانید از قسمت افزودن لینک یک دبیر تولید را به همکاران بی افزایید.  </target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>فرم داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewFormResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Response</source>
+        <target>پاسخ فرم داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewFormElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new review form element</source>
+        <target>ایجاد یک عنصر جدید در فرم داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>ویرایش فراداده‌ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>مجوز ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachPermissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attach the following permissions to the submission:</source>
+        <target>مجوز های زیر به مقاله اضافه شود</target>
+      </segment>
+    </unit>
+    <unit id="submission-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target>مجوز</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyright">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright</source>
+        <target>حق نشر</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightHolder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Holder</source>
+        <target>دارنده ی حق نشر</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightYear">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Year</source>
+        <target>سال حق نشر</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright (c) {$copyrightYear} {$copyrightHolder}</source>
+        <target>حق نشر {$copyrightYear} {$copyrightHolder}</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>لطفاً یک آدرس معتبر اینترنتی وارد کنید (شامل http://).</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License URL</source>
+        <target>آدرس اینترنتی مجوز</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-NoDerivatives 4.0</source>
+        <target>CC Attribution-NonCommercial-NoDerivatives 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial 4.0</source>
+        <target>CC Attribution-NonCommercial 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-ShareAlike 4.0</source>
+        <target>CC Attribution-NonCommercial-ShareAlike 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NoDerivatives 4.0</source>
+        <target>CC Attribution-NoDerivatives 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution 4.0</source>
+        <target>CC Attribution 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-ShareAlike 4.0</source>
+        <target>CC Attribution-ShareAlike 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a> می باشد.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 </a> می باشد.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> می باشد.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 </a> می باشد.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 </a> می باشد.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>این پروژه تحت مجوز بین المللی <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> می باشد.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Review Discussions</source>
+        <target>گفتگوهای قبل از ارسال به داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Discussions</source>
+        <target>مرور گفتگو ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting Discussions</source>
+        <target>گفتگوی ویراستاری</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Discussions</source>
+        <target>گفتگوی انتشار</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>موضوع</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-messages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Messages</source>
+        <target>پیامها</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>پاسخ ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>فرم</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-lastReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Reply</source>
+        <target>آخرین پاسخ</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-closed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Closed</source>
+        <target>خروجی</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Message</source>
+        <target>افزودن پیام</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave Discussion</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you leave this discussion you will no longer be notified of new messages. Would you like to leave the discussion?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-openNoteForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new reply to the discussion</source>
+        <target>افزودن جواب به این گفتگو</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$responderName} replied to {$noteTitle}: {$noteContents}</source>
+        <target>{$responderName} جواب داد به {$noteTitle}: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</source>
+        <target>{$creatorName} یک گفتگو را شروع کرد: {$noteTitle}: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>یک فعالیت جدید در گفتگویی با عنوان "{$queryTitle}" مربوط به مقاله ثبت شده "{$submissionTitle}" انجام گرفته است.</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>شما به گفتگویی با عنوان "{$queryTitle}" مربوط به مقاله ثبت شده "{$submissionTitle}" افزوده شده اید.</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-participantTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$fullName}, {$userGroup}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-query-noParticipantOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must assign at least one participant to this submission before initiating a discussion.</source>
+        <target>قبل از آغاز گفتگو باید حداقل یک همکار به این مقاله انتساب داده شود.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-infoCenter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Activity Log & Notes]]></source>
+        <target>گزارش فعالیت‌ها</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-empty">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No submissions found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-responseDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due</source>
+        <target>مهلت پاسخ</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Assignment</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due</source>
+        <target>مهلت داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewCancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete submission?</source>
+        <target>حذف مقاله ارسالی؟</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-viewSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submission</source>
+        <target>مشاهده مقالات ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned reviews completed</source>
+        <target>داوری انساب داده شده تکمیل شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions submitted</source>
+        <target>اصلاحات ارسال شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-copyeditsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited files submitted</source>
+        <target>فایل ویراستاری شده ثبت شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-galleysCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production galleys created</source>
+        <target>کلیشه چاپی ایجاد شد.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-filesPrepared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files prepared</source>
+        <target>فایل‌ها آماده شدند.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-discussions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open discussions</source>
+        <target>باز کردن یک گفتگو</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-dualWorkflowLinks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewerWorkflowLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-incompleteSubmissionNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This submission must be completed before an editor will review it.</source>
+        <target>ارسال مقاله باید تکمیل شود تا دبیر بتواند آن را برای داوری ارسال کند.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currently in the {$stage} stage.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-assignEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Editor</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (A-Z)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (Z-A)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (oldest first)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (newest first)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="category-coverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cover Image</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-placement-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-currentCoverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Image</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Nothing has been published in this category yet.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-subcategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subcategories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-publication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-citations-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The references have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributors</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-copyrightYearBasis-issueDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright year will be set automatically when this is published in an issue.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-createVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Version</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-datePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-editDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This version has been published and can not be edited.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was unpublished.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was created.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionScheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A version was removed from publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission for this publication could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The metadata have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Permissions & Disclosure]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright and license information have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-confirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All publication requirements have been met. Are you sure you want to publish this?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-requirements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following requirements must be met before this can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication status has been successfully changed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A declined submission can not be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be in the Copyediting or Production stages before it can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublished</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unscheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unscheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Title & Abstract]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title and abstract have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this to be published?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unschedule</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this scheduled for publication?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Versions</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication details for version {$version}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-wordCountLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:12-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:12-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="reviewer-reviewSteps-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>1. Request</source>
+        <target>1. Запрос</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>2. Guidelines</source>
+        <target>2. Руководство</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[3. Download & Review]]></source>
+        <target>3. Скачать и рецензировать</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-reviewSteps-completion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>4. Completion</source>
+        <target>4. Завершение</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request for Review</source>
+        <target>Запрос на рецензию</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-requestBoilerplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been selected as a potential reviewer of the following submission.  Below is an overview of the submission, as well as the timeline for this review.  We hope that you are able to participate.</source>
+        <target>Вы были выбраны в качестве потенциального рецензента для следующего материала. Ниже приведено описание материала и сроки выполнения этой рецензии. Мы надеемся, что вы сможете принять участие в рецензировании.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-step1-viewAllDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View All Submission Details</source>
+        <target>Показать всю информацию о материале</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewerFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Files</source>
+        <target>Файлы рецензента</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-declineReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline Review Request</source>
+        <target>Отклонить запрос на рецензию</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-declineReviewMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You may provide the editor with any reasons why you are declining this review in the field below.</source>
+        <target>Вы можете описать для редактора причины вашего отказа от рецензирования этого материала в поле ниже.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-acceptReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept Review, Continue to Step #2</source>
+        <target>Согласиться на рецензирование, перейти к шагу №2</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-continueToStepThree">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue to Step #3</source>
+        <target>Перейти к шагу №3</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-submitReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit Review</source>
+        <target>Отправить рецензию</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewerGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Guidelines</source>
+        <target>Руководство для рецензентов</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-enterCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This publisher has a policy for disclosure of potential competing interests from its reviewers.  Please take a moment to review this policy.</source>
+        <target>У данного издателя есть правила декларирования потенциального конфликта интересов его рецензентов. Пожалуйста, ознакомьтесь с этими правилами.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-noCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>I do not have any competing interests</source>
+        <target>У меня нет конфликта интересов</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-hasCompetingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>I may have competing interests (Specify below)</source>
+        <target>У меня может быть конфликт интересов (опишите ниже)</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-competingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Competing Interests</source>
+        <target>Конфликт интересов</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Guidelines</source>
+        <target>Руководство для рецензентов</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-noGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This publisher has not set any reviewer guidelines.</source>
+        <target>Данный издатель не создал руководство для рецензентов.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-downloadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Click on the file names below to download the files associated with this submission.</source>
+        <target>Щелкайте на именах файлов ниже, чтобы скачать файлы, связанные с этим материалом.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter (or paste) your review of this submission into the form below.</source>
+        <target>Введите (или вставьте) вашу рецензию для этого материала в форму ниже.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-uploadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload files you would like the editor and/or author to consult, including revised versions of the original review file(s).</source>
+        <target>Загрузите файлы, которые стоит просмотреть редактору и/или автору, включая откорректированные версии оригинальных файлов для рецензии.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Рецензия отправлена</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-confirmSubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to submit this review?</source>
+        <target>Вы уверены, что хотите отправить эту рецензию?</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-complete-whatNext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for completing the review of this submission. Your review has been submitted successfully. We appreciate your contribution to the quality of the work that we publish; the editor may contact you again for more information if needed.</source>
+        <target>Благодарим вас за рецензирование данного материала. Ваша рецензия была успешно отправлена. Мы высоко ценим ваш вклад в качество работ, которые мы публикуем; если понадобится, редактор может связаться с вами снова для получения более подробной информации.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-aboutDueDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About Due Dates</source>
+        <target>О сроках выполнения</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-aboutDueDates-text">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The editor asks that you either accept or decline the review before the Response Due Date and complete the review by the Review Due Date.</source>
+        <target>Редактор просит вас принять или отклонить запрос на рецензию до даты ответа на запрос и выполнить рецензию до даты предоставления рецензии.</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-canShareWithAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For author and editor</source>
+        <target>Для автора и редактора</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-cannotShareWithAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For editor only</source>
+        <target>Только для редактора</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not assigned as a reviewer for the requested document.</source>
+        <target>Данный пользователь не назначен рецензентом для запрошенного документа.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

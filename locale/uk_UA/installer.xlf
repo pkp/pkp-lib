@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:19-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:19-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="installer-additionalLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional locales</source>
+        <target>Додаткові локалізації</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administrator Account</source>
+        <target>Обліковий запис адміністратора</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccountInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user account will become the site administrator and have complete access to the system. Additional user accounts can be created after installation.</source>
+        <target>Цей обліковий запис буде використовуватись адміністратором сайту, він надаватиме повний доступ до системи. Ви зможете створити додаткові облікові записи після завершення інсталяції.</target>
+      </segment>
+    </unit>
+    <unit id="installer-checkNo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<span class="pkp_form_error formError">NO</span>]]></source>
+        <target><![CDATA[<span class="formError">НІ</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-checkYes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes</source>
+        <target>Так</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Client character set</source>
+        <target>Таблиця кодування браузера</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharsetInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The encoding to use for data sent to and received from browsers.</source>
+        <target>Кодування, в якому буде проводитись обмін даними з браузерами користувачів.</target>
+      </segment>
+    </unit>
+    <unit id="installer-configFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[Файл конфігурації <tt>config.inc.php</tt> не існує або недоступний для читання.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-connectionCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Connection character set</source>
+        <target>Таблиця кодування для зв'язку з БД</target>
+      </segment>
+    </unit>
+    <unit id="installer-contentsOfConfigFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents of configuration file</source>
+        <target>Зміст файлу конфігурації</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabase">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create new database</source>
+        <target>Створити нову базу даних</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabaseInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled.</source>
+        <target>Для використання цієї опції необхідно, щоб ваша СУБД мала підтримку віддаленого створення баз даних та ваш обліковий запис мав права на створення нових баз даних. Якщо ця опція включена і вам не вдається продовжити інсталяцію, вручну створіть базу даних на сервері, запустіть інсталяцію знову та відключіть цю опцію.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriver">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database driver</source>
+        <target>Драйвер бази даних</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriverInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work.]]></source>
+        <target><![CDATA[<strong>Драйвери баз даних, наведені у квадратних дужках, не підтримуються жодним з завантажених розширень PHP і, скоріше всього, якщо буде вибраний один з них, інсталяція завершиться невдало.</strong><br />Всі вказані вище драйвери баз даних, що не підтримуються системою, вказані лише з академічною метою, скоріше всього, вони не будуть працювати належним чином.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHost">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Host</source>
+        <target>Хост</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHostInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</source>
+        <target>Для з'єднання через domain sockets замість TCP/IP залиште поле імені хоста пустим. Це не є необхідним, якщо використовується MySQL, оскільки в цьому випадку, якщо введений "localhost", сокети будуть використовуватись автоматично. Але для деяких інших драйверів баз даних, наприклад, PostgreSQL, це є потрібним.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database name</source>
+        <target>Ім'я бази даних</target>
+      </segment>
+    </unit>
+    <unit id="installer-databasePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>Пароль</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database Settings</source>
+        <target>Налаштування бази даних</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseUsername">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>Ім'я користувача</target>
+      </segment>
+    </unit>
+    <unit id="installer-filesDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Directory for uploads</source>
+        <target>Каталог для завантаження файлів</target>
+      </segment>
+    </unit>
+    <unit id="installer-fileSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Settings</source>
+        <target>Параметри файлів</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-clientCharsetRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A client character set must be selected.</source>
+        <target>Необхідно вказати таблицю кодування браузера.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseDriverRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A database driver must be selected.</source>
+        <target>Необхідно вказати драйвер бази даних.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The database name is required.</source>
+        <target>Необхідно вказати ім'я бази даних.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address for the administrator account is required.</source>
+        <target>Необхідно вказати коректну адресу email для облікового запису адміністратора.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-filesDirRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory to be used for storing uploaded files is required.</source>
+        <target>Необхідно вказати теку, в якій будуть зберігатися завантажені файли.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-localeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A locale must be selected.</source>
+        <target>Необхідно визначити локалізацію.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password for the administrator account is required.</source>
+        <target>Необхідно вказати пароль для облікового запису адміністратора.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator passwords do not match.</source>
+        <target>Введені паролі адміністратора не відповідають одне одному.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-separateMultiple">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Separate multiple values with commas</source>
+        <target>Якщо значень декілька, відокремлюйте їх комами</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator username can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>Ім'я користувача адміністратора може складатися лише з літер, цифр, символів підкреслення та дефісів, воно має починатися та закінчуватися літерою або цифрою.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username for the administrator account is required.</source>
+        <target>Необхідно вказати ім'я користувача для облікового запису адміністратора.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installationWrongPhp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></source>
+        <target><![CDATA[<br/><strong>ПОПЕРЕДЖЕННЯ: Встановлена версія PHP не відповідає мінімальним вимогам для інсталяції цієї програми. Рекомендується оновити версію PHP.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installErrorsOccurred">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occurred during installation</source>
+        <target>В процесі інсталяції виникли помилки</target>
+      </segment>
+    </unit>
+    <unit id="installer-installerSQLStatements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SQL statements for installation</source>
+        <target>Оператори SQL для інсталяції</target>
+      </segment>
+    </unit>
+    <unit id="installer-installFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[Інсталяційний файл <tt>dbscripts/xml/install.xml</tt>  не існує або недоступний для читання.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory specified for uploaded files does not exist or is not writable.</source>
+        <target>Каталог, визначений для збереження завантажених файлів, не існує або захищений від запису.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseDBFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Помилка синтаксичного розбору файлу інсталяції бази даних <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseEmailTemplatesFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Помилка синтаксичного розбору файлу шаблонів електронної пошти <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseFilterConfigFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Помилка аналізу файлу фільтра конфігурації <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedUpgradeError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details.</source>
+        <target>Оновлення не підтримується. Докладніше дивись у docs/UPGRADE-UNSUPPORTED.</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>Локалізація</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale-maybeIncomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marked locales may be incomplete.</source>
+        <target>Позначені локалізації можуть бути неповними.</target>
+      </segment>
+    </unit>
+    <unit id="installer-localeSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale Settings</source>
+        <target>Налаштування локалізації</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Settings</source>
+        <target>Налаштування OAI Settings</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryIdInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></source>
+        <target><![CDATA[Унікальний ідентифікатор, який буде використовуватись для ідентифікації комплектів метаданих зібраних з цього сховища за протоколом збору метаданих <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repository Identifier</source>
+        <target>Ідентифікатор сховища OAI</target>
+      </segment>
+    </unit>
+    <unit id="installer-publicFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The public files directory does not exist or is not writable.</source>
+        <target>Каталог, визначений для збереження файлів, не існує або захищений від запису.</target>
+      </segment>
+    </unit>
+    <unit id="installer-releaseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Release Notes</source>
+        <target>Примітки версії</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructionsTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Installation Steps</source>
+        <target>Кроки підготовки до встановлення</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<p>1. The following files and directories (and their contents) must be made writable:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>
+			<li><tt>public/</tt> is writable: {$writable_public}</li>
+			<li><tt>cache/</tt> is writable: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> is writable: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. A directory to store uploaded files must be created and made writable (see "File Settings" below).</p>
+	]]></source>
+        <target><![CDATA[
+		<p>1. Наступні файли і каталоги (та їх вміст) потрібно зробити доступними для запису:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> доступний для запису (не обов'язково): {$writable_config}</li>
+			<li><tt>public/</tt> доступний для запису: {$writable_public}</li>
+			<li><tt>cache/</tt> доступний для запису: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> доступний для запису: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> доступний для запису: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> доступний для запису: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. Каталог для збереження завантажених на сервер файлів має бути створений та до нього має бути доступ для запису (дивись «Налаштування файлів» ниже).</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-configureXSLMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>]]></source>
+        <target><![CDATA[<p>У вашій інсталяції PHP не увімкнено модуль XSL. Увімкніть його або налаштуйте параметр xslt_command у вашому файлі config.inc.php.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Beacon</source>
+        <target>Маяк</target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only.</source>
+        <target>Задати унікальний ID сайту і базовий URL OAI для PKP, які будуть використовуватися лише для збору статистики та попереджень про небезпеку.</target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedPhpError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your server's PHP version is not supported by this software. Double-check the installation requirements in docs/README.</source>
+        <target>Версія PHP вашого сервера не підтримується цим програмним забезпеченням. Уважно перевірте вимоги до встановлення у docs/README.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

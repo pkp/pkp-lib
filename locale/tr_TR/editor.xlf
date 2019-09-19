@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:17-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:17-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="editor-activityLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activity Log</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionLibrary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Library</source>
+        <target>Gönderi Kütüphanesi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-notInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review process has not yet been initiated.</source>
+        <target>Değerlendirme süreci henüz başlatılmamıştır.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-copyediting-personalMessageToUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Message to user</source>
+        <target>Kullanıcıya mesaj gönder</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-externalReviewDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select files below to send them to the review stage.</source>
+        <target>Değerlendirme aşamasına göndermek için aşağıdaki dosyaları seçin.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select at least one file to assign the user to.</source>
+        <target>Kullanıcıya atamak için en az bir dosya seçmek gerekir.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-messageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must include a personal message.</source>
+        <target>Kişisel bir mesaj eklemelisiniz.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send email to the Auditor</source>
+        <target>Denetçiye e-posta gönderme</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-userRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user to assign.</source>
+        <target>Atamak için bir kullanıcı seçmelisiniz.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-uploadSelectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload/Select Files</source>
+        <target>Dosyaları Seç/Yükle</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Files</source>
+        <target>Dosyaları Seç</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-revisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions</source>
+        <target>Düzeltmeler</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-review-reviewersDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></source>
+        <target><![CDATA[Okuyucuları gönderileri değerlendirmeye davet etmek için <em>+Hakem Ekle</em>'yi kullanın. Dizüstü bilgisayar simgesi, bir değerlendirmenin gönderildiğini ve ardından da <em>Onaylandığını</em> gösterir. Değerlendirmeler geciktiğinde, hakemlere hatırlatmak için kırmızı bir zarf simgesi görüntülenir.]]></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Reviewer</source>
+        <target>Hakem Ekle</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-findAndSelectReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locate a Reviewer</source>
+        <target>Bir Hakem Belirleyin</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-findAndSelectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locate a User</source>
+        <target>Bir Kullanıcı Belirleyin</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileList-includeAllStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show files from all accessible workflow stages.</source>
+        <target>Tüm erişilebilir iş akışı aşamalarından dosyaları göster.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-review-currentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Review Files For Round {$round}</source>
+        <target>{$round}. Tur İçin Geçerli İnceleme Dosyaları</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-backToSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Search</source>
+        <target>Aramaya Dön</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-createReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Reviewer</source>
+        <target>Yeni Bir Hakem Oluştur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-enrollReviewer-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll Existing User</source>
+        <target>Mevcut Kullanıcıyı Yetkilendir</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unassignReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign Reviewer</source>
+        <target>Hakem Atamasını İptal Et</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-cancelReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel Reviewer</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reinstateReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reinstate Reviewer</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-reviewType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Type</source>
+        <target>Değerlendirme Türü</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-sendEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email notification to the author(s): {$authorName}</source>
+        <target>{$authorName} adlı yazar(lar)a bir e-posta bildirimi gönderin</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-sendEmail-editors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email notification to the editor(s): {$editorNames}</source>
+        <target>{$editorNames} adlı editör(ler)e bir e-posta bildirimi gönderin</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send an email notification</source>
+        <target>e-posta bildirimi gönderme</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-open">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open</source>
+        <target>Açık</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-blind">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Blind</source>
+        <target>Körlenmiş</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-doubleBlind">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Double-blind</source>
+        <target>Çift-Körlenmiş</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-restrictFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files To Be Reviewed</source>
+        <target>Değerlendirilecek Dosyalar</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-restrictFiles-hide">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close File Selection</source>
+        <target>Dosya Seçimini Kapat</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-editReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Review</source>
+        <target>Değerlendirmeyi Düzenle</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-anonymousReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anonymous Reviewer</source>
+        <target>Anonim Hakem</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-personalMessageToReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email to be sent to reviewer</source>
+        <target>Hakeme e-posta gönderilecek</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-importantDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Important Dates</source>
+        <target>Önemli Tarihler</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-uploadRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Revision</source>
+        <target>Revizyon Yükle</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-newReviewRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require New Review Round</source>
+        <target>Yeni Değerlendirme Turu Gerekir</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-NotifyAuthorRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions will not be subject to a new round of peer reviews.</source>
+        <target>Düzeltmeler, yeni bir hakem değerlendirmesine tabi tutulmayacaktır.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-NotifyAuthorResubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions will be subject to a new round of peer reviews.</source>
+        <target>Düzeltmeler yeni bir hakem değerlendirme turuna tabi olacaktır.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-dateAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Acceptance Date</source>
+        <target>Değerlendirme Kabul Tarihi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewsAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviews added to message body.</source>
+        <target>Değerlendirmeler mesaj içeriğine eklenmiştir.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No peer reviews to import</source>
+        <target>İçe aktarılacak hakem değerlendirmesi yok</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Reminder</source>
+        <target>Değerlendirme İçin Hatırlatma</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-thankReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank Reviewer</source>
+        <target>Hakeme Teşekkür Et</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reminderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error sending review reminder</source>
+        <target>Değerlendirme gönderi hatası</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-thankReviewerError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error sending thank you to reviewer</source>
+        <target>Hakeme teşekkür gönderi hatası</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send email to Reviewer.</source>
+        <target>Hakeme e-posta gönderme.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-sendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Reminder</source>
+        <target>Hatırlatma Gönder</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read Review</source>
+        <target>Değerlendirmeyi Oku</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readNewReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read New Review</source>
+        <target>Yeni Değerlendirme Oku</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-responseDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response due: {$date}</source>
+        <target>Yanıt tarihi: {$date}</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Sent</source>
+        <target>İstek gönderildi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Accepted</source>
+        <target>İstek Kabul Edildi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestDeclined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Declined</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestCancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestDeclined-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer declined this review request.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestCancelled-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The editor cancelled this review request.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-revertDecision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revert Decision</source>
+        <target>İade Nedeni</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review due: {$date}</source>
+        <target>İnceleme tarihi: {$date}</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due Date</source>
+        <target>Son Değerlendirme Tarihi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Completed</source>
+        <target>Değerlendirme Tamamlandı</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Confirmed</source>
+        <target>Değerlendirme Onaylandı</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Değerlendirme Gönderildi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerThanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Thanked</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Comments</source>
+        <target>Değerlendirme Yorumları</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-rateReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating</source>
+        <target>Hakem Puanlama</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-rateReviewer-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rate the quality of the review provided. This rating is not shared with the reviewer.</source>
+        <target>Yapılan değerlendirmenin kalitesini inceleyin. Bu değerlendirme, hakemle paylaşılmamaktadır.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerRating-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No rating</source>
+        <target>Derecelendirme yok</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-mustSelect">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a reviewer</source>
+        <target>Bir hakem seçmelisiniz</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorAddingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error adding the reviewer.  Please try again.</source>
+        <target>Hakem eklerken bir hata oluştu. Lütfen yeniden deneyin.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorDeletingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error deleting the reviewer.  Please try again.</source>
+        <target>Hakem silerken bir hata oluştu. Lütfen yeniden deneyin.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorReinstatingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error reinstating the reviewer.  Please try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-userGroupSelect">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll the user with this reviewer user group</source>
+        <target>Bu hakem grubunda mevcut bir hakem yetkilendirin</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unconsiderReviewText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do you wish to mark this review as unconsidered?  The review history will be preserved.</source>
+        <target>Bu yorumu değerlendirilmemiş olarak işaretlemek ister misiniz? eğerlendirme geçmişi korunacaktır.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unconsiderReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unconsider this Review</source>
+        <target>Bu Yorumu İnceleme</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Once this review has been read, press "Confirm" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file below and then press "Confirm" to proceed.</source>
+        <target>Bu değerlendirmeyi okunduktan sonra, değerlendirme sürecine devam edebilmek için "Onayla"ya basın. Değerlendirme yapan, başka bir yerde incelemesini yapmışsa, aşağıda dosya yükleyebilir ve devam etmek için "Onayla"ya basabilir.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectCopyedingFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting Files</source>
+        <target>Düzeltme Kopyası Dosyaları</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Reviewer</source>
+        <target>Hakem Seç</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-taskDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task Due Date</source>
+        <target>Görev Bitiş Tarihi</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-taskSchedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task schedule</source>
+        <target>Görev takvimi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-enrollReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll an Existing User as Reviewer</source>
+        <target>Mevcut bir kullanıcıyı hakem olarak yetkilendir</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noAuditRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No audit requested for this file</source>
+        <target>Bu dosya için herhangi bir inceleme istenmiyor</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-personalMessageToUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email to be sent to user</source>
+        <target>E-posta kullanıcıya gönderilecek</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proof-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proof reminder</source>
+        <target>Düzeltmen Hatırlatması</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editorial-approveCopyeditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?</source>
+        <target>Değerlendirme dosyasının basım aşamasına gönderilmeden önce onaylanması gerekir. Bu dosyayı onaylamak istiyor musunuz?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editorial-disapproveCopyeditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</source>
+        <target>Bu değerlendirme dosyasının reddedilmesi halinde, basım aşamasına gönderilmesi mümkün olmayacaktır. Bu dosyayı reddetmek istiyor musunuz?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Auditor</source>
+        <target>İnceleme Yapacak Kişi Ata</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-copyedit-manageCopyeditFilesDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any files that have already been uploaded to any submission stage can be added to the Copyedit Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</source>
+        <target>Herhangi bir gönderi aşamasına önceden yüklenmiş olan tüm dosyalar aşağıdaki İçeriği Ekle kutucuğunu işaretleyerek ve Ara'yı tıklayıp Değerlendirme Dosyaları listesine eklenebilir: Tüm mevcut dosyalar listelenir ve eklenecek şekilde seçilebilir. Bir dosyaya zaten yüklenmemiş ek dosyalar, Dosya Yükle bağlantısını tıklayarak listeye eklenebilir.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Değerlendir</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Details</source>
+        <target>Değerlendirme Detayları</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviewFilesUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files Uploaded</source>
+        <target>Hiç Bir Dosya Yüklenmedi</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviewFilesUploaded-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not uploaded any review files.</source>
+        <target>Herhangi bir değerlendirme dosyası yüklenmedi.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-emailReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Reviewer</source>
+        <target>E-posta Değerlendirmesi</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-production-productionReadyFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Ready Files</source>
+        <target>Basıma Hazır Dosyalar</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-newRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New Review Round</source>
+        <target>Yeni Değerlendirme Turu</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordDecision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record Editorial Decision</source>
+        <target>Editöryal Kararı Kaydet</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record Editorial Recommendation</source>
+        <target>Editöryal Öneriyi Kaydet</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-notifyEditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify Editors</source>
+        <target>Editörleri Bilgilendir</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send editors an email.</source>
+        <target>Editörlere e-posta gönderme</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-createDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a review discussion about this recommendation.</source>
+        <target>Bu öneri hakkında bir değerlendirme tartışması oluştur.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-skipDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not create a review discussion.</source>
+        <target>Değerlendirme tartışması oluşturma.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-newRoundDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.</source>
+        <target>Bu gönderi için yeni bir değerlendirme turu oluşturmak üzeresiniz. Diğer değerlendirme turlarında kullanılmayan dosyalar aşağıda listelenmiştir.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-createNewRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Review Round</source>
+        <target>Yeni bir değerlendirme turu oluştur.</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-reviewForms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Değerlendirme Formları</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-selectReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Review Form</source>
+        <target>Değerlendirme Formu Seç</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-confirmChangeReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</source>
+        <target>Uyarı: Değerlendirme formunun değiştirilmesi, hakemlerin bu formu kullanarak yaptıkları cevapları etkileyecektir. Devam etmek istediğine emin misin?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noReviewerFilesSelected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files Selected</source>
+        <target>Herhangi Bir Dosya Seçilmedi</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noReviewerFilesSelected-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not selected any files for the reviewer to review.</source>
+        <target>Değerlendirilecek olan gönderi için herhangi bir dosya seçmediniz.</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A discussion subject is required.</source>
+        <target>Bir tartışma konusu gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-messageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A discussion message is required.</source>
+        <target>Bir tartışma mesajı gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-attachedFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attached Files</source>
+        <target>Ekli Dosyalar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Discussion</source>
+        <target>Tartışmayı Düzelt</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-query-manageQueryNoteFilesDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files can be attached for inclusion in this discussion from the list below.</source>
+        <target>Aşağıdaki listeden bu tartışmaya eklenmek üzere dosyalar eklenebilir.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selected Reviewer</source>
+        <target>Seçilen Hakem</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-approveProof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve Proof</source>
+        <target>Düzeltmeyi Onayla</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-revokeProofApproval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revoke Proof Approval</source>
+        <target>Düzeltme Onayını İptal Et</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-confirmCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve this proof to indicate proofreading is complete and the file is ready to be published.</source>
+        <target>Düzeltme işleminin tamamlandığını ve dosyanın yayınlanmaya hazır olduğunu göstermek için bu düzeltmeyi onayla.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-confirmRemoveCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</source>
+        <target>Düzeltme işleminin tamamlanmadığını ve dosyanın yayınlanmaya hazır olmadığını göstermek için bu düzeltme onayını iptal edin.</target>
+      </segment>
+    </unit>
+    <unit id="editor-publicIdentificationNumericNotAllowed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The public identifier '{$publicIdentifier}' must not be a number.</source>
+        <target>'{$publicIdentifier}' genel belirleyici bir sayı olmamalıdır.</target>
+      </segment>
+    </unit>
+    <unit id="editor-publicIdentificationPatternNotAllowed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The pattern {$pattern} is not allowed for the public identifier.</source>
+        <target>Ortak tanımlayıcı için {$pattern} modeline izin verilmez.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-count">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} reviewers</source>
+        <target>{$count} hakem</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-itemsOfTotal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} of {$total} reviewers</source>
+        <target>{$total} hakemden {$count} adet</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-filterRating">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rated at least</source>
+        <target>En az reyting</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-activeReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} active</source>
+        <target>Aktif {$count}</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-activeReviewsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active reviews currently assigned</source>
+        <target>Şu anda atanmış aktif hakemler</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-completedReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviews completed</source>
+        <target>Değerlendirme tamamlandı</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-declinedReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review requests declined</source>
+        <target>Değerlendirme istekleri reddedildi</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-cancelledReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review requests cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-reviewerRating">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating: {$rating}</source>
+        <target>Hakem reytingi: {$rating}</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daysSinceLastAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$days} days ago</source>
+        <target>{$days} gün önce</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daySinceLastAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yesterday</source>
+        <target>Dün</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daysSinceLastAssignmentDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Days since last review assigned</source>
+        <target>Son değerlendirme tarihinden bu yana geçen gün sayısı</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-averageCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Average days to complete review</source>
+        <target>Ortalama değerlendirme gün sayısı</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-neverAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Never assigned</source>
+        <target>Atanma yapılmadı</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-currentlyAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This reviewer has already been assigned to review this submission.</source>
+        <target>Bu hakem, bu gönderiyi değerlendirmek için zaten atandı.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-warnOnAssign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Blind peer review can not be guaranteed. Would you like to unlock this reviewer anyway?</source>
+        <target>Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş olduğundan kilitlenmiştir. Körlenmiş hakem değerlendirmesi garanti edilemez. Yine de bu hakeme izin vermek ister misiniz?</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-warnOnAssignUnlock">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unlock</source>
+        <target>İzin Ver</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-reviewInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing Interests</source>
+        <target>Hakem İlgi Alanları</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-biography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Biography</source>
+        <target>Biyografi</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-empty">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No reviewers found</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

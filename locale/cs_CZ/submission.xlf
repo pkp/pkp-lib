@@ -1,0 +1,5696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:53-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:53-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="author-editPublishedDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors of this publication can not be edited because it has already been published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="author-publicationNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication for this author could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="author-submit-submissionCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</source>
+        <target>Uveďte formátovaný seznam referencí pro práce citované v tomto příspěvku. Jednotlivé reference oddělujte, prosím, prázdným řádkem.</target>
+      </segment>
+    </unit>
+    <unit id="author-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted and are being considered by the editor.</source>
+        <target>Byly nahrány nové recenze a nyní je posuzuje redaktor.</target>
+      </segment>
+    </unit>
+    <unit id="submission-confirm-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your submission has been uploaded and is ready to be sent. You may go back to review and adjust any of the information you have entered before continuing. When you are ready, click "Finish Submission".</source>
+        <target>Váš příspěvek byl nahrán a jen připravený k odeslání. Můžete se vrátit zpět a upravit libovolnou informaci, kterou jste zadali v předchozích krocích. Po ukončení úprav klikněnte na "Odeslat příspěvek".</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroups">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit As</source>
+        <target>Zaslat příspěvek jako</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-availableUserGroupsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the role that best describes your contribution to this submission.</source>
+        <target>Vyberte roli, které nejlépe popisuje vaši roli v rámci tohoto příspěvku.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corresponding Contact</source>
+        <target>Korespondenční kontakt</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contactConsentDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be contacted about this submission.</source>
+        <target>Ano, rád bych byl/a ohledně tohoto příspěvku kontaktován/a.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-userGroupDescriptionManagers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit in any of the following roles if you would like to be able to edit and publish this submission yourself: {$managerGroups}</source>
+        <target>Odešlete v libovolné z následujících rolí, pokud bude chtít editovat a publikovat příspěvek sami: {$managerGroups}</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Requirements</source>
+        <target>Požadavky na příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionChecklistDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must read and acknowledge that you've completed the requirements below before proceeding.</source>
+        <target>Před pokračováním musíte přečíst a potvrdit, že jste splnili níže uvedené požadavky.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission complete</source>
+        <target>Podání příspěvku bylo dokončeno</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionCompleteThanks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for your interest in publishing with {$contextName}.</source>
+        <target>Děkujeme za váš zájem publikovat v časopisu {$contextName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgreementLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge the copyright statement</source>
+        <target>Potvrďte prohlášení o autorských právech</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-copyrightNoticeAgree">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I agree to abide by the terms of the copyright statement.</source>
+        <target>Souhlasím s dodržováním podmínek prohlášení o autorských právech.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>What Happens Next?</source>
+        <target>Co se bude dít dále?</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-forNow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For now, you can:</source>
+        <target>V tomto okamžiku můžete:</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review this submission</source>
+        <target>Zkontrolovat tento příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new submission</source>
+        <target>Vytvořit nový příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-whatNext-return">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Return to your dashboard</source>
+        <target>Vrátit se na váš ovládací panel</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-extendedMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended Metadata</source>
+        <target>Rozšířená metadata</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CrossRef Registration Email</source>
+        <target>Registrační email pro CrossRef</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-crossref-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CrossRef registration email. You can register your email for free on the CrossRef web site.</source>
+        <target>Zadejte platný registrační email pro CrossRef. Svůj email můžete bezplatně zaregistrovat na webových stránkách CrossRef.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBNdb API Key</source>
+        <target>ISBNdb API klíč</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-isbndb-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter your ISBNdb API key. If you don't have a key yet you can request one for free from the ISBNdb project.</source>
+        <target>Zadejte prosím klíč API ISBNdb. Pokud klíč nemáte, můžete si od projektu ISBNdb zdarma vyžádat.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PubMed Registration Email</source>
+        <target>Registrační email PubMed</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-pubmed-settings-email-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PubMed registration email if you have one.</source>
+        <target>Zadejte, prosím, platný registrační email pro PubMed, pokud ho máte.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>WorldCat API Key</source>
+        <target>WorldCat API klíč</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-worldcat-settings-apiKey-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid WorldCat API key if you have one.</source>
+        <target>Zadejte, prosím, platný WorldCat API klíč, pokud ho máte.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Citation Module</source>
+        <target>Modul pro citace</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-paracite-settings-citationModule-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select one of the given citation modules.</source>
+        <target>Zvolte, prosím, jeden z uvedených citačních modulů.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-displayName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Don't use by default (will still be available to the editor)</source>
+        <target>Ve výchozím nastavení nepoužívat (bude ale nadále k dispozici editorům)</target>
+      </segment>
+    </unit>
+    <unit id="metadata-filters-settings-isOptional-validationMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal error. A non-valid value has been posted for the 'optional filter' setting. Please report this as a bug.</source>
+        <target>Interní chyba. Neplatná hodnota byla odeslána pro nastavení "volitelného filtru". Oznamte to, prosím, jako chybu.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Autoři</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>Pro nejlepší výsledky by autoři měli být zadáni v následujícím formátu: Coleman Jr, D. (Ralf) Dr.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>Editoři</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For best results, editors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</source>
+        <target>Pro nejlepší výsledky by editoři měli být zadáni v následujícím formátu: Coleman Jr, D. (Ralf) Dr.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Article/Paper Title</source>
+        <target>Název článku</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-article-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid article/paper title.</source>
+        <target>Vložte, prosím, platný název článku/příspěvku.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Title</source>
+        <target>Název časopisu/knihy</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication title.</source>
+        <target>Zadejte, prosím, platný název publikace.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Date</source>
+        <target>Datum publikace</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publication date (format: YYYY-MM-DD).</source>
+        <target>Zadejte, prosím, platné datum publikování (formát: RRRR-MM-DD).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access Date</source>
+        <target>Přístupová data</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-access-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid access date (format: YYYY-MM-DD).</source>
+        <target>Zadejte, prosím, platné datum přístupu (formát: RRRR-MM-DD).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue</source>
+        <target>Vydání</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid issue.</source>
+        <target>Zadejte, prosím, platné číslo.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Volume</source>
+        <target>Svazek</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-volume">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid volume.</source>
+        <target>Zadejte, prosím, platný svazek.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Season</source>
+        <target>Ročník</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-season">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid season identifier.</source>
+        <target>Zadejte, prosím, platnou hodnotu pro období.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Chapter Title</source>
+        <target>Název kapitoly</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-chapter-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid chapter title.</source>
+        <target>Zadejte, prosím, platný název kapitoly.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edition</source>
+        <target>Vydání</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-edition">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid edition.</source>
+        <target>Zadejte, prosím, platnou hodnotu pro vydání.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Series</source>
+        <target>Série</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-series">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid series.</source>
+        <target>Zadejte, prosím, platnou hodnotu pro sérii.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplement</source>
+        <target>Dodatek</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-supplement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid supplement.</source>
+        <target>Zadejte, prosím, platnou hodnotu pro doplněk.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Date</source>
+        <target>Datum konference</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference date (format: YYYY-MM-DD).</source>
+        <target>Zadejte, prosím, platné datum konference (formát RRRR-MM-DD).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Location</source>
+        <target>Místo konání konference</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference location.</source>
+        <target>Zadejte, prosím, místo konání konference.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Name</source>
+        <target>Název konference</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference name.</source>
+        <target>Zadejte, prosím, jméno konference.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Conference Sponsor</source>
+        <target>Sponzor konference</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-conf-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid conference sponsor.</source>
+        <target>Zadejte, prosím, jméno sponzora konference.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>Organizace</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid institution.</source>
+        <target>Zadejte, prosím, název instituce.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>First Page</source>
+        <target>První stránka</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-fpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid first page (must be a numeric value).</source>
+        <target>Zadejte, prosím, první stránku článku (musí jít o platnou numerickou hodnotu).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Page</source>
+        <target>Poslední stránka</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-lpage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid last page (must be a numeric value).</source>
+        <target>Zadejte, prosím, poslední stránku článku (musí jít o platnou numerickou hodnotu).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of Pages</source>
+        <target>Počet stránek</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid total number of pages (must be a numeric value).</source>
+        <target>Zadejte, prosím, počet stránek (musí jít o platnou numerickou hodnotu).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Location</source>
+        <target>Místo vydání</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-loc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher location.</source>
+        <target>Zadejte, prosím, místo vydání.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher Name</source>
+        <target>Vydavatel</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid publisher name.</source>
+        <target>Zadejte, prosím, jméno vydavatele.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ISBN</source>
+        <target>ISBN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-isbn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid ISBN (9 or 13 numbers).</source>
+        <target>Zadejte, prosím, platné ISBN (9 nebo 13 čísel).</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Print ISSN</source>
+        <target>Tisk ISSN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid Print ISSN.</source>
+        <target>Zadejte, prosím, platné Print ISSN.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>eISSN</source>
+        <target>eISSN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-eissn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid eISSN.</source>
+        <target>Zadejte, prosím, platné eISSN.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target>DOI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-doi">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid DOI.</source>
+        <target>Zadejte, prosím, platné DOI.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Publication ID</source>
+        <target>ID vlastní publikace</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publisher-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid custom publication ID.</source>
+        <target>Zadejte, prosím, platné vlastní ID publikace.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CODEN</source>
+        <target>CODEN</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-coden">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid CODEN.</source>
+        <target>Zadejte, prosím, platné CODEN.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SICI</source>
+        <target>SICI</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-sici">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid SICI.</source>
+        <target>Zadejte, prosím, platné SICI.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PMID</source>
+        <target>PMID</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-pmid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid PMID.</source>
+        <target>Zadejte, prosím, platné PMID.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the Publication</source>
+        <target>Odkaz na publikaci</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-uri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid alternative link to the publication.</source>
+        <target>Zadejte, prosím, odkaz na on-line verzi publikace.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comment</source>
+        <target>Komentář</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-comment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid comment.</source>
+        <target>Zadejte, prosím, komentář.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Annotation</source>
+        <target>Anotace</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-annotation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid annotation.</source>
+        <target>Zadejte, prosím, anotaci.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Type</source>
+        <target>Typ publikace</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-publication-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you always set a publication type. Currently supported values are book (for books or book chapters) and journal (for journal articles). Otherwise the citation output formatting will not work correctly.</source>
+        <target>Ujistěte se, že jste vždy nastavili typ publikace. V současné době jsou podporované hodnoty "book" (pro knihy nebo kapitoly knih) a "journal" (články časopisů). V opačném případě nebude formátování výstupních citací správně fungovat.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title Type</source>
+        <target>Typ názvu</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid title type. Supported values are 'abbreviated', 'translated', 'alternative' and 'uniform'.</source>
+        <target>Ujistěte se, že jste nastavili platný typ titulu. Podporované hodnoty jsou 'abbreviated', 'translated', 'alternative' a 'uniform'.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part of title ignored while sorting</source>
+        <target>Část názvu bude při třídění ignorována</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-nonSort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please only enter the initial characters of the title that should be ignored when sorting the title.</source>
+        <target>Zadejte pouze počáteční znaky názvu, které by měly být při třídění titulu ignorovány.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Název</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid title.</source>
+        <target>Zadejte, prosím, platný název.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subtitle</source>
+        <target>Podtitulek</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-subTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid subtitle.</source>
+        <target>Zadejte, prosím, platný název podtitulku.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Number</source>
+        <target>Část č.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part number.</source>
+        <target>Zadejte, prosím, platné číslo části.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Part Name</source>
+        <target>Jméno části</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-partName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a valid part name.</source>
+        <target>Zadejte, prosím, platné jméno části.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name Type</source>
+        <target>Typ jména</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-validationMessage-name-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</source>
+        <target>Ujistěte se, že jste nastavili platný typ jména. Podporované hodnoty jsou 'personal', 'corporate' a 'conference'.</target>
+      </segment>
+    </unit>
+    <unit id="metadata-property-displayName-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>Nepřiřazeno</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-myAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Assigned</source>
+        <target>Přiřazeno mně</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-submissionsArchived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived Submissions</source>
+        <target>Archivované příspěvky</target>
+      </segment>
+    </unit>
+    <unit id="submission-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Autoři</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biography</source>
+        <target>Biografie autora</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorBiographies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Biographies</source>
+        <target>Biografie autora</target>
+      </segment>
+    </unit>
+    <unit id="submission-authorWithAffiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name}, {$affiliation}</source>
+        <target>{$name}, {$affiliation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-shortAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$author} et al.</source>
+        <target>{$author} et al.</target>
+      </segment>
+    </unit>
+    <unit id="submission-mySubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Authored</source>
+        <target>Mé příspěvky</target>
+      </segment>
+    </unit>
+    <unit id="submission-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Nahrát soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-agencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Agencies</source>
+        <target>Agentury</target>
+      </segment>
+    </unit>
+    <unit id="submission-abstractViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract Views</source>
+        <target>Zobrazení abstraktu</target>
+      </segment>
+    </unit>
+    <unit id="submission-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accepted</source>
+        <target>Přijata</target>
+      </segment>
+    </unit>
+    <unit id="submission-acknowledge">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledge</source>
+        <target>Poděkovat</target>
+      </segment>
+    </unit>
+    <unit id="submission-addSuppFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Supplementary File</source>
+        <target>Přidat doplňkový soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-ask">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask</source>
+        <target>Vyžádáno</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attached file</source>
+        <target>Připojený soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-backToSubmissionEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Submission Editing</source>
+        <target>Zpět na editaci příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change to</source>
+        <target>Změnit na</target>
+      </segment>
+    </unit>
+    <unit id="submission-changeFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change File</source>
+        <target>Změnit soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>References</source>
+        <target>Reference</target>
+      </segment>
+    </unit>
+    <unit id="submission-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each reference on a new line so that they can be extracted and recorded separately.</source>
+        <target>Vložte každou referenci na nový řádek tak, aby mohla být extrahována.</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extracted References</source>
+        <target>Extrahované reference</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-DOI">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following references have been extracted and will be linked to the submission metadata.</source>
+        <target>Následující reference byly extrahovány a budou připojeny k metadatům příspěvku.</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedAndSaveCitations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extract and Save References</source>
+        <target>Extrahovat a uložit reference</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Comment</source>
+        <target>Přidat komentář</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-comments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comments</source>
+        <target>Komentáře</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you would like to delete this comment?</source>
+        <target>Jste si jisti, že chcete smazat tento komentář?</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-corrections">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Corrections</source>
+        <target>Korekce</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-editComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Comment</source>
+        <target>Upravit komentář</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import Peer Reviews</source>
+        <target>Importovat recenzní posudky</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-addReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Reviews to Email</source>
+        <target>Přidat do emailu recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-importPeerReviews-reviewerLetter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer {$reviewerLetter}:</source>
+        <target>Recenzent {$reviewerLetter}:</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Comments</source>
+        <target>Žádné komentáře</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-noReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Reviews</source>
+        <target>Žádné recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-sendDecisionToReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Reviewers editorial decision</source>
+        <target>Poslat recenzentům rozhodnutí editora</target>
+      </segment>
+    </unit>
+    <unit id="submission-comments-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Předmět</target>
+      </segment>
+    </unit>
+    <unit id="submission-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Complete</source>
+        <target>Dokončit</target>
+      </segment>
+    </unit>
+    <unit id="submission-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List of Contributors</source>
+        <target>Seznam přispěvatelů</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyedited">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited</source>
+        <target>Probíhá redakční zpracování</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyediting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>Redakční úpravy</target>
+      </segment>
+    </unit>
+    <unit id="submission-queryNoteFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion Files</source>
+        <target>Diskusní soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage Information</source>
+        <target>Informace o pokrytí (Coverage Information)</target>
+      </segment>
+    </unit>
+    <unit id="submission-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Done</source>
+        <target>Hotovo</target>
+      </segment>
+    </unit>
+    <unit id="submission-dueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due Date</source>
+        <target>Termín splnění</target>
+      </segment>
+    </unit>
+    <unit id="submission-due">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Due</source>
+        <target>Termín</target>
+      </segment>
+    </unit>
+    <unit id="submission-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editing</source>
+        <target>Editování</target>
+      </segment>
+    </unit>
+    <unit id="submission-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>Editovat metadata</target>
+      </segment>
+    </unit>
+    <unit id="submission-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>Redakční úpravy</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-backToEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Email Log</source>
+        <target>Zpět k protokolu emailů</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the email log for this submission?</source>
+        <target>Jste si jisti, že chcete smazat protokol emailů pro tento příspěvek?</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email log entry?</source>
+        <target>Jste si jisti, že chcete smazat tento záznam protokolu emailů?</target>
+      </segment>
+    </unit>
+    <unit id="submission-email-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>Smazat záznam protokolu</target>
+      </segment>
+    </unit>
+    <unit id="submission-emailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>Log emailů</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$name} ({$username}) was assigned to this submission as a {$userGroupName}.</source>
+        <target>Uživatel {$name}  ({$username}) byl přiřazen k příspěvku jako {$userGroupName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-participantRemoved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) is removed as a {$userGroupName}.</source>
+        <target>"{$name}" ({$username}) byl odebrán/a z {$userGroupName}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-backToEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Event Log</source>
+        <target>Zpět k protokolu událostí</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmClearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to clear the event log for this submission?</source>
+        <target>Jste si jistý, že chcete vyčistit protokol událostí pro tento příspěvek?</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-confirmDeleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this event log entry?</source>
+        <target>Jste si jistý, že chcete smazat tento záznam protokolu událostí?</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>Smazat záznam protokolu</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-submissionSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial submission completed.</source>
+        <target>Úvodní odeslání zakončeno.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileRevised">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision "{$name}" (file ID {$fileId}-{$fileRevision}) was uploaded.</source>
+        <target>Oprava "{$name}" (file ID {$fileId}-{$fileRevision}) byla nahrána.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-metadataUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata updated</source>
+        <target>Metadata příspěvku aktualizována</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-general-suppFileUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission file updated</source>
+        <target>Soubor příspěvku aktualizován</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAcceptedByProxy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted by proxy</source>
+        <target>Přidělení recenze akceptováno náhradníkem</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment accepted</source>
+        <target>Přidělení recenze akceptováno</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDeclined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment declined</source>
+        <target>Přidělení recenze odmítnuto</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review due date modified</source>
+        <target>Změněn termín splnění recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer assigned to submission</source>
+        <target>Recenzent přidělen k příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerRated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating submitted</source>
+        <target>Hodnocení recenzenta odesláno</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewerUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer unassigned from submission</source>
+        <target>Recenzent odebrán od příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review file updated</source>
+        <target>Soubor s recenzí aktualizován</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment initiated</source>
+        <target>Přidělená recenze zahájena</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review recommendation file</source>
+        <target>Soubor s recenzním doporučením</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewReinitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment reinitiated</source>
+        <target>Přidělená recenze znovu zahájena</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review resubmitted</source>
+        <target>Recenze znovu odeslána</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-reviewer-reviewRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer revisions file updated</source>
+        <target>Recenzentův soubor s recenzí aktualizován</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-subjectPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email has been sent:</source>
+        <target>Email byl odeslán:</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-viewEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Email</source>
+        <target>Zobrazit email</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-addedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now allowed to edit metadata when submission in stage {stage}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-event-removedStageToAllowedAuthorMetadataChange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors are now not allowed to edit metadata when submission in stage {stage}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>Soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-files-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download All Files</source>
+        <target>Stáhnout všechny soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-galley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley</source>
+        <target>Sazebnice</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-clearLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear Log</source>
+        <target>Vyčistit protokol</target>
+      </segment>
+    </unit>
+    <unit id="submission-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>Historie</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-noLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No log entries.</source>
+        <target>Žádné protokolové záznamy.</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-recentLogEntries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recent Entries</source>
+        <target>Nedávné záznamy</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>Protokol emailů</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionEventLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Event Log</source>
+        <target>Protokol událostí</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-submissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>Poznámky k přípsěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-history-viewLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Log</source>
+        <target>Zobrazit protokol</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How to Cite</source>
+        <target>Jak citovat</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-citationFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Citation Formats</source>
+        <target>Citační formáty</target>
+      </segment>
+    </unit>
+    <unit id="submission-howToCite-downloadCitation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download Citation</source>
+        <target>Stánhout citace</target>
+      </segment>
+    </unit>
+    <unit id="submission-initiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initiated</source>
+        <target>Zahájeno</target>
+      </segment>
+    </unit>
+    <unit id="submission-identifiers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identifiers</source>
+        <target>Identifikátory</target>
+      </segment>
+    </unit>
+    <unit id="submission-publisherId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public URL identifier</source>
+        <target>Veřejný identifikátor URL</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-submissionInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>Informace o příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata</source>
+        <target>Metadata</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Poznámky</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>Historie</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history-allEvents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show events from prior versions</source>
+        <target>Ukázat všechny události předchozích verzí</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageParticipants-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify</source>
+        <target>Upozornit</target>
+      </segment>
+    </unit>
+    <unit id="submission-lastModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last modified</source>
+        <target>Naposledy změněno</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-addGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Layout Galley</source>
+        <target>Přidat sazebnici</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this galley?</source>
+        <target>Jste si jisti, že chcete trvale smazat tuto sazebnici?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteGalleyImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to remove this image from the galley?</source>
+        <target>Jste si jisti, že chcete odstranit tento obrázek ze sazebnice?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-confirmDeleteSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this supplementary file?</source>
+        <target>Jste si jisti, že chcete trvale smazat tento doplňkový soubor?</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-deleteGalleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this style sheet.</source>
+        <target>Smazat tento stylesheet.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-editGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a Layout Galley</source>
+        <target>Editovat sazebnici</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyFormat">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Format</source>
+        <target>Formát sazebnice</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyHTMLData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML Galley Files</source>
+        <target>HTML soubory sazebnice</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Images</source>
+        <target>Obrázky</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galley Label</source>
+        <target>Popisek</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Typically used to identify the file format (e.g. PDF, HTML, etc.).</source>
+        <target>Popisek sazebnice je používán pro identifikaci formátu souboru (např. HTML, PDF atd.).</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLabelRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley label is required.</source>
+        <target>Je vyžadován popisek sazebnice.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLanguageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley language is required.</source>
+        <target>Je vyžadován jazyk sazebnice.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyLocaleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A galley locale is required.</source>
+        <target>Je vyžadováno umístění sazebnice.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>Vzdálené URL</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyRemoteURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>Zadejte, prosím, platné vzdálené URL (včetně http://).</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyNoImages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No images</source>
+        <target>Žádné obrázky</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Galleys</source>
+        <target>Sazebnice</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStylesheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stylesheet File</source>
+        <target>Stylesheet sazebnice</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-galleyStyle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Style</source>
+        <target>Styl</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-initialGalleyCreation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initial Galley Creation</source>
+        <target>Úvodní vytvoření sazebnice</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout File</source>
+        <target>Soubor pro typografické úpravy</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout</source>
+        <target>Typografická úprava</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-layoutVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Version</source>
+        <target>Verze typografa</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Galley</source>
+        <target>Vytvořit novou sazebnici</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-newSupplementaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload New Supplementary File</source>
+        <target>Nahrát nový doplňkový soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-noStyleFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No style sheet file has been added to this galley.</source>
+        <target>K této sazebnici nebyl přidán žádný stylesheet.</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary File Review</source>
+        <target>Přehled doplňkových souborů</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewingGalley">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewing Submission Galley</source>
+        <target>Prohlížení sazebnice příspěvků</target>
+      </segment>
+    </unit>
+    <unit id="submission-layout-viewProof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Proof</source>
+        <target>Zobrazit pro korekci</target>
+      </segment>
+    </unit>
+    <unit id="submission-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Metadata</source>
+        <target>Metadata příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-noReviewAssignments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Review Assignments</source>
+        <target>Žádné přidělené recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-addNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add New Note</source>
+        <target>Přidat novou poznámku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-attachedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Attachment</source>
+        <target>Přiložený soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-backToSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back To Submission Notes</source>
+        <target>Zpět na poznámky k příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-breadcrumb">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Poznámky</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-clearAllNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear All Notes</source>
+        <target>Vyprázdnit všechny poznámky</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-collapseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse Notes</source>
+        <target>Zaklapnout poznámky</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDeleteAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove All Submission Notes?</source>
+        <target>Odstranit všechny poznámky k příspěvku?</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove This Submission Note?</source>
+        <target>Odstranit tuto poznámku k příspěvku?</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-createNewNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Note</source>
+        <target>Vytvořit novou poznámku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-deleteNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Note</source>
+        <target>Smazat poznámku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-editNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Note</source>
+        <target>Upravit poznámku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-expandNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand Notes</source>
+        <target>Rozšířit poznámky</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-noSubmissionNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submission Notes</source>
+        <target>Žádné poznámky k příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-removeUploadedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Uploaded File</source>
+        <target>Odstranit nahraný soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>Poznámky k příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-updateNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update Note</source>
+        <target>Aktualizovat poznámku</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes-viewNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Notes</source>
+        <target>Zobrazit poznámky</target>
+      </segment>
+    </unit>
+    <unit id="submission-originalFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Original file</source>
+        <target>Původní soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-editing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Editing</source>
+        <target>#{$id} Editování</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} History</source>
+        <target>#{$id} Historie</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Review</source>
+        <target>#{$id} Recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Summary</source>
+        <target>#{$id} Souhrn</target>
+      </segment>
+    </unit>
+    <unit id="submission-page-citations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>#{$id} Citations</source>
+        <target>#{$id} Citace</target>
+      </segment>
+    </unit>
+    <unit id="submission-peerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Peer&nbsp;Review]]></source>
+        <target><![CDATA[Recenzní&nbsp;řízení]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>Produkce</target>
+      </segment>
+    </unit>
+    <unit id="submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>Doporučení: {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="submission-rejected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rejected</source>
+        <target>Zamítnut</target>
+      </segment>
+    </unit>
+    <unit id="submission-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request</source>
+        <target>Požádat</target>
+      </segment>
+    </unit>
+    <unit id="submission-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response</source>
+        <target>Odpověď</target>
+      </segment>
+    </unit>
+    <unit id="submission-restrictions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restrictions</source>
+        <target>Omezení</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Metadata</source>
+        <target>Zkontrolovat metadata</target>
+      </segment>
+    </unit>
+    <unit id="submission-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>Recenzováno</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Version</source>
+        <target>Verze recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rights</source>
+        <target>Práva</target>
+      </segment>
+    </unit>
+    <unit id="submission-rights-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you wish, you may enter a brief statement about the access rights held in or over this submission.</source>
+        <target>Chcete-li, můžete zadat stručné prohlášení o přístupových právech obsažených v tomto příspěvku nebo v jeho rámci.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active</source>
+        <target>Aktivní</target>
+      </segment>
+    </unit>
+    <unit id="submissions-archived">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archived</source>
+        <target>Archivované</target>
+      </segment>
+    </unit>
+    <unit id="submission-saveMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save Metadata</source>
+        <target>Uložit metadata</target>
+      </segment>
+    </unit>
+    <unit id="submissions-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Dokončeno</target>
+      </segment>
+    </unit>
+    <unit id="submissions-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Nepřijaté</target>
+      </segment>
+    </unit>
+    <unit id="submissions-incomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Incomplete</source>
+        <target>Nekompletní</target>
+      </segment>
+    </unit>
+    <unit id="submissions-noSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Submissions</source>
+        <target>Žádné příspěvky</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Editing</source>
+        <target>Ve frontě k editování</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queued">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Queued</source>
+        <target>Ve frontě</target>
+      </segment>
+    </unit>
+    <unit id="submissions-queuedUnassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No editor has been assigned to this submission.</source>
+        <target>Čeká na přidělení</target>
+      </segment>
+    </unit>
+    <unit id="submissions-ruling">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ruling</source>
+        <target>Rozhodnuto</target>
+      </segment>
+    </unit>
+    <unit id="submission-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Source</source>
+        <target>Zdroj</target>
+      </segment>
+    </unit>
+    <unit id="submission-source-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Is this submission derived from another resource? If so, you may enter a URL or description of that resource.</source>
+        <target>Je tento příspěvek odvozen z jiného zdroje? Pokud ano, můžete zadat adresu URL nebo popis daného zdroje.</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>Odeslat</target>
+      </segment>
+    </unit>
+    <unit id="submissions-submitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitted</source>
+        <target>Odeslané</target>
+      </segment>
+    </unit>
+    <unit id="submission-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>Příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Title:</source>
+        <target>Název příspěvku:</target>
+      </segment>
+    </unit>
+    <unit id="submission-start">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Start</source>
+        <target>Zahájit</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission History</source>
+        <target>Historie příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionManuscript">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Manuscript</source>
+        <target>Rukopis příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-submissionReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Review</source>
+        <target>Recenze příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-submitter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submitter</source>
+        <target>Odesílatel</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Finish Submission</source>
+        <target>Odeslat příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select File</source>
+        <target>Vybrat soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Information</source>
+        <target>Informace o souboru</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Added</source>
+        <target>Přehled přidaných souborů</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include this contributor in browse lists?</source>
+        <target>Přidat tohoto přispěvatele do seznamu k prohlížení?</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-newFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Another File</source>
+        <target>Přidat další soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Refinements</source>
+        <target>Upřesnění metadat</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataForm-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add additional information for your submission.  Press 'enter' after each term.</source>
+        <target>Přidejte další informace k vašemu příspěvku. Po každém výrazu klikněte na klávesu "Enter".</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Language</source>
+        <target>Jazyk příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionLocaleDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions in several languages are accepted. Choose the primary language of the submission from the pulldown above.</source>
+        <target>Jsou přijímány příspěvky v několika jazycích. V níže uvedeném rozbalovacím seznamu vyberte primární jazyk příspěvku.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-submissionFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Files</source>
+        <target>Soubory příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-dependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Dependent Files</source>
+        <target>Podřízené soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-manageDependentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Dependent Files</source>
+        <target>Spravovat podřízené soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Dependent File</source>
+        <target>Nahrát podřízené soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-query">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Discussion File</source>
+        <target>Nahrát diskusní soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>Souhrn</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementaryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Files</source>
+        <target>Doplňkové soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-supportingAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting Agencies</source>
+        <target>Podporující instituce (granty)</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentAgencies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Agencies</source>
+        <target>Současné agentury</target>
+      </segment>
+    </unit>
+    <unit id="submission-indexingInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexing Information</source>
+        <target>Informace o indexování</target>
+      </segment>
+    </unit>
+    <unit id="submission-titleAndAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title and Abstract</source>
+        <target>Název a abstrakt</target>
+      </segment>
+    </unit>
+    <unit id="submission-type-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The submission type is usually one of 'image', 'text', or other multimedia types including 'software' or 'interactive'.  Please choose the one most relevant for your submission.  Examples may be found at <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>]]></source>
+        <target><![CDATA[Typ příspěvku je obvykle jeden z 'image', 'text' nebo jiných multimediálních typů, včetně 'software' nebo 'interactive'. Zvolte prosím ten, který je pro váš příspěvek nejrelevantnější. Příklady lze nalézt na adrese <a target="_blank" href="http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type"> http://dublincore.org/documents/2001/04/12/useguide/generic.shtml#typ</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-underway">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Underway</source>
+        <target>Zpracovává se</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadFileTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload file to</source>
+        <target>Nahrát soubor k</target>
+      </segment>
+    </unit>
+    <unit id="submission-createRemote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create remote</source>
+        <target>Vytvořit vzdálený</target>
+      </segment>
+    </unit>
+    <unit id="submission-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Metadata</source>
+        <target>Zobrazit metadata</target>
+      </segment>
+    </unit>
+    <unit id="submission-views">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Views</source>
+        <target>Zobrazení</target>
+      </segment>
+    </unit>
+    <unit id="submission-uploadSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your file has been uploaded.</source>
+        <target>Váš soubor byl nahrán</target>
+      </segment>
+    </unit>
+    <unit id="submission-loadMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please wait while your file is uploaded to the server.</source>
+        <target>Prosím čekejte, Váš soubor je nahráván na server.</target>
+      </segment>
+    </unit>
+    <unit id="submission-artworkFileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork File Details</source>
+        <target>Detaily o souboru uměleckého díla</target>
+      </segment>
+    </unit>
+    <unit id="submission-fileDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Details</source>
+        <target>Detaily souboru</target>
+      </segment>
+    </unit>
+    <unit id="submission-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this item.</source>
+        <target>Prosím, vyplňte položku jméno.</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-mmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>MM-DD</source>
+        <target>MM-DD</target>
+      </segment>
+    </unit>
+    <unit id="submission-date-yyyymmdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>YYYY-MM-DD</source>
+        <target>RRRR-MM-DD</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-selectPrincipalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal contact for editorial correspondence.</source>
+        <target>Hlavní kontakt pro komunikaci s redakcí.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-contributorRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor's role</source>
+        <target>Role přispěvatele</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>Přidat přispěvatele</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-languagesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a language.</source>
+        <target>Vložte, prosím, jazyk.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-subjectsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a subject.</source>
+        <target>Vložte, prosím, předmět.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-disciplinesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a discipline.</source>
+        <target>Vložte, prosím, disciplínu.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-keywordsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a keyword.</source>
+        <target>Vložte, prosím, klíčová slova.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-coverageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the coverage information.</source>
+        <target>Vložte, prosím, informace o pokrytí.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the type.</source>
+        <target>Vložte, prosím, typ.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-sourceRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the source.</source>
+        <target>Vložte, prosím, zdroj.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-rightsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the rights.</source>
+        <target>Vložte, prosím, autorská práva.</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-form-citationsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the references.</source>
+        <target>Vložte, prosím, reference.</target>
+      </segment>
+    </unit>
+    <unit id="submission-form-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name the file (e.g., Manuscript; Table 1)</source>
+        <target>Jméno souboru (napr. Rukopis, Tabulka 1)</target>
+      </segment>
+    </unit>
+    <unit id="submission-form-replaceExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replacing an Existing File?</source>
+        <target>Nahradit existující soubor?</target>
+      </segment>
+    </unit>
+    <unit id="workflow-review-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Review</source>
+        <target>Interní recenze</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage-any">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any Stage</source>
+        <target>Libovolná etapa</target>
+      </segment>
+    </unit>
+    <unit id="workflow-stage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage</source>
+        <target>Etapa</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Copyediting</source>
+        <target>V procesu redakčních úprav</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Proofreading</source>
+        <target>V procesu korektur</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>V recenzním procesu</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting Editor Decision</source>
+        <target>Čeká se na rozhodnutí editora</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-unassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>Nepřiřazeno</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Odmítnuto</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>Publíkováno</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>1. Upload File</source>
+        <target>1. Nahrát soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-uploadSubmissionFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Submission File</source>
+        <target>Nahrajte soubor s příspěvkem</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-metadataStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>2. Review Details</source>
+        <target>2. Kontrola detailů</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-finishingUpStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>3. Confirm</source>
+        <target>3. Schválení</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-fileNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter a file name for this file</source>
+        <target>Je třeba zadat platné jméno souboru</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid component!</source>
+        <target>Chybějící, nebo neplatná komponenta!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-invalidUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing or invalid user group!</source>
+        <target>Chybějící nebo neplatná uživatelská skupina!</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Possible Duplication or Revision Detected</source>
+        <target>Byla detekována možná duplicita nebo revize.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-possibleRevisionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The name of the uploaded file resembles the name of a previously uploaded file, "{$revisedFileName}." Is this file intended to replace "{$revisedFileName}"? If so, select the file below. Otherwise, select "This is not a revision of an existing file" before proceeding.</source>
+        <target>Název nahraného souboru se podobá názvu dříve nahraného souboru"{$revisedFileName}."  Je tento soubor určen k nahrazení "{$revisedFileName}"? Pokud ano, vyberte níže uvedený soubor. V opačném případě vyberte "Nejedná se o revizi stávajícího souboru", než budete pokračovat.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectMandatoryFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select the file you would like to revise.</source>
+        <target>Zvolte soubor, který chcete revidovat.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-selectOptionalFileToRevise">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are uploading a revision of an existing file, please indicate which file.</source>
+        <target>Pokud nahráváte revizi existujícího souboru, uveďte, který soubor.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadNewFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a revision of an existing file</source>
+        <target>Toto není revize existujícího souboru</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload this file in my role as...</source>
+        <target>Nahrát tento soubor v rámci mé role...</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-userGroupDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you are submitting an Edited Volume, you should upload all volume chapters individually, under your role as volume editor.</source>
+        <target>Pokud odesíláte Editovaný svazek, měli byste nahrát všechny kapitoly svazků jednotlivě pod svou roli jako editor svazků.</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadLibraryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Library File</source>
+        <target>Nahrát knihovní soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-libraryCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Document Category</source>
+        <target>Kategorie dokumentu příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Nahrát soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-copyeditedVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Copyedited File</source>
+        <target>Nahrát soubor redakčních úprav</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-fairCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Fair Copy</source>
+        <target>Nahrát férovou kopii (Fair Copy)</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-uploadFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Files</source>
+        <target>Nahrát soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>After reviewing the assigned file, record any comments on the file below, and/or upload an annotated copy of the file (or another file).</source>
+        <target>Po recenzi přiděleného souboru zaznamenejte všechny připomínky k souboru níže a/nebo nahrajte anotovanou kopii souboru (nebo jiný soubor).</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a Production Ready File</source>
+        <target>Nahrát soubor pro produkční fázi</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-proof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a File Ready for Publication</source>
+        <target>Nahrát soubor připravený k publikování</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-noAvailableReviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no files for you to revise at this time.</source>
+        <target>Nejsou pro vás dostupné žádné soubory ke recenzi.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been requested.</source>
+        <target>Byly vyžádány recenze.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions have been submitted.</source>
+        <target>Recenze byly odevzdány.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-resubmitForReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be resubmitted for another review round.</source>
+        <target>Příspěvek musí být znovu podán do dalšího recenzního kola.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-submissionResubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission has been resubmitted for another review round.</source>
+        <target>Příspěvek byl znovu nahrán pro další kolo recenzí.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-sentToExternal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent to external review.</source>
+        <target>Odesláno k externí recenzi.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>Příspěvek přijat.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>Příspěvek odmítnut.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for reviewers to be assigned.</source>
+        <target>Čeká se na výběr recenzentů.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting responses from reviewers.</source>
+        <target>Čeká se na odpovědi recenzentů.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New reviews have been submitted.</source>
+        <target>Byly odevzdány nové recenze.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All reviewers have responded and a decision is needed.</source>
+        <target>Recenze byly ukončeny.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A review is overdue.</source>
+        <target>Vypršel termín pro recenzi.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-pendingRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting recommendations from editors.</source>
+        <target>Očekávají se doporučení redaktorů.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New editorial recommendations have been submitted.</source>
+        <target>Byly odevzdány nová doporučení redaktorů.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-roundStatus-recommendationsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All recommendations are in and a decision is needed.</source>
+        <target>Všechna doporučení jsou odevzdána a očekává se rozhodnutí.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-stageParticipants">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participants</source>
+        <target>Účastníci</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noneAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None Assigned</source>
+        <target>Nikdo není přiřazen</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-participant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participant</source>
+        <target>Účastník</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Participant</source>
+        <target>Přidat účastníka</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Assignment</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-userGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users are assigned to stages of the workflow by user group. Any user assigned to this stage will automatically be assigned to other stages to which their user group has been assigned. This is commonly reserved for editors, authors and translators.</source>
+        <target>Uživatelé jsou přiřazeni ke etapám pracovního postupu podle skupin uživatelů. Každý uživatel přiřazený k této etapě bude automaticky přiřazen dalším etapám, kterým byla přiřazena uživatelská skupina. To je obvykle vyhrazeno pro editory, autory a překladatele.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Participant</source>
+        <target>Odebrat uživatele</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removeStageParticipant-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You are about to remove this participant from <strong>all</strong> stages.]]></source>
+        <target><![CDATA[Chystáte se tohoto účastníka odstranit z <strong> všech </ strong> etap. Pokud má uživatel také nevyřízené úkoly auditora, budou také odstraněny.]]></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user group.</source>
+        <target>Musíte vybrat uživatelskou skupinu.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-userRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user for the specified user group.</source>
+        <target>Musíte vybrat uživatele ze specifické uživatelské skupiny.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addStageParticipant-form-reviewerWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The participant you selected has been assigned to conduct a blind review. If you assign them as a participant, they will have access to the author's identity. You are encouraged not to assign this participant unless you can independently ensure the integrity of the peer review process.</source>
+        <target>Účastník, kterého jste vybrali, byl přidělen k provedení slepé recenze. Pokud jej vyberete jako účastníka, bude mít přístup k identitě autora. Doporučuje se, abyste tomuto účastníka nepřidělili, abyste zajistili integritu procesu peer review.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disallow Edit Metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow Edit Metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-removePermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be unable to edit the submission's metadata at that stage?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addPermissionToEditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want the authors of this submission to be able to edit the submission's metadata at that stage?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decision</source>
+        <target>Rozhodnutí</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept Submission</source>
+        <target>Přijmout příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Revisions</source>
+        <target>Požadovat úpravy příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-resubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for Review</source>
+        <target>Znovu odeslat do recenzního procesu</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline Submission</source>
+        <target>Odmítnout příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send To Production</source>
+        <target>Odeslat do produkční fáze</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-skipReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept and Skip Review</source>
+        <target>Přijmout a přeskočit recenzi</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-sendInternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send to Internal Review</source>
+        <target>Odeslat k interním recenzím</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The page proof file must be checked as approved to be made Available. Do you want to approve it?</source>
+        <target>Soubor po korekturách musí být zatržen, aby byl přístupný. Chcete ho schválit?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-approveProofs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve Proofs</source>
+        <target>Schválit korektury</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-disapproveProofsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This file proof will no longer be publicly available for download or purchase. Do you want to disapprove it?</source>
+        <target>Tento soubor korektur již nebude dostupný ke stažení či koupi. Opravdu chcete zrušit jeho scvhálení?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-noDecisionsAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign an editor to enable the editorial decisions for this stage.</source>
+        <target>Přidělte redaktora, aby bylo možné vytvořit redakční rozhodnutí pro tuto etapu.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-makeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make Recommendation</source>
+        <target>Vložit doporučení</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-changeRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Recommendation</source>
+        <target>Změnit doporučení</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>Doporučení:  {$recommendation}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-allRecommendations-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendations: {$recommendations}</source>
+        <target>Doporučení:  {$recommendations}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation</source>
+        <target>Doporučení</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommend an editorial decision for this submission.</source>
+        <target>Doporučte redakční rozhodnutí pro tento příspěvek.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recordedRecommendations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recorded Recommendations</source>
+        <target>Vložená doporučení</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-nextButton">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next: Select Files for {$stageName}</source>
+        <target>Dále: Vyberte soubor pro {$stageName}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the files you would like to forward to the {$stageName} stage.</source>
+        <target>Vyberte soubory, které chcete předat do etapy {$stageName}.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-decision-previousAuthorNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous: Author Notification</source>
+        <target>Předešlé: Upozornění autora</target>
+      </segment>
+    </unit>
+    <unit id="submission-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current stage</source>
+        <target>Současná etapa</target>
+      </segment>
+    </unit>
+    <unit id="submission-noActionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No action required</source>
+        <target>Není požadována žádná akce¨</target>
+      </segment>
+    </unit>
+    <unit id="submission-actionNeeded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Needs action</source>
+        <target>Je třeba akce</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Files</source>
+        <target>Soubory recenzí</target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-currentFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current file</source>
+        <target>Aktuální soubor</target>
+      </segment>
+    </unit>
+    <unit id="submission-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Draft Files</source>
+        <target>Soubory návrhů</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addAuditorError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error trying to assign the auditor. Please Try again.</source>
+        <target>Při přiřazování posuzovatele došlo k chybě. Zkuste to, prosím, ještě jednou.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>Soubor "{$originalFileName}" byl nahrán pro příspěvek {$submissionId} uživatelem {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>Soubor "{$originalFileName}" v rámci příspěvku {$submissionId} byl smazán uživatelm {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was uploaded for submission {$submissionId} by {$username}.</source>
+        <target>Revize souboru "{$originalFileName}" byla nahrána k příspěvku {$submissionId} uživatelem {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-revisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file revision "{$originalFileName}" was deleted for submission {$submissionId} by {$username}.</source>
+        <target>Revize souboru "{$originalFileName}" v rámci příspěvku {$submissionId} byla smazána uživatelem {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-lastRevisionDeleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file "{$title}" had its last revision removed by {$username}.</source>
+        <target>Pro soubor "{$title}" byla jeho poslední revize odebrána uživatelem {$username}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was added as an auditor for the file "{$file}."</source>
+        <target>Uživatel "{$name}" ({$username}) byl přidán jako posuzovatel pro soubor "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditorCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) was removed as an auditor for the file "{$file}."</source>
+        <target>Uživateli "{$name}" ({$username}) byla odebrána role posuzovatele pro soubor "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-fileAuditUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has completed an audit and uploaded "{$file}."</source>
+        <target>Uživatel "{$name}" ({$username}) ukončil a nahrál posouzení souboru "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-signoffSignoff">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has signed off on the signoff for "{$file}."</source>
+        <target>Uživatel "{$name}" ({$username}) se odhlásil od souboru "{$file}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-proofsApproved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$name}" ({$username}) has approved the proofs for "{$formatName}."</source>
+        <target>Uživatel "{$name}" ({$username}) schválil korektury pro "{$formatName}."</target>
+      </segment>
+    </unit>
+    <unit id="submission-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Overview</source>
+        <target>Přehled příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="submission-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Popis</target>
+      </segment>
+    </unit>
+    <unit id="submission-stageNotInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage not initiated.</source>
+        <target>Etapa ještě nezačala.</target>
+      </segment>
+    </unit>
+    <unit id="submission-documents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Documents</source>
+        <target>Dokumenty příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been assigned as an editor to the submission "{$title}".</source>
+        <target>Byl jste přidělen jako redaktor příspěvku "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-copyeditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review copyedits for "{$title}".</source>
+        <target>Byl jste požádán(a) o kontrolu redakčních úprav pro  "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-layouteditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to review layouts for "{$title}".</source>
+        <target>Byl jste požádán(a) o kontrolu layoutu pro  "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-indexRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been asked to create an index for "{$title}".</source>
+        <target>Byl jste požádán(a) o vytvoření indexu pro  "{$title}".</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest editor decision.</source>
+        <target>Aktuální rozhodnutí editora.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionAccept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>Příspěvek byl přijat.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionExternalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>External review process started.</source>
+        <target>Začal proces externí recenze.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionPendingRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revision required.</source>
+        <target>Je třeba recenzovat.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionResubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit for review.</source>
+        <target>Znovu podat k recenzi.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionDecline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>Příspěvek byl odmítnut.</target>
+      </segment>
+    </unit>
+    <unit id="notification-uploadedResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response uploaded.</source>
+        <target>Reakce byla nahrána.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An editor must be assigned before review is initiated. Please add editor using the Participants list.</source>
+        <target>Před zahájením recenze musí být přiřazen editor. Přidejte editora pomocí odkazu Účastníci výše.</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer's Attachments</source>
+        <target>Přílohy pro recenzenta.</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewAttachments-send-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select review files to share with the author(s)</source>
+        <target>Zvolte soubory recenzí, které chcete sdílet s autorem/autory</target>
+      </segment>
+    </unit>
+    <unit id="submission-productionReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Book available</source>
+        <target>Kniha je dostupná</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-uploadRevisionToRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Revised File</source>
+        <target>Nahrát zrecenzovaný soubor</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewerAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has been assigned to review submission {$submissionId} for review round {$round}.</source>
+        <target>{$reviewerName} byl přidělen pro recenzování příspěvku {$submissionId} v recenzním kole {$round}.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewCleared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been cleared.</source>
+        <target>Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek {$submissionId} bylo vyčíštěno.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewUnconsidered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$editorName} has marked the round {$round} review for submission {$submissionId} as unconsidered.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReinstated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated.</source>
+        <target>Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek {$submissionId} bylo znovu zahájeno.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-awaitingResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Waiting for a response from the reviewer.</source>
+        <target>Čeká se na odpověď recenzenta.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer declined this review request.</source>
+        <target>Recenzent odmítnul požadavek na recenzi.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-responseOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the response due date.</source>
+        <target>Recenzent nedodržel termín pro odpověď.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-reviewOverdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has missed the review due date.</source>
+        <target>Recenzent nedodržel termín pro recenzi.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been accepted.</source>
+        <target>Recenze byla přijata.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-received">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer has submitted their review.</source>
+        <target>Recenzent nahrál recenzi.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review has been completed.</source>
+        <target>Recenze byla ukončena.</target>
+      </segment>
+    </unit>
+    <unit id="submission-review-status-thanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete and the reviewer has been thanked for their contribution.</source>
+        <target>Recenze byla ukončena a recenzentovi bylo zasláno poděkování za příspěvek.</target>
+      </segment>
+    </unit>
+    <unit id="submission-document">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Document</source>
+        <target>Dokument</target>
+      </segment>
+    </unit>
+    <unit id="submission-art">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Artwork</source>
+        <target>Umělecké dílo</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supplementary Content</source>
+        <target>Doplňující obsah</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-creator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Creator (or owner) of file</source>
+        <target>Tvůrce (nebo vlastník) souboru</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Předmět</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-publisher">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher</source>
+        <target>Vydavatel</target>
+      </segment>
+    </unit>
+    <unit id="submission-supplementary-sponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributor or sponsoring agency</source>
+        <target>Přispěvatele či sponzorská agentura</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-itemWorkflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to this submission's workflow</source>
+        <target>Jít na workflow tohoto příspěvku</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionSendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production process started.</source>
+        <target>Začal proces produkce.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before production process can be initiated. Please add a production editor using the Participants list.</source>
+        <target>Je třeba přidělit editora produkce před započetím produkční fáze. Přidejte editora produkce pomocí odkazu Účastníci výše.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorAssignmentEditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A production editor must be assigned before editorial process is initiated. Please add a production editor using the Participants list.</source>
+        <target>Je třeba přidělit editora produkce před započetím editační fáze. Přidejte editora produkce pomocí odkazu Účastníci výše.</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>Formulář posudku</target>
+      </segment>
+    </unit>
+    <unit id="submission-reviewFormResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Response</source>
+        <target>Odpovědi na formulář posudku</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewFormElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new review form element</source>
+        <target>Vytvořit nový formulář recenzenta pro tento prvek</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>Editovat metadata</target>
+      </segment>
+    </unit>
+    <unit id="submission-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>Oprávnění</target>
+      </segment>
+    </unit>
+    <unit id="submission-attachPermissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attach the following permissions to the submission:</source>
+        <target>Připojit pro příspěvek následující oprávnění:</target>
+      </segment>
+    </unit>
+    <unit id="submission-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target>Licence</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyright">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright</source>
+        <target>Autorská práva</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightHolder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Holder</source>
+        <target>Držitel(é) autorských práv</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightYear">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Year</source>
+        <target>Rok autorských práv</target>
+      </segment>
+    </unit>
+    <unit id="submission-copyrightStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright (c) {$copyrightYear} {$copyrightHolder}</source>
+        <target>Copyright (c) {$copyrightYear} {$copyrightHolder}</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>Vložte, prosím, platné URL (včetně http://).</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License URL</source>
+        <target>URL licence</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-NoDerivatives 4.0</source>
+        <target>CC Attribution-NonCommercial-NoDerivatives 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial 4.0</source>
+        <target>CC Attribution-NonCommercial 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NonCommercial-ShareAlike 4.0</source>
+        <target>CC Attribution-NonCommercial-ShareAlike 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-NoDerivatives 4.0</source>
+        <target>CC Attribution-NoDerivatives 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution 4.0</source>
+        <target>CC Attribution 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC Attribution-ShareAlike 4.0</source>
+        <target>CC Attribution-ShareAlike 4.0</target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial 4.0</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Mezinárodní licencí Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/">Mezinárodní licencí Creative Commons Attribution-NoDerivatives 4.0</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Mezinárodní licencí Creative Commons Attribution 4.0 </a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa4-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>]]></source>
+        <target><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Tato práce je licencována pod <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Mezinárodní licencí Creative Commons Attribution-ShareAlike 4.0</a>.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nc-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-nd3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-license-cc-by-sa3-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Review Discussions</source>
+        <target>Diskuse před recenzním procesem</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Discussions</source>
+        <target>Diskuse během recenzního procesu</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting Discussions</source>
+        <target>Diskuse během redakčního procesu</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-production">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Discussions</source>
+        <target>Diskuse během produkčního procesu</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Předmět</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-messages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Messages</source>
+        <target>Zprávy</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>Odpovědi</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>Od</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-lastReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last Reply</source>
+        <target>Poslední odpověď</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-closed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Closed</source>
+        <target>Uzavřeno</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Message</source>
+        <target>Přidat zprávu</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave Discussion</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-query-leaveQuery-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you leave this discussion you will no longer be notified of new messages. Would you like to leave the discussion?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-openNoteForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new reply to the discussion</source>
+        <target>Přidat novou odpověď k diskusi</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$responderName} replied to {$noteTitle}: {$noteContents}</source>
+        <target>{$responderName} odpověděl na {$noteTitle}: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$creatorName} started a discussion: {$noteTitle}: {$noteContents}</source>
+        <target>{$creatorName} začal diskusi: {$noteTitle}: {$noteContents}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-activity-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is new activity in the discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>V duskusi "{$queryTitle}" ohledně příspěvku "{$submissionTitle}" došlo k nové aktivitě.</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-new-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been added to a discussion titled "{$queryTitle}" regarding the submission "{$submissionTitle}".</source>
+        <target>Byl(a) jste přidán(a) k diskusi nazvané "{$queryTitle}" ohledně příspěvku "{$submissionTitle}".</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-participantTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$fullName}, {$userGroup}</source>
+        <target>{$fullName}, {$userGroup}</target>
+      </segment>
+    </unit>
+    <unit id="submission-query-noParticipantOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must assign at least one participant to this submission before initiating a discussion.</source>
+        <target>Musíte přidělit jednoho účastníka k tomuto příspěvku aby mohla být zahájena diskuse.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-infoCenter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Activity Log & Notes]]></source>
+        <target>Záznam aktivit a poznámek</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-empty">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No submissions found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-responseDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due</source>
+        <target>Očekává se odpověď</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Assignment</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due</source>
+        <target>Očekává se recenze</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Recenze byla nahrána</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewCancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete submission?</source>
+        <target>Smazat příspěvek?</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-viewSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submission</source>
+        <target>Zobrazit příspěvek</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewsCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned reviews completed</source>
+        <target>Přidělené recenze jsou hotovy</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-revisionsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions submitted</source>
+        <target>Recenze byly nahrány</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-copyeditsSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyedited files submitted</source>
+        <target>Soubory s editacemi byly nahrány</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-galleysCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production galleys created</source>
+        <target>Produkční sazebnice byly vytvořeny</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-filesPrepared">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files prepared</source>
+        <target>Připravené soubory</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-discussions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open discussions</source>
+        <target>Otevřené diskuse</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-dualWorkflowLinks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned multiple roles for this submission. Would you like to access the <a href="{$urlAuthorWorkflow}">Author's workflow</a>  or the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target><![CDATA[K tomuto příspěvku vám bylo přiřazeno několik rolí. Chcete pokračovat v rámci <a href="{$urlAuthorWorkflow}">Role autora</a> nebo <a href="{$urlEditorialWorkflow}">role editora</a>?]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewerWorkflowLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have been assigned an editorial role for this submission. Would you like to access the <a href="{$urlEditorialWorkflow}">Editorial workflow</a>?]]></source>
+        <target><![CDATA[Byla vám přiřazena editorská role pro tento příspěvek. Chcete pokračovat v rámci <a href="{$urlEditorialWorkflow}">editorské role</a>?]]></target>
+      </segment>
+    </unit>
+    <unit id="submission-list-incompleteSubmissionNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This submission must be completed before an editor will review it.</source>
+        <target>Příspěvky musí být dokončené před kontrolou redaktorem.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-currentStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currently in the {$stage} stage.</source>
+        <target>V tomto momentě je v etapě {$stage}.</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-assignEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Editor</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (A-Z)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-titleDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title (Z-A)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedAsc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (oldest first)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-sortBy-datePublishedDesc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication date (newest first)</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="category-coverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cover Image</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-submit-placement-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-currentCoverImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Image</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Nothing has been published in this category yet.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="catalog-category-subcategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subcategories</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="submission-publication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-citations-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The references have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-contributors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contributors</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-copyrightYearBasis-issueDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright year will be set automatically when this is published in an issue.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-createVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Version</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-datePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-editDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This version has been published and can not be edited.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was unpublished.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was created.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionScheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A version was removed from publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission for this publication could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The metadata have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Permissions & Disclosure]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright and license information have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-confirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All publication requirements have been met. Are you sure you want to publish this?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-requirements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following requirements must be met before this can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication status has been successfully changed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A declined submission can not be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be in the Copyediting or Production stages before it can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublished</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unscheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unscheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Title & Abstract]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title and abstract have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this to be published?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unschedule</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this scheduled for publication?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Versions</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication details for version {$version}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-wordCountLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

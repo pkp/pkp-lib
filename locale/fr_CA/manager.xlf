@@ -9,8 +9,8 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:24-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:24-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:02-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:02-07:00</note>
       <note id="Language"></note>
     </notes>
     <unit id="manager-website-information">
@@ -274,6 +274,24 @@
         <target>Aucune annonce n'a été créée.</target>
       </segment>
     </unit>
+    <unit id="manager-announcements-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
     <unit id="manager-announcementTypes">
       <notes>
         <note category="context"></note>
@@ -301,6 +319,15 @@
         <target>Créer un type d'annonce</target>
       </segment>
     </unit>
+    <unit id="manager-announcementTypes-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Créer</target>
+      </segment>
+    </unit>
     <unit id="manager-announcementTypes-edit">
       <notes>
         <note category="context"></note>
@@ -308,6 +335,24 @@
       <segment>
         <source>Edit Announcement Type</source>
         <target>Modifier le type d'annonce</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Modifier</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Sauvegarder et en créer un autre</target>
       </segment>
     </unit>
     <unit id="manager-announcementTypes-form-typeNameExists">
@@ -913,6 +958,15 @@
         <target>Aucun utilisateur n'a été trouvé.</target>
       </segment>
     </unit>
+    <unit id="manager-groups-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
     <unit id="manager-importExport">
       <notes>
         <note category="context"></note>
@@ -1039,6 +1093,15 @@
         <target>Envoyer à l'utilisateur un courriel de bienvenue contenant son nom d'utilisateur et son mot de passe.</target>
       </segment>
     </unit>
+    <unit id="manager-people-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Désactiver</target>
+      </segment>
+    </unit>
     <unit id="manager-people-doNotEnroll">
       <notes>
         <note category="context"></note>
@@ -1109,6 +1172,15 @@
       <segment>
         <source>Select the users you would like to email by checking the boxes beside their names</source>
         <target>Cocher les noms des utilisateurs auxquels vous désirez envoyer un courriel</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Activer</target>
       </segment>
     </unit>
     <unit id="manager-people-enroll">
@@ -1264,6 +1336,15 @@
         <target>Supprimer</target>
       </segment>
     </unit>
+    <unit id="manager-people-saveAndCreateAnotherUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Enregistrer et en créer un autre</target>
+      </segment>
+    </unit>
     <unit id="manager-people-signInAs">
       <notes>
         <note category="context"></note>
@@ -1327,6 +1408,24 @@
         <target>Action :</target>
       </segment>
     </unit>
+    <unit id="manager-plugins-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Désactiver</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Activer</target>
+      </segment>
+    </unit>
     <unit id="manager-plugins-pluginManagement">
       <notes>
         <note category="context"></note>
@@ -1370,6 +1469,15 @@
       <segment>
         <source>Search User By Name</source>
         <target>Rechercher un usager par son nom</target>
+      </segment>
+    </unit>
+    <unit id="manager-representative-inUse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission.</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="manager-reviewerSearch-change">
@@ -3790,6 +3898,15 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
         <target>Réviser les données du formulaire</target>
       </segment>
     </unit>
+    <unit id="manager-reviewForms-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
     <unit id="manager-reviewFormElement-changeType">
       <notes>
         <note category="context"></note>
@@ -3932,6 +4049,15 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
       <segment>
         <source>Item</source>
         <target>Élément </target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="manager-reviewFormElements-radiobuttons">
@@ -4672,6 +4798,15 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
         <target></target>
       </segment>
     </unit>
+    <unit id="manager-navigationMenus-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
     <unit id="manager-navigationMenus-form-path">
       <notes>
         <note category="context"></note>
@@ -5140,6 +5275,24 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
         <target></target>
       </segment>
     </unit>
+    <unit id="grid-category-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="grid-category-urlWillBe">
       <notes>
         <note category="context"></note>
@@ -5164,6 +5317,15 @@ Il arrive parfois qu'une seule statistique d'utilisation doit être utilisée, p
       </notes>
       <segment>
         <source>The category path already exists. Please enter a unique path.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
         <target></target>
       </segment>
     </unit>

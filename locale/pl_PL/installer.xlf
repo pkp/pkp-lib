@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:09-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:09-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="installer-additionalLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional locales</source>
+        <target>Dodatkowe języki</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administrator Account</source>
+        <target>Konto administratora</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccountInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user account will become the site administrator and have complete access to the system. Additional user accounts can be created after installation.</source>
+        <target>To konto użytkownika dostanie uprawnienia nadrzędnego administratora strony. Dodatkowe konta użytkowników mogą zostać utworzone po instalacji.</target>
+      </segment>
+    </unit>
+    <unit id="installer-checkNo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<span class="pkp_form_error formError">NO</span>]]></source>
+        <target><![CDATA[<span class="formError">NIE</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-checkYes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes</source>
+        <target>Tak</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Client character set</source>
+        <target>Kodowanie znaków (klient)</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharsetInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The encoding to use for data sent to and received from browsers.</source>
+        <target>Kodowanie znaków używane przez system do wysyłania oraz odbierania danych.</target>
+      </segment>
+    </unit>
+    <unit id="installer-configFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[Plik konfiguracyjny <tt>config.inc.php</tt> nie istnieje lub nie jest przeznaczony do odczytu.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-connectionCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Connection character set</source>
+        <target>Kodowanie znaków (połączenie)</target>
+      </segment>
+    </unit>
+    <unit id="installer-contentsOfConfigFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents of configuration file</source>
+        <target>Zawartość pliku konfiguracyjnego</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabase">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create new database</source>
+        <target>Utwórz nową bazę danych</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabaseInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled.</source>
+        <target>Aby zdalnie utworzyć bazę danych, musisz posiadać stosowne uprawnienia oraz odpowiednią konfigurację serwera. Jeżeli instalacja nie powiedzie się z pomocą tej opcji, utwórz bazę manualnie i spróbuj instalacji ponownie.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriver">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database driver</source>
+        <target>Sterownik bazy danych</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriverInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work.]]></source>
+        <target><![CDATA[<strong>Sterowniki wyświetlone w nawiasach wymagają rozszerzeń PHP, które nie są zainstalowane.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHost">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Host</source>
+        <target>Host</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHostInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</source>
+        <target>Zostaw pole puste, jeżeli chcesz połączyć się lokalnie z wykorzystaniem gniazd. Nie jest to konieczne w przypadku MySQL, który wykorzystuje gniazda automatycznie po wpisaniu 'localhost'.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database name</source>
+        <target>Nazwa bazy danych</target>
+      </segment>
+    </unit>
+    <unit id="installer-databasePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>Hasło</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database Settings</source>
+        <target>Ustawienia bazy danych</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseUsername">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>Użytkownik</target>
+      </segment>
+    </unit>
+    <unit id="installer-filesDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Directory for uploads</source>
+        <target>Folder deponowania</target>
+      </segment>
+    </unit>
+    <unit id="installer-fileSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Settings</source>
+        <target>Ustawienia plików</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-clientCharsetRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A client character set must be selected.</source>
+        <target>Kodowanie znaków jest wymagane.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseDriverRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A database driver must be selected.</source>
+        <target>Sterownik bazy danych jest wymagany.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The database name is required.</source>
+        <target>Nazwa bazy danych jest wymagana.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address for the administrator account is required.</source>
+        <target>Poprawny adres e-mail administratora jest wymagany.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-filesDirRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory to be used for storing uploaded files is required.</source>
+        <target>Folder deponowania jest wymagany.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-localeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A locale must be selected.</source>
+        <target>Wybór języka jest wymagany.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password for the administrator account is required.</source>
+        <target>Hasło konta administratora jest wymagane.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator passwords do not match.</source>
+        <target>Podane hasła nie są takie same.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-separateMultiple">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Separate multiple values with commas</source>
+        <target>Oddziel wiele wartości za pomocą przecinków</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator username can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>Nazwa konta administratora może być złożona ze znaków alfanumerycznych, podkreśleń, oraz znaku minus (-). Ponadto, musi się zaczynać i kończyć znakiem alfanumerycznym.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username for the administrator account is required.</source>
+        <target>Nazwa użytkownika dla konta administratora jest wymagana.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installationWrongPhp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></source>
+        <target><![CDATA[<br/><strong>UWAGA: Wersja PHP zainstalowana na serwerze nie spełnia minimalnych wymagań niezbędnych do zainstalowania systemu. Zaktualizuj PHP do nowszej wersji.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installErrorsOccurred">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occurred during installation</source>
+        <target>Podczas instalacji wystąpiły błędy</target>
+      </segment>
+    </unit>
+    <unit id="installer-installerSQLStatements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SQL statements for installation</source>
+        <target>Wyrażenia SQL dla instalacji</target>
+      </segment>
+    </unit>
+    <unit id="installer-installFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[Plik instalacyjny <tt>dbscripts/xml/install.xml</tt> nie istnieje.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory specified for uploaded files does not exist or is not writable.</source>
+        <target>Folder deponowania nie istnieje lub nie jest przeznaczony do zapisu.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseDBFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Błąd parsowania pliku bazy danych - <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseEmailTemplatesFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Błąd parsowania pliku szablonów e-mail - <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseFilterConfigFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Błąd parsowania konfiguracji filtrów w pliku <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedUpgradeError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details.</source>
+        <target>Aktualizacja nie jest wspierana. Zobacz docs/UPGRADE-UNSUPPORTED w celu uzyskania szczegółowych informacji.</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>Język</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale-maybeIncomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marked locales may be incomplete.</source>
+        <target>Oznaczone tłumaczenia mogą być niekompletne.</target>
+      </segment>
+    </unit>
+    <unit id="installer-localeSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale Settings</source>
+        <target>Ustawienia języka</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Settings</source>
+        <target>Ustawienia OAI</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryIdInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></source>
+        <target><![CDATA[Unikatowy identyfikator wykorzystywany przez <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> do pobierania metadanych.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repository Identifier</source>
+        <target>Identyfikator repozytoriów OAI</target>
+      </segment>
+    </unit>
+    <unit id="installer-publicFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The public files directory does not exist or is not writable.</source>
+        <target>Główny folder instalacji nie istnieje lub nie jest przeznaczony do zapisu.</target>
+      </segment>
+    </unit>
+    <unit id="installer-releaseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Release Notes</source>
+        <target>Informacje o wydaniu</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructionsTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Installation Steps</source>
+        <target>Przed instalacją</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<p>1. The following files and directories (and their contents) must be made writable:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>
+			<li><tt>public/</tt> is writable: {$writable_public}</li>
+			<li><tt>cache/</tt> is writable: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> is writable: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. A directory to store uploaded files must be created and made writable (see "File Settings" below).</p>
+	]]></source>
+        <target><![CDATA[<p>1. Następujące pliki i foldery muszą być zapisywalne:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> jest zapisywalny (opcjonalnie): {$writable_config}</li>
+			<li><tt>public/</tt> jest zapisywalny: {$writable_public}</li>
+			<li><tt>cache/</tt> jest zapisywalny: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> jest zapisywalny: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> jest zapisywalny: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> jest zapisywalny: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. Katalog dla mediów (przesłanych plików) musi być utworzony oraz zapisywalny (zobacz "Ustawienia plików" poniżej).</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-configureXSLMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>]]></source>
+        <target><![CDATA[<p>Twoja instalacja PHP nie posiada skonfigurowanego modułu XSL. Włącz go lub skonfiguruj komendę xslt_command w swoim pliku konfiguracyjnym config.inc.php.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Beacon</source>
+        <target>Beacon</target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only.</source>
+        <target>Podaj unikatowy ID strony oraz bazowy adres OAI dla organizacji PKP wyłącznie do raportowania danych statystycznych.</target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedPhpError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your server's PHP version is not supported by this software. Double-check the installation requirements in docs/README.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

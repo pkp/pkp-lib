@@ -1,0 +1,1997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:00-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:00-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="grid-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Items</source>
+        <target>هیچ موردی وجود ندارد</target>
+      </segment>
+    </unit>
+    <unit id="grid-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>تنظیمات</target>
+      </segment>
+    </unit>
+    <unit id="grid-noAuditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Auditors</source>
+        <target>بدون حسابرس</target>
+      </segment>
+    </unit>
+    <unit id="grid-remotelyHostedItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This item is remotely hosted.</source>
+        <target>این مورد از راه دور کنترل می‌شود</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uninstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninstall</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-manageAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Access</source>
+        <target>مدیریت دسترسی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sort</source>
+        <target>مرتب‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Item</source>
+        <target>افزودن یک مورد</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Note</source>
+        <target>افزودن یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add discussion</source>
+        <target>افزودن گفتگو</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read discussion</source>
+        <target>خواندن گفتگو</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete discussion</source>
+        <target>حذف گفتگو</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-updateQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update discussion</source>
+        <target>به‌روزرسانی گفتگو</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>افزودن کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign this reviewer</source>
+        <target>عدم انتساب این داور</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approveCopyedit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve this copyedit file for sending it to the next stage</source>
+        <target>این نسخه ویراستاری شده را تأیید کنید تا به مرحله بعد فرستاده شود.</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-reload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload</source>
+        <target>بارگذاری مجدد</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete File</source>
+        <target>حذف فایل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Media</source>
+        <target>حذف مدیا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Media</source>
+        <target>ویرایش مدیا</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Section</source>
+        <target>ویرایش نوع</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-export">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export</source>
+        <target>برون دهی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Section</source>
+        <target>حذف نوع</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editorialHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial History</source>
+        <target>تاریخچه پردازش مقاله</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approve">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve</source>
+        <target>تأیید</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disapprove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disapprove</source>
+        <target>عدم پذیرش</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-setApproval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Set Approval</source>
+        <target>تأیید کن</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Information</source>
+        <target>اطلاعات بیشتر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore Defaults</source>
+        <target>برگرداندن پیش‌فرض‌ها</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to restore the defaults?</source>
+        <target>آیا مطمئنید که می‌خواهید تنظیمات پیش‌فرض بازگردانده شود.</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Author</source>
+        <target>افزودن نویسنده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Author</source>
+        <target>ویرایش نویسنده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Author</source>
+        <target>حذف نویسنده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add an Auditor</source>
+        <target>افزودن حسابرس</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade</source>
+        <target>ارتقاء</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-order">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order</source>
+        <target>مرتب‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-cancelOrdering">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel ordering</source>
+        <target>انصراف</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-extendAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extend all</source>
+        <target>بازکردن همه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse</source>
+        <target>جمع کردن</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapseAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse all</source>
+        <target>جمع کردن همه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings wizard</source>
+        <target>تنظیمات مرحله به مرحله</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moveItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Move Item</source>
+        <target>جابجایی موارد</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download all files as an archive</source>
+        <target>دانلود همه فایل‌ها به صورت فشرده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read this review</source>
+        <target>خواندن این داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send email</source>
+        <target>ارسال ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a reviewer</source>
+        <target>افزودن داور</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a file</source>
+        <target>آپلود فایل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a file</source>
+        <target>ویرایش فایل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select files to manage</source>
+        <target>انتخاب فایل برای مدیریت</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request revisions for this submission</source>
+        <target>درخواست اصلاحات برای این مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept this submission</source>
+        <target>پذیرش این مقاله</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline this Submission</source>
+        <target>رد این مقاله</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to internal review</source>
+        <target>ارسال این مقاله به داور داخلی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-externalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to external review</source>
+        <target>ارسال این مقاله به داور خارجی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to production</source>
+        <target>ارسال این مقاله به واحد انتشار</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>تنظیمات</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import or export content or site data</source>
+        <target>برون دهی با درون‌ریزی محتویات سایت</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-orderItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable ordering mode</source>
+        <target>فعال کردن مرتب‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this checklist item</source>
+        <target>ویرایش موارد این لیست</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this checklist item</source>
+        <target>حذف این مورد از لیست</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset all items to default values</source>
+        <target>بازگرداندن تمامی موارد به مقادیر پیش‌فرض خود</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new email template</source>
+        <target>افزودن یک الگوی ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this email template</source>
+        <target>ویرایش این الگوی ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disableEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable this email template</source>
+        <target>غیرفعال کردن این الگوی ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset this email template to the default</source>
+        <target>بازگرداندن این الگوی ایمیل به حالت پیش‌فرض</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expandAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand All</source>
+        <target>بازکردن همه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a participant</source>
+        <target>افزودن یک همکار</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expand">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand</source>
+        <target>باز کردن</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify this user</source>
+        <target>اطلاع‌رسانی به این کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new User Group</source>
+        <target>افزودن گروه کاربری جدید</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this user group</source>
+        <target>ویرایش این گروه کاربری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-removeUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove this user group</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>غیرفعال کردن</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View this item</source>
+        <target>مشاهده این مورد</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enrolExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrol an existing user as a reviewer</source>
+        <target>اعطای نقش داور به این کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectCreate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new reviewer</source>
+        <target>ایجاد داور جدید</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>جستجو</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-advancedSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Search</source>
+        <target>جستجوی پیشرفته</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewLibrary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Document Library</source>
+        <target>مشاهده کتابخانه اسناد</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the metadata for this submission</source>
+        <target>مشاهده فراداده‌های این مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a task reminder to this user</source>
+        <target>ارسال یادآوری وظیفه برای کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new round</source>
+        <target>ایجاد دور جدید</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewReviewGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the review guidelines</source>
+        <target>مشاهده دستورالعمل داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewCompetingInterestGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the competing interests guidelines policy</source>
+        <target>مشاهده دستورالعمل‌های مربوط به سیاست تضاد منافع در داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-thankReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a thank you message to this reviewer</source>
+        <target>ارسال پیام تشکر به داور</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a file</source>
+        <target>آپلود یک فایل</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement Type</source>
+        <target>افزودن نوع اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement</source>
+        <target>افزودن اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge user</source>
+        <target>ادغام کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign User</source>
+        <target>عدم انتساب کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View History</source>
+        <target>مشاهده تاریخچه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unconsiderReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete, but you may unconsider it</source>
+        <target>این داوری تکمیل شده است اما هنوز شما به آن رسیدگی نکرده‌اید</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>فعال‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-bookInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>اطلاعات مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-logInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login As</source>
+        <target>ورود به عنوان</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-exportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export All Users</source>
+        <target>برون دهی تمامی کاربران</target>
+      </segment>
+    </unit>
+    <unit id="grid-users-confirmExportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to export all users?</source>
+        <target>آیا مطمئنید که می‌خواهید تمامی کاربران را برون دهی نمایید؟</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate</source>
+        <target>فعال‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deactivate</source>
+        <target>غیرفعال‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-copy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy</source>
+        <target>کپی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview</source>
+        <target>پیش‌نمایش</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-install">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install</source>
+        <target>نصب</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Load more</source>
+        <target>ادامه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View/Select users</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This task is completed</source>
+        <target>این وظیفه تکمیل شد.</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checked when considered</source>
+        <target>پس از رسیدگی تیک بخورد</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-uploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The column title indicates who uploaded this file</source>
+        <target>ستون عنوان مشخص کننده آن است که چه کسی این فایل را آپلود کرده است</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-unfinished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task unfinished</source>
+        <target>وظیفه تمام نشده است</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is ready. Click the note icon to the left to read it.</source>
+        <target>داوری آماده است. آیکون یادداشت را به سمت چپ ببرید تا آن را مشاهده کنید.</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-actions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Actions</source>
+        <target>اقدامات</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>مؤسسه</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-auditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor</source>
+        <target>حسابرس</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>زبان</target>
+      </segment>
+    </unit>
+    <unit id="grid-sponsor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsoring Organizations</source>
+        <target>حامی مالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Sponsor</source>
+        <target>افزودن حامی مالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Sponsor</source>
+        <target>حذف حامی مالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Sponsor</source>
+        <target>ویرایش حامی مالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Series</source>
+        <target>افزودن سری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Series</source>
+        <target>ویرایش سری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Series</source>
+        <target>حذف سری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target>افزودن بخش</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target>ویرایش بخش</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Category</source>
+        <target>حذف بخش</target>
+      </segment>
+    </unit>
+    <unit id="grid-contributor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sources of Support</source>
+        <target>منبع حمایتی</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>افزودن پدیدآورنده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Contributor</source>
+        <target>ویرایش پدیدآورنده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Contributor</source>
+        <target>حذف پدیدآورنده</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new version</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewForm-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>فرم‌های داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewFormElement-responseItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Options</source>
+        <target>گزینه‌های پاسخ</target>
+      </segment>
+    </unit>
+    <unit id="grid-noFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files</source>
+        <target>هیچ فایلی وجود ندارد</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-column-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>فایل‌ها</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-submission-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Library</source>
+        <target>کتابخانه مقالات ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-editorial-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Library</source>
+        <target>کتابخانه سردبیری</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-review-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Library</source>
+        <target>کتابخانه داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-production-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Library</source>
+        <target>کتابخانه انتشار</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-productionTemplate-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Template Library</source>
+        <target>کتابخانه الگوهای انتشار</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Checklist</source>
+        <target>چک‌لیست مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-column-checklistItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist Item</source>
+        <target>موارد چک‌لیست</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>نام</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>E-mail</source>
+        <target>ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-role">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role</source>
+        <target>نقش</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Primary Contact</source>
+        <target>نویسنده مسئول</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Browse Lists</source>
+        <target>در لیست نویسندگان سایت قرار بگیرد</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-currentRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Roles</source>
+        <target>نقش‌های کنونی</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Role</source>
+        <target>ساختن نقش جدید</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-stageAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage Assignment</source>
+        <target>تخصیص مرحله</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Users</source>
+        <target>کاربران کنونی</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentEnrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Enrollment</source>
+        <target>نقش جاری</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Roles</source>
+        <target>تمامی نقش‌ها</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allPermissionLevels">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Permission Levels</source>
+        <target>تمامی سطوح دسترسی</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>افزودن کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>نقش دهی به کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>ویرایش کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>فعال کردن</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>غیرفعال کردن</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for disabling user</source>
+        <target>دلیل غیرفعال کردن کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for enabling user</source>
+        <target>دلیل فعال کردن کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered administrating this user. Please try again.</source>
+        <target>در مدیریت این کاربر خطایی رخ داد. لطفاً دوباره تلاش کنید.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-errorEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator.</source>
+        <target>در ارسال ایمیل خطایی رخ داد. مطمئن شوید که سرور ایمیلتان درست کار می‌کند. در صورت لزوم با مدیر سایت این موضوع را در میان بگذارید.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-cannotAdminister">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have sufficient permissions to administer this user. In order to administer a user, you must either be site administrator, or administer all contexts that this user is enrolled in.</source>
+        <target>شما مجوز کافی برای مدیریت این کاربر را ندارید. برای مدیریت کاربر باید دارای سطح دسترسی مدیر سایت باشید.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>منبع احراز هویت</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>لطفاً حداقل برای این کاربر یک نام خانوادگی مشخص کنید</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate Password</source>
+        <target>تولید رمز ورود</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate random password for this user.</source>
+        <target>ایجاد رمز عبور تصادفی برای کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify User</source>
+        <target>اطلاع‌رسانی به کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUserDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send user a welcome email.</source>
+        <target>ارسال ایمیل خوش‌آمد گویی به کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>تغییر رمز ورود</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User must change password on next log in.</source>
+        <target>شما باید در ورود بعدی به سیستم رمز ورود خود را عوض کنید</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescriptionOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>درخواست از کاربر برای تعویض رمز عبور در ورود بعدی به سیستم</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-moreDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More User Details</source>
+        <target>جزئیات بیشتر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-lessDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Less User Details</source>
+        <target>جزئیات کمتر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Details</source>
+        <target>اطلاعات کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Roles</source>
+        <target>نقش‌های کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userNoRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user does not have any roles.</source>
+        <target>این کاربر هیچ نقشی ندارد.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step1">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #1: Fill in User Details</source>
+        <target>مرحله اول: اطلاعات کاربر را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step2">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #2: Add User Roles to {$userFullName}</source>
+        <target>مرحله دوم: به {$userFullName} نقش اعطا کنید.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Roles</source>
+        <target>افزودن نقش‌ها</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Role</source>
+        <target>افزودن نقش</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-selectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select User</source>
+        <target>انتخاب کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-pleaseSelectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a user</source>
+        <target>لطفاً یک کاربر انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-confirmLogInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log in as this user? All actions you perform will be attributed to this user.</source>
+        <target>آیا می‌خواهید به عنوان این کاربر وارد شوید؟ همه کارهایی که انجام می‌دهید به عنوان این کاربر ثبت خواهد شد</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>ادغام کاربران</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>ادغام کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeIntoUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge into this User</source>
+        <target>ادغام با این کاربر</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-allUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Enrolled Users</source>
+        <target>تمامی کاربران دارای نقش</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</source>
+        <target>آیا مطمئنید که حساب کاربری «{$oldUsername}» را می‌خواهید با حساب کاربری «{$newUsername}» ادغام کنید؟ بعد از ادغام، حساب کاربری «{$oldUsername}» دیگر در دسترس نخواهد بود. عمل ادغام بازگشت ناپذیر است.</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Email Templates</source>
+        <target>آماده‌سازی الگوهای متن ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-currentList">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current List</source>
+        <target>لیست کنونی</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-allCategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Categories</source>
+        <target>تمام بخش‌ها</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to disable this plugin?</source>
+        <target>آیا مطمئنید که می‌خواهید این افزونه را غیرفعال کنید</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-fileUnconsider">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofing corrections made. You may unconsider this task</source>
+        <target>تصحیح اصلاحات انجام شد. شما ممکن است این وظیفه را نادیده بگیرید</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-caption">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Caption</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-credit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Credit</source>
+        <target>اعتبار</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightOwner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Owner</source>
+        <target>دارنده امتیاز حق نشر</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact Info (if not author/publisher)</source>
+        <target>اطلاعات تماس</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-permissionTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission Terms</source>
+        <target>موارد مجوز</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-placement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Placement in submission</source>
+        <target>موقعیت در مقاله ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign stage</source>
+        <target>تخصیص مرحله</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign stage</source>
+        <target>لغو تخصیص مرحله</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-allStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Workflow Stages</source>
+        <target>تمام مراحل گردش کار</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-listRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List roles assigned to</source>
+        <target>لیست نقش‌های انتساب داده شده به</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-permissionLevel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With permission level set to</source>
+        <target>با سطح دسترسی تنظیم شده </target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveDefaultUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The role {$userGroupName} is a default one and can't be removed.</source>
+        <target>نقش {$userGroupName}، نقش پیش‌فرض بوده و قابل حذف نمی‌باشد.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it.</source>
+        <target>نقش {$userGroupName} قابل حذف نیست. هم اکنون به {$usersCount} کاربر این نقش انتساب داده شده است..</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-removed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role removed.</source>
+        <target>نقش {$userGroupName} حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role assigned to {$stageName} stage.</source>
+        <target>نقش {$userGroupName} به مرحله {$stageName} تخصیص داده شد.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role unassigned from {$stageName} stage.</source>
+        <target>نقش {$userGroupName} از مرحله {$stageName} حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-itemTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author; Title</source>
+        <target>نویسنده؛ عنوان</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-active-selectOrphaned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include incomplete submissions not submitted by an author.</source>
+        <target>مقالات ناقص ارسالی نیز در نظر گرفته شود</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Menu</source>
+        <target>افزودن منو</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add item</source>
+        <target>افزودن المان</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenuItems-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menu Items</source>
+        <target>بدون المان برای منوی گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menus</source>
+        <target>بدون منوی گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-selectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose a type...</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

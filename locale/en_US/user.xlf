@@ -9,8 +9,8 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:46-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:46-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:57-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:57-07:00</note>
       <note id="Language"></note>
     </notes>
     <unit id="user-accountInformation">
@@ -947,6 +947,15 @@
       <segment>
         <source>Register in {$contextName} as...</source>
         <target>Register in {$contextName} as...</target>
+      </segment>
+    </unit>
+    <unit id="user-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Register</target>
       </segment>
     </unit>
     <unit id="user-register-usernameRestriction">

@@ -9,10 +9,28 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:24-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:24-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:02-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:02-07:00</note>
       <note id="Language"></note>
     </notes>
+    <unit id="author-editPublishedDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The authors of this publication can not be edited because it has already been published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="author-publicationNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication for this author could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="author-submit-submissionCitations">
       <notes>
         <note category="context"></note>
@@ -1057,6 +1075,15 @@
         <target>Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont "personnel", "corporatif" et "conférence".</target>
       </segment>
     </unit>
+    <unit id="metadata-property-displayName-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="common-queue-long-submissionsUnassigned">
       <notes>
         <note category="context"></note>
@@ -1082,6 +1109,15 @@
       <segment>
         <source>Archived Submissions</source>
         <target>Sousmissions archivées</target>
+      </segment>
+    </unit>
+    <unit id="submission-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Auteurs</target>
       </segment>
     </unit>
     <unit id="submission-authorBiography">
@@ -1242,7 +1278,7 @@
         <note category="context"></note>
       </notes>
       <segment>
-        <source>Enter each reference on a new line so that it can be extracted.</source>
+        <source>Enter each reference on a new line so that they can be extracted and recorded separately.</source>
         <target>Inscrire chacune des références sur une nouvelle ligne afin qu'elles puissent être extraites.</target>
       </segment>
     </unit>
@@ -1253,6 +1289,15 @@
       <segment>
         <source>Extracted References</source>
         <target>Références extraites</target>
+      </segment>
+    </unit>
+    <unit id="submission-parsedCitations-DOI">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>DOI</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="submission-parsedCitations-description">
@@ -1489,6 +1534,15 @@
         <target>Modifier les métadonnées</target>
       </segment>
     </unit>
+    <unit id="submission-editorial">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting</source>
+        <target>Révision</target>
+      </segment>
+    </unit>
     <unit id="submission-email-backToEmailLog">
       <notes>
         <note category="context"></note>
@@ -1577,6 +1631,15 @@
       <segment>
         <source>Are you sure you want to delete this event log entry?</source>
         <target>Êtes-vous certain de vouloir supprimer cette entrée du registre d'événements?</target>
+      </segment>
+    </unit>
+    <unit id="submission-event-deleteLogEntry">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Log Entry</source>
+        <target>Supprimer l'entrée du registre</target>
       </segment>
     </unit>
     <unit id="submission-event-submissionSubmitted">
@@ -1831,6 +1894,15 @@
         <target>Entrées récentes</target>
       </segment>
     </unit>
+    <unit id="submission-history-submissionEmailLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Log</source>
+        <target>Registre de courriels</target>
+      </segment>
+    </unit>
     <unit id="submission-history-submissionEventLog">
       <notes>
         <note category="context"></note>
@@ -1937,6 +2009,15 @@
       <segment>
         <source>Notes</source>
         <target>Notes</target>
+      </segment>
+    </unit>
+    <unit id="submission-informationCenter-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>History</source>
+        <target>Historique</target>
       </segment>
     </unit>
     <unit id="submission-informationCenter-history-allEvents">
@@ -2281,6 +2362,15 @@
         <target>Retour aux notes sur la soumission</target>
       </segment>
     </unit>
+    <unit id="submission-notes-breadcrumb">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Notes</target>
+      </segment>
+    </unit>
     <unit id="submission-notes-clearAllNotes">
       <notes>
         <note category="context"></note>
@@ -2369,6 +2459,15 @@
       <segment>
         <source>Remove Uploaded File</source>
         <target>Supprimer le fichier téléversé</target>
+      </segment>
+    </unit>
+    <unit id="submission-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Notes</source>
+        <target>Notes  de la soumission</target>
       </segment>
     </unit>
     <unit id="submission-notes-updateNote">
@@ -2513,6 +2612,15 @@
       <segment>
         <source>Review Metadata</source>
         <target>Évaluer les métadonnées</target>
+      </segment>
+    </unit>
+    <unit id="submission-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Évaluation</target>
       </segment>
     </unit>
     <unit id="submission-reviewed">
@@ -3244,6 +3352,24 @@
         <target>En attente de la décision du rédacteur en chef</target>
       </segment>
     </unit>
+    <unit id="submission-status-unassigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned</source>
+        <target>Non assigné</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Refusé</target>
+      </segment>
+    </unit>
     <unit id="submission-status-published">
       <notes>
         <note category="context"></note>
@@ -3251,6 +3377,15 @@
       <segment>
         <source>Published</source>
         <target>Publié</target>
+      </segment>
+    </unit>
+    <unit id="submission-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="submission-submit-uploadStep">
@@ -3395,6 +3530,15 @@
       <segment>
         <source>Submission Document Category</source>
         <target>Catégorie du document soumis</target>
+      </segment>
+    </unit>
+    <unit id="submission-upload-finalDraft">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Téléverser le fichier</target>
       </segment>
     </unit>
     <unit id="submission-upload-copyeditedVersion">
@@ -3663,7 +3807,7 @@
         <note category="context"></note>
       </notes>
       <segment>
-        <source><![CDATA[You are about to remove this participant from <strong>all</strong> stages. If the user also have pending auditor tasks, they will be removed too.]]></source>
+        <source><![CDATA[You are about to remove this participant from <strong>all</strong> stages.]]></source>
         <target><![CDATA[Vous souhaitez que ce participant ne fasse plus partie de <strong>toutes</strong> les étapes? Si cet utilisateur a des tâches de vérification en cours, elles seront également supprimées.]]></target>
       </segment>
     </unit>
@@ -3854,6 +3998,15 @@
       <segment>
         <source>Change Recommendation</source>
         <target>Changer la recommandation</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-recommendation-display">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommendation: {$recommendation}</source>
+        <target>Recommandation: {$recommendation}</target>
       </segment>
     </unit>
     <unit id="editor-submission-allRecommendations-display">
@@ -4153,6 +4306,15 @@
         <target>Dernière décision du rédacteur en chef.</target>
       </segment>
     </unit>
+    <unit id="notification-type-editorDecisionAccept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission accepted.</source>
+        <target>Soumission acceptée.</target>
+      </segment>
+    </unit>
     <unit id="notification-type-editorDecisionExternalReview">
       <notes>
         <note category="context"></note>
@@ -4178,6 +4340,15 @@
       <segment>
         <source>Resubmit for review.</source>
         <target>Soumettre à nouveau pour l'évaluation.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-editorDecisionDecline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission declined.</source>
+        <target>Soumission refusée.</target>
       </segment>
     </unit>
     <unit id="notification-uploadedResponse">
@@ -4268,6 +4439,24 @@
       <segment>
         <source>The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated.</source>
         <target>Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été recommencé.</target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="log-review-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}.</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="submission-review-status-awaitingResponse">
@@ -4378,6 +4567,15 @@
         <target>Créateur (ou propriétaire) du fichier</target>
       </segment>
     </unit>
+    <unit id="submission-supplementary-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Sujet</target>
+      </segment>
+    </unit>
     <unit id="submission-supplementary-publisher">
       <notes>
         <note category="context"></note>
@@ -4459,6 +4657,15 @@
         <target>Créer un nouveau formulaire d'évaluation</target>
       </segment>
     </unit>
+    <unit id="grid-action-editMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Metadata</source>
+        <target>Éditer les métadonnées</target>
+      </segment>
+    </unit>
     <unit id="submission-permissions">
       <notes>
         <note category="context"></note>
@@ -4520,6 +4727,15 @@
       <segment>
         <source>Copyright (c) {$copyrightYear} {$copyrightHolder}</source>
         <target>Copyright (c) {$copyrightYear} {$copyrightHolder}</target>
+      </segment>
+    </unit>
+    <unit id="submission-licenseURLValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide a valid remote URL (include http://).</source>
+        <target>Veuillez indiquer une URL à distance valide (incluez http: //).</target>
       </segment>
     </unit>
     <unit id="submission-licenseURL">
@@ -4729,6 +4945,15 @@
         <target>Discussions sur la production</target>
       </segment>
     </unit>
+    <unit id="submission-query-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Sujet</target>
+      </segment>
+    </unit>
     <unit id="submission-query-messages">
       <notes>
         <note category="context"></note>
@@ -4889,6 +5114,15 @@
       <segment>
         <source>Response Due</source>
         <target>Réponse due</target>
+      </segment>
+    </unit>
+    <unit id="submission-list-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Assignment</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="submission-list-reviewDue">
@@ -5089,6 +5323,15 @@
         <target></target>
       </segment>
     </unit>
+    <unit id="submission-submit-placement-categories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Categories</source>
+        <target>Catégories</target>
+      </segment>
+    </unit>
     <unit id="submission-currentCoverImage">
       <notes>
         <note category="context"></note>
@@ -5116,48 +5359,336 @@
         <target></target>
       </segment>
     </unit>
-    <unit id="submission-production-version">
+    <unit id="submission-publication">
       <notes>
         <note category="context"></note>
       </notes>
       <segment>
-        <source>Version {$submissionVersion}</source>
+        <source>Publication</source>
         <target></target>
       </segment>
     </unit>
-    <unit id="submission-production-newVersion">
+    <unit id="publication-citations-success">
       <notes>
         <note category="context"></note>
       </notes>
       <segment>
-        <source>New Version</source>
+        <source>The references have been updated.</source>
         <target></target>
       </segment>
     </unit>
-    <unit id="submission-production-editMetadata">
+    <unit id="publication-contributors">
       <notes>
         <note category="context"></note>
       </notes>
       <segment>
-        <source>Metadata of this Version</source>
+        <source>Contributors</source>
         <target></target>
       </segment>
     </unit>
-    <unit id="submission-production-editMetadata-info">
+    <unit id="publication-copyrightYearBasis-issueDescription">
       <notes>
         <note category="context"></note>
       </notes>
       <segment>
-        <source>This is the metadata of version {$version}.</source>
+        <source>The copyright year will be set automatically when this is published in an issue.</source>
         <target></target>
       </segment>
     </unit>
-    <unit id="submission-production-editMetadata-previous">
+    <unit id="publication-createVersion">
       <notes>
         <note category="context"></note>
       </notes>
       <segment>
-        <source>Previous versions can be seen at the corresponding tab at the production stage.</source>
+        <source>Create New Version</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-datePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-editDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This version has been published and can not be edited.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission was unpublished.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was created.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionScheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new version was scheduled for publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-event-versionUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A version was removed from publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission for this publication could not be found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The metadata have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Permissions & Disclosure]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publicationLicense-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyright and license information have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-confirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All publication requirements have been met. Are you sure you want to publish this?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-requirements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following requirements must be met before this can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-publish-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication status has been successfully changed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A declined submission can not be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-required-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission must be in the Copyediting or Production stages before it can be published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-published">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-scheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Scheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublished</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-status-unscheduled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unscheduled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Title & Abstract]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-titleAbstract-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title and abstract have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unpublish</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unpublish-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this to be published?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unschedule</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-unschedule-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you don't want this scheduled for publication?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Versions</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-version-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication details for version {$version}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="publication-wordCountLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long.</source>
         <target></target>
       </segment>
     </unit>

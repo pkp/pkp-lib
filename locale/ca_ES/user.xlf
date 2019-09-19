@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:52-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:52-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="user-accountInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Account Information</source>
+        <target>Informació del compte</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliation</source>
+        <target>Institució/Empresa</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Your institution, e.g. "Simon Fraser University")</source>
+        <target>(La institució en què esteu adscrit, p. ex. «Universitat Autònoma de Barcelona»)</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliations</source>
+        <target>Filiacions</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access denied.</source>
+        <target>Accés denegat.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-processAuthenticationTokenRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The process authentication token is missing or invalid.</source>
+        <target>El testimoni (token) d’autenticació del procés no hi és o no és vàlid.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You cannot call this operation without a context (press, journal, conference, etc).</source>
+        <target>No podeu dur a terme aquesta operació sense un context (premsa, revista, conferència, etc.).</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-loginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login required.</source>
+        <target>Inici de sessió obligatori.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-privateOperation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The operation you tried to access is either private or doesn't exist.</source>
+        <target>L’operació a la qual heu intentat accedir és privada o no existeix.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-restrictedSiteAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been denied access. Access to this site is currently restricted.</source>
+        <target>Teniu l'accés denegat. Actualment, l'accés a aquest lloc web està restringit.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-roleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current role does not have access to this operation.</source>
+        <target>El rol actual no té accés a aquesta operació.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-assignedStageRoleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not been assigned to this submission with a role that is allowed to access this operation.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to set a valid user group to access this operation.</source>
+        <target>Cal que configureu un grup d’usuari/ària vàlid per accedir a l’operació.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-managerRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</source>
+        <target>Un usuari/ària amb el rol d'administrador/a (p. ex., editor/a de producció) ha d'estar assignat a la fase abans de continuar.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessibleWorkflowStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You don't currently have access to that stage of the workflow.</source>
+        <target>Actualment no té accés a aquesta fase del flux de treball.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-workflowStageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A workflow stage was not specified.</source>
+        <target>No s'ha especificat cap fase del flux de treball.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-pluginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A plugin was not specified and is required.</source>
+        <target>No s'ha especificat cap mòdul.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidReviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this review assignment.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this discussion.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-biography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Bio Statement (e.g., department and rank)</source>
+        <target>Resum biogràfic</target>
+      </segment>
+    </unit>
+    <unit id="user-changeMyPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change My Password</source>
+        <target>Canvia la meva contrasenya</target>
+      </segment>
+    </unit>
+    <unit id="user-changePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>Canvia la contrasenya</target>
+      </segment>
+    </unit>
+    <unit id="user-dateLastLogin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last login</source>
+        <target>Darrer inici de sessió</target>
+      </segment>
+    </unit>
+    <unit id="user-dateRegistered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date registered</source>
+        <target>Data de registre</target>
+      </segment>
+    </unit>
+    <unit id="user-editMyProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit My Profile</source>
+        <target>Edita el meu perfil</target>
+      </segment>
+    </unit>
+    <unit id="user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>Adreça electrònica</target>
+      </segment>
+    </unit>
+    <unit id="user-givenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Given Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing interests</source>
+        <target>Interessos de revisió</target>
+      </segment>
+    </unit>
+    <unit id="user-interests-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Separate interests by pressing the enter or comma key)</source>
+        <target>(Separeu els interessos mitjançant la tecla de retorn o la tecla de coma)</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Notes</source>
+        <target>Notes privades</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-group">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Group</source>
+        <target>Grup d'usuaris/àries</target>
+      </segment>
+    </unit>
+    <unit id="user-familyName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Family Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</source>
+        <target>El format de la imatge del perfil no és vàlid o la imatge és massa gran. Els formats admesos són .gif, .jpg i .png. i la imatge no ha de superar els 150x150 píxels.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabledWithReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled for the following reason: {$reason}</source>
+        <target>El vostre compte s'ha inhabilitat pel motiu següent: {$reason}</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled. Please contact the administrator for more information.</source>
+        <target>El vostre compte s'ha inhabilitat. Per obtenir més informació, poseu-vos en contacte amb l'administrador/a.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountNotValidated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>We've sent a confirmation email to you at {$email}. Please follow the instructions in that email to activate your new account. If you do not see an email, please check to see if it was put in your spam folder.</source>
+        <target>Li hem enviat un correu electrònic de confirmació a {$email}. Segueixi les instruccions d'aquest correu per activar el seu nou compte. Si no troba aquest correu electrònic, comprovi que no hagi anat a parar a la carpeta de correu brossa.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate Account</source>
+        <target>Activa el compte</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for activating your account. You may now log in using the credentials you supplied when you created your account.</source>
+        <target>Gràcies per activar el compte. Ara ja podeu iniciar la sessió amb les dades que heu indicat en crear el compte.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></source>
+        <target><![CDATA[Heu de triar una nova contrasenya abans d'iniciar sessió.<br /><br />Introduïu el vostre nom d'usuari i les vostres contrasenyes nova i antiga a continuació per canviar la contrasenya del vostre compte.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-login-forgotPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forgot your password?</source>
+        <target>Heu oblidat la contrasenya?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-loginError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid username or password. Please try again.</source>
+        <target>El nom d'usuari/ària o la contrasenya són no vàlids. Torneu-ho a intentar.</target>
+      </segment>
+    </unit>
+    <unit id="user-login">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login</source>
+        <target>Inici de la sessió</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-confirmationSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password.</source>
+        <target>S'ha enviat un missatge de confirmació a la vostra adreça electrònica. Seguiu les instruccions del correu electrònic per restablir la contrasenya.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidHash">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again.</source>
+        <target>L'enllaç que heu seleccionat ha vençut o bé no és vàlid. Intenteu restablir la contrasenya de nou.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No user exists with the specified email address.</source>
+        <target>No existeix cap usuari/usuària amb l’adreça electrònica especificada.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-passwordSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new password has been sent to your email address. You may now login to the site with your new password.</source>
+        <target>S'ha enviat una nova contrasenya a la vostra adreça electrònica. Ja podeu iniciar la sessió amb aquesta contrasenya.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registeredEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registered user's email</source>
+        <target>Adreça electrònica de l’usuari/usuària registrat</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration complete</source>
+        <target>Registre complet</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thanks for registering! What would you like to do next?</source>
+        <target>Gràcies per registrar-se! Què voleu fer ara?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-manageSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submissions</source>
+        <target>Veure trameses</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-newSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make a New Submission</source>
+        <target>Fer una tramesa nova</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-continueBrowsing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue Browsing</source>
+        <target>Continuar navegant</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationPendingValidation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration awaiting verification</source>
+        <target>Registre pendent de verificació</target>
+      </segment>
+    </unit>
+    <unit id="user-login-rememberUsernameAndPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keep me logged in</source>
+        <target>Mantenir-me connectat</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset Password</source>
+        <target>Reinicieu la contrasenya</target>
+      </segment>
+    </unit>
+    <unit id="user-logOut">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout</source>
+        <target>Surt de la sessió</target>
+      </segment>
+    </unit>
+    <unit id="user-logOutAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout as</source>
+        <target>Surt de la sessió com a</target>
+      </segment>
+    </unit>
+    <unit id="user-hello">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hello, </source>
+        <target>Hola, </target>
+      </segment>
+    </unit>
+    <unit id="user-mailingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mailing Address</source>
+        <target>Adreça postal</target>
+      </segment>
+    </unit>
+    <unit id="user-myAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Account</source>
+        <target>El meu compte</target>
+      </segment>
+    </unit>
+    <unit id="user-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nom</target>
+      </segment>
+    </unit>
+    <unit id="user-password">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>Contrasenya</target>
+      </segment>
+    </unit>
+    <unit id="user-repeatPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat password</source>
+        <target>Repetiu la contrasenya</target>
+      </segment>
+    </unit>
+    <unit id="user-phone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Phone</source>
+        <target>Telèfon</target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preferred Public Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your current and new passwords below to change the password for your account.</source>
+        <target>Introduïu la contrasenya actual i la contrasenya nova per a canviar la contrasenya del vostre compte.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>Edició del perfil</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-countryRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A country is required.</source>
+        <target>Cal que introduïu un país.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address is required.</source>
+        <target>Heu d’introduir una adreça electrònica vàlida.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-affiliationRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An affiliation is required.</source>
+        <target>Cal que introduïu una institució.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A given name is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have added a family name for a language that is missing the given name. Please add a given name for this language.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-mailingAddressRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A mailing address is required.</source>
+        <target>Cal que introduïu un correu electrònic vàlid.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-newPasswordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter your new password.</source>
+        <target>Heu d’introduir la contrasenya nova.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-oldPasswordInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current password you entered was incorrect.</source>
+        <target>La contrasenya actual que heu introduït és incorrecta.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-openAccessNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue open access email notifications</source>
+        <target>Notificacions per correu electrònic de l’accés lliure per a un número</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password is required.</source>
+        <target>Heu d’introduir una contrasenya.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordSameAsOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your new password is the same as your old password.</source>
+        <target>La vostra contrasenya nova coincideix amb l'anterior.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile Image</source>
+        <target>Imatge del perfil</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-publishedNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New issue published email notifications</source>
+        <target>Notificacions per correu electrònic de la publicació d’un número nou</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-urlInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</source>
+        <target>L'URL especificat no és vàlid. Comproveu l'enllaç URL i torneu-ho a intentar. (Consell: proveu d'afegir «http://» al principi de l'URL).</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usergroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user group is required.</source>
+        <target>Cal que introduïu un grup d'usuaris/àries.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username is required.</source>
+        <target>Heu d’introduir un nom d’usuari.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-privacyConsentRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must agree to the terms of the privacy statement.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-leavePasswordBlank">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the password fields blank to keep the current password.</source>
+        <target>No empleneu els camps de contrasenya si voleu mantenir la contrasenya actual.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-newPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New password</source>
+        <target>Contrasenya nova</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-oldPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current password</source>
+        <target>Contrasenya actual</target>
+      </segment>
+    </unit>
+    <unit id="user-profile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile</source>
+        <target>Perfil</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-publicProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Profile</source>
+        <target>Perfil d’usuari</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-repeatNewPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat new password</source>
+        <target>Repetiu la contrasenya nova</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registerNewAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Encara no sou usuari? Registreu-vos a través d'aquest lloc.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your account email address below and an email will be sent with instructions on how to reset your password.</source>
+        <target><![CDATA[Per motius de seguretat, aquest sistema envia un missatge de restabliment de contrasenya als usuaris registrats, en lloc de tornar-ho a intentar amb la contrasenya actual.<br /><br />Introduïu la vostra adreça electrònica al camp següent per restablir la vostra contrasenya. S'enviarà un missatge de confirmació a la vostra adreça electrònica.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-privacyConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be notified of new publications and announcements.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected email address is already in use by another user.</source>
+        <target>Ja hi ha un altre usuari/usuària que utilitza l’adreça electrònica seleccionada.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The passwords do not match.</source>
+        <target>Les contrasenyes no coincideixen.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email address fields do not match.</source>
+        <target>Els camps de correu electrònic no coincideixen.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username can contain only lower-case alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>El nom d'usuari/ària només pot contenir caràcters alfanumèrics en minúscula, guions i guions baixos, i ha de començar i acabar amb un caràcter alfanumèric.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>At least one role must be selected.</source>
+        <target>S'ha de seleccionar un rol com a mínim.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected username is already in use by another user.</source>
+        <target>Ja hi ha un altre usuari/usuària que utilitza el nom d’usuari seleccionat.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordLengthRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The password must be at least {$length} characters.</source>
+        <target>La contrasenya ha de tenir almenys {$length} caràcters.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registerAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register in {$contextName} as...</source>
+        <target>Registrar-se en {$contextName} com a...</target>
+      </segment>
+    </unit>
+    <unit id="user-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Registre</target>
+      </segment>
+    </unit>
+    <unit id="user-register-usernameRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username must contain only lowercase letters, numbers, and hyphens/underscores.</source>
+        <target>El nom d’usuari només pot contenir lletres minúscules, nombres, guionets i ratlles baixes.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registrationCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have successfully registered. <a href="{$profileUrl}">Click here</a> to complete your user profile.]]></source>
+        <target><![CDATA[S'ha registrat correctament. Faci <a href="{$profileUrl}">clic aquí</a> per completar el seu perfil d'usuari/ària.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-role-assistant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assistant</source>
+        <target>Ajudant de producció</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author</source>
+        <target>Autor/a</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author_s">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author(s)</source>
+        <target>Autors/ores</target>
+      </segment>
+    </unit>
+    <unit id="user-role-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Autors/ores</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor</source>
+        <target>Editor/a</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>Editors/ores</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader</source>
+        <target>Lector/a</target>
+      </segment>
+    </unit>
+    <unit id="user-role-readers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Readers</source>
+        <target>Lectors/es</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer</source>
+        <target>Revisor/a</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers</source>
+        <target>Revisors/es</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrator</source>
+        <target>Administrador/a del lloc web</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrators</source>
+        <target>Administradors/es de llocs web</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditor</source>
+        <target>Corrector/a d’originals</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditors</source>
+        <target>Correctors/ores d’originals</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreader</source>
+        <target>Corrector/a de proves</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreaders</source>
+        <target>Correctors/ores de proves</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editor</source>
+        <target>Maquetista</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editors</source>
+        <target>Maquetistes</target>
+      </segment>
+    </unit>
+    <unit id="user-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>Rols</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirmation</source>
+        <target>Confirmació</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send me a confirmation email including my username and password</source>
+        <target>Envia’m una confirmació per correu electrònic amb el nom d’usuari i la contrasenya.</target>
+      </segment>
+    </unit>
+    <unit id="user-signature">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Signature</source>
+        <target>Signatura</target>
+      </segment>
+    </unit>
+    <unit id="user-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Títol</target>
+      </segment>
+    </unit>
+    <unit id="user-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="user-userHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Home</source>
+        <target>Pàgina inicial de l’usuari/usuària</target>
+      </segment>
+    </unit>
+    <unit id="user-username">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>Nom d’usuari</target>
+      </segment>
+    </unit>
+    <unit id="user-workingLanguages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Working Languages</source>
+        <target>Llengües de treball</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ORCID iD</source>
+        <target>ORCID iD</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid-orcidInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The ORCID iD you specified is invalid. Please include the full URI (e.g. "https://orcid.org/0000-0002-1825-0097").</source>
+        <target>L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. ex.: "https://orcid.org/0000-0002-1825-0097"), si us plau.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-identity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identity</source>
+        <target>Identitat</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-contact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact</source>
+        <target>Contacte</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-public">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public</source>
+        <target>Públic</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>API Key</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-apiKeyEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable external applications with the API key to access this account</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate new API key</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generateWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generating a new API key will invalidate any existing key for this user.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-secretRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-privacyLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Your data is stored in accordance with our <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,1997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:01-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:01-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="grid-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Items</source>
+        <target>Ei kohteita</target>
+      </segment>
+    </unit>
+    <unit id="grid-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Asetukset</target>
+      </segment>
+    </unit>
+    <unit id="grid-noAuditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Auditors</source>
+        <target>Ei tarkastajia</target>
+      </segment>
+    </unit>
+    <unit id="grid-remotelyHostedItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This item is remotely hosted.</source>
+        <target>Tämä on etäylläpidetty kohde.</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uninstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninstall</source>
+        <target>Poista asennus</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-manageAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Access</source>
+        <target>Hallinnoi saatavuutta</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sort</source>
+        <target>Lajittele</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Item</source>
+        <target>Lisää kohde</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Note</source>
+        <target>Lisää muistiinpano</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add discussion</source>
+        <target>Lisää keskustelu</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read discussion</source>
+        <target>Lue keskustelu</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete discussion</source>
+        <target>Poista keskustelu</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-updateQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update discussion</source>
+        <target>Päivitä keskustelu</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>Lisää käyttäjä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign this reviewer</source>
+        <target>Peru arviointipyyntö</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approveCopyedit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve this copyedit file for sending it to the next stage</source>
+        <target>Hyväksy tämä teknisen toimittamisen tiedosto seuraavaan vaiheeseen lähetettäväksi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-reload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload</source>
+        <target>Lataa uudelleen</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Poista</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete File</source>
+        <target>Poista tiedosto</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Media</source>
+        <target>Poista media</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Media</source>
+        <target>Muokkaa mediaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Section</source>
+        <target>Muokkaa osastoa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-export">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export</source>
+        <target>Vie</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Section</source>
+        <target>Poista osasto</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editorialHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial History</source>
+        <target>Toimituksellinen historia</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>Poista</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Muokkaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approve">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve</source>
+        <target>Hyväksy</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disapprove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disapprove</source>
+        <target>Älä hyväksy</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-setApproval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Set Approval</source>
+        <target>Aseta hyväksyntä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Information</source>
+        <target>Lisätietoja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore Defaults</source>
+        <target>Palauta oletusarvot</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to restore the defaults?</source>
+        <target>Oletko varma, että haluat palauttaa oletusarvot?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Author</source>
+        <target>Lisää kirjoittaja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Author</source>
+        <target>Muokkaa kirjoittajaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Author</source>
+        <target>Poista kirjoittaja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add an Auditor</source>
+        <target>Lisää tarkastaja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade</source>
+        <target>Päivitä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-order">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order</source>
+        <target>Järjestä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-cancelOrdering">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel ordering</source>
+        <target>Peruuta järjestys</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-extendAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extend all</source>
+        <target>Laajenna kaikki</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse</source>
+        <target>Kutista</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapseAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse all</source>
+        <target>Kutista kaikki</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings wizard</source>
+        <target>Ohjattu asetusten luonti</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moveItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Move Item</source>
+        <target>Siirrä kohde</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download all files as an archive</source>
+        <target>Lataa kaikki tiedostot pakettina</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read this review</source>
+        <target>Lue tämä arviointi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send email</source>
+        <target>Lähetä sähköpostia</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a reviewer</source>
+        <target>Lisää arvioija</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a file</source>
+        <target>Lisää tiedosto</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a file</source>
+        <target>Muokkaa tiedostoa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select files to manage</source>
+        <target>Valitse hallinnoitavat tiedostot</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request revisions for this submission</source>
+        <target>Pyydä korjauksia tähän käsikirjoitukseen</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept this submission</source>
+        <target>Hyväksy tämä käsikirjoitus</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline this Submission</source>
+        <target>Hylkää tämä käsikirjoitus</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to internal review</source>
+        <target>Lähetä tämä käsikirjoitus sisäiseen arviointiin</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-externalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to external review</source>
+        <target>Lähetä tämä käsikirjoitus ulkopuoliseen arviointiin</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to production</source>
+        <target>Lähetä tämä käsikirjoitus tuotantoon</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Asetukset</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import or export content or site data</source>
+        <target>Tuo tai vie sisältöä tai sivuston tietoja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-orderItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable ordering mode</source>
+        <target>Ota järjestämistila käyttöön</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this checklist item</source>
+        <target>Muokkaa tätä tarkistuslistan kohtaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this checklist item</source>
+        <target>Poista tämä tarkistuslistan kohta</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset all items to default values</source>
+        <target>Palauta kaikki kohteet oletusarvoisiksi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new email template</source>
+        <target>Lisää uusi sähköpostipohja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this email template</source>
+        <target>Muokkaa tätä sähköpostipohjaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disableEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable this email template</source>
+        <target>Poista tämä sähköpostipohja käytöstä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset this email template to the default</source>
+        <target>Palauta tämä sähköpostipohja oletusarvoiseksi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expandAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand All</source>
+        <target>Laajenna kaikki</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a participant</source>
+        <target>Lisää osallistuja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expand">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand</source>
+        <target>Laajenna</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify this user</source>
+        <target>Ilmoita tälle käyttäjälle</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new User Group</source>
+        <target>Lisää uusi käyttäjäryhmä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this user group</source>
+        <target>Muokkaa tätä käyttäjäryhmää</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-removeUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove this user group</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Poista käytöstä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View this item</source>
+        <target>Näytä tämä kohde</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enrolExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrol an existing user as a reviewer</source>
+        <target>Lisää olemassa oleva käyttäjä arvioijaksi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectCreate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new reviewer</source>
+        <target>Luo uusi arvioija</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>Hae</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-advancedSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Search</source>
+        <target>Tarkennettu haku</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewLibrary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Document Library</source>
+        <target>Näytä tiedostokirjasto</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the metadata for this submission</source>
+        <target>Näytä tämän käsikirjoituksen metatiedot</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a task reminder to this user</source>
+        <target>Lähetä tälle käyttäjälle muistutus tehtävästä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new round</source>
+        <target>Luo uusi kierros</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewReviewGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the review guidelines</source>
+        <target>Näytä arviointiohjeet</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewCompetingInterestGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the competing interests guidelines policy</source>
+        <target>Näytä sidonnaisuuksien ilmoittamisen ohjeet</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-thankReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a thank you message to this reviewer</source>
+        <target>Lähetä kiitosviesti tälle arvioijalle</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a file</source>
+        <target>Lataa tiedosto</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement Type</source>
+        <target>Lisää ilmoitustyyppi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement</source>
+        <target>Lisää ilmoitus</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge user</source>
+        <target>Yhdistä käyttäjä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign User</source>
+        <target>Poista käyttäjän valinta</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View History</source>
+        <target>Näytä historia</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unconsiderReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete, but you may unconsider it</source>
+        <target>Tämä arviointi on valmis, mutta voit merkitä sen käsittelemättömäksi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Ota käyttöön</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-bookInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>Käsikirjoituksen tiedot</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-logInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login As</source>
+        <target>Kirjaudu käyttäjänä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-exportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export All Users</source>
+        <target>Vie kaikki käyttäjät</target>
+      </segment>
+    </unit>
+    <unit id="grid-users-confirmExportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to export all users?</source>
+        <target>Haluatko varmasti viedä kaikki käyttäjät?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate</source>
+        <target>Aktivoi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deactivate</source>
+        <target>Poista aktivointi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-copy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy</source>
+        <target>Kopioi</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview</source>
+        <target>Esikatselu</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-install">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install</source>
+        <target>Asenna</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Load more</source>
+        <target>Lataa lisää</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View/Select users</source>
+        <target>Selaa/valitse käyttäjiä</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This task is completed</source>
+        <target>Tämä tehtävä on suoritettu</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checked when considered</source>
+        <target>Rastitetaan, kun käsitelty</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-uploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The column title indicates who uploaded this file</source>
+        <target>Sarakkeen otsikko ilmaisee tämän tiedoston lataajan</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-unfinished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task unfinished</source>
+        <target>Tehtävä keskeneräinen</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is ready. Click the note icon to the left to read it.</source>
+        <target>Tämä arviointi on valmis. Klikkaa muistiinpanokuvaketta vasemmalle lukeaksesi sen.</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-actions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Actions</source>
+        <target>Toimenpiteet</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>Instituutio</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL-osoite</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-auditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor</source>
+        <target>Tarkastaja</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>Kielialue</target>
+      </segment>
+    </unit>
+    <unit id="grid-sponsor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsoring Organizations</source>
+        <target>Tukiorganisaatiot</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Sponsor</source>
+        <target>Lisää tukija</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Sponsor</source>
+        <target>Poista tukija</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Sponsor</source>
+        <target>Muokkaa tukijaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Series</source>
+        <target>Lisää sarja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Series</source>
+        <target>Muokkaa sarjaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Series</source>
+        <target>Poista sarja</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target>Lisää kategoria</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target>Muokkaa kategoriaa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Category</source>
+        <target>Poista kategoria</target>
+      </segment>
+    </unit>
+    <unit id="grid-contributor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sources of Support</source>
+        <target>Kannatuslähteet</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>Lisää tekijä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Contributor</source>
+        <target>Muokkaa tekijää</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Contributor</source>
+        <target>Poista tekijä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new version</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewForm-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Arviointilomakkeet</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewFormElement-responseItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Options</source>
+        <target>Vastausvaihtoehdot</target>
+      </segment>
+    </unit>
+    <unit id="grid-noFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files</source>
+        <target>Ei tiedostoja</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-column-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>Tiedostot</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-submission-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Library</source>
+        <target>Käsikirjoituskirjasto</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-editorial-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Library</source>
+        <target>Toimituksen kirjasto</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-review-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Library</source>
+        <target>Arviointikirjasto</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-production-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Library</source>
+        <target>Tuotannon kirjasto</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-productionTemplate-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Template Library</source>
+        <target>Tuotannon mallipohjakirjasto</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Checklist</source>
+        <target>Käsikirjoituksen tarkistuslista</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-column-checklistItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist Item</source>
+        <target>Tarkistuslistan kohta</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nimi</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>E-mail</source>
+        <target>Sähköposti</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-role">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role</source>
+        <target>Rooli</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Primary Contact</source>
+        <target>Ensisijainen yhteyshenkilö</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Browse Lists</source>
+        <target>Näkyy luetteloissa</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-currentRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Roles</source>
+        <target>Nykyiset roolit</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Role</source>
+        <target>Luo uusi rooli</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-stageAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage Assignment</source>
+        <target>Työvaiheiden valinta</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Users</source>
+        <target>Nykyiset käyttäjät</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentEnrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Enrollment</source>
+        <target>Nykyiset roolit</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Roles</source>
+        <target>Kaikki roolit</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allPermissionLevels">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Permission Levels</source>
+        <target>Kaikki käyttöoikeustasot</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>Lisää käyttäjä</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>Lisää käyttäjälle rooli</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>Muokkaa käyttäjää</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>Sähköposti</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Salli</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Estä</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for disabling user</source>
+        <target>Syy käyttäjän estämiseen</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for enabling user</source>
+        <target>Syy käyttäjän sallimiseen</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered administrating this user. Please try again.</source>
+        <target>Tätä käyttäjää hallinnoitaessa ilmeni virhe. Yritä uudelleen.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-errorEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator.</source>
+        <target>Tätä sähköpostia lähetettäessä ilmeni virhe. Varmista, että sähköpostipalvelimesi määritykset toimivat ja/tai ota yhteyttä järjestelmäsi ylläpitäjään.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-cannotAdminister">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have sufficient permissions to administer this user. In order to administer a user, you must either be site administrator, or administer all contexts that this user is enrolled in.</source>
+        <target>Sinulla ei ole riittäviä oikeuksia hallinnoida tätä käyttäjää. Hallinnoidaksesi käyttäjää sinun tulee olla sivuston ylläpitäjä tai hallinnoida kaikkia niitä konteksteja, joihin tämä käyttäjä on lisätty.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>Todentamislähde</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>Anna käyttäjälle ensin ainakin sukunimi.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate Password</source>
+        <target>Luo salasana</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate random password for this user.</source>
+        <target>Luo tälle käyttäjälle satunnainen salasana.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify User</source>
+        <target>Ilmoita käyttäjälle</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUserDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send user a welcome email.</source>
+        <target>Lähetä käyttäjälle tervetuloviesti sähköpostilla.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>Vaihda salasana</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User must change password on next log in.</source>
+        <target>Käyttäjän on vaihdettava salasana seuraavan kirjautumisen yhteydessä.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescriptionOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>Vaadi, että käyttäjä vaihtaa salasanansa kirjautuessaan sisään seuraavan kerran.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-moreDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More User Details</source>
+        <target>Lisää tietoja käyttäjästä</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-lessDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Less User Details</source>
+        <target>Vähemmän tietoja käyttäjästä</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Details</source>
+        <target>Käyttäjätiedot</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Roles</source>
+        <target>Käyttäjäroolit</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userNoRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user does not have any roles.</source>
+        <target>Tällä käyttäjällä ei ole rooleja.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step1">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #1: Fill in User Details</source>
+        <target>Vaihe 1: Täytä käyttäjätiedot</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step2">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #2: Add User Roles to {$userFullName}</source>
+        <target>Vaihe 2: Lisää rooleja käyttäjälle {$userFullName}</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Roles</source>
+        <target>Lisää rooleja</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Role</source>
+        <target>Lisää rooli</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-selectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select User</source>
+        <target>Valitse käyttäjä</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-pleaseSelectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a user</source>
+        <target>Valitse käyttäjä</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-confirmLogInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log in as this user? All actions you perform will be attributed to this user.</source>
+        <target>Kirjaudu sisään tällä käyttäjätunnuksella? Kaikkia toimenpiteitä, joita teet, pidetään tämän käyttäjän tekeminä.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>Yhdistä käyttäjät</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>Yhdistä käyttäjä</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeIntoUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge into this User</source>
+        <target>Yhdistä tähän käyttäjään</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-allUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Enrolled Users</source>
+        <target>Kaikki käyttäjät, joilla on rooleja</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</source>
+        <target>Haluatko varmasti yhdistää tilin käyttäjätunnuksella "{$oldUsername}" tiliin, jonka käyttäjätunnus on "{$newUsername}"? Tili, jonka käyttäjätunnus on "{$oldUsername}", poistetaan kokonaan. Tätä toimintoa ei voi kumota.</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Email Templates</source>
+        <target>Valmiit sähköpostipohjat</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-currentList">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current List</source>
+        <target>Nykyinen lista</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-allCategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Categories</source>
+        <target>Kaikki kategoriat</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to disable this plugin?</source>
+        <target>Haluatko varmasti poistaa tämän lisäosan käytöstä?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-fileUnconsider">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofing corrections made. You may unconsider this task</source>
+        <target>Oikoluvun korjaukset tehty. Voit merkitä tämän tehtävän käsittelemättömäksi</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-caption">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Caption</source>
+        <target>Kuvateksti</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-credit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Credit</source>
+        <target>Tekijätieto</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightOwner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Owner</source>
+        <target>Tekijänoikeuden omistaja</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact Info (if not author/publisher)</source>
+        <target>Yhteystiedot (jos ei kirjoittaja/julkaisija)</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-permissionTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission Terms</source>
+        <target>Lupaehdot</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-placement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Placement in submission</source>
+        <target>Sijoitus käsikirjoitukseen</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign stage</source>
+        <target>Valitse työvaihe</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign stage</source>
+        <target>Poista työvaihe</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-allStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Workflow Stages</source>
+        <target>Kaikki työnkulun vaiheet</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-listRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List roles assigned to</source>
+        <target>Listaa roolit, jotka on valittu seuraaviin työvaiheisiin</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-permissionLevel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With permission level set to</source>
+        <target>Joilla on seuraava käyttöoikeustaso</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveDefaultUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The role {$userGroupName} is a default one and can't be removed.</source>
+        <target>{$userGroupName}-rooli on oletusasetus ja sitä ei voi poistaa.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it.</source>
+        <target>{$userGroupName}-roolia ei voi poistaa. Rooliin on tällä hetkellä valittu {$usersCount} käyttäjä(ä).</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-removed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role removed.</source>
+        <target>{$userGroupName}-rooli poistettu.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role assigned to {$stageName} stage.</source>
+        <target>{$userGroupName}-rooli valittu {$stageName}-vaiheeseen.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role unassigned from {$stageName} stage.</source>
+        <target>{$userGroupName}-rooli poistettu {$stageName}-vaiheesta.</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-itemTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author; Title</source>
+        <target>Kirjoittaja; Otsikko</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-active-selectOrphaned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include incomplete submissions not submitted by an author.</source>
+        <target>Sisällytä keskeneräiset käsikirjoitukset, jotka eivät ole kirjoittajan lähettämiä</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Menu</source>
+        <target>Lisää valikko</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add item</source>
+        <target>Lisää kohde</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenuItems-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menu Items</source>
+        <target>Ei kohteita</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menus</source>
+        <target>Ei valikkoja</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-selectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose a type...</source>
+        <target>Valitse tyyppi...</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

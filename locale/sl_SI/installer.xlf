@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:13-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:13-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="installer-additionalLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional locales</source>
+        <target>Dodatni jeziki</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administrator Account</source>
+        <target>Račun administratorja</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccountInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user account will become the site administrator and have complete access to the system. Additional user accounts can be created after installation.</source>
+        <target>Ta uporabniški račun bo postal administrator celotnega spletišča in bo imel dostop do celotnega sistema. Dodani uporabniški računi se lahko naredijo po namestitvi.</target>
+      </segment>
+    </unit>
+    <unit id="installer-checkNo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<span class="pkp_form_error formError">NO</span>]]></source>
+        <target><![CDATA[<span class="pkp_form_error formError">NE</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-checkYes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes</source>
+        <target>Da</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Client character set</source>
+        <target>Nabor znakov klienta</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharsetInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The encoding to use for data sent to and received from browsers.</source>
+        <target>Kodiranje, ki se uporablja za pošiljanje in prejemanje podatkov iz različnih brskalnikov.</target>
+      </segment>
+    </unit>
+    <unit id="installer-configFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[Nastavitvena datoteka <tt>config.inc.php</tt> ne obstaja ali ni berljiva.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-connectionCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Connection character set</source>
+        <target>Nabor znakov povezave</target>
+      </segment>
+    </unit>
+    <unit id="installer-contentsOfConfigFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents of configuration file</source>
+        <target>Vsebina nastavitvene datoteke</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabase">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create new database</source>
+        <target>Ustvari novo bazo podatkov</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabaseInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled.</source>
+        <target>Če želite uporabiti to opcijo, mora vaša baza podatkov podpirati oddaljeno ustvarjane baze podatkov, vaš uporabniški račun pa mora imeti ustrezne pravice. Če namestitev s to opcijo ni uspešna, ustvarite bazo podatkov ročno in ponovno zaženite namestitev brez te opcije.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriver">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database driver</source>
+        <target>Gonilnik baze podatkov</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriverInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work.]]></source>
+        <target><![CDATA[<strong>Gonilniki za bazo podatkov v oklepajih nimajo potrebne podpore za PHP, zato bo namestitev z njimi najverjetneje neuspešna.</strong><br />Vsi nepodprti gonilniki za baze podatkov zgoraj so našteti le zaradi akademskih potreb in najverjetneje ne bodo delovali.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHost">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Host</source>
+        <target>Gostitelj "Host"</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHostInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</source>
+        <target>Pustite ime gostitelja prazno za povezavo s pomočjo domenske vtičnice namesto TCP/IP-ja. To ni potrebno pri MySQL, ki avtomatsko uporabi vtičnico, če je vpisano "localhost". Je pa potrebno pri nekaterih drugih bazah podatkov, recimo PostgreSQL.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database name</source>
+        <target>Ime baze podatkov</target>
+      </segment>
+    </unit>
+    <unit id="installer-databasePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>Geslo</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database Settings</source>
+        <target>Nastavitve baze podatkov</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseUsername">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>Uporabniško ime</target>
+      </segment>
+    </unit>
+    <unit id="installer-filesDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Directory for uploads</source>
+        <target>Mapa za nalaganje datotek</target>
+      </segment>
+    </unit>
+    <unit id="installer-fileSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Settings</source>
+        <target>Nastavitve datotek</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-clientCharsetRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A client character set must be selected.</source>
+        <target>Izbrati morate nabor znakov klienta.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseDriverRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A database driver must be selected.</source>
+        <target>Izbrati morate gonilnik za bazo podatkov.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The database name is required.</source>
+        <target>Ime baze podatkov je obvezno.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address for the administrator account is required.</source>
+        <target>Veljaven e-poštni naslov za račun administratorja je obvezen.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-filesDirRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory to be used for storing uploaded files is required.</source>
+        <target>Mapa za shranjevanje naloženih datotek je obvezna.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-localeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A locale must be selected.</source>
+        <target>Izbrati morate jezik.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password for the administrator account is required.</source>
+        <target>Geslo za račun administratorja je obvezno.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator passwords do not match.</source>
+        <target>Gesli administratorja se ne ujemata.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-separateMultiple">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Separate multiple values with commas</source>
+        <target>Več vrednosti med seboj ločite z vejicami</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator username can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>Uporabniško ime administratorja lahko vsebuje samo alfanumerične znake, podčrtaj, pomišljaj in se mora začeti in končati z alfanumeričnim znakom.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username for the administrator account is required.</source>
+        <target>Uporabniško ime za račun administratorja je obvezno.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installationWrongPhp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></source>
+        <target><![CDATA[<br/><strong>OPOZORILO: Vaša verzija PHP ne zadostuje minimalnim zahtevam za namestitev. Priporočljivo je, da PHP nadgradite z novejšo verzijo.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installErrorsOccurred">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occurred during installation</source>
+        <target>Med namestitvijo je prišlo do napak</target>
+      </segment>
+    </unit>
+    <unit id="installer-installerSQLStatements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SQL statements for installation</source>
+        <target>SQL stavki za namestitev</target>
+      </segment>
+    </unit>
+    <unit id="installer-installFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[Namestitvena datoteka <tt>dbscripts/xml/install.xml</tt> ne obstaja ali ni berljiva.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory specified for uploaded files does not exist or is not writable.</source>
+        <target>Podana mapa za nalaganje datotek ne obstaja ali vanj ne moremo pisati.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseDBFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Napaka pri analiziranju namestitvene datoteke za bazo podatkov <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseEmailTemplatesFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Napaka pri analizi datoteke s predlogo za emaile <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseFilterConfigFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[Napaka pri analizi nastavitvene datoteke filtra <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedUpgradeError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details.</source>
+        <target>Nadgradnja ni podprta. Za več informacij poglejte v docs/UPGRADE-UNSUPPORTED.</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>Jezik</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale-maybeIncomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marked locales may be incomplete.</source>
+        <target>Označeni jeziki so lahko nepopolni.</target>
+      </segment>
+    </unit>
+    <unit id="installer-localeSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale Settings</source>
+        <target>Jezikovne nastavitve</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Settings</source>
+        <target>OAI nastavitve</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryIdInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></source>
+        <target><![CDATA[Enoznačen identifikator, ki se uporablja za identifikacijo zapisov metapodatkov  pridobljenih na tem spletišču z uporabo <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokola za zajemanje metapodatkov.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repository Identifier</source>
+        <target>OAI identifikator repozitorija</target>
+      </segment>
+    </unit>
+    <unit id="installer-publicFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The public files directory does not exist or is not writable.</source>
+        <target>Mapa za javne datoteke ne obstaja ali vanj ne moremo pisati.</target>
+      </segment>
+    </unit>
+    <unit id="installer-releaseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Release Notes</source>
+        <target>Opombe k izdaji</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructionsTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Installation Steps</source>
+        <target>Prednamestitveni koraki</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<p>1. The following files and directories (and their contents) must be made writable:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>
+			<li><tt>public/</tt> is writable: {$writable_public}</li>
+			<li><tt>cache/</tt> is writable: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> is writable: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. A directory to store uploaded files must be created and made writable (see "File Settings" below).</p>
+	]]></source>
+        <target><![CDATA[
+		<p>1. Nasldenje datoteke in mape (vključno z vsebino) morajo imeti pravico pisanja:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> omogočeno pisanje (opcijsko): {$writable_config}</li>
+			<li><tt>public/</tt> omogočeno pisanje: {$writable_public}</li>
+			<li><tt>cache/</tt> omogočeno pisanje: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> omogočeno pisanje: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> omogočeno pisanje: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> omogočeno pisanje: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. Mapa za shranjevanje naloženih datotek mora obstajati in imeti omogočeno pisanje (več v "Nastavitve datotek" spodaj).</p>
+	]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-configureXSLMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>]]></source>
+        <target><![CDATA[<p>Vaša PHP namestitev nima omogočenega XSL modula. Ali ga vključite ali pa ustrezno konfigurirajte paramer xslt_command v vaši config.inc.php datoteki.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Beacon</source>
+        <target>Beacon</target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only.</source>
+        <target>Vnesite enolični identifikator spletišča, ki bo hkrati osnova za OAI za PKP, izključno za statistiko in varnostna opozorila.</target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedPhpError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your server's PHP version is not supported by this software. Double-check the installation requirements in docs/README.</source>
+        <target>Vaš strežnik ima nameščeno verzijo PHP, ki ni podprta. Preverite zahtevane pogoje za namestitev v docs/README.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

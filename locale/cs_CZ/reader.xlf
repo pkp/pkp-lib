@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:53-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:53-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="comments-anonymous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anonymous User</source>
+        <target>Anonymní uživatel</target>
+      </segment>
+    </unit>
+    <unit id="comments-anonymousNamed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$userName}"</source>
+        <target>"{$userName}"</target>
+      </segment>
+    </unit>
+    <unit id="comments-body">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Body</source>
+        <target>Tělo</target>
+      </segment>
+    </unit>
+    <unit id="comments-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A comment title is required.</source>
+        <target>Je vyžadován název komentáře.</target>
+      </segment>
+    </unit>
+    <unit id="comments-confirmDeleteChildren">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deleting this comment will also delete any replies to it. Are you sure you wish to do this?</source>
+        <target>Smazáním tohoto komentáře smažete také všechny odpovědi na něj. Jste si jistý, že to chcete udělat?</target>
+      </segment>
+    </unit>
+    <unit id="comments-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this comment</source>
+        <target>Smazat tento komentář</target>
+      </segment>
+    </unit>
+    <unit id="comments-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Email</source>
+        <target>Email odesílatele</target>
+      </segment>
+    </unit>
+    <unit id="comments-emailReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Reply</source>
+        <target>Odpověď</target>
+      </segment>
+    </unit>
+    <unit id="comments-enterComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter Comment</source>
+        <target>Vložit komentář</target>
+      </segment>
+    </unit>
+    <unit id="comments-inResponseTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[In response to <a href="{$url}">{$title}</a>]]></source>
+        <target><![CDATA[V odpovědi na <a href="{$url}">{$title}</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="comments-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Name</source>
+        <target>Jméno odesílatele</target>
+      </segment>
+    </unit>
+    <unit id="comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No reader comments have been posted.</source>
+        <target>Nebyly odeslány žádné komentáře čtenářů.</target>
+      </segment>
+    </unit>
+    <unit id="comments-nReplies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>({$num} Replies)</source>
+        <target>({$num} Odpovědí)</target>
+      </segment>
+    </unit>
+    <unit id="comments-oneReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(1 Reply)</source>
+        <target>(1 Odpověď)</target>
+      </segment>
+    </unit>
+    <unit id="comments-postAnonymously">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post this comment anonymously</source>
+        <target>Odeslat tento komentář anonymně</target>
+      </segment>
+    </unit>
+    <unit id="comments-postReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post Reply</source>
+        <target>Odeslat odpověď</target>
+      </segment>
+    </unit>
+    <unit id="comments-readerComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader Comments</source>
+        <target>Komentáře čtenáře</target>
+      </segment>
+    </unit>
+    <unit id="comments-readMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read more</source>
+        <target>Číst více</target>
+      </segment>
+    </unit>
+    <unit id="comments-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>Odpovědi</target>
+      </segment>
+    </unit>
+    <unit id="comments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Název</target>
+      </segment>
+    </unit>
+    <unit id="comments-viewAllComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View all comments</source>
+        <target>Zobrazit všechny komentáře</target>
+      </segment>
+    </unit>
+    <unit id="reader-fullText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Full Text:</source>
+        <target>Celý text:</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

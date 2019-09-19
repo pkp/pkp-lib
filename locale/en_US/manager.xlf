@@ -9,8 +9,8 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:45-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:45-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:57-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:57-07:00</note>
       <note id="Language"></note>
     </notes>
     <unit id="manager-website-information">
@@ -274,6 +274,24 @@
         <target>No announcements have been created.</target>
       </segment>
     </unit>
+    <unit id="manager-announcements-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Title</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
     <unit id="manager-announcementTypes">
       <notes>
         <note category="context"></note>
@@ -301,6 +319,15 @@
         <target>Create Announcement Type</target>
       </segment>
     </unit>
+    <unit id="manager-announcementTypes-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Create</target>
+      </segment>
+    </unit>
     <unit id="manager-announcementTypes-edit">
       <notes>
         <note category="context"></note>
@@ -308,6 +335,24 @@
       <segment>
         <source>Edit Announcement Type</source>
         <target>Edit Announcement Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Edit</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Save and Create Another</target>
       </segment>
     </unit>
     <unit id="manager-announcementTypes-form-typeNameExists">
@@ -913,6 +958,15 @@
         <target>No users were found.</target>
       </segment>
     </unit>
+    <unit id="manager-groups-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Title</target>
+      </segment>
+    </unit>
     <unit id="manager-importExport">
       <notes>
         <note category="context"></note>
@@ -1039,6 +1093,15 @@
         <target>Send the user a welcome email containing their username and password.</target>
       </segment>
     </unit>
+    <unit id="manager-people-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Disable</target>
+      </segment>
+    </unit>
     <unit id="manager-people-doNotEnroll">
       <notes>
         <note category="context"></note>
@@ -1109,6 +1172,15 @@
       <segment>
         <source>Select the users you would like to email by checking the boxes beside their names</source>
         <target>Select the users you would like to email by checking the boxes beside their names</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Enable</target>
       </segment>
     </unit>
     <unit id="manager-people-enroll">
@@ -1264,6 +1336,15 @@
         <target>Remove</target>
       </segment>
     </unit>
+    <unit id="manager-people-saveAndCreateAnotherUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Save and Create Another</target>
+      </segment>
+    </unit>
     <unit id="manager-people-signInAs">
       <notes>
         <note category="context"></note>
@@ -1327,6 +1408,24 @@
         <target>Action:</target>
       </segment>
     </unit>
+    <unit id="manager-plugins-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Disable</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Enable</target>
+      </segment>
+    </unit>
     <unit id="manager-plugins-pluginManagement">
       <notes>
         <note category="context"></note>
@@ -1370,6 +1469,15 @@
       <segment>
         <source>Search User By Name</source>
         <target>Search User By Name</target>
+      </segment>
+    </unit>
+    <unit id="manager-representative-inUse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission.</source>
+        <target>You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission.</target>
       </segment>
     </unit>
     <unit id="manager-reviewerSearch-change">
@@ -3792,6 +3900,15 @@
         <target>Review Form Data</target>
       </segment>
     </unit>
+    <unit id="manager-reviewForms-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Title</target>
+      </segment>
+    </unit>
     <unit id="manager-reviewFormElement-changeType">
       <notes>
         <note category="context"></note>
@@ -3934,6 +4051,15 @@
       <segment>
         <source>Item</source>
         <target>Item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Description</target>
       </segment>
     </unit>
     <unit id="manager-reviewFormElements-radiobuttons">
@@ -4674,6 +4800,15 @@
         <target>The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</target>
       </segment>
     </unit>
+    <unit id="manager-navigationMenus-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Title</target>
+      </segment>
+    </unit>
     <unit id="manager-navigationMenus-form-path">
       <notes>
         <note category="context"></note>
@@ -5142,6 +5277,24 @@
         <target>Edit Category</target>
       </segment>
     </unit>
+    <unit id="grid-category-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>Path</target>
+      </segment>
+    </unit>
     <unit id="grid-category-urlWillBe">
       <notes>
         <note category="context"></note>
@@ -5167,6 +5320,15 @@
       <segment>
         <source>The category path already exists. Please enter a unique path.</source>
         <target>The category path already exists. Please enter a unique path.</target>
+      </segment>
+    </unit>
+    <unit id="grid-category-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Description</target>
       </segment>
     </unit>
     <unit id="grid-category-parentCategory">

@@ -1,0 +1,5592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:00-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:00-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="manager-website-information">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information</source>
+        <target>اطلاعات</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-appearance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Appearance</source>
+        <target>نمای اصلی</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-imageFileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An image file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>وارد کردن فایل تصویر الزامی است، مطمئن شوید که تصویر را انتخاب و آپلود کرده باشید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>اطلاعیه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this announcement?</source>
+        <target>آیا می‌خواهید برای همیشه این اطلاعیه را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Announcement</source>
+        <target>ایجاد اطلاعیه جدید</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>ایجاد</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry</source>
+        <target>انقضا</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-datePublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>منتشر شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement</source>
+        <target>ویرایش اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireDayIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or month in addition to the expiry date day.</source>
+        <target>لطفاً علاوه بر روز ، ماه یا سال انقضا را نیز انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry Date</source>
+        <target>تاریخ انقضا</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The announcement will be displayed to readers until this date. Leave blank if the announcement should be displayed indefinitely.</source>
+        <target>اطلاعیه تا این تاریخ در معرض دید خواهد بود. اگر می‌خواهید برای همیشه اطلاعیه نمایش داده شود این قسمت را خالی بگذارید</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireMonthIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or day in addition to the expiry date month.</source>
+        <target>لطفاً علاوه بر ماه ، روز یا سال انقضا را نیز انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement expiry date.</source>
+        <target>لطفاً تاریخ صحیحی برای انقضای اطلاعیه وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireYearIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a month and/or day in addition to the expiry date year.</source>
+        <target>لطفاً علاوه بر سال ، ماه یا روز انقضا را نیز انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>توصیف</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The full text of the announcement.</source>
+        <target>متن کامل اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement description is required.</source>
+        <target>یک توصیف برای اطلاعیه لازم است</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A brief description to appear along with the announcement title.</source>
+        <target>یک توصیف مختصر که همراه با عنوان اطلاعیه ظاهر شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A short announcement description is required.</source>
+        <target>یک توصیف مختصر برای اطلاعیه لازم است</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Short Description</source>
+        <target>توصیف مختصر</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>ذخیره و ایجاد مورد</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement title is required.</source>
+        <target>عنوان اطلاعیه لازم است</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>نوع</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeIdValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement type.</source>
+        <target>لطفاً نوع صحیحی برای اطلاعیه انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcements have been created.</source>
+        <target>هیچ اطلاعیه‌ای ایجاد نشده است</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>نوع</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Types</source>
+        <target>انواع اطلاعیه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning! All announcements with this announcement type will also be deleted. Are you sure you want to continue and delete this announcement type?</source>
+        <target>اخطار! تمام اطلاعیه‌های از این نوع از بین خواهد رفت. آیا مطمئن هستید که می‌خواهید این نوع اطلاعیه را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Announcement Type</source>
+        <target>ایجاد نوع اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>ایجاد</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement Type</source>
+        <target>ویرایش نوع اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>ذخیره و ایجاد یک مورد دیگر</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type with this name already exists.</source>
+        <target>نوع اطلاعیه‌ای با این نام هم اکنون وجود دارد</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>نام</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type name is required.</source>
+        <target>نامی برای نوع اطلاعیه لازم است</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcement types have been created.</source>
+        <target>هیچ نوع اطلاعیه‌ای ایجاد نشده است</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Type</source>
+        <target>نوع اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-submissionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>ارسال مقاله</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-editorialStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial</source>
+        <target>ویراستاری</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-productionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>تولید</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Emails</source>
+        <target>ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emailSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Guidance</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer guidance has been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewReminders-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review reminder details have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email template?</source>
+        <target>آیا می‌خواهید این الگوی ایمیل را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmReset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to reset this email template to its default values?</source>
+        <target>آیا می‌خواهید این الگوی ایمیل را به حالت نخست برگردانید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Template</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was added.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-createEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Email</source>
+        <target>ایجاد ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-customTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Template</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-data">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Message Data</source>
+        <target>الگوی پیام</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Details</source>
+        <target>جزئیات الگو</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>غیرفعال ساختن</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?</source>
+        <target>شما در حال غیرفعال کردن این الگوی ایمیل هستید. اگر سیستم در حال استفاده از این الگو باشد، ممکن است دچار اختلال شود. آیا مطمئن به ادامه این کار هستید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email</source>
+        <target>ویرایش ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was modified.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editTestExample">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email Test Example</source>
+        <target>ویرایش ایمیل آزمایشی</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Key</source>
+        <target>شناسه ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email key can only contain letters, numbers and underscores.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKeyExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email with the given key already exists. Email keys must be unique.</source>
+        <target>ایمیلی با این شناسه در حال حاضر موجود است. کلید ایمیل می‌بایست منحصربه‌فرد باشد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Template</source>
+        <target>الگوی ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Templates</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must provide a context ID when adding an email template.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-noDuplicateKeys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key you provided is already in use.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable this email template</source>
+        <target>فعال ساختن این الگوی ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>فعال ساختن</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to enable this email.  Do you want to confirm this operation?</source>
+        <target>در حال فعال‌سازی این ایمیل، از این عمل مطمئنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-emailKeyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A unique email key containing no spaces or special characters is required for the email.</source>
+        <target>یک شناسه منحصربه‌فرد برای ایمیل لازم است</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-bodyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A body is required for the email.</source>
+        <target>متن اصلی برای این ایمیل لازم است</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A subject is required for the email.</source>
+        <target>یک موضوع برای این ایمیل لازم است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Emails</source>
+        <target>ایمیل‌های از پیش آماده شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset All</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</source>
+        <target>اگر تمامی الگوها را رست کنید، تمامی تغییرات انجام شده بر روی الگوها از دست خواهد رفت. مطمئن به ادامه این کار هستید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset</source>
+        <target>ریست</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</source>
+        <target>اگر این الگو را رست کنید، تمامی تغییرات آن به حالت پیش‌فرض بر خواهد گشت. مطمئن به ادامه این کار هستید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetToDefault">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset To Default</source>
+        <target>برگرداندن به حالت نخست</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentFrom">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent From</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent To</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-subjectWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject: {$subject}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-filesBrowser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files Browser</source>
+        <target>مرورگر فایل‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this file or directory? Note that a directory must be empty before it can be deleted.</source>
+        <target>آیا این فایل یا پوشه را حذف کنم؟ دقت داشته باشید که یک پوشه باید قبل از حذف شدن خالی شده باشد</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-createDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Directory</source>
+        <target>ایجاد پوشه</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-emptyDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No files were found in this directory.</source>
+        <target>.هیچ فایلی در این پوشه پیدا نشد</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-indexOfDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Index of {$dir}</source>
+        <target>اقلام موجود در {$dir}</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-parentDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Directory</source>
+        <target>پوشه مادر</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadedFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uploaded Files</source>
+        <target>فایل‌های آپلود شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>آپلود کردن فایل</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group?</source>
+        <target>آیا می‌خواهید این گروه را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Title</source>
+        <target>ایجاد عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Title</source>
+        <target>ویرایش عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-form-groupTitleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A group title is required.</source>
+        <target>عنوان گروه لازم است</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-addMember">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Member</source>
+        <target>افزودن عضو</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group membership?</source>
+        <target>آیا می‌خواهید عضویت این گروه را لغو کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Membership</source>
+        <target>عضویت</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This group has no members.</source>
+        <target>این گروه عضوی ندارد</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No users were found.</source>
+        <target>کاربری یافت نشد</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-importExport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Data</source>
+        <target>برون دهی / درون‌ریزی داده‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-ui">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>UI</source>
+        <target>رابط کاربری</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-submissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions</source>
+        <target>مقالات ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-forms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forms</source>
+        <target>فرم‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-reloadLocalizedDefaultSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload defaults</source>
+        <target>بارگذاری مجدد پیش‌فرض‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-alternateLocaleInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</source>
+        <target>در این سیستم می‌توان اطلاعات مهم خاصی را به حداکثر دو زبان وارد کرد. برای استفاده از این گزینه یک یا دو زبان فرعی را انتخاب کرده و از لیست گزینه‌های زیر موارد دلخواه خود را انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-supportedLocalesInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</source>
+        <target>تمام زبان‌هایی را که می‌خواهید در سایت موجود باشد و کاربر بتواند از منوی انتخاب زبان آن‌ها را انتخاب کند را تعیین کنید. منوی انتخاب زبان فقط زمانی ظاهر می‌شود که بیش از یک زبان انتخاب کرده باشید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-payment-timestamp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Timestamp</source>
+        <target>برچسب زمان</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-existingUserRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An existing user must be entered.</source>
+        <target>کاربر موجود باید وارد شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>منبع احراز هویت</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-confirmUnenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll this user?</source>
+        <target>عزل نقش این کاربر</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New User</source>
+        <target>ایجاد کاربر جدید</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserGeneratePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate a random password.</source>
+        <target>تولید یک رمز عبور تصادفی</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserSendNotify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send the user a welcome email containing their username and password.</source>
+        <target>ارسال ایمیل خوش‌آمد به کاربر و ارسال نام کاربری و رمز عبور با آن</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>غیرفعال کردن</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-doNotEnroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With no role</source>
+        <target>بدون نقش</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>ویرایش پرونده</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>ویرایش کاربر</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailSelectedUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email selected users</source>
+        <target>ارسال ایمیل به کاربران انتخاب شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailUsersEnrolledAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email users enrolled as</source>
+        <target>ارسال ایمیل به کاربران دارای نقش </target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Users</source>
+        <target>ارسال ایمیل به کاربران</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a locale</source>
+        <target>انتخاب یک زبان</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the users you would like to email by checking the boxes beside their names</source>
+        <target>با تیک زدن کاربران مورد نظرتان آن‌ها را برای ارسال ایمیل انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>فعال کردن</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>اعطای نقش به کاربر</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrollment</source>
+        <target>اعطای نقش</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSelected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll Selected Users</source>
+        <target>اعطای نقش به کاربران انتخاب شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSyncRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize role</source>
+        <target>هماهنگ‌سازی نقش </target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSync">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sync Enrollment</source>
+        <target>هماهنگ‌سازی نقش‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users can be assigned to, or removed from, a role at any point.</source>
+        <target>اگر هیچ نقشی انتخاب نشود کاربر ایجاد می‌شود ولی هیچ نقشی در مجله ندارد. اعطای نقش و یا عزل نقش بعداً در هر زمانی نیز مقدور است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll user as</source>
+        <target>انتساب کاربر به نقش</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the requested user does not exist.</source>
+        <target>متأسفانه کاربر درخواست شده موجود نیست</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>ادغام کاربر</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</source>
+        <target>آیا مطمئن هستید که می‌خواهید حساب کاربری "{$oldAccountCount}" را با حساب کاربری"{$newUsername}" ادغام کنید؟ بعد از ادغام حساب کاربری"{$oldAccountCount}" دیگر وجود نخواهد داشت . این عملیات قابل بازگشت نیست.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>ادغام کاربران</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustChooseRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a role at the top of the page before clicking "Enroll User".</source>
+        <target>لطفاً قبل از کلیک بر روی اعطای نقش, نقش مورد نظر را از لیست بالای صفحه انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>لطفاً نام خانوادگی کاربر را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noMatchingUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No matching users.</source>
+        <target>کاربری با این مشخصات یافت نشد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noneEnrolled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No enrolled users.</source>
+        <target>کاربری بدون نقش </target>
+      </segment>
+    </unit>
+    <unit id="manager-people">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>People</source>
+        <target>کاربران</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-saveAndCreateAnotherUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>ذخیره  و ایجاد کاربر دیگر</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In As</source>
+        <target>ورود به عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAsUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In as User</source>
+        <target>ورود به عنوان کاربر</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-syncUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize User Enrollment</source>
+        <target>هماهنگ‌سازی اعطای نقش به کاربر</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-unenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll</source>
+        <target>عزل نقش</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userCreatedSuccessfully">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User created successfully.</source>
+        <target>کاربر با موفقیت ایجاد شد</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userMustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>لازم است که کاربر در نوبت ورود بعدی به سیستم رمز عبور خود را عوض کند.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-action">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Action:</source>
+        <target>اقدام:</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>غیر فعال‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>فعال‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Management</source>
+        <target>مدیریت افزونه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-sitePlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is a site-wide plugin. Only the Site Administrator may manage this plugin.</source>
+        <target>این افزونه مربوط به کل سایت است. فقط مدیر سایت می‌تواند آن را تغییر دهد</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System Plugins</source>
+        <target>افزونه‌های سیستم</target>
+      </segment>
+    </unit>
+    <unit id="manager-readingTools">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reading Tools</source>
+        <target>ابزارهای خواندن</target>
+      </segment>
+    </unit>
+    <unit id="manager-userSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search User By Name</source>
+        <target>جستجوی کاربر با نام</target>
+      </segment>
+    </unit>
+    <unit id="manager-representative-inUse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change</source>
+        <target>تغییر</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Reviewers By Name</source>
+        <target>جستجوی داور بر اساس نام</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search By Name</source>
+        <target>جستجو با نام</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing Interests</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-form-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>نقش‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Stats &amp; Reports]]></source>
+        <target>آمار و گزارشات</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-defaultMetricDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>
+		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</source>
+        <target>{$contextObjectName} از چندین معیار اندازه‌گیری برای ذخیره آمار استفاده می‌کند. اما در برخی موارد نیاز است که از یک معیار استفاده شود، برای مثال در نمایش لیست مقالات بیشتر مشاهده شده. لطفاً یک معیار اندازه‌گیری را به عنوان معیار پیش‌فرض انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-city">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>City</source>
+        <target>شهر</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-region">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Region</source>
+        <target>منطقه</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Generator</source>
+        <target>تولیدگر گزارش </target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</source>
+        <target>سیستم بر اساس جزئیات مشخص شده و بر پایه میزان استفاده از سامانه و مقالات ارسالی در بازه زمانی داده شده، گزارشی تولید خواهد نمود. این گزارش در فرمت CSV تولید می‌شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-aggregationColumns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Aggregate stats by:</source>
+        <target>آمار کل توسط:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-optionalColumns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</source>
+        <target>گزینه‌هایی که به صورت مورب‌اند یا با * مشخص شده‌اند، بیان کننده داده‌هایی هستند که برای سیستم آماری سامانه اختیاری‌اند. ممکن است در گزارش این داده‌ها وجود داشته باشند یا نه که وابسته به فعال بودن افزونه‌های مرتبط به آن‌هاست.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-defaultReportTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default report templates</source>
+        <target>الگوی پیش‌فرض گزارش</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-generateReport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate custom report</source>
+        <target>تولید گزارش سفارشی</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Options</source>
+        <target>گزینه‌های پیشرفته</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions-hide">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide Advanced Options</source>
+        <target>مخفی کردن گزینه‌های پیشرفته</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Columns</source>
+        <target>ستون‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day.</source>
+        <target>ستون‌هایی که در تولید این گزارش استفاده می‌شوند را تعریف کنید. ستون‌های تعریف شده هم برای مشخص کردن داده‌های داخل گزارش و هم مشخص کننده نحوه تجمیع آن‌هاست. برای مثال، اگر ستون‌های شناسه، نوع و ماه را انتخاب کنید، در گزارش تمامی داده‌های آن ماه جمع شده و در یک سطر قرار می‌گیرد. اگر به‌ جای ماه، روز انتخاب شود، داده‌های هر روز با هم جمع خواهد شد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Filters</source>
+        <target>فیلترها</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object not found in database</source>
+        <target>داده در پایگاه داده یافت نشد</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object Type</source>
+        <target>نوع داده</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object id</source>
+        <target>شناسه داده</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define one or more object ids, comma separated (e.g. 1,2,3,4,5).</source>
+        <target>یک یا چند شناسه داده تعریف کنید. با کاما از هم جدا شود (برای مثال 1,2,3,4,5).</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-yesterday">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yesterday</source>
+        <target>دیروز</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-currentMonth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current month</source>
+        <target>ماه جاری</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderBy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order by</source>
+        <target>مرتب‌سازی بر اساس</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Direction</source>
+        <target>جهت</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-asc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ascending</source>
+        <target>صعودی</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-desc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descending</source>
+        <target>نزولی</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-month-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMM format.</source>
+        <target>استفاده از فرمت YYYYMM .</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-day-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMMDD format.</source>
+        <target>استفاده از فرمت YYYYMMDD .</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-cities-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One or more city names, comma separated (e.g. City Name 1,City Name 2)</source>
+        <target>اسم یک یا چند شهر که با کاما از هم جدا شده‌اند (برای مثال: تبریز، اصفهان، شیراز)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-form-columnsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to select at least one column to generate the report.</source>
+        <target>برای تولید گزارش حداقل باید یک ستون انتخاب شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report URL</source>
+        <target>آدرس گزارش</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks.</source>
+        <target>آدرس زیر برای تولید گزارش بر اساس تنظیمات انجام یافته است. می‌توانید آن را در مرورگر خود مشاهده کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By context</source>
+        <target>بر اساس محتوا</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byObject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By object type and/or object id</source>
+        <target>بر اساس نوع یا شناسه داده</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select report range</source>
+        <target>انتخاب بازه گزارش</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime-dimensionSelector">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Or select range by:</source>
+        <target>یا انتخاب بازه بر اساس:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By geo location</source>
+        <target>بر اساس موقعیت جغرافیایی</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Narrow results by country, region and/or city.</source>
+        <target>محدودتر کردن نتایج بر اساس شهر، منطقه و یا کشور</target>
+      </segment>
+    </unit>
+    <unit id="manager-affiliationAndSupport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor</source>
+        <target>حامی مالی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Content</source>
+        <target>سایر اطلاعات</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anything entered here will appear on your homepage.</source>
+        <target>هر اطلاعات دیگری که می‌خواهید در صفحه‌ی اصلی نمایش داده شود</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-advanced">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-appearance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The appearance settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-contact-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The contact details for this press have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Notice</source>
+        <target>بیانیه حق نشر</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require authors to agree to the following copyright notice as part of the submission process.</source>
+        <target>نیاز به موافقت نویسنده با بیانیه حق نشر به عنوان قسمتی از روند ارسال مقاله.  </target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Guidelines</source>
+        <target>دستورالعمل ارسال مقاله</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</source>
+        <target>دستورالعمل‌های ارسال مقال شامل فرمت نوشته و نحوه ارجاع دهی است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author guidelines have been successfully updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-checklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Competing Interests</source>
+        <target>تضاد منافع</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-errorDeletingItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error when deleting this item.</source>
+        <target>هنگام حذف این مورد خطایی رخ داد</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-favicon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Favicon</source>
+        <target>Favicon</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-groupType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File type grouping</source>
+        <target>دسته‌بندی نوع فایل</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage Image</source>
+        <target>تصویر صفحه‌ی اصلی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload an image to display prominently on the homepage.</source>
+        <target>آپلود یک تصویر برای نمایش دادن در صفحه‌ی اصلی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>فرمت تصویر صفحه خانگی نامناسب است. فرمت‌های پشتیبانی شده عبارت است از: gif، png، jpg</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homeTitleImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>فرمت تصویر عنوان سرتیتر صفحه خانگی نامعتبر است. فرمت‌های پشتیبانی شده عبارت است از: gif، png، jpg</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-information-descriptionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descriptions</source>
+        <target>توضیحات</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sidebar</source>
+        <target>نوار حاشیه</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar-invalidBlock">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$name} block can not be found. Please make sure the plugin is installed and enabled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-loggingAndAuditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logging and Auditing</source>
+        <target>ورود و حسابرسی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-logo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logo</source>
+        <target>لوگو</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-noTemporaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The file you uploaded could not be found. Please try to upload it again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification of Author Submission</source>
+        <target>اطلاع‌رسانی ارسال مقاله توسط نویسنده</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-copySpecifiedAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a copy to this email address</source>
+        <target>ارسال رونوشت به این ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:</source>
+        <target>نویسندگان به صورت خودکار ایمیلی برای اطلاع‌رسانی از مقاله ارسالی خود ارسال می‌کنند. ممکن است مایل باشید تا رونوشتی از این ایمیل‌ها به لیست زیر نیز ارسال شود:</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open Access Policy</source>
+        <target>سیاست دسترسی آزاد</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If providing immediate free access to all published content, you may enter a description of your Open Access Policy.</source>
+        <target>اگر به صورت آنی به محتویات انتشار یافته دسترسی آزاد می‌دهید. بهتر است در مورد سیاست‌های دسترسی آزاد خود توضیحی وارد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageHeaderLogoImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>فرمت لوگوی سرتیتر صفحات نامعتبر است.  فرمت‌های قابل قبول عبارت است از: gif، png و jpg</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page Footer</source>
+        <target>پاورقی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter any images, text or HTML code that you'd like to appear at the bottom of your website.</source>
+        <target>هر تصویر ، متن یا کد HTML که مایل هستید در قسمت پاوری قرار گیرد وارد نمایید</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-peerReview-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Outline the peer review policy and processes for readers and authors. This description often includes the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, expected time required to conduct the reviews, and the principles used to select reviewers.</source>
+        <target>کلیات سیاست داوری خود را برای خوانندگان و نویسندگان وارد کنید. این توضیح معمولاً شامل تعداد داورهای بررسی کننده هر مقاله، روش انتخاب آن‌ها و مدت زمان داوری است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal Contact</source>
+        <target>تماس با مدیر</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</source>
+        <target>اطلاعات تماس دبیران، ویراستاران یا عوامل اجرایی که به صورت عمومی در وب‌سایت در دسترس خواهد بود</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Privacy Statement</source>
+        <target>بیانه حریم خصوصی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewResponseTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Response Deadline</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewCompletionTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Completion Deadline</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of weeks to accept or decline a review request.</source>
+        <target>مهلت زمان (به هفته) قبول یا رد انجام داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Weeks allowed for review completion</source>
+        <target>متوسط مهلت داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-neverSendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Never Remind</source>
+        <target>هرگز یادآوری نکن</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-noteOnModification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Defaults can be modified for each review during the editorial process.</source>
+        <target>مقادیر پیش‌فرض به ازای هر داوری می‌تواند ویرایش شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Reminder</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not responded to a review request this many days after the response due date.</source>
+        <target>ارسال یادآوری برای داور در صورت عدم پاسخ به درخواست داوری در مهلت معین شده پس از (به ‌روز):</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Reminder</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date.</source>
+        <target>ارسال یادآوری برای داور در صورت عدم ارسال نتیجه داوری در مهلت معین شده پس از (به‌ روز):</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reviewMode">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Review Mode</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-showBlindReviewLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Present a link to <button type="button">Ensuring a Blind Review</button> during upload]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-note">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor Relationship and Policy Description</source>
+        <target>سیاست‌های حمایت مالی و معنوی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</source>
+        <target>برای مثال: انجمن‌های علمی، دانشکده‌ها، تعاونی‌ها، و غیره. حامیان به طور عمومی نمایش داده می‌شوند.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-styleSheetDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Experienced web developers can upload a CSS file to further customize the website's appearance.</source>
+        <target>توسعه‌دهندگان وب می‌توانند یک فایل CSS برای سفارشی کردن طرح وب‌سایت بارگذاری کنند</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Technical Support Contact</source>
+        <target>اطلاعات پشتیبانی فنی</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material.</source>
+        <target>این اطلاعات مربوط به رابط نماینده‌ای است که در صورت برخورد ویراستاران ، داوران یا نویسندگان با هرگونه مشکلی در ارسال ، بازبینی یا انتشار مقالات با وی جهت بررسی و رفع اشکال تماس خواهند گرفت</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The theme has been updated. <a href="{$url}" target="_blank">View Now</a>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme</source>
+        <target>پوسته سایت</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New themes may be installed from the Plugins tab at the top of this page.</source>
+        <target>ممکن است پوسته جدیدی  از طریق بخش افزونه‌ها نصب شده باشد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-notFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The theme you selected is not installed or enabled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-userAccess-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The user access details for this press have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-siteAccessOptions-siteAccessOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Access Options</source>
+        <target>تنظیمات دسترسی سایت</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-count-value">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} ({$percentage}%)</source>
+        <target>{$count} ({$percentage}%)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-totalNewValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$numTotal} ({$numNew} new)</source>
+        <target>{$numTotal} ({$numNew} جدید)</target>
+      </segment>
+    </unit>
+    <unit id="manager-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>کاربرها</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins</source>
+        <target>افزونه‌های فراداده</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins implement additional meta-data standards.</source>
+        <target>افزونه‌های فراداده، استانداردهای فراداده اضافی را پیاده‌سازی می‌کنند.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-auth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authorization Plugins</source>
+        <target>افزونه‌های احراز هویت</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins</source>
+        <target>افزونه‌های بلوکی</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins are pluggable UI components, such as the various sidebar tools.</source>
+        <target>افزونه‌های بلوکی اجزای گرافیکی قابل اتصال به سیستم هستند مانند ابزارهای مختلف موجود در نوار کناری</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins provide live data to external systems.</source>
+        <target>افزونه‌های دروازه داده‌های مؤثر را بر سیستم‌های خارجی فراهم می‌کند</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins</source>
+        <target>افزونه‌های گذرگاه</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-generic">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generic Plugins</source>
+        <target>افزونه‌های عمومی</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins can be used to transfer content to and from other systems.</source>
+        <target>برون دهی / درون‌ریزی افزونه‌ها می‌تواند برای انتقال محتوا از و به سیستم‌های دیگر مورد استفاده قرار گیرد</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins</source>
+        <target>افزونه‌های برون دهی / درون‌ریزی</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method plugins implement support for various ways of processing payments online.</source>
+        <target>افزونه‌های روش‌های پرداخت حمایت از روش‌های مختلف پردازش پرداخت‌های آنلاین را فراهم می‌کنند</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Plugins</source>
+        <target>افزونه‌های روش‌های پرداخت</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins are used to implement various types of reports and data extracts.</source>
+        <target>افزونه‌های گزارش برای تولید انواع مختلف گزارشات و استخراج داده بکار می‌رود</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins</source>
+        <target>افزونه‌های گزارش</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins can be used to change the system's appearance.</source>
+        <target>افزونه‌های پوسته می‌توانند برای تغییر ظاهر سیستم استفاده شوند</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins</source>
+        <target>افزونه‌های پوسته</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Metadata Format Plugins</source>
+        <target>افزونه فرمت فراداده OAI</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These format plugins express metadata in OAI communications.</source>
+        <target>این افزونه‌های فرمت، فراداده را در ارتباطات OAI بیان می‌کنند.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Identifier Plugins</source>
+        <target>افزونه شناسه عمومی</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These plugins implement support for a public identifier.</source>
+        <target>این افزونه‌ها برای پشتیبانی از شناسه‌های عمومی هستند.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-copyError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>افزونه به صورت صحیح کپی نشده است. می‌تواند مشکل از سطح دسترسی باشد. مطمئن شوید که سرور اجازه نوشتن در پوشه افزونه‌ها را دارد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Plugin</source>
+        <target>حذف افزونه</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to install this plugin?</source>
+        <target>مطمئنید که می‌خواهید این افزونه را نصب کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to upgrade this plugin?</source>
+        <target>مطمئنید که می‌خواهید این افزونه را ارتقاء دهید؟</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-installPlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install or upgrade this plugin</source>
+        <target>نصب یا ارتقاء این افزونه</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this plugin from the system?</source>
+        <target>آیا مطمئنید که می‌خواهید این افزونه را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By clicking delete, you will delete the plugin from the server's file system.</source>
+        <target>با کلیک بر روی «حذف» این افزونه از سرور حذف خواهد شد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>افزونه "{$pluginName}" امکان حذف از روی سرور را ندارد. می‌تواند مشکل از سطح دسترسی باشد. مطمئن شوید که سرور اجازه نوشتن در پوشه افزونه‌ها را دارد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteSuccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" successfuly deleted</source>
+        <target>افزونه "{$pluginName}" با موفقیت حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins.</source>
+        <target>این صفحه برای مدیریت و مشاهده افزونه‌های نصب شده بر روی سامانه است. افزونه‌ها بر اساس عملکردشان در دسته‌های مختلف تقسیم شده‌اند.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-doesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" does not exist</source>
+        <target>افزونه "{$pluginName}" موجود نیست</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-fileSelectError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a file first</source>
+        <target>لطفاً اول فایل را انتخاب کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload A New Plugin</source>
+        <target>بارگذاری افزونه‌ی جدید</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>این فرم به شما امکان می‌دهد تا یک افزونه را آپلود و نصب کنید. مطمئن شوید که فایل افزونه به صورت یک فایل فشرده با پسوند .tar.gz باشد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please ensure a file was selected for upload.</source>
+        <target>مطمئن شوید که فایلی برای آپلود انتخاب شده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installed Plugins</source>
+        <target>افزونه‌های نصب شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Gallery</source>
+        <target>گالری افزونه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Overview</source>
+        <target>نگاه کلی</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-installation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation</source>
+        <target>نصب</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-latestCompatible">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest Compatible Release</source>
+        <target>آخرین نسخه سازگار</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Official</source>
+        <target>رسمی</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is developed and maintained by the Public Knowledge Project team.</source>
+        <target>این افزونه توسط تیم پروژه دانش عمومی توسعه یافته و پشتیبانی می‌شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>بررسی شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin has been reviewed and approved by the Public Knowledge Project team.</source>
+        <target>این افزونه توسط تیم پروژه دانش عمومی بررسی و تأیید شده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Partner</source>
+        <target>شریک</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is provided by one of our development partners.</source>
+        <target>این افزونه توسط سازمان‌های همکار این پروژه فراهم شده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-maintainer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Maintainer</source>
+        <target>نگه‌دارنده</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-version">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>v{$version} released on {$date}</source>
+        <target>نسخه {$version} در تاریخ {$date} منتشر شد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-homepage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage</source>
+        <target>صفحه اصلی</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>خلاصه</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-status">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>وضعیت</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noInstalledVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin has not yet been installed.</source>
+        <target>افزونه هنوز نصب نشده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is currently no compatible version of this plugin available.</source>
+        <target>در حال حاضر هیچ نسخه سازگاری از این افزونه وجود ندارد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, and is newer than the version available in the gallery.</source>
+        <target>این افزونه پیشتر نصب شده است و نسخه نصب شده، جدیدتر از نسخه موجود در گالری است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, but can be updated to a newer version.</source>
+        <target>افزونه پیشتر نصب شده است، اما قابل ارتقاء به نسخه جدیدتر می‌باشد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed and up-to-date.</source>
+        <target>افزونه نصب و به‌روزرسانی شد</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Newer than available version</source>
+        <target>جدیدتر از نسخه موجود</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can be upgraded</source>
+        <target>قابل به‌روزرسانی</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up to date</source>
+        <target>به‌روزرسانی</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not Available</source>
+        <target>خارج از دسترس</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation failed. {$errorString}</source>
+        <target>خطا در نصب. {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully installed version {$versionNumber}</source>
+        <target>با موفقیت نسخه {$versionNumber} نصب شد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-invalidPluginArchive">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin archive does not contain a folder that corresponds to the plugin name.</source>
+        <target>فایل فشرده آپلود شده از افزونه شامل پوشه‌ای با نام افزونه نمی‌باشد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin does not fit the category of the upgraded plugin.</source>
+        <target>افزونه آپلود شده در دسته افزونه ارتقاء یافته نیست.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The version.xml in the uploaded plugin contains a plugin name that does not fit the name of the upgraded plugin.</source>
+        <target>نام افزونه در فایل version.xml با نام افزونه ارتقاء یافته همخوانی ندارد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseInstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin does not exist.  Please Install instead</source>
+        <target>افزونه موجود نیست، لطفاً نصب نمایید</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseUpgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already exists, but is newer than installed version.  Please upgrade instead</source>
+        <target>نسخه جدیدتر افزونه نصب شده موجود است. لطفاً آن را ارتقاء دهید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>تنظیمات</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-tarCommandNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The tar command is not available. Please correctly configure it in your "config.inc.php".</source>
+        <target>دستور tar در دسترس نیست. لطفاً به نحو صحیحی آن را در فایل   "config.inc.php"  تنظیم کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade Plugin</source>
+        <target>ارتقاء افزونه</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upgrade a plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>این فرم اجازه ارتقاء افزونه را به شما می‌دهد. مطمئن شوید که فایل افزونه به صورت یک فایل .tar.gz فشرده‌سازی شده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade failed. {$errorString}</source>
+        <target>خطا در ارتقاء {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully upgraded to version {$versionString}</source>
+        <target>با موفقیت به نسخه {$versionString} ارتقاء یافت</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error uploading file</source>
+        <target>خطا در ارتقاء فایل</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadPluginDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select plugin file</source>
+        <target>انتخاب فایل‌های افزونه</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml in plugin directory contains invalid data.</source>
+        <target>فایلversion.xml  در پوشه افزونه شامل داده‌های نامعتبری است</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml not found in plugin directory</source>
+        <target>فایلversion.xml  در پوشه افزونه یافت نشد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale enabled.</source>
+        <target>زبان فعال شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale disabled.</source>
+        <target>زبان غیرفعال شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-primaryLocaleDefined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} defined as primary locale.</source>
+        <target>{$locale}  به عنوان زبان اصلی سامانه تعریف شده است.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeInstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All selected locale(s) installed and activated.</source>
+        <target>تمامی زیان‌ها با موفقیت نصب شدند</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeUninstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale uninstalled.</source>
+        <target>زبان {$locale} حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeReloaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale reloaded for {$contextName}.</source>
+        <target>زبان {$locale} بارگذاری مجدد شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeSettingsSaved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale settings saved.</source>
+        <target>تنظیمات زبان ذخیره شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User edited.</source>
+        <target>کاربر ویرایش شد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The licensing details have been updated. </source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other license URL</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License Terms</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter public licensing terms you would like to display alongside published work.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Tags</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add custom HTML tags, also known as meta tags, that you would like to be inserted in the head of every page. Consult a technical advisor before adding tags here.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payments</source>
+        <target>شیوه‌ی پرداخت</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Methods</source>
+        <target>شیوه‌های پرداخت</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No payment method selected</source>
+        <target>روش پرداختی انتخاب نشده است</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-method">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method</source>
+        <target>روش پرداخت</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-currency">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currency</source>
+        <target>واحد پول</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Options</source>
+        <target>گزینه های نقش</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-showTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show role title in contributor list</source>
+        <target>نمایش عنوان نقش را در فهرست مشارکت کننده</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitSelfRegistration">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow user self-registration</source>
+        <target>اجازه ثبت‌نام کاربر</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-recommendOnly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This role is only allowed to recommend a review decision and will require an authorised editor to record a final decision.</source>
+        <target>این نقش فقط اجازه توصیه یک تصمیم را دارد. برای اتخاذ تصمیم نهایی نقشی با سطح دسترسی دبیر نیاز است.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Name</source>
+        <target>انواع نقش</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abbreviation</source>
+        <target>اختصار</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-assignedStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Stages</source>
+        <target>انتساب مراحل</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stages</source>
+        <target>مراحل</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role details</source>
+        <target>جزئیات نقش</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission level</source>
+        <target>سطح دسترسی</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?</source>
+        <target>شما در حال حذف این نقش هستید، که شامل حذف تمامی تنظیمات این نقش و کاربران دارای این نقش خواهد بود. آیا مایل به ادامه این کار هستید؟</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role name.</source>
+        <target>وارد کردن نام نقش الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-abbrevRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role abbreviature.</source>
+        <target>وارد کردن اختصار برای نقش الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role name.</source>
+        <target>نام نقش باید منحصربه‌فرد باشد.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role abbreviature.</source>
+        <target>اختصار مشخص شده برای نقش باید منحصربه‌فرد باشد.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role permission level.</source>
+        <target>باید سطح دسترسی نقش مشخص شود</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stageIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a stage to assign to.</source>
+        <target>باید مرحله ای که این نقش به آن انتساب می شود مشخص شود.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitMetadataEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permit submission metadata edit.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A library file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>فایل کتابخانه نیاز است. لطفاً از انتخاب و آپلود شدن فایل مطمئن شوید.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this library file.</source>
+        <target>برای این کتابخانه وارد کردن نام الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file type is required for this library file.</source>
+        <target>برای این کتابخانه وارد کردن نوع فایل الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-contracts">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contracts</source>
+        <target>قراردادها</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing</source>
+        <target>بازاریابی</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>مجوزها</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reports</source>
+        <target>گزارشها</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>دیگر</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-selectLibraryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Library Files to attach</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Component</source>
+        <target>افزودن یک جزء</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this Component</source>
+        <target>ویرایش این جزء</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this Component</source>
+        <target>حذف این جزء</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreGenres">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore the components to the default settings</source>
+        <target>برگرداندن اجزاء به تنظیمات پیش‌فرض</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as dependent files (e.g. not to be listed with published content)</source>
+        <target>نشانه‌گذاری این نوع از فایل‌ها به عنوان فایل‌های مستقل (به این معنی که به همراه محتوای منتشر شده لیست نمی‌شود)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as supplementary files (e.g. not primary submission content)</source>
+        <target>نشانه‌گذاری این نوع از فایل‌ها به عنوان فایل‌های مکمل (به این معنی که محتوای ثبت شده اصلی نمی‌باشد)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Key</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An optional short symbolic identifer for this genre.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-exists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key already exists.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-alphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-settings-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings Wizard</source>
+        <target>تنظیمات مرحله به مرحله</target>
+      </segment>
+    </unit>
+    <unit id="manager-users-roleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to select at least one role to be associated with this user.</source>
+        <target>باید حداقل یک نقش به این کاربر انتساب دهید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-website">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website</source>
+        <target>مدیریت سایت</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website Settings</source>
+        <target>تنظیمات سایت</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow</source>
+        <target>گردش کار</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow Settings</source>
+        <target>تنظیمات گردش کار</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution</source>
+        <target>توزیع</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution Settings</source>
+        <target>تنظیمات توزیع</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>فرم‌های داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmActivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to activate this review form? Once it's assigned to a review you will no longer be able to deactivate it.</source>
+        <target>آیا مطمئن به فعال‌سازی این فرم هستید؟ پس از فعال‌سازی در صورت استفاده از آن دیگر امکان غیر فعال‌سازی نخواهد داشت.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDeactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to deactivate this review form? It will no longer be available for new review assignments.</source>
+        <target>آیا مطمئن به غیرفعال‌سازی این فرم هستید؟ این فرم دیگر در دسترس نخواهد بود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to create a copy of this review form?</source>
+        <target>آیا مطمئنید که می‌خواهید یک کپی از این فرم داوری ایجاد شود؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>موارد تکمیل شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this review form?</source>
+        <target>آیا مطمئنید که می‌خواهید این فرم داوری را حذف کنید؟</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Review Form</source>
+        <target>ایجاد فرم داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description and Instructions</source>
+        <target>تعاریف و دستورالعمل‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>فرم داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A title is required for the review form.</source>
+        <target>عنوان فرم داوری الزامی است</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-inReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>در حال داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-list-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific press section, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</source>
+        <target>این فرم‌های داوری به جای فرم پیش‌فرض در اختیار داوران قرار می‌گیرند. فرم پیش‌فرض فقط دارای دو جعبه متن یکی برای وارد کردن نظراتی که فقط دبیر مقاله باید ببیند و دیگری برای دبیر مقاله و نویسنده مقاله. فرم‌های داوری را می‌توان برای نوع خاصی از مقالات در نظر گرفت - به علاوه دبیر مقاله این اختیار را دارد که کدام فرم یا فرم‌های داوری برای کدام داور ارسال شود. در تمامی این حالات دبیر مقاله مختار است که ماحصل این فرم‌های داوری را در اختیار نویسنده مقاله قرار بدهد یا خیر.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneChosen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None / Free Form Review</source>
+        <target>هیچکدام / فرم داوری آزاد</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been created.</source>
+        <target>هیچ فرم داوری تولید نشده است</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneUsed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been used.</source>
+        <target>هیچ فرم داوری تاکنون استفاده نشده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview Form</source>
+        <target>فرم داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-reviewFormData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Data</source>
+        <target>داده‌های فرم داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElement-changeType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Changing the form item type...</source>
+        <target>تغییر نوع المان‌های فرم ...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Form Items</source>
+        <target>المان‌های فرم</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-addResponseItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add selection</source>
+        <target>افزودن گزینه</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-checkboxes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checkboxes (you can choose one or more)</source>
+        <target>جعبه تیک: یک یا چند گزینه قابل انتخاب است</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-chooseType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose item type</source>
+        <target>انتخاب نوع المان</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm delete of a published form item...</source>
+        <target>تأیید حذف المان فرم انتشار یافته ...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-copyTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy to:</source>
+        <target>کپی به:</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Item</source>
+        <target>ایجاد المان جدید</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-dropdownbox">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drop-down box</source>
+        <target>جعبه منوی کرکره‌ای</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Form Item</source>
+        <target>ویرایش المان فرم</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-elementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item type</source>
+        <target>نوع المان</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-elementTypeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An item type is required for the form item.</source>
+        <target>تعیین نوع المان برای تمامی المان‌های فرم اجباری است</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-questionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A question is required for the form item.</source>
+        <target>این المان یک پرسش لازم دارد</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No form items have been created.</source>
+        <target>هنوز المانی برای این فرم ایجاد نشده است</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-possibleResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selection</source>
+        <target>گزینه</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-question">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item</source>
+        <target>المان</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-radiobuttons">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Radio buttons (you can only choose one)</source>
+        <target>دکمه رادیوئی: فقط یک گزینه قابل انتخاب است</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers required to complete item</source>
+        <target>پاسخ به این المان توسط داوران الزامی است</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-included">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Included in message to author</source>
+        <target>در پیام به نویسنده‌ها نیز وارد شود</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-smalltextfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single word text box</source>
+        <target>جعبه متن یک کلمه‌ای</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textarea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended text box</source>
+        <target>جعبه متن طویل</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single line text box</source>
+        <target>جعبه متن یک سطری</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-viewable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewable (for authors)</source>
+        <target>قابل مشاهده (برای نویسندگان)</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new Review Form</source>
+        <target>ایجاد یک فرم داوری جدید</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request a Competing Interest statement during the peer review.</source>
+        <target>درخواست بیانیه تضاد منافع رقابتی به ازای هر داوری</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-licenseURLDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL to a webpage describing the license, if available.</source>
+        <target>آدرس صفحه وبی که این مجوز را شرح می‌دهد (در صورت وجود) اضافه کنید</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Form</source>
+        <target>فرم ارسال مقاله</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission metadata has been updated successfully.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage will typically indicate a work's spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range) or jurisdiction (such as a named administrative entity).</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable coverage metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request coverage metadata from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest coverage metadata during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest coverage metadata before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keywords are typically one- to three-word phrases that are used to indicate the main topics of a submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable keyword metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request keywords from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest keywords during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest keywords before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language indicates the work's primary language using a language code ("en") with an optional country code ("en_US").</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable language metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the submission's languages from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to indication the submission's languages during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to enter the submission's languages before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any rights held over the submission, which may include Intellectual Property Rights (IPR), Copyright, and various Property Rights.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable rights metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a rights disclosure from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any prior access rights during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any prior access rights before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The source may be an ID, such as a DOI, of another work or resource from which the submission is derived.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable source metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a source URL from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide a source URL during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide a source URL before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subjects will be keywords, key phrases or classification codes that describe a topic of the submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable subject metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request subjects from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide subjects during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide subjects before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The nature or genre of the main content of the submission. The type is usually "Text", but may also be "Dataset", "Image" or any of the <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">Dublin Core types</a>.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable type metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the type from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide the type during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide the type before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disciplines are types of study or branches of knowledge as described by university faculties and learned societies.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable disciplines metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request disciplines from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide disciplines during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide disciplines before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting agencies may indicate the source of research funding or other institutional support that facilitated the research.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable supporting agencies metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request supporting agencies from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any supporting agencies during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any supporting agencies before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collect a submission's references in a separate field. This may be required to comply with citation-tracking services such as Crossref.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable references metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request references from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide references during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide references before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-validationErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Validation errors:</source>
+        <target>خطاهای اعتبار سنجی:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-warningsEncountered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warnings encountered:</source>
+        <target>اخطاری رخ داده است.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-errorsOccured">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occured:</source>
+        <target>خطا رخ داده است:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown element {$param}</source>
+        <target>المان نامشخص {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown genre {$param}</source>
+        <target>مولفه نامشخص {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownEncoding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown encoding {$param}</source>
+        <target>کدگزاری نامشخص {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-encodingError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The content is not encoded as {$param}</source>
+        <target>محتوا به {$param} عنوان کدگذاری نشده است.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown user group {$param}</source>
+        <target>گروه کاربری نامشخص {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-missingGivenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUploader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown uploader {$param}</source>
+        <target>آپلود کننده نامشخص {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-temporaryFileFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Temporary file {$dest} could not be created from {$source}</source>
+        <target>ایجاد فایل موقتی {$dest} از {$source} امکان‌پذیر نیست.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-filesizeMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</source>
+        <target>اندازه فایل مورد انتظار «{$expected}» بوده و با اندازه اصلی فایل ({$actual}) مطابقت ندارد.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-duplicateRevisionForSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</source>
+        <target>اصلاحات «{$revisionId}» برای فایل مقاله «{$fileId}» ممکن است باعث ایجاد یک رکورد تکراری شود.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-native-error-submissionFileImportFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission file could not be imported</source>
+        <target>فایل مقاله ارسالی قابل درون‌ریزی نیست.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-importExportErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export errors:</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-userHasNoPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-passwordHasBeenChanged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-plainPasswordNotValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-usernameEmailMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>مسیر</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation</source>
+        <target>منوی گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></source>
+        <target><![CDATA[<p>این صفحه در مسیر <blockquote>{$pagesPath}</blockquote> قابل دسترس خواهد بود. که در آن %PATH% مسیر وارد شده در بالا است.  <strong>توجه: </strong> دو صفحه نمی‌توانند یک مسیر داشته باشند و همچنین از مسیرهایی که خود سامانه به صورت پیش‌فرض استفاده می‌کند به عنوان مسیر استفاده نکنید چون ممکن است باعث اختلال در عملکرد سامانه شود.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-content">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Content</source>
+        <target>محتوا</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-pathRegEx">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</source>
+        <target>محتوای وارد شده در قسمت مسیر تنها می‌تواند شامل کاراکترهای متنی به اضافه کاراکترهای «.»، «/»، «-» و «_» باشد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicatePath">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This path already exists for another navigation menu item.</source>
+        <target>این مسیر از قبل در منوی گشت و گدار وجود دارد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicateTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This title already exists for another navigation menu.</source>
+        <target>این عنوان از قبل در منوی گشت و گدار وجود دارد.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title is required</source>
+        <target>وارد کردن عنوان الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Items</source>
+        <target>المان منوی گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-assignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Menu Items</source>
+        <target>المان انتساب داده شده</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-unassignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned Menu Items</source>
+        <target>المان‌های بدون انتساب</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuArea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active Theme Navigation Areas</source>
+        <target>فعال کردن پوسته ناحیه گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuAreaMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a navigation area</source>
+        <target>انتخاب ناحیه گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-menuAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A navigation menu is already assigned to this area.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-customUrlError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A URL must be provided</source>
+        <target>وارد کردن URL الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-conditionalDisplay">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Learn more about when this menu item will be displayed or hidden.</source>
+        <target>بیاموزید که چه زمانی این آیتم نمایش داده خواهد شد یا نه</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-submenuWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an "About" item which opens a submenu with "Contact" and "Editorial Team", the "About" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, "About the Journal", which appears in the submenu.</source>
+        <target>زمانی که یک المان از منو شامل یک زیر منو است. لینک آن در تمامی دستگاه‌ها قابل مشاهده نیست. برای مثال چنانچه شما یک المان منو با عنوان «درباره» داشته باشد که خود شامل زیر منویی با المان‌های «مجله»، «موسسه» و «تیم سردبیری» باشد. خود لینک المان « درباره » ممکن است در تمامی دستگاه‌ها باز نشود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Type</source>
+        <target>نوع منوی گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemTypeMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a Navigation Menu Type or Custom to make your own</source>
+        <target>نوع منوی گشت‌وگذار را انتخاب کرده و یا نوع سفارشی خود را ایجاد کنید.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Page</source>
+        <target>صفحه سفارشی</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a custom page on your site and link to it from a navigation menu.</source>
+        <target>ایجاد یک صفحه سفارشی و لینک به آن در منوی گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>URL خارجی</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to any URL on another site, like https://pkp.sfu.ca.</source>
+        <target>لینک به یک آدرس در سایتی دیگر (مانند http://pkp.sfu.ca)</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the About the Journal content in Settings > Journal]]></source>
+        <target>لینک به صفحه نمایش محتوای درباره مجله</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the About the Journal section under Settings > Journal.]]></source>
+        <target><![CDATA[این لینک تنها در صورتی که بخش درباره مجله (در قسمت تنظیمات > مجله) تکمیل شده باشد، نمایش داده خواهد شد.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the Masthead content in Settings > Journal.]]></source>
+        <target>لینک به صفحه نمایش اطلاعات کلی مجله</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Editorial Team section under Settings > Journal.]]></source>
+        <target><![CDATA[این لینک تنها در صورتی که بخش تیم سردبیر مجله (در قسمت تنظیمات > مجله) تکمیل شده باشد، نمایش داده خواهد شد.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-submissions-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying submission instructions.</source>
+        <target>لینک به صفحه دستورالعمل‌های ثبت مقاله</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-current-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your current issue.</source>
+        <target>لینک به شماره جاری</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-archives-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your issue archive.</source>
+        <target>لینک به بایگانی شماره‌ها</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your announcements.</source>
+        <target>لینک به صفحه نمایش اعلامیه</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have enabled announcements under Settings > Website.]]></source>
+        <target><![CDATA[این لینک تنها در صورتی که بخش اعلامیه‌ها (در قسمت تنظیمات > وب‌سایت) فعال شده باشد، نمایش داده خواهد شد.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-login-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user login page.</source>
+        <target>لینک به صفحه ورود به سامانه</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-register-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user registration page.</source>
+        <target>لینک به صفحه ثبت‌نام</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-dashboard-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the editorial dashboard.</source>
+        <target>لینک به داشبورد</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-profile-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user profile page.</source>
+        <target>لینک به پروفایل کاربر</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the site-wide administration tools.</source>
+        <target>لینک به بخش ابزارهای مدیریتی</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed to administrative users.</source>
+        <target>این لینک فقط به کاربرانی با نقش مدیریتی نمایش داده می‌شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-logOut-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A link that will log the user out.</source>
+        <target>لینکی که باعث خروج کاربر از سامانه می‌شود.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedOut-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is logged in.</source>
+        <target>این لینک تنها زمانی نمایش داده می‌شود که کاربر وارد سیستم شده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedIn-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is not logged in.</source>
+        <target>این لینک تنها زمانی نمایش داده می‌شود که کاربر وارد سیستم نشده است.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to a page displaying your contact information.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Contact information under Settings > Contact.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-typeMissing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a navigation menu type.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-subscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if payments are enabled under Settings > Distribution > Payments.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-mySubscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-search-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the search page.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your privacy statement.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-urlWillBe">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category's URL will be: {$sampleUrl}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path must consist of only letters and numbers.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path already exists. Please enter a unique path.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-parentCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to remove this category?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a category name.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categoryDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Category Details</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-daily">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Daily</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-allDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All dates</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-apply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apply</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change date range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-customRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-dateDoesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One of the dates entered does not exist.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The date format is not valid. Enter each date in the format YYYY-MM-DD.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date must be before the end date.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidEndDateMax">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The end date may not be later than {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidStartDateMin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date may not be earlier than {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last12Months">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 12 months</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last30Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 30 days</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last90Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 90 days</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-sinceDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Since {$date}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-to">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-untilDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Until {$date}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-fileViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Views</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-html">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-monthly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Monthly</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-pdf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PDF</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-searchSubmissionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search by title, author and ID</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-total">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

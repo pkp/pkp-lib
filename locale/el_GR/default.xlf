@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:56-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:56-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="default-groups-name-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Admin</source>
+        <target>Διαχειριστής Ιστοτόπου</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Admins</source>
+        <target>Διαχειριστές Ιστοτόπου</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production editor</source>
+        <target>Επιμελητής Παραγωγής</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production editors</source>
+        <target>Επιμελητές Παραγωγής</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ProdE</source>
+        <target>ΕΠ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditor</source>
+        <target>Επιμελητής Κειμένων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditors</source>
+        <target>Επιμελητές Κειμένων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CE</source>
+        <target>ΕΚ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreader</source>
+        <target>Επιμελητής Τυπογραφικών Δοκιμίων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreaders</source>
+        <target>Επιμελητές Τυπογραφικών Δοκιμίων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PR</source>
+        <target>ΕTΔ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designer</source>
+        <target>Σχεδιαστής</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designers</source>
+        <target>Σχεδιαστές</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Design</source>
+        <target>ΣΧ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Reviewer</source>
+        <target>Εσωτερικός Αξιολογητής</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Reviewers</source>
+        <target>Εσωτερικοί Αξιολογητές</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>IR</source>
+        <target>ΕΑΞ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing and sales coordinator</source>
+        <target>Συντονιστής Προώθησης και Πωλήσεων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing and sales coordinators</source>
+        <target>Συντονιστές Προώθησης και Πωλήσεων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>MS</source>
+        <target>ΣΠΠ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Funding coordinator</source>
+        <target>Συντονιστής Χρηματοδότησης</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Funding coordinators</source>
+        <target>Συντονιστές Χρηματοδότησης</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>FC</source>
+        <target>ΣΧρ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexer</source>
+        <target>Δημιουργός Ευρετηρίων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexers</source>
+        <target>Δημιουργοί Ευρετηρίων</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>IND</source>
+        <target>ΔΕ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editor</source>
+        <target>Επιμελητής Σελιδοποίησης</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editors</source>
+        <target>Επιμελητές Σελιδοποίησης</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>LE</source>
+        <target>ΕΣ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author</source>
+        <target>Συγγραφέας</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Συγγραφείς</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>AU</source>
+        <target>ΣΓ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Translator</source>
+        <target>Μεταφραστής</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Translators</source>
+        <target>Μεταφραστές</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Trans</source>
+        <target>ΜΦ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader</source>
+        <target>Αναγνώστης</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Readers</source>
+        <target>Αναγνώστες</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read</source>
+        <target>ΑΝ</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Άλλο</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-multimedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Multimedia</source>
+        <target>Πολυμέσα</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-image">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Image</source>
+        <target>Εικόνα</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-styleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML Stylesheet</source>
+        <target>Αρχείο HTML</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,5593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:10-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:10-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="manager-website-information">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information</source>
+        <target>Informação</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-appearance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Appearance</source>
+        <target>Aparência</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-imageFileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An image file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>Um arquivo de imagem é requerido. Certifique-se de que escolheu e enviou um arquivo.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Notícias</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this announcement?</source>
+        <target>Deseja realmente excluir permanentemente esta notícia?</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Announcement</source>
+        <target>Criar nova notícia</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Criar</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry</source>
+        <target>Expiração</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-datePublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>Publicado</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement</source>
+        <target>Editar notícia</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Editar</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireDayIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or month in addition to the expiry date day.</source>
+        <target>Escolha o ano e/ou mês além do dia de expiração.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry Date</source>
+        <target>Expira em</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The announcement will be displayed to readers until this date. Leave blank if the announcement should be displayed indefinitely.</source>
+        <target>A notícia será exibida aos leitores até esta data. Deixe em branco caso deseje exibir a notícia permanentemente.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireMonthIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or day in addition to the expiry date month.</source>
+        <target>Escolha o ano e/ou dia além do mês de expiração.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement expiry date.</source>
+        <target>Escolha uma data de expiração válida.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireYearIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a month and/or day in addition to the expiry date year.</source>
+        <target>Escolha o mês e/ou dia além do ano de expiração.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Corpo da notícia</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The full text of the announcement.</source>
+        <target>O texto completo da notícia.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement description is required.</source>
+        <target>O corpo da notícia é obrigatório.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A brief description to appear along with the announcement title.</source>
+        <target>Um texto introdutório a ser exibido com o título da notícia.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A short announcement description is required.</source>
+        <target>A introdução da notícia é obrigatória.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Short Description</source>
+        <target>Introdução</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Salvar e criar outra</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement title is required.</source>
+        <target>O título da notícia é obrigatório.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Título</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Tipo</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeIdValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement type.</source>
+        <target>Escolha um tipo válido de notícia.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcements have been created.</source>
+        <target>Não há notícias.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Título</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Tipo</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Types</source>
+        <target>Tipos de notícia</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning! All announcements with this announcement type will also be deleted. Are you sure you want to continue and delete this announcement type?</source>
+        <target>Aviso! Todas as notícias deste tipo serão excluídas. Deseja realmente continuar e excluir este tipo de notícia?</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Announcement Type</source>
+        <target>Criar Tipo de notícia</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Criar</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement Type</source>
+        <target>Editar Tipo de notícia</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Editar</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Salvar e criar outro</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type with this name already exists.</source>
+        <target>Já existe um tipo de notícia com esse nome.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nome</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type name is required.</source>
+        <target>Nome do tipo de notícia obrigatório.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcement types have been created.</source>
+        <target>Não há tipos de notícia.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Type</source>
+        <target>Tipo de Notícia</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-submissionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>Submissão</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-editorialStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial</source>
+        <target>Editorial</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-productionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>Editoração</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Emails</source>
+        <target>Emails</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emailSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Guidance</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer guidance has been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewReminders-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review reminder details have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email template?</source>
+        <target>Deseja realmente excluir esta mensagem padrão?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmReset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to reset this email template to its default values?</source>
+        <target>Deseja realmente restaurar este e-mail para o padrão original?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Template</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was added.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-createEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Email</source>
+        <target>Criar e-mail</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-customTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Template</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-data">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Message Data</source>
+        <target>Dados do modelo de mensagem</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Details</source>
+        <target>Detalhes do modelo</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Desabilitar</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?</source>
+        <target>Está prestes a desabilitar este modelo de mensgaem. Caso existam processos usando este modelo, o modelo não será mais usado. Deseja confirmar a operação?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email</source>
+        <target>Editar e-mail</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was modified.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editTestExample">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email Test Example</source>
+        <target>Editar e-mail de teste</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Key</source>
+        <target>Chave de e-mail</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email key can only contain letters, numbers and underscores.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKeyExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email with the given key already exists. Email keys must be unique.</source>
+        <target>Um e-mail com a chave informada já existe. As chaves de e-mail devem ser únicas.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Template</source>
+        <target>E-mail padrão</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Templates</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must provide a context ID when adding an email template.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-noDuplicateKeys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key you provided is already in use.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable this email template</source>
+        <target>Habilitar este e-mail padrão</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Habilitar</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to enable this email.  Do you want to confirm this operation?</source>
+        <target>Está prestes a habilitar esta mensagem. Deseja confirmar esta operação?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-emailKeyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A unique email key containing no spaces or special characters is required for the email.</source>
+        <target>É necessária uma chave única para o e-mail.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-bodyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A body is required for the email.</source>
+        <target>O corpo da mensagem é obrigatório.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A subject is required for the email.</source>
+        <target>O assunto da mensagem é obrigatório.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Emails</source>
+        <target>E-mails</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset All</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</source>
+        <target>Caso restaure todos os modelos, todas as alterações aos modelos de mensagem serão perdidas. Deseja confirmar a operação?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset</source>
+        <target>Restaurar</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</source>
+        <target>Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetToDefault">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset To Default</source>
+        <target>Restaurar para original</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentFrom">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent From</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent To</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-subjectWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject: {$subject}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-filesBrowser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files Browser</source>
+        <target>Navegador de Arquivos</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this file or directory? Note that a directory must be empty before it can be deleted.</source>
+        <target>Excluir este arquivo ou diretório? Um diretório deve estar vazio antes de ser excluído.</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-createDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Directory</source>
+        <target>Criar diretório</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-emptyDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No files were found in this directory.</source>
+        <target>Nenhum arquivo encontrado neste diretório.</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-indexOfDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Index of {$dir}</source>
+        <target>Índice de {$dir}</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-parentDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Directory</source>
+        <target>Diretório acima</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadedFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uploaded Files</source>
+        <target>Arquivos transferidos</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Transferir arquivo</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group?</source>
+        <target>Deseja realmente excluir este grupo?</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Title</source>
+        <target>Criar título</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Title</source>
+        <target>Editar título</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-form-groupTitleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A group title is required.</source>
+        <target>O título do grupo é obrigatório!</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-addMember">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Member</source>
+        <target>Incluir membro</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group membership?</source>
+        <target>Deseja realmente excluir este grupo?</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Membership</source>
+        <target>Membros</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This group has no members.</source>
+        <target>Não há membros neste grupo!</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No users were found.</source>
+        <target>Nenhum usuário encontrado</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Título</target>
+      </segment>
+    </unit>
+    <unit id="manager-importExport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Data</source>
+        <target>Importar/Exportar dados</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-ui">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>UI</source>
+        <target>IU</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-submissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions</source>
+        <target>Submissões</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-forms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forms</source>
+        <target>Formulários</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-reloadLocalizedDefaultSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload defaults</source>
+        <target>Restaurar padrões</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-alternateLocaleInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</source>
+        <target>O sistema permite opcionalmente informar conteúdo crítico em vários idiomas adicionais. Para utilizar esta ferramenta, habilite idiomas alternativos e escolha uma das opções a seguir.</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-supportedLocalesInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</source>
+        <target>Escolha, da lista de idiomas que será exibida em todas as páginas, todos os aqueles que serão suportados. A lista aparecerá caso seja escolhido mais de um idioma.</target>
+      </segment>
+    </unit>
+    <unit id="manager-payment-timestamp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Timestamp</source>
+        <target>Data de emissão</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-existingUserRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An existing user must be entered.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-people-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>Fonte de autenticação</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-confirmUnenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll this user?</source>
+        <target>Remover o usuário deste papel?</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New User</source>
+        <target>Incluir novo usuário</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserGeneratePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate a random password.</source>
+        <target>Gerar senha aleatória.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserSendNotify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send the user a welcome email containing their username and password.</source>
+        <target>Enviar login e senha via e-mail.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Bloquear</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-doNotEnroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With no role</source>
+        <target>Não cadastrar</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>Editar Perfil</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>Editar perfil</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailSelectedUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email selected users</source>
+        <target>Enviar e-mail a usuários selecionados</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailUsersEnrolledAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email users enrolled as</source>
+        <target>Enviar e-mail a usuários cadastrados como</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Users</source>
+        <target>Enviar e-mail aos usuários</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a locale</source>
+        <target>Selecionar idioma</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the users you would like to email by checking the boxes beside their names</source>
+        <target>Escolha os usuários para quem deseja enviar e-mail clicando na caixa de opção ao lado do nome</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Habilitar</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>Cadastrar Usuário</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrollment</source>
+        <target>Cadastrar</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSelected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll Selected Users</source>
+        <target>Cadastrar usuários selecionados</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSyncRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize role</source>
+        <target>Sincronizar papéis</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSync">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sync Enrollment</source>
+        <target>Sincronizar cadastro</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users can be assigned to, or removed from, a role at any point.</source>
+        <target>O sistema permite designar ou remover papéis de usuários cadastrados a qualquer momento. O histórico de atividade é perdido caso um papel seja removido e atribuído novamente ao mesmo usuário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll user as</source>
+        <target>Cadastrar usuário como</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the requested user does not exist.</source>
+        <target>Usuário não existe.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>Mesclar cadastro</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</source>
+        <target>Deseja realmente mesclar o(s) {$oldAccountCount} cadastro(s) com o cadastro do usuário "{$newUsername}"? O(s) {$oldAccountCount} cadastro(s) será(ão) excluído(s) permanentemente. Esta ação NÃO é reversível!</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>Mesclar cadastros</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustChooseRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a role at the top of the page before clicking "Enroll User".</source>
+        <target>Escolha um papel editorial antes de confirmar</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>Informe pelo menos o sobrenome do usuário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noMatchingUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No matching users.</source>
+        <target>Nenhum usuário encontrado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noneEnrolled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No enrolled users.</source>
+        <target>Nenhum usuário cadastrado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>People</source>
+        <target>Equipe</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>Remover</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-saveAndCreateAnotherUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Salvar e incluir outro</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In As</source>
+        <target>Entrar no sistema como</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAsUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In as User</source>
+        <target>Entrar como este usuário</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-syncUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize User Enrollment</source>
+        <target>Sincronizar cadastro de usuários</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-unenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll</source>
+        <target>Remover papel</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userCreatedSuccessfully">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User created successfully.</source>
+        <target>Usuário incluído com sucesso.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userMustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>Solicitar alteração de senha no próximo acesso ao sistema.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-action">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Action:</source>
+        <target>Ação:</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Desabilitar</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Habilitar</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Management</source>
+        <target>Administração de Plugins</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-sitePlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is a site-wide plugin. Only the Site Administrator may manage this plugin.</source>
+        <target>Este é um plugin de uso geral. Somente o Administrador do Portal possui permissão de administração.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System Plugins</source>
+        <target>Plugins do Sistema</target>
+      </segment>
+    </unit>
+    <unit id="manager-readingTools">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reading Tools</source>
+        <target>Ferramentas para Leitura</target>
+      </segment>
+    </unit>
+    <unit id="manager-userSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search User By Name</source>
+        <target>Buscar Esuário por Nome</target>
+      </segment>
+    </unit>
+    <unit id="manager-representative-inUse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change</source>
+        <target>Mudar</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Reviewers By Name</source>
+        <target>Buscar por Nome do Avaliador</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search By Name</source>
+        <target>Buscar por Nome</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing Interests</source>
+        <target>Área de interesse para avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-form-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</source>
+        <target>Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos.</target>
+      </segment>
+    </unit>
+    <unit id="manager-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>Papéis</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Stats &amp; Reports]]></source>
+        <target><![CDATA[Estatísticas &amp; Relatórios]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-defaultMetricDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>
+		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</source>
+        <target>Seu {$contextObjectName} está configurado para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em diferentes contextos.
+Há casos em que uma única estatística de uso devem ser utilizada, por exemplo, para exibir uma lista ordenada de submissões mais utilizados ou para classificação de resultados da pesquisa. Por favor selecione uma das métricas configuradas como padrão.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-city">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>City</source>
+        <target>Cidade</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-region">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Region</source>
+        <target>Região</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Generator</source>
+        <target>Gerador de Relatórios</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</source>
+        <target>O sistema gera relatórios que registram os detalhes associados com os procedimentos da submissão, da perspectiva de submissões, editores, avaliadores e seções, em um dado período. Relatórios são gerados no formato CSV, que exigem um aplicativo de planilha eletrônica para serem visualizados.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-aggregationColumns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Aggregate stats by:</source>
+        <target>Agregar estatísticas por:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-optionalColumns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</source>
+        <target>Os itens em itálico e marcados com * representam dados que são opcionais para a atual forma de contar as estatísticas no sistema (tipo de métrica). Você pode ter estes dados ou não, dependendo da configuração do plugin de estatísticas.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-defaultReportTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default report templates</source>
+        <target>Modelos de relatórios padrão</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-generateReport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate custom report</source>
+        <target>Gerar relatório personalizado</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Options</source>
+        <target>Opções avançadas</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions-hide">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide Advanced Options</source>
+        <target>Ocultar Opções Avançadas</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Columns</source>
+        <target>Colunas</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day.</source>
+        <target>Defina as colunas que serão utilizadas para a construção do relatório. As colunas que você selecionar aqui não só definirão quais dados serão apresentados dentro dos relatórios, mas também definem o nível de agregação das estatísticas. Por exemplo, se você escolher as colunas ID, Tipo e Mês, o relatório irá somar todas as visualizações de um objeto a partir de um mês e vai apresentar os dados em uma linha. Se você optar por dia em vez de mês, cada objeto terá uma linha para cada dia.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Filters</source>
+        <target>Filtros</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object not found in database</source>
+        <target>Objeto não encontrado na base de dados</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object Type</source>
+        <target>Tipo de Objeto</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object id</source>
+        <target>Identificador do Objeto</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define one or more object ids, comma separated (e.g. 1,2,3,4,5).</source>
+        <target>Defina um ou mais identificadores, separados por vírgula (ex. 1,3,5,7).</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-yesterday">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yesterday</source>
+        <target>Ontem</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-currentMonth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current month</source>
+        <target>Mês atual</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderBy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order by</source>
+        <target>Ordenar por</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Direction</source>
+        <target>Direção</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-asc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ascending</source>
+        <target>Crescente</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-desc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descending</source>
+        <target>Decrescente</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-month-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMM format.</source>
+        <target>Use o formato ano/mês.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-day-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMMDD format.</source>
+        <target>Use o formato ano/mês/dia.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-cities-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One or more city names, comma separated (e.g. City Name 1,City Name 2)</source>
+        <target>Um ou mais nomes de cidades, separadas por vírgula (ex. Brasília,São Paulo,Curitiba)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-form-columnsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to select at least one column to generate the report.</source>
+        <target>Selecione ao menos uma coluna para gerar o relatório.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report URL</source>
+        <target>URL do relatório</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks.</source>
+        <target>A seguinte URL pode ser usado para gerar o relatório com as definições atuais. Basta copiar ela e colar em seu navegador. Você pode usar seus favoritos para armazenar a URL do seu gerador de relatório personalizado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By context</source>
+        <target>Por contexto</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byObject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By object type and/or object id</source>
+        <target>Por tipo de objeto e/ou identificador</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select report range</source>
+        <target>Selecione o alcance do relatório</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime-dimensionSelector">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Or select range by:</source>
+        <target>Ou selecione o alcance por:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By geo location</source>
+        <target>Por localização geográfica</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Narrow results by country, region and/or city.</source>
+        <target>Restringir resultados por país, região e / ou cidade.</target>
+      </segment>
+    </unit>
+    <unit id="manager-affiliationAndSupport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor</source>
+        <target>Patrocinador</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Content</source>
+        <target>Conteúdo Adicional</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anything entered here will appear on your homepage.</source>
+        <target>O que for digitado aqui será exibido na sua página inicial.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-advanced">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-appearance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The appearance settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-contact-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The contact details for this press have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Notice</source>
+        <target>Nota de direitos autorais</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require authors to agree to the following copyright notice as part of the submission process.</source>
+        <target>Exigir que os autores concordam com o Nota de direitos autorais, como parte do processo de submissão.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Guidelines</source>
+        <target>Diretrizes para autores</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</source>
+        <target>Diretrizes podem incluir normas bibliográficas e de formatação, junto de exemplos de formatos de citação comuns a serem usados nos envios dos manuscritos.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author guidelines have been successfully updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-checklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Competing Interests</source>
+        <target>Conflito de Interesses</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-errorDeletingItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error when deleting this item.</source>
+        <target>Ocorreu um erro ao tentar excluir o item.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-favicon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Favicon</source>
+        <target>Favicon</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-groupType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File type grouping</source>
+        <target>Agrupamento por tipo de arquivo</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage Image</source>
+        <target>Imagem da Página Inicial</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload an image to display prominently on the homepage.</source>
+        <target>Upload de uma imagem para exibir de forma destacada na página inicial.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Formato de imagem inválido para a imagem da página inicial. Formatos aceitáveis são .gif, .jpg ou .png.Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homeTitleImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Formato de imagem inválido para o título no cabeçalho da página inicial. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-information-descriptionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descriptions</source>
+        <target>Descrições</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sidebar</source>
+        <target>Barra Lateral</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar-invalidBlock">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$name} block can not be found. Please make sure the plugin is installed and enabled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-loggingAndAuditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logging and Auditing</source>
+        <target>Controle e Auditoria</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-logo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logo</source>
+        <target>Logo</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-noTemporaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The file you uploaded could not be found. Please try to upload it again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification of Author Submission</source>
+        <target>Notificação do Autor da Submissão</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-copySpecifiedAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a copy to this email address</source>
+        <target>Envie uma cópia para este endereço de e-mail</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:</source>
+        <target>Um e-mail é enviado automaticamente aos autores confirmando o seu envio. Você pode ter cópias deste e-mail enviadas para os seguintes:</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open Access Policy</source>
+        <target>Política de Acesso Aberto</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If providing immediate free access to all published content, you may enter a description of your Open Access Policy.</source>
+        <target>Se proporcionar livre acesso imediato a todo o conteúdo publicado, você pode inserir uma descrição da sua política de acesso aberto.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageHeaderLogoImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Formato de imagem inválido ou falha no envio para logo no cabeçalho de páginas internas. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page Footer</source>
+        <target>Rodapé</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter any images, text or HTML code that you'd like to appear at the bottom of your website.</source>
+        <target>Insira quaisquer imagens, texto ou código HTML que você gostaria de aparecer na parte inferior do seu site.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-peerReview-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Outline the peer review policy and processes for readers and authors. This description often includes the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, expected time required to conduct the reviews, and the principles used to select reviewers.</source>
+        <target>Descreva a política de avaliação por pares e processos para os leitores e autores. Esta descrição inclui muitas vezes o número de avaliadores normalmente utilizados na avaliação de uma submissão, os critérios pelos quais os avaliadores são convidados a julgar as inscrições, o tempo de espera necessário para conduzir as avaliações e os princípios usados para selecionar avaliadores.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal Contact</source>
+        <target>Contato Principal</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</source>
+        <target>Digite os detalhes de contato, normalmente para do editor principal, administrador editorial ou pessoal administrativo que pode ser exibido em seu site acessível ao público.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Privacy Statement</source>
+        <target>Declaração de Privacidade</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewResponseTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Response Deadline</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewCompletionTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Completion Deadline</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of weeks to accept or decline a review request.</source>
+        <target>Tempo dado para respostas dos avaliadores (semanas)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Weeks allowed for review completion</source>
+        <target>Tempo para término da avaliação (semanas)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-neverSendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Never Remind</source>
+        <target>Nunca lembrar</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-noteOnModification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Defaults can be modified for each review during the editorial process.</source>
+        <target>Padrões podem ser modificados para cada avaliação durante o processo editorial.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Reminder</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not responded to a review request this many days after the response due date.</source>
+        <target>Envie um lembrete se um avaliador não responder a um pedido de avaliação dentro do seguinte tempo (dias):</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Reminder</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date.</source>
+        <target>Envie um lembrete se um avaliadores não apresentar um parecer dentro do seguinte tempo (dias):</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reviewMode">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Review Mode</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-showBlindReviewLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Present a link to <button type="button">Ensuring a Blind Review</button> during upload]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-note">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor Relationship and Policy Description</source>
+        <target>Você pode adicionar uma nota descrevendo sua política e relacionamento com o patrocinador, que irá aparecer junto à lista de patrocinadores na página Sobre.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</source>
+        <target>Exemplos: associações acadêmicas, departamentos de universidades, cooperativas, etc. Os patrocinadores são exibidos ao público.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-styleSheetDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Experienced web developers can upload a CSS file to further customize the website's appearance.</source>
+        <target>Você pode fazer upload do arquivo de folha de estilo adicional (CSS) para alterar a aparência.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Technical Support Contact</source>
+        <target>Contato de Apoio Técnico</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material.</source>
+        <target>Uma pessoa que pode ajudar editores, autores e avaliadores com quaisquer problemas que tenham na submissão, edição, avaliação e publicação dos documentos.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The theme has been updated. <a href="{$url}" target="_blank">View Now</a>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme</source>
+        <target>Tema</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New themes may be installed from the Plugins tab at the top of this page.</source>
+        <target>Escolha um tema a partir da lista</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-notFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The theme you selected is not installed or enabled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-userAccess-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The user access details for this press have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-siteAccessOptions-siteAccessOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Access Options</source>
+        <target>Opções de Acesso ao Site</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-count-value">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} ({$percentage}%)</source>
+        <target>{$count} ({$percentage}%)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-totalNewValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$numTotal} ({$numNew} new)</source>
+        <target>{$numTotal} ({$numNew} nova(s))</target>
+      </segment>
+    </unit>
+    <unit id="manager-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Usuários</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins</source>
+        <target>Plugins de metadados</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins implement additional meta-data standards.</source>
+        <target>Plugins de metadados implementam padrões adicionais de metadados.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-auth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authorization Plugins</source>
+        <target>Plugins de Autenticação</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins</source>
+        <target>Plugins de Bloco</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins are pluggable UI components, such as the various sidebar tools.</source>
+        <target>Plugins de Bloco oferecem controle de posicionamento de ferramentas da interface, como as barras laterais.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins provide live data to external systems.</source>
+        <target>Plugins de Gateway alimentam sistemas externos com conteúdo do sistema.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins</source>
+        <target>Plugins de Gateway</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-generic">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generic Plugins</source>
+        <target>Plugins Genéricos</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins can be used to transfer content to and from other systems.</source>
+        <target>Plugins de Importação/Exportação podem ser utilizados para transferir conteúdo de um sistema a outro e vice-versa.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins</source>
+        <target>Plugins de Importação/Exportação</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method plugins implement support for various ways of processing payments online.</source>
+        <target>Plugins de Métodos de Pagamento implementam suporte a várias formas de processamento de pagamento online.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Plugins</source>
+        <target>Plugins de Métodos de Pagamento</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins are used to implement various types of reports and data extracts.</source>
+        <target>Plugins de Relatório são utilizados para implementar vários tipos de relatórios e extração de dados por parte dos Editores Gerentes.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins</source>
+        <target>Plugins de Relatório</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins can be used to change the system's appearance.</source>
+        <target>Plugins de Visual podem ser utilizados para alterar o visual do sistema.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins</source>
+        <target>Plugins de Visual</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Metadata Format Plugins</source>
+        <target>Plugins de Formatos de Metadados OAI</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These format plugins express metadata in OAI communications.</source>
+        <target>Os plugins de formato geram metadados para comunicação via protocolo OAI.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Identifier Plugins</source>
+        <target>Plugins de Identificação Pública</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These plugins implement support for a public identifier.</source>
+        <target>Estes plugins implementam o suporte para identificadores públicos.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-copyError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>Plugin não foi copiado com sucesso. Isso pode ser um problema de permissões. Por favor, certifique-se de que o servidor web é capaz de escrever no diretório plugins (incluindo subdiretórios), mas não se esqueça de torná-lo seguro novamente mais tarde.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Plugin</source>
+        <target>Apagar Plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to install this plugin?</source>
+        <target>Tem certeza que deseja instalar este plugin?</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to upgrade this plugin?</source>
+        <target>Tem certeza que deseja atualizar este plugin?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-installPlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install or upgrade this plugin</source>
+        <target>Instalar ou atualizar este plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this plugin from the system?</source>
+        <target>Tem certeza que deseja apagar este plugin do sistema?</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By clicking delete, you will delete the plugin from the server's file system.</source>
+        <target>Ao clicar em 'apagar', o plugin será apagado do sistema de arquivos do servidor.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>O plugin "{$pluginName}" não pôde ser excluído do sistema de arquivos. Isso pode ser um problema de permissões. Por favor, certifique-se de que o servidor web é capaz de escrever no diretório plugins (incluindo subdiretórios), mas não se esqueça de torná-lo seguro novamente mais tarde.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteSuccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" successfuly deleted</source>
+        <target>O plugin "{$pluginName}" eliminado com sucesso</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins.</source>
+        <target>Esta página permite que o gerente revise e configure os plugins que estão instalados atualmente. Plugins são divididos em categorias, de acordo com a sua função. As categorias estão listados abaixo, e dentro de cada categoria, o seu atual conjunto de plugins.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-doesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" does not exist</source>
+        <target>O plugin "{$pluginName}" não existe</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-fileSelectError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a file first</source>
+        <target>Por favor, primeiro selecione um arquivo</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload A New Plugin</source>
+        <target>Enviar novo plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>Este formulário permite enviar e instalar um novo plugin. Assegure que o arquivo do plugin esteja no formato .tar.gz.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please ensure a file was selected for upload.</source>
+        <target>Please ensure a file was selected for upload.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installed Plugins</source>
+        <target>Plugins instalados</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Gallery</source>
+        <target>Galeria de plugins</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Overview</source>
+        <target>Overview</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-installation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation</source>
+        <target>Instalação</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-latestCompatible">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest Compatible Release</source>
+        <target>Ultima versão compativel</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Official</source>
+        <target>Oficial</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is developed and maintained by the Public Knowledge Project team.</source>
+        <target>Este plugin foi desenvolvido e mantido pela equipe do Public Knowledge Project.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>Revisado</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin has been reviewed and approved by the Public Knowledge Project team.</source>
+        <target>Este plugin foi revisado e aprovado pela equipe do Public Knowledge Project.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Partner</source>
+        <target>Parceiro</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is provided by one of our development partners.</source>
+        <target>Este plugin é oferecido por um de nossos desenvolvedores parceiros.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-maintainer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Maintainer</source>
+        <target>Mantenedor</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-version">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>v{$version} released on {$date}</source>
+        <target>Versão: {$version}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-homepage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage</source>
+        <target>Homepage</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>Resumo</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-status">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noInstalledVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin has not yet been installed.</source>
+        <target>O plugin ainda não foi instalado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is currently no compatible version of this plugin available.</source>
+        <target>Atualmente não há versão compatível com este plugin.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, and is newer than the version available in the gallery.</source>
+        <target>O plugin já existe, e é mais novo ou igual a versão instalada</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, but can be updated to a newer version.</source>
+        <target>O plugin já existe, e é mais antigo ou igual à versão instalada</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed and up-to-date.</source>
+        <target>Plugin já instalado e atualizado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Newer than available version</source>
+        <target>Mais novo do que a versão disponível</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can be upgraded</source>
+        <target>Pode ser atualizado</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up to date</source>
+        <target>Atualizado</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not Available</source>
+        <target>Não disponível</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation failed. {$errorString}</source>
+        <target>Falha na instalação. {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully installed version {$versionNumber}</source>
+        <target>Versão instalada com sucesso {$versionNumber}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-invalidPluginArchive">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin archive does not contain a folder that corresponds to the plugin name.</source>
+        <target>O arquivo do plugin carregado não contém uma pasta que corresponde ao nome do plugin.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin does not fit the category of the upgraded plugin.</source>
+        <target>O plugin carregado não se encaixa na categoria do plugin atualizado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The version.xml in the uploaded plugin contains a plugin name that does not fit the name of the upgraded plugin.</source>
+        <target>O version.xml no plugin carregado contém um nome de plugin que não se encaixa no nome do plugin atualizado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseInstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin does not exist.  Please Install instead</source>
+        <target>Plugin não existe. Por favor instale-o</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseUpgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already exists, but is newer than installed version.  Please upgrade instead</source>
+        <target>Plugin já existe, mas é mais recente do que a versão instalada. Por favor, atualize</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Configurações</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-tarCommandNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The tar command is not available. Please correctly configure it in your "config.inc.php".</source>
+        <target>O comando tar não está disponível. Por favor, configure-o corretamente em seu "config.inc.php".</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade Plugin</source>
+        <target>Atualizar plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upgrade a plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>Este formulário permite a você atualizar um plugin. Certifique-se o plugin está compactado como um arquivo tar.gz..</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade failed. {$errorString}</source>
+        <target>Falha na atualização. {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully upgraded to version {$versionString}</source>
+        <target>Atualizado com êxito para a versão {$versionString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error uploading file</source>
+        <target>Erro enviando arquivo</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadPluginDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select plugin file</source>
+        <target>Selecione o arquivo do plugin</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml in plugin directory contains invalid data.</source>
+        <target>version.xml no diretório do plugin contém dados inválidos.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml not found in plugin directory</source>
+        <target>version.xml não encontrado no diretório do plugin</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale enabled.</source>
+        <target>Idioma habilitado.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale disabled.</source>
+        <target>Idioma desativado.</target>
+      </segment>
+    </unit>
+    <unit id="notification-primaryLocaleDefined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} defined as primary locale.</source>
+        <target>{$locale} definido como idioma primário.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeInstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All selected locale(s) installed and activated.</source>
+        <target>Os idiomas selecionados foram instalados e ativados.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeUninstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale uninstalled.</source>
+        <target>Idioma {$locale} desinstalado.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeReloaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale reloaded for {$contextName}.</source>
+        <target>Idioma {$locale} recarregado.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeSettingsSaved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale settings saved.</source>
+        <target>Configurações de idioma salvas.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User edited.</source>
+        <target>Usuário editado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The licensing details have been updated. </source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other license URL</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License Terms</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter public licensing terms you would like to display alongside published work.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Tags</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add custom HTML tags, also known as meta tags, that you would like to be inserted in the head of every page. Consult a technical advisor before adding tags here.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payments</source>
+        <target>Pagamentos</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Methods</source>
+        <target>Métodos de Pagamento</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No payment method selected</source>
+        <target>Nenhum método de pagamento selecionado</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-method">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method</source>
+        <target>Método de Pagamento</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-currency">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currency</source>
+        <target>Moeda</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Options</source>
+        <target>Opções de Papéis</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-showTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show role title in contributor list</source>
+        <target>Mostrar papel na lista de colaboradores</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitSelfRegistration">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow user self-registration</source>
+        <target>Permitir autoregistro de usuários</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-recommendOnly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This role is only allowed to recommend a review decision and will require an authorised editor to record a final decision.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Name</source>
+        <target>Nome do Papel</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abbreviation</source>
+        <target>Abreviação</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-assignedStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Stages</source>
+        <target>Estagios Designados</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stages</source>
+        <target>Estágios</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role details</source>
+        <target>Detalhes do papel</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission level</source>
+        <target>Nível de permissão</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?</source>
+        <target>Você está prestes a remover este papel deste contexto. Esta operação também vai apagar as definições relacionadas e todas as atribuições de usuários para este papel. Você quer continuar?</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role name.</source>
+        <target>Você precisa definir um nome para o papel.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-abbrevRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role abbreviature.</source>
+        <target>Defina uma abreviatura para o papel.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role name.</source>
+        <target>Defina um nome único para o papel.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role abbreviature.</source>
+        <target>Defina uma abreviatura única para o papel.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role permission level.</source>
+        <target>Defina um nível de permissão para o papel.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stageIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a stage to assign to.</source>
+        <target>Defina um estágio a ser associado.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitMetadataEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permit submission metadata edit.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A library file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>Um arquivo de biblioteca é necessária. Certifique-se que você escolheu e enviou um arquivo.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this library file.</source>
+        <target>Um nome é necessário para este arquivo de biblioteca.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file type is required for this library file.</source>
+        <target>Um tipo de arquivo é necessário para este arquivo de biblioteca.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-contracts">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contracts</source>
+        <target>Contratos</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing</source>
+        <target>Marketing</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>Permissões</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reports</source>
+        <target>Relatórios</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Outros</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-selectLibraryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Library Files to attach</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Component</source>
+        <target>Incluir gênero</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this Component</source>
+        <target>Editar este Gênero</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this Component</source>
+        <target>Apagar este Gênero</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreGenres">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore the components to the default settings</source>
+        <target>Restaurar os gêneros para as configurações padrão</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as dependent files (e.g. not to be listed with published content)</source>
+        <target>Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as supplementary files (e.g. not primary submission content)</source>
+        <target>Marcar arquivos deste tipo como arquivos suplementares (por exemplo conteúdos que não sejam primários à submissão)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Key</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An optional short symbolic identifer for this genre.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-exists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key already exists.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-alphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-settings-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings Wizard</source>
+        <target>Assistente de Configurações</target>
+      </segment>
+    </unit>
+    <unit id="manager-users-roleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to select at least one role to be associated with this user.</source>
+        <target>Você precisa selecionar pelo menos um papel a ser associado a este usuário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-website">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website</source>
+        <target>Website</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website Settings</source>
+        <target>Configurações do Site</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow</source>
+        <target>Fluxo de Trabalho</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow Settings</source>
+        <target>Definições de Fluxo de Trabalho</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution</source>
+        <target>Distribuição</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution Settings</source>
+        <target>Configurações da Distribuição</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Formulários de avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmActivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to activate this review form? Once it's assigned to a review you will no longer be able to deactivate it.</source>
+        <target>Ter certeza que deseja ativar este formulário de avaliação? Uma vez designado a um avaliador você não poderá mais desativa-lo.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDeactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to deactivate this review form? It will no longer be available for new review assignments.</source>
+        <target>Ter certeza que deseja desativar este formulário de avaliação? Ele não estará mais disponível para novas avaliações.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to create a copy of this review form?</source>
+        <target>Tem certeza que deseja criar uma cópia desse formulário de avaliação?</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Concluído</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this review form?</source>
+        <target>Tem certeza que deseja apagar este formulário de avaliação?</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Review Form</source>
+        <target>Criar formulário de avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description and Instructions</source>
+        <target>Detalhes e instruções</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>Forumlário de avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A title is required for the review form.</source>
+        <target>É necessário informar o título do formulário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-inReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>Em avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-list-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific press section, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</source>
+        <target>Os formulários de avaliação pelos pares criados aqui serão apresentados aos avaliadores para seu preenchimento, em vez do formulário padrão que consiste de dois campos de texto aberto, sendo o primeiro "para autor editor," e o segundo "para editor." Formulários de avaliação podem ser designados a seções específicas, e editores poderão escolher qual formulário designar durante a avaliação. Em todos os casos, os editores poderão optar por incluir as avaliações ao se comunicarem com o autor.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneChosen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None / Free Form Review</source>
+        <target>Nenhum / Formulário aberto de avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been created.</source>
+        <target>Nenhum formulário de avaliação criado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneUsed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been used.</source>
+        <target>Nenhum formulário de avaliação usado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview Form</source>
+        <target>Prévia do formulário</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-reviewFormData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Data</source>
+        <target>Dados do formulário de avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Título</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElement-changeType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Changing the form item type...</source>
+        <target>Alterando o tipo de item do formulário...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Form Items</source>
+        <target>Itens do formulário</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-addResponseItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add selection</source>
+        <target>Incliur seleção</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-checkboxes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checkboxes (you can choose one or more)</source>
+        <target>Checkboxes (permite escolher mais de uma opção)</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-chooseType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose item type</source>
+        <target>Escolher tipo de item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm delete of a published form item...</source>
+        <target>Confirmar a exclusão de item de formulário publicado...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-copyTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy to:</source>
+        <target>Copiar para:</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Item</source>
+        <target>Criar novo item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-dropdownbox">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drop-down box</source>
+        <target>Menu dropdown</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Form Item</source>
+        <target>Editar item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-elementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item type</source>
+        <target>Tipo de item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-elementTypeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An item type is required for the form item.</source>
+        <target>É necessário definir o tipo para o item de formulário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-questionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A question is required for the form item.</source>
+        <target>A pergunta é obrigatório para o item.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No form items have been created.</source>
+        <target>Nenhum item de formulário criado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-possibleResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selection</source>
+        <target>Escolha</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-question">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item</source>
+        <target>Item</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-radiobuttons">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Radio buttons (you can only choose one)</source>
+        <target>Botões rádio (permite escolher apenas uma opção)</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers required to complete item</source>
+        <target>Preenchimento obrigatório para avaliadores</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-included">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Included in message to author</source>
+        <target>Incluído na mensagem ao autor</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-smalltextfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single word text box</source>
+        <target>Caixa de texto de uma palavra</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textarea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended text box</source>
+        <target>Caixa de texto estendida</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single line text box</source>
+        <target>Caixa de texto de uma linha</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-viewable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewable (for authors)</source>
+        <target>Visível (para autores)</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new Review Form</source>
+        <target>Criar Novo Formulário de Avaliação</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request a Competing Interest statement during the peer review.</source>
+        <target>Requisitar uma declaração de Conflito de Interesses durante a avaliação por pares.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-licenseURLDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL to a webpage describing the license, if available.</source>
+        <target>Informe a URL da página da licença, se disponível.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Form</source>
+        <target>Formulário de Submissão</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission metadata has been updated successfully.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage will typically indicate a work's spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range) or jurisdiction (such as a named administrative entity).</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable coverage metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request coverage metadata from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest coverage metadata during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest coverage metadata before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keywords are typically one- to three-word phrases that are used to indicate the main topics of a submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable keyword metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request keywords from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest keywords during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest keywords before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language indicates the work's primary language using a language code ("en") with an optional country code ("en_US").</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable language metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the submission's languages from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to indication the submission's languages during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to enter the submission's languages before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any rights held over the submission, which may include Intellectual Property Rights (IPR), Copyright, and various Property Rights.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable rights metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a rights disclosure from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any prior access rights during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any prior access rights before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The source may be an ID, such as a DOI, of another work or resource from which the submission is derived.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable source metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a source URL from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide a source URL during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide a source URL before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subjects will be keywords, key phrases or classification codes that describe a topic of the submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable subject metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request subjects from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide subjects during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide subjects before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The nature or genre of the main content of the submission. The type is usually "Text", but may also be "Dataset", "Image" or any of the <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">Dublin Core types</a>.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable type metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the type from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide the type during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide the type before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disciplines are types of study or branches of knowledge as described by university faculties and learned societies.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable disciplines metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request disciplines from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide disciplines during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide disciplines before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting agencies may indicate the source of research funding or other institutional support that facilitated the research.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable supporting agencies metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request supporting agencies from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any supporting agencies during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any supporting agencies before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collect a submission's references in a separate field. This may be required to comply with citation-tracking services such as Crossref.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable references metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request references from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide references during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide references before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-validationErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Validation errors:</source>
+        <target>Erros de validação:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-warningsEncountered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warnings encountered:</source>
+        <target>Advertências encontradas:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-errorsOccured">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occured:</source>
+        <target>Erros encontrados:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown element {$param}</source>
+        <target>Elemento desconhecido {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown genre {$param}</source>
+        <target>Gênero desconhecido {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownEncoding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown encoding {$param}</source>
+        <target>Codificação desconhecida {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-encodingError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The content is not encoded as {$param}</source>
+        <target>O conteúdo não é codificado como {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown user group {$param}</source>
+        <target>Grupo de usuário desconhecido {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-missingGivenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUploader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown uploader {$param}</source>
+        <target>Uploader desconhecido {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-temporaryFileFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Temporary file {$dest} could not be created from {$source}</source>
+        <target>Arquivo temporário {$dest} não pode ser criado por {$source}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-filesizeMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</source>
+        <target>O tamanho de arquivo informado "{$expected}" e o tamanho real  "{$actual}" não conferem</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-duplicateRevisionForSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-native-error-submissionFileImportFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission file could not be imported</source>
+        <target>O arquivo da submissão não pode ser importado</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-importExportErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export errors:</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-userHasNoPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-passwordHasBeenChanged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-plainPasswordNotValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-usernameEmailMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Título</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>Caminho</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation</source>
+        <target>Menus de navegação</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></source>
+        <target><![CDATA[<p>Esta págima será acessível em: <blockquote>{$pagesPath}</blockquote>...onde %PATH% é o caminho digitado acima. <strong>Nota:</strong> Duas páginas não podem possuir o mesmo caminho. O uso de caminhos já utilizados no sistema pode causar perda de acesso a funções importantes.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-content">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Content</source>
+        <target>Conteúdo</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-pathRegEx">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</source>
+        <target>O campo caminho deve conter apenas caracteres alfanuméricos, além de '.', '/', '-', e '_'.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicatePath">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This path already exists for another navigation menu item.</source>
+        <target> Este caminho já existe para outro item do menu de navegação.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicateTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This title already exists for another navigation menu.</source>
+        <target> Este título já existe para outro menu de navegação.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title is required</source>
+        <target>O título é obrigatório</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Items</source>
+        <target>Itens do menu de navegação</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-assignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Menu Items</source>
+        <target>Itens associados ao menu</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-unassignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned Menu Items</source>
+        <target>Itens não associados ao menu</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuArea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active Theme Navigation Areas</source>
+        <target>Áreas de navegação do Tema ativo</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuAreaMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a navigation area</source>
+        <target>Selecionar uma área de navegação</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-menuAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A navigation menu is already assigned to this area.</source>
+        <target>Um menu de navegação já está associado a esta área.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-customUrlError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A URL must be provided</source>
+        <target>Uma URL deve ser informada</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-conditionalDisplay">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Learn more about when this menu item will be displayed or hidden.</source>
+        <target>Saiba mais sobre quando esse item de menu será mostrado ou ocultado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-submenuWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an "About" item which opens a submenu with "Contact" and "Editorial Team", the "About" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, "About the Journal", which appears in the submenu.</source>
+        <target> Quando um item de menu abre um submenu, esse link poderá não funcionar em todos os dispositivos. Por exemplo, se existe um item "Sobre" que abre um submenu com os itens "Contato" e "Equipe Editorial", o link "Sobre" pode não ser acessivel em todos os dispositivos. No menu padrão, isto é resolvido criando um segundo item de menu, "Sobre a Revista", que aparece no submenu.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Type</source>
+        <target>Tipo de Menu de Navegação</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemTypeMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a Navigation Menu Type or Custom to make your own</source>
+        <target>Selecionar um Tipo Navegação de Menu ou customize ou criar o seu próprio</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Page</source>
+        <target>Página personalizada</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a custom page on your site and link to it from a navigation menu.</source>
+        <target>Criar uma página customizada em seu site e colocar seu link a partir de um menu de navegação.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>URL remota</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to any URL on another site, like https://pkp.sfu.ca.</source>
+        <target>Link para qualquer URL em outro site, como https://pkp.sfu.ca.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the About the Journal content in Settings > Journal]]></source>
+        <target><![CDATA[Link para uma página exibindo o conteúdo do Sobre a Revista em Configurações > Revista]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the About the Journal section under Settings > Journal.]]></source>
+        <target><![CDATA[Este link será exibido se você tiver preenchido a seção Sobre a Revista em Configurações > Revista. ]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the Masthead content in Settings > Journal.]]></source>
+        <target><![CDATA[Link exibindo o conteúdo da página Equipe Editorial em Configurações > Revista.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Editorial Team section under Settings > Journal.]]></source>
+        <target><![CDATA[Este link apenas será exibido se você tiver preenchido a seção Equipe Editorial em Configurações > Revista.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-submissions-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying submission instructions.</source>
+        <target>Link para a página exibindo as instruções de submissão.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-current-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your current issue.</source>
+        <target>Link para a sua edição atual.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-archives-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your issue archive.</source>
+        <target>Link para sua edição anteriore.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your announcements.</source>
+        <target>Link para a página exibindo suas notícias.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have enabled announcements under Settings > Website.]]></source>
+        <target><![CDATA[Este link apenas será exibido se você tiver habilitado a aba notícias em Configurações > Website.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-login-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user login page.</source>
+        <target>Link para a página de login de usuário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-register-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user registration page.</source>
+        <target>Link para a página de registro de usuário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-dashboard-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the editorial dashboard.</source>
+        <target>Link para o painel editorial.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-profile-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user profile page.</source>
+        <target>Link para a página de perfil de usuário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the site-wide administration tools.</source>
+        <target>Link para as ferramentas de administração geral do site.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed to administrative users.</source>
+        <target>Este link será exibido apenas para usuários administradores.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-logOut-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A link that will log the user out.</source>
+        <target>Um link que irá finalizar a sessão do usuário.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedOut-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is logged in.</source>
+        <target>Este link apenas será exibido quando o visitante estiver logado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedIn-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is not logged in.</source>
+        <target>Este link apenas será exibido quando o visitante estiver deslogado.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to a page displaying your contact information.</source>
+        <target>Link para uma página com suas informações de contato.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Contact information under Settings > Contact.]]></source>
+        <target><![CDATA[Este link apenas será exibido se você tiver preenchido a informação de Contato em Configurações > Contato.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-typeMissing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a navigation menu type.</source>
+        <target>Por favor selecionar um tipo de menu de navegação.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-subscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if payments are enabled under Settings > Distribution > Payments.]]></source>
+        <target><![CDATA[Este link apenas será exibido se a opção de pagamentos estiver habilitada em Configurações > Distribuição > Pagamentos.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-mySubscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.]]></source>
+        <target><![CDATA[Este link apenas será exibido se o visitante estiver logado, os pagamentos estiverem habilitados Configurações > Distribuição > Pagamentos e as assinaturas estiverem obrigatórias em Configurações > Distribuição > Acesso.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-search-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the search page.</source>
+        <target>Link para a página de busca.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your privacy statement.</source>
+        <target>Link para a página mostrando sua declaração de privacidade.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions.]]></source>
+        <target><![CDATA[Este link apenas será exibido se você submeteu uma declaração de privacidade em Configurações > Fluxo de Trabalho > Subimissão.]]></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-urlWillBe">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category's URL will be: {$sampleUrl}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path must consist of only letters and numbers.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path already exists. Please enter a unique path.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-parentCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to remove this category?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a category name.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categoryDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Category Details</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-daily">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Daily</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-allDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All dates</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-apply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apply</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change date range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-customRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-dateDoesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One of the dates entered does not exist.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The date format is not valid. Enter each date in the format YYYY-MM-DD.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date must be before the end date.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidEndDateMax">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The end date may not be later than {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidStartDateMin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date may not be earlier than {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last12Months">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 12 months</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last30Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 30 days</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last90Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 90 days</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-sinceDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Since {$date}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-to">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-untilDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Until {$date}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-fileViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Views</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-html">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-monthly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Monthly</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-pdf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PDF</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-searchSubmissionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search by title, author and ID</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-total">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

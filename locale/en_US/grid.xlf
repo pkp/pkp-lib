@@ -9,8 +9,8 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:45-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:45-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:57-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:57-07:00</note>
       <note id="Language"></note>
     </notes>
     <unit id="grid-noItems">
@@ -535,6 +535,15 @@
         <target>Send this submission to production</target>
       </segment>
     </unit>
+    <unit id="grid-action-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Settings</target>
+      </segment>
+    </unit>
     <unit id="grid-action-importexport">
       <notes>
         <note category="context"></note>
@@ -668,6 +677,15 @@
       <segment>
         <source>Edit this user group</source>
         <target>Edit this user group</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-removeUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove this user group</source>
+        <target>Remove this user group</target>
       </segment>
     </unit>
     <unit id="grid-action-disable">
@@ -1390,6 +1408,15 @@
         <target>All Permission Levels</target>
       </segment>
     </unit>
+    <unit id="grid-user-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>Add User</target>
+      </segment>
+    </unit>
     <unit id="grid-user-enroll">
       <notes>
         <note category="context"></note>
@@ -1415,6 +1442,24 @@
       <segment>
         <source>Email</source>
         <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Enable</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Disable</target>
       </segment>
     </unit>
     <unit id="grid-user-disableReason">

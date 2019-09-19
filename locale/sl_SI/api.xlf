@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:13-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:13-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="api-400-paramNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$param} parameter is not supported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-403-unauthorized">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are not authorized to access the requested resource.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-404-resourceNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The requested resource was not found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-404-endpointNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The requested URL was not recognized.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-emailTemplates-404-templateNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template you requested was not found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-alreadyPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication you want to publish is already published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-alreadyUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication you want to unpublish is not published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantEditPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not edit this publication because it has already been published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantEditStatus">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not modify the status directly through the API. Instead, use the /publish and /unpublish endpoints.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantDeletePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must unpublish this publication before you can delete it.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongDateFormat">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The date must be in the format YYYY-MM-DD.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date can not be later than the end date.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-earlyDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date can not be earlier than 2001-01-01.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-lateDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The end date can not be later than yesterday.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongTimelineInterval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was not valid. The timelineInterval must be `day` or `month`.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-invalidOrderDirection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was not valid. The orderDirection must be `desc` or `asc`.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-csrfTokenFailure">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was denied. This may be because your login has expired. Try reloading the page and trying again.</source>
+        <target>Vaša zahteva je bila zavrnjena. Morda vam je potekla seja. Ponovno naložite spletno stran in poskusite ponovno.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-requestedOthersUnpublishedSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can only view unpublished submissions to which you have been assigned.</source>
+        <target>Vidite lahko le neobjavljene prispevke, ki so vam bili dodeljeni.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-deleteSubmissionOutOfContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not delete a submission that is not assigned to this context.</source>
+        <target>Ne morete odstraniti prispevka, ki ni dodeljen temu kontekstu.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-unauthorizedDeleteSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to delete this submission.</source>
+        <target>Nimate pravice za odstranitev tega prispevka.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-404-siteWideEndpoint">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This endpoint is not available from a context. It must be accessed from the site-wide namespace.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-400-missingRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request could not be fulfilled because it is missing required information.</source>
+        <target>Vaša zahteva ni mogla biti izvršena zaradi pomanjkanja zahtevnih informacij.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-400-invalidIssueIdentifiers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The requested volume, number or year is not valid.</source>
+        <target>Zahtevan zvezek, številka ali leto je neveljaveno.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-unknownError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unexpected error has occurred. Please reload the page and try again.</source>
+        <target>Prišlo je do nepričakovane napake. Ponovno naložite spletno stran in poskusite ponovno.</target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-400-noUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No file to be uploaded could be found with the request.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-409-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One or more files could not be uploaded.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-400-fileSize">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files larger than {$maxSize} can not be uploaded.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-400-config">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File could not be uploaded because of a server configuration error. Please contact the system administrator.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-themes-404-themeUnavailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The active theme, {$themePluginPath}, is not enabled and may not be installed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-vocabs-400-localeNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$locale} locale is not supported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-vocabs-400-vocabNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$vocab} vocab is not supported.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

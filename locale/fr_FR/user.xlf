@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:03-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:03-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="user-accountInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Account Information</source>
+        <target>Renseignements sur le compte</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliation</source>
+        <target>Affiliation</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Your institution, e.g. "Simon Fraser University")</source>
+        <target>(Votre institution, par ex., "Université de Montréal")</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliations</source>
+        <target>Affiliations</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access denied.</source>
+        <target>Accès refusé</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-processAuthenticationTokenRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The process authentication token is missing or invalid.</source>
+        <target>Le jeton d'authentification du processus est absent ou invalide.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You cannot call this operation without a context (press, journal, conference, etc).</source>
+        <target>Vous ne pouvez pas appeler cette opération sans spécifier son contexte (presse, journal, conférence, etc.)</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-loginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login required.</source>
+        <target>Ouverture de session requise.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-privateOperation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The operation you tried to access is either private or doesn't exist.</source>
+        <target>L'opération que vous tentez d'accéder est privée ou n'existe pas.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-restrictedSiteAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been denied access. Access to this site is currently restricted.</source>
+        <target>L'accès est refusé. L'accès à ce site est actuellement restreint.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-roleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current role does not have access to this operation.</source>
+        <target>Le rôle actuel n'a pas accès à cette opération.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-assignedStageRoleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not been assigned to this submission with a role that is allowed to access this operation.</source>
+        <target>Vous n'avez pas les droits pour accéder à cette opération.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to set a valid user group to access this operation.</source>
+        <target>Vous devez choisir un groupe d'utilisateur valide pour accéder à cette opération.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-managerRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</source>
+        <target>Un utilisateur ayant un rôle de gestionnaire (i.e. directeur de la production) doit être assigné à cette étape avant que vous puissiez continuer.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessibleWorkflowStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You don't currently have access to that stage of the workflow.</source>
+        <target>Vous n'avez pas actuellement accès à cette étape du processus éditorial.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-workflowStageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A workflow stage was not specified.</source>
+        <target>Une étape du processus éditorial n'est pas spécifiée</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-pluginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A plugin was not specified and is required.</source>
+        <target>Un module requis n'a pas été sélectionné</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidReviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this review assignment.</source>
+        <target>Vous n'avez pas les droits pour accéder à cette évaluation.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this discussion.</source>
+        <target>Vous n'avez pas les droits pour accéder à cette discussion.</target>
+      </segment>
+    </unit>
+    <unit id="user-biography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Bio Statement (e.g., department and rank)</source>
+        <target>Note biographique</target>
+      </segment>
+    </unit>
+    <unit id="user-changeMyPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change My Password</source>
+        <target>Modifier mon mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-changePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>Modifier le mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-dateLastLogin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last login</source>
+        <target>Dernière connexion</target>
+      </segment>
+    </unit>
+    <unit id="user-dateRegistered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date registered</source>
+        <target>Date d'inscription</target>
+      </segment>
+    </unit>
+    <unit id="user-editMyProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit My Profile</source>
+        <target>Modifier mon profil</target>
+      </segment>
+    </unit>
+    <unit id="user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>Courriel</target>
+      </segment>
+    </unit>
+    <unit id="user-givenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Given Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing interests</source>
+        <target>Intérêts pour les évaluations</target>
+      </segment>
+    </unit>
+    <unit id="user-interests-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Separate interests by pressing the enter or comma key)</source>
+        <target>(Séparer les intérêts en appuyant sur la touche Enter ou en ajoutant une virgule)</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Notes</source>
+        <target>Notes privées</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments.</source>
+        <target>Vous pouvez associer des informations à propos de ce rapporteur qui seront visibles pour tous les autres rédacteurs. Ces informations seront visibles pour de futures évaluations.</target>
+      </segment>
+    </unit>
+    <unit id="user-group">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Group</source>
+        <target>Groupe d'utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="user-familyName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Family Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</source>
+        <target>Format d'image du profil invalide ou image trop grande. Les formats acceptés sont .gif, .jpg, or .png, et l'image ne doit pas dépasser 150x150 pixels.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabledWithReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled for the following reason: {$reason}</source>
+        <target>Votre compte a été désactivé pour les raisons suivantes : {$reason}</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled. Please contact the administrator for more information.</source>
+        <target>Votre compte a été désactivé. Veuillez communiquer avec l'administrateur du site pour plus d'information.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountNotValidated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>We've sent a confirmation email to you at {$email}. Please follow the instructions in that email to activate your new account. If you do not see an email, please check to see if it was put in your spam folder.</source>
+        <target>Validez votre compte en suivant les directives que nous vous avons fait parvenir sur {$email}. Si vous n'avez pas reçu de courriel, vous devrez peut-être communiquer avec l'administrateur du site pour obtenir de l'aide.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate Account</source>
+        <target>Activer le compte</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for activating your account. You may now log in using the credentials you supplied when you created your account.</source>
+        <target>Merci d'avoir activé votre compte. Vous pouvez maintenant vous connecter en utilisant les authentifiants fournis lors de la création de votre compte.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></source>
+        <target><![CDATA[Vous devez sélectionner un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et vos mots de passe actuel et nouveau ci-dessous pour modifier le mot de passe de votre compte.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-login-forgotPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forgot your password?</source>
+        <target>Vous avez oublié votre mot de passe?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-loginError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid username or password. Please try again.</source>
+        <target>Nom d'usager ou mot de passe non valide. Veuillez essayer de nouveau.</target>
+      </segment>
+    </unit>
+    <unit id="user-login">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login</source>
+        <target>Se connecter</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-confirmationSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password.</source>
+        <target>Une confirmation a été envoyée à votre adresse de courriel. Veuillez suivre les instructions dans le courriel pour réinitialiser votre mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidHash">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again.</source>
+        <target>Malheureusement, le lien sur lequel vous avez cliqué est expiré ou n'est pas valide. Veuillez essayer de réinitialiser votre mot de passe encore une fois.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No user exists with the specified email address.</source>
+        <target>Aucun utilisateur n'existe avec l'adresse de courriel indiquée.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-passwordSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new password has been sent to your email address. You may now login to the site with your new password.</source>
+        <target>Un nouveau mot de passe a été envoyé à votre adresse de courriel. Vous pouvez maintenant vous connecter au site avec votre nouveau mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registeredEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registered user's email</source>
+        <target>Courriel de l'utilisateur inscrit</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration complete</source>
+        <target>Inscription complétée</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thanks for registering! What would you like to do next?</source>
+        <target>Merci de vous êtes inscrit(e)! Que voulez-vous faire ensuite?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-manageSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submissions</source>
+        <target>Voir les évaluations</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-newSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make a New Submission</source>
+        <target>Faire une nouvelle soumission</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-continueBrowsing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue Browsing</source>
+        <target>Explorer le site de la revue</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationPendingValidation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration awaiting verification</source>
+        <target>Inscription en attente de validation</target>
+      </segment>
+    </unit>
+    <unit id="user-login-rememberUsernameAndPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keep me logged in</source>
+        <target>Mémoriser mon nom d'usager et mon mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset Password</source>
+        <target>Réinitialiser le mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-logOut">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout</source>
+        <target>Se déconnecter</target>
+      </segment>
+    </unit>
+    <unit id="user-logOutAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout as</source>
+        <target>Fermeture de session en tant que</target>
+      </segment>
+    </unit>
+    <unit id="user-hello">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hello, </source>
+        <target>Bonjour,</target>
+      </segment>
+    </unit>
+    <unit id="user-mailingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mailing Address</source>
+        <target>Adresse postale</target>
+      </segment>
+    </unit>
+    <unit id="user-myAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Account</source>
+        <target>Mon compte</target>
+      </segment>
+    </unit>
+    <unit id="user-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nom</target>
+      </segment>
+    </unit>
+    <unit id="user-password">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-repeatPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat password</source>
+        <target>Répéter le mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-phone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Phone</source>
+        <target>Téléphone</target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preferred Public Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your current and new passwords below to change the password for your account.</source>
+        <target>Saisir votre mot de passe actuel et votre nouveau mot de passe ci-dessous pour modifier le mot de passe de votre compte.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>Modifier le profil</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-countryRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A country is required.</source>
+        <target>Il faut indiquer un pays</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address is required.</source>
+        <target>Une adresse de courriel valide est obligatoire.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-affiliationRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An affiliation is required.</source>
+        <target>L'affiliation est obligatoire.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A given name is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have added a family name for a language that is missing the given name. Please add a given name for this language.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-mailingAddressRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A mailing address is required.</source>
+        <target>Il faut indiquer l'adresse postale</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-newPasswordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter your new password.</source>
+        <target>Vous devez saisir votre nouveau mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-oldPasswordInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current password you entered was incorrect.</source>
+        <target>Le mot de passe actuel saisi est incorrect.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-openAccessNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue open access email notifications</source>
+        <target>Avis par courriel d'un nouveau numéro en accès libre</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password is required.</source>
+        <target>Le mot de passe est obligatoire.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordSameAsOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your new password is the same as your old password.</source>
+        <target>Votre nouveau mot de passe est identique à votre ancien mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile Image</source>
+        <target>Image du profil</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-publishedNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New issue published email notifications</source>
+        <target>Courriel avisant de la parution d'un nouveau numéro</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-urlInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</source>
+        <target>L'URL spécifié n'est pas valide. Veuillez vérifier l'URL et essayer de nouveau. (Suggestion : Essayer d'ajouter http:// au début de l'URL.)</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usergroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user group is required.</source>
+        <target>Il faut indiquer le groupe d'utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username is required.</source>
+        <target>Le nom d'utilisateur est obligatoire.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-privacyConsentRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must agree to the terms of the privacy statement.</source>
+        <target>Vous devez approuver les déclarations de confidentialité.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-leavePasswordBlank">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the password fields blank to keep the current password.</source>
+        <target>Laisser vide les champs reliés au mot de passe pour conserver le mot de passe actuel.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-newPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New password</source>
+        <target>Nouveau mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-oldPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current password</source>
+        <target>Mot de passe actuel</target>
+      </segment>
+    </unit>
+    <unit id="user-profile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile</source>
+        <target>Profil</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-publicProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Profile</source>
+        <target>Profil utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-repeatNewPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat new password</source>
+        <target>Saisir de nouveau le nouveau mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registerNewAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Vous n'êtes pas un utilisateur? Veuillez vous inscrire au site.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your account email address below and an email will be sent with instructions on how to reset your password.</source>
+        <target><![CDATA[Pour des raisons de sécurité, ce système envoie un nouveau mot de passe par courriel aux utilisateurs inscrits au lieu de rappeler le mot de passe actuel. .<br /><br />Indiquez votre adresse courriel ci-dessous pour réinitialiser votre mot de passe. Une confirmation sera envoyée par courriel.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-privacyConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target><![CDATA[Oui, je suis d'accord d'avoir mes données collectées selon le traitement décrit ici : <a href="{$privacyUrl}" target="_blank">Déclarations de confidentialité</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be notified of new publications and announcements.</source>
+        <target>Oui, je souhaite être notifié des nouvelles publications et annonces.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected email address is already in use by another user.</source>
+        <target>L'adresse de courriel sélectionnée est déjà utilisée par un autre utilisateur.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The passwords do not match.</source>
+        <target>Les mots de passe ne correspondent pas.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email address fields do not match.</source>
+        <target>Les champs du courriel ne correspondent pas.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username can contain only lower-case alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>Le nom d'utilisateur peut contenir uniquement des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>At least one role must be selected.</source>
+        <target>Au moins un rôle doit être sélectionné</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected username is already in use by another user.</source>
+        <target>Le nom d'utilisateur sélectionné est déjà utilisé par un autre utilisateur.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordLengthRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The password must be at least {$length} characters.</source>
+        <target>Le mot de passe doit contenir au moins {$length} caractères.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registerAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register in {$contextName} as...</source>
+        <target>S'inscrire en tant que {$contextName}</target>
+      </segment>
+    </unit>
+    <unit id="user-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>S'inscrire</target>
+      </segment>
+    </unit>
+    <unit id="user-register-usernameRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username must contain only lowercase letters, numbers, and hyphens/underscores.</source>
+        <target>Le nom d'utilisateur ne doit contenir que des lettres minuscules, chiffres, et traits d'union/de soulignement.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registrationCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have successfully registered. <a href="{$profileUrl}">Click here</a> to complete your user profile.]]></source>
+        <target><![CDATA[*Vous vous êtes inscrit avec succès. <a href="{$profileUrl}"> Cliquez ici </a> pour compléter votre profil utilisateur.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-role-assistant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assistant</source>
+        <target>Assistant</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author</source>
+        <target>Auteur</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author_s">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author(s)</source>
+        <target>Auteur(s)</target>
+      </segment>
+    </unit>
+    <unit id="user-role-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Auteurs</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor</source>
+        <target>Rédacteur</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>Rédacteurs</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader</source>
+        <target>Lecteur</target>
+      </segment>
+    </unit>
+    <unit id="user-role-readers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Readers</source>
+        <target>Lecteurs</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer</source>
+        <target>Rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers</source>
+        <target>Rapporteurs</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrator</source>
+        <target>Administrateur du site</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrators</source>
+        <target>Administrateurs du site</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditor</source>
+        <target>Réviseur</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditors</source>
+        <target>Réviseurs</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreader</source>
+        <target>Correcteur d'épreuve</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreaders</source>
+        <target>Correcteurs d'épreuve</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editor</source>
+        <target>Maquettiste</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editors</source>
+        <target>Maquettistes</target>
+      </segment>
+    </unit>
+    <unit id="user-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>Rôles</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirmation</source>
+        <target>Confirmation</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send me a confirmation email including my username and password</source>
+        <target>M'envoyer un courriel de confirmation incluant mon nom d'utilisateur et mon mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="user-signature">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Signature</source>
+        <target>Signature</target>
+      </segment>
+    </unit>
+    <unit id="user-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="user-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="user-userHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Home</source>
+        <target>Accueil de l'utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="user-username">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="user-workingLanguages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Working Languages</source>
+        <target>Langues de travail</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ORCID iD</source>
+        <target>Identifiant ORCID</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid-orcidInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The ORCID iD you specified is invalid. Please include the full URI (e.g. "https://orcid.org/0000-0002-1825-0097").</source>
+        <target>Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple "https://orcid.org/0000-0002-1825-0097").</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-identity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identity</source>
+        <target>Identité</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-contact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-public">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public</source>
+        <target>Profil public</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>API Key</source>
+        <target>API Key</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKeyEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable external applications with the API key to access this account</source>
+        <target>Autoriser les applications externes avec l'API key d'accéder à ce compte</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate new API key</source>
+        <target>Générer une nouvelle API Key</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generateWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generating a new API key will invalidate any existing key for this user.</source>
+        <target>Générer une nouvelle API Key invalidera toutes les clés existantes pour cet utilisateur.</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-secretRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</source>
+        <target>Avant de générer une clé pour l'API, vous devez mettre un secret dans le fichier de configuration  ("api_key_secret")</target>
+      </segment>
+    </unit>
+    <unit id="user-privacyLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Your data is stored in accordance with our <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target><![CDATA[Vos données personnelles sont traitées selon notre  <a href="{$privacyUrl}" target="_blank">Déclaration de confidentialité</a>.]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

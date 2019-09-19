@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:51-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:51-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="comments-anonymous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anonymous User</source>
+        <target>مستخدم مجهول</target>
+      </segment>
+    </unit>
+    <unit id="comments-anonymousNamed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$userName}"</source>
+        <target>"{$userName}"</target>
+      </segment>
+    </unit>
+    <unit id="comments-body">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Body</source>
+        <target>المتن</target>
+      </segment>
+    </unit>
+    <unit id="comments-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A comment title is required.</source>
+        <target>عنوان التعليق مطلوب حتماً.</target>
+      </segment>
+    </unit>
+    <unit id="comments-confirmDeleteChildren">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deleting this comment will also delete any replies to it. Are you sure you wish to do this?</source>
+        <target>حذف هذا التعليق يتطلب حذف كل التعقيبات المرتبطة به. هل أنت متأكد من رغبتك في عمل ذلك؟</target>
+      </segment>
+    </unit>
+    <unit id="comments-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this comment</source>
+        <target>حذف هذا التعليق</target>
+      </segment>
+    </unit>
+    <unit id="comments-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Email</source>
+        <target>البريد الالكتروني لصاحب الطرح</target>
+      </segment>
+    </unit>
+    <unit id="comments-emailReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Reply</source>
+        <target>الإجابة عبر البريد الالكتروني</target>
+      </segment>
+    </unit>
+    <unit id="comments-enterComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter Comment</source>
+        <target>أدخل تعليقاً</target>
+      </segment>
+    </unit>
+    <unit id="comments-inResponseTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[In response to <a href="{$url}">{$title}</a>]]></source>
+        <target><![CDATA[إجابة إلى <a href="{$url}">{$title}</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="comments-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Name</source>
+        <target>اسم صاحب الطرح</target>
+      </segment>
+    </unit>
+    <unit id="comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No reader comments have been posted.</source>
+        <target>لم يتم طرح أي من تعليقات القراء بعد.</target>
+      </segment>
+    </unit>
+    <unit id="comments-nReplies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>({$num} Replies)</source>
+        <target>({$num} إجابة/إجابات)</target>
+      </segment>
+    </unit>
+    <unit id="comments-oneReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(1 Reply)</source>
+        <target>(إجابة واحدة)</target>
+      </segment>
+    </unit>
+    <unit id="comments-postAnonymously">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post this comment anonymously</source>
+        <target>إطرح هذا التعليق بصفة مجهول</target>
+      </segment>
+    </unit>
+    <unit id="comments-postReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post Reply</source>
+        <target>إطرح إجابة</target>
+      </segment>
+    </unit>
+    <unit id="comments-readerComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader Comments</source>
+        <target>تعليقات القراء</target>
+      </segment>
+    </unit>
+    <unit id="comments-readMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read more</source>
+        <target>قراءة المزيد</target>
+      </segment>
+    </unit>
+    <unit id="comments-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>الإجابات</target>
+      </segment>
+    </unit>
+    <unit id="comments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>العنوان</target>
+      </segment>
+    </unit>
+    <unit id="comments-viewAllComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View all comments</source>
+        <target>معاينة كل التعليقات</target>
+      </segment>
+    </unit>
+    <unit id="reader-fullText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Full Text:</source>
+        <target>النص الكامل:</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

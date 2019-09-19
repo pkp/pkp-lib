@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:16-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:16-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="editor-activityLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activity Log</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionLibrary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Library</source>
+        <target>Bidragsbibliotek</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-notInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review process has not yet been initiated.</source>
+        <target>Granskningsprocessen har inte påbörjats ännu.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-copyediting-personalMessageToUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Message to user</source>
+        <target>Meddelande till användare</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-externalReviewDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select files below to send them to the review stage.</source>
+        <target>Välj filer nedan att skicka till granskningssteget.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select at least one file to assign the user to.</source>
+        <target>Du måste välja minst en fil att tilldela till användaren.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-messageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must include a personal message.</source>
+        <target>Du måste inkludera ett personligt meddelande.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send email to the Auditor</source>
+        <target>Skicka inget e-postmeddelande till manusgranskaren</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-userRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user to assign.</source>
+        <target>Du måste välja en användare att tilldela en fil.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-uploadSelectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload/Select Files</source>
+        <target>Ladda upp/välj filer</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Files</source>
+        <target>Välj filer</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-revisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions</source>
+        <target>Bearbetningar</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-review-reviewersDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></source>
+        <target><![CDATA[Använd <em>+Lägg till granskare</em> för att bjuda in läsare att granska bidragsfiler. Ikonen med en anteckningsbok visar att en granskning har skickats in och sen blir <em>Godkänd</em> ikryssad när den har lästs. Om granskningar passerar deadline visas en rött kuvert-ikon för att påminna granskare.]]></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Reviewer</source>
+        <target>Lägg till granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-findAndSelectReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locate a Reviewer</source>
+        <target>Sök och välj granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-findAndSelectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locate a User</source>
+        <target>Sök och välj användare </target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileList-includeAllStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show files from all accessible workflow stages.</source>
+        <target>Visa filer från alla tillgängliga steg i arbetsflödet.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-review-currentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Review Files For Round {$round}</source>
+        <target>Aktuella granskningsfiler för omgång {$round}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-backToSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Search</source>
+        <target>Tillbaka till sök</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-createReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Reviewer</source>
+        <target>Skapa ny granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-enrollReviewer-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll Existing User</source>
+        <target>Tilldela befintlig användare</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unassignReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign Reviewer</source>
+        <target>Ta bort granskare från bidrag</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-cancelReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel Reviewer</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reinstateReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reinstate Reviewer</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-reviewType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Type</source>
+        <target>Granskningstyp</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-sendEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email notification to the author(s): {$authorName}</source>
+        <target>Skicka en e-postavisering till författaren/-arna: {$authorName}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-sendEmail-editors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email notification to the editor(s): {$editorNames}</source>
+        <target>Skicka en e-postavisering till redaktören/-erna: {$editorNames}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send an email notification</source>
+        <target>Skicka inte e-postmeddelande till författaren</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-open">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open</source>
+        <target>Öppen</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-blind">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Blind</source>
+        <target>Anonym</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-doubleBlind">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Double-blind</source>
+        <target>Dubbelt anonym</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-restrictFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files To Be Reviewed</source>
+        <target>Filer att granska</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-restrictFiles-hide">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close File Selection</source>
+        <target>Stäng filväljaren</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-editReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Review</source>
+        <target>Redigera granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-anonymousReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anonymous Reviewer</source>
+        <target>Anonym granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-personalMessageToReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email to be sent to reviewer</source>
+        <target>E-postmeddelande som kommer att skickas till granskaren</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-importantDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Important Dates</source>
+        <target>Viktiga datum</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-uploadRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Revision</source>
+        <target>Ladda upp bearbetning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-newReviewRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require New Review Round</source>
+        <target>Kräver ny granskningsomgång</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-NotifyAuthorRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions will not be subject to a new round of peer reviews.</source>
+        <target>Bearbetning kräver inte ny omgång av sakkunniggranskning.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-NotifyAuthorResubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions will be subject to a new round of peer reviews.</source>
+        <target>Bearbetning kommer att sakkunniggranskas på nytt.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-dateAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Acceptance Date</source>
+        <target>Datum för godkännande av granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewsAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviews added to message body.</source>
+        <target>Granskningar tillagda i meddelandetexten.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No peer reviews to import</source>
+        <target>Inga sakkunniggranskningar att importera</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Reminder</source>
+        <target>Påminnelse om granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-thankReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank Reviewer</source>
+        <target>Tacka granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reminderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error sending review reminder</source>
+        <target>Fel vid utskick av påminnelse om granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-thankReviewerError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error sending thank you to reviewer</source>
+        <target>Fel vid utskick av tack till granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send email to Reviewer.</source>
+        <target>Skicka inte något e-postmeddelande till granskaren.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-sendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Reminder</source>
+        <target>Skicka en påminnelse</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read Review</source>
+        <target>Läs granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readNewReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read New Review</source>
+        <target>Läs ny granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-responseDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response due: {$date}</source>
+        <target>Deadline: {$date}</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Sent</source>
+        <target>Förfrågan skickad</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Accepted</source>
+        <target>Förfrågan accepterad</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestDeclined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Declined</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestCancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestDeclined-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer declined this review request.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestCancelled-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The editor cancelled this review request.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-revertDecision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revert Decision</source>
+        <target>Återställ beslut</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review due: {$date}</source>
+        <target>Granskning förfallen: {$date}</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due Date</source>
+        <target>Deadline för granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Completed</source>
+        <target>Granskning avslutad</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Confirmed</source>
+        <target>Granskning bekräftad</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Granskning inkommen</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerThanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Thanked</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Comments</source>
+        <target>Granskares kommentarer</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-rateReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating</source>
+        <target>Betygsättning av granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-rateReviewer-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rate the quality of the review provided. This rating is not shared with the reviewer.</source>
+        <target>Betygsätt kvaliteten på den inkomna granskningen. Betyget kommer inte att vara synligt för granskaren.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerRating-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No rating</source>
+        <target>Inget betyg.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-mustSelect">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a reviewer</source>
+        <target>Du måste välja en granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorAddingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error adding the reviewer.  Please try again.</source>
+        <target>Ett fel uppstod när granskaren skulle läggas till. Försök igen.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorDeletingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error deleting the reviewer.  Please try again.</source>
+        <target>Ett fel uppstod när granskaren skulle tas bort. Försök igen.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorReinstatingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error reinstating the reviewer.  Please try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-userGroupSelect">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll the user with this reviewer user group</source>
+        <target>Lägg till den här användaren i den här gransknings-användargruppen.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unconsiderReviewText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do you wish to mark this review as unconsidered?  The review history will be preserved.</source>
+        <target>Vill du markera den här granskningen som bortsedd ifrån? Granskningshistoriken kommer att bevaras.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unconsiderReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unconsider this Review</source>
+        <target>Bortse från den här granskningen</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Once this review has been read, press "Confirm" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file below and then press "Confirm" to proceed.</source>
+        <target>När granskningen har blivit läst, tryck på "Bekräfta" för att visa att granskningsprocessen kan gå vidare. Om granskaren har skickat in granskningen någon annanstans kan du ladda upp filen nedan och sedan trycka på "Bekräfta" för att fortsätta.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectCopyedingFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting Files</source>
+        <target>Filer för manusredigering</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Reviewer</source>
+        <target>Välj granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-taskDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task Due Date</source>
+        <target>Deadline för uppgiften</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-taskSchedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task schedule</source>
+        <target>Schema för uppgifter</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-enrollReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll an Existing User as Reviewer</source>
+        <target>Lägg till en befintlig användare som granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noAuditRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No audit requested for this file</source>
+        <target>Ingen manusgranskning begärd för den här filen</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-personalMessageToUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email to be sent to user</source>
+        <target>E-postmeddelande som kommer att skickas till användaren</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proof-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proof reminder</source>
+        <target>Påminnelse om korrektur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editorial-approveCopyeditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?</source>
+        <target>Den manusredigerade filen behöver godkännas innan den kan skickas vidare till Produktionssteget. Vill du godkänna den här filen?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editorial-disapproveCopyeditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</source>
+        <target>Om den här manusredigerade filen avslås kommer den inte gå att skicka vidare till Produktionssteget. Vill du avslå den här filen?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Auditor</source>
+        <target>Utse manusgranskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-copyedit-manageCopyeditFilesDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any files that have already been uploaded to any submission stage can be added to the Copyedit Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</source>
+        <target>Alla filer som redan laddats upp i något steg för bidraget can läggas till till listan över Filer för manusredigering genom att kryssa i Inkludera-rutan nedan och trycka på Sök: alla tillgängliga filer kommer att listas och kan väljas. Ytterligare filer, som inte redan laddats upp till ett steg kan läggas till i listan genom att klicka på Ladda upp fil-länken.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Granskning</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Details</source>
+        <target>Granskningsdetaljer</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviewFilesUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files Uploaded</source>
+        <target>Inga filer uppladdade</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviewFilesUploaded-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not uploaded any review files.</source>
+        <target>Du har inte laddat upp några granskningsfiler.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-emailReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Reviewer</source>
+        <target>Skicka e-postmeddelande till granskaren</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-production-productionReadyFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Ready Files</source>
+        <target>Filer redo för produktion</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-newRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New Review Round</source>
+        <target>Ny granskningsomgång</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordDecision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record Editorial Decision</source>
+        <target>Registrera redaktörsbeslut</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record Editorial Recommendation</source>
+        <target>Registrera redaktörsrekommendation</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-notifyEditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify Editors</source>
+        <target>Meddela redaktörer</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send editors an email.</source>
+        <target>Skicka inget e-postmeddelande till redaktörer.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-createDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a review discussion about this recommendation.</source>
+        <target>Starta en granskningsdiskussion gällande den här rekommendationen.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-skipDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not create a review discussion.</source>
+        <target>Starta ingen granskningsdiskussion.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-newRoundDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.</source>
+        <target>Du håller på att skapa en ny granskningsomgång för det här bidraget. Filer som inte har använts i andra granskningsomgångar listas nedan.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-createNewRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Review Round</source>
+        <target>Skapa ny granskningsomgång</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-reviewForms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Granskningsformulär</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-selectReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Review Form</source>
+        <target>Välj granskningsformulär</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-confirmChangeReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</source>
+        <target>Varning: Genom att ändra granskningsformuläret påverkas alla svar granskare redan matat in med hjälp av det här formuläret. Vill du verkligen fortsätta?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noReviewerFilesSelected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files Selected</source>
+        <target>Inga filer valda.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noReviewerFilesSelected-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not selected any files for the reviewer to review.</source>
+        <target>Du har inte valt några filer som granskaren ska granska.</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A discussion subject is required.</source>
+        <target>Det krävs ett ämne för diskussionen.</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-messageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A discussion message is required.</source>
+        <target>Det krävs ett meddelande i diskussionen.</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-attachedFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attached Files</source>
+        <target>Bifogade filer</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Discussion</source>
+        <target>Redigera diskussion</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-query-manageQueryNoteFilesDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files can be attached for inclusion in this discussion from the list below.</source>
+        <target>Filer kan bifogas från listan nedan för att inkludera dem i diskussionen.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selected Reviewer</source>
+        <target>Välj granskare</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-approveProof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve Proof</source>
+        <target>Godkänn korrektur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-revokeProofApproval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revoke Proof Approval</source>
+        <target>Ta tillbaka godkännande av korrektur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-confirmCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve this proof to indicate proofreading is complete and the file is ready to be published.</source>
+        <target>Godkänn det här korrekturet för att markera att korrekturläsningen är färdig och filen klar att publiceras.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-confirmRemoveCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</source>
+        <target>Ta tillbaka godkännandet av det här korrekturet för att markera att korrekturläsningen inte är komplett ännu och att filen inte är klar att publiceras.</target>
+      </segment>
+    </unit>
+    <unit id="editor-publicIdentificationNumericNotAllowed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The public identifier '{$publicIdentifier}' must not be a number.</source>
+        <target>Den publika identifikatorn '{$publicIdentifier}' får inte vara en siffra.</target>
+      </segment>
+    </unit>
+    <unit id="editor-publicIdentificationPatternNotAllowed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The pattern {$pattern} is not allowed for the public identifier.</source>
+        <target>Mönstret {$pattern} tillåts inte för den publika identifikatorn.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-count">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} reviewers</source>
+        <target>{$count} granskare</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-itemsOfTotal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} of {$total} reviewers</source>
+        <target>{$count} av {$total} granskare</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-filterRating">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rated at least</source>
+        <target>Med lägsta betyg</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-activeReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} active</source>
+        <target>{$count} aktiva</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-activeReviewsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active reviews currently assigned</source>
+        <target>Aktiva, pågående granskningsuppdrag</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-completedReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviews completed</source>
+        <target>Färdiga granskningar</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-declinedReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review requests declined</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-cancelledReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review requests cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-reviewerRating">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating: {$rating}</source>
+        <target>Betyg på granskare: {$rating}</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daysSinceLastAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$days} days ago</source>
+        <target>{$days} dagar sedan</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daySinceLastAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yesterday</source>
+        <target>Igår</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daysSinceLastAssignmentDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Days since last review assigned</source>
+        <target>Dagar sedan tilldelning av senaste granskning</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-averageCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Average days to complete review</source>
+        <target>Genomsnittligt antal dagar för färdigställande av granskning</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-neverAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Never assigned</source>
+        <target>Aldrig tilldelad något granskningsuppdrag</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-currentlyAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This reviewer has already been assigned to review this submission.</source>
+        <target>Den här granskaren har redan fått i uppdrag att granska det här bidraget.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-warnOnAssign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Blind peer review can not be guaranteed. Would you like to unlock this reviewer anyway?</source>
+        <target>Den här granskaren är låst eftersom hen har blivit tilldelad en roll som kan se författarens identitet. Anonym granskning kan inte garanteras. Vill du trots detta låsa upp den här granskaren?</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-warnOnAssignUnlock">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unlock</source>
+        <target>Lås upp</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-reviewInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing Interests</source>
+        <target>Granskningsintressen</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-biography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Biography</source>
+        <target>Biografi</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-empty">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No reviewers found</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

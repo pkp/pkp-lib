@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:53-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:53-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="default-groups-name-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Admin</source>
+        <target>Websted- admin</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Admins</source>
+        <target>Websteds-admin'er</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production editor</source>
+        <target>Produktionsredaktør</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production editors</source>
+        <target>Produktionsredaktører</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ProdE</source>
+        <target>ProdR</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditor</source>
+        <target>Manuskriptredaktør</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditors</source>
+        <target>Manuskriptredaktører</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CE</source>
+        <target>MR</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreader</source>
+        <target>Korrekturlæser</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreaders</source>
+        <target>Korrekturlæsere</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PR</source>
+        <target>KL</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designer</source>
+        <target>Designer</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designers</source>
+        <target>Designere</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Design</source>
+        <target>Design</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Reviewer</source>
+        <target>Intern bedømmer</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Reviewers</source>
+        <target>Interne bedømmere</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>IR</source>
+        <target>IB</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing and sales coordinator</source>
+        <target>Marketings- og salgskoordinator</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing and sales coordinators</source>
+        <target>Marketings- og salgskoordinatorer</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>MS</source>
+        <target>MSK</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Funding coordinator</source>
+        <target>Finansieringskoordinator</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Funding coordinators</source>
+        <target>Finansieringskoordinatorer</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>FC</source>
+        <target>FK</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexer</source>
+        <target>Klassifikator</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexers</source>
+        <target>Klassifikatorer</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>IND</source>
+        <target>KLA</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editor</source>
+        <target>Layoutredaktør</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editors</source>
+        <target>Layoutredaktører</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>LE</source>
+        <target>LR</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author</source>
+        <target>Forfatter</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Forfattere</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>AU</source>
+        <target>FO</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Translator</source>
+        <target>Oversætter</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Translators</source>
+        <target>Oversættere</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Trans</source>
+        <target>Overs</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader</source>
+        <target>Læser</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Readers</source>
+        <target>Læsere</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read</source>
+        <target>Laes</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Andet</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-multimedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Multimedia</source>
+        <target>Multimedia</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-image">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Image</source>
+        <target>Billede</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-styleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML Stylesheet</source>
+        <target>HTML style-sheet</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

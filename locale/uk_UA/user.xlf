@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:19-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:19-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="user-accountInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Account Information</source>
+        <target>Інформація облікового запису</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliation</source>
+        <target>Місце роботи</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Your institution, e.g. "Simon Fraser University")</source>
+        <target>(Ваше місце роботи, наприклад, "Київський національний університет імені Тараса Шевченка")</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliations</source>
+        <target>Місця роботи</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access denied.</source>
+        <target>Доступ заборонений.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-processAuthenticationTokenRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The process authentication token is missing or invalid.</source>
+        <target>Помилковий або неприпустимий маркер аутентифікації.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You cannot call this operation without a context (press, journal, conference, etc).</source>
+        <target>Не можна викликати цей об'єкт без контексту (видавництво, журнал, конференція тощо).</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-loginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login required.</source>
+        <target>Необхідно вказати ім'я користувача.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-privateOperation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The operation you tried to access is either private or doesn't exist.</source>
+        <target>Об'єкт, до якого ви намагаєтеся отримати доступ, приватний або не існує.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-restrictedSiteAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been denied access. Access to this site is currently restricted.</source>
+        <target>Вам було відмовлено у доступі. Наразі доступ до цього сайту обмежений.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-roleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current role does not have access to this operation.</source>
+        <target>Ваша поточна роль не передбачає прав на виконання цієї дії.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-assignedStageRoleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not been assigned to this submission with a role that is allowed to access this operation.</source>
+        <target>Ви не були призначені для цього подання з роллю, що дозволяє доступ до цієї операції. Роль, яка Вам надана, не дозволяє робити таку операцію.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to set a valid user group to access this operation.</source>
+        <target>Для виконання цієї дії вам необхідно коректно вказати групу користувачів.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-managerRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</source>
+        <target>Перед тим, як продовжити, Вам необхідно вказати користувача, який виконуватиме роль менеджера видавництва (тобто видавця або шеф-редактора).</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessibleWorkflowStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You don't currently have access to that stage of the workflow.</source>
+        <target>Ви не маєте доступу до цього етапу робочого процесу.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-workflowStageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A workflow stage was not specified.</source>
+        <target>Не зазначено стадію робочого процесу.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-pluginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A plugin was not specified and is required.</source>
+        <target>Модуль обов'язковий але він не вказаний.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidReviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this review assignment.</source>
+        <target>Ви не маєте дозволу на доступ до цього призначення перегляду.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this discussion.</source>
+        <target>Ви не маєте дозволу на доступ до цієї дискусії.</target>
+      </segment>
+    </unit>
+    <unit id="user-biography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Bio Statement (e.g., department and rank)</source>
+        <target>Біографічна довідка</target>
+      </segment>
+    </unit>
+    <unit id="user-changeMyPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change My Password</source>
+        <target>Змінити мій пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-changePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>Змінити пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-dateLastLogin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last login</source>
+        <target>Останній доступ</target>
+      </segment>
+    </unit>
+    <unit id="user-dateRegistered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date registered</source>
+        <target>Дата реєстрації</target>
+      </segment>
+    </unit>
+    <unit id="user-editMyProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit My Profile</source>
+        <target>Редагувати мій профіль</target>
+      </segment>
+    </unit>
+    <unit id="user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>Email</target>
+      </segment>
+    </unit>
+    <unit id="user-givenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Given Name</source>
+        <target>Ім'я</target>
+      </segment>
+    </unit>
+    <unit id="user-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing interests</source>
+        <target>Наукові інтереси</target>
+      </segment>
+    </unit>
+    <unit id="user-interests-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Separate interests by pressing the enter or comma key)</source>
+        <target>(вказуйте кожний інтерес з нового рядку або розділяйте їх комами)</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Notes</source>
+        <target>Приватні нотатки</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments.</source>
+        <target>Нотатки, додані сюди, будуть відображені тільки лоя адміністраторів, менеджерів жураналу та редакторам.</target>
+      </segment>
+    </unit>
+    <unit id="user-group">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Group</source>
+        <target>Група користувачів</target>
+      </segment>
+    </unit>
+    <unit id="user-familyName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Family Name</source>
+        <target>Прізвище</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</source>
+        <target>Неприпустимий формат фото або зображення занадто великого розміру. Припустимими форматами є .gif, .jpg, або .png, розмір зображення не повинен бути більшим 150x150 пікселів.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabledWithReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled for the following reason: {$reason}</source>
+        <target>Ваш обліковий запис був відключений через таку причину: {$reason}</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled. Please contact the administrator for more information.</source>
+        <target>Ваш обліковий запис був відключений. Будь ласка, контактуйте з адміністратором для додаткової інформації.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountNotValidated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>We've sent a confirmation email to you at {$email}. Please follow the instructions in that email to activate your new account. If you do not see an email, please check to see if it was put in your spam folder.</source>
+        <target>Ваша адреса email {$email} не була підтверджена. Будь ласка, перевірте свою пошту та виконайте вказані у листі інструкції. Якщо ви не отримали листа, можливо, необхідно звернутися за допомогою до адміністратора сайту.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate Account</source>
+        <target>Активувати обліковий запис</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for activating your account. You may now log in using the credentials you supplied when you created your account.</source>
+        <target>Дякуємо за активацію вашого облікового запису. Тепер ви можете увійти до системи, використовуючи дані, вказані під час реєстрації.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></source>
+        <target><![CDATA[Перш ніж ви зможете зайти на сайт, ви повинні обрати новий пароль.<br /><br />Для того, щоб змінити пароль для вашого облікового запису, будь ласка, введіть нижче ім'я користувача, старий та новий паролі.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-login-forgotPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forgot your password?</source>
+        <target>Забули пароль?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-loginError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid username or password. Please try again.</source>
+        <target>Невірне ім'я користувача або пароль. Будь ласка, спробуйте знову.</target>
+      </segment>
+    </unit>
+    <unit id="user-login">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login</source>
+        <target>Увійти</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-confirmationSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password.</source>
+        <target>На вашу адресу email було надіслане підтвердження. Виконайте вказані у листі інструкції, щоб змінити ваш пароль.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidHash">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again.</source>
+        <target>Вибачте, посилання застаріле або некоректне. Будь ласка, спробуйте знову змінити свій пароль.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No user exists with the specified email address.</source>
+        <target>Не існує користувача зі вказаною адресою email.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-passwordSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new password has been sent to your email address. You may now login to the site with your new password.</source>
+        <target>На вашу адресу email був надісланий новий пароль. Тепер ви можете увійти на сайт зі своїм новим паролем.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registeredEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registered user's email</source>
+        <target>Адреса email користувача</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration complete</source>
+        <target>Реєстрацію завершено</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thanks for registering! What would you like to do next?</source>
+        <target>Дякуємо за реєстрацію! Що б ви хотіли зробити далі?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-manageSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submissions</source>
+        <target>Переглянути матеріали</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-newSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make a New Submission</source>
+        <target>Надіслати новий матеріал</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-continueBrowsing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue Browsing</source>
+        <target>Продовжити перегляд в браузері</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationPendingValidation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration awaiting verification</source>
+        <target>Реєстрація очікує перевірки</target>
+      </segment>
+    </unit>
+    <unit id="user-login-rememberUsernameAndPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keep me logged in</source>
+        <target>Запам'ятати мене</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset Password</source>
+        <target>Скинути пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-logOut">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout</source>
+        <target>Вийти</target>
+      </segment>
+    </unit>
+    <unit id="user-logOutAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout as</source>
+        <target>Вийти як</target>
+      </segment>
+    </unit>
+    <unit id="user-hello">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hello, </source>
+        <target>Вітаємо, </target>
+      </segment>
+    </unit>
+    <unit id="user-mailingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mailing Address</source>
+        <target>Поштова адреса</target>
+      </segment>
+    </unit>
+    <unit id="user-myAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Account</source>
+        <target>Мій обліковий запис</target>
+      </segment>
+    </unit>
+    <unit id="user-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Ім'я</target>
+      </segment>
+    </unit>
+    <unit id="user-password">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>Пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-repeatPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat password</source>
+        <target>Повторіть пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-phone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Phone</source>
+        <target>Телефон</target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preferred Public Name</source>
+        <target>Бажане загальнодоступне ім’я</target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like.</source>
+        <target>Як ви вважаєте за краще звертатися? Привітання, прізвища та суфікси можна додати тут, якщо хочете.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your current and new passwords below to change the password for your account.</source>
+        <target>Щоб змінити пароль для вашого облікового запису, введіть нижче старий і новий паролі.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>Редагування профілю</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-countryRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A country is required.</source>
+        <target>Необхідно вказати країну.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address is required.</source>
+        <target>Необхідно вказати коректну адресу email.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-affiliationRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An affiliation is required.</source>
+        <target>Необхідно вказати місце роботи.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A given name is required.</source>
+        <target>Потрібне ім'я.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have added a family name for a language that is missing the given name. Please add a given name for this language.</source>
+        <target>Ви додали прізвище для мови, на якій відсутнє вказане ім'я. Будь ласка, додайте дане ім'я для цієї мови.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-mailingAddressRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A mailing address is required.</source>
+        <target>Необхідно вказати поштову адресу</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-newPasswordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter your new password.</source>
+        <target>Вам необхідно ввести новий пароль.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-oldPasswordInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current password you entered was incorrect.</source>
+        <target>Ви вказали невірний старий пароль.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-openAccessNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue open access email notifications</source>
+        <target>Поштове сповіщення про нові випуски відкритого доступу</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password is required.</source>
+        <target>Необхідно вказати пароль.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordSameAsOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your new password is the same as your old password.</source>
+        <target>Новий і старий паролі однакові.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile Image</source>
+        <target>Фото користувача</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-publishedNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New issue published email notifications</source>
+        <target>Поштове сповіщення про вихід нових випусків</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-urlInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</source>
+        <target>Вказана адреса URL некоректна. Будь ласка, перевірте URL та спробуйте знову. (підказка: Спробуйте додати http:// перед адресою URL.)</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usergroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user group is required.</source>
+        <target>Необхідно вказати групу користувачів.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username is required.</source>
+        <target>Необхідно вказати ім'я користувача.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-privacyConsentRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must agree to the terms of the privacy statement.</source>
+        <target>Ви повинні погодитися з умовами заяви про конфіденційність.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-leavePasswordBlank">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the password fields blank to keep the current password.</source>
+        <target>Залиште поле паролю пустим, щоб зберегти старий пароль.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-newPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New password</source>
+        <target>Новий пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-oldPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current password</source>
+        <target>Старий пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-profile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile</source>
+        <target>Профіль</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-publicProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Profile</source>
+        <target>Профіль користувача</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-repeatNewPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat new password</source>
+        <target>Повторіть новий пароль</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registerNewAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Реєстрація</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your account email address below and an email will be sent with instructions on how to reset your password.</source>
+        <target>Введіть електронну адресу вашого облікового запису нижче, і вам буде надіслано лист з інструкцією як скинути ваш пароль.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-privacyConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target><![CDATA[Так, я згоден, що мої дані збираються і зберігаються відповідно до <a href="{$privacyUrl}" target="_blank"> заяви про конфіденційність </a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be notified of new publications and announcements.</source>
+        <target>Так, я хотів би отримувати повідомлення про нові публікації та оголошення.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected email address is already in use by another user.</source>
+        <target>Вказана адреса email вже використовується іншим користувачем.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The passwords do not match.</source>
+        <target>Введені паролі не збігаються.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email address fields do not match.</source>
+        <target>Поля адрес email не збігаються.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username can contain only lower-case alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>Ім'я користувача може містити лише цифри, маленькі латинські літери, символи підкреслення та дефіси, а також має починатися і закінчуватися літерою або цифрою.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>At least one role must be selected.</source>
+        <target>Необхідно вибрати принаймні одну роль.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected username is already in use by another user.</source>
+        <target>Вказане ім'я користувача вже використовується в іншому обліковому записі.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordLengthRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The password must be at least {$length} characters.</source>
+        <target>Пароль має складатися хоча б із {$length} знаків.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registerAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register in {$contextName} as...</source>
+        <target>Зареєструватися в {$contextName} як</target>
+      </segment>
+    </unit>
+    <unit id="user-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Зареєструватися</target>
+      </segment>
+    </unit>
+    <unit id="user-register-usernameRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username must contain only lowercase letters, numbers, and hyphens/underscores.</source>
+        <target>Ім'я користувача може складатися лише з рядкових літер, цифр та тире/символів підкреслення.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registrationCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have successfully registered. <a href="{$profileUrl}">Click here</a> to complete your user profile.]]></source>
+        <target><![CDATA[Ви успішно зареєструвалися. <a href="{$profileUrl}">Натисніть тут</a> tщоб заповнити свій профіль користувача.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-role-assistant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assistant</source>
+        <target>Асистент</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author</source>
+        <target>Автор</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author_s">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author(s)</source>
+        <target>Автор(и)</target>
+      </segment>
+    </unit>
+    <unit id="user-role-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Автори</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor</source>
+        <target>Редактор</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>Редактори</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader</source>
+        <target>Читач</target>
+      </segment>
+    </unit>
+    <unit id="user-role-readers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Readers</source>
+        <target>Читачі</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer</source>
+        <target>Рецензент</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers</source>
+        <target>Рецензенти</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrator</source>
+        <target>Адміністратор сайту</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrators</source>
+        <target>Адміністратори сайту</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditor</source>
+        <target>Літературний редактор</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditors</source>
+        <target>Літературні редактори</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreader</source>
+        <target>Коректор</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreaders</source>
+        <target>Коректори</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editor</source>
+        <target>Редактор макета</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editors</source>
+        <target>Редактори макета</target>
+      </segment>
+    </unit>
+    <unit id="user-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>Ролі</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirmation</source>
+        <target>Підтвердження</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send me a confirmation email including my username and password</source>
+        <target>Надішліть мені листа з іменем користувача та паролем для доступу</target>
+      </segment>
+    </unit>
+    <unit id="user-signature">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Signature</source>
+        <target>Підпис</target>
+      </segment>
+    </unit>
+    <unit id="user-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Посада</target>
+      </segment>
+    </unit>
+    <unit id="user-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="user-userHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Home</source>
+        <target>Тека користувача</target>
+      </segment>
+    </unit>
+    <unit id="user-username">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>Ім'я користувача</target>
+      </segment>
+    </unit>
+    <unit id="user-workingLanguages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Working Languages</source>
+        <target>Робочі мови</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ORCID iD</source>
+        <target>ORCID iD</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid-orcidInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The ORCID iD you specified is invalid. Please include the full URI (e.g. "https://orcid.org/0000-0002-1825-0097").</source>
+        <target>Ви вказали недійсний ORCID iD. Будь ласка, додайте повний URI (e.g. "https://orcid.org/0000-0002-1825-0097").</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-identity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identity</source>
+        <target>Ідентифікація</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-contact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact</source>
+        <target>Контакти</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-public">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public</source>
+        <target>Відкритий</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>API Key</source>
+        <target>Ключ API</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKeyEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable external applications with the API key to access this account</source>
+        <target>Дозволити зовнішнім додаткам за допомогою ключа API доступ до цього облікового запису</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate new API key</source>
+        <target>Згенерувати новий ключ API</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generateWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generating a new API key will invalidate any existing key for this user.</source>
+        <target>Створення нового ключа API призведе до того, що існуючий ключ стане недійсним для цього користувача.</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-secretRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</source>
+        <target>Перед створенням ключа API адміністратор вашого сайту повинен встановити таємний код у файлі конфігурації ("api_key_secret").</target>
+      </segment>
+    </unit>
+    <unit id="user-privacyLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Your data is stored in accordance with our <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target><![CDATA[Ваші дані зберігаються відповідно до нашої <a href="{$privacyUrl}" target="_blank"> заяви про конфіденційність</a>.]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

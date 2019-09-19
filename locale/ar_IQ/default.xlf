@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="default-groups-name-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Admin</source>
+        <target>مدير الموقع</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Admins</source>
+        <target>مدراء الموقع</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production editor</source>
+        <target>محرر الإنتاج</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production editors</source>
+        <target>محررو الإنتاج</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-productionEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ProdE</source>
+        <target>مح إنتاج</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditor</source>
+        <target>مدقق</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditors</source>
+        <target>مدققون</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CE</source>
+        <target>مدق</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreader</source>
+        <target>مصحح القراءة</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreaders</source>
+        <target>مصححو القراءة</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PR</source>
+        <target>مص قر</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designer</source>
+        <target>مصمم</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designers</source>
+        <target>مصممون</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-designer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Design</source>
+        <target>تصميم</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Reviewer</source>
+        <target>محكم داخلي</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Internal Reviewers</source>
+        <target>محكمون داخليون</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-internalReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>IR</source>
+        <target>مح دخ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing and sales coordinator</source>
+        <target>منسق تسويق ومبيعات</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing and sales coordinators</source>
+        <target>منسقو تسويق ومبيعات</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>MS</source>
+        <target>منسق تس بع</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Funding coordinator</source>
+        <target>منسق تمويل</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Funding coordinators</source>
+        <target>منسقو تمويل</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-funding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>FC</source>
+        <target>منسق تل</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexer</source>
+        <target>مفهرس</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Indexers</source>
+        <target>مفهرسون</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-indexer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>IND</source>
+        <target>مفس</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editor</source>
+        <target>مصمم طباعي</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editors</source>
+        <target>مصممون طباعيون</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>LE</source>
+        <target>مصم طع</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author</source>
+        <target>مؤلف</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>مؤلفون</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>AU</source>
+        <target>مؤ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Translator</source>
+        <target>مترجم</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Translators</source>
+        <target>مترجمون</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-translator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Trans</source>
+        <target>متجم</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-name-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader</source>
+        <target>قارئ</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-plural-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Readers</source>
+        <target>قراء</target>
+      </segment>
+    </unit>
+    <unit id="default-groups-abbrev-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read</source>
+        <target>قرء</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>الغير</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-multimedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Multimedia</source>
+        <target>متعدد الوسائط</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-image">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Image</source>
+        <target>صورة</target>
+      </segment>
+    </unit>
+    <unit id="default-genres-styleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML Stylesheet</source>
+        <target>ملف أنماط HTML</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,1997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:58-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:58-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="grid-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Items</source>
+        <target>No hay artículos</target>
+      </segment>
+    </unit>
+    <unit id="grid-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Preferencias</target>
+      </segment>
+    </unit>
+    <unit id="grid-noAuditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Auditors</source>
+        <target>No hay auditores/as</target>
+      </segment>
+    </unit>
+    <unit id="grid-remotelyHostedItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This item is remotely hosted.</source>
+        <target>Este elemento está hospedado remotamente.</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uninstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninstall</source>
+        <target>Desinstalar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-manageAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage Access</source>
+        <target>Administrar el acceso</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sort</source>
+        <target>Orden</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Item</source>
+        <target>Agregar ítem</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Note</source>
+        <target>Añadir nota</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add discussion</source>
+        <target>Añadir discusión</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read discussion</source>
+        <target>Leer la discusión</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete discussion</source>
+        <target>Eliminar la discusión</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-updateQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Update discussion</source>
+        <target>Actualizar la discusión</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>Añadir usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign this reviewer</source>
+        <target>Cancelar la asignación del revisor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approveCopyedit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve this copyedit file for sending it to the next stage</source>
+        <target>Aceptar la corrección del archivo para enviarlo a la siguiente fase</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-reload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload</source>
+        <target>Recargar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Eliminar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete File</source>
+        <target>Eliminar el archivo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Media</source>
+        <target>Eliminar multimedia</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editMedia">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Media</source>
+        <target>Editar multimedia</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Section</source>
+        <target>Editar sección</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-export">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export</source>
+        <target>Exportar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Section</source>
+        <target>Eliminar sección</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editorialHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial History</source>
+        <target>Historia editorial</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>Eliminar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Editar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-approve">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve</source>
+        <target>Aprobar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disapprove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disapprove</source>
+        <target>Rechazar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-setApproval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Set Approval</source>
+        <target>Establecer la aceptación</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Information</source>
+        <target>Más información</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore Defaults</source>
+        <target>Restaurar valores por defecto</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreDefaults-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to restore the defaults?</source>
+        <target>¿Está seguro de que desea restaurar los ajustes predeterminados?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Author</source>
+        <target>Añadir autor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Author</source>
+        <target>Editar autor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Author</source>
+        <target>Eliminar autor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add an Auditor</source>
+        <target>Añadir un auditor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade</source>
+        <target>Actualizar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-order">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order</source>
+        <target>Ordenar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-cancelOrdering">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel ordering</source>
+        <target>Cancelar la ordenación</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-extendAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extend all</source>
+        <target>Desplegar todo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse</source>
+        <target>Replegar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-collapseAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collapse all</source>
+        <target>Replegar todo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings wizard</source>
+        <target>Asistente de ajustes</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moveItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Move Item</source>
+        <target>Mover elemento</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-downloadAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download all files as an archive</source>
+        <target>Descargar todos los ficheros en un archivo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-readReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read this review</source>
+        <target>Leer la revisión</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send email</source>
+        <target>Envíar correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a reviewer</source>
+        <target>Añadir un revisor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a file</source>
+        <target>Añadir un archivo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit a file</source>
+        <target>Editar un archivo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select files to manage</source>
+        <target>Seleccionar los archivos que gestionar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request revisions for this submission</source>
+        <target>Solicitar revisiones para este envío</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-accept">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accept this submission</source>
+        <target>Aceptar este envío</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-decline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decline this Submission</source>
+        <target>Declinar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-internalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to internal review</source>
+        <target>Mandar este envío a una revisión interna</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-externalReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to external review</source>
+        <target>Mandar este envío a una revisión externa</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendToProduction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send this submission to production</source>
+        <target>Mandar este envío a producción</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Ajustes</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import or export content or site data</source>
+        <target>Importar o exportar contenido o datos del sitio</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-orderItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable ordering mode</source>
+        <target>Activar el modo ordenación</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this checklist item</source>
+        <target>Editar este elemento de la lista de control</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSubmissionChecklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this checklist item</source>
+        <target>Eliminar este elemento de la lista de control</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset all items to default values</source>
+        <target>Restaurar todos los elementos a los valores predefinidos</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new email template</source>
+        <target>Añadir una nueva plantilla de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editPreparedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this email template</source>
+        <target>Editar esta plantilla de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disableEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable this email template</source>
+        <target>Desactivar esta plantilla de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-resetEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset this email template to the default</source>
+        <target>Restaurar esta plantilla de correo electrónico a su versión por defecto</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expandAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand All</source>
+        <target>Expandir todo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-requestAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a participant</source>
+        <target>Añadir un participante</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-expand">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expand</source>
+        <target>Expandir</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-notify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify this user</source>
+        <target>Notificar a este usuario</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a new User Group</source>
+        <target>Añadir un nuevo grupo de usuarios/as</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this user group</source>
+        <target>Editar este grupo de usuarios/as</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-removeUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove this user group</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-action-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Desactivar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View this item</source>
+        <target>Ver este elemento</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enrolExisting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrol an existing user as a reviewer</source>
+        <target>Registrar un usuario/a existente como revisor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-selectCreate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new reviewer</source>
+        <target>Crear un nuevo revisor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>Buscar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-advancedSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Search</source>
+        <target>Búsqueda avanzada</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewLibrary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Document Library</source>
+        <target>Ver biblioteca de documentos</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the metadata for this submission</source>
+        <target>Ver los metadatos de este envío</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-sendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a task reminder to this user</source>
+        <target>Envía un recordatorio a este usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new round</source>
+        <target>Crea una nueva ronda</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewReviewGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the review guidelines</source>
+        <target>Ver las directrices de revisión</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-viewCompetingInterestGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View the competing interests guidelines policy</source>
+        <target>Ver las directrices políticas sobre conflictos de interés</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-thankReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a thank you message to this reviewer</source>
+        <target>Enviaar un mensaje de agradecimiento a este revisor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload a file</source>
+        <target>Cargar un archivo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement Type</source>
+        <target>Añadir un tipo de anuncio</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Announcement</source>
+        <target>Añadir anuncio</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge user</source>
+        <target>Fusionar usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unassignUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign User</source>
+        <target>Cancelar la asignación del usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-history">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View History</source>
+        <target>Ver historial</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-unconsiderReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is complete, but you may unconsider it</source>
+        <target>Esta revisión está completa pero podría reconsiderarlo</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Activar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-bookInfo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Info</source>
+        <target>Información del envío</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-logInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login As</source>
+        <target>Iniciar sesión como</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-exportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export All Users</source>
+        <target>Exportar todos los usuarios/as</target>
+      </segment>
+    </unit>
+    <unit id="grid-users-confirmExportAllUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to export all users?</source>
+        <target>¿Está seguro de que desea exportar todos los usuarios/as?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate</source>
+        <target>Activar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deactivate</source>
+        <target>Desactivar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-copy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy</source>
+        <target>Copiar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview</source>
+        <target>Previsualizar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-install">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install</source>
+        <target>Instalar</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-moreItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Load more</source>
+        <target>Cargar más</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View/Select users</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This task is completed</source>
+        <target>Tarea completada</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-new">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checked when considered</source>
+        <target>Marcar cuando se considere oportuno</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-uploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The column title indicates who uploaded this file</source>
+        <target>El título de la columna indica quién ha subido el fichero</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-unfinished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task unfinished</source>
+        <target>Tarea incompleta</target>
+      </segment>
+    </unit>
+    <unit id="grid-task-status-reviewReady">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This review is ready. Click the note icon to the left to read it.</source>
+        <target>La revisión está lista. Haga clic en el icono de nota hacia la izquierda para leerla.</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-actions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Actions</source>
+        <target>Acciones</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-institution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Institution</source>
+        <target>Institución</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-auditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor</source>
+        <target>Auditor/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-columns-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>Local</target>
+      </segment>
+    </unit>
+    <unit id="grid-sponsor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsoring Organizations</source>
+        <target>Patrocinadores</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Sponsor</source>
+        <target>Añadir patrocinador</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Sponsor</source>
+        <target>Eliminar patrocinador</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSponsor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Sponsor</source>
+        <target>Editar patrocinador</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Series</source>
+        <target>Añadir colecciones</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Series</source>
+        <target>Editar colecciones</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteSeries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Series</source>
+        <target>Eliminar colecciones</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target>Añadir categoría</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target>Editar categoría</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Category</source>
+        <target>Eliminar categoría</target>
+      </segment>
+    </unit>
+    <unit id="grid-contributor-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sources of Support</source>
+        <target>Fuentes de ayuda</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Contributor</source>
+        <target>Añadir colaborador/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Contributor</source>
+        <target>Editar colaborador/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteContributor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Contributor</source>
+        <target>Eliminar colaborador/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-newVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new version</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewForm-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Formularios de revisión</target>
+      </segment>
+    </unit>
+    <unit id="grid-reviewFormElement-responseItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Options</source>
+        <target>Opciones de respuesta</target>
+      </segment>
+    </unit>
+    <unit id="grid-noFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files</source>
+        <target>No hay archivos</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-column-files">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files</source>
+        <target>Archivos</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-submission-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Library</source>
+        <target>Biblioteca de envíos</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-editorial-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Library</source>
+        <target>Biblioteca editorial</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-review-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Library</source>
+        <target>Biblioteca de revisiones</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-production-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Library</source>
+        <target>Biblioteca de producción</target>
+      </segment>
+    </unit>
+    <unit id="grid-libraryFiles-productionTemplate-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Template Library</source>
+        <target>Biblioteca de plantillas de producción</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Checklist</source>
+        <target>Lista de comprobación de la presentación</target>
+      </segment>
+    </unit>
+    <unit id="grid-submissionChecklist-column-checklistItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist Item</source>
+        <target>Elemento de la lista de comprobación</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nombre</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>E-mail</source>
+        <target>Correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-role">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role</source>
+        <target>Rol</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Primary Contact</source>
+        <target>Contacto principal</target>
+      </segment>
+    </unit>
+    <unit id="author-users-contributor-includeInBrowse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Browse Lists</source>
+        <target>En listas de navegación</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-currentRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Roles</source>
+        <target>Roles actuales</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Role</source>
+        <target>Crear nuevo rol</target>
+      </segment>
+    </unit>
+    <unit id="grid-roles-stageAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stage Assignment</source>
+        <target>Asignación de fase</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Users</source>
+        <target>Usuarios/as actuales</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-currentEnrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Enrollment</source>
+        <target>Registros actuales</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Roles</source>
+        <target>Todos los roles</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-allPermissionLevels">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Permission Levels</source>
+        <target>Todos los niveles de permisos</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add User</source>
+        <target>Añadir usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>Registrar usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>Editar usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>Correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Activar</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Desactivar</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-disableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for disabling user</source>
+        <target>Motivo por el que se desactiva el usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-enableReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reason for enabling user</source>
+        <target>Motivo por el que se activa el usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered administrating this user. Please try again.</source>
+        <target>Se produjo un error al gestionar este usuario. Por favor, vuelva a intentarlo.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-errorEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator.</source>
+        <target>Se produjo un error al enviar este correo electrónico. Por favor, asegúrese de que la configuración de su servidor de correo electrónico funciona y/o contacte con el administrador de sistemas.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-cannotAdminister">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have sufficient permissions to administer this user. In order to administer a user, you must either be site administrator, or administer all contexts that this user is enrolled in.</source>
+        <target>No tiene los permisos suficientes para administrar este usuario/a. Para hacerlo debe ser administrador del sitio o bien gestionar todos los contextos en que este usuario/a está registrado.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>Fuente de autentificación</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>Por favor, aporte por lo menos el apellido del usuario/a.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate Password</source>
+        <target>Generar una contraseña</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-generatePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate random password for this user.</source>
+        <target>Generar una contraseña aleatoria para este usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify User</source>
+        <target>Notificar al usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-notifyUserDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send user a welcome email.</source>
+        <target>Enviar un correo electrónico de bienvenida al usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>Modificar la contraseña</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User must change password on next log in.</source>
+        <target>Pedir al usuario/a que cambie la contraseña la próxima vez que inicie sesión.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mustChangePasswordDescriptionOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>Pedir al usuario/a que cambie la contraseña la próxima vez que inicie sesión.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-moreDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More User Details</source>
+        <target>Más detalles del usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-lessDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Less User Details</source>
+        <target>Menos detalles del usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Details</source>
+        <target>Detalles del usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Roles</source>
+        <target>Roles del usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-userNoRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user does not have any roles.</source>
+        <target>Este usuario/a no tiene ningún rol</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step1">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #1: Fill in User Details</source>
+        <target>Paso #1: Completar los detalles de usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-step2">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step #2: Add User Roles to {$userFullName}</source>
+        <target>Paso #2: Añadir roles de usuario/a a {$userFullName}</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Roles</source>
+        <target>Añadir roles</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-addRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Role</source>
+        <target>Añadir rol</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-selectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select User</source>
+        <target>Seleccionar usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-pleaseSelectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a user</source>
+        <target>Por favor, seleccione un usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-confirmLogInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log in as this user? All actions you perform will be attributed to this user.</source>
+        <target>¿Iniciar sesión como este usuario/a? Todas las acciones que realice se atribuirán a él.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>Fusionar usuarios/as</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>Fusionar usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-mergeIntoUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge into this User</source>
+        <target>Fusionar en este usuario/a</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-allUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Enrolled Users</source>
+        <target>Todos los usuarios/as registrados.</target>
+      </segment>
+    </unit>
+    <unit id="grid-user-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</source>
+        <target>¿Está seguro de que desea fusionar la cuenta de usuario/a "{$oldUsername}" con la del usuario/a "{$newUsername}"? La cuenta del usuario/a "{$oldUsername}" dejará de existir. Esta acción no es reversible.</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Email Templates</source>
+        <target>Plantillas de correo electrónico preparadas</target>
+      </segment>
+    </unit>
+    <unit id="grid-preparedEmails-currentList">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current List</source>
+        <target>Lista actual</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-allCategories">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Categories</source>
+        <target>Todas las categorías</target>
+      </segment>
+    </unit>
+    <unit id="grid-plugin-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to disable this plugin?</source>
+        <target>¿Esta seguro de que desea desactivar este conector?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-fileUnconsider">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofing corrections made. You may unconsider this task</source>
+        <target>Correcciones de prueba realizadas. Puede reconsiderar esta tarea.</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-caption">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Caption</source>
+        <target>Título</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-credit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Credit</source>
+        <target>Crédito</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightOwner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Owner</source>
+        <target>Propietario del Copyright</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-copyrightContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact Info (if not author/publisher)</source>
+        <target>Información de contacto (si no hay autor/prensa)</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-permissionTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission Terms</source>
+        <target>Términos de licencia</target>
+      </segment>
+    </unit>
+    <unit id="grid-artworkFile-placement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Placement in submission</source>
+        <target>Situación en el libro</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign stage</source>
+        <target>Asignar fase</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign stage</source>
+        <target>Cancelar la asignación de fase</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-allStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Workflow Stages</source>
+        <target>Todas las fases del proceso de trabajo</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-listRoles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List roles assigned to</source>
+        <target>Lista de roles asignados a</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-filter-permissionLevel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With permission level set to</source>
+        <target>Con el nivel de permisos establecido en</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveDefaultUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The role {$userGroupName} is a default one and can't be removed.</source>
+        <target>El rol de {$userGroupName} está predefinido y no puede ser eliminado.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-cantRemoveUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it.</source>
+        <target>No se puede eliminar el rol de {$userGroupName}. Actualmente tiene {$usersCount} usuarios/as asignados.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-removed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role removed.</source>
+        <target>Rol de {$userGroupName} eliminado.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-assignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role assigned to {$stageName} stage.</source>
+        <target>Rol de {$userGroupName} asignado a la fase de {$stageName}.</target>
+      </segment>
+    </unit>
+    <unit id="grid-userGroup-unassignedStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$userGroupName} role unassigned from {$stageName} stage.</source>
+        <target>Rol de {$userGroupName} desasignado de la fase de {$stageName}.</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-itemTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author; Title</source>
+        <target>Autor; título</target>
+      </segment>
+    </unit>
+    <unit id="grid-submission-active-selectOrphaned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Include incomplete submissions not submitted by an author.</source>
+        <target>Incluir presentaciones incompletas no enviadas por un autor.</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Menu</source>
+        <target>Añadir menú</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add item</source>
+        <target>Añadir elemento</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenuItems-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menu Items</source>
+        <target>No hay elementos de navegación</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Navigation Menus</source>
+        <target>No hay menús de navegación</target>
+      </segment>
+    </unit>
+    <unit id="grid-navigationMenus-navigationMenu-selectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose a type...</source>
+        <target>Escoger un tipo...</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

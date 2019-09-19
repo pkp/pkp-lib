@@ -9,8 +9,8 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:45-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:45-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:56-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:56-07:00</note>
       <note id="Language"></note>
     </notes>
     <unit id="api-400-paramNotSupported">
@@ -47,6 +47,114 @@
       <segment>
         <source>The requested URL was not recognized.</source>
         <target>The requested URL was not recognized.</target>
+      </segment>
+    </unit>
+    <unit id="api-emailTemplates-404-templateNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template you requested was not found.</source>
+        <target>The email template you requested was not found.</target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-alreadyPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication you want to publish is already published.</source>
+        <target>The publication you want to publish is already published.</target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-alreadyUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication you want to unpublish is not published.</source>
+        <target>The publication you want to unpublish is not published.</target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantEditPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not edit this publication because it has already been published.</source>
+        <target>You can not edit this publication because it has already been published.</target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantEditStatus">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not modify the status directly through the API. Instead, use the /publish and /unpublish endpoints.</source>
+        <target>You can not modify the status directly through the API. Instead, use the /publish and /unpublish endpoints.</target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantDeletePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must unpublish this publication before you can delete it.</source>
+        <target>You must unpublish this publication before you can delete it.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongDateFormat">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The date must be in the format YYYY-MM-DD.</source>
+        <target>The date must be in the format YYYY-MM-DD.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date can not be later than the end date.</source>
+        <target>The start date can not be later than the end date.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-earlyDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date can not be earlier than 2001-01-01.</source>
+        <target>The start date can not be earlier than 2001-01-01.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-lateDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The end date can not be later than yesterday.</source>
+        <target>The end date can not be later than yesterday.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongTimelineInterval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was not valid. The timelineInterval must be `day` or `month`.</source>
+        <target>Your request was not valid. The timelineInterval must be `day` or `month`.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-invalidOrderDirection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was not valid. The orderDirection must be `desc` or `asc`.</source>
+        <target>Your request was not valid. The orderDirection must be `desc` or `asc`.</target>
       </segment>
     </unit>
     <unit id="api-submissions-403-csrfTokenFailure">
@@ -121,69 +229,6 @@
         <target>An unexpected error has occurred. Please reload the page and try again.</target>
       </segment>
     </unit>
-    <unit id="api-emailTemplates-404-templateNotFound">
-      <notes>
-        <note category="context"></note>
-      </notes>
-      <segment>
-        <source>The email template you requested was not found.</source>
-        <target>The email template you requested was not found.</target>
-      </segment>
-    </unit>
-    <unit id="api-stats-400-wrongDateFormat">
-      <notes>
-        <note category="context"></note>
-      </notes>
-      <segment>
-        <source>The date must be in the format YYYY-MM-DD.</source>
-        <target>The date must be in the format YYYY-MM-DD.</target>
-      </segment>
-    </unit>
-    <unit id="api-stats-400-wrongDateRange">
-      <notes>
-        <note category="context"></note>
-      </notes>
-      <segment>
-        <source>The start date can not be later than the end date.</source>
-        <target>The start date can not be later than the end date.</target>
-      </segment>
-    </unit>
-    <unit id="api-stats-400-earlyDateRange">
-      <notes>
-        <note category="context"></note>
-      </notes>
-      <segment>
-        <source>The start date can not be earlier than 2001-01-01.</source>
-        <target>The start date can not be earlier than 2001-01-01.</target>
-      </segment>
-    </unit>
-    <unit id="api-stats-400-lateDateRange">
-      <notes>
-        <note category="context"></note>
-      </notes>
-      <segment>
-        <source>The end date can not be later than yesterday.</source>
-        <target>The end date can not be later than yesterday.</target>
-      </segment>
-    </unit>
-    <unit id="api-stats-400-wrongTimelineInterval">
-      <notes>
-        <note category="context"></note>
-      </notes>
-      <segment>
-        <source>Your request was not valid. The timelineInterval must be `day` or `month`.</source>
-        <target>Your request was not valid. The timelineInterval must be `day` or `month`.</target>
-      </segment>
-    </unit>
-    <unit id="api-stats-400-invalidOrderDirection">
-      <notes>
-        <note category="context"></note>
-      </notes>
-      <segment>
-        <source>Your request was not valid. The orderDirection must be `desc` or `asc`.</source>
-        <target>Your request was not valid. The orderDirection must be `desc` or `asc`.</target>
-      </segment>
-    </unit>
     <unit id="api-temporaryFiles-400-noUpload">
       <notes>
         <note category="context"></note>
@@ -227,6 +272,24 @@
       <segment>
         <source>The active theme, {$themePluginPath}, is not enabled and may not be installed.</source>
         <target>The active theme, {$themePluginPath}, is not enabled and may not be installed.</target>
+      </segment>
+    </unit>
+    <unit id="api-vocabs-400-localeNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$locale} locale is not supported.</source>
+        <target>The {$locale} locale is not supported.</target>
+      </segment>
+    </unit>
+    <unit id="api-vocabs-400-vocabNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$vocab} vocab is not supported.</source>
+        <target>The {$vocab} vocab is not supported.</target>
       </segment>
     </unit>
   </file>

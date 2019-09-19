@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:20-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:20-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="comments-anonymous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anonymous User</source>
+        <target>匿名用户</target>
+      </segment>
+    </unit>
+    <unit id="comments-anonymousNamed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$userName}"</source>
+        <target>"{$userName}"</target>
+      </segment>
+    </unit>
+    <unit id="comments-body">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Body</source>
+        <target>正文</target>
+      </segment>
+    </unit>
+    <unit id="comments-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A comment title is required.</source>
+        <target>评论的标题是必须的.</target>
+      </segment>
+    </unit>
+    <unit id="comments-confirmDeleteChildren">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deleting this comment will also delete any replies to it. Are you sure you wish to do this?</source>
+        <target>删除此评论将同时删除任何回复。您确定要做到这一点?</target>
+      </segment>
+    </unit>
+    <unit id="comments-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this comment</source>
+        <target>删除这个评论</target>
+      </segment>
+    </unit>
+    <unit id="comments-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Email</source>
+        <target>提交人电子邮箱</target>
+      </segment>
+    </unit>
+    <unit id="comments-emailReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Reply</source>
+        <target>回复电子邮件</target>
+      </segment>
+    </unit>
+    <unit id="comments-enterComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter Comment</source>
+        <target>输入评论</target>
+      </segment>
+    </unit>
+    <unit id="comments-inResponseTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[In response to <a href="{$url}">{$title}</a>]]></source>
+        <target><![CDATA[在回应 <a href="{$url}">{$title}</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="comments-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Poster Name</source>
+        <target>提交人姓名</target>
+      </segment>
+    </unit>
+    <unit id="comments-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No reader comments have been posted.</source>
+        <target>没有已经发布的读者评论.</target>
+      </segment>
+    </unit>
+    <unit id="comments-nReplies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>({$num} Replies)</source>
+        <target>({$num} 回复)</target>
+      </segment>
+    </unit>
+    <unit id="comments-oneReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(1 Reply)</source>
+        <target>(1 回复)</target>
+      </segment>
+    </unit>
+    <unit id="comments-postAnonymously">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post this comment anonymously</source>
+        <target>匿名发布这个评论</target>
+      </segment>
+    </unit>
+    <unit id="comments-postReply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Post Reply</source>
+        <target>发表回复</target>
+      </segment>
+    </unit>
+    <unit id="comments-readerComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader Comments</source>
+        <target>读者评论</target>
+      </segment>
+    </unit>
+    <unit id="comments-readMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read more</source>
+        <target>更多</target>
+      </segment>
+    </unit>
+    <unit id="comments-replies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replies</source>
+        <target>回复</target>
+      </segment>
+    </unit>
+    <unit id="comments-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>标题</target>
+      </segment>
+    </unit>
+    <unit id="comments-viewAllComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View all comments</source>
+        <target>查看所有评论</target>
+      </segment>
+    </unit>
+    <unit id="reader-fullText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Full Text:</source>
+        <target>全文:</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

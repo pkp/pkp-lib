@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="api-400-paramNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$param} parameter is not supported.</source>
+        <target>إن العامل {$param} غير مدعوم.</target>
+      </segment>
+    </unit>
+    <unit id="api-403-unauthorized">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are not authorized to access the requested resource.</source>
+        <target>ليست لديك صلاحية الوصول إلى المورد الذي طلبته.</target>
+      </segment>
+    </unit>
+    <unit id="api-404-resourceNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The requested resource was not found.</source>
+        <target>تعذر العثور على المورد المطلوب.</target>
+      </segment>
+    </unit>
+    <unit id="api-404-endpointNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The requested URL was not recognized.</source>
+        <target>تعذر التعرف على الرابط المطلوب.</target>
+      </segment>
+    </unit>
+    <unit id="api-emailTemplates-404-templateNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template you requested was not found.</source>
+        <target>تعذر العثور على قالب المراسلة الذي تطلبه.</target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-alreadyPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication you want to publish is already published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-alreadyUnpublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The publication you want to unpublish is not published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantEditPublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not edit this publication because it has already been published.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantEditStatus">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not modify the status directly through the API. Instead, use the /publish and /unpublish endpoints.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-publication-403-cantDeletePublished">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must unpublish this publication before you can delete it.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongDateFormat">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The date must be in the format YYYY-MM-DD.</source>
+        <target>التاريخ لا بد أن يكون بالتنسيق YYYY-MM-DD.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date can not be later than the end date.</source>
+        <target>تاريخ البدء لا يمكن له أن يكون بعد تاريخ الانتهاء.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-earlyDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date can not be earlier than 2001-01-01.</source>
+        <target>تاريخ البدء لا يمكن له أن يكون قبل 2001-01-01.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-lateDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The end date can not be later than yesterday.</source>
+        <target>تاريخ الانتهاء لا يمكن له أن يكون بعد البارحة.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-wrongTimelineInterval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was not valid. The timelineInterval must be `day` or `month`.</source>
+        <target>طلبك غير صحيح. فترة مقياس الزمن لا بد أن تكون إما `day` أو `month`.</target>
+      </segment>
+    </unit>
+    <unit id="api-stats-400-invalidOrderDirection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was not valid. The orderDirection must be `desc` or `asc`.</source>
+        <target>طلبك غير صحيح. طريقة الترتيب لا بد لها أن تكون إما `desc` أو `asc`.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-csrfTokenFailure">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request was denied. This may be because your login has expired. Try reloading the page and trying again.</source>
+        <target>طلبك مرفوض. قد يكون سبب ذلك أنه انتهت صلاحية دخولك إلى الموقع. حاول تنشيط الصفحة ثم عاود الكرة.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-requestedOthersUnpublishedSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can only view unpublished submissions to which you have been assigned.</source>
+        <target>يمكنك فقط معاينة الطلبات غير المنشورة التي تم تعيينها لك.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-deleteSubmissionOutOfContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not delete a submission that is not assigned to this context.</source>
+        <target>ليس بإمكانك حذف طلب النشر غير المضمن في هذا السياق.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-403-unauthorizedDeleteSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to delete this submission.</source>
+        <target>ليس لديك صلاحية حذف طلب النشر هذا.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-404-siteWideEndpoint">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This endpoint is not available from a context. It must be accessed from the site-wide namespace.</source>
+        <target>هذه النقطة غير متاحة ضمن أي سياق. لا بد من الوصول إليها عبر مجال تسمية معرف على نطاق الموقع بالكامل.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-400-missingRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your request could not be fulfilled because it is missing required information.</source>
+        <target>تعذر تنفيذ طلبك لأنه يفتقر إلى معلومات ضرورية.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-400-invalidIssueIdentifiers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The requested volume, number or year is not valid.</source>
+        <target>ما تطلبه من رقم المجلد، العدد، أو السنة، غير صحيح.</target>
+      </segment>
+    </unit>
+    <unit id="api-submissions-unknownError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unexpected error has occurred. Please reload the page and try again.</source>
+        <target>حدث خطأ غير متوقع. لطفاً، أعد تحميل الصفحة ثم حاول مرة أخرى.</target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-400-noUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No file to be uploaded could be found with the request.</source>
+        <target>تعذر العثور على أي ملف لرفعه مع الطلب.</target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-409-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One or more files could not be uploaded.</source>
+        <target>تعذر رفع واحد أو أكثر من الملفات.</target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-400-fileSize">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files larger than {$maxSize} can not be uploaded.</source>
+        <target>يتعذر رفع الملفات التي يزيد حجمها عن {$maxSize}.</target>
+      </segment>
+    </unit>
+    <unit id="api-temporaryFiles-400-config">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File could not be uploaded because of a server configuration error. Please contact the system administrator.</source>
+        <target>تعذر رفع الملف بسبب خطأ في إعدادات الملقم. لطفاً، بادر إلى مراسلة مشرف النظام.</target>
+      </segment>
+    </unit>
+    <unit id="api-themes-404-themeUnavailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The active theme, {$themePluginPath}, is not enabled and may not be installed.</source>
+        <target>إن النمط {$themePluginPath} غير ممَكَّن أو قد يكون غير منصب.</target>
+      </segment>
+    </unit>
+    <unit id="api-vocabs-400-localeNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$locale} locale is not supported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="api-vocabs-400-vocabNotSupported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$vocab} vocab is not supported.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

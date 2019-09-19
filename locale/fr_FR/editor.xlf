@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:03-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:03-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="editor-activityLog">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activity Log</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionLibrary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Library</source>
+        <target>Bibliothèque de soumission</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-notInitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review process has not yet been initiated.</source>
+        <target>Le processus de révision n'a pas encore débuté.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-copyediting-personalMessageToUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Message to user</source>
+        <target>Message à l'utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-externalReviewDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select files below to send them to the review stage.</source>
+        <target>Vous entamez le processus d'évaluation externe de cette soumission. La liste des fichiers faisant partie de cette soumission est affichée ci-dessous. Ils peuvent être sélectionnés pour être révisés.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select at least one file to assign the user to.</source>
+        <target>Vous devez choisir au moins un fichier qui sera assigné à l'utilisateur.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-messageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must include a personal message.</source>
+        <target>Vous devez ajouter un message personnalisé.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send email to the Auditor</source>
+        <target>N'envoyez pas de courriels au vérificateur.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileAuditor-form-userRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a user to assign.</source>
+        <target>Vous devez choisir un utilisateur à qui l'ouvrage sera attribué.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-uploadSelectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload/Select Files</source>
+        <target>Transférer/Sélectionner les fichiers</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Files</source>
+        <target>Sélectionner les fichiers</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-revisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions</source>
+        <target>Révisions</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-review-reviewersDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers.]]></source>
+        <target><![CDATA[Utilisez <em>Ajouter un rapporteur</em> pour inviter des lecteurs à examiner les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il aura été consulté. Si les évaluations sont en retard, l'icône d'une enveloppe rouge s'affichera à titre de rappel pour les rapporteurs.]]></target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Reviewer</source>
+        <target>Ajouter un rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-findAndSelectReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locate a Reviewer</source>
+        <target>Trouver un rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-findAndSelectUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locate a User</source>
+        <target>Trouver un utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-fileList-includeAllStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show files from all accessible workflow stages.</source>
+        <target>Inclure tous les fichiers de toutes les étapes de production accessibles.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-review-currentFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Review Files For Round {$round}</source>
+        <target>{$round}e série d'évaluation des fichiers.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-backToSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back to Search</source>
+        <target>Revenir en mode de recherche simple</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-createReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Reviewer</source>
+        <target>Créer un nouveau rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-enrollReviewer-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll Existing User</source>
+        <target>Enregistrer un rapporteur actuel</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unassignReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassign Reviewer</source>
+        <target>Retirer ce rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-cancelReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel Reviewer</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reinstateReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reinstate Reviewer</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-reviewType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Type</source>
+        <target>Type d'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-sendEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email notification to the author(s): {$authorName}</source>
+        <target>Envoyer un mail aux auteurs : {$authorName}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-sendEmail-editors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email notification to the editor(s): {$editorNames}</source>
+        <target>Envoyer un mail aux rédacteurs : {$editorNames}</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send an email notification</source>
+        <target>Ne pas envoyer un courriel à l'auteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-open">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open</source>
+        <target>Évaluation ouverte</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-blind">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Blind</source>
+        <target>Évaluation à l'aveugle</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-doubleBlind">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Double-blind</source>
+        <target>Évaluation en double aveugle</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-restrictFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files To Be Reviewed</source>
+        <target>Restreindre les fichiers disponibles.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-restrictFiles-hide">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close File Selection</source>
+        <target>Fermer la sélection</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-editReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Review</source>
+        <target>Modifier l'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-anonymousReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anonymous Reviewer</source>
+        <target>Rapporteur anonyme</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-personalMessageToReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email to be sent to reviewer</source>
+        <target>Envoyer un courriel au rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-importantDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Important Dates</source>
+        <target>Dates importantes</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-uploadRevision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Revision</source>
+        <target>Transférer la révision</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-newReviewRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require New Review Round</source>
+        <target>Nécessite un nouveau cycle d'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-NotifyAuthorRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions will not be subject to a new round of peer reviews.</source>
+        <target>Demande de modifications "mineures" (Papier accepté avec corrections)</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-NotifyAuthorResubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions will be subject to a new round of peer reviews.</source>
+        <target>Demande de modifications "majeures" (sans décision )</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-dateAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Acceptance Date</source>
+        <target>Date d'acceptation de la révision</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewsAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviews added to message body.</source>
+        <target>Les rapports ont été ajoutés au corps du mail</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No peer reviews to import</source>
+        <target>Aucune révision des pairs à importer</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Reminder</source>
+        <target>Rappel d'examen de la soumission</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-thankReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank Reviewer</source>
+        <target>Remercier le rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reminderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error sending review reminder</source>
+        <target>Erreur d'envoi du rappel d'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-thankReviewerError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error sending thank you to reviewer</source>
+        <target>Erreur d'envoi du remerciement au rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send email to Reviewer.</source>
+        <target>Ne pas envoyer un courriel au rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-sendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Reminder</source>
+        <target>Envoyer un rappel</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read Review</source>
+        <target>Lire l'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readNewReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read New Review</source>
+        <target>Lire la nouvelle évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-responseDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response due: {$date}</source>
+        <target>Réponse due pour le {$date}</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Sent</source>
+        <target>Requête envoyée</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestAccepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Accepted</source>
+        <target>Requête acceptée</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestDeclined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Declined</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestCancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request Cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestDeclined-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The reviewer declined this review request.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-requestCancelled-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The editor cancelled this review request.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-revertDecision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revert Decision</source>
+        <target>Renverser la décision</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review due: {$date}</source>
+        <target>Évaluation due pour le: {$date}</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due Date</source>
+        <target>Date d'échéance de l'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Completed</source>
+        <target>Évaluation terminée</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewConfirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Confirmed</source>
+        <target>Évaluation confirmée</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Submitted</source>
+        <target>Évaluation soumise</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerThanked">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Thanked</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Comments</source>
+        <target>Commentaires du rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-rateReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating</source>
+        <target>Notation du rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-rateReviewer-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rate the quality of the review provided. This rating is not shared with the reviewer.</source>
+        <target>Noter la qualité du rapport. Cette note n'est pas accessible par le rapporteur.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewerRating-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No rating</source>
+        <target>Pas de notation.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-mustSelect">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must select a reviewer</source>
+        <target>Vous devez sélectionner un rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorAddingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error adding the reviewer.  Please try again.</source>
+        <target>Il y a eu une erreur au moment d'ajouter le rapporteur. Essayez de nouveau.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorDeletingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error deleting the reviewer.  Please try again.</source>
+        <target>Il y a eu une erreur au moment de supprimer le rapporteur. Essayez de nouveau.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-errorReinstatingReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error reinstating the reviewer.  Please try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="editor-review-userGroupSelect">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll the user with this reviewer user group</source>
+        <target>Ajouter l'utilisateur à ce groupe de rapporteurs</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unconsiderReviewText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do you wish to mark this review as unconsidered?  The review history will be preserved.</source>
+        <target>Vous souhaitez indiquer que cet examen n'a pas été considéré? L'historique des révisions sera conservé.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-unconsiderReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unconsider this Review</source>
+        <target>Ne pas considérer cet examen.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-readConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Once this review has been read, press "Confirm" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file below and then press "Confirm" to proceed.</source>
+        <target>Après avoir lu cet examen, choisissez "Confirmer" pour indiquer que le processus d'examen peut se poursuivre.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectCopyedingFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyediting Files</source>
+        <target>Fichiers de travail éditorial</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Reviewer</source>
+        <target>Choisir un rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-taskDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task Due Date</source>
+        <target>Date d'échéance de la tâche</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-taskSchedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Task schedule</source>
+        <target>Calendrier de la tâche</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-enrollReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll an Existing User as Reviewer</source>
+        <target>Enregistrer un utilisateur actuel à titre de rapporteur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noAuditRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No audit requested for this file</source>
+        <target>Aucune demande de vérification n'a été faite pour ce fichier.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-personalMessageToUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email to be sent to user</source>
+        <target>Un courriel sera envoyé à l'utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proof-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proof reminder</source>
+        <target>Rappel d'épreuve</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editorial-approveCopyeditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?</source>
+        <target>Le fichier révisé doit être approuvé avant de passer à l'étape de publication. Souhaitez-vous approuver ce fichier?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-editorial-disapproveCopyeditDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?</source>
+        <target>Si ce fichier n'est pas approuvé, il ne pourra pas passer à l'étape de publication. Souhaitez-vous désapprouver ce fichier?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-addAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign Auditor</source>
+        <target>Ajout d'un vérificateur</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-copyedit-manageCopyeditFilesDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any files that have already been uploaded to any submission stage can be added to the Copyedit Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link.</source>
+        <target>Tous les fichiers qui ont déjà été téléchargés dans une étape de soumission peuvent être ajoutés à la liste des fichiers de copie en cochant la case Inclure ci-dessous et en cliquant sur Rechercher: tous les fichiers disponibles seront répertoriés et peuvent être choisis pour inclusion. Les fichiers supplémentaires qui ne sont pas déjà chargés sur une étape peuvent être ajoutés à la liste en cliquant sur le lien Télécharger un fichier.</target>
+      </segment>
+    </unit>
+    <unit id="editor-review">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-reviewDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Details</source>
+        <target>Détails de l'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviewFilesUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files Uploaded</source>
+        <target>Aucun fichier transféré</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-noReviewFilesUploaded-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not uploaded any review files.</source>
+        <target>Vous n'avez transféré aucun fichier d'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-review-emailReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Reviewer</source>
+        <target>Envoyer un courriel</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-production-productionReadyFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production Ready Files</source>
+        <target>Fichiers publiables</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-newRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New Review Round</source>
+        <target>Nouvelle série d'évaluations</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordDecision">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record Editorial Decision</source>
+        <target>Enregistrement des décisions éditoriales</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record Editorial Recommendation</source>
+        <target>Enregistrement de la recommandation éditoriale</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-notifyEditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notify Editors</source>
+        <target>Notifier les rédacteurs</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-skipEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send editors an email.</source>
+        <target>Ne pas envoyer de mail aux rédacteurs.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-createDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a review discussion about this recommendation.</source>
+        <target>Créer une discussion sur cette recommandation.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-recordRecommendation-skipDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not create a review discussion.</source>
+        <target>Ne pas créer une discussion sur cette recommandation.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-newRoundDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below.</source>
+        <target>Vous êtes sur le point de créer une nouvelle série d'évaluations pour cette soumission. Les fichiers qui n'ont pas été utilisés dans les autres séries d'évaluations sont indiqués ci-dessous.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-createNewRound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Review Round</source>
+        <target>Créer une nouvelle série d'évaluations.</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-reviewForms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Formulaires d'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-selectReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Review Form</source>
+        <target>Sélectionner un formulaire d'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="editor-article-confirmChangeReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?</source>
+        <target>Avertissement: La modification du formulaire d'évaluation aura une incidence sur les réponses que les rapporteurs auront faites en utilisant ce formulaire. Êtes-vous sûr de vouloir continuer?</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noReviewerFilesSelected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Files Selected</source>
+        <target>Aucun fichier sélectionné</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-noReviewerFilesSelected-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not selected any files for the reviewer to review.</source>
+        <target>Vous n'avez pas sélectionné de fichiers pour que le rapporteur puisse les examiner.</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A discussion subject is required.</source>
+        <target>Un sujet de discussion est requis</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-messageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A discussion message is required.</source>
+        <target>Un message pour une discussion est requis</target>
+      </segment>
+    </unit>
+    <unit id="submission-queries-attachedFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attached Files</source>
+        <target>Fichiers attachés</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Discussion</source>
+        <target>Éditer la discussion</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-query-manageQueryNoteFilesDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files can be attached for inclusion in this discussion from the list below.</source>
+        <target>Les fichiers peuvent être inclus dans cette discussion à partir de la liste ci-dessous.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-selectedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selected Reviewer</source>
+        <target>Rapporteur sélectionné</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-approveProof">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve Proof</source>
+        <target>Approuver la preuve</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-revokeProofApproval">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revoke Proof Approval</source>
+        <target>Retirer l’approbation de la preuve</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-confirmCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Approve this proof to indicate proofreading is complete and the file is ready to be published.</source>
+        <target>Accepter la preuve pour indiquer que le document est prêt à être publié.</target>
+      </segment>
+    </unit>
+    <unit id="editor-submission-proofreading-confirmRemoveCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published.</source>
+        <target>Retirer l'approbation de la preuve et indiquer que ce document n'est pas prêt pour la publication.</target>
+      </segment>
+    </unit>
+    <unit id="editor-publicIdentificationNumericNotAllowed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The public identifier '{$publicIdentifier}' must not be a number.</source>
+        <target>Le public identifié comme '{$publicIdentifier}' ne peut être un numéro.</target>
+      </segment>
+    </unit>
+    <unit id="editor-publicIdentificationPatternNotAllowed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The pattern {$pattern} is not allowed for the public identifier.</source>
+        <target>Le modèle {$pattern} ne peut pas être utilisé comme public identifié.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-count">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} reviewers</source>
+        <target>{$count} rapporteurs</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-itemsOfTotal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} of {$total} reviewers</source>
+        <target>{$count} sur {$total} rapporteurs</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-filterRating">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Rated at least</source>
+        <target>Noté le moins bien</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-activeReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} active</source>
+        <target>{$count} en cours</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-activeReviewsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active reviews currently assigned</source>
+        <target>Evaluations actuellement assignées</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-completedReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviews completed</source>
+        <target>Evaluations finies</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-declinedReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review requests declined</source>
+        <target>Demandes d'évaluation refusées</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-cancelledReviews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review requests cancelled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-reviewerRating">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer rating: {$rating}</source>
+        <target>Notation du rapporteur : {$rating}</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daysSinceLastAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$days} days ago</source>
+        <target>il y a {$days} jours</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daySinceLastAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yesterday</source>
+        <target>Hier</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-daysSinceLastAssignmentDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Days since last review assigned</source>
+        <target>Nombre de jours depuis la dernière évaluation</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-averageCompletion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Average days to complete review</source>
+        <target>Temps moyen pour faire une évaluation</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-neverAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Never assigned</source>
+        <target>Jamais assigné</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-currentlyAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This reviewer has already been assigned to review this submission.</source>
+        <target>Ce rapporteur évalue déjà cette soumission.</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-warnOnAssign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Blind peer review can not be guaranteed. Would you like to unlock this reviewer anyway?</source>
+        <target>Ce rapporteur est bloqué car il a un rôle lui permettant de voir l'identité de l'auteur. Une évaluation en double-aveugle n'est donc pas garantie. Voulez-vous quand même faire la demande d'évaluation ?</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-warnOnAssignUnlock">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unlock</source>
+        <target>Débloquer</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-reviewInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing Interests</source>
+        <target>Thèmes de prédilection</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-biography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Biography</source>
+        <target>Biographie</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-list-empty">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No reviewers found</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

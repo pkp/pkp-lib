@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:18-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:18-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="user-accountInformation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Account Information</source>
+        <target>Hesap Bilgisi</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliation</source>
+        <target>Kurum</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Your institution, e.g. "Simon Fraser University")</source>
+        <target>(Kurumunuz, Ör.; İbn Haldun Üniversitesi, İnsan ve Toplum Bilimleri Fakültesi, Sosyoloji Bölümü)</target>
+      </segment>
+    </unit>
+    <unit id="user-affiliations">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Affiliations</source>
+        <target>Kurumlar</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Access denied.</source>
+        <target>Erişim engellendi.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-processAuthenticationTokenRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The process authentication token is missing or invalid.</source>
+        <target>İşlem kimlik belirteci eksik veya geçersiz.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You cannot call this operation without a context (press, journal, conference, etc).</source>
+        <target>Bir kaynak olmadan bu işlemi çağıramazsınız (dergi, konferans, vb.).</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-loginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login required.</source>
+        <target>Üye girişi gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-privateOperation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The operation you tried to access is either private or doesn't exist.</source>
+        <target>Yapmak istediğiniz işlem özel veya mevcut değil.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-restrictedSiteAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been denied access. Access to this site is currently restricted.</source>
+        <target>Erişiminiz engellendi. Bu sayfaya giriş sınırlandırılmıştır.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-roleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current role does not have access to this operation.</source>
+        <target>Mevcut yetkiniz bu işlemi gerçekleştirmek için yeterli değildir.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-assignedStageRoleBasedAccessDenied">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have not been assigned to this submission with a role that is allowed to access this operation.</source>
+        <target>Bu gönderiye, bu işleme erişmeye izin verilen bir rol ile tayin edilmediniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to set a valid user group to access this operation.</source>
+        <target>Bu işlemi gerçekleştirebilmek için geçerli bir kullanıcı grubu belirlemelisiniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-managerRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed.</source>
+        <target>Devam etmeden önce aşağıda Baskı Yöneticisi rolüne sahip bir kullanıcı atanmalıdır (Örneğin; baskı veya üretim editörü).</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-accessibleWorkflowStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You don't currently have access to that stage of the workflow.</source>
+        <target>Şu anda iş akışının bu aşamasına erişiminiz yok.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-workflowStageRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A workflow stage was not specified.</source>
+        <target>Herhangi bir iş akışı aşaması belirtilmemiş.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-pluginRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A plugin was not specified and is required.</source>
+        <target>Bir eklenti belirtilmemiş; ancak eklenti gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidReviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this review assignment.</source>
+        <target>Bu hakemlik görevine erişim izniniz yoktur.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not have permission to access this discussion.</source>
+        <target>Bu tartışmaya erişim izniniz yok.</target>
+      </segment>
+    </unit>
+    <unit id="user-biography">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Bio Statement (e.g., department and rank)</source>
+        <target>Öz Geçmiş</target>
+      </segment>
+    </unit>
+    <unit id="user-changeMyPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change My Password</source>
+        <target>Şifremi Değiştir</target>
+      </segment>
+    </unit>
+    <unit id="user-changePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change Password</source>
+        <target>Şifre Değiştir</target>
+      </segment>
+    </unit>
+    <unit id="user-dateLastLogin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last login</source>
+        <target>Son giriş</target>
+      </segment>
+    </unit>
+    <unit id="user-dateRegistered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date registered</source>
+        <target>Kayıt tarihi</target>
+      </segment>
+    </unit>
+    <unit id="user-editMyProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit My Profile</source>
+        <target>Profilimi Düzenle</target>
+      </segment>
+    </unit>
+    <unit id="user-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>E-posta</target>
+      </segment>
+    </unit>
+    <unit id="user-givenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Given Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing interests</source>
+        <target>Uzmanlık Alanı</target>
+      </segment>
+    </unit>
+    <unit id="user-interests-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(Separate interests by pressing the enter or comma key)</source>
+        <target>(Eğer aradığınız terim listede yoksa yazdıktan sonra "enter" veya "virgül" tuşuna basınız)</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial Notes</source>
+        <target>Özel notlar</target>
+      </segment>
+    </unit>
+    <unit id="user-gossip-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments.</source>
+        <target>Buraya girilen notlar yalnızca yöneticiler, dergi yöneticileri, editörler ve yardımcı editörler tarafından görülebilir.</target>
+      </segment>
+    </unit>
+    <unit id="user-group">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Group</source>
+        <target>Üye Grubu</target>
+      </segment>
+    </unit>
+    <unit id="user-familyName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Family Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</source>
+        <target>Hatalı görsel formatı ya da büyük görsel. Görseller .gif, .jpg veya .png biçimlerinden biri olmalıdır ve boyutları en fazla 150X150 ebadında olmamalıdır.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabledWithReason">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled for the following reason: {$reason}</source>
+        <target>Hesabınız aşağıda belirtilen nedenden dolayı pasifleştirilmiştir: {$reason}</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your account has been disabled. Please contact the administrator for more information.</source>
+        <target>Hesabınız pasifleştirilmiştir. Daha fazla bilgi için lütfen yönetici ile temasa geçiniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-accountNotValidated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>We've sent a confirmation email to you at {$email}. Please follow the instructions in that email to activate your new account. If you do not see an email, please check to see if it was put in your spam folder.</source>
+        <target>Size {$email} adresinden bir onay e-postası gönderildi. Yeni hesabınızı etkinleştirmek için lütfen bu e-postadaki talimatları izleyin. Bir e-posta almadıysanız, e-postanın spam klasörünüze düşüp-düşmediğini kontrol edin.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate Account</source>
+        <target>Hesap Etkinleştirme</target>
+      </segment>
+    </unit>
+    <unit id="user-login-activated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you for activating your account. You may now log in using the credentials you supplied when you created your account.</source>
+        <target>Hesabınızı etkinleştirdiğiniz için teşekkür ederiz. Şimdi hesabınızı oluştururken size verilen kimlik bilgilerini kullanarak giriş yapabilirsiniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></source>
+        <target><![CDATA[Siteye girmek için öncelikle yeni bir şifre belirlemeniz gerekmektedir. <br /><br />Şifrenizi değiştirmek için lütfen kullanıcı adınızı, mevcut şifrenizi ve yeni şifrenizi giriniz.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-login-forgotPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forgot your password?</source>
+        <target>Şifrenizi mi unuttunuz?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-loginError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid username or password. Please try again.</source>
+        <target>Kullanıcı adı yada şifre hatalı girildi. Büyük-küçük harf uyumuna dikkat ederek yeniden deneyiniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-login">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login</source>
+        <target>Giriş</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-confirmationSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password.</source>
+        <target>E-posta adresinize bir doğrulama mesajı gönderilmiştir. Şifrenizi yenilemek için bu e-postadaki talimatları uygulayınız.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidHash">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again.</source>
+        <target>Üzgünüz, tıklamış olduğunuz bağlantı geçerli değildir. Şifrenizi yenilemek için tekrar deneyiniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No user exists with the specified email address.</source>
+        <target>Belirtilen e-posta adresiyle kayıtlı bir kullanıcı bulunamamıştır.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-lostPassword-passwordSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A new password has been sent to your email address. You may now login to the site with your new password.</source>
+        <target>E-posta adresinize yeni şifreniz gönderilmiştir. Yeni şifrenizi kullanarak siteme bağlanabilirsiniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registeredEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registered user's email</source>
+        <target>Kayıtlı kullanıcının e-posta adresi</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration complete</source>
+        <target>Kayıt tamamlandı</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thanks for registering! What would you like to do next?</source>
+        <target>Kayıt olduğunuz için teşekkürler! Bundan sonra ne yapmak istersiniz?</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-manageSubmissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Submissions</source>
+        <target>Gönderileri Görüntüle</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-newSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Make a New Submission</source>
+        <target>Yeni Bir Gönderi Yap</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationComplete-continueBrowsing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue Browsing</source>
+        <target>Listelemeye Devam Et</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registrationPendingValidation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Registration awaiting verification</source>
+        <target>Onay bekleyen kayıt</target>
+      </segment>
+    </unit>
+    <unit id="user-login-rememberUsernameAndPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keep me logged in</source>
+        <target>Oturumumu açık tut</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset Password</source>
+        <target>Şifreyi Sıfırla</target>
+      </segment>
+    </unit>
+    <unit id="user-logOut">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout</source>
+        <target>Çıkış</target>
+      </segment>
+    </unit>
+    <unit id="user-logOutAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logout as</source>
+        <target>Gibi çıkış:</target>
+      </segment>
+    </unit>
+    <unit id="user-hello">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hello, </source>
+        <target>Merhaba,</target>
+      </segment>
+    </unit>
+    <unit id="user-mailingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mailing Address</source>
+        <target>Posta Adresi</target>
+      </segment>
+    </unit>
+    <unit id="user-myAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Account</source>
+        <target>Hesabım</target>
+      </segment>
+    </unit>
+    <unit id="user-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Ad</target>
+      </segment>
+    </unit>
+    <unit id="user-password">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>Şifre</target>
+      </segment>
+    </unit>
+    <unit id="user-repeatPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat password</source>
+        <target>Şifre tekrarı</target>
+      </segment>
+    </unit>
+    <unit id="user-phone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Phone</source>
+        <target>Tel</target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preferred Public Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-preferredPublicName-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-changePasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your current and new passwords below to change the password for your account.</source>
+        <target>Kullancı hesabınızın şifresini değiştirmek için mevcut ve yeni şifrenizi giriniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>Profil Düzenle</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-countryRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A country is required.</source>
+        <target>Bir ülke gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address is required.</source>
+        <target>Geçerli bir e-posta adresi gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-affiliationRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An affiliation is required.</source>
+        <target>Kurum adı girmeniz gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A given name is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-givenNameRequired-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have added a family name for a language that is missing the given name. Please add a given name for this language.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-mailingAddressRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A mailing address is required.</source>
+        <target>Bir e-posta adresi gerekli</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-newPasswordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter your new password.</source>
+        <target>Yeni şifrenizi girmeniz gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-oldPasswordInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current password you entered was incorrect.</source>
+        <target>Girdiğiniz şifre hatalı.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-openAccessNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Issue open access email notifications</source>
+        <target>Açık erişim e-posta bildirimleri</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password is required.</source>
+        <target>Şifre gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-passwordSameAsOld">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your new password is the same as your old password.</source>
+        <target>Yeni şifreniz eski şifrenizle aynıdır.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-profileImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile Image</source>
+        <target>Profil resmi</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-publishedNotifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New issue published email notifications</source>
+        <target>Yayılanmış yeni sayıyı e-posta uyarısı</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-urlInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</source>
+        <target>Belirtilen URL geçerli değil. Lütfen URL adresni kontrol ederek tekrar deneyin. (İpucu: URL başına http:// eklemeyi deneyin.)</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usergroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A user group is required.</source>
+        <target>Bir üye grubu gerekli</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username is required.</source>
+        <target>Kullanıcı adı girmeniz gerekli.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-form-privacyConsentRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must agree to the terms of the privacy statement.</source>
+        <target>Gizlilik beyanı şartlarını kabul etmelisiniz.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-leavePasswordBlank">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the password fields blank to keep the current password.</source>
+        <target>Mevcut şifreyle devam etmek için şifre alanını boş bırakınız.</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-newPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New password</source>
+        <target>Yeni şifre</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-oldPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current password</source>
+        <target>Mevcut şifre</target>
+      </segment>
+    </unit>
+    <unit id="user-profile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Profile</source>
+        <target>Profil</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-publicProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Profile</source>
+        <target>Üye profili</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-repeatNewPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repeat new password</source>
+        <target>Yeni şifreyi tekrar et</target>
+      </segment>
+    </unit>
+    <unit id="user-login-registerNewAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Kayıt</target>
+      </segment>
+    </unit>
+    <unit id="user-login-resetPasswordInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter your account email address below and an email will be sent with instructions on how to reset your password.</source>
+        <target>Hesabınızın e-posta adresini aşağıya girmeniz halinde şifrenizi nasıl sıfırlayacağınızla ilgili talimatlar içeren bir e-posta gönderilecektir.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-privacyConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Yes, I agree to have my data collected and stored according to the <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target><![CDATA[Evet, bana ait bilgilerin <a href="{$privacyUrl}" target="_blank">Politika Bildirimi</a>ne göre toplanmasını ve saklanmasını kabul ediyorum.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailConsent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes, I would like to be notified of new publications and announcements.</source>
+        <target>Evet, yeni yayınlardan ve duyurulardan haberdar olmak istiyorum.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected email address is already in use by another user.</source>
+        <target>Seçmiş olduğunuz e-posta adresi halihazırda başka bir kullanıcı tarafından kullanılmaktadır.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The passwords do not match.</source>
+        <target>Şifreler uyumlu değildir.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-emailsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email address fields do not match.</source>
+        <target>E-posta adresi alanları eşleşmedi.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username can contain only lower-case alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>Kullanıcı adı yalnızca küçük harfli alfanümerik karakterler, alt çizgi ve tire içerebilir ve bir alfanümerik karakterle başlayıp bitmelidir.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-userGroupRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>At least one role must be selected.</source>
+        <target>En az bir rol seçilmelidir.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-usernameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected username is already in use by another user.</source>
+        <target>Seçmiş olduğunuz kullanıcı adı halihazırda başka biri  tarafından kullanılmaktadır.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-form-passwordLengthRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The password must be at least {$length} characters.</source>
+        <target>Şifre en az {$length} karakter olmalıdır.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registerAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register in {$contextName} as...</source>
+        <target>{$contextName} şeklinde kaydol</target>
+      </segment>
+    </unit>
+    <unit id="user-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Kayıt</target>
+      </segment>
+    </unit>
+    <unit id="user-register-usernameRestriction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username must contain only lowercase letters, numbers, and hyphens/underscores.</source>
+        <target>Kullanıcı adı sadece küçük harfleri, sayıları, tire işareti ve alt çizi karakterleri içermelidir.</target>
+      </segment>
+    </unit>
+    <unit id="user-register-registrationCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[You have successfully registered. <a href="{$profileUrl}">Click here</a> to complete your user profile.]]></source>
+        <target><![CDATA[Başarıyla kaydoldunuz. Profilinizi tamamlamak için <a href="{$profileUrl}">buraya tıklayın</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="user-role-assistant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assistant</source>
+        <target>Yardımcı</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author</source>
+        <target>Yazar</target>
+      </segment>
+    </unit>
+    <unit id="user-role-author_s">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author(s)</source>
+        <target>Yazar(lar)</target>
+      </segment>
+    </unit>
+    <unit id="user-role-authors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors</source>
+        <target>Yazarlar</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor</source>
+        <target>Editör</target>
+      </segment>
+    </unit>
+    <unit id="user-role-editors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editors</source>
+        <target>Editörler</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reader</source>
+        <target>Okuyucu</target>
+      </segment>
+    </unit>
+    <unit id="user-role-readers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Readers</source>
+        <target>Okuyucular</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer</source>
+        <target>Hakem</target>
+      </segment>
+    </unit>
+    <unit id="user-role-reviewers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers</source>
+        <target>Hakemler</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrator</source>
+        <target>Site Yöneticisi</target>
+      </segment>
+    </unit>
+    <unit id="user-role-siteAdmins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Administrators</source>
+        <target>Site Yöneticileri</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditor</source>
+        <target>Kopya Editörü</target>
+      </segment>
+    </unit>
+    <unit id="user-role-copyeditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyeditors</source>
+        <target>Kopya Editörleri</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreader</source>
+        <target>Düzeltmen</target>
+      </segment>
+    </unit>
+    <unit id="user-role-proofreaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Proofreaders</source>
+        <target>Düzeltmenler</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editor</source>
+        <target>Tasarım Editörü</target>
+      </segment>
+    </unit>
+    <unit id="user-role-layoutEditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Layout Editors</source>
+        <target>Tasarım Editörleri</target>
+      </segment>
+    </unit>
+    <unit id="user-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>Roller</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirmation</source>
+        <target>Doğrulama</target>
+      </segment>
+    </unit>
+    <unit id="user-sendPassword-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send me a confirmation email including my username and password</source>
+        <target>Kullanıcı adı ve şifremi içeren bir doğrulama e-postası gönder.</target>
+      </segment>
+    </unit>
+    <unit id="user-signature">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Signature</source>
+        <target>İmza (kurum ve iletişim bilgisi)</target>
+      </segment>
+    </unit>
+    <unit id="user-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Başlık</target>
+      </segment>
+    </unit>
+    <unit id="user-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage URL</source>
+        <target>Web adresi</target>
+      </segment>
+    </unit>
+    <unit id="user-userHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Home</source>
+        <target>Üye Sayfası</target>
+      </segment>
+    </unit>
+    <unit id="user-username">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>Kullanıcı Adı</target>
+      </segment>
+    </unit>
+    <unit id="user-workingLanguages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Working Languages</source>
+        <target>Çalışama Dilleri</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ORCID iD</source>
+        <target>ORCID ID</target>
+      </segment>
+    </unit>
+    <unit id="user-orcid-orcidInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The ORCID iD you specified is invalid. Please include the full URI (e.g. "https://orcid.org/0000-0002-1825-0097").</source>
+        <target>Belirttiğiniz ORCID id geçerli değil. Lütfen tam URI'yi ekleyin (Ör. "https://orcid.org/0000-0002-1825-0097").</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-identity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Identity</source>
+        <target>Kimlik</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-contact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact</source>
+        <target>İletişim</target>
+      </segment>
+    </unit>
+    <unit id="user-profile-public">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public</source>
+        <target>Genel</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>API Key</source>
+        <target>API Anahtarı</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKeyEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable external applications with the API key to access this account</source>
+        <target>Bu hesaba erişmek için API anahtarıyla harici uygulamaları etkinleştirin.</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate new API key</source>
+        <target>Yeni bir API oluştur.</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-generateWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generating a new API key will invalidate any existing key for this user.</source>
+        <target>Yeni bir API anahtarı oluşturmak, bu kullanıcı için mevcut olan herhangi bir anahtarı geçersiz kılar.</target>
+      </segment>
+    </unit>
+    <unit id="user-apiKey-secretRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Before generating an API key, your site administrator must set a secret in the config file ("api_key_secret").</source>
+        <target>Bir API anahtarı oluşturmadan önce, site yöneticinizin yapılandırma dosyasında ("api_key_secret") bir gizlilik ayarlaması gerekir.</target>
+      </segment>
+    </unit>
+    <unit id="user-privacyLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Your data is stored in accordance with our <a href="{$privacyUrl}" target="_blank">privacy statement</a>.]]></source>
+        <target><![CDATA[Şahsi bilgileriniz <a href="{$privacyUrl}" target="_blank">gizlilik bildirimimize</a> uygun olarak saklanır.]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

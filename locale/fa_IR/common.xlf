@@ -1,0 +1,5581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:59-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:59-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="common-publicKnowledgeProject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Knowledge Project</source>
+        <target>پروژه دانش عمومی</target>
+      </segment>
+    </unit>
+    <unit id="common-currentStyleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Stylesheet</source>
+        <target>استایل شیت کنونی</target>
+      </segment>
+    </unit>
+    <unit id="about-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>توضیح</target>
+      </segment>
+    </unit>
+    <unit id="about-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Guides</source>
+        <target>راهنما</target>
+      </segment>
+    </unit>
+    <unit id="about-aboutSite">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About the Site</source>
+        <target>درباره سایت</target>
+      </segment>
+    </unit>
+    <unit id="about-contact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact</source>
+        <target>اطلاعات تماس</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-phone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Phone</source>
+        <target>تلفن</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal Contact</source>
+        <target>تماس با سردبیر</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-supportContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Support Contact</source>
+        <target>تماس با پشتیبانی</target>
+      </segment>
+    </unit>
+    <unit id="about-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>غیره</target>
+      </segment>
+    </unit>
+    <unit id="about-people">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>People</source>
+        <target>افراد</target>
+      </segment>
+    </unit>
+    <unit id="about-policies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Policies</source>
+        <target>سیاست‌ها</target>
+      </segment>
+    </unit>
+    <unit id="about-siteMap">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Map</source>
+        <target>نقشه سایت</target>
+      </segment>
+    </unit>
+    <unit id="announcement-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>اطلاعیه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="announcement-announcementsHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>اطلاعیه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="announcement-moreAnnouncements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Announcements...</source>
+        <target>اطلاعیه‌های بیشتر</target>
+      </segment>
+    </unit>
+    <unit id="announcement-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcements have been published.</source>
+        <target>هیچ اطلاعیه‌ای منتشر نشده است</target>
+      </segment>
+    </unit>
+    <unit id="announcement-posted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted</source>
+        <target>پست شد</target>
+      </segment>
+    </unit>
+    <unit id="announcement-postedOn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted on {$postDate}</source>
+        <target>پست شده در تاریخ {$postDate}</target>
+      </segment>
+    </unit>
+    <unit id="announcement-view">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Announcement</source>
+        <target>دیدن اطلاعیه</target>
+      </segment>
+    </unit>
+    <unit id="common-allDownloads">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Downloads</source>
+        <target>تمامی دانلودها</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-sidebar">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sidebar</source>
+        <target>نوار حاشیه</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-site">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Navigation</source>
+        <target>پیمایش سایت</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-siteContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Context Navigation</source>
+        <target>پیمایش محتوای سایت</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Navigation</source>
+        <target>پیمایش کاربران</target>
+      </segment>
+    </unit>
+    <unit id="common-tasks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tasks</source>
+        <target>وظایف</target>
+      </segment>
+    </unit>
+    <unit id="common-list">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List</source>
+        <target>لیست</target>
+      </segment>
+    </unit>
+    <unit id="common-grid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Grid</source>
+        <target>شبکه</target>
+      </segment>
+    </unit>
+    <unit id="common-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this item? This action cannot be undone.</source>
+        <target>آیا مطمئنید که می‌خواهید این مورد را حذف کنید؟ این عمل بازگشت ناپذیر است</target>
+      </segment>
+    </unit>
+    <unit id="common-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>چکیده</target>
+      </segment>
+    </unit>
+    <unit id="common-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accepted</source>
+        <target>پذیرفته شده</target>
+      </segment>
+    </unit>
+    <unit id="common-acknowledged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledged</source>
+        <target>تأیید شده</target>
+      </segment>
+    </unit>
+    <unit id="common-action">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Action</source>
+        <target>عملیات</target>
+      </segment>
+    </unit>
+    <unit id="common-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate</source>
+        <target>فعال‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="common-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active</source>
+        <target>تعداد داوری‌های فعال</target>
+      </segment>
+    </unit>
+    <unit id="common-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add</source>
+        <target>افزودن</target>
+      </segment>
+    </unit>
+    <unit id="common-addSelf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Self</source>
+        <target>مرا اضافه کن</target>
+      </segment>
+    </unit>
+    <unit id="common-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>نام</target>
+      </segment>
+    </unit>
+    <unit id="common-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All</source>
+        <target>همه</target>
+      </segment>
+    </unit>
+    <unit id="common-alphaList">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</source>
+        <target>آ ا ب پ ت ث ج چ ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی</target>
+      </segment>
+    </unit>
+    <unit id="common-titleSmallWords">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>of a the and an or nor but is if then else when at from by on off for in out over to into with</source>
+        <target>از و یک نه اما اگر است وگرنه زمانی که در توسط روی با</target>
+      </segment>
+    </unit>
+    <unit id="common-alreadyAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned</source>
+        <target>منتسب شده</target>
+      </segment>
+    </unit>
+    <unit id="common-altText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Alternate text</source>
+        <target>متن جایگزین</target>
+      </segment>
+    </unit>
+    <unit id="common-altTextInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Describe this image for visitors viewing the site in a text-only browser or with assistive devices. Example: "Our editor speaking at the PKP conference."</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-and">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>and</source>
+        <target>و</target>
+      </segment>
+    </unit>
+    <unit id="common-applyAction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apply Action</source>
+        <target>اعمال کن</target>
+      </segment>
+    </unit>
+    <unit id="common-assign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign</source>
+        <target>انتخاب</target>
+      </segment>
+    </unit>
+    <unit id="common-assigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned</source>
+        <target>انتساب داده شد</target>
+      </segment>
+    </unit>
+    <unit id="common-assigned-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned: {$dateAssigned}</source>
+        <target>انتساب شده در تاریخ : {$dateAssigned}</target>
+      </segment>
+    </unit>
+    <unit id="common-available">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available</source>
+        <target>در دسترس</target>
+      </segment>
+    </unit>
+    <unit id="common-back">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back</source>
+        <target>بازگشت</target>
+      </segment>
+    </unit>
+    <unit id="common-between">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>between</source>
+        <target>بین</target>
+      </segment>
+    </unit>
+    <unit id="common-cancel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel</source>
+        <target>لغو</target>
+      </segment>
+    </unit>
+    <unit id="common-cancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancelled</source>
+        <target>لغو شد</target>
+      </segment>
+    </unit>
+    <unit id="common-warning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning</source>
+        <target>اخطار</target>
+      </segment>
+    </unit>
+    <unit id="common-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error</source>
+        <target>خطا</target>
+      </segment>
+    </unit>
+    <unit id="common-notice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notice</source>
+        <target>توجه</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-missing-input-secret">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The captcha validation for this website is not configured correctly. The secret key is missing.</source>
+        <target>تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) وارد نشده است.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-invalid-input-secret">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The captcha validation for this website is not configured correctly. The secret key is invalid.</source>
+        <target>تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) نامعتبر است.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-missing-input-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must complete the validation check used to prevent spam submissions.</source>
+        <target>برای جلوگیری از ارسال هرزنامه بایستی مرحله اعتبار سنجی را بگذرانید.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-invalid-input-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You did not pass the validation check used to prevent spam submissions.</source>
+        <target>شما مرحله اعتبار سنجی را که برای جلوگیری از ارسال هرزنامه است نگذراندید</target>
+      </segment>
+    </unit>
+    <unit id="common-captchaField-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the letters as they appear in the image above.</source>
+        <target>لطفاً حروف موجود در تصویر فوق را به ترتیبی که می‌بینید وارد کنید. به بزرگی و کوچکی حروف توجه کنید.</target>
+      </segment>
+    </unit>
+    <unit id="common-captchaField">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Validation</source>
+        <target>اعتبار سنجی</target>
+      </segment>
+    </unit>
+    <unit id="common-ccLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<br /><br />
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br />
+		This work is licensed under a <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
+	]]></source>
+        <target><![CDATA[<br /><br />  <a target="_new" rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/">  <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png"/>  </a>  <br/>  کار حاضر تحت مجوز   <a rel="license" target="_new" href="https://creativecommons.org/licenses/by-nc/3.0/">  Creative Commons Attribution 3.0  </a>  می‌باشد.]]></target>
+      </segment>
+    </unit>
+    <unit id="common-ccLicense-rt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+	<div class="rtBlock">
+		<br />
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
+	</div>
+	]]></source>
+        <target><![CDATA[<div class="rtBlock">  <br />  <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>  <br />  کار حاضر تحت مجوز   <a rel="license" target="_new" href="https://creativecommons.org/licenses/by-nc/3.0/">  Creative Commons Attribution 3.0  </a>  می‌باشد.]]></target>
+      </segment>
+    </unit>
+    <unit id="common-changesSaved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your changes have been saved.</source>
+        <target>تغییرات ذخیره شد</target>
+      </segment>
+    </unit>
+    <unit id="common-chooseOne">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose One</source>
+        <target>یکی را انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="common-close">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close</source>
+        <target>بستن</target>
+      </segment>
+    </unit>
+    <unit id="common-closePanel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close Panel</source>
+        <target>بستن پنل</target>
+      </segment>
+    </unit>
+    <unit id="common-closeWindow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close Window</source>
+        <target>بستن پنجره</target>
+      </segment>
+    </unit>
+    <unit id="common-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Complete</source>
+        <target>کامل</target>
+      </segment>
+    </unit>
+    <unit id="common-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>کامل شد</target>
+      </segment>
+    </unit>
+    <unit id="common-completed-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed: {$dateCompleted}</source>
+        <target>کامل شد در تاریخ: {$dateCompleted}</target>
+      </segment>
+    </unit>
+    <unit id="common-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm</source>
+        <target>تأیید</target>
+      </segment>
+    </unit>
+    <unit id="common-confirmed-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirmed: {$dateConfirmed}</source>
+        <target>تأیید شده در تاریخ: {$dateConfirmed}</target>
+      </segment>
+    </unit>
+    <unit id="common-content">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Content</source>
+        <target>محتوا</target>
+      </segment>
+    </unit>
+    <unit id="common-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents</source>
+        <target>محتویات</target>
+      </segment>
+    </unit>
+    <unit id="common-continue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue</source>
+        <target>ادامه</target>
+      </segment>
+    </unit>
+    <unit id="common-copy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy</source>
+        <target>کپی</target>
+      </segment>
+    </unit>
+    <unit id="common-country">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Country</source>
+        <target>کشور</target>
+      </segment>
+    </unit>
+    <unit id="common-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>ایجاد</target>
+      </segment>
+    </unit>
+    <unit id="common-dateCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date completed</source>
+        <target>تاریخ تکمیل</target>
+      </segment>
+    </unit>
+    <unit id="common-dateDecided">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date decided</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date</source>
+        <target>تاریخ</target>
+      </segment>
+    </unit>
+    <unit id="common-dateModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date modified</source>
+        <target>تاریخ تغییر</target>
+      </segment>
+    </unit>
+    <unit id="common-dateRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date requested</source>
+        <target>تاریخ درخواست</target>
+      </segment>
+    </unit>
+    <unit id="common-dateSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date submitted</source>
+        <target>تاریخ ارسال</target>
+      </segment>
+    </unit>
+    <unit id="common-dateUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date uploaded</source>
+        <target>تاریخ آپلود</target>
+      </segment>
+    </unit>
+    <unit id="common-dateHijri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hijri Calendar</source>
+        <target>تقویم هجری قمری</target>
+      </segment>
+    </unit>
+    <unit id="common-day">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Day</source>
+        <target>روز</target>
+      </segment>
+    </unit>
+    <unit id="common-deactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deactivate</source>
+        <target>غیر فعال‌سازی</target>
+      </segment>
+    </unit>
+    <unit id="common-default">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default</source>
+        <target>پیش‌فرض</target>
+      </segment>
+    </unit>
+    <unit id="common-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>رد شده</target>
+      </segment>
+    </unit>
+    <unit id="common-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="common-deleting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deleting</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="common-deleteSelection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Selection</source>
+        <target>حذف انتخاب شده‌ها</target>
+      </segment>
+    </unit>
+    <unit id="common-designation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designation</source>
+        <target>تعیین</target>
+      </segment>
+    </unit>
+    <unit id="common-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>توضیح</target>
+      </segment>
+    </unit>
+    <unit id="common-dimensionsInches">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI]]></source>
+        <target><![CDATA[{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI]]></target>
+      </segment>
+    </unit>
+    <unit id="common-dimensionsPixels">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[{$width}&times;{$height} pixels]]></source>
+        <target><![CDATA[{$width}&times;{$height} پیکسل]]></target>
+      </segment>
+    </unit>
+    <unit id="common-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>غیرفعال کردن</target>
+      </segment>
+    </unit>
+    <unit id="common-disabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disabled</source>
+        <target>غیرفعال</target>
+      </segment>
+    </unit>
+    <unit id="common-discipline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discipline</source>
+        <target>رشته علمی</target>
+      </segment>
+    </unit>
+    <unit id="common-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Done</source>
+        <target>انجام شد</target>
+      </segment>
+    </unit>
+    <unit id="common-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download</source>
+        <target>دانلود</target>
+      </segment>
+    </unit>
+    <unit id="common-downloadPdf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download PDF</source>
+        <target>دانلود PDF</target>
+      </segment>
+    </unit>
+    <unit id="common-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="common-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>فعال کردن</target>
+      </segment>
+    </unit>
+    <unit id="common-enabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enabled</source>
+        <target>فعال</target>
+      </segment>
+    </unit>
+    <unit id="common-error-databaseError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A database error has occurred: {$error}</source>
+        <target>یک خطای پایگاه داده رخ داده است: {$error}</target>
+      </segment>
+    </unit>
+    <unit id="common-error-databaseErrorUnknown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unknown database connection error has occurred.</source>
+        <target>یک خطای اتصال پایگاه داده ناشناخته رخ داده است</target>
+      </segment>
+    </unit>
+    <unit id="common-error-framesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This page requires frames. <a href="{$url}">Click here</a> for the non-frames version.]]></source>
+        <target><![CDATA[این صفحه نیاز به فریم دارد. برای مشاهده نسخه بدون فریم  <a href="{$url}">  اینجا  </a>  را کلیک کنید.]]></target>
+      </segment>
+    </unit>
+    <unit id="common-event">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Event</source>
+        <target>رویداد</target>
+      </segment>
+    </unit>
+    <unit id="common-export">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export</source>
+        <target>استخراج</target>
+      </segment>
+    </unit>
+    <unit id="common-finish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Finish</source>
+        <target>اتمام</target>
+      </segment>
+    </unit>
+    <unit id="common-fullscreen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Fullscreen</source>
+        <target>تمام صفحه</target>
+      </segment>
+    </unit>
+    <unit id="common-fullscreenOff">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Fullscreen Off</source>
+        <target>خروج از تمام صفحه</target>
+      </segment>
+    </unit>
+    <unit id="common-false">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>False</source>
+        <target>غلط</target>
+      </segment>
+    </unit>
+    <unit id="common-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File</source>
+        <target>فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-file-namingPattern">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$username}, {$originalFilename}</source>
+        <target>{$username}، {$userGroup}، {$originalFilename}</target>
+      </segment>
+    </unit>
+    <unit id="common-file-anonymousNamingPattern">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$genre}, {$originalFilename}</source>
+        <target>{$userGroup}،  {$originalFilename}</target>
+      </segment>
+    </unit>
+    <unit id="common-fileName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Name</source>
+        <target>نام فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-fileSize">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Size</source>
+        <target>اندازه فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-fileType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Type</source>
+        <target>نوع فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-fileUploaderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</source>
+        <target>سامانه آپلود فایل در حال بارگذاری است. در صورت عدم نمایش صحیح، احتمال آن می‌رود که این سامانه در مرورگر شما پشتیبانی نمی‌شود. برای حل این مشکل با مدیر سایت تماس حاصل فرمایید.</target>
+      </segment>
+    </unit>
+    <unit id="common-filter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Filters</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-filterAdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add filter: {$filterTitle}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-filterRemove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear filter: {$filterTitle}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>از</target>
+      </segment>
+    </unit>
+    <unit id="common-fromWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From: {$value}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-until">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Until</source>
+        <target>تا</target>
+      </segment>
+    </unit>
+    <unit id="common-go">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go</source>
+        <target>برو</target>
+      </segment>
+    </unit>
+    <unit id="common-height">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Height</source>
+        <target>ارتفاع</target>
+      </segment>
+    </unit>
+    <unit id="common-homepageNavigationLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>صفحه اصلی</target>
+      </segment>
+    </unit>
+    <unit id="common-homePageHeaderLogo-altText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage Header Logo</source>
+        <target>لوگوی بخش سرتیتر صفحه اصلی</target>
+      </segment>
+    </unit>
+    <unit id="common-hour">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hour</source>
+        <target>ساعت</target>
+      </segment>
+    </unit>
+    <unit id="common-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ID</source>
+        <target>شناسه مقاله</target>
+      </segment>
+    </unit>
+    <unit id="common-import">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import</source>
+        <target>درون‌ریزی اطلاعات</target>
+      </segment>
+    </unit>
+    <unit id="common-initiate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initiate</source>
+        <target>راه‌اندازی</target>
+      </segment>
+    </unit>
+    <unit id="common-inProgress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In progress</source>
+        <target>در حال پیشروی</target>
+      </segment>
+    </unit>
+    <unit id="common-itemsPerPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Items per page</source>
+        <target>تعداد موارد در هر صفحه</target>
+      </segment>
+    </unit>
+    <unit id="common-keywords">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keywords</source>
+        <target>کلمات کلیدی</target>
+      </segment>
+    </unit>
+    <unit id="common-language">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language</source>
+        <target>زبان</target>
+      </segment>
+    </unit>
+    <unit id="common-languages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Languages</source>
+        <target>زبان‌ها</target>
+      </segment>
+    </unit>
+    <unit id="common-less">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Less</source>
+        <target>کمتر</target>
+      </segment>
+    </unit>
+    <unit id="common-lessThan">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$value} or less</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-commaListSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>, </source>
+        <target>, </target>
+      </segment>
+    </unit>
+    <unit id="common-semicolonListSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>; </source>
+        <target>; </target>
+      </segment>
+    </unit>
+    <unit id="common-manage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage</source>
+        <target>مدیریت</target>
+      </segment>
+    </unit>
+    <unit id="common-mailingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mailing Address</source>
+        <target>آدرس پستی</target>
+      </segment>
+    </unit>
+    <unit id="common-billingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Billing address (if different)</source>
+        <target>آدرس پستی (در صورت تفاوت)</target>
+      </segment>
+    </unit>
+    <unit id="common-minute">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Minute(s)</source>
+        <target>دقیقه(ها)</target>
+      </segment>
+    </unit>
+    <unit id="common-modify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Modify</source>
+        <target>تغییر</target>
+      </segment>
+    </unit>
+    <unit id="common-month">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Month</source>
+        <target>ماه</target>
+      </segment>
+    </unit>
+    <unit id="common-more">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More</source>
+        <target>بیشتر</target>
+      </segment>
+    </unit>
+    <unit id="common-moreThan">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$value} or more</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-noneAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None assigned</source>
+        <target>هیچ موردی انتساب داده نشده</target>
+      </segment>
+    </unit>
+    <unit id="common-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None</source>
+        <target>هیچکدام</target>
+      </segment>
+    </unit>
+    <unit id="common-no">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No</source>
+        <target>خیر</target>
+      </segment>
+    </unit>
+    <unit id="common-noItemsFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No items found.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Comments</source>
+        <target>بدون نظر</target>
+      </segment>
+    </unit>
+    <unit id="common-notApplicable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not applicable</source>
+        <target>نامربوط</target>
+      </segment>
+    </unit>
+    <unit id="common-notApplicableShort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>N/A</source>
+        <target>ن / م</target>
+      </segment>
+    </unit>
+    <unit id="common-notAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not available</source>
+        <target>موجود نیست</target>
+      </segment>
+    </unit>
+    <unit id="common-note">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note</source>
+        <target>یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="common-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>یادداشت‌ها</target>
+      </segment>
+    </unit>
+    <unit id="common-notes-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes (yellow: has new notes; blue: has viewed notes; grey: no notes)</source>
+        <target>یادداشت‌ها (زرد: یادداشت جدید؛ آبی: یادداشت‌های مشاهده شده؛ خاکستری: بدون یادداشت)</target>
+      </segment>
+    </unit>
+    <unit id="common-notified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notified</source>
+        <target>اعلام شده</target>
+      </segment>
+    </unit>
+    <unit id="common-notified-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notified: {$dateNotified}</source>
+        <target>اعلام شده در تاریخ: {$dateNotified}</target>
+      </segment>
+    </unit>
+    <unit id="common-noMatches">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Matches</source>
+        <target>بدون تطبیق</target>
+      </segment>
+    </unit>
+    <unit id="common-off">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Off</source>
+        <target>خاموش</target>
+      </segment>
+    </unit>
+    <unit id="common-on">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>On</source>
+        <target>روشن</target>
+      </segment>
+    </unit>
+    <unit id="common-ok">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OK</source>
+        <target>تائید</target>
+      </segment>
+    </unit>
+    <unit id="common-options">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Options</source>
+        <target>امکانات</target>
+      </segment>
+    </unit>
+    <unit id="common-order">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order</source>
+        <target>ترتیب</target>
+      </segment>
+    </unit>
+    <unit id="common-orderUp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Increase position of {$itemTitle}</source>
+        <target>افزایش موقعیت {$itemTitle}</target>
+      </segment>
+    </unit>
+    <unit id="common-orderDown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decrease position of {$itemTitle}</source>
+        <target>کاهش موقعیت {$itemTitle}</target>
+      </segment>
+    </unit>
+    <unit id="common-originalFileName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Original file name</source>
+        <target>نام اصلی فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-or">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>or</source>
+        <target>یا</target>
+      </segment>
+    </unit>
+    <unit id="common-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>دیگر</target>
+      </segment>
+    </unit>
+    <unit id="common-overdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Overdue</source>
+        <target>به تأخیر افتاده</target>
+      </segment>
+    </unit>
+    <unit id="common-pagination">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$start}-{$end} of {$total}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View additional pages</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-goToPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to {$page}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-next">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next page</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-previous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous page</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-pageNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page {$pageNumber}</source>
+        <target>صفحه {$pageNumber}</target>
+      </segment>
+    </unit>
+    <unit id="common-percentage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$percentage}%</source>
+        <target>{$percentage}%</target>
+      </segment>
+    </unit>
+    <unit id="common-plugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin</source>
+        <target>افزونه</target>
+      </segment>
+    </unit>
+    <unit id="common-pluginEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin "{$pluginName}" has been enabled.</source>
+        <target>افزونه «{$pluginName}» فعال شد</target>
+      </segment>
+    </unit>
+    <unit id="common-pluginDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin "{$pluginName}" has been disabled.</source>
+        <target>افزونه «{$pluginName}» غیرفعال شد</target>
+      </segment>
+    </unit>
+    <unit id="common-prefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prefix</source>
+        <target>پیشوند</target>
+      </segment>
+    </unit>
+    <unit id="common-prefixAndTitle-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Examples: A, The</source>
+        <target>برای مثال: الف، ...</target>
+      </segment>
+    </unit>
+    <unit id="common-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview</source>
+        <target>نگاه اجمالی</target>
+      </segment>
+    </unit>
+    <unit id="common-publisher">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher</source>
+        <target>ناشر</target>
+      </segment>
+    </unit>
+    <unit id="common-quality">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Quality</source>
+        <target>کیفیت</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Active</source>
+        <target>مقالات ارسالی فعال</target>
+      </segment>
+    </unit>
+    <unit id="common-range">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$min}-{$max}</source>
+        <target>{$min}-{$max}</target>
+      </segment>
+    </unit>
+    <unit id="common-re">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Re:</source>
+        <target>پاسخ:</target>
+      </segment>
+    </unit>
+    <unit id="common-readMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read More</source>
+        <target>مطالعه بیشتر</target>
+      </segment>
+    </unit>
+    <unit id="common-readMoreWithTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read more about {$title}</source>
+        <target>مطالعه بیشتر درباره {$title}</target>
+      </segment>
+    </unit>
+    <unit id="common-record">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record</source>
+        <target>ذخیره</target>
+      </segment>
+    </unit>
+    <unit id="common-refresh">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Refresh</source>
+        <target>بارگذاری مجدد صفحه</target>
+      </segment>
+    </unit>
+    <unit id="common-related">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Related</source>
+        <target>موارد مربوطه</target>
+      </segment>
+    </unit>
+    <unit id="common-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reminder</source>
+        <target>یادآوری</target>
+      </segment>
+    </unit>
+    <unit id="common-reminded-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reminded: {$dateReminded}</source>
+        <target>یادآوری شده در تاریخ: {$dateReminded}</target>
+      </segment>
+    </unit>
+    <unit id="common-remote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote</source>
+        <target>از راه دور</target>
+      </segment>
+    </unit>
+    <unit id="common-remoteURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>RemoteURL</source>
+        <target>آدرس URL</target>
+      </segment>
+    </unit>
+    <unit id="common-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="common-removeItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove {$item}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-removeSelection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Selection</source>
+        <target>حذف انتخاب  شده‌ها</target>
+      </segment>
+    </unit>
+    <unit id="common-replaced">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replaced</source>
+        <target>جایگزین شد</target>
+      </segment>
+    </unit>
+    <unit id="common-replaceFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replace file</source>
+        <target>جایگزین کردن فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-requiredField">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>* Denotes required field</source>
+        <target>* فیلد مورد نیاز</target>
+      </segment>
+    </unit>
+    <unit id="common-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Required</source>
+        <target>مورد نیاز</target>
+      </segment>
+    </unit>
+    <unit id="common-reset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset</source>
+        <target>تنظیم مجدد</target>
+      </segment>
+    </unit>
+    <unit id="common-saveAndContinue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and continue</source>
+        <target>ذخیره و ادامه</target>
+      </segment>
+    </unit>
+    <unit id="common-saveAndEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and email</source>
+        <target>ذخیره و ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="common-save">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save</source>
+        <target>ذخیره</target>
+      </segment>
+    </unit>
+    <unit id="common-saving">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Saving</source>
+        <target>ذخیره</target>
+      </segment>
+    </unit>
+    <unit id="common-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>جستجو</target>
+      </segment>
+    </unit>
+    <unit id="common-searchQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Query</source>
+        <target>عبارت مورد جستجو</target>
+      </segment>
+    </unit>
+    <unit id="common-clearSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear search phrase</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-second">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Second(s)</source>
+        <target>ثانیه(ها)</target>
+      </segment>
+    </unit>
+    <unit id="common-selectAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select All</source>
+        <target>انتخاب همه</target>
+      </segment>
+    </unit>
+    <unit id="common-selectedPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selected:</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-selectNone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select None</source>
+        <target>انتخاب هیچکدام</target>
+      </segment>
+    </unit>
+    <unit id="common-select">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select</source>
+        <target>انتخاب</target>
+      </segment>
+    </unit>
+    <unit id="common-sendEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Email</source>
+        <target>ارسال ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="common-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Size</source>
+        <target>اندازه</target>
+      </segment>
+    </unit>
+    <unit id="common-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Source</source>
+        <target>منبع</target>
+      </segment>
+    </unit>
+    <unit id="common-status">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>وضعیت</target>
+      </segment>
+    </unit>
+    <unit id="common-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>موضوع</target>
+      </segment>
+    </unit>
+    <unit id="common-subjects">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subjects</source>
+        <target>موضوعات</target>
+      </segment>
+    </unit>
+    <unit id="common-submenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submenu</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-subtitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subtitle</source>
+        <target>زیر عنوان</target>
+      </segment>
+    </unit>
+    <unit id="common-suggest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Suggest</source>
+        <target>پیشنهاد دادن</target>
+      </segment>
+    </unit>
+    <unit id="common-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="common-top">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Top</source>
+        <target>فوق</target>
+      </segment>
+    </unit>
+    <unit id="common-toWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To: {$value}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-true">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>True</source>
+        <target>صحیح</target>
+      </segment>
+    </unit>
+    <unit id="common-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>نوع</target>
+      </segment>
+    </unit>
+    <unit id="common-component">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Component</source>
+        <target>اجزاء</target>
+      </segment>
+    </unit>
+    <unit id="common-uninitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninitiated</source>
+        <target>آغاز نشده است</target>
+      </segment>
+    </unit>
+    <unit id="common-unread">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unread</source>
+        <target>خوانده نشده</target>
+      </segment>
+    </unit>
+    <unit id="common-untitled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Untitled</source>
+        <target>بدون عنوان</target>
+      </segment>
+    </unit>
+    <unit id="common-updated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Updated</source>
+        <target>بروز رسانی شد</target>
+      </segment>
+    </unit>
+    <unit id="common-uploadedDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uploaded date</source>
+        <target>تاریخ آپلود</target>
+      </segment>
+    </unit>
+    <unit id="common-upload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload</source>
+        <target>آپلود</target>
+      </segment>
+    </unit>
+    <unit id="common-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The file could not be uploaded or revised.</source>
+        <target>فایل قابل آپلود نیست. لطفاً دوباره امتحان کنید و یا با مدیر سایت تماس بگیرید</target>
+      </segment>
+    </unit>
+    <unit id="common-up">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-upload-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>آپلود فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-restore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore Original</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-upload-thumbnailPreview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview of the currently selected image.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="common-upload-changeFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change File</source>
+        <target>تغییر فایل</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-dragFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drag and drop a file here to begin upload</source>
+        <target>می‌توانید فایل را به درون کادر بکشید تا آپلود شود</target>
+      </segment>
+    </unit>
+    <unit id="common-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="common-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User</source>
+        <target>کاربر</target>
+      </segment>
+    </unit>
+    <unit id="common-view">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View</source>
+        <target>مشاهده</target>
+      </segment>
+    </unit>
+    <unit id="common-viewProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Profile</source>
+        <target>مشاهده پروفایل</target>
+      </segment>
+    </unit>
+    <unit id="common-weeks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>weeks</source>
+        <target>هفته</target>
+      </segment>
+    </unit>
+    <unit id="common-width">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Width</source>
+        <target>پهنا</target>
+      </segment>
+    </unit>
+    <unit id="common-year">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Year</source>
+        <target>سال</target>
+      </segment>
+    </unit>
+    <unit id="common-yes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes</source>
+        <target>بلی</target>
+      </segment>
+    </unit>
+    <unit id="common-loading">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loading</source>
+        <target>در حال بارگذاری ...</target>
+      </segment>
+    </unit>
+    <unit id="common-plugins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugins</source>
+        <target>افزونه‌ها</target>
+      </segment>
+    </unit>
+    <unit id="common-metric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metric</source>
+        <target>معیار اندازه‌گیری</target>
+      </segment>
+    </unit>
+    <unit id="common-count">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Count</source>
+        <target>تعداد</target>
+      </segment>
+    </unit>
+    <unit id="common-publicAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Access</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="debug-databaseQueries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of database queries</source>
+        <target>تعداد query در بانک اطلاعاتی</target>
+      </segment>
+    </unit>
+    <unit id="debug-executionTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page generated in</source>
+        <target>صفحه تولید شد در</target>
+      </segment>
+    </unit>
+    <unit id="debug-memoryUsage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Memory Usage</source>
+        <target>میزان مصرف حافظه</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-localeListLoad">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loaded locale list "{$localeList}" from XML</source>
+        <target>لیست زبان‌ها (بارگذاری شده از فایل «{$localeList}»)</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-localeLoad">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loaded locale file "{$localeFile}" from XML</source>
+        <target>لیست زبان‌ها (بارگذاری شده از فایل «{$localeFile}»)</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-missingLocaleKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing locale key "{$key}".</source>
+        <target>زبان مربوط به کد «{$key}» یافت نشد.</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes:</source>
+        <target>یادداشت‌ها:</target>
+      </segment>
+    </unit>
+    <unit id="defaultMetric-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Metric</source>
+        <target>معیار اندازه‌گیری پیش‌فرض</target>
+      </segment>
+    </unit>
+    <unit id="defaultMetric-availableMetrics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available Metrics</source>
+        <target>معیارهای اندازه‌گیری موجود</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Review File</source>
+        <target>آپلود فایل داوری</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-uploadAttachment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>آپلود فایل</target>
+      </segment>
+    </unit>
+    <unit id="email-addAttachment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Attachment</source>
+        <target>افزودن پیوست</target>
+      </segment>
+    </unit>
+    <unit id="email-addBccRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add BCC</source>
+        <target>افزودن مخاطب (محرمانه)</target>
+      </segment>
+    </unit>
+    <unit id="email-addCcRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add CC</source>
+        <target>افزودن مخاطب</target>
+      </segment>
+    </unit>
+    <unit id="email-addToRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Recipient</source>
+        <target>افزودن کردن گیرنده</target>
+      </segment>
+    </unit>
+    <unit id="email-attachments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attachments</source>
+        <target>پیوست‌ها</target>
+      </segment>
+    </unit>
+    <unit id="email-bcc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>BCC</source>
+        <target>مخاطب (محرمانه)</target>
+      </segment>
+    </unit>
+    <unit id="email-bccSender">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a copy of this message to my address ({$address})</source>
+        <target>یک رونوشت از این پیام به آدرس من ({$address}) نیز ارسال کن.</target>
+      </segment>
+    </unit>
+    <unit id="email-body">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Body</source>
+        <target>متن</target>
+      </segment>
+    </unit>
+    <unit id="email-cc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC</source>
+        <target>مخاطب</target>
+      </segment>
+    </unit>
+    <unit id="email-compose">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Email</source>
+        <target>ارسال ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-tooManyRecipients">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The message you are attempting to send has too many recipients.</source>
+        <target>تعداد گیرنده‌های این پیام بیش از حد مجاز است.</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-tooSoon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are attempting to send a message too recently after your last message was sent. Please wait before sending another message.</source>
+        <target>ارسال ایمیل مجدد در حال حاضر مقدور نیست. لطفاً اندکی بعد، مجدداً اقدام کنید.</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was a problem sending an email message. Please try again later, or contact your system administrator.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="email-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="email-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>از طرف</target>
+      </segment>
+    </unit>
+    <unit id="email-invalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email address {$email} is invalid.</source>
+        <target>آدرس ایمیل {$email} معتبر نیست</target>
+      </segment>
+    </unit>
+    <unit id="email-multipart">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is a multi-part message in MIME format.</source>
+        <target>این یک پیام چند قسمتی با ساختار MIME می‌باشد.</target>
+      </segment>
+    </unit>
+    <unit id="email-recipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recipient</source>
+        <target>گیرنده</target>
+      </segment>
+    </unit>
+    <unit id="email-recipients">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recipients</source>
+        <target>گیرنده‌ها</target>
+      </segment>
+    </unit>
+    <unit id="email-sender">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender</source>
+        <target>فرستنده</target>
+      </segment>
+    </unit>
+    <unit id="email-senderName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender Name</source>
+        <target>نام فرستنده</target>
+      </segment>
+    </unit>
+    <unit id="email-senderEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender Email</source>
+        <target>ایمیل فرستنده</target>
+      </segment>
+    </unit>
+    <unit id="email-send">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send</source>
+        <target>ارسال</target>
+      </segment>
+    </unit>
+    <unit id="email-skip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip Email</source>
+        <target>انجام عملیات بدون ارسال ایمیل</target>
+      </segment>
+    </unit>
+    <unit id="email-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>موضوع</target>
+      </segment>
+    </unit>
+    <unit id="email-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide an email subject.</source>
+        <target>لطفاً موضوع ایمیل را مشخص کنید</target>
+      </segment>
+    </unit>
+    <unit id="email-bodyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide the email body text.</source>
+        <target>لطفاً متن ایمیل را وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="email-to">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To</source>
+        <target>به</target>
+      </segment>
+    </unit>
+    <unit id="form-url-invalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The specified URL is invalid. Please check it and try again.</source>
+        <target>URL وارد شده معتبر نمی‌باشد. لطفاً آن را دوباره بررسی کنید.</target>
+      </segment>
+    </unit>
+    <unit id="form-confirmSubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to submit this form?</source>
+        <target>آیا مطمئن به ثبت این فرم هستید؟</target>
+      </segment>
+    </unit>
+    <unit id="form-confirmSubmit-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm</source>
+        <target>تأیید</target>
+      </segment>
+    </unit>
+    <unit id="form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email address is required.</source>
+        <target>وارد کردن آدرس ایمیل الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="form-dataHasChanged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The data on this form has changed. Do you wish to continue without saving?</source>
+        <target>داده‌های موجود در این فرم تغییر داده شده‌اند. آیا مطمئنید که می‌خواهید بدون ذخیره آن‌ها ادامه دهید؟</target>
+      </segment>
+    </unit>
+    <unit id="form-disallowedLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Only the following languages are allowed: {$languages}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-disallowedProp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This property is not allowed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictDefaultMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drop files here to upload</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFallbackMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your browser does not support drag'n'drop file uploads.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFallbackText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please use the fallback form below to upload your files.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFileTooBig">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File is too big ({{filesize}}mb). Files larger than {{maxFilesize}}mb can not be uploaded.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictInvalidFileType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files of this type can not be uploaded.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictResponseError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Server responded with {{statusCode}} code. Please contact the system administrator if this problem persists.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictCancelUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel upload</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictUploadCanceled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload canceled</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictCancelUploadConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to cancel this upload?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictRemoveFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove file</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictMaxFilesExceeded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not upload any more files.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorA11y">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to {$fieldLabel}: {$errorMessage}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorGoTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Jump to next error</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorOne">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please correct one error.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorMany">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please correct {$count} errors.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form was not saved because {$count} error(s) were encountered. Please correct these errors and try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorUnknown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unexpected error occurred. You may have been logged out. Please reload the page and try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-errorsOccurred">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occurred processing this form</source>
+        <target>هنگام پردازش فرم خطاهایی رخ داد</target>
+      </segment>
+    </unit>
+    <unit id="form-formLanguage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To enter the information below in additional languages, first select the language.</source>
+        <target>برای وارد کردن اطلاعات زیر به زبان دیگر ابتدا زبان مورد نظر را انتخاب کنید</target>
+      </segment>
+    </unit>
+    <unit id="form-formLanguage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Form Language</source>
+        <target>زبان فرم</target>
+      </segment>
+    </unit>
+    <unit id="form-contains">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>contains</source>
+        <target>شامل</target>
+      </segment>
+    </unit>
+    <unit id="form-is">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>is</source>
+        <target>برابر با</target>
+      </segment>
+    </unit>
+    <unit id="form-missingRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-startsWith">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>starts with</source>
+        <target>شروع با</target>
+      </segment>
+    </unit>
+    <unit id="form-postRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form was not submitted properly.</source>
+        <target>داده‌های فرم به صورت صحیحی وارد نشده است</target>
+      </segment>
+    </unit>
+    <unit id="form-csrfInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form could not be submitted. You may have been logged out. Please reload the page and try again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file upload is required.</source>
+        <target>آپلود کردن فایل الزامی است.</target>
+      </segment>
+    </unit>
+    <unit id="form-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(* Required)</source>
+        <target>(* الزامی)</target>
+      </segment>
+    </unit>
+    <unit id="form-requirePrimaryLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must complete this field in {$language}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-requireId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must provide a valid ID.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-resubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit</source>
+        <target>ارائه مجدد</target>
+      </segment>
+    </unit>
+    <unit id="form-saveToUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use Save to upload file.</source>
+        <target>برای آپلود فایل بر روی ذخیره کلیک کنید</target>
+      </segment>
+    </unit>
+    <unit id="form-send">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send</source>
+        <target>ارسال</target>
+      </segment>
+    </unit>
+    <unit id="form-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>ثبت</target>
+      </segment>
+    </unit>
+    <unit id="form-invalidImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</source>
+        <target>تصویر آپلود شده معتبر نیست. فرمت‌های معتبر شامل jpg، png و gif می‌باشد.</target>
+      </segment>
+    </unit>
+    <unit id="form-multilingualLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$label} in {$localeName}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="form-multilingualProgress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count}/{$total} languages completed</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="help-help">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Help</source>
+        <target>راهنما</target>
+      </segment>
+    </unit>
+    <unit id="help-toc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Table of Contents</source>
+        <target>فهرست مطالب</target>
+      </segment>
+    </unit>
+    <unit id="help-previous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous</source>
+        <target>قبلی</target>
+      </segment>
+    </unit>
+    <unit id="help-next">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next</source>
+        <target>بعدی</target>
+      </segment>
+    </unit>
+    <unit id="help-upALevel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up a Level</source>
+        <target>یک لایه بالاتر</target>
+      </segment>
+    </unit>
+    <unit id="icon-checked-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checked</source>
+        <target>بررسی شده</target>
+      </segment>
+    </unit>
+    <unit id="icon-comment-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comment</source>
+        <target>نظر</target>
+      </segment>
+    </unit>
+    <unit id="icon-delete-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="icon-edit-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>ویرایش</target>
+      </segment>
+    </unit>
+    <unit id="icon-folder-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Folder</source>
+        <target>پوشه</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_large-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Large</source>
+        <target>بزرگ</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_medium-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Medium</source>
+        <target>متوسط</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_small-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Small</source>
+        <target>کوچک</target>
+      </segment>
+    </unit>
+    <unit id="icon-info-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Info</source>
+        <target>اطلاعات</target>
+      </segment>
+    </unit>
+    <unit id="icon-letter-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Letter</source>
+        <target>نامه</target>
+      </segment>
+    </unit>
+    <unit id="icon-mail-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mail</source>
+        <target>پست</target>
+      </segment>
+    </unit>
+    <unit id="icon-unchecked-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unchecked</source>
+        <target>بررسی نشده</target>
+      </segment>
+    </unit>
+    <unit id="icon-view-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View</source>
+        <target>نما</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-informationCenter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information Center</source>
+        <target>مرکز اطلاعات</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-editorialHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial History</source>
+        <target>سوابق بررسی مقاله</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Note</source>
+        <target>افزودن یادداشت</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-noNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no notes to display.</source>
+        <target>یادداشتی برای نمایش وجود ندارد</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-pastNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Earlier Revision Notes</source>
+        <target>یادداشت اصلاحات پیشین</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-deleteConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this note?</source>
+        <target>آیا مطمئن به حذف این یادداشت هستید؟</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-currentHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Revision</source>
+        <target>اصلاحات کنونی</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-pastHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Earlier Revisions</source>
+        <target>اصلاحات پیشین</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no events logged.</source>
+        <target>هیچ رخدادی ثبت نشده است.</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-notePosted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted new note.</source>
+        <target>پست پاداشت جدید.</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-messageSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent to users.</source>
+        <target>ارسال اطلاع‌رسانی به کاربران</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-history-messageSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent to users.</source>
+        <target>اطلاع‌رسانی ها به کاربر ارسال شود</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-startDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Start Discussion</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-startDiscussion-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Begin a discussion between yourself and {$userFullName}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-chooseMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose a predefined message to use, or fill out the form below.</source>
+        <target>انتخاب پیام های آماده</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Message</source>
+        <target>پیام</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-warning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please ensure that you have filled out the message field and included someone other than yourself in the discussion.</source>
+        <target>مطمئن شوید که پیام را وارد کرده باشید و حداقل یک دریافت کننده را انتخاب نموده باشید.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-options">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assignment privileges</source>
+        <target>مجوزهای انتساب</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-recommendOnly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions.</source>
+        <target>این همکار فقط اجازه توصیه یک تصمیم را دارد. برای اتخاذ تصمیم نهایی نقشی با سطح دسترسی دبیر نیاز است.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-submissionEditMetadataOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata edit permission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-canChangeMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow submission metadata changes by this user</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-selectedUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participant</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-noOptionsToHandle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No changes can be made to this participant</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="locale-primary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Primary locale</source>
+        <target>زبان اصلی</target>
+      </segment>
+    </unit>
+    <unit id="locale-supported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supported locales</source>
+        <target>زبان‌های حمایت شده</target>
+      </segment>
+    </unit>
+    <unit id="navigation-access">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Users &amp; Roles]]></source>
+        <target>کاربران و نقش‌ها</target>
+      </segment>
+    </unit>
+    <unit id="navigation-about">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About</source>
+        <target>درباره</target>
+      </segment>
+    </unit>
+    <unit id="navigation-admin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administration</source>
+        <target>مدیریت</target>
+      </segment>
+    </unit>
+    <unit id="navigation-archives">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archives</source>
+        <target>بایگانی‌ها</target>
+      </segment>
+    </unit>
+    <unit id="navigation-breadcrumbLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are here:</source>
+        <target>شما اینجایید:</target>
+      </segment>
+    </unit>
+    <unit id="navigation-breadcrumbSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>/</source>
+        <target>/</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tools</source>
+        <target>ابزارها</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools-importExport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export</source>
+        <target>برون دهی/درون‌ریزی</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools-statistics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Statistics</source>
+        <target>آمار</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Browse</source>
+        <target>پیمایش</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browseByAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Author</source>
+        <target>مرور بر اساس نویسنده</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browseByTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Title</source>
+        <target>مرور بر اساس عنوان</target>
+      </segment>
+    </unit>
+    <unit id="navigation-dashboard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+        <target>داشبورد</target>
+      </segment>
+    </unit>
+    <unit id="navigation-data">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Data</source>
+        <target>داده</target>
+      </segment>
+    </unit>
+    <unit id="navigation-home">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>صفحه اصلی</target>
+      </segment>
+    </unit>
+    <unit id="navigation-infoForReaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For Readers</source>
+        <target>برای خوانندگان</target>
+      </segment>
+    </unit>
+    <unit id="navigation-infoForReaders-long">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information For Readers</source>
+        <target>اطاعات برای خوانندگان</target>
+      </segment>
+    </unit>
+    <unit id="navigation-items">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$from} - {$to} of {$total} items</source>
+        <target>{$from} الی  {$to}(از مجموع {$total} مورد)</target>
+      </segment>
+    </unit>
+    <unit id="navigation-items-shownTotal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$shown} of {$total} items</source>
+        <target>{$shown} از {$total} مورد</target>
+      </segment>
+    </unit>
+    <unit id="navigation-login">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login</source>
+        <target>ورود</target>
+      </segment>
+    </unit>
+    <unit id="navigation-nextPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[&gt;&gt;]]></source>
+        <target><![CDATA[&gt;&gt;]]></target>
+      </segment>
+    </unit>
+    <unit id="navigation-nextStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next Step</source>
+        <target>مرحله بعدی</target>
+      </segment>
+    </unit>
+    <unit id="navigation-previousPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[&lt;&lt;]]></source>
+        <target><![CDATA[&lt;&lt;]]></target>
+      </segment>
+    </unit>
+    <unit id="navigation-previousStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous Step</source>
+        <target>مرحله قبلی</target>
+      </segment>
+    </unit>
+    <unit id="navigation-publicMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Menu</source>
+        <target>موی عمومی</target>
+      </segment>
+    </unit>
+    <unit id="navigation-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>ثبت‌نام</target>
+      </segment>
+    </unit>
+    <unit id="navigation-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>جستجو</target>
+      </segment>
+    </unit>
+    <unit id="navigation-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>تنظیمات</target>
+      </segment>
+    </unit>
+    <unit id="navigation-setup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Setup</source>
+        <target>نصب</target>
+      </segment>
+    </unit>
+    <unit id="navigation-sitemap">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Map</source>
+        <target>نقشه سایت</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to announcements</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-main">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to main content</source>
+        <target>رفتن به محتوای اصلی</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-nav">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to main navigation menu</source>
+        <target>رفتن به منوی گشت‌وگذار</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to site footer</source>
+        <target>رفتن به پاورقی سایت</target>
+      </segment>
+    </unit>
+    <unit id="navigation-stepNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step {$step}</source>
+        <target>{$step} مرحله</target>
+      </segment>
+    </unit>
+    <unit id="navigation-submissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions</source>
+        <target>مقالات ارسالی</target>
+      </segment>
+    </unit>
+    <unit id="navigation-system">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System</source>
+        <target>سیستم</target>
+      </segment>
+    </unit>
+    <unit id="navigation-userHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Home</source>
+        <target>صفحه اصلی کاربر</target>
+      </segment>
+    </unit>
+    <unit id="navigation-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User</source>
+        <target>کاربر</target>
+      </segment>
+    </unit>
+    <unit id="navigation-userManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Management</source>
+        <target>مدیریت کاربران</target>
+      </segment>
+    </unit>
+    <unit id="navigation-viewFrontend">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Site</source>
+        <target>مشاهده سایت</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor added.</source>
+        <target>حسابرس افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor removed.</source>
+        <target>حسابرس حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Added Discussion</source>
+        <target>گفتگو افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-reviewAcknowledged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review marked as acknowledged. Email not sent.</source>
+        <target>داوری به عنوان اطلاع داده شده علامت گذاری شد. اما ایمیلی ارسال نشد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reviewerThankedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you email sent to reviewer.</source>
+        <target>ایمیل تشکر به داور ارسال شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-updatedReviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review files updated.</source>
+        <target>فایل داوری آپلود شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-allow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable these types of notifications.</source>
+        <target>فعال‌سازی این نوع از اطلاع‌رسانی</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type added.</source>
+        <target>نوع اطلاعیه افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type edited.</source>
+        <target>نوع اطلاعیه ویرایش شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type removed.</source>
+        <target>نوع اطلاعیه حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement added.</source>
+        <target>اطلاعیه افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement edited.</source>
+        <target>اطلاعیه ویرایش شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement removed.</source>
+        <target>اطلاعیه حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author added.</source>
+        <target>نویسنده افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author edited.</source>
+        <target>نویسنده ویرایش شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-confirmError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error confirming your subscription.</source>
+        <target>بروز خطا هنگام تأیید اشتراک شما</target>
+      </segment>
+    </unit>
+    <unit id="notification-confirmSuccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been successfully subscribed.</source>
+        <target>اشتراک شما فعال شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send me an email for these types of notifications.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have no notifications at this time.</source>
+        <target>هیچ موردی برای اطلاع‌رسانی وجود ندارد</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note posted.</source>
+        <target>یادداشت پست شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note deleted.</source>
+        <target>یادداشت حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Removed file.</source>
+        <target>فایل حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Removed submission.</source>
+        <target>مقاله ارسالی حذف شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-notification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification</source>
+        <target>اطلاع‌رسانی</target>
+      </segment>
+    </unit>
+    <unit id="notification-notifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notifications</source>
+        <target>اطلاع‌رسانی‌ها</target>
+      </segment>
+    </unit>
+    <unit id="notification-sentNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent.</source>
+        <target>اطلاع‌رسانی ارسال شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification Settings</source>
+        <target>تنظیمات اطلاع‌رسانی</target>
+      </segment>
+    </unit>
+    <unit id="notification-settingsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the system events that you wish to be notified about. Unchecking an item will prevent notifications of the event from showing up in the system and also from being emailed to you. Checked events will appear in the system and you have an extra option to receive or not the same notification by email.</source>
+        <target>لطفاً رویدادی از سیستم را که مایلید در مورد آن به شما اطلاع‌رسانی شود انتخاب نمایید. عدم انتخاب یک رویداد سبب می‌گردد که اطلاع‌رسانی آن در فیلد اطلاع‌رسانی شما ظاهر نشود.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reminderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error sending your password, please ensure you've entered your email address correctly.</source>
+        <target>بروز خطا هنگام ارسال رمز عبور شما، مطمئن شوید که آدرس ایمیل را صحیح وارد کرده‌اید.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reminderSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your new password has been sent to the email address provided.</source>
+        <target>رمز عبور جدیدی برایتان به آدرس ایمیلی که وارد کردید ارسال شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-savedSubmissionMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata saved.</source>
+        <target>فراداده‌های مقاله ارسالی ذخیره شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-sendNotificationConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send notification email to all registered users</source>
+        <target>ارسال ایمیل اطلاع‌رسانی به تمامی کاربران ثبت نامی</target>
+      </segment>
+    </unit>
+    <unit id="search-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Author</source>
+        <target>نویسندگان</target>
+      </segment>
+    </unit>
+    <unit id="search-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>چکیده</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedFilters">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced filters</source>
+        <target>جستجوی پیشرفته</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedSearchMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More search options</source>
+        <target>گزینه های بیشتری برای جستجو</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedSearchLess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide more search options</source>
+        <target>مخفی کردن گزینه های بیشتر جستجو</target>
+      </segment>
+    </unit>
+    <unit id="search-searchAgain">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search again</source>
+        <target>جستجو دوباره</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-clearingIndex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clearing index</source>
+        <target>پاک کردن نمایه</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>done</source>
+        <target>تمام شد</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>error</source>
+        <target>خطا</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-result">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$numIndexed} articles indexed</source>
+        <target>{$numIndexed} تعداد مقالات نمایه شده.</target>
+      </segment>
+    </unit>
+    <unit id="search-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage</source>
+        <target>پوشش</target>
+      </segment>
+    </unit>
+    <unit id="search-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Date</source>
+        <target>تاریخ</target>
+      </segment>
+    </unit>
+    <unit id="search-dateFrom">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published After</source>
+        <target>از</target>
+      </segment>
+    </unit>
+    <unit id="search-dateTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published Before</source>
+        <target>تا</target>
+      </segment>
+    </unit>
+    <unit id="search-deleteFilter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>حذف</target>
+      </segment>
+    </unit>
+    <unit id="search-discipline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disciplines</source>
+        <target>تخصص</target>
+      </segment>
+    </unit>
+    <unit id="search-fullText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Full Text</source>
+        <target>تمام متن</target>
+      </segment>
+    </unit>
+    <unit id="search-indexTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Index terms</source>
+        <target>موارد نمایه</target>
+      </segment>
+    </unit>
+    <unit id="search-indexTermsLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All index term fields</source>
+        <target>تمامی فیلدهای نمایه</target>
+      </segment>
+    </unit>
+    <unit id="search-matchAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Match all categories</source>
+        <target>مطابق بودن با همه بخش ها</target>
+      </segment>
+    </unit>
+    <unit id="search-noKeywordError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter at least one search keyword.</source>
+        <target>باید حداقل یک کلید واژه جستجو وارد کنید</target>
+      </segment>
+    </unit>
+    <unit id="search-noResults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Results</source>
+        <target>بی نتیجه</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-and">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>and</source>
+        <target>و</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-not">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>not</source>
+        <target>نه</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-or">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>or</source>
+        <target>یا</target>
+      </segment>
+    </unit>
+    <unit id="search-SearchFor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search for</source>
+        <target>جستجو برای</target>
+      </segment>
+    </unit>
+    <unit id="search-searchResults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Results</source>
+        <target>نتایج جستجو</target>
+      </segment>
+    </unit>
+    <unit id="search-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keyword(s)</source>
+        <target>کلید واژه</target>
+      </segment>
+    </unit>
+    <unit id="search-titleIndex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Browse Title Index</source>
+        <target>پیمایش لیست عناوین</target>
+      </segment>
+    </unit>
+    <unit id="search-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>عنوان</target>
+      </segment>
+    </unit>
+    <unit id="search-typeMethodApproach">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type (method/approach)</source>
+        <target>نوع، روش یا راهکار</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-downloadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download this file</source>
+        <target>دانلود این فایل</target>
+      </segment>
+    </unit>
+    <unit id="context-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>مسیر</target>
+      </segment>
+    </unit>
+    <unit id="review-ensuringBlindReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ensuring a Blind Review</source>
+        <target>اطمینان از داوری محرمانه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-showReviewPolicy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read the current review policy</source>
+        <target>مطالعه سیاست‌های داوری</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Task</source>
+        <target>حذف وظیفه</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-markNew">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark New</source>
+        <target>علامت گذاری به عنوان جدید</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-markRead">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark Read</source>
+        <target>علامت گذاری به عنوان خوانده شده</target>
+      </segment>
+    </unit>
+    <unit id="dashboard-tasks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tasks</source>
+        <target>وظایف</target>
+      </segment>
+    </unit>
+    <unit id="dashboard-myQueue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Queue</source>
+        <target>وظایف من</target>
+      </segment>
+    </unit>
+    <unit id="review-blindPeerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<p>To ensure the integrity of the blind peer-review for submission to this press, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>
+			<ul><li>The authors of the document have deleted their names from the text, with "Author" and year used in the references and footnotes, instead of the authors' name, article title, etc.</li>
+			<li>With Microsoft Office documents, author identification should also be removed from the properties for the file (see under File in Word), by clicking on the following, beginning with File on the main menu of the Microsoft application: File &gt; Save As &gt; Tools (or Options with a Mac) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>
+			<li>With PDFs, the authors' names should also be removed from Document Properties found under File on Adobe Acrobat's main menu.</li>
+		</ul>
+	]]></source>
+        <target><![CDATA[<p>برای دستیابی به اهداف سیاست‌های داوری محرمانه، باید تمامی تلاش‌ها برای عدم آگاهی نویسنده و داور از هویت همدیگر انجام گیرد. که نیازمند بررسی موارد زیر توسط سردبیر، ویراستیار و داور است:</p>	 <ul>	   <li>نام نویسنده از داخل مقاله (قسمت نویسنده و پاورقی) و همچنین از نام فایل حذف شود.</li>	   <li>در فایل‌های Microsoft Word نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>	   <li>در مورد فایل‌های PDF نیز نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>	 </ul>]]></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewSchedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Schedule</source>
+        <target>زمان‌بندی داوری</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewRequestDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor's Request</source>
+        <target>درخواست دبیر</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-responseDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due Date</source>
+        <target>مهلت پاسخ</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due Date</source>
+        <target>مهلت انجام داوری</target>
+      </segment>
+    </unit>
+    <unit id="submission-task-responseDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due Date</source>
+        <target>مهلت پاسخ</target>
+      </segment>
+    </unit>
+    <unit id="navigation-goBack">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go Back</source>
+        <target>بازگشت</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} was assigned to review this submission and sent an email notification.</source>
+        <target>{$reviewerName} به عنوان داور به این مقاله ارسالی انتساب داده شده و ایمیلی برای اطلاع رسانی به آنها ارسال شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedReviewerNoEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} was assigned to review this submission and was not sent an email notification.</source>
+        <target>{$reviewerName} برای داوری این مقاله ارسالی، انتساب داده شد و ایمیل اطلاع‌رسانی ارسال نشد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer removed.</source>
+        <target>داور حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-cancelledReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer cancelled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-reinstatedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer reinstated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-addedStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User added as a stage participant.</source>
+        <target>کاربر به عنوان همکار به این مرحله افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-editStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The stage assignment has been changed.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-type-newAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New announcement.</source>
+        <target>یک اطلاعیه جدید ایجاد شده است</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review pending.</source>
+        <target>در انتظار داوری</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewAssignmentUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="notification-type-auditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Audit request for "{$file}"</source>
+        <target>درخواست حسابرسی برای "{$file}"</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-allReviewsIn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All reviewers have responded and a decision is needed in {$stage}.</source>
+        <target>تمامی داوری‌های در حال اجرا و تصمیم اتخاذ شده در  {$stage} نیاز است.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-allRevisionsIn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A revised file has been uploaded for your editorial consideration in {$stage}.</source>
+        <target>فایل اصلاح شده جهت بازبینی مجدد در {$stage} آپلود شده است</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-pendingRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions to consider in {$stage}.</source>
+        <target>اصلاحاتی که در {$stage} باید بررسی شود </target>
+      </segment>
+    </unit>
+    <unit id="notification-type-pendingRevisions-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions submitted to {$stage}.</source>
+        <target>اصلاحات در {$stage} ثبت شد.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-metadataModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$title}'s" metadata has been modified.</source>
+        <target>فراداده‌های «{$title}» تغییر داده شده است</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewerComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A reviewer has commented on "{$title}".</source>
+        <target>داور برای "{$title}" نظری داده است</target>
+      </segment>
+    </unit>
+    <unit id="notification-signedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File considered.</source>
+        <target>فایل در نظر گرفته شد.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not authorized to access the specified submission file.</source>
+        <target>این کاربر اجازه دسترسی به این فایل‌ها را ندارد.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidPublication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid publication.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid submission.</source>
+        <target>مقاله ارسالی نامعتبر</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidRepresentation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid representation.</source>
+        <target>ارائه نامعتبر</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-authorRoleMissing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</source>
+        <target>شما مجوز دسترسی کافی برای مشاهده این مقاله را ندارید. مطمئن شوید که دسترسی مناسبی در قسمت نقش‌ها برای شما اختصاص داده شده است.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</source>
+        <target>این کاربر نویسنده این مقاله نیست. لطفاً مطمئن شویدکه با حساب کاربری صحیحی وارد شده اید.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-queryActivity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion activity.</source>
+        <target>روند تصمیم گیری</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-queryAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion added.</source>
+        <target>تصمیم گیری اضافه شده است</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-assignCopyeditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign a copyeditor using the Assign link in the Participants list.</source>
+        <target>اختصاص یک ویراستیار با استفاده از گزینه "افزودن لینک" در بخش همکاران</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-awaitingCopyedits">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting Copyedits.</source>
+        <target>در انتظار ویراستاری</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-roundStatusTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Round {$round} Status</source>
+        <target>وضعیت دور {$round}</target>
+      </segment>
+    </unit>
+    <unit id="semicolon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$label}:</source>
+        <target>{$label}:</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully updated</source>
+        <target>المان منوی گشت‌وگذار با موفقیت به‌روزرسانی شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully removed</source>
+        <target>المان منوی گشت‌وگذار با موفقیت حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully added</source>
+        <target>المان منوی گشت‌وگذار با موفقیت افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully added</source>
+        <target>منوی گشت‌وگذار با موفقیت افزوده شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully updated</source>
+        <target>منوی گشت‌وگذار با موفقیت به‌روزرسانی شد</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully removed</source>
+        <target>منوی گشت‌وگذار با موفقیت حذف شد</target>
+      </segment>
+    </unit>
+    <unit id="list-viewMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show more details about {$name}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="list-viewLess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide expanded details about {$name}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please accept this item..</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-active_url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid URL.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-after">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This date must be after {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha_dash">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters, numbers, dashes and underscores.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha_num">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters and numbers.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid array.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-before">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This date must be before {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-between-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must have between {$min} and {$max} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-boolean">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field must be true or false.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-confirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The confirmation for this field does not match.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-currency">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid currency.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid date.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-date_format">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This does not match the format {$format}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-different">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} and {$other} must be different.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-digits">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$digits} digits long.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-digits_between">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} digits.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid email address.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-exists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-filled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-image">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be an image.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-integer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid integer.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-ip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid IP address.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid ISSN.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-json">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid JSON string.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This language is not accepted.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-localeExpected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is multilingual. Separate values must be provided for each supported language.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-localeKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Languages must be specified using the locale code. Examples: en_US, fr_CA, sr_RS@cyrillic.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-max-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not have more than {$max} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-mimes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be a file of type {$values}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-min-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must have at least {$min} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-not_in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid number.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-orcid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid ORCID.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-present">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} field must be present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-regex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not formatted correctly.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_if">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$other} is {$value}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_unless">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required unless {$other} is in {$values}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_with">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_with_all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_without">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is not present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_without_all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when none of {$values} are present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-same">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} and {$other} must match.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size} kilobytes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size} characters.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-size-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must contain {$size} items.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid string.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-timezone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid timezone.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-unique">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} has already been taken.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid URL.</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

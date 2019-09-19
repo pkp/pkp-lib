@@ -1,0 +1,5601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:12-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:12-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="common-publicKnowledgeProject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Knowledge Project</source>
+        <target>Public Knowledge Project</target>
+      </segment>
+    </unit>
+    <unit id="common-currentStyleSheet">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Stylesheet</source>
+        <target>Текущая таблица стилей</target>
+      </segment>
+    </unit>
+    <unit id="about-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Описание</target>
+      </segment>
+    </unit>
+    <unit id="about-guidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Guides</source>
+        <target>Руководства</target>
+      </segment>
+    </unit>
+    <unit id="about-aboutSite">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About the Site</source>
+        <target>О сайте</target>
+      </segment>
+    </unit>
+    <unit id="about-contact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contact</source>
+        <target>Контакты</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-phone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Phone</source>
+        <target>Телефон</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal Contact</source>
+        <target>Представитель редакции</target>
+      </segment>
+    </unit>
+    <unit id="about-contact-supportContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Support Contact</source>
+        <target>Представитель технической поддержки</target>
+      </segment>
+    </unit>
+    <unit id="about-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Прочее</target>
+      </segment>
+    </unit>
+    <unit id="about-people">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>People</source>
+        <target>Люди</target>
+      </segment>
+    </unit>
+    <unit id="about-policies">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Policies</source>
+        <target>Политики</target>
+      </segment>
+    </unit>
+    <unit id="about-siteMap">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Map</source>
+        <target>Карта сайта</target>
+      </segment>
+    </unit>
+    <unit id="announcement-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Объявления</target>
+      </segment>
+    </unit>
+    <unit id="announcement-announcementsHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Объявления</target>
+      </segment>
+    </unit>
+    <unit id="announcement-moreAnnouncements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More Announcements...</source>
+        <target>Другие объявления...</target>
+      </segment>
+    </unit>
+    <unit id="announcement-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcements have been published.</source>
+        <target>Не было опубликовано ни одного объявления.</target>
+      </segment>
+    </unit>
+    <unit id="announcement-posted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted</source>
+        <target>Опубликовано</target>
+      </segment>
+    </unit>
+    <unit id="announcement-postedOn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted on {$postDate}</source>
+        <target>Опубликовано {$postDate}</target>
+      </segment>
+    </unit>
+    <unit id="announcement-view">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Announcement</source>
+        <target>Показать объявление</target>
+      </segment>
+    </unit>
+    <unit id="common-allDownloads">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Downloads</source>
+        <target>Все загрузки</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-sidebar">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sidebar</source>
+        <target>Боковая панель</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-site">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Navigation</source>
+        <target>Навигация сайта</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-siteContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Context Navigation</source>
+        <target>Контекстная навигация сайта</target>
+      </segment>
+    </unit>
+    <unit id="common-navigation-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Navigation</source>
+        <target>Навигация пользователя</target>
+      </segment>
+    </unit>
+    <unit id="common-tasks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tasks</source>
+        <target>Задачи</target>
+      </segment>
+    </unit>
+    <unit id="common-list">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>List</source>
+        <target>Список</target>
+      </segment>
+    </unit>
+    <unit id="common-grid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Grid</source>
+        <target>Таблица</target>
+      </segment>
+    </unit>
+    <unit id="common-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this item? This action cannot be undone.</source>
+        <target>Вы уверены, что хотите удалить этот элемент? Это действие нельзя отменить.</target>
+      </segment>
+    </unit>
+    <unit id="common-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>Аннотация</target>
+      </segment>
+    </unit>
+    <unit id="common-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Accepted</source>
+        <target>Принято</target>
+      </segment>
+    </unit>
+    <unit id="common-acknowledged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Acknowledged</source>
+        <target>Признано</target>
+      </segment>
+    </unit>
+    <unit id="common-action">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Action</source>
+        <target>Действие</target>
+      </segment>
+    </unit>
+    <unit id="common-activate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Activate</source>
+        <target>Активировать</target>
+      </segment>
+    </unit>
+    <unit id="common-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active</source>
+        <target>Активны</target>
+      </segment>
+    </unit>
+    <unit id="common-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add</source>
+        <target>Добавить</target>
+      </segment>
+    </unit>
+    <unit id="common-addSelf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Self</source>
+        <target>Добавить себя</target>
+      </segment>
+    </unit>
+    <unit id="common-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Имя</target>
+      </segment>
+    </unit>
+    <unit id="common-all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All</source>
+        <target>Все</target>
+      </segment>
+    </unit>
+    <unit id="common-alphaList">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</source>
+        <target>А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я</target>
+      </segment>
+    </unit>
+    <unit id="common-titleSmallWords">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>of a the and an or nor but is if then else when at from by on off for in out over to into with</source>
+        <target>и или но если то иначе когда в на под из над с во</target>
+      </segment>
+    </unit>
+    <unit id="common-alreadyAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned</source>
+        <target>Назначен</target>
+      </segment>
+    </unit>
+    <unit id="common-altText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Alternate text</source>
+        <target>Альтернативный текст</target>
+      </segment>
+    </unit>
+    <unit id="common-altTextInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Describe this image for visitors viewing the site in a text-only browser or with assistive devices. Example: "Our editor speaking at the PKP conference."</source>
+        <target>Опишите это изображение для посетителей, просматривающих сайт в текстовом браузере или с помощью специальных устройств. Например: «Наш редактор, выступающий на конференции PKP».</target>
+      </segment>
+    </unit>
+    <unit id="common-and">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>and</source>
+        <target>и</target>
+      </segment>
+    </unit>
+    <unit id="common-applyAction">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apply Action</source>
+        <target>Применить</target>
+      </segment>
+    </unit>
+    <unit id="common-assign">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign</source>
+        <target>Назначить</target>
+      </segment>
+    </unit>
+    <unit id="common-assigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned</source>
+        <target>Назначен</target>
+      </segment>
+    </unit>
+    <unit id="common-assigned-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned: {$dateAssigned}</source>
+        <target>Назначен: {$dateAssigned}</target>
+      </segment>
+    </unit>
+    <unit id="common-available">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available</source>
+        <target>Доступен</target>
+      </segment>
+    </unit>
+    <unit id="common-back">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Back</source>
+        <target>Назад</target>
+      </segment>
+    </unit>
+    <unit id="common-between">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>between</source>
+        <target>между</target>
+      </segment>
+    </unit>
+    <unit id="common-cancel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel</source>
+        <target>Отменить</target>
+      </segment>
+    </unit>
+    <unit id="common-cancelled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancelled</source>
+        <target>Отменено</target>
+      </segment>
+    </unit>
+    <unit id="common-warning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning</source>
+        <target>Предупреждение</target>
+      </segment>
+    </unit>
+    <unit id="common-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error</source>
+        <target>Ошибка</target>
+      </segment>
+    </unit>
+    <unit id="common-notice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notice</source>
+        <target>Сообщение</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-missing-input-secret">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The captcha validation for this website is not configured correctly. The secret key is missing.</source>
+        <target>Проверка captcha для этого сайта настроена некорректно. Секретный ключ отсутствует.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-invalid-input-secret">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The captcha validation for this website is not configured correctly. The secret key is invalid.</source>
+        <target>Проверка captcha для этого сайта настроена некорректно. Неправильный секретный ключ.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-missing-input-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must complete the validation check used to prevent spam submissions.</source>
+        <target>Вы должны пройти проверку, которая используется для предотвращения рассылки спама.</target>
+      </segment>
+    </unit>
+    <unit id="common-captcha-error-invalid-input-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You did not pass the validation check used to prevent spam submissions.</source>
+        <target>Вы не прошли проверку, которая используется для предотвращения рассылки спама.</target>
+      </segment>
+    </unit>
+    <unit id="common-captchaField-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter the letters as they appear in the image above.</source>
+        <target>Пожалуйста, введите буквы, которые вы видите на изображении выше.</target>
+      </segment>
+    </unit>
+    <unit id="common-captchaField">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Validation</source>
+        <target>Проверка</target>
+      </segment>
+    </unit>
+    <unit id="common-ccLicense">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<br /><br />
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br />
+		This work is licensed under a <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.
+	]]></source>
+        <target><![CDATA[
+		<br /><br />
+		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
+			<img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br />
+		Эта работа распространяется по <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons Attribution 3.0</a>.
+	]]></target>
+      </segment>
+    </unit>
+    <unit id="common-ccLicense-rt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+	<div class="rtBlock">
+		<br />
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
+	</div>
+	]]></source>
+        <target><![CDATA[
+	<div class="rtBlock">
+		<br />
+		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Лицензия Creative Commons" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Эта работа распространяется по <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">лицензии Creative Commons Attribution 3.0</a>.
+	</div>
+	]]></target>
+      </segment>
+    </unit>
+    <unit id="common-changesSaved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your changes have been saved.</source>
+        <target>Ваши изменения были сохранены.</target>
+      </segment>
+    </unit>
+    <unit id="common-chooseOne">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose One</source>
+        <target>Выберите одно</target>
+      </segment>
+    </unit>
+    <unit id="common-close">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close</source>
+        <target>Закрыть</target>
+      </segment>
+    </unit>
+    <unit id="common-closePanel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close Panel</source>
+        <target>Закрыть панель</target>
+      </segment>
+    </unit>
+    <unit id="common-closeWindow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Close Window</source>
+        <target>Закрыть окно</target>
+      </segment>
+    </unit>
+    <unit id="common-complete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Complete</source>
+        <target>Завершить</target>
+      </segment>
+    </unit>
+    <unit id="common-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Завершен</target>
+      </segment>
+    </unit>
+    <unit id="common-completed-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed: {$dateCompleted}</source>
+        <target>Завершен: {$dateCompleted}</target>
+      </segment>
+    </unit>
+    <unit id="common-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm</source>
+        <target>Подтвердить</target>
+      </segment>
+    </unit>
+    <unit id="common-confirmed-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirmed: {$dateConfirmed}</source>
+        <target>Подтвержден: {$dateConfirmed}</target>
+      </segment>
+    </unit>
+    <unit id="common-content">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Content</source>
+        <target>Содержание</target>
+      </segment>
+    </unit>
+    <unit id="common-contents">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents</source>
+        <target>Содержания</target>
+      </segment>
+    </unit>
+    <unit id="common-continue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Continue</source>
+        <target>Продолжить</target>
+      </segment>
+    </unit>
+    <unit id="common-copy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy</source>
+        <target>Копировать</target>
+      </segment>
+    </unit>
+    <unit id="common-country">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Country</source>
+        <target>Страна</target>
+      </segment>
+    </unit>
+    <unit id="common-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Создать</target>
+      </segment>
+    </unit>
+    <unit id="common-dateCompleted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date completed</source>
+        <target>Дата завершения</target>
+      </segment>
+    </unit>
+    <unit id="common-dateDecided">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date decided</source>
+        <target>Дата принятия решения</target>
+      </segment>
+    </unit>
+    <unit id="common-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date</source>
+        <target>Дата</target>
+      </segment>
+    </unit>
+    <unit id="common-dateModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date modified</source>
+        <target>Дата изменения</target>
+      </segment>
+    </unit>
+    <unit id="common-dateRequested">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date requested</source>
+        <target>Дата запроса</target>
+      </segment>
+    </unit>
+    <unit id="common-dateSubmitted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date submitted</source>
+        <target>Дата отправки</target>
+      </segment>
+    </unit>
+    <unit id="common-dateUploaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date uploaded</source>
+        <target>Дата загрузки</target>
+      </segment>
+    </unit>
+    <unit id="common-dateHijri">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hijri Calendar</source>
+        <target>Календарь Хиджры</target>
+      </segment>
+    </unit>
+    <unit id="common-day">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Day</source>
+        <target>День</target>
+      </segment>
+    </unit>
+    <unit id="common-deactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deactivate</source>
+        <target>Деактивировать</target>
+      </segment>
+    </unit>
+    <unit id="common-default">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default</source>
+        <target>По умолчанию</target>
+      </segment>
+    </unit>
+    <unit id="common-declined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Declined</source>
+        <target>Отклонен</target>
+      </segment>
+    </unit>
+    <unit id="common-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Удалить</target>
+      </segment>
+    </unit>
+    <unit id="common-deleting">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Deleting</source>
+        <target>Удаление...</target>
+      </segment>
+    </unit>
+    <unit id="common-deleteSelection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Selection</source>
+        <target>Удалить выбранное</target>
+      </segment>
+    </unit>
+    <unit id="common-designation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Designation</source>
+        <target>Назначение</target>
+      </segment>
+    </unit>
+    <unit id="common-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Описание</target>
+      </segment>
+    </unit>
+    <unit id="common-dimensionsInches">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI]]></source>
+        <target><![CDATA[{$width}&Prime;&times;{$height}&Prime; @ {$dpi} DPI/PPI]]></target>
+      </segment>
+    </unit>
+    <unit id="common-dimensionsPixels">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[{$width}&times;{$height} pixels]]></source>
+        <target><![CDATA[{$width}&times;{$height} пикселей]]></target>
+      </segment>
+    </unit>
+    <unit id="common-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Отключить</target>
+      </segment>
+    </unit>
+    <unit id="common-disabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disabled</source>
+        <target>Отключен</target>
+      </segment>
+    </unit>
+    <unit id="common-discipline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discipline</source>
+        <target>Дисциплина</target>
+      </segment>
+    </unit>
+    <unit id="common-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Done</source>
+        <target>Выполнено</target>
+      </segment>
+    </unit>
+    <unit id="common-download">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download</source>
+        <target>Скачать</target>
+      </segment>
+    </unit>
+    <unit id="common-downloadPdf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download PDF</source>
+        <target>Скачать PDF</target>
+      </segment>
+    </unit>
+    <unit id="common-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Редактировать</target>
+      </segment>
+    </unit>
+    <unit id="common-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Включить</target>
+      </segment>
+    </unit>
+    <unit id="common-enabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enabled</source>
+        <target>Включен</target>
+      </segment>
+    </unit>
+    <unit id="common-error-databaseError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A database error has occurred: {$error}</source>
+        <target>Произошла ошибка базы данных: {$error}</target>
+      </segment>
+    </unit>
+    <unit id="common-error-databaseErrorUnknown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unknown database connection error has occurred.</source>
+        <target>Произошла неизвестная ошибка связи с базой данных.</target>
+      </segment>
+    </unit>
+    <unit id="common-error-framesRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This page requires frames. <a href="{$url}">Click here</a> for the non-frames version.]]></source>
+        <target><![CDATA[Эта страница требует фреймов. <a href="{$url}">Нажмите здесь</a> для просмотра версии, не использующей фреймы.]]></target>
+      </segment>
+    </unit>
+    <unit id="common-event">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Event</source>
+        <target>Событие</target>
+      </segment>
+    </unit>
+    <unit id="common-export">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Export</source>
+        <target>Экспорт</target>
+      </segment>
+    </unit>
+    <unit id="common-finish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Finish</source>
+        <target>Закончить</target>
+      </segment>
+    </unit>
+    <unit id="common-fullscreen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Fullscreen</source>
+        <target>Полноэкранный режим</target>
+      </segment>
+    </unit>
+    <unit id="common-fullscreenOff">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Fullscreen Off</source>
+        <target>Выйти из полноэкранного режима</target>
+      </segment>
+    </unit>
+    <unit id="common-false">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>False</source>
+        <target>Ложь</target>
+      </segment>
+    </unit>
+    <unit id="common-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File</source>
+        <target>Файл</target>
+      </segment>
+    </unit>
+    <unit id="common-file-namingPattern">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$username}, {$originalFilename}</source>
+        <target>{$username}, {$originalFilename}</target>
+      </segment>
+    </unit>
+    <unit id="common-file-anonymousNamingPattern">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$genre}, {$originalFilename}</source>
+        <target>{$genre}, {$originalFilename}</target>
+      </segment>
+    </unit>
+    <unit id="common-fileName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Name</source>
+        <target>Имя файла</target>
+      </segment>
+    </unit>
+    <unit id="common-fileSize">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Size</source>
+        <target>Размер файла</target>
+      </segment>
+    </unit>
+    <unit id="common-fileType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Type</source>
+        <target>Тип файла</target>
+      </segment>
+    </unit>
+    <unit id="common-fileUploaderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The system file uploader is loading. If it doesn't appear it is likely that none of its runtimes is supported by this browser. Please, contact administration for support.</source>
+        <target>Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы.</target>
+      </segment>
+    </unit>
+    <unit id="common-filter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Filters</source>
+        <target>Фильтры</target>
+      </segment>
+    </unit>
+    <unit id="common-filterAdd">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add filter: {$filterTitle}</source>
+        <target>Добавить фильтр: {$filterTitle}</target>
+      </segment>
+    </unit>
+    <unit id="common-filterRemove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear filter: {$filterTitle}</source>
+        <target>Сбросить фильтр: {$filterTitle}</target>
+      </segment>
+    </unit>
+    <unit id="common-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>От</target>
+      </segment>
+    </unit>
+    <unit id="common-fromWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From: {$value}</source>
+        <target>От: {$value}</target>
+      </segment>
+    </unit>
+    <unit id="common-until">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Until</source>
+        <target>По</target>
+      </segment>
+    </unit>
+    <unit id="common-go">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go</source>
+        <target>Выполнить</target>
+      </segment>
+    </unit>
+    <unit id="common-height">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Height</source>
+        <target>Высота</target>
+      </segment>
+    </unit>
+    <unit id="common-homepageNavigationLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>Главная</target>
+      </segment>
+    </unit>
+    <unit id="common-homePageHeaderLogo-altText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage Header Logo</source>
+        <target>Логотип верхнего колонтитула главной страницы</target>
+      </segment>
+    </unit>
+    <unit id="common-hour">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hour</source>
+        <target>Час</target>
+      </segment>
+    </unit>
+    <unit id="common-id">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>ID</source>
+        <target>ID</target>
+      </segment>
+    </unit>
+    <unit id="common-import">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import</source>
+        <target>Импорт</target>
+      </segment>
+    </unit>
+    <unit id="common-initiate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Initiate</source>
+        <target>Начать</target>
+      </segment>
+    </unit>
+    <unit id="common-inProgress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In progress</source>
+        <target>В процессе</target>
+      </segment>
+    </unit>
+    <unit id="common-itemsPerPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Items per page</source>
+        <target>Элементов на странице</target>
+      </segment>
+    </unit>
+    <unit id="common-keywords">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keywords</source>
+        <target>Ключевые слова</target>
+      </segment>
+    </unit>
+    <unit id="common-language">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language</source>
+        <target>Язык</target>
+      </segment>
+    </unit>
+    <unit id="common-languages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Languages</source>
+        <target>Языки</target>
+      </segment>
+    </unit>
+    <unit id="common-less">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Less</source>
+        <target>Меньше</target>
+      </segment>
+    </unit>
+    <unit id="common-lessThan">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$value} or less</source>
+        <target>{$value} или меньше</target>
+      </segment>
+    </unit>
+    <unit id="common-commaListSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>, </source>
+        <target>, </target>
+      </segment>
+    </unit>
+    <unit id="common-semicolonListSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>; </source>
+        <target>; </target>
+      </segment>
+    </unit>
+    <unit id="common-manage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Manage</source>
+        <target>Настроить</target>
+      </segment>
+    </unit>
+    <unit id="common-mailingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mailing Address</source>
+        <target>Почтовый адрес</target>
+      </segment>
+    </unit>
+    <unit id="common-billingAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Billing address (if different)</source>
+        <target>Адрес для отправки счета (если отличается)</target>
+      </segment>
+    </unit>
+    <unit id="common-minute">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Minute(s)</source>
+        <target>Минут</target>
+      </segment>
+    </unit>
+    <unit id="common-modify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Modify</source>
+        <target>Изменить</target>
+      </segment>
+    </unit>
+    <unit id="common-month">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Month</source>
+        <target>Месяц</target>
+      </segment>
+    </unit>
+    <unit id="common-more">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More</source>
+        <target>Больше</target>
+      </segment>
+    </unit>
+    <unit id="common-moreThan">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$value} or more</source>
+        <target>{$value} или больше</target>
+      </segment>
+    </unit>
+    <unit id="common-noneAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None assigned</source>
+        <target>Никто не назначен</target>
+      </segment>
+    </unit>
+    <unit id="common-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None</source>
+        <target>Нет</target>
+      </segment>
+    </unit>
+    <unit id="common-no">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No</source>
+        <target>Нет</target>
+      </segment>
+    </unit>
+    <unit id="common-noItemsFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No items found.</source>
+        <target>Ничего не найдено.</target>
+      </segment>
+    </unit>
+    <unit id="common-noComments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Comments</source>
+        <target>Нет комментариев</target>
+      </segment>
+    </unit>
+    <unit id="common-notApplicable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not applicable</source>
+        <target>Неприменимо</target>
+      </segment>
+    </unit>
+    <unit id="common-notApplicableShort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>N/A</source>
+        <target>Неприм.</target>
+      </segment>
+    </unit>
+    <unit id="common-notAvailable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not available</source>
+        <target>Недоступно</target>
+      </segment>
+    </unit>
+    <unit id="common-note">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note</source>
+        <target>Заметка</target>
+      </segment>
+    </unit>
+    <unit id="common-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes</source>
+        <target>Заметки</target>
+      </segment>
+    </unit>
+    <unit id="common-notes-tooltip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes (yellow: has new notes; blue: has viewed notes; grey: no notes)</source>
+        <target>Заметки (желтый: есть новые заметки; синий: есть просмотренные заметки; серый: нет заметок)</target>
+      </segment>
+    </unit>
+    <unit id="common-notified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notified</source>
+        <target>Уведомлен</target>
+      </segment>
+    </unit>
+    <unit id="common-notified-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notified: {$dateNotified}</source>
+        <target>Уведомлен: {$dateNotified}</target>
+      </segment>
+    </unit>
+    <unit id="common-noMatches">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Matches</source>
+        <target>Нет совпадений</target>
+      </segment>
+    </unit>
+    <unit id="common-off">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Off</source>
+        <target>отключено</target>
+      </segment>
+    </unit>
+    <unit id="common-on">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>On</source>
+        <target>включено</target>
+      </segment>
+    </unit>
+    <unit id="common-ok">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OK</source>
+        <target>OK</target>
+      </segment>
+    </unit>
+    <unit id="common-options">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Options</source>
+        <target>Параметры</target>
+      </segment>
+    </unit>
+    <unit id="common-order">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order</source>
+        <target>Сортировка</target>
+      </segment>
+    </unit>
+    <unit id="common-orderUp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Increase position of {$itemTitle}</source>
+        <target>Поднять вверх «{$itemTitle}»</target>
+      </segment>
+    </unit>
+    <unit id="common-orderDown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Decrease position of {$itemTitle}</source>
+        <target>Опустить вниз «{$itemTitle}»</target>
+      </segment>
+    </unit>
+    <unit id="common-originalFileName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Original file name</source>
+        <target>Первоначальное название файла</target>
+      </segment>
+    </unit>
+    <unit id="common-or">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>or</source>
+        <target>или</target>
+      </segment>
+    </unit>
+    <unit id="common-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Прочее</target>
+      </segment>
+    </unit>
+    <unit id="common-overdue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Overdue</source>
+        <target>Просрочено</target>
+      </segment>
+    </unit>
+    <unit id="common-pagination">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$start}-{$end} of {$total}</source>
+        <target>{$start}-{$end} из {$total}</target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View additional pages</source>
+        <target>Показать другие страницы</target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-goToPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to {$page}</source>
+        <target>Перейти к странице {$page}</target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-next">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next page</source>
+        <target>Следующая страница</target>
+      </segment>
+    </unit>
+    <unit id="common-pagination-previous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous page</source>
+        <target>Предыдущая страница</target>
+      </segment>
+    </unit>
+    <unit id="common-pageNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page {$pageNumber}</source>
+        <target>Страница {$pageNumber}</target>
+      </segment>
+    </unit>
+    <unit id="common-percentage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$percentage}%</source>
+        <target>{$percentage}%</target>
+      </segment>
+    </unit>
+    <unit id="common-plugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin</source>
+        <target>Модуль</target>
+      </segment>
+    </unit>
+    <unit id="common-pluginEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin "{$pluginName}" has been enabled.</source>
+        <target>Модуль «{$pluginName}» был включен.</target>
+      </segment>
+    </unit>
+    <unit id="common-pluginDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin "{$pluginName}" has been disabled.</source>
+        <target>Модуль «{$pluginName}» был выключен.</target>
+      </segment>
+    </unit>
+    <unit id="common-prefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prefix</source>
+        <target>Префикс</target>
+      </segment>
+    </unit>
+    <unit id="common-prefixAndTitle-tip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Examples: A, The</source>
+        <target>Примеры: A, The</target>
+      </segment>
+    </unit>
+    <unit id="common-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview</source>
+        <target>Предварительный просмотр</target>
+      </segment>
+    </unit>
+    <unit id="common-publisher">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publisher</source>
+        <target>Издатель</target>
+      </segment>
+    </unit>
+    <unit id="common-quality">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Quality</source>
+        <target>Качество</target>
+      </segment>
+    </unit>
+    <unit id="common-queue-long-active">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All Active</source>
+        <target>Все активные</target>
+      </segment>
+    </unit>
+    <unit id="common-range">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$min}-{$max}</source>
+        <target>{$min}-{$max}</target>
+      </segment>
+    </unit>
+    <unit id="common-re">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Re:</source>
+        <target>Re:</target>
+      </segment>
+    </unit>
+    <unit id="common-readMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read More</source>
+        <target>Читать дальше</target>
+      </segment>
+    </unit>
+    <unit id="common-readMoreWithTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read more about {$title}</source>
+        <target>Читать дальше про «{$title}»</target>
+      </segment>
+    </unit>
+    <unit id="common-record">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Record</source>
+        <target>Запись</target>
+      </segment>
+    </unit>
+    <unit id="common-refresh">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Refresh</source>
+        <target>Обновить</target>
+      </segment>
+    </unit>
+    <unit id="common-related">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Related</source>
+        <target>Связанные</target>
+      </segment>
+    </unit>
+    <unit id="common-reminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reminder</source>
+        <target>Напоминание</target>
+      </segment>
+    </unit>
+    <unit id="common-reminded-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reminded: {$dateReminded}</source>
+        <target>Отправлено напоминание: {$dateReminded}</target>
+      </segment>
+    </unit>
+    <unit id="common-remote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote</source>
+        <target>Удаленный</target>
+      </segment>
+    </unit>
+    <unit id="common-remoteURL">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>RemoteURL</source>
+        <target>URL удаленного сервера</target>
+      </segment>
+    </unit>
+    <unit id="common-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>Удалить</target>
+      </segment>
+    </unit>
+    <unit id="common-removeItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove {$item}</source>
+        <target>Удалить {$item}</target>
+      </segment>
+    </unit>
+    <unit id="common-removeSelection">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove Selection</source>
+        <target>Удалить выбранное</target>
+      </segment>
+    </unit>
+    <unit id="common-replaced">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replaced</source>
+        <target>Заменен</target>
+      </segment>
+    </unit>
+    <unit id="common-replaceFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Replace file</source>
+        <target>Заменить файл</target>
+      </segment>
+    </unit>
+    <unit id="common-requiredField">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>* Denotes required field</source>
+        <target>* обозначает обязательное поле</target>
+      </segment>
+    </unit>
+    <unit id="common-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Required</source>
+        <target>Обязательно</target>
+      </segment>
+    </unit>
+    <unit id="common-reset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset</source>
+        <target>Сбросить</target>
+      </segment>
+    </unit>
+    <unit id="common-saveAndContinue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and continue</source>
+        <target>Сохранить и продолжить</target>
+      </segment>
+    </unit>
+    <unit id="common-saveAndEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and email</source>
+        <target>Сохранить и отправить</target>
+      </segment>
+    </unit>
+    <unit id="common-save">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save</source>
+        <target>Сохранить</target>
+      </segment>
+    </unit>
+    <unit id="common-saving">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Saving</source>
+        <target>Сохранение...</target>
+      </segment>
+    </unit>
+    <unit id="common-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>Найти</target>
+      </segment>
+    </unit>
+    <unit id="common-searchQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Query</source>
+        <target>Поисковый запрос</target>
+      </segment>
+    </unit>
+    <unit id="common-clearSearch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clear search phrase</source>
+        <target>Очистить фразу поиска</target>
+      </segment>
+    </unit>
+    <unit id="common-second">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Second(s)</source>
+        <target>Секунд</target>
+      </segment>
+    </unit>
+    <unit id="common-selectAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select All</source>
+        <target>Выбрать все</target>
+      </segment>
+    </unit>
+    <unit id="common-selectedPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selected:</source>
+        <target>Выбраны:</target>
+      </segment>
+    </unit>
+    <unit id="common-selectNone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select None</source>
+        <target>Отменить выбор</target>
+      </segment>
+    </unit>
+    <unit id="common-select">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select</source>
+        <target>Выбрать</target>
+      </segment>
+    </unit>
+    <unit id="common-sendEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Email</source>
+        <target>Отправить письмо электронной почтой</target>
+      </segment>
+    </unit>
+    <unit id="common-size">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Size</source>
+        <target>Размер</target>
+      </segment>
+    </unit>
+    <unit id="common-source">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Source</source>
+        <target>Источник</target>
+      </segment>
+    </unit>
+    <unit id="common-status">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Статус</target>
+      </segment>
+    </unit>
+    <unit id="common-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Тема</target>
+      </segment>
+    </unit>
+    <unit id="common-subjects">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subjects</source>
+        <target>Темы</target>
+      </segment>
+    </unit>
+    <unit id="common-submenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submenu</source>
+        <target>Подменю</target>
+      </segment>
+    </unit>
+    <unit id="common-subtitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subtitle</source>
+        <target>Подзаголовок</target>
+      </segment>
+    </unit>
+    <unit id="common-suggest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Suggest</source>
+        <target>Предложить</target>
+      </segment>
+    </unit>
+    <unit id="common-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="common-top">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Top</source>
+        <target>Верх</target>
+      </segment>
+    </unit>
+    <unit id="common-toWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To: {$value}</source>
+        <target>Кому: {$value}</target>
+      </segment>
+    </unit>
+    <unit id="common-true">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>True</source>
+        <target>Истина</target>
+      </segment>
+    </unit>
+    <unit id="common-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Тип</target>
+      </segment>
+    </unit>
+    <unit id="common-component">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Component</source>
+        <target>Компонент</target>
+      </segment>
+    </unit>
+    <unit id="common-uninitiated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uninitiated</source>
+        <target>Не начат</target>
+      </segment>
+    </unit>
+    <unit id="common-unread">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unread</source>
+        <target>Не прочитан</target>
+      </segment>
+    </unit>
+    <unit id="common-untitled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Untitled</source>
+        <target>Без имени</target>
+      </segment>
+    </unit>
+    <unit id="common-updated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Updated</source>
+        <target>Обновлен</target>
+      </segment>
+    </unit>
+    <unit id="common-uploadedDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uploaded date</source>
+        <target>Дата загрузки</target>
+      </segment>
+    </unit>
+    <unit id="common-upload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload</source>
+        <target>Загрузить на сервер</target>
+      </segment>
+    </unit>
+    <unit id="common-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The file could not be uploaded or revised.</source>
+        <target>Файл не может быть загружен или изменен.</target>
+      </segment>
+    </unit>
+    <unit id="common-up">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up</source>
+        <target>Наверх</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-addFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Загрузить файл</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-restore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore Original</source>
+        <target>Восстановить исходный</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-thumbnailPreview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview of the currently selected image.</source>
+        <target>Предварительный просмотр выбранного в данный момент изображения.</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-changeFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change File</source>
+        <target>Изменить файл</target>
+      </segment>
+    </unit>
+    <unit id="common-upload-dragFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drag and drop a file here to begin upload</source>
+        <target>Перетащите файл сюда, чтобы начать загрузку</target>
+      </segment>
+    </unit>
+    <unit id="common-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL-адрес</target>
+      </segment>
+    </unit>
+    <unit id="common-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User</source>
+        <target>Пользователь</target>
+      </segment>
+    </unit>
+    <unit id="common-view">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View</source>
+        <target>Просмотреть</target>
+      </segment>
+    </unit>
+    <unit id="common-viewProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Profile</source>
+        <target>Просмотреть профиль</target>
+      </segment>
+    </unit>
+    <unit id="common-weeks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>weeks</source>
+        <target>недели</target>
+      </segment>
+    </unit>
+    <unit id="common-width">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Width</source>
+        <target>Ширина</target>
+      </segment>
+    </unit>
+    <unit id="common-year">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Year</source>
+        <target>Год</target>
+      </segment>
+    </unit>
+    <unit id="common-yes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes</source>
+        <target>Да</target>
+      </segment>
+    </unit>
+    <unit id="common-loading">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loading</source>
+        <target>Загрузка...</target>
+      </segment>
+    </unit>
+    <unit id="common-plugins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugins</source>
+        <target>Модули</target>
+      </segment>
+    </unit>
+    <unit id="common-metric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metric</source>
+        <target>Метрика</target>
+      </segment>
+    </unit>
+    <unit id="common-count">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Count</source>
+        <target>Счетчик</target>
+      </segment>
+    </unit>
+    <unit id="common-publicAccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Access</source>
+        <target>Открытый доступ</target>
+      </segment>
+    </unit>
+    <unit id="debug-databaseQueries">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of database queries</source>
+        <target>Количество запросов к БД</target>
+      </segment>
+    </unit>
+    <unit id="debug-executionTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page generated in</source>
+        <target>Страница создана за</target>
+      </segment>
+    </unit>
+    <unit id="debug-memoryUsage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Memory Usage</source>
+        <target>Использование памяти</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-localeListLoad">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loaded locale list "{$localeList}" from XML</source>
+        <target>Загружен список языков «{$localeList}» из XML</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-localeLoad">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Loaded locale file "{$localeFile}" from XML</source>
+        <target>Загружен файл языка «{$localeFile}» из XML</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes-missingLocaleKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Missing locale key "{$key}".</source>
+        <target>В языковом файле отсутствует ключ «{$key}».</target>
+      </segment>
+    </unit>
+    <unit id="debug-notes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notes:</source>
+        <target>Примечания:</target>
+      </segment>
+    </unit>
+    <unit id="defaultMetric-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Metric</source>
+        <target>Метрика по умолчанию</target>
+      </segment>
+    </unit>
+    <unit id="defaultMetric-availableMetrics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Available Metrics</source>
+        <target>Доступные метрики</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload Review File</source>
+        <target>Загрузить файл рецензии</target>
+      </segment>
+    </unit>
+    <unit id="editor-submissionReview-uploadAttachment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Загрузить файл</target>
+      </segment>
+    </unit>
+    <unit id="email-addAttachment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Attachment</source>
+        <target>Добавить вложение</target>
+      </segment>
+    </unit>
+    <unit id="email-addBccRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add BCC</source>
+        <target>Добавить BCC</target>
+      </segment>
+    </unit>
+    <unit id="email-addCcRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add CC</source>
+        <target>Добавить CC</target>
+      </segment>
+    </unit>
+    <unit id="email-addToRecipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Recipient</source>
+        <target>Добавить получателя</target>
+      </segment>
+    </unit>
+    <unit id="email-attachments">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Attachments</source>
+        <target>Вложения</target>
+      </segment>
+    </unit>
+    <unit id="email-bcc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>BCC</source>
+        <target>Скрытая копия</target>
+      </segment>
+    </unit>
+    <unit id="email-bccSender">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a copy of this message to my address ({$address})</source>
+        <target>Отправить копию этого сообщения на мой адрес ({$address})</target>
+      </segment>
+    </unit>
+    <unit id="email-body">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Body</source>
+        <target>Текст письма</target>
+      </segment>
+    </unit>
+    <unit id="email-cc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>CC</source>
+        <target>Копия</target>
+      </segment>
+    </unit>
+    <unit id="email-compose">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Email</source>
+        <target>Отправить письмо</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-tooManyRecipients">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The message you are attempting to send has too many recipients.</source>
+        <target>Сообщение, которое вы пытаетесь отправить, содержит слишком много получателей.</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-tooSoon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are attempting to send a message too recently after your last message was sent. Please wait before sending another message.</source>
+        <target>Вы пытаетесь отправить сообщение, но после отправки вашего предыдущего сообщения прошло слишком мало времени. Пожалуйста, подождите перед отправкой следующего сообщения.</target>
+      </segment>
+    </unit>
+    <unit id="email-compose-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was a problem sending an email message. Please try again later, or contact your system administrator.</source>
+        <target>Возникла проблема при отправки сообщения электронной почтой. Пожалуйста, попробуйте позже еще раз или свяжитесь с администратором вашей системы.</target>
+      </segment>
+    </unit>
+    <unit id="email-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>Адрес электронной почты</target>
+      </segment>
+    </unit>
+    <unit id="email-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>От</target>
+      </segment>
+    </unit>
+    <unit id="email-invalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email address {$email} is invalid.</source>
+        <target>Адрес электронной почты {$email} является неправильным.</target>
+      </segment>
+    </unit>
+    <unit id="email-multipart">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is a multi-part message in MIME format.</source>
+        <target>Это собщение состоит из нескольких частей в формате MIME.</target>
+      </segment>
+    </unit>
+    <unit id="email-recipient">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recipient</source>
+        <target>Получатель</target>
+      </segment>
+    </unit>
+    <unit id="email-recipients">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recipients</source>
+        <target>Получатели</target>
+      </segment>
+    </unit>
+    <unit id="email-sender">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender</source>
+        <target>Отправитель</target>
+      </segment>
+    </unit>
+    <unit id="email-senderName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender Name</source>
+        <target>Имя отправителя</target>
+      </segment>
+    </unit>
+    <unit id="email-senderEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sender Email</source>
+        <target>Адрес электронной почты отправителя</target>
+      </segment>
+    </unit>
+    <unit id="email-send">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send</source>
+        <target>Отправить</target>
+      </segment>
+    </unit>
+    <unit id="email-skip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip Email</source>
+        <target>Пропустить отправку письма</target>
+      </segment>
+    </unit>
+    <unit id="email-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Тема</target>
+      </segment>
+    </unit>
+    <unit id="email-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide an email subject.</source>
+        <target>Пожалуйста, укажите тему письма.</target>
+      </segment>
+    </unit>
+    <unit id="email-bodyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide the email body text.</source>
+        <target>Пожалуйста, введите текст письма.</target>
+      </segment>
+    </unit>
+    <unit id="email-to">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To</source>
+        <target>Кому</target>
+      </segment>
+    </unit>
+    <unit id="form-url-invalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The specified URL is invalid. Please check it and try again.</source>
+        <target>Указан неправильный URL-адрес. Проверьте его и попробуйте снова.</target>
+      </segment>
+    </unit>
+    <unit id="form-confirmSubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to submit this form?</source>
+        <target>Вы уверены, что хотите отправить эту форму?</target>
+      </segment>
+    </unit>
+    <unit id="form-confirmSubmit-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm</source>
+        <target>Подтвердить</target>
+      </segment>
+    </unit>
+    <unit id="form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email address is required.</source>
+        <target>Адрес электронной почты обязателен.</target>
+      </segment>
+    </unit>
+    <unit id="form-dataHasChanged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The data on this form has changed. Do you wish to continue without saving?</source>
+        <target>Данные этой формы были изменены. Хотите продолжить без сохранения?</target>
+      </segment>
+    </unit>
+    <unit id="form-disallowedLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Only the following languages are allowed: {$languages}.</source>
+        <target>Допускаются только следующие языки: {$languages}.</target>
+      </segment>
+    </unit>
+    <unit id="form-disallowedProp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This property is not allowed.</source>
+        <target>Это свойство не разрешено.</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictDefaultMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drop files here to upload</source>
+        <target>Перетащите сюда файлы для загрузки</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFallbackMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your browser does not support drag'n'drop file uploads.</source>
+        <target>Ваш браузер не поддерживает загрузку файлов методом перетаскивания файлов в окно.</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFallbackText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please use the fallback form below to upload your files.</source>
+        <target>Пожалуйста используйте форму ниже для загрузки файлов на сервер.</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictFileTooBig">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File is too big ({{filesize}}mb). Files larger than {{maxFilesize}}mb can not be uploaded.</source>
+        <target>Файл слишком большой ({{filesize}} Мбайт). Файлы больше чем {{maxFilesize}} Мбайт загрузить нельзя.</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictInvalidFileType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files of this type can not be uploaded.</source>
+        <target>Файлы данного типа загрузить нельзя.</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictResponseError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Server responded with {{statusCode}} code. Please contact the system administrator if this problem persists.</source>
+        <target>Сервер вернул ошибку с кодом {{statusCode}}. Пожалуйста, свяжитесь с администратором системы, если проблема сохранится.</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictCancelUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Cancel upload</source>
+        <target>Отменить загрузку</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictUploadCanceled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload canceled</source>
+        <target>Загрузка отменена</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictCancelUploadConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to cancel this upload?</source>
+        <target>Вы уверены, что хотите отменить загрузку этого файла?</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictRemoveFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove file</source>
+        <target>Удалить файл</target>
+      </segment>
+    </unit>
+    <unit id="form-dropzone-dictMaxFilesExceeded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not upload any more files.</source>
+        <target>Вы загрузили максимальное количество файлов.</target>
+      </segment>
+    </unit>
+    <unit id="form-errorA11y">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go to {$fieldLabel}: {$errorMessage}</source>
+        <target>Перейти к {$fieldLabel}: {$errorMessage}</target>
+      </segment>
+    </unit>
+    <unit id="form-errorGoTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Jump to next error</source>
+        <target>Перейти к следующей ошибке</target>
+      </segment>
+    </unit>
+    <unit id="form-errorOne">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please correct one error.</source>
+        <target>Пожалуйста, исправьте одну ошибку.</target>
+      </segment>
+    </unit>
+    <unit id="form-errorMany">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please correct {$count} errors.</source>
+        <target>Пожалуйста, исправьте ошибки: {$count}.</target>
+      </segment>
+    </unit>
+    <unit id="form-errors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form was not saved because {$count} error(s) were encountered. Please correct these errors and try again.</source>
+        <target>Форма не была сохранена, так как были обнаружены ошибки ({$count}). Пожалуйста, исправьте эти ошибки и попробуйте снова.</target>
+      </segment>
+    </unit>
+    <unit id="form-errorUnknown">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An unexpected error occurred. You may have been logged out. Please reload the page and try again.</source>
+        <target>Произошла неожиданная ошибка. Возможно, вы вышли из системы. Пожалуйста, перезагрузите страницу и попробуйте снова.</target>
+      </segment>
+    </unit>
+    <unit id="form-errorsOccurred">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occurred processing this form</source>
+        <target>При обработке этой формы произошли ошибки</target>
+      </segment>
+    </unit>
+    <unit id="form-formLanguage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To enter the information below in additional languages, first select the language.</source>
+        <target>Сначала выберите язык, чтобы ввести ниже информацию на дополнительных языках.</target>
+      </segment>
+    </unit>
+    <unit id="form-formLanguage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Form Language</source>
+        <target>Язык формы</target>
+      </segment>
+    </unit>
+    <unit id="form-contains">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>contains</source>
+        <target>содержит</target>
+      </segment>
+    </unit>
+    <unit id="form-is">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>is</source>
+        <target>равно</target>
+      </segment>
+    </unit>
+    <unit id="form-missingRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target>Это поле обязательно.</target>
+      </segment>
+    </unit>
+    <unit id="form-startsWith">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>starts with</source>
+        <target>начинается с</target>
+      </segment>
+    </unit>
+    <unit id="form-postRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form was not submitted properly.</source>
+        <target>Форма не была отправлена надлежащим образом.</target>
+      </segment>
+    </unit>
+    <unit id="form-csrfInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The form could not be submitted. You may have been logged out. Please reload the page and try again.</source>
+        <target>Не удается отправить форму. Возможно, вы вышли из системы. Пожалуйста, перезагрузите страницу и попробуйте снова.</target>
+      </segment>
+    </unit>
+    <unit id="form-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file upload is required.</source>
+        <target>Обязательно нужно загрузить файл.</target>
+      </segment>
+    </unit>
+    <unit id="form-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>(* Required)</source>
+        <target>(* Обязательно)</target>
+      </segment>
+    </unit>
+    <unit id="form-requirePrimaryLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must complete this field in {$language}.</source>
+        <target>Вы должны заполнить это поле на языке: {$language}.</target>
+      </segment>
+    </unit>
+    <unit id="form-requireId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must provide a valid ID.</source>
+        <target>Вы должны ввести корректный ID.</target>
+      </segment>
+    </unit>
+    <unit id="form-resubmit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Resubmit</source>
+        <target>Отправить снова</target>
+      </segment>
+    </unit>
+    <unit id="form-saveToUpload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use Save to upload file.</source>
+        <target>Используйте «Сохранить» для загрузки файла на сервер.</target>
+      </segment>
+    </unit>
+    <unit id="form-send">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send</source>
+        <target>Отправить</target>
+      </segment>
+    </unit>
+    <unit id="form-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>Отправить</target>
+      </segment>
+    </unit>
+    <unit id="form-invalidImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</source>
+        <target>Было загружено неправильное изображение. Разрешенные форматы: .png, .gif или .jpg.</target>
+      </segment>
+    </unit>
+    <unit id="form-multilingualLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$label} in {$localeName}</source>
+        <target>{$label} (язык — {$localeName})</target>
+      </segment>
+    </unit>
+    <unit id="form-multilingualProgress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count}/{$total} languages completed</source>
+        <target>{$count}/{$total} языков заполнены</target>
+      </segment>
+    </unit>
+    <unit id="help-help">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Help</source>
+        <target>Помощь</target>
+      </segment>
+    </unit>
+    <unit id="help-toc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Table of Contents</source>
+        <target>Содержание</target>
+      </segment>
+    </unit>
+    <unit id="help-previous">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous</source>
+        <target>Назад</target>
+      </segment>
+    </unit>
+    <unit id="help-next">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next</source>
+        <target>Далее</target>
+      </segment>
+    </unit>
+    <unit id="help-upALevel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up a Level</source>
+        <target>На уровень вверх</target>
+      </segment>
+    </unit>
+    <unit id="icon-checked-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checked</source>
+        <target>Выбрано</target>
+      </segment>
+    </unit>
+    <unit id="icon-comment-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Comment</source>
+        <target>Комментарий</target>
+      </segment>
+    </unit>
+    <unit id="icon-delete-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Удалить</target>
+      </segment>
+    </unit>
+    <unit id="icon-edit-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Редактировать</target>
+      </segment>
+    </unit>
+    <unit id="icon-folder-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Folder</source>
+        <target>Папка</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_large-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Large</source>
+        <target>Крупный</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_medium-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Medium</source>
+        <target>Средний</target>
+      </segment>
+    </unit>
+    <unit id="icon-font_small-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Small</source>
+        <target>Мелкий</target>
+      </segment>
+    </unit>
+    <unit id="icon-info-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Info</source>
+        <target>Информация</target>
+      </segment>
+    </unit>
+    <unit id="icon-letter-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Letter</source>
+        <target>Письмо</target>
+      </segment>
+    </unit>
+    <unit id="icon-mail-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mail</source>
+        <target>Почта</target>
+      </segment>
+    </unit>
+    <unit id="icon-unchecked-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unchecked</source>
+        <target>Не выбрано</target>
+      </segment>
+    </unit>
+    <unit id="icon-view-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View</source>
+        <target>Посмотреть</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-informationCenter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information Center</source>
+        <target>Центр информации</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-editorialHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial History</source>
+        <target>Редакционная история</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-addNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Note</source>
+        <target>Добавить заметку</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-noNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no notes to display.</source>
+        <target>Нет заметок для отображения.</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-pastNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Earlier Revision Notes</source>
+        <target>Заметки к предыдущим версиям</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-deleteConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this note?</source>
+        <target>Вы уверены, что хотите удалить эту заметку?</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-currentHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current Revision</source>
+        <target>Текущая версия</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-pastHistory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Earlier Revisions</source>
+        <target>Предыдущие версии</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-noItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There are no events logged.</source>
+        <target>Нет событий зарегистрированных в журнале.</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-notePosted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Posted new note.</source>
+        <target>Добавлена новая заметка.</target>
+      </segment>
+    </unit>
+    <unit id="informationCenter-history-messageSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent to users.</source>
+        <target>Уведомление отправлено пользователям.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-history-messageSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent to users.</source>
+        <target>Уведомление отправлено пользователям.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-startDiscussion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Start Discussion</source>
+        <target>Начать обсуждение</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-startDiscussion-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Begin a discussion between yourself and {$userFullName}.</source>
+        <target>Начать обсуждение между вами и {$userFullName}.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-chooseMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose a predefined message to use, or fill out the form below.</source>
+        <target>Выберите стандартное сообщение для использования или заполните форму ниже.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Message</source>
+        <target>Сообщение</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-notify-warning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please ensure that you have filled out the message field and included someone other than yourself in the discussion.</source>
+        <target>Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в обсуждение кого-то, кроме себя.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-options">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assignment privileges</source>
+        <target>Назначенные права</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-recommendOnly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions.</source>
+        <target>Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-submissionEditMetadataOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata edit permission.</source>
+        <target>Разрешение на редактирование метаданных материала.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-canChangeMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow submission metadata changes by this user</source>
+        <target>Разрешить изменять метаданные материала этому пользователю</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-selectedUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Participant</source>
+        <target>Участник</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-noOptionsToHandle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No changes can be made to this participant</source>
+        <target>Этому участнику нельзя внести изменения</target>
+      </segment>
+    </unit>
+    <unit id="locale-primary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Primary locale</source>
+        <target>Основной язык</target>
+      </segment>
+    </unit>
+    <unit id="locale-supported">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supported locales</source>
+        <target>Поддерживаемые языки</target>
+      </segment>
+    </unit>
+    <unit id="navigation-access">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Users &amp; Roles]]></source>
+        <target>Пользователи и роли</target>
+      </segment>
+    </unit>
+    <unit id="navigation-about">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>About</source>
+        <target>О нас</target>
+      </segment>
+    </unit>
+    <unit id="navigation-admin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administration</source>
+        <target>Администрирование</target>
+      </segment>
+    </unit>
+    <unit id="navigation-archives">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Archives</source>
+        <target>Архивы</target>
+      </segment>
+    </unit>
+    <unit id="navigation-breadcrumbLabel">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are here:</source>
+        <target>Вы здесь:</target>
+      </segment>
+    </unit>
+    <unit id="navigation-breadcrumbSeparator">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>/</source>
+        <target>/</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tools</source>
+        <target>Инструменты</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools-importExport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export</source>
+        <target>Импорт/Экспорт</target>
+      </segment>
+    </unit>
+    <unit id="navigation-tools-statistics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Statistics</source>
+        <target>Статистика</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Browse</source>
+        <target>Просматривать</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browseByAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Author</source>
+        <target>По автору</target>
+      </segment>
+    </unit>
+    <unit id="navigation-browseByTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Title</source>
+        <target>По названию</target>
+      </segment>
+    </unit>
+    <unit id="navigation-dashboard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+        <target>Личный кабинет</target>
+      </segment>
+    </unit>
+    <unit id="navigation-data">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Data</source>
+        <target>Данные</target>
+      </segment>
+    </unit>
+    <unit id="navigation-home">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>Главная</target>
+      </segment>
+    </unit>
+    <unit id="navigation-infoForReaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>For Readers</source>
+        <target>Для читателей</target>
+      </segment>
+    </unit>
+    <unit id="navigation-infoForReaders-long">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information For Readers</source>
+        <target>Информация для читателей</target>
+      </segment>
+    </unit>
+    <unit id="navigation-items">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$from} - {$to} of {$total} items</source>
+        <target>{$from} - {$to} из {$total} результатов</target>
+      </segment>
+    </unit>
+    <unit id="navigation-items-shownTotal">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$shown} of {$total} items</source>
+        <target>{$shown} из {$total} результатов</target>
+      </segment>
+    </unit>
+    <unit id="navigation-login">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Login</source>
+        <target>Вход</target>
+      </segment>
+    </unit>
+    <unit id="navigation-nextPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[&gt;&gt;]]></source>
+        <target><![CDATA[&gt;&gt;]]></target>
+      </segment>
+    </unit>
+    <unit id="navigation-nextStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Next Step</source>
+        <target>Следующий шаг</target>
+      </segment>
+    </unit>
+    <unit id="navigation-previousPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[&lt;&lt;]]></source>
+        <target><![CDATA[&lt;&lt;]]></target>
+      </segment>
+    </unit>
+    <unit id="navigation-previousStep">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Previous Step</source>
+        <target>Предыдущий шаг</target>
+      </segment>
+    </unit>
+    <unit id="navigation-publicMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Menu</source>
+        <target>Общее меню</target>
+      </segment>
+    </unit>
+    <unit id="navigation-register">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Register</source>
+        <target>Регистрация</target>
+      </segment>
+    </unit>
+    <unit id="navigation-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>Поиск</target>
+      </segment>
+    </unit>
+    <unit id="navigation-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Настройки</target>
+      </segment>
+    </unit>
+    <unit id="navigation-setup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Setup</source>
+        <target>Установка</target>
+      </segment>
+    </unit>
+    <unit id="navigation-sitemap">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Map</source>
+        <target>Карта сайта</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to announcements</source>
+        <target>Перейти к объявлениям</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-main">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to main content</source>
+        <target>Перейти к основному контенту</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-nav">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to main navigation menu</source>
+        <target>Перейти к главному меню навигации</target>
+      </segment>
+    </unit>
+    <unit id="navigation-skip-footer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Skip to site footer</source>
+        <target>Перейти к нижнему колонтитулу сайта</target>
+      </segment>
+    </unit>
+    <unit id="navigation-stepNumber">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Step {$step}</source>
+        <target>Шаг {$step}</target>
+      </segment>
+    </unit>
+    <unit id="navigation-submissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions</source>
+        <target>Отправленные материалы</target>
+      </segment>
+    </unit>
+    <unit id="navigation-system">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System</source>
+        <target>Система</target>
+      </segment>
+    </unit>
+    <unit id="navigation-userHome">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Home</source>
+        <target>Cтраница пользователя</target>
+      </segment>
+    </unit>
+    <unit id="navigation-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User</source>
+        <target>Пользователь</target>
+      </segment>
+    </unit>
+    <unit id="navigation-userManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User Management</source>
+        <target>Управление пользователями</target>
+      </segment>
+    </unit>
+    <unit id="navigation-viewFrontend">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View Site</source>
+        <target>Показать сайт</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor added.</source>
+        <target>Аудитор добавлен.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAuditor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Auditor removed.</source>
+        <target>Аудитор удален.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedQuery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Added Discussion</source>
+        <target>Добавлено обсуждение</target>
+      </segment>
+    </unit>
+    <unit id="notification-reviewAcknowledged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review marked as acknowledged. Email not sent.</source>
+        <target>Рецензия отмечена как принятая. Письмо электронной почты не отправлено.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reviewerThankedEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Thank you email sent to reviewer.</source>
+        <target>Письмо с благодарностью отправлено рецензенту.</target>
+      </segment>
+    </unit>
+    <unit id="notification-updatedReviewFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review files updated.</source>
+        <target>Файлы рецензии обновлены.</target>
+      </segment>
+    </unit>
+    <unit id="notification-allow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable these types of notifications.</source>
+        <target>Включить эти типы уведомлений.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type added.</source>
+        <target>Тип объявлений добавлен.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type edited.</source>
+        <target>Тип объявлений отредактирован.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAnnouncementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement type removed.</source>
+        <target>Тип объявлений удален.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement added.</source>
+        <target>Объявление добавлено.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement edited.</source>
+        <target>Объявление отредактировано.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement removed.</source>
+        <target>Объявление удалено.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author added.</source>
+        <target>Автор добавлен.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author edited.</source>
+        <target>Автор отредактирован.</target>
+      </segment>
+    </unit>
+    <unit id="notification-confirmError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error confirming your subscription.</source>
+        <target>При подверждении вашей подписки возникла ошибка.</target>
+      </segment>
+    </unit>
+    <unit id="notification-confirmSuccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have been successfully subscribed.</source>
+        <target>Вы были успешно подписаны.</target>
+      </segment>
+    </unit>
+    <unit id="notification-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not send me an email for these types of notifications.</source>
+        <target>Не отправлять мне сообщения электронной почтой для этих типов уведомлений.</target>
+      </segment>
+    </unit>
+    <unit id="notification-noneExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have no notifications at this time.</source>
+        <target>На текущий момент для вас нет уведомлений.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note posted.</source>
+        <target>Заметка опубликована.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNote">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Note deleted.</source>
+        <target>Заметка удалена.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Removed file.</source>
+        <target>Файл удален.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Removed submission.</source>
+        <target>Материал удален.</target>
+      </segment>
+    </unit>
+    <unit id="notification-notification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification</source>
+        <target>Уведомление</target>
+      </segment>
+    </unit>
+    <unit id="notification-notifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notifications</source>
+        <target>Уведомления</target>
+      </segment>
+    </unit>
+    <unit id="notification-sentNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent.</source>
+        <target>Уведомление отправлено.</target>
+      </segment>
+    </unit>
+    <unit id="notification-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification Settings</source>
+        <target>Настройки уведомлений</target>
+      </segment>
+    </unit>
+    <unit id="notification-settingsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the system events that you wish to be notified about. Unchecking an item will prevent notifications of the event from showing up in the system and also from being emailed to you. Checked events will appear in the system and you have an extra option to receive or not the same notification by email.</source>
+        <target>Выберите события системы, о которых вы хотите быть уведомлены. Снятие галочки у события приведет к тому, что уведомления об этом событии не будут показываться в системе и отправляться Вам на электронную почту. События, отмеченные галочками, будут отображаться в системе и вы дополнительно можете настроить отправку этого уведомления Вам на электронную почту.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reminderError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error sending your password, please ensure you've entered your email address correctly.</source>
+        <target>При отправке Вашего пароля произошла ошибка, пожалуйста, убедитесь, что вы ввели правильный адрес электронной почты.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reminderSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your new password has been sent to the email address provided.</source>
+        <target>Ваш новый пароль был отправлен по указанному Вами адресу электронной почты.</target>
+      </segment>
+    </unit>
+    <unit id="notification-savedSubmissionMetadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission metadata saved.</source>
+        <target>Сохранены метаданные материала.</target>
+      </segment>
+    </unit>
+    <unit id="notification-sendNotificationConfirmation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send notification email to all registered users</source>
+        <target>Отправить уведомление электронной почтой всем зарегистрированным пользователям</target>
+      </segment>
+    </unit>
+    <unit id="search-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Author</source>
+        <target>По автору</target>
+      </segment>
+    </unit>
+    <unit id="search-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>Аннотация</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedFilters">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced filters</source>
+        <target>Расширенные фильтры</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedSearchMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>More search options</source>
+        <target>Дополнительные параметры поиска</target>
+      </segment>
+    </unit>
+    <unit id="search-advancedSearchLess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide more search options</source>
+        <target>Скрыть дополнительные параметры поиска</target>
+      </segment>
+    </unit>
+    <unit id="search-searchAgain">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search again</source>
+        <target>Искать снова</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-clearingIndex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Clearing index</source>
+        <target>Очистить индекс</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-done">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>done</source>
+        <target>выполнено</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-error">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>error</source>
+        <target>ошибка</target>
+      </segment>
+    </unit>
+    <unit id="search-cli-rebuildIndex-result">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$numIndexed} articles indexed</source>
+        <target>{$numIndexed} статей проиндексировано</target>
+      </segment>
+    </unit>
+    <unit id="search-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage</source>
+        <target>Охват</target>
+      </segment>
+    </unit>
+    <unit id="search-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Publication Date</source>
+        <target>Дата публикации</target>
+      </segment>
+    </unit>
+    <unit id="search-dateFrom">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published After</source>
+        <target>Опубликовано после</target>
+      </segment>
+    </unit>
+    <unit id="search-dateTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published Before</source>
+        <target>Опубликовано до</target>
+      </segment>
+    </unit>
+    <unit id="search-deleteFilter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Удалить</target>
+      </segment>
+    </unit>
+    <unit id="search-discipline">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disciplines</source>
+        <target>Дисциплины</target>
+      </segment>
+    </unit>
+    <unit id="search-fullText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Full Text</source>
+        <target>Полный текст</target>
+      </segment>
+    </unit>
+    <unit id="search-indexTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Index terms</source>
+        <target>Термины для индексирования</target>
+      </segment>
+    </unit>
+    <unit id="search-indexTermsLong">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All index term fields</source>
+        <target>Все поля терминов для индексирования</target>
+      </segment>
+    </unit>
+    <unit id="search-matchAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Match all categories</source>
+        <target>Совпадение по всем категориям</target>
+      </segment>
+    </unit>
+    <unit id="search-noKeywordError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must enter at least one search keyword.</source>
+        <target>Вы должны ввести хотя бы одно ключевое слово для поиска.</target>
+      </segment>
+    </unit>
+    <unit id="search-noResults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No Results</source>
+        <target>Нет результатов</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-and">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>and</source>
+        <target>AND</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-not">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>not</source>
+        <target>NOT</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-or">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>or</source>
+        <target>OR</target>
+      </segment>
+    </unit>
+    <unit id="search-SearchFor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search for</source>
+        <target>Искать</target>
+      </segment>
+    </unit>
+    <unit id="search-searchResults">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Results</source>
+        <target>Результаты поиска</target>
+      </segment>
+    </unit>
+    <unit id="search-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keyword(s)</source>
+        <target>Ключевые слова</target>
+      </segment>
+    </unit>
+    <unit id="search-titleIndex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Browse Title Index</source>
+        <target>Просмотреть указатель заголовков</target>
+      </segment>
+    </unit>
+    <unit id="search-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Заголовок</target>
+      </segment>
+    </unit>
+    <unit id="search-typeMethodApproach">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type (method/approach)</source>
+        <target>Тип (метод/подход)</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-downloadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Download this file</source>
+        <target>Скачать этот файл</target>
+      </segment>
+    </unit>
+    <unit id="context-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>Путь</target>
+      </segment>
+    </unit>
+    <unit id="review-ensuringBlindReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ensuring a Blind Review</source>
+        <target>Обеспечение слепого рецензирования</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-showReviewPolicy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Read the current review policy</source>
+        <target>Прочитать текущие правила рецензирования</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteNotification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Task</source>
+        <target>Удалить задачу</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-markNew">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark New</source>
+        <target>Пометить как непрочитанное</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-markRead">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark Read</source>
+        <target>Пометить как прочитанное</target>
+      </segment>
+    </unit>
+    <unit id="dashboard-tasks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tasks</source>
+        <target>Задачи</target>
+      </segment>
+    </unit>
+    <unit id="dashboard-myQueue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>My Queue</source>
+        <target>Мои дела</target>
+      </segment>
+    </unit>
+    <unit id="review-blindPeerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<p>To ensure the integrity of the blind peer-review for submission to this press, every effort should be made to prevent the identities of the authors and reviewers from being known to each other. This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:</p>
+			<ul><li>The authors of the document have deleted their names from the text, with "Author" and year used in the references and footnotes, instead of the authors' name, article title, etc.</li>
+			<li>With Microsoft Office documents, author identification should also be removed from the properties for the file (see under File in Word), by clicking on the following, beginning with File on the main menu of the Microsoft application: File &gt; Save As &gt; Tools (or Options with a Mac) &gt; Security &gt; Remove personal information from file properties on save &gt; Save.</li>
+			<li>With PDFs, the authors' names should also be removed from Document Properties found under File on Adobe Acrobat's main menu.</li>
+		</ul>
+	]]></source>
+        <target><![CDATA[
+		<p>Чтобы быть уверенными в честности слепого рецензирования материала для этого издания, должны быть предприняты все усилия к тому, чтобы авторы и рецензенты ничего не знали друг о друге. Для этого авторы, редакторы и рецензенты (те, кто загружает документы как часть своей рецензии) должны проверять, все ли перечисленные ниже шаги были выполнены относительно текста и свойств файла:</p>
+			<ul><li>Авторы документа удалили свои имена из текста, используя «Автор» и год в библиографических ссылках и сносках, вместо имен авторов, названия статьи и т.д.</li>
+			<li>В документах Microsoft Office идентификаторы авторов также должны быть удалены из свойств файла (смотрите в меню «Файл» в Word), щелкая на пунктах в следующей последовательности, начиная с меню «Файл» в главном меню приложения Microsoft: Файл &gt; Сохранить как &gt; Инструменты (или Параметры в Mac) &gt; Безопасность &gt; Удалять личные сведения из этого файла при сохранении &gt; Сохранить.</li>
+			<li>В файлах PDF имена авторов должны также быть удалены из свойств документа, которые можно найти в меню «Файл» основного меню Adobe Acrobat.</li>
+		</ul>
+	]]></target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewSchedule">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Schedule</source>
+        <target>График рецензирования</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewRequestDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editor's Request</source>
+        <target>Запрос редактора</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-responseDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due Date</source>
+        <target>Дата получения ответа на запрос</target>
+      </segment>
+    </unit>
+    <unit id="reviewer-submission-reviewDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Due Date</source>
+        <target>Дата получения самой рецензии</target>
+      </segment>
+    </unit>
+    <unit id="submission-task-responseDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due Date</source>
+        <target>Дата подтверждения получения рецензии</target>
+      </segment>
+    </unit>
+    <unit id="navigation-goBack">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Go Back</source>
+        <target>Вернуться назад</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} was assigned to review this submission and sent an email notification.</source>
+        <target>Назначен рецензент данного материала ({$reviewerName}), отправлено уведомление электронной почтой.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedReviewerNoEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$reviewerName} was assigned to review this submission and was not sent an email notification.</source>
+        <target>Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено.</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer removed.</source>
+        <target>Рецензент удален.</target>
+      </segment>
+    </unit>
+    <unit id="notification-cancelledReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer cancelled.</source>
+        <target>Рецензент отменён.</target>
+      </segment>
+    </unit>
+    <unit id="notification-reinstatedReviewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer reinstated.</source>
+        <target>Рецензент восстановлен.</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User added as a stage participant.</source>
+        <target>Пользователь добавлен в качестве участника этапа.</target>
+      </segment>
+    </unit>
+    <unit id="notification-editStageParticipant">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The stage assignment has been changed.</source>
+        <target>Назначение этапа было изменено.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-newAnnouncement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New announcement.</source>
+        <target>Новое объявление.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewAssignment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review pending.</source>
+        <target>Ожидание рецензии.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewAssignmentUpdated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review assignment updated.</source>
+        <target>Обновлено задание на рецензию.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-auditorRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Audit request for "{$file}"</source>
+        <target>Запрос аудита для «{$file}»</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-allReviewsIn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All reviewers have responded and a decision is needed in {$stage}.</source>
+        <target>Все рецензенты прислали свои рецензии и необходимо принять решение на этапе «{$stage}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-allRevisionsIn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A revised file has been uploaded for your editorial consideration in {$stage}.</source>
+        <target>Новая версия файла была загружена для рассмотрения редакцией на этапе «{$stage}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-pendingRevisions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions to consider in {$stage}.</source>
+        <target>Новые версии рассматриваются на этапе «{$stage}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-pendingRevisions-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Revisions submitted to {$stage}.</source>
+        <target>Новые версии отправлены на этап «{$stage}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-metadataModified">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>"{$title}'s" metadata has been modified.</source>
+        <target>Метаданные для «{$title}» были изменены.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-reviewerComment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A reviewer has commented on "{$title}".</source>
+        <target>Рецензент прокомментировал «{$title}».</target>
+      </segment>
+    </unit>
+    <unit id="notification-signedFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File considered.</source>
+        <target>Файл рассмотрен.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not authorized to access the specified submission file.</source>
+        <target>Данному пользователю не разрешен доступ к файлу указанного материала.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidPublication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid publication.</source>
+        <target>Неправильная публикация.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid submission.</source>
+        <target>Неправильный материал.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidRepresentation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid representation.</source>
+        <target>Неправильное представление.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-authorRoleMissing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You do not currently have sufficient privileges to view the submission. Please edit your profile to ensure that you have been granted the appropriate roles under "Register As".</source>
+        <target>В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как».</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-submissionAuthor">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The current user is not the author of the requested submission. Please verify that you are logged in with the correct user account.</source>
+        <target>Данный пользователь не является автором запрошенного материала. Пожалуйста, проверьте, что вы вошли в систему с правильной учетной записью пользователя.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-queryActivity">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion activity.</source>
+        <target>Активность обсуждений.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-queryAdded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Discussion added.</source>
+        <target>Добавлено обсуждение.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-assignCopyeditors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assign a copyeditor using the Assign link in the Participants list.</source>
+        <target>Назначьте литературного редактора, используя ссылку «Назначить» в списке «Участники».</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-awaitingCopyedits">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Awaiting Copyedits.</source>
+        <target>Ожидание литературного редактирование.</target>
+      </segment>
+    </unit>
+    <unit id="notification-type-roundStatusTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Round {$round} Status</source>
+        <target>Статус раунда {$round}</target>
+      </segment>
+    </unit>
+    <unit id="semicolon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$label}:</source>
+        <target>{$label}:</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully updated</source>
+        <target>Элемент меню навигации был успешно обновлен</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully removed</source>
+        <target>Элемент меню навигации был успешно удален</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNavigationMenuItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu item was succesfully added</source>
+        <target>Элемент меню навигации был успешно добавлен</target>
+      </segment>
+    </unit>
+    <unit id="notification-addedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully added</source>
+        <target>Меню навигации было успешно добавлено</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully updated</source>
+        <target>Меню навигации было успешно обновлено</target>
+      </segment>
+    </unit>
+    <unit id="notification-removedNavigationMenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation menu was succesfully removed</source>
+        <target>Меню навигации было успешно удалено</target>
+      </segment>
+    </unit>
+    <unit id="list-viewMore">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show more details about {$name}</source>
+        <target>Показать подробности о {$name}</target>
+      </segment>
+    </unit>
+    <unit id="list-viewLess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide expanded details about {$name}</source>
+        <target>Скрыть подробности о {$name}</target>
+      </segment>
+    </unit>
+    <unit id="validator-accepted">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please accept this item..</source>
+        <target>Пожалуйста, примите этот элемент..</target>
+      </segment>
+    </unit>
+    <unit id="validator-active_url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid URL.</source>
+        <target>Некорректный URL.</target>
+      </segment>
+    </unit>
+    <unit id="validator-after">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This date must be after {$date}.</source>
+        <target>Дата должна быть после {$date}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters.</source>
+        <target>Здесь могут быть только буквы.</target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha_dash">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters, numbers, dashes and underscores.</source>
+        <target>Здесь могут быть только буквы, цифры, дефисы и подчеркивания.</target>
+      </segment>
+    </unit>
+    <unit id="validator-alpha_num">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may only contain letters and numbers.</source>
+        <target>Здесь могут быть только буквы и цифры.</target>
+      </segment>
+    </unit>
+    <unit id="validator-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid array.</source>
+        <target>Некорректный массив.</target>
+      </segment>
+    </unit>
+    <unit id="validator-before">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This date must be before {$date}.</source>
+        <target>Дата должна быть до {$date}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-between-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max}.</source>
+        <target>Должно быть между {$min} и {$max}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-between-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} kilobytes.</source>
+        <target>Должно быть от {$min} до {$max} килобайт.</target>
+      </segment>
+    </unit>
+    <unit id="validator-between-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} characters.</source>
+        <target>Должно быть от {$min} до {$max} символов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-between-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must have between {$min} and {$max} items.</source>
+        <target>Должно быть от {$min} до {$max} элементов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-boolean">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field must be true or false.</source>
+        <target>Поле должно быть «истина» или «ложь».</target>
+      </segment>
+    </unit>
+    <unit id="validator-confirmed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The confirmation for this field does not match.</source>
+        <target>Значение и его подтверждение не совпадают.</target>
+      </segment>
+    </unit>
+    <unit id="validator-currency">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid currency.</source>
+        <target>Некорректная валюта.</target>
+      </segment>
+    </unit>
+    <unit id="validator-date">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid date.</source>
+        <target>Некорректная дата.</target>
+      </segment>
+    </unit>
+    <unit id="validator-date_format">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This does not match the format {$format}.</source>
+        <target>Не соответствует формату {$format}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-different">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} and {$other} must be different.</source>
+        <target>{$attribute} и {$other} должны быть различными.</target>
+      </segment>
+    </unit>
+    <unit id="validator-digits">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$digits} digits long.</source>
+        <target>Длина должна быть {$digits} цифр.</target>
+      </segment>
+    </unit>
+    <unit id="validator-digits_between">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be between {$min} and {$max} digits.</source>
+        <target>Должно быть от {$min} до {$max} цифр.</target>
+      </segment>
+    </unit>
+    <unit id="validator-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid email address.</source>
+        <target>Некорректный адрес электронной почты.</target>
+      </segment>
+    </unit>
+    <unit id="validator-exists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target>Выбранный {$attribute} некорректный.</target>
+      </segment>
+    </unit>
+    <unit id="validator-filled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target>Поле обязательное.</target>
+      </segment>
+    </unit>
+    <unit id="validator-image">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be an image.</source>
+        <target>Должно быть изображением.</target>
+      </segment>
+    </unit>
+    <unit id="validator-in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target>Выбранный {$attribute} некорректный.</target>
+      </segment>
+    </unit>
+    <unit id="validator-integer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid integer.</source>
+        <target>Не является целым числом.</target>
+      </segment>
+    </unit>
+    <unit id="validator-ip">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid IP address.</source>
+        <target>Некорректный IP-адрес.</target>
+      </segment>
+    </unit>
+    <unit id="validator-issn">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid ISSN.</source>
+        <target>Некорректный ISSN.</target>
+      </segment>
+    </unit>
+    <unit id="validator-json">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid JSON string.</source>
+        <target>Некорректная Строка JSON.</target>
+      </segment>
+    </unit>
+    <unit id="validator-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This language is not accepted.</source>
+        <target>Данный язык не принимается.</target>
+      </segment>
+    </unit>
+    <unit id="validator-localeExpected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is multilingual. Separate values must be provided for each supported language.</source>
+        <target>Это многоязычное поле. Должны быть введены отдельные значения для каждого поддерживаемого языка.</target>
+      </segment>
+    </unit>
+    <unit id="validator-localeKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Languages must be specified using the locale code. Examples: en_US, fr_CA, sr_RS@cyrillic.</source>
+        <target>Языки должны быть указаны с помощью кода языка. Например: en_US, fr_CA, sr_RS@cyrillic.</target>
+      </segment>
+    </unit>
+    <unit id="validator-max-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max}.</source>
+        <target>Не может быть больше {$max}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-max-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max} kilobytes.</source>
+        <target>Не может быть больше {$max} килобайт.</target>
+      </segment>
+    </unit>
+    <unit id="validator-max-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not be greater than {$max} characters.</source>
+        <target>Не может быть больше {$max} символов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-max-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This may not have more than {$max} items.</source>
+        <target>Не может содержать больше {$max} элементов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-mimes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be a file of type {$values}.</source>
+        <target>Должно быть файлом одного из следующих типов: {$values}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-min-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min}.</source>
+        <target>Должно быть не меньше {$min}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-min-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min} kilobytes.</source>
+        <target>Должно быть не меньше {$min} килобайт.</target>
+      </segment>
+    </unit>
+    <unit id="validator-min-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be at least {$min} characters.</source>
+        <target>Должно быть не меньше {$min} символов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-min-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must have at least {$min} items.</source>
+        <target>Должно содержать не меньше {$min} элементов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-not_in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target>Выбранный {$attribute} некорректный.</target>
+      </segment>
+    </unit>
+    <unit id="validator-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid number.</source>
+        <target>Не является числом.</target>
+      </segment>
+    </unit>
+    <unit id="validator-orcid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid ORCID.</source>
+        <target>Некорректный ORCID.</target>
+      </segment>
+    </unit>
+    <unit id="validator-present">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} field must be present.</source>
+        <target>Должно присутствовать поле «{$attribute}».</target>
+      </segment>
+    </unit>
+    <unit id="validator-regex">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not formatted correctly.</source>
+        <target>Отформатировано некорректно.</target>
+      </segment>
+    </unit>
+    <unit id="validator-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target>Поле обязательно.</target>
+      </segment>
+    </unit>
+    <unit id="validator-required_if">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$other} is {$value}.</source>
+        <target>Поле обязательно, если {$other} равно {$value}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-required_unless">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required unless {$other} is in {$values}.</source>
+        <target>Поле обязательно, пока {$other} равно {$values}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-required_with">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is present.</source>
+        <target>Поле обязательно, когда {$values} заданы.</target>
+      </segment>
+    </unit>
+    <unit id="validator-required_with_all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is present.</source>
+        <target>Поле обязательно, когда {$values} заданы.</target>
+      </segment>
+    </unit>
+    <unit id="validator-required_without">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is not present.</source>
+        <target>Поле обязательно, когда {$values} не заданы.</target>
+      </segment>
+    </unit>
+    <unit id="validator-required_without_all">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when none of {$values} are present.</source>
+        <target>Поле обязательно, когда {$values} не заданы.</target>
+      </segment>
+    </unit>
+    <unit id="validator-same">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} and {$other} must match.</source>
+        <target>{$attribute} и {$other} должны совпадать.</target>
+      </segment>
+    </unit>
+    <unit id="validator-size-numeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size}.</source>
+        <target>Должно быть {$size}.</target>
+      </segment>
+    </unit>
+    <unit id="validator-size-file">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size} kilobytes.</source>
+        <target>Должно быть {$size} килобайт.</target>
+      </segment>
+    </unit>
+    <unit id="validator-size-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must be {$size} characters.</source>
+        <target>Должно быть {$size} символов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-size-array">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This must contain {$size} items.</source>
+        <target>Должно содержать {$size} элементов.</target>
+      </segment>
+    </unit>
+    <unit id="validator-string">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid string.</source>
+        <target>Некорректная строка.</target>
+      </segment>
+    </unit>
+    <unit id="validator-timezone">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid timezone.</source>
+        <target>Некорректная временная зона.</target>
+      </segment>
+    </unit>
+    <unit id="validator-unique">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$attribute} has already been taken.</source>
+        <target>{$attribute} уже использован.</target>
+      </segment>
+    </unit>
+    <unit id="validator-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid URL.</source>
+        <target>Некорректный URL.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

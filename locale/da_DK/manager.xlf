@@ -1,0 +1,5594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:54-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:54-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="manager-website-information">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Information</source>
+        <target>Information</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-appearance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Appearance</source>
+        <target>Udseende</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-imageFileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An image file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>En billedfil er påkrævet. Sørg for, at du har valgt og uploadet en fil.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Meddelelser</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to permanently delete this announcement?</source>
+        <target>Er du sikker på, at du vil slette denne meddelelse permanent?</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Announcement</source>
+        <target>Opret ny meddelelse</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Opret</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry</source>
+        <target>Udløb</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-datePublish">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Published</source>
+        <target>Udgivet</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement</source>
+        <target>Rediger meddelelse</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Rediger</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireDayIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or month in addition to the expiry date day.</source>
+        <target>Vælg også et år og/eller en måned ud over udløbsdagen.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpire">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Expiry Date</source>
+        <target>Udløbsdato</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The announcement will be displayed to readers until this date. Leave blank if the announcement should be displayed indefinitely.</source>
+        <target>Meddelelsen vises til læsere indtil denne dato. Undlad at udfylde feltet, hvis meddelelsen skal vises på ubestemt tid.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireMonthIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a year and/or day in addition to the expiry date month.</source>
+        <target>Vælg også et år og/eller en dag ud over udløbsmåneden.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement expiry date.</source>
+        <target>Vælg en gyldig udløbsdato for meddelelsen.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-dateExpireYearIncompleteDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a month and/or day in addition to the expiry date year.</source>
+        <target>Vælg også en måned og/eller dag ud over udløbsåret.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Beskrivelse</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The full text of the announcement.</source>
+        <target>Meddelelsens fulde tekst.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement description is required.</source>
+        <target>En meddelelsesbeskrivelse er påkrævet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A brief description to appear along with the announcement title.</source>
+        <target>Vis en kort beskrivelse sammen med meddelelsestitlen.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShortRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A short announcement description is required.</source>
+        <target>En kort meddelelsesbeskrivelse er påkrævet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-descriptionShort">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Short Description</source>
+        <target>Kort beskrivelse</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Gem og opret en ny</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement title is required.</source>
+        <target>En meddelelsestitel er påkrævet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-form-typeIdValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a valid announcement type.</source>
+        <target>Vælg en gyldig meddelelsestype.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcements have been created.</source>
+        <target>Der er ikke oprettet nogen meddelelser.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcements-type">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Types</source>
+        <target>Meddelelsestyper</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warning! All announcements with this announcement type will also be deleted. Are you sure you want to continue and delete this announcement type?</source>
+        <target>Advarsel! Alle meddelelser med denne meddelelsestype vil også blive slettet. Er du sikker på, at du vil fortsætte og slette denne meddelelsestype?</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Announcement Type</source>
+        <target>Opret meddelelsestype</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create</source>
+        <target>Opret</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Announcement Type</source>
+        <target>Rediger meddelelsestype</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Rediger</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-saveAndCreateAnother">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Gem og opret en ny</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type with this name already exists.</source>
+        <target>Der findes allerede en meddelelsestype med dette navn.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Navn</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-form-typeNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An announcement type name is required.</source>
+        <target>Navnet på meddelelsestypen er påkrævet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No announcement types have been created.</source>
+        <target>Der er ikke oprettet nogen meddelelsestyper.</target>
+      </segment>
+    </unit>
+    <unit id="manager-announcementTypes-typeName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcement Type</source>
+        <target>Meddelelsestype</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-submissionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission</source>
+        <target>Indsendelse</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review</source>
+        <target>Bedømmelse</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-editorialStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Editorial</source>
+        <target>Redaktionel</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-productionStage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Production</source>
+        <target>Produktion</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Emails</source>
+        <target>E-mails</target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-emailSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer Guidance</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewerGuidance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewer guidance has been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewSetup-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-publication-reviewReminders-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The review reminder details have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to delete this email template?</source>
+        <target>Er du sikker på, at du vil slette denne e-mail-skabelon?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-confirmReset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you want to reset this email template to its default values?</source>
+        <target>Er du sikker på, at du vil nulstille denne e-mail-skabelon til dens standardværdier?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Template</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-addEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was added.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-createEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Email</source>
+        <target>Opret e-mail</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-customTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Template</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-data">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Message Data</source>
+        <target>Skabelondata</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-details">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Template Details</source>
+        <target>Skabelondetaljer</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Deaktiver</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-disable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?</source>
+        <target>Du er i gang med at deaktivere denne e-mailskabelon. Andre processtyringssystemer, der evt. anvender denne skabelon vil ikke længere kunne benytte den. Vil du bekræfte denne handling?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email</source>
+        <target>Rediger e-mail</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editEmail-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email template was modified.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-editTestExample">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Email Test Example</source>
+        <target>Rediger eksempel på e-mail-test</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Key</source>
+        <target>E-mail-nøgle</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKey-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The email key can only contain letters, numbers and underscores.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailKeyExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An email with the given key already exists. Email keys must be unique.</source>
+        <target>Der findes allerede en e-mail med den angivne nøgle. E-mail-nøgler skal være entydige.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Template</source>
+        <target>E-mail-skabelon</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Templates</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-contextRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You must provide a context ID when adding an email template.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-emailTemplate-noDuplicateKeys">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key you provided is already in use.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable this email template</source>
+        <target>Aktiver denne e-mail-skabelon</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Aktiver</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-enable-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to enable this email.  Do you want to confirm this operation?</source>
+        <target>Du er i gang med at aktivere denne e-mail. Vil du bekræfte denne handling?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-emailKeyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A unique email key containing no spaces or special characters is required for the email.</source>
+        <target>Denne e-mail kræver en unik e-mail-nøgle.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-bodyRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A body is required for the email.</source>
+        <target>En brødtekst er påkrævet for denne e-mail.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-form-subjectRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A subject is required for the email.</source>
+        <target>Et emne er påkrævet for denne e-mail.</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Prepared Emails</source>
+        <target>Forberedte e-mails</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset All</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetAll-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?</source>
+        <target>Hvis du nulstiller alle skabeloner, vil alle tilretninger til e- mailskabelonerne blive slettet. Vil du bekræfte denne handling?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset</source>
+        <target>Nulstil</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-reset-message">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?</source>
+        <target>Hvis du nulstiller denne skabelon, vil alle data blive erstattet af standardinstillingerne, og evt. tilretninger vil gå tabt. Vil du bekræfte denne handling?</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-resetToDefault">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reset To Default</source>
+        <target>Nulstil til standard</target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentFrom">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent From</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-sentTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sent To</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-emails-subjectWithValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject: {$subject}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-filesBrowser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Files Browser</source>
+        <target>Filbrowser</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this file or directory? Note that a directory must be empty before it can be deleted.</source>
+        <target>Vil du slette denne fil eller mappe? Vær opmærksom på, at en mappe skal være tom, før den kan slettes.</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-createDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Directory</source>
+        <target>Opret mappe</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-emptyDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No files were found in this directory.</source>
+        <target>Der blev ikke fundet nogen filer i denne mappe.</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-indexOfDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Index of {$dir}</source>
+        <target>Indeks over {$dir}</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-parentDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Directory</source>
+        <target>Overordnet mappe</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadedFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Uploaded Files</source>
+        <target>Overførte filer</target>
+      </segment>
+    </unit>
+    <unit id="manager-files-uploadFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Overfør fil</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group?</source>
+        <target>Er du sikker på, at du vil slette denne gruppe?</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-createTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Title</source>
+        <target>Opret titel</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-editTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Title</source>
+        <target>Rediger titel</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-form-groupTitleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A group title is required.</source>
+        <target>En gruppetitel er påkrævet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-addMember">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Member</source>
+        <target>Tilføj medlem</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this group membership?</source>
+        <target>Er du sikker på, at du vil slette dette gruppemedlemskab?</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Membership</source>
+        <target>Medlemskab</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This group has no members.</source>
+        <target>Denne gruppe har ingen medlemmer.</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-membership-noUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No users were found.</source>
+        <target>Der blev ikke fundet nogen brugere.</target>
+      </segment>
+    </unit>
+    <unit id="manager-groups-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="manager-importExport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Data</source>
+        <target>Importer/eksporter data</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-ui">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>UI</source>
+        <target>UI</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-submissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submissions</source>
+        <target>Indsendelser</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-forms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Forms</source>
+        <target>Formularer</target>
+      </segment>
+    </unit>
+    <unit id="manager-language-reloadLocalizedDefaultSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reload defaults</source>
+        <target>Genindlæs standardindstillinger</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-alternateLocaleInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</source>
+        <target>Du kan vælge, at det skal være tilladt at angive bestemte vigtige oplysninger på flere forskellige sprog. Hvis du vil benytte denne funktion, skal du markere alternative landestandarder og vælge blandt de indstillinger, der er angivet nedenfor.</target>
+      </segment>
+    </unit>
+    <unit id="manager-languages-supportedLocalesInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</source>
+        <target>Vælg de landestandarder, webstedet skal understøtte, via en sprogvalgsmenu på hver side. Menuen vises kun, hvis der vælges mere end én landestandard.</target>
+      </segment>
+    </unit>
+    <unit id="manager-payment-timestamp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Timestamp</source>
+        <target>Tidsstempel</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-existingUserRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An existing user must be entered.</source>
+        <target>En registreret bruger skal indskrives.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-authSource">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authentication source</source>
+        <target>Godkendelseskilde</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-confirmUnenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll this user?</source>
+        <target>Vil du annullere tilmeldingen af denne bruger?</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New User</source>
+        <target>Opret ny bruger</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserGeneratePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate a random password.</source>
+        <target>Opret en tilfældig adgangskode.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-createUserSendNotify">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send the user a welcome email containing their username and password.</source>
+        <target>Send brugeren en velkomst-e-mail med brugernavn og adgangskode.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Deaktiver</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-doNotEnroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>With no role</source>
+        <target>Uden rolle</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editProfile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Profile</source>
+        <target>Rediger profil</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-editUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit User</source>
+        <target>Rediger bruger</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailSelectedUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email selected users</source>
+        <target>Send e-mail til valgte brugere</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-emailUsersEnrolledAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email users enrolled as</source>
+        <target>Send e-mail til brugere, der er tilmeldt som</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email Users</source>
+        <target>Send e-mail til brugere</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectLocale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a locale</source>
+        <target>Vælg en landestandard</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-emailUsers-selectUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select the users you would like to email by checking the boxes beside their names</source>
+        <target>Vælg de brugere, du vil sende en e-mail til, ved at markere afkrydsningsfelterne ud for deres navne</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Aktiver</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll User</source>
+        <target>Tilmeld bruger</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enrollment</source>
+        <target>Tilmelding</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSelected">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll Selected Users</source>
+        <target>Tilmeld de valgte brugere</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSyncRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize role</source>
+        <target>Synkroniser roller</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollSync">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sync Enrollment</source>
+        <target>Synkroniser tilmelding</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAsDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users can be assigned to, or removed from, a role at any point.</source>
+        <target>Brugere kan til enhver tid knyttes til eller fjernes fra en rolle.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-enrollUserAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enroll user as</source>
+        <target>Tilmeld bruger som</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-invalidUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sorry, the requested user does not exist.</source>
+        <target>Den angivne bruger eksisterer ikke.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge User</source>
+        <target>Flet bruger</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers-confirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</source>
+        <target>Er du sikker på, at du vil flette kontoen med brugernavnet "{$oldAccountCount}" til kontoen med brugernavnet "{$newUsername}"? Kontoen med brugernavnet "{$oldAccountCount}" vil derefter ophøre med at eksistere. Denne handling kan ikke fortrydes.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mergeUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Merge Users</source>
+        <target>Flet brugere</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustChooseRole">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a role at the top of the page before clicking "Enroll User".</source>
+        <target>Vælg en rolle øverst på siden, inden du klikker på "Tilmeld bruger".</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-mustProvideName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please provide at least a last name for the user first.</source>
+        <target>Angiv som minimum først brugerens efternavn.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noMatchingUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No matching users.</source>
+        <target>Der blev ikke fundet nogen tilsvarende brugere.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-noneEnrolled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No enrolled users.</source>
+        <target>Ingen tilmeldte brugere.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>People</source>
+        <target>Personer</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-remove">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove</source>
+        <target>Fjern</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-saveAndCreateAnotherUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Save and Create Another</source>
+        <target>Gem og opret en ny</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAs">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In As</source>
+        <target>Log på som</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-signInAsUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Log In as User</source>
+        <target>Log på som bruger</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-syncUsers">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Synchronize User Enrollment</source>
+        <target>Synkroniser brugertilmelding</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-unenroll">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unenroll</source>
+        <target>Annuller tilmelding</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userCreatedSuccessfully">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User created successfully.</source>
+        <target>Brugeren er blevet oprettet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-people-userMustChangePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the user to change their password the next time they log in.</source>
+        <target>Bed brugeren om at ændre sin adgangskode, næste gang vedkommende logger på.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-action">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Action:</source>
+        <target>Handling:</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-disable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disable</source>
+        <target>Deaktiver</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable</source>
+        <target>Aktiver</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginManagement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Management</source>
+        <target>Administration af plug-ins</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-sitePlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is a site-wide plugin. Only the Site Administrator may manage this plugin.</source>
+        <target>Dette er en plug-in for hele webstedet. Denne plug-in må kun administreres af webstedsadministratoren.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>System Plugins</source>
+        <target>System-plug-ins</target>
+      </segment>
+    </unit>
+    <unit id="manager-readingTools">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reading Tools</source>
+        <target>Læseværktøjer</target>
+      </segment>
+    </unit>
+    <unit id="manager-userSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search User By Name</source>
+        <target>Søg bruger via navn</target>
+      </segment>
+    </unit>
+    <unit id="manager-representative-inUse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change</source>
+        <target>Skift</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search Reviewers By Name</source>
+        <target>Søg efter bedømmer ud fra navn</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-searchByName-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search By Name</source>
+        <target>Søg efter navn</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-interests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewing Interests</source>
+        <target>Bedømmers interesser</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewerSearch-form-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</source>
+        <target>Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter.</target>
+      </segment>
+    </unit>
+    <unit id="manager-roles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Roles</source>
+        <target>Roller</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Stats &amp; Reports]]></source>
+        <target>Statistikker og rapporter</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-defaultMetricDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>
+		Your {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.
+		There are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank
+		search results. Please select one of the configured metrics as a default.
+	</source>
+        <target>Din {$contextObjectName} er konfigureret til at registrere flere bruger-parametre. Brugerstatistikker vises i flere sammenhænge.
+		Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. når en ordnet liste over mest viste indsendelser fremvises eller når et søgeresultat rangeres. Vælg en af følgende parametre som standard.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-city">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>City</source>
+        <target>By</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-region">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Region</source>
+        <target>Region</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Generator</source>
+        <target>Rapportgenerator</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view.</source>
+        <target>Systemet genererer rapporter, som registrerer de oplysninger, der er forbundet med brugen af webstedet og indsendelser over en given tidsperiode. Der genereres rapporter i CSV-format, og der kræves et regnearksprogram  for at få vist disse rapporter.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-aggregationColumns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Aggregate stats by:</source>
+        <target>Samlet statistik af:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-optionalColumns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration.</source>
+        <target>Elementer i kursiv og markeret med * repræsenterer data, der ikke er obligatorisk i forhold til den nuværende måde at optælle statistikker i systemet på. Du kan have adgang til disse data eller ej, afhængigt af din statistik-plug-in-konfiguration.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-defaultReportTemplates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default report templates</source>
+        <target>Standard rapportskabeloner</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-generateReport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generate custom report</source>
+        <target>Generér brugerdefineret rapport</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced Options</source>
+        <target>Avancerede indstillinger</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-advancedOptions-hide">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Hide Advanced Options</source>
+        <target>Skjul avancerede indstillinger</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Columns</source>
+        <target>Kolonner</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-columns-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day.</source>
+        <target>Angiv de kolonner, der skal bruges til at generere rapporten. De kolonner, du vælger her, definerer ikke kun hvilke data, der vil blive præsenteret i rapporterne, men definerer også akkumuleringsniveauet for statistikken. Hvis du f.eks. vælger ID-, Type- og Månedkolonner, opsummerer rapporten alle visninger fra et objekt fra en måned og vil præsentere disse data i en række. Hvis du vælger dag i stedet for måned, vil hvert objekt have en række for hver dag.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Filters</source>
+        <target>Filtre</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object not found in database</source>
+        <target>Objektet ikke fundet i databasen</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object Type</source>
+        <target>Objekttype</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Object id</source>
+        <target>Objekt-id</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-objectId-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Define one or more object ids, comma separated (e.g. 1,2,3,4,5).</source>
+        <target>Definér et eller flere objekt-id'er, kommasepareret (f.eks. 1,2,3,4,5).</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-yesterday">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yesterday</source>
+        <target>I går</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-currentMonth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Current month</source>
+        <target>Indeværende måned</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderBy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Order by</source>
+        <target>Sortér efter</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Direction</source>
+        <target>Retning</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-asc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ascending</source>
+        <target>Stigende</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-orderDir-desc">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descending</source>
+        <target>Aftagende</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-month-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMM format.</source>
+        <target>Brug ÅÅÅÅMM-format.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-day-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Use the YYYYMMDD format.</source>
+        <target>Brug ÅÅÅÅMMDD-format.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-cities-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One or more city names, comma separated (e.g. City Name 1,City Name 2)</source>
+        <target>Et eller flere bynavne, kommaseparert (f.eks. Bynavn 1,Bynavn 2)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-form-columnsRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You have to select at least one column to generate the report.</source>
+        <target>Du skal vælge mindst én kolonne for at generere rapporten.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report URL</source>
+        <target>Rapport-URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-reportUrl-label">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks.</source>
+        <target>Følgende url kan bruges til at generere rapporten med de nuværende formularindstillinger. Du skal bare kopiere den og åbne den i din browser. Du kan også gemme den som din brugerdefinerede rapport-url -enerator i dine bogmærkesamling.</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byContext">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By context</source>
+        <target>Efter sammenhæng</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byObject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By object type and/or object id</source>
+        <target>Efter objekttype og/eller objekt-id</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select report range</source>
+        <target>Vælg rapportinterval</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byTime-dimensionSelector">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Or select range by:</source>
+        <target>Eller vælg interval efter:</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By geo location</source>
+        <target>Efter geografisk lokation</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-reports-filters-byLocation-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Narrow results by country, region and/or city.</source>
+        <target>Begræns søgeresultaterne via land, region og/eller by.</target>
+      </segment>
+    </unit>
+    <unit id="manager-affiliationAndSupport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor</source>
+        <target>Sponsor</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional Content</source>
+        <target>Yderligere indhold</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-additionalContent-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Anything entered here will appear on your homepage.</source>
+        <target>Alt indhold vil blive vist på hjemmesiden.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-advanced">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Advanced</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-appearance-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The appearance settings have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-contact-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The contact details for this press have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copyright Notice</source>
+        <target>Oplysninger om ophavsret</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-copyrightNotice-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require authors to agree to the following copyright notice as part of the submission process.</source>
+        <target>Kræv, at forfattere accepterer "Oplysninger om ophavsret" som en del af indsendelsesprocessen.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Author Guidelines</source>
+        <target>Retningslinjer for forfattere</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions.</source>
+        <target>Oplys forfattere om de bibliografiske standarder og formateringsstandarder, der benyttes for artikler fremsendt til tidsskriftet (f.eks. APA 6th - American Psychological Association 6th Edition). Det er ofte nyttigt at angive eksempler på de almindelige citatformater for tidsskrifter og bøger, der anvendes i manuskripter.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-authorGuidelines-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author guidelines have been successfully updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-checklist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checklist</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Competing Interests</source>
+        <target>Konkurrerende interesser</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-errorDeletingItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There was an error when deleting this item.</source>
+        <target>Der opstod en fejl i forbindelse med sletningen af dette element.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-favicon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Favicon</source>
+        <target>Favicon</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-groupType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File type grouping</source>
+        <target>Gruppering af filtyper</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage Image</source>
+        <target>Billede på hjemmeside</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload an image to display prominently on the homepage.</source>
+        <target>Upload et billede, der placeres på et fremtrædende sted på hjemmesiden.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homepageImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Ugyldigt billedformat til hjemmeside. De accepterede formater er .jpg eller .png.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-homeTitleImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Ugyldigt billedformat til titlen i sidehovedet på hjemmeside. De accepterede formater er .jpg eller .png.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-information-descriptionTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Descriptions</source>
+        <target>Beskrivelser</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sidebar</source>
+        <target>Side-menu</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-layout-sidebar-invalidBlock">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The {$name} block can not be found. Please make sure the plugin is installed and enabled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-loggingAndAuditing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logging and Auditing</source>
+        <target>Logføring og kontrol</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-logo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Logo</source>
+        <target>Logo</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-noTemporaryFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The file you uploaded could not be found. Please try to upload it again.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification of Author Submission</source>
+        <target>Besked om forfattermanuskript</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-copySpecifiedAddress">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send a copy to this email address</source>
+        <target>Send en kopi til denne e-mail-adresse</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-notifications-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:</source>
+        <target>Ved afslutning af manuskriptprocessen modtager forfattere automatisk en e-mail-bekræftelse. Derudover kan en kopi af e-mail-bekræftelsen sendes som følger:</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Open Access Policy</source>
+        <target>Open Access-politik</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-openAccessPolicy-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>If providing immediate free access to all published content, you may enter a description of your Open Access Policy.</source>
+        <target>Hvis tidskriftet vil give læsere øjeblikkelig gratis adgang til alt publiceret indhold, kan du indsætte en beskrivelse af jeres Open Access politik.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageHeaderLogoImageInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</source>
+        <target>Ugyldigt billedformat til logoet i sidehovedet på side. De accepterede formater er .jpg eller .png.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Page Footer</source>
+        <target>Sidefod</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-pageFooter-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter any images, text or HTML code that you'd like to appear at the bottom of your website.</source>
+        <target>Indsæt de billeder, den tekst eller HTML-kode, som ønskes placeret nederst på websitet</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-peerReview-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Outline the peer review policy and processes for readers and authors. This description often includes the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, expected time required to conduct the reviews, and the principles used to select reviewers.</source>
+        <target>Skitser tidsskriftets politik og processer i forbindelse med peer review for læsere og forfattere, herunder antallet af bedømmere, der normalt benyttes ved bedømmelse af et manuskript, de kriterier, efter hvilke bedømmerne bliver bedt om at bedømme manuskripter, det normale tidsforbrug i forbindelse med en bedømmelse samt principperne for rekruttering af bedømmere.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Principal Contact</source>
+        <target>Primær kontaktperson</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-principalContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website.</source>
+        <target>Denne stilling, der kan betragtes som en primær redaktionel stilling, ledende redaktionel stilling eller administrativ stilling, er anført på tidsskriftets hjemmeside sammen med kontaktpersonen for teknisk support.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Privacy Statement</source>
+        <target>Erklæring om beskyttelse af personlige oplysninger</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy.</source>
+        <target>Denne erklæring vises under brugerregistrering, manuskriptindsendelse og på den offentligt tilgængelige privacy-sider om beskyttelse af personlige oplysninger.
+I nogle retskredse er du forpligtet til at oplyse, hvordan du håndterer brugerdata i din datapolitik.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewResponseTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Response Deadline</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-defaultReviewCompletionTime">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Completion Deadline</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Number of weeks to accept or decline a review request.</source>
+        <target>Antal uger inden en accept eller et afslag skal foreligge</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-numWeeksPerReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Weeks allowed for review completion</source>
+        <target>Antal uger afsat til at færdiggøre bedømmelsen</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-neverSendReminder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Never Remind</source>
+        <target>Send aldrig rykker</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-noteOnModification">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Defaults can be modified for each review during the editorial process.</source>
+        <target>Kan ændres under den redaktionelle proces.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Reminder</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-response-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not responded to a review request this many days after the response due date.</source>
+        <target>Send en påmindelse, hvis bedømmeren ikke har svaret på anmodningen inden for følgende tid (dage) efter forfaldsdato:</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Reminder</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reminders-submit-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date.</source>
+        <target>Send en påmindelse, hvis bedømmeren ikke har sendt en indstilling inden for følgende tid (dage) efter forfaldsdato:</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-reviewMode">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Default Review Mode</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-reviewOptions-showBlindReviewLink">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Present a link to <button type="button">Ensuring a Blind Review</button> during upload]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-note">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Sponsor Relationship and Policy Description</source>
+        <target>Beskrivelse af sponsorpolitik</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-sponsors-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly.</source>
+        <target>Eksempler: Videnskabelige organisationer, universitetsafdelinger, andelsforetagender osv. Navnene på sponsorerne vises på hjemmesiden.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-styleSheetDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Experienced web developers can upload a CSS file to further customize the website's appearance.</source>
+        <target>For yderligere at tilpasse websitets layout efter egne ønsker, kan erfarne webudviklere uploade en CSS-fil.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContact">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Technical Support Contact</source>
+        <target>Kontaktperson for teknisk support</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-technicalSupportContactDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material.</source>
+        <target>En kontaktperson, som kan assistere redaktører, forfattere og bedømmere, der måtte have brug for hjælp i forbindelse med indsendelse af, og redigering, bedømmelse og publicering af manuskript.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The theme has been updated. <a href="{$url}" target="_blank">View Now</a>]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme</source>
+        <target>Layout-tema</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>New themes may be installed from the Plugins tab at the top of this page.</source>
+        <target>Nye layout-temaer kan installeres via linket 'Plug-ins' øverst på siden</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-theme-notFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The theme you selected is not installed or enabled.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-userAccess-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The user access details for this press have been updated.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-siteAccessOptions-siteAccessOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Access Options</source>
+        <target>Webstedets adgangsmuligheder</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-count-value">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$count} ({$percentage}%)</source>
+        <target>{$count} ({$percentage}%)</target>
+      </segment>
+    </unit>
+    <unit id="manager-statistics-statistics-totalNewValue">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$numTotal} ({$numNew} new)</source>
+        <target>{$numTotal} ({$numNew} ny)</target>
+      </segment>
+    </unit>
+    <unit id="manager-users">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Users</source>
+        <target>Brugere</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins</source>
+        <target>Metadata plug-ins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-metadata-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Metadata Plugins implement additional meta-data standards.</source>
+        <target>Metadata plug-ins implementerer ekstra metadata-standarder.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-auth">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Authorization Plugins</source>
+        <target>Plug-ins til autorisationer</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins</source>
+        <target>Plug-ins til blokke</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-blocks-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Block Plugins are pluggable UI components, such as the various sidebar tools.</source>
+        <target>Plug-ins til blokke er tilslutningsbare brugergrænsefladekomponenter, f.eks. de forskellige margentekstværktøjer.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins provide live data to external systems.</source>
+        <target>Plug-ins til gateways leverer live-data til eksterne systemer.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-gateways">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Gateway Plugins</source>
+        <target>Plug-ins til gateways</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-generic">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Generic Plugins</source>
+        <target>Generiske plug-ins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins can be used to transfer content to and from other systems.</source>
+        <target>Plug-ins til import/eksport kan bruges til at overføre indhold til og fra andre systemer.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-importexport">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export Plugins</source>
+        <target>Plug-ins til import/eksport</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method plugins implement support for various ways of processing payments online.</source>
+        <target>Plug-ins til betalingsmåder implementerer understøttelse af forskellige måder til håndtering af onlinebetalinger.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-paymethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Plugins</source>
+        <target>Plug-ins til betalinger</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins are used to implement various types of reports and data extracts.</source>
+        <target>Rapport-plugins bruges til at implementere forskellige typer af rapporter og dataudtræk.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Report Plugins</source>
+        <target>Rapport plugins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins can be used to change the system's appearance.</source>
+        <target>Plug-ins til temaer kan bruges til at ændre systemets udseende.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-themes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Theme Plugins</source>
+        <target>Plug-ins til temaer</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Metadata Format Plugins</source>
+        <target>OAI Metadata Format Plug-ins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-oaiMetadataFormats-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These format plugins express metadata in OAI communications.</source>
+        <target>Disse format-plugins udtrykker metadata i OAI-kommunikationer.</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Public Identifier Plugins</source>
+        <target>Public Identifier Plug-ins</target>
+      </segment>
+    </unit>
+    <unit id="plugins-categories-pubIds-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>These plugins implement support for a public identifier.</source>
+        <target>Disse plug-ins implementerer understøttelse  af Public Identifier.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-copyError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>Plug-in blev ikke kopieret korrekt. Dette kan skyldes manglende rettigheder. Sørg for, at webserveren kan skrive til plug-in-mappen (herunder undermapper), men glem ikke at sikre den igen senere.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-delete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete Plugin</source>
+        <target>Slet plug-in</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to install this plugin?</source>
+        <target>Er du sikker på, at du vil installere denne plug-in?</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to upgrade this plugin?</source>
+        <target>Er du sikker på, at du vil opgradere denne plug-in?</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-installPlugin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Install or upgrade this plugin</source>
+        <target>Installér eller opgradér denne plug-in</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteConfirm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this plugin from the system?</source>
+        <target>Er du sikker på, at du vil slette denne plug-in fra systemet?</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By clicking delete, you will delete the plugin from the server's file system.</source>
+        <target>Ved at klikke 'Slet', sletter du denne plug-in fra serverens filsystem.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</source>
+        <target>Plug-in'en "{$pluginName}" kunne ikke slettes fra filsystemet. Dette kan skyldes manglende rettigheder. Sørg for, at webserveren kan skrive til plug-in-mappen (herunder undermapper), men glem ikke at sikre den igen senere.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-deleteSuccess">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" successfuly deleted</source>
+        <target>Plug-in'en "{$pluginName}" blev slettet</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins.</source>
+        <target>Denne side gør det muligt for tidsskriftschefen at gennemgå og om muligt konfigurere de plug-ins, der aktuelt er installeret. Plug-ins er opdelt i kategorier i henhold til deres funktion. Kategorien er angivet nedenfor, og inden for hver kategori, dens nuværende samling plug-ins.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-doesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin "{$pluginName}" does not exist</source>
+        <target>Plug-in "{$pluginName}" findes ikke</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-fileSelectError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a file first</source>
+        <target>Vælg først en fil</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upload">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload A New Plugin</source>
+        <target>Upload en ny plug-in</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>Denne formular giver dig mulighed for at uploade og installere et nyt plug-in. Sørg for, at plugin'en komprimeres som en .tar.gz-fil.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please ensure a file was selected for upload.</source>
+        <target>Sørg for, at en fil blev valgt til upload.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installed Plugins</source>
+        <target>Installerede plug-ins</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin Gallery</source>
+        <target>Plug-in-samling</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-overview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Overview</source>
+        <target>Oversigt</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-installation">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation</source>
+        <target>Installation</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-latestCompatible">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Latest Compatible Release</source>
+        <target>Seneste kompatible udgave</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Official</source>
+        <target>Officiel</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-official-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is developed and maintained by the Public Knowledge Project team.</source>
+        <target>Denne plug-in er udviklet og vedligeholdes af Public Knowledge Project teamet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewed</source>
+        <target>Bedømt</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-reviewed-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin has been reviewed and approved by the Public Knowledge Project team.</source>
+        <target>Denne plug-in er blevet gennemgået og godkendt af Public Knowledge Project teamet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Partner</source>
+        <target>Partner</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-certifications-partner-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This plugin is provided by one of our development partners.</source>
+        <target>Denne plug-in leveres af en af vores udviklingspartnere.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-maintainer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Maintainer</source>
+        <target>Vedligeholder</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-version">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>v{$version} released on {$date}</source>
+        <target>v{$version} udgivet den {$date}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-homepage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Homepage</source>
+        <target>Hjemmeside</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-summary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Summary</source>
+        <target>Resumé</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pluginGallery-status">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noInstalledVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The plugin has not yet been installed.</source>
+        <target>Denne plug-in er endnu ikke blevet installeret.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>There is currently no compatible version of this plugin available.</source>
+        <target>Der findes i øjeblikket ingen kompatibel version af denne plug-in.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, and is newer than the version available in the gallery.</source>
+        <target>Plugin er allerede installeret, og er nyere end den tilgængelige version i galleriet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed, but can be updated to a newer version.</source>
+        <target>Plugin er allerede installeret, men kan opdateres til en nyere version.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already installed and up-to-date.</source>
+        <target>Plugin er allerede installeret og opdateret.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewer-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Newer than available version</source>
+        <target>Nyere end tilgængelig version</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionOlder-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Can be upgraded</source>
+        <target>Kan opgraderes</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installedVersionNewest-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Up to date</source>
+        <target>Opdateret</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-noCompatibleVersion-short">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Not Available</source>
+        <target>Ikke tilgængelig</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Installation failed. {$errorString}</source>
+        <target>Installation mislykkedes. {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-installSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully installed version {$versionNumber}</source>
+        <target>Vellykket installeret version {$versionNumber}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-invalidPluginArchive">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin archive does not contain a folder that corresponds to the plugin name.</source>
+        <target>Den uploadede plug-in-arkiv indeholder ikke en mappe, der svarer til plug-in-navnet.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The uploaded plugin does not fit the category of the upgraded plugin.</source>
+        <target>Den uploadede plug-in passer ikke til kategorien for den opgraderede plug-in.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-wrongName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The version.xml in the uploaded plugin contains a plugin name that does not fit the name of the upgraded plugin.</source>
+        <target>Version.xml i den uploadede plug-in indeholder et plug-in-navn, der ikke passer til navnet på den opgraderede plug-in.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseInstall">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin does not exist.  Please Install instead</source>
+        <target>Plug-in findes ikke. Installér</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-pleaseUpgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Plugin already exists, but is newer than installed version.  Please upgrade instead</source>
+        <target>Plug-in findes allerede, men denne er nyere end den installerede version. Opgrader</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-settings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+        <target>Indstillinger</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-tarCommandNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The tar command is not available. Please correctly configure it in your "config.inc.php".</source>
+        <target>Tar-kommandoen er ikke tilgængelig. Konfigurer "config.inc.php".</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgrade">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade Plugin</source>
+        <target>Opgradér plug-in</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This form allows you to upgrade a plugin.  Please ensure the plugin is compressed as a .tar.gz file.</source>
+        <target>Denne formular giver dig mulighed for at opgradere en plug-in. Sørg for, at plugin'en komprimeres som en .tar.gz-fil.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade failed. {$errorString}</source>
+        <target>Opgradering mislykkedes. {$errorString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-upgradeSuccessful">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Successfully upgraded to version {$versionString}</source>
+        <target>Opgraderet til version {$versionString}</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Error uploading file</source>
+        <target>Fejl ved upload af fil</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-uploadPluginDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select plugin file</source>
+        <target>Vælg plug-in-fil</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileInvalid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml in plugin directory contains invalid data.</source>
+        <target>version.xml i plug-in-mappen indeholder ugyldige data.</target>
+      </segment>
+    </unit>
+    <unit id="manager-plugins-versionFileNotFound">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>version.xml not found in plugin directory</source>
+        <target>version.xml ikke fundet i plug-in-mappe</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeEnabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale enabled.</source>
+        <target>Landestandard aktiveret.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeDisabled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale disabled.</source>
+        <target>Landestandard deaktiveret.</target>
+      </segment>
+    </unit>
+    <unit id="notification-primaryLocaleDefined">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} defined as primary locale.</source>
+        <target>{$locale} sat til primær landestandard.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeInstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All selected locale(s) installed and activated.</source>
+        <target>Alle valgte landestandarder installeret og aktiveret.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeUninstalled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale uninstalled.</source>
+        <target>{$locale} landestandard afinstalleret.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeReloaded">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>{$locale} locale reloaded for {$contextName}.</source>
+        <target>{$locale} landestandard genindlæst.</target>
+      </segment>
+    </unit>
+    <unit id="notification-localeSettingsSaved">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale settings saved.</source>
+        <target>Lokaliseringstilretninger gemt</target>
+      </segment>
+    </unit>
+    <unit id="notification-editedUser">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User edited.</source>
+        <target>Brugerprofil redigeret</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The licensing details have been updated. </source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-license-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other license URL</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>License Terms</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-licenseTerms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter public licensing terms you would like to display alongside published work.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Tags</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-customHeaders-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add custom HTML tags, also known as meta tags, that you would like to be inserted in the head of every page. Consult a technical advisor before adding tags here.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payments</source>
+        <target>Betaling</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Methods</source>
+        <target>Betalingsmetode</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-none">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No payment method selected</source>
+        <target>Ingen betalingsmåde valgt</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-method">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Payment Method</source>
+        <target>Betalingsmåde</target>
+      </segment>
+    </unit>
+    <unit id="manager-paymentMethod-currency">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Currency</source>
+        <target>Valuta</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleOptions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Options</source>
+        <target>Rolleoptioner</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-showTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Show role title in contributor list</source>
+        <target>Vis rollenavn i medarbejderliste</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitSelfRegistration">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Allow user self-registration</source>
+        <target>Tillad brugeren selv at foretage registrering</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-recommendOnly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This role is only allowed to recommend a review decision and will require an authorised editor to record a final decision.</source>
+        <target>Denne rolle kan kun anbefale en bedømmelse. Det vil kræve en autoriseret redaktør at registrere en endelig bedømmelse.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role Name</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abbreviation</source>
+        <target>Forkortelse</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-assignedStages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Stages</source>
+        <target>Tildelte trin</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stages">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Stages</source>
+        <target>Trin</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Role details</source>
+        <target>Rolleoplysninger</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permission level</source>
+        <target>Adgangsniveau</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?</source>
+        <target>Du er i gang med at fjerne denne rolle fra denne sammenhæng. Dette indgreb vil også fjerne relaterede indstillinger og alle brugertilmeldinger til denne rolle. Vil du fortsætte?</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role name.</source>
+        <target>Du skal angive et rollenavn.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-abbrevRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role abbreviature.</source>
+        <target>Du skal angive en rolleforkortelse.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role name.</source>
+        <target>Du skal angive et unikt rollenavn.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-uniqueAbbrev">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define an unique role abbreviature.</source>
+        <target>Du skal angive en unik rolleforkortelse.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-roleIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a role permission level.</source>
+        <target>Du skal angive adgangniveau til rollen.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-stageIdRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to define a stage to assign to.</source>
+        <target>Du skal angive et trin rollen skal tilknyttes.</target>
+      </segment>
+    </unit>
+    <unit id="settings-roles-permitMetadataEdit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permit submission metadata edit.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-fileRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A library file is required. Please ensure that you have chosen and uploaded a file.</source>
+        <target>En biblioteksfil er påkrævet. Sørg for, at du har valgt og uplodet en fil.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A name is required for this library file.</source>
+        <target>Biblioteksfilen skal tildeles et navn.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-typeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A file type is required for this library file.</source>
+        <target>Der skal angives filtype til biblioteksfilen.</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-contracts">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contracts</source>
+        <target>Kontrakter</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-marketing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marketing</source>
+        <target>Marketing</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-permissions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Permissions</source>
+        <target>Tilladelser</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-reports">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reports</source>
+        <target>Rapporter</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-category-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Andet</target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This library file can be accessible for download, if "Public Access" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>]]></source>
+        <target><![CDATA[<p>Denne biblioteksfil kan være tilgængelig til download, hvis "Offentlig adgang" er aktiveret, på: <blockquote>{$downloadUrl}</blockquote></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="settings-libraryFiles-public-selectLibraryFiles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select Library Files to attach</source>
+        <target>Vælg biblioteksfiler, der skal vedhæftes</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-addGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add a Component</source>
+        <target>Tilføj materialetype</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-editGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit this Component</source>
+        <target>Redigér denne enhed</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-deleteGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete this Component</source>
+        <target>Slet denne enhed</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-restoreGenres">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Restore the components to the default settings</source>
+        <target>Genindlæs disse enheder, så de svarer til standardindstillingen</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-dependent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as dependent files (e.g. not to be listed with published content)</source>
+        <target>Registrer disse filtyper som underordnede filer (f.eks. hvis de ikke skal indgå som en del af det publicerede materiale)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-supplementary">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Mark files of this type as supplementary files (e.g. not primary submission content)</source>
+        <target>Registrer disse filtyper som supplerende filer (f.eks. når det ikke er en del af det primære indsendelsesmateriale - artikeltekst)</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Key</source>
+        <target>Nøgle</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An optional short symbolic identifer for this genre.</source>
+        <target>En valgfri kort symbolsk identifikator for denne genre.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-exists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key already exists.</source>
+        <target>Nøglen eksisterer allerede.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-genres-key-alphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>Nøglen kan kun indeholde alfanumeriske tegn, understregninger og bindestreger, og skal begynde og slutte med et alfanumerisk tegn.</target>
+      </segment>
+    </unit>
+    <unit id="manager-settings-wizard">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Settings Wizard</source>
+        <target>Indstillingsguide</target>
+      </segment>
+    </unit>
+    <unit id="manager-users-roleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>You need to select at least one role to be associated with this user.</source>
+        <target>Du mangler at tildele brugeren mindst én rolle.</target>
+      </segment>
+    </unit>
+    <unit id="manager-website">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website</source>
+        <target>Website</target>
+      </segment>
+    </unit>
+    <unit id="manager-website-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Website Settings</source>
+        <target>Website-indstillinger</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow</source>
+        <target>Workflow</target>
+      </segment>
+    </unit>
+    <unit id="manager-workflow-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Workflow Settings</source>
+        <target>Workflow-indstillinger</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution</source>
+        <target>Distribuering</target>
+      </segment>
+    </unit>
+    <unit id="manager-distribution-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Distribution Settings</source>
+        <target>Distributionsindstillinger</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Forms</source>
+        <target>Bedømmelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmActivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to activate this review form? Once it's assigned to a review you will no longer be able to deactivate it.</source>
+        <target>Er du sikker på, at du vil aktivere denne bedømmelsesformular? Når den er tilknyttet en bedømmelse, kan den ikke længere deaktiveres.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDeactivate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to deactivate this review form? It will no longer be available for new review assignments.</source>
+        <target>Er du sikker på, at vil deaktivere denne bedømmelsesformular? Efterfølgende vil den ikke længere kunne knyttes til nye bedømmelser.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmCopy">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to create a copy of this review form?</source>
+        <target>Er du sikker på, at du vil oprette en kopi af denne bedømmelsesformular?</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-completed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Completed</source>
+        <target>Færdig</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to delete this review form?</source>
+        <target>Er du sikker på, at du vil slette denne bedømmelsesformular?</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create Review Form</source>
+        <target>Opret bedømmelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description and Instructions</source>
+        <target>Beskrivelse og instruktioner</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form</source>
+        <target>Bedømmelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A title is required for the review form.</source>
+        <target>En titel er påkrævet til bedømmelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-inReview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>In Review</source>
+        <target>Under bedømmelse</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-list-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first "for author and editor," and the second "for editor." Review forms can be designated for a specific press section, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author.</source>
+        <target>Peer review formularer, som er oprettet her, bliver præsenteret for bedømmere med henblik på udfyldning, i stedet for standardformularen, som består af to tomme tekstfelter, det første "til forfatter og redaktør", den andet "til redaktør". Bedømmelsesformularer kan designes til det enkelte tidsskrift, og redaktører har mulighed for at vælge hvilken formular, der skal bruges i de respektive bedømmelser.  Redaktører vil i alle tilfælde have mulighed for at inkludere de respektive bedømmelser i korrespondence med forfatteren.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneChosen">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>None / Free Form Review</source>
+        <target>Ingen / Valgfri bedømmelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been created.</source>
+        <target>Ingen bedømmelsesformular er blevet oprettet</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-noneUsed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No review forms have been used.</source>
+        <target>Ingen bedømmelsesformular har været i brug.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-preview">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Preview Form</source>
+        <target>Vis formular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-reviewFormData">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Review Form Data</source>
+        <target>Data fra bedømmelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewForms-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElement-changeType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Changing the form item type...</source>
+        <target>Ændre formularens elementtype...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Form Items</source>
+        <target>Formularelementer</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-addResponseItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add selection</source>
+        <target>Tilføj valg</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-checkboxes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Checkboxes (you can choose one or more)</source>
+        <target>Afkrydsningsfelter (du kan vælge en eller flere)</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-chooseType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Choose item type</source>
+        <target>Vælg elementtype</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-confirmDelete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm delete of a published form item...</source>
+        <target>Bekræft sletning af publiceret formularelement...</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-copyTo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Copy to:</source>
+        <target>Kopiér til:</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-create">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create New Item</source>
+        <target>Opret nyt element</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-dropdownbox">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Drop-down box</source>
+        <target>Rullemenu</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Form Item</source>
+        <target>Redigér formularelement</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-elementType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item type</source>
+        <target>Elementtype</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-elementTypeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>An item type is required for the form item.</source>
+        <target>En elementtype er påkrævet i denne formular.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-form-questionRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A question is required for the form item.</source>
+        <target>Et spørgsmål er påkrævet i denne formular</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-noneCreated">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>No form items have been created.</source>
+        <target>Der er ikke blevet oprettet nogen formularelementer.</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-possibleResponse">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selection</source>
+        <target>Valg</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-question">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Item</source>
+        <target>Element</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-radiobuttons">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Radio buttons (you can only choose one)</source>
+        <target>Radioknapper (du kan kun vælge én)</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Reviewers required to complete item</source>
+        <target>Bedømmere påkrævet for at afslutte emne</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-included">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Included in message to author</source>
+        <target>Inkluderet i besked til forfatter</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-smalltextfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single word text box</source>
+        <target>Enkeltords tekstfelt</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textarea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Extended text box</source>
+        <target>Udvidet tekstfelt</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-textfield">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Single line text box</source>
+        <target>Enkeltlinie tekstfelt</target>
+      </segment>
+    </unit>
+    <unit id="manager-reviewFormElements-viewable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Viewable (for authors)</source>
+        <target>Synligt (for forfattere)</target>
+      </segment>
+    </unit>
+    <unit id="grid-action-createReviewForm">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a new Review Form</source>
+        <target>Opret en ny bedømmelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-competingInterests-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Request a Competing Interest statement during the peer review.</source>
+        <target>Anmod om en erklæring om konkurrerende interesser under bedømmelsesprocessen.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-licenseURLDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL to a webpage describing the license, if available.</source>
+        <target>Indsæt URL fra licenswebside, hvis den er tilgængelig.</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-submission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submission Form</source>
+        <target>Indsendelsesformular</target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-success">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission metadata has been updated successfully.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Coverage will typically indicate a work's spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range) or jurisdiction (such as a named administrative entity).</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable coverage metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request coverage metadata from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest coverage metadata during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-coverage-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest coverage metadata before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Keywords are typically one- to three-word phrases that are used to indicate the main topics of a submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable keyword metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request keywords from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to suggest keywords during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-keywords-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to suggest keywords before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Language indicates the work's primary language using a language code ("en") with an optional country code ("en_US").</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable language metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the submission's languages from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to indication the submission's languages during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-languages-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to enter the submission's languages before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Any rights held over the submission, which may include Intellectual Property Rights (IPR), Copyright, and various Property Rights.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable rights metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a rights disclosure from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any prior access rights during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-rights-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any prior access rights before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The source may be an ID, such as a DOI, of another work or resource from which the submission is derived.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable source metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request a source URL from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide a source URL during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-source-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide a source URL before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subjects will be keywords, key phrases or classification codes that describe a topic of the submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable subject metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request subjects from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide subjects during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-subjects-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide subjects before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The nature or genre of the main content of the submission. The type is usually "Text", but may also be "Dataset", "Image" or any of the <a target="_blank" href="http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary">Dublin Core types</a>.]]></source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable type metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request the type from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide the type during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-type-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide the type before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Disciplines are types of study or branches of knowledge as described by university faculties and learned societies.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable disciplines metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request disciplines from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide disciplines during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-disciplines-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide disciplines before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Supporting agencies may indicate the source of research funding or other institutional support that facilitated the research.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable supporting agencies metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request supporting agencies from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to disclose any supporting agencies during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-agencies-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to disclose any supporting agencies before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Collect a submission's references in a separate field. This may be required to comply with citation-tracking services such as Crossref.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enable references metadata</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-noRequest">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Do not request references from the author during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-request">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Ask the author to provide references during submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-setup-metadata-citations-require">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Require the author to provide references before accepting their submission.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-validationErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Validation errors:</source>
+        <target>Godkendelsesfejl:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-warningsEncountered">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Warnings encountered:</source>
+        <target>Der forekommer advarsler:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-errorsOccured">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occured:</source>
+        <target>Der opstod fejl:</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownElement">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown element {$param}</source>
+        <target>Ukendt element {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownGenre">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown genre {$param}</source>
+        <target>Ukendt genre {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownEncoding">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown encoding {$param}</source>
+        <target>Ukendt kode {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-encodingError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The content is not encoded as {$param}</source>
+        <target>Indholdet er ikke kodet som {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUserGroup">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown user group {$param}</source>
+        <target>Ukendt brugergruppe {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-missingGivenName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-unknownUploader">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unknown uploader {$param}</source>
+        <target>Ukendt uploader {$param}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-temporaryFileFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Temporary file {$dest} could not be created from {$source}</source>
+        <target>Midlertidig fil {$dest} kunne ikke oprettes fra  {$source}</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-filesizeMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The provided filesize "{$expected}" and the actual filesize "{$actual}" do not match</source>
+        <target>Den angivne filstørrelse "{$expected}" og den aktuelle filstørrelse "{$actual}" stemmer ikke overens</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-common-error-duplicateRevisionForSubmission">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The revision "{$revisionId}" for submission file "{$fileId}" would create a duplicate record</source>
+        <target>Revisionen "{$revisionId}" af indsendelsesfilen "{$fileId}" vil oprette en kopiregistrering</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-native-error-submissionFileImportFailed">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The submission file could not be imported</source>
+        <target>Indsendelsesfilen kunne ikke importeres</target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-importExportErrors">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Import/Export errors:</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-userHasNoPassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has no password. Check your import XML format. The user has not been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-passwordHasBeenChanged">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" password could not be imported as is. A new password is been send to the user email. The user has been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-plainPasswordNotValid">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The imported user "{$username}" has a plain password that is not valid. The user has not been imported.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="plugins-importexport-user-error-usernameEmailMismatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The username "{$username}" and the e-mail "{$email}" do not match to the one and the same existing user.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titel</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target>Sti</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation</source>
+        <target>Navigationsmenuer</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-viewInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>]]></source>
+        <target><![CDATA[<p>Denne side vil være tilgængelig på: <blockquote>{$pagesPath}</blockquote>...hvor %PATH% er stien, der indskrives ovenfor. <strong>Bemærk:</strong> To sider kan ikke have samme sti. Hvis man anvender stier, der allerede er en del af systemet kan man miste adgang til vigtige funktioner.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-content">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Content</source>
+        <target>Indhold</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-pathRegEx">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'.</source>
+        <target>Sti-feltet kan kun indeholde alfanumeriske tegn plus '.', '/', '-', and '_'.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicatePath">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This path already exists for another navigation menu item.</source>
+        <target>Denne sti eksisterer allerede i forbindelse med et andet navigationsmenuelement.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-duplicateTitles">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This title already exists for another navigation menu.</source>
+        <target>Denne titel eksisterer allerede i forbindelse med en anden navigationsmenu.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-titleRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The title is required</source>
+        <target>Titlen er påkrævet</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Items</source>
+        <target>Indholdselementer i navigationsmenuen</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-assignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned Menu Items</source>
+        <target>Tildelte menuelementer</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-unassignedMenuItems">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Unassigned Menu Items</source>
+        <target>Annulerede menuelementer</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuArea">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Active Theme Navigation Areas</source>
+        <target>Aktivt navigationsområde</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuAreaMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a navigation area</source>
+        <target>Vælg et navigationsområde</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-menuAssigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A navigation menu is already assigned to this area.</source>
+        <target>En navigationsmenu er allerede blevet tildelt dette område.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-customUrlError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A URL must be provided</source>
+        <target>Der mangler en URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-conditionalDisplay">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Learn more about when this menu item will be displayed or hidden.</source>
+        <target>Lær mere om, hvornår dette menupunkt vil blive vist eller skjult.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-submenuWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an "About" item which opens a submenu with "Contact" and "Editorial Team", the "About" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, "About the Journal", which appears in the submenu.</source>
+        <target>Når et menupunkt åbner en undermenu, kan den ikke følges på alle enheder (apparater). Hvis du f.eks. har et "Om" element, der åbner en undermenu med "Kontaktperson" og "Redaktionsgruppe", er linket "Om" muligvis ikke tilgængeligt på alle enheder. I standardmenuen håndteres dette ved at oprette et andet menupunkt, "Om tidsskriftet", som vises i undermenuen.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemType">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Navigation Menu Type</source>
+        <target>Navigationsmenutype</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-navigationMenuItemTypeMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Select a Navigation Menu Type or Custom to make your own</source>
+        <target>Vælg en navigationstype eller brugerdefineret for at oprette din egen</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Page</source>
+        <target>Brugerdefineret side</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-customPage-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create a custom page on your site and link to it from a navigation menu.</source>
+        <target>Opret en brugerdefineret side på dit websted og link til den fra navigationsmenuen.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remote URL</source>
+        <target>Ekstern URL</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-remoteUrl-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to any URL on another site, like https://pkp.sfu.ca.</source>
+        <target>Link til en hvilken som helst URL på et andet websted, f.eks. https://pkp.sfu.ca.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the About the Journal content in Settings > Journal]]></source>
+        <target><![CDATA[Link til side, der viser indholdet i feltet Om tidsskriftet under Indstillinger > Tidsskrift]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-about-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the About the Journal section under Settings > Journal.]]></source>
+        <target><![CDATA[Dette link vil kun blive vist, hvis du har udfyldt feltet Om tidsskriftet under Indstillinger > Tidsskrift.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Link to a page displaying the Masthead content in Settings > Journal.]]></source>
+        <target><![CDATA[Link til en side, der viser indholdet i feltet Kolofon under Indstillinger > Tidsskrift]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-editorialTeam-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Editorial Team section under Settings > Journal.]]></source>
+        <target><![CDATA[Dette link vil kun blive vist, hvis du har udfyldt feltet Redaktionsgruppe under Indstillinger > Tidsskrift]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-submissions-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying submission instructions.</source>
+        <target>Link til siden, der viser indsendelsesanvisninger.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-current-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your current issue.</source>
+        <target>Link til dit nyeste nummer.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-archives-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to your issue archive.</source>
+        <target>Link til dit nummerarkiv.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your announcements.</source>
+        <target>Link til den side, der viser dine meddelelser.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-announcements-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have enabled announcements under Settings > Website.]]></source>
+        <target><![CDATA[Dette link vil kun blive vist, hvis du har aktiveret meddelelser under Indstillinger > Website.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-login-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user login page.</source>
+        <target>Link til bruger-loginside.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-register-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user registration page.</source>
+        <target>Link til brugerregistreringssiden.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-dashboard-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the editorial dashboard.</source>
+        <target>Link til det redaktionelle dashboard.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-profile-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the user profile page.</source>
+        <target>Link til brugerprofilside.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the site-wide administration tools.</source>
+        <target>Link til webstedets administrationsværktøjer.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-administration-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed to administrative users.</source>
+        <target>Dette link vil kun blive vist til administratorer.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-logOut-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A link that will log the user out.</source>
+        <target>Et link der logger brugeren ud.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedOut-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is logged in.</source>
+        <target>Dette link vil kun blive vist, når den besøgende er logget ind.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-loggedIn-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This link will only be displayed when the visitor is not logged in.</source>
+        <target>Dette link vil kun blive vist, når den besøgende ikke er logget ind.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to a page displaying your contact information.</source>
+        <target>Link til side, der indeholder oplysninger om kontaktperson.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-contact-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have filled out the Contact information under Settings > Contact.]]></source>
+        <target><![CDATA[Dette link vil kun blive vist, hvis du har udfyldt informationsfelterne på siden Kontaktperson under Indstillinger > Tidsskrift > Kontaktperson]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-form-typeMissing">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please select a navigation menu type.</source>
+        <target>Vælg en navigationsmenutype.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-subscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if payments are enabled under Settings > Distribution > Payments.]]></source>
+        <target><![CDATA[Dette link vises kun, hvis betalinger er aktiveret under Indstillinger> Distribuering> Betaling.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-mySubscriptions-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access.]]></source>
+        <target><![CDATA[Dette link vises kun, hvis den besøgende er logget ind, betalinger er aktiveret under Indstillinger> Distribuering> Betalinger, og abonnementer kræves under Indstillinger> Distribution> Adgang.]]></target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-search-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the search page.</source>
+        <target>Link til søgeside.</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Link to the page displaying your privacy statement.</source>
+        <target>Link til den side, der viser din erklæring om beskyttelse af personlige oplysninger</target>
+      </segment>
+    </unit>
+    <unit id="manager-navigationMenus-privacyStatement-conditionalWarning">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions.]]></source>
+        <target><![CDATA[Dette link vil kun blive vist, hvis du har indsat en erklæring om beskyttelse af personlige oplysninger under Indstillinger > Workflow > Indsendelser]]></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-add">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Add Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-edit">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-name">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-path">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Path</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-urlWillBe">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category's URL will be: {$sampleUrl}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path must consist of only letters and numbers.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-pathExists">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The category path already exists. Please enter a unique path.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-parentCategory">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Parent Category</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-removeText">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Are you sure you wish to remove this category?</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-nameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Please enter a category name.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="grid-category-categoryDetails">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Category Details</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-daily">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Daily</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Date Range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-allDates">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>All dates</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-apply">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Apply</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-change">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Change date range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-customRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Custom Range</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-dateDoesNotExist">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>One of the dates entered does not exist.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-instructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The date format is not valid. Enter each date in the format YYYY-MM-DD.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidDateRange">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date must be before the end date.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidEndDateMax">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The end date may not be later than {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-invalidStartDateMin">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The start date may not be earlier than {$date}.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last12Months">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 12 months</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last30Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 30 days</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-last90Days">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Last 90 days</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-sinceDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Since {$date}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-to">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-dateRange-untilDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Until {$date}</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-fileViews">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Views</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-html">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>HTML</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-monthly">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Monthly</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-pdf">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>PDF</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-searchSubmissionDescription">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search by title, author and ID</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="stats-total">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

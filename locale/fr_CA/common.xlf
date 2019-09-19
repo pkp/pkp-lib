@@ -9,8 +9,8 @@
       <note id="MIME-Version">1.0</note>
       <note id="Content-Type">text/plain; charset=UTF-8</note>
       <note id="Content-Transfer-Encoding">8bit</note>
-      <note id="POT-Creation-Date">2019-08-19T12:40:24-07:00</note>
-      <note id="PO-Revision-Date">2019-08-19T12:40:24-07:00</note>
+      <note id="POT-Creation-Date">2019-09-19T12:33:02-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:33:02-07:00</note>
       <note id="Language"></note>
     </notes>
     <unit id="common-publicKnowledgeProject">
@@ -140,6 +140,15 @@
       </segment>
     </unit>
     <unit id="announcement-announcements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Announcements</source>
+        <target>Annonces</target>
+      </segment>
+    </unit>
+    <unit id="announcement-announcementsHome">
       <notes>
         <note category="context"></note>
       </notes>
@@ -434,6 +443,15 @@
       <segment>
         <source>Assign</source>
         <target>Ajouter</target>
+      </segment>
+    </unit>
+    <unit id="common-assigned">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Assigned</source>
+        <target>Assigné</target>
       </segment>
     </unit>
     <unit id="common-assigned-date">
@@ -899,6 +917,15 @@
       <segment>
         <source>Designation</source>
         <target>Désignation</target>
+      </segment>
+    </unit>
+    <unit id="common-description">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Description</source>
+        <target>Description</target>
       </segment>
     </unit>
     <unit id="common-dimensionsInches">
@@ -1630,6 +1657,15 @@
         <target>ou</target>
       </segment>
     </unit>
+    <unit id="common-other">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Other</source>
+        <target>Autre</target>
+      </segment>
+    </unit>
     <unit id="common-overdue">
       <notes>
         <note category="context"></note>
@@ -1891,6 +1927,15 @@
         <target>Supprimer</target>
       </segment>
     </unit>
+    <unit id="common-removeItem">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Remove {$item}</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="common-removeSelection">
       <notes>
         <note category="context"></note>
@@ -2026,6 +2071,15 @@
         <target>Tout sélectionner</target>
       </segment>
     </unit>
+    <unit id="common-selectedPrefix">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Selected:</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="common-selectNone">
       <notes>
         <note category="context"></note>
@@ -2096,6 +2150,15 @@
       <segment>
         <source>Subjects</source>
         <target>Sujets</target>
+      </segment>
+    </unit>
+    <unit id="common-submenu">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Submenu</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="common-subtitle">
@@ -2494,6 +2557,15 @@
         <target>Téléverser le fichier de révision</target>
       </segment>
     </unit>
+    <unit id="editor-submissionReview-uploadAttachment">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upload File</source>
+        <target>Téléverser le fichier</target>
+      </segment>
+    </unit>
     <unit id="email-addAttachment">
       <notes>
         <note category="context"></note>
@@ -2575,6 +2647,15 @@
         <target>CC</target>
       </segment>
     </unit>
+    <unit id="email-compose">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send Email</source>
+        <target>Envoyer le courriel</target>
+      </segment>
+    </unit>
     <unit id="email-compose-tooManyRecipients">
       <notes>
         <note category="context"></note>
@@ -2600,6 +2681,24 @@
       <segment>
         <source>There was a problem sending an email message. Please try again later, or contact your system administrator.</source>
         <target></target>
+      </segment>
+    </unit>
+    <unit id="email-email">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Email</source>
+        <target>Courriel</target>
+      </segment>
+    </unit>
+    <unit id="email-from">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>From</source>
+        <target>De</target>
       </segment>
     </unit>
     <unit id="email-invalid">
@@ -2683,6 +2782,15 @@
         <target>Omettre le courriel</target>
       </segment>
     </unit>
+    <unit id="email-subject">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Subject</source>
+        <target>Objet</target>
+      </segment>
+    </unit>
     <unit id="email-subjectRequired">
       <notes>
         <note category="context"></note>
@@ -2726,6 +2834,15 @@
       <segment>
         <source>Are you sure you want to submit this form?</source>
         <target>Vous voulez vraiment envoyer ce formulaire?</target>
+      </segment>
+    </unit>
+    <unit id="form-confirmSubmit-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Confirm</source>
+        <target>Confirmer</target>
       </segment>
     </unit>
     <unit id="form-emailRequired">
@@ -3052,6 +3169,15 @@
         <target>Utiliser Enregistrer pour téléverser le fichier.</target>
       </segment>
     </unit>
+    <unit id="form-send">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Send</source>
+        <target>Envoyer</target>
+      </segment>
+    </unit>
     <unit id="form-submit">
       <notes>
         <note category="context"></note>
@@ -3151,6 +3277,24 @@
         <target>Commentaire</target>
       </segment>
     </unit>
+    <unit id="icon-delete-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </segment>
+    </unit>
+    <unit id="icon-edit-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Edit</source>
+        <target>Modifier</target>
+      </segment>
+    </unit>
     <unit id="icon-folder-alt">
       <notes>
         <note category="context"></note>
@@ -3221,6 +3365,15 @@
       <segment>
         <source>Unchecked</source>
         <target>Décoché</target>
+      </segment>
+    </unit>
+    <unit id="icon-view-alt">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>View</source>
+        <target>Afficher</target>
       </segment>
     </unit>
     <unit id="informationCenter-informationCenter">
@@ -3320,6 +3473,15 @@
       <segment>
         <source>Notification sent to users.</source>
         <target>Notification aux usager.</target>
+      </segment>
+    </unit>
+    <unit id="stageParticipants-history-messageSent">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Notification sent to users.</source>
+        <target>Avis envoyé aux utilisateurs.</target>
       </segment>
     </unit>
     <unit id="stageParticipants-notify-startDiscussion">
@@ -3565,6 +3727,15 @@
         <target>Données</target>
       </segment>
     </unit>
+    <unit id="navigation-home">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>Page d'accueil</target>
+      </segment>
+    </unit>
     <unit id="navigation-infoForReaders">
       <notes>
         <note category="context"></note>
@@ -3664,6 +3835,15 @@
         <target>S'inscrire</target>
       </segment>
     </unit>
+    <unit id="navigation-search">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Search</source>
+        <target>Rechercher</target>
+      </segment>
+    </unit>
     <unit id="navigation-settings">
       <notes>
         <note category="context"></note>
@@ -3680,6 +3860,15 @@
       <segment>
         <source>Setup</source>
         <target>Configuration</target>
+      </segment>
+    </unit>
+    <unit id="navigation-sitemap">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Site Map</source>
+        <target>Carte du site</target>
       </segment>
     </unit>
     <unit id="navigation-skip-announcements">
@@ -3752,6 +3941,15 @@
       <segment>
         <source>User Home</source>
         <target>Accueil de l'utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="navigation-user">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>User</source>
+        <target>Utilisateur</target>
       </segment>
     </unit>
     <unit id="navigation-userManagement">
@@ -4060,6 +4258,24 @@
         <target>Envoyer un courriel d'avis à tous les utilisateurs enregistrés</target>
       </segment>
     </unit>
+    <unit id="search-author">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>By Author</source>
+        <target>Auteurs</target>
+      </segment>
+    </unit>
+    <unit id="search-abstract">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Abstract</source>
+        <target>Résumé</target>
+      </segment>
+    </unit>
     <unit id="search-advancedFilters">
       <notes>
         <note category="context"></note>
@@ -4168,6 +4384,15 @@
         <target>Jusqu'à</target>
       </segment>
     </unit>
+    <unit id="search-deleteFilter">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </segment>
+    </unit>
     <unit id="search-discipline">
       <notes>
         <note category="context"></note>
@@ -4231,6 +4456,15 @@
         <target>Aucun résultat</target>
       </segment>
     </unit>
+    <unit id="search-operator-and">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>and</source>
+        <target>et</target>
+      </segment>
+    </unit>
     <unit id="search-operator-not">
       <notes>
         <note category="context"></note>
@@ -4238,6 +4472,15 @@
       <segment>
         <source>not</source>
         <target>sauf</target>
+      </segment>
+    </unit>
+    <unit id="search-operator-or">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>or</source>
+        <target>ou</target>
       </segment>
     </unit>
     <unit id="search-SearchFor">
@@ -4274,6 +4517,15 @@
       <segment>
         <source>Browse Title Index</source>
         <target>Explorer l'index des titres</target>
+      </segment>
+    </unit>
+    <unit id="search-title">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titre</target>
       </segment>
     </unit>
     <unit id="search-typeMethodApproach">
@@ -4348,6 +4600,15 @@
         <target>Marquer lu</target>
       </segment>
     </unit>
+    <unit id="dashboard-tasks">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Tasks</source>
+        <target>Tâches</target>
+      </segment>
+    </unit>
     <unit id="dashboard-myQueue">
       <notes>
         <note category="context"></note>
@@ -4414,6 +4675,15 @@
       <segment>
         <source>Review Due Date</source>
         <target>Date limite de l'évaluation</target>
+      </segment>
+    </unit>
+    <unit id="submission-task-responseDueDate">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Response Due Date</source>
+        <target>Date d'exigibilité de la réponse</target>
       </segment>
     </unit>
     <unit id="navigation-goBack">
@@ -4594,6 +4864,15 @@
       <segment>
         <source>The current user is not authorized to access the specified submission file.</source>
         <target>L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.</target>
+      </segment>
+    </unit>
+    <unit id="user-authorization-invalidPublication">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Invalid publication.</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="user-authorization-invalidSubmission">
@@ -4956,12 +5235,30 @@
         <target></target>
       </segment>
     </unit>
+    <unit id="validator-filled">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="validator-image">
       <notes>
         <note category="context"></note>
       </notes>
       <segment>
         <source>This must be an image.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
         <target></target>
       </segment>
     </unit>
@@ -5109,6 +5406,15 @@
         <target></target>
       </segment>
     </unit>
+    <unit id="validator-not_in">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The selected {$attribute} is invalid.</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="validator-numeric">
       <notes>
         <note category="context"></note>
@@ -5145,6 +5451,15 @@
         <target></target>
       </segment>
     </unit>
+    <unit id="validator-required">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required.</source>
+        <target></target>
+      </segment>
+    </unit>
     <unit id="validator-required_if">
       <notes>
         <note category="context"></note>
@@ -5164,6 +5479,15 @@
       </segment>
     </unit>
     <unit id="validator-required_with">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This field is required when {$values} is present.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-required_with_all">
       <notes>
         <note category="context"></note>
       </notes>
@@ -5259,6 +5583,15 @@
       </notes>
       <segment>
         <source>The {$attribute} has already been taken.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="validator-url">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This is not a valid URL.</source>
         <target></target>
       </segment>
     </unit>

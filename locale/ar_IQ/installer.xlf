@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="" trgLang="">
+  <file id=".">
+    <notes>
+      <note id="Project-Id-Version"></note>
+      <note id="Report-Msgid-Bugs-To"></note>
+      <note id="Last-Translator"></note>
+      <note id="Language-Team"></note>
+      <note id="MIME-Version">1.0</note>
+      <note id="Content-Type">text/plain; charset=UTF-8</note>
+      <note id="Content-Transfer-Encoding">8bit</note>
+      <note id="POT-Creation-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="PO-Revision-Date">2019-09-19T12:32:50-07:00</note>
+      <note id="Language"></note>
+    </notes>
+    <unit id="installer-additionalLocales">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Additional locales</source>
+        <target>لغات إضافية</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccount">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Administrator Account</source>
+        <target>حساب المشرف الإداري</target>
+      </segment>
+    </unit>
+    <unit id="installer-administratorAccountInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>This user account will become the site administrator and have complete access to the system. Additional user accounts can be created after installation.</source>
+        <target>حساب هذا المستخدم سيكون بمثابة المشرف الإداري الذي ستكون له حرية الوصول الكاملة للنظام. المزيد من حسابات المستخدمين يمكن إنشاؤها بعد إكمال التنصيب.</target>
+      </segment>
+    </unit>
+    <unit id="installer-checkNo">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<span class="pkp_form_error formError">NO</span>]]></source>
+        <target><![CDATA[<span class="pkp_form_error formError">لا</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-checkYes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Yes</source>
+        <target>نعم</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Client character set</source>
+        <target>نظام الحروف للزبون</target>
+      </segment>
+    </unit>
+    <unit id="installer-clientCharsetInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The encoding to use for data sent to and received from browsers.</source>
+        <target>الترميز المستعمل عند إرسال البيانات واستلامها من المستعرض.</target>
+      </segment>
+    </unit>
+    <unit id="installer-configFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[ملف الإعدادات <tt>config.inc.php</tt> لا وجود له أو تتعذر قراءته.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-connectionCharset">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Connection character set</source>
+        <target>نظام حروف الاتصال</target>
+      </segment>
+    </unit>
+    <unit id="installer-contentsOfConfigFile">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Contents of configuration file</source>
+        <target>محتويات ملف الإعدادات</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabase">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Create new database</source>
+        <target>إنشاء قاعدة بيانات جديدة</target>
+      </segment>
+    </unit>
+    <unit id="installer-createDatabaseInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled.</source>
+        <target>لاستعمال هذا الخيار، على نظام قاعدة البيانات عندك أن يدعم إنشاء قاعدة بيانات عن بعد وأن يمتلك حساب المستخدم لديك الصلاحيات الكافية لإنشاء قاعدة بيانات جديدة. إن فشلت عملية التنصيب عند تفعيل هذا الخيار، عليك بإنشاء قاعدة البيانات يدوياً على الملقم، ثم شغل برنامج التنصيب مجدداً مع تعطيل هذا الخيار.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriver">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database driver</source>
+        <target>مشغل قاعدة البيانات</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseDriverInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work.]]></source>
+        <target><![CDATA[<strong>قواعد البيانات الظاهرة بين الأقواس المربعة لا يبدو أنها تمتلك ما يوائمها مع لغة البرمجة PHP ولذلك، فإن التنصيب باستعمالها سيفشل على الأرجح.</strong><br />أي قاعدة بيانات غير مدعومة مدرجة أعلاه ذُكرت لمجرد العرض الأكاديمي وهي لا يُتوقع منها العمل مع النظام.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHost">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Host</source>
+        <target>المضيف</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseHostInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</source>
+        <target>أترك اسم المضيف فارغاً للاتصال مستعملاً مقابس المجال بدلاً عن بروتوكول TCP/IP. هذا الأمر ليس ضرورياً مع MySQL، التي ستستعمل تلقائياً مقابس الاتصال إذا تم إدخال عبارة "localhost"، ولكنه مطلوب مع بعض ملقمات قواعد البيانات الأخرى، مثل: PostgreSQL.</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseName">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database name</source>
+        <target>اسم قاعدة البيانات</target>
+      </segment>
+    </unit>
+    <unit id="installer-databasePassword">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Password</source>
+        <target>كلمة المرور</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Database Settings</source>
+        <target>إعدادات قاعدة البيانات</target>
+      </segment>
+    </unit>
+    <unit id="installer-databaseUsername">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Username</source>
+        <target>اسم المستخدم</target>
+      </segment>
+    </unit>
+    <unit id="installer-filesDir">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Directory for uploads</source>
+        <target>حافظة الملفات المرفوعة إلى الموقع</target>
+      </segment>
+    </unit>
+    <unit id="installer-fileSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>File Settings</source>
+        <target>إعدادات الملفات</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-clientCharsetRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A client character set must be selected.</source>
+        <target>ينبغي اختيار نظام الحروف للزبون.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseDriverRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A database driver must be selected.</source>
+        <target>ينبغي اختيار مشغل قاعدة البيانات.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-databaseNameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The database name is required.</source>
+        <target>اسم قاعدة البيانات مطلوب حتماً.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-emailRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A valid email address for the administrator account is required.</source>
+        <target>عنوان بريد الكتروني صحيح مطلوب حتماً لحساب المشرف الإداري.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-filesDirRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory to be used for storing uploaded files is required.</source>
+        <target>ينبغي اختيار حافظة الملفات التي سيتم رفعها إلى الموقع.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-localeRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A locale must be selected.</source>
+        <target>ينبغي اختيار لغة الموقع.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A password for the administrator account is required.</source>
+        <target>ينبغي تحديد كلمة المرور لحساب المشرف الإداري.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-passwordsDoNotMatch">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator passwords do not match.</source>
+        <target>كلمتا المرور لا تتطابقان.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-separateMultiple">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Separate multiple values with commas</source>
+        <target>إفصل بين الكلمات المتعددة بفوارز إنجليزية</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameAlphaNumeric">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The administrator username can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</source>
+        <target>اسم الدخول للمشرف الإداري يمكن أن يتضمن حروفاً وأرقاماً، خطوط تحتانية، وشُرط، وينبغي أن يبدأ وينتهي بحرف أو رقم حصراً.</target>
+      </segment>
+    </unit>
+    <unit id="installer-form-usernameRequired">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>A username for the administrator account is required.</source>
+        <target>ينبغي إدخال اسم الدخول للمشرف الإداري حتماً.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installationWrongPhp">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></source>
+        <target><![CDATA[<br/><strong>تحذير: نسختك من برنامج PHP لا تلبي متطلبات الحد الأدنى المطلوبة للتنصيب. ننصح بترقيتها إلى نسخة أحدث تتوافق مع متطلبات تشغيل النظام.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installErrorsOccurred">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Errors occurred during installation</source>
+        <target>حدثت أخطاء خلال عملية التنصيب</target>
+      </segment>
+    </unit>
+    <unit id="installer-installerSQLStatements">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>SQL statements for installation</source>
+        <target>عبارات SQL للتنصيب</target>
+      </segment>
+    </unit>
+    <unit id="installer-installFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable.]]></source>
+        <target><![CDATA[ملف التنصيب <tt>dbscripts/xml/install.xml</tt> مفقود أو تتعذر قراءته.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The directory specified for uploaded files does not exist or is not writable.</source>
+        <target>حافظة الملفات المخصصة لحفظ الملفات المرفوعة إلى الموقع غير موجودة أو أنها لا تقبل الكتابة عليها.</target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseDBFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[حدث خطأ عند تحليل ملف تنصيب قاعدة البيانات <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseEmailTemplatesFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[حدث خطأ عند تحليل ملف قوالب الرسائل الالكترونية <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-installParseFilterConfigFileError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></source>
+        <target><![CDATA[حدث خطأ عند تحليل ملف إعدادات التصفية <tt>{$file}</tt>.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedUpgradeError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details.</source>
+        <target>الترقية غير مدعومة. أنظر الملف: docs/UPGRADE-UNSUPPORTED للمزيد من التفاصيل.</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale</source>
+        <target>اللغة</target>
+      </segment>
+    </unit>
+    <unit id="installer-locale-maybeIncomplete">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Marked locales may be incomplete.</source>
+        <target>اللغات المعلمة قد تكون غير مكتملة تماماً.</target>
+      </segment>
+    </unit>
+    <unit id="installer-localeSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Locale Settings</source>
+        <target>إعدادات اللغة</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiSettings">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>OAI Settings</source>
+        <target>إعدادات OAI</target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryIdInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="https://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></source>
+        <target><![CDATA[يتم استعمال معرَّف فريد لتعريف سجلات البيانات الوصفية المفهرسة في هذا الموقع باستعمال بروتوكول <a href="https://www.openarchives.org/" target="_blank">مبادرة المحفوظات المفتوحة</a> لحصاد البيانات الوصفية.]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-oaiRepositoryId">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Repository Identifier</source>
+        <target>معرَّف المستودع</target>
+      </segment>
+    </unit>
+    <unit id="installer-publicFilesDirError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>The public files directory does not exist or is not writable.</source>
+        <target>حافظة الملفات العمومية غير موجودة أو أنها لا تقبل الكتابة عليها.</target>
+      </segment>
+    </unit>
+    <unit id="installer-releaseNotes">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Release Notes</source>
+        <target>ملاحظات الإطلاق</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructionsTitle">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Pre-Installation Steps</source>
+        <target>خطوات ما قبل التنصيب</target>
+      </segment>
+    </unit>
+    <unit id="installer-preInstallationInstructions">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[
+		<p>1. The following files and directories (and their contents) must be made writable:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>
+			<li><tt>public/</tt> is writable: {$writable_public}</li>
+			<li><tt>cache/</tt> is writable: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> is writable: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. A directory to store uploaded files must be created and made writable (see "File Settings" below).</p>
+	]]></source>
+        <target><![CDATA[
+		<p>1. الملفات وحوافظ الملفات الآتية (ومحتوياتها) يجب أن تكون قابلة للتعديل:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> قابل للتعديل (إختيارياً): {$writable_config}</li>
+			<li><tt>public/</tt> قابل للتعديل: {$writable_public}</li>
+			<li><tt>cache/</tt> قابل للتعديل: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> قابل للتعديل: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> قابل للتعديل: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> قابل للتعديل: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. ينبغي إنشاء حافظة ملفات مخصصة لحفظ الملفات المرفوعة إلى الموقع، مع جعلها قابلة للتعديل (أنظر "إعدادات الملفات" أدناه).</p>
+	]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-configureXSLMessage">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source><![CDATA[<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>]]></source>
+        <target><![CDATA[<p>إن تنصيبك الحالي لبرنامج PHP لا يمتلك وحدة مممكنة لمعالجة XSL. عليك إما أن تقوم بتمكينها، أو تعديل معيار الأمر xslt_command في ملف التهيئة config.inc.php.</p>]]></target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Beacon</source>
+        <target>المرشد</target>
+      </segment>
+    </unit>
+    <unit id="installer-beacon-enable">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only.</source>
+        <target>زود الموقع برمز تعريفي فريد ورابط أساسي لـ OAI فقط لأغراض إحصائية وما يتعلق بإشعارات الأمان لمشروع المعرفة العامة.</target>
+      </segment>
+    </unit>
+    <unit id="installer-unsupportedPhpError">
+      <notes>
+        <note category="context"></note>
+      </notes>
+      <segment>
+        <source>Your server's PHP version is not supported by this software. Double-check the installation requirements in docs/README.</source>
+        <target>إن نسخة PHP التي يعمل بها ملقمك لا يدعمها هذا النظام. أعد التحقق من متطلبات التنصيب الواردة في الملف docs/README.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

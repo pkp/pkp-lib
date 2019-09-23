@@ -659,7 +659,11 @@
 	<message key="submission.list.galleysCreated">Composições finais criadas</message>
 	<message key="submission.list.filesPrepared">Arquivos preparados</message>
 	<message key="submission.list.discussions">Discussões abertas</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Foram designados múltiplos papéis para o seu usuário nesta submissão. Gostaria de acessar o <a href="{$urlAuthorWorkflow}">fluxo do Autor</a> ou o <a href="{$urlEditorialWorkflow}">fluxo Editorial</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Foi designado(a) um papel editorial ao seu usuário nesta submissão. Gostaria de acessá-la pelo <a href="{$urlEditorialWorkflow}">fluxo Editorial</a>?]]></message>
 	<message key="submission.list.incompleteSubmissionNotice">Esta submissão deve ser completada para quer um editor a avalie.</message>
+	<message key="submission.list.currentStage">Atualmente no estágio de {$stage}.</message>
+	<message key="submission.list.assignEditor">Designar Editor</message>
 
 	<message key="grid.category.categories">Categorias</message>
 	<message key="grid.category.add">Incluir categoria</message>

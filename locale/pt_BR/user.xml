@@ -98,7 +98,7 @@
 	<message key="user.profile.publicProfile">Perfil do usuário</message>
 	<message key="user.profile.repeatNewPassword">Repetir nova senha</message>
 	<!-- Login -->
-	<message key="user.login.registerNewAccount">Não é um usuário? Registe-se no site</message>
+	<message key="user.login.registerNewAccount">Não é um usuário? Registre-se no site</message>
 	<message key="user.login.resetPasswordInstructions"><![CDATA[Por razões de segurança, este sistema envia por e-mail uma nova senha ao usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu email abaixo para redefinir sua senha. Uma confirmação será enviada para este endereço de e-mail.]]></message>
 	<message key="user.login.rememberUsernameAndPassword">Mantenha-me conectado</message>
 

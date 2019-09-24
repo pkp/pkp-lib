@@ -508,18 +508,25 @@ abstract class Plugin {
 	 * Get the filename for the locale data for this plugin.
 	 *
 	 * @param $locale string
-	 * @return string|array the locale file names (the scalar return value is supported for
-	 *  backwards compatibility only).
+	 * @return array The locale file names.
 	 */
 	function getLocaleFilename($locale) {
 		$masterLocale = MASTER_LOCALE;
-		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.xml";
-		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.xml";
+		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.po";
+		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.po";
 		$libPkpFilename = "lib/pkp/$baseLocaleFilename";
 		$masterLibPkpFilename = "lib/pkp/$baseMasterLocaleFilename";
 		$filenames = array();
 		if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
 		if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;
+
+		// This compatibility code for XML file fallback will eventually be removed.
+		// See https://github.com/pkp/pkp-lib/issues/5090.
+		$baseMasterXmlLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
+		if (file_exists($baseMasterXmlLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $baseLocaleFilename);
+		$masterXmlLibPkpLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
+		if (file_exists($masterXmlLibPkpLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $libPkpFilename);
+
 		return $filenames;
 	}
 

@@ -119,9 +119,28 @@ class LocaleFile {
 	 */
 	static function &load($filename) {
 		$localeData = array();
-		$translations = Gettext\Translations::fromPoFile($filename);
-		foreach ($translations as $translation) {
-			$localeData[$translation->getOriginal()] = $translation->getTranslation();
+		// This compatibility code for XML file fallback will eventually be removed.
+		// See https://github.com/pkp/pkp-lib/issues/5090.
+		if (file_exists($filename) && substr($filename, -3) == '.po') {
+			// Prefer a PO file, if one exists.
+			$translations = Gettext\Translations::fromPoFile($filename);
+			foreach ($translations as $translation) {
+				$localeData[$translation->getOriginal()] = $translation->getTranslation();
+			}
+		} else {
+			// Try a fallback to an old-style XML locale file.
+			$xmlFilename = preg_replace('/\.po$/', '.xml', $filename);
+			if ($xmlFilename && file_exists($xmlFilename)) {
+				$xmlDao = new XMLDAO();
+				$data = $xmlDao->parseStruct($filename, array('message'));
+
+				// Build array with ($key => $string)
+				if (isset($data['message'])) {
+					foreach ($data['message'] as $messageData) {
+						$localeData[$messageData['attributes']['key']] = $messageData['value'];
+					}
+				}
+			}
 		}
 		return $localeData;
 	}

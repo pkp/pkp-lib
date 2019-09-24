@@ -35,15 +35,6 @@ class FileApiHandler extends Handler {
 		);
 	}
 
-	/**
-	 * record a file view.
-	 * Must be overridden in subclases.
-	 * @param $submissionFile SubmissionFile the file to record.
-	 */
-	function recordView($submissionFile) {
-		SubmissionFileManager::recordView($submissionFile);
-	}
-
 	//
 	// Implement methods from PKPHandler
 	//
@@ -154,7 +145,8 @@ class FileApiHandler extends Handler {
 		$fileId = null;
 
 		foreach ($submissionFiles as $submissionFile) {
-			$this->recordView($submissionFile);
+			$submissionFileManager = new SubmissionFileManager($request->getContext()->getId(), $submissionFile->getSubmissionId());
+			$submissionFileManager->recordView($submissionFile);
 			$fileId = $submissionFile->getFileId();
 			unset($submissionFile);
 		}

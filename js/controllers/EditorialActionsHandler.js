@@ -22,8 +22,8 @@
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.controllers.EditorialActionsHandler = function($element, options) {
-    this.parent($element, options);
-    $element.find('.pkp_workflow_change_decision').click(this.callbackWrapper(this.showActions_));
+		this.parent($element, options);
+		$element.find('.pkp_workflow_change_decision').click(this.callbackWrapper(this.showActions_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.EditorialActionsHandler, $.pkp.classes.Handler);
@@ -39,9 +39,9 @@
 	 * @param {Event} event The triggered event (click).
 	 */
 	$.pkp.controllers.EditorialActionsHandler.prototype.showActions_ =
-    function(sourceElement, event) {
-    this.getHtmlElement().find('.pkp_workflow_change_decision').hide();
-    this.getHtmlElement().find('.pkp_workflow_decided_actions').show();
+			function(sourceElement, event) {
+		this.getHtmlElement().find('.pkp_workflow_change_decision').hide();
+		this.getHtmlElement().find('.pkp_workflow_decided_actions').show();
 	};
 
 

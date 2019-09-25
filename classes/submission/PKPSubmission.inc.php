@@ -96,6 +96,23 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
+	 * Get the published publications
+	 *
+	 * Returns publications with the STATUS_PUBLISHED status
+	 *
+	 * @return array
+	 */
+	public function getPublishedPublications() {
+		$publications = $this->getData('publications');
+		if (empty($publications)) {
+			return [];
+		}
+		return array_filter($publications, function($publication) {
+			return $publication->getData('status') === STATUS_PUBLISHED;
+		});
+	}
+
+	/**
 	 * Stamp the date of the last modification to the current time.
 	 */
 	public function stampModified() {

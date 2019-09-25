@@ -8,7 +8,7 @@
 		"userGroupId"
 	],
 	"properties": {
-		"affilation": {
+		"affiliation": {
 			"type": "string",
 			"description": "The scholarly institution this contributor is employed by or affiliated with.",
 			"multilingual": "true",

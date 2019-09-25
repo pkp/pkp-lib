@@ -241,6 +241,10 @@
 	<message key="submission.howToCite.citationFormats">More Citation Formats</message>
 	<message key="submission.howToCite.downloadCitation">Download Citation</message>
 	<message key="submission.initiated">Initiated</message>
+	<message key="submission.updatedOn">{$datePublished} — Updated on {$dateUpdated}</message>
+	<message key="submission.versions">Versions</message>
+	<message key="submission.versionIdentity">{$datePublished} ({$versionId})</message>
+	<message key="submission.outdatedVersion"><![CDATA[This is an outdated version published on {$datePublished}. Read the <a href="{$urlRecentVersion}">most recent version</a>.]]></message>
 
 	<!-- Identifiers -->
 	<message key="submission.identifiers">Identifiers</message>

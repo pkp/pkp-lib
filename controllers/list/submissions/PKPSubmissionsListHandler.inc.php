@@ -160,6 +160,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'selectAllLabel' => __('common.selectAll'),
 			'viewMore' => __('list.viewMore'),
 			'viewLess' => __('list.viewLess'),
+			'lastActivity' => __('common.lastActivity'),
 		);
 
 		// Attach a CSRF token for post requests

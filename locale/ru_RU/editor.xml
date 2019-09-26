@@ -14,6 +14,14 @@
 <locale name="ru_RU" full_name="Русский">
 	<message key="editor.activityLog">Журнал активности</message>
 	<message key="editor.submissionLibrary">Библиотека</message>
+	<message key="editor.submission.workflowDecision.submission">Решение записано</message>
+	<message key="editor.submission.workflowDecision.submission.declined">Материал отклонен.</message>
+	<message key="editor.submission.workflowDecision.submission.accepted">Материал принят.</message>
+	<message key="editor.submission.workflowDecision.submission.published">Материал опубликован.</message>
+	<message key="editor.submission.workflowDecision.submission.reviewRound">Отправлен на новый раунд рецензирования.</message>
+	<message key="editor.submission.workflowDecision.submission.production">Отправлен на публикацию.</message>
+	<message key="editor.submission.workflowDecision.submission.underReview">Материал принят для рецензирования.</message>
+	<message key="editor.submission.workflowDecision.changeDecision">Изменить решение</message>
 	<message key="editor.review.notInitiated">Процесс рецензирования еще не был начат.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Сообщение пользователю</message>
 	<message key="editor.submission.externalReviewDescription">Выберите файлы ниже для отправки их на этап «Рецензирование».</message>

@@ -252,7 +252,6 @@
 	<message key="manager.setup.layout.sidebar.invalidBlock">Не удается найти блок {$name}. Пожалуйста убедитесь, что модуль установлен и включен.</message>
 	<message key="manager.setup.loggingAndAuditing">Ведение журнала и аудит</message>
 	<message key="manager.setup.logo">Логотип</message>
-	<message key="manager.setup.noTemporaryFile">Не удаётся найти файл, загруженный вами. Пожалуйста, попробуйте загрузить его снова.</message>
 	<message key="manager.setup.notifications">Уведомление об отправке материала автором</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Отправить копию на этот адрес электронной почты:</message>
 	<message key="manager.setup.notifications.description">Авторам автоматически отправляется письмо электронной почты с подтверждением отправки их материала. Вы можете отправить копии этого письма электронной почты следующим:</message>

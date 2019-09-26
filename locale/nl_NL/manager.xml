@@ -235,7 +235,6 @@
 	<message key="manager.setup.layout.sidebar.invalidBlock">De {$name} blok kan niet worden gevonden. Zorg ervoor dat de plugin geïnstalleerd en ingeschakeld is.</message>
 	<message key="manager.setup.loggingAndAuditing">Logboek en controle</message>
 	<message key="manager.setup.logo">Logo</message>
-	<message key="manager.setup.noTemporaryFile">Het bestand dat u heeft opgeladen kan niet worden gevonden. Probeer het opnieuw op te laden.</message>
 	<message key="manager.setup.notifications">Verwittiging van inzending door een auteur</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">Verstuur een kopie aan dit e-mailadres</message>
 	<message key="manager.setup.notifications.description">Auteurs krijgen na inzending automatisch een bevestigings-e-mail. Kopies van deze e-mail kunnen worden verstuurd aan volgende ontvangers:</message>

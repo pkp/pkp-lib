@@ -98,25 +98,22 @@
 					"type": "integer",
 					"writeOnly": true
 				},
-				"name": {
+				"dateUploaded": {
 					"type": "string"
 				},
 				"uploadName": {
-					"type": "string"
-				},
-				"width": {
-					"type": "integer"
-				},
-				"height": {
-					"type": "integer"
-				},
-				"dateUploaded": {
 					"type": "string"
 				},
 				"altText": {
 					"type": "string"
 				}
 			}
+		},
+		"coverImageUrl": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"datePublished": {
 			"type": "string",

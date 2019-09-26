@@ -525,6 +525,9 @@ msgstr "Not available"
 msgid "common.note"
 msgstr "Note"
 
+msgid "common.noTemporaryFile"
+msgstr "The file you uploaded could not be found. Please try to upload it again."
+
 msgid "common.notes"
 msgstr "Notes"
 

@@ -359,12 +359,12 @@ class ValidatorFactory {
 							continue;
 						}
 						if (!$temporaryFileManager->getFile($props[$uploadProp][$localeKey]['temporaryFileId'], $userId)) {
-							$validator->errors()->add($uploadProp . '.' . $localeKey, __('manager.setup.noTemporaryFile'));
+							$validator->errors()->add($uploadProp . '.' . $localeKey, __('common.noTemporaryFile'));
 						}
 					}
 				} else {
 					if (!$temporaryFileManager->getFile($props[$uploadProp], $userId)) {
-						$validator->errors()->add($uploadProp, __('manager.setup.noTemporaryFile'));
+						$validator->errors()->add($uploadProp, __('common.noTemporaryFile'));
 					}
 				}
 			}

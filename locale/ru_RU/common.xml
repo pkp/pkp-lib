@@ -193,6 +193,7 @@
 	<message key="common.notApplicableShort">Неприм.</message>
 	<message key="common.notAvailable">Недоступно</message>
 	<message key="common.note">Заметка</message>
+	<message key="common.noTemporaryFile">Не удаётся найти файл, загруженный вами. Пожалуйста, попробуйте загрузить его снова.</message>
 	<message key="common.notes">Заметки</message>
 	<message key="common.notes.tooltip">Заметки (желтый: есть новые заметки; синий: есть просмотренные заметки; серый: нет заметок)</message>
 	<message key="common.notified">Уведомлен</message>

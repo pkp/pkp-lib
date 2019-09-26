@@ -92,6 +92,7 @@
 }
 
 .pkp_no_workflow_decisions,
+.pkp_workflow_decided,
 .pkp_workflow_recommendations {
 	padding: @base;
 	font-size: @font-sml;
@@ -99,6 +100,28 @@
 	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
 	border-radius: @radius;
 	border-top: @grid-border;
+}
+
+.pkp_workflow_decided_actions {
+	display: none;
+
+	.pkp_controllers_linkAction {
+		margin-top: @base;
+	}
+}
+
+.pkp_workflow_change_decision {
+	padding: 0;
+	margin-top: 0;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	font-size: @font-tiny;
+	line-height: 1em;
+	font-weight: @normal;
+	color: @primary;
+	text-decoration: underline;
+	text-align: left;
 }
 
 .export_actions {

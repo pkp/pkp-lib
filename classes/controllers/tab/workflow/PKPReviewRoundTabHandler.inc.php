@@ -70,10 +70,15 @@ class PKPReviewRoundTabHandler extends Handler {
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 
+		// Is this round the most recent round?
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+
 		// Add the round information to the template.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('stageId', $stageId);
 		$templateMgr->assign('reviewRoundId', $reviewRound->getId());
+		$templateMgr->assign('isLastReviewRound', $reviewRound->getId() == $lastReviewRound->getId());
 		$templateMgr->assign('submission', $submission);
 
 		// Assign editor decision actions to the template, only if

@@ -14,6 +14,14 @@
 <locale name="en_US" full_name="U.S. English">
 	<message key="editor.activityLog">Activity Log</message>
 	<message key="editor.submissionLibrary">Library</message>
+	<message key="editor.submission.workflowDecision.submission">Decision recorded</message>
+	<message key="editor.submission.workflowDecision.submission.declined">Submission declined.</message>
+	<message key="editor.submission.workflowDecision.submission.accepted">Submission accepted.</message>
+	<message key="editor.submission.workflowDecision.submission.published">Submission published.</message>
+	<message key="editor.submission.workflowDecision.submission.reviewRound">Sent for a new round of reviews.</message>
+	<message key="editor.submission.workflowDecision.submission.production">Sent to production.</message>
+	<message key="editor.submission.workflowDecision.submission.underReview">Submission accepted for review.</message>
+	<message key="editor.submission.workflowDecision.changeDecision">Change decision</message>
 	<message key="editor.review.notInitiated">The review process has not yet been initiated.</message>
 	<message key="editor.submission.copyediting.personalMessageToUser">Message to user</message>
 	<message key="editor.submission.externalReviewDescription">Select files below to send them to the review stage.</message>

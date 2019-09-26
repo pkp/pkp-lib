@@ -7,9 +7,17 @@
  *
  * Show editorial link actions.
  *}
+
 {if !empty($editorActions)}
+	<script>
+		// Initialise JS handler.
+		$(function() {ldelim}
+			$('#editorialActions').pkpHandler(
+				'$.pkp.controllers.EditorialActionsHandler');
+		{rdelim});
+	</script>
 	{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
-		<ul class="pkp_workflow_decisions">
+		<ul id="editorialActions" class="pkp_workflow_decisions">
 			{if $allRecommendations}
 				<li>
 					<div class="pkp_workflow_recommendations">
@@ -24,15 +32,35 @@
 					</div>
 				</li>
 			{/if}
-			{foreach from=$editorActions item=action}
+			{if $lastDecision}
 				<li>
-					{include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}
+					<div class="pkp_workflow_decided">
+						{translate key=$lastDecision}
+						{if $editorActions|@count > 0}
+							<button class="pkp_workflow_change_decision">{translate key="editor.submission.workflowDecision.changeDecision"}</button>
+							<div class="pkp_workflow_decided_actions">
+								{foreach from=$editorActions item=action}
+									{include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}
+								{/foreach}
+							</div>
+						{/if}
+					</div>
 				</li>
-			{/foreach}
+			{elseif $editorActions|@count > 0}
+				{foreach from=$editorActions item=action}
+					<li>
+						{include file="linkAction/linkAction.tpl" action=$action contextId=$contextId}
+					</li>
+				{/foreach}
+			{/if}
 		</ul>
 	{/if}
 {elseif !$editorsAssigned && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 	<div class="pkp_no_workflow_decisions">
 		{translate key="editor.submission.decision.noDecisionsAvailable"}
+	</div>
+{elseif $lastDecision}
+	<div class="pkp_no_workflow_decisions">
+		{translate key=$lastDecision}
 	</div>
 {/if}

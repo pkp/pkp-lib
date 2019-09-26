@@ -241,6 +241,7 @@ abstract class PKPWorkflowHandler extends Handler {
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$editorActions = array();
+		$editorDecisions = array();
 		$lastRecommendation = $allRecommendations = null;
 		if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
 			import('classes.workflow.EditorDecisionActionsManager');
@@ -328,12 +329,49 @@ abstract class PKPWorkflowHandler extends Handler {
 			}
 		}
 
+		import('lib.pkp.classes.workflow.WorkflowStageDAO');
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
+		$lastDecision = null;
+		switch( $submission->getStatus() ) {
+			case STATUS_QUEUED:
+				switch( $stageId ) {
+					case WORKFLOW_STAGE_ID_SUBMISSION:
+						if ($hasSubmissionPassedThisStage) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.underReview';
+						}
+						break;
+					case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+					case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+						if ($reviewRoundId < $lastReviewRound->getId()) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.reviewRound';
+						} elseif ($hasSubmissionPassedThisStage) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.accepted';
+						}
+						break;
+					case WORKFLOW_STAGE_ID_EDITING:
+						if($hasSubmissionPassedThisStage) {
+							$lastDecision = 'editor.submission.workflowDecision.submission.production';
+						}
+						break;
+				}
+				break;
+			case STATUS_PUBLISHED:
+				$lastDecision = 'editor.submission.workflowDecision.submission.published';
+				break;
+			case STATUS_DECLINED:
+				$lastDecision = 'editor.submission.workflowDecision.submission.declined';
+				break;
+		}
+
 		// Assign the actions to the template.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'editorActions' => $editorActions,
 			'editorsAssigned' => count($editorsStageAssignments) > 0,
 			'stageId' => $stageId,
+			'lastDecision' => $lastDecision,
+			'submissionStatus' => $submission->getStatus(),
 			'lastRecommendation' => $lastRecommendation,
 			'allRecommendations' => $allRecommendations,
 		));

@@ -241,6 +241,10 @@
 	<message key="submission.howToCite.citationFormats">Другие форматы библиографических ссылок</message>
 	<message key="submission.howToCite.downloadCitation">Скачать ссылку</message>
 	<message key="submission.initiated">Начата</message>
+	<message key="submission.updatedOn">{$datePublished} — Обновлена {$dateUpdated}</message>
+	<message key="submission.versions">Версии</message>
+	<message key="submission.versionIdentity">{$datePublished} ({$versionId})</message>
+	<message key="submission.outdatedVersion"><![CDATA[Это устаревшая версия, которая была опубликована {$datePublished}. Прочтите <a href="{$urlRecentVersion}">самую последнюю версию</a>.]]></message>
 
 	<!-- Идентификаторы -->
 	<message key="submission.identifiers">Идентификаторы</message>

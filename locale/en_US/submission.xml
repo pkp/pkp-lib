@@ -678,6 +678,7 @@
 	<message key="publication.copyrightYearBasis.issueDescription">The copyright year will be set automatically when this is published in an issue.</message>
 	<message key="publication.createVersion">Create New Version</message>
 	<message key="publication.datePublished">Date Published</message>
+	<message key="publication.datePublished.errorFormat">The date must be in the format YYYY-MM-DD, such as 2019-01-01.</message>
 	<message key="publication.editDisabled">This version has been published and can not be edited.</message>
 	<message key="publication.event.published">The submission was published.</message>
 	<message key="publication.event.scheduled">The submission was scheduled for publication.</message>

@@ -286,7 +286,10 @@ abstract class SchemaDAO extends DAO {
 				// because an empty string can not be saved to a DATETIME column
 				if ($primaryDbProps[$columnName] === ''
 						&& isset($schema->properties->{$propName}->validation)
-						&& in_array('date_format:Y-m-d H:i:s', $schema->properties->{$propName}->validation)
+						&& (
+							in_array('date_format:Y-m-d H:i:s', $schema->properties->{$propName}->validation)
+							|| in_array('date_format:Y-m-d', $schema->properties->{$propName}->validation)
+						)
 				) {
 					$primaryDbProps[$columnName] = null;
 				}

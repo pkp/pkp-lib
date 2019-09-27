@@ -232,6 +232,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$schemaService->getValidationRules(SCHEMA_PUBLICATION, $allowedLocales),
 			[
 				'locale.regex' => __('validator.localeKey'),
+				'datePublished.date_format' => __('publication.datePublished.errorFormat'),
 			]
 		);
 

@@ -124,7 +124,7 @@
 			"apiSummary": true,
 			"validation": [
 				"nullable",
-				"date_format:Y-m-d H:i:s"
+				"date_format:Y-m-d"
 			]
 		},
 		"disciplines": {
@@ -207,28 +207,6 @@
 			"type": "string",
 			"description": "A unique ID provided by the publisher. It will be used in the publication's URL path instead of the `id` when present.",
 			"apiSummary": true
-		},
-		"publicationDateType": {
-			"type": "string",
-			"description": "The type of date that the `datePublished` describes. Typically `pub` or `preprint`. See [date-type](https://jats.nlm.nih.gov/archiving/tag-library/1.1d1/n-u252.html).",
-			"apiSummary": true,
-			"validation": [
-				"in:accepted,corrected,pub,preprint,retracted,received,rev-recd,rev-request"
-			]
-		},
-		"publicationSummary": {
-			"type": "string",
-			"description": "An optional human-readable summary of the `publicationType`.",
-			"apiSummary": true,
-			"multilingual": true
-		},
-		"publicationType": {
-			"type": "string",
-			"description": "The type of publication should correspond to a known format such as a `preprint` or `publication`.",
-			"apiSummary": true,
-			"validation": [
-				"in:preprint,publication"
-			]
 		},
 		"rights": {
 			"type": "string",

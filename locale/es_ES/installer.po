@@ -1,0 +1,196 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Locales adicionales"
+
+msgid "installer.administratorAccount"
+msgstr "Cuenta del administrador"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Esta cuenta de usuario/a pasará a ser el administrador/a del sitio y tendrá total acceso al sistema. Tras la instalación se pueden crear más cuentas de usuario/a."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NO</span>"
+
+msgid "installer.checkYes"
+msgstr "Sí"
+
+msgid "installer.clientCharset"
+msgstr "Conjunto de caracteres del cliente"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Codificación que usar para la información enviada y recibida de los navegadores."
+
+msgid "installer.configFileError"
+msgstr "El archivo de configuración <tt>config.inc.php</tt> no existe o no se puede leer."
+
+msgid "installer.connectionCharset"
+msgstr "Conjunto de caracteres de la conexión"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Contenidos del fichero de configuración"
+
+msgid "installer.createDatabase"
+msgstr "Crear nueva base de datos"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Para usar esta opción, el sistema de la base de datos debe ser compatible con la creación de bases de datos remotas y su cuenta de usuario/a debe tener los permisos necesarios para crear nuevas bases de datos. Si la instalación no da resultado con esta opción seleccionada, cree la base de datos manualmente en su servidor y ejecute de nuevo el instalador con la opción deshabilitada."
+
+msgid "installer.databaseDriver"
+msgstr "Driver de la base de datos"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Parece que los controladores de bases de datos que se muestran entre paréntesis no tienen la extensión PHP requerida cargada y es probable que la instalación no se realice correctamente si la selecciona.</strong><br />Los controladores de bases de datos no compatibles enumerados anteriormente se recogen sólo con fines académicos y es probable que no funcionen."
+
+msgid "installer.databaseHost"
+msgstr "Servidor"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Deje el nombre del servidor en blanco cuando se conecte mediante sockets de dominio y no por TCP/IP. Esto no es necesario con MySQL, ya que utiliza sockets automáticamente si se introduce \"localhost\", pero sí lo es con otros servidores de bases de datos como PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Nombre de la base de datos"
+
+msgid "installer.databasePassword"
+msgstr "Contraseña"
+
+msgid "installer.databaseSettings"
+msgstr "Configuración de la base de datos"
+
+msgid "installer.databaseUsername"
+msgstr "Nombre de usuario/a"
+
+msgid "installer.filesDir"
+msgstr "Directorio para subir documentos"
+
+msgid "installer.fileSettings"
+msgstr "Configuración de archivos"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Se debe seleccionar un conjunto de caracteres del cliente."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Se debe seleccionar un controlador de base de datos."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Es necesario el nombre de la base de datos."
+
+msgid "installer.form.emailRequired"
+msgstr "Es necesaria una cuenta de correo electrónico válida para la cuenta de administrador."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Es necesario introducir el directorio usado para almacenar los ficheros subidos."
+
+msgid "installer.form.localeRequired"
+msgstr "Se debe seleccionar un locale."
+
+msgid "installer.form.passwordRequired"
+msgstr "Es necesaria una contraseña para la cuenta de administrador"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Las contraseñas del administrador no coinciden."
+
+msgid "installer.form.separateMultiple"
+msgstr "Separar valores múltiples con comas"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "El nombre de usuario del administrador sólo puede contener caracteres alfanuméricos, guiones bajos, y guiones, y debe empezar y finalizar con un carácter alfanumérico."
+
+msgid "installer.form.usernameRequired"
+msgstr "Es necesario un nombre de usuario para la cuenta de administrador."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>ADVERTENCIA: La versión actual de PHP no cumple los requisitos mínimos de instalación. Se recomienda actualizar a una versión más reciente de PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Se han producido errores durante la instalación"
+
+msgid "installer.installerSQLStatements"
+msgstr "Sentencias SQL para la instalación"
+
+msgid "installer.installFileError"
+msgstr "El archivo de instalación <tt>dbscripts/xml/install.xml</tt> no existe o no se puede leer."
+
+msgid "installer.installFilesDirError"
+msgstr "El directorio especificado para los ficheros subidos no existe o no tiene permisos de escritura."
+
+msgid "installer.installParseDBFileError"
+msgstr "Error al analizar el archivo de instalación <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Error al analizar el archivo de plantilla de correo electrónico <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Error al analizar el archivo de configuración de filtro <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Actualización no compatible. Ver docs/UPGRADE-UNSUPPORTED para obtener más detalles."
+
+msgid "installer.locale"
+msgstr "Configuración regional"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Las traducciones marcadas pueden estar incompletas."
+
+msgid "installer.localeSettings"
+msgstr "Configuración de locales"
+
+msgid "installer.oaiSettings"
+msgstr "Configuración OAI"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Un identificador único que se usa para identificar los registros de metadatos indexados desde este sitio mediante el Protocolo para la recopilación de metadatos <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identificador de repositorio OAI"
+
+msgid "installer.publicFilesDirError"
+msgstr "El directorio de ficheros públicos no existe o no tiene permiso de escritura."
+
+msgid "installer.releaseNotes"
+msgstr "Notas de lanzamiento"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Pasos para preinstalación"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Los siguientes archivos y directorios (junto con sus contenidos) tienen que cambiarse a modo editable:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> es editable (opcional): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> es editable: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> es editable: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> es editable: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> es editable: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> es editable: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Es necesario crear un directorio para guardar los archivos subidos y que sea editable (ver \"Configuración de archivo\" a continuación).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Su instalación PHP no tiene el módulo XSL activado. Actívelo o configure el parámetro xslt_command en su archivo config.inc.php.</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Aporte a PKP un único identificador de sitio y una URL de base OAI solo con finalidades estadísticas y de seguridad."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Este software no soporta la versión PHP de su servidor. Vuelva a comprobar los requisitos de instalación en docs/README."
+
+msgid "installer.miscSettings"
+msgstr "Configuración adicional"

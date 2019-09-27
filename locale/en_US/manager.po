@@ -1,0 +1,1874 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Information"
+
+msgid "manager.website.appearance"
+msgstr "Appearance"
+
+msgid "manager.website.imageFileRequired"
+msgstr "An image file is required. Please ensure that you have chosen and uploaded a file."
+
+msgid "manager.announcements"
+msgstr "Announcements"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Are you sure you want to permanently delete this announcement?"
+
+msgid "manager.announcements.create"
+msgstr "Create New Announcement"
+
+msgid "manager.announcements.createTitle"
+msgstr "Create"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Expiry"
+
+msgid "manager.announcements.datePublish"
+msgstr "Published"
+
+msgid "manager.announcements.edit"
+msgstr "Edit Announcement"
+
+msgid "manager.announcements.editTitle"
+msgstr "Edit"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Please select a year and/or month in addition to the expiry date day."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Expiry Date"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "The announcement will be displayed to readers until this date. Leave blank if the announcement should be displayed indefinitely."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Please select a year and/or day in addition to the expiry date month."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Please select a valid announcement expiry date."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Please select a month and/or day in addition to the expiry date year."
+
+msgid "manager.announcements.form.description"
+msgstr "Description"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "The full text of the announcement."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "An announcement description is required."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "A brief description to appear along with the announcement title."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "A short announcement description is required."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Short Description"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Save and Create Another"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "An announcement title is required."
+
+msgid "manager.announcements.form.title"
+msgstr "Title"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Type"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Please select a valid announcement type."
+
+msgid "manager.announcements.noneCreated"
+msgstr "No announcements have been created."
+
+msgid "manager.announcements.title"
+msgstr "Title"
+
+msgid "manager.announcements.type"
+msgstr "Type"
+
+msgid "manager.announcementTypes"
+msgstr "Announcement Types"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Warning! All announcements with this announcement type will also be deleted. Are you sure you want to continue and delete this announcement type?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Create Announcement Type"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Create"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Edit Announcement Type"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Edit"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Save and Create Another"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "An announcement type with this name already exists."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Name"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "An announcement type name is required."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "No announcement types have been created."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Announcement Type"
+
+msgid "manager.publication.submissionStage"
+msgstr "Submission"
+
+msgid "manager.publication.reviewStage"
+msgstr "Review"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.productionStage"
+msgstr "Production"
+
+msgid "manager.publication.emails"
+msgstr "Emails"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "The email settings have been updated."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Reviewer Guidance"
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Reviewer guidance has been updated."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "The review settings have been updated."
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "The review reminder details have been updated."
+
+msgid "manager.emails.confirmDelete"
+msgstr "Are you sure you want to delete this email template?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Are you sure you want to reset this email template to its default values?"
+
+msgid "manager.emails.addEmail"
+msgstr "Add Template"
+
+msgid "manager.emails.addEmail.success"
+msgstr "The email template was added."
+
+msgid "manager.emails.createEmail"
+msgstr "Create Email"
+
+msgid "manager.emails.customTemplate"
+msgstr "Custom Template"
+
+msgid "manager.emails.data"
+msgstr "Template Message Data"
+
+msgid "manager.emails.details"
+msgstr "Template Details"
+
+msgid "manager.emails.disable"
+msgstr "Disable"
+
+msgid "manager.emails.disable.message"
+msgstr "You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?"
+
+msgid "manager.emails.editEmail"
+msgstr "Edit Email"
+
+msgid "manager.emails.editEmail.success"
+msgstr "The email template was modified."
+
+msgid "manager.emails.editTestExample"
+msgstr "Edit Email Test Example"
+
+msgid "manager.emails.emailKey"
+msgstr "Email Key"
+
+msgid "manager.emails.emailKey.description"
+msgstr "The email key can only contain letters, numbers and underscores."
+
+msgid "manager.emails.emailKeyExists"
+msgstr "An email with the given key already exists. Email keys must be unique."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Email Template"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Email Templates"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "You must provide a context ID when adding an email template."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "The key you provided is already in use."
+
+msgid "manager.emails.enabled"
+msgstr "Enable this email template"
+
+msgid "manager.emails.enable"
+msgstr "Enable"
+
+msgid "manager.emails.enable.message"
+msgstr "You are about to enable this email.  Do you want to confirm this operation?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "A unique email key containing no spaces or special characters is required for the email."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "A body is required for the email."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "A subject is required for the email."
+
+msgid "manager.emails"
+msgstr "Prepared Emails"
+
+msgid "manager.emails.resetAll"
+msgstr "Reset All"
+
+msgid "manager.emails.resetAll.message"
+msgstr "If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?"
+
+msgid "manager.emails.reset"
+msgstr "Reset"
+
+msgid "manager.emails.reset.message"
+msgstr "If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Reset To Default"
+
+msgid "manager.emails.sentFrom"
+msgstr "Sent From"
+
+msgid "manager.emails.sentTo"
+msgstr "Sent To"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Subject: {$subject}"
+
+msgid "manager.filesBrowser"
+msgstr "Files Browser"
+
+msgid "manager.files.confirmDelete"
+msgstr "Delete this file or directory? Note that a directory must be empty before it can be deleted."
+
+msgid "manager.files.createDir"
+msgstr "Create Directory"
+
+msgid "manager.files.emptyDir"
+msgstr "No files were found in this directory."
+
+msgid "manager.files.indexOfDir"
+msgstr "Index of {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Parent Directory"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Uploaded Files"
+
+msgid "manager.files.uploadFile"
+msgstr "Upload File"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Are you sure you wish to delete this group?"
+
+msgid "manager.groups.createTitle"
+msgstr "Create Title"
+
+msgid "manager.groups.editTitle"
+msgstr "Edit Title"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "A group title is required."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Add Member"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Are you sure you wish to delete this group membership?"
+
+msgid "manager.groups.membership"
+msgstr "Membership"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "This group has no members."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "No users were found."
+
+msgid "manager.groups.title"
+msgstr "Title"
+
+msgid "manager.importExport"
+msgstr "Import/Export Data"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Submissions"
+
+msgid "manager.language.forms"
+msgstr "Forms"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Reload defaults"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected."
+
+msgid "manager.payment.timestamp"
+msgstr "Timestamp"
+
+msgid "manager.people.existingUserRequired"
+msgstr "An existing user must be entered."
+
+msgid "manager.people.authSource"
+msgstr "Authentication source"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Unenroll this user?"
+
+msgid "manager.people.createUser"
+msgstr "Create New User"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Generate a random password."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Send the user a welcome email containing their username and password."
+
+msgid "manager.people.disable"
+msgstr "Disable"
+
+msgid "manager.people.doNotEnroll"
+msgstr "With no role"
+
+msgid "manager.people.editProfile"
+msgstr "Edit Profile"
+
+msgid "manager.people.editUser"
+msgstr "Edit User"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Email selected users"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Email users enrolled as"
+
+msgid "manager.people.emailUsers"
+msgstr "Email Users"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Select a locale"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Select the users you would like to email by checking the boxes beside their names"
+
+msgid "manager.people.enable"
+msgstr "Enable"
+
+msgid "manager.people.enroll"
+msgstr "Enroll User"
+
+msgid "manager.people.enrollment"
+msgstr "Enrollment"
+
+msgid "manager.people.enrollSelected"
+msgstr "Enroll Selected Users"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Synchronize role"
+
+msgid "manager.people.enrollSync"
+msgstr "Sync Enrollment"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Users can be assigned to, or removed from, a role at any point."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Enroll user as"
+
+msgid "manager.people.invalidUser"
+msgstr "Sorry, the requested user does not exist."
+
+msgid "manager.people.mergeUser"
+msgstr "Merge User"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username \"{$newUsername}\"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible."
+
+msgid "manager.people.mergeUsers"
+msgstr "Merge Users"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Please select a role at the top of the page before clicking \"Enroll User\"."
+
+msgid "manager.people.mustProvideName"
+msgstr "Please provide at least a last name for the user first."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "No matching users."
+
+msgid "manager.people.noneEnrolled"
+msgstr "No enrolled users."
+
+msgid "manager.people"
+msgstr "People"
+
+msgid "manager.people.remove"
+msgstr "Remove"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Save and Create Another"
+
+msgid "manager.people.signInAs"
+msgstr "Log In As"
+
+msgid "manager.people.signInAsUser"
+msgstr "Log In as User"
+
+msgid "manager.people.syncUsers"
+msgstr "Synchronize User Enrollment"
+
+msgid "manager.people.unenroll"
+msgstr "Unenroll"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "User created successfully."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Require the user to change their password the next time they log in."
+
+msgid "manager.plugins.action"
+msgstr "Action:"
+
+msgid "manager.plugins.disable"
+msgstr "Disable"
+
+msgid "manager.plugins.enable"
+msgstr "Enable"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Plugin Management"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "This is a site-wide plugin. Only the Site Administrator may manage this plugin."
+
+msgid "manager.plugins"
+msgstr "System Plugins"
+
+msgid "manager.readingTools"
+msgstr "Reading Tools"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Search User By Name"
+
+msgid "manager.representative.inUse"
+msgstr "You can not delete this representative because they are assigned to the market metadata for one or more publication formats for this submission."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Change"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Search Reviewers By Name"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Search By Name"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Reviewing Interests"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields."
+
+msgid "manager.roles"
+msgstr "Roles"
+
+msgid "manager.statistics"
+msgstr "Stats &amp; Reports"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tYour {$contextObjectName} is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.\n"
+"\t\tThere are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank\n"
+"\t\tsearch results. Please select one of the configured metrics as a default.\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "City"
+
+msgid "manager.statistics.region"
+msgstr "Region"
+
+msgid "manager.statistics.reports"
+msgstr "Report Generator"
+
+msgid "manager.statistics.reports.description"
+msgstr "The system generates reports that track the details associated with site usage and submissions over a given period of time. Reports are generated in CSV format which requires a spreadsheet application to view."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Aggregate stats by:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Items in italic and marked with * represents data that is optional to the current way of counting statistics in the system (metric type). You might have that data or not, depending on your statistics plugin configuration."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Default report templates"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Generate custom report"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Advanced Options"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Hide Advanced Options"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Columns"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Define the columns that will be used to build the report. The columns you select here not only define which data will be presented inside the reports, but also defines the aggregation level of the statistics. For example, if you choose ID, Type and Month columns, the report will sum all views from an object from one month and will present that data in one row. If you choose Day instead of Month, each object will have a row for each day."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filters"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Object not found in database"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Object Type"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Object id"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Define one or more object ids, comma separated (e.g. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Yesterday"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Current month"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Order by"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Direction"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Ascending"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Descending"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Use the YYYYMM format."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Use the YYYYMMDD format."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "One or more city names, comma separated (e.g. City Name 1,City Name 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "You have to select at least one column to generate the report."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Report URL"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "The following url can be used to generate the report with the current form settings. Just copy it and open it in your browser. You can also store it as your custom report url generator in your bookmarks."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "By context"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "By object type and/or object id"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Select report range"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Or select range by:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "By geo location"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Narrow results by country, region and/or city."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponsor"
+
+msgid "manager.setup.additionalContent"
+msgstr "Additional Content"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Anything entered here will appear on your homepage."
+
+msgid "manager.setup.advanced"
+msgstr "Advanced"
+
+msgid "manager.setup.appearance.success"
+msgstr "The appearance settings have been updated."
+
+msgid "manager.setup.contact.success"
+msgstr "The contact details for this press have been updated."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Copyright Notice"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Require authors to agree to the following copyright notice as part of the submission process."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Author Guidelines"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Recommended guidelines include bibliographic and formatting standards alongside examples of common citation formats to be used in submissions."
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "The author guidelines have been successfully updated."
+
+msgid "manager.setup.checklist"
+msgstr "Checklist"
+
+msgid "manager.setup.competingInterests"
+msgstr "Competing Interests"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "There was an error when deleting this item."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.groupType"
+msgstr "File type grouping"
+
+msgid "manager.setup.homepageImage"
+msgstr "Homepage Image"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Upload an image to display prominently on the homepage."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Descriptions"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Sidebar"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "The {$name} block can not be found. Please make sure the plugin is installed and enabled."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Logging and Auditing"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "The file you uploaded could not be found. Please try to upload it again."
+
+msgid "manager.setup.notifications"
+msgstr "Notification of Author Submission"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Send a copy to this email address"
+
+msgid "manager.setup.notifications.description"
+msgstr "Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Open Access Policy"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "If providing immediate free access to all published content, you may enter a description of your Open Access Policy."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Page Footer"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Enter any images, text or HTML code that you'd like to appear at the bottom of your website."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Outline the peer review policy and processes for readers and authors. This description often includes the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, expected time required to conduct the reviews, and the principles used to select reviewers."
+
+msgid "manager.setup.principalContact"
+msgstr "Principal Contact"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Enter contact details, typically for a principal editorship, managing editorship, or administrative staff position, which can be displayed on your publicly accessible website."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Privacy Statement"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "This statement will appear during user registration, author submission, and on the publicly available Privacy page. In some jurisdictions, you are legally required to disclose how you handle user data in this privacy policy."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Default Response Deadline"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Default Completion Deadline"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Number of weeks to accept or decline a review request."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Weeks allowed for review completion"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Never Remind"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Defaults can be modified for each review during the editorial process."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Response Reminder"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "Send an email reminder if a reviewer has not responded to a review request this many days after the response due date."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Review Reminder"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr "Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Default Review Mode"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Present a link to <button type=\"button\">Ensuring a Blind Review</button> during upload"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Sponsor Relationship and Policy Description"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Examples: scholarly associations, university departments, cooperatives, etc. Sponsors are displayed publicly."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Experienced web developers can upload a CSS file to further customize the website's appearance."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Technical Support Contact"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "A contact person who can assist editors, authors and reviewers with any problems they have submitting, editing, reviewing or publishing material."
+
+msgid "manager.setup.theme.success"
+msgstr "The theme has been updated. <a href=\"{$url}\" target=\"_blank\">View Now</a>"
+
+msgid "manager.setup.theme"
+msgstr "Theme"
+
+msgid "manager.setup.theme.description"
+msgstr "New themes may be installed from the Plugins tab at the top of this page."
+
+msgid "manager.setup.theme.notFound"
+msgstr "The theme you selected is not installed or enabled."
+
+msgid "manager.setup.userAccess.success"
+msgstr "The user access details for this press have been updated."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Site Access Options"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} new)"
+
+msgid "manager.users"
+msgstr "Users"
+
+msgid "plugins.categories.metadata"
+msgstr "Metadata Plugins"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Metadata Plugins implement additional meta-data standards."
+
+msgid "plugins.categories.auth"
+msgstr "Authorization Plugins"
+
+msgid "plugins.categories.blocks"
+msgstr "Block Plugins"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Block Plugins are pluggable UI components, such as the various sidebar tools."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway Plugins provide live data to external systems."
+
+msgid "plugins.categories.gateways"
+msgstr "Gateway Plugins"
+
+msgid "plugins.categories.generic"
+msgstr "Generic Plugins"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Import/Export Plugins can be used to transfer content to and from other systems."
+
+msgid "plugins.categories.importexport"
+msgstr "Import/Export Plugins"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Payment Method plugins implement support for various ways of processing payments online."
+
+msgid "plugins.categories.paymethod"
+msgstr "Payment Plugins"
+
+msgid "plugins.categories.reports.description"
+msgstr "Report Plugins are used to implement various types of reports and data extracts."
+
+msgid "plugins.categories.reports"
+msgstr "Report Plugins"
+
+msgid "plugins.categories.themes.description"
+msgstr "Theme Plugins can be used to change the system's appearance."
+
+msgid "plugins.categories.themes"
+msgstr "Theme Plugins"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI Metadata Format Plugins"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "These format plugins express metadata in OAI communications."
+
+msgid "plugins.categories.pubIds"
+msgstr "Public Identifier Plugins"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "These plugins implement support for a public identifier."
+
+msgid "manager.plugins.copyError"
+msgstr "Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later."
+
+msgid "manager.plugins.delete"
+msgstr "Delete Plugin"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Are you sure you wish to install this plugin?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Are you sure you wish to upgrade this plugin?"
+
+msgid "grid.action.installPlugin"
+msgstr "Install or upgrade this plugin"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Are you sure you wish to delete this plugin from the system?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "By clicking delete, you will delete the plugin from the server's file system."
+
+msgid "manager.plugins.deleteError"
+msgstr "Plugin \"{$pluginName}\" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Plugin \"{$pluginName}\" successfuly deleted"
+
+msgid "manager.plugins.description"
+msgstr "This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Plugin \"{$pluginName}\" does not exist"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Please select a file first"
+
+msgid "manager.plugins.upload"
+msgstr "Upload A New Plugin"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Please ensure a file was selected for upload."
+
+msgid "manager.plugins.installed"
+msgstr "Installed Plugins"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Plugin Gallery"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Overview"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Installation"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Latest Compatible Release"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Official"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "This plugin is developed and maintained by the Public Knowledge Project team."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Reviewed"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "This plugin has been reviewed and approved by the Public Knowledge Project team."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "This plugin is provided by one of our development partners."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Maintainer"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} released on {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Homepage"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Summary"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "The plugin has not yet been installed."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "There is currently no compatible version of this plugin available."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Plugin already installed, and is newer than the version available in the gallery."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Plugin already installed, but can be updated to a newer version."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Plugin already installed and up-to-date."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Newer than available version"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Can be upgraded"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Up to date"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Not Available"
+
+msgid "manager.plugins.installFailed"
+msgstr "Installation failed. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Successfully installed version {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "The uploaded plugin archive does not contain a folder that corresponds to the plugin name."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "The uploaded plugin does not fit the category of the upgraded plugin."
+
+msgid "manager.plugins.wrongName"
+msgstr "The version.xml in the uploaded plugin contains a plugin name that does not fit the name of the upgraded plugin."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Plugin does not exist.  Please Install instead"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Plugin already exists, but is newer than installed version.  Please upgrade instead"
+
+msgid "manager.plugins.settings"
+msgstr "Settings"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "The tar command is not available. Please correctly configure it in your \"config.inc.php\"."
+
+msgid "manager.plugins.upgrade"
+msgstr "Upgrade Plugin"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "This form allows you to upgrade a plugin.  Please ensure the plugin is compressed as a .tar.gz file."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Upgrade failed. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Successfully upgraded to version {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Error uploading file"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Select plugin file"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml in plugin directory contains invalid data."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml not found in plugin directory"
+
+msgid "notification.localeEnabled"
+msgstr "Locale enabled."
+
+msgid "notification.localeDisabled"
+msgstr "Locale disabled."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} defined as primary locale."
+
+msgid "notification.localeInstalled"
+msgstr "All selected locale(s) installed and activated."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} locale uninstalled."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} locale reloaded for {$contextName}."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Locale settings saved."
+
+msgid "notification.editedUser"
+msgstr "User edited."
+
+msgid "manager.distribution.license"
+msgstr "License"
+
+msgid "manager.distribution.license.success"
+msgstr "The licensing details have been updated. "
+
+msgid "manager.distribution.license.other"
+msgstr "Other license URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "License Terms"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "Enter public licensing terms you would like to display alongside published work."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Custom Tags"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr "Add custom HTML tags, also known as meta tags, that you would like to be inserted in the head of every page. Consult a technical advisor before adding tags here."
+
+msgid "manager.paymentMethod"
+msgstr "Payments"
+
+msgid "manager.paymentMethod.title"
+msgstr "Payment Methods"
+
+msgid "manager.paymentMethod.none"
+msgstr "No payment method selected"
+
+msgid "manager.paymentMethod.method"
+msgstr "Payment Method"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Currency"
+
+msgid "settings.roles.roleOptions"
+msgstr "Role Options"
+
+msgid "settings.roles.showTitles"
+msgstr "Show role title in contributor list"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Allow user self-registration"
+
+msgid "settings.roles.recommendOnly"
+msgstr "This role is only allowed to recommend a review decision and will require an authorised editor to record a final decision."
+
+msgid "settings.roles.roleName"
+msgstr "Role Name"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Abbreviation"
+
+msgid "settings.roles.assignedStages"
+msgstr "Assigned Stages"
+
+msgid "settings.roles.stages"
+msgstr "Stages"
+
+msgid "settings.roles.roleDetails"
+msgstr "Role details"
+
+msgid "settings.roles.from"
+msgstr "Permission level"
+
+msgid "settings.roles.removeText"
+msgstr "You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?"
+
+msgid "settings.roles.nameRequired"
+msgstr "You need to define a role name."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "You need to define a role abbreviature."
+
+msgid "settings.roles.uniqueName"
+msgstr "You need to define an unique role name."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "You need to define an unique role abbreviature."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "You need to define a role permission level."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "You need to define a stage to assign to."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permit submission metadata edit."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "A library file is required. Please ensure that you have chosen and uploaded a file."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "A name is required for this library file."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "A file type is required for this library file."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Contracts"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Permissions"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Reports"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Other"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>This library file can be accessible for download, if \"Public Access\" is enabled, at: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Select Library Files to attach"
+
+msgid "grid.action.addGenre"
+msgstr "Add a Component"
+
+msgid "grid.action.editGenre"
+msgstr "Edit this Component"
+
+msgid "grid.action.deleteGenre"
+msgstr "Delete this Component"
+
+msgid "grid.action.restoreGenres"
+msgstr "Restore the components to the default settings"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Mark files of this type as dependent files (e.g. not to be listed with published content)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Mark files of this type as supplementary files (e.g. not primary submission content)"
+
+msgid "manager.setup.genres.key"
+msgstr "Key"
+
+msgid "manager.setup.genres.key.description"
+msgstr "An optional short symbolic identifer for this genre."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "The key already exists."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "The key can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character."
+
+msgid "manager.settings.wizard"
+msgstr "Settings Wizard"
+
+msgid "manager.users.roleRequired"
+msgstr "You need to select at least one role to be associated with this user."
+
+msgid "manager.website"
+msgstr "Website"
+
+msgid "manager.website.title"
+msgstr "Website Settings"
+
+msgid "manager.workflow"
+msgstr "Workflow"
+
+msgid "manager.workflow.title"
+msgstr "Workflow Settings"
+
+msgid "manager.distribution"
+msgstr "Distribution"
+
+msgid "manager.distribution.title"
+msgstr "Distribution Settings"
+
+msgid "manager.reviewForms"
+msgstr "Review Forms"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Are you sure you wish to activate this review form? Once it's assigned to a review you will no longer be able to deactivate it."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Are you sure you wish to deactivate this review form? It will no longer be available for new review assignments."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Are you sure you wish to create a copy of this review form?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Completed"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Are you sure you wish to delete this review form?"
+
+msgid "manager.reviewForms.create"
+msgstr "Create Review Form"
+
+msgid "manager.reviewForms.description"
+msgstr "Description and Instructions"
+
+msgid "manager.reviewForms.edit"
+msgstr "Review Form"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "A title is required for the review form."
+
+msgid "manager.reviewForms.inReview"
+msgstr "In Review"
+
+msgid "manager.reviewForms.list.description"
+msgstr "The peer review forms created here will be presented to reviewers to complete, instead of the default form which consists of two open text boxes, the first \"for author and editor,\" and the second \"for editor.\" Review forms can be designated for a specific press section, and editors will have the option to choose which form to use in assigning the review. In all cases, editors will have the option of including the reviews in corresponding with the author."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "None / Free Form Review"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "No review forms have been created."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "No review forms have been used."
+
+msgid "manager.reviewForms.preview"
+msgstr "Preview Form"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Review Form Data"
+
+msgid "manager.reviewForms.title"
+msgstr "Title"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Changing the form item type..."
+
+msgid "manager.reviewFormElements"
+msgstr "Form Items"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Add selection"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Checkboxes (you can choose one or more)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Choose item type"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Confirm delete of a published form item..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Copy to:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Create New Item"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Drop-down box"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Edit Form Item"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Item type"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "An item type is required for the form item."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "A question is required for the form item."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "No form items have been created."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Selection"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Item"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Description"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radio buttons (you can only choose one)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Reviewers required to complete item"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Included in message to author"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Single word text box"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Extended text box"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Single line text box"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Viewable (for authors)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Create a new Review Form"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Request a Competing Interest statement during the peer review."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL to a webpage describing the license, if available."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Submission Form"
+
+msgid "manager.setup.metadata.success"
+msgstr "The submission metadata has been updated successfully."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Coverage"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr "Coverage will typically indicate a work's spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range) or jurisdiction (such as a named administrative entity)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Enable coverage metadata"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Do not request coverage metadata from the author during submission."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Ask the author to suggest coverage metadata during submission."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr "Require the author to suggest coverage metadata before accepting their submission."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr "Keywords are typically one- to three-word phrases that are used to indicate the main topics of a submission."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Enable keyword metadata"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Do not request keywords from the author during submission."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Ask the author to suggest keywords during submission."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Require the author to suggest keywords before accepting their submission."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr "Language indicates the work's primary language using a language code (\"en\") with an optional country code (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Enable language metadata"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Do not request the submission's languages from the author during submission."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Ask the author to indication the submission's languages during submission."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Require the author to enter the submission's languages before accepting their submission."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr "Any rights held over the submission, which may include Intellectual Property Rights (IPR), Copyright, and various Property Rights."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Enable rights metadata"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Do not request a rights disclosure from the author during submission."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "Ask the author to disclose any prior access rights during submission."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr "Require the author to disclose any prior access rights before accepting their submission."
+
+msgid "manager.setup.metadata.source.description"
+msgstr "The source may be an ID, such as a DOI, of another work or resource from which the submission is derived."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Enable source metadata"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Do not request a source URL from the author during submission."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Ask the author to provide a source URL during submission."
+
+msgid "manager.setup.metadata.source.require"
+msgstr "Require the author to provide a source URL before accepting their submission."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr "Subjects will be keywords, key phrases or classification codes that describe a topic of the submission."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Enable subject metadata"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Do not request subjects from the author during submission."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Ask the author to provide subjects during submission."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Require the author to provide subjects before accepting their submission."
+
+msgid "manager.setup.metadata.type.description"
+msgstr "The nature or genre of the main content of the submission. The type is usually \"Text\", but may also be \"Dataset\", \"Image\" or any of the <a target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Enable type metadata"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Do not request the type from the author during submission."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Ask the author to provide the type during submission."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Require the author to provide the type before accepting their submission."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr "Disciplines are types of study or branches of knowledge as described by university faculties and learned societies."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Enable disciplines metadata"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Do not request disciplines from the author during submission."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Ask the author to provide disciplines during submission."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Require the author to provide disciplines before accepting their submission."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr "Supporting agencies may indicate the source of research funding or other institutional support that facilitated the research."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Enable supporting agencies metadata"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Do not request supporting agencies from the author during submission."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Ask the author to disclose any supporting agencies during submission."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr "Require the author to disclose any supporting agencies before accepting their submission."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr "Collect a submission's references in a separate field. This may be required to comply with citation-tracking services such as Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Enable references metadata"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Do not request references from the author during submission."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Ask the author to provide references during submission."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Require the author to provide references before accepting their submission."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Validation errors:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Warnings encountered:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Errors occured:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Unknown element {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Unknown genre {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Unknown encoding {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "The content is not encoded as {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Unknown user group {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr "The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Unknown uploader {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Temporary file {$dest} could not be created from {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "The provided filesize \"{$expected}\" and the actual filesize \"{$actual}\" do not match"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "The revision \"{$revisionId}\" for submission file \"{$fileId}\" would create a duplicate record"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "The submission file could not be imported"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Import/Export errors:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "The imported user \"{$username}\" has no password. Check your import XML format. The user has not been imported."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "The imported user \"{$username}\" password could not be imported as is. A new password is been send to the user email. The user has been imported."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "The imported user \"{$username}\" has a plain password that is not valid. The user has not been imported."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr "The username \"{$username}\" and the e-mail \"{$email}\" do not match to the one and the same existing user."
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Title"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Path"
+
+msgid "manager.navigationMenus"
+msgstr "Navigation"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>This page will be accessible at: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Content"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "The path field must contain only alphanumeric characters plus '.', '/', '-', and '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "This path already exists for another navigation menu item."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "This title already exists for another navigation menu."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "The title is required"
+
+msgid "manager.navigationMenuItems"
+msgstr "Navigation Menu Items"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Assigned Menu Items"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Unassigned Menu Items"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Active Theme Navigation Areas"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Select a navigation area"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "A navigation menu is already assigned to this area."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "A URL must be provided"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Learn more about when this menu item will be displayed or hidden."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "When a menu item opens a submenu, it's link can not be followed on all devices. For example, if you have an \"About\" item which opens a submenu with \"Contact\" and \"Editorial Team\", the \"About\" link may not be reachable on all devices. In the default menu, this is handled by creating a second menu item, \"About the Journal\", which appears in the submenu."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Navigation Menu Type"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Select a Navigation Menu Type or Custom to make your own"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Custom Page"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Create a custom page on your site and link to it from a navigation menu."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Remote URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Link to any URL on another site, like https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Link to a page displaying the About the Journal content in Settings > Journal"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "This link will only be displayed if you have filled out the About the Journal section under Settings > Journal."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Link to a page displaying the Masthead content in Settings > Journal."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "This link will only be displayed if you have filled out the Editorial Team section under Settings > Journal."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Link to the page displaying submission instructions."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Link to your current issue."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Link to your issue archive."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Link to the page displaying your announcements."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "This link will only be displayed if you have enabled announcements under Settings > Website."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Link to the user login page."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Link to the user registration page."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Link to the editorial dashboard."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Link to the user profile page."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Link to the site-wide administration tools."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "This link will only be displayed to administrative users."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "A link that will log the user out."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "This link will only be displayed when the visitor is logged in."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "This link will only be displayed when the visitor is not logged in."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Link to a page displaying your contact information."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "This link will only be displayed if you have filled out the Contact information under Settings > Contact."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Please select a navigation menu type."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "This link will only be displayed if payments are enabled under Settings > Distribution > Payments."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "This link will only be displayed if the visitor is logged in, payments are enabled under Settings > Distribution > Payments and subscriptions are required under Settings > Distribution > Access."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Link to the search page."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Link to the page displaying your privacy statement."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "This link will only be displayed if you have entered a privacy statement under Settings > Workflow > Submissions."
+
+msgid "grid.category.add"
+msgstr "Add Category"
+
+msgid "grid.category.edit"
+msgstr "Edit Category"
+
+msgid "grid.category.name"
+msgstr "Name"
+
+msgid "grid.category.path"
+msgstr "Path"
+
+msgid "grid.category.urlWillBe"
+msgstr "The category's URL will be: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "The category path must consist of only letters and numbers."
+
+msgid "grid.category.pathExists"
+msgstr "The category path already exists. Please enter a unique path."
+
+msgid "grid.category.description"
+msgstr "Description"
+
+msgid "grid.category.parentCategory"
+msgstr "Parent Category"
+
+msgid "grid.category.removeText"
+msgstr "Are you sure you wish to remove this category?"
+
+msgid "grid.category.nameRequired"
+msgstr "Please enter a category name."
+
+msgid "grid.category.categoryDetails"
+msgstr "Category Details"
+
+msgid "stats.daily"
+msgstr "Daily"
+
+msgid "stats.dateRange"
+msgstr "Date Range"
+
+msgid "stats.dateRange.allDates"
+msgstr "All dates"
+
+msgid "stats.dateRange.apply"
+msgstr "Apply"
+
+msgid "stats.dateRange.change"
+msgstr "Change date range"
+
+msgid "stats.dateRange.customRange"
+msgstr "Custom Range"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "One of the dates entered does not exist."
+
+msgid "stats.dateRange.from"
+msgstr "From"
+
+msgid "stats.dateRange.instructions"
+msgstr "Enter each date in the format YYYY-MM-DD. For example, if you want the date for 15 January, 2019, enter 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "The date format is not valid. Enter each date in the format YYYY-MM-DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "The start date must be before the end date."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "The end date may not be later than {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "The start date may not be earlier than {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Last 12 months"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Last 30 days"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Last 90 days"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Since {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "To"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Until {$date}"
+
+msgid "stats.fileViews"
+msgstr "File Views"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Monthly"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Search by title, author and ID"
+
+msgid "stats.total"
+msgstr "Total"

@@ -1,0 +1,1546 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:22-07:00\n"
+"Language: \n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Hoja de estilos actual"
+
+msgid "about.description"
+msgstr "Descripción"
+
+msgid "about.guidelines"
+msgstr "Directrices"
+
+msgid "about.aboutSite"
+msgstr "Acerca del sitio"
+
+msgid "about.contact"
+msgstr "Contacto"
+
+msgid "about.contact.email"
+msgstr "Correo electrónico"
+
+msgid "about.contact.phone"
+msgstr "Teléfono"
+
+msgid "about.contact.principalContact"
+msgstr "Contacto principal"
+
+msgid "about.contact.supportContact"
+msgstr "Contacto de soporte"
+
+msgid "about.other"
+msgstr "Otro"
+
+msgid "about.people"
+msgstr "Personas"
+
+msgid "about.policies"
+msgstr "Políticas"
+
+msgid "about.siteMap"
+msgstr "Mapa del sitio"
+
+msgid "announcement.announcements"
+msgstr "Avisos"
+
+msgid "announcement.announcementsHome"
+msgstr "Avisos"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Más avisos..."
+
+msgid "announcement.noneExist"
+msgstr "Ningún aviso ha sido publicado."
+
+msgid "announcement.posted"
+msgstr "Enviado"
+
+msgid "announcement.postedOn"
+msgstr "Publicado el {$postDate}"
+
+msgid "announcement.view"
+msgstr "Ver aviso"
+
+msgid "common.tasks"
+msgstr "Tareas"
+
+msgid "common.list"
+msgstr "Lista"
+
+msgid "common.grid"
+msgstr "Cuadrícula"
+
+msgid "common.confirmDelete"
+msgstr "¿Está seguro de que desea eliminar este elemento? Esta acción es irreversible."
+
+msgid "common.abstract"
+msgstr "Resumen"
+
+msgid "common.accepted"
+msgstr "Aceptado"
+
+msgid "common.acknowledged"
+msgstr "Confirmado(s)"
+
+msgid "common.action"
+msgstr "Acción"
+
+msgid "common.activate"
+msgstr "Activar"
+
+msgid "common.deactivate"
+msgstr "Desactivar"
+
+msgid "common.designation"
+msgstr "Designación"
+
+msgid "common.active"
+msgstr "Activo"
+
+msgid "common.add"
+msgstr "Añadir"
+
+msgid "common.addSelf"
+msgstr "Añadirse"
+
+msgid "common.name"
+msgstr "Nombre"
+
+msgid "common.all"
+msgstr "Todos"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z"
+
+msgid "common.titleSmallWords"
+msgstr "de un una unos unas el la los las y o ni pero es si después además cuando en desde para por fuera dentro sobre a hasta con contra"
+
+msgid "common.alreadyAssigned"
+msgstr "Asignado"
+
+msgid "common.altText"
+msgstr "Texto alternativo"
+
+msgid "common.and"
+msgstr "y"
+
+msgid "common.applyAction"
+msgstr "Continuar"
+
+msgid "common.assign"
+msgstr "Asignar"
+
+msgid "common.assigned"
+msgstr "Asignado"
+
+msgid "common.available"
+msgstr "Disponible"
+
+msgid "common.back"
+msgstr "Atrás"
+
+msgid "common.between"
+msgstr "entre"
+
+msgid "common.cancel"
+msgstr "Cancelar"
+
+msgid "common.cancelled"
+msgstr "Cancelado"
+
+msgid "common.warning"
+msgstr "Aviso"
+
+msgid "common.error"
+msgstr "Error"
+
+msgid "common.notice"
+msgstr "Notificación"
+
+msgid "common.captchaField.description"
+msgstr "Por favor, introduzca las letras tal como aparecen en la imagen superior."
+
+msgid "common.captchaField"
+msgstr "Validación"
+
+msgid "common.ccLicense"
+msgstr "<br /><br /> <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> <img alt=\"Licencia de Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/> </a> <br/> Este trabajo se distribuye bajo una <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licencia de reconocimiento 3.0 de Creative Commons</a>."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\"><br /> <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Licencia de Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a><br /> Este trabajo se distribuye bajo una <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licencia de reconocimiento 3.0 de Creative Commons</a>.</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Sus cambios se han guardado."
+
+msgid "common.chooseOne"
+msgstr "Seleccione uno"
+
+msgid "common.clearSearch"
+msgstr "Limpiar frase de búsqueda"
+
+msgid "common.close"
+msgstr "Cerrar"
+
+msgid "common.closeWindow"
+msgstr "Cerrar ventana"
+
+msgid "common.complete"
+msgstr "Completar"
+
+msgid "common.completed"
+msgstr "Completado"
+
+msgid "common.confirm"
+msgstr "Confirmar"
+
+msgid "common.content"
+msgstr "Contenido"
+
+msgid "common.contents"
+msgstr "Contenidos"
+
+msgid "common.continue"
+msgstr "Continuar"
+
+msgid "common.copy"
+msgstr "Copiar"
+
+msgid "common.country"
+msgstr "País"
+
+msgid "common.create"
+msgstr "Crear"
+
+msgid "common.dateCompleted"
+msgstr "Fecha finalización"
+
+msgid "common.date"
+msgstr "Fecha"
+
+msgid "common.dateModified"
+msgstr "Fecha de modificación"
+
+msgid "common.dateRequested"
+msgstr "Fecha solicitud"
+
+msgid "common.dateSubmitted"
+msgstr "Fecha de envío"
+
+msgid "common.dateUploaded"
+msgstr "Fecha de envío del fichero"
+
+msgid "common.dateHijri"
+msgstr "Calendario musulmán"
+
+msgid "common.day"
+msgstr "Día"
+
+msgid "common.default"
+msgstr "Por defecto"
+
+msgid "common.declined"
+msgstr "Rechazado"
+
+msgid "common.delete"
+msgstr "Eliminar"
+
+msgid "common.deleteSelection"
+msgstr "Eliminar selección"
+
+msgid "common.description"
+msgstr "Descripción"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}\" x {$height}\" @ {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width} x {$height} píxeles"
+
+msgid "common.disable"
+msgstr "Desactivar"
+
+msgid "common.disabled"
+msgstr "Desactivado"
+
+msgid "common.discipline"
+msgstr "Disciplina"
+
+msgid "common.done"
+msgstr "Hecho"
+
+msgid "common.download"
+msgstr "Descargar"
+
+msgid "common.edit"
+msgstr "Editar"
+
+msgid "common.enable"
+msgstr "Activar"
+
+msgid "common.enabled"
+msgstr "Activo"
+
+msgid "common.error.databaseError"
+msgstr "Se ha producido un error en la base de datos: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Error desconocido en la conexión a la base de datos."
+
+msgid "common.error.framesRequired"
+msgstr "Esta página necesita recuadros. <a href=\"{$url}\">Haga clic aquí</a> para la versión sin recuadros."
+
+msgid "common.event"
+msgstr "Evento"
+
+msgid "common.export"
+msgstr "Exportar"
+
+msgid "common.finish"
+msgstr "Finalizar"
+
+msgid "common.fullscreen"
+msgstr "Pantalla completa"
+
+msgid "common.fullscreenOff"
+msgstr "Salir de pantalla completa"
+
+msgid "common.false"
+msgstr "Falso"
+
+msgid "common.file"
+msgstr "Fichero"
+
+msgid "common.fileName"
+msgstr "Nombre del fichero"
+
+msgid "common.fileSize"
+msgstr "Tamaño del fichero"
+
+msgid "common.fileType"
+msgstr "Tipo de fichero"
+
+msgid "common.fileUploaderError"
+msgstr "El cargador de archivos del sistema está cargando. Si no aparece, es probable que ninguno de los tiempos de ejecución sea compatible con este navegador. Contacte con la administración para obtener ayuda."
+
+msgid "common.filter"
+msgstr "Filtros"
+
+msgid "common.filterRemove"
+msgstr "Limpiar filtros: {$filterTitle}"
+
+msgid "common.go"
+msgstr "Ir"
+
+msgid "common.height"
+msgstr "Altura"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logo del título (página de inicio)"
+
+msgid "common.hour"
+msgstr "Hora"
+
+msgid "common.id"
+msgstr "Id."
+
+msgid "common.import"
+msgstr "Importar"
+
+msgid "common.initiate"
+msgstr "Iniciar"
+
+msgid "common.inProgress"
+msgstr "En progreso"
+
+msgid "common.itemsPerPage"
+msgstr "Elementos por página"
+
+msgid "common.keywords"
+msgstr "Palabras clave"
+
+msgid "common.language"
+msgstr "Idioma"
+
+msgid "common.languages"
+msgstr "Idiomas"
+
+msgid "common.less"
+msgstr "Menos"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Administrar"
+
+msgid "common.mailingAddress"
+msgstr "Dirección postal"
+
+msgid "common.billingAddress"
+msgstr "Dirección de facturación (si es diferente)"
+
+msgid "common.minute"
+msgstr "Minuto(s)"
+
+msgid "common.modify"
+msgstr "Modificar"
+
+msgid "common.month"
+msgstr "Mes"
+
+msgid "common.more"
+msgstr "Más"
+
+msgid "common.noneAssigned"
+msgstr "Ninguno asignado"
+
+msgid "common.none"
+msgstr "Ninguno"
+
+msgid "common.no"
+msgstr "Núm."
+
+msgid "common.noComments"
+msgstr "No hay comentarios"
+
+msgid "common.notApplicable"
+msgstr "No aplica"
+
+msgid "common.notApplicableShort"
+msgstr "N/D"
+
+msgid "common.notAvailable"
+msgstr "No disponible"
+
+msgid "common.note"
+msgstr "Nota"
+
+msgid "common.notes"
+msgstr "Notas"
+
+msgid "common.notes.tooltip"
+msgstr "Notas (amarillo: tiene notas nuevas; azul: tiene notas vistas; gris: no hay notas)"
+
+msgid "common.notified"
+msgstr "Informado/a"
+
+msgid "common.noMatches"
+msgstr "Sin coincidencias"
+
+msgid "common.off"
+msgstr "Desactivado"
+
+msgid "common.on"
+msgstr "Activado"
+
+msgid "common.ok"
+msgstr "Aceptar"
+
+msgid "common.options"
+msgstr "Opciones"
+
+msgid "common.order"
+msgstr "Orden"
+
+msgid "common.orderUp"
+msgstr "Incrementar posición de {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "Decrementar posición de {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "Nombre del archivo original"
+
+msgid "common.or"
+msgstr "o"
+
+msgid "common.other"
+msgstr "Otro"
+
+msgid "common.overdue"
+msgstr "Vencido"
+
+msgid "common.plugin"
+msgstr "Módulo"
+
+msgid "common.pluginEnabled"
+msgstr "El módulo \"{$pluginName}\" se ha activado."
+
+msgid "common.pluginDisabled"
+msgstr "El módulo \"{$pluginName}\" se ha desactivado."
+
+msgid "common.prefix"
+msgstr "Prefijo"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Si el título del libro comienza con \"Un/a\" o \"El/La/Los/Las\" (o algo similar que no debiera considerarse en el orden alfabético) sitúa esta palabra en Prefijo."
+
+msgid "common.preview"
+msgstr "Previsualizar"
+
+msgid "common.publisher"
+msgstr "Editor"
+
+msgid "common.quality"
+msgstr "Calidad"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.record"
+msgstr "Registro"
+
+msgid "common.refresh"
+msgstr "Recargar"
+
+msgid "common.related"
+msgstr "Relacionado"
+
+msgid "common.reminder"
+msgstr "Recordatorio"
+
+msgid "common.remote"
+msgstr "Remoto"
+
+msgid "common.remoteURL"
+msgstr "URL remota"
+
+msgid "common.remove"
+msgstr "Eliminar"
+
+msgid "common.removeSelection"
+msgstr "Eliminar selección"
+
+msgid "common.replaced"
+msgstr "Sustituido"
+
+msgid "common.replaceFile"
+msgstr "Reemplazar archivo"
+
+msgid "common.requiredField"
+msgstr "* Campos obligatorios"
+
+msgid "common.required"
+msgstr "Obligatorio"
+
+msgid "common.reset"
+msgstr "Restaurar"
+
+msgid "common.saveAndContinue"
+msgstr "Guardar y continuar"
+
+msgid "common.saveAndEmail"
+msgstr "Guardar y enviar"
+
+msgid "common.save"
+msgstr "Guardar"
+
+msgid "common.search"
+msgstr "Buscar"
+
+msgid "common.second"
+msgstr "Segundo(s)"
+
+msgid "common.selectAll"
+msgstr "Seleccionar todo"
+
+msgid "common.selectNone"
+msgstr "Deseleccionar todo"
+
+msgid "common.select"
+msgstr "Seleccionar"
+
+msgid "common.sendEmail"
+msgstr "Enviar correo electrónico"
+
+msgid "common.size"
+msgstr "Tamaño"
+
+msgid "common.source"
+msgstr "Fuente"
+
+msgid "common.status"
+msgstr "Estado"
+
+msgid "common.subject"
+msgstr "Materia"
+
+msgid "common.subjects"
+msgstr "Asuntos"
+
+msgid "common.subtitle"
+msgstr "Subtítulo"
+
+msgid "common.suggest"
+msgstr "Sugerir"
+
+msgid "common.title"
+msgstr "Título"
+
+msgid "common.top"
+msgstr "Principio"
+
+msgid "common.true"
+msgstr "Verdadero"
+
+msgid "common.type"
+msgstr "Tipo"
+
+msgid "common.uninitiated"
+msgstr "Sin iniciar"
+
+msgid "common.unread"
+msgstr "No leído"
+
+msgid "common.untitled"
+msgstr "Sin título"
+
+msgid "common.updated"
+msgstr "Actualizado"
+
+msgid "common.upload"
+msgstr "Subir"
+
+msgid "common.uploadFailed"
+msgstr "No se ha podido subir el fichero. Por favor, inténtelo de nuevo o póngase en contacto con el administrador si el problema persiste."
+
+msgid "common.up"
+msgstr "Arriba"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Usuario/a"
+
+msgid "common.view"
+msgstr "Ver"
+
+msgid "common.weeks"
+msgstr "semanas"
+
+msgid "common.width"
+msgstr "Anchura"
+
+msgid "common.year"
+msgstr "Año"
+
+msgid "common.yes"
+msgstr "Sí"
+
+msgid "common.loading"
+msgstr "Cargando"
+
+msgid "common.plugins"
+msgstr "Módulos"
+
+msgid "common.metric"
+msgstr "Métrica"
+
+msgid "common.count"
+msgstr "Total"
+
+msgid "debug.databaseQueries"
+msgstr "Número de consultas a la base de datos"
+
+msgid "debug.executionTime"
+msgstr "Página generada en"
+
+msgid "debug.memoryUsage"
+msgstr "Uso de memoria:"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Lista de configuraciones regionales \"{$localeList}\" cargada desde XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Archivo de configuraciones regionales \"{$localeFile}\" cargado desde XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Falta la clave de configuraciones regionales \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Notas:"
+
+msgid "defaultMetric.title"
+msgstr "Métrica predeterminada"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Métricas disponibles"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Subir archivo de revisión"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Subir fichero"
+
+msgid "email.addAttachment"
+msgstr "Añadir adjunto"
+
+msgid "email.addBccRecipient"
+msgstr "Añadir CCO"
+
+msgid "email.addCcRecipient"
+msgstr "Añadir CC"
+
+msgid "email.addToRecipient"
+msgstr "Añadir destinataria/o"
+
+msgid "email.attachments"
+msgstr "Adjuntos"
+
+msgid "email.bcc"
+msgstr "CCO"
+
+msgid "email.bccSender"
+msgstr "Enviar una copia del mensaje a mi dirección ({$address})"
+
+msgid "email.body"
+msgstr "Texto"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Enviar correo electrónico"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Este mensaje tiene demasiados destinatarios."
+
+msgid "email.compose.tooSoon"
+msgstr "Está intentando enviar un mensaje sin apenas diferencia de tiempo con respecto al último mensaje que envió. Espere antes de enviar otro mensaje."
+
+msgid "email.email"
+msgstr "Correo electrónico"
+
+msgid "email.from"
+msgstr "Desde"
+
+msgid "email.invalid"
+msgstr "La dirección de correo electrónico {$email} no es válida."
+
+msgid "email.multipart"
+msgstr "Este es un mensaje de múltiples partes en formato MIME."
+
+msgid "email.recipient"
+msgstr "Destinatario/a"
+
+msgid "email.recipients"
+msgstr "Destinatarios/as"
+
+msgid "email.sender"
+msgstr "Remitente"
+
+msgid "email.send"
+msgstr "Enviar"
+
+msgid "email.skip"
+msgstr "Omitir correo electrónico"
+
+msgid "email.subject"
+msgstr "Materia"
+
+msgid "email.subjectRequired"
+msgstr "Proporcione un asunto de correo electrónico."
+
+msgid "email.bodyRequired"
+msgstr "Proporcione el cuerpo de texto del correo electrónico."
+
+msgid "email.to"
+msgstr "Para"
+
+msgid "form.confirmSubmit"
+msgstr "¿Está seguro/a de que desea enviar este formulario?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Confirmar"
+
+msgid "form.emailRequired"
+msgstr "Se requiere una dirección de correo electrónico."
+
+msgid "form.dataHasChanged"
+msgstr "Los datos del formulario han cambiado. ¿Desea continuar sin guardar?"
+
+msgid "form.errorsOccurred"
+msgstr "Han ocurrido errores al procesar este formulario"
+
+msgid "form.formLanguage.description"
+msgstr "Para introducir la información siguiente en otros idiomas adicionales, seleccione primero el idioma."
+
+msgid "form.formLanguage"
+msgstr "Idioma del formulario"
+
+msgid "form.contains"
+msgstr "contiene"
+
+msgid "form.is"
+msgstr "es"
+
+msgid "form.startsWith"
+msgstr "comienza con"
+
+msgid "form.postRequired"
+msgstr "El formulario no se ha enviado con éxito."
+
+msgid "form.fileRequired"
+msgstr "Es necesario subir un archivo."
+
+msgid "form.required"
+msgstr "(* Obligatorio)"
+
+msgid "form.resubmit"
+msgstr "Reenviar"
+
+msgid "form.saveToUpload"
+msgstr "Use 'Guardar' para subir el fichero."
+
+msgid "form.send"
+msgstr "Enviar"
+
+msgid "form.submit"
+msgstr "Enviar"
+
+msgid "form.invalidImage"
+msgstr "Se subió una imagen no válida. Los formatos aceptados son .png, .gif y .jpg."
+
+msgid "help.help"
+msgstr "Ayuda"
+
+msgid "help.toc"
+msgstr "Tabla de contenidos"
+
+msgid "help.upALevel"
+msgstr "Subir un nivel"
+
+msgid "icon.checked.alt"
+msgstr "Marcado"
+
+msgid "icon.comment.alt"
+msgstr "Comentario"
+
+msgid "icon.delete.alt"
+msgstr "Eliminar"
+
+msgid "icon.edit.alt"
+msgstr "Editar"
+
+msgid "icon.folder.alt"
+msgstr "Directorio"
+
+msgid "icon.font_large.alt"
+msgstr "Grande"
+
+msgid "icon.font_medium.alt"
+msgstr "Mediana"
+
+msgid "icon.font_small.alt"
+msgstr "Pequeña"
+
+msgid "icon.info.alt"
+msgstr "Información"
+
+msgid "icon.letter.alt"
+msgstr "Letra"
+
+msgid "icon.mail.alt"
+msgstr "Correo"
+
+msgid "icon.unchecked.alt"
+msgstr "Sin marcar"
+
+msgid "icon.view.alt"
+msgstr "Ver"
+
+msgid "informationCenter.informationCenter"
+msgstr "Centro de información"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Historial de publicaciones"
+
+msgid "informationCenter.noNotes"
+msgstr "No hay ninguna nota para mostrar."
+
+msgid "informationCenter.pastNotes"
+msgstr "Notas anteriores"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "¿Está seguro de que desea eliminar la nota?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Revisión actual"
+
+msgid "informationCenter.pastHistory"
+msgstr "Revisiones anteriores"
+
+msgid "informationCenter.history.noItems"
+msgstr "No hay eventos registrados."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Se publicó una nueva nota."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Notificación enviada a los usuarios/as."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Notificación enviada a los usuarios/as."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Elija un mensaje predefinido que vaya a utilizar o rellene el formulario siguiente."
+
+msgid "stageParticipants.notify.message"
+msgstr "Mensaje"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Asegúrese de que ha rellenado el campo del mensaje y seleccione al menos un destinatario/a."
+
+msgid "locale.primary"
+msgstr "Idioma primario"
+
+msgid "locale.supported"
+msgstr "Idiomas soportados"
+
+msgid "navigation.access"
+msgstr "Usuarios/as y roles"
+
+msgid "navigation.about"
+msgstr "Acerca de"
+
+msgid "navigation.admin"
+msgstr "Administración"
+
+msgid "navigation.tools"
+msgstr "Herramientas"
+
+msgid "navigation.tools.importExport"
+msgstr "Importar/exportar"
+
+msgid "navigation.tools.statistics"
+msgstr "Estadísticas"
+
+msgid "navigation.browse"
+msgstr "Navegar"
+
+msgid "navigation.browseByAuthor"
+msgstr "Por autor/a"
+
+msgid "navigation.browseByTitle"
+msgstr "Por título"
+
+msgid "navigation.data"
+msgstr "Datos"
+
+msgid "navigation.home"
+msgstr "Inicio"
+
+msgid "navigation.infoForReaders"
+msgstr "Para lectores/as"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Información para lectores/as"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} de {$total} elementos"
+
+msgid "navigation.login"
+msgstr "Entrar"
+
+msgid "navigation.nextPage"
+msgstr ">>"
+
+msgid "navigation.nextStep"
+msgstr "Siguiente paso"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Paso anterior"
+
+msgid "navigation.publicMenu"
+msgstr "Menú público"
+
+msgid "navigation.register"
+msgstr "Registrarse"
+
+msgid "navigation.search"
+msgstr "Buscar"
+
+msgid "navigation.settings"
+msgstr "Ajustes"
+
+msgid "navigation.setup"
+msgstr "Configuración"
+
+msgid "navigation.sitemap"
+msgstr "Mapa del sitio"
+
+msgid "navigation.stepNumber"
+msgstr "Paso {$step}"
+
+msgid "navigation.submissions"
+msgstr "Envíos"
+
+msgid "navigation.system"
+msgstr "Sistema"
+
+msgid "navigation.userHome"
+msgstr "Inicio"
+
+msgid "navigation.user"
+msgstr "Usuario/a"
+
+msgid "navigation.userManagement"
+msgstr "Gestión del usuario/a"
+
+msgid "notification.addedAuditor"
+msgstr "Auditor/a añadido."
+
+msgid "notification.removedAuditor"
+msgstr "Auditor/a eliminado."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Revisar los marcados como confirmados. Correo electrónico no enviado."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Revise los archivos actualizados."
+
+msgid "notification.allow"
+msgstr "Permitir que este tipo de notificaciones aparezcan en mi área de notificaciones"
+
+msgid "notification.addedAnnouncementType"
+msgstr "Tipo de aviso añadido."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Tipo de aviso editado."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Tipo de aviso eliminado."
+
+msgid "notification.addedAnnouncement"
+msgstr "Aviso añadido."
+
+msgid "notification.editedAnnouncement"
+msgstr "Aviso editado."
+
+msgid "notification.removedAnnouncement"
+msgstr "Aviso eliminado."
+
+msgid "notification.addedAuthor"
+msgstr "Autor/a añadido."
+
+msgid "notification.editedAuthor"
+msgstr "Autor/a editado."
+
+msgid "notification.confirmError"
+msgstr "Se ha producido un error al confirmar su suscripción."
+
+msgid "notification.confirmSuccess"
+msgstr "Ha sido correctamente suscrito."
+
+msgid "notification.email"
+msgstr "No enviarme un correo electrónico para ese tipo de notificaciones."
+
+msgid "notification.noneExist"
+msgstr "No tiene notificaciones en este momento."
+
+msgid "notification.addedNote"
+msgstr "Nota publicada."
+
+msgid "notification.removedNote"
+msgstr "Nota eliminada."
+
+msgid "notification.removedFile"
+msgstr "Archivo eliminado."
+
+msgid "notification.notification"
+msgstr "Notificación"
+
+msgid "notification.notifications"
+msgstr "Notificaciones"
+
+msgid "notification.sentNotification"
+msgstr "Notificación enviada."
+
+msgid "notification.settings"
+msgstr "Configuración de notificaciones"
+
+msgid "notification.settingsDescription"
+msgstr "Seleccione los eventos del sistema para los que desea recibir notificaciones. Al desmarcar un elemento, las notificaciones del evento no aparecerán en el sistema ni se le enviarán por correo electrónico. Los eventos marcados aparecerán en el sistema y, además, puede elegir si desea recibir o no la misma notificación por correo electrónico."
+
+msgid "notification.reminderError"
+msgstr "Se ha producido un error al enviar su contraseña. Por favor, compruebe que ha introducido correctamente su dirección de correo electrónico."
+
+msgid "notification.reminderSent"
+msgstr "Tu nueva contraseña ha sido enviada a la dirección de correo electrónico proporcionada."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadatos de envíos guardados."
+
+msgid "search.abstract"
+msgstr "Resumen"
+
+msgid "search.author"
+msgstr "Autores/as"
+
+msgid "search.advancedFilters"
+msgstr "Filtros avanzados"
+
+msgid "search.advancedSearchMore"
+msgstr "Opciones de búsqueda adicionales (haga clic para mostrar)"
+
+msgid "search.advancedSearchLess"
+msgstr "Opciones de búsqueda adicionales (haga clic para esconder)"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Restablecer índice"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "hecho"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "error"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artículos indexados"
+
+msgid "search.coverage"
+msgstr "Cobertura"
+
+msgid "search.date"
+msgstr "Fecha de publicación"
+
+msgid "search.dateFrom"
+msgstr "Desde"
+
+msgid "search.dateTo"
+msgstr "Hasta"
+
+msgid "search.deleteFilter"
+msgstr "Eliminar"
+
+msgid "search.discipline"
+msgstr "Disciplina(s)"
+
+msgid "search.fullText"
+msgstr "Texto completo"
+
+msgid "search.indexTerms"
+msgstr "Términos de indexación"
+
+msgid "search.indexTermsLong"
+msgstr "Todos los campos de términos de la indexación"
+
+msgid "search.matchAll"
+msgstr "Coincidencia en todas las categorías"
+
+msgid "search.noKeywordError"
+msgstr "Debe introducir al menos un término de búsqueda."
+
+msgid "search.noResults"
+msgstr "No hay resultados"
+
+msgid "search.operator.and"
+msgstr "y"
+
+msgid "search.operator.not"
+msgstr "no"
+
+msgid "search.operator.or"
+msgstr "o"
+
+msgid "search.searchResults"
+msgstr "Buscar resultados"
+
+msgid "search.subject"
+msgstr "Palabra(s) clave(s)"
+
+msgid "search.titleIndex"
+msgstr "Consultar índice de títulos"
+
+msgid "search.title"
+msgstr "Título"
+
+msgid "search.typeMethodApproach"
+msgstr "Tipo (método/enfoque)"
+
+msgid "grid.action.downloadFile"
+msgstr "Descargar este archivo"
+
+msgid "context.path"
+msgstr "Ruta"
+
+msgid "review.ensuringBlindReview"
+msgstr "Garantizar una revisión anónima"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Leer la política de revisión actual"
+
+msgid "dashboard.tasks"
+msgstr "Tareas"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"\n"
+"\t\t<p>Para asegurar la integridad de las evaluaciones anónimas por pares de los envíos a esta editorial, se hará todo lo posible para impedir que los autores/as conozcan la identidad de los revisores/as y viceversa. Para ello, los autores/as, editores/as y revisores/as (que suban documentos como parte de la revisión) deben comprobar que se han seguido los pasos siguientes relacionados con el texto y con las propiedades del archivo:</p>\n"
+"\t\t\t<ul><li>Los autores/as del documento han borrado sus nombres del texto, y han empleado \"Autor/a\" y el año utilizado en las referencias y notas a pie de página, en lugar del nombre del autor/a, el título del artículo, etc.</li>\n"
+"\t\t\t<li>En el caso de los documentos de Microsoft Office, también se deberá quitar la identificación del autor/a de las propiedades del archivo (ver en la opción Archivo en Word), haciendo clic en las opciones que se indican a continuación. Empezar con Archivo en el menú principal de la aplicación de Microsoft: Archivo > Guardar como > Herramientas (u Opciones en Mac) > Seguridad > Eliminar información personal de las propiedades del archivo al guardar > Guardar.</li>\n"
+"\t\t\t<li>En el caso de los archivos PDF, también hay que eliminar los nombres de los autores/as desde las Propiedades del Documento, que se encuentran en la opción Archivo en el menú principal de Adobe Acrobat.</li>\n"
+"\t\t</ul>\n"
+"\t"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Planificación de revisión"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Petición del editor/a"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Fecha límite de la contestación"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Fecha límite de la revisión"
+
+msgid "submission.task.responseDueDate"
+msgstr "Fecha límite de la contestación"
+
+msgid "navigation.goBack"
+msgstr "Volver"
+
+msgid "notification.addedReviewer"
+msgstr "Se ha asignado a {$reviewerName} para revisar este envío y se le ha enviado un correo electrónico de notificación."
+
+msgid "notification.removedReviewer"
+msgstr "Revisor/a eliminado."
+
+msgid "notification.addedStageParticipant"
+msgstr "Usuario/a añadido como participante de la fase."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Tiene una revisión pendiente."
+
+msgid "notification.type.auditorRequest"
+msgstr "Le pidieron una auditoría \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Todas las revisiones están y se necesita una decisión en {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Se ha subido un archivo revisado a fin de considerarse para su publicación en {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Tiene revisiones que requieren su atención en {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revisiones enviadas a {$stage}."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Estado de ronda {$round}"
+
+msgid "notification.signedFile"
+msgstr "Archivo examinado."
+
+msgid "user.authorization.submissionFile"
+msgstr "El usuario/a actual no tiene autorización para acceder al archivo de envío especificado."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Envío no válido."
+
+msgid "navigation.archives"
+msgstr "Archivos"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "Actualmente no posee los permisos suficientes para ver el envío. Edite su perfil para asegurarse de que le han concedido el rol apropiado en la opción \"Registrarse como\"."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "El usuario/a actual no es el autor/a del envío solicitado. Compruebe que se ha identificado con la cuenta de usuario/a correcta."
+
+msgid "common.homepageNavigationLabel"
+msgstr "Inicio"
+
+msgid "common.pageNumber"
+msgstr "Página {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.queue.long.active"
+msgstr "Todo activo"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.readMore"
+msgstr "Leer más"
+
+msgid "common.readMoreWithTitle"
+msgstr "Leer más acerca de {$title}"
+
+msgid "common.searchQuery"
+msgstr "Búsqueda"
+
+msgid "common.uploadedDate"
+msgstr "Fecha de subida"
+
+msgid "common.upload.addFile"
+msgstr "Subir fichero"
+
+msgid "common.upload.changeFile"
+msgstr "Cambiar fichero"
+
+msgid "common.upload.dragFile"
+msgstr "Arrastre y suelte aquí el fichero para empezar a subirlo"
+
+msgid "common.viewProfile"
+msgstr "Ver perfil"
+
+msgid "email.senderName"
+msgstr "Nombre del remitente"
+
+msgid "email.senderEmail"
+msgstr "Correo electrónico del remitente"
+
+msgid "form.url.invalid"
+msgstr "La URL especificada no es válida. Revísela y vuelva a intentarlo."
+
+msgid "help.previous"
+msgstr "Anterior"
+
+msgid "help.next"
+msgstr "Siguiente"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Usted está aquí:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} de {$total} elementos"
+
+msgid "navigation.viewFrontend"
+msgstr "Ver el sitio"
+
+msgid "notification.addedQuery"
+msgstr "Debate añadido"
+
+msgid "search.searchAgain"
+msgstr "Buscar de nuevo"
+
+msgid "grid.action.deleteNotification"
+msgstr "Eliminar tarea"
+
+msgid "grid.action.markNew"
+msgstr "Marcar nuevo"
+
+msgid "grid.action.markRead"
+msgstr "Marcar leído"
+
+msgid "dashboard.myQueue"
+msgstr "Mi lista"
+
+msgid "notification.type.newAnnouncement"
+msgstr "Nuevo aviso."
+
+msgid "notification.type.metadataModified"
+msgstr "Los metadatos de \"{$title}\" han sido modificados."
+
+msgid "notification.type.reviewerComment"
+msgstr "Un revisor ha hecho comentarios acerca de \"{$title}\"."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Representación inválida."
+
+msgid "notification.type.queryActivity"
+msgstr "Actividad de la conversación."
+
+msgid "common.navigation.sidebar"
+msgstr "Barra lateral"
+
+msgid "common.navigation.site"
+msgstr "Navegación del sitio"
+
+msgid "common.navigation.user"
+msgstr "Navegación del usuario"
+
+msgid "common.assigned.date"
+msgstr "Asignado: {$dateAssigned}"
+
+msgid "common.closePanel"
+msgstr "Cerrar panel"
+
+msgid "common.completed.date"
+msgstr "Completado: {$dateCompleted}"
+
+msgid "common.confirmed.date"
+msgstr "Confirmado: {$dateConfirmed}"
+
+msgid "common.notified.date"
+msgstr "Notificado: {$dateNotified}"
+
+msgid "notification.type.queryAdded"
+msgstr "Conversación añadida."
+
+msgid "common.navigation.siteContext"
+msgstr "Navegación contextual del sitio"
+
+msgid "common.allDownloads"
+msgstr "Todas las descargas"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.reminded.date"
+msgstr "Recordado: {$dateReminded}"
+
+msgid "common.component"
+msgstr "Componente"
+
+msgid "navigation.dashboard"
+msgstr "Panel de control"
+
+msgid "search.SearchFor"
+msgstr "Buscar"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "La validación de captcha para este sitio web no está configurada correctamente. Falta la clave secreta."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "La validación de captcha para este sitio web no está configurada correctamente. La clave secreta no es válida."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Debe completar la comprobación de validación utilizada para evitar envíos de spam."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "No superó la comprobación de validación utilizada para evitar envíos de spam."
+
+msgid "common.downloadPdf"
+msgstr "Descargar PDF"
+
+msgid "informationCenter.addNote"
+msgstr "Añadir nota"
+
+msgid "navigation.skip.main"
+msgstr "Ir al contenido principal"
+
+msgid "navigation.skip.nav"
+msgstr "Ir al menú de navegación principal"
+
+msgid "navigation.skip.footer"
+msgstr "Ir al pie de página del sitio"
+
+msgid "notification.removedSubmission"
+msgstr "Envío eliminado."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Asigne un corrector/a mediante la opción Añadir del panel de participantes."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Esperando correcciones."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "Se ha asignado a {$reviewerName} para revisar este envío y no se le ha enviado un correo electrónico de notificación."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "common.deleting"
+msgstr "Eliminando"
+
+msgid "common.filterAdd"
+msgstr "Añadir filtro: {$filterTitle}"
+
+msgid "common.from"
+msgstr "Desde"
+
+msgid "common.until"
+msgstr "Hasta"
+
+msgid "common.lessThan"
+msgstr "{$value} o menos"
+
+msgid "common.moreThan"
+msgstr "{$value} o más"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} de {$total}"
+
+msgid "common.listSeparator"
+msgstr ","
+
+msgid "common.saving"
+msgstr "Guardando"
+
+msgid "common.publicAccess"
+msgstr "Acceso público"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Empezar una discusión"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Empezar una discusión con {$userFullName}."
+
+msgid "stageParticipants.options"
+msgstr "Asignación de privilegios"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Este participante solo puede recomendar una decisión editorial, necesita que un editor/a autorizado le permita registrar decisiones editoriales."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "El correo electrónico de agradecimiento se ha enviado al revisor/a."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Enviar correo electrónico de notificación a todos los usuarios/as registrados"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Asignación de revisión actualizada."
+
+msgid ""
+msgstr ""
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "El elemento del menú de navegación ha sido actualizado con éxito"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "El elemento del menú de navegación ha sido eliminado con éxito"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "El elemento del menú de navegación ha sido añadido con éxito"
+
+msgid "notification.addedNavigationMenu"
+msgstr "El menú de navegación ha sido añadido con éxito"
+
+msgid "notification.editedNavigationMenu"
+msgstr "El menú de navegación ha sido actualizado con éxito"
+
+msgid "notification.removedNavigationMenu"
+msgstr "El menú de navegación ha sido eliminado con éxito"
+
+msgid "list.viewMore"
+msgstr "Mostrar más detalles sobre {$name}"
+
+msgid "list.viewLess"
+msgstr "Ocultar los detalles sobre {$name}"
+
+msgid "common.pagination.label"
+msgstr "Examinar las páginas adicionales"

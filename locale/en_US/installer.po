@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Additional locales"
+
+msgid "installer.administratorAccount"
+msgstr "Administrator Account"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "This user account will become the site administrator and have complete access to the system. Additional user accounts can be created after installation."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NO</span>"
+
+msgid "installer.checkYes"
+msgstr "Yes"
+
+msgid "installer.clientCharset"
+msgstr "Client character set"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "The encoding to use for data sent to and received from browsers."
+
+msgid "installer.configFileError"
+msgstr "The configuration file <tt>config.inc.php</tt> does not exist or is not readable."
+
+msgid "installer.connectionCharset"
+msgstr "Connection character set"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Contents of configuration file"
+
+msgid "installer.createDatabase"
+msgstr "Create new database"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled."
+
+msgid "installer.databaseDriver"
+msgstr "Database driver"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work."
+
+msgid "installer.databaseHost"
+msgstr "Host"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if \"localhost\" is entered, but is required with some other database servers such as PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Database name"
+
+msgid "installer.databasePassword"
+msgstr "Password"
+
+msgid "installer.databaseSettings"
+msgstr "Database Settings"
+
+msgid "installer.databaseUsername"
+msgstr "Username"
+
+msgid "installer.filesDir"
+msgstr "Directory for uploads"
+
+msgid "installer.fileSettings"
+msgstr "File Settings"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "A client character set must be selected."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "A database driver must be selected."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "The database name is required."
+
+msgid "installer.form.emailRequired"
+msgstr "A valid email address for the administrator account is required."
+
+msgid "installer.form.filesDirRequired"
+msgstr "The directory to be used for storing uploaded files is required."
+
+msgid "installer.form.localeRequired"
+msgstr "A locale must be selected."
+
+msgid "installer.form.passwordRequired"
+msgstr "A password for the administrator account is required."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "The administrator passwords do not match."
+
+msgid "installer.form.separateMultiple"
+msgstr "Separate multiple values with commas"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "The administrator username can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character."
+
+msgid "installer.form.usernameRequired"
+msgstr "A username for the administrator account is required."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Errors occurred during installation"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL statements for installation"
+
+msgid "installer.installFileError"
+msgstr "The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable."
+
+msgid "installer.installFilesDirError"
+msgstr "The directory specified for uploaded files does not exist or is not writable."
+
+msgid "installer.installParseDBFileError"
+msgstr "Error parsing the database installation file <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Error parsing the email template file <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Error parsing the filter configuration file <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details."
+
+msgid "installer.locale"
+msgstr "Locale"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Marked locales may be incomplete."
+
+msgid "installer.localeSettings"
+msgstr "Locale Settings"
+
+msgid "installer.oaiSettings"
+msgstr "OAI Settings"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "A unique identifier used to identify metadata records indexed from this site using the <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Repository Identifier"
+
+msgid "installer.publicFilesDirError"
+msgstr "The public files directory does not exist or is not writable."
+
+msgid "installer.releaseNotes"
+msgstr "Release Notes"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Pre-Installation Steps"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. The following files and directories (and their contents) must be made writable:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> is writable: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> is writable: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> is writable: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. A directory to store uploaded files must be created and made writable (see \"File Settings\" below).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Provide a unique site ID and OAI base URL to PKP for statistics and security alert purposes only."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Your server's PHP version is not supported by this software. Double-check the installation requirements in docs/README."

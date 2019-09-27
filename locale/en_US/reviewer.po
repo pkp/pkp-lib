@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:21-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:21-07:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Request"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Guidelines"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Download & Review"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Completion"
+
+msgid "reviewer.step1.request"
+msgstr "Request for Review"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "You have been selected as a potential reviewer of the following submission.  Below is an overview of the submission, as well as the timeline for this review.  We hope that you are able to participate."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "View All Submission Details"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Reviewer Files"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Decline Review Request"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "You may provide the editor with any reasons why you are declining this review in the field below."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Accept Review, Continue to Step #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continue to Step #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Submit Review"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Reviewer Guidelines"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "This publisher has a policy for disclosure of potential competing interests from its reviewers.  Please take a moment to review this policy."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "I do not have any competing interests"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "I may have competing interests (Specify below)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Competing Interests"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Review Guidelines"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "This publisher has not set any reviewer guidelines."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Click on the file names below to download the files associated with this submission."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Enter (or paste) your review of this submission into the form below."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Upload files you would like the editor and/or author to consult, including revised versions of the original review file(s)."
+
+msgid "reviewer.complete"
+msgstr "Review Submitted"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Are you sure you want to submit this review?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Thank you for completing the review of this submission. Your review has been submitted successfully. We appreciate your contribution to the quality of the work that we publish; the editor may contact you again for more information if needed."
+
+msgid "reviewer.aboutDueDates"
+msgstr "About Due Dates"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "The editor asks that you either accept or decline the review before the Response Due Date and complete the review by the Review Due Date."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "For author and editor"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "For editor only"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "The current user is not assigned as a reviewer for the requested document."

@@ -1,0 +1,408 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:22-07:00\n"
+"Language: \n"
+
+msgid "editor.review.notInitiated"
+msgstr "El proceso de revisión todavía no se ha iniciado."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Mensaje al usuario/a"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Está a punto de iniciar una revisión externa para este envío. Los archivos que formen parte de este envío están listados abajo y pueden ser seleccionados para su revisión."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Debe seleccionar al menos un archivo para asignarlo al usuario/a."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Debe incluir un mensaje privado."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "No enviar correo electrónico al auditor/a"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Debe seleccionar un usuario/a al que asignar."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Subir/Seleccionar archivos"
+
+msgid "editor.submission.revisions"
+msgstr "Revisiones"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Usa <em>+Añadir revisor</em> para invitar lectores a que revisen los archivos del envío. El icono del cuaderno indica que se ha enviado una revisión, que se comprueba <em>Aceptado</em> tras su consulta. Cuando hay revisiones atrasadas aparece en un iono de un sobre rojo."
+
+msgid "editor.submission.addReviewer"
+msgstr "Añadir revisor/a"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Incluir todos los archivos de todas las etapas de flujo de trabajo con acceso."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Archivos de revisión en ronda actuales {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Volver a la búsqueda simple"
+
+msgid "editor.review.createReviewer"
+msgstr "Crear nuevo revisor/a"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Dar de alta un usuario/a existente"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Desasignar revisor/a"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Tipo de revisión"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "No enviar correo electrónico de notificación"
+
+msgid "editor.submissionReview.open"
+msgstr "Abrir"
+
+msgid "editor.submissionReview.blind"
+msgstr "Ciego"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Doble ciego"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Restringir archivos disponibles"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Correo electrónico para enviar al revisor/a"
+
+msgid "editor.review.importantDates"
+msgstr "Fechas importantes"
+
+msgid "editor.review.uploadRevision"
+msgstr "Subir revisión"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Notificar al autor/a de la necesidad de revisiones."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Notificar al autor/a de la necesidad de revisiones que se someterán a otra ronda de revisión por pares."
+
+msgid "editor.review.dateAccepted"
+msgstr "Fecha de aprobación de la revisión"
+
+msgid "editor.review.noReviews"
+msgstr "No hay revisiones por pares para importar"
+
+msgid "editor.review.reminder"
+msgstr "Recordatorio de revisión"
+
+msgid "editor.review.thankReviewer"
+msgstr "Dar las gracias al revisor/a"
+
+msgid "editor.review.reminderError"
+msgstr "Error al enviar recordatorio de revisión"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Error al enviar los agradecimientos al revisor/a"
+
+msgid "editor.review.skipEmail"
+msgstr "No enviar correo electrónico al revisor/a."
+
+msgid "editor.review.sendReminder"
+msgstr "Enviar recordatorio"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Fecha límite de la revisión"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Revisión completa"
+
+msgid "editor.review.reviewerComments"
+msgstr "Comentarios del revisor/a"
+
+msgid "editor.review.rateReviewer"
+msgstr "Puntuación del revisor/a"
+
+msgid "editor.review.mustSelect"
+msgstr "Debe seleccionar un revisor/a"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Ha ocurrido un error al añadir el revisor/a. Por favor, inténtelo de nuevo."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Ha ocurrido un error al eliminar el revisor/a. Por favor, inténtelo de nuevo."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Dar de alta el usuario/a con este grupo de usuarios/as revisores"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "¿Deseas marcar esta revisión como descartada? Se conservará el historial de revisión."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Descartar esta revisión"
+
+msgid "editor.review.readConfirmation"
+msgstr "Una vez que esta revisión haya sido leída, pulsa \"Confirmar\" para indicar que el proceso de revisión puede ser continuado."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Archivos de corrección de estilo"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Seleccionar revisor/a"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Fecha de vencimiento de la tarea"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Planificación de tareas"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Dar de alta usuario/a existente como revisor/a"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "No se requiere auditoría para este archivo"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Envío del correo electrónico al usuario/a"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Recordatorio de corrección"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "El archivo corregido tiene que ser aprobado antes de poder ser enviado a la etapa de producción. ¿Quiere aprobar este archivo?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Al desaprobar este archivo corregido, ya no estará disponible para enviarlo a la etapa de producción. ¿Quiere desaprobar este archivo?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Asignar un auditor"
+
+msgid "editor.review"
+msgstr "Revisión"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Archivos listos para la producción"
+
+msgid "editor.submission.newRound"
+msgstr "Nueva ronda de revisión"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Registrar decisión editorial"
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Está a punto de crear una nueva ronda de revisión para este envío. Los archivos que no se hayan utilizado en otras rondas de revisión se listan a continuación. Por defecto, se han seleccionado los revisores/as de la ronda de revisión anterior para participar en esta nueva ronda."
+
+msgid "editor.submission.createNewRound"
+msgstr "Crear nueva ronda de revisión"
+
+msgid "editor.article.reviewForms"
+msgstr "Formularios de revisión"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Escoger formulario de revisión"
+
+msgid "editor.submissionLibrary"
+msgstr "Biblioteca de envío"
+
+msgid "editor.submission.selectFiles"
+msgstr "Selecciona archivos"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Encontrar un revisor/a"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Cierre la selección de archivos"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Edita la revisión"
+
+msgid "editor.review.readReview"
+msgstr "Leer la revisión"
+
+msgid "editor.review.readNewReview"
+msgstr "Leer la nueva revisión"
+
+msgid "editor.review.responseDue"
+msgstr "Respuesta prevista: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Solicitud enviada"
+
+msgid "editor.review.requestAccepted"
+msgstr "Solicitud aceptada"
+
+msgid "editor.review.revertDecision"
+msgstr "Revertir la decisión"
+
+msgid "editor.review.reviewDue"
+msgstr "Revisión prevista: {$date}"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Revisión confirmada"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Revisión enviada"
+
+msgid "editor.review.reviewDetails"
+msgstr "Revisar detalles"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "No hay ningún archivo subido"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "No ha subido ningún archivo de revisión."
+
+msgid "editor.review.emailReviewer"
+msgstr "Enviar correo al revisor/a"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Atención: cambiar el formulario de revisión afectará a cualquier comentario hecho por los revisores/as que hayan utilizado este formulario. ¿Está seguro de que desea continuar?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "No hay ningún archivo seleccionado"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "No ha seleccionado ningún archivo para enviar al revisor/a."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Es necesario especificar un tema de discusión."
+
+msgid "submission.queries.messageRequired"
+msgstr "Es necesario especificar un mensaje de discusión."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Archivo adjuntos"
+
+msgid "grid.action.editQuery"
+msgstr "Editar discusión"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Puede adjuntar archivos para incluirlos en esta discusión desde la siguiente lista."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Revisor/a seleccionado"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Aceptar la prueba"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Anular la aceptación de la prueba"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Aceptar esta prueba para indicar que la revisión se ha completado y que el archivo está listo para ser publicado."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Anular la aceptación de esta prueba para indicar que la revisión ya no está completa y que el archivo no está listo para ser publicado."
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Cualquier archivo que ya haya sido subido en cualquier fase del envío puede añadirse a la lista de archivos de corrección marcando la siguiente casilla \"Añadir\" y pulsando \"Buscar\": todos los archivos disponibles serán listados y podrán incluirse. Los archivos adicionales que todavía no se hayan subido a esta fase se pueden añadir al listado pulsando el enlace \"Cargar archivo\"."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "El identificador público '{$publicIdentifier}' no puede ser un número."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Encontrar un usuario/a"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "El patrón {$pattern} no está permitido para el identificador público."
+
+msgid "editor.review.reviewsAdded"
+msgstr "Revisiones añadidas al cuerpo del mensaje."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Enviar un correo electrónico de notificación al autor/a {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Enviar un correo electrónico de notificación al editor/a {$editorNames}"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Revisor/a anónimo"
+
+msgid "editor.review.newReviewRound"
+msgstr "Necesita una nueva ronda de revisión"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Evalúe la calidad de la revisión proporcionada. Esta evaluación no se compartirá con el revisor/a."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Sin evaluar"
+
+msgid ""
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Registrar recomendación editorial"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notificar a los editores/as"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "No enviar correo electrónico a los editores/as"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Crear una discusión de revisión acerca de esta recomendación."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "No crear una discusión de revisión."
+
+msgid "reviewer.list.count"
+msgstr "{$count} revisores/as"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} de {$total} revisores/as"
+
+msgid "reviewer.list.filterRating"
+msgstr "Evaluado como mínimo"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} activos"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Revisiones activas actualmente asignadas"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Revisiones completadas"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Peticiones de revisión rechazadas"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Evaluación del revisor/a: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Hace {$days} días"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Ayer"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Días desde la última revisión asignada"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Promedio de días para completar la revisión"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Nunca asignado"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Este revisor/a ya ha sido asignado para revisar este envío."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Este revisor/a está bloqueado porque tiene un rol que le permite ver la identidad del autor/a. Por lo tanto, la revisión ciega por pares no está garantizada. ¿Desea desbloquearlo igualmente?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Desbloquear"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Intereses de revisión"
+
+msgid "reviewer.list.biography"
+msgstr "Biografía"

@@ -1,0 +1,317 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:22-07:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nombre de configuración"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Valor de configuración"
+
+msgid "admin.adminFunctions"
+msgstr "Funciones administrativas"
+
+msgid "admin.auth.confirmDelete"
+msgstr "¿Seguro que quieres borrar esta fuente de autenticación definitivamente?"
+
+msgid "admin.auth.create"
+msgstr "Crear fuente de autenticación"
+
+msgid "admin.auth.noneCreated"
+msgstr "No se ha definido ninguna fuente de autenticación."
+
+msgid "admin.authSources"
+msgstr "Fuentes de autenticación"
+
+msgid "admin.clearDataCache"
+msgstr "Borrar caché de datos"
+
+msgid "admin.clearTemplateCache"
+msgstr "Borrar caché de la plantilla"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "El archivo de configuración se ha actualizado con éxito. Es posible que, si su sitio ya no funciona correctamente, tenga que arreglar la configuración de forma manual mediante la edición de <tt>config.inc.php</tt> directamente."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "¿Seguro que quieres borrar la caché de las plantillas confeccionadas?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "¿Está seguro de que desea que todas las sesiones de los usuarios/as caduquen? Todos los usuarios/as que actualmente estén registrados en el sistema estarán obligados a volver a iniciar sesión (usted incluido)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Contenidos del fichero de configuración"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copie el archivo o los archivos de acceso de registro apache y filtre las entradas relacionadas con esta instalación en el directorio de archivo actual, dentro del directorio de fase UsageStatsPlugin. Debe ejecutarlo un usuario/a que tenga los permisos necesarios para la lectura de archivos de acceso de registro apache.\n"
+"\n"
+"La herramienta solo copiará archivos que aún no estén en los directorios de carga de archivo usageStats (fase, procesamiento, archivo, rechazar).\n"
+"\n"
+"Uso: {$scriptName} ruta/a/apache/log/file.log\n"
+"Uso (procesamiento de todos los archivos dentro de un directorio): {$scriptName} ruta/a/apache/directorio\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Error: no se puede crear la carpeta temporal {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Error: el archivo {$filePath} no existe o no se puede acceder a él."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Error: no se puede copiar el archivo de {$filePath} a {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Error: no se puede eliminar el archivo {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Advertencia: el archivo {$filePath} ya existe en el directorio de estadísticas de uso."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Operación realizada con éxito: {$filePath} a {$destinationPath}"
+
+msgid "admin.currentVersion"
+msgstr "Versión actual"
+
+msgid "admin.dateInstalled"
+msgstr "Fecha de instalación"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Los contenidos de su configuración actualizada se muestran a continuación. Para aplicar los cambios de configuración debe abrir <tt>config.inc.php</tt> en un editor de texto adecuado y reemplazar el contenido por los contenidos del campo de texto que aparecen a continuación."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Mostrar nueva configuración"
+
+msgid "admin.expireSessions"
+msgstr "Caducidad de las sesiones"
+
+msgid "admin.languages.download"
+msgstr "Descargar configuración regional"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Descargar configuraciones regionales"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "No se puede abrir el descriptor de idiomas del sitio web PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "No se puede añadir la nueva configuración regional al archivo de registro de configuraciones locales, normalmente \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "La configuración regional es el idioma principal del sitio. No se puede deshabilitar hasta que elija otra configuración regional principal."
+
+msgid "admin.languages.confirmReload"
+msgstr "¿Está seguro de que quiere volver a cargar esta configuración regional? Esta opción borrará los datos de configuración específica existentes, como las plantillas de correo electrónico personalizadas."
+
+msgid "admin.languages.installedLocales"
+msgstr "Ficheros de idioma instalados"
+
+msgid "admin.languages.installLanguages"
+msgstr "Gestionar ficheros de idioma"
+
+msgid "admin.languages.availableLocales"
+msgstr "Idiomas disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalar configuración regional"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalar"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalar nuevos ficheros de idioma"
+
+msgid "admin.languages.languageSettings"
+msgstr "Configuración de idioma"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "No existen archivos locales adicionales disponibles para la instalación."
+
+msgid "admin.languages.reload"
+msgstr "Volver a cargar ficheros de idiomas"
+
+msgid "admin.languages.uninstall"
+msgstr "Desinstalar fichero de idiomas"
+
+msgid "admin.phpInfo"
+msgstr "Información PHP ampliada"
+
+msgid "admin.scheduledTask"
+msgstr "Tarea programada"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Se ha iniciado la tarea."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Se ha detenido la tarea."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "La tarea no ha generado ningún registro."
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Recordatorio de revisión"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Recordatorio de caducidad de subscripción"
+
+msgid "admin.server.apacheVersion"
+msgstr "Versión Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Driver de la base de datos"
+
+msgid "admin.server.dbVersion"
+msgstr "Versión del servidor de bases de datos"
+
+msgid "admin.serverInformation"
+msgstr "Información del servidor"
+
+msgid "admin.server.phpVersion"
+msgstr "Versión PHP"
+
+msgid "admin.server.platform"
+msgstr "Plataforma SO"
+
+msgid "admin.settings"
+msgstr "Ajustes"
+
+msgid "admin.settings.about"
+msgstr "Descripción del sitio"
+
+msgid "admin.settings.contactEmail"
+msgstr "Correo electrónico del contacto principal"
+
+msgid "admin.settings.contactName"
+msgstr "Nombre del contacto principal"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tSe ha configurado su instalación para registrar más de una métrica de uso. Se mostrarán las estadísticas de uso en varios contextos.\n"
+"\t\tEn algunos casos deberá utilizarse una sola estadística de uso, p. ej., para mostrar una lista ordenada de los envíos más utilizados o para clasificar resultados de búsqueda. Seleccione una de las medidas configuradas como predeterminadas.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Introducción"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Longitud mínima de la contraseña"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Idioma"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Formato inválido de hoja de estilo del sitio. El formato aceptado es .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Hoja de estilo del sitio"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema del sitio"
+
+msgid "admin.settings.siteTitle"
+msgstr "Título"
+
+msgid "admin.siteAdmin"
+msgstr "Administración del sitio"
+
+msgid "admin.siteManagement"
+msgstr "Gestión del sitio"
+
+msgid "admin.siteSettings"
+msgstr "Configuración del sitio"
+
+msgid "admin.siteSetup"
+msgstr "Configuración del sitio"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "El archivo de configuración <tt>config.inc.php</tt> no existe, no se puede leer o no es válido."
+
+msgid "admin.systemInformation"
+msgstr "Información del sistema"
+
+msgid "admin.versionBuild"
+msgstr "Crear"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Buscar actualizaciones"
+
+msgid "admin.version.downloadPackage"
+msgstr "Descargar"
+
+msgid "admin.version.downloadPatch"
+msgstr "Descargar parche"
+
+msgid "admin.versionHistory"
+msgstr "Historial de versiones"
+
+msgid "admin.version.latest"
+msgstr "Última versión"
+
+msgid "admin.versionMajor"
+msgstr "Principal"
+
+msgid "admin.versionMinor"
+msgstr "Secudario"
+
+msgid "admin.version.moreInfo"
+msgstr "Más información"
+
+msgid "admin.versionRevision"
+msgstr "Revisión"
+
+msgid "admin.version.updateAvailable"
+msgstr "Hay una nueva versión disponible"
+
+msgid "admin.version.upToDate"
+msgstr "Su sistema está actualizado"
+
+msgid "admin.version"
+msgstr "Versión"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "La ruta base {$path} debe estar dentro del directorio de archivos públicos."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "La carpeta {$path} no es un directorio o no se puede leer."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "El archivo {$filename} no se pudo mover de {$currentFilePath} a {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "El archivo {$filename} se ha procesado y archivado."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Cargador de archivos"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Limpiar el registro de ejecución de tareas programadas"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "La ejecución del programa \"{$utilPath}\" produjo el siguiente error: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Error: no se puede ejecutar \"{$utilPath}\". Compruebe su configuración {$utilVar} en config.inc.php."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Su instalación de {$softwareName} ejecutó y finalizó automáticamente esta tarea y  puede descargarse el fichero de registro aquí: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Está seguro de que quiere eliminar todos los registros de ejecución de tareas programados?"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo del sitio"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "No hay traducciones disponibles para descargar."
+
+msgid "admin.contexts.confirmDelete"
+msgstr "¿Seguro que quiere eliminar permanentemente {$contextName} y todo su contenido?"

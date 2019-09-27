@@ -120,8 +120,8 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder {
 	public function getDateBoundaries() {
 		$q = $this->get();
 		$q->select([
-			'MIN(p.date_published)',
-			'MAX(p.date_published)'
+			Capsule::raw('MIN(p.date_published)',
+			'MAX(p.date_published)')
 		]);
 
 		return $q;

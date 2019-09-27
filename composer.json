@@ -18,7 +18,7 @@
 		"firebase/php-jwt": "5.*",
 		"danielstjules/stringy": "3.*",
 		"adodb/adodb-php": "dev-v5.20.14-mods",
-		"gettext/gettext": "^4.6.2"
+		"gettext/gettext": "^4.6"
 	},
 	"require-dev": {
 		"facebook/webdriver": "~1.6",

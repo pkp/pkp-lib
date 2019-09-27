@@ -109,12 +109,6 @@
 				}
 			}
 		},
-		"coverImageUrl": {
-			"type": "string",
-			"multilingual": true,
-			"apiSummary": true,
-			"readOnly": true
-		},
 		"datePublished": {
 			"type": "string",
 			"apiSummary": true,

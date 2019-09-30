@@ -37,8 +37,6 @@ class PKPPublicationDAO extends SchemaDAO {
 		'lastModified' => 'last_modified',
 		'locale' => 'locale',
 		'primaryContactId' => 'primary_contact_id',
-		'publicationDateType' => 'publication_date_type',
-		'publicationType' => 'publication_type',
 		'sectionId' => 'section_id',
 		'submissionId' => 'submission_id',
 		'status' => 'status',

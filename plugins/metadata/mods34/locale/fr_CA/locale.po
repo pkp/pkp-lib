@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T07:05:59-07:00\n"
+"PO-Revision-Date: 2019-09-30T07:05:59-07:00\n"
+"Language: \n"
+
+msgid "plugins.metadata.mods34.displayName"
+msgstr "Schéma de métadonnées MODS 3.4"
+
+msgid "plugins.metadata.mods34.description"
+msgstr "Pour utiliser le schéma et les adaptateurs de MODS 3.4"
+
+msgid "plugins.metadata.mods34.mods34XmlOutput.displayName"
+msgstr "Export MODS 3.4"
+
+msgid "plugins.metadata.mods34.mods34XmlOutput.description"
+msgstr "Convertis les métadonnées sous le schéma MODS 3.4 en son équivalent XML."

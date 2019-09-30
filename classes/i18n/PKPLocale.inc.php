@@ -136,7 +136,7 @@ class PKPLocale {
 			}
 		}
 
-		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
+		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.po");
 
 		// Set site time zone
 		// Starting from PHP 5.3.0 PHP will throw an E_WARNING if the default
@@ -185,18 +185,18 @@ class PKPLocale {
 		$baseDir = "lib/pkp/locale/$locale/";
 
 		return array(
-			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.xml',
-			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.xml',
-			LOCALE_COMPONENT_PKP_INSTALLER => $baseDir . 'installer.xml',
-			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.xml',
-			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.xml',
-			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.xml',
-			LOCALE_COMPONENT_PKP_EDITOR => $baseDir . 'editor.xml',
-			LOCALE_COMPONENT_PKP_REVIEWER => $baseDir . 'reviewer.xml',
-			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xml',
-			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.xml',
-			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.xml',
-			LOCALE_COMPONENT_PKP_API => $baseDir . 'api.xml',
+			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.po',
+			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.po',
+			LOCALE_COMPONENT_PKP_INSTALLER => $baseDir . 'installer.po',
+			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.po',
+			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.po',
+			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.po',
+			LOCALE_COMPONENT_PKP_EDITOR => $baseDir . 'editor.po',
+			LOCALE_COMPONENT_PKP_REVIEWER => $baseDir . 'reviewer.po',
+			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.po',
+			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.po',
+			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.po',
+			LOCALE_COMPONENT_PKP_API => $baseDir . 'api.po',
 		);
 	}
 

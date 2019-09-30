@@ -1,0 +1,324 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:21-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:21-07:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Fixation du nom"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Fixation de la valeur"
+
+msgid "admin.adminFunctions"
+msgstr "Fonctions administratives"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Êtes-vous certain de vouloir supprimer définitivement cette source d'authentification?"
+
+msgid "admin.auth.create"
+msgstr "Créer une source d'authentification"
+
+msgid "admin.auth.noneCreated"
+msgstr "Aucune source d'authentification définie."
+
+msgid "admin.authSources"
+msgstr "Sources d'authentification"
+
+msgid "admin.clearDataCache"
+msgstr "Vider les caches de données"
+
+msgid "admin.clearTemplateCache"
+msgstr "Vider le cache de modèles"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Votre fichier de configuration a été mis à jour avec succès. Noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en modifiant directement le <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Êtes-vous sûr de vouloir effacer le cache des modèles compilés?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Êtes-vous sûr de vouloir fermer toutes les sessions utilisateurs? Tous les utilisateurs actuellement connectés devront se reconnecter (vous y compris)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Contenu du fichier de configuration"
+
+msgid "admin.currentVersion"
+msgstr "Version actuelle"
+
+msgid "admin.dateInstalled"
+msgstr "Date d'installation"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Le contenu de votre configuration mise à jour est affiché ci-dessous. Pour appliquer les modifications affectées à cette configuration, vous devez ouvrir le <tt>config.inc.php</tt> dans un éditeur de texte adéquat et remplacer son contenu par le contenu de la zone de texte ci-dessous."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Afficher la nouvelle configuration"
+
+msgid "admin.expireSessions"
+msgstr "Fermer les sessions utilisateurs"
+
+msgid "admin.languages.confirmReload"
+msgstr "Êtes-vous sûr de vouloir réinitialiser cette langue? Ceci effacera toute donnée spécifique à cette langue tels que les modèles de courriel personnalisés."
+
+msgid "admin.languages.installedLocales"
+msgstr "Langues installées"
+
+msgid "admin.languages.installLanguages"
+msgstr "Gérer les langues"
+
+msgid "admin.languages.installLocales"
+msgstr "Installer"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installer de nouvelles langues"
+
+msgid "admin.languages.languageSettings"
+msgstr "Paramètres de langue"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Aucune langue supplémentaire disponible."
+
+msgid "admin.languages.reload"
+msgstr "Recharger la langue"
+
+msgid "admin.languages.uninstall"
+msgstr "Désinstaller la langue"
+
+msgid "admin.phpInfo"
+msgstr "Information détaillée concernant PHP"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Début du processus."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Arrêt du processus."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "La tâche n'a produit aucun journal d'événement."
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Rappel d'évaluation"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Rappel d'expiration d'abonnement"
+
+msgid "admin.server.apacheVersion"
+msgstr "Version Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Pilote de base de données"
+
+msgid "admin.server.dbVersion"
+msgstr "Version du serveur de bases de données"
+
+msgid "admin.serverInformationDescription"
+msgstr "Versions du système d'exploitation de base et du logiciel serveur. Cliquer sur <span class=\"highlight\">Information détaillée concernant PHP</span> pour avoir plus de détails sur la configuration PHP de ce serveur."
+
+msgid "admin.serverInformation"
+msgstr "Information sur le serveur"
+
+msgid "admin.server.phpVersion"
+msgstr "Version PHP"
+
+msgid "admin.server.platform"
+msgstr "Système d'exploitation"
+
+msgid "admin.settings.about"
+msgstr "Description \"À propos du site\""
+
+msgid "admin.settings.contactEmail"
+msgstr "Courriel du contact principal"
+
+msgid "admin.settings.contactName"
+msgstr "Nom du contact principal"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"Votre installation a été configurée pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.\n"
+"\n"
+"Vous devez parfois utiliser une seule statistique d'utilisation pour, par exemple, afficher une liste ordonnée des soumissions les plus utilisées ou classer les résultats des recherches. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut."
+
+msgid "admin.settings.introduction"
+msgstr "Introduction"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Longueur minimum du mot de passe"
+
+msgid "admin.settings.oaiRegistration"
+msgstr "Enregistrer le site pour l'indexation (collecte de métadonnées)"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "caractères"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Langue du site"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Format de la feuille de style du site invalide. Le format accepté est .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Feuille de style du site"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo du site"
+
+msgid "admin.settings.siteTitle"
+msgstr "Titre du site"
+
+msgid "admin.siteAdmin"
+msgstr "Administration du site"
+
+msgid "admin.siteManagement"
+msgstr "Gestion du site"
+
+msgid "admin.siteSettings"
+msgstr "Paramètres du site"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Le fichier de configuration <tt>config.inc.php</tt> n'existe pas, n'est pas lisible, ou n'est pas valide."
+
+msgid "admin.systemInformation"
+msgstr "Information sur le système"
+
+msgid "admin.versionBuild"
+msgstr "Assemblage"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Rechercher les mises à jour"
+
+msgid "admin.version.downloadPackage"
+msgstr "Télécharger"
+
+msgid "admin.version.downloadPatch"
+msgstr "Télécharger un correctif"
+
+msgid "admin.versionHistory"
+msgstr "Historique de version"
+
+msgid "admin.version.latest"
+msgstr "Dernière version"
+
+msgid "admin.versionMajor"
+msgstr "Majeure"
+
+msgid "admin.versionMinor"
+msgstr "Mineure"
+
+msgid "admin.version.moreInfo"
+msgstr "Pour en savoir plus"
+
+msgid "admin.versionRevision"
+msgstr "Révision"
+
+msgid "admin.version.updateAvailable"
+msgstr "Une mise à jour est disponible"
+
+msgid "admin.version.upToDate"
+msgstr "Votre système est à jour"
+
+msgid "admin.version"
+msgstr "Version"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copier le(s) fichier(s) journal(aux) d'accès Apache, en filtrant les entrées liées à cette installation, vers le répertoire de fichiers actuel, à l'intérieur du répertoire UsageStatsPlugin stage. Doit être exécuté par un utilisateur ayant suffisamment de privilèges pour lire les fichiers journaux d'accès Apache.\n"
+"\n"
+"Cet outil ne copiera que les fichiers qui ne sont pas déjà dans les répertoires chargeurs usageStats file/n (étape, traitement, archive, rejet).\n"
+"\n"
+"Usage: {$scriptName} path/to/apache/log/file.log\n"
+"Usage (traitement de tous les fichiers dans le répertoire): {$scriptName} path/to/apache/directory"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Erreur: le dossier temporaire {$tmpDir} ne peut être créé."
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Erreur: Le fichier {$filePath} n'existe pas ou n'est pas accessible."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Erreur: vous ne pouvez pas copier {$filePath} dans {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Erreur: vous ne pouvez pas effacer le fichier {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Attention: le fichier {$filePath} existe déjà dans le répertoire des statistiques d'utilisation."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Succès: {$filePath} dans {$destinationPath}"
+
+msgid "admin.languages.download"
+msgstr "Télécharger le paramètre régional"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Télécharger les paramètres régionaux"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Ne peut pas ouvrir le descripteur de langue du site Web PKP"
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Ne peut pas ajouter le nouveau paramètre régional au fichier de registre du paramètre régional, normalement \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "Ce paramètre régional est la langue principale du site. Vous ne pouvez pas le désactiver avant d'avoir choisi un autre paramètre régional principal."
+
+msgid "admin.languages.availableLocales"
+msgstr "Paramètres régionaux disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Installer le paramètre régional"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
+
+msgid "admin.scheduledTask"
+msgstr "Tâche programmée"
+
+msgid "admin.settings"
+msgstr "Paramètres"
+
+msgid "admin.settings.siteTheme"
+msgstr "Thème du site"
+
+msgid "admin.siteSetup"
+msgstr "Réglage du site"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Le chemin d'accès de base {$path} doit se trouver à l'intérieur du répertoire des fichiers publics."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Le dossier {$path} n'est pas un répertoire ou ne peut être lu."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Le fichier {$filename} ne peut être déplacé de {$currentFilePath} à {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Le fichier {$filename} a été traité et archivé."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Chargeur de fichier"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Votre installation de {$softwareName} a complété l'exécution de cette tâche. Vous pouvez télécharger le journal d'exécution ici: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Êtes-vous certain de vouloir supprimer le journal d'exécution des tâches planifiées ?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Supprimer le journal d'exécution des tâches planifiées"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "L'exécution de \"{$utilPath}\" s'est terminée avec l'erreur suivante: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Erreur: impossible de lancer \"{$utilPath}\". Veuillez vérifier la configuration de {$utilVar} dans le fichier config.inc.php"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Êtes-vous certain de vouloir supprimer définitivement {$contextName}, ainsi que tous ses contenus?"

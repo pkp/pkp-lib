@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:24-07:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Anfrage"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Richtlinien"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Download & Begutachtung"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Abschluss"
+
+msgid "reviewer.step1.request"
+msgstr "Begutachtungsanfrage"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Sie sind als mögliche/r Gutachter/in für die folgende Einreichung eingeschätzt worden. Unten finden Sie einen Überblick über die Einreichung und einen Zeitplan für dieses Gutachten. Wir hoffen, dass Sie in der Lage sind, daran mitzuwirken."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Alle Details der Einreichung anzeigen"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Dateien des/der Gutachter/in"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Begutachtungsanfrage ablehnen"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Sie können der/dem Redakteur/in Gründe für Ihre Absage dieses Gutachtens nennen."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Gutachten annehmen, weiter mit Schritt #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Weiter zu Schritt #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Gutachten einreichen"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Gutachter/innen-Richtlinien"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Dieser Verlag hat eine Richtlinie für die Offenlegung potentieller Interessenkonflikte durch die Gutachter/innen. Bitte nehmen Sie sich einen Moment Zeit, um die Richtlinie durchzusehen."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Ich habe keine Interessenkonflikte"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Ich habe vielleicht Interessenkonflikte (unten angeben)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Interessenkonflikte"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Begutachtungsrichtlinien"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Dieser Verlag hat keine Begutachtungsrichtlinien erlassen."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Klicken Sie auf die Dateinahmen zum Download und begutachten Sie die zu dieser Einreichung gehörenden Dateien (am Bildschirm oder im Ausdruck)."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Geben Sie Ihr Gutachten in das unten stehende Formular ein."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Zusätzlich können Sie Dateien für Redakteur/in oder Autor/in hochladen, inkl. überarbeiteter Fassungen der begutachteten Datei(en)."
+
+msgid "reviewer.complete"
+msgstr "Gutachten eingereicht"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Sind Sie sicher, dass Sie dieses Gutachten jetzt einreichen wollen?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Vielen Dank für den Abschluss der Begutachtung dieser Einreichung. Ihr Gutachten ist erfolgreich übermittelt worden. Wir schätzen Ihren Beitrag zur Qualität der von uns veröffentlichten Arbeiten sehr. Vielleicht wird der/die Redakteur/in Sie noch einmal kontaktieren, falls weitere Informationen benötigt werden."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Über die Fälligkeit"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Der/die Redakteur/in bittet darum, dass Sie vor der Fälligkeit der Antwort die Begutachtung annehmen oder absagen und dass Sie Ihr Gutachten vor dem Fälligkeitsdatum des Gutachtens abschließen."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Für Autor/in und Redakteur/in"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Nur für Redakteur/in"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Aktuelle/r Nutzer/in ist nicht als Gutachter/in für das angeforderte Dokument eingetragen."

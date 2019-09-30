@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
+"Language: \n"
+
+msgid "api.400.paramNotSupported"
+msgstr "The {$param} parameter is not supported."
+
+msgid "api.403.unauthorized"
+msgstr "You are not authorized to access the requested resource."
+
+msgid "api.404.resourceNotFound"
+msgstr "The requested resource was not found."
+
+msgid "api.404.endpointNotFound"
+msgstr "The requested URL was not recognized."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "The email template you requested was not found."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "The publication you want to publish is already published."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "The publication you want to unpublish is not published."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "You can not edit this publication because it has already been published."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr "You can not modify the status directly through the API. Instead, use the /publish and /unpublish endpoints."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "You must unpublish this publication before you can delete it."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "The date must be in the format YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "The start date can not be later than the end date."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "The start date can not be earlier than 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "The end date can not be later than yesterday."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "Your request was not valid. The timelineInterval must be `day` or `month`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Your request was not valid. The orderDirection must be `desc` or `asc`."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Your request was denied. This may be because your login has expired. Try reloading the page and trying again."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "You can only view unpublished submissions to which you have been assigned."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "You can not delete a submission that is not assigned to this context."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "You do not have permission to delete this submission."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr "This endpoint is not available from a context. It must be accessed from the site-wide namespace."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Your request could not be fulfilled because it is missing required information."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "The requested volume, number or year is not valid."
+
+msgid "api.submissions.unknownError"
+msgstr "An unexpected error has occurred. Please reload the page and try again."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "No file to be uploaded could be found with the request."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "One or more files could not be uploaded."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Files larger than {$maxSize} can not be uploaded."
+
+msgid "api.temporaryFiles.400.config"
+msgstr "File could not be uploaded because of a server configuration error. Please contact the system administrator."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "The active theme, {$themePluginPath}, is not enabled and may not be installed."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "The {$locale} locale is not supported."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "The {$vocab} vocab is not supported."

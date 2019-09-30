@@ -1,0 +1,411 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:24-07:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "Einreichungsbibliothek"
+
+msgid "editor.review.notInitiated"
+msgstr "Der Begutachtungsprozess ist noch nicht eingeleitet worden."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Nachricht an Benutzer/in"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Sie leiten eine externe Begutachtung für diese Einreichung ein.  Dateien, die zu dieser Einreichung gehören, sind unten aufgelistet und können zur Begutachtung ausgewählt werden."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Sie müssen mindestens eine Datei auswählen, der Sie den/die Benutzer/in zuordnen."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Sie müssen ein persönliches Anschreiben verfassen."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "E-Mail nicht an Prüfer/in schicken"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Sie müssen eine/n Benutzer/in zur Zuordnung auswählen."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Dateien hochladen/auswählen"
+
+msgid "editor.submission.selectFiles"
+msgstr "Dateien auswählen"
+
+msgid "editor.submission.revisions"
+msgstr "Überarbeitungen"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Benutzen Sie <em>+Gutachter/in hinzufügen</em>, um Leser/innen um Begutachtung der Einreichung zu bitten. Das Notizbuch-Symbol zeigt an, dass ein Gutachten eingereicht worden ist, das dann als <em>Berücksichtigt</em> markiert wird, nachdem es einbezogen worden ist. Wenn Gutachten überfällig sind, erscheint ein rotes Umschlagsymbol, um Gutachter/innen zu benachrichtigen."
+
+msgid "editor.submission.addReviewer"
+msgstr "Gutachter/in hinzufügen"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Gutachter/in finden"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Nutzer/in finden"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Alle Dateien aus allen verfügbaren Workflow-Phasen berücksichtigen."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Aktuelle Begutachtungsdateien für Runde {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Zur einfachen Suche zurückkehren"
+
+msgid "editor.review.createReviewer"
+msgstr "Neue/n Gutachter/in anlegen"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Existierende/n Benutzer/in als Gutachter/in eintragen"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Zuteilung an Gutachter/in aufheben"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Begutachtungstyp"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Eine E-Mail-Benachrichtigung an die Autor/innen schicken: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Eine E-Mail-Benachrichtigung an die Redakteur/innen schicken: {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "E-Mail nicht an Autor/in schicken"
+
+msgid "editor.submissionReview.open"
+msgstr "Offen"
+
+msgid "editor.submissionReview.blind"
+msgstr "Blind"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Double-blind"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Zu begutachtende Dateien"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Dateiauswahl schließen"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Gutachten bearbeiten"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonyme/r Gutachter/in"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "E-Mail, die an Gutachter/in geschickt wird"
+
+msgid "editor.review.importantDates"
+msgstr "Wichtige Daten"
+
+msgid "editor.review.uploadRevision"
+msgstr "Überarbeitung hochladen"
+
+msgid "editor.review.newReviewRound"
+msgstr "Neue Begutachtungsrunde nötig"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Autor/in über Überarbeitungsbedarf informieren:"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Autor/in über Überarbeitungsbedarf und erneute Begutachtung informieren:"
+
+msgid "editor.review.dateAccepted"
+msgstr "Datum der Annahme"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Gutachten an den Nachrichtentext angehängt."
+
+msgid "editor.review.noReviews"
+msgstr "Keine Gutachten zum Importieren"
+
+msgid "editor.review.reminder"
+msgstr "Erinnerung an Begutachtung"
+
+msgid "editor.review.thankReviewer"
+msgstr "Dank an Gutachter/in"
+
+msgid "editor.review.reminderError"
+msgstr "Fehler beim Versenden der Erinnerung an Begutachtung"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Fehler beim Versenden des Dankes an Gutachter/in"
+
+msgid "editor.review.skipEmail"
+msgstr "E-Mail nicht an Gutachter/in schicken"
+
+msgid "editor.review.sendReminder"
+msgstr "Erinnerung senden"
+
+msgid "editor.review.readReview"
+msgstr "Gutachten lesen"
+
+msgid "editor.review.readNewReview"
+msgstr "Neues Gutachen lesen"
+
+msgid "editor.review.responseDue"
+msgstr "Antwort fällig: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Anfrage gesendet"
+
+msgid "editor.review.requestAccepted"
+msgstr "Anfrage akzeptiert"
+
+msgid "editor.review.requestDeclined"
+msgstr "Anfrage abgelehnt"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Gutachter/in hat diese Anfrage abgelehnt."
+
+msgid "editor.review.revertDecision"
+msgstr "Entscheidung zurücksetzen"
+
+msgid "editor.review.reviewDue"
+msgstr "Gutachten fällig: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Datum der Fälligkeit des Gutachtens"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Gutachten abgeschlossen"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Gutachten bestätigt"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Gutachten eingereicht"
+
+msgid "editor.review.reviewerComments"
+msgstr "Begutachtungskommentare"
+
+msgid "editor.review.rateReviewer"
+msgstr "Gutachter/in bewerten"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Die Qualität des eingereichten Gutachtens bewerten. Diese Bewertung ist nicht für die Gutachterin/den Gutachter sichtbar."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Keine Bewertung"
+
+msgid "editor.review.mustSelect"
+msgstr "Sie müssen eine/n Gutachter/in auswählen"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Es gab einen Fehler beim Hinzufügen des/der Gutachter/in. Bitte versuchen Sie es erneut."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Es gab einen Fehler beim Entfernen des/der Gutachter/in. Bitte versuchen Sie es erneut."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Diese/n Benutzer/in in diese Gutachter/innengruppe eintragen"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Möchten Sie dieses Gutachten als unberücksichtigt markieren? Die Begutachtungshistorie wird erhalten bleiben."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Dieses Gutachten nicht berücksichtigen"
+
+msgid "editor.review.readConfirmation"
+msgstr "Nachdem dieses Gutachten gelesen worden ist, drücken Sie bitte \"Bestätigen\", um anzuzeigen, dass der Begutachtungsprozess weitergehen kann."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Dateien für das Lektorat"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Gutachter/in auswählen"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Fälligkeit der Aufgabe"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Zeitplan für diese Aufgabe"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Existierende/n Benutzer/in als Gutachter/in eintragen"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Keine Prüfung für diese Datei verlangt"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-Mail, die an den/die Benutzer/in geschickt wird"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Erinnerung an Prüfung"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Die lektorierte Datei muss hier angenommen werden, bevor sie in die Herstellungsphase geschickt werden kann. Möchten Sie diese Datei annehmen?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Ablehnung dieser lektorierten Datei wird verhindern, dass sie in die Herstellungsphase geschickt werden kann. Möchten Sie diese Datei ablehnen?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Prüfer/in hinzufügen"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Alle Dateien, die schon zu irgendeiner Einreichungsphase hochgeladen worden sind, können zur Liste der Dateien für das Lektorat hinzugefügt werden, indem Sie die Einschließen-Checkbox unten aktivieren und danach auf Suche klicken: Alle verfügbaren Dateien werden angezeigt und können ausgewählt werden, um sie in die Liste aufzunehmen. Zusätzliche Dateien, die noch nicht zu einer Phase hochgeladen worden sind, können der Liste durch Klicken des Datei-Hochladen-Links hinzugefügt werden."
+
+msgid "editor.review"
+msgstr "Überprüfen"
+
+msgid "editor.review.reviewDetails"
+msgstr "Gutachten-Details"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Keine Dateien hochgeladen"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Sie haben keine Dateien zur Begutachtung hochgeladen."
+
+msgid "editor.review.emailReviewer"
+msgstr "E-Mail an Gutachter/in"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Produktionsfertige Dateien"
+
+msgid "editor.submission.newRound"
+msgstr "Neue Begutachtungsrunde"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Redaktionelle Entscheidung festhalten"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Redaktionelle Empfehlung festhalten"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Redakteur/innen benachrichtigen"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Redakteur/innen keine E-Mail senden."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Eine Begutachtungsdiskussion zu dieser Empfehlung anlegen."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Keine Begutachtungsdiskussion anlegen."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Sie leiten eine neue Begutachtungsrunde für diese Einreichung ein. Dateien, die noch nicht in anderen Begutachtungsrunden benutzt worden sind, sind unten aufgelistet. Standardgemäß sind die Gutachter/innen der vorherigen Begutachtungsrunde als Gutachter/innen dieser neuen Runde ausgewählt worden."
+
+msgid "editor.submission.createNewRound"
+msgstr "Neue Begutachtungsrunde anlegen"
+
+msgid "editor.article.reviewForms"
+msgstr "Begutachtungsformulare"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Begutachtungsformular auswählen"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Achtung: Ein Wechsel des Begutachtungsformular wird alle Antworten, die Gutachter/innen bisher mittels des Formulars eingetragen haben, beeinflussen. Sind Sie sicher, dass Sie fortfahren möchten?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Keine Dateien ausgewählt"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Sie haben keine Dateien ausgewählt, die der/die Gutachter/in begutachten soll."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Die Angabe eines Diskussionsthemas ist erforderlich."
+
+msgid "submission.queries.messageRequired"
+msgstr "Die Angabe eines Diskussionsbeitrags ist erforderlich."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Angehängte Dateien"
+
+msgid "grid.action.editQuery"
+msgstr "Diskussion bearbeiten"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Aus der Liste unten können Dateien für die Aufnahme in die Diskussion ausgewählt werden."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Ausgewählte Gutachter/innen"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Korrekturfahne freigeben"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Freigabe der Korrekturfahne zurücknehmen"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Diese Korrekturfahne freigeben, um zu signalisieren, dass das Korrektorat abgeschlossen ist und die Datei publiziert werden kann."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Die Freigabe dieser Korrekturfahne zurücknehmen, um zu signalisieren, dass das Korrektorat nicht mehr abgeschlossen ist und dass die Datei noch nicht publiziert werden kann."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Die öffentliche Kennung '{$publicIdentifier}' darf keine Zahl sein."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Das Muster {$pattern} ist für die Bildung der öffentlichen Kennung nicht zulässig."
+
+msgid "reviewer.list.count"
+msgstr "{$count} Gutachter/innen"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} von {$total} Gutachter/innen"
+
+msgid "reviewer.list.filterRating"
+msgstr "Mindestens bewertet"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktiv"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Momentan zugewiesene aktive Gutachten"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Gutachten abgeschlossen"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Begutachtungsanfragen abgelehnt"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Gutachter/innenbewertung: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "vor {$days} Tagen"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Gestern"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Tage seit der letzten Begutachtungsanfrage"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Durchschnittliche Dauer (Tage) der Begutachtung"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Noch nie zugewiesen"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur Begutachtung zugewiesen worden."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Diese Gutachterin/dieser Gutachter ist gesperrt, weil sie eine Rolle zugewiesen bekommen haben, ind der sie die Identität der Autorin/des Autors einsehen dürfen. Eine blinde Begutachtung kann nicht garantiert werden. Möchten Sie diese Gutachterin bzw. diesen Gutachter dennoch freischalten?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Freischalten"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Begutachtungsinteressen"
+
+msgid "reviewer.list.biography"
+msgstr "Biographie"

@@ -1,0 +1,672 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "No Items"
+
+msgid "grid.settings"
+msgstr "Settings"
+
+msgid "grid.noAuditors"
+msgstr "No Auditors"
+
+msgid "grid.remotelyHostedItem"
+msgstr "This item is remotely hosted."
+
+msgid "grid.action.uninstall"
+msgstr "Uninstall"
+
+msgid "grid.action.manageAccess"
+msgstr "Manage Access"
+
+msgid "grid.action.sort"
+msgstr "Sort"
+
+msgid "grid.action.addItem"
+msgstr "Add Item"
+
+msgid "grid.action.addNote"
+msgstr "Add Note"
+
+msgid "grid.action.addQuery"
+msgstr "Add discussion"
+
+msgid "grid.action.readQuery"
+msgstr "Read discussion"
+
+msgid "grid.action.deleteQuery"
+msgstr "Delete discussion"
+
+msgid "grid.action.updateQuery"
+msgstr "Update discussion"
+
+msgid "grid.action.addUser"
+msgstr "Add User"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Unassign this reviewer"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Approve this copyedit file for sending it to the next stage"
+
+msgid "grid.action.reload"
+msgstr "Reload"
+
+msgid "grid.action.delete"
+msgstr "Delete"
+
+msgid "grid.action.deleteFile"
+msgstr "Delete File"
+
+msgid "grid.action.deleteMedia"
+msgstr "Delete Media"
+
+msgid "grid.action.editMedia"
+msgstr "Edit Media"
+
+msgid "grid.action.editSection"
+msgstr "Edit Section"
+
+msgid "grid.action.export"
+msgstr "Export"
+
+msgid "grid.action.deleteSection"
+msgstr "Delete Section"
+
+msgid "grid.action.editorialHistory"
+msgstr "Editorial History"
+
+msgid "grid.action.remove"
+msgstr "Remove"
+
+msgid "grid.action.edit"
+msgstr "Edit"
+
+msgid "grid.action.approve"
+msgstr "Approve"
+
+msgid "grid.action.disapprove"
+msgstr "Disapprove"
+
+msgid "grid.action.setApproval"
+msgstr "Set Approval"
+
+msgid "grid.action.moreInformation"
+msgstr "More Information"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Restore Defaults"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Are you sure you wish to restore the defaults?"
+
+msgid "grid.action.addAuthor"
+msgstr "Add Author"
+
+msgid "grid.action.editAuthor"
+msgstr "Edit Author"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Delete Author"
+
+msgid "grid.action.addAuditor"
+msgstr "Add an Auditor"
+
+msgid "grid.action.upgrade"
+msgstr "Upgrade"
+
+msgid "grid.action.order"
+msgstr "Order"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Cancel ordering"
+
+msgid "grid.action.extendAll"
+msgstr "Extend all"
+
+msgid "grid.action.collapse"
+msgstr "Collapse"
+
+msgid "grid.action.collapseAll"
+msgstr "Collapse all"
+
+msgid "grid.action.wizard"
+msgstr "Settings wizard"
+
+msgid "grid.action.moveItem"
+msgstr "Move Item"
+
+msgid "grid.action.downloadAll"
+msgstr "Download all files as an archive"
+
+msgid "grid.action.readReview"
+msgstr "Read this review"
+
+msgid "grid.action.email"
+msgstr "Send email"
+
+msgid "grid.action.addReviewer"
+msgstr "Add a reviewer"
+
+msgid "grid.action.addFile"
+msgstr "Add a file"
+
+msgid "grid.action.editFile"
+msgstr "Edit a file"
+
+msgid "grid.action.selectFiles"
+msgstr "Select files to manage"
+
+msgid "grid.action.requestRevisions"
+msgstr "Request revisions for this submission"
+
+msgid "grid.action.accept"
+msgstr "Accept this submission"
+
+msgid "grid.action.decline"
+msgstr "Decline this Submission"
+
+msgid "grid.action.internalReview"
+msgstr "Send this submission to internal review"
+
+msgid "grid.action.externalReview"
+msgstr "Send this submission to external review"
+
+msgid "grid.action.sendToProduction"
+msgstr "Send this submission to production"
+
+msgid "grid.action.settings"
+msgstr "Settings"
+
+msgid "grid.action.importexport"
+msgstr "Import or export content or site data"
+
+msgid "grid.action.orderItems"
+msgstr "Enable ordering mode"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Edit this checklist item"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Delete this checklist item"
+
+msgid "grid.action.resetAll"
+msgstr "Reset all items to default values"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Add a new email template"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Edit this email template"
+
+msgid "grid.action.disableEmail"
+msgstr "Disable this email template"
+
+msgid "grid.action.resetEmail"
+msgstr "Reset this email template to the default"
+
+msgid "grid.action.expandAll"
+msgstr "Expand All"
+
+msgid "grid.action.requestAccount"
+msgstr "Add a participant"
+
+msgid "grid.action.expand"
+msgstr "Expand"
+
+msgid "grid.action.notify"
+msgstr "Notify this user"
+
+msgid "grid.action.addUserGroup"
+msgstr "Add a new User Group"
+
+msgid "grid.action.editUserGroup"
+msgstr "Edit this user group"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Remove this user group"
+
+msgid "grid.action.disable"
+msgstr "Disable"
+
+msgid "grid.action.details"
+msgstr "View this item"
+
+msgid "grid.action.enrolExisting"
+msgstr "Enrol an existing user as a reviewer"
+
+msgid "grid.action.selectCreate"
+msgstr "Create a new reviewer"
+
+msgid "grid.action.search"
+msgstr "Search"
+
+msgid "grid.action.advancedSearch"
+msgstr "Advanced Search"
+
+msgid "grid.action.viewLibrary"
+msgstr "View Document Library"
+
+msgid "grid.action.viewMetadata"
+msgstr "View the metadata for this submission"
+
+msgid "grid.action.sendReminder"
+msgstr "Send a task reminder to this user"
+
+msgid "grid.action.newRound"
+msgstr "Create a new round"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "View the review guidelines"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "View the competing interests guidelines policy"
+
+msgid "grid.action.thankReviewer"
+msgstr "Send a thank you message to this reviewer"
+
+msgid "grid.action.uploadFile"
+msgstr "Upload a file"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Add Announcement Type"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Add Announcement"
+
+msgid "grid.action.mergeUser"
+msgstr "Merge user"
+
+msgid "grid.action.unassignUser"
+msgstr "Unassign User"
+
+msgid "grid.action.history"
+msgstr "View History"
+
+msgid "grid.action.unconsiderReview"
+msgstr "This review is complete, but you may unconsider it"
+
+msgid "grid.action.enable"
+msgstr "Enable"
+
+msgid "grid.action.bookInfo"
+msgstr "Submission Info"
+
+msgid "grid.action.logInAs"
+msgstr "Login As"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Export All Users"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Are you sure you wish to export all users?"
+
+msgid "grid.action.activate"
+msgstr "Activate"
+
+msgid "grid.action.deactivate"
+msgstr "Deactivate"
+
+msgid "grid.action.copy"
+msgstr "Copy"
+
+msgid "grid.action.preview"
+msgstr "Preview"
+
+msgid "grid.action.install"
+msgstr "Install"
+
+msgid "grid.action.moreItems"
+msgstr "Load more"
+
+msgid "grid.action.users"
+msgstr "View/Select users"
+
+msgid "grid.task.status.completed"
+msgstr "This task is completed"
+
+msgid "grid.task.status.new"
+msgstr "Checked when considered"
+
+msgid "grid.task.status.uploaded"
+msgstr "The column title indicates who uploaded this file"
+
+msgid "grid.task.status.unfinished"
+msgstr "Task unfinished"
+
+msgid "grid.task.status.reviewReady"
+msgstr "This review is ready. Click the note icon to the left to read it."
+
+msgid "grid.columns.actions"
+msgstr "Actions"
+
+msgid "grid.columns.institution"
+msgstr "Institution"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Auditor"
+
+msgid "grid.columns.locale"
+msgstr "Locale"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsoring Organizations"
+
+msgid "grid.action.addSponsor"
+msgstr "Add Sponsor"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Delete Sponsor"
+
+msgid "grid.action.editSponsor"
+msgstr "Edit Sponsor"
+
+msgid "grid.action.addSeries"
+msgstr "Add Series"
+
+msgid "grid.action.editSeries"
+msgstr "Edit Series"
+
+msgid "grid.action.deleteSeries"
+msgstr "Delete Series"
+
+msgid "grid.action.addCategory"
+msgstr "Add Category"
+
+msgid "grid.action.editCategory"
+msgstr "Edit Category"
+
+msgid "grid.action.deleteCategory"
+msgstr "Delete Category"
+
+msgid "grid.contributor.title"
+msgstr "Sources of Support"
+
+msgid "grid.action.addContributor"
+msgstr "Add Contributor"
+
+msgid "grid.action.editContributor"
+msgstr "Edit Contributor"
+
+msgid "grid.action.deleteContributor"
+msgstr "Delete Contributor"
+
+msgid "grid.action.newVersion"
+msgstr "Create a new version"
+
+msgid "grid.reviewForm.title"
+msgstr "Review Forms"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Response Options"
+
+msgid "grid.noFiles"
+msgstr "No Files"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Files"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Submission Library"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Editorial Library"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Review Library"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Production Library"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Production Template Library"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Submission Checklist"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Checklist Item"
+
+msgid "author.users.contributor.name"
+msgstr "Name"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Role"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Primary Contact"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "In Browse Lists"
+
+msgid "grid.roles.currentRoles"
+msgstr "Current Roles"
+
+msgid "grid.roles.add"
+msgstr "Create New Role"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Stage Assignment"
+
+msgid "grid.user.currentUsers"
+msgstr "Current Users"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Current Enrollment"
+
+msgid "grid.user.allRoles"
+msgstr "All Roles"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "All Permission Levels"
+
+msgid "grid.user.add"
+msgstr "Add User"
+
+msgid "grid.user.enroll"
+msgstr "Enroll User"
+
+msgid "grid.user.edit"
+msgstr "Edit User"
+
+msgid "grid.user.email"
+msgstr "Email"
+
+msgid "grid.user.enable"
+msgstr "Enable"
+
+msgid "grid.user.disable"
+msgstr "Disable"
+
+msgid "grid.user.disableReason"
+msgstr "Reason for disabling user"
+
+msgid "grid.user.enableReason"
+msgstr "Reason for enabling user"
+
+msgid "grid.user.error"
+msgstr "An error was encountered administrating this user. Please try again."
+
+msgid "grid.user.errorEmail"
+msgstr "An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator."
+
+msgid "grid.user.cannotAdminister"
+msgstr "You do not have sufficient permissions to administer this user. In order to administer a user, you must either be site administrator, or administer all contexts that this user is enrolled in."
+
+msgid "grid.user.authSource"
+msgstr "Authentication source"
+
+msgid "grid.user.mustProvideName"
+msgstr "Please provide at least a last name for the user first."
+
+msgid "grid.user.generatePassword"
+msgstr "Generate Password"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Generate random password for this user."
+
+msgid "grid.user.notifyUser"
+msgstr "Notify User"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Send user a welcome email."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Change Password"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "User must change password on next log in."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Require the user to change their password the next time they log in."
+
+msgid "grid.user.moreDetails"
+msgstr "More User Details"
+
+msgid "grid.user.lessDetails"
+msgstr "Less User Details"
+
+msgid "grid.user.userDetails"
+msgstr "User Details"
+
+msgid "grid.user.userRoles"
+msgstr "User Roles"
+
+msgid "grid.user.userNoRoles"
+msgstr "This user does not have any roles."
+
+msgid "grid.user.step1"
+msgstr "Step #1: Fill in User Details"
+
+msgid "grid.user.step2"
+msgstr "Step #2: Add User Roles to {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Add Roles"
+
+msgid "grid.user.addRole"
+msgstr "Add Role"
+
+msgid "grid.user.selectUser"
+msgstr "Select User"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Please select a user"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Log in as this user? All actions you perform will be attributed to this user."
+
+msgid "grid.user.mergeUsers"
+msgstr "Merge Users"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Merge User"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Merge into this User"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "All Enrolled Users"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Are you sure you wish to merge the account with the username \"{$oldUsername}\" into the account with the username \"{$newUsername}\"? The account with the username \"{$oldUsername}\" will not exist afterwards. This action is not reversible."
+
+msgid "grid.preparedEmails.title"
+msgstr "Prepared Email Templates"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Current List"
+
+msgid "grid.plugin.allCategories"
+msgstr "All Categories"
+
+msgid "grid.plugin.disable"
+msgstr "Are you sure you want to disable this plugin?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Proofing corrections made. You may unconsider this task"
+
+msgid "grid.artworkFile.caption"
+msgstr "Caption"
+
+msgid "grid.artworkFile.credit"
+msgstr "Credit"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Copyright Owner"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Contact Info (if not author/publisher)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Permission Terms"
+
+msgid "grid.artworkFile.placement"
+msgstr "Placement in submission"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Assign stage"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Unassign stage"
+
+msgid "grid.userGroup.allStages"
+msgstr "All Workflow Stages"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "List roles assigned to"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "With permission level set to"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "The role {$userGroupName} is a default one and can't be removed."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "Can't remove {$userGroupName} role. Currently {$usersCount} user(s) is/are assigned to it."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} role removed."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} role assigned to {$stageName} stage."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} role unassigned from {$stageName} stage."
+
+msgid "grid.submission.itemTitle"
+msgstr "Author; Title"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Include incomplete submissions not submitted by an author."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Add Menu"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Add item"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "No Navigation Menu Items"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "No Navigation Menus"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Choose a type..."

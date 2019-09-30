@@ -1,0 +1,426 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
+"PO-Revision-Date: 2019-09-30T11:54:14-07:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Informações de cadastro"
+
+msgid "user.affiliation"
+msgstr "Instituição/Afiliação"
+
+msgid "user.affiliation.description"
+msgstr "(Sua instituição, por exemplo \"Simon Fraser University\")"
+
+msgid "user.affiliations"
+msgstr "Outras Afiliações"
+
+msgid "user.authorization.accessDenied"
+msgstr "Acesso negado."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "O verificador do processo de autenticação está faltando ou é inválido."
+
+msgid "user.authorization.contextRequired"
+msgstr "Não é possível executar esta operação sem um contexto (impresso, periódico, conferência, entre outros)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Login obrigatório."
+
+msgid "user.authorization.privateOperation"
+msgstr "A operação acessada é privada ou não existe."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Seu acesso foi negado. Acesso a esta página está atualmente bloqueado."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "O papel atual não possui permissão para realizar esta operação."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "É necessário definir um grupo de usuário válido para acessar esta operação."
+
+msgid "user.authorization.managerRequired"
+msgstr "Um usuário com papel de Gerente (Editor da Revista ou Editor de Leiaute, por exemplo) deve ser designado ao estágio antes de proceder."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Atualmente você não possui acesso a este estágio do fluxo de trabalho."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Um estágio do fluxo de trabalho não foi especificado."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Um plugin não foi especificado mas é requerido."
+
+msgid "user.biography"
+msgstr "Resumo da Biografia"
+
+msgid "user.changeMyPassword"
+msgstr "Alterar minha senha"
+
+msgid "user.changePassword"
+msgstr "Alterar senha"
+
+msgid "user.dateLastLogin"
+msgstr "Último acesso"
+
+msgid "user.dateRegistered"
+msgstr "Data de cadastro"
+
+msgid "user.editMyProfile"
+msgstr "Editar meu perfil"
+
+msgid "user.email"
+msgstr "E-mail"
+
+msgid "user.givenName"
+msgstr "Nome Próprio"
+
+msgid "user.interests"
+msgstr "Área de interesse para avaliação"
+
+msgid "user.interests.description"
+msgstr "(Separe interesses pressionando as teclas enter ou vírgula)"
+
+msgid "user.gossip"
+msgstr "Notas privadas"
+
+msgid "user.group"
+msgstr "Grupo de usuários"
+
+msgid "user.familyName"
+msgstr "Sobrenome"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Formato ou tamanho de imagem inválido para o perfil. Formatos aceitos são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Sua conta foi desabilitada pelo seguinte motivo: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Sua conta foi desativada. Entre em contato com o administrador para maiores informações."
+
+msgid "user.login.accountNotValidated"
+msgstr "É necessário validar seu endereço de e-mail. Verifique sua caixa de correio eletrônico e siga as instruções na mensagem recebida. Caso não tenha recebido a mensagem, entre em contato com o administrador para suporte."
+
+msgid "user.login.activate"
+msgstr "Ativar cadastro"
+
+msgid "user.login.activated"
+msgstr "Seu cadastro foi ativado, permitindo o acesso ao sistema com os dados informados no momento do cadastro."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Uma nova senha deve ser definida antes de cadastrar-se no sistema.<br /><br />Digite seu login e senhas atual e nova para alterar a senha de acesso à conta."
+
+msgid "user.login.forgotPassword"
+msgstr "Esqueceu a senha?"
+
+msgid "user.login.loginError"
+msgstr "Login e/ou senha inválido(s). Tente novamente."
+
+msgid "user.login"
+msgstr "Acesso"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Um e-mail de confirmação foi enviado. Siga as instruções para criar uma nova senha."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "O link acessado expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Nenhum usuário cadastrado com o e-mail especificado."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Uma nova senha foi enviada. Acesse o sistema com a nova senha."
+
+msgid "user.login.registeredEmail"
+msgstr "E-mail do usuário cadastrado"
+
+msgid "user.login.registrationComplete"
+msgstr "Registro completo"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Obrigado por se registrar! O que você gostaria de fazer agora?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Ver Envios"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Fazer uma Novo Envio"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continuar Navegação"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registro aguardando verificação"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Mantenha-me conectado"
+
+msgid "user.login.resetPassword"
+msgstr "Nova senha"
+
+msgid "user.logOut"
+msgstr "Sair do sistema"
+
+msgid "user.logOutAs"
+msgstr "Sair como"
+
+msgid "user.hello"
+msgstr "Olá, "
+
+msgid "user.mailingAddress"
+msgstr "Endereço postal"
+
+msgid "user.myAccount"
+msgstr "Mesclar cadastro"
+
+msgid "user.name"
+msgstr "Nome"
+
+msgid "user.password"
+msgstr "Senha"
+
+msgid "user.repeatPassword"
+msgstr "Repetir senha"
+
+msgid "user.phone"
+msgstr "Telefone"
+
+msgid "user.preferredPublicName"
+msgstr "Nome Público de Preferência"
+
+msgid "user.preferredPublicName.description"
+msgstr "Como você prefere ser tratado(a)? Pronomes de tratamento, nomes do meio e sufixos podem ser adicionados aqui."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Digite as senhas atual e nova para alterar a senha de acesso ao cadastro."
+
+msgid "user.profile.editProfile"
+msgstr "Editar perfil"
+
+msgid "user.profile.form.countryRequired"
+msgstr "O país é obrigatório."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Endereço de e-mail válido obrigatório."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "A instituição/afiliação é obrigatória."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Um endereço postal é obrigatório."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Nova senha obrigatória."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Senha atual incorreta."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Notificações via e-mail de acesso livre à edição"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Senha obrigatória."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Sua nova senha é a mesma que a anterior."
+
+msgid "user.profile.form.profileImage"
+msgstr "Foto"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Notificações via e-mail de publicação de nova edição"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "URL inválida. Verifique a informação e tente novamente (Ajuda: Inclua o protocolo http:// no início da URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Um grupo de usuários é obrigatório."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Login obrigatório."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Deixe os campos de senha em branco para manter a senha atual."
+
+msgid "user.profile.newPassword"
+msgstr "Nova senha"
+
+msgid "user.profile.oldPassword"
+msgstr "Senha atual"
+
+msgid "user.profile"
+msgstr "Perfil"
+
+msgid "user.profile.publicProfile"
+msgstr "Perfil do usuário"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Repetir nova senha"
+
+msgid "user.login.registerNewAccount"
+msgstr "Não é um usuário? Registre-se no site"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Por razões de segurança, este sistema envia por e-mail uma nova senha ao usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu email abaixo para redefinir sua senha. Uma confirmação será enviada para este endereço de e-mail."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Sim, eu concordo em ter meus dados coletados e armazenados de acordo com a <a href=\"{$privacyUrl}\" target=\"_blank\">declaração de privacidade</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Sim, eu gostaria de ser notificado(a) de novas publicações e anúncios."
+
+msgid "user.register.form.emailExists"
+msgstr "O endereço de e-mail digitado já está cadastrado."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "As senhas não combinam."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "O e-mail informado nos campos não correspondem."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "O nome de usuário pode conter somente caracteres alfanuméricos, sublinhados e hifens, e deve começar e terminar com um caractere alfanumérico (letra ou número)."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Ao menos um papel deve ser selecionado."
+
+msgid "user.register.form.usernameExists"
+msgstr "O login digitado já está cadastrado."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "A senha deve ter no mínimo {$length} caracteres."
+
+msgid "user.register.registerAs"
+msgstr "Cadastrar em {$contextName} como..."
+
+msgid "user.register"
+msgstr "Cadastrar"
+
+msgid "user.register.usernameRestriction"
+msgstr "O login deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-)."
+
+msgid "user.register.registrationCompleted"
+msgstr "Cadastro realizado com sucesso. <a href=\"{$profileUrl}\">Clique aqui</a> para completar seu perfil."
+
+msgid "user.role.assistant"
+msgstr "Assistente de Adição"
+
+msgid "user.role.author"
+msgstr "Autor"
+
+msgid "user.role.author_s"
+msgstr "Autor(es)"
+
+msgid "user.role.authors"
+msgstr "Autores"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.editors"
+msgstr "Editores"
+
+msgid "user.role.reader"
+msgstr "Leitor"
+
+msgid "user.role.readers"
+msgstr "Leitores"
+
+msgid "user.role.reviewer"
+msgstr "Avaliador"
+
+msgid "user.role.reviewers"
+msgstr "Avaliadores"
+
+msgid "user.role.siteAdmin"
+msgstr "Administrador do Portal"
+
+msgid "user.role.siteAdmins"
+msgstr "Administradores do Portal"
+
+msgid "user.role.copyeditor"
+msgstr "Editor de Texto"
+
+msgid "user.role.copyeditors"
+msgstr "Editores de Texto"
+
+msgid "user.role.proofreader"
+msgstr "Leitor de Prova"
+
+msgid "user.role.proofreaders"
+msgstr "Leitores de Prova"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor de Leiaute"
+
+msgid "user.role.layoutEditors"
+msgstr "Editores de Leiaute"
+
+msgid "user.roles"
+msgstr "Papéis"
+
+msgid "user.sendPassword"
+msgstr "Confirmação"
+
+msgid "user.sendPassword.description"
+msgstr "Enviar e-mail de confirmação incluindo login e senha"
+
+msgid "user.signature"
+msgstr "Assinatura"
+
+msgid "user.title"
+msgstr "Títulação"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Página do usuário"
+
+msgid "user.username"
+msgstr "Usuário"
+
+msgid "user.workingLanguages"
+msgstr "Idiomas conhecidos"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "O ORCID iD informado é inválido. Por favor inclua a URL completa (ex. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identificação"
+
+msgid "user.profile.contact"
+msgstr "Contato"
+
+msgid "user.profile.public"
+msgstr "Público"
+
+msgid "user.apiKey"
+msgstr "Chave da API"
+
+msgid "user.apiKeyEnabled"
+msgstr "Permitir que aplicações externas com a chave da API tenham acesso a esta conta"
+
+msgid "user.apiKey.generate"
+msgstr "Gerar nova chave da API"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Gerar uma nova chave da API irá invalidar qualquer chave já existente para este usuário."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Antes de gerar uma chave da API, você deve definir um código no arquivo de configuração (\"api_key_secret\")"
+
+msgid "user.privacyLink"
+msgstr "Seus dados são armazenados em concordância com nossa <a href=\"{$privacyUrl}\" target=\"_blank\">política de privacidade</a>."

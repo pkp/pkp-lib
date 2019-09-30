@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
+"PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
+"Language: \n"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Arquivos do avaliador"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Requisição"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Diretrizes"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Download e Avaliação"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Finalização"
+
+msgid "reviewer.step1.request"
+msgstr "Solicitar Avaliação"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Você foi selecionado como um avaliadores potencial da submissão a seguir. Abaixo está uma visão geral da mesma, assim como os prazos para esta revisão. Esperamos que esteja apto a participar."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Ver Todos os Detalhes da Submissão"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Recusar Pedido de Avaliação"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Você pode informar ao editor as razões de sua recusa com comentários no campo abaixo."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Aceitar Avaliação, Continue no Passo #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continuar no Passo #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Enviar Avaliação"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Diretrizes de Avaliação"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Este editor tem uma política de divulgação de potenciais conflitos de interesse de seus avaliadores. Por favor, tome um momento para rever esta política."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Não há nenhum conflito de interesse"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Podem haver conflitos de interesse  (Especifique abaixo)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Conflitos de Interesse"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Diretrizes de Revisão"
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Clique nos nomes dos arquivos para baixá-los e revise os arquivos associados a esta submissão."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Informe seu parecer para esta submissão no formulário abaixo."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Adicionalmente, você pode enviar arquivos ao editor e/ou autor para consulta, incluindo versões revisadas do arquivo original (s)."
+
+msgid "reviewer.complete"
+msgstr "Avaliação Enviada"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Tem certeza de que deseja enviar seu parecer?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Obrigado por completar a avaliação da submissão. Seu parecer foi submetido com êxito. Agradecemos a sua contribuição para a qualidade do trabalho que publicamos. O editor pode contatá-lo novamente para obter mais informações se for necessário."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Sobre Datas Limites"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "O editor pede que você o aceite ou recuse a avaliação antes da Data Limite para Resposta e conclua a avaliação antes da Data Limite para Avaliação."
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Este editor não definiu nenhuma diretriz para avaliação."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Para autor e editor"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Apenas para o editor"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "O usuário atual não está designado como avaliador para o documento requisitado."

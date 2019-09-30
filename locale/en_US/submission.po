@@ -1865,9 +1865,6 @@ msgstr "The copyright and license information have been updated."
 msgid "publication.publish"
 msgstr "Publish"
 
-msgid "publication.publish.confirmation"
-msgstr "All publication requirements have been met. Are you sure you want to publish this?"
-
 msgid "publication.publish.requirements"
 msgstr "The following requirements must be met before this can be published."
 

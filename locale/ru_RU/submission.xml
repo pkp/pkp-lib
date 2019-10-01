@@ -676,6 +676,7 @@
 	<message key="publication.copyrightYearBasis.issueDescription">Дата копирайта будет задана автоматически, когда выпуск будет опубликован.</message>
 	<message key="publication.createVersion">Создать новую версию</message>
 	<message key="publication.datePublished">Дата публикации</message>
+	<message key="publication.datePublished.errorFormat">Дата должна быть в формате ГГГГ-ММ-ДД, например, 2019-01-01.</message>
 	<message key="publication.editDisabled">Эта версия была опубликована, её нельзя отредактировать.</message>
 	<message key="publication.event.published">Материал был опубликован.</message>
 	<message key="publication.event.scheduled">Материал запланирован к публикации.</message>
@@ -689,7 +690,6 @@
 	<message key="publication.publicationLicense">Разрешения и соглашения</message>
 	<message key="publication.publicationLicense.success">Информация о лицензии и авторском праве была обновлена.</message>
 	<message key="publication.publish">Опубликовать</message>
-	<message key="publication.publish.confirmation">Все требования к публикации были выполнены. Вы уверены, что хотите опубликовать этот материал?</message>
 	<message key="publication.publish.requirements">Перед публикацией необходимо выполнить следующие требования.</message>
 	<message key="publication.publish.success">Статус публикации был успешно изменён.</message>
 	<message key="publication.required.declined">Отклонённый материал нельзя опубликовать.</message>

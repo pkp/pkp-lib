@@ -425,7 +425,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * future date
 	 *
 	 * @param Publication $publication
-	 * @return Publlication
+	 * @return Publication
 	 */
 	public function publish($publication) {
 		$newPublication = clone $publication;

@@ -676,6 +676,7 @@
 	<message key="publication.copyrightYearBasis.issueDescription">Дата копирайта будет задана автоматически, когда выпуск будет опубликован.</message>
 	<message key="publication.createVersion">Создать новую версию</message>
 	<message key="publication.datePublished">Дата публикации</message>
+	<message key="publication.datePublished.errorFormat">Дата должна быть в формате ГГГГ-ММ-ДД, например, 2019-01-01.</message>
 	<message key="publication.editDisabled">Эта версия была опубликована, её нельзя отредактировать.</message>
 	<message key="publication.event.published">Материал был опубликован.</message>
 	<message key="publication.event.scheduled">Материал запланирован к публикации.</message>

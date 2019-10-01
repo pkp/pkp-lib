@@ -690,7 +690,6 @@
 	<message key="publication.publicationLicense">Разрешения и соглашения</message>
 	<message key="publication.publicationLicense.success">Информация о лицензии и авторском праве была обновлена.</message>
 	<message key="publication.publish">Опубликовать</message>
-	<message key="publication.publish.confirmation">Все требования к публикации были выполнены. Вы уверены, что хотите опубликовать этот материал?</message>
 	<message key="publication.publish.requirements">Перед публикацией необходимо выполнить следующие требования.</message>
 	<message key="publication.publish.success">Статус публикации был успешно изменён.</message>
 	<message key="publication.required.declined">Отклонённый материал нельзя опубликовать.</message>

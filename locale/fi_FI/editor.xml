@@ -112,6 +112,7 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Kumoa korjausvedoksen hyväksyntä</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Hyväksy tämä korjausvedos osoittaaksesi, että oikoluku on valmis ja tiedosto on valmis julkaistavaksi.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Kumoa tämän korjausvedoksen hyväksyntä osoittaaksesi, että oikoluku ei ole enää valmis ja tiedosto ei ole valmis julkaistavaksi.</message>
+	<message key="editor.submission.schedulePublication">Ajoita julkaistavaksi</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Julkinen tunnus {$publicIdentifier} ei saa olla numero.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Muotoilua {$pattern} ei sallita julkisessa tunnisteessa.</message>
 	<message key="editor.submissionReview.sendEmail">Lähetä sähköposti-ilmoitus kirjoittajalle: {$authorName}</message>

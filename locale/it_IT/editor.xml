@@ -122,6 +122,7 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Revoca approvazione bozza</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Approvare questa bozza significa che la correzione bozze è finita e il file è pronto per essere pubblicato.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revocare l'approvazione per questa bozza significa indicare che la correzzione delle bozze non è completata e il file non è pronto per essere pubblicato</message>
+	<message key="editor.submission.schedulePublication">Pianifica per la pubblicazione</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">L'identificativo pubblico  '{$publicIdentifier}' deve non essere un numero.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Il formato {$pattern} non è previsto per l'identificativo pubblico.</message>
 	<message key="editor.review.anonymousReviewer">Revisore anonimo</message>

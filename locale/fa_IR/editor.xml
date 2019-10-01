@@ -88,6 +88,7 @@
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">عدم تأیید این فایل ویراستاری شده، باعث عدم انتقال به مرحله انتشار خواهد شد. آیا مطمئن به عدم تأیید این فایل هستید؟</message>
 	<message key="editor.submission.addAuditor">انتساب حسابرس</message>
 	<message key="editor.submission.copyedit.manageCopyeditFilesDescription">هر فایلی که تاکنون در هر مرحله از ارسال مقاله آپلود شده است می‌تواند به مرحله ویراستاری اضافه شود. با انجام جستجو و انتخاب از لیست حاصل می‌توان این کار را انجام داد. می‌توان همچنان از گزینه آپلود برای آپلود فایل در این مرحله استفاده کرد.</message>
+	<message key="editor.submission.schedulePublication">برنامه چاپ</message>
 	<message key="editor.review">مرور</message>
 	<message key="editor.review.reviewDetails">جزییات</message>
 	<message key="editor.review.noReviewFilesUploaded">فایلی آپلود نشده است.</message>

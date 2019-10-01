@@ -130,6 +130,7 @@
 	<message key="editor.submission.query.manageQueryNoteFilesDescription">Les fichiers peuvent être inclus dans cette discussion à partir de la liste ci-dessous.</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Accepter la preuve pour indiquer que le document est prêt à être publié.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Retirer l'approbation de la preuve et indiquer que ce document n'est pas prêt pour la publication.</message>
+	<message key="editor.submission.schedulePublication">Calendrier de publication</message>
 	<message key="editor.publicIdentificationExistsForTheSameType">Le public identifié comme '{$publicIdentifier}' existe déjà pour un autre objet de même type. Veuillez indiquer un public unique pour l'objet de même type à l'intérieur de votre revue.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Le public identifié comme '{$publicIdentifier}' ne peut être un numéro.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Le modèle {$pattern} ne peut pas être utilisé comme public identifié.</message>

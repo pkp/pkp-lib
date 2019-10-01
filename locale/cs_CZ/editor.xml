@@ -82,6 +82,7 @@
 	<message key="editor.submission.noAuditRequested">Pro tento soubor není třeba posudek</message>
 	<message key="editor.submission.personalMessageToUser">Email, který má být odeslán autorovi</message>
 	<message key="editor.submission.proof.reminder">Připomínka korektury</message>
+	<message key="editor.submission.schedulePublication">Programar per publicar</message>
 	<message key="editor.submission.editorial.approveCopyeditDescription">Soubor po redakční úpravě musí být potvrzen před odesláním do produkční fáze. Chcete tento soubor potvrdit?</message>
 	<message key="editor.submission.editorial.disapproveCopyeditDescription">Zrušení potvrzení redakční úpravy souboru způsobí, že nebude možné ho poslat do produkční fáze. Chcete skutečně zrušit potvrzení tohoto souboru?</message>
 	<message key="editor.submission.addAuditor">Přiřadit posuzovatele</message>

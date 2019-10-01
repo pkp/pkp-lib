@@ -13,4 +13,5 @@
 
 <locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="editor.review.rateReviewer">Penilaian Reviewer</message>
+	<message key="editor.submission.schedulePublication">Jadwalkan untuk publikasi</message>
 </locale>

@@ -269,6 +269,9 @@ msgstr "Unconsider this Review"
 msgid "editor.review.readConfirmation"
 msgstr "Once this review has been read, press \"Confirm\" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file below and then press \"Confirm\" to proceed."
 
+msgid "editor.submission.schedulePublication"
+msgstr "Schedule For Publication"
+
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Copyediting Files"
 

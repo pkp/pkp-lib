@@ -133,6 +133,7 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">ألغِ المصادقة على هذه القراءة التصحيحة للإشارة إلى عدم إكتمالها واعتبار الملف غير جاهز للنشر.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">المعرف العام '{$publicIdentifier}' يجب أن لا يكون رقماً.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">إن النمط {$pattern} غير مسموح به للمعرفات العامة.</message>
+	<message key="editor.submission.schedulePublication">جدوله للنشر</message>
 
 	<!-- Reviewer selection lists -->
 	<message key="reviewer.list.count">{$count} محكم/محكمين</message>

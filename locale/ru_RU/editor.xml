@@ -143,6 +143,7 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Отменить одобрение этой корректуры, чтобы отметить, что корректура еще не завершена и файл не готов к публикации.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Открытый идентификатор «{$publicIdentifier}» не может быть числом.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Шаблон «{$pattern}» не разрешен для открытого идентификатора.</message>
+	<message key="editor.submission.schedulePublication">Запланировать для публикации</message>
 
 	<!-- Списки выбора рецензента -->
 	<message key="reviewer.list.count">Рецензентов: {$count}</message>

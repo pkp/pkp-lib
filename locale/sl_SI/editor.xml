@@ -74,7 +74,7 @@
 	<message key="editor.review.reviewerComments">Komentarji recenzenta</message>
 	<message key="editor.review.rateReviewer">Ocenite recenzenta</message>
 	<message key="editor.review.rateReviewer.description">Ocenite kvaliteto opravljene recenzije. Ocena ne bo vidna recnezentu.</message>
-	<message key="editor.review.reviewerRating.none">Brez ocene</message>	
+	<message key="editor.review.reviewerRating.none">Brez ocene</message>
 	<message key="editor.review.mustSelect">Izbrati morate recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Prišlo je do napake pri dodajanju recenzenta. Prosimo poskusite ponovno.</message>
 	<message key="editor.review.errorDeletingReviewer">Prišlo je do napake pri odstranjevanju recenzenta. Prosimo poskusite ponovno.</message>
@@ -126,7 +126,8 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Razveljavite odobritev korekture in s tem označite, da korektura še ni končana in da datoteka še ni pripravljena za produkcijo.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Javni identifikator '{$publicIdentifier}' ne sme biti številka.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Vzorec {$pattern} ni dovoljen kot javni identifikator.</message>
-	
+	<message key="editor.submission.schedulePublication">Dodeli v številko</message>
+
 	<!-- Reviewer selection lists -->
 	<message key="reviewer.list.count">{$count} recenzentov</message>
 	<message key="reviewer.list.itemsOfTotal">{$count} od {$total} recenzentov</message>

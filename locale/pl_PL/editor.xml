@@ -114,6 +114,7 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Cofnij zatwierdzenie korekty pliku, aby oznaczyć, że plik nie jest gotowy do publikacji.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Publiczny identyfikator '{$publicIdentifier}' nie może być liczbą.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Publiczny identyfikator nie może posiadać wzoru {$pattern}.</message>
+	<message key="editor.submission.schedulePublication">Zaplanuj do publikacji</message>
 	<message key="editor.submissionReview.sendEmail">Wyślij e-mail z powiadomieniem do autora(ów): {$authorName}</message>
 	<message key="editor.submissionReview.sendEmail.editors">Wyślij e-mail z powiadomieniem do redaktora(ów): {$editorNames}</message>
 	<message key="editor.review.newReviewRound">Wymagaj kolejnej rundy recenzji</message>

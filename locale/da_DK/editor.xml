@@ -46,6 +46,7 @@
 	<message key="editor.review.requestSent">Anmodning sendt</message>
 	<message key="editor.review.responseDue">Svar senest: {$date}</message>
 	<message key="editor.submission.review.currentFiles">Gældende bedømmelsesfiler for runde {$round}</message>
+	<message key="editor.submission.schedulePublication">Planlæg publicering</message>
 	<message key="editor.submission.fileList.includeAllStages">Vis filer fra alle tilgængelige redaktionelle trin.</message>
 	<message key="editor.submission.newRoundDescription">Her starter du en ny bedømmelsesrunde. Filer, der ikke er blevet brugt i tidligere bedømmelsesrunder er anført nedenfor.</message>
 	<message key="editor.submission.createNewRound">Start en ny bedømmelsesrunde</message>

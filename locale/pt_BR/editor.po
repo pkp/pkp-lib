@@ -329,6 +329,9 @@ msgstr "Localizar Usuário"
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "O padrão {$pattern} não é permitido para o identificador público."
 
+msgid "editor.submission.schedulePublication"
+msgstr "Agendar para Publicação"
+
 msgid "editor.review.reviewsAdded"
 msgstr "Sem avaliações por pares para importar"
 

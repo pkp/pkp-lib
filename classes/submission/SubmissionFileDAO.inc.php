@@ -75,11 +75,11 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			FROM	submission_files f
 				INNER JOIN submissions s ON s.submission_id = f.submission_id';
 		if (is_null($settingValue)) {
-			$sql .= 'LEFT JOIN submission_file_settings fs ON f.file_id = fs.file_id AND fs.setting_name = ?
+			$sql .= ' LEFT JOIN submission_file_settings fs ON f.file_id = fs.file_id AND fs.setting_name = ?
 				WHERE	(fs.setting_value IS NULL OR fs.setting_value = \'\')';
 		} else {
 			$params[] = (string) $settingValue;
-			$sql .= 'INNER JOIN submission_file_settings fs ON f.file_id = fs.file_id
+			$sql .= ' INNER JOIN submission_file_settings fs ON f.file_id = fs.file_id
 				WHERE	fs.setting_name = ? AND fs.setting_value = ?';
 		}
 

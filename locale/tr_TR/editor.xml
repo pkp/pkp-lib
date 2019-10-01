@@ -132,6 +132,7 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Düzeltme işleminin tamamlanmadığını ve dosyanın yayınlanmaya hazır olmadığını göstermek için bu düzeltme onayını iptal edin.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">'{$publicIdentifier}' genel belirleyici bir sayı olmamalıdır.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Ortak tanımlayıcı için {$pattern} modeline izin verilmez.</message>
+	<message key="editor.submission.schedulePublication">Yayınlanacağı Sayı:</message>
 	<message key="reviewer.list.count">{$count} hakem</message>
 	<message key="reviewer.list.filterRating">En az reyting</message>
 	<message key="reviewer.list.activeReviews">Aktif {$count}</message>

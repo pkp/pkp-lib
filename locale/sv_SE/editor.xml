@@ -126,6 +126,7 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Ta tillbaka godkännandet av det här korrekturet för att markera att korrekturläsningen inte är komplett ännu och att filen inte är klar att publiceras.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Den publika identifikatorn '{$publicIdentifier}' får inte vara en siffra.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Mönstret {$pattern} tillåts inte för den publika identifikatorn.</message>
+	<message key="editor.submission.schedulePublication">Planera för publicering</message>
 
 	<!-- Reviewer selection lists -->
 	<message key="reviewer.list.count">{$count} granskare</message>

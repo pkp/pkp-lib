@@ -176,6 +176,9 @@ msgstr "Envío del correo electrónico al usuario/a"
 msgid "editor.submission.proof.reminder"
 msgstr "Recordatorio de corrección"
 
+msgid "editor.submission.schedulePublication"
+msgstr "Programar para publicación"
+
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr "El archivo corregido tiene que ser aprobado antes de poder ser enviado a la etapa de producción. ¿Quiere aprobar este archivo?"
 

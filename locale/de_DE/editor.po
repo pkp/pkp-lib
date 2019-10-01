@@ -260,6 +260,9 @@ msgstr "Prüfer/in hinzufügen"
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr "Alle Dateien, die schon zu irgendeiner Einreichungsphase hochgeladen worden sind, können zur Liste der Dateien für das Lektorat hinzugefügt werden, indem Sie die Einschließen-Checkbox unten aktivieren und danach auf Suche klicken: Alle verfügbaren Dateien werden angezeigt und können ausgewählt werden, um sie in die Liste aufzunehmen. Zusätzliche Dateien, die noch nicht zu einer Phase hochgeladen worden sind, können der Liste durch Klicken des Datei-Hochladen-Links hinzugefügt werden."
 
+msgid "editor.submission.schedulePublication"
+msgstr "Zur Veröffentlichung vorsehen"
+
 msgid "editor.review"
 msgstr "Überprüfen"
 

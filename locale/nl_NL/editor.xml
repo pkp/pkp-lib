@@ -127,6 +127,7 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Maak de goedkeuring van deze proef ongedaan om aan te duiden dat proeflezing niet langer afgerond is en dat het bestand niet klaar is voor publicatie.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">De publieke identificatie '{$publicIdentifier}' mag geen cijfer zijn.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Het patroon {$pattern} is niet toegelaten voor de publieke identificatie.</message>
+	<message key="editor.submission.schedulePublication">Inplannen voor publicatie in</message>
 
 	<!-- Reviewer selection lists -->
 	<message key="reviewer.list.count">{$count} reviewers</message>

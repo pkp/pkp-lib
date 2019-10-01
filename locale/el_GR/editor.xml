@@ -103,6 +103,7 @@
 	<message key="editor.review.noReviewFilesUploaded.details">Δεν έχετε μεταφορτώσει αρχεία αξιολόγησης στην πλατφόρμα.</message>
 	<message key="editor.review.emailReviewer">Αποστολή μηνύματος στον Αξιολογητή</message>
 	<message key="editor.submission.production.productionReadyFiles">Αρχεία έτοιμα για την παραγωγή</message>
+	<message key="editor.submission.schedulePublication">Πρόγραμματισμός δημοσίευσης</message>
 	<message key="editor.submission.newRound">Νέος γύρος αξιολόγησης</message>
 	<message key="editor.submissionReview.recordDecision">Καταγραφή απόφασης Επιμελητή</message>
 	<message key="editor.submissionReview.recordRecommendation">Καταγραφή σύστασης Επιμελητή</message>

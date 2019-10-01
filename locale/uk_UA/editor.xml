@@ -125,6 +125,7 @@
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Скасувати схвалення цієї коректури, щоб вказати, що коректура ще не завершена, і файл не готовий до публікації.</message>
 	<message key="editor.publicIdentificationNumericNotAllowed">Відкритий ідентифікатор '{$publicIdentifier}' не може бути числом.</message>
 	<message key="editor.publicIdentificationPatternNotAllowed">Шаблон {$pattern} заборонено для відкритого ідентифікатора.</message>
+	<message key="editor.submission.schedulePublication">Запланувати для публікації</message>
 
 	<!-- Reviewer selection lists -->
 	<message key="reviewer.list.count">{$count} рецензентів</message>

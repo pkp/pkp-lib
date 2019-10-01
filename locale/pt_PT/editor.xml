@@ -113,6 +113,7 @@
 	<message key="editor.submission.proofreading.revokeProofApproval">Revogar Aprovação Provas</message>
 	<message key="editor.submission.proofreading.confirmCompletion">Aprovar esta prova para indicar que a revisão está completa e o ficheiro está pronto para ser publicado.</message>
 	<message key="editor.submission.proofreading.confirmRemoveCompletion">Revogar a aprovação para esta prova para indicar que a revisão não está completa e o ficheiro não está pronto para ser publicado.</message>
+	<message key="editor.submission.schedulePublication">Agendar para Publicação</message>
 	<message key="editor.submissionReview.sendEmail">Enviar um email de notificação ao(s) autor(es): {$authorName}</message>
 	<message key="editor.submissionReview.sendEmail.editors">Enviar um email de notificação ao(s) editor(es): {$editorNames}</message>
 	<message key="editor.review.anonymousReviewer">Revisor Anónimo</message>

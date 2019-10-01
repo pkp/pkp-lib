@@ -347,6 +347,9 @@ msgstr "Approuver la preuve"
 msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Retirer l’approbation de la preuve"
 
+msgid "editor.submission.schedulePublication"
+msgstr "Calendrier de publication"
+
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr "Les fichiers peuvent être inclus dans cette discussion à partir de la liste ci-dessous."
 

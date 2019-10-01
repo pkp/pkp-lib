@@ -119,4 +119,5 @@
 	<message key="editor.submission.newRoundDescription">Na putu ste da napravite novi krug recenziranja za ovu predaju. Fajlovi koji nisu korišćeni u prethodnim krugovima su izlistani niže.</message>
 	<message key="editor.article.confirmChangeReviewForm">Upozorenje: Menjanje obrasca recenzije uticaće na sve odgovore koje su dali recenzenti koristeći ovaj obrazac. Da li želite da nastavite?</message>
 	<message key="editor.submission.query.manageQueryNoteFilesDescription">Fajlovi mogu biti dodati uz diskusiju iz liste niže.</message>
+	<message key="editor.submission.schedulePublication">Dodeli za objavljivanje</message>
 </locale>

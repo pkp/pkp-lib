@@ -40,9 +40,13 @@ class Citation extends DataObject {
 	function getCitationWithLinks() {
 		$citation = $this->getRawCitation();
 		if (stripos($citation, '<a href=') === false) {
-			$citation = preg_replace(
-				'#((https?|ftp)://(\S*?\.\S*?))(([\s)\[\]{},;"\':<>])?(\.)?(\s|$))#i',
-				'<a href="$1">$1</a>$4',
+			$citation = preg_replace_callback(
+				'#(http|https|ftp)://[\d\w\.-]+\.[\w\.]{2,6}[^\s\]\[\<\>]*/?#',
+				function($matches) {
+					$trailingDot = in_array($char = substr($matches[0], -1), array('.', ','));
+					$url = rtrim($matches[0], '.,');
+					return "<a href=\"$url\">$url</a>" . ($trailingDot?$char:'');
+				},
 				$citation
 			);
 		}

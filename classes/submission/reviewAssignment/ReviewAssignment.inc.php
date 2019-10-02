@@ -653,7 +653,7 @@ class ReviewAssignment extends DataObject {
 	 * (Includes default '' => "Choose One" string.)
 	 * @return array recommendation => localeString
 	 */
-	function getReviewerRecommendationOptions() {
+	static function getReviewerRecommendationOptions() {
 
 		static $reviewerRecommendationOptions = array(
 				'' => 'common.chooseOne',

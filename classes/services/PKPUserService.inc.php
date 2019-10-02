@@ -71,7 +71,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	public function getMax($args = array()) {
 		$userListQB = $this->_getQueryBuilder($args);
 		$countQO = $userListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
+		$countRange = new DBResultRange($args['count']??null, 1);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
 		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithData');

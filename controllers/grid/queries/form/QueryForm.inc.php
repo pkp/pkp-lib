@@ -222,16 +222,17 @@ class QueryForm extends Form {
 				$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($query->getAssocId());
 
 				// Get current users roles
-				$userRoles = array();
+				$assignedRoles = [];
 				$usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId());
 				while ($usersAssignment = $usersAssignments->next()) {
 					$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 					$userGroup = $userGroupDao->getById($usersAssignment->getUserGroupId());
-					$userRoles[] = $userGroup->getRoleId();
+					$assignedRoles[] = $userGroup->getRoleId();
 				}
 
 				// if current user is editor, add all reviewers
-				if ($user->hasRole(array(ROLE_ID_MANAGER), $context->getId()) || $user->hasRole(array(ROLE_ID_SITE_ADMIN), CONTEXT_SITE) || array_intersect(array(ROLE_ID_SUB_EDITOR), $userRoles)) {
+				if ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) ||
+						array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $assignedRoles)) {
 					foreach ($reviewAssignments as $reviewAssignment) {
 						$includeUsers[] = $reviewAssignment->getReviewerId();
 					}
@@ -250,7 +251,7 @@ class QueryForm extends Form {
 				}
 
 				// if current user is author, add open reviewers who have accepted the request
-				if (array_intersect(array(ROLE_ID_AUTHOR), $userRoles)) {
+				if (array_intersect(array(ROLE_ID_AUTHOR), $assignedRoles)) {
 					foreach ($reviewAssignments as $reviewAssignment) {
 						if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()){
 							$includeUsers[] = $reviewAssignment->getReviewerId();

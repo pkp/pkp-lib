@@ -78,7 +78,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * 		@option int count
 	 * 		@option int offset
 	 * }
-	 * @return array
+	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
 		$emailTemplateQB = $this->_getQueryBuilder($args);
@@ -88,7 +88,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		$result = $emailTemplateDao->retrieveRange($emailTemplateQueryParts[0], $emailTemplateQueryParts[1], $range);
 		$queryResults = new DAOResultFactory($result, $emailTemplateDao, '_fromRow');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**
@@ -322,7 +322,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		$result = $emailTemplateDao->retrieve($emailTemplateQO->toSql(), $emailTemplateQO->getBindings());
 		$queryResults = new DAOResultFactory($result, $emailTemplateDao, '_fromRow');
 		$deletedKeys = [];
-		foreach ($queryResults->toArray() as $emailTemplate) {
+		while ($emailTemplate = $queryResults->next()) {
 			$deletedKeys[] = $emailTemplate->getData('key');
 			$this->delete($emailTemplate);
 		}

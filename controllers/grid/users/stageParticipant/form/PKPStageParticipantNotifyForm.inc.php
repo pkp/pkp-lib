@@ -79,7 +79,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				]);
 				$customTemplateKeys = array_map(function($emailTemplate) {
 					return $emailTemplate->getData('key');
-				}, $customTemplates);
+				}, iterator_to_array($customTemplates));
 				$templateKeys = array_merge($templateKeys, $customTemplateKeys);
 				break;
 			}
@@ -90,6 +90,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		if (array_key_exists($currentStageId, $stageTemplates)) {
 			$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
 		}
+		$templates = array();
 		foreach ($templateKeys as $templateKey) {
 			$thisTemplate = $this->_getMailTemplate($submission, $templateKey);
 			$thisTemplate->assignParams(array());

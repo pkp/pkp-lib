@@ -46,7 +46,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * 		@option int count
 	 * 		@option int offset
 	 * }
-	 * @return array
+	 * @return Iterator
 	 */
 	public function getMany($args = []) {
 		$publicationQB = $this->_getQueryBuilder($args);
@@ -56,7 +56,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$result = $publicationDao->retrieveRange($publicationQO->toSql(), $publicationQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $publicationDao, '_fromRow');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**

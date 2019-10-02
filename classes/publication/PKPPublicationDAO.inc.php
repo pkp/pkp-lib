@@ -61,7 +61,9 @@ class PKPPublicationDAO extends SchemaDAO {
 		$publication = parent::_fromRow($primaryRow);
 
 		// Get authors
-		$publication->setData('authors', Services::get('author')->getMany(['publicationIds' => $publication->getId()]));
+		$publication->setData('authors', iterator_to_array(
+			Services::get('author')->getMany(['publicationIds' => $publication->getId()])
+		));
 
 		// Get controlled vocab metadata
 		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');

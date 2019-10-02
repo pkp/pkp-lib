@@ -670,7 +670,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		$searchPhraseSubmissionIds = array_map(function($submission) {
 			return $submission->getId();
-		}, $submissions);
+		}, iterator_to_array($submissions));
 
 		if (!empty($submissionIds)) {
 			$submissionIds = array_intersect($submissionIds, $searchPhraseSubmissionIds);

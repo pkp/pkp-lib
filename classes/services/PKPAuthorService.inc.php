@@ -46,7 +46,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 * 		@option int count
 	 * 		@option int offset
 	 * }
-	 * @return array
+	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
 		$authorQB = $this->_getQueryBuilder($args);
@@ -56,7 +56,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 		$result = $authorDao->retrieveRange($authorQO->toSql(), $authorQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $authorDao, '_fromRow');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**

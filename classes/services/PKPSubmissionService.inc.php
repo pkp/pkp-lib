@@ -53,7 +53,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
-	 * @return Iterator
+	 * @return \Iterator
 	 */
 	public function getMany($args = array()) {
 		$submissionListQB = $this->_getQueryBuilder($args);
@@ -616,7 +616,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * Get review rounds for a submission
 	 *
 	 * @param $submission Submission
-	 * @return Iterator
+	 * @return \Iterator
 	 */
 	public function getReviewRounds($submission) {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');

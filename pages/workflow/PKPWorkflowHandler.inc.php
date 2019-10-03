@@ -333,6 +333,8 @@ abstract class PKPWorkflowHandler extends Handler {
 			'workflowStages' => $workflowStages,
 		]);
 
+		$this->setupIndex($request);
+
 		$templateMgr->display('workflow/workflow.tpl');
 	}
 
@@ -622,6 +624,14 @@ abstract class PKPWorkflowHandler extends Handler {
 		parent::setupTemplate($request);
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_EDITOR);
 	}
+
+	/**
+	 * Placeholder method to be overridden by apps in order to add
+	 * app-specific data to the template
+	 *
+	 * @param $request Request
+	 */
+	public function setupIndex($request) {}
 
 	//
 	// Protected helper methods

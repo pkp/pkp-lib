@@ -1421,9 +1421,6 @@ msgstr "\"{$name}\" ({$username}) was removed as an auditor for the file \"{$fil
 msgid "submission.event.fileAuditUploaded"
 msgstr "\"{$name}\" ({$username}) has completed an audit and uploaded \"{$file}.\""
 
-msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) has signed off on the signoff for \"{$file}.\""
-
 msgid "submission.event.proofsApproved"
 msgstr "\"{$name}\" ({$username}) has approved the proofs for \"{$formatName}.\""
 

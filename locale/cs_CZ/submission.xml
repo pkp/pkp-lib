@@ -439,7 +439,6 @@
 	<message key="submission.event.fileAuditorAdded">Uživatel "{$name}" ({$username}) byl přidán jako posuzovatel pro soubor "{$file}."</message>
 	<message key="submission.event.fileAuditorCleared">Uživateli "{$name}" ({$username}) byla odebrána role posuzovatele pro soubor "{$file}."</message>
 	<message key="submission.event.fileAuditUploaded">Uživatel "{$name}" ({$username}) ukončil a nahrál posouzení souboru "{$file}."</message>
-	<message key="submission.event.signoffSignoff">Uživatel "{$name}" ({$username}) se odhlásil od souboru "{$file}."</message>
 	<message key="submission.event.proofsApproved">Uživatel "{$name}" ({$username}) schválil korektury pro "{$formatName}."</message>
 	<message key="submission.overview">Přehled příspěvku</message>
 	<message key="submission.description">Popis</message>

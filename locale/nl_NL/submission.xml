@@ -514,7 +514,6 @@
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) is toegevoegd als corrector voor het bestand "{$file}".</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) is verwijderd als corrector voor het bestand "{$file}".</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) heeft een proeflezing voltooid en het bestand "{$file}" opgeladen.</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) heeft zich afgemeld voor "{$file}".</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) heeft de proeven voor "{$formatName}" goedgekeurd.</message>
 	<message key="submission.overview">Overzicht inzendingen</message>
 	<message key="submission.description">Beschrijving</message>

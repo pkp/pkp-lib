@@ -470,7 +470,6 @@
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) lisättiin tiedoston "{$file}" tarkastajaksi.</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) on poistettiin tiedoston "{$file}" tarkastajan roolista.</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) on suorittanut tarkastuksen ja on ladannut tiedoston "{$file}."</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) on kirjautunut ulos tiedoston "{$file}" uloskirjauksessa.</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) on hyväksynyt "{$formatName}":n korjausvedokset.</message>
 	<message key="submission.overview">Käsikirjoituksen yleiskatsaus</message>
 	<message key="submission.description">Kuvaus</message>

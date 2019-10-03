@@ -390,7 +390,6 @@
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) је додат као ревизор за фајл "{$file}."</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) је уклоњен као ревизор за фајл "{$file}."</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) је комплетирао ревизију за постављен "{$file}."</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) је одјављен на делу за одјаву за "{$file}."</message>
 	<message key="editor.submission.addAuditorError">Појавила се грешка у додели ревизора. Покушајте поново.</message>
 	<message key="submission.event.fileDeleted">{$username} је обрисао фајл {$originalFileName}" заб пријављен чланак {$submissionId}.</message>
 	<message key="submission.event.revisionUploaded">{$username} је поставио на сервер ревизију фајла "{$originalFileName}" за пријављен чланак  {$submissionId}.</message>

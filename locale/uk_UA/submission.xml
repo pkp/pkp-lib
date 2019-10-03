@@ -510,7 +510,6 @@
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) був доданий як аудитор для файлу "{$file}."</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) був видалений як аудитор для файлу "{$file}."</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) завершив аудит і завантажив "{$file}."</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) остаточно схвалив новий випуск для "{$file}."</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) схвалив коректури для "{$formatName}."</message>
 	<message key="submission.overview">Огляд подання</message>
 	<message key="submission.description">Опис</message>

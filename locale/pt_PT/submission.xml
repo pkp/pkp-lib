@@ -433,7 +433,6 @@
 	<message key="submission.event.fileAuditorAdded">{$name}" ({$username}) foi adicionado como um auditor para o ficheiro "{$file}".</message>
 	<message key="submission.event.fileAuditorCleared">{$name}" ({$username}) foi removido como um auditor para o ficheiro "{$file}".</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) concluíu uma auditoria e enviou "{$file}."</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) assinou o início da sessão a "{$file}".</message>
 	<message key="submission.event.proofsApproved">{$name}" ({$username}) aprovou as provas para "{$formatName}".</message>
 	<message key="submission.overview">Visão Geral Submissão</message>
 	<message key="submission.description">Descrição</message>

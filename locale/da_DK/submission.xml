@@ -455,7 +455,6 @@
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) blev tilføjet som auditør i forbindelse med filen "{$file}."</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) blev fjernet som auditør i forbindelse med filen "{$file}."</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) har afsluttet en revision og uploadet "{$file}."</message>
-	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) underskrevet med godkendelse i forbindelse med "{$file}."</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) har godkendt korrekturen til "{$formatName}."</message>
 	<message key="submission.overview">Indsendelsesoversigt</message>
 	<message key="submission.description">Beskrivelse</message>

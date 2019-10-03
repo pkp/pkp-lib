@@ -1119,9 +1119,6 @@ msgstr "\"{$name}\" ({$username}) n'est plus vérificateur du fichier \"{$file}\
 msgid "submission.event.fileAuditUploaded"
 msgstr "\"{$name}\" ({$username}) a terminé la vérification et téléversé \"{$file}\"."
 
-msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) a fermé la session pour \"{$file}\"."
-
 msgid "submission.event.proofsApproved"
 msgstr "\"{$name}\" ({$username}) a approuvé les épreuves pour \"{$formatName}\"."
 

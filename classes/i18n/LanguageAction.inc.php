@@ -94,7 +94,7 @@ class LanguageAction {
 
 		// Download and feed the pack to the tar process
 		$languagePackUrl = sprintf(LANGUAGE_PACK_TAR_URL, $versionString, $locale);
-		$wrapper =& FileWrapper::wrapper($languagePackUrl);
+		$wrapper = FileWrapper::wrapper($languagePackUrl);
 		if (!$wrapper->open()) {
 			$errors[] = __('admin.languages.download.cannotOpen');
 			return false;
@@ -128,7 +128,7 @@ class LanguageAction {
 		$locales = AppLocale::getAllLocales();
 		if (!isset($locales[$locale])) {
 			// The locale does not exist in the local locale list
-			$wrapper =& FileWrapper::wrapper(LOCALE_REGISTRY_FILE);
+			$wrapper = FileWrapper::wrapper(LOCALE_REGISTRY_FILE);
 			$contents = $wrapper->contents();
 			$pos = strpos($contents, '</locales>');
 			if ($pos === false) {

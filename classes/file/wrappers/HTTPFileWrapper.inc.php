@@ -108,7 +108,7 @@ class HTTPFileWrapper extends FileWrapper {
 					$this->info['path'] = $newPath;
 					$this->url = $this->glue_url($this->info);
 				}
-				$returner =& FileWrapper::wrapper($this->url);
+				$returner = self::wrapper($this->url);
 				$returner->redirects = $this->redirects - 1;
 				return $returner;
 			}

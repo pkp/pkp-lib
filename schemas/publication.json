@@ -24,7 +24,6 @@
 		"authors": {
 			"type": "array",
 			"description": "A list of the authors for this publication.",
-			"apiSummary": true,
 			"readOnly": true,
 			"items": {
 				"$ref": "#/definitions/Author"

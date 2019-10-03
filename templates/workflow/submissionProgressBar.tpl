@@ -9,8 +9,8 @@
  *}
 {* Calculate the selected tab index for the current stage *}
 {assign var=selectedTabIndex value=0}
-{foreach from=$workflowStages item=stage}
-	{if $stage.id < $stageId}
+{foreach from=$workflowStages item=$stage}
+	{if $stage.id < $currentStageId}
 		{assign var=selectedTabIndex value=$selectedTabIndex+1}
 	{/if}
 {/foreach}
@@ -29,15 +29,10 @@
 </script>
 <div id="stageTabs" class="pkp_controllers_tab">
 	<ul>
-		{foreach from=$workflowStages item=stage}
-			<li class="pkp_workflow_{$stage.path} stageId{$stage.id}{if $stage.statusKey} initiated{/if}">
+		{foreach from=$workflowStages item=$stage}
+			<li class="pkp_workflow_{$stage.path} stageId{$stage.id}{if $stage.id === $currentStageId} initiated{/if}">
 				<a href="{url router=$smarty.const.ROUTE_COMPONENT component="tab.workflow.WorkflowTabHandler" op="fetchTab" submissionId=$submission->getId() stageId=$stage.id escape=false}">
 					{translate key=$stage.translationKey}
-					{if $stage.statusKey}
-					<span class="pkp_screen_reader">
-						{translate key=$stage.statusKey}
-					</span>
-					{/if}
 				</a>
 			</li>
 		{/foreach}

@@ -451,6 +451,7 @@
 	<message key="submission.event.revisionDeleted">Una revisione del file "{$originalFileName}" è stata cancellata per la proposta {$submissionId} da parte di {$username}.</message>
 	<message key="submission.event.lastRevisionDeleted">Per il file "{$title}" l'ultima revisione è stata rimossa da {$username}.</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) ha finito l'audit come valutatore e ha caricato il file "{$file}."</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) è uscito dal sistema durante la lavorazione finale di "{$file}."</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) ha approvato le bozze per "{$formatName}."</message>
 	<message key="submission.overview">Visione d'insieme della proposta</message>
 	<message key="submission.description">Descrizione</message>

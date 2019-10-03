@@ -463,6 +463,7 @@
 	<message key="submission.event.fileAuditorAdded">«{$name}» ({$username}) s'ha afegit a un auditor per al fitxer «{$file}».</message>
 	<message key="submission.event.fileAuditorCleared">«{$name}» ({$username}) s'ha eliminat com a auditor del fitxer «{$file}».</message>
 	<message key="submission.event.fileAuditUploaded">«{$name}» ({$username}) ha completat una auditoria i ha carregat «{$file}».</message>
+	<message key="submission.event.signoffSignoff">«{$name}» ({$username}) ha tancat la sessió per a «{$file}/».</message>
 	<message key="submission.event.proofsApproved">«{$name}» ({$username}) ha aprovat les galerades per a «{$formatName}».</message>
 	<message key="submission.overview">Vista general de la tramesa</message>
 	<message key="submission.description">Descripció</message>

@@ -1187,6 +1187,9 @@ msgstr "Se eliminó a \"{$name}\" ({$username}) como uno de los auditores/as del
 msgid "submission.event.fileAuditUploaded"
 msgstr "\"{$name}\" ({$username}) completó una auditoría y subió \"{$file}.\""
 
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) cerró la sesión en el cierre de sesión de \"{$file}.\""
+
 msgid "submission.event.proofsApproved"
 msgstr "\"{$name}\" ({$username}) aprobó los cambios de \"{$formatName}.\""
 

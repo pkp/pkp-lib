@@ -1379,6 +1379,9 @@ msgstr "\"{$name}\" ({$username}) wurde als Prüfer/in für die Datei \"{$file}\
 msgid "submission.event.fileAuditUploaded"
 msgstr "\"{$name}\" ({$username}) hat eine Prüfung abgeschlossen und \"{$file}\" hochgeladen."
 
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) hat die Datei \"{$file}\" freigegeben."
+
 msgid "submission.event.proofsApproved"
 msgstr "\"{$name}\" ({$username}) hat die Korrekturfahnen für \"{$formatName}\" angenommen."
 

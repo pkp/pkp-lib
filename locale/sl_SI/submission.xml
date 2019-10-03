@@ -512,6 +512,7 @@
 	<message key="submission.event.fileAuditorAdded">"{$name}" ({$username}) je bil dodeljen kot revizor za datoteko "{$file}."</message>
 	<message key="submission.event.fileAuditorCleared">"{$name}" ({$username}) je bil odstranjen kot revizor datoteke "{$file}."</message>
 	<message key="submission.event.fileAuditUploaded">"{$name}" ({$username}) je končal revizijo in naložil datoteko "{$file}."</message>
+	<message key="submission.event.signoffSignoff">"{$name}" ({$username}) ni več dodeljen za delo na "{$file}."</message>
 	<message key="submission.event.proofsApproved">"{$name}" ({$username}) je odobril korekturo za "{$formatName}."</message>
 	<message key="submission.overview">Pregled prispevka</message>
 	<message key="submission.description">Opis</message>

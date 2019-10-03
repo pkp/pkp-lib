@@ -250,7 +250,24 @@ class PluginGalleryGridHandler extends GridHandler {
 		// Download the file and ensure the MD5 sum
 		$fileManager = new FileManager();
 		$destPath = tempnam(sys_get_temp_dir(), 'plugin');
-		$fileManager->copyFile($plugin->getReleasePackage(), $destPath);
+
+		$wrapper = FileWrapper::wrapper($plugin->getReleasePackage());
+		while (true) {
+			$newWrapper = $wrapper->open();
+			if (is_a($newWrapper, 'FileWrapper')) {
+				// Follow a redirect
+				$wrapper = $newWrapper;
+			} elseif (!$newWrapper) {
+				fatalError('Unable to open plugin URL!');
+			} else {
+				// OK, we've found the end result
+				break;
+			}
+		}
+
+		if (!$wrapper->save($destPath)) fatalError('Unable to save plugin to local file!');
+		$wrapper->close();
+
 		if (md5_file($destPath) !== $plugin->getReleaseMD5()) fatalError('Incorrect MD5 checksum!');
 
 		// Extract the plugin

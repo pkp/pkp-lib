@@ -72,7 +72,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 				$submissionId,
 				null,
 				$type,
-				$submission->getData('contextId'),
+				$submission->getData('contextId')
 			);
 			$notification = $notificationFactory->next();
 

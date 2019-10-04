@@ -112,8 +112,8 @@
 									<li v-for="publication in submission.publications" :key="publication.id">
 										<button
 											class="pkpDropdown__action"
-											:disabled="publication.id === workingPublicationId"
-											@click="setWorkingPublicationId(publication)"
+											:disabled="publication.id === workingPublication"
+											@click="setWorkingPublicationById(publication.id)"
 										>
 											{{ publication.id }} /
 											<template v-if="publication.status === getConstant('STATUS_QUEUED') && publication.id === currentPublication.id">{translate key="publication.status.unscheduled"}</template>

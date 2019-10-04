@@ -147,7 +147,7 @@
 	 * @private
 	 * @type {Object?}
 	 */
-	$.pkp.controllers.grid.settings.roles.form.
+	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.
 			notChangeMetadataEditPermissionRoles_ = null;
 
@@ -157,7 +157,7 @@
 	 * @private
 	 * @type {Object?}
 	 */
-	$.pkp.controllers.grid.settings.roles.form.
+	$.pkp.controllers.grid.users.stageParticipant.form.
 			StageParticipantNotifyHandler.prototype.
 			permitMetadataEditUserGroupIds_ = null;
 

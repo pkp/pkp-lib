@@ -151,8 +151,13 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 					break;
 					case 'publications':
 						$values[$prop] = array_map(
-							function($publication) use ($args) {
-								return Services::get('publication')->getFullProperties($publication, $args);
+							function($publication) use ($args, $submission, $submissionContext) {
+								return Services::get('publication')->getSummaryProperties(
+									$publication,
+									$args + [
+										'submission' => $submission,
+										'context' => $submissionContext,
+									]);
 							},
 							(array) $submission->getData('publications')
 						);

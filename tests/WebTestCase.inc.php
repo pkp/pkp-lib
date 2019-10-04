@@ -470,7 +470,7 @@ abstract class WebTestCase extends PKPTestCase {
 	protected function waitJQuery() {
 		$driver = self::$driver;
 		self::$driver->wait()->until(function() use ($driver) {
-			return $driver->executeScript('return jQuery.active == 0;');
+			return $driver->executeScript("return typeof jQuery !== 'undefined' && jQuery.active == 0;");
 		});
 	}
 }

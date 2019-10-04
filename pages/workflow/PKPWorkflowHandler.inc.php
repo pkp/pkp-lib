@@ -235,8 +235,8 @@ abstract class PKPWorkflowHandler extends Handler {
 				[
 					'context' => $submissionContext,
 					'submission' => $submission,
-					'request' => $request
-				],
+					'request' => $request,
+				]
 			);
 		}
 

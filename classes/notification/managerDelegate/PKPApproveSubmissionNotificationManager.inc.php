@@ -25,13 +25,13 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 		parent::__construct($notificationType);
 	}
 
-	/** 
+	/**
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	function getNotificationUrl($request, $notification) {
 		$dispatcher = Application::get()->getDispatcher();
 		$context = $request->getContext();
-		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());	
+		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
 	}
 
 	/**
@@ -56,8 +56,6 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submissionId);
 
-		$context = $request->getContext();
-		$contextId = $context->getId();
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 
 		$notificationTypes = array(
@@ -74,7 +72,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 				$submissionId,
 				null,
 				$type,
-				$contextId
+				$submission->getData('contextId')
 			);
 			$notification = $notificationFactory->next();
 
@@ -84,7 +82,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 					$request,
 					null,
 					$type,
-					$contextId,
+					$submission->getData('contextId'),
 					ASSOC_TYPE_SUBMISSION,
 					$submissionId,
 					NOTIFICATION_LEVEL_NORMAL
@@ -101,7 +99,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	 */
 	protected function multipleTypesUpdate() {
 		return true;
-	} 
+	}
 }
 
 

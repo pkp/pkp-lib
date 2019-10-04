@@ -143,6 +143,9 @@ msgstr "Are you sure you want to delete all scheduled task execution logs?"
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Clear Scheduled Task Execution Logs"
 
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publish submissions scheduled for publication"
+
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Review reminder"
 

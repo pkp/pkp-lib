@@ -205,8 +205,8 @@ class PKPSchemaService {
 			}
 			$propSchema = $schema->properties->{$propName};
 			if (!empty($propSchema->multilingual)) {
-				$values = is_array($propValue) ? $propValue : [$propValue];
-				foreach ($propValue as $localeKey => $localeValue) {
+				$values = [];
+				foreach ((array) $propValue as $localeKey => $localeValue) {
 					$values[$localeKey] = $this->coerce($localeValue, $propSchema->type, $propSchema);
 				}
 				if (!empty($values)) {

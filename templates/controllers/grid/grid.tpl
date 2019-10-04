@@ -29,6 +29,9 @@
 				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
 			{rdelim}
 		);
+		{foreach from=$gridConstants key=$constant item=$value}
+			$.pkp.cons.{$constant} = {$value};
+		{/foreach}
 	{rdelim});
 </script>
 

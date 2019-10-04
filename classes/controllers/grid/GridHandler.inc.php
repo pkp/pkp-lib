@@ -94,6 +94,9 @@ class GridHandler extends PKPHandler {
 	/** @var array The grid features. */
 	var $_features;
 
+	/** @var array Constants that should be passed to the template */
+	var $_constants = [];
+
 
 	/**
 	 * Constructor.
@@ -648,6 +651,9 @@ class GridHandler extends PKPHandler {
 
 		// Assign features.
 		$templateMgr->assign('features', $this->getFeatures());
+
+		// Assign constants.
+		$templateMgr->assign('gridConstants', $this->_constants);
 
 		// Let the view render the grid.
 		return new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));

@@ -30,16 +30,16 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
 	 * actions and it will force the usage of the gridRow.tpl.
 	 * If you want to use a different grid row template file, set this flag to
 	 * false and make sure to use a template file that adds row actions.
+	 * @param $grid GridHandler The grid this feature is to be part of
 	 */
-	function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true) {
+	function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true, $grid = null) {
 		parent::__construct($overrideRowTemplate);
 
-		$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
-		$templateMgr->setConstants([
-			'ORDER_CATEGORY_GRID_CATEGORIES_ONLY',
-			'ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY',
-			'ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS',
-		]);
+		if ($grid) {
+			$grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_ONLY'] = ORDER_CATEGORY_GRID_CATEGORIES_ONLY;
+			$grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY'] = ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY;
+			$grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS'] = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS;
+		}
 
 		$this->addOptions(array('type' => $typeOption));
 	}

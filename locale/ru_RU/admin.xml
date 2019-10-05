@@ -57,8 +57,8 @@
 	<message key="admin.scheduledTask.downloadLog">Ваша инсталляция {$softwareName} автоматически выполнила и завершила эту задачу, вы можете скачать файл с журналом событий по этой ссылке: {$url}</message>
 	<message key="admin.scheduledTask.confirmClearLogs">Вы уверены, что хотите удалить все журналы событий, содержащие информацию о выполнении запланированных задач?</message>
 	<message key="admin.scheduledTask.clearLogs">Удалить журналы событий с информацией о выполнении запланированных задач</message>
-	<message key="admin.scheduledTask.clearLogs">Удалить журналы событий с информацией о выполнении запланированных задач</message>
 	<message key="admin.scheduledTask.publishSubmissions">Опубликовать материалы, запланированные к публикации</message>
+	<message key="admin.scheduledTask.reviewReminder">Напоминание рецензенту</message>
 	<message key="admin.scheduledTask.subscriptionExpiryReminder">Напоминание об окончании подписки</message>
 	<message key="admin.server.apacheVersion">Версия Apache</message>
 	<message key="admin.server.dbDriver">Драйвер базы данных</message>

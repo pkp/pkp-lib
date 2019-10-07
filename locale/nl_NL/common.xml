@@ -186,6 +186,7 @@
 	<message key="common.notApplicableShort">NVT</message>
 	<message key="common.notAvailable">Niet beschikbaar</message>
 	<message key="common.note">Opmerking</message>
+	<message key="common.noTemporaryFile">Het bestand dat u heeft opgeladen kan niet worden gevonden. Probeer het opnieuw op te laden.</message>
 	<message key="common.notes">Opmerkingen</message>
 	<message key="common.notes.tooltip">Noten (geel: bevat nieuwe noten; blauw: bevat noten die al gezien waren; grijs: bevat geen noten)</message>
 	<message key="common.notified">Bericht gegeven</message>

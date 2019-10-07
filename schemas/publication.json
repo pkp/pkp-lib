@@ -98,19 +98,10 @@
 					"type": "integer",
 					"writeOnly": true
 				},
-				"name": {
+				"dateUploaded": {
 					"type": "string"
 				},
 				"uploadName": {
-					"type": "string"
-				},
-				"width": {
-					"type": "integer"
-				},
-				"height": {
-					"type": "integer"
-				},
-				"dateUploaded": {
 					"type": "string"
 				},
 				"altText": {

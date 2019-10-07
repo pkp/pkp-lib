@@ -193,6 +193,7 @@
 	<message key="common.notApplicableShort">بلا</message>
 	<message key="common.notAvailable">غير متاح</message>
 	<message key="common.note">ملاحظة</message>
+	<message key="common.noTemporaryFile">تعذر العثور على الملف الذي قمت برفعه. لطفاً، حاول رفعه مرة أخرى.</message>
 	<message key="common.notes">ملاحظات</message>
 	<message key="common.notes.tooltip">ملاحظات (الأصفر: لديه ملاحظات جديدة؛ الأزرق: لديه ملاحظات مقروءة؛ الرمادي: لا ملاحظات عليه)</message>
 	<message key="common.notified">مُبَلَّغ</message>

@@ -250,7 +250,6 @@
 	<message key="manager.setup.layout.sidebar.invalidBlock">تعذر العثور على الكتلة {$name}. لطفاً، تأكد من أن الإضافة المعنية منصبة بشكل صحيح ومُمَكنة.</message>
 	<message key="manager.setup.loggingAndAuditing">تسجيل الوقائع والمراجعة</message>
 	<message key="manager.setup.logo">الصورة المصغرة</message>
-	<message key="manager.setup.noTemporaryFile">تعذر العثور على الملف الذي قمت برفعه. لطفاً، حاول رفعه مرة أخرى.</message>
 	<message key="manager.setup.notifications">إشعار بتقديم المؤلف للطلب</message>
 	<message key="manager.setup.notifications.copySpecifiedAddress">أرسل نسخة إلى هذا العنوان</message>
 	<message key="manager.setup.notifications.description">يحصل المؤلفون تلقائياً على رسالة تبلغهم باستلام طلبهم. يمكنك الحصول على نسخ من هذه الرسالة موجهة إلى العناوين الآتية:</message>

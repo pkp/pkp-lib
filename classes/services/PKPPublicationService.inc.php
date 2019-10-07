@@ -273,6 +273,18 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$primaryLocale
 		);
 
+		// If a new file has been uploaded, check that the temporary file exists and
+		// the current user owns it
+		$user = \Application::get()->getRequest()->getUser();
+		\ValidatorFactory::temporaryFilesExist(
+			$validator,
+			['coverImage'],
+			['coverImage'],
+			$props,
+			$allowedLocales,
+			$user ? $user->getId() : null
+		);
+
 		if ($validator->fails()) {
 			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_PUBLICATION), $allowedLocales);
 		}
@@ -328,16 +340,36 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$publication->setData('lastModified', Core::getCurrentDate());
 		$publicationId = DAORegistry::getDAO('PublicationDAO')->insertObject($publication);
 		$publication = $this->get($publicationId);
+		$submission = Services::get('submission')->get($publication->getData('submissionId'));
 
 		// Parse the citations
 		if ($publication->getData('citationsRaw')) {
 			DAORegistry::getDAO('CitationDAO')->importCitations($publication->getId(), $publication->getData('citationsRaw'));
 		}
 
+		// Move uploaded files into place and update the settings
+		if ($publication->getData('coverImage')) {
+			$userId = $request->getUser() ? $request->getUser()->getId() : null;
+
+			$submissionContext = \Application::get()->getRequest()->getContext();
+			if ($submissionContext->getId() !== $submission->getData('contextId')) {
+				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
+			}
+
+			$supportedLocales = $submissionContext->getSupportedLocales();
+			foreach ($supportedLocales as $localeKey) {
+				if (!array_key_exists($localeKey, $publication->getData('coverImage'))) {
+					continue;
+				}
+				$value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $userId, $localeKey, true);
+			}
+
+			$publication = $this->edit($publication, ['coverImage' => $value], $request);
+		}
+
 		\HookRegistry::call('Publication::add', [$publication, $request]);
 
 		// Update a submission's status based on the status of its publications
-		$submission = Services::get('submission')->get($publication->getData('submissionId'));
 		$submission = Services::get('submission')->updateStatus($submission);
 
 		return $publication;
@@ -395,15 +427,33 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
 	 */
 	public function edit($publication, $params, $request) {
-		$publicationDao = DAORegistry::getDAO('PublicationDAO');
+		$submission = Services::get('submission')->get($publication->getData('submissionId'));
 
-		$newPublication = $publicationDao->newDataObject();
+		// Move uploaded files into place and update the params
+		if (array_key_exists('coverImage', $params)) {
+			$userId = $request->getUser() ? $request->getUser()->getId() : null;
+
+			$submissionContext = \Application::get()->getRequest()->getContext();
+			if ($submissionContext->getId() !== $submission->getData('contextId')) {
+				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
+			}
+
+			$supportedLocales = $submissionContext->getSupportedLocales();
+			foreach ($supportedLocales as $localeKey) {
+				if (!array_key_exists($localeKey, $params['coverImage'])) {
+					continue;
+				}
+				$params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $userId, $localeKey, true);
+			}
+		}
+
+		$newPublication = DAORegistry::getDAO('PublicationDAO')->newDataObject();
 		$newPublication->_data = array_merge($publication->_data, $params);
 		$newPublication->stampModified();
 
 		\HookRegistry::call('Publication::edit', [$newPublication, $publication, $params, $request]);
 
-		$publicationDao->updateObject($newPublication);
+		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);
 		$newPublication = $this->get($newPublication->getId());
 
 		// Parse the citations
@@ -412,7 +462,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		}
 
 		// Log an event when publication data is updated
-		$submission = Services::get('submission')->get($publication->getData('submissionId'));
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
 		\SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
@@ -513,5 +562,96 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$submission = $submission = Services::get('submission')->updateStatus($submission);
 
 		\HookRegistry::call('Publication::delete', [$publication]);
+	}
+
+	/**
+	 * Handle a publication setting for an uploaded file
+	 *
+	 * - Moves the temporary file to the public directory
+	 * - Resets the param value to what is expected to be stored in the db
+	 * - If a null value is passed, deletes any existing file
+	 *
+	 * This method is protected because all operations which edit publications should
+	 * go through the add and edit methods in order to ensure that
+	 * the appropriate hooks are fired.
+	 *
+	 * @param Publication $publication The publication being edited
+	 * @param Submission $submission The submission this publication is part of
+	 * @param mixed $value The param value to be saved. Contains the temporary
+	 *  file ID if a new file has been uploaded.
+	 * @param string $settingName The name of the setting to save, typically used
+	 *  in the filename.
+	 * @param integer $userId ID of the user who owns the temporary file
+	 * @param string $localeKey Optional. Pass if the setting is multilingual
+	 * @param boolean $isImage Optional. For image files which include alt text in value
+	 * @return string|array|null New param value or null on failure
+	 */
+	protected function _saveFileParam($publication, $submission, $value, $settingName, $userId, $localeKey = '', $isImage = false) {
+
+		// If the value is null, delete any existing unused file in the system
+		if (is_null($value)) {
+			$oldPublication = Services::get('publication')->get($publication->getId());
+			$oldValue = $oldPublication->getData($settingName, $localeKey);
+			$fileName = $oldValue['uploadName'];
+			if ($fileName) {
+				// File may be in use by other publications
+				$fileInUse = false;
+				foreach ((array) $submission->getData('publications') as $iPublication) {
+					if ($publication->getId() === $iPublication->getId()) {
+						continue;
+					}
+					$iValue = $iPublication->getData($settingName, $localeKey);
+					if (!empty($iValue['uploadName']) && $iValue['uploadName'] === $fileName) {
+						$fileInUse = true;
+						continue;
+					}
+				}
+				if (!$fileInUse) {
+					import('classes.file.PublicFileManager');
+					$publicFileManager = new \PublicFileManager();
+					$publicFileManager->removeContextFile($submission->getData('contextId'), $fileName);
+				}
+			}
+			return null;
+		}
+
+		// Get uploaded file to move
+		if ($isImage) {
+			if (empty($value['temporaryFileId'])) {
+				return $value; // nothing to upload
+			}
+			$temporaryFileId = (int) $value['temporaryFileId'];
+		} else {
+			if (!ctype_digit($value)) {
+				return $value; // nothing to upload
+			}
+			$temporaryFileId = (int) $value;
+		}
+
+		// Get the submission context
+		$submissionContext = \Application::get()->getRequest()->getContext();
+		if ($submissionContext->getId() !== $submission->getData('contextId')) {
+			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
+		}
+
+		import('lib.pkp.classes.file.TemporaryFileManager');
+		$temporaryFileManager = new \TemporaryFileManager();
+		$temporaryFile = $temporaryFileManager->getFile($temporaryFileId, $userId);
+		$fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage
+		$fileName = Services::get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
+
+		if ($fileName) {
+			if ($isImage) {
+				return [
+					'altText' => !empty($value['altText']) ? $value['altText'] : '',
+					'dateUploaded' => \Core::getCurrentDate(),
+					'uploadName' => $fileName,
+				];
+			} else {
+				return $fileName;
+			}
+		}
+
+		return false;
 	}
 }

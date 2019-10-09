@@ -13,9 +13,6 @@
  * @brief Abstract class for block plugins
  */
 
-define('BLOCK_CONTEXT_SIDEBAR',		0x00000001);
-define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
-
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 abstract class BlockPlugin extends LazyLoadPlugin {
@@ -41,16 +38,6 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 */
 	function setEnabled($enabled, $contextId = null) {
 		$this->updateSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'enabled', $enabled, 'bool');
-	}
-
-
-	/**
-	 * Get the supported contexts (e.g. BLOCK_CONTEXT_...) for this block.
-	 *
-	 * @return array
-	 */
-	function getSupportedContexts() {
-		return array(BLOCK_CONTEXT_SIDEBAR);
 	}
 
 	/**

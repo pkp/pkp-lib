@@ -840,7 +840,7 @@ class Installer {
 		$sidebarSettings = [];
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
-			if ($row['setting_value'] != BLOCK_CONTEXT_SIDEBAR) {
+			if ($row['setting_value'] != 1) { // BLOCK_CONTEXT_SIDEBAR
 				$result->MoveNext();
 			}
 			$seq = $pluginSettingsDao->getSetting($row['context_id'], $row['plugin_name'], 'seq');

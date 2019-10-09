@@ -277,7 +277,6 @@ abstract class PKPWorkflowHandler extends Handler {
 			'csrfToken' => $request->getSession()->getCSRFToken(),
 			'currentPublication' => $currentPublicationProps,
 			'editorialHistoryUrl' => $editorialHistoryUrl,
-			'issueApiUrl' => $issueApiUrl,
 			'publicationFormIds' => [
 				FORM_CITATIONS,
 				FORM_PUBLICATION_IDENTIFIERS,

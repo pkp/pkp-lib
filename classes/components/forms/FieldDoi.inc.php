@@ -19,6 +19,9 @@ class FieldDoi extends Field {
 	/** @var string The journal/press initials to use when generating a DOI */
 	public $contextInitials;
 
+	/** @var boolean If a %p in the pattern should stand for press (OMP). Otherwise it means pages (OJS). */
+	public $isPForPress = false;
+
 	/** @var string The issue number to use when generating a DOI */
 	public $issueNumber;
 
@@ -75,6 +78,7 @@ class FieldDoi extends Field {
 		if (isset($this->year)) {
 			$config['year'] = $this->year;
 		}
+		$config['isPForPress'] = $this->isPForPress;
 
 		return $config;
 	}

@@ -16,13 +16,12 @@
 
 import('lib.pkp.classes.submission.PKPSubmission');
 import('lib.pkp.classes.db.SchemaDAO');
-import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 import('lib.pkp.classes.services.PKPSchemaService'); // SCHEMA_ constants
 
 define('ORDERBY_DATE_PUBLISHED', 'datePublished');
 define('ORDERBY_TITLE', 'title');
 
-abstract class PKPSubmissionDAO extends SchemaDAO implements PKPPubIdPluginDAO {
+abstract class PKPSubmissionDAO extends SchemaDAO {
 	var $cache;
 	var $authorDao;
 
@@ -173,79 +172,6 @@ abstract class PKPSubmissionDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 
 		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 		$submissionEmailLogDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
-	}
-
-	/**
-	 * @copydoc PKPPubIdPluginDAO::pubIdExists()
-	 */
-	function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*)
-			FROM submission_settings sst
-				INNER JOIN submissions s ON sst.submission_id = s.submission_id
-			WHERE sst.setting_name = ? and sst.setting_value = ? and sst.submission_id <> ? AND s.context_id = ?',
-			array(
-				'pub-id::'.$pubIdType,
-				$pubId,
-				(int) $excludePubObjectId,
-				(int) $contextId
-			)
-		);
-		$returner = $result->fields[0] ? true : false;
-		$result->Close();
-		return $returner;
-	}
-
-	/**
-	 * @copydoc PKPPubIdPluginDAO::changePubId()
-	 */
-	function changePubId($pubObjectId, $pubIdType, $pubId) {
-		$idFields = array(
-			'submission_id', 'locale', 'setting_name'
-		);
-		$updateArray = array(
-			'submission_id' => (int) $pubObjectId,
-			'locale' => '',
-			'setting_name' => 'pub-id::'.$pubIdType,
-			'setting_type' => 'string',
-			'setting_value' => (string)$pubId
-		);
-		$this->replace('submission_settings', $updateArray, $idFields);
-		$this->flushCache();
-	}
-
-	/**
-	 * @copydoc PKPPubIdPluginDAO::deletePubId()
-	 */
-	function deletePubId($pubObjectId, $pubIdType) {
-		$settingName = 'pub-id::'.$pubIdType;
-		$this->update(
-			'DELETE FROM submission_settings WHERE setting_name = ? AND submission_id = ?',
-			array(
-				$settingName,
-				(int)$pubObjectId
-			)
-		);
-		$this->flushCache();
-	}
-
-	/**
-	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
-	 */
-	function deleteAllPubIds($contextId, $pubIdType) {
-		$settingName = 'pub-id::'.$pubIdType;
-
-		$submissions = $this->getByContextId($contextId);
-		while ($submission = $submissions->next()) {
-			$this->update(
-				'DELETE FROM submission_settings WHERE setting_name = ? AND submission_id = ?',
-				array(
-					$settingName,
-					(int)$submission->getId()
-				)
-			);
-		}
-		$this->flushCache();
 	}
 
 	/**

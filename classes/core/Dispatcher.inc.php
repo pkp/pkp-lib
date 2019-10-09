@@ -130,6 +130,7 @@ class Dispatcher {
 
 		AppLocale::initialize($request);
 		PluginRegistry::loadCategory('generic', true);
+		PluginRegistry::loadCategory('pubIds', true);
 
 		// Reload the context after generic plugins have loaded so that changes to
 		// the context schema can take place

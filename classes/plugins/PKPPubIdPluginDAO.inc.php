@@ -18,6 +18,7 @@ interface PKPPubIdPluginDAO {
 	/**
 	 * Checks if public identifier exists (other than for the specified
 	 * submission ID, which is treated as an exception).
+	 *
 	 * @param $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).

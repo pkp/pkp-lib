@@ -126,7 +126,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function getProperties($submission, $props, $args = null) {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-		\PluginRegistry::loadCategory('pubIds', true);
 		$values = array();
 		$request = $args['request'];
 		$dispatcher = $request->getDispatcher();

@@ -88,7 +88,7 @@ class PKPSubmissionHandler extends APIHandler {
 				[
 					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
 					'handler' => [$this, 'editPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 				],
 				[
 					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/publish',

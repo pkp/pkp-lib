@@ -27,7 +27,7 @@ interface EntityReadInterface {
 	 * Get a collection of objects limited, filtered and sorted by $args
 	 *
 	 * @param $args array Assoc array describing which objects should be retrieved
-	 * @return Iterator
+	 * @return \Iterator
 	 */
 	public function getMany($args = null);
 

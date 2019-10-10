@@ -31,7 +31,7 @@ class PublicationWritePolicy extends ContextPolicy {
 
 		// Is the user assigned to this submission in one of these roles, and does this role
 		// have access to the _current_ stage of the submission?
-		$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT]));
+		$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR]));
 	}
 }
 

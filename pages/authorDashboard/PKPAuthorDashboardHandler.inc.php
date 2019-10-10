@@ -41,6 +41,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
+
 		import('lib.pkp.classes.security.authorization.AuthorDashboardAccessPolicy');
 		$this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
 
@@ -116,6 +117,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
 		AppLocale::requireComponents(
+			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_PKP_SUBMISSION,
 			LOCALE_COMPONENT_APP_SUBMISSION,
 			LOCALE_COMPONENT_PKP_EDITOR,
@@ -173,7 +175,16 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			}
 		}
 
+		$supportedFormLocales = $submissionContext->getSupportedFormLocales();
+		$localeNames = AppLocale::getAllLocales();
+		$locales = array_map(function($localeKey) use ($localeNames) {
+			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+		}, $supportedFormLocales);		
+
+		$latestPublication = $submission->getLatestPublication();
+
 		$submissionApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
+		$latestPublicationApiUrl = $request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
 		$contributorsGridUrl = $request->getDispatcher()->url(
 			$request,
@@ -198,6 +209,18 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			array('submissionId' => $submission->getId())
 		);
 
+		$titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
+		$citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
+
+		// Import constants
+		import('classes.submission.Submission');
+		import('classes.components.forms.publication.PublishForm');
+
+		$templateMgr->setConstants([
+			'FORM_TITLE_ABSTRACT',
+			'FORM_CITATIONS',
+		]);
+
 		$submissionProps = Services::get('submission')->getFullProperties(
 			$submission,
 			[
@@ -206,14 +229,16 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			]
 		);
 
-		$templateMgr->assign('workflowData', [
+		$workflowData = [
 			'components' => [
-
+				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
+				FORM_CITATIONS => $citationsForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
 			'publicationFormIds' => [
-
+				FORM_TITLE_ABSTRACT,
+				FORM_CITATIONS,
 			],
 			'representationsGridUrl' => $this->_getRepresentationsGridUrl($request, $submission),
 			'submission' => $submissionProps,
@@ -228,8 +253,32 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 				'uploadFile' => __('common.upload.addFile'),
 				'view' => __('common.view'),
 				'version' => __('semicolon', ['label' => __('admin.version')]),
+				'save' => __('common.save'),
 			],
+		];
+
+		// Add the metadata form if one or more metadata fields are enabled
+		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'supportingAgencies', 'type'];
+		$metadataEnabled = false;
+		foreach ($metadataFields as $metadataField) {
+			if ($submissionContext->getData($metadataField)) {
+				$metadataEnabled = true;
+				break;
+			}
+		}
+		if ($metadataEnabled) {
+			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
+			$templateMgr->setConstants(['FORM_METADATA']);
+			$workflowData['components'][FORM_METADATA] = $metadataForm->getConfig();
+			$workflowData['publicationFormIds'][] = FORM_METADATA;
+		}
+
+		$templateMgr->assign([
+			'metadataEnabled' => $metadataEnabled,
+			'workflowData' => $workflowData,
 		]);
+
 	}
 
 	/**

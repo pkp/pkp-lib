@@ -253,8 +253,7 @@ class AuthorGridHandler extends GridHandler {
 		// Incomplete submissions can be edited. (Presumably author.)
 		if ($submission->getDateSubmitted() == null) return true;
 
-		// The user may not be allowed to edit the metadata
-		if (Services::get('submission')->canUserEditMetadata($submission->getId(), $user->getId())) {
+		if (SubmissionMetadataHandler::getUserAllowEditMetadata($submission->getContextId(), $submission->getId(), $user->getId(), null)) {
 			return true;
 		}
 

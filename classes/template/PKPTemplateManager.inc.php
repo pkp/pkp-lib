@@ -758,12 +758,12 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Allow plugins to load data within their own namespace
-		$plugin_data = array();
-		HookRegistry::call('TemplateManager::registerJSLibraryData', array(&$plugin_data));
+		$pluginData = array();
+		HookRegistry::call('TemplateManager::registerJSLibraryData', array(&$pluginData));
 
-		if (!empty($plugin_data) && is_array($plugin_data)) {
+		if (!empty($pluginData) && is_array($pluginData)) {
 			$output .= '$.pkp.plugins = {};';
-			foreach($plugin_data as $namespace => $data) {
+			foreach($pluginData as $namespace => $data) {
 				$output .= $namespace . ' = ' . json_encode($data) . ';';
 			}
 		}

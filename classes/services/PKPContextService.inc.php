@@ -59,7 +59,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * 		@option int count
 	 * 		@option int offset
 	 * }
-	 * @return array
+	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
 		$contextListQB = $this->_getQueryBuilder($args);
@@ -69,7 +69,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 		$result = $contextDao->retrieveRange($contextListQO->toSql(), $contextListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $contextDao, '_fromRow');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**

@@ -263,12 +263,13 @@ class ReviewerForm extends Form {
 				]);
 				$customTemplateKeys = array_map(function($emailTemplate) {
 					return $emailTemplate->getData('key');
-				}, $customTemplates);
+				}, iterator_to_array($customTemplates));
 				$templateKeys = array_merge($templateKeys, $customTemplateKeys);
 				break;
 			}
 		}
 
+		$templates = array();
 		foreach ($templateKeys as $templateKey) {
 			$thisTemplate = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
 			$thisTemplate->assignParams(array());

@@ -53,7 +53,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
-	 * @return array
+	 * @return \Iterator
 	 */
 	public function getMany($args = array()) {
 		$submissionListQB = $this->_getQueryBuilder($args);
@@ -63,7 +63,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**
@@ -159,7 +159,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 										'context' => $submissionContext,
 									]);
 							},
-							(array) $submission->getData('publications')
+							$submission->getData('publications')
 						);
 						break;
 				case 'reviewAssignments':
@@ -372,9 +372,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				$submission->getId(),
 				$stageId,
 				$request->getUser()->getId() // Current user restriction should prevent unauthorized access
-			)->toArray();
+			);
 
-			foreach ($queries as $query) {
+			while ($query = $queries->next()) {
 				$stage['queries'][] = array(
 					'id' => (int) $query->getId(),
 					'assocType' => (int) $query->getAssocType(),
@@ -621,11 +621,11 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * Get review rounds for a submission
 	 *
 	 * @param $submission Submission
-	 * @return array
+	 * @return \Iterator
 	 */
 	public function getReviewRounds($submission) {
 		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-		return $reviewRoundDao->getBySubmissionId($submission->getId())->toArray();
+		return $reviewRoundDao->getBySubmissionId($submission->getId())->toIterator();
 	}
 
 	/**
@@ -747,8 +747,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @return boolean
 	 */
 	public function canUserEditMetadata($submissionId, $userId) {
-		$stageAssignments = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null)->toArray();
-		foreach($stageAssignments as $stageAssignment) {
+		$stageAssignments = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null);
+		while ($stageAssignment = $stageAssignments->next()) {
 			if ($stageAssignment->getCanChangeMetadata()) {
 				return true;
 			}

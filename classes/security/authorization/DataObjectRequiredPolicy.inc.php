@@ -91,7 +91,9 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 	}
 
 	/**
-	 * Identifies a submission id in the request.
+	 * Identifies a data object id in the request.
+	 * @param $lookOnlyByParameterName boolean True iff page router
+	 *  requests should only look for named parameters.
 	 * @return integer|false returns false if no valid submission id could be found.
 	 */
 	function getDataObjectId($lookOnlyByParameterName = false) {

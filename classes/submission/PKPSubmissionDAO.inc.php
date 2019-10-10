@@ -94,7 +94,9 @@ abstract class PKPSubmissionDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	 */
 	function _fromRow($row) {
 		$submission = parent::_fromRow($row);
-		$submission->setData('publications', Services::get('publication')->getMany(['submissionIds' => $submission->getId()]));
+		$submission->setData('publications', iterator_to_array(
+			Services::get('publication')->getMany(['submissionIds' => $submission->getId()])
+		));
 
 		return $submission;
 	}

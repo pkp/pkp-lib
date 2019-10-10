@@ -44,7 +44,7 @@ abstract class PKPStatsTest extends WebTestCase {
 			// created.
 			// See: https://github.com/pkp/pkp-lib/issues/4880
 			array_filter(
-				Services::get('submission')->getMany(['contextId' => 1, 'status' => STATUS_PUBLISHED]),
+				iterator_to_array(Services::get('submission')->getMany(['contextId' => 1, 'status' => STATUS_PUBLISHED])),
 				function($submission) {
 					return $submission->getCurrentPublication();
 				}

@@ -16,6 +16,7 @@
 
 
 import('lib.pkp.classes.core.ItemIterator');
+import('lib.pkp.classes.db.DAOResultIterator');
 
 class DAOResultFactory extends ItemIterator {
 	/** @var DAO The DAO used to create objects */
@@ -220,6 +221,14 @@ class DAOResultFactory extends ItemIterator {
 			$returner[] = $this->next();
 		}
 		return $returner;
+	}
+
+	/**
+	 * Return an Iterator for this DAOResultFactory.
+	 * @return Iterator
+	 */
+	function toIterator() {
+		return new DAOResultIterator($this);
 	}
 
 	/**

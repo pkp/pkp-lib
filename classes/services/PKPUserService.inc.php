@@ -52,7 +52,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
-	 * @return array
+	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
 		$userListQB = $this->_getQueryBuilder($args);
@@ -62,7 +62,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**
@@ -71,7 +71,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	public function getMax($args = array()) {
 		$userListQB = $this->_getQueryBuilder($args);
 		$countQO = $userListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
+		$countRange = new DBResultRange($args['count']??null, 1);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
 		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithData');
@@ -133,7 +133,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**

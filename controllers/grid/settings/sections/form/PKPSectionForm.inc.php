@@ -87,15 +87,9 @@ class PKPSectionForm extends Form {
 			'assignedToSection' => $sectionId,
 		));
 
-		if (empty($subEditors)) {
-			return array();
-		}
-
-		$subEditorIds = array_map(function($subEditor) {
+		return array_map(function($subEditor) {
 			return (int) $subEditor->getId();
-		}, $subEditors);
-
-		return $subEditorIds;
+		}, iterator_to_array($subEditors));
 	}
 
 	/**

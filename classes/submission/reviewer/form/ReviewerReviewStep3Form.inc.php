@@ -246,7 +246,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		SubmissionLog::logEvent(
 			$request,
 			$submission,

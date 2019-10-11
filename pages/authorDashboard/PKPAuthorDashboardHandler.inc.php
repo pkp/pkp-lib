@@ -159,18 +159,20 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
 				$editorDecisions = DAORegistry::getDAO('EditDecisionDAO')->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getId());
 				if (!empty($editorDecisions) && array_last($editorDecisions)['decision'] == SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
-					$uploadFileUrl = 'http://example.org';
-					// import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-					// $templateMgr->assign('uploadFileAction', new AddFileLinkAction(
-					// 	$request,
-					// 	$submission->getId(),
-					// 	$submission->getData('stageId'),
-					// 	[ROLE_ID_AUTHOR],
-					// 	$fileStage,
-					// 	null,
-					// 	null,
-					// 	$lastReviewRound->getId()
-					// ));
+					$actionArgs['submissionId'] = $submission->getId();
+					$actionArgs['stageId'] = $submission->getData('stageId');
+					$actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
+					$actionArgs['fileStage'] = $fileStage;
+					$actionArgs['reviewRoundId'] = $lastReviewRound->getId();
+					$uploadFileUrl = $request->getDispatcher()->url(
+						$request,
+						ROUTE_COMPONENT,
+						null,
+						'wizard.fileUpload.FileUploadWizardHandler',
+						'startWizard',
+						null,
+						$actionArgs
+					);
 				}
 			}
 		}
@@ -251,6 +253,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 				'status' => __('semicolon', ['label' => __('common.status')]),
 				'submissionLibrary' => __('grid.libraryFiles.submission.title'),
 				'uploadFile' => __('common.upload.addFile'),
+				'uploadFileModal' => __('editor.submissionReview.uploadFile'),
 				'view' => __('common.view'),
 				'version' => __('semicolon', ['label' => __('admin.version')]),
 				'save' => __('common.save'),

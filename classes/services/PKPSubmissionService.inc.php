@@ -100,6 +100,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
+			'daysInactive' => null,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -113,6 +114,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
+			->filterByDaysInactive($args['daysInactive'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
 			->searchPhrase($args['searchPhrase']);
 

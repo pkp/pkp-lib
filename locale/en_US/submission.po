@@ -923,6 +923,9 @@ msgstr "Declined"
 msgid "submissions.incomplete"
 msgstr "Incomplete"
 
+msgid "submissions.inactive"
+msgstr "Inactive for {$days} days"
+
 msgid "submissions.noSubmissions"
 msgstr "No Submissions"
 

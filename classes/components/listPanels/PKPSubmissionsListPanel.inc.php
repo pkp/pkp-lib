@@ -75,6 +75,11 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 						'value' => true,
 						'title' => __('submissions.incomplete'),
 					),
+					array(
+						'param' => 'daysInactive',
+						'value' => 30,
+						'title' => __('submissions.inactive',array('days' => '30')),
+					),
 				),
 			),
 			array(
@@ -118,6 +123,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 			'incompleteSubmissionNotice' => __('submission.list.incompleteSubmissionNotice'),
 			'viewMore' => __('list.viewMore'),
 			'viewLess' => __('list.viewLess'),
+			'lastActivity' => __('common.lastActivity'),
 			'paginationLabel' => __('common.pagination.label'),
 			'goToLabel' => __('common.pagination.goToPage'),
 			'pageLabel' => __('common.pageNumber'),

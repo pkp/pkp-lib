@@ -462,6 +462,9 @@ msgstr "Language"
 msgid "common.languages"
 msgstr "Languages"
 
+msgid "common.lastActivity"
+msgstr "Last activity recorded on {$date}"
+
 msgid "common.less"
 msgstr "Less"
 

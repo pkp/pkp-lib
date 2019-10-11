@@ -312,6 +312,10 @@ class PKPSubmissionHandler extends APIHandler {
 					$returnParams[$param] = (int) $val;
 					break;
 
+				case 'daysInactive':
+					$returnParams[$param] = (int) $val[0];
+					break;
+
 				case 'isIncomplete':
 				case 'isOverdue':
 					$returnParams[$param] = true;

@@ -21,7 +21,7 @@
 	<message key="api.submissions.403.deleteSubmissionOutOfContext">Vous ne pouvez pas supprimer une soumission hors de ce contexte.</message>
 	<message key="api.submissions.403.unauthorizedDeleteSubmission">Vous n'avez pas la permission de supprimer cette soumission.</message>
 	<message key="api.submissions.404.resourceNotFound">La ressource demandée n'a pas été trouvée.</message>
-	<message key="api.submissions.400.missingRequired">La demande n'a pu être remplie par manque d'information</message>
+	<message key="api.submissions.400.missingRequired">La demande n'a pu être remplie par manque d'information.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">Le volume, numéro ou année requis-e n'est pas valide.</message>
 	<message key="api.submissions.unknownError">Une erreur imprévue est survenue. Veuillez recharger la page est essayer à nouveau.</message>
 	<message key="api.stats.400.wrongDateFormat">Votre demande n'est pas valide. La date doit être au format AAAA-MM-JJ.</message>

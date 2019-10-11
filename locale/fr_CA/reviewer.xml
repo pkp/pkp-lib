@@ -13,36 +13,37 @@
   -->
 
 <locale name="fr_CA" full_name="Français (Canada)">
-	<message key="reviewer.submission.reviewerFiles">Fichiers de l'évaluateur</message>
-	<message key="reviewer.reviewSteps.request">1. Requête</message>
+	<!-- Used in submission review -->
+	<message key="reviewer.reviewSteps.request">1. Demande</message>
 	<message key="reviewer.reviewSteps.guidelines">2. Lignes directrices</message>
 	<message key="reviewer.reviewSteps.download"><![CDATA[3. Télécharger & Évaluer]]></message>
 	<message key="reviewer.reviewSteps.completion">4. Terminer</message>
-	<message key="reviewer.step1.request">Requête d'évaluation</message>
-	<message key="reviewer.step1.requestBoilerplate">Vous avez été choisi en tant qu'évaluateur potentiel de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'évaluation.</message>
-	<message key="reviewer.step1.viewAllDetails">Voir tous les détails de la soumission</message>
+	<message key="reviewer.step1.request">Demande d'évaluation</message>
+	<message key="reviewer.step1.requestBoilerplate">Vous avez été choisi en tant qu'évaluateur-trice potentiel-elle de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'évaluation.</message>
+	<message key="reviewer.step1.viewAllDetails">Voir toutes les informations à propos de la soumission</message>
+	<message key="reviewer.submission.reviewerFiles">Fichiers de l'évaluateur-trice</message>
 	<message key="reviewer.submission.declineReview">Refuser la requête d'évaluation</message>
-	<message key="reviewer.submission.declineReviewMessage">Vous pouvez indiquer au rédacteur, dans le champ ci-dessous, les raisons pour lesquelles vous refusez de participer à ce processus d'évaluation.</message>
-	<message key="reviewer.submission.acceptReview">Accepter l'évaluation, continuer à l'étape #2</message>
-	<message key="reviewer.submission.continueToStepThree">Continuer à l'étape #3</message>
+	<message key="reviewer.submission.declineReviewMessage">Vous pouvez indiquer au,à la rédacteur-trice, dans le champ ci-dessous, les raisons pour lesquelles vous refusez de participer à ce processus d'évaluation.</message>
+	<message key="reviewer.submission.acceptReview">Accepter l'évaluation, poursuivre à l'étape #2</message>
+	<message key="reviewer.submission.continueToStepThree">Poursuivre à l'étape #3</message>
 	<message key="reviewer.submission.submitReview">Soumettre l'évaluation</message>
-	<message key="reviewer.submission.reviewerGuidelines">Lignes directrices des évaluateurs</message>
-	<message key="reviewer.submission.enterCompetingInterests">La revue a adopté une politique de divulgation des intérêts opposés chez ses évaluateurs. Veuillez prendre un moment pour lire cette politique.</message>
-	<message key="reviewer.submission.noCompetingInterests">Je n'ai pas d'intérêts opposés.</message>
-	<message key="reviewer.submission.hasCompetingInterests">Il est possible que j'aie des intérêts opposés (veuillez spécifier).</message>
-	<message key="reviewer.submission.competingInterests">Intérêts opposés</message>
-	<message key="reviewer.submission.guidelines">Lignes directrices des évaluations</message>
-	<message key="reviewer.submission.noGuidelines">Cette revue n'a pas établi de lignes directrices pour les évaluateurs.</message>
+	<message key="reviewer.submission.reviewerGuidelines">Lignes directrices aux évaluateurs-trices</message>
+	<message key="reviewer.submission.enterCompetingInterests">La revue a adopté une politique de divulgation des intérêts divergents pour ses évaluateurs-trices. Veuillez prendre un moment pour lire cette politique.</message>
+	<message key="reviewer.submission.noCompetingInterests">Je n'ai pas d'intérêts divergents.</message>
+	<message key="reviewer.submission.hasCompetingInterests">Il est possible que j'aie des intérêts divergents (veuillez spécifier).</message>
+	<message key="reviewer.submission.competingInterests">Intérêts divergents</message>
+	<message key="reviewer.submission.guidelines">Lignes directrices pour l'évaluation</message>
+	<message key="reviewer.submission.noGuidelines">Cette revue n'a pas établi de lignes directrices pour les évaluateurs-trices.</message>
 	<message key="reviewer.submission.downloadDescription">Cliquez sur les noms des fichiers pour télécharger et évaluer (sur l'écran ou après les avoir imprimés) les fichiers associés à cette soumission.</message>
 	<message key="reviewer.submission.reviewDescription">Saisir (ou copier/coller) votre évaluation de cette soumission dans le formulaire ci-dessous.</message>
-	<message key="reviewer.submission.uploadDescription">Téléverser des fichiers que le rédacteur et/ou l'auteur pourront consulter, y compris les versions révisées des fichiers d'évaluation originaux.</message>
+	<message key="reviewer.submission.uploadDescription">Téléverser des fichiers que le,la rédacteur-trice et/ou l'auteur-e pourront consulter, y compris les versions révisées des fichiers d'évaluation originaux.</message>
 	<message key="reviewer.complete">Évaluation envoyée</message>
-	<message key="reviewer.confirmSubmit">Vous voulez vraiment envoyer cette évaluation?</message>
+	<message key="reviewer.confirmSubmit">Voulez-vous vraiment envoyer cette évaluation ?</message>
+	<message key="reviewer.complete.whatNext">Merci d'avoir évalué cette soumission. Votre évaluation a bien été reçue. Nous apprécions votre contribution à la qualité du travail que nous publions. Le,La rédacteur-trice pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant.</message>
 	<message key="reviewer.aboutDueDates">À propos des dates d'échéance</message>
-	<message key="reviewer.complete.whatNext">Merci d'avoir évalué cette soumission. Votre évaluation a bien été reçue. Nous apprécions votre contribution à la qualité du travail que nous publions. L'éditeur pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant.</message>
-	<message key="reviewer.aboutDueDates.text">Le rédacteur demande que vous acceptiez ou refusiez d'évaluer la soumission avant la date d'échéance, et si vous acceptez, que vous complétiez l'évaluation avant la date d'échéance.</message>
-	<message key="submission.comments.canShareWithAuthor">Ce texte sera transmis à l'auteur et au rédacteur</message>
-	<message key="submission.comments.cannotShareWithAuthor">Ce texte sera transmis uniquement au rédacteur</message>
-	<message key="user.authorization.submissionReviewer">L'utilisateur actuel n'est pas assigné en tant qu'évaluateur pour le document demandé.</message>
+	<message key="reviewer.aboutDueDates.text">Le,La rédacteur-trice demande que vous acceptiez ou refusiez d'évaluer la soumission avant la date d'échéance, et si vous acceptez, que vous complétiez l'évaluation avant la date d'échéance.</message>
+	<message key="submission.comments.canShareWithAuthor">Ce texte sera transmis à l'auteur-e et au,à la rédacteur-trice</message>
+	<message key="submission.comments.cannotShareWithAuthor">Ce texte sera transmis uniquement au,à la rédacteur-trice</message>
+	<message key="user.authorization.submissionReviewer">L'utilisateur-trice actuel-elle n'est pas assigné-e en tant qu'évaluateur-trice pour le document demandé.</message>
 </locale>
 

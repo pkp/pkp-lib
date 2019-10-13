@@ -15,160 +15,243 @@
 
 namespace PKP\Services;
 
+use \PKP\Statistics\{UserStatistics, SubmissionStatistics};
+
 class EditorialStatisticsService {
+	public const USERS_ALL = 'USERS_ALL';
+	public const SUBMISSIONS_RECEIVED = 'SUBMISSIONS_RECEIVED';
+	public const SUBMISSIONS_ACCEPTED = 'SUBMISSIONS_ACCEPTED';
+	public const SUBMISSIONS_DECLINED = 'SUBMISSIONS_DECLINED';
+	public const SUBMISSIONS_DECLINED_DESK_REJECT = 'SUBMISSIONS_DECLINED_DESK_REJECT';
+	public const SUBMISSIONS_DECLINED_POST_REVIEW = 'SUBMISSIONS_DECLINED_POST_REVIEW';
+	public const SUBMISSIONS_DECLINED_OTHER = 'SUBMISSIONS_DECLINED_OTHER';
+	public const SUBMISSIONS_PUBLISHED = 'SUBMISSIONS_PUBLISHED';
+	public const SUBMISSIONS_DAYS_TO_DECIDE = 'SUBMISSIONS_DAYS_TO_DECIDE';
+	public const SUBMISSIONS_DAYS_TO_ACCEPT = 'SUBMISSIONS_DAYS_TO_ACCEPT';
+	public const SUBMISSIONS_DAYS_TO_REJECT = 'SUBMISSIONS_DAYS_TO_REJECT';
+	public const SUBMISSIONS_ACCEPTANCE_RATE = 'SUBMISSIONS_ACCEPTANCE_RATE';
+	public const SUBMISSIONS_REJECTION_RATE = 'SUBMISSIONS_REJECTION_RATE';
+	public const SUBMISSIONS_REJECTION_RATE_DESK_REJECT = 'SUBMISSIONS_REJECTION_RATE_DESK_REJECT';
+	public const SUBMISSIONS_REJECTION_RATE_POST_REVIEW = 'SUBMISSIONS_REJECTION_RATE_POST_REVIEW';
+	public const SUBMISSIONS_REJECTION_RATE_OTHER = 'SUBMISSIONS_REJECTION_RATE_OTHER';
+	public const ACTIVE_SUBMISSIONS_ACTIVE = 'ACTIVE_SUBMISSIONS_ACTIVE';
+	public const ACTIVE_SUBMISSIONS_INTERNAL_REVIEW = 'ACTIVE_SUBMISSIONS_INTERNAL_REVIEW';
+	public const ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW = 'ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW';
+	public const ACTIVE_SUBMISSIONS_COPYEDITING = 'ACTIVE_SUBMISSIONS_COPYEDITING';
+	public const ACTIVE_SUBMISSIONS_PRODUCTION = 'ACTIVE_SUBMISSIONS_PRODUCTION';
+
 	/**
 	 * Retrieves user registrations statistics optionally filtered by context and date range
 	 * @param $contextId int The context id
 	 * @param $args array An array of filters accepting the keys dateStart and dateEnd
-	 * @return array An array grouped by roles with the user statistics
+	 * @return \PKP\Statistics\UserStatistics
 	 */
-	public function getUserStatistics($contextId = null, $args = []) {
-		return \DAORegistry::getDAO('MetricsDAO')
-			->getUserStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null);
+	public function getUserStatistics(int $contextId = null, array $args = []) : UserStatistics
+	{
+		$builder = new QueryBuilders\UserStatisticsQueryBuilder();
+		$data = $builder
+			->withContext($contextId)
+			->withDateRange($args['dateStart'] ?? null, $args['dateEnd'] ?? null)
+			->build()
+			->get();
+		return new UserStatistics($data);
 	}
 
 	/**
 	 * Retrieves general statistics from the submissions optionally filtered by context, date range and section
 	 * @param $contextId int The context id
 	 * @param $args array An array of filters accepting the keys dateStart, dateEnd and sectionIds
-	 * @return array An array with the submissions statistics
+	 * @return \PKP\Statistics\SubmissionStatistics
 	 */
-	public function getSubmissionStatistics($contextId = null, $args = []) {
-		return \DAORegistry::getDAO('MetricsDAO')
-			->getSubmissionStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null, $args['sectionIds'] ?? null);
+	public function getSubmissionStatistics(int $contextId = null, array $args = []) : SubmissionStatistics
+	{
+		$builder = new QueryBuilders\SubmissionStatisticsQueryBuilder();
+		$data = $builder
+			->withContext($contextId)
+			->withDateRange($args['dateStart'] ?? null, $args['dateEnd'] ?? null)
+			->withSections($args['sectionIds'] ?? null)
+			->build()
+			->get();
+		return new SubmissionStatistics($data->first());
 	}
 
 	/**
-	 * Given an array with statistics compiles the required editorial information to display in the component
-	 * @param $rangedStatistics array An array with a subset of the results from a call to EditorialStatisticsService::getSubmissionStatistics
-	 * @param $statistics array An array with the results from a call to EditorialStatisticsService::getSubmissionStatistics
-	 * @return array An array with the editorial information and statistics already indented for better visualization
+	 * Compiles a summary of the user registrations given total and date ranged statistics
+	 * @param $rangedStatistics \PKP\Statistics\UserStatistics
+	 * @param $statistics \PKP\Statistics\UserStatistics
+	 * @return array A keyed array where the key represents the role ID, and value the compiled data
 	 */
-	public static function compileEditorialStatistics($rangedStatistics, $statistics) {
-		$editorialStatistics = [];
-		$percentage = '%.2f%%';
-		$defaultFormat = '%d';
-		$indent = '&emsp;';
-		foreach ([
-			'SUBMISSION_RECEIVED' => [
-				'name' => __('manager.statistics.editorial.submissionsReceived'),
-				'averageField' => 'AVG_SUBMISSION_RECEIVED'
-			],
-			'SUBMISSION_ACCEPTED' => [
-				'name' => __('manager.statistics.editorial.submissionsAccepted'),
-				'averageField' => 'AVG_SUBMISSION_ACCEPTED'
-			],
-			'SUBMISSION_DECLINED_TOTAL' => [
-				'name' => __('manager.statistics.editorial.submissionsDeclined'),
-				'averageField' => 'AVG_SUBMISSION_DECLINED_TOTAL'
-			],
-			'SUBMISSION_DECLINED_INITIAL' => [
-				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.deskReject'),
-				'averageField' => 'AVG_SUBMISSION_DECLINED_INITIAL'
-			],
-			'SUBMISSION_DECLINED' => [
-				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.postReview'),
-				'averageField' => 'AVG_SUBMISSION_DECLINED'
-			],
-			'SUBMISSION_DECLINED_OTHER' => [
-				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.other'),
-				'averageField' => 'AVG_SUBMISSION_DECLINED_OTHER'
-			],
-			'SUBMISSION_PUBLISHED' => [
-				'name' => __('manager.statistics.editorial.submissionsPublished'),
-				'averageField' => 'AVG_SUBMISSION_PUBLISHED'
-			],
-			'SUBMISSION_DAYS_TO_FIRST_DECIDE' => [
-				'name' => __('manager.statistics.editorial.averageDaysToDecide'),
-			],
-			'SUBMISSION_DAYS_TO_ACCEPT' => [
-				'name' => $indent . __('manager.statistics.editorial.averageDaysToAccept'),
-			],
-			'SUBMISSION_DAYS_TO_REJECT' => [
-				'name' => $indent . __('manager.statistics.editorial.averageDaysToReject'),
-			],
-			'SUBMISSION_ACCEPTANCE_RATE' => [
-				'name' => __('manager.statistics.editorial.acceptanceRate'),
-				'format' => $percentage
-			],
-			'SUBMISSION_REJECTION_RATE' => [
-				'name' => __('manager.statistics.editorial.rejectionRate'),
-				'format' => $percentage
-			],
-			'SUBMISSION_DECLINED_INITIAL_RATE' => [
-				'name' => $indent . __('manager.statistics.editorial.deskRejectRate'),
-				'format' => $percentage
-			],
-			'SUBMISSION_DECLINED_RATE' => [
-				'name' => $indent . __('manager.statistics.editorial.postReviewRejectRate'),
-				'format' => $percentage
-			],
-			'SUBMISSION_DECLINED_OTHER_RATE' => [
-				'name' => $indent . __('manager.statistics.editorial.otherRejectRate'),
-				'format' => $percentage
+	public static function compileUsers(UserStatistics $rangedStatistics, UserStatistics $statistics) : array
+	{
+		$userStatistics = [
+			self::USERS_ALL => [
+				'name' => __('manager.statistics.editorial.registeredUsers'),
+				'period' => $rangedStatistics->getRegistrations(),
+				'average' => round($statistics->getRegistrationsPerYear()),
+				'total' => $statistics->getRegistrations()
 			]
-		] as $field => $descriptor) {
-			$format = $descriptor['format'] ?? $defaultFormat;
-			$editorialStatistics[] = [
-				'name' => $descriptor['name'],
-				'period' => sprintf($format, $rangedStatistics[$field]),
-				'average' => sprintf($format, $statistics[$descriptor['averageField'] ?? $field]),
-				'total' => sprintf($format, $statistics[$field])
-			];
-		}
-		return $editorialStatistics;
-	}
-
-	/**
-	 * Given an array with statistics compiles the required user statistics to display in the component
-	 * @param $rangedStatistics array An array with a subset of the results from a call to EditorialStatisticsService::getUserStatistics
-	 * @param $statistics array An array with the results from a call to EditorialStatisticsService::getUserStatistics
-	 * @return array An array where each row is a role followed by its statistics
-	 */
-	public static function compileUserStatistics($rangedStatistics, $statistics) {
-		$userStatistics = [];
-		foreach ([0 => 'manager.statistics.editorial.registeredUsers'] + \Application::getRoleNames(true) as $id => $role) {
-			$userStatistics[] = [
+		];
+		foreach (\Application::getRoleNames(true) as $roleId => $role) {
+			$userStatistics[$roleId] = [
 				'name' => __($role),
-				'period' => (int) $rangedStatistics[$id]['total'],
-				'average' => round($statistics[$id]['average']),
-				'total' => (int) $statistics[$id]['total']
+				'period' => $rangedStatistics->getRegistrationsByRole($roleId),
+				'average' => round($statistics->getRegistrationsByRolePerYear($roleId)),
+				'total' => $statistics->getRegistrationsByRole($roleId)
 			];
 		}
 		return $userStatistics;
 	}
 
 	/**
-	 * Given an array with statistics compiles the required submission information to display in the chart component
-	 * @param $statistics array An array with the results from a call to EditorialStatisticsService::getSubmissionStatistics
-	 * @return array An array with the chart items
+	 * Compiles a summary of the all the submissions given a total and date ranged statistics
+	 * @param $rangedStatistics \PKP\Statistics\SubmissionStatistics
+	 * @param $statistics \PKP\Statistics\SubmissionStatistics
+	 * @return array A keyed array where the key is a SUBMISSIONS_* class const, and value the compiled data
 	 */
-	public static function compileSubmissionChartData($statistics) {
+	public static function compileSubmissions(SubmissionStatistics $rangedStatistics, SubmissionStatistics $statistics) : array
+	{
+		$percentage = '%.2f%%';
+		$defaultFormat = '%d';
+		$indent = '&emsp;';
+
+		$items = [
+			self::SUBMISSIONS_RECEIVED => [
+				'name' => __('manager.statistics.editorial.submissionsReceived'),
+				'value' => function ($source, $type) {
+					return $type == 'average' ? $source->getReceivedPerYear() : $source->getReceived();
+				}
+			],
+			self::SUBMISSIONS_ACCEPTED => [
+				'name' => __('manager.statistics.editorial.submissionsAccepted'),
+				'value' => function ($source, $type) {
+					return $type == 'average' ? $source->getAcceptedPerYear() : $source->getAccepted();
+				}
+			],
+			self::SUBMISSIONS_DECLINED => [
+				'name' => __('manager.statistics.editorial.submissionsDeclined'),
+				'value' => function ($source, $type) {
+					return $type == 'average' ? $source->getDeclinedPerYear() : $source->getDeclined();
+				}
+			],
+			self::SUBMISSIONS_DECLINED_DESK_REJECT => [
+				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.deskReject'),
+				'value' => function ($source, $type) {
+					return $type == 'average' ? $source->getDeclinedByDeskRejectPerYear() : $source->getDeclinedByDeskReject();
+				}
+			],
+			self::SUBMISSIONS_DECLINED_POST_REVIEW => [
+				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.postReview'),
+				'value' => function ($source, $type) {
+					return $type == 'average' ? $source->getDeclinedByPostReviewPerYear() : $source->getDeclinedByPostReview();
+				}
+			],
+			self::SUBMISSIONS_DECLINED_OTHER => [
+				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.other'),
+				'value' => function ($source, $type) {
+					return $type == 'average' ? $source->getDeclinedByOtherReasonPerYear() : $source->getDeclinedByOtherReason();
+				}
+			],
+			self::SUBMISSIONS_PUBLISHED => [
+				'name' => __('manager.statistics.editorial.submissionsPublished'),
+				'value' => function ($source, $type) {
+					return $type == 'average' ? $source->getPublishedPerYear() : $source->getPublished();
+				}
+			],
+			self::SUBMISSIONS_DAYS_TO_DECIDE => [
+				'name' => __('manager.statistics.editorial.averageDaysToDecide'),
+				'value' => function ($source) {
+					return $source->getAverageDaysToFirstDecision();
+				}
+			],
+			self::SUBMISSIONS_DAYS_TO_ACCEPT => [
+				'name' => $indent . __('manager.statistics.editorial.averageDaysToAccept'),
+				'value' => function ($source) {
+					return $source->getAverageDaysToAccept();
+				}
+			],
+			self::SUBMISSIONS_DAYS_TO_REJECT => [
+				'name' => $indent . __('manager.statistics.editorial.averageDaysToReject'),
+				'value' => function ($source) {
+					return $source->getAverageDaysToReject();
+				}
+			],
+			self::SUBMISSIONS_ACCEPTANCE_RATE => [
+				'name' => __('manager.statistics.editorial.acceptanceRate'),
+				'value' => function ($source) {
+					return $source->getAcceptanceRate();
+				},
+				'format' => $percentage
+			],
+			self::SUBMISSIONS_REJECTION_RATE => [
+				'name' => __('manager.statistics.editorial.rejectionRate'),
+				'value' => function ($source) {
+					return $source->getRejectionRate();
+				},
+				'format' => $percentage
+			],
+			self::SUBMISSIONS_REJECTION_RATE_DESK_REJECT => [
+				'name' => $indent . __('manager.statistics.editorial.deskRejectRejectionRate'),
+				'value' => function ($source) {
+					return $source->getDeclinedByDeskRejectRate();
+				},
+				'format' => $percentage
+			],
+			self::SUBMISSIONS_REJECTION_RATE_POST_REVIEW => [
+				'name' => $indent . __('manager.statistics.editorial.postReviewRejectionRate'),
+				'value' => function ($source) {
+					return $source->getDeclinedByPostReviewRate();
+				},
+				'format' => $percentage
+			],
+			self::SUBMISSIONS_REJECTION_RATE_OTHER => [
+				'name' => $indent . __('manager.statistics.editorial.otherRejectionRate'),
+				'value' => function ($source) {
+					return $source->getDeclinedByOtherReasonRate();
+				},
+				'format' => $percentage
+			]
+		];
+		$return = [];
+		foreach ($items as $key => $item) {
+			['name' => $name, 'value' => $value, 'format' => $format] = $item;
+			$format = $format ?? $defaultFormat;
+			$return[$key] = [
+				'name' => $name,
+				'period' => sprintf($format, $value($rangedStatistics, 'period')),
+				'average' => sprintf($format, $value($statistics, 'average')),
+				'total' => sprintf($format, $value($statistics, 'total'))
+			];
+		}
+		return $return;
+	}
+
+	/**
+	 * Compiles a summary of the active submissions
+	 * @param $statistics \PKP\Statistics\SubmissionStatistics
+	 * @return array A keyed array where the key is a ACTIVE_SUBMISSIONS_* class const, and value the compiled data
+	 */
+	public static function compileActiveSubmissions(SubmissionStatistics $statistics) : array
+	{
 		return [
-			[
+			self::ACTIVE_SUBMISSIONS_ACTIVE => [
 				'name' => __('manager.publication.submissionStage'),
-				'value' => (int)$statistics['ACTIVE_SUBMISSION'],
-				'color' => '#d00a0a',
+				'value' => $statistics->getActiveInSubmission()
 			],
-			[
+			self::ACTIVE_SUBMISSIONS_INTERNAL_REVIEW => [
 				'name' => __('workflow.review.internalReview'),
-				'value' => (int)$statistics['ACTIVE_INTERNAL_REVIEW'],
-				'color' => '#e05c14',
+				'value' => $statistics->getActiveInInternalReview(),
 			],
-			[
+			self::ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW => [
 				'name' => __('manager.statistics.editorial.externalReview'),
-				'value' => (int)$statistics['ACTIVE_EXTERNAL_REVIEW'],
-				'color' => '#e08914',
+				'value' => $statistics->getActiveInExternalReview(),
 			],
-			[
+			self::ACTIVE_SUBMISSIONS_COPYEDITING => [
 				'name' => __('submission.copyediting'),
-				'value' => (int)$statistics['ACTIVE_EDITING'],
-				'color' => '#007ab2',
+				'value' => $statistics->getActiveInCopyEditing(),
 			],
-			[
+			self::ACTIVE_SUBMISSIONS_PRODUCTION => [
 				'name' => __('manager.publication.productionStage'),
-				'value' => (int)$statistics['ACTIVE_PRODUCTION'],
-				'color' => '#00b28d',
+				'value' => $statistics->getActiveInProduction(),
 			]
 		];
 	}

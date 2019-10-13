@@ -17,6 +17,8 @@
 import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.ServicesContainer');
 
+use \PKP\Services\EditorialStatisticsService;
+
 class PKPStatsHandler extends APIHandler {
 
 	/**
@@ -169,7 +171,7 @@ class PKPStatsHandler extends APIHandler {
 			// get total stats data
 			$totalStatsRecords = $statsService->getTotalSubmissionsStats($context->getId(), $params);
 			$data = $statsService->getTotalStatsProperties($totalStatsRecords, $propertyArgs);
-			// get submission stats items
+			// get submissions stats items
 			$currentPageSubmissionsRecords = array_slice($submissionsRecords, isset($params['offset']) ? $params['offset'] : 0, $params['count']);
 			foreach ($currentPageSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = \Application::getPublishedSubmissionDAO();
@@ -263,12 +265,13 @@ class PKPStatsHandler extends APIHandler {
 
 	/**
 	 * Retrieve an overview of all the active submissions, including yearly statistics
-	 * @param $slimRequest object Request Slim request
-	 * @param $response object Response
+	 * @param $slimRequest \Slim\Http\Request Request Slim request
+	 * @param $response APIResponse Response
 	 * @param $args array
-	 * @return object Response
+	 * @return APIResponse Response
 	 */
-	public function getEditorialReport(\Slim\Http\Request $slimRequest, APIResponse $response, $args) {
+	public function getEditorialReport(\Slim\Http\Request $slimRequest, APIResponse $response, array $args) : APIResponse
+	{
 		$request = \Application::getRequest();
 		$context = $request->getContext();
 
@@ -309,62 +312,77 @@ class PKPStatsHandler extends APIHandler {
 			if (!$this->validDate($params['dateStart'])) {
 				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateFormat');
 			}
+			$params['dateStart'] = new \DateTimeImmutable($params['dateStart']);
 		}
 		if (isset($params['dateEnd'])) {
 			if (!$this->validDate($params['dateEnd'])) {
 				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateFormat');
 			}
+			$params['dateEnd'] = new \DateTimeImmutable($params['dateEnd']);
 		}
 		if (isset($params['dateStart']) && isset($params['dateEnd'])) {
-			if (!$this->validDateRange($params['dateStart'], $params['dateEnd'])) {
+			if (!$this->validDateRange($params['dateStart']->format('c'), $params['dateEnd']->format('c'))) {
 				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateRange');
 			}
 		}
 
-		$paramsWithoutDateRange = array_diff_key($params, ['dateStart' => null, 'dateEnd' => '']);
+		$paramsWithoutDateRange = array_diff_key($params, ['dateStart' => null, 'dateEnd' => null]);
 
 		$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
+
 		$statistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $paramsWithoutDateRange);
 		$rangedStatistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $params);
-
-		$submissionChartData = $editorialStatisticsService->compileSubmissionChartData($statistics);
 
 		$userStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $paramsWithoutDateRange);
 		$rangedUserStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $params);
 
-		$editorialStatistics = $editorialStatisticsService->compileEditorialStatistics($rangedStatistics, $statistics);
-		$userStatistics = $editorialStatisticsService->compileUserStatistics($rangedUserStatistics, $userStatistics);
+		$submissions = $editorialStatisticsService->compileSubmissions($rangedStatistics, $statistics);
+		$users = $editorialStatisticsService->compileUsers($rangedUserStatistics, $userStatistics);
+		$activeSubmissions = $editorialStatisticsService->compileActiveSubmissions($statistics);
+		$activeSubmissionsValues = array_values($activeSubmissions);
 
 		return $response->withJson([
-			'submissionsStage' => $submissionChartData,
+			'submissionsStage' => $activeSubmissionsValues,
 			'editorialChartData' => [
 				'labels' => array_map(function ($stage) {
 					return $stage['name'];
-				}, $submissionChartData),
+				}, $activeSubmissionsValues),
 				'datasets' => [
 					[
 						'label' => __('stats.activeSubmissions'),
 						'data' => array_map(function ($stage) {
 							return $stage['value'];
-						}, $submissionChartData),
-						'backgroundColor' => array_map(function ($stage) {
-							return $stage['color'];
-						}, $submissionChartData)
+						}, $activeSubmissionsValues),
+						'backgroundColor' => array_map(function ($type) {
+							switch ($type) {
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_ACTIVE:
+									return '#d00a0a';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_INTERNAL_REVIEW:
+									return '#e05c14';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW:
+									return '#e08914';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_COPYEDITING:
+									return '#007ab2';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_PRODUCTION:
+									return '#00b28d';
+							}
+							return '#' . substr(md5(rand()), 0, 6);
+						}, array_keys($activeSubmissions))
 					]
 				],
 			],
-			'editorialItems' => $editorialStatistics,
-			'userItems' => $userStatistics
+			'editorialItems' => array_values($submissions),
+			'userItems' => array_values($users)
 		], 200);
 	}
 
 	/**
-	 * Has the given date valid fromat YYYY-MM-DD
+	 * Has the given date valid format YYYY-MM-DD
 	 * @param $dateString string
 	 * @return boolean
 	 */
 	public function validDate($dateString) {
-		return preg_match('/(\d{4})-(\d{2})-(\d{2})/', $dateString, $matches) === 1;
+		return !!DateTimeImmutable::createFromFormat('Y-m-d', $dateString);
 	}
 
 	/**
@@ -392,5 +410,4 @@ class PKPStatsHandler extends APIHandler {
 		$lastNinetyDaysTimestamp = strtotime('-92 days');
 		return $dateTimestamp >= $lastNinetyDaysTimestamp;
 	}
-
 }

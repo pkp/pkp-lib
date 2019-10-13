@@ -210,7 +210,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 * @param $records array
 	 * @param $params array
 	 * 		@option int entityAssocType
-	 * 		@otion int fileAssocType
+	 * 		@option int fileAssocType
 	 * @param $props array
 	 * @param $args array
 	 *		$args['request'] PKPRequest Required
@@ -277,7 +277,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 * @param $records array
 	 * @param $params array
 	 * 		@option int entityAssocType
-	 * 		@otion int fileAssocType
+	 * 		@option int fileAssocType
 	 * @param $props array
 	 * @param $args array
 	 *		$args['request'] PKPRequest Required
@@ -302,7 +302,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 * @param $records array
 	 * @param $params array
 	 * 		@option int entityAssocType
-	 * 		@otion int fileAssocType
+	 * 		@option int fileAssocType
 	 * @param $props array
 	 * @param $args array
 	 *		$args['request'] PKPRequest Required
@@ -357,7 +357,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 						$fileViewsRecords = array_filter($records, function ($record) use ($fileAssocType) {
 							return ($record[STATISTICS_DIMENSION_ASSOC_TYPE] == $fileAssocType);
 						});
-						// total file views = sum of all ttotal file views records
+						// total file views = sum of all total file views records
 						$values[$prop] = array_sum(array_map(
 							function($record){
 								return $record[STATISTICS_METRIC];
@@ -524,7 +524,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	 * Filter submissions by the given search phrase
 	 *
 	 * @param $searchPhrase string
-	 * @return array of submisison IDs
+	 * @return array of submission IDs
 	 */
 	private function _filterSubmissionsBySearchPhrase($contextId, $searchPhrase) {
 		$submissionIds = array();
@@ -542,7 +542,7 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 	}
 
 	/**
-	 * Get all time segments (months or days) beween the given start and the end date.
+	 * Get all time segments (months or days) between the given start and the end date.
 	 * It is assumed that startDate <= endDate
 	 *
 	 * @param $startDate string
@@ -567,15 +567,5 @@ class PKPStatsService extends PKPBaseEntityPropertyService {
 			$startTime = strtotime(date('Ymd', $startTime) . $interval);
 		}
 		return $timeSegments;
-	}
-
-	public function getUserStatistics($contextId, $args = array()) {
-		return \DAORegistry::getDAO('MetricsDAO')
-			->getUserStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null);
-	}
-
-	public function getSubmissionStatistics($contextId, $args = array()) {
-		return \DAORegistry::getDAO('MetricsDAO')
-			->getSubmissionStatistics($contextId, $args['dateStart'] ?? null, $args['dateEnd'] ?? null, $args['sectionIds'] ?? null);
 	}
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file classes/notification/managerDelegate/EditorialReportNotificationManager.inc.php
  *
@@ -16,31 +15,31 @@
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
 class EditorialReportNotificationManager extends NotificationManagerDelegate {
-	/** @var Context context instance */
+	/** @var Context Context instance */
 	private $_context;
-	/** @var Request request instance */
+	/** @var Request Request instance */
 	private $_request;
-	/** @var array cached message parameters */
+	/** @var array Cached message parameters */
 	private $_params;
-	/** @var array cached attachment */
+	/** @var array Cached attachment */
 	private $_attachmentFilename;
-	/** @var DateTime start date filter for the ranged statistics */
+	/** @var DateTimeInterface Start date filter for the ranged statistics */
 	private $_dateStart;
-	/** @var DateTime end date filter for the ranged statistics */
+	/** @var DateTimeInterface End date filter for the ranged statistics */
 	private $_dateEnd;
-	/** @var array cache of the all-time editorial statistics */
+	/** @var array Cache of the all-time editorial statistics */
 	private $_statistics;
-	/** @var array cache of the ranged editorial statistics */
+	/** @var array Cache of the ranged editorial statistics */
 	private $_rangedStatistics;
-	/** @var array cache of the all-time user statistics */
+	/** @var array Cache of the all-time user statistics */
 	private $_userStatistics;
-	/** @var array cache of the ranged user statistics */
+	/** @var array Cache of the ranged user statistics */
 	private $_rangedUserStatistics;
 
 	/**
 	 * @copydoc NotificationManagerDelegate::__construct()
 	 */
-	public function __construct($notificationType) {
+	public function __construct(int $notificationType) {
 		parent::__construct($notificationType);
 		$this->_request = Application::getRequest();
 	}
@@ -48,10 +47,11 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	/**
 	 * Initializes the class.
 	 * @param $context Context The context from where the statistics shall be retrieved
-	 * @param $context DateTime start date filter for the ranged statistics
-	 * @param $context DateTime end date filter for the ranged statistics
+	 * @param $context DateTimeInterface Start date filter for the ranged statistics
+	 * @param $context DateTimeInterface End date filter for the ranged statistics
 	 */
-	public function initialize(Context $context, DateTime $dateStart, DateTime $dateEnd) {
+	public function initialize(Context $context, DateTimeInterface $dateStart, DateTimeInterface $dateEnd) : void
+	{
 		$this->_context = $context;
 		$this->_dateStart = $dateStart;
 		$this->_dateEnd = $dateEnd;
@@ -59,8 +59,8 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 		$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
 		
 		$params = [
-			'dateStart' => $this->_dateStart->format('Y-m-d H:i:s'),
-			'dateEnd' => $this->_dateEnd->format('Y-m-d H:i:s')
+			'dateStart' => $this->_dateStart,
+			'dateEnd' => $this->_dateEnd
 		];
 
 		$this->_statistics = $editorialStatisticsService->getSubmissionStatistics($this->_context->getId());
@@ -72,14 +72,16 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	/**
 	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
 	 */
-	public function getNotificationMessage($request, $notification) {
+	public function getNotificationMessage($request, $notification) : string
+	{
 		return __('notification.type.editorialReport');
 	}
 
 	/**
 	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
 	 */
-	public function getNotificationContents($request, $notification) {
+	public function getNotificationContents($request, $notification) : void
+	{
 		$locale = AppLocale::getLocale();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplate = $emailTemplateDao->getEmailTemplate('STATISTICS_REPORT_NOTIFICATION', $locale, $notification->getContextId());
@@ -98,23 +100,26 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	/**
 	 * @copydoc PKPNotificationManager::getIconClass()
 	 */
-	public function getIconClass($notification) {
+	public function getIconClass($notification) : string
+	{
 		return 'notifyIconInfo';
 	}
 
 	/**
 	 * @copydoc PKPNotificationManager::getStyleClass()
 	 */
-	public function getStyleClass($notification) {
+	public function getStyleClass($notification) : string
+	{
 		return NOTIFICATION_STYLE_CLASS_INFORMATION;
 	}
 
 	/**
 	 * Sends a notification to the given user.
 	 * @param $user User The user who will be notified
-	 * @return Notification The notification instance
+	 * @return PKPNotification The notification instance
 	 */
-	public function notify(User $user) {
+	public function notify(User $user) : PKPNotification
+	{
 		return parent::createNotification(
 			$this->_request, $user->getId(), NOTIFICATION_TYPE_EDITORIAL_REPORT, $this->_context->getId(),
 			null, null, NOTIFICATION_LEVEL_TASK,
@@ -127,7 +132,8 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	/**
 	 * @copydoc PKPNotificationManager::getMailTemplate()
 	 */
-	protected function getMailTemplate($emailKey = null) {
+	protected function getMailTemplate($emailKey = null) : MailTemplate
+	{
 		import('lib.pkp.classes.mail.MailTemplate');
 		$mail = new MailTemplate('STATISTICS_REPORT_NOTIFICATION', null, $this->_context, false);
 		return $mail;
@@ -139,7 +145,8 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * @param $user User The user who will be notified
 	 * @return Mail The prepared message
 	 */
-	private function _setupMessage(Mail $mail, User $user) {
+	private function _setupMessage(Mail $mail, User $user) : Mail
+	{
 		$mail->assignParams($this->_getMessageParams($user));
 		if ($this->_getMessageAttachment()) {
 			$mail->addAttachment($this->_getMessageAttachment(), 'editorial-report.csv');
@@ -152,15 +159,16 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * @param $user User The user who will be notified
 	 * @return array An array with the parameters and their values
 	 */
-	private function _getMessageParams(User $user) {
+	private function _getMessageParams(User $user) : array
+	{
 		if (!$this->_params) {
 			$dispatcher = Application::getDispatcher();
 
 			$this->_params = [
-				'newSubmissions' => +$this->_rangedStatistics['SUBMISSION_RECEIVED'],
-				'declinedSubmissions' => +$this->_rangedStatistics['SUBMISSION_DECLINED_TOTAL'],
-				'acceptedSubmissions' => +$this->_rangedStatistics['SUBMISSION_ACCEPTED'],
-				'totalSubmissions' => +$this->_statistics['SUBMISSION_RECEIVED'],
+				'newSubmissions' => $this->_rangedStatistics->getReceived(),
+				'declinedSubmissions' => $this->_rangedStatistics->getDeclined(),
+				'acceptedSubmissions' => $this->_rangedStatistics->getAccepted(),
+				'totalSubmissions' => $this->_statistics->getReceived(),
 				'month' => $this->_dateStart->format('F'),
 				'year' => $this->_dateStart->format('Y'),
 				'editorialReportLink' => $dispatcher->url($this->_request, ROUTE_PAGE, $this->_context->getPath(), 'stats', 'editorialReport'),
@@ -174,51 +182,50 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * Retrieves the message attachment.
 	 * @return string The full path of the attachment
 	 */
-	private function _getMessageAttachment() {
+	private function _getMessageAttachment() : string
+	{
 		if (!$this->_attachmentFilename) {
 			import('classes.core.ServicesContainer');
 
 			$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
 
-			$submissionChartData = $editorialStatisticsService->compileSubmissionChartData($this->_statistics);
-			$editorialStatistics = $editorialStatisticsService->compileEditorialStatistics($this->_rangedStatistics, $this->_statistics);
-			$userStatistics = $editorialStatisticsService->compileUserStatistics($this->_rangedUserStatistics, $this->_userStatistics);
+			$activeSubmissions = $editorialStatisticsService->compileActiveSubmissions($this->_statistics);
+			$submissions = $editorialStatisticsService->compileSubmissions($this->_rangedStatistics, $this->_statistics);
+			$users = $editorialStatisticsService->compileUsers($this->_rangedUserStatistics, $this->_userStatistics);
 
-			$path = tempnam(sys_get_temp_dir(), 'tmp');
-			if ($handle = fopen($path, 'wb')) {
-				fputcsv($handle, [
-					__('navigation.submissions'),
-					__('stats.total')
-				]);
-				foreach ($submissionChartData as list('name' => $name, 'value' => $value)) {
-					fputcsv($handle, [$name, $value]);
-				}
-
-				fputcsv($handle, []);
-				fputcsv($handle, [
-					__('manager.statistics.editorial.trends'),
-					__('manager.statistics.totalWithinDateRange'),
-					__('common.average') . '/' . __('common.year'),
-					__('stats.total')
-				]);
-				foreach ($editorialStatistics as list('name' => $name, 'period' => $period, 'average' => $average, 'total' => $total)) {
-					fputcsv($handle, [str_replace('&emsp;', '', $name), $period, $average, $total]);
-				}
-
-				fputcsv($handle, []);
-				fputcsv($handle, [
-					__('manager.users'),
-					__('manager.statistics.totalWithinDateRange'),
-					__('common.average') . '/' . __('common.year'),
-					__('stats.total')
-				]);
-				foreach ($userStatistics as list('name' => $name, 'period' => $period, 'average' => $average, 'total' => $total)) {
-					fputcsv($handle, [str_replace('&emsp;', '', $name), $period, $average, $total]);
-				}
-
-				fclose($handle);
-				$this->_attachmentFilename = $path;
+			$file = new SplFileObject(tempnam(sys_get_temp_dir(), 'tmp'), 'wb');
+			$file->fputcsv([
+				__('navigation.submissions'),
+				__('stats.total')
+			]);
+			foreach ($activeSubmissions as list('name' => $name, 'value' => $value)) {
+				$file->fputcsv([$name, $value]);
 			}
+
+			$file->fputcsv([]);
+			$file->fputcsv([
+				__('manager.statistics.editorial.trends'),
+				__('manager.statistics.totalWithinDateRange'),
+				__('common.average') . '/' . __('common.year'),
+				__('stats.total')
+			]);
+			foreach ($submissions as list('name' => $name, 'period' => $period, 'average' => $average, 'total' => $total)) {
+				$file->fputcsv([str_replace('&emsp;', '', $name), $period, $average, $total]);
+			}
+
+			$file->fputcsv([]);
+			$file->fputcsv([
+				__('manager.users'),
+				__('manager.statistics.totalWithinDateRange'),
+				__('common.average') . '/' . __('common.year'),
+				__('stats.total')
+			]);
+			foreach ($users as list('name' => $name, 'period' => $period, 'average' => $average, 'total' => $total)) {
+				$file->fputcsv([str_replace('&emsp;', '', $name), $period, $average, $total]);
+			}
+
+			$this->_attachmentFilename = $file->getRealPath();
+			$file = null;
 		}
 		return $this->_attachmentFilename;
 	}

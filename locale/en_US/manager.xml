@@ -188,9 +188,9 @@
 	<message key="manager.statistics.editorial.averageDaysToReject">Average # Days to Reject</message>
 	<message key="manager.statistics.editorial.acceptanceRate">Acceptance Rate</message>
 	<message key="manager.statistics.editorial.rejectionRate">Rejection Rate</message>
-	<message key="manager.statistics.editorial.deskRejectRate">Desk Reject Rate</message>
-	<message key="manager.statistics.editorial.postReviewRejectRate">Post-Review Reject Rate</message>
-	<message key="manager.statistics.editorial.otherRejectRate">Other Reject Rate</message>
+	<message key="manager.statistics.editorial.deskRejectRejectionRate">Desk Reject Rate</message>
+	<message key="manager.statistics.editorial.postReviewRejectionRate">Post-Review Reject Rate</message>
+	<message key="manager.statistics.editorial.otherRejectionRate">Other Reject Rate</message>
 	<message key="manager.statistics.editorial.registeredUsers">Registered Users</message>
 
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>

@@ -9,7 +9,7 @@
  * @class UserListQueryBuilder
  * @ingroup query_builders
  *
- * @brief Submission list Query builder
+ * @brief User list Query builder
  */
 
 namespace PKP\Services\QueryBuilders;

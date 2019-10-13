@@ -32,7 +32,7 @@ export default {
 	init: function (id, type, data) {
 
 		if (pkp.controllers[type] === undefined) {
-			console.log('No Vue of the type ' + type + ' could be found.');
+			console.error('No Vue of the type ' + type + ' could be found.');
 			return;
 		}
 
@@ -41,18 +41,16 @@ export default {
 			delete data._constants;
 		}
 
-		var args = _.extend({}, pkp.controllers[type],
-			{
-				el: '#' + id,
-				data: _.extend(pkp.controllers[type].data(), data, { id: id }),
-			}
-		);
+		const Component = pkp.Vue.extend(pkp.controllers[type]);
 
-		pkp.registry._instances[id] = new pkp.Vue(args);
+		pkp.registry._instances[id] = new Component({
+			el: `#${id}`,
+			data: { ...data, id },
+		});
 
 		// Register with a parent handler from the legacy JS framework, so that
-		// those componments can destroy a Vue instance when removing HTML code
-		var $parents = $(pkp.registry._instances[id].$el).parents();
+		// those components can destroy a Vue instance when removing HTML code
+		const $parents = $(pkp.registry._instances[id].$el).parents();
 		$parents.each(function (i) {
 			if ($.pkp.classes.Handler.hasHandler($($parents[i]))) {
 				$.pkp.classes.Handler.getHandler($($parents[i]))

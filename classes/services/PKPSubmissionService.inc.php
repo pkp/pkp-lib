@@ -107,6 +107,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
+			'daysInactive' => null,
 			'returnObject' => SUBMISSION_RETURN_SUBMISSION,
 		);
 
@@ -120,6 +121,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
+			->filterByDaysInactive($args['daysInactive'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
 			->searchPhrase($args['searchPhrase'])
 			->returnObject($args['returnObject']);
@@ -421,13 +423,32 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $submission->getAbstract(null);
 					break;
 				case 'discipline':
-					$values[$prop] = $submission->getDiscipline(null);
+					$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
+					$values[$prop] = array_filter($submissionDisciplineDao->getDisciplines($submission->getId(), array_keys(\PKPLocale::getAllLocales())));
 					break;
 				case 'subject':
-					$values[$prop] = $submission->getSubject(null);
+					$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
+					$values[$prop] = array_filter($submissionSubjectDao->getSubjects($submission->getId(), array_keys(\PKPLocale::getAllLocales())));
+					break;
+				case 'keywords':
+					$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
+					$values[$prop] = array_filter($submissionKeywordDao->getKeywords($submission->getId(), array_keys(\PKPLocale::getAllLocales())));
+					break;
+				case 'supportingAgencies':
+					$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
+					$values[$prop] = array_filter($submissionAgencyDao->getAgencies($submission->getId(), array_keys(\PKPLocale::getAllLocales())));
 					break;
 				case 'type':
 					$values[$prop] = $submission->getType(null);
+					break;
+				case 'coverage':
+					$values[$prop] = $submission->getCoverage(null);
+					break;
+				case 'source':
+					$values[$prop] = $submission->getSource(null);
+					break;
+				case 'rights':
+					$values[$prop] = $submission->getRights(null);
 					break;
 				case 'language':
 					$values[$prop] = $submission->getLanguage();
@@ -454,7 +475,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 					$values[$prop] = $submission->getDateSubmitted();
 					break;
 				case 'dateStatusModified':
-					$values[$prop] = $submission->getDateStatusModified();
+					$values[$prop] =  $submission->getDateStatusModified();
 					break;
 				case 'lastModified':
 					$values[$prop] = $submission->getLastModified();
@@ -562,7 +583,8 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 
 		$props = array (
 			'id','title','subtitle','fullTitle','prefix','abstract',
-			'discipline','subject','type','language','sponsor','pages',
+			'discipline','subject','keywords','supportingAgencies','type','coverage','source',
+			'rights','language','sponsor','pages',
 			'copyrightYear','licenseUrl','locale','dateSubmitted','dateStatusModified','lastModified','datePublished',
 			'status','submissionProgress','urlWorkflow','urlPublished',
 			'galleys','_href',
@@ -596,6 +618,7 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 		$props = array (
 			'id','fullTitle','status','submissionProgress','stages','reviewRounds','reviewAssignments',
 			'locale', 'urlWorkflow','urlAuthorWorkflow','urlEditorialWorkflow','urlPublished','_href',
+			'dateStatusModified',
 		);
 
 		if ($this->canUserViewAuthor($currentUser, $submission)) {

@@ -252,4 +252,5 @@
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Ingen navigationsmenuer</message>
 	<message key="grid.action.uninstall">Afinstaller</message>
 	<message key="grid.navigationMenus.navigationMenu.selectType">Vælg en type...</message>
+	<message key="grid.action.users">Se/Vælg brugere</message>
 </locale>

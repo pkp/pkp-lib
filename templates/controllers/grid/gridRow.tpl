@@ -28,7 +28,7 @@
 	{assign var="row_class" value=$row_class|cat:' has_extras'}
 {/if}
 
-<tr {if $rowId}id="{$rowId|escape}" {/if} class="{$row_class}">
+<tr {if $rowId}id="{$rowId|escape|replace:" ":"_"}" {/if} class="{$row_class}">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 
 		{* @todo indent columns should be killed at their source *}
@@ -60,7 +60,7 @@
 				<div class="row_actions">
 					{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 						{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
-							{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
+							{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId|replace:" ":"_"}
 						{/foreach}
 					{/if}
 				</div>
@@ -74,11 +74,11 @@
 	{/foreach}
 </tr>
 {if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
-	<tr id="{$rowId|escape}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
+	<tr id="{$rowId|escape|replace:" ":"_"}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
 		<td colspan="{$grid->getColumnsCount('indent')}">
 			{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
-					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
+					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId|replace:" ":"_"}
 				{/foreach}
 			{/if}
 		</td>

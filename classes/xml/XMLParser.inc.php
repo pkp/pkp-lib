@@ -93,16 +93,14 @@ class XMLParser {
 		xml_set_character_data_handler($parser, "characterData");
 
 		import('lib.pkp.classes.file.FileWrapper');
-		$wrapper =& FileWrapper::wrapper($file);
+		$wrapper = FileWrapper::wrapper($file);
 
 		// Handle responses of various types
 		while (true) {
 			$newWrapper = $wrapper->open();
-			if (is_object($newWrapper)) {
+			if (is_a($newWrapper, 'FileWrapper')) {
 				// Follow a redirect
-				unset($wrapper);
-				$wrapper =& $newWrapper;
-				unset ($newWrapper);
+				$wrapper = $newWrapper;
 			} elseif (!$newWrapper) {
 				// Could not open resource -- error
 				$returner = false;
@@ -213,7 +211,7 @@ class XMLParser {
 	 */
 	function &parseStruct($file, $tagsToMatch = array()) {
 		import('lib.pkp.classes.file.FileWrapper');
-		$wrapper =& FileWrapper::wrapper($file);
+		$wrapper = FileWrapper::wrapper($file);
 		$fileContents = $wrapper->contents();
 		if (!$fileContents) {
 			$result = false;

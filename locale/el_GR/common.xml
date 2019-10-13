@@ -229,125 +229,202 @@
 	<message key="icon.info.alt">Πληροφορίες</message>
 	<message key="icon.letter.alt">Γράμμα</message>
 	<message key="icon.mail.alt">Ταχυδρομείο</message>
-	<message key="icon.unchecked.alt">Δεν έχει επιλεγεί</message>
+	<message key="icon.unchecked.alt">Μη επιλεγμένο</message>
 	<message key="icon.view.alt">Προβολή</message>
-	<message key="locale.primary">Κύριες Τοπικές Ρυθμίσεις</message>
-	<message key="locale.supported">Συμπληρωματικές Τοπικές Ρυθμίσεις</message>
+
+	<!-- Information Center -->
+	<message key="informationCenter.informationCenter">Κέντρο πληροφόρησης</message>
+	<message key="informationCenter.editorialHistory">Ιστορικό επιμέλειας</message>
+	<message key="informationCenter.addNote">Προσθήκη σημείωσης</message>
+	<message key="informationCenter.noNotes">Δεν υπάρχουν σημειώσεις για εμφάνιση.</message>
+	<message key="informationCenter.pastNotes">Σημειώσειε προηγούμενων αναθεωρήσεων</message>
+	<message key="informationCenter.deleteConfirm">Επιβεβαιώνετε τη διαγραφή αυτής της σημείωσης;</message>
+	<message key="informationCenter.currentHistory">Τρέχουσα αναθεώρηση</message>
+	<message key="informationCenter.pastHistory">Προηγούμενες αναθεωρήσεις</message>
+	<message key="informationCenter.history.noItems">Δεν υπάρχουν καταχωρήσεις στο Ιστορικό.</message>
+	<message key="informationCenter.history.notePosted">Η νέα σημείωση αναρτήθηκε.</message>
+	<message key="informationCenter.history.messageSent">Το μήνυμα στάλθηκε στους Χρήστες.</message>
+
+	<!-- Stage Participants -->
+	<message key="stageParticipants.history.messageSent">Η ειδοποίηση στάλθηκε στους Χρήστες.</message>
+	<message key="stageParticipants.notify.startDiscussion">Έναρξη συζήτησης</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Ξεκινήστε μια συζήτηση με τον Χρήστη {$userFullName}.</message>
+	<message key="stageParticipants.notify.chooseMessage">Επιλέξτε ένα προκαθορισμένο μήνυμα ή συμπληρώστε τη φόρμα που ακολουθεί.</message>
+	<message key="stageParticipants.notify.message">Μήνυμα</message>
+	<message key="stageParticipants.notify.warning">Βεβαιωθείτε ότι έχετε καταχωρήσει το μήνυμά σας και επιλέξατε έναν τουλάχιστον παραλήπτη.</message>
+	<message key="stageParticipants.options">Διαβαθμισμένα δικαιώματα</message>
+	<message key="stageParticipants.recommendOnly">Τα δικαιώματα του συγκεκριμένου συντελεστή περιορίζονται στην υποβολή συστάσεων προς τον Επιμελητή. Η καταγραφή της απόφασης για το άρθρο γίνεται από τον Επιμελητή.</message>
+
+	<message key="locale.primary">Κύρια γλώσσα</message>
+	<message key="locale.supported">Συμπληρωματικές γλώσσες</message>
+	<message key="navigation.access"><![CDATA[Χρήστες &amp; Ρόλοι]]></message>
 	<message key="navigation.about">Σχετικά</message>
-	<message key="navigation.browse">Σάρωση</message>
+	<message key="navigation.admin">Διαχείριση</message>
+	<message key="navigation.archives">Αρχεία</message>
+	<message key="navigation.breadcrumbLabel">Βρίσκεστε εδώ:</message>
+	<message key="navigation.breadcrumbSeparator">/</message>
+	<message key="navigation.tools">Εργαλεία</message>
+	<message key="navigation.tools.importExport">Εισαγωγή/Εξαγωγή</message>
+	<message key="navigation.tools.statistics">Στατιστικά</message>
+	<message key="navigation.browse">Περιήγηση</message>
+	<message key="navigation.browseByAuthor">Κατά Συγγραφέα</message>
 	<message key="navigation.browseByTitle">Κατά τίτλο</message>
-	<message key="navigation.home">Αρχική Σελίδα</message>
-	<message key="navigation.infoForReaders">Για αναγνώστες</message>
-	<message key="navigation.infoForReaders.long">Περισσότερες πληροφορίες για αναγνώστες</message>
-	<message key="navigation.items">{$from} - {$to} από {$total} Στοιχεία</message>
-	<message key="navigation.login">Συνδεθείτε</message>
+	<message key="navigation.dashboard">Πίνακας</message>
+	<message key="navigation.data">Δεδομένα</message>
+	<message key="navigation.home">Αρχική σελίδα</message>
+	<message key="navigation.infoForReaders">Για Αναγνώστες</message>
+	<message key="navigation.infoForReaders.long">Πληροφορίες για Αναγνώστες</message>
+	<message key="navigation.items">{$from} - {$to} από {$total} στοιχεία</message>
+	<message key="navigation.items.shownTotal">{$shown} από {$total} στοιχεία</message>
+	<message key="navigation.login">Σύνδεση</message>
 	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Επόμενο βήμα</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Προηγούμενο βήμα</message>
-	<message key="navigation.register">Εγγραφείτε</message>
+	<message key="navigation.publicMenu">Δημόσιο μενού</message>
+	<message key="navigation.register">Εγγραφή</message>
 	<message key="navigation.search">Αναζήτηση</message>
+	<message key="navigation.settings">Ρυθμίσεις</message>
+	<message key="navigation.setup">Παραμετροποίηση λειτουργιών</message>
+	<message key="navigation.sitemap">Χάρτης ιστοτόπου</message>
+	<message key="navigation.skip.main">Μετάβαση στο κύριο περιεχόμενο</message>
+	<message key="navigation.skip.nav">Μετάβαση στο κύριο μενού πλοήγησης</message>
+	<message key="navigation.skip.footer">Μετάβαση στο υποσέλιδο του ιστότοπου</message>
 	<message key="navigation.stepNumber">Βήμα {$step}</message>
-	<message key="navigation.userHome">Αρχική Σελίδα Χρήστη</message>
+	<message key="navigation.submissions">Υποβολές</message>
+	<message key="navigation.system">Σύστημα</message>
+	<message key="navigation.userHome">Αρχική σελίδα Χρήστη</message>
 	<message key="navigation.user">Χρήστης</message>
-	<message key="search.abstract">Περίληψη</message>
+	<message key="navigation.userManagement">Διαχείριση Χρηστών</message>
+	<message key="navigation.viewFrontend">Προβολή ιστοτόπου</message>
+	<message key="notification.addedAuditor">Ο Ελεγκτής (Auditor) έχει προστεθεί.</message>
+	<message key="notification.removedAuditor">Ο Ελεγκτής (Auditor) έχει αφαιρεθεί.</message>
+	<message key="notification.addedQuery">Η συζήτηση προστέθηκε</message>
+	<message key="notification.reviewAcknowledged">Ο Αξιολογητής είναι άγνωστος. Το μήνυμα δεν αποστέλλεται.</message>
+	<message key="notification.reviewerThankedEmail">Το ευχαριστήριο μήνυμα στάλθηκε στον Aξιολογητή.</message>
+	<message key="notification.updatedReviewFiles">Τα αρχεία αξιολόγησης ενημερώθηκαν.</message>
+	<message key="notification.allow">Εμφάνιση αυτών των τύπων ειδοποιήσεων στην προσωπική μου ροή ειδοποιήσεων</message>
+	<message key="notification.addedAnnouncementType">Ο τύπος αναζήτησης προστέθηκε.</message>
+	<message key="notification.editedAnnouncementType">Ο τύπος ανακοίνωσης επικαιροποιήθηκε.</message>
+	<message key="notification.removedAnnouncementType">Ο τύπος ανακοίνωσης αφαιρέθηκε.</message>
+	<message key="notification.addedAnnouncement">Η ανακοίνωση προστέθηκε.</message>
+	<message key="notification.editedAnnouncement">Η ανακοίνωση επικαιροποιήθηκε.</message>
+	<message key="notification.removedAnnouncement">Η ανακοίνωση αφαιρέθηκε.</message>
+	<message key="notification.addedAuthor">Ο Συγγραφέας προστέθηκε.</message>
+	<message key="notification.editedAuthor">Τα στοιχεία Συγγραφέα επικαιροποιήθηκαν.</message>
+	<message key="notification.confirmError">Παρουσίαστηκε ένα σφάλμα κατά την επιβεβαίωση της συνδρομής σας.</message>
+	<message key="notification.confirmSuccess">Η συνδρομή σας δημιουργήθηκε επιτυχώς.</message>
+	<message key="notification.email">Να λαμβάνω μηνύματα με ειδοποιήσεις αυτού του τύπου.</message>
+	<message key="notification.noneExist">Δεν έχετε καμία ειδοποίηση.</message>
+	<message key="notification.addedNote">Η σημείωση αναρτήθηκε.</message>
+	<message key="notification.removedNote">Η σημείωση αφαιρέθηκε.</message>
+	<message key="notification.removedFile">Το αρχείο αφαιρέθηκε.</message>
+	<message key="notification.removedSubmission">Η υποβολή αφαιρέθηκε.</message>
+	<message key="notification.notification">Ειδοποίηση</message>
+	<message key="notification.notifications">Ειδοποιήσεις</message>
+	<message key="notification.sentNotification">Η ειδοποίηση στάλθηκε.</message>
+	<message key="notification.settings">Ρυθμίσεις ειδοποιήσεων</message>
+	<message key="notification.settingsDescription">Επιλέξτε/αποεπιλέξτε τα συμβάντα για τα οποία επιθυμείτε/δεν επιθυμείτε να λαμβάνετε ειδοποιήσεις.</message>
+	<message key="notification.reminderError">Παρουσιάστηκε ένα σφάλμα κατά την αποστολή του κωδικού πρόσβασης. Παρακαλούμε επιβεβαιώστε ότι καταχωρήσατε σωστά τη διεύθυνσή σας.</message>
+	<message key="notification.reminderSent">Ο καινούργιος σας κωδικός πρόσβασης έχει σταλεί στην διεύθυνση που υποδείξατε.</message>
+	<message key="notification.savedSubmissionMetadata">Τα μεταδεδομένα της υποβολής έχουν αποθηκευτεί.</message>
+	<message key="notification.sendNotificationConfirmation">Αποστολή ενημερωτικού μηνύματος σε όλους τους εγγεγραμμένους Χρήστες</message>
 	<message key="search.author">Συγγραφείς</message>
+	<message key="search.abstract">Περίληψη</message>
+	<message key="search.advancedFilters">Φίλτρα αναζήτησης</message>
+	<message key="search.advancedSearchMore">Πρόσθετες επιλογές αναζήτησης (πατήστε για εμφάνιση)</message>
+	<message key="search.advancedSearchLess">Πρόσθετες επιλογές αναζήτησης (πατήστε για απόκρυψη)</message>
+	<message key="search.searchAgain">Νέα αναζήτηση</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Εκκαθάριση ευρετηρίου</message>
+	<message key="search.cli.rebuildIndex.done">έτοιμο</message>
+	<message key="search.cli.rebuildIndex.error">σφάλμα</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} ευρετηριασμένα άρθρα</message>
 	<message key="search.coverage">Κάλυψη</message>
 	<message key="search.date">Ημερομηνία</message>
 	<message key="search.dateFrom">Από</message>
 	<message key="search.dateTo">Μέχρι</message>
-	<message key="search.discipline">Θεματική(ες) ενότητα(ες)</message>
-	<message key="search.fullText">Πλήρες Κείμενο</message>
+	<message key="search.deleteFilter">Διαγραφή</message>
+	<message key="search.discipline">Επιστημονικοί κλάδοι</message>
+	<message key="search.fullText">Πλήρες κείμενο</message>
 	<message key="search.indexTerms">Όροι ευρετηρίασης</message>
-	<message key="search.matchAll">Εύρεση αποτελεσμάτων με όλους τους όρους</message>
-	<message key="search.noKeywordError">Θα πρέπει να εισάγετε τουλάχιστον μια λέξη-κλειδί αναζήτησης.</message>
+	<message key="search.indexTermsLong">Όλα τα πεδία ευρετηρίασης</message>
+	<message key="search.matchAll">Εύρεση αποτελεσμάτων που περιέχουν όλους τους όρους.</message>
+	<message key="search.noKeywordError">Θα πρέπει να εισάγετε τουλάχιστον έναν όρο αναζήτησης.</message>
 	<message key="search.noResults">Κανένα αποτέλεσμα</message>
-	<message key="search.operator.and">and</message>
-	<message key="search.operator.not">not</message>
-	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Αναθεώρηση Αναζήτησης</message>
-	<message key="search.searchAllCategories">Αναζήτηση σε όλες τις κατηγορίες για</message>
-	<message key="search.searchCategories">Αναζήτηση σε κατηγορίες</message>
+	<message key="search.operator.and">και</message>
+	<message key="search.operator.not">όχι</message>
+	<message key="search.operator.or">ή</message>
+	<message key="search.SearchFor">Αναζήτηση για</message>
 	<message key="search.searchResults">Αποτελέσματα αναζήτησης</message>
-	<message key="search.subject">Λέξεις κλειδιά</message>
-	<message key="search.titleIndex">Σάρωση κατά τίτλο άρθρου</message>
+	<message key="search.subject">Λέξεις-κλειδιά</message>
+	<message key="search.titleIndex">Περιήγηση τίτλων αλφαβητικά</message>
 	<message key="search.title">Τίτλος</message>
 	<message key="search.typeMethodApproach">Τύπος (μέθοδος/προσέγγιση)</message>
-	<message key="common.ccLicense"><![CDATA[<br /><br />
-		<a target="_blank" rel="license" href="https://creativecommons.org/licenses/by/3.0/">
-			<img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png"/>
-		</a>
-		<br/>
-		Η χρήση του περιεχομένου καθορίζεται από την άδεια <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.]]></message>
-	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
-		<br />
-		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-		<br />
-		Η χρήση του περιεχομένου καθορίζεται από την άδεια <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
-	</div>]]></message>
-	<message key="common.manage">Διαχείριση</message>
-	<message key="common.noComments">Κανένα Σχόλιο</message>
-	<message key="form.startsWith">αρχίζει από</message>
-	<message key="notification.addedAuditor">Ο Ελγκτής (Autidor) έχει προστεθεί.</message>
-	<message key="notification.removedAuditor">Ο Ελγκτής (Autidor) έχει αφαιρεθεί.</message>
-	<message key="notification.reviewAcknowledged">Ο αξιολογητής επισημάνθηκε ως άγνωστος. Το Email δεν αποστέλλεται.</message>
-	<message key="notification.allow">Εμφάνιση αυτών των τύπων ειδοποιήσεων στην προσωπική μου ροή ειδοποιήσεων</message>
-	<message key="notification.confirmError">Παρουσίαστηκε ένα σφάλμα κατά την επιβεβαίωση της συνδρομής σας.</message>
-	<message key="notification.confirmSuccess">Η συνδρομή σας δημιουργήθηκε επιτυχώς.</message>
-	<message key="notification.noneExist">Δεν έχετε καμία ειδοποίηση</message>
-	<message key="notification.notification">Ειδοποίηση</message>
-	<message key="notification.notifications">Ειδοποιήσεις</message>
-	<message key="notification.settings">Ρυθμίσεις Ειδοποιήσεων</message>
-	<message key="notification.settingsDescription">Επιλέξτε τα γεγονότα του συστήματος για τα οποία επιθυμείτε να ειδοποιήστε. Απο-επιλέγοντας ένα γεγονός δεν θα λαμβάνετε ειδοποιήσεις για αυτό στην προσωπική σας ροή ειδοποιήσεων.</message>
-	<message key="notification.reminderError">Παρουσίαστηκε ένα σφάλμα κατά την αποστολή του κωδικού πρόσβασης. Παρακαλούμε επιβεβαιωθείτε ότι εισάγατε σωστά την διεύθυνσή σας.</message>
-	<message key="notification.reminderSent">Ο καινούργιος σας κωδικός πρόσβασης έχει σταλεί στην διεύθυνση που εισάγατε.</message>
-	<message key="notification.savedSubmissionMetadata">Τα μεταδεδομένα της υποβολής έχουν αποθηκευτεί.</message>
-	<message key="common.re">Re:</message>
-	<message key="common.disable">Απενεργοποίηση</message>
-	<message key="common.enable">Ενεργοποίηση</message>
-	<message key="common.fullscreen">Πλήρης Οθόνη</message>
-	<message key="common.fullscreenOff">Πλήρης Οθόνη Off</message>
-	<message key="common.false">Ψευδές</message>
-	<message key="common.ok">Εντάξει</message>
-	<message key="common.pluginEnabled">Το plugin "{$pluginName}" έχει ενεργοποιηθεί.</message>
-	<message key="common.pluginDisabled">Το plugin "{$pluginName}" έχει απενεργοποιηθεί.</message>
-	<message key="common.refresh">Ανανέωση</message>
-	<message key="common.true">Αληθές</message>
-	<message key="common.uploadFailed">Το αρχείο δεν ανέβηκε. Σας παρακαλούμε προσπαθήστε ξανά ή επικοινωνήστε με τον διαχειριστή αν το πρόβλημα επιμείνει.</message>
-	<message key="common.loading">Φόρτωση...</message>
-	<message key="navigation.dashboard">Ταμπλό</message>
-	<message key="reviewer.submission.reviewSchedule">Πρόγραμμα Αξιολόγησης</message>
-	<message key="reviewer.submission.reviewRequestDate">Αίτημα υπεύθυνου έκδοσης</message>
-	<message key="reviewer.submission.responseDueDate">Ημερομηνία Προθεσμίας Απάντησης</message>
-	<message key="reviewer.submission.reviewDueDate">Ημερομηνία Προθεσμίας Αξιολόγησης</message>
 
-	<!-- Information Center -->
-	<message key="informationCenter.informationCenter">Κέντρο Πληροφόρησης</message>
-	<message key="informationCenter.composeNote">Σύνταξη Σημειώματος</message>
-	<message key="informationCenter.addFileNote">Προσθήκη στο Αρχείο</message>
-	<message key="informationCenter.addSubmissionNote">Προσθήκη σημειώματος στην Υποβολή</message>
-	<message key="informationCenter.noNotes">Δεν υπάρχουν σημειώσεις για εμφάνιση.</message>
-	<message key="informationCenter.currentNotes">Τρέχουσα Αναθεώρηση</message>
-	<message key="informationCenter.pastNotes">Προηγούμενες Αναθεωρήσεις</message>
-	<message key="informationCenter.lastUpdated">Τελευταία Ενημέρωση</message>
-	<message key="informationCenter.deleteConfirm">Είστε σίγουροι ότι επιθυμείτε να διαγράψετε αυτό το σημείωμα;</message>
-	<message key="informationCenter.currentHistory">Τρέχουσα Αναθεώρηση</message>
-	<message key="informationCenter.pastHistory">Προηγούμενες Αναθεωρήσεις</message>
-	<message key="informationCenter.history.noItems">Δεν υπάρχουν καταχωρίσεις στο Ιστορικό.</message>
-	<message key="informationCenter.history.notePosted">Αναστήστε νέες σημειώσεις.</message>
-	<message key="informationCenter.history.messageSent">Ειδοποίηση να αποστέλλεται στους χρήστες.</message>
-	<message key="informationCenter.notify.chooseMessage">Επιλέξτε ένα προκαθορισμένο μήνυμα ή συμπληρώστε την παρακάτω φόρμα.</message>
-	<message key="informationCenter.notify.message">Μήνυμα</message>
-	<message key="informationCenter.notify.warning">Παρακαλούμε σιγουρευτείτε ότι έχετε συμπληρώσει το πεδίο μηνύματος και επιλέξτε τουλάχιστον έναν παραλήπτη του μηνύματος.</message>
+	<!-- Common -->
+	<message key="grid.action.downloadFile">Μεταφόρτωση του αρχείου</message>
+
+	<message key="context.path">Διαδρομή</message>
+	<message key="review.ensuringBlindReview">Διασφαλίζοντας την "τυφλή" αξιολόγηση</message>
+	<message key="grid.action.showReviewPolicy">Προβολή των πολιτικών αξιολόγησης</message>
+	<message key="grid.action.deleteNotification">Διαγραφή εργασίας</message>
+	<message key="grid.action.markNew">Επισήμανση ως νέο</message>
+	<message key="grid.action.markRead">Επισήμανση ως αναγνωσμένο</message>
+
+	<message key="dashboard.tasks">Εργασίες</message>
+	<message key="dashboard.myQueue">Η λίστα μου</message>
+
+	<message key="review.blindPeerReview">
+		<![CDATA[<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που μεταφορτώνονται:</p>
+			<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν υπάρχουν παραπομπές σε προηγούμενες εργασίες των Sυγγραφέων, τα ονόματά τους αντικαθίστανται με τη λέξη "Συγγραφέας", ο τίτλος των εργασιών αφαιρείται και παραμένει μόνο το έτος έκδοσης.</li>
+			<li>Σε έγγραφα του Microsoft Office, η ταυτότητα των Συγγραφέων πρέπει επίσης να αφαιρείται από τις ιδιότητες του αρχείου, ως ακολούθως: Στο μενού εργασιών του εγγράφου επιλέγετε "Αρχείο", στη συνέχεια "Έλεγχος για θέματα" και "Έλεγχος εγγράφου", όπου ακολουθείτε τις οδηγίες του προγράμματος.</li>
+			<li>Σε έγγραφα PDF, τα ονόματα των Συγγραφέων αφαιρούνται από τις "Ιδιότητες", στο μενού "Αρχείο" του Adobe Acrobat.</li>
+		</ul>]]>
+	</message>
+	<message key="reviewer.submission.reviewSchedule">Χρονοδιάγραμμα αξιολόγησης</message>
+	<message key="reviewer.submission.reviewRequestDate">Αίτημα υπεύθυνου έκδοσης</message>
+	<message key="reviewer.submission.responseDueDate">Ημερομηνία προθεσμίας απάντησης</message>
+	<message key="reviewer.submission.reviewDueDate">Ημερομηνία προθεσμίας αξιολόγησης</message>
+	<message key="submission.task.responseDueDate">Προθεσμία απάντησης</message>
 	<message key="navigation.goBack">Επιστροφή</message>
-	<message key="notification.type.allReviewsIn">Όλες οι ανθεωρήσεις και μια απόφαση χρειάζονται στο {$stage}.</message>
-	<message key="notification.type.allRevisionsIn">Ένα αναθεωρημένο αρχείο έχει μεταφορτωθεί για εξέταση από εσας ως Επιμελητής στο {$stage}.</message>
-	<message key="notification.type.pendingRevisions">Απαιτούνται αναθεωρήσεις στο {$stage}.</message>
-	<message key="notification.type.pendingRevisions.title">Ανθεωρήσεις έχουν υποβληθεί στο {$stage}.</message>
-	<message key="notification.signedFile">Το αρχείο έχει θεωρηθεί.</message>
+
+	<message key="notification.addedReviewer"> Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε σχετική ενημέρωση.</message>
+	<message key="notification.addedReviewerNoEmail">Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, χωρίς να έχει αποσταλεί σχετική ενημέρωση.</message>
+	<message key="notification.removedReviewer">Ο Αξιολογητής αφαιρέθηκε</message>
+	<message key="notification.addedStageParticipant">Ο Χρήστης προστέθηκε ως συμμετέχων σε κάποιο στάδιο.</message>
+	<message key="notification.type.newAnnouncement">Νέα ανακοίνωση</message>
+	<message key="notification.type.reviewAssignment">Εκκρεμής αξιολόγηση</message>
+	<message key="notification.type.reviewAssignmentUpdated">Έγινε ενημέρωση της ανάθεσης αξιολόγησης.</message>
 	<message key="notification.type.auditorRequest">Έχετε κληθεί για τον έλεγχο του αρχείου "{$file}"</message>
+	<message key="notification.type.allReviewsIn">Όλες οι αξιολογήσεις και η απόφαση Επιμελητή χρειάζονται στο {$stage}.</message>
+	<message key="notification.type.allRevisionsIn">Ένα αναθεωρημένο αρχείο προς επιμέλεια έχει μεταφορτωθεί στο στάδιο {$stage}.</message>
+	<message key="notification.type.pendingRevisions">Απαιτούνται αναθεωρήσεις στο στάδιο {$stage}.</message>
+	<message key="notification.type.pendingRevisions.title">Ανθεωρήσεις έχουν υποβληθεί στο στάδιο {$stage}.</message>
+	<message key="notification.type.metadataModified">"{$title}": τα μεταδεδομένα έχουν τροποποιηθεί.</message>
+	<message key="notification.type.reviewerComment">Ένας Αξιολογητής έχει καταθέσει σχόλια για την εργασία "{$title}".</message>
+	<message key="notification.signedFile">Το αρχείο έχει θεωρηθεί</message>
+	<message key="user.authorization.submissionFile">Ο παρών Χρήστης δεν έχει δικαιώματα πρόσβασης στο συγκεκριμένο αρχείο υποβολής.</message>
+	<message key="user.authorization.invalidSubmission">Μη έγκυρη υποβολή</message>
+	<message key="user.authorization.invalidRepresentation">Μη έγκυρη αναπαράσταση</message>
+	<message key="user.authorization.authorRoleMissing">Δεν σας έχουν δοθεί δικαιώματα προβολής της υποβολής. Παρακαλούμε ελέγξτε το προφίλ σας για να βεβαιωθείτε ότι σας έχουν εκχωρηθεί οι κατάλληλοι ρόλοι μέσω της λειτουργίας "Σύνδεση Ως".</message>
+	<message key="user.authorization.submissionAuthor">Ο παρών Χρήστης δεν είναι ο Συγγραφέας της εργασίας. Βεβαιωθείτε ότι έχετε συνδεθεί με τον κατάλληλο λογαριασμό Χρήστη.</message>
+	<message key="notification.type.queryActivity">Δραστηριότητα συζητήσεων</message>
+	<message key="notification.type.queryAdded">Η συζήτηση προστέθηκε</message>
+	<message key="notification.type.assignCopyeditors">Ανάθεση σε Επιμελητή Κειμένων μέσω του σχετικού συνδέσμου στη λίστα συντελεστών.</message>
+	<message key="notification.type.awaitingCopyedits">Σε αναμονή επιμελημένων κειμένων.</message>
 	<message key="notification.type.roundStatusTitle">Κατάσταση γύρου {$round}.</message>
-	<message key="user.authorization.authorRoleMissing">Δεν σας έχουν δωθεί πρόσφατα τα ανάλογα δικαιώματα για να δείτε την υποβολή. Παρακαλούμε επεξεργαστείτε το προφίλ σας για να βεβαιωθείτε ότι σας έχουν εκχωρηθεί οι κατάλληλοι ρόλοι μέσω του "Σύνδεση Ως".</message>
 
 	<message key="semicolon">{$label}:</message>
+
+	<!-- Navigation Menus -->
+	<message key="notification.editedNavigationMenuItem">Το στοιχείο του μενού περιήγησης ενημερώθηκε επιτυχώς.</message>
+	<message key="notification.removedNavigationMenuItem">Το στοιχείο αφαιρέθηκε επιτυχώς στο μενού περιήγησης.</message>
+	<message key="notification.addedNavigationMenuItem">Το στοιχείο προστέθηκε επιτυχώς στο μενού περιήγησης.</message>
+	<message key="notification.addedNavigationMenu">Το μενού περιήγησης προστέθηκε επιτυχώς.</message>
+	<message key="notification.editedNavigationMenu">Το μενού περιήγησης ενημερώθηκε επιτυχώς.</message>
+	<message key="notification.removedNavigationMenu">Το μενού περιήγησης αφαιρέθηκε επιτυχώς.</message>
+
+	<!-- List Handlers -->
+	<message key="list.viewMore">Προβολή πρόσθετων πληροφοριών για το {$name}</message>
+	<message key="list.viewLess">Απόκρυψη πρόσθετων πληροφοριών για το {$name}</message>
 </locale>

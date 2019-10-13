@@ -135,27 +135,35 @@ abstract class Submission extends DataObject {
 	 * locale if possible.
 	 * @param $key string
 	 * @param $preferredLocale string
+	 * @param $returnLocale string Optional reference to string receiving return value's locale
 	 * @return mixed
 	 */
-	function &getLocalizedData($key, $preferredLocale = null) {
+	function &getLocalizedData($key, $preferredLocale = null, &$returnLocale = null) {
 		if (is_null($preferredLocale)) $preferredLocale = AppLocale::getLocale();
 		$localePrecedence = array($preferredLocale, $this->getLocale());
 		foreach ($localePrecedence as $locale) {
 			if (empty($locale)) continue;
 			$value =& $this->getData($key, $locale);
-			if (!empty($value)) return $value;
+			if (!empty($value)) {
+				$returnLocale = $locale;
+				return $value;
+			}
 			unset($value);
 		}
 
 		// Fallback: Get the first available piece of data.
 		$data =& $this->getData($key, null);
-		foreach ((array) $data as $dataValue) {
-			if (!empty($dataValue)) return $dataValue;
+		foreach ((array) $data as $locale => $dataValue) {
+			if (!empty($dataValue)) {
+				$returnLocale = $locale;
+				return $dataValue;
+			}
 		}
 
 		// No data available; return null.
 		unset($data);
 		$data = null;
+		$returnLocale = null;
 		return $data;
 	}
 
@@ -362,9 +370,10 @@ abstract class Submission extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedTitle($preferredLocale = null, $includePrefix = true) {
-		$title = $this->getLocalizedData('title', $preferredLocale);
+		$titleLocale = null;
+		$title = $this->getLocalizedData('title', $preferredLocale, $titleLocale);
 		if ($includePrefix) {
-			$prefix = $this->getLocalizedPrefix();
+			$prefix = $this->getPrefix($titleLocale);
 			if (!empty($prefix)) $prefix .= ' ';
 			$title = $prefix . $title;
 		}
@@ -534,55 +543,65 @@ abstract class Submission extends DataObject {
 	}
 
 	/**
-	 * Return the localized discipline
+	 * Return the localized discipline. DEPRECATED: DO NOT USE!
+	 * @deprecated
 	 * @return string
 	 */
 	function getLocalizedDiscipline() {
-		return $this->getLocalizedData('discipline');
+		error_log('WARNING: Call to deprecated/non-functional Submission::getLocalizedDiscipline.');
+		return '';
 	}
 
 	/**
-	 * Get discipline
+	 * Get discipline. DEPRECATED: DO NOT USE!
+	 * @deprecated
 	 * @param $locale
 	 * @return string
 	 */
 	function getDiscipline($locale) {
-		return $this->getData('discipline', $locale);
+		error_log('WARNING: Call to deprecated/non-functional Submission::getDiscipline.');
+		return '';
 	}
 
 	/**
-	 * Set discipline
+	 * Set discipline. DEPRECATED: DO NOT USE!
+	 * @deprecated
 	 * @param $discipline string
 	 * @param $locale
 	 */
 	function setDiscipline($discipline, $locale) {
-		$this->setData('discipline', $discipline, $locale);
+		error_log('WARNING: Call to deprecated/non-functional Submission::setDiscipline.');
 	}
 
 	/**
-	 * Return the localized subject
+	 * Return the localized subject. DEPRECATED: DO NOT USE!
+	 * @deprecated
 	 * @return string
 	 */
 	function getLocalizedSubject() {
-		return $this->getLocalizedData('subject');
+		error_log('WARNING: Call to deprecated/non-functional Submission::getLocalizedSubject.');
+		return '';
 	}
 
 	/**
-	 * Get subject.
+	 * Get subject. DEPRECATED: DO NOT USE!
+	 * @deprecated
 	 * @param $locale
 	 * @return string
 	 */
 	function getSubject($locale) {
-		return $this->getData('subject', $locale);
+		error_log('WARNING: Call to deprecated/non-functional Submission::getSubject.');
+		return '';
 	}
 
 	/**
-	 * Set subject.
+	 * Set subject. DEPRECATED: DO NOT USE!
+	 * @deprecated
 	 * @param $subject string
 	 * @param $locale
 	 */
 	function setSubject($subject, $locale) {
-		$this->setData('subject', $subject, $locale);
+		error_log('WARNING: Call to deprecated/non-functional Submission::setSubject.');
 	}
 
 	/**

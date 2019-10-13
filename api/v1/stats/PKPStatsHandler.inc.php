@@ -169,7 +169,7 @@ class PKPStatsHandler extends APIHandler {
 			// get total stats data
 			$totalStatsRecords = $statsService->getTotalSubmissionsStats($context->getId(), $params);
 			$data = $statsService->getTotalStatsProperties($totalStatsRecords, $propertyArgs);
-			// get submisisons stats items
+			// get submission stats items
 			$currentPageSubmissionsRecords = array_slice($submissionsRecords, isset($params['offset']) ? $params['offset'] : 0, $params['count']);
 			foreach ($currentPageSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = \Application::getPublishedSubmissionDAO();

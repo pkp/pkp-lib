@@ -638,4 +638,6 @@
 	<message key="submission.submit.placement.categories">Kategoriat</message>
 	<message key="submission.currentCoverImage">Nykyinen kuva</message>
 	<message key="catalog.browseTitles">{$numTitles} nimikettä</message>
+	<message key="catalog.category.noItems">Tässä kategoriassa ei ole vielä julkaistu.</message>
+	<message key="catalog.category.subcategories">Alikategoriat</message>
 </locale>

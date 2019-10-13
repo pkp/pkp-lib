@@ -69,12 +69,6 @@ class ReviewerAction {
 			import('lib.pkp.classes.log.SubmissionLog');
 			import('classes.log.SubmissionEventLogEntry');
 
-			$entry = new SubmissionEventLogEntry();
-			$entry->setSubmissionId($reviewAssignment->getSubmissionId());
-			$entry->setUserId($reviewer->getId());
-			$entry->setDateLogged(Core::getCurrentDate());
-			$entry->setEventType($decline?SUBMISSION_LOG_REVIEW_DECLINE:SUBMISSION_LOG_REVIEW_ACCEPT);
-
 			SubmissionLog::logEvent(
 				$request,
 				$submission,

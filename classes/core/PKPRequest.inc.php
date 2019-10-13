@@ -354,6 +354,8 @@ class PKPRequest {
 				: (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST']
 				: (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME']
 				: $default));
+			// in case of multiple host entries in the header (e.g. multiple reverse proxies) take the first entry
+			$_this->_serverHost = strtok($_this->_serverHost, ',');
 			HookRegistry::call('Request::getServerHost', array(&$_this->_serverHost, &$default, &$includePort));
 		}
 		if (!$includePort) {

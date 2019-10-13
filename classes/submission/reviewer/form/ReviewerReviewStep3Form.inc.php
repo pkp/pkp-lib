@@ -239,6 +239,27 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
 		);
 
+		// Add log
+		import('lib.pkp.classes.log.SubmissionLog');
+		import('classes.log.SubmissionEventLogEntry');
+
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+		$request = Application::getRequest();
+		SubmissionLog::logEvent(
+			$request,
+			$submission,
+			SUBMISSION_LOG_REVIEW_READY,
+			'log.review.reviewReady',
+			array(
+				'reviewAssignmentId' => $reviewAssignment->getId(),
+				'reviewerName' => $reviewer->getFullName(),
+				'submissionId' => $reviewAssignment->getSubmissionId(),
+				'round' => $reviewAssignment->getRound()
+			)
+		);
+
 		parent::execute();
 	}
 }

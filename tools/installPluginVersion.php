@@ -82,6 +82,10 @@ class InstallPluginVersionTool extends CommandLineTool {
 				return false;
 			}
 		}
+		if (!isset($installer->dataXMLParser)) {
+			$installer->dataXMLParser = new DBDataXMLParser();
+			$installer->dataXMLParser->setDBConn($installer->dbconn);
+		}
 		$result = true;
 		$param = array(&$installer, &$result);
 

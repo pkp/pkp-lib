@@ -30,8 +30,8 @@ class FileWrapper {
 	/** @var array parsed URL info */
 	var $info;
 
-	/** @var int the file descriptor */
-	var $fp;
+	/** @var resource The file descriptor */
+	var $fp = null;
 
 	/**
 	 * Constructor.
@@ -80,6 +80,18 @@ class FileWrapper {
 	}
 
 	/**
+	 * Save the file to the specified filename.
+	 * @return int|false Number of bytes saved on success, or false on failure
+	 */
+	function save($filename) {
+		$targetFp = fopen($filename, 'w');
+		if (!$targetFp) return false;
+		$returner = stream_copy_to_stream($this->fp, $targetFp);
+		fclose($targetFp);
+		return $returner;
+	}
+
+	/**
 	 * Read from the file.
 	 * @param $len int
 	 * @return string
@@ -106,7 +118,7 @@ class FileWrapper {
 	 * @param $source mixed; URL, filename, or resources
 	 * @return FileWrapper
 	 */
-	static function &wrapper($source) {
+	static function wrapper($source) {
 		if (ini_get('allow_url_fopen') && Config::getVar('general', 'allow_url_fopen') && is_string($source)) {
 			$info = parse_url($source);
 			$wrapper = new FileWrapper($source, $info);

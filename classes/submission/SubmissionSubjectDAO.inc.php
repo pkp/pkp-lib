@@ -115,12 +115,11 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertSubjects($subjects, $submissionId, $deleteFirst = true) {
-		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
 		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
 		$currentSubjects = $this->build($submissionId);
 
 		if ($deleteFirst) {
-			$existingEntries = $subjectDao->enumerate($currentSubjects->getId(), CONTROLLED_VOCAB_SUBMISSION_SUBJECT);
+			$existingEntries = $this->enumerate($currentSubjects->getId(), CONTROLLED_VOCAB_SUBMISSION_SUBJECT);
 
 			foreach ($existingEntries as $id => $entry) {
 				$entry = trim($entry);

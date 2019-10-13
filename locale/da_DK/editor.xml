@@ -144,4 +144,6 @@
 	<message key="reviewer.list.reviewInterests">Bedømmelsesinteresser</message>
 	<message key="reviewer.list.biography">Biografi</message>
 	<message key="reviewer.list.declinedReviews">Bedømmelsesanmodning afslået</message>
+	<message key="editor.review.requestDeclined">Anmodning afvist</message>
+	<message key="editor.review.requestDeclined.tooltip">Bedømmeren afviste denne anmodning om bedømmelse.</message>
 </locale>

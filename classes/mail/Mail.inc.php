@@ -332,7 +332,7 @@ class Mail extends DataObject {
 	*/
 	function addReplyTo($email, $name = '') {
 		if (($replyTos = $this->getData('replyTo')) == null) {
-				$replyTos = array();
+			$replyTos = array();
 		}
 		array_push($replyTos, array('name' => $name, 'email' => $email));
 

@@ -52,7 +52,7 @@ class EditorialReportComponentHandler extends PKPHandler {
 	 * @param $apiUrl string The URL to fetch stats from
 	 * @param $args array Optional arguments
 	 */
-	public function __construct($apiUrl, $args = array()) {
+	public function __construct(string $apiUrl, array $args = []) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 		parent::__construct();
@@ -66,7 +66,8 @@ class EditorialReportComponentHandler extends PKPHandler {
 	 *
 	 * @param $args array Configuration params
 	 */
-	public function init($args = array()) {
+	public function init(array $args = []) : void
+	{
 		foreach ($args as $key => $value) {
 			$property = '_' . $key;
 			if (property_exists($this, $property)) {
@@ -81,7 +82,8 @@ class EditorialReportComponentHandler extends PKPHandler {
 	 *
 	 * @return array Configuration data
 	 */
-	public function getConfig() {
+	public function getConfig() : array
+	{
 		$config = [
 			'submissionsStage' => $this->_submissionsStage,
 			'editorialChartData' => $this->_editorialChartData,

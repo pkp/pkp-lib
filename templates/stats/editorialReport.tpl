@@ -88,7 +88,7 @@
 		</div>
 	</div>
 	<script>
-		pkp.registry.init('editorial-report-handler-{$uuid}', 'Statistics', {$statsComponent->getConfig()|json_encode});
+		pkp.registry.init('editorial-report-handler-{$uuid}', 'StatisticsEditorial', {$statsComponent->getConfig()|json_encode});
 	</script>
 </div>
 

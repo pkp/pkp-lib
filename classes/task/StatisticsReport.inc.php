@@ -29,14 +29,16 @@ class StatisticsReport extends ScheduledTask {
 	/**
 	 * @copydoc ScheduledTask::getName()
 	 */
-	public function getName() {
+	public function getName() : string
+	{
 		return __('admin.scheduledTask.statisticsReport');
 	}
 
 	/**
 	 * @copydoc ScheduledTask::executeActions()
 	 */
-	public function executeActions() {
+	public function executeActions() : bool
+	{
 		@set_time_limit(0);
 		import('lib.pkp.classes.notification.managerDelegate.EditorialReportNotificationManager');
 		
@@ -55,8 +57,8 @@ class StatisticsReport extends ScheduledTask {
 			$editorialReportNotificationManager = new EditorialReportNotificationManager(NOTIFICATION_TYPE_EDITORIAL_REPORT);
 			$editorialReportNotificationManager->initialize(
 				$context,
-				new DateTime('first day of previous month midnight'),
-				new DateTime('first day of this month midnight')
+				new DateTimeImmutable('first day of previous month midnight'),
+				new DateTimeImmutable('first day of this month midnight')
 			);
 			$notifiedUsersSet = [];
 			foreach ($this->_roleIds as $roleId) {

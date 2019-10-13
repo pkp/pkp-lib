@@ -15,6 +15,8 @@
 
 import('classes.handler.Handler');
 
+use \PKP\Services\EditorialStatisticsService;
+
 class PKPStatsHandler extends Handler {
 	/**
 	 * Constructor.
@@ -190,7 +192,8 @@ class PKPStatsHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	public function editorialReport($args, Request $request) {
+	public function editorialReport(array $args, PKPRequest $request) : void
+	{
 		$dispatcher = $request->getDispatcher();
 		$context = $request->getContext();
 		$user = $request->getUser();
@@ -208,50 +211,65 @@ class PKPStatsHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		$dateStart = (new DateTime('-31 days'))->format('Y-m-d');
-		$dateEnd = (new DateTime('yesterday'))->format('Y-m-d');
-
 		$params = [
-			'dateStart' => $dateStart,
-			'dateEnd' => $dateEnd
+			'dateStart' => new DateTimeImmutable('-31 days'),
+			'dateEnd' => new DateTimeImmutable('yesterday')
 		];
 
 		import('lib.pkp.controllers.stats.EditorialReportComponentHandler');
 
 		$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
+
 		$statistics = $editorialStatisticsService->getSubmissionStatistics($context->getId());
 		$rangedStatistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $params);
-
-		$submissionChartData = $editorialStatisticsService->compileSubmissionChartData($statistics);
 
 		$userStatistics = $editorialStatisticsService->getUserStatistics($context->getId());
 		$rangedUserStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $params);
 
-		$editorialStatistics = $editorialStatisticsService->compileEditorialStatistics($rangedStatistics, $statistics);
-		$userStatistics = $editorialStatisticsService->compileUserStatistics($rangedUserStatistics, $userStatistics);
+		$submissions = $editorialStatisticsService->compileSubmissions($rangedStatistics, $statistics);
+		$users = $editorialStatisticsService->compileUsers($rangedUserStatistics, $userStatistics);
+		$activeSubmissions = $editorialStatisticsService->compileActiveSubmissions($statistics);
+		$activeSubmissionsValues = array_values($activeSubmissions);
+
+		$dateStart = $params['dateStart']->format('Y-m-d');
+		$dateEnd = $params['dateStart']->format('Y-m-d');
+		$threeMonthsAgo = (new DateTimeImmutable('-91 days'))->format('Y-m-d');
+		$oneYearAgo = (new DateTimeImmutable('-12 months'))->format('Y-m-d');
 
 		$statsHandler = new EditorialReportComponentHandler(
 			$dispatcher->url($request, ROUTE_API, $context->getPath(), 'stats/editorialReport'),
 			[
-				'submissionsStage' => $submissionChartData,
+				'submissionsStage' => $activeSubmissionsValues,
 				'editorialChartData' => [
 					'labels' => array_map(function ($stage) {
 						return $stage['name'];
-					}, $submissionChartData),
+					}, $activeSubmissionsValues),
 					'datasets' => [
 						[
 							'label' => __('stats.activeSubmissions'),
 							'data' => array_map(function ($stage) {
 								return $stage['value'];
-							}, $submissionChartData),
-							'backgroundColor' => array_map(function ($stage) {
-								return $stage['color'];
-							}, $submissionChartData)
+							}, $activeSubmissionsValues),
+							'backgroundColor' => array_map(function ($type) {
+								switch ($type) {
+									case EditorialStatisticsService::ACTIVE_SUBMISSIONS_ACTIVE:
+										return '#d00a0a';
+									case EditorialStatisticsService::ACTIVE_SUBMISSIONS_INTERNAL_REVIEW:
+										return '#e05c14';
+									case EditorialStatisticsService::ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW:
+										return '#e08914';
+									case EditorialStatisticsService::ACTIVE_SUBMISSIONS_COPYEDITING:
+										return '#007ab2';
+									case EditorialStatisticsService::ACTIVE_SUBMISSIONS_PRODUCTION:
+										return '#00b28d';
+								}
+								return '#' . substr(md5(rand()), 0, 6);
+							}, array_keys($activeSubmissions))
 						]
 					],
 				],
-				'editorialItems' => $editorialStatistics,
-				'userItems' => $userStatistics,
+				'editorialItems' => array_values($submissions),
+				'userItems' => array_values($users),
 				'dateStart' => $dateStart,
 				'dateEnd' => $dateEnd,
 				'dateRangeOptions' => [
@@ -261,12 +279,12 @@ class PKPStatsHandler extends Handler {
 						'label' => __('stats.dateRange.last30Days'),
 					],
 					[
-						'dateStart' => (new DateTime('-91 days'))->format('Y-m-d'),
+						'dateStart' => $threeMonthsAgo,
 						'dateEnd' => $dateEnd,
 						'label' => __('stats.dateRange.last90Days'),
 					],
 					[
-						'dateStart' => (new DateTime('-12 months'))->format('Y-m-d'),
+						'dateStart' => $oneYearAgo,
 						'dateEnd' => $dateEnd,
 						'label' => __('stats.dateRange.last12Months'),
 					],

@@ -147,7 +147,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $mailConfigurator callable Enables the customization of the Notification email
 	 * @return Notification object
 	 */
-	public function createNotification(Request $request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null) {
+	public function createNotification(PKPRequest $request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null) {
 		$blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 		if(!in_array($notificationType, $blockedNotifications)) {
 			$notificationDao = DAORegistry::getDAO('NotificationDAO');
@@ -367,9 +367,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * Send an email to a user regarding the notification
 	 * @param $request PKPRequest
 	 * @param $notification object Notification
+	 * @param $contextId ?int Context ID
 	 * @param $mailConfigurator callable If specified, must return a MailTemplate instance. A ready TemplateMail object will be provided as argument
 	 */
-	private function sendNotificationEmail(Request $request, Notification $notification, $contextId, callable $mailConfigurator) {
+	private function sendNotificationEmail(PKPRequest $request, PKPNotification $notification, ?int $contextId, callable $mailConfigurator = null) {
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);

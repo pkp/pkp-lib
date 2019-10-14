@@ -280,7 +280,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 		//inactive for X days
 		if ($this->daysInactive) {
-			$q->where('s.date_status_modified', '<', \Core::getCurrentDate(strtotime('-'.$this->daysInactive.' days')));
+			$q->where('s.date_last_activity', '<', \Core::getCurrentDate(strtotime('-'.$this->daysInactive.' days')));
 		}
 
 		// overdue submissions

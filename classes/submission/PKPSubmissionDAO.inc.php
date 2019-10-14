@@ -42,7 +42,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 		'id' => 'submission_id',
 		'contextId' => 'context_id',
 		'currentPublicationId' => 'current_publication_id',
-		'dateStatusModified' => 'date_status_modified',
+		'dateLastActivity' => 'date_last_activity',
 		'dateSubmitted' => 'date_submitted',
 		'lastModified' => 'last_modified',
 		'stageId' => 'stage_id',

@@ -78,7 +78,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 					array(
 						'param' => 'daysInactive',
 						'value' => 30,
-						'title' => __('submissions.inactive',array('days' => '30')),
+						'title' => __('submissions.inactive', ['days' => '30']),
 					),
 				),
 			),

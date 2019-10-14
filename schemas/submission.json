@@ -19,9 +19,9 @@
 			"description": "Which publication is the latest published version.",
 			"apiSummary": true
 		},
-		"dateStatusModified": {
+		"dateLastActivity": {
 			"type": "string",
-			"description": "The last time the `status` of this submission was modified.",
+			"description": "The last time activity was recorded related to this submission.",
 			"apiSummary": true,
 			"validation": [
 				"date:Y-m-d H:i:s"

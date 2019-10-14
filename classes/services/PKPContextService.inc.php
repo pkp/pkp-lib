@@ -485,6 +485,15 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			$params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $userId);
 		}
 
+		$emailSignature = $context->getData('emailSignature');
+		foreach ($params as $key => $value) {
+			if (strpos($emailSignature, '{$' . $key . '}') !== false) {
+				$emailSignature = str_replace('{$' . $key . '}', $value, $emailSignature);
+			}
+		}
+
+		$context->setData('emailSignature', $emailSignature);
+
 		$newContext = $contextDao->newDataObject();
 		$newContext->_data = array_merge($context->_data, $params);
 

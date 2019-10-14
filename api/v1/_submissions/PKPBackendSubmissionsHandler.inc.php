@@ -110,6 +110,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 					break;
 
 				case 'assignedTo':
+				case 'daysInactive':
+				case 'offset':
 					$params[$param] = (int) $val;
 					break;
 
@@ -117,10 +119,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				// server
 				case 'count':
 					$params[$param] = min(100, (int) $val);
-					break;
-
-				case 'offset':
-					$params[$param] = (int) $val;
 					break;
 
 				case 'orderBy':
@@ -132,9 +130,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				case 'orderDirection':
 					$params[$param] = $val === 'ASC' ? $val : 'DESC';
 					break;
-				case 'daysInactive':
-					$params[$param] = (int) $val[0];
-					break;
+
 				case 'isIncomplete':
 				case 'isOverdue':
 					$params[$param] = true;

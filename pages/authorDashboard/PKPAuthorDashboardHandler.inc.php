@@ -129,7 +129,9 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$templateMgr->assign('submission', $submission);
 
+		$user = $request->getUser();
 		$submissionContext = $request->getContext();
+
 		if ($submission->getContextId() !== $submissionContext->getId()) {
 			$submissionContext = Services::get('context')->get($submission->getContextId());
 		}
@@ -154,9 +156,10 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		// Add an upload revisions button when in the review stage
 		// and the last decision is to request revisions
 		$uploadFileUrl = '';
-		$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
+		$revisionsGridUrl = '';
 		if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
 			$fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
+			$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
 			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
 				$editorDecisions = DAORegistry::getDAO('EditDecisionDAO')->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getId());
 				if (!empty($editorDecisions) && array_last($editorDecisions)['decision'] == SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
@@ -176,6 +179,22 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 					);
 				}
 			}
+
+			$revisionsGridUrl = $request->getDispatcher()->url(
+				$request,
+				ROUTE_COMPONENT,
+				null,
+				'grid.files.review.AuthorReviewRevisionsGridHandler',
+				'fetchGrid',
+				null,
+				[
+					'submissionId' => $submission->getId(),
+					'stageId' => $submission->getData('stageId'),
+					'reviewRoundId' => $lastReviewRound->getId(),
+					'publicationId' => '__publicationId__',
+				]
+			);
+
 		}
 
 		$supportedFormLocales = $submissionContext->getSupportedFormLocales();
@@ -202,21 +221,6 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			]
 		);
 
-		$revisionsGridUrl = $request->getDispatcher()->url(
-			$request,
-			ROUTE_COMPONENT,
-			null,
-			'grid.files.review.AuthorReviewRevisionsGridHandler',
-			'fetchGrid',
-			null,
-			[
-				'submissionId' => $submission->getId(),
-				'stageId' => $submission->getData('stageId'),
-				'reviewRoundId' => $lastReviewRound->getId(),
-				'publicationId' => '__publicationId__',
-			]
-		);
-
 		$submissionLibraryUrl = $request->getDispatcher()->url(
 			$request,
 			ROUTE_COMPONENT,
@@ -235,6 +239,10 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		import('classes.components.forms.publication.PublishForm');
 
 		$templateMgr->setConstants([
+			'STATUS_QUEUED',
+			'STATUS_PUBLISHED',
+			'STATUS_DECLINED',
+			'STATUS_SCHEDULED',
 			'FORM_TITLE_ABSTRACT',
 			'FORM_CITATIONS',
 		]);
@@ -271,6 +279,12 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			);
 		}
 
+		// Check if current author can edit metadata
+		$disableSave = true;
+		if (Services::get('submission')->canUserEditMetadata($submission->getId(), $user->getId())) {
+			$disableSave =  false;
+		}
+
 		$workflowData = [
 			'components' => [
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
@@ -291,6 +305,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			'submissionLibraryUrl' => $submissionLibraryUrl,
 			'supportsReferences' => !!$submissionContext->getData('citations'),
 			'uploadFileUrl' => $uploadFileUrl,
+			'disableSave' => $disableSave,
 			'i18n' => [
 				'publicationTabsLabel' => __('publication.version.details'),
 				'status' => __('semicolon', ['label' => __('common.status')]),

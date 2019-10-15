@@ -28,4 +28,10 @@
 
 	{capture assign=revisionsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.AuthorReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 	{load_url_in_div id="revisionsGrid-`$stageId`-`$reviewRoundId`" url=$revisionsGridUrl}
+
+	<div id="revisions-grid" ref="revisions">
+		<spinner></spinner>
+	</div>
+
+
 {/if}

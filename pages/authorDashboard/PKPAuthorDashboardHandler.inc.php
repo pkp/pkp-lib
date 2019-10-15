@@ -134,6 +134,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$submissionContext = Services::get('context')->get($submission->getContextId());
 		}
 
+		$contextUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 		$stageNotifications = array();
 		foreach (array_keys($workflowStages) as $stageId) {
@@ -153,9 +154,9 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		// Add an upload revisions button when in the review stage
 		// and the last decision is to request revisions
 		$uploadFileUrl = '';
+		$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
 		if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
 			$fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
-			$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
 			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
 				$editorDecisions = DAORegistry::getDAO('EditDecisionDAO')->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getId());
 				if (!empty($editorDecisions) && array_last($editorDecisions)['decision'] == SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
@@ -201,6 +202,21 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			]
 		);
 
+		$revisionsGridUrl = $request->getDispatcher()->url(
+			$request,
+			ROUTE_COMPONENT,
+			null,
+			'grid.files.review.AuthorReviewRevisionsGridHandler',
+			'fetchGrid',
+			null,
+			[
+				'submissionId' => $submission->getId(),
+				'stageId' => $submission->getData('stageId'),
+				'reviewRoundId' => $lastReviewRound->getId(),
+				'publicationId' => '__publicationId__',
+			]
+		);
+
 		$submissionLibraryUrl = $request->getDispatcher()->url(
 			$request,
 			ROUTE_COMPONENT,
@@ -231,12 +247,37 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			]
 		);
 
+		// Get full details of the working publication and the currently published publication
+		$workingPublicationProps = Services::get('publication')->getFullProperties(
+			$submission->getLatestPublication(),
+			[
+				'context' => $submissionContext,
+				'submission' => $submission,
+				'request' => $request,
+				'userGroups' => $contextUserGroups,
+			]
+		);
+		if ($submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()) {
+			$currentPublicationProps = $workingPublicationProps;
+		} else {
+			$currentPublicationProps = Services::get('publication')->getFullProperties(
+				$submission->getCurrentPublication(),
+				[
+					'context' => $submissionContext,
+					'submission' => $submission,
+					'request' => $request,
+					'userGroups' => $contextUserGroups,
+				]
+			);
+		}
+
 		$workflowData = [
 			'components' => [
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
 				FORM_CITATIONS => $citationsForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
+			'revisionsGridUrl' => $revisionsGridUrl,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
 			'publicationFormIds' => [
 				FORM_TITLE_ABSTRACT,
@@ -244,6 +285,8 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			],
 			'representationsGridUrl' => $this->_getRepresentationsGridUrl($request, $submission),
 			'submission' => $submissionProps,
+			'currentPublication' => $currentPublicationProps,
+			'workingPublication' => $workingPublicationProps,
 			'submissionApiUrl' => $submissionApiUrl,
 			'submissionLibraryUrl' => $submissionLibraryUrl,
 			'supportsReferences' => !!$submissionContext->getData('citations'),

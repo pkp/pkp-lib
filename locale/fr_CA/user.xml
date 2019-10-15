@@ -62,7 +62,7 @@
 	<message key="user.login.lostPassword.passwordSent">Un nouveau mot de passe a été envoyé à votre adresse de courriel. Vous pouvez maintenant vous connecter au site avec votre nouveau mot de passe.</message>
 	<message key="user.login.registeredEmail">Courriel de l'utilisateur-trice inscrit-e</message>
 	<message key="user.login.registrationComplete">Inscription complétée</message>
-	<message key="user.login.registrationComplete.instructions">Merci de vous êtes inscrit-e! Que voulez-vous faire ensuite ?</message>
+	<message key="user.login.registrationComplete.instructions">Merci de vous êtes inscrit-e ! Que voulez-vous faire ensuite ?</message>
 	<message key="user.login.registrationComplete.manageSubmissions">Afficher les soumissions</message>
 	<message key="user.login.registrationComplete.newSubmission">Faire une nouvelle soumission</message>
 	<message key="user.login.registrationComplete.continueBrowsing">Explorer le site de la revue</message>
@@ -151,7 +151,7 @@
 	<message key="user.orcid">Identifiant ORCID</message>
 <message key="user.orcid.orcidInvalid">Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple « https://orcid.org/0000-0002-1825-0097 »).</message>
 	<message key="user.profile.identity">Identité</message>
-	<message key="user.profile.contact">Contact</message>
+	<message key="user.profile.contact">Coordonnées</message>
 	<message key="user.profile.public">Profil public</message>
 	<message key="user.apiKey">Clé API</message>
 	<message key="user.apiKeyEnabled">Activer les applications externes avec la clé API pour accéder à ce compte.</message>

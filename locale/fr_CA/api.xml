@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/fr_CA/api.xml
+  *
+  * Copyright (c) 2014-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the REST API the fr_CA (Français (Canada)) locale.
+  -->
+
+<locale name="fr_CA" full_name="Français (Canada)">
+	<message key="api.400.paramNotSupported">Le paramètre « {$param} » n'est pas supporté.</message>
+	<message key="api.403.unauthorized">Vous n'êtes pas autorisé-e à accéder à la ressource demandée.</message>
+	<message key="api.404.resourceNotFound">La resource demandée n'a pas été trouvée.</message>
+	<message key="api.404.endpointNotFound">L'URL demandé n'a pas été reconnu.</message>
+	<message key="api.submissions.403.csrfTokenFailure">Votre demande a été refusée. Cela peut être dû au fait que votre connexion a expiré. Essayez de recharger la page et essayez à nouveau.</message>
+	<message key="api.submissions.403.requestedOthersUnpublishedSubmissions">Vous ne pouvez voir que les soumissions non publiées qui vous ont été assignées</message>
+	<message key="api.submissions.403.deleteSubmissionOutOfContext">Vous ne pouvez pas supprimer une soumission hors de ce contexte.</message>
+	<message key="api.submissions.403.unauthorizedDeleteSubmission">Vous n'avez pas la permission de supprimer cette soumission.</message>
+	<message key="api.submissions.404.resourceNotFound">La ressource demandée n'a pas été trouvée.</message>
+	<message key="api.submissions.400.missingRequired">La demande n'a pu être remplie par manque d'information.</message>
+	<message key="api.submissions.400.invalidIssueIdentifiers">Le volume, numéro ou année requis-e n'est pas valide.</message>
+	<message key="api.submissions.unknownError">Une erreur imprévue est survenue. Veuillez recharger la page est essayer à nouveau.</message>
+	<message key="api.stats.400.wrongDateFormat">Votre demande n'est pas valide. La date doit être au format AAAA-MM-JJ.</message>
+	<message key="api.stats.400.wrongDateRange">Votre demande n'est pas valide. DateStart ne peut pas être ultérieure à dateEnd.</message>
+	<message key="api.stats.400.wrongTimeSegmentDaily">Votre demande n'est pas valide. Le timeSegment  « daily » ne peut être utilisé qu'avec une plage de dates (dateStart et dateEnd) incluse au cours des 90 derniers jours.</message>
+</locale>
+

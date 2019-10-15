@@ -52,14 +52,15 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
+		$workflowStages = Application::getApplicationStages();
+		$userService = Services::get('user');
 		while ($assignment = $submitterAssignments->next()) {
 			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
 			if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
 
 				$accessibleWorkflowStages = array();
-				$workflowStages = Application::getApplicationStages();
 				foreach ($workflowStages as $stageId) {
-					$accessibleStageRoles = UserAccessibleWorkflowStageRequiredPolicy::_getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
+					$accessibleStageRoles = $userService->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
 					if (!empty($accessibleStageRoles)) {
 						$accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
 					}

@@ -50,8 +50,6 @@ class StageRolePolicy extends AuthorizationPolicy {
 		// Check whether the user has one of the allowed roles assigned in the correct stage
 		$userAccessibleStages = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
-		/* the ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES is not set when author saves data */
-
 		if (array_key_exists($this->_stageId, $userAccessibleStages) && array_intersect($this->_roleIds, $userAccessibleStages[$this->_stageId])) {
 			return AUTHORIZATION_PERMIT;
 		}

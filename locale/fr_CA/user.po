@@ -7,21 +7,69 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:22-07:00\n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
 "Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Renseignements sur le compte"
 
 msgid "user.affiliation"
 msgstr "Affiliation"
 
+msgid "user.affiliation.description"
+msgstr "(Votre établissement, par exemple « Université de Montréal »)"
+
 msgid "user.affiliations"
 msgstr "Affiliations"
 
-msgid "user.biography"
-msgstr "Note biographique"
+msgid "user.authorization.accessDenied"
+msgstr "Accès refusé"
 
-msgid "user.biography.description"
-msgstr "(Par ex., département et position)"
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Le jeton d'authentification du processus est absent ou invalide."
+
+msgid "user.authorization.contextRequired"
+msgstr "Vous ne pouvez pas effectuer cette opération sans spécifier son contexte (presse, revue, conférence, etc.)"
+
+msgid "user.authorization.loginRequired"
+msgstr "Ouverture de session requise."
+
+msgid "user.authorization.privateOperation"
+msgstr "L'opération que vous tentez de faire est privée ou n'existe pas."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "L'accès vous est refusé. L'accès à ce site est actuellement restreint."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Le rôle actuel n'a pas accès à cette opération."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Le rôle ou les rôles qui vous sont assignés pour cette soumission ne vous permettent pas d'accéder à cette opération."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Vous devez choisir un groupe d'utilisateurs-trices valide pour accéder à cette opération."
+
+msgid "user.authorization.managerRequired"
+msgstr "Un-e utilisateur-trice ayant un rôle de gestionnaire (i.e. directeur-trice de la production) doit être assigné-e à cette étape avant que vous puissiez continuer."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Vous n'avez pas actuellement accès à cette étape du processus éditorial."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Une étape du processus éditorial n'est pas spécifiée"
+
+msgid "user.authorization.pluginRequired"
+msgstr "Un plugiciel requis n'a pas été sélectionné"
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Vous n'êtes pas autorisé-e à accéder à cette évaluation."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Vous n'êtes pas autorisé-e à accéder à cette discussion."
+
+msgid "user.biography"
+msgstr "Note biographique (par exemple département et titre de fonction)"
 
 msgid "user.changeMyPassword"
 msgstr "Modifier mon mot de passe"
@@ -41,44 +89,53 @@ msgstr "Modifier mon profil"
 msgid "user.email"
 msgstr "Courriel"
 
-msgid "user.firstName"
+msgid "user.givenName"
 msgstr "Prénom"
 
-msgid "user.initialsExample"
-msgstr "Joan Alice Smith = JAS"
-
-msgid "user.initials"
-msgstr "Initiales"
-
 msgid "user.interests"
-msgstr "Intérêts pour les évaluations"
+msgstr "Champs d'intérêts pour les évaluations"
 
-msgid "user.lastName"
+msgid "user.interests.description"
+msgstr "(Séparer les champs intérêts en appuyant sur la touche « Entrée » ou en ajoutant une virgule)"
+
+msgid "user.gossip"
+msgstr "Notes privées"
+
+msgid "user.gossip.description"
+msgstr "Enregistrer des renseignements relatifs à cet ou cette évaluateur-trice que vous souhaitez partager aux autres administrateurs-trices, directeurs-trices et rédacteurs-trices. Ces informations seront visibles lors de futures évaluations."
+
+msgid "user.group"
+msgstr "Groupe d'utilisateurs-trices"
+
+msgid "user.familyName"
 msgstr "Nom de famille"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Format d'image du profil invalide ou image trop grande. Les formats acceptés sont .gif, .jpg, or .png, et l'image ne doit pas dépasser 150x150 pixels."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Votre compte a été désactivé pour les raisons suivantes : {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "Votre compte a été désactivé. Veuillez communiquer avec l'administrateur du site pour plus d'information."
+msgstr "Votre compte a été désactivé. Veuillez communiquer avec l'administrateur du site pour plus de renseignements."
 
 msgid "user.login.accountNotValidated"
-msgstr "Votre courriel \"{$email}\" n'a pas été validé. Vérifier vos courriels et suivez les directives que nous vous avons fait parvenir. Si vous n'avez pas reçu de courriel, vous devrez peut-être communiquer avec l'administrateur du site pour obtenir de l'aide."
+msgstr "Nous vous avons fait parvenir un courriel de confirmation à « {$email} ». Suivre les directives qui figurent dans ce courriel pour activer votre compte. Si vous ne voyez pas le courriel en question dans votre boîte de courriels, veuillez vérifier s'il ne se trouve pas dans le dossier de pourriels."
 
 msgid "user.login.activate"
 msgstr "Activer le compte"
 
 msgid "user.login.activated"
-msgstr "Merci d'avoir activé votre compte. Vous pouvez maintenant vous connecter en utilisant les authentifiants fournis lors de la création de votre compte."
+msgstr "Merci d'avoir activé votre compte. Vous pouvez maintenant vous connecter en utilisant les informations d'authentification fournies lors de la création de votre compte."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Vous devez sélectionner un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur et vos mots de passe actuel et nouveau ci-dessous pour modifier le mot de passe de votre compte."
+msgstr "Vous devez sélectionner un nouveau mot de passe avant de pouvoir vous connecter à ce site.<br /><br />Veuillez entrer votre nom d'utilisateur-trice et vos mots de passe actuel et nouveau ci-dessous pour modifier le mot de passe de votre compte."
 
 msgid "user.login.forgotPassword"
-msgstr "Vous avez oublié votre mot de passe?"
+msgstr "Vous avez oublié votre mot de passe ?"
 
 msgid "user.login.loginError"
-msgstr "Nom d'usager ou mot de passe non valide. Veuillez essayer de nouveau."
+msgstr "Nom d'utilisateur-trice ou mot de passe invalide. Veuillez essayer de nouveau."
 
 msgid "user.login"
 msgstr "Se connecter"
@@ -87,16 +144,34 @@ msgid "user.login.lostPassword.confirmationSent"
 msgstr "Une confirmation a été envoyée à votre adresse de courriel. Veuillez suivre les instructions dans le courriel pour réinitialiser votre mot de passe."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "Malheureusement, le lien sur lequel vous avez cliqué est expiré ou n'est pas valide. Veuillez essayer de réinitialiser votre mot de passe encore une fois."
+msgstr "Désolé, le lien sur lequel vous avez cliqué est expiré ou n'est pas valide. Veuillez essayer de réinitialiser votre mot de passe de nouveau."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr "Aucun utilisateur n'existe avec l'adresse de courriel indiquée."
+msgstr "Il n'existe aucun-e utilisateur-trice ayant l'adresse de courriel indiquée."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Un nouveau mot de passe a été envoyé à votre adresse de courriel. Vous pouvez maintenant vous connecter au site avec votre nouveau mot de passe."
 
 msgid "user.login.registeredEmail"
-msgstr "Courriel de l'utilisateur inscrit"
+msgstr "Courriel de l'utilisateur-trice inscrit-e"
+
+msgid "user.login.registrationComplete"
+msgstr "Inscription complétée"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Merci de vous êtes inscrit-e ! Que voulez-vous faire ensuite ?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Afficher les soumissions"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Faire une nouvelle soumission"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Explorer le site de la revue"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Inscription en attente de validation"
 
 msgid "user.login.rememberUsernameAndPassword"
 msgstr "Mémoriser mon nom d'usager et mon mot de passe"
@@ -107,20 +182,20 @@ msgstr "Réinitialiser le mot de passe"
 msgid "user.logOut"
 msgstr "Se déconnecter"
 
+msgid "user.logOutAs"
+msgstr "Fermeture de session en tant que"
+
+msgid "user.hello"
+msgstr "Bonjour,"
+
 msgid "user.mailingAddress"
 msgstr "Adresse postale"
-
-msgid "user.middleName"
-msgstr "Second prénom"
 
 msgid "user.myAccount"
 msgstr "Mon compte"
 
 msgid "user.name"
 msgstr "Nom"
-
-msgid "user.orcid"
-msgstr "Identifiant ORCID"
 
 msgid "user.password"
 msgstr "Mot de passe"
@@ -131,23 +206,35 @@ msgstr "Répéter le mot de passe"
 msgid "user.phone"
 msgstr "Téléphone"
 
+msgid "user.preferredPublicName"
+msgstr "Appellation publique souhaitée"
+
+msgid "user.preferredPublicName.description"
+msgstr "Comment préférez-vous que l'on s'adresse à vous ? Les salutations, les seconds prénoms et suffixes peuvent être ajoutés ici si vous le souhaitez."
+
 msgid "user.profile.changePasswordInstructions"
 msgstr "Saisir votre mot de passe actuel et votre nouveau mot de passe ci-dessous pour modifier le mot de passe de votre compte."
-
-msgid "user.profile.contact"
-msgstr "Contact"
 
 msgid "user.profile.editProfile"
 msgstr "Modifier le profil"
 
+msgid "user.profile.form.countryRequired"
+msgstr "Il faut indiquer un pays"
+
 msgid "user.profile.form.emailRequired"
 msgstr "Une adresse de courriel valide est obligatoire."
 
-msgid "user.profile.form.firstNameRequired"
-msgstr "Le prénom est obligatoire."
+msgid "user.profile.form.affiliationRequired"
+msgstr "L'affiliation est obligatoire."
 
-msgid "user.profile.form.lastNameRequired"
-msgstr "Le nom de famille est obligatoire."
+msgid "user.profile.form.givenNameRequired"
+msgstr "Un prénom est obligatoire."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Vous avez ajouté un nom de famille dans une langue pour laquelle un prénom n'a pas été spécifié. Veuillez ajouter un prénom pour cette langue."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Il faut indiquer l'adresse postale"
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Vous devez saisir votre nouveau mot de passe."
@@ -156,10 +243,13 @@ msgid "user.profile.form.oldPasswordInvalid"
 msgstr "Le mot de passe actuel saisi est incorrect."
 
 msgid "user.profile.form.openAccessNotifications"
-msgstr "Avis par courriel d'un nouveau numéro en accès libre"
+msgstr "Avis par courriel d'un nouveau numéro en libre accès"
 
 msgid "user.profile.form.passwordRequired"
 msgstr "Le mot de passe est obligatoire."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Votre nouveau mot de passe est identique à votre ancien mot de passe."
 
 msgid "user.profile.form.profileImage"
 msgstr "Image du profil"
@@ -168,16 +258,19 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Courriel avisant de la parution d'un nouveau numéro"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "L'URL spécifié n'est pas valide. Veuillez vérifier l'URL et essayer de nouveau. (Suggestion : Essayer d'ajouter http:// au début de l'URL.)"
+msgstr "L'URL spécifié n'est pas valide. Veuillez vérifier l'URL et essayer de nouveau. (Astuce : Essayer d'ajouter http:// au début de l'URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Il faut indiquer le groupe d'utilisateurs-trices"
 
 msgid "user.profile.form.usernameRequired"
-msgstr "Le nom d'utilisateur est obligatoire."
+msgstr "Le nom d'utilisateur-trice est obligatoire."
 
-msgid "user.profile.identity"
-msgstr "Identité"
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Vous devez accepter les termes de la déclaration de confidentialité."
 
 msgid "user.profile.leavePasswordBlank"
-msgstr "Laisser vide les champs reliés au mot de passe pour conserver le mot de passe actuel."
+msgstr "Laisser les champs du mot de passe vides pour conserver le mot de passe actuel."
 
 msgid "user.profile.newPassword"
 msgstr "Nouveau mot de passe"
@@ -188,38 +281,47 @@ msgstr "Mot de passe actuel"
 msgid "user.profile"
 msgstr "Profil"
 
-msgid "user.profile.public"
-msgstr "Profil public"
-
 msgid "user.profile.publicProfile"
-msgstr "Profil utilisateur"
+msgstr "Profil d'utilisateur-trice"
 
 msgid "user.profile.repeatNewPassword"
 msgstr "Saisir de nouveau le nouveau mot de passe"
 
-msgid "user.register.completeForm"
-msgstr "Compléter ce formulaire pour vous inscrire à cette revue."
+msgid "user.login.registerNewAccount"
+msgstr "Vous n'êtes pas un-e utilisateur-trice? Veuillez vous inscrire au site."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Entrer votre adresse courriel ci-dessous. Un courriel comprenant des instructions sur comment réinitialiser votre mot de passe vous sera envoyé."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Oui, j'accepte que mes données soient collectées et stockées conformément à la <a href=\"{$privacyUrl}\" target=\"_blank\">Déclaration de confidentialité</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Oui, j'aimerais être informé-e des nouvelles publications et annonces."
 
 msgid "user.register.form.emailExists"
-msgstr "L'adresse de courriel sélectionnée est déjà utilisée par un autre utilisateur."
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "Le mot de passe doit contenir au moins {$length} caractères."
+msgstr "L'adresse de courriel sélectionnée est déjà utilisée par un-e autre utilisateur-trice."
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Les mots de passe ne correspondent pas."
 
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Les champs du courriel ne correspondent pas."
+
 msgid "user.register.form.usernameAlphaNumeric"
-msgstr "Le nom d'utilisateur ne peut contenir que des caractères alphanumériques minuscules, traits de soulignement et traits d'union. Il doit commencer et se terminer par un caractère alphanumérique. Le caractère espace n'est pas permis."
+msgstr "Le nom d'utilisateur-trice ne peut contenir que des caractères alphanumériques minuscules, traits de soulignement et traits d'union. Il doit commencer et se terminer par un caractère alphanumérique."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Au moins un rôle doit être sélectionné"
 
 msgid "user.register.form.usernameExists"
-msgstr "Le nom d'utilisateur sélectionné est déjà utilisé par un autre utilisateur."
+msgstr "Le nom d'utilisateur-trice sélectionné est déjà utilisé par un-e autre utilisateur-trice."
 
-msgid "user.register.passwordLengthRestriction"
-msgstr "Le mot de passe doit avoir au moins {$length} caractères."
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Le mot de passe doit contenir au moins {$length} caractères."
 
 msgid "user.register.registerAs"
-msgstr "S'inscrire en tant que {$contextName}"
+msgstr "S'inscrire à {$contextName} en tant que..."
 
 msgid "user.register"
 msgstr "S'inscrire"
@@ -227,38 +329,71 @@ msgstr "S'inscrire"
 msgid "user.register.usernameRestriction"
 msgstr "Le nom d'utilisateur ne doit contenir que des lettres minuscules, chiffres et traits d'union/de soulignement."
 
+msgid "user.register.registrationCompleted"
+msgstr "Vous vous êtes inscrit-e avec succès. <a href=\"{$profileUrl}\"> Cliquez ici </a> pour compléter votre profil utilisateur."
+
 msgid "user.role.assistant"
-msgstr "Adjoint/Adjointe"
+msgstr "Adjoint-e"
+
+msgid "user.role.author"
+msgstr "Auteur-e"
+
+msgid "user.role.author_s"
+msgstr "Auteur-e-s"
+
+msgid "user.role.authors"
+msgstr "Auteurs-es"
+
+msgid "user.role.editor"
+msgstr "Rédacteur-trice"
+
+msgid "user.role.editors"
+msgstr "Rédacteurs-trices"
 
 msgid "user.role.reader"
-msgstr "Lecteur"
+msgstr "Lecteur-trice"
 
 msgid "user.role.readers"
-msgstr "Lecteurs"
+msgstr "Lecteurs-trices"
 
 msgid "user.role.reviewer"
-msgstr "Évaluateur"
+msgstr "Évaluateur-trice"
 
 msgid "user.role.reviewers"
-msgstr "Évaluateurs"
+msgstr "Évaluateurs-trices"
 
 msgid "user.role.siteAdmin"
-msgstr "Administrateur du site"
+msgstr "Administrateur-trice du site"
 
 msgid "user.role.siteAdmins"
-msgstr "Administrateurs du site"
+msgstr "Administrateurs-trices du site"
+
+msgid "user.role.copyeditor"
+msgstr "Réviseur-e"
+
+msgid "user.role.copyeditors"
+msgstr "Réviseurs-es"
+
+msgid "user.role.proofreader"
+msgstr "Correcteur-trice d'épreuve"
+
+msgid "user.role.proofreaders"
+msgstr "Correcteurs-trices d'épreuve"
+
+msgid "user.role.layoutEditor"
+msgstr "Responsable de la mise en page"
+
+msgid "user.role.layoutEditors"
+msgstr "Responsables de la mise en page"
 
 msgid "user.roles"
 msgstr "Rôles"
-
-msgid "user.salutation"
-msgstr "Appel"
 
 msgid "user.sendPassword"
 msgstr "Confirmation"
 
 msgid "user.sendPassword.description"
-msgstr "M'envoyer un courriel de confirmation incluant mon nom d'utilisateur et mon mot de passe"
+msgstr "M'envoyer un courriel de confirmation incluant mon nom d'utilisateur-trice et mon mot de passe"
 
 msgid "user.signature"
 msgstr "Signature"
@@ -267,184 +402,31 @@ msgid "user.title"
 msgstr "Titre"
 
 msgid "user.url"
-msgstr "URL"
+msgstr "URL de la page d'accueil"
 
 msgid "user.userHome"
-msgstr "Accueil de l'utilisateur"
+msgstr "Page d'accueil de l'utilisateur-trice"
 
 msgid "user.username"
-msgstr "Nom d'utilisateur"
+msgstr "Nom d'utilisateur-trice"
 
 msgid "user.workingLanguages"
 msgstr "Langues de travail"
 
-msgid "user.profile.form.profileImageInvalid"
-msgstr "Format d'image du profil invalide ou image trop grande. Les formats acceptés sont .gif, .jpg, or .png, et l'image ne doit pas dépasser 150x150 pixels."
-
-msgid "user.profile.form.affiliationRequired"
-msgstr "L'affiliation est obligatoire."
-
-msgid "user.affiliation.description"
-msgstr "(Votre institution, par ex., \"Université de Montréal\")"
-
-msgid "user.gossip"
-msgstr "Notes privées"
-
-msgid "user.register.form.emailsDoNotMatch"
-msgstr "Les champs du courriel ne correspondent pas."
-
-msgid "user.accountInformation"
-msgstr "Renseignements sur le compte"
-
-msgid "user.authorization.accessDenied"
-msgstr "Accès refusé"
-
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "Le jeton d'authentification du processus est absent ou invalide."
-
-msgid "user.hello"
-msgstr "Bonjour,"
-
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "Votre nouveau mot de passe est identique à votre ancien mot de passe."
-
-msgid "user.role.author"
-msgstr "Auteur"
-
-msgid "user.role.author_s"
-msgstr "Auteur(s)"
-
-msgid "user.role.authors"
-msgstr "Auteurs"
-
-msgid "user.role.editor"
-msgstr "Rédacteur"
-
-msgid "user.role.editors"
-msgstr "Rédacteurs"
-
-msgid "user.suffix"
-msgstr "Suffixe"
-
-msgid "user.authorization.contextRequired"
-msgstr "Vous ne pouvez pas effectuer cette opération sans spécifier son contexte (presse, journal, conférence, etc.)"
-
-msgid "user.authorization.loginRequired"
-msgstr "Ouverture de session requise."
-
-msgid "user.authorization.privateOperation"
-msgstr "L'opération que vous tentez d'accéder est privée ou n'existe pas."
-
-msgid "user.authorization.restrictedSiteAccess"
-msgstr "L'accès est refusé. L'accès à ce site est actuellement restreint."
-
-msgid "user.authorization.roleBasedAccessDenied"
-msgstr "Le rôle actuel n'a pas accès à cette opération."
-
-msgid "user.authorization.userGroupRequired"
-msgstr "Vous devez choisir un groupe d'utilisateur valide pour accéder à cette opération."
-
-msgid "user.authorization.managerRequired"
-msgstr "Un utilisateur ayant un rôle de gestionnaire (i.e. directeur de la production) doit être assigné à cette étape avant que vous puissiez continuer."
-
-msgid "user.interests.description"
-msgstr "(Séparer les intérêts en appuyant sur la touche Enter ou en ajoutant une virgule)"
-
-msgid "user.group"
-msgstr "Groupe d'utilisateur"
-
-msgid "user.logOutAs"
-msgstr "Fermeture de session en tant que"
-
-msgid "user.profile.form.countryRequired"
-msgstr "Il faut indiquer un pays"
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "Il faut indiquer l'adresse postale"
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "Il faut indiquer le groupe d'utilisateur"
-
-msgid "user.login.registerNewAccount"
-msgstr "Vous n'êtes pas un utilisateur? Veuillez vous inscrire au site."
-
-msgid "user.login.resetPasswordInstructions"
-msgstr "Pour des raisons de sécurité, ce système envoie un nouveau mot de passe par courriel aux utilisateurs inscrits au lieu de rappeler le mot de passe actuel. .<br /><br />Indiquez votre adresse courriel ci-dessous pour réinitialiser votre mot de passe. Une confirmation sera envoyée par courriel."
-
-msgid "user.role.copyeditor"
-msgstr "Réviseur"
-
-msgid "user.role.copyeditors"
-msgstr "Réviseurs"
-
-msgid "user.role.proofreader"
-msgstr "Correcteur d'épreuve"
-
-msgid "user.role.proofreaders"
-msgstr "Correcteurs d'épreuve"
-
-msgid "user.role.layoutEditor"
-msgstr "Éditeur de topologie"
-
-msgid "user.role.layoutEditors"
-msgstr "Éditeurs de topologie"
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Vous n'avez pas actuellement accès à cette étape du processus éditorial."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "Une étape du processus éditorial n'est pas spécifiée"
-
-msgid "user.authorization.pluginRequired"
-msgstr "Un plugiciel requis n'a pas été sélectionné"
-
-msgid "user.login.registrationComplete"
-msgstr "Inscription complétée"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Merci de vous êtes inscrit(e)! Que voulez-vous faire ensuite?"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Voir les évaluations"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Faire une nouvelle soumission"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Explorer le site de la revue"
-
-msgid "user.register.form.userGroupRequired"
-msgstr "Au moins un rôle doit être sélectionné"
-
-msgid "user.register.registrationCompleted"
-msgstr "*Vous vous êtes inscrit avec succès. <a href=\"{$profileUrl}\"> Cliquez ici </a> pour compléter votre profil utilisateur."
+msgid "user.orcid"
+msgstr "Identifiant ORCID"
 
 msgid "user.orcid.orcidInvalid"
-msgstr "Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple \"https://orcid.org/0000-0002-1825-0097\")."
+msgstr "Le numéro ORCID que vous avez spécifié n'est pas valide. Veuillez inclure l'URI complet (par exemple « https://orcid.org/0000-0002-1825-0097 »)."
 
-msgid "user.login.registrationPendingValidation"
-msgstr "Inscription en attente de validation"
+msgid "user.profile.identity"
+msgstr "Identité"
 
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr "Le rôle ou les rôles qui vous sont assignés pour cette soumission ne vous permettent pas d'accéder à cette opération."
+msgid "user.profile.contact"
+msgstr "Coordonnées"
 
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Vous n'êtes pas autorisé(e) à accéder à cette évaluation."
-
-msgid "user.authorization.submissionQuery"
-msgstr "Vous n'êtes pas autorisé(e) à accéder à cette discussion."
-
-msgid "user.gossip.description"
-msgstr "Enregistrer les informations relatives à cet évaluateurque vous souhaitez rendre visibles aux autres administrateurs, directeurs et rédacteurs. Ces informations seront visibles lors de futures évaluations."
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Vous devez accepter les termes de la déclaration de confidentialité."
-
-msgid "user.register.form.privacyConsent"
-msgstr "Oui, j'accepte que mes données soient collectées et stockées conformément à la <a href=\"{$privacyUrl}\" target=\"_blank\">Déclaration de confidentialité</a>."
-
-msgid "user.register.form.emailConsent"
-msgstr "Oui, j'aimerais être informé(e) des nouvelles publications et annonces."
+msgid "user.profile.public"
+msgstr "Profil public"
 
 msgid "user.apiKey"
 msgstr "Clé API"
@@ -456,10 +438,10 @@ msgid "user.apiKey.generate"
 msgstr "Générer une nouvelle clé API."
 
 msgid "user.apiKey.generateWarning"
-msgstr "Générer une nouvelle clé API invalidera toute clé préexistante pour cet utilisateur."
+msgstr "Générer une nouvelle clé API invalidera toute clé préexistante pour cet ou cette utilisateur-trice."
 
 msgid "user.apiKey.secretRequired"
-msgstr "Avant de générer une clé API, l'administrateur du site doit définir un secret dans le fichier de configuration (\"api_key_secret\")."
+msgstr "Avant de générer une clé API, l'administrateur-trice du site doit définir un code secret dans le fichier de configuration (\"api_key_secret\")."
 
 msgid "user.privacyLink"
 msgstr "Vos données sont stockées conformément à notre <a href=\"{$privacyUrl}\" target=\"_blank\">déclaration de confidentialité</a>."

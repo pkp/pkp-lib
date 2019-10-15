@@ -7,39 +7,39 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:21-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:21-07:00\n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
 "Language: \n"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Administrateur du site"
+msgstr "Administrateur-trice du site"
 
 msgid "default.groups.plural.siteAdmin"
-msgstr "Administrateurs du site"
+msgstr "Administrateurs-trices du site"
 
 msgid "default.groups.name.productionEditor"
-msgstr "Directeur de production"
+msgstr "Directeur-trice de production"
 
 msgid "default.groups.plural.productionEditor"
-msgstr "Directeurs de production"
+msgstr "Directeurs-trices de production"
 
 msgid "default.groups.abbrev.productionEditor"
 msgstr "DirProd"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Réviseur"
+msgstr "Réviseur-e"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Réviseurs"
+msgstr "Réviseurs-es"
 
 msgid "default.groups.abbrev.copyeditor"
 msgstr "RÉV"
 
 msgid "default.groups.name.proofreader"
-msgstr "Correcteur d’épreuves"
+msgstr "Correcteur-trice d'épreuves"
 
 msgid "default.groups.plural.proofreader"
-msgstr "Correcteurs d’épreuves"
+msgstr "Correcteurs-trices d'épreuves"
 
 msgid "default.groups.abbrev.proofreader"
 msgstr "CorEp"
@@ -54,37 +54,37 @@ msgid "default.groups.abbrev.designer"
 msgstr "Design"
 
 msgid "default.groups.name.internalReviewer"
-msgstr "Évaluateur interne"
+msgstr "Évaluateur-trice interne"
 
 msgid "default.groups.plural.internalReviewer"
-msgstr "Évaluateurs internes"
+msgstr "Évaluateurs-trices internes"
 
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "EvalInt"
 
 msgid "default.groups.name.marketing"
-msgstr "Coordonnateur des ventes et du marketing"
+msgstr "Coordonnateur-trice des ventes et du marketing"
 
 msgid "default.groups.plural.marketing"
-msgstr "Coordonnateurs des ventes et du marketing"
+msgstr "Coordonnateurs-trices des ventes et du marketing"
 
 msgid "default.groups.abbrev.marketing"
 msgstr "CVM"
 
 msgid "default.groups.name.funding"
-msgstr "Coordonnateur du financement"
+msgstr "Coordonnateur-trice du financement"
 
 msgid "default.groups.plural.funding"
-msgstr "Coordonnateurs du financement"
+msgstr "Coordonnateurs-trices du financement"
 
 msgid "default.groups.abbrev.funding"
 msgstr "CF"
 
 msgid "default.groups.name.indexer"
-msgstr "Indexeur"
+msgstr "Indexeur-e"
 
 msgid "default.groups.plural.indexer"
-msgstr "Indexeurs"
+msgstr "Indexeurs-es"
 
 msgid "default.groups.abbrev.indexer"
 msgstr "Indx"
@@ -99,28 +99,28 @@ msgid "default.groups.abbrev.layoutEditor"
 msgstr "RespMP"
 
 msgid "default.groups.name.author"
-msgstr "Auteur"
+msgstr "Auteur-e"
 
 msgid "default.groups.plural.author"
-msgstr "Auteurs"
+msgstr "Auteurs-es"
 
 msgid "default.groups.abbrev.author"
 msgstr "AU"
 
 msgid "default.groups.name.translator"
-msgstr "Traducteur"
+msgstr "Traducteur-trice"
 
 msgid "default.groups.plural.translator"
-msgstr "Traducteurs"
+msgstr "Traducteurs-trices"
 
 msgid "default.groups.abbrev.translator"
 msgstr "Trad"
 
 msgid "default.groups.name.reader"
-msgstr "Lecteur"
+msgstr "Lecteur-trice"
 
 msgid "default.groups.plural.reader"
-msgstr "Lecteurs"
+msgstr "Lecteurs-trices"
 
 msgid "default.groups.abbrev.reader"
 msgstr "Lect"
@@ -129,10 +129,10 @@ msgid "default.genres.other"
 msgstr "Autre"
 
 msgid "default.genres.multimedia"
-msgstr "Multimedia"
+msgstr "Multimédias"
 
 msgid "default.genres.image"
 msgstr "Image"
 
 msgid "default.genres.styleSheet"
-msgstr "HTML Stylesheet"
+msgstr "Feuille de style HTML"

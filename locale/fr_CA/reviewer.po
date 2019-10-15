@@ -7,15 +7,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:22-07:00\n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
 "Language: \n"
 
-msgid "reviewer.submission.reviewerFiles"
-msgstr "Fichiers de l'évaluateur"
-
 msgid "reviewer.reviewSteps.request"
-msgstr "1. Requête"
+msgstr "1. Demande"
 
 msgid "reviewer.reviewSteps.guidelines"
 msgstr "2. Lignes directrices"
@@ -27,49 +24,52 @@ msgid "reviewer.reviewSteps.completion"
 msgstr "4. Terminer"
 
 msgid "reviewer.step1.request"
-msgstr "Requête d'évaluation"
+msgstr "Demande d'évaluation"
 
 msgid "reviewer.step1.requestBoilerplate"
-msgstr "Vous avez été choisi en tant qu'évaluateur potentiel de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'évaluation."
+msgstr "Vous avez été choisi en tant qu'évaluateur-trice potentiel-elle de la soumission suivante. Voici un aperçu de la soumission, ainsi que les échéanciers associés à son examen. Nous espérons que vous pourrez participer au processus d'évaluation."
 
 msgid "reviewer.step1.viewAllDetails"
-msgstr "Voir tous les détails de la soumission"
+msgstr "Voir toutes les informations à propos de la soumission"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Fichiers de l'évaluateur-trice"
 
 msgid "reviewer.submission.declineReview"
 msgstr "Refuser la requête d'évaluation"
 
 msgid "reviewer.submission.declineReviewMessage"
-msgstr "Vous pouvez indiquer au rédacteur, dans le champ ci-dessous, les raisons pour lesquelles vous refusez de participer à ce processus d'évaluation."
+msgstr "Vous pouvez indiquer au,à la rédacteur-trice, dans le champ ci-dessous, les raisons pour lesquelles vous refusez de participer à ce processus d'évaluation."
 
 msgid "reviewer.submission.acceptReview"
-msgstr "Accepter l'évaluation, continuer à l'étape #2"
+msgstr "Accepter l'évaluation, poursuivre à l'étape #2"
 
 msgid "reviewer.submission.continueToStepThree"
-msgstr "Continuer à l'étape #3"
+msgstr "Poursuivre à l'étape #3"
 
 msgid "reviewer.submission.submitReview"
 msgstr "Soumettre l'évaluation"
 
 msgid "reviewer.submission.reviewerGuidelines"
-msgstr "Lignes directrices des évaluateurs"
+msgstr "Lignes directrices aux évaluateurs-trices"
 
 msgid "reviewer.submission.enterCompetingInterests"
-msgstr "La revue a adopté une politique de divulgation des intérêts opposés chez ses évaluateurs. Veuillez prendre un moment pour lire cette politique."
+msgstr "La revue a adopté une politique de divulgation des intérêts divergents pour ses évaluateurs-trices. Veuillez prendre un moment pour lire cette politique."
 
 msgid "reviewer.submission.noCompetingInterests"
-msgstr "Je n'ai pas d'intérêts opposés."
+msgstr "Je n'ai pas d'intérêts divergents."
 
 msgid "reviewer.submission.hasCompetingInterests"
-msgstr "Il est possible que j'aie des intérêts opposés (veuillez spécifier)."
+msgstr "Il est possible que j'aie des intérêts divergents (veuillez spécifier)."
 
 msgid "reviewer.submission.competingInterests"
-msgstr "Intérêts opposés"
+msgstr "Intérêts divergents"
 
 msgid "reviewer.submission.guidelines"
-msgstr "Lignes directrices des évaluations"
+msgstr "Lignes directrices pour l'évaluation"
 
 msgid "reviewer.submission.noGuidelines"
-msgstr "Cette revue n'a pas établi de lignes directrices pour les évaluateurs."
+msgstr "Cette revue n'a pas établi de lignes directrices pour les évaluateurs-trices."
 
 msgid "reviewer.submission.downloadDescription"
 msgstr "Cliquez sur les noms des fichiers pour télécharger et évaluer (sur l'écran ou après les avoir imprimés) les fichiers associés à cette soumission."
@@ -78,28 +78,28 @@ msgid "reviewer.submission.reviewDescription"
 msgstr "Saisir (ou copier/coller) votre évaluation de cette soumission dans le formulaire ci-dessous."
 
 msgid "reviewer.submission.uploadDescription"
-msgstr "Téléverser des fichiers que le rédacteur et/ou l'auteur pourront consulter, y compris les versions révisées des fichiers d'évaluation originaux."
+msgstr "Téléverser des fichiers que le,la rédacteur-trice et/ou l'auteur-e pourront consulter, y compris les versions révisées des fichiers d'évaluation originaux."
 
 msgid "reviewer.complete"
 msgstr "Évaluation envoyée"
 
 msgid "reviewer.confirmSubmit"
-msgstr "Vous voulez vraiment envoyer cette évaluation?"
+msgstr "Voulez-vous vraiment envoyer cette évaluation ?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Merci d'avoir évalué cette soumission. Votre évaluation a bien été reçue. Nous apprécions votre contribution à la qualité du travail que nous publions. Le,La rédacteur-trice pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant."
 
 msgid "reviewer.aboutDueDates"
 msgstr "À propos des dates d'échéance"
 
-msgid "reviewer.complete.whatNext"
-msgstr "Merci d'avoir évalué cette soumission. Votre évaluation a bien été reçue. Nous apprécions votre contribution à la qualité du travail que nous publions. L'éditeur pourrait vous contacter à nouveau pour obtenir d'autres renseignements, le cas échéant."
-
 msgid "reviewer.aboutDueDates.text"
-msgstr "Le rédacteur demande que vous acceptiez ou refusiez d'évaluer la soumission avant la date d'échéance, et si vous acceptez, que vous complétiez l'évaluation avant la date d'échéance."
+msgstr "Le,La rédacteur-trice demande que vous acceptiez ou refusiez d'évaluer la soumission avant la date d'échéance, et si vous acceptez, que vous complétiez l'évaluation avant la date d'échéance."
 
 msgid "submission.comments.canShareWithAuthor"
-msgstr "Ce texte sera transmis à l'auteur et au rédacteur"
+msgstr "Ce texte sera transmis à l'auteur-e et au,à la rédacteur-trice"
 
 msgid "submission.comments.cannotShareWithAuthor"
-msgstr "Ce texte sera transmis uniquement au rédacteur"
+msgstr "Ce texte sera transmis uniquement au,à la rédacteur-trice"
 
 msgid "user.authorization.submissionReviewer"
-msgstr "L'utilisateur actuel n'est pas assigné en tant qu'évaluateur pour le document demandé."
+msgstr "L'utilisateur-trice actuel-elle n'est pas assigné-e en tant qu'évaluateur-trice pour le document demandé."

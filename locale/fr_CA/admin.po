@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:21-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:21-07:00\n"
+"POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
+"PO-Revision-Date: 2019-10-15T13:36:55-07:00\n"
 "Language: \n"
 
 msgid "admin.systemInfo.settingName"
@@ -21,13 +21,13 @@ msgid "admin.adminFunctions"
 msgstr "Fonctions administratives"
 
 msgid "admin.auth.confirmDelete"
-msgstr "Êtes-vous certain de vouloir supprimer définitivement cette source d'authentification?"
+msgstr "Êtes-vous certain-e de vouloir supprimer définitivement cette source d'authentification ?"
 
 msgid "admin.auth.create"
 msgstr "Créer une source d'authentification"
 
 msgid "admin.auth.noneCreated"
-msgstr "Aucune source d'authentification définie."
+msgstr "Aucune source d'authentification n'a été définie."
 
 msgid "admin.authSources"
 msgstr "Sources d'authentification"
@@ -39,16 +39,19 @@ msgid "admin.clearTemplateCache"
 msgstr "Vider le cache de modèles"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Votre fichier de configuration a été mis à jour avec succès. Noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en modifiant directement le <tt>config.inc.php</tt>."
+msgstr "Votre fichier de configuration a été mis à jour avec succès. Veuillez noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en modifiant directement le fichier <tt>config.inc.php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
-msgstr "Êtes-vous sûr de vouloir effacer le cache des modèles compilés?"
+msgstr "Êtes-vous certain-e de vouloir effacer le cache des modèles compilés ?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Êtes-vous sûr de vouloir fermer toutes les sessions utilisateurs? Tous les utilisateurs actuellement connectés devront se reconnecter (vous y compris)."
+msgstr "Êtes-vous certain-e de vouloir fermer toutes les sessions utilisateur ? Tous les utilisateurs-trices actuellement connectés-es devront se reconnecter (vous y compris)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Contenu du fichier de configuration"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Êtes-vous certain-e de vouloir supprimer définitivement {$contextName} ainsi que tous ses contenus ?"
 
 msgid "admin.currentVersion"
 msgstr "Version actuelle"
@@ -57,43 +60,70 @@ msgid "admin.dateInstalled"
 msgstr "Date d'installation"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Le contenu de votre configuration mise à jour est affiché ci-dessous. Pour appliquer les modifications affectées à cette configuration, vous devez ouvrir le <tt>config.inc.php</tt> dans un éditeur de texte adéquat et remplacer son contenu par le contenu de la zone de texte ci-dessous."
+msgstr "Le contenu de votre configuration mise à jour est affiché ci-dessous. Pour appliquer les modifications affectées à cette configuration, vous devez ouvrir le fichier <tt>config.inc.php</tt> dans un éditeur de texte adéquat et remplacer son contenu par le contenu de la zone de texte ci-dessous."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Afficher la nouvelle configuration"
 
 msgid "admin.expireSessions"
-msgstr "Fermer les sessions utilisateurs"
+msgstr "Fermer les sessions utilisateur"
+
+msgid "admin.languages.download"
+msgstr "Télécharger le paramètre régional"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Télécharger les paramètres régionaux"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Ne peut pas ouvrir le descripteur de langue du site Web PKP"
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Ne peut pas ajouter le nouveau paramètre régional au fichier de registre du paramètre régional, normalement « registry/locales.xml »."
+
+msgid "admin.languages.cantDisable"
+msgstr "Ce paramètre régional est la langue principale du site. Vous ne pouvez pas le désactiver avant d'avoir choisi un autre paramètre régional principal."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Êtes-vous certain-e de vouloir changer le paramètre régional principal du site ? Les noms des utilisateurs-trices, requis dans le paramètre régional principal du site, seront copiés, lorsque manquants, à partir du paramètre régional principal existant."
 
 msgid "admin.languages.confirmReload"
-msgstr "Êtes-vous sûr de vouloir réinitialiser cette langue? Ceci effacera toute donnée spécifique à cette langue tels que les modèles de courriel personnalisés."
+msgstr "Êtes-vous certain-e de vouloir réinitialiser cette langue ? Ceci effacera toutes données spécifiques à ce paramètre régional tels que les modèles de courriel personnalisés."
 
 msgid "admin.languages.installedLocales"
-msgstr "Langues installées"
+msgstr "Paramètres régionaux installés"
 
 msgid "admin.languages.installLanguages"
-msgstr "Gérer les langues"
+msgstr "Gérer les paramètres régionaux"
+
+msgid "admin.languages.availableLocales"
+msgstr "Paramètres régionaux disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Installer le paramètre régional"
 
 msgid "admin.languages.installLocales"
 msgstr "Installer"
 
 msgid "admin.languages.installNewLocales"
-msgstr "Installer de nouvelles langues"
+msgstr "Installer de nouveaux paramètres régionaux"
 
 msgid "admin.languages.languageSettings"
 msgstr "Paramètres de langue"
 
 msgid "admin.languages.noLocalesAvailable"
-msgstr "Aucune langue supplémentaire disponible."
+msgstr "Aucun paramètre régional supplémentaire n'est disponible pour l'installation."
 
 msgid "admin.languages.reload"
-msgstr "Recharger la langue"
+msgstr "Recharger le paramètre régional"
 
 msgid "admin.languages.uninstall"
-msgstr "Désinstaller la langue"
+msgstr "Désinstaller le paramètre régional"
 
 msgid "admin.phpInfo"
-msgstr "Information détaillée concernant PHP"
+msgstr "Renseignements détaillés concernant PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Tâche programmée"
 
 msgid "admin.scheduledTask.startTime"
 msgstr "Début du processus."
@@ -102,7 +132,16 @@ msgid "admin.scheduledTask.stopTime"
 msgstr "Arrêt du processus."
 
 msgid "admin.scheduledTask.noLog"
-msgstr "La tâche n'a produit aucun journal d'événement."
+msgstr "La tâche n'a produit aucun journal d'événements."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Votre installation de {$softwareName} a complété l'exécution automatique de cette tâche. Vous pouvez télécharger le journal d'événements ici : {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Êtes-vous certain-e de vouloir supprimer le journal d'événements des tâches planifiées ?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Supprimer le journal d'événements des tâches planifiées"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Rappel d'évaluation"
@@ -119,11 +158,8 @@ msgstr "Pilote de base de données"
 msgid "admin.server.dbVersion"
 msgstr "Version du serveur de bases de données"
 
-msgid "admin.serverInformationDescription"
-msgstr "Versions du système d'exploitation de base et du logiciel serveur. Cliquer sur <span class=\"highlight\">Information détaillée concernant PHP</span> pour avoir plus de détails sur la configuration PHP de ce serveur."
-
 msgid "admin.serverInformation"
-msgstr "Information sur le serveur"
+msgstr "Renseignements sur le serveur"
 
 msgid "admin.server.phpVersion"
 msgstr "Version PHP"
@@ -131,32 +167,28 @@ msgstr "Version PHP"
 msgid "admin.server.platform"
 msgstr "Système d'exploitation"
 
+msgid "admin.settings"
+msgstr "Paramètres"
+
 msgid "admin.settings.about"
-msgstr "Description \"À propos du site\""
+msgstr "Description « À propos du site »"
 
 msgid "admin.settings.contactEmail"
-msgstr "Courriel du contact principal"
+msgstr "Courriel de la personne-ressource principale"
 
 msgid "admin.settings.contactName"
-msgstr "Nom du contact principal"
+msgstr "Nom de la personne-ressource principale"
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
-"Votre installation a été configurée pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.\n"
-"\n"
-"Vous devez parfois utiliser une seule statistique d'utilisation pour, par exemple, afficher une liste ordonnée des soumissions les plus utilisées ou classer les résultats des recherches. Veuillez choisir l'une des mesures configurées à titre de mesure par défaut."
+"Votre installation OJS est paramétrée pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes. Il y a des cas où seule une statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des articles les plus consultés ou pour classer les résultats de recherche. Veuillez sélectionner l'une des mesures configurées par défaut.\n"
+"\t"
 
 msgid "admin.settings.introduction"
 msgstr "Introduction"
 
 msgid "admin.settings.minPasswordLength"
-msgstr "Longueur minimum du mot de passe"
-
-msgid "admin.settings.oaiRegistration"
-msgstr "Enregistrer le site pour l'indexation (collecte de métadonnées)"
-
-msgid "admin.settings.passwordCharacters"
-msgstr "caractères"
+msgstr "Longueur minimum du mot de passe (nombre de caractères)"
 
 msgid "admin.settings.siteLanguage"
 msgstr "Langue du site"
@@ -173,6 +205,9 @@ msgstr "Logo du site"
 msgid "admin.settings.siteTitle"
 msgstr "Titre du site"
 
+msgid "admin.settings.siteTheme"
+msgstr "Thème du site"
+
 msgid "admin.siteAdmin"
 msgstr "Administration du site"
 
@@ -182,17 +217,20 @@ msgstr "Gestion du site"
 msgid "admin.siteSettings"
 msgstr "Paramètres du site"
 
+msgid "admin.siteSetup"
+msgstr "Réglage du site"
+
 msgid "admin.systemConfigFileReadError"
 msgstr "Le fichier de configuration <tt>config.inc.php</tt> n'existe pas, n'est pas lisible, ou n'est pas valide."
 
 msgid "admin.systemInformation"
-msgstr "Information sur le système"
+msgstr "Renseignements sur le système"
 
 msgid "admin.versionBuild"
 msgstr "Assemblage"
 
 msgid "admin.version.checkForUpdates"
-msgstr "Rechercher les mises à jour"
+msgstr "Rechercher des mises à jour"
 
 msgid "admin.version.downloadPackage"
 msgstr "Télécharger"
@@ -227,69 +265,6 @@ msgstr "Votre système est à jour"
 msgid "admin.version"
 msgstr "Version"
 
-msgid "admin.copyAccessLogFileTool.usage"
-msgstr ""
-"Copier le(s) fichier(s) journal(aux) d'accès Apache, en filtrant les entrées liées à cette installation, vers le répertoire de fichiers actuel, à l'intérieur du répertoire UsageStatsPlugin stage. Doit être exécuté par un utilisateur ayant suffisamment de privilèges pour lire les fichiers journaux d'accès Apache.\n"
-"\n"
-"Cet outil ne copiera que les fichiers qui ne sont pas déjà dans les répertoires chargeurs usageStats file/n (étape, traitement, archive, rejet).\n"
-"\n"
-"Usage: {$scriptName} path/to/apache/log/file.log\n"
-"Usage (traitement de tous les fichiers dans le répertoire): {$scriptName} path/to/apache/directory"
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Erreur: le dossier temporaire {$tmpDir} ne peut être créé."
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Erreur: Le fichier {$filePath} n'existe pas ou n'est pas accessible."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Erreur: vous ne pouvez pas copier {$filePath} dans {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Erreur: vous ne pouvez pas effacer le fichier {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Attention: le fichier {$filePath} existe déjà dans le répertoire des statistiques d'utilisation."
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Succès: {$filePath} dans {$destinationPath}"
-
-msgid "admin.languages.download"
-msgstr "Télécharger le paramètre régional"
-
-msgid "admin.languages.downloadLocales"
-msgstr "Télécharger les paramètres régionaux"
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Ne peut pas ouvrir le descripteur de langue du site Web PKP"
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr "Ne peut pas ajouter le nouveau paramètre régional au fichier de registre du paramètre régional, normalement \"registry/locales.xml\"."
-
-msgid "admin.languages.cantDisable"
-msgstr "Ce paramètre régional est la langue principale du site. Vous ne pouvez pas le désactiver avant d'avoir choisi un autre paramètre régional principal."
-
-msgid "admin.languages.availableLocales"
-msgstr "Paramètres régionaux disponibles"
-
-msgid "admin.languages.installLocale"
-msgstr "Installer le paramètre régional"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
-
-msgid "admin.scheduledTask"
-msgstr "Tâche programmée"
-
-msgid "admin.settings"
-msgstr "Paramètres"
-
-msgid "admin.settings.siteTheme"
-msgstr "Thème du site"
-
-msgid "admin.siteSetup"
-msgstr "Réglage du site"
-
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "Le chemin d'accès de base {$path} doit se trouver à l'intérieur du répertoire des fichiers publics."
 
@@ -305,20 +280,38 @@ msgstr "Le fichier {$filename} a été traité et archivé."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Chargeur de fichier"
 
-msgid "admin.scheduledTask.downloadLog"
-msgstr "Votre installation de {$softwareName} a complété l'exécution de cette tâche. Vous pouvez télécharger le journal d'exécution ici: {$url}"
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copier le(s) fichier(s) journal(aux) d'accès Apache, en filtrant les entrées liées à cette installation, vers le répertoire de fichiers actuel, à l'intérieur du répertoire UsageStatsPlugin stage. Doit être exécuté par un utilisateur ayant suffisamment de privilèges pour lire les fichiers journaux d'accès Apache.\n"
+"\n"
+"Cet outil ne copiera que les fichiers qui ne sont pas déjà dans les répertoires chargeurs usageStats file/n (étape, traitement, archive, rejet).\n"
+"\n"
+"Utilisation : {$scriptName} path/to/apache/log/file.log\n"
+"Utilisation (traitement de tous les fichiers dans le répertoire) : {$scriptName} path/to/apache/directory"
 
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Êtes-vous certain de vouloir supprimer le journal d'exécution des tâches planifiées ?"
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Erreur : le dossier temporaire {$tmpDir} ne peut être créé."
 
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Supprimer le journal d'exécution des tâches planifiées"
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Erreur : Le fichier {$filePath} n'existe pas ou n'est pas accessible."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Erreur : vous ne pouvez pas copier {$filePath} dans {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Erreur : vous ne pouvez pas effacer le fichier {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Attention : le fichier {$filePath} existe déjà dans le répertoire des statistiques d'utilisation."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Succès : {$filePath} dans {$destinationPath}"
 
 msgid "admin.error.utilExecutionProblem"
-msgstr "L'exécution de \"{$utilPath}\" s'est terminée avec l'erreur suivante: {$output}"
+msgstr "L'exécution de « {$utilPath} » s'est terminée avec l'erreur suivante : {$output}"
 
 msgid "admin.error.executingUtil"
-msgstr "Erreur: impossible de lancer \"{$utilPath}\". Veuillez vérifier la configuration de {$utilVar} dans le fichier config.inc.php"
+msgstr "Erreur : impossible de lancer « {$utilPath} ». Veuillez vérifier la configuration de {$utilVar} dans le fichier config.inc.php"
 
-msgid "admin.contexts.confirmDelete"
-msgstr "Êtes-vous certain de vouloir supprimer définitivement {$contextName}, ainsi que tous ses contenus?"
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."

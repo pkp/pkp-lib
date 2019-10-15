@@ -196,6 +196,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 		$publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
 		$titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
+		$identifiersForm = new PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
 
 		// Import constants
 		import('classes.submission.Submission');
@@ -207,6 +208,7 @@ abstract class PKPWorkflowHandler extends Handler {
 			'STATUS_DECLINED',
 			'STATUS_SCHEDULED',
 			'FORM_CITATIONS',
+			'FORM_PUBLICATION_IDENTIFIERS',
 			'FORM_PUBLICATION_LICENSE',
 			'FORM_PUBLISH',
 			'FORM_TITLE_ABSTRACT',
@@ -269,13 +271,15 @@ abstract class PKPWorkflowHandler extends Handler {
 				FORM_CITATIONS => $citationsForm->getConfig(),
 				FORM_PUBLICATION_LICENSE => $publicationLicenseForm->getConfig(),
 				FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
+				FORM_PUBLICATION_IDENTIFIERS => $identifiersForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
-			'editorialHistoryUrl' => $editorialHistoryUrl,
 			'currentPublication' => $currentPublicationProps,
+			'editorialHistoryUrl' => $editorialHistoryUrl,
 			'publicationFormIds' => [
 				FORM_CITATIONS,
+				FORM_PUBLICATION_IDENTIFIERS,
 				FORM_PUBLICATION_LICENSE,
 				FORM_PUBLISH,
 				FORM_TITLE_ABSTRACT,

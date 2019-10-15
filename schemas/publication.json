@@ -196,7 +196,10 @@
 		"pub-id::publisher-id": {
 			"type": "string",
 			"description": "A unique ID provided by the publisher. It will be used in the publication's URL path instead of the `id` when present.",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"rights": {
 			"type": "string",

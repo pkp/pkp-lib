@@ -723,7 +723,7 @@ abstract class PKPSubmission extends DataObject {
 		if (!$publication) {
 			return $locale ? '' : [];
 		}
-		return $publication->getData('subject', $locale);
+		return $publication->getData('subjects', $locale);
 	}
 
 	/**
@@ -735,7 +735,7 @@ abstract class PKPSubmission extends DataObject {
 	function setSubject($subject, $locale) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
-			$publication->setData('subject', $subject, $locale);
+			$publication->setData('subjects', $subject, $locale);
 		}
 	}
 
@@ -883,7 +883,7 @@ abstract class PKPSubmission extends DataObject {
 		if (!$publication) {
 			return '';
 		}
-		return $publication->getData('language');
+		return $publication->getData('languages');
 	}
 
 	/**
@@ -894,7 +894,7 @@ abstract class PKPSubmission extends DataObject {
 	function setLanguage($language) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
-			$publication->setData('language', $language);
+			$publication->setData('languages', $language);
 		}
 	}
 

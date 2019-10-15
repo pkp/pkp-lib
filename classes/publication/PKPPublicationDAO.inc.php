@@ -14,9 +14,10 @@
  * @brief Operations for retrieving and modifying publication objects.
  */
 import('lib.pkp.classes.db.SchemaDAO');
+import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
 import('classes.publication.Publication');
 
-class PKPPublicationDAO extends SchemaDAO {
+class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 	/** @copydoc SchemaDao::$schemaName */
 	public $schemaName = SCHEMA_PUBLICATION;
 
@@ -202,5 +203,82 @@ class PKPPublicationDAO extends SchemaDAO {
 
 		// Delete citations
 		DAORegistry::getDAO('CitationDAO')->deleteByPublicationId($publicationId);
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::pubIdExists()
+	 */
+	public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId) {
+		$result = $this->retrieve(
+			'SELECT COUNT(*)
+			FROM publication_settings ps
+			LEFT JOIN publications p ON p.publication_id = ps.publication_id
+			LEFT JOIN submissions s ON p.submission_id = s.submission_id
+			WHERE ps.setting_name = ? and ps.setting_value = ? and s.submission_id <> ? AND s.context_id = ?',
+			array(
+				'pub-id::'.$pubIdType,
+				$pubId,
+				// The excludePubObjectId refers to the submission id
+				// because multiple versions of the same submission
+				// are allowed to share a DOI.
+				(int) $excludePubObjectId,
+				(int) $contextId
+			)
+		);
+		$returner = $result->fields[0] ? true : false;
+		$result->Close();
+		return $returner;
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::changePubId()
+	 */
+	public function changePubId($pubObjectId, $pubIdType, $pubId) {
+		$this->update(
+			'UPDATE publication_settings ps
+				SET ps.setting_value = ?
+				WHERE ps.publication_id = ?
+				AND ps.setting_name= ?',
+			[
+				$pubId,
+				$pubObjectId,
+				'pubid::' . $pubIdType,
+			]
+		);
+		$this->flushCache();
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deletePubId()
+	 */
+	public function deletePubId($pubObjectId, $pubIdType) {
+		$this->update(
+			'DELETE FROM publication_settings ps
+				WHERE ps.publication_id = ?
+				AND ps.setting_name= ?',
+			[
+				$pubObjectId,
+				'pubid::' . $pubIdType,
+			]
+		);
+		$this->flushCache();
+	}
+
+	/**
+	 * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
+	 */
+	public function deleteAllPubIds($contextId, $pubIdType) {
+		$this->update(
+			'DELETE ps FROM publication_settings ps
+				LEFT JOIN publications p ON p.publication_id = ps.publication_id
+				LEFT JOIN submissions s ON s.submission_id = p.submission_id
+				WHERE ps.setting_name = ?
+				AND s.context_id = ?',
+			[
+				'pub-id::' . $pubIdType,
+				$contextId,
+			]
+		);
+		$this->flushCache();
 	}
 }

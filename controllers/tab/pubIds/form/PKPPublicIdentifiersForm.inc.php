@@ -191,12 +191,7 @@ class PKPPublicIdentifiersForm extends Form {
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->execute($this->getContextId(), $this, $pubObject);
 
-		if (is_a($pubObject, 'Submission')) {
-			$submissionDao = Application::getSubmissionDAO();
-			$submissionDao->updateObject($pubObject);
-		} elseif (is_a($pubObject, 'Publication')) {
-			DAORegistry::getDAO('PublicationDAO')->updateObject($pubObject);
-		} elseif (is_a($pubObject, 'Representation')) {
+		if (is_a($pubObject, 'Representation')) {
 			$representationDao = Application::getRepresentationDAO();
 			$representationDao->updateObject($pubObject);
 		} elseif (is_a($pubObject, 'SubmissionFile')) {

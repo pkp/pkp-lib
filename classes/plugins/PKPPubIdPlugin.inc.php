@@ -222,43 +222,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	 * @return array
 	 */
 	function getPubObjectTypes()  {
-		return array('Submission', 'Representation', 'SubmissionFile');
-	}
-
-	/**
-	 * Get all publication objects of the given type.
-	 * @param $pubObjectType object
-	 * @param $contextId integer
-	 * @return array
-	 */
-	function getPubObjects($pubObjectType, $contextId) {
-		$objectsToCheck = null;
-		switch($pubObjectType) {
-			case 'Submission':
-				$submissionDao = Application::getSubmissionDAO();
-				$submissions = $submissionDao->getByContextId($contextId);
-				$objectsToCheck = $submissions->toArray();
-				break;
-
-			case 'Representation':
-				$representationDao = Application::getRepresentationDAO();
-				$representations = $representationDao->getByContextId($contextId);
-				$objectsToCheck = $representations->toArray();
-				break;
-
-			case 'SubmissionFile':
-				$representationDao = Application::getRepresentationDAO();
-				$representations = $representationDao->getByContextId($contextId);
-				$objectsToCheck = array();
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-				import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_... constants
-				while ($representation = $representations->next()) {
-					$objectsToCheck = array_merge($objectsToCheck, $submissionFileDao->getAllRevisionsByAssocId(ASSOC_TYPE_REPRESENTATION, $representation->getId(), SUBMISSION_FILE_PROOF));
-				}
-				unset($representations);
-				break;
-		}
-		return $objectsToCheck;
+		return array('Publication', 'Representation', 'SubmissionFile');
 	}
 
 	/**
@@ -294,7 +258,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 			if (empty($pubIdPrefix)) return true;
 			$newPubId = $this->constructPubId($pubIdPrefix, $fieldValue, $contextId);
 
-			if (!$this->checkDuplicate($newPubId, $pubObject, $contextId)) {
+			if (!$this->checkDuplicate($newPubId, $pubObject->getId(), get_class($pubObject), $contextId)) {
 				$errorMsg = $this->getNotUniqueErrorMsg();
 				return false;
 			}
@@ -412,36 +376,31 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	//
 	/**
 	 * Check for duplicate public identifiers.
+	 *
+	 * Checks to see if a pubId has already been assigned to any object
+	 * in the context.
+	 *
 	 * @param $pubId string
-	 * @param $pubObject object
+	 * @param $pubObjectType string Class name of the pub object being checked
+	 * @param $excludeId integer This object id will not be checked for duplicates
 	 * @param $contextId integer
 	 * @return boolean
 	 */
-	function checkDuplicate($pubId, $pubObject, $contextId) {
-		// Check all objects of the context whether they have
-		// the same pubId. This includes pubIds that are not yet
-		// generated but could be generated at any moment.
-		$typesToCheck = $this->getPubObjectTypes();
-		$objectsToCheck = null; // Suppress scrutinizer warn
-
-		foreach($typesToCheck as $pubObjectType) {
-			$objectsToCheck = $this->getPubObjects($pubObjectType, $contextId);
-
-			$excludedId = (is_a($pubObject, $pubObjectType) ? $pubObject->getId() : null);
-			foreach ($objectsToCheck as $objectToCheck) {
-				// The publication object for which the new pubId
-				// should be admissible is to be ignored. Otherwise
-				// we might get false positives by checking against
-				// a pubId that we're about to change anyway.
-				if ($objectToCheck->getId() == $excludedId) continue;
-
-				// Check for ID clashes.
-				$existingPubId = $this->getPubId($objectToCheck);
-				if ($pubId == $existingPubId) return false;
+	function checkDuplicate($pubId, $pubObjectType, $excludeId, $contextId) {
+		foreach ($this->getPubObjectTypes() as $type) {
+			if ($type === 'Publication') {
+				$typeDao = DAORegistry::getDAO('PublicationDAO');
+			} elseif ($type === 'Representation') {
+				$typeDao = Application::getRepresentationDAO();
+			} elseif ($type === 'SubmissionFile') {
+				$typeDao = DAORegistry::getDAO('SubmissionFileDAO');
+			}
+			$excludeTypeId = $type === $pubObjectType ? $excludeId : null;
+			if (isset($typeDao) && $typeDao->pubIdExists($this->getPubIdType(), $pubId, $excludeTypeId, $contextId)) {
+				return false;
 			}
 		}
 
-		// We did not find any ID collision, so go ahead.
 		return true;
 	}
 

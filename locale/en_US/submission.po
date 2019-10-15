@@ -1856,6 +1856,9 @@ msgstr "The submission for this publication could not be found."
 msgid "publication.metadata.success"
 msgstr "The metadata have been updated."
 
+msgid "publication.publicationIdentifiers.success"
+msgstr "The identifiers have been updated."
+
 msgid "publication.publicationLicense"
 msgstr "Permissions & Disclosure"
 

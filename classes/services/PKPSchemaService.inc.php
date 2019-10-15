@@ -138,7 +138,7 @@ class PKPSchemaService {
 	 * Get all properties of a schema
 	 *
 	 * Gets the complete list of properties of a schema which are considered part
-	 * of the full view prsented in an API.
+	 * of the full view presented in an API.
 	 *
 	 * @param $schemaName string One of the SCHEMA_... constants
 	 * @return array List of property names
@@ -146,7 +146,14 @@ class PKPSchemaService {
 	public function getFullProps($schemaName) {
 		$schema = $this->get($schemaName);
 
-		return array_keys(get_object_vars($schema->properties));
+		$propNames = [];
+		foreach ($schema->properties as $propName => $propSchema) {
+			if (empty($propSchema->writeOnly)) {
+				$propNames[] = $propName;
+			}
+		}
+
+		return $propNames;
 	}
 
 	/**

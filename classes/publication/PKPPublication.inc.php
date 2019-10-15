@@ -302,6 +302,16 @@ class PKPPublication extends DataObject {
 	function isCCLicense() {
 		return preg_match('/creativecommons\.org/i', $this->getData('licenseUrl'));
 	}
+
+	/**
+	 * Get stored public ID of the publication
+	 *
+	 * This helper function is required by PKPPubIdPlugins.
+	 * @see Submission::getStoredPubId()
+	 */
+	function getStoredPubId($pubIdType) {
+		return $this->getData('pub-id::' . $pubIdType);
+	}
 }
 
 

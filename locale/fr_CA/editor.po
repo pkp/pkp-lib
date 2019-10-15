@@ -332,6 +332,9 @@ msgstr "Fichiers joints"
 msgid "grid.action.editQuery"
 msgstr "Éditer la discussion"
 
+msgid "editor.submission.schedulePublication"
+msgstr "Calendrier de publication"
+
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr "Les fichiers peuvent être joints à cette discussion à partir de la liste ci-dessous."
 

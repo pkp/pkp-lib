@@ -499,9 +499,13 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		// If unassigned, only managers and admins have access
 		if ($stageAssignmentsResult->wasEmpty()) {
-			$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-			$accessibleStageRoles = array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $userRoles);
-
+			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$userRoles = $roleDao->getByUserId($userId, $contextId);
+			foreach ($userRoles as $userRole) {
+				if (in_array($userRole->getId(), array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER))) {
+					$accessibleStageRoles[] = $userRole->getId();
+				}
+			}
 		// Assigned users have access based on their assignment
 		} else {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');

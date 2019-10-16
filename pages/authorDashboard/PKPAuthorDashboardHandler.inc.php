@@ -255,6 +255,20 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			]
 		);
 
+		// Get an array of publication identifiers
+		$publicationList = [];
+		foreach ($submission->getData('publications') as $publication) {
+			$publicationList[] = Services::get('publication')->getProperties(
+				$publication,
+				['id', 'datePublished', 'status'],
+				[
+					'context' => $submissionContext,
+					'submission' => $submission,
+					'request' => $request,
+				]
+			);
+		}
+
 		// Get full details of the working publication and the currently published publication
 		$workingPublicationProps = Services::get('publication')->getFullProperties(
 			$submission->getLatestPublication(),
@@ -299,6 +313,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			],
 			'representationsGridUrl' => $this->_getRepresentationsGridUrl($request, $submission),
 			'submission' => $submissionProps,
+			'publicationList' => $publicationList,
 			'currentPublication' => $currentPublicationProps,
 			'workingPublication' => $workingPublicationProps,
 			'submissionApiUrl' => $submissionApiUrl,

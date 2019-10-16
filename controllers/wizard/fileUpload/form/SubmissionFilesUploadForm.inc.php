@@ -177,6 +177,11 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 				'username' => $user->getUsername()
 			)
 		);
+		
+		$hookResult = parent::execute($submissionFile);
+		if ($hookResult) { 
+			return $hookResult;
+		}
 
 		return $submissionFile;
 	}

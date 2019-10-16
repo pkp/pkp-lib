@@ -301,15 +301,17 @@ class Form {
 	/**
 	 * Execute the form's action.
 	 * (Note that it is assumed that the form has already been validated.)
+	 * @param mixed $functionArgs,... Arguments from the caller to be passed to the hook consumer
+	 * @return mixed Result from the consumer to be passed to the caller.  Send a true-ish result if you want the caller to do something with the return value.
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::execute"
 		// Note that class and function names are always lower
 		// case.
 		$returner = null;
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array_merge(array($this), func_get_args(), array(&$returner)));
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array_merge(array($this), $functionArgs, array(&$returner)));
 		return $returner;
 	}
 

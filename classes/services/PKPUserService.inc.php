@@ -506,6 +506,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					$accessibleStageRoles[] = $userRole->getId();
 				}
 			}
+			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		// Assigned users have access based on their assignment
 		} else {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');

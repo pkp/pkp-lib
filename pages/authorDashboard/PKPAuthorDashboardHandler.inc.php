@@ -281,7 +281,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 
 		// Check if current author can edit metadata
 		$disableSave = true;
-		if (Services::get('submission')->canUserEditMetadata($submission->getId(), $user->getId())) {
+		if (Services::get('submission')->canUserEditMetadata($submission->getId(), $user->getId()) ) {
 			$disableSave =  false;
 		}
 

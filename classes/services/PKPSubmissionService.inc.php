@@ -746,7 +746,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function canUserEditMetadata($submissionId, $userId) {
 		$stageAssignments = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null);
-		// If user has no stage assigments, check if user can edit anyway
+		// If user has no stage assigments, check if user can edit anyway ie. is manager
 		if (!$stageAssigments) {
 			$context = Application::get()->getRequest()->getContext();
 			return $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId);

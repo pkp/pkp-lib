@@ -236,6 +236,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 		if (!isset($query)){
 			if ($commentsToEditor) {
+				$subEditorsDAO = DAORegistry::getDAO('SubEditorsDAO');
+
 				$query = $queryDao->newDataObject();
 				$query->setAssocType(ASSOC_TYPE_SUBMISSION);
 				$query->setAssocId($submissionId);
@@ -243,8 +245,12 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 				$query->setSequence(REALLY_BIG_NUMBER);
 				$queryDao->insertObject($query);
 				$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submissionId);
-				$queryDao->insertParticipant($query->getId(), $userId);
 				$queryId = $query->getId();
+
+				$userIds = array_keys([$userId => null] + $subEditorsDAO->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId()));
+				foreach (array_unique($userIds) as $id) {
+					$queryDao->insertParticipant($queryId, $id);
+				}
 
 				$note = $noteDao->newDataObject();
 				$note->setUserId($userId);

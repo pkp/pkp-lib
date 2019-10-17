@@ -23,13 +23,18 @@
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		<li class="current">
-			<h1>
+			<a href="{$currentUrl}" aria-current="page">
+			{capture name="currentTitleH1"}
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}
 				{else}
 					{$currentTitle|escape}
 				{/if}
-			</h1>
+			{/capture}
+			{$smarty.capture.currentTitleH1}
+			</a>
 		</li>
 	</ol>
 </nav>
+<h1 class="pageCurrentTitle">{$smarty.capture.currentTitleH1}</h1>
+

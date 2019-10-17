@@ -333,7 +333,7 @@ msgid "common.discipline"
 msgstr "Discipline"
 
 msgid "common.done"
-msgstr "Terminé-e"
+msgstr "OK"
 
 msgid "common.download"
 msgstr "Télécharger"

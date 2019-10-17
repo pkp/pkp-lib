@@ -662,10 +662,9 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
 		}
 
-		// Prevent users from editing publications if they do not have permission
-		// except for admins and managers.
+		// Prevent users from editing publications if they do not have permission. Except for admins.
 		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$canEditPublication = !empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles));
+		$canEditPublication = !empty(array_intersect(array(ROLE_ID_SITE_ADMIN), $userRoles));
 		if (!$canEditPublication && !Services::get('submission')->canUserEditMetadata($submission->getId(), $currentUser->getId())) {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
 		}

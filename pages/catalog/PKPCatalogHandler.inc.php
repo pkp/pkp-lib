@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file pages/catalog/CatalogHandler.inc.php
+ * @file pages/catalog/PKPCatalogHandler.inc.php
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class CatalogHandler
+ * @class PKPCatalogHandler
  * @ingroup pages_catalog
  *
  * @brief Handle requests for the public-facing catalog.

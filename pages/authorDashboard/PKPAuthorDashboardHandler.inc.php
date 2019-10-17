@@ -128,20 +128,20 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-
 		$user = $request->getUser();
 		$submissionContext = $request->getContext();
-
 		if ($submission->getContextId() !== $submissionContext->getId()) {
 			$submissionContext = Services::get('context')->get($submission->getContextId());
 		}
 
 		$contextUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
 		$workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
+
 		$stageNotifications = array();
 		foreach (array_keys($workflowStages) as $stageId) {
 			$stageNotifications[$stageId] = false;
 		}
+
 		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$stageDecisions = $editDecisionDao->getEditorDecisions($submission->getId());
 
@@ -150,12 +150,9 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$stagesWithDecisions[$decision['stageId']] = $decision['stageId'];
 		}
 
-		$workflowStages = WorkflowStageDAO::getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications);
-
 		// Add an upload revisions button when in the review stage
 		// and the last decision is to request revisions
 		$uploadFileUrl = '';
-		$revisionsGridUrl = '';
 		if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
 			$fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
 			$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
@@ -178,22 +175,6 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 					);
 				}
 			}
-
-			$revisionsGridUrl = $request->getDispatcher()->url(
-				$request,
-				ROUTE_COMPONENT,
-				null,
-				'grid.files.review.AuthorReviewRevisionsGridHandler',
-				'fetchGrid',
-				null,
-				[
-					'submissionId' => $submission->getId(),
-					'stageId' => $submission->getData('stageId'),
-					'reviewRoundId' => $lastReviewRound->getId(),
-					'publicationId' => '__publicationId__',
-				]
-			);
-
 		}
 
 		$supportedFormLocales = $submissionContext->getSupportedFormLocales();
@@ -244,14 +225,19 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			'STATUS_SCHEDULED',
 			'FORM_TITLE_ABSTRACT',
 			'FORM_CITATIONS',
-			'FORM_CITATIONS',
 		]);
 
-		$submissionProps = Services::get('submission')->getFullProperties(
+		// Get the submission props without the full publication details. We'll
+		// retrieve just the publication information that we need separately to
+		// reduce the amount of data passed to the browser
+		$propNames = Services::get('schema')->getSummaryProps(SCHEMA_SUBMISSION);
+		$propNames = array_filter($propNames, function($propName) { return $propName !== 'publications'; });
+		$submissionProps = Services::get('submission')->getProperties(
 			$submission,
+			$propNames,
 			[
 				'request' => $request,
-				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray(),
+				'userGroups' => $contextUserGroups,
 			]
 		);
 
@@ -305,7 +291,6 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 				FORM_CITATIONS => $citationsForm->getConfig(),
 			],
 			'contributorsGridUrl' => $contributorsGridUrl,
-			'revisionsGridUrl' => $revisionsGridUrl,
 			'csrfToken' => $request->getSession()->getCSRFToken(),
 			'publicationFormIds' => [
 				FORM_TITLE_ABSTRACT,

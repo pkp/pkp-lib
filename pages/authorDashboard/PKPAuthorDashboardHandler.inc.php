@@ -117,6 +117,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
 		AppLocale::requireComponents(
+			LOCALE_COMPONENT_PKP_ADMIN,
 			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_PKP_SUBMISSION,
 			LOCALE_COMPONENT_APP_SUBMISSION,
@@ -127,7 +128,6 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$templateMgr->assign('submission', $submission);
 
 		$user = $request->getUser();
 		$submissionContext = $request->getContext();
@@ -151,7 +151,6 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		}
 
 		$workflowStages = WorkflowStageDAO::getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications);
-		$templateMgr->assign('workflowStages', $workflowStages);
 
 		// Add an upload revisions button when in the review stage
 		// and the last decision is to request revisions
@@ -244,6 +243,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			'STATUS_DECLINED',
 			'STATUS_SCHEDULED',
 			'FORM_TITLE_ABSTRACT',
+			'FORM_CITATIONS',
 			'FORM_CITATIONS',
 		]);
 
@@ -352,7 +352,9 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 
 		$templateMgr->assign([
 			'metadataEnabled' => $metadataEnabled,
+			'submission' => $submission,
 			'workflowData' => $workflowData,
+			'workflowStages' => $workflowStages,
 		]);
 
 	}

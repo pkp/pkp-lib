@@ -543,21 +543,97 @@ class FileManager {
 
 	/**
 	 * Decompress passed gziped file.
-	 * @param $filePath string
-	 * @param $errorMsg string
-	 * @return boolean|string
+	 * @param $filePath string The compressed file's filename
+	 * @param $errorMsg string Any fatal error encountered (modified by reference)
+	 * @return boolean|string False on failure, or the decompressed filename on success.
 	 */
 	function decompressFile($filePath, &$errorMsg) {
+		if (extension_loaded('Zlib')) {
+			$chunk = 1024*1024;
+			$newFilePath = preg_replace('/[.]tgz$/i', '.tar.gz', $filePath);
+			$newFilePath = preg_replace('/[.]gz$/i', '', $newFilePath);
+			if ($newFilePath !== $filePath) {
+				$gz = gzopen($filePath, 'rb');
+				if ($gz) {
+					$file = fopen($newFilePath, 'wb');
+					if ($file) {
+						while (!gzeof($gz)) {
+							$data = gzread($gz, $chunk);
+							fwrite($file, $data);
+						}
+						fclose($file);
+						gzclose($gz);
+						unlink($filePath);
+						return $newFilePath;
+					}
+					fclose($file);
+				}
+			}
+		}
 		return $this->_executeGzip($filePath, true, $errorMsg);
+	}
+
+	
+	/**
+	 * Extract files from tgz or zip
+	 * @param $filePath string The compressed archive filename
+	 * @param $destination string The location to which to extract the contents
+	 * @param $errorMsg string Any fatal error encountered (modified by reference)
+	 * @return boolean Success
+	 */
+	function extractFiles($filePath, $destination, &$errorMsg) {
+		$success = false;
+		$errors = array();
+		if (extension_loaded('Phar')) {
+			try {
+				$zip = new PharData($filePath);
+				$zip->extractTo($destination);
+				$success = true;
+			} catch (Exception $e) {
+				$errors[] = $e->getMessage();
+			}
+		}
+		if (!$success && extension_loaded('zip')) {
+			$zip = new ZipArchive();
+			if ($zip->open($filePath) === true && $zip->extractTo($destination) === true) {
+				$zip->close();
+				$success = true;
+			} else {
+				$errors[] = 'ZipArchive extraction failed.';
+			}
+		}
+		if ($errors) {
+			$errorMsg = implode("\n", $errors);
+		}
+		return $success;
 	}
 
 	/**
 	 * Compress passed file.
 	 * @param $filePath string The file to be compressed.
-	 * @param $errorMsg string
-	 * @return boolean|string
+	 * @param $errorMsg string Any fatal error encountered (modified by reference)
+	 * @return boolean|string False on failure, or the compressed filename on success.
 	 */
 	function compressFile($filePath, &$errorMsg) {
+		if (extension_loaded('Zlib')) {
+			$chunk = 1024*1024;
+			$gzFilePath = $filePath.'.gz';
+			$file = fopen($filePath, 'rb');
+			if ($file) {
+				$gz = gzopen($gzFilePath, 'wb');
+				if ($gz) {
+					while (!feof($file)) {
+						$data = fread($file, $chunk);
+						gzwrite($gz, $data);
+					}
+					gzclose($gz);
+					fclose($file);
+					unlink($filePath);
+					return $gzFilePath;
+				}
+				fclose($file);
+			}
+		}
 		return $this->_executeGzip($filePath, false, $errorMsg);
 	}
 

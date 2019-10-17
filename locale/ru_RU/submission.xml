@@ -687,6 +687,7 @@
 	<message key="publication.event.versionUnpublished">Версия была убрана с публикации.</message>
 	<message key="publication.invalidSubmission">Материал для этой публикации не удаётся найти.</message>
 	<message key="publication.metadata.success">Метаданные были обновлены.</message>
+	<message key="publication.publicationIdentifiers.success">Идентификаторы были обновлены.</message>
 	<message key="publication.publicationLicense">Разрешения и соглашения</message>
 	<message key="publication.publicationLicense.success">Информация о лицензии и авторском праве была обновлена.</message>
 	<message key="publication.publish">Опубликовать</message>

@@ -119,8 +119,22 @@ class APIRouter extends PKPRouter {
 		$handler = $this->getHandler();
 		$container = $handler->getApp()->getContainer();
 		$router = $container->get('router');
-		$request = $container->get('request');
-		$routeInfo = $router->dispatch($request);
+
+		// pkp/pkp-lib#4919: PKP software routes with PATH_INFO (unaffected by
+		// mod_rewrite) but Slim relies on REQUEST_URI. Inject PATH_INFO into
+		// Slim for consistent behavior in URL rewriting scenarios.
+		$slimRequest = $container->get('request');
+		$uri = $slimRequest->getUri();
+		$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
+                if ($pathInfoEnabled) {
+                        $newUri = $uri->withPath($_SERVER['PATH_INFO']);
+                        if ($uri != $newUri) {
+                                $slimRequest = $slimRequest->withUri($newUri);
+                        }
+                }
+
+		// Look up the route endpoint and determine its function name.
+		$routeInfo = $router->dispatch($slimRequest);
 		if (isset($routeInfo[1])) {
 			$route = $router->lookupRoute($routeInfo[1]);
 			$callable = $route->getCallable();

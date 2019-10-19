@@ -77,12 +77,20 @@ class APIHandler extends PKPHandler {
 				if($request->getMethod() == 'GET') {
 					$uri = $uri->withPath($basePath . $endpoint);
 					return $response->withRedirect((string)$uri, 301);
-				}
-				else {
+				} else {
 					// because the route is calculated before any middleware is executed
 					// we need to call App::process because the URI changed so that dispatch happens again
 					$uri = $uri->withPath($endpoint);
 					return $app->process($request->withUri($uri), $response);
+				}
+			} elseif ($pathInfoEnabled) {
+				// pkp/pkp-lib#4919: PKP software routes with PATH_INFO (unaffected by
+				// mod_rewrite) but Slim relies on REQUEST_URI. Inject PATH_INFO into
+				// Slim for consistent behavior in URL rewriting scenarios.
+				$newUri = $uri->withPath($_SERVER['PATH_INFO']);
+				if ($uri != $newUri) {
+					$newRequest = $request->withUri($newUri);
+					return $app->process($newRequest, $response);
 				}
 			}
 			return $next($request, $response);

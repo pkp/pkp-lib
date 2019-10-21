@@ -35,7 +35,8 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 		$submission = $this->submission;
 
 		if ($submission->getSubmissionProgress() <= $this->step) {
-			$submission->stampStatusModified();
+			$submission->stampLastActivity();
+			$submission->stampModified();
 			$submission->setSubmissionProgress($this->step + 1);
 			$submissionDao->updateObject($submission);
 		}

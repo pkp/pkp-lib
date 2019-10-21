@@ -312,7 +312,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 			// Update existing submission
 			$this->setSubmissionData($this->submission);
 			if ($this->submission->getSubmissionProgress() <= $this->step) {
-				$this->submission->stampStatusModified();
+				$this->submission->stampLastActivity();
+				$this->submission->stampModified();
 				$this->submission->setSubmissionProgress($this->step + 1);
 			}
 			// Add, remove or update comments to editor
@@ -332,7 +333,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 
 			$this->setSubmissionData($this->submission);
 
-			$this->submission->stampStatusModified();
+			$this->submission->stampLastActivity();
+			$this->submission->stampModified();
 			$this->submission->setSubmissionProgress($this->step + 1);
 			$this->submission->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
 			// Insert the submission

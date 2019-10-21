@@ -337,7 +337,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
 	 */
 	public function add($publication, $request) {
-		$publication->setData('lastModified', Core::getCurrentDate());
+		$publication->stampModified();
 		$publicationId = DAORegistry::getDAO('PublicationDAO')->insertObject($publication);
 		$publication = $this->get($publicationId);
 		$submission = Services::get('submission')->get($publication->getData('submissionId'));
@@ -390,7 +390,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$newPublication->setData('id', null);
 		$newPublication->setData('datePublished', '');
 		$newPublication->setData('status', STATUS_QUEUED);
-		$newPublication->setData('lastModified', Core::getCurrentDate());
+		$newPublication->stampModified();
 		$newPublication = $this->add($newPublication, $request);
 
 		$authors = $publication->getData('authors');

@@ -396,5 +396,12 @@ class QueryForm extends Form {
 				NOTIFICATION_LEVEL_TASK
 			);
 		}
+
+		// Stamp the submission status modification date.
+		if ($query->getAssocType() === ASSOC_TYPE_SUBMISSION) {
+			$submission = Services::get('submission')->get($query->getAssocId());
+			$submission->stampLastActivity();
+			Application::getSubmissionDAO()->updateObject($submission);
+		}
 	}
 }

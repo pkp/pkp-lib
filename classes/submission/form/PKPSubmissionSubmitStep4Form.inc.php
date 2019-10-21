@@ -37,7 +37,8 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		// Set other submission data.
 		if ($this->submission->getSubmissionProgress() <= $this->step) {
 			$this->submission->setDateSubmitted(Core::getCurrentDate());
-			$this->submission->stampStatusModified();
+			$this->submission->stampLastActivity();
+			$this->submission->stampModified();
 			$this->submission->setSubmissionProgress(0);
 		}
 

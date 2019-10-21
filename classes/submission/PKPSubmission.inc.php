@@ -120,10 +120,18 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
+	 * Stamp the date of the last recorded activity to the current time
+	 */
+	public function stampLastActivity() {
+		return $this->setData('dateLastActivity', Core::getCurrentDate());
+	}
+
+	/**
 	 * Stamp the date of the last status modification to the current time.
+	 * @deprecated 3.2.0.0
 	 */
 	public function stampStatusModified() {
-		return $this->setData('dateStatusModified', Core::getCurrentDate());
+		return $this->stampLastActivity();
 	}
 
 	/**
@@ -1014,7 +1022,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @deprecated 3.2.0.0
 	 */
 	function getDateStatusModified() {
-		return $this->getData('dateStatusModified');
+		return $this->getData('dateLastActivity');
 	}
 
 	/**
@@ -1023,7 +1031,7 @@ abstract class PKPSubmission extends DataObject {
 	 * @deprecated 3.2.0.0
 	 */
 	function setDateStatusModified($dateModified) {
-		$this->setData('dateStatusModified', $dateModified);
+		$this->setData('dateLastActivity', $dateModified);
 	}
 
 	/**

@@ -100,6 +100,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
+			'daysInactive' => null,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -113,6 +114,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
+			->filterByDaysInactive($args['daysInactive'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
 			->searchPhrase($args['searchPhrase']);
 
@@ -240,7 +242,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		\PluginRegistry::loadCategory('pubIds', true);
 
 		$props = array (
-			'_href', 'contextId', 'currentPublicationId','dateStatusModified','dateSubmitted','id',
+			'_href', 'contextId', 'currentPublicationId','dateLastActivity','dateSubmitted','id',
 			'lastModified','publications','reviewAssignments','reviewRounds','stageId','stages','status',
 			'statusLabel','submissionProgress','urlAuthorWorkflow','urlEditorialWorkflow','urlWorkflow','urlPublished',
 		);
@@ -687,8 +689,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
 	 */
 	public function add($submission, $request) {
-		$submission->setData('dateStatusModified', Core::getCurrentDate());
-		$submission->setData('lastModified', Core::getCurrentDate());
+		$submission->stampLastActivity();
+		$submission->stampModified();
 		if (!$submission->getData('dateSubmitted')) {
 			$submission->setData('dateSubmitted', Core::getCurrentDate());
 		}
@@ -708,11 +710,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 		$newSubmission = $submissionDao->newDataObject();
 		$newSubmission->_data = array_merge($submission->_data, $params);
-		$newSubmission->setData('lastModified', Core::getCurrentDate());
-
-		if ($newSubmission->getData('status') !== $submission->getData('status')) {
-			$newSubmission->setData('dateStatusModified', Core::getCurrentDate());
-		}
+		$submission->stampLastActivity();
+		$submission->stampModified();
 
 		\HookRegistry::call('Submission::edit', [$newSubmission, $submission, $params, $request]);
 

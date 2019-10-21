@@ -134,7 +134,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 		// Set other submission data.
 		if ($this->submission->getSubmissionProgress() <= $this->step) {
 			$this->submission->setSubmissionProgress($this->step + 1);
-			$this->submission->stampStatusModified();
+			$this->submission->stampLastActivity();
+			$this->submission->stampModified();
 		}
 
 		parent::execute();

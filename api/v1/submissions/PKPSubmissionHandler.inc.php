@@ -295,6 +295,8 @@ class PKPSubmissionHandler extends APIHandler {
 					break;
 
 				case 'assignedTo':
+				case 'daysInactive':
+				case 'offset':
 					$returnParams[$param] = (int) $val;
 					break;
 
@@ -306,10 +308,6 @@ class PKPSubmissionHandler extends APIHandler {
 				// server
 				case 'count':
 					$returnParams[$param] = min(100, (int) $val);
-					break;
-
-				case 'offset':
-					$returnParams[$param] = (int) $val;
 					break;
 
 				case 'isIncomplete':

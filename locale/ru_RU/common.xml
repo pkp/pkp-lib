@@ -172,6 +172,7 @@
 	<message key="common.keywords">Ключевые слова</message>
 	<message key="common.language">Язык</message>
 	<message key="common.languages">Языки</message>
+	<message key="common.lastActivity">Последний раз активность зафиксирована {$date}.</message>
 	<message key="common.less">Меньше</message>
 	<message key="common.lessThan">{$value} или меньше</message>
 	<message key="common.commaListSeparator">, </message>

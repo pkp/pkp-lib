@@ -335,6 +335,7 @@
 	<message key="submissions.completed">Завершены</message>
 	<message key="submissions.declined">Отклонены</message>
 	<message key="submissions.incomplete">Не закончены</message>
+	<message key="submissions.inactive">Не активны в течение {$days} дней</message>
 	<message key="submissions.noSubmissions">Нет материалов</message>
 	<message key="submissions.queuedEditing">На редакции</message>
 	<message key="submissions.queued">В очереди</message>

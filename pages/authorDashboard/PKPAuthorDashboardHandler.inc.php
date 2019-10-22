@@ -277,9 +277,9 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		}
 
 		// Check if current author can edit metadata
-		$disableSave = true;
+		$canEditPublication = true;
 		if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId()) ) {
-			$disableSave =  false;
+			$canEditPublication =  false;
 		}
 
 		$workflowData = [
@@ -302,7 +302,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			'submissionLibraryUrl' => $submissionLibraryUrl,
 			'supportsReferences' => !!$submissionContext->getData('citations'),
 			'uploadFileUrl' => $uploadFileUrl,
-			'disableSave' => $disableSave,
+			'canEditPublication' => $canEditPublication,
 			'i18n' => [
 				'publicationTabsLabel' => __('publication.version.details'),
 				'status' => __('semicolon', ['label' => __('common.status')]),

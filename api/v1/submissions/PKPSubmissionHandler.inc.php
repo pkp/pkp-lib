@@ -509,6 +509,7 @@ class PKPSubmissionHandler extends APIHandler {
 				$publication,
 				[
 					'request' => $request,
+					'submission' => $submission,
 					'userGroups' => $userGroups,
 				]
 			);

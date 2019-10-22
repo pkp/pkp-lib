@@ -108,9 +108,9 @@ class PKPSectionForm extends Form {
 
 		import('classes.core.Services');
 		$userService = Services::get('user');
-		$users = $userService->getMany($params);
+		$result = $userService->getMany($params);
 		$items = [];
-		foreach ($users as $user) {
+		foreach ($result as $user) {
 			$items[] = [
 				'id' => (int) $user->getId(),
 				'title' => $user->getFullName()

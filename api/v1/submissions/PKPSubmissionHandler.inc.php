@@ -199,14 +199,14 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$items = array();
-		$submissions = $submissionService->getMany($params);
-		if (!empty($submissions)) {
+		$result = $submissionService->getMany($params);
+		if (count($result)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toArray()
 			);
-			foreach ($submissions as $submission) {
+			foreach ($result as $submission) {
 				$items[] = $submissionService->getSummaryProperties($submission, $propertyArgs);
 			}
 		}
@@ -466,18 +466,18 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$userService = Services::get('user');
 
-		$users = $userService->getMany(array(
+		$result = $userService->getMany(array(
 			'contextId' => $context->getId(),
 			'count' => 100, // high upper-limit
 			'assignedToSubmission' => $submission->getId(),
 			'assignedToSubmissionStage' => $stageId,
 		));
-		if (!empty($users)) {
+		if (count($result)) {
 			$args = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
-			foreach ($users as $user) {
+			foreach ($result as $user) {
 				$data[] = $userService->getSummaryProperties($user, $args);
 			}
 		}
@@ -502,12 +502,18 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray();
 
-		$items = array_map(
-			function($publication) use ($request, $userGroups) {
-				return Services::get('publication')->getSummaryProperties($publication, ['request' => $request, 'userGroups' => $userGroups]);
-			},
-			Services::get('publication')->getMany($allowedParams)
-		);
+		$items = [];
+		$result = Services::get('publication')->getMany($allowedParams);
+		foreach ($result as $publication) {
+			$items[] = Services::get('publication')->getSummaryProperties(
+				$publication,
+				[
+					'request' => $request,
+					'submission' => $submission,
+					'userGroups' => $userGroups,
+				]
+			);
+		}
 
 		$data = [
 			'itemsMax' => Services::get('publication')->getMax($allowedParams),

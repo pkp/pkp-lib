@@ -98,13 +98,13 @@ class ReportGeneratorHandler extends Handler {
 		if (!$issueId) {
 			return new JSONMessage(false);
 		} else {
-			$submissions = Services::get('submission')->getMany([
+			$result = Services::get('submission')->getMany([
 				'contextId' => $request->getContext()->getId(),
 				'issueIds' => $issueId,
 				'count' => 5000, // large upper limit
 			]);
 			$articlesInfo = array();
-			foreach ($submissions as $submission) {
+			foreach ($result as $submission) {
 				$articlesInfo[] = array('id' => $submission->getId(), 'title' => $submission->getLocalizedTitle());
 			}
 

@@ -257,13 +257,14 @@ class ReviewerForm extends Form {
 		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-				$customTemplates = Services::get('emailTemplate')->getMany([
+				$result = Services::get('emailTemplate')->getMany([
 					'contextId' => $submission->getContextId(),
 					'isCustom' => true,
 				]);
-				$customTemplateKeys = array_map(function($emailTemplate) {
-					return $emailTemplate->getData('key');
-				}, iterator_to_array($customTemplates));
+				$customTemplateKeys = [];
+				foreach ($result as $emailTemplate) {
+					$customTemplateKeys[] = $emailTemplate->getData('key');
+				};
 				$templateKeys = array_merge($templateKeys, $customTemplateKeys);
 				break;
 			}

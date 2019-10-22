@@ -14,7 +14,7 @@
  */
 
 
-class DAOResultIterator implements Iterator {
+class DAOResultIterator implements Iterator, Countable {
 	/** @var DAOResultFactory */
 	var $_resultFactory;
 
@@ -74,6 +74,13 @@ class DAOResultIterator implements Iterator {
 	 */
 	public function valid() {
 		return ($this->_current !== null);
+	}
+
+	/**
+	 * @copydoc Countable::count()
+	 */
+	public function count() {
+		return $this->_resultFactory->getCount();
 	}
 }
 

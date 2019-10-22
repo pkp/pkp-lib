@@ -143,15 +143,13 @@ class PKPEmailTemplateHandler extends APIHandler {
 		$allowedParams['contextId'] = $request->getContext()->getId();
 
 		$items = array();
-		$emailTemplates = $emailTemplateService->getMany($allowedParams);
-		if (!empty($emailTemplates)) {
-			foreach ($emailTemplates as $emailTemplate) {
-				$items[] = $emailTemplateService->getSummaryProperties($emailTemplate, [
-					'slimRequest' => $slimRequest,
-					'request' => $request,
-					'supportedLocales' => $request->getContext()->getData('supportedLocales'),
-				]);
-			}
+		$result = $emailTemplateService->getMany($allowedParams);
+		foreach ($result as $emailTemplate) {
+			$items[] = $emailTemplateService->getSummaryProperties($emailTemplate, [
+				'slimRequest' => $slimRequest,
+				'request' => $request,
+				'supportedLocales' => $request->getContext()->getData('supportedLocales'),
+			]);
 		}
 
 		$data = array(

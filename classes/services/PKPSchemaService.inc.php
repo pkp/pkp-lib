@@ -14,6 +14,7 @@
  */
 namespace PKP\Services;
 
+define('SCHEMA_ANNOUNCEMENT', 'announcement');
 define('SCHEMA_AUTHOR', 'author');
 define('SCHEMA_CONTEXT', 'context');
 define('SCHEMA_EMAIL_TEMPLATE', 'emailTemplate');

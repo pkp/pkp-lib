@@ -13,6 +13,9 @@
 
 <div class="page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
+	<h1 class="pageCurrentTitle">
+		{translate key="user.register"}
+	</h1>
 
 	<form class="cmp_form register" id="register" method="post" action="{url op="register"}">
 		{csrf}

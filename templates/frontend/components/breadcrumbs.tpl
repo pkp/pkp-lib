@@ -23,13 +23,14 @@
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		<li class="current">
-			<h1>
+			<a href="{$currentUrl}" aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}
 				{else}
 					{$currentTitle|escape}
 				{/if}
-			</h1>
+			</a>
 		</li>
 	</ol>
 </nav>
+

@@ -14,6 +14,9 @@
 
 <div class="page page_submissions">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.submissions"}
+	<h1 class="pageCurrentTitle">
+		{translate key="about.submissions"}
+	</h1>
 
 	<div class="cmp_notification">
 		{if $sections|@count == 0}

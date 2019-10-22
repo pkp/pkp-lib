@@ -12,6 +12,9 @@
 
 <div class="page page_login">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
+	<h1 class="pageCurrentTitle">
+		{translate key="user.login"}
+	</h1>
 
 	{* A login message may be displayed if the user was redireceted to the
 	   login page from another request. Examples include if login is required

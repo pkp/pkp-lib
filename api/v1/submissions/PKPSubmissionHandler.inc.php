@@ -200,7 +200,7 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$items = array();
 		$result = $submissionService->getMany($params);
-		if ($result->valid()) {
+		if (count($result)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
@@ -472,7 +472,7 @@ class PKPSubmissionHandler extends APIHandler {
 			'assignedToSubmission' => $submission->getId(),
 			'assignedToSubmissionStage' => $stageId,
 		));
-		if ($result->valid()) {
+		if (count($result)) {
 			$args = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,

@@ -144,7 +144,7 @@ class PKPContextHandler extends APIHandler {
 
 		$items = array();
 		$result = $contextService->getMany($allowedParams);
-		if ($result->valid()) {
+		if (count($result)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,

@@ -276,7 +276,7 @@ class QueryForm extends Form {
 
 			$items = [];
 			$itemsMax = 0;
-			if ($result->valid()) {
+			if (count($result)) {
 				foreach ($result as $user) {
 					$allUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByUserId($user->getId(), $context->getId())->toArray();
 

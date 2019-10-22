@@ -77,7 +77,7 @@ class PKPUserHandler extends APIHandler {
 
 		$items = array();
 		$result = $userService->getMany($params);
-		if ($result->valid()) {
+		if (count($result)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,

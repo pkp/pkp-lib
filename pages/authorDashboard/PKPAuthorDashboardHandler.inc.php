@@ -145,11 +145,6 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$stageDecisions = $editDecisionDao->getEditorDecisions($submission->getId());
 
-		$stagesWithDecisions = array();
-		foreach ($stageDecisions as $decision) {
-			$stagesWithDecisions[$decision['stageId']] = $decision['stageId'];
-		}
-
 		// Add an upload revisions button when in the review stage
 		// and the last decision is to request revisions
 		$uploadFileUrl = '';
@@ -157,8 +152,10 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 			$fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
 			$lastReviewRound = DAORegistry::getDAO('ReviewRoundDAO')->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
 			if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
-				$editorDecisions = DAORegistry::getDAO('EditDecisionDAO')->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getId());
-				if (!empty($editorDecisions) && array_last($editorDecisions)['decision'] == SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
+				$editorDecisions = DAORegistry::getDAO('EditDecisionDAO')->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
+				$lastDecision = array_last($editorDecisions)['decision'];
+				$revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
+				if (!empty($editorDecisions) && in_array($lastDecision, $revisionDecisions)) {
 					$actionArgs['submissionId'] = $submission->getId();
 					$actionArgs['stageId'] = $submission->getData('stageId');
 					$actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
@@ -281,7 +278,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 
 		// Check if current author can edit metadata
 		$disableSave = true;
-		if (Services::get('submission')->canUserEditMetadata($submission->getId(), $user->getId()) ) {
+		if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId()) ) {
 			$disableSave =  false;
 		}
 

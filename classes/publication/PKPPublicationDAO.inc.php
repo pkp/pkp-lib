@@ -185,8 +185,8 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 		parent::deleteById($publicationId);
 
 		// Delete authors
-		$contributors = Services::get('author')->getMany(['publicationIds' => $publicationId]);
-		foreach ($contributors as $contributor) {
+		$result = Services::get('author')->getMany(['publicationIds' => $publicationId]);
+		foreach ($result as $contributor) {
 			Services::get('author')->delete($contributor);
 		}
 

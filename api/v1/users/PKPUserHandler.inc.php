@@ -76,13 +76,13 @@ class PKPUserHandler extends APIHandler {
 		$params = $this->_buildListRequestParams($slimRequest);
 
 		$items = array();
-		$users = $userService->getMany($params);
-		if (!empty($users)) {
+		$result = $userService->getMany($params);
+		if ($result->valid()) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
-			foreach ($users as $user) {
+			foreach ($result as $user) {
 				$items[] = $userService->getSummaryProperties($user, $propertyArgs);
 			}
 		}

@@ -32,6 +32,8 @@ define('DOCUMENT_TYPE_WORD', 'word');
 define('DOCUMENT_TYPE_EPUB', 'epub');
 define('DOCUMENT_TYPE_ZIP', 'zip');
 
+define('FILE_MANAGER_FILE_CHUNK_SIZE', 1048576);
+
 class FileManager {
 	/**
 	 * Constructor
@@ -549,7 +551,7 @@ class FileManager {
 	 */
 	function decompressFile($filePath, &$errorMsg) {
 		if (extension_loaded('Zlib')) {
-			$chunk = 1024*1024;
+			$chunk = FILE_MANAGER_FILE_CHUNK_SIZE;
 			$newFilePath = preg_replace('/[.]tgz$/i', '.tar.gz', $filePath);
 			$newFilePath = preg_replace('/[.]gz$/i', '', $newFilePath);
 			if ($newFilePath !== $filePath) {
@@ -566,7 +568,7 @@ class FileManager {
 						unlink($filePath);
 						return $newFilePath;
 					}
-					fclose($file);
+					gzclose($gz);
 				}
 			}
 		}
@@ -590,16 +592,16 @@ class FileManager {
 				$zip->extractTo($destination);
 				$success = true;
 			} catch (Exception $e) {
-				$errors[] = $e->getMessage();
+				$errors[] = __('admin.error.utilExecutionProblem', array('utilPath' => 'Phar', 'output' => $e->getMessage()));
 			}
 		}
-		if (!$success && extension_loaded('zip')) {
+		if (!$success && PKPString::mime_content_type($filePath) == 'application/zip' && extension_loaded('zip')) {
 			$zip = new ZipArchive();
 			if ($zip->open($filePath) === true && $zip->extractTo($destination) === true) {
 				$zip->close();
 				$success = true;
 			} else {
-				$errors[] = 'ZipArchive extraction failed.';
+				$errors[] = __('admin.error.utilExecutionProblem', array('utilPath' => 'ZipArchive', 'output' => $zip->getStatusString()));
 			}
 		}
 		if ($errors) {
@@ -616,20 +618,25 @@ class FileManager {
 	 */
 	function compressFile($filePath, &$errorMsg) {
 		if (extension_loaded('Zlib')) {
-			$chunk = 1024*1024;
+			$chunk = FILE_MANAGER_FILE_CHUNK_SIZE;
 			$gzFilePath = $filePath.'.gz';
 			$file = fopen($filePath, 'rb');
 			if ($file) {
+				$bytesExpected = filesize($filePath);
+				$bytesRead = 0;
 				$gz = gzopen($gzFilePath, 'wb');
 				if ($gz) {
 					while (!feof($file)) {
 						$data = fread($file, $chunk);
 						gzwrite($gz, $data);
+						$bytesRead += strlen($data);
 					}
 					gzclose($gz);
 					fclose($file);
-					unlink($filePath);
-					return $gzFilePath;
+					if ($bytesRead == $bytesExpected) {
+						unlink($filePath);
+						return $gzFilePath;
+					}
 				}
 				fclose($file);
 			}

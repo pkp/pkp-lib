@@ -13,7 +13,7 @@
 
 <div class="page page_editorial_team">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.editorialTeam"}
-	<h1 class="pageCurrentTitle">
+	<h1>
 		{translate key="about.editorialTeam"}
 	</h1>
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}

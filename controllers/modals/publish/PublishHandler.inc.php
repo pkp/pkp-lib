@@ -30,7 +30,7 @@ class PublishHandler extends Handler {
 	function __construct() {
 		parent::__construct();
 		$this->addRoleAssignment(
-			[ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER],
+			[ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT],
 			['publish']
 		);
 	}

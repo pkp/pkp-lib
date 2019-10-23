@@ -12,7 +12,7 @@
 
 <div class="page page_login">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
-	<h1 class="pageCurrentTitle">
+	<h1>
 		{translate key="user.login"}
 	</h1>
 

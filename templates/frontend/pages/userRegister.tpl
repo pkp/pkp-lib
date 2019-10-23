@@ -13,7 +13,7 @@
 
 <div class="page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
-	<h1 class="pageCurrentTitle">
+	<h1>
 		{translate key="user.register"}
 	</h1>
 

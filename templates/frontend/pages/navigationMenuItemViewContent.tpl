@@ -5,9 +5,11 @@
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Display NavigationMenuItem content 
+ * Display NavigationMenuItem content
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title}
+
+{include file="frontend/components/breadcrumbs.tpl" currentTitle=$title}
 
 <h1 class="page_title">{$title|escape}</h1>
 <div class="page">

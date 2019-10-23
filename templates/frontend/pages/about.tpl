@@ -14,7 +14,7 @@
 
 <div class="page page_about">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutContext"}
-	<h1 class="pageCurrentTitle">
+	<h1>
 		{translate key="about.aboutContext"}
 	</h1>
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}

@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:55-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-22T03:01:39 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "admin.systemInfo.settingName"
 msgstr "Fixation du nom"
@@ -142,6 +143,9 @@ msgstr "Êtes-vous certain-e de vouloir supprimer le journal d'événements des 
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Supprimer le journal d'événements des tâches planifiées"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publier les soumission dont la publication est planifiée"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Rappel d'évaluation"
@@ -315,3 +319,4 @@ msgstr "Erreur : impossible de lancer « {$utilPath} ». Veuillez vérifier la c
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
+

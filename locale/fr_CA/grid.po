@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-23T01:47:56 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "grid.noItems"
 msgstr "Aucun élément"
@@ -233,6 +234,9 @@ msgstr "Ajouter un nouveau groupe d'utilisateurs-trices"
 msgid "grid.action.editUserGroup"
 msgstr "Modifier ce groupe d'utilisateurs-trices"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Supprimer ce groupe d'utilisateurs-trices"
+
 msgid "grid.action.disable"
 msgstr "Désactiver"
 
@@ -400,6 +404,9 @@ msgstr "Modifier un-e contributeur-trice"
 
 msgid "grid.action.deleteContributor"
 msgstr "Supprimer un-e contributeur-trice"
+
+msgid "grid.action.newVersion"
+msgstr "Créer une nouvelle version"
 
 msgid "grid.reviewForm.title"
 msgstr "Formulaires d'évaluation"
@@ -664,3 +671,4 @@ msgstr "Aucun menu de navigation"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Choisir un type..."
+

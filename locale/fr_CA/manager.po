@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "manager.website.information"
 msgstr "Renseignements"
@@ -155,17 +156,41 @@ msgstr "Production"
 msgid "manager.publication.emails"
 msgstr "Courriels"
 
+msgid "manager.publication.emailSetup.success"
+msgstr "Les paramètres de courriels ont été mis à jour."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Conseils aux évaluateurs-trices"
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Les conseils aux évaluateurs-trices ont été mis à jour."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Les paramètres d'évaluation ont été mis à jour."
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Les renseignements du rappel d'évaluation ont été mis à jour."
+
 msgid "manager.emails.confirmDelete"
 msgstr "Êtes-vous certain-e de vouloir supprimer ce modèle de courriel ?"
 
 msgid "manager.emails.confirmReset"
 msgstr "Êtes-vous certain-e de vouloir réinitialiser ce modèle de courriel à ses valeurs par défaut ?"
 
+msgid "manager.emails.addEmail"
+msgstr "Ajouter un modèle de courriel"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Le modèle de courriel a été ajouté."
+
 msgid "manager.emails.createEmail"
 msgstr "Créer un courriel"
 
+msgid "manager.emails.customTemplate"
+msgstr "Modèle de courriel personnalisé"
+
 msgid "manager.emails.data"
-msgstr "Données du modèle de message"
+msgstr "Données du modèle de courriel"
 
 msgid "manager.emails.details"
 msgstr "Particularités du modèle"
@@ -179,20 +204,35 @@ msgstr "Vous êtes sur le point de désactiver ce modèle de courriel. Si des pr
 msgid "manager.emails.editEmail"
 msgstr "Modifier un courriel"
 
+msgid "manager.emails.editEmail.success"
+msgstr "Le modèle de courriel a été modifié."
+
 msgid "manager.emails.editTestExample"
 msgstr "Modifier l'exemple du test de courriel"
 
 msgid "manager.emails.emailKey"
 msgstr "Clé du courriel"
 
+msgid "manager.emails.emailKey.description"
+msgstr "La clé du courriel ne peut contenir que des lettres, des chiffres et des traits de soulignement."
+
 msgid "manager.emails.emailKeyExists"
 msgstr "Un courriel avec cette clé existe déjà. Les clés de courriels doivent être uniques."
 
 msgid "manager.emails.emailTemplate"
-msgstr "Modèle de courriels"
+msgstr "Modèle de courriel"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Modèles de courriel"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Vous devez fournir un identifiant de contexte lors de l'ajout d'un modèle de courriel."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "La clé que vous avez fournie est déjà utilisée."
 
 msgid "manager.emails.enabled"
-msgstr "Activer ce modèle de courriels"
+msgstr "Activer ce modèle de courriel"
 
 msgid "manager.emails.enable"
 msgstr "Activer"
@@ -212,8 +252,11 @@ msgstr "L'objet du courriel est obligatoire."
 msgid "manager.emails"
 msgstr "Courriels prédéfinis"
 
+msgid "manager.emails.resetAll"
+msgstr "Réinitialiser tous les modèles"
+
 msgid "manager.emails.resetAll.message"
-msgstr "Si vous réinitialisez tous les modèles, toutes vos modifications aux modèles de courriels seront perdues. Vous souhaitez confirmer cette opération ?"
+msgstr "Si vous réinitialisez tous les modèles, toutes vos modifications aux modèles de courriel seront perdues. Vous souhaitez confirmer cette opération ?"
 
 msgid "manager.emails.reset"
 msgstr "Réinitialiser"
@@ -223,6 +266,15 @@ msgstr "Si vous réinitialisez ce modèle, toutes les données des messages sero
 
 msgid "manager.emails.resetToDefault"
 msgstr "Réinitialiser aux valeurs par défaut"
+
+msgid "manager.emails.sentFrom"
+msgstr "Envoyé par"
+
+msgid "manager.emails.sentTo"
+msgstr "Envoyé à"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Objet : {$subject}"
 
 msgid "manager.filesBrowser"
 msgstr "Explorateur de fichiers"
@@ -446,6 +498,9 @@ msgstr "Outils de lecture"
 msgid "manager.userSearch.searchByName"
 msgstr "Rechercher par nom d'utilisateur-trice"
 
+msgid "manager.representative.inUse"
+msgstr "Vous ne pouvez pas supprimer cette représentation car elle est affectée aux métadonnées de marché pour un ou plusieurs formats de publication pour cette soumission."
+
 msgid "manager.reviewerSearch.change"
 msgstr "Changer"
 
@@ -586,6 +641,15 @@ msgstr "Contenu additionnel"
 msgid "manager.setup.additionalContent.description"
 msgstr "Tout ce que vous inscrirez ici apparaîtra sur votre page d'accueil."
 
+msgid "manager.setup.advanced"
+msgstr "Configuratiion avançée"
+
+msgid "manager.setup.appearance.success"
+msgstr "Les paramètres d'apparence ont été mis à jour."
+
+msgid "manager.setup.contact.success"
+msgstr "Les coordonnées de cette presse ont été mises à jour."
+
 msgid "manager.setup.copyrightNotice"
 msgstr "Avis de droit d'auteur"
 
@@ -597,6 +661,12 @@ msgstr "Directives aux auteurs-es"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Les lignes directrices comprennent des normes bibliographiques et de mise en forme ainsi que des exemples de formats de citation usuels à employer dans les soumissions."
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Les directives aux auteurs-es ont bien été mises à jour."
+
+msgid "manager.setup.checklist"
+msgstr "Liste de vérification"
 
 msgid "manager.setup.competingInterests"
 msgstr "Intérêts divergents"
@@ -625,20 +695,20 @@ msgstr "Format d'image de l'en-tête de la page d'accueil invalide. Les formats 
 msgid "manager.setup.information.descriptionTitle"
 msgstr "Descriptions"
 
-msgid "manager.setup.theme"
-msgstr "Thème"
-
-msgid "manager.setup.theme.description"
-msgstr "Un nouveau thème peut être installé à partir de l'onglet « Plugiciels » au haut de cette page."
-
 msgid "manager.setup.layout.sidebar"
 msgstr "Barre latérale"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "Le bloc {$name} est introuvable. Assurez-vous que le plugiciel est installé et activé."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Journalisation et audit"
 
 msgid "manager.setup.logo"
 msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Le fichier que vous avez téléversé n'a pas pu être trouvé. Veuillez essayer de le télécharger à nouveau."
 
 msgid "manager.setup.notifications"
 msgstr "Avis de soumission d'un-e auteur-e"
@@ -679,6 +749,12 @@ msgstr "Déclaration de confidentialité"
 msgid "manager.setup.privacyStatement.description"
 msgstr "Cette déclaration apparaîtra lors de l'inscription de l'utilisateur-trice ou de la soumission d'un article ainsi que sur la page « Déclaration de la confidentialité » accessible au public. Dans certaines juridictions, vous êtes légalement tenus de divulguer la manière dont vous gérez les données utilisateur dans une politique de confidentialité."
 
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Délai de réponse par défaut"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Délai par défaut pour compléter l'évaluation"
+
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Délai de réponse alloué pour accepter ou décliner l'invitation (semaines)"
 
@@ -691,17 +767,26 @@ msgstr "Ne jamais envoyer de rappels"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Les valeurs par défauts peuvent être modifiées pour chaque évaluation durant le processus éditorial."
 
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Rappel de demande d'évaluation"
+
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr "Envoyer un rappel si l'évaluateur-trice n'a pas répondu à la demande d'évaluation dans le délai suivant (jours) :"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Rappel de délai d'échéance de l'évaluation"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr "Envoyer un rappel si l'évaluateur-trice n'a pas fait sa recommandation dans le délai suivant (jours) :"
 
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Date limite par défaut de remise des évaluations"
-
 msgid "manager.setup.sponsors.note"
 msgstr "Politique en matière de commandites"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Mode d'évaluation par défaut"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Afficher un lien <button type=\"button\">Assurer une évaluation à l'aveugle</button> lors du téléversement"
 
 msgid "manager.setup.sponsors.description"
 msgstr "Exemples : associations ou sociétés savantes, départements universitaires, coopératives, etc. Les organismes subventionnaires sont affichés publiquement."
@@ -714,6 +799,18 @@ msgstr "Personne-ressource pour le soutien technique"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr "Une personne-ressource qui peut aider les rédacteurs-trices, les auteurs-es et les évaluateurs-trices à résoudre les difficultés rencontrées durant la soumission, l'évaluation, la révision ou la publication."
+
+msgid "manager.setup.theme.success"
+msgstr "Le thème a été mis à jour. <a href=\"{$url}\" target=\"_blank\">Afficher</a>"
+
+msgid "manager.setup.theme"
+msgstr "Thème"
+
+msgid "manager.setup.theme.description"
+msgstr "Un nouveau thème peut être installé à partir de l'onglet « Plugiciels » au haut de cette page."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Le thème que vous avez sélectionné n'est pas installé ou activé."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Options d'accès au site"
@@ -1516,9 +1613,6 @@ msgstr "Veuillez saisir un nom pour la catégorie."
 msgid "grid.category.categoryDetails"
 msgstr "Renseignements sur la catégorie"
 
-msgid "stats.articlesOfTotal"
-msgstr "{$count} de {$total} articles"
-
 msgid "stats.daily"
 msgstr "Par jour"
 
@@ -1542,9 +1636,6 @@ msgstr "L'une des dates entrées n'existe pas"
 
 msgid "stats.dateRange.from"
 msgstr "De"
-
-msgid "stats.dateRange.instruction"
-msgstr "Entrer chaque date dans le format AAAA-MM-JJ. Par exemple, si vous voulez inscrire le 15 janvier 2019, entrer « 2019-02-15 »."
 
 msgid "stats.dateRange.invalidDate"
 msgstr "le format de date est invalide. Entrer chaque date dans le format AAAA-MM-JJ."
@@ -1593,3 +1684,4 @@ msgstr "Chercher par titre, auteur-e et identifiant (ID)"
 
 msgid "stats.total"
 msgstr "Total"
+

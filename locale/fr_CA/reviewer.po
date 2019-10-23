@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-23T01:54:20 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Demande"
@@ -103,3 +104,4 @@ msgstr "Ce texte sera transmis uniquement au,à la rédacteur-trice"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "L'utilisateur-trice actuel-elle n'est pas assigné-e en tant qu'évaluateur-trice pour le document demandé."
+

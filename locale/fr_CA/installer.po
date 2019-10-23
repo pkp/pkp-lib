@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-23T01:53:45 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "installer.additionalLocales"
 msgstr "Paramètres régionaux supplémentaires"
@@ -189,3 +190,4 @@ msgstr "Procure un identifiant unique de site et un URL de base pour le protocol
 
 msgid "installer.unsupportedPhpError"
 msgstr "La version PHP de votre serveur n'est pas supportée par ce logiciel. Vérifiez les conditions d'installation dans docs/README."
+

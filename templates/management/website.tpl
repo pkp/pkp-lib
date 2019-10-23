@@ -13,7 +13,7 @@
 <div id="settings-context-{$uuid}">
 	<tabs>
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
-			{help file="settings" section="website" class="pkp_help_tab"}
+			{help file="settings/website-settings" class="pkp_help_tab"}
 			<tabs is-side-tabs="true">
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
@@ -37,7 +37,7 @@
 			</tabs>
 		</tab>
 		<tab id="setup" label="{translate key="navigation.setup"}">
-			{help file="settings" section="website" class="pkp_help_tab"}
+			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
 			<tabs is-side-tabs="true">
 				<tab id="information" label="{translate key="manager.website.information"}">
 					<pkp-form
@@ -77,7 +77,7 @@
 			</tabs>
 		</tab>
 		<tab id="plugins" label="{translate key="common.plugins"}">
-			{help file="settings" section="website" class="pkp_help_tab"}
+			{help file="settings/website-settings" section="plugins" class="pkp_help_tab"}
 			<tabs :options="{ useUrlFragment: false }">
 				<tab id="installedPlugins" label="{translate key="manager.plugins.installed"}">
 					{capture assign=pluginGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}

@@ -13,21 +13,21 @@
 <div id="settings-context-{$uuid}">
 	<tabs>
 		<tab id="license" label="{translate key="submission.license"}">
-			{help file="settings" section="distribution" class="pkp_help_tab"}
+			{help file="settings/distribution-settings" class="pkp_help_tab"}
 			<license-form
 				v-bind="components.{$smarty.const.FORM_LICENSE}"
 				@set="set"
 			/>
 		</tab>
 		<tab id="indexing" label="{translate key="manager.setup.searchEngineIndexing"}">
-			{help file="settings" section="distribution" class="pkp_help_tab"}
+			{help file="settings/distribution-settings" section="indexing" class="pkp_help_tab"}
 			<pkp-form
 				v-bind="components.{$smarty.const.FORM_SEARCH_INDEXING}"
 				@set="set"
 			/>
 		</tab>
 		<tab id="payments" label="{translate key="manager.paymentMethod"}">
-			{help file="settings" section="distribution" class="pkp_help_tab"}
+			{help file="settings/distribution-settings" section="payments" class="pkp_help_tab"}
 			<pkp-form
 				v-bind="components.{$smarty.const.FORM_PAYMENT_SETTINGS}"
 				@set="set"

@@ -8,7 +8,7 @@
  * List available import/export plugins.
  *}
 <div class="pkp_page_content pkp_page_importexport_plugins">
-	{help file="tools" section="import-export" class="pkp_help_tab"}
+	{help file="tools" class="pkp_help_tab"}
 
 	<ul>
 		{foreach from=$plugins item=plugin}

@@ -13,7 +13,7 @@
 <div id="settings-context-{$uuid}">
 	<tabs>
 		<tab id="submission" label="{translate key="manager.publication.submissionStage"}">
-			{help file="settings" section="workflow-submission" class="pkp_help_tab"}
+			{help file="settings/workflow-settings" section="submission" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true">
 				<tab id="metadata" label="{translate key="submission.informationCenter.metadata"}">
 					<pkp-form
@@ -39,7 +39,7 @@
 			</tabs>
 		</tab>
 		<tab id="review" label="{translate key="manager.publication.reviewStage"}">
-			{help file="settings" section="workflow-review" class="pkp_help_tab"}
+			{help file="settings/workflow-settings" section="review" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true">
 				<tab id="reviewSetup" label="{translate key="navigation.setup"}">
 					<pkp-form
@@ -61,12 +61,12 @@
 			</tabs>
 		</tab>
 		<tab id="library" label="{translate key="manager.publication.library"}">
-			{help file="settings" section="workflow-library" class="pkp_help_tab"}
+			{help file="settings/workflow-settings" section="publisher" class="pkp_help_tab"}
 			{capture assign=libraryGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=true escape=false}{/capture}
 			{load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}
 		</tab>
 		<tab id="emails" label="{translate key="manager.publication.emails"}">
-			{help file="settings" section="workflow-emails" class="pkp_help_tab"}
+			{help file="settings/workflow-settings" section="emails" class="pkp_help_tab"}
 			<tabs>
 				<tab id="emailsSetup" label="{translate key="navigation.setup"}">
 					<pkp-form

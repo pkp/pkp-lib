@@ -642,7 +642,7 @@ msgid "manager.setup.additionalContent.description"
 msgstr "Tout ce que vous inscrirez ici apparaîtra sur votre page d'accueil."
 
 msgid "manager.setup.advanced"
-msgstr "Configuratiion avançée"
+msgstr "Configuration avançée"
 
 msgid "manager.setup.appearance.success"
 msgstr "Les paramètres d'apparence ont été mis à jour."

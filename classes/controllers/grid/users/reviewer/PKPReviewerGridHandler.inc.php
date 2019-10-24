@@ -403,7 +403,8 @@ class PKPReviewerGridHandler extends GridHandler {
 
 		$userList = array();
 		while ($user = $users->next()) {
-			$userList[] = array('label' => $user->getFullName(), 'value' => $user->getId());
+			$label = $user->getFullName() . " (" . $user->getEmail() . ")";
+			$userList[] = array('label' => $label, 'value' => $user->getId());
 		}
 
 		if (count($userList) == 0) {

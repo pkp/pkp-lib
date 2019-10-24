@@ -148,14 +148,14 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		}
 
 		$submissionService = Services::get('submission');
-		$result = $submissionService->getMany($params);
+		$submissionsIterator = $submissionService->getMany($params);
 		$items = array();
-		if (count($result)) {
+		if (count($submissionsIterator)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
-			foreach ($result as $submission) {
+			foreach ($submissionsIterator as $submission) {
 				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
 			}
 		}

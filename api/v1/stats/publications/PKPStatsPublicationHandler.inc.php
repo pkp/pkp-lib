@@ -662,14 +662,14 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 	 * @return array submission ids
 	 */
 	protected function _processSearchPhrase($searchPhrase, $submissionIds = []) {
-		$result = \Services::get('submission')->getMany([
+		$submissionsIterator = \Services::get('submission')->getMany([
 			'contextId' => \Application::get()->getRequest()->getContext()->getId(),
 			'searchPhrase' => $searchPhrase,
 			'status' => STATUS_PUBLISHED,
 		]);
 
 		$searchPhraseSubmissionIds = [];
-		foreach ($result as $submission) {
+		foreach ($submissionsIterator as $submission) {
 			$searchPhraseSubmissionIds[] = $submission->getId();
 		}
 

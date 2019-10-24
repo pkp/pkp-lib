@@ -272,12 +272,12 @@ class QueryForm extends Form {
 			];
 
 			$userService = Services::get('user');
-			$result = $userService->getMany($params);
+			$usersIterator = $userService->getMany($params);
 
 			$items = [];
 			$itemsMax = 0;
-			if (count($result)) {
-				foreach ($result as $user) {
+			if (count($usersIterator)) {
+				foreach ($usersIterator as $user) {
 					$allUserGroups = DAORegistry::getDAO('UserGroupDAO')->getByUserId($user->getId(), $context->getId())->toArray();
 
 					$userRoles = array();

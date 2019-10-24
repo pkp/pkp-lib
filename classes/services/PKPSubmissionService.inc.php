@@ -729,9 +729,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 		Application::get()->getSubmissionDAO()->deleteObject($submission);
 
-		$result = Services::get('author')->getMany(['publicationIds' => $submission->getId()]);
-		foreach ($result as $contributor) {
-			Services::get('author')->delete($contributor);
+		$authorsIterator = Services::get('author')->getMany(['publicationIds' => $submission->getId()]);
+		foreach ($authorsIterator as $author) {
+			Services::get('author')->delete($author);
 		}
 
 		\HookRegistry::call('Submission::delete', [$submission]);

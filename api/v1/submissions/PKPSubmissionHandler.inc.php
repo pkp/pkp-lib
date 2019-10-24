@@ -199,14 +199,14 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$items = array();
-		$result = $submissionService->getMany($params);
-		if (count($result)) {
+		$submissionsIterator = $submissionService->getMany($params);
+		if (count($submissionsIterator)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toArray()
 			);
-			foreach ($result as $submission) {
+			foreach ($submissionsIterator as $submission) {
 				$items[] = $submissionService->getSummaryProperties($submission, $propertyArgs);
 			}
 		}
@@ -466,18 +466,18 @@ class PKPSubmissionHandler extends APIHandler {
 
 		$userService = Services::get('user');
 
-		$result = $userService->getMany(array(
+		$usersIterator = $userService->getMany(array(
 			'contextId' => $context->getId(),
 			'count' => 100, // high upper-limit
 			'assignedToSubmission' => $submission->getId(),
 			'assignedToSubmissionStage' => $stageId,
 		));
-		if (count($result)) {
+		if (count($usersIterator)) {
 			$args = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
-			foreach ($result as $user) {
+			foreach ($usersIterator as $user) {
 				$data[] = $userService->getSummaryProperties($user, $args);
 			}
 		}
@@ -503,8 +503,8 @@ class PKPSubmissionHandler extends APIHandler {
 		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray();
 
 		$items = [];
-		$result = Services::get('publication')->getMany($allowedParams);
-		foreach ($result as $publication) {
+		$publicationsIterator = Services::get('publication')->getMany($allowedParams);
+		foreach ($publicationsIterator as $publication) {
 			$items[] = Services::get('publication')->getSummaryProperties(
 				$publication,
 				[

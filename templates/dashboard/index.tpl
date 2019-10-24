@@ -12,7 +12,7 @@
 {assign var="uuid" value=""|uniqid|escape}
 <div id="dashboard-{$uuid}">
 	<tabs>
-		<tab id="myQueue" label="{translate key="dashboard.myQueue"}">
+		<tab id="myQueue" label="{translate key="dashboard.myQueue"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}.itemsMax">
 			{help file="submissions" class="pkp_help_tab"}
 			<submissions-list-panel
 				v-bind="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}"

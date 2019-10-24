@@ -34,7 +34,7 @@ msgid "api.publication.403.alreadyUnpublished"
 msgstr "La publication que vous souhaitez dépublier n'est pas publiée."
 
 msgid "api.publication.403.cantEditPublished"
-msgstr "Vous ne pouvez pas modifier cette publication car elle a déjà été publiées."
+msgstr "Vous ne pouvez pas modifier cette publication car elle a déjà été publiée."
 
 msgid "api.publication.403.cantEditStatus"
 msgstr "Vous ne pouvez pas modifier le statut directement via l'API. Au lieu de cela, utiliser les suffixes d'URL « /publish » et « /unpublish »."
@@ -56,17 +56,17 @@ msgstr "La date de fin ne peut pas être ultérieure à hier."
 
 
 msgid "api.stats.400.wrongTimelineInterval"
-msgstr "Votre demande était invalide. Le « TimelineInterval » doit être `day` ou `month`."
+msgstr "Votre demande était invalide. Le « TimelineInterval » doit être 'day' ou 'month'."
 
 msgid "api.stats.400.invalidOrderDirection"
-msgstr "Votre demande était invalide. Le « orderDirection » doit être `desc` ou `asc`."
+msgstr "Votre demande était invalide. Le « orderDirection » doit être 'desc' ou 'asc'."
 
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Votre demande a été refusée. Cela peut être dû au fait que votre connexion a expiré. Essayez de recharger la page et essayez à nouveau."
 
 msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Vous ne pouvez voir que les soumissions non publiées qui vous ont été assignées"
+msgstr "Vous ne pouvez voir que les soumissions non publiées qui vous ont été assignées."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr "Vous ne pouvez pas supprimer une soumission hors de ce contexte."
@@ -84,13 +84,13 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Le volume, numéro ou année requis-e n'est pas valide."
 
 msgid "api.submissions.unknownError"
-msgstr "Une erreur imprévue est survenue. Veuillez recharger la page est essayer à nouveau."
+msgstr "Une erreur imprévue est survenue. Veuillez recharger la page et essayer à nouveau."
 
 msgid "api.temporaryFiles.400.noUpload"
 msgstr "Aucun fichier à téléverser n'a pu être trouvé avec la requête."
 
 msgid "api.temporaryFiles.409.uploadFailed"
-msgstr "Un ou plusieurs fichiers n'ont pas pu être téléversés."
+msgstr "Un ou plusieurs fichiers n'ont pu être téléversés."
 
 msgid "api.temporaryFiles.400.fileSize"
 msgstr "Les fichiers plus gros que {$maxSize} ne peuvent pas être téléversés."

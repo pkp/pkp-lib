@@ -72,20 +72,20 @@ class PKPCatalogHandler extends Handler {
 			'offset' => $offset,
 			'status' => STATUS_PUBLISHED,
 		);
-		$submissionsResult = $submissionService->getMany($params);
+		$submissionsIterator = $submissionService->getMany($params);
 		$total = $submissionService->getMax($params);
 
 		// Provide the parent category and a list of subcategories
 		$parentCategory = $categoryDao->getById($category->getParentId());
 		$subcategories = $categoryDao->getByParentId($category->getId());
 
-		$this->_setupPaginationTemplate($request, count($submissionsResult), $page, $count, $offset, $total);
+		$this->_setupPaginationTemplate($request, count($submissionsIterator), $page, $count, $offset, $total);
 
 		$templateMgr->assign(array(
 			'category' => $category,
 			'parentCategory' => $parentCategory,
 			'subcategories' => $subcategories,
-			'publishedSubmissions' => iterator_to_array($submissionsResult),
+			'publishedSubmissions' => iterator_to_array($submissionsIterator),
 		));
 
 		return $templateMgr->display('frontend/pages/catalogCategory.tpl');

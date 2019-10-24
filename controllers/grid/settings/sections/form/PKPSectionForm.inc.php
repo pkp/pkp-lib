@@ -81,7 +81,7 @@ class PKPSectionForm extends Form {
 	 */
 	public function _getAssignedSubEditorIds($sectionId, $contextId) {
 		import('classes.core.Services');
-		$subEditors = Services::get('user')->getMany(array(
+		$subEditorsIterator = Services::get('user')->getMany(array(
 			'contextId' => $contextId,
 			'roleIds' => ROLE_ID_SUB_EDITOR,
 			'assignedToSection' => $sectionId,
@@ -89,7 +89,7 @@ class PKPSectionForm extends Form {
 
 		return array_map(function($subEditor) {
 			return (int) $subEditor->getId();
-		}, iterator_to_array($subEditors));
+		}, iterator_to_array($subEditorsIterator));
 	}
 
 	/**
@@ -108,9 +108,9 @@ class PKPSectionForm extends Form {
 
 		import('classes.core.Services');
 		$userService = Services::get('user');
-		$result = $userService->getMany($params);
+		$usersIterator = $userService->getMany($params);
 		$items = [];
-		foreach ($result as $user) {
+		foreach ($usersIterator as $user) {
 			$items[] = [
 				'id' => (int) $user->getId(),
 				'title' => $user->getFullName()

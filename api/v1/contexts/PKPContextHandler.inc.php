@@ -143,13 +143,13 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		$items = array();
-		$result = $contextService->getMany($allowedParams);
-		if (count($result)) {
+		$contextsIterator = $contextService->getMany($allowedParams);
+		if (count($contextsIterator)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
-			foreach ($result as $context) {
+			foreach ($contextsIterator as $context) {
 				$items[] = $contextService->getSummaryProperties($context, $propertyArgs);
 			}
 		}

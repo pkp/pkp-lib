@@ -72,15 +72,10 @@ class PKPSubmissionMetadataFormImplementation {
 					case in_array($field, $this->getTagitFieldNames()):
 						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $field, 'required', $requiredLocaleKey, create_function('$field,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getCurrentPublication()->getData('locale').'-'.$field)));
 						break;
-					case $key == 'citations':
+					case 'citationsRaw':
 						$form = $this->_parentForm;
 						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $key, 'required', $requiredLocaleKey, function($key) use ($form) {
-							$metadataModal = $form->getData('metadataModal');
-							if (!$metadataModal) {
-								$references = $form->getData('citations');
-								return !empty($references);
-							}
-							return true;
+							return !empty($form->getData('citationsRaw'));
 						}));
 						break;
 					default:
@@ -106,7 +101,7 @@ class PKPSubmissionMetadataFormImplementation {
 				'type' => $publication->getData('type'),
 				'source' =>$publication->getData('source'),
 				'rights' => $publication->getData('rights'),
-				'citations' => $publication->getData('citations'),
+				'citationsRaw' => $publication->getData('citationsRaw'),
 				'locale' => $publication->getData('locale'),
 			);
 
@@ -138,7 +133,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function readInputData() {
 		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citations', 'locale', 'metadataModal', 'categories');
+		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citationsRaw', 'locale', 'categories');
 		$this->_parentForm->readUserVars($userVars);
 	}
 
@@ -179,11 +174,8 @@ class PKPSubmissionMetadataFormImplementation {
 			'type' => $this->_parentForm->getData('type'),
 			'rights' => $this->_parentForm->getData('rights'),
 			'source' => $this->_parentForm->getData('source'),
+			'citationsRaw' => $this->_parentForm->getData('citationsRaw'),
 		];
-		$metadataModal = $this->_parentForm->getData('metadataModal');
-		if (!$metadataModal) {
-			$params['citations'] = $this->_parentForm->getData('citations');
-		}
 
 		// Update locale
 		$newLocale = $this->_parentForm->getData('locale');

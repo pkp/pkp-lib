@@ -9,14 +9,13 @@
  * submission metadata.
  *}
 
-{fbvElement id="metadataModal" type="hidden" name="metadataModal" value=$metadataModal|default:0}
 {if $citationsEnabled && array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR), (array)$userRoles)}
 	{assign var=citationsEnabled value=true}
 {else}
 	{assign var=citationsEnabled value=false}
 {/if}
 {if $coverageEnabled || $typeEnabled || $sourceEnabled || $rightsEnabled ||
-		$languagesEnabled || $subjectsEnabled || $keywordsEnabled || ($citationsEnabled && !$metadataModal) || $disciplinesEnabled}
+		$languagesEnabled || $subjectsEnabled || $keywordsEnabled || $citationsEnabled || $disciplinesEnabled}
 	{fbvFormSection title="submission.metadata"}
 		<p class="description">{translate key="submission.metadataDescription"}</p>
 	{/fbvFormSection}
@@ -46,7 +45,7 @@
 	{/fbvFormArea}
 {/if}
 
-{if $languagesEnabled || $subjectsEnabled || $keywordsEnabled || ($citationsEnabled && !$metadataModal) || $disciplinesEnabled}
+{if $languagesEnabled || $subjectsEnabled || $keywordsEnabled || $citationsEnabled || $disciplinesEnabled}
 	{fbvFormArea id="tagitFields" title="submission.submit.metadataForm"}
 		{if $languagesEnabled}
 			{$languagesField}
@@ -66,9 +65,9 @@
 				{fbvElement type="keyword" id="keywords" multilingual=true current=$keywords disabled=$readOnly required=$keywordsRequired}
 			{/fbvFormSection}
 		{/if}
-		{if $citationsEnabled && !$metadataModal}
+		{if $citationsEnabled}
 			{fbvFormSection label="submission.citations" required=$citationsRequired}
-				{fbvElement type="textarea" id="citations" value=$citations multilingual=false disabled=$readOnly required=$citationsRequired}
+				{fbvElement type="textarea" id="citationsRaw" value=$citationsRaw multilingual=false disabled=$readOnly required=$citationsRequired}
 			{/fbvFormSection}
 		{/if}
 	{/fbvFormArea}

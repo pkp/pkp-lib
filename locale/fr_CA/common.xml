@@ -128,7 +128,7 @@
 	<message key="common.disable">Désactiver</message>
 	<message key="common.disabled">Désactivé</message>
 	<message key="common.discipline">Discipline</message>
-	<message key="common.done">Terminé-e</message>
+	<message key="common.done">OK</message>
 	<message key="common.download">Télécharger</message>
 	<message key="common.downloadPdf">Télécharger le PDF</message>
 	<message key="common.edit">Modifier</message>

@@ -67,7 +67,7 @@
 	<message key="manager.emails.confirmReset">Êtes-vous certain-e de vouloir réinitialiser ce modèle de courriel à ses valeurs par défaut ?</message>
 	<message key="manager.emails.addEmail">Ajouter un modèle de courriel</message>
 	<message key="manager.emails.createEmail">Créer un courriel</message>
-	<message key="manager.emails.data">Données du modèle de message</message>
+	<message key="manager.emails.data">Données du modèle de courriel</message>
 	<message key="manager.emails.details">Particularités du modèle</message>
 	<message key="manager.emails.disable">Désactiver</message>
 	<message key="manager.emails.disable.message">Vous êtes sur le point de désactiver ce modèle de courriel. Si des processus système utilisent ce modèle, ils ne pourront plus l'utiliser. Souhaitez-vous confirmer cette action ?</message>
@@ -75,9 +75,9 @@
 	<message key="manager.emails.editTestExample">Modifier l'exemple du test de courriel</message>
 	<message key="manager.emails.emailKey">Clé du courriel</message>
 	<message key="manager.emails.emailKeyExists">Un courriel avec cette clé existe déjà. Les clés de courriels doivent être uniques.</message>
-	<message key="manager.emails.emailTemplate">Modèle de courriels</message>
-	<message key="manager.emails.emailTemplates">Modèles de courriels</message>
-	<message key="manager.emails.enabled">Activer ce modèle de courriels</message>
+	<message key="manager.emails.emailTemplate">Modèle de courriel</message>
+	<message key="manager.emails.emailTemplates">Modèles de courriel</message>
+	<message key="manager.emails.enabled">Activer ce modèle de courriel</message>
 	<message key="manager.emails.enable">Activer</message>
 	<message key="manager.emails.enable.message">Vous êtes sur le point de désactiver ce courriel. Vous souhaitez confirmer cette opération ?</message>
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>

@@ -465,4 +465,4 @@ msgid "reviewer.list.biography"
 msgstr "Biographie"
 
 msgid "reviewer.list.empty"
-msgstr "No reviewers found"
+msgstr "Aucun-e évaluateur-trice n'a été trouvé-e"

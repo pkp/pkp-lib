@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-22T03:04:11 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "api.400.paramNotSupported"
 msgstr "Le paramètre « {$param} » n'est pas supporté."
@@ -23,11 +24,49 @@ msgstr "La resource demandée n'a pas été trouvée."
 msgid "api.404.endpointNotFound"
 msgstr "L'URL demandé n'a pas été reconnu."
 
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Le modèle de courriel que vous avez demandé n'a pas été trouvé."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "La publication que vous souhaitez publier est déjà publiée."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "La publication que vous souhaitez dépublier n'est pas publiée."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Vous ne pouvez pas modifier cette publication car elle a déjà été publiée."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr "Vous ne pouvez pas modifier le statut directement via l'API. Au lieu de cela, utiliser les suffixes d'URL « /publish » et « /unpublish »."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Vous devez dépublier de cette publication avant de pouvoir la supprimer."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "La date doit être au format AAAA-MM-JJ."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "La date de début ne peut pas être ultérieure à la date de fin."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "La date de début ne peut pas être antérieure au 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "La date de fin ne peut pas être ultérieure à hier."
+
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "Votre demande était invalide. Le « TimelineInterval » doit être 'day' ou 'month'."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Votre demande était invalide. Le « orderDirection » doit être 'desc' ou 'asc'."
+
+
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Votre demande a été refusée. Cela peut être dû au fait que votre connexion a expiré. Essayez de recharger la page et essayez à nouveau."
 
 msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Vous ne pouvez voir que les soumissions non publiées qui vous ont été assignées"
+msgstr "Vous ne pouvez voir que les soumissions non publiées qui vous ont été assignées."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr "Vous ne pouvez pas supprimer une soumission hors de ce contexte."
@@ -35,8 +74,8 @@ msgstr "Vous ne pouvez pas supprimer une soumission hors de ce contexte."
 msgid "api.submissions.403.unauthorizedDeleteSubmission"
 msgstr "Vous n'avez pas la permission de supprimer cette soumission."
 
-msgid "api.submissions.404.resourceNotFound"
-msgstr "La ressource demandée n'a pas été trouvée."
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr "Ce suffixe d'URL n'est pas disponible à partir d'un contexte. Il doit être accessible à partir de l'espace de nom du site."
 
 msgid "api.submissions.400.missingRequired"
 msgstr "La demande n'a pu être remplie par manque d'information."
@@ -45,13 +84,25 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Le volume, numéro ou année requis-e n'est pas valide."
 
 msgid "api.submissions.unknownError"
-msgstr "Une erreur imprévue est survenue. Veuillez recharger la page est essayer à nouveau."
+msgstr "Une erreur imprévue est survenue. Veuillez recharger la page et essayer à nouveau."
 
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Votre demande n'est pas valide. La date doit être au format AAAA-MM-JJ."
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Aucun fichier à téléverser n'a pu être trouvé avec la requête."
 
-msgid "api.stats.400.wrongDateRange"
-msgstr "Votre demande n'est pas valide. DateStart ne peut pas être ultérieure à dateEnd."
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Un ou plusieurs fichiers n'ont pu être téléversés."
 
-msgid "api.stats.400.wrongTimeSegmentDaily"
-msgstr "Votre demande n'est pas valide. Le timeSegment  « daily » ne peut être utilisé qu'avec une plage de dates (dateStart et dateEnd) incluse au cours des 90 derniers jours."
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Les fichiers plus gros que {$maxSize} ne peuvent pas être téléversés."
+
+msgid "api.temporaryFiles.400.config"
+msgstr "Le fichier n'a pas pu être téléversé en raison d'une erreur de configuration du serveur. Veuillez contacter l'administrateur-trice du système."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "Le thème actif, {$themePluginPath}, n'est pas activé et peut ne pas avoir été installé."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Le paramètre régional {$locale} n'est pas pris en charge."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Le vocabulaire {$vocab} n'est pas supporté."

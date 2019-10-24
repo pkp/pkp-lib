@@ -9,10 +9,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-22T04:44:40 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+
+msgid "editor.activityLog"
+msgstr "Journal d'événements"
 
 msgid "editor.submissionLibrary"
-msgstr "Bibliothèque de soumission"
+msgstr "Bibliothèque"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Décision enregistrée"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Soumission refusée."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Soumission acceptée."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Soumission publiée."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Envoyer pour un nouveau cycle d'évaluation."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Envoyer à la production."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Soumission acceptée pour évaluation."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Changer la décision"
 
 msgid "editor.review.notInitiated"
 msgstr "Le processus de révision n'a pas encore débuté."
@@ -73,6 +101,13 @@ msgstr "Recruter un-e utilisateur-trice existant-e"
 
 msgid "editor.review.unassignReviewer"
 msgstr "Retirer le privilège de l'évaluateur-trice"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Annuler l'évaluateur-trice"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Réintégrer l'évaluateur-trice"
+
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Type d'évaluation"
@@ -162,16 +197,22 @@ msgid "editor.review.responseDue"
 msgstr "Réponse due pour le : {$date}"
 
 msgid "editor.review.requestSent"
-msgstr "Requête envoyée"
+msgstr "Demande envoyée"
 
 msgid "editor.review.requestAccepted"
-msgstr "Requête acceptée"
+msgstr "Demande acceptée"
 
 msgid "editor.review.requestDeclined"
-msgstr "Requête refusée"
+msgstr "Demande refusée"
+
+msgid "editor.review.requestCancelled"
+msgstr "Demande annulée"
 
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "L'évaluateur-trice a refusé cette demande d'évaluation."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Le,La rédacteur-trice a annulé cette demande d'évaluation."
 
 msgid "editor.review.revertDecision"
 msgstr "Renverser la décision"
@@ -190,6 +231,9 @@ msgstr "Évaluation confirmée"
 
 msgid "editor.review.reviewSubmitted"
 msgstr "Évaluation soumise"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Évaluateur-trice remercié-e"
 
 msgid "editor.review.reviewerComments"
 msgstr "Commentaires de l'évaluateur-trice"
@@ -212,6 +256,10 @@ msgstr "Il y a eu une erreur au moment d'ajouter l'évaluateur-trice. Veuillez e
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Il y a eu une erreur au moment de supprimer l'évaluateur-trice. Veuillez essayer de nouveau."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Il y a eu une erreur au moment de rétablir l'évaluateur-trice. Veuillez essayer de nouveau."
+
+
 msgid "editor.review.userGroupSelect"
 msgstr "Recruter l'utilisateur-trice dans ce groupe d'évaluateurs-trices"
 
@@ -223,6 +271,9 @@ msgstr "Ne pas tenir compte de cette évaluation."
 
 msgid "editor.review.readConfirmation"
 msgstr "Une fois l'évaluation consultée, cliquer sur « Confirmer » pour indiquer que le processus d'évaluation peut se poursuivre. Si l'évaluateur-trice a soumis son évaluation ailleurs, vous pouvez téléverser le fichier ci-dessous puis cliquer sur « Confirmer » pour poursuivre."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Calendrier de publication"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Fichiers en révision"
@@ -332,9 +383,6 @@ msgstr "Fichiers joints"
 msgid "grid.action.editQuery"
 msgstr "Éditer la discussion"
 
-msgid "editor.submission.schedulePublication"
-msgstr "Calendrier de publication"
-
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr "Les fichiers peuvent être joints à cette discussion à partir de la liste ci-dessous."
 
@@ -380,6 +428,9 @@ msgstr "Évaluation(s) complétée(s)"
 msgid "reviewer.list.declinedReviews"
 msgstr "Demande(s) d'évaluation refusée(s)"
 
+msgid "reviewer.list.cancelledReviews"
+msgstr "Demande(s) d'évaluation annulée(s)"
+
 msgid "reviewer.list.reviewerRating"
 msgstr "Évaluation de l'évaluateur-trice : {$rating}"
 
@@ -412,3 +463,6 @@ msgstr "Champs d'intérêt pour l'évaluation"
 
 msgid "reviewer.list.biography"
 msgstr "Biographie"
+
+msgid "reviewer.list.empty"
+msgstr "Aucun-e évaluateur-trice n'a été trouvé-e"

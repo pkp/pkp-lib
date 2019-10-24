@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-22T03:27:11 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -142,6 +143,10 @@ msgstr "Déjà assigné-e"
 
 msgid "common.altText"
 msgstr "Texte alternatif"
+
+msgid "common.altTextInstructions"
+msgstr "Décrire cette image afin d'assurer l'accessibilité aux utilisateurs-trices de navigateurs textuels ou de dispositifs d'assistance. Par exemple : « Notre rédacteur prend la parole à la conférence PKP »."
+
 
 msgid "common.and"
 msgstr "et"
@@ -333,7 +338,7 @@ msgid "common.discipline"
 msgstr "Discipline"
 
 msgid "common.done"
-msgstr "Terminé-e"
+msgstr "OK"
 
 msgid "common.download"
 msgstr "Télécharger"
@@ -410,6 +415,9 @@ msgstr "Enlever le filtre : {$filterTitle}"
 msgid "common.from"
 msgstr "De"
 
+msgid "common.fromWithValue"
+msgstr "De : {$value}"
+
 msgid "common.until"
 msgstr "Jusqu'à"
 
@@ -451,6 +459,9 @@ msgstr "Langue"
 
 msgid "common.languages"
 msgstr "Langues"
+
+msgid "common.lastActivity"
+msgstr "Dernière activité enregistrée le {$date}."
 
 msgid "common.less"
 msgstr "Réduire"
@@ -497,6 +508,9 @@ msgstr "Aucun-e"
 msgid "common.no"
 msgstr "Non"
 
+msgid "common.noItemsFound"
+msgstr "Aucun élément trouvé."
+
 msgid "common.noComments"
 msgstr "Aucun commentaire"
 
@@ -511,6 +525,9 @@ msgstr "Non disponible"
 
 msgid "common.note"
 msgstr "Note"
+
+msgid "common.noTemporaryFile"
+msgstr "Le fichier que vous avez téléversé n'a pas pu être trouvé. Veuillez essayer de le télécharger à nouveau."
 
 msgid "common.notes"
 msgstr "Notes"
@@ -644,6 +661,9 @@ msgstr "URL distant"
 msgid "common.remove"
 msgstr "Supprimer"
 
+msgid "common.removeItem"
+msgstr "Supprimer {$item}"
+
 msgid "common.removeSelection"
 msgstr "Supprimer la sélection"
 
@@ -689,6 +709,9 @@ msgstr "Seconde(s)"
 msgid "common.selectAll"
 msgstr "Tout sélectionner"
 
+msgid "common.selectedPrefix"
+msgstr "Sélectionné-e :"
+
 msgid "common.selectNone"
 msgstr "Ne rien sélectionner"
 
@@ -713,6 +736,9 @@ msgstr "Sujet"
 msgid "common.subjects"
 msgstr "Sujets"
 
+msgid "common.submenu"
+msgstr "Sous-menu"
+
 msgid "common.subtitle"
 msgstr "Sous-titre"
 
@@ -724,6 +750,9 @@ msgstr "Titre"
 
 msgid "common.top"
 msgstr "Haut"
+
+msgid "common.toWithValue"
+msgstr "À : {$value}"
 
 msgid "common.true"
 msgstr "Vrai"
@@ -760,6 +789,12 @@ msgstr "Haut"
 
 msgid "common.upload.addFile"
 msgstr "Téléverser un fichier"
+
+msgid "common.upload.restore"
+msgstr "Restaurer l'original"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Aperçu de l'image sélectionnée."
 
 msgid "common.upload.changeFile"
 msgstr "Remplacer un fichier"
@@ -938,6 +973,63 @@ msgstr "Vous devez fournir une adresse de courriel."
 msgid "form.dataHasChanged"
 msgstr "Les données de ce formulaire ont été modifiées. Voulez-vous continuer sans sauvegarder ?"
 
+msgid "form.disallowedLocales"
+msgstr "Seules les langues suivantes sont autorisées : {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Cette propriété n'est pas autorisée."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Déposer des fichiers à téléverser ici."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Votre navigateur ne supporte pas les téléversements de fichiers par glisser-déposer."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Veuillez utiliser le formulaire « de repli » ci-dessous pour téléverser vos fichiers."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr "le fichier est trop volumineux ({{filesize}} Mo). Les fichiers plus gros que {{maxFilesize}} Mo ne peuvent être téléversés."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Les fichiers de ce type ne peuvent pas être téléversés."
+
+msgid "form.dropzone.dictResponseError"
+msgstr "Le serveur a répondu avec le code {{statusCode}}. Veuillez contacter l'administrateur-trice du système si ce problème persiste."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Annuler le Téléversement"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Téléversement annulé"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Êtes-vous certain-e de vouloir annuler ce téléversement ?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Supprimer le fichier"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Vous ne pouvez plus téléverser de fichiers."
+
+msgid "form.errorA11y"
+msgstr "Aller à {$fieldLabel} : {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Passer à l'erreur suivante"
+
+msgid "form.errorOne"
+msgstr "Veuillez corriger une erreur."
+
+msgid "form.errorMany"
+msgstr "Veuillez corriger {$count} erreurs."
+
+msgid "form.errors"
+msgstr "Le formulaire n'a pas été enregistré car {$ count} erreurs ont été rencontrées. Veuillez corriger ces erreurs et réessayer."
+
+msgid "form.errorUnknown"
+msgstr "Une erreur inattendue est survenue. Vous avez peut-être été déconnecté-e. Veuillez recharger la page et essayer de nouveau."
+
 msgid "form.errorsOccurred"
 msgstr "Des erreurs se sont produites pendant le traitement du formulaire"
 
@@ -953,17 +1045,29 @@ msgstr "contient"
 msgid "form.is"
 msgstr "est"
 
+msgid "form.missingRequired"
+msgstr "Ce champ est requis."
+
 msgid "form.startsWith"
 msgstr "commence par"
 
 msgid "form.postRequired"
 msgstr "Le formulaire n'a pas été soumis correctement."
 
+msgid "form.csrfInvalid"
+msgstr "Le formulaire n'a pas pu être soumis. Vous avez peut-être été déconnecté-e. Veuillez recharger la page et essayer de nouveau."
+
 msgid "form.fileRequired"
 msgstr "Un téléversement de fichier est requis."
 
 msgid "form.required"
 msgstr "(* Obligatoire)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Vous devez remplir ce champ en {$ language}."
+
+msgid "form.requireId"
+msgstr "Vous devez fournir un identifiant (ID) valide."
 
 msgid "form.resubmit"
 msgstr "Soumettre de nouveau"
@@ -979,6 +1083,12 @@ msgstr "Soumettre"
 
 msgid "form.invalidImage"
 msgstr "Une image non valide a été téléversée. Seuls les formats .png, .gif ou .jpg sont acceptés."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} en {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} langues complétées"
 
 msgid "help.help"
 msgstr "Aide"
@@ -1091,6 +1201,18 @@ msgstr "Privilèges"
 msgid "stageParticipants.recommendOnly"
 msgstr "Ce(cette) participant-e est uniquement autorisé-e à recommander une décision éditoriale. Un-e rédacteur-trice autorisé-e devra enregistrer la décision."
 
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Autorisation de modifications aux métadonnées de la soumission."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Autoriser cet utilisateur-trice à apporter des modifications aux métadonnées de la soumission."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Participant-e"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Aucune modification ne peut être apportée à ce,cette participant-e"
+
 msgid "locale.primary"
 msgstr "Paramètre régional par défaut"
 
@@ -1186,6 +1308,9 @@ msgstr "Configuration"
 
 msgid "navigation.sitemap"
 msgstr "Plan du site"
+
+msgid "navigation.skip.announcements"
+msgstr "Aller directement aux annonces"
 
 msgid "navigation.skip.main"
 msgstr "Aller directement au contenu principal"
@@ -1472,8 +1597,17 @@ msgstr "{$reviewerName} a été assigné-e à l'évaluation de cette soumission 
 msgid "notification.removedReviewer"
 msgstr "L'évaluateur-trice a été supprimé-e."
 
+msgid "notification.cancelledReviewer"
+msgstr "L'évaluateur-trice a été annulé-e."
+
+msgid "notification.reinstatedReviewer"
+msgstr "L'évaluateur-trice a été réintégré-e."
+
 msgid "notification.addedStageParticipant"
 msgstr "L'utilisateur-trice a été ajouté-e à titre de participant-e."
+
+msgid "notification.editStageParticipant"
+msgstr "L'affectation d'une étape a été modifiée."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Nouvelle annonce."
@@ -1510,6 +1644,9 @@ msgstr "Fichier pris en considération."
 
 msgid "user.authorization.submissionFile"
 msgstr "L'utilisateur-trice actuel-elle n'a pas accès au fichier de soumission spécifié."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publication invalide"
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Soumission invalide"
@@ -1564,3 +1701,191 @@ msgstr "Afficher plus de renseignements sur {$name}"
 
 msgid "list.viewLess"
 msgstr "Masquer les renseignement sur {$name}"
+
+msgid "validator.accepted"
+msgstr "Veuillez accepter cet élément."
+
+msgid "validator.active_url"
+msgstr "Ce n'est pas un URL valide."
+
+msgid "validator.after"
+msgstr "Cette date doit être ultérieure à {$date}."
+
+msgid "validator.alpha"
+msgstr "Cela ne peut contenir que des lettres.
+
+msgid "validator.alpha_dash"
+msgstr "Cela ne peut contenir que des lettres, des chiffres, des tirets et des traits de soulignement."
+
+msgid "validator.alpha_num"
+msgstr "Cela ne peut contenir que des lettres et des chiffres."
+
+msgid "validator.array"
+msgstr "Ce n'est pas un tableau (array) valide."
+
+msgid "validator.before"
+msgstr "Cette date doit être antérieure à {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Cela doit être entre {$min} et {$max}."
+
+msgid "validator.between.file"
+msgstr "Cela doit être entre {$min} et {$max} Ko."
+
+msgid "validator.between.string"
+msgstr "TCela doit être entre {$min} et {$max} caractères."
+
+msgid "validator.between.array"
+msgstr "Cela doit être entre {$min} et {$max} éléments."
+
+msgid "validator.boolean"
+msgstr "Ce champ doit être vrai ou faux."
+
+msgid "validator.confirmed"
+msgstr "La confirmation de ce champ ne correspond pas."
+
+msgid "validator.currency"
+msgstr "Ce n'est pas une devise valide."
+
+msgid "validator.date"
+msgstr "Ce n'est pas une date valide."
+
+msgid "validator.date_format"
+msgstr "Cela ne correspond pas au format {$format}."
+
+msgid "validator.different"
+msgstr "Le,La {$attribute} et le,la {$other} doivent être différents-es."
+
+msgid "validator.digits"
+msgstr "Cela doit mesurer {$digits} chiffres de long."
+
+msgid "validator.digits_between"
+msgstr "Cela doit être entre {$min} et {$max} chiffres."
+
+msgid "validator.email"
+msgstr "Ce courriel n'est pas valide."
+
+msgid "validator.exists"
+msgstr "Le,La {$attribute} sélectionné-e est invalide."
+
+msgid "validator.filled"
+msgstr "Ce champ est requis."
+
+msgid "validator.image"
+msgstr "Cela doit être une image."
+
+msgid "validator.in"
+msgstr "Le,La {$attribute} sélectionné-e est invalide."
+
+msgid "validator.integer"
+msgstr "Ce n'est pas un entier valide."
+
+msgid "validator.ip"
+msgstr "Ce n'est pas une adresse IP valide."
+
+msgid "validator.issn"
+msgstr "Ce n'est pas un ISSN valide."
+
+msgid "validator.json"
+msgstr "Ce n'est pas une chaîne JSON valide."
+
+msgid "validator.locale"
+msgstr "Cette langue n'est pas acceptée."
+
+msgid "validator.localeExpected"
+msgstr "Ce champ est multilingue. Des valeurs distinctes doivent être fournies pour chaque langue prise en charge."
+
+msgid "validator.localeKey"
+msgstr "Les langues doivent être spécifiées à l'aide du code du paramètre régional. Exemples: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Cela ne peut pas être supérieur à {$max}."
+
+msgid "validator.max.file"
+msgstr "Cela ne peut pas être supérieur à {$max} Ko."
+
+msgid "validator.max.string"
+msgstr "Cela ne peut pas être supérieur à {$max} caractères."
+
+msgid "validator.max.array"
+msgstr "Cela ne peut pas avoir plus de {$max} éléments."
+
+msgid "validator.mimes"
+msgstr "Ce doit être un fichier de type {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Cela doit être au moins {$min}."
+
+msgid "validator.min.file"
+msgstr "Cela doit totaliser au moins {$min} Ko."
+
+msgid "validator.min.string"
+msgstr "Cela doit compter au moins {$min} caractères."
+
+msgid "validator.min.array"
+msgstr "Cela doit compter au moins {$min} éléments."
+
+msgid "validator.not_in"
+msgstr "Le,La {$attribut} sélectionné-e n'est pas valide."
+
+msgid "validator.numeric"
+msgstr "Ce n'est pas un nombre valide."
+
+msgid "validator.orcid"
+msgstr "Ceci n'est pas un ORCID valide."
+
+msgid "validator.present"
+msgstr "Le champ {$attribut} doit être présent."
+
+msgid "validator.regex"
+msgstr "Ceci n'est pas formaté correctement."
+
+msgid "validator.required"
+msgstr "Ce champ est requis."
+
+msgid "validator.required_if"
+msgstr "Ce champ est obligatoire lorsque {$other} correspond à {$value}."
+
+msgid "validator.required_unless"
+msgstr "Ce champ est obligatoire sauf si {$other} est dans {$values}."
+
+msgid "validator.required_with"
+msgstr "Ce champ est obligatoire lorsque {$values} est présent."
+
+msgid "validator.required_with_all"
+msgstr "Ce champ est obligatoire lorsque {$values} est(sont) présent-s."
+
+msgid "validator.required_without"
+msgstr "Ce champ est obligatoire en l'absence de {$values}."
+
+msgid "validator.required_without_all"
+msgstr "Ce champ est obligatoire en l'absence de {$values}."
+
+msgid "validator.same"
+msgstr "Le,La {$attribute} et le,la {$other} doivent correspondre."
+
+msgid "validator.size.numeric"
+msgstr "Ceci doit mesurer {$size}."
+
+msgid "validator.size.file"
+msgstr "Ceci doit mesurer {$size} Ko."
+
+msgid "validator.size.string"
+msgstr "Cela doit comporter {$size} caractères."
+
+msgid "validator.size.array"
+msgstr "Cela doit contenir {$size} éléments."
+
+msgid "validator.string"
+msgstr "Ce n'est pas une chaîne valide."
+
+msgid "validator.timezone"
+msgstr "Ce n'est pas un fuseau horaire valide."
+
+msgid "validator.unique"
+msgstr "Le,La {$ attribut} est déjà pris-e."
+
+msgid "validator.url"
+msgstr "Ceci n'est pas un URL valide."
+
+

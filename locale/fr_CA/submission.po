@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-23T04:40:30 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "author.submit.submissionCitations"
 msgstr "Fournir une liste structurée de références pour les travaux cités dans cette soumission. Veuillez séparer chaque référence par une ligne vide."
@@ -1067,9 +1068,6 @@ msgstr "Veuillez inscrire une discipline."
 msgid "submission.submit.form.keywordsRequired"
 msgstr "Veuillez inscrire un mot-clé."
 
-msgid "submission.submit.form.agenciesRequired"
-msgstr "Veuillez inscrire un organisme subventionnaire."
-
 msgid "submission.submit.form.coverageRequired"
 msgstr "Veuillez indiquer la couverture du contenu."
 
@@ -1451,11 +1449,11 @@ msgstr "{$reviewerName} a été choisi-e pour évaluer la soumission {$submissio
 msgid "log.review.reviewCleared"
 msgstr "Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été effacé."
 
-msgid "log.review.reviewReinstated"
-msgstr "Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été recommencé."
-
 msgid "log.review.reviewUnconsidered"
 msgstr "{$editorName} a indiqué que le {$round}e cycle d'évaluation de la soumission {$submissionId} n'est pas considéré."
+
+msgid "log.review.reviewReinstated"
+msgstr "Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été recommencé."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "En attente de la réponse de l'évaluateur-trice."
@@ -1723,3 +1721,4 @@ msgstr "Rien n'a encore été publié dans cette catégorie."
 
 msgid "catalog.category.subcategories"
 msgstr "Sous-categories"
+

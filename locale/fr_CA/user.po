@@ -9,7 +9,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
 "PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: \n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-23T01:54:34 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
 msgid "user.accountInformation"
 msgstr "Renseignements sur le compte"
@@ -445,3 +446,4 @@ msgstr "Avant de générer une clé API, l'administrateur-trice du site doit dé
 
 msgid "user.privacyLink"
 msgstr "Vos données sont stockées conformément à notre <a href=\"{$privacyUrl}\" target=\"_blank\">déclaration de confidentialité</a>."
+

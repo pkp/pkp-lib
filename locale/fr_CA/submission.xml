@@ -230,7 +230,7 @@
 	<message key="submission.history.submissionNotes">Notes de soumissions</message>
 	<message key="submission.history.viewLog">Voir le registre</message>
 	<message key="submission.howToCite">Comment citer</message>
-	<message key="submission.howToCite.citationFormats">Formats de citations</message>
+	<message key="submission.howToCite.citationFormats">Styles bibliographiques</message>
 	<message key="submission.howToCite.downloadCitation">Télécharger la référence</message>
 	<message key="submission.indexing">Indexation</message>
 	<message key="submission.initiated">En cours</message>

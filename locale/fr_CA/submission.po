@@ -640,7 +640,7 @@ msgid "submission.howToCite"
 msgstr "Comment citer"
 
 msgid "submission.howToCite.citationFormats"
-msgstr "Formats de citations"
+msgstr "Styles bibliographiques"
 
 msgid "submission.howToCite.downloadCitation"
 msgstr "Télécharger la référence"

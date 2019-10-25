@@ -39,7 +39,7 @@ class AuthorReviewRevisionsGridHandler extends FileListGridHandler {
 	 * @copydoc GridHandler::getJSHandler()
 	 */
 	public function getJSHandler() {
-		return '$.pkp.controllers.grid.AuthorReviewRevisionsGridHandler';
+		return '$.pkp.controllers.grid.files.review.AuthorReviewRevisionsGridHandler';
 	}
 }
 

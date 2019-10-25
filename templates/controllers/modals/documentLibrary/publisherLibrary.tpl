@@ -11,7 +11,7 @@
  *}
 
 {* Help Link *}
-{help file="settings" section="workflow-library" class="pkp_help_modal"}
+{help file="settings/workflow-settings" section="publisher" class="pkp_help_modal"}
 
 {capture assign=libraryGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=$canEdit escape=false}{/capture}
 {load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}

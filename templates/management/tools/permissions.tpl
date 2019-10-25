@@ -22,8 +22,6 @@ $(function() {ldelim}
 
 <form class="pkp_form" id="resetPermissionsForm" method="post" action="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="resetPermissions"}">
 	<div class="pkp_page_content pkp_page_permissions">
-		{help file="tools" class="pkp_help_tab"}
-
 		<h3>{translate key="manager.setup.resetPermissions"}</h3>
 		<p>{translate key="manager.setup.resetPermissions.description"}</p>
 

@@ -83,7 +83,7 @@
 						{if array_intersect(array(ROLE_ID_MANAGER), (array)$userRoles) && $currentContext && $currentContext->getData('enableAnnouncements')}
 							<li>
 								<a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="settings" path="announcements"}">
-									{translate key="manager.setup.announcements"}
+									{translate key="announcement.announcements"}
 								</a>
 							</li>
 						{/if}

@@ -124,15 +124,15 @@ abstract class PKPWorkflowHandler extends Handler {
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		$workflowRoles = Application::getWorkflowTypeRoles();
 		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
-		$canAccessPublication = false; // Access to title, abstract, metadata, etc
+		$canEditPublication = false; // Access to title, abstract, metadata, etc
 		$canAccessProduction = false; // Access to galleys and issue entry
 		// unassigned managers
 		if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [ROLE_ID_MANAGER])) {
-			$canAccessPublication = true;
+			$canEditPublication = true;
 			$canAccessProduction = true;
 
 		} elseif (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$currentStageId])) {
-			$canAccessPublication = true;
+			$canEditPublication = true;
 			$canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
 		}
 
@@ -267,6 +267,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		$workflowData = [
+			'canEditPublication' => $canEditPublication,
 			'components' => [
 				FORM_CITATIONS => $citationsForm->getConfig(),
 				FORM_PUBLICATION_LICENSE => $publicationLicenseForm->getConfig(),
@@ -328,7 +329,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		$templateMgr->assign([
-			'canAccessPublication' => $canAccessPublication,
+			'canEditPublication' => $canEditPublication,
 			'canAccessProduction' => $canAccessProduction,
 			'metadataEnabled' => $metadataEnabled,
 			'requestedStageId' => $requestedStageId,

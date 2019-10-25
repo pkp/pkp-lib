@@ -277,8 +277,9 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		}
 
 		// Check if current author can edit metadata
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 		$canEditPublication = true;
-		if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId()) ) {
+		if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
 			$canEditPublication =  false;
 		}
 

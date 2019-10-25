@@ -63,9 +63,9 @@
 	<message key="editor.review.readReview">Consulter l'évaluation</message>
 	<message key="editor.review.readNewReview">Consulter la nouvelle évaluation</message>
 	<message key="editor.review.responseDue">Réponse due pour le : {$date}</message>
-	<message key="editor.review.requestSent">Requête envoyée</message>
-	<message key="editor.review.requestAccepted">Requête acceptée</message>
-	<message key="editor.review.requestDeclined">Requête refusée</message>
+	<message key="editor.review.requestSent">Demande envoyée</message>
+	<message key="editor.review.requestAccepted">Demande acceptée</message>
+	<message key="editor.review.requestDeclined">Demande refusée</message>
 	<message key="editor.review.requestDeclined.tooltip">L'évaluateur-trice a refusé cette demande d'évaluation.</message>
 	<message key="editor.review.revertDecision">Renverser la décision</message>
 	<message key="editor.review.reviewDue">Évaluation due pour le : {$date}</message>

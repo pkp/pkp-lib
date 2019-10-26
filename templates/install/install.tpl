@@ -40,7 +40,7 @@
 				{if $dbErrorMsg}
 					{capture assign="errorMsg"}{translate key="common.error.databaseError" error=$dbErrorMsg}{/capture}
 				{elseif $translateErrorMsg}
-					{capture assign="errorMsg"}{translate key=$errorMsg}{/capture}a
+					{capture assign="errorMsg"}{translate key=$errorMsg}{/capture}
 				{/if}
 				{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=installer notificationStyleClass=notifyError notificationTitle="installer.installErrorsOccurred"|translate notificationContents=$errorMsg}
 			</div>

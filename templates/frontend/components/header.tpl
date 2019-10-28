@@ -33,13 +33,17 @@
 			<div class="pkp_head_wrapper">
 
 				<div class="pkp_site_name_wrapper">
+					<button class="pkp_site_nav_toggle">
+						<span>Open Menu</span>
+					</button>
 					{* Logo or site title. Only use <h1> heading on the homepage.
-					   Otherwise that should go to the page title. *}
+						 Otherwise that should go to the page title. *}
 					{if $requestedOp == 'index'}
 						<h1 class="pkp_site_name">
 					{else}
 						<div class="pkp_site_name">
 					{/if}
+
 						{capture assign="homeUrl"}
 							{if $currentContext && $multipleContexts}
 								{url page="index" router=$smarty.const.ROUTE_PAGE}
@@ -74,22 +78,26 @@
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 				{/capture}
 
-				{if !empty(trim($primaryMenu)) || $currentContext}
-					<nav class="pkp_navigation_primary_row" aria-label="{translate|escape key="common.navigation.site"}">
+
+				<nav class="pkp_site_nav_menu" aria-label="{translate|escape key="common.navigation.site"}">
+					<div class="pkp_navigation_primary_row">
 						<div class="pkp_navigation_primary_wrapper">
 							{* Primary navigation menu for current application *}
 							{$primaryMenu}
 
+							{* Search form *}
 							{if $currentContext}
-								{* Search form *}
-								{include file="frontend/components/searchForm_simple.tpl"}
+								{include file="frontend/components/searchForm_simple.tpl" className="pkp_search_desktop"}
 							{/if}
 						</div>
-					</nav>
-				{/if}
-
-				<nav class="pkp_navigation_user_wrapper" id="navigationUserWrapper" aria-label="{translate|escape key="common.navigation.user"}">
-					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+					</div>
+					<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
+						{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+					</div>
+					{* Search form *}
+					{if $currentContext}
+						{include file="frontend/components/searchForm_simple.tpl" className="pkp_search_mobile"}
+					{/if}
 				</nav>
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->

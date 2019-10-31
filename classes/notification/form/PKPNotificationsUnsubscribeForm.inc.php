@@ -20,7 +20,7 @@
 import('lib.pkp.classes.form.Form');
 
 class PKPNotificationsUnsubscribeForm extends Form {
-	var $_notification; 
+	var $_notification;
 	var $_validationToken;
 
 	/**
@@ -77,12 +77,12 @@ class PKPNotificationsUnsubscribeForm extends Form {
 
 		$templateMgr->assign(array(
 			'contextName' => $context->getLocalizedName(),
-			'username' => $user->getUsername(),
+			'userEmail' => $user->getEmail(),
 			'emailSettings' => $emailSettings,
 			'validationToken' => $this->_validationToken,
 			'notificationId' => $this->_notification->getId(),
 		));
-		
+
 		return parent::fetch($request, $template, $display);
 	}
 

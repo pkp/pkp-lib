@@ -75,8 +75,8 @@ class PKPAppearanceSetupForm extends FormComponent {
 				'tooltip' => __('manager.setup.pageFooter.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('pageFooter'),
-				'toolbar' => 'bold italic superscript subscript | link | image | code',
-				'plugins' => 'paste,link,image,code',
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
 				'uploadUrl' => $imageUploadUrl,
 			]))
 			->addField(new FieldOptions('sidebar', [

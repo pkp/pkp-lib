@@ -73,8 +73,8 @@ class PKPMastheadForm extends FormComponent {
 				'label' => __('manager.setup.editorialTeam'),
 				'isMultilingual' => true,
 				'groupId' => 'keyInfo',
-				'toolbar' => 'bold italic superscript subscript | link | image | code',
-				'plugins' => 'paste,link,image,code',
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
 				'uploadUrl' => $imageUploadUrl,
 				'value' => $context->getData('editorialTeam'),
 			]))
@@ -88,8 +88,8 @@ class PKPMastheadForm extends FormComponent {
 				'isMultilingual' => true,
 				'size' => 'large',
 				'groupId' => 'about',
-				'toolbar' => 'bold italic superscript subscript | link | image | code',
-				'plugins' => 'paste,link,image,code',
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
 				'uploadUrl' => $imageUploadUrl,
 				'value' => $context->getData('about'),
 			]));

@@ -42,8 +42,8 @@ class PKPPrivacyForm extends FormComponent {
 				'description' => __('manager.setup.privacyStatement.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('privacyStatement'),
-				'toolbar' => 'bold italic superscript subscript | link | image | code',
-				'plugins' => 'paste,link,image,code',
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
 				'uploadUrl' => $imageUploadUrl,
 			]));
 	}

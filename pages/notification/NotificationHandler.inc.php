@@ -69,23 +69,6 @@ class NotificationHandler extends Handler {
 	}
 
 	/**
-	 * Notification Unsubscribe Form
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function unsubscribeForm($args, $request) {
-		$validationToken = $request->getUserVar('validate');
-		$notificationId = $request->getUserVar('id');
-
-		$notification = $this->_validateUnsubscribeRequest($validationToken, $notificationId);
-
-		import('lib.pkp.classes.notification.form.PKPNotificationsUnsubscribeForm');
-
-		$notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
-		$notificationsUnsubscribeForm->display();
-	}
-
-	/**
 	 * Notification Unsubscribe handler
 	 * @param $args array
 	 * @param $request Request
@@ -96,6 +79,21 @@ class NotificationHandler extends Handler {
 
 		$notification = $this->_validateUnsubscribeRequest($validationToken, $notificationId);
 
+		// Show the form on a get request
+		if (!$request->isPost()) {
+			$validationToken = $request->getUserVar('validate');
+			$notificationId = $request->getUserVar('id');
+
+			$notification = $this->_validateUnsubscribeRequest($validationToken, $notificationId);
+
+			import('lib.pkp.classes.notification.form.PKPNotificationsUnsubscribeForm');
+
+			$notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
+			$notificationsUnsubscribeForm->display();
+			return;
+		}
+
+		// Otherwise process the result
 		$this->setupTemplate($request);
 
 		import('lib.pkp.classes.notification.form.PKPNotificationsUnsubscribeForm');
@@ -124,7 +122,7 @@ class NotificationHandler extends Handler {
 
 		$templateMgr->assign(array(
 			'contextName' => $context->getLocalizedName(),
-			'username' => $user->getUsername(),
+			'userEmail' => $user->getEmail(),
 			'unsubscribeResult' => $unsubscribeResult,
 		));
 
@@ -149,7 +147,7 @@ class NotificationHandler extends Handler {
 
 		if (!isset($notification) || $notification->getId() == null) {
 			$this->getDispatcher()->handle404();
-		} 
+		}
 
 		$notificationManager = new NotificationManager();
 

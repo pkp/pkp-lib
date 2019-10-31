@@ -11,11 +11,13 @@
 {include file="frontend/components/header.tpl" pageTitle="notification.unsubscribeNotifications"}
 
 <div class="page page_unsubscribe_notifications">
-	{capture assign="profileNotificationUrl"}<a href="{url page="user" op="profile"}">{translate key="notification.notifications"}</a>{/capture}
+	{capture assign="profileNotificationUrl"}{url page="user" op="profile"}{/capture}
 	{if $unsubscribeResult}
-		{translate key="notification.unsubscribeNotifications.successMessage" profileNotificationUrl=$profileNotificationUrl contextName=$contextName username=$username}
+		<h1>{translate key="notification.unsubscribeNotifications.success"}</h1>
+		<p>{translate key="notification.unsubscribeNotifications.successMessage" profileNotificationUrl=$profileNotificationUrl email=$userEmail}</p>
 	{else}
-		{translate key="notification.unsubscribeNotifications.errorMessage" profileNotificationUrl=$profileNotificationUrl contextName=$contextName username=$username}
+		<h1>{translate key="notification.unsubscribeNotifications.error"}</h1>
+		<p>{translate key="notification.unsubscribeNotifications.errorMessage" profileNotificationUrl=$profileNotificationUrl email=$userEmail}</p>
 	{/if}
 </div>
 

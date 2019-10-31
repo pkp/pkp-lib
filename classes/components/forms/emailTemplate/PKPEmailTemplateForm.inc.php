@@ -56,6 +56,8 @@ class PKPEmailTemplateForm extends FormComponent {
 			'label' => __('email.body'),
 			'size' => 'large',
 			'isMultilingual' => true,
+			'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+			'plugins' => 'paste,link,lists',
 		];
 		if (!is_null($emailTemplate)) {
 			$subjectArgs['value'] = $emailTemplate->getData('subject');

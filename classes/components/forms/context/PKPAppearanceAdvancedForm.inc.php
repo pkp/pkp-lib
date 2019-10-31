@@ -34,8 +34,9 @@ class PKPAppearanceAdvancedForm extends FormComponent {
 	 * @param $context Context Journal or Press to change settings for
 	 * @param $baseUrl string Site's base URL. Used for image previews.
 	 * @param $temporaryFileApiUrl string URL to upload files to
+	 * @param $imageUploadUrl string The API endpoint for images uploaded through the rich text field
 	 */
-	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl) {
+	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl, $imageUploadUrl) {
 		$this->action = $action;
 		$this->successMessage = __('manager.setup.appearance.success');
 		$this->locales = $locales;
@@ -63,6 +64,9 @@ class PKPAppearanceAdvancedForm extends FormComponent {
 				'description' => __('manager.setup.additionalContent.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('additionalHomeContent'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
+				'uploadUrl' => $imageUploadUrl,
 			]));
 	}
 }

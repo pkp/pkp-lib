@@ -133,8 +133,6 @@
 			function() {
 
 		if (typeof tinyMCE !== 'undefined') {
-			tinyMCE.PluginManager.load('jbimages', $.pkp.app.baseUrl +
-					'/plugins/generic/tinymce/plugins/justboil.me/plugin.js');
 			tinyMCE.PluginManager.load('pkpTags', $.pkp.app.baseUrl +
 					'/plugins/generic/tinymce/plugins/pkpTags/plugin.js');
 			tinyMCE.PluginManager.load('pkpwordcount', $.pkp.app.baseUrl +
@@ -153,26 +151,55 @@
 				resize: 'both',
 				entity_encoding: 'raw',
 				plugins: 'paste,fullscreen,link,lists,code,' +
-						'-jbimages,-pkpTags,noneditable',
+						'image,-pkpTags,noneditable',
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
 				apply_source_formatting: false,
 				theme: 'modern',
 				toolbar: 'copy paste | bold italic underline | link unlink ' +
-						'code fullscreen | jbimages | pkpTags',
+						'code fullscreen | image | pkpTags',
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +
-						'jbimages | pkpTags',
+						'image | pkpTags',
 				statusbar: false,
-				content_css: contentCSS
+				content_css: contentCSS,
 			};
 
+			// Support image uploads
+			if (typeof $.pkp.plugins.generic.tinymceplugin !== 'undefined' &&
+					typeof $.pkp.plugins.generic.tinymceplugin.uploadUrl !== 'undefined') {
+				tinymceParamDefaults.paste_data_images = true;
+				tinymceParamDefaults.relative_urls = false;
+				tinymceParamDefaults.remove_script_host = false;
+				// See: https://www.tiny.cloud/docs/general-configuration-guide/upload-images/#rollingyourimagehandler
+				tinymceParamDefaults.images_upload_handler = function(blobInfo, success, failure) {
+					const data = new FormData();
+					data.append('file', blobInfo.blob(), blobInfo.filename());
+					$.ajax({
+						method: 'POST',
+						url: $.pkp.plugins.generic.tinymceplugin.uploadUrl,
+						data: data,
+						processData: false,
+						contentType: false,
+						headers: {
+							'X-Csrf-Token': $.pkp.currentUser.csrfToken
+						},
+						success(r) {
+							success(r.url);
+						},
+						error(r) {
+							failure(r.responseJSON.errorMessage);
+						}
+					});
+				}
+			}
+
 			// Allow default params to be overridden
-			if (typeof $.pkp.plugins.tinymceplugin !== 'undefined' &&
-					typeof $.pkp.plugins.tinymceplugin.tinymceParams) {
+			if (typeof $.pkp.plugins.generic.tinymceplugin !== 'undefined' &&
+					typeof $.pkp.plugins.generic.tinymceplugin.tinymceParams) {
 				tinymceParams = $.extend({}, tinymceParamDefaults,
-						$.pkp.plugins.tinymceplugin.tinymceParams);
+						$.pkp.plugins.generic.tinymceplugin.tinymceParams);
 			} else {
 				tinymceParams = $.extend({}, tinymceParamDefaults);
 			}

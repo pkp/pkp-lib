@@ -100,6 +100,21 @@ class FormComponent {
 	}
 
 	/**
+	 * Get a form field
+	 *
+	 * @param $fieldName string
+	 * @return Field
+	 */
+	public function getField($fieldName) {
+		foreach ($this->fields as $field) {
+			if ($field->name === $fieldName) {
+				return $field;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Add a form group
 	 *
 	 * @param $args array [

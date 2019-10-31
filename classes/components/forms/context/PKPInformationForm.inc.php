@@ -31,8 +31,9 @@ class PKPInformationForm extends FormComponent {
 	 * @param $action string URL to submit the form to
 	 * @param $locales array Supported locales
 	 * @param $context Context Journal or Press to change settings for
+	 * @param $imageUploadUrl string The API endpoint for images uploaded through the rich text field
 	 */
-	public function __construct($action, $locales, $context) {
+	public function __construct($action, $locales, $context, $imageUploadUrl) {
 		$this->action = $action;
 		$this->successMessage = __('manager.setup.information.success');
 		$this->locales = $locales;
@@ -47,18 +48,27 @@ class PKPInformationForm extends FormComponent {
 				'isMultilingual' => true,
 				'groupId' => 'descriptions',
 				'value' => $context->getData('readerInformation'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
+				'uploadUrl' => $imageUploadUrl,
 			]))
 			->addField(new FieldRichTextarea('authorInformation', [
 				'label' => __('manager.setup.information.forAuthors'),
 				'isMultilingual' => true,
 				'groupId' => 'descriptions',
 				'value' => $context->getData('authorInformation'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
+				'uploadUrl' => $imageUploadUrl,
 			]))
 			->addField(new FieldRichTextarea('librarianInformation', [
 				'label' => __('manager.setup.information.forLibrarians'),
 				'isMultilingual' => true,
 				'groupId' => 'descriptions',
 				'value' => $context->getData('librarianInformation'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
+				'uploadUrl' => $imageUploadUrl,
 			]));
 	}
 }

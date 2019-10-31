@@ -35,8 +35,9 @@ class PKPAppearanceSetupForm extends FormComponent {
 	 * @param $context Context Journal or Press to change settings for
 	 * @param $baseUrl string Site's base URL. Used for image previews.
 	 * @param $temporaryFileApiUrl string URL to upload files to
+	 * @param $imageUploadUrl string The API endpoint for images uploaded through the rich text field
 	 */
-	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl) {
+	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl, $imageUploadUrl) {
 		$this->action = $action;
 		$this->successMessage = __('manager.setup.appearance.success');
 		$this->locales = $locales;
@@ -74,6 +75,9 @@ class PKPAppearanceSetupForm extends FormComponent {
 				'tooltip' => __('manager.setup.pageFooter.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('pageFooter'),
+				'toolbar' => 'bold italic superscript subscript | link | image | code',
+				'plugins' => 'paste,link,image,code',
+				'uploadUrl' => $imageUploadUrl,
 			]))
 			->addField(new FieldOptions('sidebar', [
 				'label' => __('manager.setup.layout.sidebar'),

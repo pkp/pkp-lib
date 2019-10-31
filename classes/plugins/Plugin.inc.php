@@ -116,7 +116,6 @@ abstract class Plugin {
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 
 		$this->_registerTemplateResource();
-
 		return true;
 	}
 
@@ -821,13 +820,5 @@ abstract class Plugin {
 	 */
 	function getEnabled() {
 		return true;
-	}
-
-	/**
-	 * Retrieve a namespace used when attaching JavaScript data to $.pkp.plugins
-	 * @return string
-	 */
-	function getJavascriptNameSpace() {
-		return '$.pkp.plugins.' . strtolower(get_class($this));
 	}
 }

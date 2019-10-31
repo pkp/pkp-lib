@@ -81,6 +81,8 @@ class PKPLicenseForm extends FormComponent {
 				'tooltip' => __('manager.distribution.licenseTerms.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('licenseTerms'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+				'plugins' => 'paste,link,lists',
 			]));
 	}
 }

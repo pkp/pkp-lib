@@ -89,6 +89,7 @@ class ManagementHandler extends Handler {
 		$dispatcher = $request->getDispatcher();
 
 		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();
@@ -97,7 +98,7 @@ class ManagementHandler extends Handler {
 		}, $supportedFormLocales);
 
 		$contactForm = new PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
-		$mastheadForm = new APP\components\forms\context\MastheadForm($apiUrl, $locales, $context);
+		$mastheadForm = new APP\components\forms\context\MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
 
 		$settingsData = [
 			'components' => [
@@ -144,6 +145,7 @@ class ManagementHandler extends Handler {
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
 		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'temporaryFiles');
 		$contextUrl = $router->url($request, $context->getPath());
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile/');
 
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
@@ -156,11 +158,11 @@ class ManagementHandler extends Handler {
 		}, $supportedFormLocales);
 
 		$announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
-		$appearanceAdvancedForm = new \APP\components\forms\context\AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
-		$appearanceSetupForm = new \APP\components\forms\context\AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl);
-		$informationForm = new \PKP\components\forms\context\PKPInformationForm($contextApiUrl, $locales, $context);
+		$appearanceAdvancedForm = new \APP\components\forms\context\AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
+		$appearanceSetupForm = new \APP\components\forms\context\AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
+		$informationForm = new \PKP\components\forms\context\PKPInformationForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
 		$listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
-		$privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context);
+		$privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
 		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $contextUrl, $context);
 
 		$settingsData = [

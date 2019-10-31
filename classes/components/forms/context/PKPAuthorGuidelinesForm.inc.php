@@ -41,12 +41,16 @@ class PKPAuthorGuidelinesForm extends FormComponent {
 				'description' => __('manager.setup.authorGuidelines.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('authorGuidelines'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+				'plugins' => 'paste,link,lists',
 			]))
 			->addField(new FieldRichTextarea('copyrightNotice', [
 				'label' => __('manager.setup.copyrightNotice'),
 				'description' => __('manager.setup.copyrightNotice.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('copyrightNotice'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+				'plugins' => 'paste,link,lists',
 			]));
 	}
 }

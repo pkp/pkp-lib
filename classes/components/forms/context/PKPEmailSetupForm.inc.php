@@ -44,6 +44,11 @@ class PKPEmailSetupForm extends FormComponent {
 				'label' => __('manager.setup.emailSignature'),
 				'tooltip' => __('manager.setup.emailSignature.description'),
 				'value' => $context->getData('emailSignature'),
+				'preparedContent' => [
+					'contextName' => $context->getLocalizedName(),
+					'senderName' => __('email.senderName'),
+					'senderEmail' => __('email.senderEmail'),
+				]
 			]));
 
 		if ($canEnvelopeSender) {

@@ -89,7 +89,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 		}
 		$userDir = $siteDir . '/images/' . $request->getUser()->getUsername();
 		$isUserAllowed = true;
-		$allowedDirSize = 25000 * 1024; // 25mb
+		$allowedDirSize = Config::getVar('files', 'public_user_dir_size', 5000) * 1024;
 		$allowedFileTypes = ['gif', 'jpg', 'png'];
 
 		HookRegistry::call('API::uploadPublicFile::permissions', [
@@ -123,6 +123,17 @@ class PKPUploadPublicFileHandler extends APIHandler {
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
 		$filename = $fileManager->getUploadedFileName('file');
+		$filename = trim(
+			preg_replace(
+				"/[^a-z0-9\.\-]+/",
+				"",
+				str_replace(
+					[' ', '_', ':'],
+					'-',
+					strtolower($filename)
+				)
+			)
+		);
 		$extension = end(explode('.', strtolower(trim($filename))));
 
 		// Only allow permitted file types
@@ -137,7 +148,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 			if (getimagesize($_FILES['file']['tmp_name']) === false) {
 				return $response->withStatus(400)->withJsonError('api.publicFiles.400.invalidImage');
 			}
-			$extensionFromMimeType = $fileManager->getImageExtension(mime_content_type($_FILES['file']['tmp_name']));
+			$extensionFromMimeType = $fileManager->getImageExtension(PKPString::mime_content_type($_FILES['file']['tmp_name']));
 			if ($extensionFromMimeType !== '.' . $extension) {
 				return $response->withStatus(400)->withJsonError('api.publicFiles.400.mimeTypeNotMatched');
 			}

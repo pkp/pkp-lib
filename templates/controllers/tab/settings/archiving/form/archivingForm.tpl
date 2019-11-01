@@ -51,7 +51,7 @@
 
 				{fbvFormSection translate=false}
 					{capture assign=depositsGridUrl}{url component="plugins.generic.pln.controllers.grid.PLNStatusGridHandler" op="fetchGrid" escape=false}{/capture}
-					{load_url_in_div id="depositsGridContainer" url=$depositsGridUrl}
+					{load_url_in_div id="depositsGridContainer"|uniqid url=$depositsGridUrl}
 				{/fbvFormSection}
 			{/if}
 		{/fbvFormArea}

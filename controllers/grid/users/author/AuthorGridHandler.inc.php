@@ -205,6 +205,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @copydoc GridHandler::setDataElementSequence()
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
+		if (!$this->canAdminister($request->getUser())) return;
 		$author = DAORegistry::getDAO('AuthorDAO')->getById($rowId);
 		$author->setSequence($newSequence);
 		DAORegistry::getDAO('AuthorDAO')->updateObject($author);
@@ -278,6 +279,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function addAuthor($args, $request) {
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 		// Calling editAuthor() with an empty row id will add
 		// a new author.
 		return $this->editAuthor($args, $request);
@@ -290,6 +292,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function editAuthor($args, $request) {
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 		// Identify the author to be updated
 		$authorId = (int) $request->getUserVar('authorId');
 
@@ -310,6 +313,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function updateAuthor($args, $request) {
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 		// Identify the author to be updated
 		$authorId = (int) $request->getUserVar('authorId');
 		$publication = $this->getPublication();
@@ -368,6 +372,7 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function deleteAuthor($args, $request) {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 
 		$authorId = (int) $request->getUserVar('authorId');
 

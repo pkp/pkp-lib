@@ -779,15 +779,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'citations',
 		];
 	}
-
-	/**
-	 * Does this application support multiple contexts
-	 *
-	 * @return boolean
-	 */
-	public static function getAllowMultipleContexts() {
-		return true;
-	}
 }
 
 define('REALLY_BIG_NUMBER', 10000);

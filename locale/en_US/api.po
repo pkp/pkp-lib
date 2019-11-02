@@ -41,7 +41,6 @@ msgstr "You can not modify the status directly through the API. Instead, use the
 msgid "api.publication.403.cantDeletePublished"
 msgstr "You must unpublish this publication before you can delete it."
 
-<<<<<<< HEAD
 msgid "api.publicFiles.400.extensionNotSupported"
 msgstr "You can only upload the following types of files: {$fileTypes}."
 

@@ -88,11 +88,6 @@ class AdminHandler extends Handler {
 		$site = $request->getSite();
 		$dispatcher = $request->getDispatcher();
 
-		// No admin settings when the app doesn't support multiple contexts
-		if (!Application::getAllowMultipleContexts()) {
-			$dispatcher->handle404();
-		}
-
 		$apiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site');
 		$themeApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
 		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');
@@ -108,9 +103,9 @@ class AdminHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedLocales);
 
-		$siteAppearanceForm = new \APP\components\forms\site\SiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
-		$siteConfigForm = new \APP\components\forms\site\SiteConfigForm($apiUrl, $locales, $site);
-		$siteInformationForm = new \APP\components\forms\site\SiteInformationForm($apiUrl, $locales, $site);
+		$siteAppearanceForm = new \PKP\components\forms\site\PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
+		$siteConfigForm = new \PKP\components\forms\site\PKPSiteConfigForm($apiUrl, $locales, $site);
+		$siteInformationForm = new \PKP\components\forms\site\PKPSiteInformationForm($apiUrl, $locales, $site);
 		$themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $siteUrl);
 
 		$settingsData = [

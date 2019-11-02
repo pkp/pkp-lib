@@ -67,35 +67,22 @@ class ContextGridHandler extends GridHandler {
 		// Grid actions.
 		$router = $request->getRouter();
 
-		// Only show the add context button if the application allows another
-		// context to be created
-		$includeAddContext = true;
-		if (!Application::getAllowMultipleContexts()) {
-			$user = $request->getUser();
-			$contexts = Application::getContextDAO()->getAvailable($user ? $user->getId() : null);
-			if ($contexts && $contexts->getCount() > 0) {
-				$includeAddContext = false;
-			}
-		}
-
-		if ($includeAddContext) {
-			import('lib.pkp.classes.linkAction.request.AjaxModal');
-			$this->addAction(
-				new LinkAction(
-					'createContext',
-					new AjaxModal(
-						$router->url($request, null, null, 'createContext', null, null),
-						__('admin.contexts.create'),
-						'modal_add_item',
-						true,
-						'context',
-						['editContext']
-					),
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		$this->addAction(
+			new LinkAction(
+				'createContext',
+				new AjaxModal(
+					$router->url($request, null, null, 'createContext', null, null),
 					__('admin.contexts.create'),
-					'add_item'
-					)
-				);
-		}
+					'modal_add_item',
+					true,
+					'context',
+					['editContext']
+				),
+				__('admin.contexts.create'),
+				'add_item'
+			)
+		);
 
 		//
 		// Grid columns.

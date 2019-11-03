@@ -23,6 +23,12 @@
 	<message key="api.publication.403.cantEditPublished">Вы не можете редактировать эту публикацию, так как она уже опубликована.</message>
 	<message key="api.publication.403.cantEditStatus">Вы не можете изменить статус напрямую через API. Вместо этого используйте конечные точки /publish и /unpublish.</message>
 	<message key="api.publication.403.cantDeletePublished">Перед удалением публикации Вы должны снять её с публикации.</message>
+	<message key="api.publicFiles.400.extensionNotSupported">Вы можете загружать файлы только следующих типов: {$fileTypes}.</message>
+	<message key="api.publicFiles.400.invalidImage">Изображение, которое Вы загрузили, не является корректным.</message>
+	<message key="api.publicFiles.400.mimeTypeNotMatched">Файл, который Вы загрузили, не соответствует своему расширению. Такое может происходить в случае, когда файл был переименован с неправильным расширением, например, photo.png был переименован в photo.jpg.</message>
+	<message key="api.publicFiles.403.unauthorized">У Вас нет прав для загрузки файлов.</message>
+	<message key="api.publicFiles.413.noDirSpace">В Вашем пользовательском каталоге недостаточно места на диске. Файл, который Вы загружаете, имеет размер {$fileUploadSize}kb, а у Вас осталось на диске только {$dirSizeLeft}kb.</message>
+	<message key="api.publicFiles.500.badFilesDir">Не удалось найти каталог для общих файлов (public files) или не удается сохранить файл в этот каталог. Пожалуйста, свяжитесь с Вашим администратором, чтобы решить эту проблему.</message>
 	<message key="api.stats.400.wrongDateFormat">Дата должна быть в формате ГГГГ-ММ-ДД.</message>
 	<message key="api.stats.400.wrongDateRange">Дата начала не может быть позже даты окончания.</message>
 	<message key="api.stats.400.earlyDateRange">Дата начала не может быть ранее 2001-01-01.</message>

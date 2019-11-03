@@ -709,4 +709,5 @@
 	<message key="publication.version.all">Все версии</message>
 	<message key="publication.version.details">Информация о публикации для версии {$version}</message>
 	<message key="publication.wordCountLong">Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В данный момент её длина {$count} слов.</message>
+	<message key="publication.wordCount">Число слов: {$count}/{$limit}</message>
 </locale>

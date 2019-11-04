@@ -1,0 +1,1002 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-04T08:55:07-08:00\n"
+"PO-Revision-Date: 2019-11-04T08:55:07-08:00\n"
+"Language: \n"
+
+msgid "about.aboutSite"
+msgstr "关于本站"
+
+msgid "about.contact"
+msgstr "联系方式"
+
+msgid "about.contact.email"
+msgstr "电子邮件"
+
+msgid "about.contact.phone"
+msgstr "电话"
+
+msgid "about.contact.principalContact"
+msgstr "首要联系方式"
+
+msgid "about.contact.supportContact"
+msgstr "支持联系方式"
+
+msgid "about.other"
+msgstr "其他"
+
+msgid "about.people"
+msgstr "人员"
+
+msgid "about.policies"
+msgstr "政策"
+
+msgid "about.siteMap"
+msgstr "网站地图"
+
+msgid "announcement.announcements"
+msgstr "公告"
+
+msgid "announcement.announcementsHome"
+msgstr "公告"
+
+msgid "announcement.moreAnnouncements"
+msgstr "更多公告..."
+
+msgid "announcement.noneExist"
+msgstr "没有发布任何公告."
+
+msgid "announcement.posted"
+msgstr "已经提交"
+
+msgid "announcement.viewLink"
+msgstr "更多..."
+
+msgid "announcement.view"
+msgstr "浏览公告"
+
+msgid "common.action"
+msgstr "动作"
+
+msgid "common.active"
+msgstr "活动的"
+
+msgid "common.add"
+msgstr "添加"
+
+msgid "common.addSelf"
+msgstr "添加自己"
+
+msgid "common.all"
+msgstr "全部"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.alreadyAssigned"
+msgstr "已经指派"
+
+msgid "common.altText"
+msgstr "替换文本"
+
+msgid "common.and"
+msgstr "和"
+
+msgid "common.applyAction"
+msgstr "申请行动"
+
+msgid "common.assign"
+msgstr "指派"
+
+msgid "common.assigned"
+msgstr "已经指派"
+
+msgid "common.back"
+msgstr "返回"
+
+msgid "common.between"
+msgstr "之间"
+
+msgid "common.cancel"
+msgstr "取消"
+
+msgid "common.cancelled"
+msgstr "已经取消"
+
+msgid "common.captchaField.altText"
+msgstr "验证图片"
+
+msgid "common.captchaField.badCaptcha"
+msgstr "你输入的字符与图片中的不符合，请检查字符后再试."
+
+msgid "common.captchaField.description"
+msgstr "请输入出现在图片里的字母."
+
+msgid "common.captchaField"
+msgstr "验证"
+
+msgid "common.ccLicense"
+msgstr ""
+"<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\t 本作品遵循 <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  License 授权许可</a>."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\t本作品遵循 <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License 授权许可</a>.\n"
+"\t</div>"
+
+msgid "common.changesSaved"
+msgstr "您的变更已保存."
+
+msgid "common.chooseOne"
+msgstr "选择其一"
+
+msgid "common.close"
+msgstr "关闭"
+
+msgid "common.closeWindow"
+msgstr "关闭窗口"
+
+msgid "common.complete"
+msgstr "完成"
+
+msgid "common.completed"
+msgstr "已经完成"
+
+msgid "common.continue"
+msgstr "继续"
+
+msgid "common.country"
+msgstr "国家"
+
+msgid "common.create"
+msgstr "创建"
+
+msgid "common.dateCompleted"
+msgstr "完成日期"
+
+msgid "common.date"
+msgstr "日期"
+
+msgid "common.dateModified"
+msgstr "修改日期"
+
+msgid "common.dateRequested"
+msgstr "请求日期"
+
+msgid "common.dateSubmitted"
+msgstr "提交日期"
+
+msgid "common.dateUploaded"
+msgstr "上传日期"
+
+msgid "common.day"
+msgstr "天"
+
+msgid "common.default"
+msgstr "默认"
+
+msgid "common.delete"
+msgstr "删除"
+
+msgid "common.deleteSelection"
+msgstr "删除选择"
+
+msgid "common.description"
+msgstr "描述"
+
+msgid "common.disabled"
+msgstr "停用"
+
+msgid "common.discipline"
+msgstr "Discipline"
+
+msgid "common.done"
+msgstr "完成"
+
+msgid "common.download"
+msgstr "下载"
+
+msgid "common.edit"
+msgstr "编辑"
+
+msgid "common.enabled"
+msgstr "启用"
+
+msgid "common.error.databaseError"
+msgstr "发生了一个数据库错误: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "一个未知的数据库连接错误."
+
+msgid "common.error.framesRequired"
+msgstr "这个页面需要框架. <a href=\"{$url}\">点击这里</a>关闭框架."
+
+msgid "common.event"
+msgstr "事件"
+
+msgid "common.export"
+msgstr "导出"
+
+msgid "common.re"
+msgstr "回复:"
+
+msgid "common.false"
+msgstr "错误"
+
+msgid "common.file"
+msgstr "文件"
+
+msgid "common.fileName"
+msgstr "文件名"
+
+msgid "common.fileSize"
+msgstr "文件大小"
+
+msgid "common.fileType"
+msgstr "文件类型"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.height"
+msgstr "高度"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "首页头部Logo"
+
+msgid "common.hour"
+msgstr "小时"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "导入"
+
+msgid "common.initiate"
+msgstr "开始"
+
+msgid "common.inProgress"
+msgstr "进行"
+
+msgid "common.keywords"
+msgstr "关键词"
+
+msgid "common.language"
+msgstr "语言"
+
+msgid "common.languages"
+msgstr "语言"
+
+msgid "common.manage"
+msgstr "管理"
+
+msgid "common.mailingAddress"
+msgstr "邮件地址"
+
+msgid "common.minute"
+msgstr "分钟"
+
+msgid "common.modify"
+msgstr "修改"
+
+msgid "common.month"
+msgstr "月"
+
+msgid "common.noneAssigned"
+msgstr "没有指派"
+
+msgid "common.none"
+msgstr "无"
+
+msgid "common.no"
+msgstr "无"
+
+msgid "common.noComments"
+msgstr "无评论"
+
+msgid "common.notApplicable"
+msgstr "不适用"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "不适用"
+
+msgid "common.note"
+msgstr "注解"
+
+msgid "common.notes"
+msgstr "注解"
+
+msgid "common.off"
+msgstr "关闭"
+
+msgid "common.on"
+msgstr "启动"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "选项"
+
+msgid "common.order"
+msgstr "次序"
+
+msgid "common.originalFileName"
+msgstr "源文件名"
+
+msgid "common.or"
+msgstr "或"
+
+msgid "common.other"
+msgstr "其他"
+
+msgid "common.plugin"
+msgstr "插件"
+
+msgid "common.publisher"
+msgstr "出版社"
+
+msgid "common.record"
+msgstr "记录"
+
+msgid "common.related"
+msgstr "相关"
+
+msgid "common.remove"
+msgstr "删除"
+
+msgid "common.removeSelection"
+msgstr "删除选择"
+
+msgid "common.replaced"
+msgstr "替代"
+
+msgid "common.replaceFile"
+msgstr "替代文件"
+
+msgid "common.requiredField"
+msgstr "* 表示必须填写"
+
+msgid "common.required"
+msgstr "必须"
+
+msgid "common.saveAndContinue"
+msgstr "保存并继续"
+
+msgid "common.saveAndEmail"
+msgstr "保存并发送电子邮件"
+
+msgid "common.save"
+msgstr "保存"
+
+msgid "common.search"
+msgstr "搜索"
+
+msgid "common.second"
+msgstr "秒"
+
+msgid "common.selectAll"
+msgstr "选择全部"
+
+msgid "common.selectNone"
+msgstr "无选择"
+
+msgid "common.select"
+msgstr "选择"
+
+msgid "common.size"
+msgstr "大小"
+
+msgid "common.source"
+msgstr "源"
+
+msgid "common.status"
+msgstr "状态"
+
+msgid "common.subject"
+msgstr "主题"
+
+msgid "common.suggest"
+msgstr "建议"
+
+msgid "common.title"
+msgstr "标题"
+
+msgid "common.top"
+msgstr "顶部"
+
+msgid "common.true"
+msgstr "True"
+
+msgid "common.type"
+msgstr "类型"
+
+msgid "common.uninitiated"
+msgstr "未开始的"
+
+msgid "common.untitled"
+msgstr "未命名的"
+
+msgid "common.updated"
+msgstr "已上传的"
+
+msgid "common.upload"
+msgstr "上传"
+
+msgid "common.uploadFailed"
+msgstr "该文件无法上传。请重试或联系管理员如果问题仍然存在."
+
+msgid "common.up"
+msgstr "上"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "用户"
+
+msgid "common.view"
+msgstr "预览"
+
+msgid "common.weeks"
+msgstr "周"
+
+msgid "common.width"
+msgstr "宽"
+
+msgid "common.year"
+msgstr "年"
+
+msgid "common.yes"
+msgstr "是"
+
+msgid "debug.databaseQueries"
+msgstr "数据库查询数"
+
+msgid "debug.executionTime"
+msgstr "页面生成"
+
+msgid "debug.memoryUsage"
+msgstr "内存使用"
+
+msgid "debug.notes.localeListLoad"
+msgstr "从XML里载入语言环境列表 \"{$localeList}\""
+
+msgid "debug.notes.localeLoad"
+msgstr "从XML里载入语言环境列表 \"{$localeList}\""
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "缺少语言环境键值 \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "注释:"
+
+msgid "email.addAttachment"
+msgstr "添加附件"
+
+msgid "email.addBccRecipient"
+msgstr "添加暗抄送"
+
+msgid "email.addCcRecipient"
+msgstr "添加抄送"
+
+msgid "email.addToRecipient"
+msgstr "添加收件人"
+
+msgid "email.attachments"
+msgstr "附件"
+
+msgid "email.bcc"
+msgstr "暗抄送"
+
+msgid "email.bccSender"
+msgstr "发送一个信息的副本到我的邮箱 ({$address})"
+
+msgid "email.body"
+msgstr "内容"
+
+msgid "email.cc"
+msgstr "抄送"
+
+msgid "email.compose"
+msgstr "发送电子邮件"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "正在试图发送的信息有太多的收件人."
+
+msgid "email.compose.tooSoon"
+msgstr "您正试图发送邮件后，您的最后一个消息最近也被送到。请发送前等待另一条消息."
+
+msgid "email.email"
+msgstr "电子邮件"
+
+msgid "email.from"
+msgstr "从"
+
+msgid "email.invalid"
+msgstr "电子邮件地址 {$email}无效."
+
+msgid "email.multipart"
+msgstr "这是MIME格式的多部信息。"
+
+msgid "email.recipient"
+msgstr "收件人"
+
+msgid "email.recipients"
+msgstr "收件人"
+
+msgid "email.sender"
+msgstr "寄件人"
+
+msgid "email.send"
+msgstr "发送"
+
+msgid "email.skip"
+msgstr "跳过电子邮件"
+
+msgid "email.subject"
+msgstr "主题"
+
+msgid "email.to"
+msgstr "到"
+
+msgid "form.errorsOccurred"
+msgstr "错误发生在处理表单的过程中"
+
+msgid "form.formLanguage.description"
+msgstr "要输入其他语言的以下信息, 先选择的语言."
+
+msgid "form.formLanguage"
+msgstr "表单语言"
+
+msgid "form.contains"
+msgstr "包含"
+
+msgid "form.is"
+msgstr "是"
+
+msgid "form.startsWith"
+msgstr "始于"
+
+msgid "form.postRequired"
+msgstr "表格没有正确的提交."
+
+msgid "form.required"
+msgstr "(* 必填)"
+
+msgid "form.resubmit"
+msgstr "重新提交"
+
+msgid "form.saveToUpload"
+msgstr "使用保存上传文件."
+
+msgid "form.send"
+msgstr "发送"
+
+msgid "form.submit"
+msgstr "提交"
+
+msgid "help.contents"
+msgstr "内容"
+
+msgid "help.help"
+msgstr "帮助"
+
+msgid "help.helpIndex"
+msgstr "帮助索引"
+
+msgid "help.matchesFound"
+msgstr "{$matches} 找到的匹配"
+
+msgid "help.noMatchingTopics"
+msgstr "没有找到符合的帮助主题."
+
+msgid "help.relatedTopics"
+msgstr "相关主题"
+
+msgid "help.searchFor"
+msgstr "搜索帮助主题"
+
+msgid "help.searchResultsFor"
+msgstr "结果"
+
+msgid "help.searchResults"
+msgstr "检索结果"
+
+msgid "help.search"
+msgstr "搜索帮助"
+
+msgid "help.toc"
+msgstr "目录"
+
+msgid "help.upALevel"
+msgstr "上移一个级别"
+
+msgid "icon.checked.alt"
+msgstr "已经检查"
+
+msgid "icon.comment.alt"
+msgstr "评论"
+
+msgid "icon.delete.alt"
+msgstr "删除"
+
+msgid "icon.edit.alt"
+msgstr "编辑"
+
+msgid "icon.folder.alt"
+msgstr "文件夹"
+
+msgid "icon.font_large.alt"
+msgstr "大号"
+
+msgid "icon.font_medium.alt"
+msgstr "中号"
+
+msgid "icon.font_small.alt"
+msgstr "小号"
+
+msgid "icon.info.alt"
+msgstr "信息"
+
+msgid "icon.letter.alt"
+msgstr "字母"
+
+msgid "icon.mail.alt"
+msgstr "邮箱"
+
+msgid "icon.unchecked.alt"
+msgstr "未选中"
+
+msgid "icon.view.alt"
+msgstr "预览"
+
+msgid "locale.primary"
+msgstr "第一语言环境"
+
+msgid "locale.supported"
+msgstr "支持的语言环境"
+
+msgid "navigation.about"
+msgstr "关于我们"
+
+msgid "navigation.browse"
+msgstr "浏览"
+
+msgid "navigation.browseByTitle"
+msgstr "根据标题"
+
+msgid "navigation.dashboard"
+msgstr "操纵板"
+
+msgid "navigation.home"
+msgstr "首页"
+
+msgid "navigation.infoForReaders"
+msgstr "给读者"
+
+msgid "navigation.infoForReaders.long"
+msgstr "给读者的信息"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} 的 {$total} 信息"
+
+msgid "navigation.login"
+msgstr "登录"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "N下一步"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "上一步"
+
+msgid "navigation.register"
+msgstr "注册"
+
+msgid "navigation.search"
+msgstr "搜索"
+
+msgid "navigation.stepNumber"
+msgstr "步骤： {$step}"
+
+msgid "navigation.userHome"
+msgstr "用户中心"
+
+msgid "navigation.user"
+msgstr "用户"
+
+msgid "notification.allow"
+msgstr "允许这些类型的通知出现在我的通知Feed."
+
+msgid "notification.confirmError"
+msgstr "确认您的订阅的时候发生一个错误."
+
+msgid "notification.confirmSuccess"
+msgstr "Y您已成功订阅."
+
+msgid "notification.noneExist"
+msgstr "在这个时间你还没有通知."
+
+msgid "notification.notification"
+msgstr "通知"
+
+msgid "notification.notifications"
+msgstr "通知"
+
+msgid "notification.settings"
+msgstr "通知设置"
+
+msgid "notification.settingsDescription"
+msgstr "选择您希望被通知的系统事件,取消选择的项目将阻止从您的通知订阅中显示该栏目."
+
+msgid "notification.reminderError"
+msgstr "发送您的密码的时候发生一个错误，请确认您已经正确输入电子邮件地址."
+
+msgid "notification.reminderSent"
+msgstr "您的新密码已经发送到提供的电子邮件地址."
+
+msgid "search.abstract"
+msgstr "摘要"
+
+msgid "search.author"
+msgstr "作者"
+
+msgid "search.coverage"
+msgstr "覆盖"
+
+msgid "search.date"
+msgstr "日期"
+
+msgid "search.dateFrom"
+msgstr "从"
+
+msgid "search.dateTo"
+msgstr "到"
+
+msgid "search.discipline"
+msgstr "学科"
+
+msgid "search.fullText"
+msgstr "全文"
+
+msgid "search.indexTerms"
+msgstr "索引项目"
+
+msgid "search.matchAll"
+msgstr "匹配所有类别"
+
+msgid "search.noKeywordError"
+msgstr "您必须至少输入一个搜索关键字."
+
+msgid "search.noResults"
+msgstr "没有结果"
+
+msgid "search.operator.and"
+msgstr "AND"
+
+msgid "search.operator.not"
+msgstr "NOT"
+
+msgid "search.operator.or"
+msgstr "OR"
+
+msgid "search.reviseSearch"
+msgstr "修改搜索"
+
+msgid "search.searchAllCategories"
+msgstr "搜索所有类别"
+
+msgid "search.searchCategories"
+msgstr "搜索类别"
+
+msgid "search.searchResults"
+msgstr "搜索结果"
+
+msgid "search.subject"
+msgstr "关键词"
+
+msgid "search.titleIndex"
+msgstr "浏览标题索引"
+
+msgid "search.title"
+msgstr "标题"
+
+msgid "search.typeMethodApproach"
+msgstr "类型 (method/approach)"
+
+msgid "common.copy"
+msgstr "复制"
+
+msgid "common.preview"
+msgstr "预览"
+
+msgid "common.activate"
+msgstr "激活"
+
+msgid "common.deactivate"
+msgstr "停用"
+
+msgid "common.disable"
+msgstr "禁止"
+
+msgid "common.enable"
+msgstr "激活"
+
+msgid "common.fullscreen"
+msgstr "全屏"
+
+msgid "common.fullscreenOff"
+msgstr "关闭全屏"
+
+msgid "common.pluginEnabled"
+msgstr "插件\"{$pluginName}\"已经被启用"
+
+msgid "common.pluginDisabled"
+msgstr "插件\"{$pluginName}\"已经被禁用"
+
+msgid "common.refresh"
+msgstr "刷新"
+
+msgid "common.loading"
+msgstr "载入..."
+
+msgid "announcement.postedOn"
+msgstr "发布与 {$postDate}"
+
+msgid "common.accepted"
+msgstr "接受"
+
+msgid "common.warning"
+msgstr "警告"
+
+msgid "common.confirm"
+msgstr "确认"
+
+msgid "common.content"
+msgstr "内容"
+
+msgid "common.finish"
+msgstr "完成"
+
+msgid "common.less"
+msgstr "少于"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.more"
+msgstr "更多"
+
+msgid "common.noMatches"
+msgstr "无符合记录"
+
+msgid "common.reminder"
+msgstr "提醒"
+
+msgid "common.billingAddress"
+msgstr "帐单地址（如不同）"
+
+msgid "common.overdue"
+msgstr "逾期"
+
+msgid "common.remote"
+msgstr "远程"
+
+msgid "common.remoteURL"
+msgstr "远程URL"
+
+msgid "common.signoff"
+msgstr "退出"
+
+msgid "common.element"
+msgstr "元素"
+
+msgid "common.unread"
+msgstr "未读"
+
+msgid "navigation.system"
+msgstr "系统"
+
+msgid "navigation.userManagement"
+msgstr "用户管理"
+
+msgid "common.plugins"
+msgstr "插件"
+
+msgid "email.bodyRequired"
+msgstr "请提供电子邮件的正文文本"
+
+msgid "form.confirmSubmit"
+msgstr "你确定你要提交这个表单吗？"
+
+msgid "form.confirmSubmit.title"
+msgstr "确认"
+
+msgid "form.emailRequired"
+msgstr "电子邮件地址是必需的."
+
+msgid "navigation.data"
+msgstr "数据"
+
+msgid "navigation.publicMenu"
+msgstr "公共菜单"
+
+msgid "navigation.settings"
+msgstr "设置"
+
+msgid "navigation.setup"
+msgstr "设置"
+
+msgid "navigation.sitemap"
+msgstr "网站地图"
+
+msgid "navigation.submissions"
+msgstr "投稿"
+
+msgid "email.subjectRequired"
+msgstr "请提供一个电子邮件的主题"
+
+msgid "form.dataHasChanged"
+msgstr "这个表单的数据已经改变。继续吗？"
+
+msgid "form.invalidImage"
+msgstr "无效的图像上传,允许的格式有.png,.gif,或者.jpg"
+
+msgid "common.go"
+msgstr "进入"
+
+msgid "navigation.access"
+msgstr "用户&amp;角色"
+
+msgid "navigation.admin"
+msgstr "管理"
+
+msgid "navigation.browseByAuthor"
+msgstr "按作者"
+
+msgid "common.declined"
+msgstr "拒绝"
+
+msgid "common.notified"
+msgstr "通知的"
+
+msgid "common.reset"
+msgstr "重置"
+
+msgid "common.acknowledged"
+msgstr "已确认"
+
+msgid "semicolon"
+msgstr "{$label}:"

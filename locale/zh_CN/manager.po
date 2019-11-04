@@ -1,0 +1,606 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
+"PO-Revision-Date: 2019-11-04T08:55:35-08:00\n"
+"Language: \n"
+
+msgid "manager.announcements"
+msgstr "公告"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "您确定要永久删除此公告?"
+
+msgid "manager.announcements.create"
+msgstr "创建新的公告"
+
+msgid "manager.announcements.createTitle"
+msgstr "创建"
+
+msgid "manager.announcements.dateExpire"
+msgstr "到期"
+
+msgid "manager.announcements.edit"
+msgstr "编辑公告"
+
+msgid "manager.announcements.editTitle"
+msgstr "编辑"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "根据到期日期请选择一个年和（或）月份."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "到期日期"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "在这个日期之前公告将正常显示给读者，若是留空的公告的显示没有限期.."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "根据到期月份请选择一个年和（或）日."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "请选择一个有效的公告期满之日."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "根据到期日年选择一个月份和（或）日."
+
+msgid "manager.announcements.form.description"
+msgstr "描述"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "公告的全文."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "公告的描述是必须的."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "简要的说明出现在公告的标题下."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "一个简短的公告说明是必须的."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "简短的描述"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "保存并创建其他的"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "公告标题是必须的."
+
+msgid "manager.announcements.form.title"
+msgstr "标题"
+
+msgid "manager.announcements.form.typeId"
+msgstr "类别"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "请选择一个有效的公告类别."
+
+msgid "manager.announcements.noneCreated"
+msgstr "没有公告已创建."
+
+msgid "manager.announcements.title"
+msgstr "标题"
+
+msgid "manager.announcements.type"
+msgstr "类别"
+
+msgid "manager.announcementTypes"
+msgstr "公告类别"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "警告! 所有相关公告类别的公告都将被删除.您确认删除这个公告类别并继续吗?"
+
+msgid "manager.announcementTypes.create"
+msgstr "创建公告类别"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "创建"
+
+msgid "manager.announcementTypes.edit"
+msgstr "编辑公告类别"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "编辑"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "保存并创建其他"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "具有此名称的公告类别已经存在."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "名称"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "一个公告类别是必须的."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "没有公告类别已经创建."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "公告类别"
+
+msgid "manager.emails.confirmDelete"
+msgstr "你确定要删除此电子邮件范本?"
+
+msgid "manager.emails.confirmReset"
+msgstr "你确定要以默认值重置此电子邮件模板?"
+
+msgid "manager.emails.createEmail"
+msgstr "创建邮件"
+
+msgid "manager.emails.disable"
+msgstr "禁用"
+
+msgid "manager.emails.editEmail"
+msgstr "编辑电子邮件"
+
+msgid "manager.emails.editTestExample"
+msgstr "编辑电子邮件测试例子"
+
+msgid "manager.emails.emailKey"
+msgstr "电子邮件键"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "一个给定的电子邮件键已经存在，电子邮件键必须是唯一的."
+
+msgid "manager.emails.emailTemplate"
+msgstr "电子邮件模板"
+
+msgid "manager.emails.enabled"
+msgstr "启用此电子邮件模板"
+
+msgid "manager.emails.enable"
+msgstr "启用"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "一个唯一的电子邮件键是必须的."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "这个电子邮件的内容是必须的."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "这个电子邮件的主题是必须的."
+
+msgid "manager.emails"
+msgstr "编写电子邮件"
+
+msgid "manager.emails.reset"
+msgstr "重置"
+
+msgid "manager.emails.resetToDefault"
+msgstr "重置到默认"
+
+msgid "manager.filesBrowser"
+msgstr "文件浏览"
+
+msgid "manager.files.confirmDelete"
+msgstr "删除这个文件或者目录？请注意要删除的目录是否为空."
+
+msgid "manager.files.createDir"
+msgstr "创建目录"
+
+msgid "manager.files.emptyDir"
+msgstr "这个目录下没有找到文件."
+
+msgid "manager.files.indexOfDir"
+msgstr "目录{$dir} 索引"
+
+msgid "manager.files.parentDir"
+msgstr "父目录"
+
+msgid "manager.files.uploadedFiles"
+msgstr "已经上传的文件"
+
+msgid "manager.files.uploadFile"
+msgstr "上传文件"
+
+msgid "manager.groups.confirmDelete"
+msgstr "您确认要删除这个群组?"
+
+msgid "manager.groups.createTitle"
+msgstr "创建标题"
+
+msgid "manager.groups.editTitle"
+msgstr "编辑标题"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "群组标题是必须的."
+
+msgid "manager.groups.membership.addMember"
+msgstr "添加成员"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "你确定要删除此组成员?"
+
+msgid "manager.groups.membership"
+msgstr "会籍"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "这个群组没有会员."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "没有用户被发现."
+
+msgid "manager.groups.title"
+msgstr "标题"
+
+msgid "manager.importExport"
+msgstr "导入／导出 数据"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "这个系统可以选择性地允许某些重要信息，以额外的两个语言进行输入。要使用这个功能，请选择一个或两个额外的语系，并从下面列出的选项进行选择。"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "选择支持本站的所有语系，可透过一个出现在每个页面上的语言选单来加以选择。只有在选择了两个语系以上的时候，这个选单才会显示出来。"
+
+msgid "manager.payment.timestamp"
+msgstr "时间戳"
+
+msgid "manager.people.authSource"
+msgstr "验证源"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "取消注册这个用户?"
+
+msgid "manager.people.createUser"
+msgstr "创建新的用户"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "生成一个随机密码."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "发送给用户一个包含用户名和密码的欢迎电子邮件."
+
+msgid "manager.people.disable"
+msgstr "禁止"
+
+msgid "manager.people.doNotEnroll"
+msgstr "没有角色"
+
+msgid "manager.people.editProfile"
+msgstr "编辑帐户信息"
+
+msgid "manager.people.editUser"
+msgstr "编辑用户"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "发送电子邮件给选择的用户"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "发送电子邮件以注册为"
+
+msgid "manager.people.emailUsers"
+msgstr "发送电子邮件给用户"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "选择一个语言环境"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "通过点选他们名字边上的框，来确定您要发送的电子邮件的用户."
+
+msgid "manager.people.enable"
+msgstr "激活"
+
+msgid "manager.people.enroll"
+msgstr "注册用户"
+
+msgid "manager.people.enrollment"
+msgstr "注册"
+
+msgid "manager.people.enrollSelected"
+msgstr "注册选择的用户"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "同步角色"
+
+msgid "manager.people.enrollSync"
+msgstr "同步注册"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "用户可以被指派，或者从角色中删除."
+
+msgid "manager.people.enrollUserAs"
+msgstr "注册用户为"
+
+msgid "manager.people.invalidUser"
+msgstr "抱歉，请求的用户不存在."
+
+msgid "manager.people.mergeUser"
+msgstr "合并用户"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "您确认合并帐户名为 \"{$oldUsername}\" 到帐户名为 \"{$newUsername}\"? 帐户名为 \"{$oldUsername}\" 将不再存在，这个操作不可恢复."
+
+msgid "manager.people.mergeUsers"
+msgstr "合并用户"
+
+msgid "manager.people.mustChooseRole"
+msgstr "请在点击“注册用户”之前选择一个在页面顶部的角色."
+
+msgid "manager.people.mustProvideName"
+msgstr "请首先提供一个姓氏给用户."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "没有符合的用户."
+
+msgid "manager.people.noneEnrolled"
+msgstr "没有注册的用户."
+
+msgid "manager.people"
+msgstr "成员"
+
+msgid "manager.people.remove"
+msgstr "删除"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "保存并创建其他"
+
+msgid "manager.people.signInAs"
+msgstr "登录为"
+
+msgid "manager.people.signInAsUser"
+msgstr "登录为用户"
+
+msgid "manager.people.syncUsers"
+msgstr "同步用户注册"
+
+msgid "manager.people.unenroll"
+msgstr "取消注册"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "用户成功创建."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "要求用户在下一次登入的时候更改密码."
+
+msgid "manager.plugins.action"
+msgstr "活动:"
+
+msgid "manager.plugins.disable"
+msgstr "禁止"
+
+msgid "manager.plugins.enable"
+msgstr "激活"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "插件管理"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "这是整个网站的插件。只有网站管理员可以管理此插件."
+
+msgid "manager.plugins"
+msgstr "系统插件"
+
+msgid "manager.readingTools"
+msgstr "阅读工具"
+
+msgid "manager.roles"
+msgstr "角色"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "无效的首页图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "无效的首页头部标题图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "日志记录与审计"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "无效的页面头部Logo图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
+
+msgid "manager.setup.selectOne"
+msgstr "选择"
+
+msgid "manager.statistics"
+msgstr "状态 &amp; 报告"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} new)"
+
+msgid "manager.users"
+msgstr "用户"
+
+msgid "plugins.categories.auth"
+msgstr "验证插件"
+
+msgid "plugins.categories.blocks"
+msgstr "单元插件"
+
+msgid "plugins.categories.blocks.description"
+msgstr "单元插件是可插入的UI组件，例如各种边栏工具."
+
+msgid "plugins.categories.gateways.description"
+msgstr "网关插件提供实时数据到外部系统."
+
+msgid "plugins.categories.gateways"
+msgstr "网关插件"
+
+msgid "plugins.categories.generic"
+msgstr "通用插件"
+
+msgid "plugins.categories.importexport.description"
+msgstr "导入/导出插件可以用来与其他系统传输内容."
+
+msgid "plugins.categories.importexport"
+msgstr "导入／导出 插件"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "支付插件落实处理各种在线支付流程."
+
+msgid "plugins.categories.paymethod"
+msgstr "支付插件"
+
+msgid "plugins.categories.reports.description"
+msgstr "报告插件是用来实现各种形式的报告和数据提取."
+
+msgid "plugins.categories.reports"
+msgstr "报告插件"
+
+msgid "plugins.categories.themes.description"
+msgstr "主题插件用户更改系统显示样式."
+
+msgid "plugins.categories.themes"
+msgstr "主题插件"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "使用名字检索审稿人"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "审阅兴趣"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "在删除这个项目过程中发生了一个错误"
+
+msgid "manager.announcements.datePublish"
+msgstr "已出版"
+
+msgid "manager.emails.details"
+msgstr "模板详细"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "根据名字检索"
+
+msgid "manager.emails.data"
+msgstr "模板信息数据"
+
+msgid "manager.emails.disable.message"
+msgstr "你是要禁用此电子邮件模板。如果有使用此模板的系统进程，他们不会用它了。你要确认此操作？"
+
+msgid "manager.emails.enable.message"
+msgstr "你是即将启用此电子邮件。你要确认此操作？"
+
+msgid "manager.emails.resetAll.message"
+msgstr "如果您重置所有模板，所有的电子邮件模板的修改都将丢失。你要确认此操作？"
+
+msgid "manager.emails.reset.message"
+msgstr "如果重置这个模板，所有的消息数据将被重置为其默认值，失去了所有的修改。你要确认此操作？"
+
+msgid "plugins.categories.metadata"
+msgstr "元数据插件"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均值。"
+
+msgid "plugins.categories.metadata.description"
+msgstr "元数据插件采用附加的元数据标准。"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI源数据插件"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "这些格式插件表达OAI通信的元数据."
+
+msgid "manager.website"
+msgstr "网站"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "警告：将审稿表单元素类型从一个多选修改为开放式类型，会导致多选选项被删除。"
+
+msgid "manager.reviewFormElements"
+msgstr "表单项目"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "添加选择"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "多选框(你可以选择一个或者多个)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "选择项目类型"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "您确认删除正在使用中的审稿表单元素?"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "复制到:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "创建新项目"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "下拉框"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "编辑表单项目"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "项目类型"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "要求一个项目类型"
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "要求一个问题"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "没有表单项目被创建"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "选择"
+
+msgid "manager.reviewFormElements.question"
+msgstr "项目"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "单选框 (你只能选择一个)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "R要求审稿人完成项目"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "单字文本框"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "扩展文本框"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "单行文本框"
+
+msgid "manager.reviewForms"
+msgstr "审稿表单管理"
+
+msgid "manager.reviewForms.completed"
+msgstr "完成"
+
+msgid "manager.reviewForms.create"
+msgstr "创建审阅表单"
+
+msgid "manager.reviewForms.description"
+msgstr "描述"
+
+msgid "manager.reviewForms.edit"
+msgstr "审稿表单"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "审稿表单的标题是必须的。"
+
+msgid "manager.reviewForms.inReview"
+msgstr "审阅中"
+
+msgid "manager.reviewForms.list.description"
+msgstr "在这里创建的审稿表单是专门为审稿人准备的。在这里可以创建专门为期刊的某个栏目而设计的审稿表单，编辑可以在指派审稿的时候选择不同的表单。所有的表单都提供了一个选择功能，让编辑可以根据需要把审稿表单的内容与作者分享。"
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "None / Free Form Review"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "无已创建表单"
+
+msgid "manager.reviewForms.preview"
+msgstr "预览表单"
+
+msgid "manager.reviewForms.title"
+msgstr "名称"

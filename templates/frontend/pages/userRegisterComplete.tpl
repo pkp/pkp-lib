@@ -11,6 +11,9 @@
 
 <div class="page page_register_complete">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
+	<h1>
+		{translate key=$pageTitle}
+	</h1>
 	<p>
 		{translate key="user.login.registrationComplete.instructions"}
 	</p>

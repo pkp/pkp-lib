@@ -12,6 +12,9 @@
 
 <div class="page page_error">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
+	<h1>
+		{translate key=$pageTitle}
+	</h1>
 	<div class="description">
 		{translate key=$errorMsg params=$errorParams}
 	</div>

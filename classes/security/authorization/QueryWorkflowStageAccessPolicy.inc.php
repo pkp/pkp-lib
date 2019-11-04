@@ -37,6 +37,8 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy {
 		import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
 		$this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
+		// Extends UserAccessibleWorkflowStagePolicy in order to permit users with review assignments
+		// to access the reviews grid
 		import('lib.pkp.classes.security.authorization.internal.QueryUserAccessibleWorkflowStageRequiredPolicy');
 		$this->addPolicy(new QueryUserAccessibleWorkflowStageRequiredPolicy($request));
 
@@ -46,10 +48,6 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy {
 			$roleBasedPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $roleId, $operations));
 		}
 		$this->addPolicy($roleBasedPolicy);
-
-		// ... if they can access the requested workflow stage.
-		import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStagePolicy');
-		$this->addPolicy(new UserAccessibleWorkflowStagePolicy($stageId));
 	}
 }
 

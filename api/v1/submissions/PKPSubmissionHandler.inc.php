@@ -274,7 +274,7 @@ class PKPSubmissionHandler extends APIHandler {
 			switch ($param) {
 
 				case 'orderBy':
-					if (in_array($val, array('dateSubmitted', 'lastModified', 'title'))) {
+					if (in_array($val, array('dateSubmitted', 'dateLastActivity', 'lastModified', 'title'))) {
 						$returnParams[$param] = $val;
 					}
 					break;

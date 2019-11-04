@@ -32,11 +32,13 @@
 			</li>
 		{/if}
 		<li class="current" aria-current="page">
-			{if $currentTitleKey}
-				{translate key=$currentTitleKey}
-			{else}
-				{$currentTitle|escape}
-			{/if}
+			<span aria-current="page">
+				{if $currentTitleKey}
+					{translate key=$currentTitleKey}
+				{else}
+					{$currentTitle|escape}
+				{/if}
+			</span>
 		</li>
 	</ol>
 </nav>

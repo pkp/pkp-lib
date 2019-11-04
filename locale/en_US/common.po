@@ -1204,10 +1204,10 @@ msgid "stageParticipants.recommendOnly"
 msgstr "This participant is only allowed to recommend an editorial decision and will require an authorised editor to record editorial decisions."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Submission metadata edit permission."
+msgstr "Permissions"
 
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Allow submission metadata changes by this user"
+msgstr "Allow this person to edit the publication details."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Participant"

@@ -34,6 +34,13 @@ class AuthorReviewRevisionsGridHandler extends FileListGridHandler {
 
 		$this->setTitle('editor.submission.revisions');
 	}
+
+	/**
+	 * @copydoc GridHandler::getJSHandler()
+	 */
+	public function getJSHandler() {
+		return '$.pkp.controllers.grid.files.review.AuthorReviewRevisionsGridHandler';
+	}
 }
 
 

@@ -88,7 +88,7 @@ class PKPSubmissionHandler extends APIHandler {
 				[
 					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}',
 					'handler' => [$this, 'editPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
 				],
 				[
 					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/publish',
@@ -646,6 +646,7 @@ class PKPSubmissionHandler extends APIHandler {
 	public function editPublication($slimRequest, $response, $args) {
 		$request = $this->getRequest();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$currentUser = $request->getUser();
 		$publication = Services::get('publication')->get((int) $args['publicationId']);
 
 		if (!$publication) {
@@ -659,6 +660,12 @@ class PKPSubmissionHandler extends APIHandler {
 		// Publications can not be edited when they are published
 		if ($publication->getData('status') === STATUS_PUBLISHED) {
 			return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+		}
+
+		// Prevent users from editing publications if they do not have permission. Except for admins.
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $currentUser->getId())) {
+			return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
 		}
 
 		$params = $this->convertStringsToSchema(SCHEMA_PUBLICATION, $slimRequest->getParsedBody());

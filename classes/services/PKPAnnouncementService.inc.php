@@ -84,8 +84,8 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		if (!empty($args['contextIds'])) {
 			$announcementQB->filterByContextIds($args['contextIds']);
 		}
-		if (!empty($args['typeId'])) {
-			$announcementQB->filterByTypeIds($args['typseId']);
+		if (!empty($args['typeIds'])) {
+			$announcementQB->filterByTypeIds($args['typeIds']);
 		}
 
 		\HookRegistry::call('Announcement::getMany::queryBuilder', [$announcementQB, $args]);
@@ -144,20 +144,89 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
 		return $this->getProperties($announcement, $props, $args);
 	}
 
-	public function add($object, $request)
-	{
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityWriteInterface::validate()
+	 */
+	public function validate($action, $props, $allowedLocales, $primaryLocale) {
+		\AppLocale::requireComponents(
+			LOCALE_COMPONENT_PKP_MANAGER,
+			LOCALE_COMPONENT_APP_MANAGER
+		);
+		$schemaService = Services::get('schema');
 
+		import('lib.pkp.classes.validation.ValidatorFactory');
+		$validator = \ValidatorFactory::make(
+			$props,
+			$schemaService->getValidationRules(SCHEMA_ANNOUNCEMENT, $allowedLocales),
+			[
+				'dateExpire.date_format' => __('stats.dateRange.invalidDate'),
+			]
+		);
+
+		// Check required fields if we're adding a context
+		if ($action === VALIDATE_ACTION_ADD) {
+			\ValidatorFactory::required(
+				$validator,
+				$schemaService->getRequiredProps(SCHEMA_ANNOUNCEMENT),
+				$schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT),
+				$primaryLocale
+			);
+		}
+
+		// Check for input from disallowed locales
+		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_ANNOUNCEMENT), $allowedLocales);
+
+		// Don't allow an empty value for the primary locale of the title field
+		\ValidatorFactory::requirePrimaryLocale(
+			$validator,
+			['title'],
+			$props,
+			$allowedLocales,
+			$primaryLocale
+		);
+
+		if ($validator->fails()) {
+			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_ANNOUNCEMENT), $allowedLocales);
+		}
+
+		\HookRegistry::call('Announcement::validate', array(&$errors, $action, $props, $allowedLocales, $primaryLocale));
+
+		return $errors;
 	}
-	public function edit($object, $params, $request)
-	{
 
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
+	 */
+	public function add($announcement, $request) {
+		$announcement->setData('datePosted', Core::getCurrentDate());
+		DAORegistry::getDao('AnnouncementDAO')->insertObject($announcement);
+		\HookRegistry::call('Announcement::add', [$announcement, $request]);
+
+		return $announcement;
 	}
-	public function validate($action, $props, $allowedLocales, $primaryLocale)
-	{
 
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
+	 */
+	public function edit($announcement, $params, $request) {
+
+		$newAnnouncement = DAORegistry::getDAO('AnnouncementDAO')->newDataObject();
+		$newAnnouncement->_data = array_merge($announcement->_data, $params);
+
+		\HookRegistry::call('Announcement::edit', array($newAnnouncement, $announcement, $params, $request));
+
+		DAORegistry::getDAO('AnnouncementDAO')->updateObject($newAnnouncement);
+		$newAnnouncement = $this->get($newAnnouncement->getId());
+
+		return $newAnnouncement;
 	}
-	public function delete($object)
-	{
 
+	/**
+	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
+	 */
+	public function delete($announcement) {
+		\HookRegistry::call('Announcement::delete::before', array($announcement));
+		DAORegistry::getDao('AnnouncementDAO')->deleteObject($announcement);
+		\HookRegistry::call('Announcement::delete', array($announcement));
 	}
 }

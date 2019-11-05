@@ -37,6 +37,27 @@ class PKPAnnouncementHandler extends APIHandler {
 					'roles' => [ROLE_ID_MANAGER],
 				],
 			],
+			'POST' => [
+				[
+					'pattern' => $this->getEndpointPattern(),
+					'handler' => [$this, 'add'],
+					'roles' => [ROLE_ID_MANAGER],
+				],
+			],
+			'PUT' => [
+				[
+					'pattern' => $this->getEndpointPattern() . '/{announcementId}',
+					'handler' => [$this, 'edit'],
+					'roles' => [ROLE_ID_MANAGER],
+				],
+			],
+			'DELETE' => array(
+				array(
+					'pattern' => $this->getEndpointPattern() . '/{announcementId}',
+					'handler' => array($this, 'delete'),
+					'roles' => array(ROLE_ID_MANAGER),
+				),
+			),
 		];
 		parent::__construct();
 	}
@@ -145,5 +166,127 @@ class PKPAnnouncementHandler extends APIHandler {
 			'itemsMax' => Services::get('announcement')->getMax($params),
 			'items' => $items,
 		], 200);
+	}
+
+	/**
+	 * Add an announcement
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param array $args arguments
+	 *
+	 * @return Response
+	 */
+	public function add($slimRequest, $response, $args) {
+		$request = $this->getRequest();
+
+		if (!$request->getContext()) {
+			throw new Exception('You can not add an announcement without sending a request to the API endpoint of a particular context.');
+		}
+
+		$params = $this->convertStringsToSchema(SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
+		$params['assocType'] = Application::get()->getContextAssocType();
+		$params['assocId'] = $request->getContext()->getId();
+
+		$primaryLocale = $request->getContext()->getPrimaryLocale();
+		$allowedLocales = $request->getContext()->getSupportedLocales();
+		$errors = Services::get('announcement')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+
+		if (!empty($errors)) {
+			return $response->withStatus(400)->withJson($errors);
+		}
+
+		$announcement = DAORegistry::getDao('AnnouncementDAO')->newDataObject();
+		$announcement->_data = $params;
+		$announcement = Services::get('announcement')->add($announcement, $request);
+		$announcementProps = Services::get('announcement')->getFullProperties($announcement, [
+			'request' => $request,
+			'announcementContext' => $request->getContext(),
+		]);
+
+		return $response->withJson($announcementProps, 200);
+	}
+
+	/**
+	 * Edit an announcement
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param array $args arguments
+	 *
+	 * @return Response
+	 */
+	public function edit($slimRequest, $response, $args) {
+		$request = $this->getRequest();
+
+		$announcement = Services::get('announcement')->get((int) $args['announcementId']);
+
+		if (!$announcement) {
+			return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
+		}
+
+		if ($announcement->getData('assocType') !== Application::get()->getContextAssocType()) {
+			throw new Exception('Announcement has an assocType that did not match the context.');
+		}
+
+		// Don't allow to edit an announcement from one context from a different context's endpoint
+		if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
+			return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
+		}
+
+		$params = $this->convertStringsToSchema(SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+		$params['id'] = $announcement->getId();
+
+		$context = $request->getContext();
+		$primaryLocale = $context->getPrimaryLocale();
+		$allowedLocales = $context->getSupportedLocales();
+
+		$errors = Services::get('announcement')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+		if (!empty($errors)) {
+			return $response->withStatus(400)->withJson($errors);
+		}
+
+		$announcement = Services::get('announcement')->edit($announcement, $params, $request);
+
+		$announcementProps = Services::get('announcement')->getFullProperties($announcement, [
+			'request' => $request,
+			'announcementContext' => $context,
+		]);
+
+		return $response->withJson($announcementProps, 200);
+	}
+
+	/**
+	 * Delete an announcement
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param array $args arguments
+	 *
+	 * @return Response
+	 */
+	public function delete($slimRequest, $response, $args) {
+		$request = $this->getRequest();
+
+		$announcement = Services::get('announcement')->get((int) $args['announcementId']);
+
+		if (!$announcement) {
+			return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
+		}
+
+		if ($announcement->getData('assocType') !== Application::get()->getContextAssocType()) {
+			throw new Exception('Announcement has an assocType that did not match the context.');
+		}
+
+		// Don't allow to delete an announcement from one context from a different context's endpoint
+		if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
+			return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
+		}
+
+		$announcementProps = Services::get('announcement')->getSummaryProperties($announcement, array(
+			'request' => $request,
+			'announcementContext' => $request->getContext(),
+		));
+
+		Services::get('announcement')->delete($announcement);
+
+		return $response->withJson($announcementProps, 200);
 	}
 }

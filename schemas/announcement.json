@@ -2,8 +2,8 @@
 	"title": "Announcement",
 	"description": "An announcement or news item.",
 	"required": [
-		"assoc_type",
-		"assoc_id",
+		"assocType",
+		"assocId",
 		"title"
 	],
 	"properties": {

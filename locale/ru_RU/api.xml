@@ -29,6 +29,7 @@
 	<message key="api.publicFiles.403.unauthorized">У Вас нет прав для загрузки файлов.</message>
 	<message key="api.publicFiles.413.noDirSpace">В Вашем пользовательском каталоге недостаточно места на диске. Файл, который Вы загружаете, имеет размер {$fileUploadSize}kb, а у Вас осталось на диске только {$dirSizeLeft}kb.</message>
 	<message key="api.publicFiles.500.badFilesDir">Не удалось найти каталог для общих файлов (public files) или не удается сохранить файл в этот каталог. Пожалуйста, свяжитесь с Вашим администратором, чтобы решить эту проблему.</message>
+	<message key="api.submissions.403.userCantEdit">У Вас нет прав для редактирования этого материала.</message>
 	<message key="api.stats.400.wrongDateFormat">Дата должна быть в формате ГГГГ-ММ-ДД.</message>
 	<message key="api.stats.400.wrongDateRange">Дата начала не может быть позже даты окончания.</message>
 	<message key="api.stats.400.earlyDateRange">Дата начала не может быть ранее 2001-01-01.</message>

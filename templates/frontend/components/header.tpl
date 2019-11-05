@@ -36,6 +36,7 @@
 					<button class="pkp_site_nav_toggle">
 						<span>Open Menu</span>
 					</button>
+					<h1 class="pkp_screen_reader">{$displayPageHeaderTitle|escape}</h1>
 					{* Logo or site title. Only use <h1> heading on the homepage.
 						 Otherwise that should go to the page title. *}
 					<div class="pkp_site_name">
@@ -63,7 +64,6 @@
 						</a>
 					{/if}
 					</div>
-					<h1 class="pkpScreenReader">{$displayPageHeaderTitle|escape}</h1>
 				</div>
 
 				{* Primary site navigation *}

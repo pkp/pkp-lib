@@ -392,7 +392,7 @@
 	<message key="navigation.access"><![CDATA[Utilisateurs &amp; Rôles]]></message>
 	<message key="navigation.about">À propos</message>
 	<message key="navigation.admin">Administration</message>
-	<message key="navigation.archives">Archivées</message>
+	<message key="navigation.archives">Archives</message>
 	<message key="navigation.breadcrumbLabel">Vous êtes ici :</message>
 	<message key="navigation.breadcrumbSeparator">/</message>
 	<message key="navigation.tools">Outils</message>

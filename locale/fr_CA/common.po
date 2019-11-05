@@ -1229,7 +1229,7 @@ msgid "navigation.admin"
 msgstr "Administration"
 
 msgid "navigation.archives"
-msgstr "Archivées"
+msgstr "Archives"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "Vous êtes ici :"

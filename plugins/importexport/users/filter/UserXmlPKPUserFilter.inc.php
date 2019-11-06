@@ -152,8 +152,8 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 		// Password Import Validation
 		$password = $this->importUserPasswordValidation($user, $encryption);
 
-		$userByUsername = $userDao->getByUsername($user->getUsername(), false);
-		$userByEmail = $userDao->getUserByEmail($user->getEmail(), false);
+		$userByUsername = $userDao->getByUsername($user->getUsername(), true);
+		$userByEmail = $userDao->getUserByEmail($user->getEmail(), true);
 		// username and email are both required and unique, so either
 		// both exist for one and the same user, or both do not exist
 		if ($userByUsername && $userByEmail && $userByUsername->getId() == $userByEmail->getId()) {

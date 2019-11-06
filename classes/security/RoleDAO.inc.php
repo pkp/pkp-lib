@@ -102,7 +102,7 @@ class RoleDAO extends DAO {
 			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id)
 			' . $this->userDao->getFetchJoins() . '
-			WHERE ' . (isset($roleId) ? 'ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
+			WHERE 1=1' . (isset($roleId) ? ' AND ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
 			$paramArray,
 			$dbResultRange
 		);

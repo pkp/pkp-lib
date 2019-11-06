@@ -22,7 +22,8 @@
 	},
 	"require-dev": {
 		"facebook/webdriver": "~1.6",
-		"phpunit/phpunit": "~6"
+		"phpunit/phpunit": "~6",
+		"psy/psysh": "@stable"
 	},
 	"config": {
 		"component-dir": "lib/components",

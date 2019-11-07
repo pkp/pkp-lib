@@ -40,6 +40,7 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Assegnato</message>
 	<message key="common.altText">Testo alternativo</message>
+	<message key="common.altTextInstructions">Fornisci un testo alternativo all'immagine per assicurare l'accessibilità agli utenti con browser testuali o con dispositivi di supporto per la lettura</message>
 	<message key="common.and">e</message>
 	<message key="common.applyAction">Esegui azione</message>
 	<message key="common.assign">Assegnazione</message>
@@ -116,6 +117,7 @@
 	<message key="common.originalFileName">Nome originale del file</message>
 	<message key="common.or">o</message>
 	<message key="common.other">Altro</message>
+	<message key="common.pageHeaderLogo.altText">Logo per l'intestazione della pagina</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Editore</message>
 	<message key="common.record">Registra</message>
@@ -145,6 +147,7 @@
 	<message key="common.uninitiated">Non iniziato</message>
 	<message key="common.untitled">Senza titolo</message>
 	<message key="common.updated">Aggiornato</message>
+	<message key="common.uploadedFile">File caricato</message>
 	<message key="common.upload">Carica</message>
 	<message key="common.up">Su</message>
 	<message key="common.url">URL</message>
@@ -217,7 +220,7 @@
 	<message key="navigation.browse">Esplora</message>
 	<message key="navigation.browseByTitle">per titolo</message>
 	<message key="navigation.home">Home</message>
-	<message key="navigation.infoForReaders">per i lettori</message>
+	<message key="navigation.infoForReaders">Per i lettori</message>
 	<message key="navigation.infoForReaders.long">Informazioni per i lettori</message>
 	<message key="navigation.items">{$from} - {$to} di {$total} elementi</message>
 	<message key="navigation.login">Login</message>
@@ -309,6 +312,7 @@
 	<message key="common.remote">Remoto</message>
 	<message key="common.remoteURL">URL remota</message>
 	<message key="common.unread">Non letto</message>
+	<message key="common.invalidFileType">Nessun file caricato o tipo di file non valido!</message>
 	<message key="common.plugins">Plugin</message>
 	<message key="email.subjectRequired">Inserisci l'oggetto del messaggio</message>
 	<message key="email.bodyRequired">Inserisci un testo nel messaggio</message>
@@ -481,7 +485,6 @@
 	<message key="grid.action.deleteNotification">Cancella Task</message>
 
 	<message key="common.lessThan">{$value} o meno</message>
-	<message key="common.listSeparator">,</message>
 	<message key="common.moreThan">{$value} o più</message>
 	<message key="common.pagination">{$start}-{$end} di {$total}</message>
 	<message key="common.pagination.label">Scorri pagine addizionali</message>
@@ -544,6 +547,11 @@
 	<!-- List Handlers -->
 	<message key="list.viewMore">Mostra i dettagli al riguardo di {$name}</message>
 	<message key="list.viewLess">Nascondi i dettagli riguardo {$name}</message>
-	<message key="common.commaListSeparator">,</message>
-	<message key="common.semicolonListSeparator">;</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
+	<message key="common.dateDecided">Data stabilita</message>
+	<message key="common.pagination.goToPage">Vai a {$page}</message>
+	<message key="common.pagination.next">Pagina successiva</message>
+	<message key="common.pagination.previous">Pagina precedente</message>
+	<message key="email.compose.error">E' sorto un problema nell'invio di una notifica email. Riprova piu' tardi, o sontatta il tuo amministratore di sistema.</message>
 </locale>

@@ -976,7 +976,7 @@ msgid "submission.submit.submissionLocaleDescription"
 msgstr "Les soumissions dans plusieurs langues sont acceptées. Choisir la langue principale de la soumission parmi celles présentes dans le menu déroulant."
 
 msgid "submission.submit.submissionFiles"
-msgstr "Fichiers de soumission"
+msgstr "Fichiers de la soumission"
 
 msgid "submission.submit.dependentFiles"
 msgstr "Fichiers reliés"
@@ -1588,7 +1588,7 @@ msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Ce travail est disponible sous licence <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fr\">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International</a>.</p>"
 
 msgid "submission.queries.submission"
-msgstr "Discussions pré-évaluation"
+msgstr "Discussions préévaluation"
 
 msgid "submission.queries.review"
 msgstr "Discussions sur l'évaluation"

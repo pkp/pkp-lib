@@ -462,6 +462,7 @@ class FileManager {
 			case 'image/ico':
 				return '.ico';
 			case 'image/svg+xml':
+			case 'image/svg':
 				return '.svg';
 			case 'application/x-shockwave-flash':
 				return '.swf';

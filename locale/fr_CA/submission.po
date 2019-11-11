@@ -1162,7 +1162,7 @@ msgid "submission.upload.userGroupDescription"
 msgstr "S'il s'agit d'un volume édité par plusieurs auteurs-es, vous devriez téléverser tous les chapitres du volume individuellement, en tant qu'éditeur du volume."
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Téléverser un fichier bibliothèque"
+msgstr "Téléverser un fichier dans la bibliothèque"
 
 msgid "submission.upload.libraryCategory"
 msgstr "Catégorie de document"

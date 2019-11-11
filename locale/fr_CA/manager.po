@@ -1146,13 +1146,13 @@ msgid "settings.roles.stageIdRequired"
 msgstr "Vous devez préciser une étape qui sera assignée."
 
 msgid "settings.libraryFiles.fileRequired"
-msgstr "Un fichier bibliothèque est requis. Assurez-vous d'avoir choisi et téléversé un fichier."
+msgstr "Un fichier de la bibliothèque est requis. Assurez-vous d'avoir choisi et téléversé un fichier."
 
 msgid "settings.libraryFiles.nameRequired"
-msgstr "Vous devez donner un nom à ce fichier bibliothèque."
+msgstr "Vous devez donner un nom à ce fichier de la bibliothèque."
 
 msgid "settings.libraryFiles.typeRequired"
-msgstr "Un type de fichier est nécessaire pour ce fichier bibliothèque."
+msgstr "Un type de fichier est nécessaire pour ce fichier de la bibliothèque."
 
 msgid "settings.libraryFiles.category.contracts"
 msgstr "Contrats"
@@ -1173,7 +1173,7 @@ msgid "settings.libraryFiles.public.viewInstructions"
 msgstr "<p>Ce fichier peut être accessible pour téléchargement, si « Accès public » est activé pour :<blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Sélectionner le fichier bibliothèque à joindre"
+msgstr "Sélectionner le(s) fichier(s) de la bibliothèque à joindre"
 
 msgid "grid.action.addGenre"
 msgstr "Ajouter un élément"

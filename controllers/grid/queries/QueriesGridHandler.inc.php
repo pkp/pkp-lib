@@ -443,7 +443,7 @@ class QueriesGridHandler extends GridHandler {
 			'query' => $query,
 			'editAction' => $editAction,
 			'leaveQueryLinkAction' => $leaveQueryLinkAction,
-			'showLeaveQueryButton' => $showLeaveQueryButton,			
+			'showLeaveQueryButton' => $showLeaveQueryButton,
 		));
 		return new JSONMessage(true, $templateMgr->fetch('controllers/grid/queries/readQuery.tpl'));
 	}
@@ -600,7 +600,7 @@ class QueriesGridHandler extends GridHandler {
 		$user = Application::get()->getRequest()->getUser();
 		return in_array($user->getId(), $participantIds);
 
-	}	
+	}
 }
 
 

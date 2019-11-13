@@ -16,7 +16,6 @@ use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldRichTextarea;
 use \PKP\components\forms\FieldShowEnsuringLink;
 
-
 define('FORM_REVIEW_GUIDANCE', 'reviewerGuidance');
 
 class PKPReviewGuidanceForm extends FormComponent {
@@ -44,6 +43,8 @@ class PKPReviewGuidanceForm extends FormComponent {
 				'helpSection' => 'workflow-review-guidelines',
 				'isMultilingual' => true,
 				'value' => $context->getData('reviewGuidelines'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+				'plugins' => 'paste,link,lists',
 			]))
 			->addField(new FieldRichTextarea('competingInterests', [
 				'label' => __('manager.setup.competingInterests'),
@@ -51,6 +52,8 @@ class PKPReviewGuidanceForm extends FormComponent {
 				'helpSection' => 'workflow-review-interests',
 				'isMultilingual' => true,
 				'value' => $context->getData('competingInterests'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+				'plugins' => 'paste,link,lists',
 			]))
 			->addField(new FieldShowEnsuringLink('showEnsuringLink', [
 				'options' => [

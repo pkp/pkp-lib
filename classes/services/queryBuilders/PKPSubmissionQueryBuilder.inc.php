@@ -83,6 +83,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		import('classes.submission.SubmissionDAO');
 		if ($column === 'lastModified') {
 			$this->orderColumn = 's.last_modified';
+		} elseif ($column === 'dateLastActivity') {
+			$this->orderColumn = 's.date_last_activity';
 		} elseif ($column === 'title') {
 			$this->orderColumn = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
 		} elseif ($column === 'seq') {

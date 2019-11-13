@@ -12,6 +12,9 @@
 
 <div class="page page_message">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
+	<h1>
+		{translate key=$pageTitle}
+	</h1>
 	<div class="description">
 		{if $messageTranslated}
 			{$messageTranslated}

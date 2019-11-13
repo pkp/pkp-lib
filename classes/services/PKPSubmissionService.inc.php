@@ -691,7 +691,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	public function add($submission, $request) {
 		$submission->stampLastActivity();
 		$submission->stampModified();
-		if (!$submission->getData('dateSubmitted')) {
+		if (!$submission->getData('dateSubmitted') && !$submission->getData('submissionProgress')) {
 			$submission->setData('dateSubmitted', Core::getCurrentDate());
 		}
 		$submissionId = Application::get()->getSubmissionDAO()->insertObject($submission);
@@ -738,18 +738,43 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	}
 
 	/**
-	 * Check if a user can edit a submission's metadata
+	 * Check if a user can edit a publications metadata
 	 *
 	 * @param int $submissionId
 	 * @param int $userId
 	 * @return boolean
 	 */
-	public function canUserEditMetadata($submissionId, $userId) {
+	public function canEditPublication($submissionId, $userId) {
 		$stageAssignments = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null);
+		// Check for permission from stage assignments
 		while ($stageAssignment = $stageAssignments->next()) {
 			if ($stageAssignment->getCanChangeMetadata()) {
 				return true;
 			}
+		}
+		// If user has no stage assigments, check if user can edit anyway ie. is manager
+		$context = Application::get()->getRequest()->getContext();
+		if ($stageAssignments->wasEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)){
+			return true;
+		}
+		// Else deny access
+		return false;
+	}
+
+	/**
+	 * Check whether the user is by default allowed to edit publications metadata
+	 * @param $contextId int
+	 * @param $userId int
+	 * @return boolean true if the user is allowed to edit metadata by default
+	 */
+	private static function _canUserAccessUnassignedSubmissions($contextId, $userId) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roles = $roleDao->getByUserId($userId, $contextId);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$allowedRoles = $userGroupDao->getNotChangeMetadataEditPermissionRoles();
+		foreach ($roles as $role) {
+			if (in_array($role->getRoleId(), $allowedRoles))
+				return true;
 		}
 		return false;
 	}

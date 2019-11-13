@@ -122,6 +122,16 @@ class PKPTemplateManager extends Smarty {
 			'applicationName' => __($application->getNameKey()),
 		));
 
+		// Assign meta tags
+		if ($currentContext) {
+			$favicon = $currentContext->getLocalizedFavicon();
+			if (!empty($favicon)) {
+				$publicFileManager = new PublicFileManager();
+				$faviconDir = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId());
+				$this->addHeader('favicon', '<link rel="icon" href="' . $faviconDir . '/' . $favicon['uploadName'] . '">');
+			}
+		}
+
 		if (Config::getVar('general', 'installed')) {
 			$activeTheme = null;
 			$contextOrSite = $currentContext ? $currentContext : $request->getSite();
@@ -758,15 +768,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Allow plugins to load data within their own namespace
-		$pluginData = array();
-		HookRegistry::call('TemplateManager::registerJSLibraryData', array(&$pluginData));
-
-		if (!empty($pluginData) && is_array($pluginData)) {
-			$output .= '$.pkp.plugins = {};';
-			foreach($pluginData as $namespace => $data) {
-				$output .= $namespace . ' = ' . json_encode($data) . ';';
-			}
-		}
+		$output .= '$.pkp.plugins = {};';
 
 		// Load current user data
 		if (!Config::getVar('general', 'installed')) {

@@ -423,8 +423,8 @@
 	<message key="stageParticipants.notify.warning">Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в обсуждение кого-то, кроме себя.</message>
 	<message key="stageParticipants.options">Назначенные права</message>
 	<message key="stageParticipants.recommendOnly">Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами.</message>
-	<message key="stageParticipants.submissionEditMetadataOptions">Разрешение на редактирование метаданных материала.</message>
-	<message key="stageParticipants.canChangeMetadata">Разрешить изменять метаданные материала этому пользователю</message>
+	<message key="stageParticipants.submissionEditMetadataOptions">Разрешения</message>
+	<message key="stageParticipants.canChangeMetadata">Разрешить этому пользователю редактировать информацию о публикации.</message>
 	<message key="stageParticipants.selectedUser">Участник</message>
 	<message key="stageParticipants.noOptionsToHandle">Этому участнику нельзя внести изменения</message>
 

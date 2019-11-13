@@ -481,4 +481,43 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		}
 		return false;
 	}
+
+	/**
+	 * Check for roles that give access to the passed workflow stage.
+	 * @param int $userId
+	 * @param int $contextId
+	 * @param Submission $submission
+	 * @param int $stageId
+	 * @return array
+	 */
+	public function getAccessibleStageRoles($userId, $contextId, &$submission, $stageId) {
+		
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
+
+		$accessibleStageRoles = array();
+
+		// If unassigned, only managers and admins have access
+		if ($stageAssignmentsResult->wasEmpty()) {
+			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$userRoles = $roleDao->getByUserId($userId, $contextId);
+			foreach ($userRoles as $userRole) {
+				if (in_array($userRole->getId(), array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER))) {
+					$accessibleStageRoles[] = $userRole->getId();
+				}
+			}
+			$accessibleStageRoles = array_unique($accessibleStageRoles);
+		// Assigned users have access based on their assignment
+		} else {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			while ($stageAssignment = $stageAssignmentsResult->next()) {
+				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
+				$accessibleStageRoles[] = $userGroup->getRoleId();
+			}
+			$accessibleStageRoles = array_unique($accessibleStageRoles);
+		}
+
+		return $accessibleStageRoles;
+	}
+
 }

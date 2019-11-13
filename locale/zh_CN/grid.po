@@ -1,0 +1,477 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-04T08:55:21-08:00\n"
+"PO-Revision-Date: 2019-11-04T08:55:21-08:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "没有项目"
+
+msgid "grid.action.sort"
+msgstr "分类"
+
+msgid "grid.action.addItem"
+msgstr "添加项目"
+
+msgid "grid.action.delete"
+msgstr "删除"
+
+msgid "grid.action.edit"
+msgstr "编辑"
+
+msgid "grid.columns.actions"
+msgstr "行动"
+
+msgid "grid.columns.institution"
+msgstr "机构"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.sponsor.title"
+msgstr "主管"
+
+msgid "grid.contributor.title"
+msgstr "合作者"
+
+msgid "grid.settings"
+msgstr "设置"
+
+msgid "grid.action.remove"
+msgstr "删除"
+
+msgid "grid.action.approve"
+msgstr "同意"
+
+msgid "grid.action.decline"
+msgstr "还原"
+
+msgid "grid.action.moreInformation"
+msgstr "更多"
+
+msgid "grid.action.addAuthor"
+msgstr "添加作者"
+
+msgid "grid.reviewForm.title"
+msgstr "审查表单"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "文件"
+
+msgid "grid.submissionChecklist.title"
+msgstr "投稿检查列表"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "项目清单"
+
+msgid "author.users.contributor.name"
+msgstr "姓名"
+
+msgid "author.users.contributor.email"
+msgstr "电子邮件"
+
+msgid "author.users.contributor.role"
+msgstr "角色"
+
+msgid "author.users.contributor.principalContact"
+msgstr "主要联系人"
+
+msgid "grid.roles.add"
+msgstr "添加角色"
+
+msgid "grid.roles.stageAssignment"
+msgstr "阶段分配"
+
+msgid "grid.user.currentUsers"
+msgstr "当前用户"
+
+msgid "grid.user.currentEnrollment"
+msgstr "当前登记"
+
+msgid "grid.user.allRoles"
+msgstr "所有角色"
+
+msgid "grid.user.add"
+msgstr "添加用户"
+
+msgid "grid.user.enroll"
+msgstr "登记用户"
+
+msgid "grid.user.edit"
+msgstr "编辑用户"
+
+msgid "grid.user.email"
+msgstr "电子邮箱"
+
+msgid "grid.user.enable"
+msgstr "启用"
+
+msgid "grid.user.disable"
+msgstr "禁止"
+
+msgid "grid.user.step1"
+msgstr "第1步：填写用户详细"
+
+msgid "grid.user.step2"
+msgstr "第二步：用户角色添加到{$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "添加角色"
+
+msgid "grid.user.selectUser"
+msgstr "选择用户"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "请选择一个用户"
+
+msgid "grid.preparedEmails.title"
+msgstr "准备的电子邮件模板"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "当前列表"
+
+msgid "grid.plugin.allCategories"
+msgstr "所有类别"
+
+msgid "grid.plugin.disable"
+msgstr "你确定你要禁用这个插件吗?"
+
+msgid "grid.action.resetAll"
+msgstr "将所有项目重置为默认值"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "新建一个电子邮件模板"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "编辑此电子邮件模板"
+
+msgid "grid.action.disableEmail"
+msgstr "禁用此电子邮件模板"
+
+msgid "grid.action.resetEmail"
+msgstr "此电子邮件模板重置默认"
+
+msgid "grid.action.expandAll"
+msgstr "全部展开"
+
+msgid "grid.user.disableReason"
+msgstr "禁止用户的原因"
+
+msgid "grid.user.enableReason"
+msgstr "启用用户的原因"
+
+msgid "grid.action.addUser"
+msgstr "新建用户"
+
+msgid "grid.action.deleteFile"
+msgstr "删除文件"
+
+msgid "grid.action.deleteMedia"
+msgstr "删除媒体"
+
+msgid "grid.action.editMedia"
+msgstr "编辑媒体"
+
+msgid "grid.action.restoreDefaults"
+msgstr "恢复默认值"
+
+msgid "grid.action.editAuthor"
+msgstr "编辑作者"
+
+msgid "grid.action.deleteAuthor"
+msgstr "删除作者"
+
+msgid "grid.action.addAuditor"
+msgstr "新建一个作者"
+
+msgid "grid.action.upgrade"
+msgstr "升级"
+
+msgid "grid.action.order"
+msgstr "排序"
+
+msgid "grid.action.cancelOrdering"
+msgstr "取消排序"
+
+msgid "grid.action.extendAll"
+msgstr "延长所有"
+
+msgid "grid.action.collapse"
+msgstr "崩溃"
+
+msgid "grid.action.collapseAll"
+msgstr "全部崩溃"
+
+msgid "grid.action.wizard"
+msgstr "设置向导"
+
+msgid "grid.action.moveItem"
+msgstr "移动项目"
+
+msgid "grid.action.downloadFile"
+msgstr "下载文件"
+
+msgid "grid.action.downloadAll"
+msgstr "以压缩文档形式下载所有文件"
+
+msgid "grid.action.readReview"
+msgstr "阅读该审稿结果"
+
+msgid "grid.action.email"
+msgstr "发送邮件"
+
+msgid "grid.action.addReviewer"
+msgstr "添加审稿人"
+
+msgid "grid.action.addFile"
+msgstr "添加文件"
+
+msgid "grid.action.editFile"
+msgstr "编辑文件"
+
+msgid "grid.action.selectFiles"
+msgstr "选择管理文件"
+
+msgid "grid.action.requestRevisions"
+msgstr "要求对提交文章进行修改"
+
+msgid "grid.action.resubmit"
+msgstr "要求对提交文章进行重新提交"
+
+msgid "grid.action.accept"
+msgstr "接受提交"
+
+msgid "grid.action.internalReview"
+msgstr "将提交文章发送内审"
+
+msgid "grid.action.externalReview"
+msgstr "将提交文章发送外审"
+
+msgid "grid.action.sendToProduction"
+msgstr "将提交文章发送到生成"
+
+msgid "grid.action.settings"
+msgstr "设置"
+
+msgid "grid.action.importexport"
+msgstr "导入或导出内容或网站数据"
+
+msgid "grid.action.orderItems"
+msgstr "启用排序模式"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "编辑清单项目"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "消除清单项目"
+
+msgid "grid.action.requestAccount"
+msgstr "添加参与者"
+
+msgid "grid.action.expand"
+msgstr "扩展"
+
+msgid "grid.action.notify"
+msgstr "通知该用户"
+
+msgid "grid.action.addUserGroup"
+msgstr "添加新用户群"
+
+msgid "grid.action.editUserGroup"
+msgstr "编辑该用户群"
+
+msgid "grid.action.disable"
+msgstr "停用"
+
+msgid "grid.action.details"
+msgstr "查看该项目"
+
+msgid "grid.action.enrolExisting"
+msgstr "选择现有用户为审稿人"
+
+msgid "grid.action.selectCreate"
+msgstr "创立新审稿人"
+
+msgid "grid.action.advancedSearch"
+msgstr "高级搜索"
+
+msgid "grid.action.viewMetadata"
+msgstr "查看该提交文章的元数据"
+
+msgid "grid.action.sendReminder"
+msgstr "向用户发送任务提醒"
+
+msgid "grid.action.newRound"
+msgstr "创立新一轮"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "查看审查指南"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "查看竞争利益指南政策"
+
+msgid "grid.action.thankReviewer"
+msgstr "向审稿人发送感谢信"
+
+msgid "grid.action.uploadFile"
+msgstr "上传文件"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "添加公告类型"
+
+msgid "grid.action.addAnnouncement"
+msgstr "添加公告"
+
+msgid "grid.task.status.completed"
+msgstr "该任务完成"
+
+msgid "grid.task.status.new"
+msgstr "这是新项目需要您注意"
+
+msgid "grid.task.status.uploaded"
+msgstr "列标题标明该文件的上传者"
+
+msgid "grid.columns.auditor"
+msgstr "审计者"
+
+msgid "grid.columns.locale"
+msgstr "地点"
+
+msgid "grid.action.addSponsor"
+msgstr "添加赞助人"
+
+msgid "grid.action.deleteSponsor"
+msgstr "消除赞助人"
+
+msgid "grid.action.editSponsor"
+msgstr "编辑赞助人"
+
+msgid "grid.action.addSeries"
+msgstr "添加系列"
+
+msgid "grid.action.editSeries"
+msgstr "编辑系列"
+
+msgid "grid.action.deleteSeries"
+msgstr "消除系列"
+
+msgid "grid.action.addCategory"
+msgstr "添加范畴"
+
+msgid "grid.action.editCategory"
+msgstr "编辑范畴"
+
+msgid "grid.action.deleteCategory"
+msgstr "消除范畴"
+
+msgid "grid.action.addContributor"
+msgstr "添加合著者"
+
+msgid "grid.action.editContributor"
+msgstr "编辑合著者"
+
+msgid "grid.action.deleteContributor"
+msgstr "消除合著者"
+
+msgid "grid.genres.title"
+msgstr "体裁"
+
+msgid "grid.genres.description"
+msgstr "这些体裁用以对文件命名，并配置在上传文件的下拉清单中。指定的体裁## 允许用户将文件同整本书 99Z 关联或通过页码（如02）同特定章节进行关联。"
+
+msgid "grid.noFiles"
+msgstr "没有文件"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "提交信息库"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "社论信息库"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "审稿信息库"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "作品信息库"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "作品模板信息库"
+
+msgid "grid.roles.currentRoles"
+msgstr "当前角色"
+
+msgid "grid.user.error"
+msgstr "在管理该用户时遇到错误。请重试。"
+
+msgid "grid.user.errorEmail"
+msgstr "在发送邮件时遇到错误。请确保您的邮箱服务器的配置处于工作状态和/或联系您的系统管理员。"
+
+msgid "grid.user.cannotAdminister"
+msgstr "您没有足够的权限来编辑该用户。"
+
+msgid "grid.user.authSource"
+msgstr "验证源"
+
+msgid "grid.user.mustProvideName"
+msgstr "请首先至少提供该用户的姓氏。"
+
+msgid "grid.user.generatePassword"
+msgstr "生成密码"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "为用户生成随机密码"
+
+msgid "grid.user.notifyUser"
+msgstr "通知用户"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "向用户发送欢迎信。"
+
+msgid "grid.user.mustChangePassword"
+msgstr "更改密码"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "用户在下次登录时必须更改密码。"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "要求用户在下次登录时更改密码"
+
+msgid "grid.user.moreDetails"
+msgstr "更多用户详情"
+
+msgid "grid.user.lessDetails"
+msgstr "少量用户详情"
+
+msgid "grid.user.userDetails"
+msgstr "用户详情"
+
+msgid "grid.user.userRoles"
+msgstr "用户角色"
+
+msgid "grid.user.userNoRoles"
+msgstr "该用户没有任何角色。"
+
+msgid "grid.preparedEmails.description"
+msgstr "期刊通过预制邮件促进工作流程和交流。默认的这些邮件模板可以在下面简便地进行更改。"
+
+msgid "grid.action.mergeUser"
+msgstr "合并用户"
+
+msgid "grid.action.unassignUser"
+msgstr "取消指定用户"
+
+msgid "grid.action.history"
+msgstr "查看历史"
+
+msgid "grid.task.status.unfinished"
+msgstr "未完成的审稿"
+
+msgid "grid.task.status.reviewReady"
+msgstr "审稿完毕。点击左侧的通知按钮进行阅读。"

@@ -122,7 +122,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 					break;
 
 				case 'orderBy':
-					if (!in_array($val, array('dateSubmitted', 'lastModified', 'title'))) {
+					if (!in_array($val, array('dateSubmitted', 'dateLastActivity', 'lastModified', 'title'))) {
 						unset($params[$param]);
 					}
 					break;

@@ -1921,3 +1921,6 @@ msgstr "Publication details for version {$version}"
 
 msgid "publication.wordCountLong"
 msgstr "The abstract is too long. It shoud be {$limit} words or less. It is currently {$count} words long."
+
+msgid "publication.wordCount"
+msgstr "Word Count: {$count}/{$limit}"

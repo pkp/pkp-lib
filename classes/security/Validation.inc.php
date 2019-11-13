@@ -277,10 +277,15 @@ class Validation {
 	/**
 	 * Generate a random password.
 	 * Assumes the random number generator has already been seeded.
-	 * @param $length int the length of the password to generate (default 8)
+	 * @param $length int the length of the password to generate (default is site minimum)
 	 * @return string
 	 */
-	static function generatePassword($length = 8) {
+	static function generatePassword($length = null) {
+		if (!$length) {
+			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$site = $siteDao->getSite();
+			$length = $site->getMinPasswordLength();
+		}
 		$letters = 'abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
 		$numbers = '23456789';
 

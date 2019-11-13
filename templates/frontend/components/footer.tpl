@@ -25,7 +25,8 @@
 	{/if}
 </div><!-- pkp_structure_content -->
 
-<div id="pkp_content_footer" class="pkp_structure_footer_wrapper" role="contentinfo">
+<div class="pkp_structure_footer_wrapper" role="contentinfo">
+	<a id="pkp_content_footer"></a>
 
 	<div class="pkp_structure_footer">
 

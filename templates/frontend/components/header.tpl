@@ -24,8 +24,6 @@
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
-	{include file="frontend/components/skipLinks.tpl"}
-
 	<div class="pkp_structure_page">
 
 		{* Header *}
@@ -73,6 +71,9 @@
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 				{/capture}
 
+				<nav class="cmp_skip_to_content">
+					{include file="frontend/components/skipLinks.tpl"}
+				</nav>
 
 				<nav class="pkp_site_nav_menu" aria-label="{translate|escape key="common.navigation.site"}">
 					<div class="pkp_navigation_primary_row">
@@ -102,4 +103,5 @@
 			{assign var=hasSidebar value=0}
 		{/if}
 		<div class="pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-			<div id="pkp_content_main" class="pkp_structure_main" role="main">
+			<div class="pkp_structure_main" role="main">
+				<a id="pkp_content_main"></a>

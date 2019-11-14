@@ -205,7 +205,9 @@ class PKPStatsHandler extends Handler {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_USER,
 			LOCALE_COMPONENT_PKP_MANAGER,
-			LOCALE_COMPONENT_PKP_SUBMISSION
+			LOCALE_COMPONENT_APP_MANAGER,
+			LOCALE_COMPONENT_PKP_SUBMISSION,
+			LOCALE_COMPONENT_APP_SUBMISSION
 		);
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -232,7 +234,7 @@ class PKPStatsHandler extends Handler {
 		$activeSubmissionsValues = array_values($activeSubmissions);
 
 		$dateStart = $params['dateStart']->format('Y-m-d');
-		$dateEnd = $params['dateStart']->format('Y-m-d');
+		$dateEnd = $params['dateEnd']->format('Y-m-d');
 		$threeMonthsAgo = (new DateTimeImmutable('-91 days'))->format('Y-m-d');
 		$oneYearAgo = (new DateTimeImmutable('-12 months'))->format('Y-m-d');
 

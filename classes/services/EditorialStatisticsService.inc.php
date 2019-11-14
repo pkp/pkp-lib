@@ -232,27 +232,42 @@ class EditorialStatisticsService {
 	 */
 	public static function compileActiveSubmissions(SubmissionStatistics $statistics) : array
 	{
-		return [
-			self::ACTIVE_SUBMISSIONS_ACTIVE => [
-				'name' => __('manager.publication.submissionStage'),
-				'value' => $statistics->getActiveInSubmission()
-			],
-			self::ACTIVE_SUBMISSIONS_INTERNAL_REVIEW => [
-				'name' => __('workflow.review.internalReview'),
-				'value' => $statistics->getActiveInInternalReview(),
-			],
-			self::ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW => [
-				'name' => __('manager.statistics.editorial.externalReview'),
-				'value' => $statistics->getActiveInExternalReview(),
-			],
-			self::ACTIVE_SUBMISSIONS_COPYEDITING => [
-				'name' => __('submission.copyediting'),
-				'value' => $statistics->getActiveInCopyEditing(),
-			],
-			self::ACTIVE_SUBMISSIONS_PRODUCTION => [
-				'name' => __('manager.publication.productionStage'),
-				'value' => $statistics->getActiveInProduction(),
-			]
-		];
+		$activeSubmissions = [];
+		$supportedStages = \Application::getApplicationStages();
+		foreach ($supportedStages as $stageId) {
+			switch ($stageId) {
+				case WORKFLOW_STAGE_ID_SUBMISSION:
+					$activeSubmissions[self::ACTIVE_SUBMISSIONS_ACTIVE] = [
+						'name' => __('manager.publication.submissionStage'),
+						'value' => $statistics->getActiveInSubmission()
+					];
+					break;
+				case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+					$activeSubmissions[self::ACTIVE_SUBMISSIONS_INTERNAL_REVIEW] = [
+						'name' => __('workflow.review.internalReview'),
+						'value' => $statistics->getActiveInInternalReview()
+					];
+					break;
+				case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+					$activeSubmissions[self::ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW] = [
+						'name' => __('workflow.review.externalReview'),
+						'value' => $statistics->getActiveInExternalReview()
+					];
+					break;
+				case WORKFLOW_STAGE_ID_EDITING:
+					$activeSubmissions[self::ACTIVE_SUBMISSIONS_COPYEDITING] = [
+						'name' => __('submission.copyediting'),
+						'value' => $statistics->getActiveInCopyEditing()
+					];
+					break;
+				case WORKFLOW_STAGE_ID_PRODUCTION:
+					$activeSubmissions[self::ACTIVE_SUBMISSIONS_PRODUCTION] = [
+						'name' => __('manager.publication.productionStage'),
+						'value' => $statistics->getActiveInProduction()
+					];
+					break;
+			}
+		}
+		return $activeSubmissions;
 	}
 }

@@ -115,7 +115,7 @@ class EditorialReportComponentHandler extends PKPHandler {
 			],
 			'dateStart' => $this->_dateStart,
 			'dateEnd' => $this->_dateEnd,
-			'dateEndMax' => $this->_dateEndMax,
+			'dateEndMax' => date('Y-m-d', strtotime('yesterday')),
 			'dateRangeOptions' => $this->_dateRangeOptions,
 			'activeFilters' => [],
 			'isFilterVisible' => false,

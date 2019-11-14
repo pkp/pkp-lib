@@ -223,11 +223,11 @@ class SubmissionStatisticsQueryBuilder extends BaseQueryBuilder {
 					?,
 					('
 						. $capsule
-							->table('users AS u')
-							->whereNotNull('u.date_registered')
-							->orderBy('u.date_registered')
+							->table('submissions AS s')
+							->whereNotNull('s.date_submitted')
+							->orderBy('s.date_submitted')
 							->limit(1)
-							->select('u.date_registered')
+							->select('s.date_submitted')
 							->toSql()
 					. '),
 					CURRENT_TIMESTAMP

@@ -84,7 +84,6 @@ class ScheduledTaskHelper {
 		$isValid = true;
 		$taskDao = DAORegistry::getDAO('ScheduledTaskDAO'); /* @var $taskDao ScheduledTaskDAO */
 		$lastRunTime = $taskDao->getLastRunTime($className);
-
 		// Check day of week
 		$dayOfWeek = $frequency->getAttribute('dayofweek');
 		if (isset($dayOfWeek)) {

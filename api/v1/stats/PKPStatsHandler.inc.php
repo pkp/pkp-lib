@@ -17,6 +17,8 @@
 import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.ServicesContainer');
 
+use \PKP\Services\EditorialStatisticsService;
+
 class PKPStatsHandler extends APIHandler {
 
 	/**
@@ -24,21 +26,26 @@ class PKPStatsHandler extends APIHandler {
 	 */
 	public function __construct() {
 		$this->_handlerPath = 'stats';
-		$roles = array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER);
-		$this->_endpoints = array(
-			'GET' => array (
-				array(
+		$roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER];
+		$this->_endpoints = [
+			'GET' => [
+				[
 					'pattern' => $this->getEndpointPattern() . '/publishedSubmissions',
-					'handler' => array($this, 'getSubmissionList'),
+					'handler' => [$this, 'getSubmissionList'],
 					'roles' => $roles
-				),
-				array(
+				],
+				[
 					'pattern' => $this->getEndpointPattern() . '/publishedSubmissions/{submissionId}',
-					'handler' => array($this, 'getSubmission'),
+					'handler' => [$this, 'getSubmission'],
 					'roles' => $roles
-				),
-			),
-		);
+				],
+				[
+					'pattern' => $this->getEndpointPattern() . '/editorialReport',
+					'handler' => [$this, 'getEditorialReport'],
+					'roles' => $roles
+				]
+			]
+		];
 		parent::__construct();
 	}
 
@@ -80,14 +87,14 @@ class PKPStatsHandler extends APIHandler {
 
 		// Convert params passed to the api end point
 		// Merge query params over default params
-		$defaultParams = array(
+		$defaultParams = [
 			'count' => 30,
 			'offset' => 0,
 			'timeSegment' => 'month'
-		);
+		];
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
 
-		$params = array();
+		$params = [];
 		// Process query params to format incoming data as needed
 		foreach ($requestParams as $param => $val) {
 			switch ($param) {
@@ -110,7 +117,7 @@ class PKPStatsHandler extends APIHandler {
 					if (is_string($val) && strpos($val, ',') > -1) {
 						$val = explode(',', $val);
 					} elseif (!is_array($val)) {
-						$val = array($val);
+						$val = [$val];
 					}
 					$params[$param] = array_map('intval', $val);
 					break;
@@ -123,7 +130,7 @@ class PKPStatsHandler extends APIHandler {
 			}
 		}
 
-		\HookRegistry::call('API::stats::publishedSubmissions::params', array(&$params, $slimRequest));
+		\HookRegistry::call('API::stats::publishedSubmissions::params', [&$params, $slimRequest]);
 
 		// validate parameters
 		if (isset($params['dateStart'])) {
@@ -154,17 +161,17 @@ class PKPStatsHandler extends APIHandler {
 		$statsService = \ServicesContainer::instance()->get('stats');
 		$submissionsRecords = $statsService->getOrderedSubmissions($context->getId(), $params);
 
-		$data = $items = array();
+		$data = $items = [];
 		if (!empty($submissionsRecords)) {
-			$propertyArgs = array(
+			$propertyArgs = [
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 				'params' => $params
-			);
+			];
 			// get total stats data
 			$totalStatsRecords = $statsService->getTotalSubmissionsStats($context->getId(), $params);
 			$data = $statsService->getTotalStatsProperties($totalStatsRecords, $propertyArgs);
-			// get submission stats items
+			// get submissions stats items
 			$currentPageSubmissionsRecords = array_slice($submissionsRecords, isset($params['offset']) ? $params['offset'] : 0, $params['count']);
 			foreach ($currentPageSubmissionsRecords as $submissionsRecord) {
 				$publishedSubmissionDao = \Application::getPublishedSubmissionDAO();
@@ -174,11 +181,11 @@ class PKPStatsHandler extends APIHandler {
 				}
 			}
 		} else {
-			$data = array(
+			$data = [
 				'abstractViews' => 0,
 				'totalFileViews' => 0,
-				'timeSegments' => array()
-			);
+				'timeSegments' => []
+			];
 		}
 		$data['itemsMax'] = count($submissionsRecords);
 		$data['items'] = $items;
@@ -200,12 +207,12 @@ class PKPStatsHandler extends APIHandler {
 
 		// Convert params passed to the api
 		// Merge query params over default params
-		$defaultParams = array(
+		$defaultParams = [
 			'timeSegment' => 'month'
-		);
+		];
 		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
 
-		$params = array();
+		$params = [];
 		// Process query params to format incoming data as needed
 		foreach ($requestParams as $param => $val) {
 			switch ($param) {
@@ -217,7 +224,7 @@ class PKPStatsHandler extends APIHandler {
 			}
 		}
 
-		\HookRegistry::call('API::stats::publishedSubmission::params', array(&$params, $slimRequest));
+		\HookRegistry::call('API::stats::publishedSubmission::params', [&$params, $slimRequest]);
 
 		// validate parameters
 		if (isset($params['dateStart'])) {
@@ -247,22 +254,137 @@ class PKPStatsHandler extends APIHandler {
 
 		$data = ServicesContainer::instance()
 			->get('stats')
-			->getFullProperties($submission, array(
+			->getFullProperties($submission, [
 				'request' => $request,
-				'slimRequest' 	=> $slimRequest,
+				'slimRequest' => $slimRequest,
 				'params' => $params
-			));
+			]);
 
 		return $response->withJson($data, 200);
 	}
 
 	/**
-	 * Has the given date valid fromat YYYY-MM-DD
+	 * Retrieve an overview of all the active submissions, including yearly statistics
+	 * @param $slimRequest \Slim\Http\Request Request Slim request
+	 * @param $response APIResponse Response
+	 * @param $args array
+	 * @return APIResponse Response
+	 */
+	public function getEditorialReport(\Slim\Http\Request $slimRequest, APIResponse $response, array $args) : APIResponse
+	{
+		$request = \Application::getRequest();
+		$context = $request->getContext();
+
+		if (!$context) {
+			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+		}
+
+		AppLocale::requireComponents(
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_PKP_MANAGER,
+			LOCALE_COMPONENT_APP_MANAGER,
+			LOCALE_COMPONENT_PKP_SUBMISSION,
+			LOCALE_COMPONENT_APP_SUBMISSION
+		);
+
+		$params = [];
+		// Process query params to format incoming data as needed
+		foreach ($slimRequest->getQueryParams() as $param => $val) {
+			switch ($param) {
+				case 'dateStart':
+				case 'dateEnd':
+					$params[$param] = $val;
+					break;
+				case 'sectionIds':
+					// these are section IDs in OJS and series IDs in OMP
+					if (is_string($val) && strpos($val, ',') > -1) {
+						$val = explode(',', $val);
+					} elseif (!is_array($val)) {
+						$val = [$val];
+					}
+					$params[$param] = array_map('intval', $val);
+					break;
+			}
+		}
+
+		\HookRegistry::call('API::stats::editorialReport::params', [&$params, $slimRequest]);
+
+		// validate parameters
+		if (isset($params['dateStart'])) {
+			if (!$this->validDate($params['dateStart'])) {
+				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateFormat');
+			}
+			$params['dateStart'] = new \DateTimeImmutable($params['dateStart']);
+		}
+		if (isset($params['dateEnd'])) {
+			if (!$this->validDate($params['dateEnd'])) {
+				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateFormat');
+			}
+			$params['dateEnd'] = new \DateTimeImmutable($params['dateEnd']);
+		}
+		if (isset($params['dateStart']) && isset($params['dateEnd'])) {
+			if (!$this->validDateRange($params['dateStart']->format('c'), $params['dateEnd']->format('c'))) {
+				return $response->withStatus(400)->withJsonError('api.stats.400.wrongDateRange');
+			}
+		}
+
+		$paramsWithoutDateRange = array_diff_key($params, ['dateStart' => null, 'dateEnd' => null]);
+
+		$editorialStatisticsService = \ServicesContainer::instance()->get('editorialStatistics');
+
+		$statistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $paramsWithoutDateRange);
+		$rangedStatistics = $editorialStatisticsService->getSubmissionStatistics($context->getId(), $params);
+
+		$userStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $paramsWithoutDateRange);
+		$rangedUserStatistics = $editorialStatisticsService->getUserStatistics($context->getId(), $params);
+
+		$submissions = $editorialStatisticsService->compileSubmissions($rangedStatistics, $statistics);
+		$users = $editorialStatisticsService->compileUsers($rangedUserStatistics, $userStatistics);
+		$activeSubmissions = $editorialStatisticsService->compileActiveSubmissions($statistics);
+		$activeSubmissionsValues = array_values($activeSubmissions);
+
+		return $response->withJson([
+			'submissionsStage' => $activeSubmissionsValues,
+			'editorialChartData' => [
+				'labels' => array_map(function ($stage) {
+					return $stage['name'];
+				}, $activeSubmissionsValues),
+				'datasets' => [
+					[
+						'label' => __('stats.activeSubmissions'),
+						'data' => array_map(function ($stage) {
+							return $stage['value'];
+						}, $activeSubmissionsValues),
+						'backgroundColor' => array_map(function ($type) {
+							switch ($type) {
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_ACTIVE:
+									return '#d00a0a';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_INTERNAL_REVIEW:
+									return '#e05c14';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_EXTERNAL_REVIEW:
+									return '#e08914';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_COPYEDITING:
+									return '#007ab2';
+								case EditorialStatisticsService::ACTIVE_SUBMISSIONS_PRODUCTION:
+									return '#00b28d';
+							}
+							return '#' . substr(md5(rand()), 0, 6);
+						}, array_keys($activeSubmissions))
+					]
+				],
+			],
+			'editorialItems' => array_values($submissions),
+			'userItems' => array_values($users)
+		], 200);
+	}
+
+	/**
+	 * Has the given date valid format YYYY-MM-DD
 	 * @param $dateString string
 	 * @return boolean
 	 */
 	public function validDate($dateString) {
-		return preg_match('/(\d{4})-(\d{2})-(\d{2})/', $dateString, $matches) === 1;
+		return !!DateTimeImmutable::createFromFormat('Y-m-d', $dateString);
 	}
 
 	/**
@@ -290,5 +412,4 @@ class PKPStatsHandler extends APIHandler {
 		$lastNinetyDaysTimestamp = strtotime('-92 days');
 		return $dateTimestamp >= $lastNinetyDaysTimestamp;
 	}
-
 }

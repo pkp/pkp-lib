@@ -331,14 +331,13 @@ class Mail extends DataObject {
 	* @param $name string optional
 	*/
 	function addReplyTo($email, $name = '') {
-                if (($replyTos = $this->getData('replyTo')) == null) {
-                        $replyTos = array();
-                }
-                array_push($replyTos, array('name' => $name, 'email' => $email));
+		if (($replyTos = $this->getData('replyTo')) == null) {
+			$replyTos = array();
+		}
+		array_push($replyTos, array('name' => $name, 'email' => $email));
 
-                $this->setData('replyTo', $replyTo);
+		$this->setData('replyTo', $replyTo);
 	}
-
 
 	/**
 	 * Get the reply-to of the message.

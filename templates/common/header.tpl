@@ -109,6 +109,7 @@
 								<a href="#">{translate key="navigation.tools.statistics"}</a>
 								<ul>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="stats" op="publishedSubmissions"}">{translate key="common.publishedSubmissions"}</a></li>
+									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="stats" op="editorialReport"}">{translate key="manager.statistics.editorial"}</a></li>
 									<li><a href="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" anchor="statistics"}">{translate key="manager.statistics.reports"}</a></li>
 								</ul>
 							</li>

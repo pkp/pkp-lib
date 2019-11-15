@@ -74,7 +74,7 @@
 				<div class="pkpStatistics__table" role="region" aria-live="polite">
 					<div class="pkpStatistics__tableHeader">
 						<h3 class="pkpStatistics__tableTitle" id="usersDetailTableLabel">
-							{translate key="manager.setup.userRegistration"}
+							{translate key="manager.statistics.users.newUserSignups"}
 							<span v-if="isLoading" class="pkpSpinner" aria-hidden="true"></span>
 						</h3>
 					</div>

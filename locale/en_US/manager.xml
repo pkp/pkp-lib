@@ -192,6 +192,8 @@
 	<message key="manager.statistics.editorial.postReviewRejectionRate">Post-Review Reject Rate</message>
 	<message key="manager.statistics.editorial.otherRejectionRate">Other Reject Rate</message>
 	<message key="manager.statistics.editorial.registeredUsers">Registered Users</message>
+	<message key="manager.statistics.users.newUserSignups">New User Signups</message>
+	<message key="manager.statistics.users.allRoles">All Roles</message>
 
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.defaultMetricDescription">
@@ -586,7 +588,7 @@
 	<message key="grid.category.categoryDetails">Category Details</message>
 
 	<!-- Statistics -->
-	<message key="stats.activeSubmissions">Active Submissions</message>	
+	<message key="stats.activeSubmissions">Active Submissions</message>
 	<message key="stats.articlesOfTotal">{$count} of {$total} articles</message>
 	<message key="stats.daily">Daily</message>
 	<message key="stats.dateRange">Date Range</message>

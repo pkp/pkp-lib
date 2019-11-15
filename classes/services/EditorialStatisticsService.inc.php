@@ -85,7 +85,7 @@ class EditorialStatisticsService {
 	{
 		$userStatistics = [
 			self::USERS_ALL => [
-				'name' => __('manager.statistics.editorial.registeredUsers'),
+				'name' => __('manager.statistics.users.allRoles'),
 				'period' => $rangedStatistics->getRegistrations(),
 				'average' => round($statistics->getRegistrationsPerYear()),
 				'total' => $statistics->getRegistrations()
@@ -95,7 +95,6 @@ class EditorialStatisticsService {
 			$userStatistics[$roleId] = [
 				'name' => __($role),
 				'period' => $rangedStatistics->getRegistrationsByRole($roleId),
-				'average' => round($statistics->getRegistrationsByRolePerYear($roleId)),
 				'total' => $statistics->getRegistrationsByRole($roleId)
 			];
 		}
@@ -218,7 +217,6 @@ class EditorialStatisticsService {
 			$return[$key] = [
 				'name' => $name,
 				'period' => sprintf($format, $value($rangedStatistics, 'period')),
-				'average' => sprintf($format, $value($statistics, 'average')),
 				'total' => sprintf($format, $value($statistics, 'total'))
 			];
 		}

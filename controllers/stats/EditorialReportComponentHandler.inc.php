@@ -103,11 +103,6 @@ class EditorialReportComponentHandler extends PKPHandler {
 					'value' => 'period'
 				],
 				[
-					'name' => 'average',
-					'label' => __('common.average') . '/' . __('common.year'),
-					'value' => 'average'
-				],
-				[
 					'name' => 'total',
 					'label' => __('stats.total'),
 					'value' => 'total'

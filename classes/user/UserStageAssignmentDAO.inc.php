@@ -70,9 +70,20 @@ class UserStageAssignmentDAO extends UserDAO {
 	 * @return object DAOResultFactory
 	 */
 	function filterUsersNotAssignedToStageInUserGroup($submissionId, $stageId, $userGroupId, $name = null, $rangeInfo = null) {
-		$params = array((int) $submissionId, (int) $stageId, IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, (int) $userGroupId);
+		$site = Application::getRequest()->getSite();
+		$primaryLocale = $site->getPrimaryLocale();
+		$locale = AppLocale::getLocale();
+		$params = array(
+			(int) $submissionId,
+			(int) $stageId,
+			IDENTITY_SETTING_GIVENNAME, $primaryLocale,
+			IDENTITY_SETTING_FAMILYNAME, $primaryLocale,
+			IDENTITY_SETTING_GIVENNAME, $locale,
+			IDENTITY_SETTING_FAMILYNAME, $locale,
+			(int) $userGroupId,
+		);
 		if ($name !== null) {
-			$params = array_merge($params, array('%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%', '%'.(string) $name.'%'));
+			$params = array_merge($params, array_fill(0, 6, '%'.(string) $name.'%'));
 		}
 		$result = $this->retrieveRange(
 				'SELECT	u.*
@@ -80,13 +91,15 @@ class UserStageAssignmentDAO extends UserDAO {
 				LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
 				LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
 				JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
-				LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
-				LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
+				LEFT JOIN user_settings usgs_pl ON (usgs_pl.user_id = u.user_id AND usgs_pl.setting_name = ? AND usgs_pl.locale = ?)
+				LEFT JOIN user_settings usfs_pl ON (usfs_pl.user_id = u.user_id AND usfs_pl.setting_name = ? AND usfs_pl.locale = ?)
+				LEFT JOIN user_settings usgs_l ON (usgs_l.user_id = u.user_id AND usgs_l.setting_name = ? AND usgs_l.locale = ?)
+				LEFT JOIN user_settings usfs_l ON (usfs_l.user_id = u.user_id AND usfs_l.setting_name = ? AND usfs_l.locale = ?)
 
 			WHERE	uug.user_group_id = ? AND
 				s.user_group_id IS NULL'
-				. ($name !== null ? ' AND (usgs.setting_value LIKE ? OR usfs.setting_value LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : '')
-			. ' ORDER BY usfs.setting_value',
+				. ($name !== null ? ' AND (usgs_pl.setting_value LIKE ? OR usgs_l.setting_value LIKE ? OR usfs_pl.setting_value LIKE ? OR usfs_l.setting_value LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : '')
+			. ' ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)',
 				$params,
 				$rangeInfo);
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');

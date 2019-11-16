@@ -47,9 +47,7 @@ class FormValidatorLength extends FormValidator {
 	 * @return string
 	 */
 	function getMessage() {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
-		$site = $siteDao->getSite();
-		return __($this->_message, array('length' => $site->getMinPasswordLength()));
+		return __($this->_message, array('length' => $this->_length));
 	}
 
 

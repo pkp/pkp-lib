@@ -333,7 +333,7 @@ msgid "editor.submission.newRound"
 msgstr "Nouveau cycle d'évaluation"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr "Enregistrement la décision éditoriale"
+msgstr "Enregistrement de la décision éditoriale"
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Enregistrer la recommandation éditoriale"

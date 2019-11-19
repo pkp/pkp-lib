@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Πληροφορίες λογαριασμού"
+
+msgid "user.affiliation"
+msgstr "Συνεργαζόμενο ίδρυμα"
+
+msgid "user.affiliation.description"
+msgstr "(Το ίδρυμά σας, π.χ. \"Πανεπιστήμιο Πατρών\")"
+
+msgid "user.affiliations"
+msgstr "Συνεργαζόμενα ιδρύματα"
+
+msgid "user.authorization.accessDenied"
+msgstr "Δεν επιτρέπεται η πρόσβαση."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Το αναγνωριστικό ταυτοποίησης της διαδικασίας λείπει ή δεν είναι έγκυρο."
+
+msgid "user.authorization.contextRequired"
+msgstr "Δεν μπορείτε να εκτελέσετε αυτή τη λειτουργία εκτός κάποιου μέσου έκδοσης (εκδοτικός οίκος, περιοδικό, συνέδριο κλπ)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Απαιτείται σύνδεση."
+
+msgid "user.authorization.privateOperation"
+msgstr "Η λειτουργία που προσπαθείτε να προσπελάσετε είναι διαβαθμισμένη ή δεν υπάρχει."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Δεν σας επιτράπηκε η πρόσβαση. Η πρόσβαση στον ιστότοπο αυτό είναι προς το παρόν περιορισμένη."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Ο υφιστάμενος ρόλος δεν έχει δικαίωμα πρόσβασης σε αυτή τη διαβαθμισμένη λειτουργία."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Δεν έχετε πρόσβαση σε αυτή τη λειτουργία για τη συγκεκριμένη υποβολή. Η λειτουργία είναι διαβαθμισμένη και δεν σας έχει ανατεθεί αντίστοιχος ρόλος."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Πρέπει να δημιουργήσετε μια έγκυρη ομάδα Χρηστών για να προσπελάσετε αυτή τη λειτουργία."
+
+msgid "user.authorization.managerRequired"
+msgstr "Ένας Χρήστης με διαχειριστικό ρόλο (πχ Επιμελητής Παραγωγής Δοκιμίων) πρέπει να ανατεθεί στο στάδιο αυτό για να μπορέσετε να συνεχίσετε."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτό το στάδιο της ροής εργασιών."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Ένα στάδιο της ροής εργασιών δεν καθορίστηκε."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Ένα Πρόσθετο δεν έχει καθοριστεί και απαιτείται."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτή την ανάθεση αξιολόγησης."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Δεν έχετε δικαίωμα πρόσβασης στη συζήτηση."
+
+msgid "user.biography"
+msgstr "Βιογραφικά στοιχεία"
+
+msgid "user.changeMyPassword"
+msgstr "Αλλαγή του προσωπικού μου κωδικού πρόσβασης"
+
+msgid "user.changePassword"
+msgstr "Αλλαγή κωδικού πρόσβασης"
+
+msgid "user.dateLastLogin"
+msgstr "Τελευταία σύνδεση"
+
+msgid "user.dateRegistered"
+msgstr "Ημερομηνία εγγραφής"
+
+msgid "user.editMyProfile"
+msgstr "Επεξεργασία του προφίλ μου"
+
+msgid "user.email"
+msgstr "Ηλεκτρονικό ταχυδρομείο"
+
+msgid "user.givenName"
+msgstr "Όνομα"
+
+msgid "user.interests"
+msgstr "Θεματικές ενδιαφέροντος για αξιολόγηση"
+
+msgid "user.interests.description"
+msgstr "(Διαχωρίστε τις θεματικές πατώντας enter ή με κόμμα"
+
+msgid "user.gossip"
+msgstr "Σημειώσεις"
+
+msgid "user.gossip.description"
+msgstr "Καταχωρήστε σημειώσεις για αυτόν τον Αξιολογητή, στις οποίες θα έχουν πρόσβαση οι Διαχειριστές και οι Επιμελητές. Οι σημειώσεις θα είναι ορατές σε μελλοντικές αναθέσεις αξιολόγησης."
+
+msgid "user.group"
+msgstr "Ομάδα Χρηστών"
+
+msgid "user.familyName"
+msgstr "Επίθετο"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Μη έγκυρος τύπος αρχείου εικόνας προφίλ ή μεγάλο μέγεθος εικόνας. Αποδεκτοί τύποι αρχείων είναι οι .gif, .jpg, .png. Το μέγεθος της εικόνας δεν πρέπει να υπερβαίνει τα 150x150 pixels."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Ο λογαριασμός σας έχει απενεργοποιηθεί για τον λόγο που ακολουθεί: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Ο λογαριασμός σας έχει απενεργοποιηθεί. Παρακαλούμε επικοινωνήστε με τον Διαχειριστή του συστήματος για περισσότερες πληροφορίες."
+
+msgid "user.login.accountNotValidated"
+msgstr "Σας έχει αποσταλεί ένα μήνυμα επιβεβαίωσης εγγραφής στη διεύθυνση {$email}.Παρακαλούμε ακολουθήστε τις οδηγίες του μηνύματος για να ενεργοποιήσετε τον λογαριασμό σας. Εάν δεν βλέπετε το μηύνμα στα εισερχόμενα, παρακαλούμε ελέγξτε τον φάκελο μηνυμάτων spam."
+
+msgid "user.login.activate"
+msgstr "Ενεργοποίηση λογαριασμού"
+
+msgid "user.login.activated"
+msgstr "Σας ευχαριστούμε για την ενεργοποίηση του λογαριασμού σας. Μπορείτε να συνδεθείτε στο σύστημα με το όνομα Χρήστη και τον κωδικό πρόσβασης που επιλέξατε κατά την δημιουργία του λογαριασμού σας."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Θα πρέπει να επιλέξετε ένα νέο κωδικό πρόσβασης για να συνδεθείτε σε αυτό τον ιστότοπο.<br /><br />Για την αλλαγή του κωδικού πρόσβασης, παρακαλούμε εισάγετε το όνομα Χρήστη, τον τρέχοντα και τον νέο κωδικό πρόσβασης παρακάτω."
+
+msgid "user.login.forgotPassword"
+msgstr "Ξεχάσατε τον προσωπικό σας κωδικό πρόσβασης;"
+
+msgid "user.login.loginError"
+msgstr "Μη έγκυρο όνομα Χρήστη ή κωδικος πρόσβασης. Παρακαλούμε προσπαθήστε ξανά."
+
+msgid "user.login"
+msgstr "Σύνδεση"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Ένα μήνυμα επιβεβαίωσης έχει σταλεί στο ηλεκτρονικό σας ταχυδρομείο. Παρακαλούμε ακολουθήστε τις οδηγίες του μηνύματος για να αλλάξετε τον προσωπικό σας κωδικό πρόσβασης."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Η σύνδεση έχει λήξει ή δεν είναι έγκυρη. Παρακαλούμε προσπαθήστε ξανά να αλλάξετε τον προσωπικό σας κωδικό πρόσβασης."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Δε βρέθηκε Χρήστης με τη συγκεκριμένη διεύθυνση ηλεκτρονικού ταχυδρομείου."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Ένας νέος κωδικός πρόσβασης έχει σταλεί στο ηλεκτρονικό σας ταχυδρομείο. Μπορείτε να συνδεθείτε στον ιστότοπο με την χρήση του νέου σας κωδικού."
+
+msgid "user.login.registeredEmail"
+msgstr "Ηλεκτρονικό ταχυδρομείο Χρήστη"
+
+msgid "user.login.registrationComplete"
+msgstr "Η εγγραφή ολοκληρώθηκε."
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Ευχαριστούμε για την εγγραφή! Οι επιλογές σας για τη συνέχεια:"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Προβολή υποβολών"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Νέα υποβολή"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Συνέχεια της πλοήγησης"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Αναμονή για επαλήθευση εγγραφής"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Απομνημόνευση του προσωπικού μου ονόματος Χρήστη και κωδικού πρόσβασης"
+
+msgid "user.login.resetPassword"
+msgstr "Αλλαγή του προσωπικού σας κωδικού πρόσβασης"
+
+msgid "user.logOut"
+msgstr "Αποσύνδεση"
+
+msgid "user.logOutAs"
+msgstr "Αποσύνδεση ως"
+
+msgid "user.hello"
+msgstr "Γειά σας,"
+
+msgid "user.mailingAddress"
+msgstr "Ταχυδρομική διεύθυνση"
+
+msgid "user.myAccount"
+msgstr "Ο Λογαριασμός μου"
+
+msgid "user.name"
+msgstr "Όνομα"
+
+msgid "user.password"
+msgstr "Κωδικός πρόσβασης"
+
+msgid "user.repeatPassword"
+msgstr "Επανάληψη κωδικού"
+
+msgid "user.phone"
+msgstr "Τηλέφωνο"
+
+msgid "user.preferredPublicName"
+msgstr "Τίτλος προτίμησής σας"
+
+msgid "user.preferredPublicName.description"
+msgstr "Τίτλοι, αξιώματα και άλλα ονόματα με τα οποία επιθυμείτε να σας απευθύνονται μπορούν να προστεθούν εδώ."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Για να αλλάξετε τον προσωπικό σας κωδικό πρόσβασης, καταχωρήστε τον τρέχοντα και τον νέο κωδικό πρόσβασης στα ακόλουθα πεδία."
+
+msgid "user.profile.editProfile"
+msgstr "Επεξεργασία προφίλ"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Απαιτείται η συμπλήρωση της χώρας εργασίας σας"
+
+msgid "user.profile.form.emailRequired"
+msgstr "Απαιτείται η συμπλήρωση μιας έγκυρης διεύθυνσης ηλεκτρονικού ταχυδρομείου."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Θα πρέπει να δηλώσετε τη σχέση σας με έναν φορέα/οργανισμό/ίδρυμα."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Απαραίτητο να συμπληρωθεί το όνομα."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Προσθέσατε το επίθετό σας σε μια επιπλέον γλώσσα. Παρακαλώ προσθέστε το όνομά σας στη γλώσσα αυτή."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Απαιτείται μια διεύθυνση ηλεκτρονικού ταχυδρομείου"
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Πρέπει να εισάγετε τον νέο σας κωδικό πρόσβασης."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Ο τρέχων κωδικός πρόσβασης που εισαγάγατε είναι λανθασμένος."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Ενημέρωση για τη δημοσίευση τευχών ανοικτής πρόσβασης"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Απαιτείται η συμπλήρωση ενός προσωπικού κωδικού πρόσβασης."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Ο νέος σας κωδικός πρόσβασης είναι ίδιος με τον παλιό."
+
+msgid "user.profile.form.profileImage"
+msgstr "Εικόνα προφίλ"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Ενημέρωση με μήνυμα για την δημοσίευση νέων τευχών"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Ο συγκεκριμένος σύνδεσμος URL δεν είναι έγκυρος. Επιλέξτε τον σύνδεσμο URL (διπλό κλικ) και ξαναπροσπαθήστε. (Συμβουλή: Προσθέστε το πρόθεμα http:// στην αρχή του συνδέσμου URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Απαιτείται μια ομάδα Χρηστών"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Απαιτείται η συμπλήρωση ενός ονόματος Χρήστη."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Πρέπει να αποδεχθείτε τους όρους της Πολιτικής Απορρήτου. "
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Αφήστε τα πεδία του κωδικού πρόσβασης κενά για να διατηρήσετε τον τρέχοντα κωδικό πρόσβασης."
+
+msgid "user.profile.newPassword"
+msgstr "Νέος κωδικός πρόσβασης"
+
+msgid "user.profile.oldPassword"
+msgstr "Τρέχων κωδικός πρόσβασης"
+
+msgid "user.profile"
+msgstr "Προφίλ"
+
+msgid "user.profile.publicProfile"
+msgstr "Προφίλ Χρήστη"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Επαναλάβετε τον νέο κωδικό πρόσβασης"
+
+msgid "user.login.registerNewAccount"
+msgstr "Εγγραφή"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Εισάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας παρακάτω και θα σας σταλεί ένα μήνυμα με οδηγίες για την επαναφορά κωδικού."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Ναι, συμφωνώ με τη συλλογή και αποθήκευση των προσωπικών μου δεδομένων, σύμφωνα με την <a href=\"{$privacyUrl}\" target=\"_blank\">Πολιτική Προστασίας Προσωπικών Δεδομένων</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Επιθυμώ να λαμβάνω ενημερώσεις για νέες δημοσιεύσεις και ανακοινώσεις."
+
+msgid "user.register.form.emailExists"
+msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου που επιλέξατε χρησιμοποιείται ήδη από άλλο Χρήστη."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Οι καταχωρημένοι κωδικοί πρόσβασης δεν ταιριάζουν μεταξύ τους."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Οι διευθύνσεις του ηλεκτρονικού ταχυδρομείου δεν ταιριάζουν."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Το όνομα Χρήστη μπορεί να περιέχει μόνο αλφαριθμητικούς χαρακτήρες και τα σύμβολα \"-\" και \"_\". Το όνομα Χρήστη πρέπει να αρχίζει και να τελειώνει με έναν αλφαριθμητικό χαρακτήρα."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Επιλέξτε τουλάχιστον έναν ρόλο."
+
+msgid "user.register.form.usernameExists"
+msgstr "Το όνομα Χρήστη που επιλέξατε χρησιμοποιείται ήδη από άλλον Χρήστη."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Ο κωδικός σας πρέπει να έχει τουλάχιστον {$length} χαρακτήρες."
+
+msgid "user.register.registerAs"
+msgstr "Εγγραφή ως"
+
+msgid "user.register"
+msgstr "Εγγραφή"
+
+msgid "user.register.usernameRestriction"
+msgstr "Το όνομα Χρήστη πρέπει να περιέχει μόνο μικρούς χαρακτήρες, αριθμούς και παύλες(-,_)."
+
+msgid "user.register.registrationCompleted"
+msgstr "Επιτυχής Εγγραφή. <a href=\"{$profileUrl}\">Κάντε κλικ εδώ</a> για να ολοκληρώστε την επεξεργασία του προφίλ σας."
+
+msgid "user.role.assistant"
+msgstr "Βοηθός Έκδοσης"
+
+msgid "user.role.author"
+msgstr "Συγγραφέας"
+
+msgid "user.role.author_s"
+msgstr "Συγγραφέας/Συγγραφείς"
+
+msgid "user.role.authors"
+msgstr "Συγγραφείς"
+
+msgid "user.role.editor"
+msgstr "Επιμελητής"
+
+msgid "user.role.editors"
+msgstr "Επιμελητές"
+
+msgid "user.role.reader"
+msgstr "Αναγνώστης"
+
+msgid "user.role.readers"
+msgstr "Αναγνώστες"
+
+msgid "user.role.reviewer"
+msgstr "Αξιολογητής"
+
+msgid "user.role.reviewers"
+msgstr "Αξιολογητές"
+
+msgid "user.role.siteAdmin"
+msgstr "Τεχνικός Διαχειριστής Ιστοτόπου"
+
+msgid "user.role.siteAdmins"
+msgstr "Τεχνικοί Διαχειριστές Ιστοτόπου"
+
+msgid "user.role.copyeditor"
+msgstr "Επιμελητής Κειμένων"
+
+msgid "user.role.copyeditors"
+msgstr "Επιμελητές Κειμένων"
+
+msgid "user.role.proofreader"
+msgstr "Επιμελητής Τυπογραφικού Δοκιμίου"
+
+msgid "user.role.proofreaders"
+msgstr "Επιμελητές Τυπογραφικού Δοκιμίου"
+
+msgid "user.role.layoutEditor"
+msgstr "Επιμελητής Σελιδοποίησης"
+
+msgid "user.role.layoutEditors"
+msgstr "Επιμελητές Σελιδοποίησης"
+
+msgid "user.roles"
+msgstr "Ρόλοι"
+
+msgid "user.sendPassword"
+msgstr "Επιβεβαίωση"
+
+msgid "user.sendPassword.description"
+msgstr "Αποστολή στο ηλεκτρονικό μου ταχυδρομείο μηνύματος επιβεβαίωσης με το Όνομα Χρήστη και τον προσωπικό μου κωδικό πρόσβασης"
+
+msgid "user.signature"
+msgstr "Υπογραφή"
+
+msgid "user.title"
+msgstr "Τίτλος"
+
+msgid "user.url"
+msgstr "Σύνδεσμος"
+
+msgid "user.userHome"
+msgstr "Αρχική Σελίδα Χρήστη"
+
+msgid "user.username"
+msgstr "Όνομα Χρήστη"
+
+msgid "user.workingLanguages"
+msgstr "Γλώσσες εργασίας"
+
+msgid "user.orcid"
+msgstr "ORCID ΙD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Η ταυτότητα ORCID που καταχωρήσατε δεν ισχύει. Παρακαλούμε καταχωρήστε όλο το URI (e.g. \"http://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Ταυτότητα"
+
+msgid "user.profile.contact"
+msgstr "Επικοινωνία"
+
+msgid "user.profile.public"
+msgstr "Δημόσιο"
+
+msgid "user.apiKey"
+msgstr "Κλειδί API"
+
+msgid "user.apiKeyEnabled"
+msgstr "Επιτρέπεται η πρόσβαση σε τρίτες εφαρμογές με κλειδί API σε αυτόν τον λογαριασμό."
+
+msgid "user.apiKey.generate"
+msgstr "Δημιουργία νέου κλειδιού API"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Η δημιουργία νέου κλειδιού API θα ακυρώσει τα υπάρχοντα κλειδιά για αυτόν τον Χρήστη."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Πριν τη δημιουργία ενός κλειδιού API, ο Τεχνικός Διαχειριστής Ιστοτόπου πρέπει να εισάγει ένα μυστικό κλειδί στο config αρχείο (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr "Τα δεδομένα σας αποθηκεύονται με βάση την <a href=\"{$privacyUrl}\" target=\"_blank\">Πολιτική Προστασίας Προσωπικών Δεδομένων </a>."

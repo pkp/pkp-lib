@@ -1,0 +1,889 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
+"Language: \n"
+
+msgid "about.aboutSite"
+msgstr "Tentang Kami"
+
+msgid "about.contact"
+msgstr "Kontak"
+
+msgid "about.contact.email"
+msgstr "Email"
+
+msgid "about.contact.phone"
+msgstr "Telepon"
+
+msgid "about.contact.principalContact"
+msgstr "Kontak Utama"
+
+msgid "about.contact.supportContact"
+msgstr "Kontak Dukungan"
+
+msgid "about.other"
+msgstr "Lain-lain"
+
+msgid "about.people"
+msgstr "Penata Laksana"
+
+msgid "about.policies"
+msgstr "Kebijakan"
+
+msgid "about.siteMap"
+msgstr "Peta Situs"
+
+msgid "announcement.announcements"
+msgstr "Informasi"
+
+msgid "announcement.announcementsHome"
+msgstr "Informasi"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Lebih banyak informasi..."
+
+msgid "announcement.noneExist"
+msgstr "Belum ada informasi yang diterbitkan."
+
+msgid "announcement.posted"
+msgstr "Dikirimkan"
+
+msgid "announcement.viewLink"
+msgstr "Lebih Lanjut..."
+
+msgid "announcement.view"
+msgstr "Lihat Pengumuman"
+
+msgid "common.actingAsUserGroup.userIsNotInTargetUserGroup"
+msgstr "Anda tidak ada di grup pengguna ini."
+
+msgid "common.action"
+msgstr "Aksi"
+
+msgid "common.activate"
+msgstr "Aktivasi"
+
+msgid "common.active"
+msgstr "Aktif"
+
+msgid "common.add"
+msgstr "Tambah"
+
+msgid "common.addSelf"
+msgstr "Tambahkan Diri Sendiri"
+
+msgid "common.all"
+msgstr "Semua"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.alreadyAssigned"
+msgstr "Ditugaskan"
+
+msgid "common.altText"
+msgstr "Selang-seling teks"
+
+msgid "common.and"
+msgstr "dan"
+
+msgid "common.applyAction"
+msgstr "Terapkan Aksi"
+
+msgid "common.assign"
+msgstr "Menugaskan"
+
+msgid "common.assigned"
+msgstr "Ditugaskan"
+
+msgid "common.back"
+msgstr "Kembali"
+
+msgid "common.between"
+msgstr "Antara"
+
+msgid "common.cancel"
+msgstr "Batal"
+
+msgid "common.cancelled"
+msgstr "Dibatalkan"
+
+msgid "common.captchaField.altText"
+msgstr "Gambar Validasi"
+
+msgid "common.captchaField.badCaptcha"
+msgstr "Karakter yang Anda masukkan tidak sesuai dengan karakter di gambar. Cek karakter dan coba lagi."
+
+msgid "common.captchaField.description"
+msgstr "Masukkan huruf saat mereka ditampilkan di gambar di atas."
+
+msgid "common.captchaField"
+msgstr "Validasi"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\tBekerja dibawah lisensi <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tBekerja dibawah lisensi <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Perubahan yang Anda buat telah disimpan."
+
+msgid "common.chooseOne"
+msgstr "Pilih satu"
+
+msgid "common.close"
+msgstr "Tutup"
+
+msgid "common.closeWindow"
+msgstr "Tutup Window"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.complete"
+msgstr "Selesai"
+
+msgid "common.completed"
+msgstr "Telah selesai"
+
+msgid "common.continue"
+msgstr "Lanjutkan"
+
+msgid "common.copy"
+msgstr "Salin"
+
+msgid "common.country"
+msgstr "Negara"
+
+msgid "common.create"
+msgstr "Buat"
+
+msgid "common.dateCompleted"
+msgstr "Tanggal telah selesai"
+
+msgid "common.date"
+msgstr "Tanggal"
+
+msgid "common.dateModified"
+msgstr "Tanggal Modifikasi"
+
+msgid "common.dateRequested"
+msgstr "Tanggal diminta"
+
+msgid "common.dateSubmitted"
+msgstr "Tanggal dikumpulkan"
+
+msgid "common.dateUploaded"
+msgstr "Tanggal diunggah"
+
+msgid "common.day"
+msgstr "Hari"
+
+msgid "common.deactivate"
+msgstr "Tidak diaktifkan"
+
+msgid "common.default"
+msgstr "Default"
+
+msgid "common.delete"
+msgstr "Hapus"
+
+msgid "common.deleteSelection"
+msgstr "Hapus Pilihan"
+
+msgid "common.description"
+msgstr "Deskripsi"
+
+msgid "common.disable"
+msgstr "Tidak Aktif"
+
+msgid "common.disabled"
+msgstr "sudah Tidak Aktif"
+
+msgid "common.discipline"
+msgstr "Disiplin Ilmu"
+
+msgid "common.done"
+msgstr "selesai"
+
+msgid "common.download"
+msgstr "Unduh"
+
+msgid "common.edit"
+msgstr "Edit"
+
+msgid "common.enable"
+msgstr "Aktif"
+
+msgid "common.enabled"
+msgstr "Sudah Aktif"
+
+msgid "common.error.databaseError"
+msgstr "Kesalahan database telah terjadi: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Kesalaham koneksi database yang tidak dikenali terjadi."
+
+msgid "common.error.framesRequired"
+msgstr "Halaman ini memerlukan bingkai.<a href=\"{$url}\">Klik di sini</a> untuk versi non-frame."
+
+msgid "common.event"
+msgstr "Event"
+
+msgid "common.export"
+msgstr "Ekspor"
+
+msgid "common.fullscreen"
+msgstr "Layar Penuh"
+
+msgid "common.fullscreenOff"
+msgstr "Layar Penuh dimatikan"
+
+msgid "common.false"
+msgstr "Salah"
+
+msgid "common.file"
+msgstr "File"
+
+msgid "common.fileName"
+msgstr "Nama File"
+
+msgid "common.fileSize"
+msgstr "Ukuran File"
+
+msgid "common.fileType"
+msgstr "Tipe File"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.height"
+msgstr "Tinggi"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logo Header Beranda"
+
+msgid "common.hour"
+msgstr "Jam"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Impor"
+
+msgid "common.initiate"
+msgstr "Mulai"
+
+msgid "common.inProgress"
+msgstr "Dalam pengerjaan"
+
+msgid "common.keywords"
+msgstr "Kata Kunci"
+
+msgid "common.language"
+msgstr "Bahasa"
+
+msgid "common.languages"
+msgstr "Bahasa"
+
+msgid "common.manage"
+msgstr "Mengatur"
+
+msgid "common.mailingAddress"
+msgstr "Alamat Surat Menyurat"
+
+msgid "common.minute"
+msgstr "Menit"
+
+msgid "common.modify"
+msgstr "Modifikasi"
+
+msgid "common.month"
+msgstr "Bulan"
+
+msgid "common.noneAssigned"
+msgstr "Tidak ada yang ditugaskan"
+
+msgid "common.none"
+msgstr "Tidak Ada"
+
+msgid "common.no"
+msgstr "Tidak Ada"
+
+msgid "common.noComments"
+msgstr "Tidak ada komentar"
+
+msgid "common.notApplicable"
+msgstr "Tidak bisa diterapkan"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "Tidak Tersedia"
+
+msgid "common.note"
+msgstr "Rekam"
+
+msgid "common.notes"
+msgstr "Rekam"
+
+msgid "common.notify"
+msgstr "Beritahu"
+
+msgid "common.off"
+msgstr "Mati"
+
+msgid "common.on"
+msgstr "Hidup"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Pilihan"
+
+msgid "common.order"
+msgstr "Perintah"
+
+msgid "common.originalFileName"
+msgstr "Nama file asli"
+
+msgid "common.or"
+msgstr "atau"
+
+msgid "common.other"
+msgstr "Yang lain"
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.pluginEnabled"
+msgstr "Plugin \"{$pluginName}\" aktif."
+
+msgid "common.pluginDisabled"
+msgstr "Plugin \"{$pluginName}\" tidak aktif."
+
+msgid "common.preview"
+msgstr "Preview"
+
+msgid "common.publisher"
+msgstr "Penerbit"
+
+msgid "common.re"
+msgstr "Bls:"
+
+msgid "common.record"
+msgstr "Rekam"
+
+msgid "common.refresh"
+msgstr "Refresh"
+
+msgid "common.related"
+msgstr "Terkait"
+
+msgid "common.remove"
+msgstr "Hapus"
+
+msgid "common.removeSelection"
+msgstr "Pilihan Hapus"
+
+msgid "common.replaced"
+msgstr "Digantikan"
+
+msgid "common.replaceFile"
+msgstr "Ganti file"
+
+msgid "common.requiredField"
+msgstr "* Harus Diisi"
+
+msgid "common.required"
+msgstr "Dibutuhkan"
+
+msgid "common.saveAndContinue"
+msgstr "Simpan dan lanjutkan"
+
+msgid "common.saveAndEmail"
+msgstr "Simpan dan kirim email"
+
+msgid "common.save"
+msgstr "Simpan"
+
+msgid "common.search"
+msgstr "Cari"
+
+msgid "common.second"
+msgstr "Detik"
+
+msgid "common.selectAll"
+msgstr "Pilih semua"
+
+msgid "common.selectNone"
+msgstr "Pilih tidak ada"
+
+msgid "common.select"
+msgstr "Pilih"
+
+msgid "common.size"
+msgstr "Ukuran"
+
+msgid "common.source"
+msgstr "Sumber"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.subject"
+msgstr "Subjek"
+
+msgid "common.suggest"
+msgstr "Saran"
+
+msgid "common.title"
+msgstr "Judul"
+
+msgid "common.top"
+msgstr "Top"
+
+msgid "common.true"
+msgstr "Benar"
+
+msgid "common.type"
+msgstr "Tipe"
+
+msgid "common.uninitiated"
+msgstr "Belum dimulai"
+
+msgid "common.untitled"
+msgstr "Tidak berjudul"
+
+msgid "common.updated"
+msgstr "Updated"
+
+msgid "common.upload"
+msgstr "Unggah"
+
+msgid "common.uploadFailed"
+msgstr "file tidak bisa diunggah. Coba lagi atau hubungi administrator jika masalah tetap ada."
+
+msgid "common.up"
+msgstr "Up"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Pengguna"
+
+msgid "common.view"
+msgstr "Lihat"
+
+msgid "common.weeks"
+msgstr "minggu"
+
+msgid "common.width"
+msgstr "Lebar"
+
+msgid "common.year"
+msgstr "Tahun"
+
+msgid "common.yes"
+msgstr "Ya"
+
+msgid "common.loading"
+msgstr "Memuat ..."
+
+msgid "debug.databaseQueries"
+msgstr "Jumlah pertanyaan database"
+
+msgid "debug.executionTime"
+msgstr "Halaman dihasilkan di"
+
+msgid "debug.memoryUsage"
+msgstr "Kegunaan Memori"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Daftar bahasa yang dimuat \"{$localeList}\" dari XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "File bahasa yang dimuat \"{$localeFile}\" dari XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Kunci bahasa yang hilang\"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Catatan:"
+
+msgid "email.addAttachment"
+msgstr "Tambah lampiran"
+
+msgid "email.addBccRecipient"
+msgstr "Tambah BCC"
+
+msgid "email.addCcRecipient"
+msgstr "Tambah CC"
+
+msgid "email.addToRecipient"
+msgstr "Tambah Penerima"
+
+msgid "email.attachments"
+msgstr "Lampiran"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Kirim salinan pesan ini ke email saya({$address})"
+
+msgid "email.body"
+msgstr "Badan"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Kirim Email"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Pesan yang Anda coba kirim punya terlalu banyak penerima."
+
+msgid "email.compose.tooSoon"
+msgstr "Anda mencoba mengirim pesan terlalu cepat setelah pesan terakhir Anda dikirim. Tunggu sebelum mengirim pesan lain."
+
+msgid "email.email"
+msgstr "Email"
+
+msgid "email.from"
+msgstr "Dari"
+
+msgid "email.invalid"
+msgstr "Alamat email{$email} tidak valid."
+
+msgid "email.multipart"
+msgstr "Ini adalah pesan multi-part di format MIME."
+
+msgid "email.recipient"
+msgstr "Penerima"
+
+msgid "email.recipients"
+msgstr "Penerima-penerima"
+
+msgid "email.sender"
+msgstr "Pengirim"
+
+msgid "email.send"
+msgstr "Kirim"
+
+msgid "email.skip"
+msgstr "Abaikan Email"
+
+msgid "email.subject"
+msgstr "Subjek"
+
+msgid "email.to"
+msgstr "Kepada"
+
+msgid "form.errorsOccurred"
+msgstr "Kesalahan terjadi memproses form ini"
+
+msgid "form.formLanguage.description"
+msgstr "Pilih bahasa yang diinginkan."
+
+msgid "form.formLanguage"
+msgstr "Bahasa"
+
+msgid "form.contains"
+msgstr "Berisi"
+
+msgid "form.is"
+msgstr "Adalah"
+
+msgid "form.startsWith"
+msgstr "Mulai dengan"
+
+msgid "form.postRequired"
+msgstr "Form tidak diserahkan dengan tepat."
+
+msgid "form.required"
+msgstr "(* Dibutuhkan)"
+
+msgid "form.resubmit"
+msgstr "Serahkan ulang"
+
+msgid "form.saveToUpload"
+msgstr "Gunakan simpan untuk mengunggah file."
+
+msgid "form.send"
+msgstr "Kirim"
+
+msgid "form.submit"
+msgstr "Serahkan"
+
+msgid "help.contents"
+msgstr "Konten"
+
+msgid "help.help"
+msgstr "Bantuan"
+
+msgid "help.helpIndex"
+msgstr "Indeks Bantuan"
+
+msgid "help.matchesFound"
+msgstr "{$matches} cocok ditemukan"
+
+msgid "help.noMatchingTopics"
+msgstr "Tidak ada topik bantuan yang cocok ditemukan."
+
+msgid "help.relatedTopics"
+msgstr "Topik Terkait"
+
+msgid "help.searchFor"
+msgstr "Cari Topik Bantuan untuk"
+
+msgid "help.searchResultsFor"
+msgstr "Hasil untuk"
+
+msgid "help.searchResults"
+msgstr "Hasil Pencarian"
+
+msgid "help.search"
+msgstr "Cari Bantuan"
+
+msgid "help.toc"
+msgstr "Daftar Isi"
+
+msgid "help.upALevel"
+msgstr "Naik satu level"
+
+msgid "icon.checked.alt"
+msgstr "Centang"
+
+msgid "icon.comment.alt"
+msgstr "Komentar"
+
+msgid "icon.delete.alt"
+msgstr "Hapus"
+
+msgid "icon.edit.alt"
+msgstr "Edit"
+
+msgid "icon.folder.alt"
+msgstr "Folder"
+
+msgid "icon.font_large.alt"
+msgstr "Besar"
+
+msgid "icon.font_medium.alt"
+msgstr "Sedang"
+
+msgid "icon.font_small.alt"
+msgstr "Kecil"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Huruf"
+
+msgid "icon.mail.alt"
+msgstr "Surat"
+
+msgid "icon.unchecked.alt"
+msgstr "Tidak Dicentang"
+
+msgid "icon.view.alt"
+msgstr "Lihat"
+
+msgid "locale.primary"
+msgstr "Locale Utama"
+
+msgid "locale.supported"
+msgstr "Locale Pendukung"
+
+msgid "navigation.about"
+msgstr "Tentang Kami"
+
+msgid "navigation.browse"
+msgstr "Telusuri"
+
+msgid "navigation.browseByTitle"
+msgstr "Berdasarkan Judul"
+
+msgid "navigation.dashboard"
+msgstr "Dashboard"
+
+msgid "navigation.home"
+msgstr "Beranda"
+
+msgid "navigation.infoForReaders"
+msgstr "Untuk Pembaca"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informasi untuk pembaca"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} of {$total} Item"
+
+msgid "navigation.login"
+msgstr "Login"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Langkah selanjutnya"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Langkah sebelumnya"
+
+msgid "navigation.register"
+msgstr "Daftar"
+
+msgid "navigation.search"
+msgstr "Cari"
+
+msgid "navigation.stepNumber"
+msgstr "Langkah{$step}"
+
+msgid "navigation.userHome"
+msgstr " Beranda Pengguna"
+
+msgid "navigation.user"
+msgstr "Pengguna"
+
+msgid "notification.allow"
+msgstr "Izinkan semua tipe notifikasi ini untuk ditampilkan di fees notifikasi saya."
+
+msgid "notification.confirmError"
+msgstr "Ada kesalahan saat mengkonfirmasi langganan Anda."
+
+msgid "notification.confirmSuccess"
+msgstr "Anda telah berlangganan dengan sukses."
+
+msgid "notification.noneExist"
+msgstr "Anda tidak punya notifikasi saat ini."
+
+msgid "notification.notification"
+msgstr "Notifikasi"
+
+msgid "notification.notifications"
+msgstr "Notifikasi"
+
+msgid "notification.settings"
+msgstr "Pengaturan Notifikasi"
+
+msgid "notification.settingsDescription"
+msgstr "Pilih event sistem yang Anda ingin diberitahu. Melepaskan tanda centang di item akan mencegah notifikasi event dari ditampilkan di feed notifikasi."
+
+msgid "notification.reminderError"
+msgstr "Ada kesalahan saat mengirimkan kata sandi Anda, pastikan Anda memasukkan alamat email dengan benar."
+
+msgid "notification.reminderSent"
+msgstr "Kata sandi baru Anda telah dikirim ke alamat email yang disediakan."
+
+msgid "search.abstract"
+msgstr "Sari"
+
+msgid "search.author"
+msgstr "Penulis"
+
+msgid "search.coverage"
+msgstr "Cakupan"
+
+msgid "search.date"
+msgstr "Tanggal"
+
+msgid "search.dateFrom"
+msgstr "Dari"
+
+msgid "search.dateTo"
+msgstr "Sampai"
+
+msgid "search.discipline"
+msgstr "Disiplin Ilmu"
+
+msgid "search.fullText"
+msgstr "Teks Lengkap"
+
+msgid "search.indexTerms"
+msgstr "Indeks"
+
+msgid "search.matchAll"
+msgstr "Cocok dengan semua kategori"
+
+msgid "search.noKeywordError"
+msgstr "Anda harus masukkan setidaknya satu kata kunci pencarian."
+
+msgid "search.noResults"
+msgstr "Tidak ada hasil"
+
+msgid "search.operator.and"
+msgstr "dan"
+
+msgid "search.operator.not"
+msgstr "bukan"
+
+msgid "search.operator.or"
+msgstr "atau"
+
+msgid "search.reviseSearch"
+msgstr "Revisi Pencarian"
+
+msgid "search.searchAllCategories"
+msgstr "Cari semua kategori untuk"
+
+msgid "search.searchCategories"
+msgstr "Cari Kategori"
+
+msgid "search.searchResults"
+msgstr "Hasil Pencarian"
+
+msgid "search.subject"
+msgstr "Kata Kunci"
+
+msgid "search.titleIndex"
+msgstr "Menelusuri Indeks Judul"
+
+msgid "search.title"
+msgstr "Judul"
+
+msgid "search.typeMethodApproach"
+msgstr "Tipe (metode/pendekatan)"
+
+msgid "semicolon"
+msgstr "{$label}:"

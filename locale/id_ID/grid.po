@@ -1,0 +1,171 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "Tidak Ada Item"
+
+msgid "grid.settings"
+msgstr "Pengaturan"
+
+msgid "grid.action.sort"
+msgstr "Sortir"
+
+msgid "grid.action.addItem"
+msgstr "Tambah Item"
+
+msgid "grid.action.delete"
+msgstr "Hapus"
+
+msgid "grid.action.remove"
+msgstr "Hapus"
+
+msgid "grid.action.edit"
+msgstr "Edit"
+
+msgid "grid.action.approve"
+msgstr "Setujui"
+
+msgid "grid.action.approveForReview"
+msgstr "Serahkan ke Tahap Review"
+
+msgid "grid.action.approveForPub"
+msgstr "Setujui untuk Penerbitan"
+
+msgid "grid.action.decline"
+msgstr "Tolak"
+
+msgid "grid.action.moreInformation"
+msgstr "Lebih Banyak Informasi"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Simpan Kembali Default"
+
+msgid "grid.columns.actions"
+msgstr "Aksi"
+
+msgid "grid.columns.institution"
+msgstr "Institusi"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsor"
+
+msgid "grid.contributor.title"
+msgstr "Kontributor"
+
+msgid "grid.action.addAuthor"
+msgstr "Tambah Penulis"
+
+msgid "grid.reviewForm.title"
+msgstr "Form Review"
+
+msgid "grid.bookFileType.form.sortable"
+msgstr "Izinkan file tipe ini untuk dipilih berdasarkan komponen (contoh: berdasarkan bab)"
+
+msgid "grid.artworkFile.title"
+msgstr "Karya seni dengan izin"
+
+msgid "grid.artworkFile.file"
+msgstr "File"
+
+msgid "grid.artworkFile.form.title"
+msgstr "Tambah karya seni dengan izin"
+
+msgid "grid.artworkFile.form.metadata"
+msgstr "Metadata Karya seni"
+
+msgid "grid.artworkFile.caption"
+msgstr "Tulisan"
+
+msgid "grid.artworkFile.credit"
+msgstr "Kredit"
+
+msgid "grid.artworkFile.captionAndCredit"
+msgstr "Tulisan dan kredit (Jika tidak termasuk di File)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Pemilik Hak Cipta"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Info Kontak (jika bukan Penulis/Penerbit)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Masa Izin"
+
+msgid "grid.artworkFile.permissionForm"
+msgstr "Form Izin"
+
+msgid "grid.artworkFile.type"
+msgstr "Tipe"
+
+msgid "grid.artworkFile.type.table"
+msgstr "Tabel"
+
+msgid "grid.artworkFile.type.figure"
+msgstr "Figur"
+
+msgid "grid.artworkFile.placement"
+msgstr "Penempatan di buku"
+
+msgid "grid.artworkFile.placementDetail"
+msgstr "Tabel/Fig. No."
+
+msgid "grid.artworkFile.contactAuthor"
+msgstr "Hubungi Penulis"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "File"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Perpustakaan Naskah"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Perpustakaan Editorial"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Perpustakaan Review"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Perpustakaan Produksi"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Perpustakaan Template Produksi"
+
+msgid "grid.submissionChecklist.title"
+msgstr " Checklist Naskah"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Checklist Item"
+
+msgid "author.users.contributor.name"
+msgstr "Nama"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Peran"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Kontak Utama"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Lampiran Reviewer"
+
+msgid "grid.reviewAttachments.add"
+msgstr "Tambahkan lampiran ke review"
+
+msgid "grid.chapters.title"
+msgstr "Bab"

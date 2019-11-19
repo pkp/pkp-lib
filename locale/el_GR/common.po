@@ -1,0 +1,1580 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
+"Language: \n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Υπάρχον αρχείο γραφικής μορφοποίησης (stylesheet)"
+
+msgid "about.description"
+msgstr "Περιγραφή"
+
+msgid "about.guidelines"
+msgstr "Οδηγοί"
+
+msgid "about.aboutSite"
+msgstr "Σχετικά με τον ιστότοπο"
+
+msgid "about.contact"
+msgstr "Επικοινωνία"
+
+msgid "about.contact.email"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
+
+msgid "about.contact.phone"
+msgstr "Τηλέφωνο"
+
+msgid "about.contact.principalContact"
+msgstr "Υπεύθυνος Επικοινωνίας"
+
+msgid "about.contact.supportContact"
+msgstr "Υπεύθυνος Υποστήριξης"
+
+msgid "about.other"
+msgstr "Διάφορα"
+
+msgid "about.people"
+msgstr "Προσωπικό"
+
+msgid "about.policies"
+msgstr "Πολιτικές"
+
+msgid "about.siteMap"
+msgstr "Χάρτης ιστοτόπου"
+
+msgid "announcement.announcements"
+msgstr "Ανακοινώσεις"
+
+msgid "announcement.announcementsHome"
+msgstr "Κεντρικό μενού ανακοινώσεων"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Περισσότερες ανακοινώσεις"
+
+msgid "announcement.noneExist"
+msgstr "Δεν υπάρχει καμία δημοσιευμένη ανακοίνωση."
+
+msgid "announcement.posted"
+msgstr "Αναρτημένες"
+
+msgid "announcement.postedOn"
+msgstr "Αναρτήθηκε στις {$postDate}"
+
+msgid "announcement.view"
+msgstr "Προβολή ανακοίνωσης"
+
+msgid "common.allDownloads"
+msgstr "Όλες οι λήψεις"
+
+msgid "common.navigation.sidebar"
+msgstr "Πλευρική στήλη"
+
+msgid "common.navigation.site"
+msgstr "Πλοήγηση στον ιστότοπο"
+
+msgid "common.navigation.siteContext"
+msgstr "Πλοήγηση σε επιμέρους εκδόσεις"
+
+msgid "common.navigation.user"
+msgstr "Πλοήγηση στους Χρήστες"
+
+msgid "common.tasks"
+msgstr "Εργασίες"
+
+msgid "common.list"
+msgstr "Λίστα"
+
+msgid "common.grid"
+msgstr "Πίνακας"
+
+msgid "common.confirmDelete"
+msgstr "Επιβεβαιώνετε τη διαγραφή του αντικειμένου; Η ενέργεια είναι μη αναστρέψιμη."
+
+msgid "common.abstract"
+msgstr "Περίληψη"
+
+msgid "common.accepted"
+msgstr "Δεκτό"
+
+msgid "common.acknowledged"
+msgstr "Με επιβεβαίωση"
+
+msgid "common.action"
+msgstr "Ενέργεια"
+
+msgid "common.activate"
+msgstr "Ενεργοποίηση"
+
+msgid "common.active"
+msgstr "Ενεργό"
+
+msgid "common.add"
+msgstr "Προσθήκη"
+
+msgid "common.addSelf"
+msgstr "Προσθήκη του εαυτού σας"
+
+msgid "common.name"
+msgstr "Όνομα"
+
+msgid "common.all"
+msgstr "Όλα"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω"
+
+msgid "common.titleSmallWords"
+msgstr "ένας/ένα/μία το και ή ούτε αλλά είναι αν τότε αλλιώς όταν στο από για μέσα έξω πάνω μαζί"
+
+msgid "common.alreadyAssigned"
+msgstr "Ανατέθηκε"
+
+msgid "common.altText"
+msgstr "Εναλλακτικό κείμενο"
+
+msgid "common.altTextInstructions"
+msgstr "Παρακαλούμε εισάγετε ένα εναλλακτικό κείμενο για την εικόνα αυτή, ώστε να διασφαλιστεί η προσβασιμότητα σε Χρήστες που χρησιμοποιούν επιλογές \"μόνο κείμενο\" στους φυλλομετρητές τους ή βοηθητικές συσκευές."
+
+msgid "common.and"
+msgstr "και"
+
+msgid "common.applyAction"
+msgstr "Εφαρμογή"
+
+msgid "common.assign"
+msgstr "Ανάθεση"
+
+msgid "common.assigned"
+msgstr "Ανατέθηκε"
+
+msgid "common.assigned.date"
+msgstr "Ανατέθηκε στις {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Διαθέσιμο"
+
+msgid "common.back"
+msgstr "Πίσω"
+
+msgid "common.between"
+msgstr "μεταξύ"
+
+msgid "common.cancel"
+msgstr "Άκυρο"
+
+msgid "common.cancelled"
+msgstr "Ακυρώθηκε"
+
+msgid "common.warning"
+msgstr "Προειδοποίηση"
+
+msgid "common.error"
+msgstr "Σφάλμα"
+
+msgid "common.notice"
+msgstr "Σημείωση"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "Το captcha για αυτόν τον ιστότοπο δεν έχει ρυθμιστεί σωστά. Λείπει το μυστικό κλειδί."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "Το captcha για αυτόν τον ιστότοπο δεν έχει ρυθμιστεί σωστά. Το μυστικό κλειδί είναι άκυρο."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Πρέπει να ολοκληρώσετε τον έλεγχο ασφαλείας για την αποφυγή υποβολών spam."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Δεν περάσατε τον έλεγχο ασφαλείας για την αποφυγή υποβολών spam."
+
+msgid "common.captchaField.description"
+msgstr "Σας παρακαλούμε εισάγετε τους χαρακτήρες όπως εμφανίζονται στην παραπάνω εικόνα."
+
+msgid "common.captchaField"
+msgstr "Επικύρωση"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t&lt;a target=\"_new\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\"&gt;\n"
+"\t\t\t&lt;img alt=\"Creative Commons License\" class=\"EKT_CreativeCommons_IMG\" src=\"https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png\"/&gt;\n"
+"\t\t&lt;/a&gt;\n"
+"\t\t&lt;br/&gt;\n"
+"\t\t&lt;span&gt;\n"
+"        Η χρήση του περιεχομένου καθορίζεται από την άδεια &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\"&gt;Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές&lt;/a&gt; &lt;/span&gt;"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t\tΗ χρήση του περιεχομένου καθορίζεται από την άδεια <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\">Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές</a>\n"
+"\t\t"
+
+msgid "common.changesSaved"
+msgstr "Οι αλλαγές σας αποθηκεύτηκαν."
+
+msgid "common.chooseOne"
+msgstr "Επιλογή"
+
+msgid "common.close"
+msgstr "Κλείσιμο"
+
+msgid "common.closePanel"
+msgstr "Κλείσιμο πίνακα"
+
+msgid "common.closeWindow"
+msgstr "Κλείσιμο παραθύρου"
+
+msgid "common.complete"
+msgstr "Ολοκλήρωση"
+
+msgid "common.completed"
+msgstr "Ολοκληρώθηκε"
+
+msgid "common.completed.date"
+msgstr "Ολοκληρώθηκε στις {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Επιβεβαίωση"
+
+msgid "common.confirmed.date"
+msgstr "Έγινε επιβεβαίωση στις {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Περιεχόμενο"
+
+msgid "common.contents"
+msgstr "Περιεχόμενα"
+
+msgid "common.continue"
+msgstr "Συνέχεια"
+
+msgid "common.copy"
+msgstr "Αντίγραφο"
+
+msgid "common.country"
+msgstr "Χώρα"
+
+msgid "common.create"
+msgstr "Δημιουργία"
+
+msgid "common.dateCompleted"
+msgstr "Ημερομηνία ολοκλήρωσης"
+
+msgid "common.dateDecided"
+msgstr "Ημερομηνία απόφασης"
+
+msgid "common.date"
+msgstr "Ημερομηνία"
+
+msgid "common.dateModified"
+msgstr "Ημερομηνία τροποποίησης"
+
+msgid "common.dateRequested"
+msgstr "Ημερομηνία υποβολής αίτησης"
+
+msgid "common.dateSubmitted"
+msgstr "Ημερομηνία υποβολής"
+
+msgid "common.dateUploaded"
+msgstr "Ημερομηνία μεταφόρτωσης"
+
+msgid "common.dateHijri"
+msgstr "Ημερομηνία Hijri"
+
+msgid "common.day"
+msgstr "Ημέρα"
+
+msgid "common.deactivate"
+msgstr "Απενεργοποίηση"
+
+msgid "common.default"
+msgstr "Προεπιλογή"
+
+msgid "common.declined"
+msgstr "Απορρίφθηκε"
+
+msgid "common.delete"
+msgstr "Διαγραφή"
+
+msgid "common.deleting"
+msgstr "Διαγραφή..."
+
+msgid "common.deleteSelection"
+msgstr "Διαγραφή επιλογής"
+
+msgid "common.designation"
+msgstr "Επισήμανση"
+
+msgid "common.description"
+msgstr "Περιγραφή"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.disable"
+msgstr "Απενεργοποίηση"
+
+msgid "common.disabled"
+msgstr "Ανενεργό"
+
+msgid "common.discipline"
+msgstr "Επιστημονικός κλάδος"
+
+msgid "common.done"
+msgstr "Ολοκλήρωση"
+
+msgid "common.download"
+msgstr "Μεταφόρτωση"
+
+msgid "common.downloadPdf"
+msgstr "Μεταφόρτωση PDF"
+
+msgid "common.edit"
+msgstr "Επεξεργασία"
+
+msgid "common.enable"
+msgstr "Ενεργοποίηση"
+
+msgid "common.enabled"
+msgstr "Ενεργό"
+
+msgid "common.error.databaseError"
+msgstr "Προέκυψε άγνωστο σφάλμα στη βάση δεδομένων: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Προέκυψε άγνωστο σφάλμα στη σύνδεση της βάσης δεδομένων."
+
+msgid "common.error.framesRequired"
+msgstr "Αυτή η σελίδα απαιτεί πλαίσια. &lt;a href=\"{$url}\"&gt;Πατήστε εδώ&lt;/a&gt; για την έκδοση χωρίς πλαίσια."
+
+msgid "common.event"
+msgstr "Συμβάν"
+
+msgid "common.export"
+msgstr "Εξαγωγή"
+
+msgid "common.finish"
+msgstr "Ολοκλήρωση"
+
+msgid "common.fullscreen"
+msgstr "Πλήρης οθόνη"
+
+msgid "common.fullscreenOff"
+msgstr "Απενεργοποίηση πλήρους οθόνης"
+
+msgid "common.false"
+msgstr "Λάθος"
+
+msgid "common.file"
+msgstr "Αρχείο"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Όνομα αρχείου"
+
+msgid "common.fileSize"
+msgstr "Μέγεθος αρχείου"
+
+msgid "common.fileType"
+msgstr "Τύπος αρχείου"
+
+msgid "common.fileUploaderError"
+msgstr "Ο μεταφορτωτής αρχείων συστήματος ενεργοποιείται. Μη εμφάνιση του μεταφορτωτή, οφείλεται πιθανώς σε αδυναμία υποστήριξης του χρόνου εκτέλεσής του από τον φυλλομετρητή. Παρακαλούμε επικοινωνήστε με τους Διαχειριστές του ιστοτόπου."
+
+msgid "common.filter"
+msgstr "Φίλτρα"
+
+msgid "common.filterAdd"
+msgstr "Προσθήκη φίλτρου: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Καθαρισμός φίλτρου: {$filterTitle}"
+
+msgid "common.from"
+msgstr "Από"
+
+msgid "common.until"
+msgstr "Έως"
+
+msgid "common.go"
+msgstr "Μετάβαση"
+
+msgid "common.height"
+msgstr "Ύψος"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Αρχική"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Λογότυπο κεφαλίδας αρχικής σελίδας"
+
+msgid "common.hour"
+msgstr "Ώρα"
+
+msgid "common.id"
+msgstr "Αναγνωριστικό"
+
+msgid "common.import"
+msgstr "Εισαγωγή"
+
+msgid "common.initiate"
+msgstr "Έναρξη"
+
+msgid "common.inProgress"
+msgstr "Σε εξέλιξη"
+
+msgid "common.itemsPerPage"
+msgstr "Αντικέιμενα ανά σελίδα"
+
+msgid "common.favicon.altText"
+msgstr "Favicon"
+
+msgid "common.keywords"
+msgstr "Λέξεις κλειδιά"
+
+msgid "common.language"
+msgstr "Γλώσσα/Language"
+
+msgid "common.languages"
+msgstr "Γλώσσες"
+
+msgid "common.less"
+msgstr "Λιγότερο"
+
+msgid "common.lessThan"
+msgstr "{$value} ή λιγότερο"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Διαχείριση"
+
+msgid "common.mailingAddress"
+msgstr "Ταχυδρομική διεύθυνση"
+
+msgid "common.billingAddress"
+msgstr "Διεύθυνση τιμολόγισης (αν είναι διαφορετική)"
+
+msgid "common.minute"
+msgstr "Λεπτό(-ά)"
+
+msgid "common.modify"
+msgstr "Τροποποίηση"
+
+msgid "common.month"
+msgstr "Μήνας"
+
+msgid "common.more"
+msgstr "Περισσότερο"
+
+msgid "common.moreThan"
+msgstr "{$value} ή περισσότερο"
+
+msgid "common.noneAssigned"
+msgstr "Καμία ανάθεση"
+
+msgid "common.none"
+msgstr "Κανένα"
+
+msgid "common.no"
+msgstr "Οχι"
+
+msgid "common.noComments"
+msgstr "Κανένα σχόλιο"
+
+msgid "common.notApplicable"
+msgstr "Μη εφαρμόσιμο"
+
+msgid "common.notApplicableShort"
+msgstr "Μ/Ε"
+
+msgid "common.notAvailable"
+msgstr "Μη διαθέσιμο"
+
+msgid "common.note"
+msgstr "Σημείωση"
+
+msgid "common.notes"
+msgstr "Σημειώσεις"
+
+msgid "common.notes.tooltip"
+msgstr "Σημειώσεις (κίτρινο:νέες σημειώσεις, μπλε:αναγνωσμένες σημειώσεις, γκρι:χωρίς σημειώσεις)"
+
+msgid "common.notified"
+msgstr "Ενημερώθηκε"
+
+msgid "common.notified.date"
+msgstr "Ενημερώθηκε στις {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Κανένα αποτέλεσμα"
+
+msgid "common.off"
+msgstr "Απενεργοποιημένο"
+
+msgid "common.on"
+msgstr "Ενεργό"
+
+msgid "common.ok"
+msgstr "Εντάξει"
+
+msgid "common.options"
+msgstr "Επιλογές"
+
+msgid "common.order"
+msgstr "Διάταξη"
+
+msgid "common.originalFileName"
+msgstr "Όνομα πρωτότυπου αρχείου"
+
+msgid "common.or"
+msgstr "ή"
+
+msgid "common.other"
+msgstr "Άλλο"
+
+msgid "common.overdue"
+msgstr "Εκπρόθεσμο"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} των {$total}"
+
+msgid "common.pagination.label"
+msgstr "Πλοήγηση σε περισσότερες σελίδες"
+
+msgid "common.pagination.goToPage"
+msgstr "Μετάβαση στη σελίδα {$page}"
+
+msgid "common.pagination.next"
+msgstr "Επόμενη σελίδα"
+
+msgid "common.pagination.previous"
+msgstr "Προηγούμενη σελίδα"
+
+msgid "common.pageNumber"
+msgstr "Σελίδα {$pageNumber}"
+
+msgid "common.pageHeaderLogo.altText"
+msgstr "Λογότυπο κεφαλίδας σελίδας"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Πρόσθετο"
+
+msgid "common.pluginEnabled"
+msgstr "Το Πρόσθετο \"{$pluginName}\" έχει ενεργοποιηθεί."
+
+msgid "common.pluginDisabled"
+msgstr "Το Πρόσθετο \"{$pluginName}\" έχει απενεργοποιηθεί."
+
+msgid "common.prefix"
+msgstr "Πρόθεμα"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Παραδείγματα: Α, The"
+
+msgid "common.preview"
+msgstr "Επισκόπηση"
+
+msgid "common.publisher"
+msgstr "Εκδότης"
+
+msgid "common.quality"
+msgstr "Ποιότητα"
+
+msgid "common.queue.long.active"
+msgstr "Όλα τα ενεργά"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Διαβάστε περισσότερα"
+
+msgid "common.readMoreWithTitle"
+msgstr "Διαβάστε περισσότερα σχετικά με {$title}"
+
+msgid "common.record"
+msgstr "Εγγραφή"
+
+msgid "common.refresh"
+msgstr "Ανανέωση"
+
+msgid "common.related"
+msgstr "Σχετικό"
+
+msgid "common.reminder"
+msgstr "Υπενθύμιση"
+
+msgid "common.reminded.date"
+msgstr "Έγινε υπενθύμιση στις: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Απομακρυσμένη"
+
+msgid "common.remoteURL"
+msgstr "Απομακρυσμένο URL"
+
+msgid "common.remove"
+msgstr "Αφαίρεση"
+
+msgid "common.removeSelection"
+msgstr "Αφαίρεση επιλογής/ων"
+
+msgid "common.replaced"
+msgstr "Αντικαταστάθηκε"
+
+msgid "common.replaceFile"
+msgstr "Αντικατάσταση αρχείου"
+
+msgid "common.requiredField"
+msgstr "(*) Δηλώνει απαιτούμενο πεδίο"
+
+msgid "common.required"
+msgstr "Απαιτείται"
+
+msgid "common.reset"
+msgstr "Επαναφορά"
+
+msgid "common.saveAndContinue"
+msgstr "Αποθήκευση και συνέχεια"
+
+msgid "common.saveAndEmail"
+msgstr "Αποθήκευση και αποστολή με μήνυμα"
+
+msgid "common.save"
+msgstr "Αποθήκευση"
+
+msgid "common.saving"
+msgstr "Γίνεται αποθήκευση"
+
+msgid "common.search"
+msgstr "Αναζήτηση"
+
+msgid "common.searchQuery"
+msgstr "Ερώτημα αναζήτησης"
+
+msgid "common.clearSearch"
+msgstr "Καθαρισμός αναζήτησης"
+
+msgid "common.second"
+msgstr "Δευτερόλεπτο(-α)"
+
+msgid "common.selectAll"
+msgstr "Επιλογή όλων"
+
+msgid "common.selectNone"
+msgstr "Καμία επιλογή"
+
+msgid "common.select"
+msgstr "Επιλέξτε"
+
+msgid "common.sendEmail"
+msgstr "Αποστολή μηνύματος"
+
+msgid "common.size"
+msgstr "Μέγεθος"
+
+msgid "common.source"
+msgstr "Πηγή"
+
+msgid "common.status"
+msgstr "Κατάσταση"
+
+msgid "common.startTyping"
+msgstr "Έναρξη πληκτρολόγησης"
+
+msgid "common.subject"
+msgstr "Θέμα"
+
+msgid "common.subjects"
+msgstr "Θέματα"
+
+msgid "common.subtitle"
+msgstr "Υπότιτλος"
+
+msgid "common.suggest"
+msgstr "Πρόταση"
+
+msgid "common.title"
+msgstr "Τίτλος"
+
+msgid "common.top"
+msgstr "Κορυφή"
+
+msgid "common.true"
+msgstr "Αληθές"
+
+msgid "common.type"
+msgstr "Τύπος"
+
+msgid "common.component"
+msgstr "Στοιχείο"
+
+msgid "common.uninitiated"
+msgstr "Μη αρχικοποιημένο"
+
+msgid "common.unread"
+msgstr "Μη αναγνωσμένο"
+
+msgid "common.untitled"
+msgstr "Χωρίς τίτλο"
+
+msgid "common.updated"
+msgstr "Ενημερώθηκε"
+
+msgid "common.uploadedDate"
+msgstr "Ημερομηνία μεταφόρτωσης"
+
+msgid "common.uploadedFile"
+msgstr "Αρχείο από μεταφόρτωση"
+
+msgid "common.upload"
+msgstr "Μεταφόρτωση"
+
+msgid "common.uploadFailed"
+msgstr "Το αρχείο δεν μεταφορτώθηκε. Παρακαλούμε προσπαθήστε ξανά, ή επικοινωνήστε με τον Διαχειριστή αν το πρόβλημα παραμένει."
+
+msgid "common.invalidFileType"
+msgstr "Κανένα αρχείο δεν ανέβηκε ή μη έγκυρος τύπος αρχείου."
+
+msgid "common.homepageImage.altText"
+msgstr "Εικόνα αρχικής σελίδας"
+
+msgid "common.up"
+msgstr "Πάνω"
+
+msgid "common.upload.addFile"
+msgstr "Μεταφόρτωση αρχείου"
+
+msgid "common.upload.changeFile"
+msgstr "Αλλαγή αρχείου"
+
+msgid "common.upload.dragFile"
+msgstr "Σύρετε και τοποθετήστε ένα αρχείο εδώ για να αρχίσει η μεταφόρτωση."
+
+msgid "common.url"
+msgstr "Σύνδεσμος"
+
+msgid "common.user"
+msgstr "Χρήστης"
+
+msgid "common.view"
+msgstr "Προβολή"
+
+msgid "common.viewProfile"
+msgstr "Προβολή προφίλ"
+
+msgid "common.weeks"
+msgstr "Εβδομάδες"
+
+msgid "common.width"
+msgstr "Εύρος"
+
+msgid "common.year"
+msgstr "Έτος"
+
+msgid "common.yes"
+msgstr "Ναι"
+
+msgid "common.loading"
+msgstr "Φόρτωση ..."
+
+msgid "common.plugins"
+msgstr "Πρόσθετα"
+
+msgid "common.metric"
+msgstr "Μετρικό"
+
+msgid "common.count"
+msgstr "Καταμέτρηση"
+
+msgid "common.publicAccess"
+msgstr "Δημόσια πρόσβαση"
+
+msgid "debug.databaseQueries"
+msgstr "Αριθμός ερωτημάτων στη βάση δεδομένων"
+
+msgid "debug.executionTime"
+msgstr "Η σελίδα δημιουργήθηκε σε"
+
+msgid "debug.memoryUsage"
+msgstr "Χρησιμοποιούμενη μνήμη:"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Η λίστα ρυθμίσεων γλώσσας \"{$localeList}\" φορτώθηκε από XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Το αρχείο γλώσσας \"{$localeFile}\" φορτώθηκε από XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Απουσία κλειδιού τοπικών ρυθμίσεων \"{$key}\""
+
+msgid "debug.notes"
+msgstr "Σημειώσεις:"
+
+msgid "defaultMetric.title"
+msgstr "Καθορισμένο μετρικό"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Διαθέσιμα μετρικά"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Μεταφόρτωση αρχείου αξιολόγησης"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Μεταφόρτωση αρχείου"
+
+msgid "email.addAttachment"
+msgstr "Πρoσθήκη συνημμένου"
+
+msgid "email.addBccRecipient"
+msgstr "Πρoσθήκη αφανούς κοινοποίησης (BCC)"
+
+msgid "email.addCcRecipient"
+msgstr "Πρoσθήκη κοινοποίησης"
+
+msgid "email.addToRecipient"
+msgstr "Πρoσθήκη παραλήπτη"
+
+msgid "email.attachments"
+msgstr "Συνημμένα"
+
+msgid "email.bcc"
+msgstr "Αφανές αντίγραφο(BCC)"
+
+msgid "email.bccSender"
+msgstr "Αποστολή αντίγραφου του μηνύματος στην ηλεκτρονική διεύθυνσή μου({$address})."
+
+msgid "email.body"
+msgstr "Κείμενο μηνύματος"
+
+msgid "email.cc"
+msgstr "Κοιν:"
+
+msgid "email.compose"
+msgstr "Αποστολή μηνύματος"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Τo μήνυμα που προσπαθείτε να στείλετε έχει μεγάλο αριθμό παραληπτών."
+
+msgid "email.compose.tooSoon"
+msgstr "Προσπαθείτε να στείλετε διαδοχικά μηνύματα σε πολύ σύντομο χρόνο. Παρακαλούμε περιμένετε πριν την αποστολή νέου μηνύματος."
+
+msgid "email.compose.error"
+msgstr "Υπήρξε πρόβλημα κατά την αποστολή ηλεκτρονικού μηνύματος. Παρακαλούμε δοκιμάστε αργότερα, ή επικοινωνήστε με τον Διαχειριστή του ιστοτόπου."
+
+msgid "email.email"
+msgstr "Μήνυμα"
+
+msgid "email.from"
+msgstr "Από"
+
+msgid "email.invalid"
+msgstr "Η ηλεκτρονική διεύθυνση {$email} δεν είναι έκγυρη."
+
+msgid "email.multipart"
+msgstr "Αυτό είναι ένα μήνυμα με πολλά τμήματα σε μορφή MIME."
+
+msgid "email.recipient"
+msgstr "Παραλήπτης"
+
+msgid "email.recipients"
+msgstr "Παραλήπτες"
+
+msgid "email.sender"
+msgstr "Αποστολέας"
+
+msgid "email.senderName"
+msgstr "Όνομα αποστολέα"
+
+msgid "email.senderEmail"
+msgstr "Ηλεκτρονικό ταχυδρομείο αποστολέα"
+
+msgid "email.send"
+msgstr "Αποστολή"
+
+msgid "email.skip"
+msgstr "Παράλειψη μηνύματος"
+
+msgid "email.subject"
+msgstr "Θέμα"
+
+msgid "email.subjectRequired"
+msgstr "Παρακαλούμε συμπληρώστε ένα θέμα για το μήνυμα."
+
+msgid "email.bodyRequired"
+msgstr "Παρακαλούμε συμπληρώστε το κείμενο του μηνύματος."
+
+msgid "email.to"
+msgstr "Προς"
+
+msgid "form.url.invalid"
+msgstr "Ο επιλεγμένος σύνδεσμος URL δεν είναι έγκυρος. Παρακαλούμε ελέξτε τον σύνδεσμο και προσπαθήστε ξανά."
+
+msgid "form.confirmSubmit"
+msgstr "Επιβεβαιώνετε την υποβολή της φόρμας;"
+
+msgid "form.confirmSubmit.title"
+msgstr "Επιβεβαίωση"
+
+msgid "form.emailRequired"
+msgstr "Απαιτείται μια διεύθυνση ηλεκτρονικού ταχυδρομείου."
+
+msgid "form.dataHasChanged"
+msgstr "Τα δεδομένα αυτής της φόρμας έχουν αλλάξει. Θέλετε να συνεχίσετε σε κάθε περίπτωση;"
+
+msgid "form.errorsOccurred"
+msgstr "Παρουσιάστηκαν σφάλματα κατά την επεξεργασία της φόρμας."
+
+msgid "form.formLanguage.description"
+msgstr "Για να εισάγετε την παρακάτω πληροφορία σε επιπλέον γλώσσα, θα πρέπει πρώτα να επιλέξετε τη γλώσσα."
+
+msgid "form.formLanguage"
+msgstr "Γλώσσα φόρμας"
+
+msgid "form.contains"
+msgstr "περιέχει"
+
+msgid "form.is"
+msgstr "είναι"
+
+msgid "form.startsWith"
+msgstr "αρχίζει με"
+
+msgid "form.postRequired"
+msgstr "Η φόρμα δεν υποβλήθηκε κανονικά."
+
+msgid "form.csrfInvalid"
+msgstr "Η φόρμα δεν υποβλήθηκε κανονικά."
+
+msgid "form.fileRequired"
+msgstr "Απαιτείται η μεταφόρτωση αρχείου."
+
+msgid "form.required"
+msgstr "(*) Απαιτείται"
+
+msgid "form.resubmit"
+msgstr "Επανυποβολή"
+
+msgid "form.saveToUpload"
+msgstr "Χρησιμοποιήστε την εντολή Αποθήκευση για να μεταφορτώσετε το αρχείο."
+
+msgid "form.send"
+msgstr "Αποστολή"
+
+msgid "form.submit"
+msgstr "Υποβολή"
+
+msgid "form.invalidImage"
+msgstr "Μη έγκυρος τύπος αρχείου εικόνας προς μεταφόρτωση. Αποδεκτοί τύποι είναι οι .png, .gif, ή .jpg."
+
+msgid "help.help"
+msgstr "Βοήθεια"
+
+msgid "help.toc"
+msgstr "Πίνακας περιεχομένων"
+
+msgid "help.previous"
+msgstr "Προηγούμενα"
+
+msgid "help.next"
+msgstr "Επόμενα"
+
+msgid "help.upALevel"
+msgstr "Ένα επίπεδο πάνω"
+
+msgid "icon.checked.alt"
+msgstr "Επιλεγμένο"
+
+msgid "icon.comment.alt"
+msgstr "Σχόλια"
+
+msgid "icon.delete.alt"
+msgstr "Διαγραφή"
+
+msgid "icon.edit.alt"
+msgstr "Επεξεργασία"
+
+msgid "icon.folder.alt"
+msgstr "Φάκελος"
+
+msgid "icon.font_large.alt"
+msgstr "Μεγάλα"
+
+msgid "icon.font_medium.alt"
+msgstr "Μεσαία"
+
+msgid "icon.font_small.alt"
+msgstr "Μικρά"
+
+msgid "icon.info.alt"
+msgstr "Πληροφορίες"
+
+msgid "icon.letter.alt"
+msgstr "Γράμμα"
+
+msgid "icon.mail.alt"
+msgstr "Ταχυδρομείο"
+
+msgid "icon.unchecked.alt"
+msgstr "Μη επιλεγμένο"
+
+msgid "icon.view.alt"
+msgstr "Προβολή"
+
+msgid "informationCenter.informationCenter"
+msgstr "Κέντρο πληροφόρησης"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Ιστορικό επιμέλειας"
+
+msgid "informationCenter.addNote"
+msgstr "Προσθήκη σημείωσης"
+
+msgid "informationCenter.noNotes"
+msgstr "Δεν υπάρχουν σημειώσεις για εμφάνιση."
+
+msgid "informationCenter.pastNotes"
+msgstr "Σημειώσειε προηγούμενων αναθεωρήσεων"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Επιβεβαιώνετε τη διαγραφή αυτής της σημείωσης;"
+
+msgid "informationCenter.currentHistory"
+msgstr "Τρέχουσα αναθεώρηση"
+
+msgid "informationCenter.pastHistory"
+msgstr "Προηγούμενες αναθεωρήσεις"
+
+msgid "informationCenter.history.noItems"
+msgstr "Δεν υπάρχουν καταχωρήσεις στο Ιστορικό."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Η νέα σημείωση αναρτήθηκε."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Το μήνυμα στάλθηκε στους Χρήστες."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Η ειδοποίηση στάλθηκε στους Χρήστες."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Έναρξη συζήτησης"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Ξεκινήστε μια συζήτηση με τον Χρήστη {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Επιλέξτε ένα προκαθορισμένο μήνυμα ή συμπληρώστε τη φόρμα που ακολουθεί."
+
+msgid "stageParticipants.notify.message"
+msgstr "Μήνυμα"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Βεβαιωθείτε ότι έχετε καταχωρήσει το μήνυμά σας και επιλέξατε έναν τουλάχιστον παραλήπτη."
+
+msgid "stageParticipants.options"
+msgstr "Διαβαθμισμένα δικαιώματα"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Τα δικαιώματα του συγκεκριμένου συντελεστή περιορίζονται στην υποβολή συστάσεων προς τον Επιμελητή. Η καταγραφή της απόφασης για το άρθρο γίνεται από τον Επιμελητή."
+
+msgid "locale.primary"
+msgstr "Κύρια γλώσσα"
+
+msgid "locale.supported"
+msgstr "Συμπληρωματικές γλώσσες"
+
+msgid "navigation.access"
+msgstr "Χρήστες &amp; Ρόλοι"
+
+msgid "navigation.about"
+msgstr "Σχετικά"
+
+msgid "navigation.admin"
+msgstr "Διαχείριση"
+
+msgid "navigation.archives"
+msgstr "Αρχεία"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Βρίσκεστε εδώ:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Εργαλεία"
+
+msgid "navigation.tools.importExport"
+msgstr "Εισαγωγή/Εξαγωγή"
+
+msgid "navigation.tools.statistics"
+msgstr "Στατιστικά"
+
+msgid "navigation.browse"
+msgstr "Περιήγηση"
+
+msgid "navigation.browseByAuthor"
+msgstr "Κατά Συγγραφέα"
+
+msgid "navigation.browseByTitle"
+msgstr "Κατά τίτλο"
+
+msgid "navigation.dashboard"
+msgstr "Πίνακας"
+
+msgid "navigation.data"
+msgstr "Δεδομένα"
+
+msgid "navigation.home"
+msgstr "Αρχική σελίδα"
+
+msgid "navigation.infoForReaders"
+msgstr "Για Αναγνώστες"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Πληροφορίες για Αναγνώστες"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} από {$total} στοιχεία"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} από {$total} στοιχεία"
+
+msgid "navigation.login"
+msgstr "Σύνδεση"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Επόμενο βήμα"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Προηγούμενο βήμα"
+
+msgid "navigation.publicMenu"
+msgstr "Δημόσιο μενού"
+
+msgid "navigation.register"
+msgstr "Εγγραφή"
+
+msgid "navigation.search"
+msgstr "Αναζήτηση"
+
+msgid "navigation.settings"
+msgstr "Ρυθμίσεις"
+
+msgid "navigation.setup"
+msgstr "Παραμετροποίηση λειτουργιών"
+
+msgid "navigation.sitemap"
+msgstr "Χάρτης ιστοτόπου"
+
+msgid "navigation.skip.main"
+msgstr "Μετάβαση στο κύριο περιεχόμενο"
+
+msgid "navigation.skip.nav"
+msgstr "Μετάβαση στο κύριο μενού πλοήγησης"
+
+msgid "navigation.skip.footer"
+msgstr "Μετάβαση στο υποσέλιδο του ιστότοπου"
+
+msgid "navigation.stepNumber"
+msgstr "Βήμα {$step}"
+
+msgid "navigation.submissions"
+msgstr "Υποβολές"
+
+msgid "navigation.system"
+msgstr "Σύστημα"
+
+msgid "navigation.userHome"
+msgstr "Αρχική σελίδα Χρήστη"
+
+msgid "navigation.user"
+msgstr "Χρήστης"
+
+msgid "navigation.userManagement"
+msgstr "Διαχείριση Χρηστών"
+
+msgid "navigation.viewFrontend"
+msgstr "Προβολή ιστοτόπου"
+
+msgid "notification.addedAuditor"
+msgstr "Ο Ελεγκτής (Auditor) έχει προστεθεί."
+
+msgid "notification.removedAuditor"
+msgstr "Ο Ελεγκτής (Auditor) έχει αφαιρεθεί."
+
+msgid "notification.addedQuery"
+msgstr "Η συζήτηση προστέθηκε"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Ο Αξιολογητής είναι άγνωστος. Το μήνυμα δεν αποστέλλεται."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Το ευχαριστήριο μήνυμα στάλθηκε στον Aξιολογητή."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Τα αρχεία αξιολόγησης ενημερώθηκαν."
+
+msgid "notification.allow"
+msgstr "Εμφάνιση αυτών των τύπων ειδοποιήσεων στην προσωπική μου ροή ειδοποιήσεων"
+
+msgid "notification.addedAnnouncementType"
+msgstr "Ο τύπος αναζήτησης προστέθηκε."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Ο τύπος ανακοίνωσης επικαιροποιήθηκε."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Ο τύπος ανακοίνωσης αφαιρέθηκε."
+
+msgid "notification.addedAnnouncement"
+msgstr "Η ανακοίνωση προστέθηκε."
+
+msgid "notification.editedAnnouncement"
+msgstr "Η ανακοίνωση επικαιροποιήθηκε."
+
+msgid "notification.removedAnnouncement"
+msgstr "Η ανακοίνωση αφαιρέθηκε."
+
+msgid "notification.addedAuthor"
+msgstr "Ο Συγγραφέας προστέθηκε."
+
+msgid "notification.editedAuthor"
+msgstr "Τα στοιχεία Συγγραφέα επικαιροποιήθηκαν."
+
+msgid "notification.confirmError"
+msgstr "Παρουσίαστηκε ένα σφάλμα κατά την επιβεβαίωση της συνδρομής σας."
+
+msgid "notification.confirmSuccess"
+msgstr "Η συνδρομή σας δημιουργήθηκε επιτυχώς."
+
+msgid "notification.email"
+msgstr "Να λαμβάνω μηνύματα με ειδοποιήσεις αυτού του τύπου."
+
+msgid "notification.noneExist"
+msgstr "Δεν έχετε καμία ειδοποίηση."
+
+msgid "notification.addedNote"
+msgstr "Η σημείωση αναρτήθηκε."
+
+msgid "notification.removedNote"
+msgstr "Η σημείωση αφαιρέθηκε."
+
+msgid "notification.removedFile"
+msgstr "Το αρχείο αφαιρέθηκε."
+
+msgid "notification.removedSubmission"
+msgstr "Η υποβολή αφαιρέθηκε."
+
+msgid "notification.notification"
+msgstr "Ειδοποίηση"
+
+msgid "notification.notifications"
+msgstr "Ειδοποιήσεις"
+
+msgid "notification.sentNotification"
+msgstr "Η ειδοποίηση στάλθηκε."
+
+msgid "notification.settings"
+msgstr "Ρυθμίσεις ειδοποιήσεων"
+
+msgid "notification.settingsDescription"
+msgstr "Επιλέξτε/αποεπιλέξτε τα συμβάντα για τα οποία επιθυμείτε/δεν επιθυμείτε να λαμβάνετε ειδοποιήσεις."
+
+msgid "notification.reminderError"
+msgstr "Παρουσιάστηκε ένα σφάλμα κατά την αποστολή του κωδικού πρόσβασης. Παρακαλούμε επιβεβαιώστε ότι καταχωρήσατε σωστά τη διεύθυνσή σας."
+
+msgid "notification.reminderSent"
+msgstr "Ο καινούργιος σας κωδικός πρόσβασης έχει σταλεί στην διεύθυνση που υποδείξατε."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Τα μεταδεδομένα της υποβολής έχουν αποθηκευτεί."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Αποστολή ενημερωτικού μηνύματος σε όλους τους εγγεγραμμένους Χρήστες"
+
+msgid "search.author"
+msgstr "Συγγραφείς"
+
+msgid "search.abstract"
+msgstr "Περίληψη"
+
+msgid "search.advancedFilters"
+msgstr "Φίλτρα αναζήτησης"
+
+msgid "search.advancedSearchMore"
+msgstr "Πρόσθετες επιλογές αναζήτησης (πατήστε για εμφάνιση)"
+
+msgid "search.advancedSearchLess"
+msgstr "Πρόσθετες επιλογές αναζήτησης (πατήστε για απόκρυψη)"
+
+msgid "search.searchAgain"
+msgstr "Νέα αναζήτηση"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Εκκαθάριση ευρετηρίου"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "έτοιμο"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "σφάλμα"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} ευρετηριασμένα άρθρα"
+
+msgid "search.coverage"
+msgstr "Κάλυψη"
+
+msgid "search.date"
+msgstr "Ημερομηνία"
+
+msgid "search.dateFrom"
+msgstr "Από"
+
+msgid "search.dateTo"
+msgstr "Μέχρι"
+
+msgid "search.deleteFilter"
+msgstr "Διαγραφή"
+
+msgid "search.discipline"
+msgstr "Επιστημονικοί κλάδοι"
+
+msgid "search.fullText"
+msgstr "Πλήρες κείμενο"
+
+msgid "search.indexTerms"
+msgstr "Όροι ευρετηρίασης"
+
+msgid "search.indexTermsLong"
+msgstr "Όλα τα πεδία ευρετηρίασης"
+
+msgid "search.matchAll"
+msgstr "Εύρεση αποτελεσμάτων που περιέχουν όλους τους όρους."
+
+msgid "search.noKeywordError"
+msgstr "Θα πρέπει να εισάγετε τουλάχιστον έναν όρο αναζήτησης."
+
+msgid "search.noResults"
+msgstr "Κανένα αποτέλεσμα"
+
+msgid "search.operator.and"
+msgstr "και"
+
+msgid "search.operator.not"
+msgstr "όχι"
+
+msgid "search.operator.or"
+msgstr "ή"
+
+msgid "search.SearchFor"
+msgstr "Αναζήτηση για"
+
+msgid "search.searchResults"
+msgstr "Αποτελέσματα αναζήτησης"
+
+msgid "search.subject"
+msgstr "Λέξεις-κλειδιά"
+
+msgid "search.titleIndex"
+msgstr "Περιήγηση τίτλων αλφαβητικά"
+
+msgid "search.title"
+msgstr "Τίτλος"
+
+msgid "search.typeMethodApproach"
+msgstr "Τύπος (μέθοδος/προσέγγιση)"
+
+msgid "grid.action.downloadFile"
+msgstr "Μεταφόρτωση του αρχείου"
+
+msgid "context.path"
+msgstr "Διαδρομή"
+
+msgid "review.ensuringBlindReview"
+msgstr "Διασφαλίζοντας την \"τυφλή\" αξιολόγηση"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Προβολή των πολιτικών αξιολόγησης"
+
+msgid "grid.action.deleteNotification"
+msgstr "Διαγραφή εργασίας"
+
+msgid "grid.action.markNew"
+msgstr "Επισήμανση ως νέο"
+
+msgid "grid.action.markRead"
+msgstr "Επισήμανση ως αναγνωσμένο"
+
+msgid "dashboard.tasks"
+msgstr "Εργασίες"
+
+msgid "dashboard.myQueue"
+msgstr "Η λίστα μου"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"\n"
+"\t\t<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που μεταφορτώνονται:</p>\n"
+"\t\t\t<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν υπάρχουν παραπομπές σε προηγούμενες εργασίες των Sυγγραφέων, τα ονόματά τους αντικαθίστανται με τη λέξη \"Συγγραφέας\", ο τίτλος των εργασιών αφαιρείται και παραμένει μόνο το έτος έκδοσης.</li>\n"
+"\t\t\t<li>Σε έγγραφα του Microsoft Office, η ταυτότητα των Συγγραφέων πρέπει επίσης να αφαιρείται από τις ιδιότητες του αρχείου, ως ακολούθως: Στο μενού εργασιών του εγγράφου επιλέγετε \"Αρχείο\", στη συνέχεια \"Έλεγχος για θέματα\" και \"Έλεγχος εγγράφου\", όπου ακολουθείτε τις οδηγίες του προγράμματος.</li>\n"
+"\t\t\t<li>Σε έγγραφα PDF, τα ονόματα των Συγγραφέων αφαιρούνται από τις \"Ιδιότητες\", στο μενού \"Αρχείο\" του Adobe Acrobat.</li>\n"
+"\t\t</ul>\n"
+"\t"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Χρονοδιάγραμμα αξιολόγησης"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Αίτημα υπεύθυνου έκδοσης"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Ημερομηνία προθεσμίας απάντησης"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Ημερομηνία προθεσμίας αξιολόγησης"
+
+msgid "submission.task.responseDueDate"
+msgstr "Προθεσμία απάντησης"
+
+msgid "navigation.goBack"
+msgstr "Επιστροφή"
+
+msgid "notification.addedReviewer"
+msgstr " Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε σχετική ενημέρωση."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, χωρίς να έχει αποσταλεί σχετική ενημέρωση."
+
+msgid "notification.removedReviewer"
+msgstr "Ο Αξιολογητής αφαιρέθηκε"
+
+msgid "notification.addedStageParticipant"
+msgstr "Ο Χρήστης προστέθηκε ως συμμετέχων σε κάποιο στάδιο."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Νέα ανακοίνωση"
+
+msgid "notification.type.reviewAssignment"
+msgstr "Εκκρεμής αξιολόγηση"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Έγινε ενημέρωση της ανάθεσης αξιολόγησης."
+
+msgid "notification.type.auditorRequest"
+msgstr "Έχετε κληθεί για τον έλεγχο του αρχείου \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Όλες οι αξιολογήσεις και η απόφαση Επιμελητή χρειάζονται στο {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Ένα αναθεωρημένο αρχείο προς επιμέλεια έχει μεταφορτωθεί στο στάδιο {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Απαιτούνται αναθεωρήσεις στο στάδιο {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Ανθεωρήσεις έχουν υποβληθεί στο στάδιο {$stage}."
+
+msgid "notification.type.metadataModified"
+msgstr "\"{$title}\": τα μεταδεδομένα έχουν τροποποιηθεί."
+
+msgid "notification.type.reviewerComment"
+msgstr "Ένας Αξιολογητής έχει καταθέσει σχόλια για την εργασία \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Το αρχείο έχει θεωρηθεί"
+
+msgid "user.authorization.submissionFile"
+msgstr "Ο παρών Χρήστης δεν έχει δικαιώματα πρόσβασης στο συγκεκριμένο αρχείο υποβολής."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Μη έγκυρη υποβολή"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Μη έγκυρη αναπαράσταση"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "Δεν σας έχουν δοθεί δικαιώματα προβολής της υποβολής. Παρακαλούμε ελέγξτε το προφίλ σας για να βεβαιωθείτε ότι σας έχουν εκχωρηθεί οι κατάλληλοι ρόλοι μέσω της λειτουργίας \"Σύνδεση Ως\"."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "Ο παρών Χρήστης δεν είναι ο Συγγραφέας της εργασίας. Βεβαιωθείτε ότι έχετε συνδεθεί με τον κατάλληλο λογαριασμό Χρήστη."
+
+msgid "notification.type.queryActivity"
+msgstr "Δραστηριότητα συζητήσεων"
+
+msgid "notification.type.queryAdded"
+msgstr "Η συζήτηση προστέθηκε"
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Ανάθεση σε Επιμελητή Κειμένων μέσω του σχετικού συνδέσμου στη λίστα συντελεστών."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Σε αναμονή επιμελημένων κειμένων."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Κατάσταση γύρου {$round}."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Το στοιχείο του μενού περιήγησης ενημερώθηκε επιτυχώς."
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Το στοιχείο αφαιρέθηκε επιτυχώς στο μενού περιήγησης."
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Το στοιχείο προστέθηκε επιτυχώς στο μενού περιήγησης."
+
+msgid "notification.addedNavigationMenu"
+msgstr "Το μενού περιήγησης προστέθηκε επιτυχώς."
+
+msgid "notification.editedNavigationMenu"
+msgstr "Το μενού περιήγησης ενημερώθηκε επιτυχώς."
+
+msgid "notification.removedNavigationMenu"
+msgstr "Το μενού περιήγησης αφαιρέθηκε επιτυχώς."
+
+msgid "list.viewMore"
+msgstr "Προβολή πρόσθετων πληροφοριών για το {$name}"
+
+msgid "list.viewLess"
+msgstr "Απόκρυψη πρόσθετων πληροφοριών για το {$name}"

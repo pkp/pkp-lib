@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "مدیر سایت"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "مدیران سایت"
+
+msgid "default.groups.name.productionEditor"
+msgstr "مدیر تولید"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "مدیران تولید"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "م.تولید"
+
+msgid "default.groups.name.copyeditor"
+msgstr "ویراستار"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "ویراستاران"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "ویراستار"
+
+msgid "default.groups.name.proofreader"
+msgstr "بازبین نهایی"
+
+msgid "default.groups.plural.proofreader"
+msgstr "بازبینان نهایی"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "ب.نهایی"
+
+msgid "default.groups.name.designer"
+msgstr "طراح"
+
+msgid "default.groups.plural.designer"
+msgstr "طراحان"
+
+msgid "default.groups.abbrev.designer"
+msgstr "طراح"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "داور داخلی"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "داوران داخلی"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "داور.د"
+
+msgid "default.groups.name.marketing"
+msgstr "بازاریاب و مسئول فروش"
+
+msgid "default.groups.plural.marketing"
+msgstr "بازاریاب‌ها و مسئولان فروش"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "بازاریاب"
+
+msgid "default.groups.name.funding"
+msgstr "مدیر مالی"
+
+msgid "default.groups.plural.funding"
+msgstr "مدیران مالی"
+
+msgid "default.groups.abbrev.funding"
+msgstr "م.مالی"
+
+msgid "default.groups.name.indexer"
+msgstr "نمایه کننده"
+
+msgid "default.groups.plural.indexer"
+msgstr "نمایه کنندگان"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "نمایه"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "صفحه‌آرا"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "صفحه‌آراها"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "صفحه‌آرا"
+
+msgid "default.groups.name.author"
+msgstr "نویسنده"
+
+msgid "default.groups.plural.author"
+msgstr "نویسندگان"
+
+msgid "default.groups.abbrev.author"
+msgstr "نویسنده"
+
+msgid "default.groups.name.translator"
+msgstr "مترجم"
+
+msgid "default.groups.plural.translator"
+msgstr "مترجمان"
+
+msgid "default.groups.abbrev.translator"
+msgstr "مترجم"
+
+msgid "default.groups.name.reader"
+msgstr "خواننده"
+
+msgid "default.groups.plural.reader"
+msgstr "خوانندگان"
+
+msgid "default.groups.abbrev.reader"
+msgstr "خواننده"
+
+msgid "default.genres.other"
+msgstr "سایر"
+
+msgid "default.genres.multimedia"
+msgstr "چندرسانه‌ای"
+
+msgid "default.genres.image"
+msgstr "تصویر"
+
+msgid "default.genres.styleSheet"
+msgstr "استایل شیت"

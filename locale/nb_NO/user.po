@@ -1,0 +1,279 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
+"Language: \n"
+
+msgid "user.affiliation"
+msgstr "Tilknyttet"
+
+msgid "user.affiliations"
+msgstr "Tilknyttet"
+
+msgid "user.biography"
+msgstr "Biografiske opplysninger"
+
+msgid "user.biography.description"
+msgstr "(F.eks. institutt og stilling)"
+
+msgid "user.changeMyPassword"
+msgstr "Endre passordet mitt"
+
+msgid "user.changePassword"
+msgstr "Endre passord"
+
+msgid "user.dateLastLogin"
+msgstr "Sist innlogget"
+
+msgid "user.dateRegistered"
+msgstr "Registrert dato"
+
+msgid "user.editMyProfile"
+msgstr "Rediger min profil"
+
+msgid "user.email"
+msgstr "E-post"
+
+msgid "user.interests"
+msgstr "Fagvurderingsinteresse"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Kontoen din er slått av av følgende grunn: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Kontoen din er slått av. Vennligst kontakt administratoren for mer informasjon."
+
+msgid "user.login.accountNotValidated"
+msgstr "E-postadressen din er ikke bekreftet. Vennligst sjekk e-posten du har fått, og følg instruksjonene der. Hvis du ikke har mottatt noen e-post bør du kontakte dette nettstedets administrator for å få hjelp."
+
+msgid "user.login.activate"
+msgstr "Aktiver konto"
+
+msgid "user.login.activated"
+msgstr "Takk for at du aktiverer kontoen din. Du kan nå logge inn med de samme påloggingsdataene du oppga når du opprettet kontoen."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Du må velge et nytt passord before du kan logge inn på dette nettstedet.<br /><br />Vennligst skriv inn brukernavnet ditt, og det nåværende og det nye passordet ditt nedenfor, for å endre passordet for kontoen din."
+
+msgid "user.login.forgotPassword"
+msgstr "Har du glemt passordet?"
+
+msgid "user.login.loginError"
+msgstr "Ugyldig brukernavn eller passord. Vennligst prøv igjen."
+
+msgid "user.login"
+msgstr "Logg inn"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "En bekreftelse er nå sendt til din e-postadresse. Vennligst følg instruksjonene i e-posten for å tilbakestille passordet ditt."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Beklager, lenken du klikket på har utløpt eller er ugyldig. Vennligst prøv å tilbakestille passordet ditt igjen."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Det finnes ingen bruker med denne e-postadressen."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Et nytt passord er nå sendt til din e-postadresse. Du kan nå logge inn på nettstedet med det nye passordet ditt."
+
+msgid "user.login.registeredEmail"
+msgstr "Den registrerte brukerens e-post"
+
+msgid "user.login.resetPassword"
+msgstr "Tilbakestill passordet"
+
+msgid "user.logOut"
+msgstr "Logg ut"
+
+msgid "user.mailingAddress"
+msgstr "Postadresse"
+
+msgid "user.myAccount"
+msgstr "Min brukerkonto"
+
+msgid "user.name"
+msgstr "Navn"
+
+msgid "user.password"
+msgstr "Passord"
+
+msgid "user.repeatPassword"
+msgstr "Gjenta passord"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Skriv inn ditt nåværende og ditt nye passord nedenfor for å endre passordet for kontoen din."
+
+msgid "user.profile.editProfile"
+msgstr "Rediger profil"
+
+msgid "user.profile.form.emailRequired"
+msgstr "En gyldig e-postadresse er påkrevet."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Du må skrive inn det nye passordet ditt."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Det nåværende passordet du skrev inn ukorrekt."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "E-post varsel når ny utgave er blitt Open Access"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Et passord er påkrevet."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profilbilde"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-postvarsel når ny utgave er publisert"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Den oppgitte URLen er ikke gyldig. Vennligst kontroller URLen, og prøv igjen. (Tips: kanskje det hjelper å føye til http:// først i URLen)"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Et brukernavn er påkrevet."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "La passordfeltene stå tomme, hvis du vil beholde nåværende passord."
+
+msgid "user.profile.newPassword"
+msgstr "Nytt passord"
+
+msgid "user.profile.oldPassword"
+msgstr "Nåværende passord"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.publicProfile"
+msgstr "Brukerprofil"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Gjenta nytt passord"
+
+msgid "user.register.completeForm"
+msgstr "Fyll ut dette skjemaet for å registrere deg hos tidsskriftet."
+
+msgid "user.register.form.emailExists"
+msgstr "Den valgte e-postadressen er allerede i bruk av en annen bruker."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Passordene var ulike."
+
+msgid "user.register.form.usernameExists"
+msgstr "Det valgte brukernavnet er allerede tatt i bruk av en annen bruker."
+
+msgid "user.register.passwordLengthRestriction"
+msgstr "Passordet må være minst {$length} tegn."
+
+msgid "user.register.registerAs"
+msgstr "Registrer som"
+
+msgid "user.register"
+msgstr "Registrer"
+
+msgid "user.register.usernameRestriction"
+msgstr "Brukernavnet må inneholde bare små bokstaver, tall og bindestrek/understrek."
+
+msgid "user.role.reader"
+msgstr "Leser"
+
+msgid "user.role.readers"
+msgstr "Lesere"
+
+msgid "user.role.reviewer"
+msgstr "Fagkonsulent"
+
+msgid "user.role.reviewers"
+msgstr "Fagkonsulenter"
+
+msgid "user.role.siteAdmin"
+msgstr "Nettstedsadministrator"
+
+msgid "user.role.siteAdmins"
+msgstr "Nettstedsadministratorer"
+
+msgid "user.roles"
+msgstr "Roller"
+
+msgid "user.sendPassword"
+msgstr "Bekreftelse"
+
+msgid "user.sendPassword.description"
+msgstr "Send meg en bekreftelse med brukernavn og passord"
+
+msgid "user.signature"
+msgstr "Signatur"
+
+msgid "user.title"
+msgstr "Tittel"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Min side"
+
+msgid "user.username"
+msgstr "Brukernavn"
+
+msgid "user.workingLanguages"
+msgstr "Arbeidsspråk"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Ugyldig profilbildeformat eller et for stort bilde. Mulige formater er .gif, .jpg, eller .png, og bildet kan ikke være større enn 150x150 pixler."
+
+msgid "user.affiliation.description"
+msgstr "(Din institusjon, f.eks. «Det Kongelige Frederiks Universitet»"
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Institusjonstilhørighet må angis."
+
+msgid "user.accountInformation"
+msgstr "Kontoinformasjon"
+
+msgid "user.authorization.loginRequired"
+msgstr "Pålogging kreves."
+
+msgid "user.group"
+msgstr "Brukergruppe"
+
+msgid "user.hello"
+msgstr "Hei,"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Ditt nye passord er det samme som ditt gamle passord."
+
+msgid "user.authorization.accessDenied"
+msgstr "Ingen tilgang."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Du har blitt nektet adgang. Adgang til denne siden er på nåværende tidspunkt begrenset."
+
+msgid "user.gossip"
+msgstr "Private notater"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "En brukergruppe påkreves."
+
+msgid "user.authorization.privateOperation"
+msgstr "Operasjonen du prøvde å få tilgang er enten privat eller eksisterer ikke."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Land må oppgis."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "En postadresse må oppgis."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "E-postadressene samsvarer ikke med hverandre."

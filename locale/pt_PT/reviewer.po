@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:59+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Pedido"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Directrizes"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Download & Revisão"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Conclusão"
+
+msgid "reviewer.step1.request"
+msgstr "Pedido para Revisão"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Foi seleccionado(a) como um revisor potencial do seguinte artigo. Abaixo está uma visão geral da submissão, bem como a linha de tempo para esta revisão. Esperamos que possa participar nesta tarefa!"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Ver Todos Detalhes Artigo"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Ficheiros para Revisão"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Recusar Pedido Revisão"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Pode fornecer ao Editor os motivos da recusa desta revisão no campo abaixo."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Aceitar Revisão, Avançar para Passo #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continuar para Passo #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Enviar Revisão"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Directrizes Revisão"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Este Editor tem uma política de divulgação de potenciais interesses concorrentes dos seus revisores. Por favor, tome algum do seu tempo para avaliar esta política."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Não tenho interesses concorrentes"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Posso ter interesses concorrentes (especificar abaixo)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Interesses concorrentes"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Directrizes Revisão"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Este Editor ainda não definiu as directrizes de revisão."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Clique nos nomes dos ficheiros abaixo para fazer download de todos os ficheiros associados a esta submissão."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Insira (ou cole) a sua revisão deste artigo no formulário abaixo."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Faça upload de ficheiros que gostaria que o Editor e/ou autor consultassem, incluindo versões revistas do(s) ficheiro (s) original."
+
+msgid "reviewer.complete"
+msgstr "Revisão Enviada"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Tem certeza de que deseja enviar esta revisão?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Obrigado por concluirs a revisão deste artigo. A sua revisão foi enviada com sucesso. Agradecemos a sua contribuição para a qualidade do trabalho que publicamos; O Editor pode contatá-lo novamente para obter mais informações, se necessário."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Sobre Prazos"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "O Editor pede que aceite ou recuse a revisão antes da data de resposta devida e conclua a revisão até à data de devolução da revisão."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Para o autor e Editor"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Apenas para o Editor"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "O utilizador actual não foi designado como revisor para o artigo solicitado."

@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:53+00:00\n"
+"Language: \n"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "File del revisore"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Conflitto d'interessi"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Sei sicuro di voler inviare la revisione ?"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Richiesta"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Linee guida"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Scarica e revisiona"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Completa"
+
+msgid "reviewer.step1.request"
+msgstr "Richiesta di revisione"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Sei stato selezionato come possibile revisore di questa proposta. Sotto trovi una descrizione della proposta e la tempistica per la revisione. Speriamo che tu possa partecipare alla revisione."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Vedi tutti i dettagli della proposta"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Non accetti di fare la revisione"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Puoi scrivere all'editor le motivazioni per cui declini la possibilità di fare la revisione inserendole nel form qui sotto."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Accetti di fare la revisione, continua al passo #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continua al passo #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Invia la revisione"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Linee guida per il revisore"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Questo editore ha una politica di divulgazione dei potenziali conflitti d'interesse dei revisore. Per favore leggi con attenzione questa politica."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Non ho alcun conflitto d'interessi"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Ho dei conflitti d'interesse (spiega qui sotto)"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Linee guida per la revisione"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Queasto editore non ha ancora definito alcuna linea guida per i revisori"
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Clicca sui nomi per scaricare i file collegati a questa proposta"
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Inserisci la tua revisione per questa proposta nel form qui sotto."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Carica i file che voi far consultare all'editor e/o all'autore, incluse le versioni riviste dei file originali."
+
+msgid "reviewer.complete"
+msgstr "Revisione inviata"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Grazie per aver completato la revisione di questa proposta. La tua revisione è stata inviata con successo. Apprezziamo molto il tuo contributo alla qualità dei lavori che pubblichiamo; l'editor potrebbe contattarti ancora per eventuali ulteriori informazioni."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Riguardo le date"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "L'editor ti chiede di accettare o declinare la richiesta di revisione prima della data di accettazione e di completare la revisione entro la data di consegna."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Per l'autore e l'editor"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Per l'editor solamente"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "L'attuale utente non è assegnato come revisore del documento richiesto."

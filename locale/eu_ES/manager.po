@@ -1,0 +1,606 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
+"Language: \n"
+
+msgid "manager.announcements"
+msgstr "Anuntzioak"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Ziur zaude betiko ezabatu nahi duzula anuntzio hau?"
+
+msgid "manager.announcements.create"
+msgstr "Sortu Anuntzio berria"
+
+msgid "manager.announcements.createTitle"
+msgstr "Sortu"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Iraungitze-data"
+
+msgid "manager.announcements.edit"
+msgstr "Editatu anuntzioa"
+
+msgid "manager.announcements.editTitle"
+msgstr "Editatu"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Iraungitze-egunaz gain, urtea eta hila hautatu behar dira."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Iraungitze-data"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Egun horretara arte bistaratuko da anuntzioa. Utzi hutsik anuntzioak denbora-mugarik ez badu."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Iraungitze-hilaz gain, urtea eta eguna hautatu behar dira."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Hautatu baliozko iraungitze-data bat"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Iraungitze-urteaz gain, hila eta eguna hautatu behar dira."
+
+msgid "manager.announcements.form.description"
+msgstr "Azalpena"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Anuntzioaren testu osoa."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Anuntzioaren azalpena eman behar da."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Anuntzioaren tituluarekin batera erakusteko azalpen laburra."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Anuntzioaren azalpen laburra eman behar da."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Azalpen laburra"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Gorde eta sortu beste bat"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Anuntzioaren titulua eman behar da."
+
+msgid "manager.announcements.form.title"
+msgstr "Titulua"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Mota"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Hautatu baliozko anuntzio mota bat"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Ez da anuntziorik sortu."
+
+msgid "manager.announcements.title"
+msgstr "Titulua"
+
+msgid "manager.announcements.type"
+msgstr "Mota"
+
+msgid "manager.announcementTypes"
+msgstr "Anuntzio motak"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Kontuz! Mota honetako anuntzio guztiak ezabatu egingo dira. Ziur zaude anuntzio mota hau ezabatu nahi duzula?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Sortu anuntzio mota"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Sortu"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Editatu anuntzio mota"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Editatu"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Gorde eta sortu beste bat"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Izen hori beste anuntzio mota batena da."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Izena"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Anuntzio motaren izena eman behar da."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Ez da anuntzio motarik sortu."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Anuntzio mota"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Ziur zaude mezu-txantiloi hau ezabatu nahi duzula?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Ziur zaude mezu-txantiloi hau berrezarri nahi duzula balio lehenetsiekin?"
+
+msgid "manager.emails.createEmail"
+msgstr "Sortu mezu elektronikoa"
+
+msgid "manager.emails.disable"
+msgstr "Desgaitu"
+
+msgid "manager.emails.editEmail"
+msgstr "Editatu mezu elektronikoa"
+
+msgid "manager.emails.editTestExample"
+msgstr "Editatu mezua probatzeko adibidea"
+
+msgid "manager.emails.emailKey"
+msgstr "Posta elektronikoko gakoa"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Gako hori beste posta elektroniko batek erabiltzen du. Gako unibokoa izan behar du."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Mezu elektronikoen txantiloia"
+
+msgid "manager.emails.enabled"
+msgstr "Gaitu mezu-txantiloi hau"
+
+msgid "manager.emails.enable"
+msgstr "Gaitu"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Mezuak gorputza eduki behar du."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Mezuak gaia eduki behar du."
+
+msgid "manager.emails"
+msgstr "Prestatutako mezu elektronikoak"
+
+msgid "manager.emails.reset"
+msgstr "Berrezarri"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Berrezarri lehenetsia"
+
+msgid "manager.filesBrowser"
+msgstr "Fitxategi-arakatzailea"
+
+msgid "manager.files.confirmDelete"
+msgstr "Fitxategi edo direktorio hau ezabatu nahi duzu? Kontuan izan, direktorio bat ezabatu ahal izateko, hutsik egon behar dela."
+
+msgid "manager.files.createDir"
+msgstr "Sortu direktorioa"
+
+msgid "manager.files.emptyDir"
+msgstr "Ez da fitxategirik aurkitu direktorio honetan."
+
+msgid "manager.files.indexOfDir"
+msgstr "{$dir} direktorioaren indizea"
+
+msgid "manager.files.parentDir"
+msgstr "Direktorio gurasoa"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Kargatutako fitxategiak"
+
+msgid "manager.files.uploadFile"
+msgstr "Kargatu fitxategia"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Ziur zaude talde hau ezabatu nahi duzula?"
+
+msgid "manager.groups.createTitle"
+msgstr "Sortu kargua"
+
+msgid "manager.groups.editTitle"
+msgstr "Editatu kargua"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Taldearen titulua eman behar da."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Gehitu kidea"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Ziur zaude talde honetako kidetza ezabatu nahi duzula?"
+
+msgid "manager.groups.membership"
+msgstr "Kideak"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Talde honek ez dauka kiderik."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Ez da erabiltzailerik aurkitu."
+
+msgid "manager.groups.title"
+msgstr "Kargua"
+
+msgid "manager.importExport"
+msgstr "Inportatu/Esportatu datuak"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Sistemak aukera ematen du, gainera, informazio garrantzitsua hainbat hizkuntzatan sartzeko. Eginbide hori erabiltzeko, hautatu localeak eta aukeratu beheko aukeren artean."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Hautatu orri bakoitzean hizkuntza aukeratzeko menuan erabilgarri egongo diren locale hizkuntza-paketeak. Hizkuntza bat  baino gehiago hautatzen bada bakarrik agertuko da hizkuntzen menua."
+
+msgid "manager.payment.timestamp"
+msgstr "Data"
+
+msgid "manager.people.authSource"
+msgstr "Autentifikazio-iturburua"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Erabiltzaile hau desinskribatu?"
+
+msgid "manager.people.createUser"
+msgstr "Sortu erabiltzaile berria"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Sortu ausazko pasahitz bat."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Bidali ongietorri-mezu bat erabiltzaile-izenarekin eta pasahitzarekin."
+
+msgid "manager.people.disable"
+msgstr "Desgaitu"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Funtziorik gabe"
+
+msgid "manager.people.editProfile"
+msgstr "Editatu profila"
+
+msgid "manager.people.editUser"
+msgstr "Editatu erabiltzailea"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Bidali mezua hautatutako erabiltzaileei"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Bidali mezua honela inskribatutako erabiltzaileei:"
+
+msgid "manager.people.emailUsers"
+msgstr "Bidali mezu elektronikoa erabiltzaileei"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Hautatu locale hizkuntza-pakete bat"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Mezua bidali nahi diezun erabiltzaileak hautatzeko, markatu izenaren ondoko laukia"
+
+msgid "manager.people.enable"
+msgstr "Gaitu"
+
+msgid "manager.people.enroll"
+msgstr "Inskribatu erabiltzailea"
+
+msgid "manager.people.enrollment"
+msgstr "Inskripzioa"
+
+msgid "manager.people.enrollSelected"
+msgstr "Inskribatu hautatutako erabiltzaileak"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Sinkronizatu funtzio hau"
+
+msgid "manager.people.enrollSync"
+msgstr "Sinkronizatu inskripzioa"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Edozein unetan eslei (edo ken) dakioke funtzio bat erabiltzaile bati."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Inskribatu erabiltzailea honela:"
+
+msgid "manager.people.invalidUser"
+msgstr "Eskatutako erabiltzailea ez dago."
+
+msgid "manager.people.mergeUser"
+msgstr "Batu erabiltzailea"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Ziur zaude \"{$oldUsername}\" erabiltzaile-izena duen kontua ezabatu eta \"{$newUsername}\" erabiltzaile-izena duen kontuarekin batu nahi duzula? \"{$oldUsername}\" kontua galdu egingo da. Ekintza hau ezingo da desegin."
+
+msgid "manager.people.mergeUsers"
+msgstr "Batu erabiltzaileak"
+
+msgid "manager.people.mustProvideName"
+msgstr "Lehenengo, erabiltzailearen abizen bat eman behar duzu."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Ez dago bat datorren erabiltzailerik."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Inskribatutako erabiltzailerik ez."
+
+msgid "manager.people"
+msgstr "Jendea"
+
+msgid "manager.people.remove"
+msgstr "Kendu"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Gorde eta sortu beste bat"
+
+msgid "manager.people.signInAs"
+msgstr "Hasi erabiltzaile-saioa"
+
+msgid "manager.people.signInAsUser"
+msgstr "Hasi saioa erabiltzaile gisa"
+
+msgid "manager.people.syncUsers"
+msgstr "Sinkronizatu erabiltzaile-inskripzioa"
+
+msgid "manager.people.unenroll"
+msgstr "Desinskribatu"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Erabiltzailea ondo sortu da."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Esan erabiltzaileari pasahitza aldatu behar duela hurrengo sartzen den aldian."
+
+msgid "manager.plugins.action"
+msgstr "Ekintza:"
+
+msgid "manager.plugins.disable"
+msgstr "Desgaitu"
+
+msgid "manager.plugins.enable"
+msgstr "Gaitu"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Pluginen kudeaketa"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Plugin hau gune osorako da. Gune-administratzaileak bakarrik kudea dezake."
+
+msgid "manager.plugins"
+msgstr "Sistemaren pluginak"
+
+msgid "manager.readingTools"
+msgstr "Irakurtzeko tresnak"
+
+msgid "manager.roles"
+msgstr "Funtzioak"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Hasierako orriaren goiburuko irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Hasierako orriaren goiburuko tituluaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Log-erregistroa eta kontrola"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Orri-buruko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira."
+
+msgid "manager.setup.selectOne"
+msgstr "Hautatu bat"
+
+msgid "manager.statistics"
+msgstr "Estatistikak eta txostenak"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} (% {$percentage})"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} berri)"
+
+msgid "manager.users"
+msgstr "Erabiltzaileak"
+
+msgid "plugins.categories.auth"
+msgstr "Baimena emateko pluginak"
+
+msgid "plugins.categories.blocks"
+msgstr "Blokeko pluginak"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Blokeko pluginak, erabiltzaile-interfazearen osagai gehigarriak dira, esate baterako, alboko barrako tresnak."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Atebide-pluginek zuzeneko datuak pasatzen dituzte kanpoko sistemetara"
+
+msgid "plugins.categories.gateways"
+msgstr "Atebide-pluginak"
+
+msgid "plugins.categories.generic"
+msgstr "Plugin generikoak"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Inportatu eta Esportatzeko pluginak edukia beste sistema batzuetatik eta batzuetara transferitzeko erabiltzen dira."
+
+msgid "plugins.categories.importexport"
+msgstr "Inportatu eta Esportatzeko pluginak"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Ordaintzeko moduen pluginekin, lineako ordainketak hainbat modutan prozesatu ahal izango dira."
+
+msgid "plugins.categories.paymethod"
+msgstr "Ordainketen pluginak"
+
+msgid "plugins.categories.reports.description"
+msgstr "Txostenen pluginak Konferentzia-kudeatzaileentzako txostenak eta datu-aterakinak prestatzeko erabiltzen dira."
+
+msgid "plugins.categories.reports"
+msgstr "Txostenen pluginak"
+
+msgid "plugins.categories.themes.description"
+msgstr "Sistemaren itxura aldatzeko erabiltzen dira Temen pluginak."
+
+msgid "plugins.categories.themes"
+msgstr "Temen pluginak"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Hautatu funtzio bat orriaren goialdean \"Inskribatu erabiltzailea\"n klik egin aurretik."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Posta elektronikoko gako bakarra behar da posta elektronikorako."
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Errorea elementu hau ezabatzean."
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Ebaluatzailea izenez bilatu"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Interesak ebaluatzen"
+
+msgid "manager.announcements.datePublish"
+msgstr "Argitaratua"
+
+msgid "manager.emails.details"
+msgstr "Txantiloiaren xehetasunak"
+
+msgid "manager.emails.data"
+msgstr "Txantiloiko mezuaren datuak"
+
+msgid "manager.emails.disable.message"
+msgstr "Posta elektronikoaren txantiloi hau desaktibatzeko zorian zaude. Sistemaren prozesu batzuk baleude txantiloi hau erabiltzen, ez lukete aurrerantzean erabiliko. Eragiketa baieztatu nahi duzu?"
+
+msgid "manager.emails.enable.message"
+msgstr "Posta elektroniko hau aktibatzeko zorian zaude. Eragiketa baieztatu nahi duzu?"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Txantiloi guztiak berrezartzen badituzu, posta elektronikoaren txantiloi guztien aldaketak galduko dira. Eragiketa baieztatu nahi duzu?"
+
+msgid "manager.emails.reset.message"
+msgstr "Txantiloi hau berrezartzen baduzu, mezuko datu guztiak berrezarriko dira lehenetsitako balioetan, eta aldaketa guztiak galduko dira. Eragiketa baieztatu nahi duzu?"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Izenaren araberako bilaketa"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Erabili beheko inprimakia bilatu nahi dituzun hitzentzako gehienezko balioak ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu."
+
+msgid "plugins.categories.metadata"
+msgstr "Metadatuen pluginak"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI Metadatuen Formatuen Pluginak"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Formatuen plugin horiek metadatuak adierazten dituzte OAI komunikazioetan."
+
+msgid "manager.website"
+msgstr "Webgunea"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Kontuz: Ebaluazio-inprimakiko elementu mota aldatzen baduzu aukera multzo bat izatetik irekia izatera, aukera multzoa ezabatu egingo da."
+
+msgid "manager.reviewFormElements"
+msgstr "Inprimakiko elementuak"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Gehitu hautapena"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Kontrol-laukiak (bat edo gehiago aukera daitezke)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Aukeratu elementu mota"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Ziur zaude ebaluazio-inprimaki argitaratu bateko elementu bat ezabatu nahi duzula?"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopiatu hona:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Sortu elementu berria"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Goitibehera"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Editatu inprimaki-elementua"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Elementu mota"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Inprimaki-elementu honek elementu mota bat behar du."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Inprimaki-elementu honek galdera bat behar du."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Ez da inprimaki-elementurik sortu"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Hautapena"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Elementua"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Aukera-botoiak (bakarra aukera daiteke)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Ebaluatzaileek bete egin behar dute elementua"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Hitz bakarreko testu-koadroa"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Testu-koadro hedatua"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Lerro bakarreko testu-koadroa"
+
+msgid "manager.reviewForms"
+msgstr "Ebaluazio-inprimakiak"
+
+msgid "manager.reviewForms.completed"
+msgstr "Bukatuta"
+
+msgid "manager.reviewForms.create"
+msgstr "Sortu Ebaluazio-inprimakia"
+
+msgid "manager.reviewForms.description"
+msgstr "Azalpena eta Instrukzioak"
+
+msgid "manager.reviewForms.edit"
+msgstr "Ebaluazio-inprimakia"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Titulua eman behar zaio ebaluazio-inprimakiari."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Ebaluatzen"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Hemen sortzen diren ebaluazio-inprimakiak emango zaizkie adituei ebaluazioa egiteko, bi testu-koadroz (\"egilearentzat eta editorearentzat\" lehenengoa eta \"editorearentzat\" bigarrena) osatutako inprimaki lehenetsiaren ordez. Ebaluazio-inprimakiak aldizkariaren atal jakin batean erabiltzeko jar daitezke, eta ataleko editoreek zein inprimaki erabili aukeratu ahal izango dute ebaluazioa esleitzean. Kasu guzietan, editoreek ebaluazio-txostenak sartzeko aukera izango dute egilearekin izaten duten korrespondentzian."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Bat ere ez / Inprimaki librea"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Ez da ebaluazio-inprimakirik sortu"
+
+msgid "manager.reviewForms.preview"
+msgstr "Inprimakiaren aurrebista"
+
+msgid "manager.reviewForms.title"
+msgstr "Titulua"

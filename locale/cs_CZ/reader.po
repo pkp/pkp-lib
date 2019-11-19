@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:41+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonymní uživatel"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Tělo"
+
+msgid "comments.titleRequired"
+msgstr "Je vyžadován název komentáře."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Smazáním tohoto komentáře smažete také všechny odpovědi na něj. Jste si jistý, že to chcete udělat?"
+
+msgid "comments.delete"
+msgstr "Smazat tento komentář"
+
+msgid "comments.email"
+msgstr "Email odesílatele"
+
+msgid "comments.emailReply"
+msgstr "Odpověď"
+
+msgid "comments.enterComment"
+msgstr "Vložit komentář"
+
+msgid "comments.inResponseTo"
+msgstr "V odpovědi na <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Jméno odesílatele"
+
+msgid "comments.noComments"
+msgstr "Nebyly odeslány žádné komentáře čtenářů."
+
+msgid "comments.nReplies"
+msgstr "({$num} Odpovědí)"
+
+msgid "comments.oneReply"
+msgstr "(1 Odpověď)"
+
+msgid "comments.postAnonymously"
+msgstr "Odeslat tento komentář anonymně"
+
+msgid "comments.postReply"
+msgstr "Odeslat odpověď"
+
+msgid "comments.readerComments"
+msgstr "Komentáře čtenáře"
+
+msgid "comments.readMore"
+msgstr "Číst více"
+
+msgid "comments.replies"
+msgstr "Odpovědi"
+
+msgid "comments.title"
+msgstr "Název"
+
+msgid "comments.viewAllComments"
+msgstr "Zobrazit všechny komentáře"
+
+msgid "reader.fullText"
+msgstr "Celý text:"

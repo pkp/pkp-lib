@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:09+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Інформація облікового запису"
+
+msgid "user.affiliation"
+msgstr "Місце роботи"
+
+msgid "user.affiliation.description"
+msgstr "(Ваше місце роботи, наприклад, \"Київський національний університет імені Тараса Шевченка\")"
+
+msgid "user.affiliations"
+msgstr "Місця роботи"
+
+msgid "user.authorization.accessDenied"
+msgstr "Доступ заборонений."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Помилковий або неприпустимий маркер аутентифікації."
+
+msgid "user.authorization.contextRequired"
+msgstr "Не можна викликати цей об'єкт без контексту (видавництво, журнал, конференція тощо)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Необхідно вказати ім'я користувача."
+
+msgid "user.authorization.privateOperation"
+msgstr "Об'єкт, до якого ви намагаєтеся отримати доступ, приватний або не існує."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Вам було відмовлено у доступі. Наразі доступ до цього сайту обмежений."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Ваша поточна роль не передбачає прав на виконання цієї дії."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Для виконання цієї дії вам необхідно коректно вказати групу користувачів."
+
+msgid "user.authorization.managerRequired"
+msgstr "Перед тим, як продовжити, Вам необхідно вказати користувача, який виконуватиме роль менеджера видавництва (тобто видавця або шеф-редактора)."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Ви не маєте доступу до цього етапу робочого процесу."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Не зазначено стадію робочого процесу."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Модуль обов'язковий але він не вказаний."
+
+msgid "user.biography"
+msgstr "Біографічна довідка"
+
+msgid "user.changeMyPassword"
+msgstr "Змінити мій пароль"
+
+msgid "user.changePassword"
+msgstr "Змінити пароль"
+
+msgid "user.dateLastLogin"
+msgstr "Останній доступ"
+
+msgid "user.dateRegistered"
+msgstr "Дата реєстрації"
+
+msgid "user.editMyProfile"
+msgstr "Редагувати мій профіль"
+
+msgid "user.email"
+msgstr "Email"
+
+msgid "user.interests"
+msgstr "Наукові інтереси"
+
+msgid "user.interests.description"
+msgstr "(вказуйте кожний інтерес з нового рядку або розділяйте їх комами)"
+
+msgid "user.gossip"
+msgstr "Приватні нотатки"
+
+msgid "user.gossip.description"
+msgstr "Нотатки, додані сюди, будуть відображені тільки лоя адміністраторів, менеджерів жураналу та редакторам."
+
+msgid "user.group"
+msgstr "Група користувачів"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Неприпустимий формат фото або зображення занадто великого розміру. Припустимими форматами є .gif, .jpg, або .png, розмір зображення не повинен бути більшим 150x150 пікселів."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Ваш обліковий запис був відключений через таку причину: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Ваш обліковий запис був відключений. Будь ласка, контактуйте з адміністратором для додаткової інформації."
+
+msgid "user.login.accountNotValidated"
+msgstr "Ваша адреса email {$email} не була підтверджена. Будь ласка, перевірте свою пошту та виконайте вказані у листі інструкції. Якщо ви не отримали листа, можливо, необхідно звернутися за допомогою до адміністратора сайту."
+
+msgid "user.login.activate"
+msgstr "Активувати обліковий запис"
+
+msgid "user.login.activated"
+msgstr "Дякуємо за активацію вашого облікового запису. Тепер ви можете увійти до системи, використовуючи дані, вказані під час реєстрації."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Перш ніж ви зможете зайти на сайт, ви повинні обрати новий пароль.<br /><br />Для того, щоб змінити пароль для вашого облікового запису, будь ласка, введіть нижче ім'я користувача, старий та новий паролі."
+
+msgid "user.login.forgotPassword"
+msgstr "Забули пароль?"
+
+msgid "user.login.loginError"
+msgstr "Невірне ім'я користувача або пароль. Будь ласка, спробуйте знову."
+
+msgid "user.login"
+msgstr "Увійти"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "На вашу адресу email було надіслане підтвердження. Виконайте вказані у листі інструкції, щоб змінити ваш пароль."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Вибачте, посилання застаріле або некоректне. Будь ласка, спробуйте знову змінити свій пароль."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Не існує користувача зі вказаною адресою email."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "На вашу адресу email був надісланий новий пароль. Тепер ви можете увійти на сайт зі своїм новим паролем."
+
+msgid "user.login.registeredEmail"
+msgstr "Адреса email користувача"
+
+msgid "user.login.registrationComplete"
+msgstr "Реєстрацію завершено"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Дякуємо за реєстрацію! Що б ви хотіли зробити далі?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Переглянути матеріали"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Надіслати новий матеріал"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Продовжити перегляд в браузері"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Реєстрація очікує перевірки"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Запам'ятати мене"
+
+msgid "user.login.resetPassword"
+msgstr "Скинути пароль"
+
+msgid "user.logOut"
+msgstr "Вийти"
+
+msgid "user.logOutAs"
+msgstr "Вийти як"
+
+msgid "user.hello"
+msgstr "Вітаємо, "
+
+msgid "user.mailingAddress"
+msgstr "Поштова адреса"
+
+msgid "user.myAccount"
+msgstr "Мій обліковий запис"
+
+msgid "user.name"
+msgstr "Ім'я"
+
+msgid "user.password"
+msgstr "Пароль"
+
+msgid "user.repeatPassword"
+msgstr "Повторіть пароль"
+
+msgid "user.phone"
+msgstr "Телефон"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Щоб змінити пароль для вашого облікового запису, введіть нижче старий і новий паролі."
+
+msgid "user.profile.editProfile"
+msgstr "Редагування профілю"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Необхідно вказати країну."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Необхідно вказати коректну адресу email."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Необхідно вказати місце роботи."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Необхідно вказати поштову адресу"
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Вам необхідно ввести новий пароль."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Ви вказали невірний старий пароль."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Поштове сповіщення про нові випуски відкритого доступу"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Необхідно вказати пароль."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Новий і старий паролі однакові."
+
+msgid "user.profile.form.profileImage"
+msgstr "Фото користувача"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Поштове сповіщення про вихід нових випусків"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Вказана адреса URL некоректна. Будь ласка, перевірте URL та спробуйте знову. (підказка: Спробуйте додати http:// перед адресою URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Необхідно вказати групу користувачів."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Необхідно вказати ім'я користувача."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Залиште поле паролю пустим, щоб зберегти старий пароль."
+
+msgid "user.profile.newPassword"
+msgstr "Новий пароль"
+
+msgid "user.profile.oldPassword"
+msgstr "Старий пароль"
+
+msgid "user.profile"
+msgstr "Профіль"
+
+msgid "user.profile.publicProfile"
+msgstr "Профіль користувача"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Повторіть новий пароль"
+
+msgid "user.login.registerNewAccount"
+msgstr "Реєстрація"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Введіть електронну адресу вашого облікового запису нижче, і вам буде надіслано лист з інструкцією як скинути ваш пароль."
+
+msgid "user.register.form.emailExists"
+msgstr "Вказана адреса email вже використовується іншим користувачем."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Введені паролі не збігаються."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Поля адрес email не збігаються."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Ім'я користувача може містити лише цифри, маленькі латинські літери, символи підкреслення та дефіси, а також має починатися і закінчуватися літерою або цифрою."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Необхідно вибрати принаймні одну роль."
+
+msgid "user.register.form.usernameExists"
+msgstr "Вказане ім'я користувача вже використовується в іншому обліковому записі."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Пароль має складатися хоча б із {$length} знаків."
+
+msgid "user.register.registerAs"
+msgstr "Зареєструватися в {$contextName} як"
+
+msgid "user.register"
+msgstr "Зареєструватися"
+
+msgid "user.register.usernameRestriction"
+msgstr "Ім'я користувача може складатися лише з рядкових літер, цифр та тире/символів підкреслення."
+
+msgid "user.register.registrationCompleted"
+msgstr "Ви успішно зареєструвалися. <a href=\"{$profileUrl}\">Натисніть тут</a> tщоб заповнити свій профіль користувача."
+
+msgid "user.role.assistant"
+msgstr "Асистент"
+
+msgid "user.role.author"
+msgstr "Автор"
+
+msgid "user.role.author_s"
+msgstr "Автор(и)"
+
+msgid "user.role.authors"
+msgstr "Автори"
+
+msgid "user.role.editor"
+msgstr "Редактор"
+
+msgid "user.role.editors"
+msgstr "Редактори"
+
+msgid "user.role.reader"
+msgstr "Читач"
+
+msgid "user.role.readers"
+msgstr "Читачі"
+
+msgid "user.role.reviewer"
+msgstr "Рецензент"
+
+msgid "user.role.reviewers"
+msgstr "Рецензенти"
+
+msgid "user.role.siteAdmin"
+msgstr "Адміністратор сайту"
+
+msgid "user.role.siteAdmins"
+msgstr "Адміністратори сайту"
+
+msgid "user.role.copyeditor"
+msgstr "Літературний редактор"
+
+msgid "user.role.copyeditors"
+msgstr "Літературні редактори"
+
+msgid "user.role.proofreader"
+msgstr "Коректор"
+
+msgid "user.role.proofreaders"
+msgstr "Коректори"
+
+msgid "user.role.layoutEditor"
+msgstr "Редактор макета"
+
+msgid "user.role.layoutEditors"
+msgstr "Редактори макета"
+
+msgid "user.roles"
+msgstr "Ролі"
+
+msgid "user.sendPassword"
+msgstr "Підтвердження"
+
+msgid "user.sendPassword.description"
+msgstr "Надішліть мені листа з іменем користувача та паролем для доступу"
+
+msgid "user.signature"
+msgstr "Підпис"
+
+msgid "user.title"
+msgstr "Посада"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Тека користувача"
+
+msgid "user.username"
+msgstr "Ім'я користувача"
+
+msgid "user.workingLanguages"
+msgstr "Робочі мови"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Ви вказали недійсний ORCID iD. Будь ласка, додайте повний URI (e.g. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Ідентифікація"
+
+msgid "user.profile.contact"
+msgstr "Контакти"
+
+msgid "user.profile.public"
+msgstr "Відкритий"
+
+msgid "user.apiKey"
+msgstr "Ключ API"
+
+msgid "user.apiKeyEnabled"
+msgstr "Дозволити зовнішнім додаткам за допомогою ключа API доступ до цього облікового запису"
+
+msgid "user.apiKey.generate"
+msgstr "Згенерувати новий ключ API"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Створення нового ключа API призведе до того, що існуючий ключ стане недійсним для цього користувача."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Перед створенням ключа API адміністратор вашого сайту повинен встановити таємний код у файлі конфігурації (\"api_key_secret\")."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Ви не були призначені для цього подання з роллю, що дозволяє доступ до цієї операції. Роль, яка Вам надана, не дозволяє робити таку операцію."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Ви не маєте дозволу на доступ до цього призначення перегляду."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Ви не маєте дозволу на доступ до цієї дискусії."
+
+msgid "user.givenName"
+msgstr "Ім'я"
+
+msgid "user.familyName"
+msgstr "Прізвище"
+
+msgid "user.preferredPublicName"
+msgstr "Бажане загальнодоступне ім’я"
+
+msgid "user.preferredPublicName.description"
+msgstr "Як ви вважаєте за краще звертатися? Привітання, прізвища та суфікси можна додати тут, якщо хочете."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Потрібне ім'я."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Ви додали прізвище для мови, на якій відсутнє вказане ім'я. Будь ласка, додайте дане ім'я для цієї мови."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Ви повинні погодитися з умовами заяви про конфіденційність."
+
+msgid "user.register.form.emailConsent"
+msgstr "Так, я хотів би отримувати повідомлення про нові публікації та оголошення."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Так, я згоден, що мої дані збираються і зберігаються відповідно до <a href=\"{$privacyUrl}\" target=\"_blank\"> заяви про конфіденційність </a>."
+
+msgid "user.privacyLink"
+msgstr "Ваші дані зберігаються відповідно до нашої <a href=\"{$privacyUrl}\" target=\"_blank\"> заяви про конфіденційність</a>."

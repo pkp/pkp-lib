@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T11:06:23+00:00\n"
+"PO-Revision-Date: 2019-11-19T11:06:23+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Модуль \"Acron\""
+
+msgid "plugins.generic.acron.description"
+msgstr "Намагається зменшити залежність програми від інструментів періодичного запуску за розкладом, таких як 'cron'."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Модуль \"Acron\" був увімкнений."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Модуль \"Acron\" був вимкнений"
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Таблиця Cron вдало перезавантажена."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Перезавантажити заплановані завдання"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Заплановані завдання були перезавантажені."

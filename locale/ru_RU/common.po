@@ -1,0 +1,1889 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:59+00:00\n"
+"Language: \n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Текущая таблица стилей"
+
+msgid "about.description"
+msgstr "Описание"
+
+msgid "about.guidelines"
+msgstr "Руководства"
+
+msgid "about.aboutSite"
+msgstr "О сайте"
+
+msgid "about.contact"
+msgstr "Контакты"
+
+msgid "about.contact.email"
+msgstr "E-mail"
+
+msgid "about.contact.phone"
+msgstr "Телефон"
+
+msgid "about.contact.principalContact"
+msgstr "Представитель редакции"
+
+msgid "about.contact.supportContact"
+msgstr "Представитель технической поддержки"
+
+msgid "about.other"
+msgstr "Прочее"
+
+msgid "about.people"
+msgstr "Люди"
+
+msgid "about.policies"
+msgstr "Политики"
+
+msgid "about.siteMap"
+msgstr "Карта сайта"
+
+msgid "announcement.announcements"
+msgstr "Объявления"
+
+msgid "announcement.announcementsHome"
+msgstr "Объявления"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Другие объявления..."
+
+msgid "announcement.noneExist"
+msgstr "Не было опубликовано ни одного объявления."
+
+msgid "announcement.posted"
+msgstr "Опубликовано"
+
+msgid "announcement.postedOn"
+msgstr "Опубликовано {$postDate}"
+
+msgid "announcement.view"
+msgstr "Показать объявление"
+
+msgid "common.allDownloads"
+msgstr "Все загрузки"
+
+msgid "common.navigation.sidebar"
+msgstr "Боковая панель"
+
+msgid "common.navigation.site"
+msgstr "Навигация сайта"
+
+msgid "common.navigation.siteContext"
+msgstr "Контекстная навигация сайта"
+
+msgid "common.navigation.user"
+msgstr "Навигация пользователя"
+
+msgid "common.tasks"
+msgstr "Задачи"
+
+msgid "common.list"
+msgstr "Список"
+
+msgid "common.grid"
+msgstr "Таблица"
+
+msgid "common.confirmDelete"
+msgstr "Вы уверены, что хотите удалить этот элемент? Это действие нельзя отменить."
+
+msgid "common.abstract"
+msgstr "Аннотация"
+
+msgid "common.accepted"
+msgstr "Принято"
+
+msgid "common.acknowledged"
+msgstr "Признано"
+
+msgid "common.action"
+msgstr "Действие"
+
+msgid "common.activate"
+msgstr "Активировать"
+
+msgid "common.active"
+msgstr "Активны"
+
+msgid "common.add"
+msgstr "Добавить"
+
+msgid "common.addSelf"
+msgstr "Добавить себя"
+
+msgid "common.name"
+msgstr "Имя"
+
+msgid "common.all"
+msgstr "Все"
+
+msgid "common.alphaList"
+msgstr "А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я"
+
+msgid "common.titleSmallWords"
+msgstr "и или но если то иначе когда в на под из над с во"
+
+msgid "common.alreadyAssigned"
+msgstr "Назначен"
+
+msgid "common.altText"
+msgstr "Альтернативный текст"
+
+msgid "common.altTextInstructions"
+msgstr "Опишите это изображение для посетителей, просматривающих сайт в текстовом браузере или с помощью специальных устройств. Например: «Наш редактор, выступающий на конференции PKP»."
+
+msgid "common.and"
+msgstr "и"
+
+msgid "common.applyAction"
+msgstr "Применить"
+
+msgid "common.assign"
+msgstr "Назначить"
+
+msgid "common.assigned"
+msgstr "Назначен"
+
+msgid "common.assigned.date"
+msgstr "Назначен: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Доступен"
+
+msgid "common.back"
+msgstr "Назад"
+
+msgid "common.between"
+msgstr "между"
+
+msgid "common.cancel"
+msgstr "Отменить"
+
+msgid "common.cancelled"
+msgstr "Отменено"
+
+msgid "common.warning"
+msgstr "Предупреждение"
+
+msgid "common.error"
+msgstr "Ошибка"
+
+msgid "common.notice"
+msgstr "Сообщение"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "Проверка captcha для этого сайта настроена некорректно. Секретный ключ отсутствует."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "Проверка captcha для этого сайта настроена некорректно. Неправильный секретный ключ."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Вы должны пройти проверку, которая используется для предотвращения рассылки спама."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Вы не прошли проверку, которая используется для предотвращения рассылки спама."
+
+msgid "common.captchaField.description"
+msgstr "Пожалуйста, введите буквы, которые вы видите на изображении выше."
+
+msgid "common.captchaField"
+msgstr "Проверка"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Лицензия Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tЭта работа распространяется по <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons Attribution 3.0</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Лицензия Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tЭта работа распространяется по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">лицензии Creative Commons Attribution 3.0</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Ваши изменения были сохранены."
+
+msgid "common.chooseOne"
+msgstr "Выберите одно"
+
+msgid "common.close"
+msgstr "Закрыть"
+
+msgid "common.closePanel"
+msgstr "Закрыть панель"
+
+msgid "common.closeWindow"
+msgstr "Закрыть окно"
+
+msgid "common.complete"
+msgstr "Завершить"
+
+msgid "common.completed"
+msgstr "Завершен"
+
+msgid "common.completed.date"
+msgstr "Завершен: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Подтвердить"
+
+msgid "common.confirmed.date"
+msgstr "Подтвержден: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Содержание"
+
+msgid "common.contents"
+msgstr "Содержания"
+
+msgid "common.continue"
+msgstr "Продолжить"
+
+msgid "common.copy"
+msgstr "Копировать"
+
+msgid "common.country"
+msgstr "Страна"
+
+msgid "common.create"
+msgstr "Создать"
+
+msgid "common.dateCompleted"
+msgstr "Дата завершения"
+
+msgid "common.dateDecided"
+msgstr "Дата принятия решения"
+
+msgid "common.date"
+msgstr "Дата"
+
+msgid "common.dateModified"
+msgstr "Дата изменения"
+
+msgid "common.dateRequested"
+msgstr "Дата запроса"
+
+msgid "common.dateSubmitted"
+msgstr "Дата отправки"
+
+msgid "common.dateUploaded"
+msgstr "Дата загрузки"
+
+msgid "common.dateHijri"
+msgstr "Календарь Хиджры"
+
+msgid "common.day"
+msgstr "День"
+
+msgid "common.deactivate"
+msgstr "Деактивировать"
+
+msgid "common.default"
+msgstr "По умолчанию"
+
+msgid "common.declined"
+msgstr "Отклонен"
+
+msgid "common.delete"
+msgstr "Удалить"
+
+msgid "common.deleting"
+msgstr "Удаление..."
+
+msgid "common.deleteSelection"
+msgstr "Удалить выбранное"
+
+msgid "common.designation"
+msgstr "Назначение"
+
+msgid "common.description"
+msgstr "Описание"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; @ {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} пикселей"
+
+msgid "common.disable"
+msgstr "Отключить"
+
+msgid "common.disabled"
+msgstr "Отключен"
+
+msgid "common.discipline"
+msgstr "Дисциплина"
+
+msgid "common.done"
+msgstr "Выполнено"
+
+msgid "common.download"
+msgstr "Скачать"
+
+msgid "common.downloadPdf"
+msgstr "Скачать PDF"
+
+msgid "common.edit"
+msgstr "Редактировать"
+
+msgid "common.enable"
+msgstr "Включить"
+
+msgid "common.enabled"
+msgstr "Включен"
+
+msgid "common.error.databaseError"
+msgstr "Произошла ошибка базы данных: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Произошла неизвестная ошибка связи с базой данных."
+
+msgid "common.error.framesRequired"
+msgstr "Эта страница требует фреймов. <a href=\"{$url}\">Нажмите здесь</a> для просмотра версии, не использующей фреймы."
+
+msgid "common.event"
+msgstr "Событие"
+
+msgid "common.export"
+msgstr "Экспорт"
+
+msgid "common.finish"
+msgstr "Закончить"
+
+msgid "common.fullscreen"
+msgstr "Полноэкранный режим"
+
+msgid "common.fullscreenOff"
+msgstr "Выйти из полноэкранного режима"
+
+msgid "common.false"
+msgstr "Ложь"
+
+msgid "common.file"
+msgstr "Файл"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Имя файла"
+
+msgid "common.fileSize"
+msgstr "Размер файла"
+
+msgid "common.fileType"
+msgstr "Тип файла"
+
+msgid "common.fileUploaderError"
+msgstr "Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы."
+
+msgid "common.filter"
+msgstr "Фильтры"
+
+msgid "common.filterAdd"
+msgstr "Добавить фильтр: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Сбросить фильтр: {$filterTitle}"
+
+msgid "common.from"
+msgstr "От"
+
+msgid "common.fromWithValue"
+msgstr "От: {$value}"
+
+msgid "common.until"
+msgstr "По"
+
+msgid "common.go"
+msgstr "Выполнить"
+
+msgid "common.height"
+msgstr "Высота"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Главная"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Логотип верхнего колонтитула главной страницы"
+
+msgid "common.hour"
+msgstr "Час"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Импорт"
+
+msgid "common.initiate"
+msgstr "Начать"
+
+msgid "common.inProgress"
+msgstr "В процессе"
+
+msgid "common.itemsPerPage"
+msgstr "Элементов на странице"
+
+msgid "common.keywords"
+msgstr "Ключевые слова"
+
+msgid "common.language"
+msgstr "Язык"
+
+msgid "common.languages"
+msgstr "Языки"
+
+msgid "common.lastActivity"
+msgstr "Последний раз активность зафиксирована {$date}."
+
+msgid "common.less"
+msgstr "Меньше"
+
+msgid "common.lessThan"
+msgstr "{$value} или меньше"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Настроить"
+
+msgid "common.mailingAddress"
+msgstr "Почтовый адрес"
+
+msgid "common.billingAddress"
+msgstr "Адрес для отправки счета (если отличается)"
+
+msgid "common.minute"
+msgstr "Минут"
+
+msgid "common.modify"
+msgstr "Изменить"
+
+msgid "common.month"
+msgstr "Месяц"
+
+msgid "common.more"
+msgstr "Больше"
+
+msgid "common.moreThan"
+msgstr "{$value} или больше"
+
+msgid "common.noneAssigned"
+msgstr "Никто не назначен"
+
+msgid "common.none"
+msgstr "Нет"
+
+msgid "common.no"
+msgstr "Нет"
+
+msgid "common.noItemsFound"
+msgstr "Ничего не найдено."
+
+msgid "common.noComments"
+msgstr "Нет комментариев"
+
+msgid "common.notApplicable"
+msgstr "Неприменимо"
+
+msgid "common.notApplicableShort"
+msgstr "Неприм."
+
+msgid "common.notAvailable"
+msgstr "Недоступно"
+
+msgid "common.note"
+msgstr "Заметка"
+
+msgid "common.noTemporaryFile"
+msgstr "Не удаётся найти файл, загруженный вами. Пожалуйста, попробуйте загрузить его снова."
+
+msgid "common.notes"
+msgstr "Заметки"
+
+msgid "common.notes.tooltip"
+msgstr "Заметки (желтый: есть новые заметки; синий: есть просмотренные заметки; серый: нет заметок)"
+
+msgid "common.notified"
+msgstr "Уведомлен"
+
+msgid "common.notified.date"
+msgstr "Уведомлен: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Нет совпадений"
+
+msgid "common.off"
+msgstr "отключено"
+
+msgid "common.on"
+msgstr "включено"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Параметры"
+
+msgid "common.order"
+msgstr "Сортировка"
+
+msgid "common.orderUp"
+msgstr "Поднять вверх «{$itemTitle}»"
+
+msgid "common.orderDown"
+msgstr "Опустить вниз «{$itemTitle}»"
+
+msgid "common.originalFileName"
+msgstr "Первоначальное название файла"
+
+msgid "common.or"
+msgstr "или"
+
+msgid "common.other"
+msgstr "Прочее"
+
+msgid "common.overdue"
+msgstr "Просрочено"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} из {$total}"
+
+msgid "common.pagination.label"
+msgstr "Показать другие страницы"
+
+msgid "common.pagination.goToPage"
+msgstr "Перейти к странице {$page}"
+
+msgid "common.pagination.next"
+msgstr "Следующая страница"
+
+msgid "common.pagination.previous"
+msgstr "Предыдущая страница"
+
+msgid "common.pageNumber"
+msgstr "Страница {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Модуль"
+
+msgid "common.pluginEnabled"
+msgstr "Модуль «{$pluginName}» был включен."
+
+msgid "common.pluginDisabled"
+msgstr "Модуль «{$pluginName}» был выключен."
+
+msgid "common.prefix"
+msgstr "Префикс"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Примеры: A, The"
+
+msgid "common.preview"
+msgstr "Предварительный просмотр"
+
+msgid "common.publisher"
+msgstr "Издатель"
+
+msgid "common.quality"
+msgstr "Качество"
+
+msgid "common.queue.long.active"
+msgstr "Все активные"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Читать дальше"
+
+msgid "common.readMoreWithTitle"
+msgstr "Читать дальше про «{$title}»"
+
+msgid "common.record"
+msgstr "Запись"
+
+msgid "common.refresh"
+msgstr "Обновить"
+
+msgid "common.related"
+msgstr "Связанные"
+
+msgid "common.reminder"
+msgstr "Напоминание"
+
+msgid "common.reminded.date"
+msgstr "Отправлено напоминание: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Удаленный"
+
+msgid "common.remoteURL"
+msgstr "URL удаленного сервера"
+
+msgid "common.remove"
+msgstr "Удалить"
+
+msgid "common.removeItem"
+msgstr "Удалить {$item}"
+
+msgid "common.removeSelection"
+msgstr "Удалить выбранное"
+
+msgid "common.replaced"
+msgstr "Заменен"
+
+msgid "common.replaceFile"
+msgstr "Заменить файл"
+
+msgid "common.requiredField"
+msgstr "* обозначает обязательное поле"
+
+msgid "common.required"
+msgstr "Обязательно"
+
+msgid "common.reset"
+msgstr "Сбросить"
+
+msgid "common.saveAndContinue"
+msgstr "Сохранить и продолжить"
+
+msgid "common.saveAndEmail"
+msgstr "Сохранить и отправить"
+
+msgid "common.save"
+msgstr "Сохранить"
+
+msgid "common.saving"
+msgstr "Сохранение..."
+
+msgid "common.search"
+msgstr "Найти"
+
+msgid "common.searchQuery"
+msgstr "Поисковый запрос"
+
+msgid "common.clearSearch"
+msgstr "Очистить фразу поиска"
+
+msgid "common.second"
+msgstr "Секунд"
+
+msgid "common.selectAll"
+msgstr "Выбрать все"
+
+msgid "common.selectedPrefix"
+msgstr "Выбраны:"
+
+msgid "common.selectNone"
+msgstr "Отменить выбор"
+
+msgid "common.select"
+msgstr "Выбрать"
+
+msgid "common.sendEmail"
+msgstr "Отправить письмо электронной почтой"
+
+msgid "common.size"
+msgstr "Размер"
+
+msgid "common.source"
+msgstr "Источник"
+
+msgid "common.status"
+msgstr "Статус"
+
+msgid "common.subject"
+msgstr "Тема"
+
+msgid "common.subjects"
+msgstr "Темы"
+
+msgid "common.submenu"
+msgstr "Подменю"
+
+msgid "common.subtitle"
+msgstr "Подзаголовок"
+
+msgid "common.suggest"
+msgstr "Предложить"
+
+msgid "common.title"
+msgstr "Заголовок"
+
+msgid "common.top"
+msgstr "Верх"
+
+msgid "common.toWithValue"
+msgstr "Кому: {$value}"
+
+msgid "common.true"
+msgstr "Истина"
+
+msgid "common.type"
+msgstr "Тип"
+
+msgid "common.component"
+msgstr "Компонент"
+
+msgid "common.uninitiated"
+msgstr "Не начат"
+
+msgid "common.unread"
+msgstr "Не прочитан"
+
+msgid "common.untitled"
+msgstr "Без имени"
+
+msgid "common.updated"
+msgstr "Обновлен"
+
+msgid "common.uploadedDate"
+msgstr "Дата загрузки"
+
+msgid "common.upload"
+msgstr "Загрузить на сервер"
+
+msgid "common.uploadFailed"
+msgstr "Файл не может быть загружен или изменен."
+
+msgid "common.up"
+msgstr "Наверх"
+
+msgid "common.upload.addFile"
+msgstr "Загрузить файл"
+
+msgid "common.upload.restore"
+msgstr "Восстановить исходный"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Предварительный просмотр выбранного в данный момент изображения."
+
+msgid "common.upload.changeFile"
+msgstr "Изменить файл"
+
+msgid "common.upload.dragFile"
+msgstr "Перетащите файл сюда, чтобы начать загрузку"
+
+msgid "common.url"
+msgstr "URL-адрес"
+
+msgid "common.user"
+msgstr "Пользователь"
+
+msgid "common.view"
+msgstr "Просмотреть"
+
+msgid "common.viewProfile"
+msgstr "Просмотреть профиль"
+
+msgid "common.weeks"
+msgstr "недели"
+
+msgid "common.width"
+msgstr "Ширина"
+
+msgid "common.year"
+msgstr "Год"
+
+msgid "common.yes"
+msgstr "Да"
+
+msgid "common.loading"
+msgstr "Загрузка..."
+
+msgid "common.plugins"
+msgstr "Модули"
+
+msgid "common.metric"
+msgstr "Метрика"
+
+msgid "common.count"
+msgstr "Счетчик"
+
+msgid "common.publicAccess"
+msgstr "Открытый доступ"
+
+msgid "debug.databaseQueries"
+msgstr "Количество запросов к БД"
+
+msgid "debug.executionTime"
+msgstr "Страница создана за"
+
+msgid "debug.memoryUsage"
+msgstr "Использование памяти"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Загружен список языков «{$localeList}» из XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Загружен файл языка «{$localeFile}» из XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "В языковом файле отсутствует ключ «{$key}»."
+
+msgid "debug.notes"
+msgstr "Примечания:"
+
+msgid "defaultMetric.title"
+msgstr "Метрика по умолчанию"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Доступные метрики"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Загрузить файл рецензии"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Загрузить файл"
+
+msgid "email.addAttachment"
+msgstr "Добавить вложение"
+
+msgid "email.addBccRecipient"
+msgstr "Добавить BCC"
+
+msgid "email.addCcRecipient"
+msgstr "Добавить CC"
+
+msgid "email.addToRecipient"
+msgstr "Добавить получателя"
+
+msgid "email.attachments"
+msgstr "Вложения"
+
+msgid "email.bcc"
+msgstr "Скрытая копия"
+
+msgid "email.bccSender"
+msgstr "Отправить копию этого сообщения на мой адрес ({$address})"
+
+msgid "email.body"
+msgstr "Текст письма"
+
+msgid "email.cc"
+msgstr "Копия"
+
+msgid "email.compose"
+msgstr "Отправить письмо"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Сообщение, которое вы пытаетесь отправить, содержит слишком много получателей."
+
+msgid "email.compose.tooSoon"
+msgstr "Вы пытаетесь отправить сообщение, но после отправки вашего предыдущего сообщения прошло слишком мало времени. Пожалуйста, подождите перед отправкой следующего сообщения."
+
+msgid "email.compose.error"
+msgstr "Возникла проблема при отправки сообщения электронной почтой. Пожалуйста, попробуйте позже еще раз или свяжитесь с администратором вашей системы."
+
+msgid "email.email"
+msgstr "Адрес электронной почты"
+
+msgid "email.from"
+msgstr "От"
+
+msgid "email.invalid"
+msgstr "Адрес электронной почты {$email} является неправильным."
+
+msgid "email.multipart"
+msgstr "Это собщение состоит из нескольких частей в формате MIME."
+
+msgid "email.recipient"
+msgstr "Получатель"
+
+msgid "email.recipients"
+msgstr "Получатели"
+
+msgid "email.sender"
+msgstr "Отправитель"
+
+msgid "email.senderName"
+msgstr "Имя отправителя"
+
+msgid "email.senderEmail"
+msgstr "Адрес электронной почты отправителя"
+
+msgid "email.send"
+msgstr "Отправить"
+
+msgid "email.skip"
+msgstr "Пропустить отправку письма"
+
+msgid "email.subject"
+msgstr "Тема"
+
+msgid "email.subjectRequired"
+msgstr "Пожалуйста, укажите тему письма."
+
+msgid "email.bodyRequired"
+msgstr "Пожалуйста, введите текст письма."
+
+msgid "email.to"
+msgstr "Кому"
+
+msgid "form.url.invalid"
+msgstr "Указан неправильный URL-адрес. Проверьте его и попробуйте снова."
+
+msgid "form.confirmSubmit"
+msgstr "Вы уверены, что хотите отправить эту форму?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Подтвердить"
+
+msgid "form.emailRequired"
+msgstr "Адрес электронной почты обязателен."
+
+msgid "form.dataHasChanged"
+msgstr "Данные этой формы были изменены. Хотите продолжить без сохранения?"
+
+msgid "form.disallowedLocales"
+msgstr "Допускаются только следующие языки: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Это свойство не разрешено."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Перетащите сюда файлы для загрузки"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Ваш браузер не поддерживает загрузку файлов методом перетаскивания файлов в окно."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Пожалуйста используйте форму ниже для загрузки файлов на сервер."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr "Файл слишком большой ({{filesize}} Мбайт). Файлы больше чем {{maxFilesize}} Мбайт загрузить нельзя."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Файлы данного типа загрузить нельзя."
+
+msgid "form.dropzone.dictResponseError"
+msgstr "Сервер вернул ошибку с кодом {{statusCode}}. Пожалуйста, свяжитесь с администратором системы, если проблема сохранится."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Отменить загрузку"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Загрузка отменена"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Вы уверены, что хотите отменить загрузку этого файла?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Удалить файл"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Вы загрузили максимальное количество файлов."
+
+msgid "form.errorA11y"
+msgstr "Перейти к {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Перейти к следующей ошибке"
+
+msgid "form.errorOne"
+msgstr "Пожалуйста, исправьте одну ошибку."
+
+msgid "form.errorMany"
+msgstr "Пожалуйста, исправьте ошибки: {$count}."
+
+msgid "form.errors"
+msgstr "Форма не была сохранена, так как были обнаружены ошибки ({$count}). Пожалуйста, исправьте эти ошибки и попробуйте снова."
+
+msgid "form.errorUnknown"
+msgstr "Произошла неожиданная ошибка. Возможно, вы вышли из системы. Пожалуйста, перезагрузите страницу и попробуйте снова."
+
+msgid "form.errorsOccurred"
+msgstr "При обработке этой формы произошли ошибки"
+
+msgid "form.formLanguage.description"
+msgstr "Сначала выберите язык, чтобы ввести ниже информацию на дополнительных языках."
+
+msgid "form.formLanguage"
+msgstr "Язык формы"
+
+msgid "form.contains"
+msgstr "содержит"
+
+msgid "form.is"
+msgstr "равно"
+
+msgid "form.missingRequired"
+msgstr "Это поле обязательно."
+
+msgid "form.startsWith"
+msgstr "начинается с"
+
+msgid "form.postRequired"
+msgstr "Форма не была отправлена надлежащим образом."
+
+msgid "form.csrfInvalid"
+msgstr "Не удается отправить форму. Возможно, вы вышли из системы. Пожалуйста, перезагрузите страницу и попробуйте снова."
+
+msgid "form.fileRequired"
+msgstr "Обязательно нужно загрузить файл."
+
+msgid "form.required"
+msgstr "(* Обязательно)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Вы должны заполнить это поле на языке: {$language}."
+
+msgid "form.requireId"
+msgstr "Вы должны ввести корректный ID."
+
+msgid "form.resubmit"
+msgstr "Отправить снова"
+
+msgid "form.saveToUpload"
+msgstr "Используйте «Сохранить» для загрузки файла на сервер."
+
+msgid "form.send"
+msgstr "Отправить"
+
+msgid "form.submit"
+msgstr "Отправить"
+
+msgid "form.invalidImage"
+msgstr "Было загружено неправильное изображение. Разрешенные форматы: .png, .gif или .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} (язык — {$localeName})"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} языков заполнены"
+
+msgid "help.help"
+msgstr "Помощь"
+
+msgid "help.toc"
+msgstr "Содержание"
+
+msgid "help.previous"
+msgstr "Назад"
+
+msgid "help.next"
+msgstr "Далее"
+
+msgid "help.upALevel"
+msgstr "На уровень вверх"
+
+msgid "icon.checked.alt"
+msgstr "Выбрано"
+
+msgid "icon.comment.alt"
+msgstr "Комментарий"
+
+msgid "icon.delete.alt"
+msgstr "Удалить"
+
+msgid "icon.edit.alt"
+msgstr "Редактировать"
+
+msgid "icon.folder.alt"
+msgstr "Папка"
+
+msgid "icon.font_large.alt"
+msgstr "Крупный"
+
+msgid "icon.font_medium.alt"
+msgstr "Средний"
+
+msgid "icon.font_small.alt"
+msgstr "Мелкий"
+
+msgid "icon.info.alt"
+msgstr "Информация"
+
+msgid "icon.letter.alt"
+msgstr "Письмо"
+
+msgid "icon.mail.alt"
+msgstr "Почта"
+
+msgid "icon.unchecked.alt"
+msgstr "Не выбрано"
+
+msgid "icon.view.alt"
+msgstr "Посмотреть"
+
+msgid "informationCenter.informationCenter"
+msgstr "Центр информации"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Редакционная история"
+
+msgid "informationCenter.addNote"
+msgstr "Добавить заметку"
+
+msgid "informationCenter.noNotes"
+msgstr "Нет заметок для отображения."
+
+msgid "informationCenter.pastNotes"
+msgstr "Заметки к предыдущим версиям"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Вы уверены, что хотите удалить эту заметку?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Текущая версия"
+
+msgid "informationCenter.pastHistory"
+msgstr "Предыдущие версии"
+
+msgid "informationCenter.history.noItems"
+msgstr "Нет событий зарегистрированных в журнале."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Добавлена новая заметка."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Уведомление отправлено пользователям."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Уведомление отправлено пользователям."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Начать обсуждение"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Начать обсуждение между вами и {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Выберите стандартное сообщение для использования или заполните форму ниже."
+
+msgid "stageParticipants.notify.message"
+msgstr "Сообщение"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в обсуждение кого-то, кроме себя."
+
+msgid "stageParticipants.options"
+msgstr "Назначенные права"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Разрешение на редактирование метаданных материала."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Разрешить изменять метаданные материала этому пользователю"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Участник"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Этому участнику нельзя внести изменения"
+
+msgid "locale.primary"
+msgstr "Основной язык"
+
+msgid "locale.supported"
+msgstr "Поддерживаемые языки"
+
+msgid "navigation.access"
+msgstr "Пользователи и роли"
+
+msgid "navigation.about"
+msgstr "О нас"
+
+msgid "navigation.admin"
+msgstr "Администрирование"
+
+msgid "navigation.archives"
+msgstr "Архивы"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Вы здесь:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Инструменты"
+
+msgid "navigation.tools.importExport"
+msgstr "Импорт/Экспорт"
+
+msgid "navigation.tools.statistics"
+msgstr "Статистика"
+
+msgid "navigation.browse"
+msgstr "Просматривать"
+
+msgid "navigation.browseByAuthor"
+msgstr "По автору"
+
+msgid "navigation.browseByTitle"
+msgstr "По названию"
+
+msgid "navigation.dashboard"
+msgstr "Личный кабинет"
+
+msgid "navigation.data"
+msgstr "Данные"
+
+msgid "navigation.home"
+msgstr "Главная"
+
+msgid "navigation.infoForReaders"
+msgstr "Для читателей"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Информация для читателей"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} из {$total} результатов"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} из {$total} результатов"
+
+msgid "navigation.login"
+msgstr "Вход"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Следующий шаг"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Предыдущий шаг"
+
+msgid "navigation.publicMenu"
+msgstr "Общее меню"
+
+msgid "navigation.register"
+msgstr "Регистрация"
+
+msgid "navigation.search"
+msgstr "Поиск"
+
+msgid "navigation.settings"
+msgstr "Настройки"
+
+msgid "navigation.setup"
+msgstr "Установка"
+
+msgid "navigation.sitemap"
+msgstr "Карта сайта"
+
+msgid "navigation.skip.announcements"
+msgstr "Перейти к объявлениям"
+
+msgid "navigation.skip.main"
+msgstr "Перейти к основному контенту"
+
+msgid "navigation.skip.nav"
+msgstr "Перейти к главному меню навигации"
+
+msgid "navigation.skip.footer"
+msgstr "Перейти к нижнему колонтитулу сайта"
+
+msgid "navigation.stepNumber"
+msgstr "Шаг {$step}"
+
+msgid "navigation.submissions"
+msgstr "Отправленные материалы"
+
+msgid "navigation.system"
+msgstr "Система"
+
+msgid "navigation.userHome"
+msgstr "Cтраница пользователя"
+
+msgid "navigation.user"
+msgstr "Пользователь"
+
+msgid "navigation.userManagement"
+msgstr "Управление пользователями"
+
+msgid "navigation.viewFrontend"
+msgstr "Показать сайт"
+
+msgid "notification.addedAuditor"
+msgstr "Аудитор добавлен."
+
+msgid "notification.removedAuditor"
+msgstr "Аудитор удален."
+
+msgid "notification.addedQuery"
+msgstr "Добавлено обсуждение"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Рецензия отмечена как принятая. Письмо электронной почты не отправлено."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Письмо с благодарностью отправлено рецензенту."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Файлы рецензии обновлены."
+
+msgid "notification.allow"
+msgstr "Включить эти типы уведомлений."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Тип объявлений добавлен."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Тип объявлений отредактирован."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Тип объявлений удален."
+
+msgid "notification.addedAnnouncement"
+msgstr "Объявление добавлено."
+
+msgid "notification.editedAnnouncement"
+msgstr "Объявление отредактировано."
+
+msgid "notification.removedAnnouncement"
+msgstr "Объявление удалено."
+
+msgid "notification.addedAuthor"
+msgstr "Автор добавлен."
+
+msgid "notification.editedAuthor"
+msgstr "Автор отредактирован."
+
+msgid "notification.confirmError"
+msgstr "При подверждении вашей подписки возникла ошибка."
+
+msgid "notification.confirmSuccess"
+msgstr "Вы были успешно подписаны."
+
+msgid "notification.email"
+msgstr "Не отправлять мне сообщения электронной почтой для этих типов уведомлений."
+
+msgid "notification.noneExist"
+msgstr "На текущий момент для вас нет уведомлений."
+
+msgid "notification.addedNote"
+msgstr "Заметка опубликована."
+
+msgid "notification.removedNote"
+msgstr "Заметка удалена."
+
+msgid "notification.removedFile"
+msgstr "Файл удален."
+
+msgid "notification.removedSubmission"
+msgstr "Материал удален."
+
+msgid "notification.notification"
+msgstr "Уведомление"
+
+msgid "notification.notifications"
+msgstr "Уведомления"
+
+msgid "notification.sentNotification"
+msgstr "Уведомление отправлено."
+
+msgid "notification.settings"
+msgstr "Настройки уведомлений"
+
+msgid "notification.settingsDescription"
+msgstr "Выберите события системы, о которых вы хотите быть уведомлены. Снятие галочки у события приведет к тому, что уведомления об этом событии не будут показываться в системе и отправляться Вам на электронную почту. События, отмеченные галочками, будут отображаться в системе и вы дополнительно можете настроить отправку этого уведомления Вам на электронную почту."
+
+msgid "notification.reminderError"
+msgstr "При отправке Вашего пароля произошла ошибка, пожалуйста, убедитесь, что вы ввели правильный адрес электронной почты."
+
+msgid "notification.reminderSent"
+msgstr "Ваш новый пароль был отправлен по указанному Вами адресу электронной почты."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Сохранены метаданные материала."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Отправить уведомление электронной почтой всем зарегистрированным пользователям"
+
+msgid "search.author"
+msgstr "По автору"
+
+msgid "search.abstract"
+msgstr "Аннотация"
+
+msgid "search.advancedFilters"
+msgstr "Расширенные фильтры"
+
+msgid "search.advancedSearchMore"
+msgstr "Дополнительные параметры поиска"
+
+msgid "search.advancedSearchLess"
+msgstr "Скрыть дополнительные параметры поиска"
+
+msgid "search.searchAgain"
+msgstr "Искать снова"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Очистить индекс"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "выполнено"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "ошибка"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} статей проиндексировано"
+
+msgid "search.coverage"
+msgstr "Охват"
+
+msgid "search.date"
+msgstr "Дата публикации"
+
+msgid "search.dateFrom"
+msgstr "Опубликовано после"
+
+msgid "search.dateTo"
+msgstr "Опубликовано до"
+
+msgid "search.deleteFilter"
+msgstr "Удалить"
+
+msgid "search.discipline"
+msgstr "Дисциплины"
+
+msgid "search.fullText"
+msgstr "Полный текст"
+
+msgid "search.indexTerms"
+msgstr "Термины для индексирования"
+
+msgid "search.indexTermsLong"
+msgstr "Все поля терминов для индексирования"
+
+msgid "search.matchAll"
+msgstr "Совпадение по всем категориям"
+
+msgid "search.noKeywordError"
+msgstr "Вы должны ввести хотя бы одно ключевое слово для поиска."
+
+msgid "search.noResults"
+msgstr "Нет результатов"
+
+msgid "search.operator.and"
+msgstr "AND"
+
+msgid "search.operator.not"
+msgstr "NOT"
+
+msgid "search.operator.or"
+msgstr "OR"
+
+msgid "search.SearchFor"
+msgstr "Искать"
+
+msgid "search.searchResults"
+msgstr "Результаты поиска"
+
+msgid "search.subject"
+msgstr "Ключевые слова"
+
+msgid "search.titleIndex"
+msgstr "Просмотреть указатель заголовков"
+
+msgid "search.title"
+msgstr "Заголовок"
+
+msgid "search.typeMethodApproach"
+msgstr "Тип (метод/подход)"
+
+msgid "grid.action.downloadFile"
+msgstr "Скачать этот файл"
+
+msgid "context.path"
+msgstr "Путь"
+
+msgid "review.ensuringBlindReview"
+msgstr "Обеспечение слепого рецензирования"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Прочитать текущие правила рецензирования"
+
+msgid "grid.action.deleteNotification"
+msgstr "Удалить задачу"
+
+msgid "grid.action.markNew"
+msgstr "Пометить как непрочитанное"
+
+msgid "grid.action.markRead"
+msgstr "Пометить как прочитанное"
+
+msgid "dashboard.tasks"
+msgstr "Задачи"
+
+msgid "dashboard.myQueue"
+msgstr "Мои дела"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"\n"
+"\t\t<p>Чтобы быть уверенными в честности слепого рецензирования материала для этого издания, должны быть предприняты все усилия к тому, чтобы авторы и рецензенты ничего не знали друг о друге. Для этого авторы, редакторы и рецензенты (те, кто загружает документы как часть своей рецензии) должны проверять, все ли перечисленные ниже шаги были выполнены относительно текста и свойств файла:</p>\n"
+"\t\t\t<ul><li>Авторы документа удалили свои имена из текста, используя «Автор» и год в библиографических ссылках и сносках, вместо имен авторов, названия статьи и т.д.</li>\n"
+"\t\t\t<li>В документах Microsoft Office идентификаторы авторов также должны быть удалены из свойств файла (смотрите в меню «Файл» в Word), щелкая на пунктах в следующей последовательности, начиная с меню «Файл» в главном меню приложения Microsoft: Файл &gt; Сохранить как &gt; Инструменты (или Параметры в Mac) &gt; Безопасность &gt; Удалять личные сведения из этого файла при сохранении &gt; Сохранить.</li>\n"
+"\t\t\t<li>В файлах PDF имена авторов должны также быть удалены из свойств документа, которые можно найти в меню «Файл» основного меню Adobe Acrobat.</li>\n"
+"\t\t</ul>\n"
+"\t"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "График рецензирования"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Запрос редактора"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Дата получения ответа на запрос"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Дата получения самой рецензии"
+
+msgid "submission.task.responseDueDate"
+msgstr "Дата подтверждения получения рецензии"
+
+msgid "navigation.goBack"
+msgstr "Вернуться назад"
+
+msgid "notification.addedReviewer"
+msgstr "Назначен рецензент данного материала ({$reviewerName}), отправлено уведомление электронной почтой."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено."
+
+msgid "notification.removedReviewer"
+msgstr "Рецензент удален."
+
+msgid "notification.cancelledReviewer"
+msgstr "Рецензент отменён."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензент восстановлен."
+
+msgid "notification.addedStageParticipant"
+msgstr "Пользователь добавлен в качестве участника этапа."
+
+msgid "notification.editStageParticipant"
+msgstr "Назначение этапа было изменено."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Новое объявление."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Ожидание рецензии."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Обновлено задание на рецензию."
+
+msgid "notification.type.auditorRequest"
+msgstr "Запрос аудита для «{$file}»"
+
+msgid "notification.type.allReviewsIn"
+msgstr "Все рецензенты прислали свои рецензии и необходимо принять решение на этапе «{$stage}»."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Новая версия файла была загружена для рассмотрения редакцией на этапе «{$stage}»."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Новые версии рассматриваются на этапе «{$stage}»."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Новые версии отправлены на этап «{$stage}»."
+
+msgid "notification.type.metadataModified"
+msgstr "Метаданные для «{$title}» были изменены."
+
+msgid "notification.type.reviewerComment"
+msgstr "Рецензент прокомментировал «{$title}»."
+
+msgid "notification.signedFile"
+msgstr "Файл рассмотрен."
+
+msgid "user.authorization.submissionFile"
+msgstr "Данному пользователю не разрешен доступ к файлу указанного материала."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Неправильная публикация."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Неправильный материал."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Неправильное представление."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как»."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "Данный пользователь не является автором запрошенного материала. Пожалуйста, проверьте, что вы вошли в систему с правильной учетной записью пользователя."
+
+msgid "notification.type.queryActivity"
+msgstr "Активность обсуждений."
+
+msgid "notification.type.queryAdded"
+msgstr "Добавлено обсуждение."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Назначьте литературного редактора, используя ссылку «Назначить» в списке «Участники»."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Ожидание литературного редактирование."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Статус раунда {$round}"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Элемент меню навигации был успешно обновлен"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Элемент меню навигации был успешно удален"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Элемент меню навигации был успешно добавлен"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Меню навигации было успешно добавлено"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Меню навигации было успешно обновлено"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Меню навигации было успешно удалено"
+
+msgid "list.viewMore"
+msgstr "Показать подробности о {$name}"
+
+msgid "list.viewLess"
+msgstr "Скрыть подробности о {$name}"
+
+msgid "validator.accepted"
+msgstr "Пожалуйста, примите этот элемент.."
+
+msgid "validator.active_url"
+msgstr "Некорректный URL."
+
+msgid "validator.after"
+msgstr "Дата должна быть после {$date}."
+
+msgid "validator.alpha"
+msgstr "Здесь могут быть только буквы."
+
+msgid "validator.alpha_dash"
+msgstr "Здесь могут быть только буквы, цифры, дефисы и подчеркивания."
+
+msgid "validator.alpha_num"
+msgstr "Здесь могут быть только буквы и цифры."
+
+msgid "validator.array"
+msgstr "Некорректный массив."
+
+msgid "validator.before"
+msgstr "Дата должна быть до {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Должно быть между {$min} и {$max}."
+
+msgid "validator.between.file"
+msgstr "Должно быть от {$min} до {$max} килобайт."
+
+msgid "validator.between.string"
+msgstr "Должно быть от {$min} до {$max} символов."
+
+msgid "validator.between.array"
+msgstr "Должно быть от {$min} до {$max} элементов."
+
+msgid "validator.boolean"
+msgstr "Поле должно быть «истина» или «ложь»."
+
+msgid "validator.confirmed"
+msgstr "Значение и его подтверждение не совпадают."
+
+msgid "validator.currency"
+msgstr "Некорректная валюта."
+
+msgid "validator.date"
+msgstr "Некорректная дата."
+
+msgid "validator.date_format"
+msgstr "Не соответствует формату {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} и {$other} должны быть различными."
+
+msgid "validator.digits"
+msgstr "Длина должна быть {$digits} цифр."
+
+msgid "validator.digits_between"
+msgstr "Должно быть от {$min} до {$max} цифр."
+
+msgid "validator.email"
+msgstr "Некорректный адрес электронной почты."
+
+msgid "validator.exists"
+msgstr "Выбранный {$attribute} некорректный."
+
+msgid "validator.filled"
+msgstr "Поле обязательное."
+
+msgid "validator.image"
+msgstr "Должно быть изображением."
+
+msgid "validator.in"
+msgstr "Выбранный {$attribute} некорректный."
+
+msgid "validator.integer"
+msgstr "Не является целым числом."
+
+msgid "validator.ip"
+msgstr "Некорректный IP-адрес."
+
+msgid "validator.issn"
+msgstr "Некорректный ISSN."
+
+msgid "validator.json"
+msgstr "Некорректная Строка JSON."
+
+msgid "validator.locale"
+msgstr "Данный язык не принимается."
+
+msgid "validator.localeExpected"
+msgstr "Это многоязычное поле. Должны быть введены отдельные значения для каждого поддерживаемого языка."
+
+msgid "validator.localeKey"
+msgstr "Языки должны быть указаны с помощью кода языка. Например: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Не может быть больше {$max}."
+
+msgid "validator.max.file"
+msgstr "Не может быть больше {$max} килобайт."
+
+msgid "validator.max.string"
+msgstr "Не может быть больше {$max} символов."
+
+msgid "validator.max.array"
+msgstr "Не может содержать больше {$max} элементов."
+
+msgid "validator.mimes"
+msgstr "Должно быть файлом одного из следующих типов: {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Должно быть не меньше {$min}."
+
+msgid "validator.min.file"
+msgstr "Должно быть не меньше {$min} килобайт."
+
+msgid "validator.min.string"
+msgstr "Должно быть не меньше {$min} символов."
+
+msgid "validator.min.array"
+msgstr "Должно содержать не меньше {$min} элементов."
+
+msgid "validator.not_in"
+msgstr "Выбранный {$attribute} некорректный."
+
+msgid "validator.numeric"
+msgstr "Не является числом."
+
+msgid "validator.orcid"
+msgstr "Некорректный ORCID."
+
+msgid "validator.present"
+msgstr "Должно присутствовать поле «{$attribute}»."
+
+msgid "validator.regex"
+msgstr "Отформатировано некорректно."
+
+msgid "validator.required"
+msgstr "Поле обязательно."
+
+msgid "validator.required_if"
+msgstr "Поле обязательно, если {$other} равно {$value}."
+
+msgid "validator.required_unless"
+msgstr "Поле обязательно, пока {$other} равно {$values}."
+
+msgid "validator.required_with"
+msgstr "Поле обязательно, когда {$values} заданы."
+
+msgid "validator.required_with_all"
+msgstr "Поле обязательно, когда {$values} заданы."
+
+msgid "validator.required_without"
+msgstr "Поле обязательно, когда {$values} не заданы."
+
+msgid "validator.required_without_all"
+msgstr "Поле обязательно, когда {$values} не заданы."
+
+msgid "validator.same"
+msgstr "{$attribute} и {$other} должны совпадать."
+
+msgid "validator.size.numeric"
+msgstr "Должно быть {$size}."
+
+msgid "validator.size.file"
+msgstr "Должно быть {$size} килобайт."
+
+msgid "validator.size.string"
+msgstr "Должно быть {$size} символов."
+
+msgid "validator.size.array"
+msgstr "Должно содержать {$size} элементов."
+
+msgid "validator.string"
+msgstr "Некорректная строка."
+
+msgid "validator.timezone"
+msgstr "Некорректная временная зона."
+
+msgid "validator.unique"
+msgstr "{$attribute} уже использован."
+
+msgid "validator.url"
+msgstr "Некорректный URL."

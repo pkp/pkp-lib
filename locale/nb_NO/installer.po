@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Flere lokalinnstillinger"
+
+msgid "installer.administratorAccount"
+msgstr "Administratorkonto"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Denne brukerkontoen kommer til å bli nettstedsadministrator, vil ha full tilgang til systemet. Flere brukerkontoer kan opprettes etter installasjon."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NEI</span>"
+
+msgid "installer.checkYes"
+msgstr "Ja"
+
+msgid "installer.clientCharset"
+msgstr "Tegnsett for klienten"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Tegnkodingen som skal brukes for data som blir sendt til og mottatt fra nettlesere."
+
+msgid "installer.configFileError"
+msgstr "Konfigurasjonsfilen <tt>config.inc.php</tt> finnes ikke eller er ikke lesbar."
+
+msgid "installer.connectionCharset"
+msgstr "Tegnsett for databasekoblingen"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Innholdet i konfigurasjonsfilen"
+
+msgid "installer.createDatabase"
+msgstr "Opprett ny database"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "For å bruke denne valgmuligheten må ditt databasesystem støtte kreering av databaser  og din brukerkonto må ha de nødvendige rettigheter til å skape nye databaser. Hvis installasjon feiler med denne valgmuligheten valgt, skap databasen manuelt på din server og kjør installasjonsprogrammet igjen med denne valgmuligheten slått av."
+
+msgid "installer.databaseDriver"
+msgstr "Databasedriver"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Databasedrivere oppført in hakeparenteser ser ikke ut til å ha den påkrevete PHP-utvidelsen lastet og installasjonen kommer trolig til å feile hvis de velges.</strong><br />Ikke-supporterte databasedrivere oppført over er oppført kun for informasjonsformål og vil trolig ikke fungere."
+
+msgid "installer.databaseHost"
+msgstr "Vert"
+
+msgid "installer.databaseHostInstructions"
+msgstr "La vertsnaven stå tomt for å opprette forbindelsen gjennom \"domene sockets\" i stedet for over TCP/IP. Dette er ikke nødvendig med MySQL, som kommer til å bruke \"sockets\" automatisk hvis \"localhost\" er skrevet inn, men er påkrevet med enkelte andre databaseservere som for eksempel PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Databasenavn"
+
+msgid "installer.databasePassword"
+msgstr "Passord"
+
+msgid "installer.databaseSettings"
+msgstr "Databaseinnstillinger"
+
+msgid "installer.databaseUsername"
+msgstr "Brukernavn"
+
+msgid "installer.encryption"
+msgstr "Krypteringsalgoritme for passord"
+
+msgid "installer.filesDir"
+msgstr "Mappe for opplastete filer"
+
+msgid "installer.fileSettings"
+msgstr "Filinnstillinger"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Et tegnsett må være valgt for klienten."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "En databasedriver må være valgt."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Databasenavn er påkrevet."
+
+msgid "installer.form.emailRequired"
+msgstr "En gyldig e-postadresse for administratorkontoen er påkrevet."
+
+msgid "installer.form.encryptionRequired"
+msgstr "En algoritme til bruk ved kryptering av brukerpassord må være valgt."
+
+msgid "installer.form.filesDirRequired"
+msgstr "En mappe for lagring av opplastete filer er påkrevet."
+
+msgid "installer.form.localeRequired"
+msgstr "En lokalinnstilling må være valgt."
+
+msgid "installer.form.passwordRequired"
+msgstr "Et passord for administratorkontoen er påkrevet."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Administratorpassordene er ikke like."
+
+msgid "installer.form.separateMultiple"
+msgstr "Skill multiple verdier med komma"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Administrator-brukernavnet kan bare inneholde alfanumeriske tegn, understrek og bindestrek, og må begynne og slutte med et alfanumerisk tegn."
+
+msgid "installer.form.usernameRequired"
+msgstr "Et brukernavn for administratorkontoen er påkrevet."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>ADVARSEL: din nåværende PHP-versjon tilfredsstiller ikke minstekravene for installasjonen. Du bør oppgradere til en nyere utgave av PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Det oppsto feil under installasjon"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL -setninger for installasjon"
+
+msgid "installer.installFileError"
+msgstr "Installasjonsfilen <tt>dbscripts/xml/install.xml</tt> finnes ikke eller er ikke lesbar."
+
+msgid "installer.installFilesDirError"
+msgstr "Mappen du spesifiserte for opplastete filer finnes ikke eller er ikke overskrivbar."
+
+msgid "installer.installParseDBFileError"
+msgstr "Feil ved lesing av databaseinstallasjonsfilen <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Lokalinnstilling"
+
+msgid "installer.localeSettings"
+msgstr "Lokalinnstillinger"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "En unik identifikator brukt for å identifisere metadatafiler indeksert fra dette nettstedet ved bruk av <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "OAI-arkividentifikator"
+
+msgid "installer.publicFilesDirError"
+msgstr "Mappen for offentlige filer finnes ikke eller er ikke overskrivbar."
+
+msgid "installer.releaseNotes"
+msgstr "Releasenotater"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Feil ved parsing av e-postmalen <tt>{$file}</tt>."
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Merkede lokaliseringsfiler kan være ukomplette."
+
+msgid "installer.oaiSettings"
+msgstr "OAI-innstillinger"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Feil ved lesing av filterkonfigureringsfila <tt>{$file}</tt>."

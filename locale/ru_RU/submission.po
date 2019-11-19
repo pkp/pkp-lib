@@ -1,0 +1,1923 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:00+00:00\n"
+"Language: \n"
+
+msgid "author.editPublishedDisabled"
+msgstr "Авторов этой публикации нельзя отредактировать, так как она уже была опубликована."
+
+msgid "author.publicationNotFound"
+msgstr "Публикацию для этого автора не удаётся найти."
+
+msgid "author.submit.submissionCitations"
+msgstr "Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Новые рецензии были отправлены рецензентами и рассмотрены редактором."
+
+msgid "submission.confirm.message"
+msgstr "Ваш материал был загружен на сервер и готов к отправке. Вы можете вернуться назад, чтобы проверить и откорректировать любую информацию, которую вы ввели, перед тем как продолжить. Когда вы будете готовы, щелкните на кнопке «Завершить отправку»."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Отправить как"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Выберите роль, которая лучше всего описывает ваш вклад в этот материал."
+
+msgid "submission.submit.contactConsent"
+msgstr "Контакт для переписки"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Да, я согласен, чтобы вы связывались со мной по поводу этого материала."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "Отправьте под одной из следующих ролей, если вы хотите иметь возможность редактировать и публиковать этот материал самостоятельно: {$managerGroups}"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Требования к отправляемому материалу"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Вы должны прочесть и подтвердить, что вы выполнили все приведенные ниже требования, перед тем как продолжить."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Отправка материала завершена"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Спасибо вам за интерес к публикации в «{$contextName}»."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Принятие Условий передачи авторских прав"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Да, я согласен выполнять Условия передачи авторских прав."
+
+msgid "submission.submit.whatNext"
+msgstr "Что делать дальше?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "На текущий момент вы можете:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Просмотреть этот материал"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Создать новый материал для отправки"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Вернуться в личный кабинет"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Расширенные метаданные"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Адрес электронной почты, зарегистрированный в CrossRef"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в CrossRef. Вы можете бесплатно зарегистрировать свой адрес электронной почты на веб-сайте CrossRef."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "Ключ ISBNdb API"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Пожалуйста, введите ваш ключ ISBNdb API. Если у вас еще нет такого ключа, вы можете бесплатно запросить его на сайте проекта ISBNdb."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Адрес электронной почты, зарегистрированный в PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в PubMed, если он у вас есть."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "Ключ WorldCat API"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Пожалуйста, введите правильный ключ WorldCat API, если он у вас есть."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Модуль библиографических ссылок"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Пожалуйста, выберите один из указанных модулей библиографических ссылок."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Не использовать по умолчанию (по-прежнему будет доступен редактору)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Внутренняя ошибка. Неверное значение было передано настройке «необязательный фильтр». Пожалуйста, сообщите об этой ошибке разработчикам."
+
+msgid "metadata.property.displayName.author"
+msgstr "Авторы"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "Для получения наилучшего результата авторы должны быть введены в следующем формате: Бородин, А. А."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Редакторы"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "Для получения наилучшего результата редакторы должны быть введены в следующем формате: Бородин, А. А."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Название статьи/материала"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Пожалуйста, введите правильное название статьи/материала."
+
+msgid "metadata.property.displayName.source"
+msgstr "Название публикации"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Пожалуйста, введите правильное название публикации."
+
+msgid "metadata.property.displayName.date"
+msgstr "Дата публикации"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Пожалуйста, введите правильную дату публикации (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Дата доступа"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Пожалуйста, введите правильную дату доступа (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Выпуск"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Пожалуйста, введите правильный выпуск."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Том"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Пожалуйста, введите правильный том."
+
+msgid "metadata.property.displayName.season"
+msgstr "Сезон"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Пожалуйста, введите правильный идентификатор сезона."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Название главы"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Пожалуйста, введите правильное название главы."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Издание"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Пожалуйста, введите правильное издание."
+
+msgid "metadata.property.displayName.series"
+msgstr "Серия"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Пожалуйста, введите правильную серию."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Дополнение"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Пожалуйста, введите правильное дополнение."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Дата конференции"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Пожалуйста, введите правильную дату конференции (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Место проведения конференции"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Пожалуйста, введите правильное место проведения конференции."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Название конференции"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Пожалуйста, введите правильное название конференции."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Спонсор конференции"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Пожалуйста, введите правильно спонсора конференции."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Организация"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Пожалуйста, введите правильно организацию."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Первая страница"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Пожалуйста, введите правильно первую страницу (должна быть числом)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Последняя страница"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Пожалуйста, введите правильно последнюю страницу (должна быть числом)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Количество страниц"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Пожалуйста, введите правильно общее количество страниц (должно быть числом)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Место издания"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Пожалуйста, введите правильное место издания."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Название издателя"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Пожалуйста, введите правильное название издателя."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Пожалуйста, введите правильный ISBN (9 или 13 цифр)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Печатный ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Пожалуйста, введите правильный ISSN печатного издания."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "Электронный ISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Пожалуйста, введите правильный ISSN электронного издания."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Пожалуйста, введите правильный DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Пользовательский ID публикации"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Пожалуйста, введите правильный пользовательский ID публикации."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Пожалуйста, введите правильный CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Пожалуйста, введите правильный SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Пожалуйста, введите правильный PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Ссылка на публикацию"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Пожалуйста, введите правильную альтернативную ссылку на публикацию."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Комментарий"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Пожалуйста, введите правильный комментарий."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Аннотация"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Пожалуйста, введите правильную аннотацию."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Тип публикации"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Пожалуйста, убедитесь, что вы всегда задаете тип публикации. На текущий момент поддерживаются значения book (для книг или глав книги) и journal (для журнальных статей). Если тип не указан или указан неверно, форматирование библиографической ссылки на источник будет работать неправильно."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Тип заголовка"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Пожалуйста, убедитесь, что вы задали правильный тип заголовка. Поддерживаемые значения: abbreviated, translated, alternative и uniform."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Часть заголовка, игнорируемая при сортировке"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Пожалуйста, введите только первые буквы заголовка, которые должны быть проигнорированы при сортировке заголовков."
+
+msgid "metadata.property.displayName.title"
+msgstr "Заголовок"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Пожалуйста, введите правильный заголовок."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Подзаголовок"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Пожалуйста, введите правильный подзаголовок."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Номер части"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Пожалуйста, введите правильный номер части."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Название части"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Пожалуйста, введите правильное название части."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Тип названия"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Пожалуйста, убедитесь, что вы задали правильный тип названия. Поддерживаемые значения: personal, corporate и conference."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Аннотация"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Не назначенные"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Назначенные мне"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Архивные материалы"
+
+msgid "submission.authors"
+msgstr "Авторы"
+
+msgid "submission.authorBiography"
+msgstr "Биография автора"
+
+msgid "submission.authorBiographies"
+msgstr "Биографии авторов"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} и др."
+
+msgid "submission.mySubmissions"
+msgstr "С моим авторством"
+
+msgid "submission.addFile"
+msgstr "Загрузить файл"
+
+msgid "submission.agencies"
+msgstr "Организации"
+
+msgid "submission.abstractViews"
+msgstr "Просмотры аннотации"
+
+msgid "submission.accepted"
+msgstr "Принята"
+
+msgid "submission.acknowledge"
+msgstr "Подтвердить"
+
+msgid "submission.addSuppFile"
+msgstr "Добавить дополнительный файл"
+
+msgid "submission.ask"
+msgstr "Запрос"
+
+msgid "submission.attachedFile"
+msgstr "Прикрепленный файл"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Назад к редактированию материала"
+
+msgid "submission.changeComments"
+msgstr "Заменить на"
+
+msgid "submission.changeFile"
+msgstr "Изменить файл"
+
+msgid "submission.citations"
+msgstr "Библиографические ссылки"
+
+msgid "submission.citations.description"
+msgstr "Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь и записать отдельно."
+
+msgid "submission.parsedCitations"
+msgstr "Извлеченные ссылки"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr "Следующие ссылки были извлечены и будут связаны с метаданными материала."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Извлечь и сохранить ссылки"
+
+msgid "submission.comments.addComment"
+msgstr "Добавить комментарий"
+
+msgid "submission.comments.comments"
+msgstr "Комментарии"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Вы уверены, что хотите удалить этот комментарий?"
+
+msgid "submission.comments.corrections"
+msgstr "Исправления"
+
+msgid "submission.comments.editComment"
+msgstr "Редактировать комментарий"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Импортировать рецензии"
+
+msgid "submission.comments.addReviews"
+msgstr "Добавить рецензии к письму электронной почты"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Нет комментариев"
+
+msgid "submission.comments.noReviews"
+msgstr "Нет рецензий"
+
+msgid "submission.comments.review"
+msgstr "Рецензия"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Отправить рецензентам решение редакции"
+
+msgid "submission.comments.subject"
+msgstr "Тема"
+
+msgid "submission.complete"
+msgstr "Закончен"
+
+msgid "submission.contributors"
+msgstr "Список авторов"
+
+msgid "submission.copyedited"
+msgstr "Прошел литературное редактирование"
+
+msgid "submission.copyediting"
+msgstr "В процессе литературного редактирования"
+
+msgid "submission.queryNoteFiles"
+msgstr "Файлы обсуждения"
+
+msgid "submission.coverage"
+msgstr "Информация об охвате"
+
+msgid "submission.done"
+msgstr "Готово"
+
+msgid "submission.dueDate"
+msgstr "Срок выполнения"
+
+msgid "submission.due"
+msgstr "Срок выполн."
+
+msgid "submission.editing"
+msgstr "Редактирование"
+
+msgid "submission.editMetadata"
+msgstr "Редактировать метаданные"
+
+msgid "submission.editorial"
+msgstr "Литературное редактирование"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Назад к журналу писем электронной почты"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Вы уверены, что хотите очистить журнал писем электронной почты для этого материала?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Вы уверены, что хотите удалить эту запись из журнала писем электронной почты?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Удалить запись журнала"
+
+msgid "submission.emailLog"
+msgstr "Журнал электронной почты"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} ({$username}) был назначен в этот материал как {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "«{$name}» ({$username}) удален как {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Назад к журналу событий"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Вы уверены, что хотите очистить журнал событий для этого материала?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Вы уверены, что хотите удалить эту запись из журнала событий?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Удалить запись журнала"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Первоначальная отправка материала завершена."
+
+msgid "submission.event.fileRevised"
+msgstr "Версия «{$name}» (ID файла {$fileId}-{$fileRevision}) была загружена."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Метаданные материала обновлены"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Файл материала обновлен"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Согласие на рецензирование получено через посредника"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Согласие на рецензирование получено"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Рецензент отказался от рецензирования"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Срок предоставления рецензии изменен"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Назначен рецензент для материала"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Оценена работа рецензента"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Отменено назначение рецензента для материала"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Файл рецензии обновлен"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Рецензирование начато"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Файл с рекомендацией рецензента"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Рецензирование начато повторно"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Рецензия отправлена повторно"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Файл с правками рецензента обновлен"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Письмо электронной почты было отправлено:"
+
+msgid "submission.event.viewEmail"
+msgstr "Показать письмо электронной почты"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr "Теперь авторам разрешено редактировать метаданные, когда материал находится на этапе «{stage}»."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr "Теперь авторам запрещено редактировать метаданные, когда материал находится на этапе «{stage}»."
+
+msgid "submission.files"
+msgstr "Файлы"
+
+msgid "submission.files.downloadAll"
+msgstr "Скачать все файлы"
+
+msgid "submission.galley"
+msgstr "Гранка"
+
+msgid "submission.history.clearLog"
+msgstr "Очистить журнал"
+
+msgid "submission.history"
+msgstr "История"
+
+msgid "submission.history.noLogEntries"
+msgstr "Нет записей."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Последние записи"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Журнал писем электронной почты"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Журнал событий"
+
+msgid "submission.history.submissionNotes"
+msgstr "Заметки к материалу"
+
+msgid "submission.history.viewLog"
+msgstr "Просмотреть журнал"
+
+msgid "submission.howToCite"
+msgstr "Как цитировать"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Другие форматы библиографических ссылок"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Скачать ссылку"
+
+msgid "submission.initiated"
+msgstr "Начата"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Обновлена {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Версии"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$versionId})"
+
+msgid "submission.outdatedVersion"
+msgstr "Это устаревшая версия, которая была опубликована {$datePublished}. Прочтите <a href=\"{$urlRecentVersion}\">самую последнюю версию</a>."
+
+msgid "submission.identifiers"
+msgstr "Идентификаторы"
+
+msgid "submission.publisherId"
+msgstr "URL открытого идентификатора"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Информация о материале"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Метаданные"
+
+msgid "submission.informationCenter.notes"
+msgstr "Заметки"
+
+msgid "submission.informationCenter.history"
+msgstr "История"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Показать события из предыдущих версий"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Уведомить"
+
+msgid "submission.lastModified"
+msgstr "Последнее изменение"
+
+msgid "submission.layout.addGalley"
+msgstr "Добавить макет гранки"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Вы уверены, что хотите навсегда удалить эту гранку?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Вы уверены, что хотите удалить это изображение из гранки?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Вы уверены, что хотите навсегда удалить этот дополнительный файл?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Удалить эту таблицу стилей."
+
+msgid "submission.layout.editGalley"
+msgstr "Редактировать макет гранки"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Формат гранки"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Файлы гранок HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "Изображения"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Метка гранки"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Обычно используется для идентификации формата файла (например, HTML, PDF и т. д.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Метка гранки обязательна."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Язык гранки обязателен."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Язык гранки обязателен."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "URL-адрес удаленного сервера"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Пожалуйста, введите правильный URL-адрес удаленного сервера (включая http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Нет изображений"
+
+msgid "submission.layout.galleys"
+msgstr "Гранки"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Файл таблицы стилей"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Стиль"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Первоначальное создание гранки"
+
+msgid "submission.layout.layoutFile"
+msgstr "Файл макета"
+
+msgid "submission.layout"
+msgstr "Верстка"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Версия для верстки"
+
+msgid "submission.layout.newGalley"
+msgstr "Создать новую гранку"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Загрузить новый дополнительный файл"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Файл таблицы стилей не был добавлен к этой гранке."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Рецензия на дополнительный файл"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Просмотр гранки материала"
+
+msgid "submission.layout.viewProof"
+msgstr "Показать гранку"
+
+msgid "submission.metadata"
+msgstr "Метаданные материала"
+
+msgid "submission.noReviewAssignments"
+msgstr "Нет назначенных рецензентов"
+
+msgid "submission.notes.addNewNote"
+msgstr "Добавить новую заметку"
+
+msgid "submission.notes.attachedFile"
+msgstr "Прикрепленный файл"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Назад к заметкам"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Заметки"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Удалить все заметки"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Свернуть заметки"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Удалить все заметки к материалу?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Удалить эту заметку к материалу?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Создать новую заметку"
+
+msgid "submission.notes.deleteNote"
+msgstr "Удалить заметку"
+
+msgid "submission.notes.editNote"
+msgstr "Редактировать заметку"
+
+msgid "submission.notes.expandNotes"
+msgstr "Развернуть заметки"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Нет заметок к материалу"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Удалить загруженный файл"
+
+msgid "submission.notes"
+msgstr "Заметки к материалу"
+
+msgid "submission.notes.updateNote"
+msgstr "Обновить заметку"
+
+msgid "submission.notes.viewNotes"
+msgstr "Просмотреть заметки"
+
+msgid "submission.originalFile"
+msgstr "Исходный файл"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Редактирование"
+
+msgid "submission.page.history"
+msgstr "#{$id} История"
+
+msgid "submission.page.review"
+msgstr "#{$id} Рецензирование"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Сводка"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Библиографические ссылки"
+
+msgid "submission.peerReview"
+msgstr "Рецензирование"
+
+msgid "submission.production"
+msgstr "Публикация"
+
+msgid "submission.recommendation"
+msgstr "Рекомендация: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Отклонена"
+
+msgid "submission.request"
+msgstr "Запрос"
+
+msgid "submission.response"
+msgstr "Ответ"
+
+msgid "submission.restrictions"
+msgstr "Ограничения"
+
+msgid "submission.reviewMetadata"
+msgstr "Проверить метаданные"
+
+msgid "submission.review"
+msgstr "Рецензия"
+
+msgid "submission.reviewed"
+msgstr "Отрецензирована"
+
+msgid "submission.reviewVersion"
+msgstr "Версия для рецензии"
+
+msgid "submission.rights"
+msgstr "Права"
+
+msgid "submission.rights.tip"
+msgstr "Если хотите, вы можете ввести краткое уведомление о правах доступа, сохраняющихся или переходящих для этого материала."
+
+msgid "submissions.active"
+msgstr "В работе"
+
+msgid "submissions.archived"
+msgstr "В архиве"
+
+msgid "submission.saveMetadata"
+msgstr "Сохранить метаданные"
+
+msgid "submissions.completed"
+msgstr "Завершены"
+
+msgid "submissions.declined"
+msgstr "Отклонены"
+
+msgid "submissions.incomplete"
+msgstr "Не закончены"
+
+msgid "submissions.inactive"
+msgstr "Не активны в течение {$days} дней"
+
+msgid "submissions.noSubmissions"
+msgstr "Нет материалов"
+
+msgid "submissions.queuedEditing"
+msgstr "На редакции"
+
+msgid "submissions.queued"
+msgstr "В очереди"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Этому материалу не назначен редактор."
+
+msgid "submissions.ruling"
+msgstr "Решение"
+
+msgid "submission.source"
+msgstr "Источник"
+
+msgid "submission.source.tip"
+msgstr "Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес или описание этого ресурса."
+
+msgid "submissions.submit"
+msgstr "Отправка"
+
+msgid "submissions.submitted"
+msgstr "Прислана"
+
+msgid "submission.submission"
+msgstr "Материал"
+
+msgid "submission.submissionTitle"
+msgstr "Название материала:"
+
+msgid "submission.start"
+msgstr "Начало"
+
+msgid "submission.submissionHistory"
+msgstr "История материала"
+
+msgid "submission.submissionManuscript"
+msgstr "Рукопись материала"
+
+msgid "submission.submissionReview"
+msgstr "Рецензирование материала"
+
+msgid "submission.submitter"
+msgstr "Прислал"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Завершить отправку"
+
+msgid "submission.submit.selectFile"
+msgstr "Выбрать файл"
+
+msgid "submission.submit.fileInformation"
+msgstr "Информация файла"
+
+msgid "submission.submit.fileAdded"
+msgstr "Файл добавлен"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Включить этого автора в список поиска?"
+
+msgid "submission.submit.newFile"
+msgstr "Добавить другой файл"
+
+msgid "submission.submit.metadataForm"
+msgstr "Дополнительные уточнения"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Язык материала"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню выше."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Файлы материала"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Зависимые файлы"
+
+msgid "submission.manageDependentFiles"
+msgstr "Управление зависимыми файлами"
+
+msgid "submission.upload.dependent"
+msgstr "Загрузить зависимый файл"
+
+msgid "submission.upload.query"
+msgstr "Загрузить файл обсуждения"
+
+msgid "submission.summary"
+msgstr "Сводка"
+
+msgid "submission.supplementaryFiles"
+msgstr "Дополнительные файлы"
+
+msgid "submission.supportingAgencies"
+msgstr "Поддерживающие организации"
+
+msgid "submission.currentAgencies"
+msgstr "Текущие организации"
+
+msgid "submission.indexingInformation"
+msgstr "Информация для индексирования"
+
+msgid "submission.titleAndAbstract"
+msgstr "Название и аннотация"
+
+msgid "submission.type.tip"
+msgstr "Тип материала обычно что-то из «изображение», «текст» или другие типы мультимедиа, включая «программное обеспечение» или «интерактив». Пожалуйста, выберите один наиболее подходящий тип для вашего материала. Примеры можно найти на <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.underway"
+msgstr "В процессе"
+
+msgid "submission.uploadFileTo"
+msgstr "Загрузить файл в"
+
+msgid "submission.createRemote"
+msgstr "Создать удаленный"
+
+msgid "submission.viewMetadata"
+msgstr "Просмотреть метаданные"
+
+msgid "submission.views"
+msgstr "Просмотры"
+
+msgid "submission.uploadSuccessful"
+msgstr "Ваш файл был загружен."
+
+msgid "submission.loadMessage"
+msgstr "Пожалуйста, подождите пока ваш файл загрузится на сервер."
+
+msgid "submission.artworkFileDetails"
+msgstr "Информация о графическом файле"
+
+msgid "submission.fileDetails"
+msgstr "Информация о файле"
+
+msgid "submission.nameRequired"
+msgstr "Название обязательно для этого элемента."
+
+msgid "submission.date.mmdd"
+msgstr "ММ-ДД"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ГГГГ-ММ-ДД"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Контактное лицо для переписки с редакцией."
+
+msgid "submission.submit.contributorRole"
+msgstr "Роль автора"
+
+msgid "submission.submit.addAuthor"
+msgstr "Добавить автора"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Пожалуйста, укажите язык."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Пожалуйста, укажите тему."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Пожалуйста, укажите предмет."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Пожалуйста, укажите ключевое слово."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Пожалуйста, укаэите информацию об охвате."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Пожалуйста, укажите тип."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Пожалуйста, укажите источник."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Пожалуйста, укажите права на материал."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Пожалуйста, укажите библиографические ссылки."
+
+msgid "submission.form.name"
+msgstr "Назовите файл (например, Рукопись; Таблица 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Заменить существующий файл?"
+
+msgid "workflow.review.internalReview"
+msgstr "Внутренне рецензирование"
+
+msgid "workflow.stage.any"
+msgstr "Любой этап"
+
+msgid "workflow.stage"
+msgstr "Этап"
+
+msgid "submission.status.editorial"
+msgstr "На литературном редактировании"
+
+msgid "submission.status.production"
+msgstr "На корректуре"
+
+msgid "submission.status.review"
+msgstr "На рецензии"
+
+msgid "submission.status.submission"
+msgstr "Ждет решения редакции"
+
+msgid "submission.status.unassigned"
+msgstr "Не назначен"
+
+msgid "submission.status.declined"
+msgstr "Отклонен"
+
+msgid "submission.status.published"
+msgstr "Опубликован"
+
+msgid "submission.status.scheduled"
+msgstr "Запланирован"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Загрузить файл"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Загрузить файл материала"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Проверить детали"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Подтвердить"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Вы должны ввести имя файла для этого файла"
+
+msgid "submission.upload.noGenre"
+msgstr "Отсутствующий или некорректный компонент!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Отсутствующая или некорректная группа пользователей!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Обнаружено возможное дублирование или новая версия"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "Название загружаемого файла совпадает с именем ранее загруженного файла «{$revisedFileName}». Должен ли этот файл должен заменить «{$revisedFileName}»? Если да, то выберите файл ниже, иначе выберите «Это не новая версия существующего файла», перед тем как продолжить."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Пожалуйста, выберите файл, который вы хотите заменить."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Если вы загружаете новую версию существующего файла, пожалуйста, укажите для какого файла."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Это не новая версия существующего файла"
+
+msgid "submission.upload.userGroup"
+msgstr "Загрузить этот файл с моей ролью..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Если вы отправляете отредактированный том, вы должны загрузить все главы тома отдельно, под вашей ролью редактора тома."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Загрузить файл библиотеки"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Категория отправляемого документа"
+
+msgid "submission.upload.finalDraft"
+msgstr "Загрузить файл"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Загрузить файл после литературного редактирования"
+
+msgid "submission.upload.fairCopy"
+msgstr "Загрузить окончательный вариант"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Загрузить файлы"
+
+msgid "submission.upload.response.description"
+msgstr "После рецензирования назначенного файла, запишите все комментарии о файле ниже и/или загрузите копию с пометками в файле (или другой файл)."
+
+msgid "submission.upload.productionReady"
+msgstr "Загрузить файл для публикации"
+
+msgid "submission.upload.proof"
+msgstr "Загрузить файл, готовый к публикации"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "На данный момент нет файлов, которые вы могли бы откорректировать."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Новые версии были запрошены."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Новые версии были отправлены."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Материал нужно повторно отправить на рецензирование."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Материал был повторно отправлен на рецензирование."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Отправлен на внешнее рецензирование."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Материал принят."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Материал отклонен."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Ожидает назначения рецензентов."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Ожидает ответа от рецензентов."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Новые рецензии были отправлены."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Все рецензенты прислали свои рецензии, нужно принять решение."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Срок рецензии прошел."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Ожидает рекомендаций от редакторов."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Новые рекомендации редакторов были отправлены."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Все рекомендации пришли, нужно принять решение."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Участники"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Никто не назначен"
+
+msgid "editor.submission.participant"
+msgstr "Участник"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Назначить участника"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Редактировать назначение"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Удалить участника"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Вы собираетесь удалить этого участника со <strong>всех</strong> этапов."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Вы должны выбрать группу пользователей."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Вы должны выбрать пользователя для указанной группы пользователей."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "Выбранный вами пользователь назначен проводить «слепое» рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Запретить редактировать метаданные"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Разрешить редактировать метаданные"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr "Вы уверены, что хотите запретить авторам этого материала редактирование метаданных на этом этапе?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr "Вы уверены, что хотите разрешить авторам этого материала редактирование метаданных на этом этапе?"
+
+msgid "editor.submission.decision"
+msgstr "Решение"
+
+msgid "editor.submission.decision.accept"
+msgstr "Принять материал"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Запросить новые версии"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Отправить повторно на рецензию"
+
+msgid "editor.submission.decision.decline"
+msgstr "Отклонить материал"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Отправить на публикацию"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Принять материал и пропустить рецензирование"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Отправить на внутреннее рецензирование"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "Файл с корректурой страницы должен быть отмечен как одобренный, чтобы его можно было опубликовать. Вы хотите одобрить его?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Одобрить корректуры"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Назначить редактора, чтобы включить решения редакции для этого этапа."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Дать рекомендацию"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Изменить рекомендацию"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Рекомендация: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Рекомендации: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Рекомендация"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Рекомендовать решение редакции для этого материала."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Записанные рекомендации"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Далее: Выбрать файлы для {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Выберите файлы: которые вы хотите отправить на этап «{$stageName}»."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Назад: Уведомление автора"
+
+msgid "submission.currentStage"
+msgstr "Текущий этап"
+
+msgid "submission.noActionRequired"
+msgstr "Ничего не нужно делать"
+
+msgid "submission.actionNeeded"
+msgstr "Необходимо действие"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Файлы для рецензии"
+
+msgid "submission.submit.currentFile"
+msgstr "Текущий файл"
+
+msgid "submission.finalDraft"
+msgstr "Файлы черновиков"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Произошла ошибка при попытке назначить аудитора. Пожалуйста, попробуйте снова."
+
+msgid "submission.event.fileUploaded"
+msgstr "Файл «{$originalFileName}» был загружен для материала «{$submissionId}» пользователем «{$username}»."
+
+msgid "submission.event.fileDeleted"
+msgstr "Файл «{$originalFileName}» был удален из материала «{$submissionId}» пользователем «{$username}»."
+
+msgid "submission.event.revisionUploaded"
+msgstr "Новая версия файла «{$originalFileName}» была загружена для материала «{$submissionId}» пользователем «{$username}»."
+
+msgid "submission.event.revisionDeleted"
+msgstr "Версия файла «{$originalFileName}» была удалена из материала «{$submissionId}» пользователем «{$username}»."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "У файла «{$title}» последняя версия была удалена пользователем «{$username}»."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "«{$name}» ({$username}) был добавлен как аудитор для файла «{$file}»."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "«{$name}» ({$username}) был удален как аудитор для файла «{$file}»."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "«{$name}» ({$username}) выполнил аудит и загрузил «{$file}»."
+
+msgid "submission.event.signoffSignoff"
+msgstr "«{$name}» ({$username}) окончательно одобрил новый выпуск для «{$file}»."
+
+msgid "submission.event.proofsApproved"
+msgstr "«{$name}» ({$username}) одобрил корректуры для «{$formatName}»."
+
+msgid "submission.overview"
+msgstr "Обзор отправленного материала"
+
+msgid "submission.description"
+msgstr "Описание"
+
+msgid "submission.stageNotInitiated"
+msgstr "Этап не начался."
+
+msgid "submission.documents"
+msgstr "Документы отправленного материала"
+
+msgid "notification.type.editorAssign"
+msgstr "Вы были назначены редактором для материала «{$title}»."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Вас попросили выполнить литературное редактирование для «{$title}»."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Вас попросили выполнить верстку для «{$title}»."
+
+msgid "notification.type.indexRequest"
+msgstr "Вас попросили сделать индекс для «{$title}»."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Последнее решение редакции."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Материал принят."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Начат процесс внешнего рецензирования."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Требуется новая версия материала."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Повторно отправить а рецензирование."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Материал отклонен."
+
+msgid "notification.uploadedResponse"
+msgstr "Загружен ответ."
+
+msgid "notification.type.editorAssignment"
+msgstr "Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники»."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Файлы, прикрепленные рецензентом"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Выбрать файлы рецензии для отправки автору(авторам)"
+
+msgid "submission.productionReady"
+msgstr "Книга доступна"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Загрузить новую версию файла"
+
+msgid "log.review.reviewerAssigned"
+msgstr "Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round})."
+
+msgid "log.review.reviewCleared"
+msgstr "{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был сброшен."
+
+msgid "log.review.reviewUnconsidered"
+msgstr "{$editorName} отметил раунд {$round} рецензирования для материала {$submissionId} как нерассмотренный."
+
+msgid "log.review.reviewReinstated"
+msgstr "{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был начат заново."
+
+msgid "log.review.reviewConfirmed"
+msgstr "Редактор {$userName} подтвердил рецензию на раунде {$round} рецензирования для материала «{$submissionId}»."
+
+msgid "log.review.reviewReady"
+msgstr "Рецензент {$reviewerName} завершил рецензию на раунде {$round} рецензирования для материала «{$submissionId}»."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Ожидает ответа от рецензента."
+
+msgid "submission.review.status.declined"
+msgstr "Рецензент отклонил этот запрос на рецензию."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Рецензент пропустил срок ответа на запрос."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Рецензент пропустил срок предоставления рецензии."
+
+msgid "submission.review.status.accepted"
+msgstr "Рецензия была принята."
+
+msgid "submission.review.status.received"
+msgstr "Рецензент отправил свою рецензию."
+
+msgid "submission.review.status.complete"
+msgstr "Рецензирование было завершено."
+
+msgid "submission.review.status.thanked"
+msgstr "Рецензирование завершено и рецензент получил благодарность."
+
+msgid "submission.document"
+msgstr "Документ"
+
+msgid "submission.art"
+msgstr "Изображение"
+
+msgid "submission.supplementary"
+msgstr "Дополнительный контент"
+
+msgid "submission.supplementary.creator"
+msgstr "Создатель (или владелец) файла"
+
+msgid "submission.supplementary.subject"
+msgstr "Тема"
+
+msgid "submission.supplementary.publisher"
+msgstr "Издатель"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Спонсор или автор"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Перейти к рабочему потоку материала"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Начат процесс публикации."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "Выпускающий редактор должен быть назначен до начала процесса публикации. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники»."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "Выпускающий редактор должен быть назначен до начала процесса редактирования. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники»."
+
+msgid "submission.reviewForm"
+msgstr "Форма рецензии"
+
+msgid "submission.reviewFormResponse"
+msgstr "Ответ на форму рецензии"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Создать новый элемент формы рецензии"
+
+msgid "grid.action.editMetadata"
+msgstr "Редактировать метаданные"
+
+msgid "submission.permissions"
+msgstr "Права"
+
+msgid "submission.attachPermissions"
+msgstr "Добавить следующие права к материалу:"
+
+msgid "submission.license"
+msgstr "Лицензия"
+
+msgid "submission.copyright"
+msgstr "Авторское право"
+
+msgid "submission.copyrightHolder"
+msgstr "Владелец авторского права"
+
+msgid "submission.copyrightYear"
+msgstr "Год авторского права"
+
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Пожалуйста, укажите правильный URL-адрес удаленного сервера (включая http://)."
+
+msgid "submission.licenseURL"
+msgstr "URL-адрес лицензии"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC «Attribution» («Атрибуция») 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">лицензии Creative Commons «Attribution» («Атрибуция») 4.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Всемирная</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Всемирная</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Обсуждения до рецензирования"
+
+msgid "submission.queries.review"
+msgstr "Обсуждения рецензирования"
+
+msgid "submission.queries.editorial"
+msgstr "Обсуждения литературного редактирования"
+
+msgid "submission.queries.production"
+msgstr "Обсуждения публикации"
+
+msgid "submission.query.subject"
+msgstr "Тема"
+
+msgid "submission.query.messages"
+msgstr "Сообщения"
+
+msgid "submission.query.replies"
+msgstr "Ответы"
+
+msgid "submission.query.from"
+msgstr "От"
+
+msgid "submission.query.lastReply"
+msgstr "Последний ответ"
+
+msgid "submission.query.closed"
+msgstr "Закрыт"
+
+msgid "submission.query.addNote"
+msgstr "Добавить сообщение"
+
+msgid "submission.query.leaveQuery"
+msgstr "Покинуть обсуждение"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr "Если вы покинете это обсуждение, то больше не будете получать уведомления о новых сообщениях. Вы действительно хотите покинуть обсуждение?"
+
+msgid "grid.action.openNoteForm"
+msgstr "Добавить новый ответ в обсуждение"
+
+msgid "submission.query.activity"
+msgstr "Пользователь «{$responderName}» ответил на «{$noteTitle}»: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}»."
+
+msgid "submission.query.new.contents"
+msgstr "Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}»."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "До начала обсуждения вы должны назначить хотя бы одного участника в этот материал."
+
+msgid "submission.list.infoCenter"
+msgstr "Журнал активности и обсуждений"
+
+msgid "submission.list.empty"
+msgstr "Материалы не найдены."
+
+msgid "submission.list.responseDue"
+msgstr "Срок ответа на запрос"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Назначение на рецензию"
+
+msgid "submission.list.reviewDue"
+msgstr "Срок сдачи рецензии"
+
+msgid "submission.list.reviewComplete"
+msgstr "Рецензия отправлена"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Рецензия отменена"
+
+msgid "submission.list.confirmDelete"
+msgstr "Удалить материал?"
+
+msgid "submission.list.viewSubmission"
+msgstr "Показать материал"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Завершено назначенных рецензий"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Отправлено новых версий"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Отправлено файлов, прошедших литературное редактирование"
+
+msgid "submission.list.galleysCreated"
+msgstr "Создано гранок"
+
+msgid "submission.list.filesPrepared"
+msgstr "Подготовлено файлов"
+
+msgid "submission.list.discussions"
+msgstr "Открытых обсуждений"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "Вам назначили несколько ролей для этого материала. Вы хотите воспользоваться <a href=\"{$urlAuthorWorkflow}\">Рабочим потоком автора</a>  или <a href=\"{$urlEditorialWorkflow}\">Рабочим потоком редакции</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "Вам назначена роль в редакции для этого материала. Вы хотите воспользоваться <a href=\"{$urlEditorialWorkflow}\">Рабочим потоком редакции</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Этот материал должен быть завершен до того, как редактор будет его рецензировать."
+
+msgid "submission.list.currentStage"
+msgstr "Сейчас на этапе «{$stage}»."
+
+msgid "submission.list.assignEditor"
+msgstr "Назначить редактора"
+
+msgid "grid.category.categories"
+msgstr "Категории"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Название (А-Я)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Название (Я-А)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Дата публикации (сначала старые)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Дата публикации (сначала новые)"
+
+msgid "category.coverImage"
+msgstr "Изображение обложки"
+
+msgid "submission.submit.placement.categories"
+msgstr "Категории"
+
+msgid "submission.currentCoverImage"
+msgstr "Текущее изображение"
+
+msgid "catalog.category.noItems"
+msgstr "В этой категории пока ничего не опубликовано."
+
+msgid "catalog.category.subcategories"
+msgstr "Подкатегории"
+
+msgid "submission.publication"
+msgstr "Публикация"
+
+msgid "publication.citations.success"
+msgstr "Ссылки были обновлены."
+
+msgid "publication.contributors"
+msgstr "Авторы"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr "Дата копирайта будет задана автоматически, когда выпуск будет опубликован."
+
+msgid "publication.createVersion"
+msgstr "Создать новую версию"
+
+msgid "publication.datePublished"
+msgstr "Дата публикации"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Дата должна быть в формате ГГГГ-ММ-ДД, например, 2019-01-01."
+
+msgid "publication.editDisabled"
+msgstr "Эта версия была опубликована, её нельзя отредактировать."
+
+msgid "publication.event.published"
+msgstr "Материал был опубликован."
+
+msgid "publication.event.scheduled"
+msgstr "Материал запланирован к публикации."
+
+msgid "publication.event.unpublished"
+msgstr "Материал был снят с публикации."
+
+msgid "publication.event.versionCreated"
+msgstr "Создана новая версия."
+
+msgid "publication.event.versionPublished"
+msgstr "Опубликована новая версия."
+
+msgid "publication.event.versionScheduled"
+msgstr "Новая версия запланирована к публикации."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Версия была убрана с публикации."
+
+msgid "publication.invalidSubmission"
+msgstr "Материал для этой публикации не удаётся найти."
+
+msgid "publication.metadata.success"
+msgstr "Метаданные были обновлены."
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Идентификаторы были обновлены."
+
+msgid "publication.publicationLicense"
+msgstr "Разрешения и соглашения"
+
+msgid "publication.publicationLicense.success"
+msgstr "Информация о лицензии и авторском праве была обновлена."
+
+msgid "publication.publish"
+msgstr "Опубликовать"
+
+msgid "publication.publish.requirements"
+msgstr "Перед публикацией необходимо выполнить следующие требования."
+
+msgid "publication.publish.success"
+msgstr "Статус публикации был успешно изменён."
+
+msgid "publication.required.declined"
+msgstr "Отклонённый материал нельзя опубликовать."
+
+msgid "publication.required.reviewStage"
+msgstr "Перед публикацией материал должен быть на этапе «Литературное редактирование» или «Публикация»."
+
+msgid "publication.status.published"
+msgstr "Опубликовано"
+
+msgid "publication.status.scheduled"
+msgstr "Запланировано"
+
+msgid "publication.status.unpublished"
+msgstr "Снято с публикации"
+
+msgid "publication.status.unscheduled"
+msgstr "Снято с плана"
+
+msgid "publication.titleAbstract"
+msgstr "Название и аннотация"
+
+msgid "publication.titleAbstract.success"
+msgstr "Название и аннотация были обновлены."
+
+msgid "publication.unpublish"
+msgstr "Снять с публикации"
+
+msgid "publication.unpublish.confirm"
+msgstr "Вы уверены, что не хотите публиковать этот материал? "
+
+msgid "publication.unschedule"
+msgstr "Снять с плана"
+
+msgid "publication.unschedule.confirm"
+msgstr "Вы уверены, что не хотите запланировать этот материал к публикации?"
+
+msgid "publication.version.all"
+msgstr "Все версии"
+
+msgid "publication.version.details"
+msgstr "Информация о публикации для версии {$version}"
+
+msgid "publication.wordCountLong"
+msgstr "Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В данный момент её длина {$count} слов."

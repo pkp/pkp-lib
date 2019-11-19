@@ -1,0 +1,1725 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:09+00:00\n"
+"Language: \n"
+
+msgid "author.submit.submissionCitations"
+msgstr "Надайте форматований список посилань на роботи, процитовані у цьому рукописі. Будь ласка, відокремлюйте посилання одне від одного пустими рядками."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Нові рецензії були надіслані і розглядаються редактором."
+
+msgid "submission.confirm.message"
+msgstr "Ваше подання завантажене і готове до надсилання. Ви можете повернутися назад для перегляду та корекції будь-якої інформації, яку ви ввели перед продовженням. Коли будете готові, натисніть \"Завершити подання\"."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Вимоги до подання"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Перш ніж продовжувати, ви повинні прочитати та підтвердити, що виконали нижченаведені вимоги."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Подання матеріалів завершено"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Дякуємо, що зацікавилися публікацією в {$contextName}."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Прийняття умов передачі авторських прав"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Я погоджуюсь дотримуватися умов передачі авторських прав."
+
+msgid "submission.submit.whatNext"
+msgstr "Що робити далі?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Зараз ви можете:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Переглянути це подання"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Створити нове подання"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Повернутися в особистий кабінет"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Розширені метадані"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Email реєстрації у CrossRef"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Будь ласка, введіть працездатну адресу email, з якою був зареєстрований обліковий запис у CrossRef. Ви можете безкоштовно зареєструвати ваш email на веб-сайті CrossRef."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "Ключ API ISBNdb"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Будь ласка, введіть ваш Ключ API ISBNdb. Якщо поки ви не маєте ключа, ви можете безкоштовно його замовити у проекті ISBNdb."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Email реєстрації у PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Будь ласка, введіть працездатну адресу email, з якою був зареєстрований обліковий запис у PubMed."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "Ключ API WorldCat"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Будь ласка, якщо ви маєте ключ API WorldCat, введіть його."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Модуль цитат"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Будь ласка, виберіть один з модулів цитат."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Не використовувати за замовчуванням (служба залишатиметься доступною редактору)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Внутрішня помилка. Для налаштування 'optional filter' було завантажено некоректне значення. Будь ласка, повідомте розробників про цю помилку."
+
+msgid "metadata.property.displayName.author"
+msgstr "Автори"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "Для найкращих результатів рекомендується вводити імена авторів у наступному форматі: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Редактори"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "Для найкращих результатів рекомендується вводити імена редакторів у наступному форматі: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Назва статті/праці"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Будь ласка, вкажіть коректну назву статті/праці."
+
+msgid "metadata.property.displayName.source"
+msgstr "Назва журналу/книги"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Будь ласка, вкажіть коректну назву журналу/книги."
+
+msgid "metadata.property.displayName.date"
+msgstr "Дата публікації"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Будь ласка, вкажіть коректну дату публікації (формат: РРРР-ММ-ДД)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Дата доступу"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Будь ласка, вкажіть коректну дату доступу (формат: РРРР-ММ-ДД)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Випуск"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Будь ласка, вкажіть коректний номер випуску."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Том"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Будь ласка, вкажіть коректний номер тому."
+
+msgid "metadata.property.displayName.season"
+msgstr "Сезон"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Будь ласка, вкажіть коректний ідентифікатор сезону."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Назва глави"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Будь ласка, вкажіть коректну назву глави."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Видання"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Будь ласка, вкажіть коректний номер видання."
+
+msgid "metadata.property.displayName.series"
+msgstr "Серії"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Будь ласка, вкажіть коректні серії."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Додаток"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Будь ласка, коректно вкажіть додаток."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Дата конференції"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Будь ласка, вкажіть коректну дату конференції (формат: РРРР-ММ-ДД)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Місце проведення конференції"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Будь ласка, вкажіть коректне місце проведення конференції."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Назва конференції"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Будь ласка, вкажіть коректну назву конференції."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Спонсор конференції"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Будь ласка, вкажіть коректні дані про спонсора конференції."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Установа"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Будь ласка, вкажіть коректні дані про установу."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Перша сторінка"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Будь ласка, вкажіть коректний номер першої сторінки (має бути цифровим значенням)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Остання сторінка"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Будь ласка, вкажіть коректний номер останньої сторінки (має бути цифровим значенням)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Кількість сторінок"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Будь ласка, вкажіть коректну загальну кількість сторінок (має бути цифровим значенням)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Місце видання"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Будь ласка, вкажіть коректне місце видання."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Назва/ім'я видавця"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Будь ласка, вкажіть коректну назву/ім'я видавця."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Будь ласка, вкажіть коректний номер ISBN (9 або 13 цифр)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Друкований ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Будь ласка, вкажіть коректний номер друкованого ISSN."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Будь ласка, вкажіть коректний номер eISSN."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Будь ласка, вкажіть коректний ідентифікатор DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Власний ID видавця"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Будь ласка, вкажіть коректний ідентифікатор видавця."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Будь ласка, вкажіть коректний ідентифікатор CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Будь ласка, вкажіть коректний ідентифікатор SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Будь ласка, вкажіть коректний ідентифікатор PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Посилання на публікацію"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Будь ласка, вкажіть працездатне альтернативне посилання на публікацію."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Коментар"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Будь ласка, введіть коректний коментар."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Анотація"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Будь ласка, введіть коректну анотацію."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Тип публікації"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Будь ласка, обов'язково вказуйте тип публікації. Зараз підтримуються два значення типу публікацій: book (для книжок і розділів книжок) та journal (для журнальних статей). В іншому випадку вихідний формат цитати буде некоректним."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Тип назви"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Будь ласка, завжди коректно вказуйте тип назви. Підтримуються наступні значення: 'abbreviated' (абревіатура), 'translated' (перекладена назва), 'alternative' (альтернативна назва) та 'uniform' (уніфікована назва)."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Частина назви, яку слід ігнорувати під час сортування"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Будь ласка, вказуйте лише початкові символи назви, які повинні ігноруватися під час сортування за назвою."
+
+msgid "metadata.property.displayName.title"
+msgstr "Назва"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Будь ласка, вкажіть коректну назву."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Підзаголовок"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Будь ласка, вкажіть коректний підзаголовок."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Номер частини"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Будь ласка, вкажіть коректний номер частини."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Назва частини"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Будь ласка, вкажіть коректну назву частини."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Тип назви"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Будь ласка, переконайтеся, що ви встановили тип назви. Підтримувані значення: 'personal', 'corporate' and 'conference'."
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Не призначені"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Призначені мені"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Архів поданих статей"
+
+msgid "submission.authors"
+msgstr "Автори"
+
+msgid "submission.authorBiography"
+msgstr "Біографія автора"
+
+msgid "submission.authorBiographies"
+msgstr "Біографії авторів"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} та ін."
+
+msgid "submission.mySubmissions"
+msgstr "За моїм авторством"
+
+msgid "submission.addFile"
+msgstr "Завантажити файл"
+
+msgid "submission.agencies"
+msgstr "Агенції"
+
+msgid "submission.abstractViews"
+msgstr "Переглядів анотації"
+
+msgid "submission.accepted"
+msgstr "Прийнято"
+
+msgid "submission.acknowledge"
+msgstr "Подяка"
+
+msgid "submission.addSuppFile"
+msgstr "Додати супровідний файл"
+
+msgid "submission.ask"
+msgstr "Запитати"
+
+msgid "submission.attachedFile"
+msgstr "Прикріплений файл"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Повернутися до редагування подання"
+
+msgid "submission.changeComments"
+msgstr "Змінити на"
+
+msgid "submission.changeFile"
+msgstr "Змінити файл"
+
+msgid "submission.citations"
+msgstr "Посилання"
+
+msgid "submission.citations.description"
+msgstr "Введіть кожне посилання з нового рядка, щоб їх можна було потім видобути."
+
+msgid "submission.parsedCitations"
+msgstr "Видобуті посилання"
+
+msgid "submission.parsedCitations.description"
+msgstr "Нижченаведені посилання були вилучені та будуть пов'язані з метаданими подання."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Видобути і зберегти посилання"
+
+msgid "submission.comments.addComment"
+msgstr "Додати коментар"
+
+msgid "submission.comments.comments"
+msgstr "Коментарі"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Ви впевнені, що хочете видалити цей коментар?"
+
+msgid "submission.comments.corrections"
+msgstr "Виправлення"
+
+msgid "submission.comments.editComment"
+msgstr "Редагувати коментар"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Імпорт рецензій"
+
+msgid "submission.comments.addReviews"
+msgstr "Додати рецензію до електронного листа"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Немає коментарів"
+
+msgid "submission.comments.noReviews"
+msgstr "Немає рецензій"
+
+msgid "submission.comments.review"
+msgstr "Рецензія"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Надіслати рецензентам рішення редактора"
+
+msgid "submission.comments.subject"
+msgstr "Тема"
+
+msgid "submission.complete"
+msgstr "Завершення"
+
+msgid "submission.contributors"
+msgstr "Список авторів"
+
+msgid "submission.copyedited"
+msgstr "Відредаговані"
+
+msgid "submission.copyediting"
+msgstr "В процесі літературного редагування"
+
+msgid "submission.queryNoteFiles"
+msgstr "Файли обговорення"
+
+msgid "submission.coverage"
+msgstr "Інформація про охоплення"
+
+msgid "submission.done"
+msgstr "Зроблено"
+
+msgid "submission.dueDate"
+msgstr "Строк до"
+
+msgid "submission.due"
+msgstr "До"
+
+msgid "submission.editing"
+msgstr "Редагування"
+
+msgid "submission.editMetadata"
+msgstr "Редагування метаданих"
+
+msgid "submission.editorial"
+msgstr "Літературне редагування"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Повернутися до журналу пошти"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Ви впевнені, що хочете очистити журнал пошти цього подання?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Ви впевнені, що хочете видалити цей запис з журналу пошти?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Видалити запис журналу"
+
+msgid "submission.emailLog"
+msgstr "Журнал пошти"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} ({$username}) був призначений для цього подання як {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) видалений як {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Повернутися до журналу подій"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Ви впевнені, що хочете очистити журнал подій цього подання?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Ви впевнені, що хочете видалити цей запис з журналу подій?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Видалити запис журналу"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Початкове надсилання подання завершено."
+
+msgid "submission.event.fileRevised"
+msgstr "Версія \"{$name}\" (file ID {$fileId}-{$fileRevision}) була завантажена."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Метадані подання оновлені"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Супровідний файл подання оновлений"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Від імені рецензента призначення було прийняте"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Рецензент прийняв призначення"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Рецензент відмовився від призначення"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Строк рецензування змінений"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Рецензент для подання призначений"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Рецензент оцінений"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Рецензент звільнений від роботи над поданням"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Файл рецензії оновлений"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Процес рецензування розпочатий"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Файл рекомендацій рецензента"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Процес рецензування розпочатий повторно"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Рецензія надіслана повторно"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Файл правок рецензента оновлений"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Електронний лист відправлено:"
+
+msgid "submission.event.viewEmail"
+msgstr "Переглянути електронний лист"
+
+msgid "submission.files"
+msgstr "Файли"
+
+msgid "submission.files.downloadAll"
+msgstr "Завантажити усі файли"
+
+msgid "submission.galley"
+msgstr "Гранка"
+
+msgid "submission.history.clearLog"
+msgstr "Очистити журнал"
+
+msgid "submission.history"
+msgstr "Історія"
+
+msgid "submission.history.noLogEntries"
+msgstr "У журналі немає записів."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Останні записи"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Журнал пошти"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Журнал подій"
+
+msgid "submission.history.submissionNotes"
+msgstr "Примітки подання"
+
+msgid "submission.history.viewLog"
+msgstr "Дивитися журнал"
+
+msgid "submission.howToCite"
+msgstr "Як цитувати"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Формати цитування"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Завантажити посилання"
+
+msgid "submission.indexing"
+msgstr "Індексна інформація"
+
+msgid "submission.initiated"
+msgstr "Розпочато"
+
+msgid "submission.identifiers"
+msgstr "Ідентифікатори"
+
+msgid "submission.publisherId"
+msgstr "URL відкритого ідентифікатора"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Інформація про подання"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Метадані"
+
+msgid "submission.informationCenter.notes"
+msgstr "Нотатки"
+
+msgid "submission.informationCenter.history"
+msgstr "Історія"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Показати події з попередніх версій"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Повідомити"
+
+msgid "submission.lastModified"
+msgstr "Остання редакція"
+
+msgid "submission.layout.addGalley"
+msgstr "Додати гранку"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Ви впевнені, що хочете назавжди видалити цю гранку?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Ви впевнені, що хочете видалити це зображення з гранки?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Ви впевнені, що хочете назавжди видалити цей супровідний файл?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Видалити цю таблицю стилів."
+
+msgid "submission.layout.editGalley"
+msgstr "Редагувати гранку"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Формат гранки"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Файли гранки HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "Зображення"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Мітка"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Мітка гранки використовується для ідентифікації формату файлу об'єкту (наприклад, HTML, PDF тощо)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Необхідно вказати мітку гранки."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Необхідно вказати мову гранки."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Необхідно вказати локалізацію гранки."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Зовнішня адреса URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Будь ласка, вкажіть правильну зовнішню URL-адресу (з префіксом http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Немає зображень"
+
+msgid "submission.layout.galleys"
+msgstr "Гранки"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Файл таблиці стилів"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Стиль"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Початок створення гранки"
+
+msgid "submission.layout.layoutFile"
+msgstr "Файл верстки"
+
+msgid "submission.layout"
+msgstr "Верстка"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Версія верстки"
+
+msgid "submission.layout.newGalley"
+msgstr "Створити нову гранку"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Завантажити новий супровідний файл"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Для цієї гранки не було додано файлу таблиці стилів."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Перегляд супровідного файлу"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Перегляд гранки подання"
+
+msgid "submission.layout.viewProof"
+msgstr "Переглянути верстку"
+
+msgid "submission.metadata"
+msgstr "Метадані подання"
+
+msgid "submission.noReviewAssignments"
+msgstr "Немає призначень рецензентів"
+
+msgid "submission.notes.addNewNote"
+msgstr "Додати нову нотатку"
+
+msgid "submission.notes.attachedFile"
+msgstr "Додатковий файл"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Повернутися до нотаток подання"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Нотатки"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Очистити всі нотатки"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Згорнути нотатки"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Видалити всі нотатки подання?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Видалити цю нотатку подання?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Створити нову нотатку"
+
+msgid "submission.notes.deleteNote"
+msgstr "Видалити нотатку"
+
+msgid "submission.notes.editNote"
+msgstr "Редагувати нотатку"
+
+msgid "submission.notes.expandNotes"
+msgstr "Розгорнути нотатки"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Немає нотаток"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Видалити завантажений файл"
+
+msgid "submission.notes"
+msgstr "Нотатки подання"
+
+msgid "submission.notes.updateNote"
+msgstr "Оновити нотатку"
+
+msgid "submission.notes.viewNotes"
+msgstr "Дивитися нотатки"
+
+msgid "submission.originalFile"
+msgstr "Оригінальний файл"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Редагування"
+
+msgid "submission.page.history"
+msgstr "#{$id} Історія"
+
+msgid "submission.page.review"
+msgstr "#{$id} Рецензування"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Резюме"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Цитати"
+
+msgid "submission.peerReview"
+msgstr "Наукове рецензування"
+
+msgid "submission.production"
+msgstr "Верстка"
+
+msgid "submission.recommendation"
+msgstr "Рекомендація: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Відхилено"
+
+msgid "submission.request"
+msgstr "Запит"
+
+msgid "submission.response"
+msgstr "Відповідь"
+
+msgid "submission.restrictions"
+msgstr "Обмеження"
+
+msgid "submission.reviewMetadata"
+msgstr "Перегляд метаданих"
+
+msgid "submission.review"
+msgstr "Рецензування"
+
+msgid "submission.reviewed"
+msgstr "Рецензовані"
+
+msgid "submission.reviewVersion"
+msgstr "Версія рецензії"
+
+msgid "submission.rights"
+msgstr "Права"
+
+msgid "submission.rights.tip"
+msgstr "Якщо хочете, ви можете ввести короткий виклад прав доступу, які матиме або набуде цей матеріал."
+
+msgid "submissions.active"
+msgstr "Активне"
+
+msgid "submissions.archived"
+msgstr "Архівоване"
+
+msgid "submission.saveMetadata"
+msgstr "Зберегти метадані"
+
+msgid "submissions.completed"
+msgstr "Завершене"
+
+msgid "submissions.declined"
+msgstr "Відхилене"
+
+msgid "submissions.incomplete"
+msgstr "Незавершене"
+
+msgid "submissions.noSubmissions"
+msgstr "Немає подань"
+
+msgid "submissions.queuedEditing"
+msgstr "редагуються"
+
+msgid "submissions.queued"
+msgstr "В черзі"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Подання, що очікують прийняття"
+
+msgid "submissions.ruling"
+msgstr "Правила"
+
+msgid "submission.source"
+msgstr "Джерело"
+
+msgid "submission.source.tip"
+msgstr "Це подання отримано з іншого ресурсу? Якщо так, ви можете ввести URL-адресу або опис цього ресурсу."
+
+msgid "submissions.submit"
+msgstr "Надіслати"
+
+msgid "submissions.submitted"
+msgstr "Надіслано"
+
+msgid "submission.submission"
+msgstr "Подання"
+
+msgid "submission.submissionTitle"
+msgstr "Назва подання:"
+
+msgid "submission.start"
+msgstr "Початок"
+
+msgid "submission.submissionHistory"
+msgstr "Історія подання"
+
+msgid "submission.submissionManuscript"
+msgstr "Рукопис подання"
+
+msgid "submission.submissionReview"
+msgstr "Рецензування подання"
+
+msgid "submission.submitter"
+msgstr "Надіслав"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Завершити подання"
+
+msgid "submission.submit.selectFile"
+msgstr "Обрати файл"
+
+msgid "submission.submit.fileInformation"
+msgstr "Інформація файлу"
+
+msgid "submission.submit.fileAdded"
+msgstr "Файл додано"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Включити цього автора в списки перегляду?"
+
+msgid "submission.submit.newFile"
+msgstr "Додати інший файл"
+
+msgid "submission.submit.metadataForm"
+msgstr "Додаткові уточнення"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Додайте додаткову інформацію для вашого подання. Натискайте \"Enter\" після кожного терміну."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Мова подання"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Матеріали приймаються на декількох мовах. Виберіть основну мову подання з вищенаведеного списку, що розкривається."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Файли подання"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Залежні файли"
+
+msgid "submission.manageDependentFiles"
+msgstr "Керування залежними файлами"
+
+msgid "submission.upload.dependent"
+msgstr "Завантажити залежний файл"
+
+msgid "submission.upload.query"
+msgstr "Завантажити файл обговорення"
+
+msgid "submission.summary"
+msgstr "Резюме"
+
+msgid "submission.supplementaryFiles"
+msgstr "Супровідні файли"
+
+msgid "submission.supportingAgencies"
+msgstr "Спонсори"
+
+msgid "submission.currentAgencies"
+msgstr "Поточні агенції"
+
+msgid "submission.indexingInformation"
+msgstr "Індексна інформація"
+
+msgid "submission.titleAndAbstract"
+msgstr "Назва та анотація"
+
+msgid "submission.type.tip"
+msgstr "Тип подання зазвичай є чимось з \"малюнок\", \"текст\" або інших типів мультимедіа, зокрема \"програмне забезпечення\" або \"інтерактивний\". Будь-ласка, виберіть найбільш відповідний для вашого подання тип. Приклади можна знайти на сторінці <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.underway"
+msgstr "Прогрес"
+
+msgid "submission.uploadFileTo"
+msgstr "Завантажити файл у"
+
+msgid "submission.createRemote"
+msgstr "Створити віддалене"
+
+msgid "submission.viewMetadata"
+msgstr "Перегляд метаданих"
+
+msgid "submission.views"
+msgstr "переглядів"
+
+msgid "submission.uploadSuccessful"
+msgstr "Ваш файл був завантажений."
+
+msgid "submission.loadMessage"
+msgstr "Файл завантажується на сервер. Будь ласка, зачекайте."
+
+msgid "submission.artworkFileDetails"
+msgstr "Деталі файлу твору"
+
+msgid "submission.fileDetails"
+msgstr "Деталі файлу"
+
+msgid "submission.nameRequired"
+msgstr "Необхідно вказати назву для цього об'єкту."
+
+msgid "submission.date.mmdd"
+msgstr "ММ-ДД"
+
+msgid "submission.date.yyyymmdd"
+msgstr "РРРР-ММ-ДД"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Контактна особа для редакційної кореспонденції."
+
+msgid "submission.submit.contributorRole"
+msgstr "Роль автора"
+
+msgid "submission.submit.addAuthor"
+msgstr "Додати автора"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Будь ласка, вкажіть мову."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Будь ласка, вкажіть тему."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Будь ласка, вкажіть предмет."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Будь ласка, вкажіть ключове слово."
+
+msgid "submission.submit.form.agenciesRequired"
+msgstr "Будь ласка, вкажіть спонсорів."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Будь ласка, вкажіть інформацію про охоплення."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Будь ласка, вкажіть тип."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Будь ласка, вкажіть джерело."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Будь ласка, вкажіть авторські права."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Будь ласка, вкажіть посилання."
+
+msgid "submission.form.name"
+msgstr "Дайте цьому файлу зручну назву"
+
+msgid "submission.form.replaceExisting"
+msgstr "Замінити існуючий файл?"
+
+msgid "workflow.review.internalReview"
+msgstr "Внутрішнє рецензування"
+
+msgid "workflow.stage.any"
+msgstr "Будь-який етап"
+
+msgid "workflow.stage"
+msgstr "Етап"
+
+msgid "submission.status.editorial"
+msgstr "На редагуванні"
+
+msgid "submission.status.production"
+msgstr "На верстці"
+
+msgid "submission.status.review"
+msgstr "На рецензуванні"
+
+msgid "submission.status.submission"
+msgstr "Очікується рішення редактора"
+
+msgid "submission.status.unassigned"
+msgstr "Не визначено"
+
+msgid "submission.status.declined"
+msgstr "Відхилено"
+
+msgid "submission.status.published"
+msgstr "Опубліковано"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Завантажити файл"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Завантажити файл подання"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Переглянути деталі"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Підтвердити"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Ви маєте ввести ім'я файлу для цього файлу"
+
+msgid "submission.upload.noGenre"
+msgstr "Відсутній або неправильний компонент!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Відсутня або неправильна група користувачів!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Виявлено можливе дублювання або нова версія"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "Назва завантаженого файлу співпадає з назвою раніше завантаженого файлу, \"{$revisedFileName}.\" Цей файл має замінити \"{$revisedFileName}\"? Якщо так, то виберіть нижчевказаний файл. В іншому випадку перед продовженням виберіть \"Це не нова версія існуючого файлу\"."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Будь ласка, виберіть файл, який хочете замінити."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Якщо ви завантажуєте нову версію існуючого файлу, будь-ласка, вкажіть для якого файлу."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Це не нова версія існуючого файлу"
+
+msgid "submission.upload.userGroup"
+msgstr "Завантажити цей файл у моїй ролі як..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Якщо ви надсилаєте відредагований том, ви маєте завантажити всі розділи тому окремо під вашою роллю редактора тому."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Завантажити файл бібліотеки"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Категорія документу подання"
+
+msgid "submission.upload.finalDraft"
+msgstr "Завантажити файл"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Завантажити файл після літературного редагування"
+
+msgid "submission.upload.fairCopy"
+msgstr "Завантажити остаточний файл"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Завантажити файли"
+
+msgid "submission.upload.response.description"
+msgstr "Після рецензування призначеного файлу, запишіть усі коментарі про файл нижче, і/або завантажте анотовану копію в файлі (або інший файл)."
+
+msgid "submission.upload.productionReady"
+msgstr "Завантажити файл для верстки"
+
+msgid "submission.upload.proof"
+msgstr "Завантажити файл, готовий для верстки"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Наразі немає файлів для виправлення."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Запит на нові версії зроблений."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Нові версії були надіслані."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Подання має бути повторно подано на рецензування."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Подання було повторно подано на рецензування."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Надіслано на зовнішнє рецензування."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Подання прийнято."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Подання відхилено."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Очікування на вибір рецензентів."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Очікування відповіді від рецензентів."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Нові рецензії були подані."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Усі рецензії наявні і потрібне рішення."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Рецензія прострочена."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Очікує на рекомендації редакторів."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Подано нові рекомендації редакторів."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Усі рекомендації наявні і потрібне рішення."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Учасники"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Не призначено"
+
+msgid "editor.submission.participant"
+msgstr "Учасник"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Додати учасника"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "Користувачі призначаються для етапів робочого процесу за групою користувачів. Будь-який користувач, призначений для цього етапу, буде автоматично призначений для інших етапів, до яких було призначено їх групу користувачів. Це зазвичай резервується для редакторів, авторів та перекладачів."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Видалити учасника"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Ви збираєтеся видалити цього учасника з <strong>усіх</strong> етапів. Якщо користувач також має призупинені завдання аудитора, вони також будуть видалені."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Ви маєте вибрати групу користувачів."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Ви маєте вибрати користувача для зазначеної групи користувачів."
+
+msgid "editor.submission.decision"
+msgstr "Рішення"
+
+msgid "editor.submission.decision.accept"
+msgstr "Направити на редагування"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Запит нових версій"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Перенаправити на рецензування"
+
+msgid "editor.submission.decision.decline"
+msgstr "Відхилити подання"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Направити на верстку"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Прийняти та пропустити рецензування"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Направити на внутрішнє рецензування"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "Файл з коректурою сторінки має бути відмічений як схвалений, щоб його можна було опублікувати. Ви хочете схвалити його?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Схвалити коректури"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Цей файл коректури більше не буде доступний для завантаження або придбання. Ви хочете відхилити схвалення?"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Призначте редактора, щоб включити рішення редакції для цього етапу."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Дати рекомендацію"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Змінити рекомендацію"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Рекомендація: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Рекомендації: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Рекомендація"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Рекомендуйте рішення редакції для цього подання."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Записані рекомендації"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Далі: Вибрати файли для {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Виберіть файли, які ви хотіли б відправити на етап \"{$stageName}\"."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Назад: Сповіщення автора"
+
+msgid "submission.currentStage"
+msgstr "Поточний етап"
+
+msgid "submission.noActionRequired"
+msgstr "Жодних дій не вимагається"
+
+msgid "submission.actionNeeded"
+msgstr "Необхідна дія"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Файли для рецензування"
+
+msgid "submission.submit.currentFile"
+msgstr "Поточний файл"
+
+msgid "submission.finalDraft"
+msgstr "Файли чернеток"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Під час спроби призначити аудитора сталася помилка. Будь ласка, спробуйте ще раз."
+
+msgid "submission.event.fileUploaded"
+msgstr "Файл \"{$originalFileName}\" був завантажений для подання {$submissionId} користувачем {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr "Файл \"{$originalFileName}\" був видалений з подання {$submissionId} користувачем {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr "Нова версія файлу \"{$originalFileName}\" була завантажена для подання {$submissionId} користувачем {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr "Версія файлу \"{$originalFileName}\" була видалена з подання {$submissionId} користувачем {$username}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "У файлу \"{$title}\" остання версія була видалена користувачем {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) був доданий як аудитор для файлу \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) був видалений як аудитор для файлу \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) завершив аудит і завантажив \"{$file}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) остаточно схвалив новий випуск для \"{$file}.\""
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) схвалив коректури для \"{$formatName}.\""
+
+msgid "submission.overview"
+msgstr "Огляд подання"
+
+msgid "submission.description"
+msgstr "Опис"
+
+msgid "submission.stageNotInitiated"
+msgstr "Етап не розпочався."
+
+msgid "submission.documents"
+msgstr "Документи подання"
+
+msgid "notification.type.editorAssign"
+msgstr "Ви були призначені редактором подання \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Вас попросили переглянути літературне редагування для \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Вас попросили виконати верстку для \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "Вас попросили створити індекс для \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Останнє рішення редакції."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Подання прийнято."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Розпочато процес зовнішнього рецензування."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Необхідна нова версія."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Повторно надіслати на рецензування."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Подання відхилено."
+
+msgid "notification.uploadedResponse"
+msgstr "Відповідь завантажено."
+
+msgid "notification.type.editorAssignment"
+msgstr "Редактор повинен бути призначений перед початком рецензування. Будь ласка, додайте редактора, використовуючи список \"Учасники\"."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Файли, прикріплені рецензентом"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Виберіть файли рецензії, щоб надіслати їх автору (авторам)"
+
+msgid "submission.productionReady"
+msgstr "Книга доступна"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Завантажити нову версію файлу"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} був призначений для проведення {$round} раунду рецензування подання {$submissionId}."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Очікування відповіді від рецензента."
+
+msgid "submission.review.status.declined"
+msgstr "Рецензент відхилив цей запит на рецензію."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Рецензент пропустив термін відповіді на запит."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Рецензент пропустив термін подання рецензії."
+
+msgid "submission.review.status.accepted"
+msgstr "Рецензію прийнято."
+
+msgid "submission.review.status.received"
+msgstr "Рецензент подав свою рецензію."
+
+msgid "submission.review.status.complete"
+msgstr "Це рецензування завершено."
+
+msgid "submission.review.status.thanked"
+msgstr "Це рецензування завершено і рецензент отримав подяку за його внесок."
+
+msgid "submission.document"
+msgstr "Документ"
+
+msgid "submission.art"
+msgstr "Зображення"
+
+msgid "submission.supplementary"
+msgstr "Додатковий вміст"
+
+msgid "submission.supplementary.creator"
+msgstr "Автор (або власник) файлу"
+
+msgid "submission.supplementary.subject"
+msgstr "Тема"
+
+msgid "submission.supplementary.publisher"
+msgstr "Видавець"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Спонсор або автор"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Перейдіть до робочого процесу цього подання"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Розпочато процес верстки."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "Перед початком процесу верстки слід призначити редактора верстки. Будь ласка, додайте редактора верстки, використовуючи список \"Учасники\"."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "Редактор верстки має бути призначений до початку процесу редагування. Будь ласка, додайте редактора верстки, використовуючи список \"Учасники\"."
+
+msgid "submission.reviewForm"
+msgstr "Форма рецензування"
+
+msgid "submission.reviewFormResponse"
+msgstr "Заповнена форма рецензування"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Свторити новий елемент форми рецензії"
+
+msgid "grid.action.editMetadata"
+msgstr "Редагувати метадані"
+
+msgid "submission.permissions"
+msgstr "Дозволи"
+
+msgid "submission.attachPermissions"
+msgstr "Приєднати наступні дозволи до подання:"
+
+msgid "submission.license"
+msgstr "Ліцензія"
+
+msgid "submission.copyright"
+msgstr "Авторське право"
+
+msgid "submission.copyrightHolder"
+msgstr "Власник авторського права"
+
+msgid "submission.copyrightYear"
+msgstr "Рік отримання авторського права"
+
+msgid "submission.copyrightStatement"
+msgstr "Авторське право (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Будь-ласка надайте валідний URL (включіть http://)."
+
+msgid "submission.licenseURL"
+msgstr "URL Ліцензії"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Ця робота ліцензується відповідно до <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Ця робота ліцензується відповідно до <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Ця робота ліцензується відповідно до <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Ця робота ліцензується відповідно до <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Ця робота ліцензується відповідно до <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>TЦя робота ліцензується відповідно до <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Обговорення до рецензування"
+
+msgid "submission.queries.review"
+msgstr "Обговорення рецензування"
+
+msgid "submission.queries.editorial"
+msgstr "Обговорення редагування"
+
+msgid "submission.queries.production"
+msgstr "Обговорення подання"
+
+msgid "submission.query.subject"
+msgstr "Тема"
+
+msgid "submission.query.messages"
+msgstr "Повідомлення"
+
+msgid "submission.query.replies"
+msgstr "Відповіді"
+
+msgid "submission.query.from"
+msgstr "Від"
+
+msgid "submission.query.lastReply"
+msgstr "Остання відповідь"
+
+msgid "submission.query.closed"
+msgstr "Закрито"
+
+msgid "submission.query.addNote"
+msgstr "Додати повідомлення"
+
+msgid "grid.action.openNoteForm"
+msgstr "Додайте нову відповідь до обговорення"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} відповів на{$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} розпочав обговорення: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "В обговоренні під назвою \"{$queryTitle}\" є нова активність щодо подання \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr "Ви були додані до обговорення під назвою \"{$queryTitle}\" щодо подання \"{$submissionTitle}\"."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "Перш ніж почати обговорення, ви повинні призначити принаймні одного учасника до цього подання."
+
+msgid "submission.list.infoCenter"
+msgstr "Журнал активності та примітки"
+
+msgid "submission.list.count"
+msgstr "{$count} подань"
+
+msgid "submission.list.itemsOfTotal"
+msgstr "{$count} з {$total} подань"
+
+msgid "submission.list.responseDue"
+msgstr "Термін відповіді на запит"
+
+msgid "submission.list.reviewDue"
+msgstr "Термін подання рецензії"
+
+msgid "submission.list.confirmDelete"
+msgstr "Видалити подання?"
+
+msgid "submission.list.itemOrdererUp"
+msgstr "Підняти нагору {$itemTitle}"
+
+msgid "submission.list.itemOrdererDown"
+msgstr "Опустити донизу {$itemTitle}"
+
+msgid "submission.list.viewSubmission"
+msgstr "Переглянути подання"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Завершено призначених рецензій"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Надіслано нових версій"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Надіслано файлів після літературного редагування"
+
+msgid "submission.list.galleysCreated"
+msgstr "Створено гранок"
+
+msgid "submission.list.filesPrepared"
+msgstr "Підготовлено файлів"
+
+msgid "submission.list.discussions"
+msgstr "Відкритих обговорень"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Це подання необхідно завершити, перш ніж редактор рецензуватиме його."
+
+msgid "submission.list.currentStage"
+msgstr "Зараз на етапі {$stage}."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Надіслати як"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Виберіть роль, яка найкраще описує ваш внесок у подання."
+
+msgid "submission.submit.contactConsent"
+msgstr "Відповідний контакт"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Я погоджуюся з вами зв’язатися щодо цього подання."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "Подати в будь-якому з наступних ролей, якщо ви хочете, щоб мати можливість редагувати і публікувати це представлення себе: {$managerGroups}"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "Обраний учасник був призначений для проведення сліпого огляду. Якщо призначити їх в якості учасника, вони матимуть доступ до особистості автора. Вам не рекомендується призначати цього учасника, якщо ви не можете самостійно забезпечити цілісність процесу експертної оцінки."
+
+msgid "submission.list.assignEditor"
+msgstr "Призначений редактор"
+
+msgid "grid.category.categories"
+msgstr "Категорії"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Назва (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Назва (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Дата публікації (спочатку найстаріша)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Дата публікації (спочатку нова)"
+
+msgid "category.coverImage"
+msgstr "Зображення обкладинки"
+
+msgid "submission.submit.placement.categories"
+msgstr "Категорії"
+
+msgid "submission.currentCoverImage"
+msgstr "Поточне зображення"
+
+msgid "catalog.category.noItems"
+msgstr "У цій категорії ще нічого не опубліковано."
+
+msgid "catalog.category.subcategories"
+msgstr "Підкатегорії"
+
+msgid "submission.list.reviewComplete"
+msgstr "Опублікований огляд"

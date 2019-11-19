@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:48+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Tilin tiedot"
+
+msgid "user.affiliation"
+msgstr "Affiliaatio"
+
+msgid "user.affiliation.description"
+msgstr "(Taustaorganisaatiosi, esim. yliopisto)"
+
+msgid "user.affiliations"
+msgstr "Affiliaatiot"
+
+msgid "user.authorization.accessDenied"
+msgstr "Pääsy evätty."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Toiminnon todennustunnus puuttuu tai on virheellinen."
+
+msgid "user.authorization.contextRequired"
+msgstr "Et voi suorittaa tätä toimintoa ilman kontekstia (paino, lehti, konferenssi jne.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Kirjautuminen vaaditaan."
+
+msgid "user.authorization.privateOperation"
+msgstr "Toiminto, jota yritit käyttää, on yksityinen tai sitä ei olemassa."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Pääsy evätty. Sivustolle pääsyä on tällä hetkellä rajoitettu."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Tällä hetkellä käytössä oleva rooli ei oikeuta tähän toimintoon."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Sinun on määritettävä kelvollinen käyttäjäryhmä, jotta voit käyttää tätä toimintoa."
+
+msgid "user.authorization.managerRequired"
+msgstr "Hallinnoivassa roolissa oleva käyttäjä (esim. tuotantotoimittaja) on valittava vaiheeseen, ennen kuin voit jatkaa."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Sinulla ei ole tällä hetkellä pääsyä kyseiseen työnkulun vaiheeseen."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Työnkulun vaihetta ei määritetty."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Lisäosaa ei määritetty ja se vaaditaan."
+
+msgid "user.biography"
+msgstr "Omat tiedot (esim. yliopiston laitos, asema)"
+
+msgid "user.changeMyPassword"
+msgstr "Vaihda salasana"
+
+msgid "user.changePassword"
+msgstr "Vaihda salasana"
+
+msgid "user.dateLastLogin"
+msgstr "Edellinen kirjautuminen"
+
+msgid "user.dateRegistered"
+msgstr "Rekisteröitymispäivämäärä"
+
+msgid "user.editMyProfile"
+msgstr "Muokkaa profiilia"
+
+msgid "user.email"
+msgstr "Sähköposti"
+
+msgid "user.interests"
+msgstr "Sisällölliset ja tutkimusmenetelmälliset osaamisalueet?"
+
+msgid "user.interests.description"
+msgstr "(Erittele enterillä tai pilkulla)"
+
+msgid "user.gossip"
+msgstr "Yksityiset muistiinpanot"
+
+msgid "user.group"
+msgstr "Käyttäjäryhmä"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Virheellinen profiilikuvan muoto tai liian suuri kuva. Hyväksytyt muodot ovat .gif, .jpg ja .png, ja kuvan maksimikoko on 150 x 150 pikseliä."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Tilisi on poistettu käytöstä seuraavasta syystä: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Tilisi on poistettu käytöstä. Ota yhteyttä sivuston ylläpitäjään saadaksesi lisätietoja."
+
+msgid "user.login.accountNotValidated"
+msgstr "Olemme lähettäneet sinulle vahvistussähköpostin osoitteeseen {$email}. Seuraa sähköpostissa olevia ohjeita aktivoidaksesi uuden tilin. Jos et löydä sähköpostia saapuneista viesteistä, tarkista roskapostikansiosi."
+
+msgid "user.login.activate"
+msgstr "Aktivoi tili"
+
+msgid "user.login.activated"
+msgstr "Tilisi on aktivoitu. Voit nyt kirjautua sisään tunnistetiedoilla, jotka annoit luodessasi tiliä."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Sinun täytyy valita uusi salasana, ennen kuin voit kirjautua tälle sivustolle.<br><br />Anna käyttäjätunnuksesi sekä nykyinen ja uusi salasanasi alle vaihtaaksesi tilisi salasanan."
+
+msgid "user.login.forgotPassword"
+msgstr "Unohditko salasanasi?"
+
+msgid "user.login.loginError"
+msgstr "Virheellinen käyttäjätunnus tai salasana. Yritä uudelleen."
+
+msgid "user.login"
+msgstr "Kirjautuminen"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Sähköpostiisi on lähetetty vahvistus. Seuraa sähköpostissa olevia ohjeita vaihtaaksesi salasanan."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Klikkaamasi linkki on vanhentunut tai se ei ole kelvollinen. Yritä vaihtaa salasana uudelleen."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Määritetty sähköpostiosoite ei kuulu yhdellekään käyttäjälle."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Uusi salasana on lähetetty sähköpostiosoitteeseesi. Voit nyt kirjautua sivustolle uudella salasanallasi."
+
+msgid "user.login.registeredEmail"
+msgstr "Rekisteröityneen käyttäjän sähköposti"
+
+msgid "user.login.registrationComplete"
+msgstr "Rekisteröityminen suoritettu"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Kiitos rekisteröitymisestä! Mitä haluaisit tehdä seuraavaksi?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Katsele käsikirjoituksia"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Lähetä uusi käsikirjoitus"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Jatka selaamista"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Rekisteröinti odottaa vahvistusta"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Muista käyttäjätunnukseni ja salasanani"
+
+msgid "user.login.resetPassword"
+msgstr "Vaihda salasana"
+
+msgid "user.logOut"
+msgstr "Kirjaudu ulos"
+
+msgid "user.logOutAs"
+msgstr "Kirjaudu ulos käyttäjänä"
+
+msgid "user.hello"
+msgstr "Hei, "
+
+msgid "user.mailingAddress"
+msgstr "Postiosoite"
+
+msgid "user.myAccount"
+msgstr "Oma tilini"
+
+msgid "user.name"
+msgstr "Nimi"
+
+msgid "user.password"
+msgstr "Salasana"
+
+msgid "user.repeatPassword"
+msgstr "Anna salasana uudelleen"
+
+msgid "user.phone"
+msgstr "Puhelin"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Syötä nykyinen ja uusi salasanasi alle vaihtaaksesi tilisi salasanan."
+
+msgid "user.profile.editProfile"
+msgstr "Muokkaa profiilia"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Maa vaaditaan."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Voimassa oleva sähköpostiosoite vaaditaan."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Affiliaatio vaaditaan."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Postiosoite vaaditaan."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Sinun on annettava uusi salasanasi."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Antamasi nykyinen salasana on virheellinen."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Sähköposti-ilmoitukset numeron avoimesta saatavuudesta"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Salasana vaaditaan."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Uusi salasanasi on sama kuin vanha salasanasi."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profiilikuva"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Sähköposti-ilmoitukset uuden numeron julkaisemisesta"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Määritetty URL-osoite on virheellinen. Tarkista URL ja yritä uudelleen. (Vihje: Kokeile lisätä http:// osoitteen alkuun.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Käyttäjäryhmä vaaditaan."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Käyttäjätunnus vaaditaan."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Jätä salasanakentät tyhjäksi, jos et halua vaihtaa nykyistä salasanaa."
+
+msgid "user.profile.newPassword"
+msgstr "Uusi salasana"
+
+msgid "user.profile.oldPassword"
+msgstr "Nykyinen salasana"
+
+msgid "user.profile"
+msgstr "Profiili"
+
+msgid "user.profile.publicProfile"
+msgstr "Käyttäjäprofiili"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Anna uusi salasana uudelleen"
+
+msgid "user.login.registerNewAccount"
+msgstr "Rekisteröidy"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Anna tilisi sähköpostiosoite alla niin sinulle lähetetään sähköposti, jossa on ohjeet salasanan vaihtamiseen."
+
+msgid "user.register.form.emailExists"
+msgstr "Valittu sähköposti on jo toisen käyttäjän käytössä."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Salasanat eivät täsmää."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Sähköpostin osoitekentät eivät täsmää."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Käyttäjätunnus voi sisältää vain pieniä aakkosnumeerisia merkkejä, alaviivoja ja yhdysmerkkejä, ja sen täytyy alkaa ja päättyä aakkosnumeeriseen merkkiin. Suomenkielen kirjaimet ä, ö ja å sekä muut vastaavat erikoiskirjaimet eivät kelpaa."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Vähintään yksi rooli on valittava."
+
+msgid "user.register.form.usernameExists"
+msgstr "Valittu käyttäjätunnus on jo toisen käyttäjän käytössä."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Salasanan on oltava vähintään {$length} merkkiä pitkä."
+
+msgid "user.register.registerAs"
+msgstr "Rekisteröidy kontekstiin {$contextName}..."
+
+msgid "user.register"
+msgstr "Rekisteröidy"
+
+msgid "user.register.usernameRestriction"
+msgstr "Käyttäjätunnus voi sisältää vain pieniä kirjaimia, numeroita ja yhdysmerkkejä/alaviivoja. Suomenkielen kirjaimet ä, ö ja å sekä muut vastaavat erikoiskirjaimet eivät kelpaa."
+
+msgid "user.register.registrationCompleted"
+msgstr "Olet rekisteröitynyt onnistuneesti. <a href=\"{$profileUrl}\">Klikkaa tästä</a> täydentääksesi käyttäjäprofiilisi tiedot."
+
+msgid "user.role.author"
+msgstr "Kirjoittaja"
+
+msgid "user.role.author_s"
+msgstr "Kirjoittaja(t)"
+
+msgid "user.role.authors"
+msgstr "Kirjoittajat"
+
+msgid "user.role.editor"
+msgstr "Toimittaja"
+
+msgid "user.role.editors"
+msgstr "Toimittajat"
+
+msgid "user.role.reader"
+msgstr "Lukija"
+
+msgid "user.role.readers"
+msgstr "Lukijat"
+
+msgid "user.role.reviewer"
+msgstr "Arvioija"
+
+msgid "user.role.reviewers"
+msgstr "Arvioijat"
+
+msgid "user.role.siteAdmin"
+msgstr "Sivuston ylläpitäjä"
+
+msgid "user.role.siteAdmins"
+msgstr "Sivuston ylläpitäjät"
+
+msgid "user.role.copyeditor"
+msgstr "Tekninen toimittaja"
+
+msgid "user.role.copyeditors"
+msgstr "Tekniset toimittajat"
+
+msgid "user.role.proofreader"
+msgstr "Oikolukija"
+
+msgid "user.role.proofreaders"
+msgstr "Oikolukijat"
+
+msgid "user.role.layoutEditor"
+msgstr "Taittaja"
+
+msgid "user.role.layoutEditors"
+msgstr "Taittajat"
+
+msgid "user.roles"
+msgstr "Roolit"
+
+msgid "user.sendPassword"
+msgstr "Vahvistus"
+
+msgid "user.sendPassword.description"
+msgstr "Lähetä minulle vahvistussähköposti, jossa on käyttäjätunnukseni ja salasanani"
+
+msgid "user.signature"
+msgstr "Allekirjoitus"
+
+msgid "user.title"
+msgstr "Titteli"
+
+msgid "user.url"
+msgstr "URL-osoite"
+
+msgid "user.userHome"
+msgstr "Käyttäjän etusivu"
+
+msgid "user.username"
+msgstr "Käyttäjätunnus"
+
+msgid "user.workingLanguages"
+msgstr "Työkielet"
+
+msgid "user.orcid"
+msgstr "ORCID-tunniste"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Määrittämäsi ORCID-tunniste on virheellinen. Liitä koko URI (esim. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Henkilöllisyys"
+
+msgid "user.profile.contact"
+msgstr "Yhteystiedot"
+
+msgid "user.profile.public"
+msgstr "Julkinen"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Uuden API-avaimen luominen poistaa käyttäjän aiemman avaimen käytöstä."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Ennen API-avaimen luomista tarvitsee täyttää config-tiedoston asetus (\"api_key_secret\")"
+
+msgid "user.apiKey"
+msgstr "API-avain"
+
+msgid "user.apiKeyEnabled"
+msgstr "Anna ulkoisten järjestelmien olla yhteydessä tähän tiliin API-avaimen avulla."
+
+msgid "user.apiKey.generate"
+msgstr "Luo uusi API-avain"
+
+msgid "user.gossip.description"
+msgstr "Tähän annetut muistiinpanot näkyvät vain ylläpitäjille, julkaisun hallinnoijille, toimittajille ja osastotoimittajille."
+
+msgid "user.role.assistant"
+msgstr "Avustaja"
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Sinulla ei ole tähän toimintoon vaadittavaa roolia."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Sinulla ei ole oikeutta avata tätä arviointipyyntöä."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Sinulla ei ole oikeutta avata tätä keskustelua."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Sinun pitää hyväksyä tietosuojaselosteen ehdot."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Kyllä, annan luvan tallentaa tietojani tietosuojaselosteen <a href=\"{$privacyUrl}\" target=\"_blank\">tietosuojaselosteen</a> kuvaamalla tavalla."
+
+msgid "user.register.form.emailConsent"
+msgstr "Kyllä, haluan ilmoituksen uusista julkaisuista ja tiedotteista."
+
+msgid "user.privacyLink"
+msgstr "Tietojasi tallennetaan ja käytetään <a href=\"{$privacyUrl}\" target=\"_blank\">tietosuojaselosteen</a> mukaisesti."
+
+msgid "user.givenName"
+msgstr "Etunimi"
+
+msgid "user.familyName"
+msgstr "Sukunimi"
+
+msgid "user.preferredPublicName"
+msgstr "Ensisijainen julkinen nimi"
+
+msgid "user.preferredPublicName.description"
+msgstr "Mitä nimeä toivot sinusta käytettävän? Tähän nimeen voi liittää esimerkiksi erilasia etu- ja takaliitteitä."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Etunimi vaaditaan."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Olet antanut sukunimen, mutta saman kielen mukaisesta asetuksesta puuttuu etunimi. Ole hyvä ja annan kielen mukaiseen asetukseen myös etunimi."

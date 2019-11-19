@@ -1,0 +1,1871 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:00+00:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Информация"
+
+msgid "manager.website.appearance"
+msgstr "Внешний вид"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Файл с изображением обязателен. Пожалуйста, убедитесь, что вы выбрали и загрузили файл."
+
+msgid "manager.announcements"
+msgstr "Объявления"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Вы уверены, что хотите навсегда удалить это объявление?"
+
+msgid "manager.announcements.create"
+msgstr "Создать новое объявление"
+
+msgid "manager.announcements.createTitle"
+msgstr "Создать"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Актуально до"
+
+msgid "manager.announcements.datePublish"
+msgstr "Опубликовано"
+
+msgid "manager.announcements.edit"
+msgstr "Редактировать объявление"
+
+msgid "manager.announcements.editTitle"
+msgstr "Редактировать"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Пожалуйста, выберите год и/или месяц, а не только день даты потери актуальности."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Актуально до"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Объявление будет показываться читателям до этой даты. Оставьте поле пустым, если объявление должно показываться в течение неопределенного срока."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Пожалуйста, выберите год и/или день, а не только месяц даты потери актуальности."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Пожалуйста, выберите корректную дату потери актуальности объявления."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Пожалуйста, выберите месяц и/или день, а не только год даты потери актуальности."
+
+msgid "manager.announcements.form.description"
+msgstr "Описание"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Полный текст обьявления."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Описание объявления обязательно."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Краткое описание, которое появится вместе с заголовком объявления."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Краткое описание объявления обязательно."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Краткое описание"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Сохранить и создать другое"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Заголовок объявления обязателен."
+
+msgid "manager.announcements.form.title"
+msgstr "Заголовок"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Тип"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Пожалуйста, выберите правильный тип объявления."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Объявления не были созданы."
+
+msgid "manager.announcements.title"
+msgstr "Заголовок"
+
+msgid "manager.announcements.type"
+msgstr "Тип"
+
+msgid "manager.announcementTypes"
+msgstr "Типы объявлений"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Внимание! Все объявления этого типа также будут удалены. Вы уверены, что хотите продолжить и удалить этот тип объявления?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Создать тип объявления"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Создать"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Редактировать тип объявления"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Редактировать"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Сохранить и создать другой"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Тип объявления с таким названием уже существует."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Название"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Название типа объявления обязательно."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Типы объявлений не были созданы."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Тип объявления"
+
+msgid "manager.publication.submissionStage"
+msgstr "Отправка"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензирование"
+
+msgid "manager.publication.editorialStage"
+msgstr "Редактирование"
+
+msgid "manager.publication.productionStage"
+msgstr "Публикация"
+
+msgid "manager.publication.emails"
+msgstr "Письма электронной почты"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Настройки электронной почты были обновлены."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Руководство для рецензентов"
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Руководство для рецензентов было обновлено."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Настройки рецензирования были обновлены."
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Настройки напоминаний рецензентам были обновлены."
+
+msgid "manager.emails.confirmDelete"
+msgstr "Вы уверены, что хотите удалить этот шаблон письма электронной почты?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Вы уверены, что хотите вернуть этот шаблон письма электронной почты к его виду по умолчанию?"
+
+msgid "manager.emails.addEmail"
+msgstr "Добавить шаблон"
+
+msgid "manager.emails.addEmail.success"
+msgstr "Шаблон письма был добавлен."
+
+msgid "manager.emails.createEmail"
+msgstr "Создать письмо"
+
+msgid "manager.emails.customTemplate"
+msgstr "Пользовательский шаблон"
+
+msgid "manager.emails.data"
+msgstr "Данные шаблона письма"
+
+msgid "manager.emails.details"
+msgstr "Детали шаблона"
+
+msgid "manager.emails.disable"
+msgstr "Выключить"
+
+msgid "manager.emails.disable.message"
+msgstr "Вы собираетесь отключить этот шаблон письма электронной почты. Если в системе есть процессы, использующие этот шаблон, они больше не смогут его использовать. Вы хотите подтвердить эту операцию?"
+
+msgid "manager.emails.editEmail"
+msgstr "Редактировать письмо"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Шаблон письма был изменен."
+
+msgid "manager.emails.editTestExample"
+msgstr "Редактировать тестовый пример письма"
+
+msgid "manager.emails.emailKey"
+msgstr "Ключ письма"
+
+msgid "manager.emails.emailKey.description"
+msgstr "Ключ письма может содержать только буквы, цифры и подчеркивания."
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Письмо с таким ключом уже существует. Ключи писем электронной почты должны быть уникальными."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Шаблон письма"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Шаблоны писем"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Вы должны указать ID контекста при добавлении шаблона письма."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Ключ, указанный вами, уже используется."
+
+msgid "manager.emails.enabled"
+msgstr "Включить этот шаблон письма"
+
+msgid "manager.emails.enable"
+msgstr "Включить"
+
+msgid "manager.emails.enable.message"
+msgstr "Вы собираетесь включить этот шаблон письма электронной почты. Вы хотите подтвердить эту операцию?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Уникальный ключ письма электронной почты, не содержащий пробелов или специальных символов, обязателен для письма электронной почты."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Текст письма электронной почты обязателен."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Тема письма электронной почты обязательна."
+
+msgid "manager.emails"
+msgstr "Подготовленные письма электронной почты"
+
+msgid "manager.emails.resetAll"
+msgstr "Сбросить все"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Если вы сбросите все шаблоны, все изменения, сделанные в шаблонах писем электронной почты, будут потеряны. Вы хотите подтвердить эту операцию?"
+
+msgid "manager.emails.reset"
+msgstr "Сбросить"
+
+msgid "manager.emails.reset.message"
+msgstr "Если вы сбросите этот шаблон, все данные сообщения будут заменены на их значения по умолчанию, все изменения будут потеряны. Вы хотите подтвердить эту операцию?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Сбросить в значение по умолчанию"
+
+msgid "manager.emails.sentFrom"
+msgstr "Отправитель"
+
+msgid "manager.emails.sentTo"
+msgstr "Получатель"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Тема: {$subject}"
+
+msgid "manager.filesBrowser"
+msgstr "Браузер файлов"
+
+msgid "manager.files.confirmDelete"
+msgstr "Удалить этот файл или каталог? Обратите внимание, что удаляемый каталог должен быть пустым до того, как вы попытаетесь его удалить."
+
+msgid "manager.files.createDir"
+msgstr "Создать каталог"
+
+msgid "manager.files.emptyDir"
+msgstr "Нет файлов в этом каталоге."
+
+msgid "manager.files.indexOfDir"
+msgstr "Содержимое каталога {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Родительский каталог"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Загруженные файлы"
+
+msgid "manager.files.uploadFile"
+msgstr "Загрузить файл"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Вы уверены, что хотите удалить эту группу?"
+
+msgid "manager.groups.createTitle"
+msgstr "Создать название"
+
+msgid "manager.groups.editTitle"
+msgstr "Редактировать название"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Название группы обязательно."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Добавить члена группы"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Вы уверены, что хотите удалить членство в этой группе?"
+
+msgid "manager.groups.membership"
+msgstr "Членство"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "В этой группе нет членов."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Пользователи не найдены."
+
+msgid "manager.groups.title"
+msgstr "Название"
+
+msgid "manager.importExport"
+msgstr "Импорт/экспорт данных"
+
+msgid "manager.language.ui"
+msgstr "Интерфейс пользователя"
+
+msgid "manager.language.submissions"
+msgstr "Отправленные материалы"
+
+msgid "manager.language.forms"
+msgstr "Формы"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Перезагрузить значения по умолчанию"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Эта система позволяет вводить некоторую важную информацию одновременно на нескольких языках. Для включения этой возможности выберите альтернативные языки и выберите один из вариантов, приведенных ниже."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Выберите все языки, которые будут поддерживаться на сайте через меню выбора языка, появляющееся на каждой странице. Это меню будет отображаться только в том случае, если будет выбрано несколько языков."
+
+msgid "manager.payment.timestamp"
+msgstr "Дата/Время"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Нужно ввести существующего пользователя."
+
+msgid "manager.people.authSource"
+msgstr "Источник аутентификации"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Отменить назначение этого пользователя?"
+
+msgid "manager.people.createUser"
+msgstr "Создать нового пользователя"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Создать случайный пароль."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Отправить пользователю приветственное письмо, содержащее его имя пользователя и пароль."
+
+msgid "manager.people.disable"
+msgstr "Отключить"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Без роли"
+
+msgid "manager.people.editProfile"
+msgstr "Редактировать профиль"
+
+msgid "manager.people.editUser"
+msgstr "Редактировать пользователя"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Отправить письма электронной почты выбранным пользователям"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Отправить письма электронной почты пользователям, назначенным на роль"
+
+msgid "manager.people.emailUsers"
+msgstr "Отправить письма электронной почты пользователям"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Выберите язык"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Выберите пользователей, которым вы хотите отправить письмо, поставив галочку рядом с их именами"
+
+msgid "manager.people.enable"
+msgstr "Включить"
+
+msgid "manager.people.enroll"
+msgstr "Назначить пользователя"
+
+msgid "manager.people.enrollment"
+msgstr "Назначение"
+
+msgid "manager.people.enrollSelected"
+msgstr "Назначить выбранных пользователей"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Синхронизировать роль"
+
+msgid "manager.people.enrollSync"
+msgstr "Синхронизировать назначения"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Пользователям можно назначать любую роль или отменять назначение любой роли в любое время."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Назначить на роль"
+
+msgid "manager.people.invalidUser"
+msgstr "Извините, данный пользователь не существует."
+
+msgid "manager.people.mergeUser"
+msgstr "Объединить"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Вы уверены, что хотите объединить выбранные {$oldAccountCount} учетных записей в учетную запись с именем пользователя «{$newUsername}»? Выбранные {$oldAccountCount} учетные записи после этого перестанут существовать. Это действие необратимо."
+
+msgid "manager.people.mergeUsers"
+msgstr "Объединение пользователей"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Пожалуйста, выберите роль вверху страницы перед тем как нажать «Назначить пользователя»."
+
+msgid "manager.people.mustProvideName"
+msgstr "Пожалуйста, укажите сначала хотя бы фамилию пользователя."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Нет совпадающих пользователей."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Нет назначенных пользователей."
+
+msgid "manager.people"
+msgstr "Люди"
+
+msgid "manager.people.remove"
+msgstr "Удалить"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Сохранить и создать другой"
+
+msgid "manager.people.signInAs"
+msgstr "Войти как"
+
+msgid "manager.people.signInAsUser"
+msgstr "Войти как пользователь"
+
+msgid "manager.people.syncUsers"
+msgstr "Синхронизировать назначения пользователя"
+
+msgid "manager.people.unenroll"
+msgstr "Отменить назначение"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Пользователь успешно создан."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Требовать, чтобы пользователь сменил свой пароль при следующем входе в систему."
+
+msgid "manager.plugins.action"
+msgstr "Действие:"
+
+msgid "manager.plugins.disable"
+msgstr "Выключить"
+
+msgid "manager.plugins.enable"
+msgstr "Включить"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Управление модулями"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Действие этого модуля распространяется на весь сайт. Только администратор сайта может управлять этим модулем."
+
+msgid "manager.plugins"
+msgstr "Системные модули"
+
+msgid "manager.readingTools"
+msgstr "Инструменты читателя"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Поиск пользователя по имени"
+
+msgid "manager.representative.inUse"
+msgstr "Вы не можете удалить этого представителя, так как они назначены для продвижения метаданных по одному или нескольким форматам публикаций для этого материала."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Изменить"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Поиск рецензента по имени"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Поиск по имени"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Интересы рецензента"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Используйте форму ниже, чтобы задать максимум значений для терминов, по которым вы хотите произвести поиск. Эта форма предварительно заполняется средними значениями, вычисленными для этих полей."
+
+msgid "manager.roles"
+msgstr "Роли"
+
+msgid "manager.statistics"
+msgstr "Статистика и отчеты"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tВаша {$contextObjectName} настроен на запись нескольких метрик использования. Статистика использования будет отображаться в нескольких контекстах.\n"
+"\t\tЕсть случаи, когда должна быть применена только одна статистика использования, например, чтобы отобразить упорядоченный список наиболее используемых статей или отранжировать\n"
+"\t\tрезультаты поиска. Пожалуйста, выберите одну из настроенных метрик в качестве метрики по умолчанию.\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "Город"
+
+msgid "manager.statistics.region"
+msgstr "Регион"
+
+msgid "manager.statistics.reports"
+msgstr "Генератор отчетов"
+
+msgid "manager.statistics.reports.description"
+msgstr "Система генерирует отчеты, которые помогают отследить детали, связанные с использованием сайта и материалов за заданный период времени. Отчеты генерируются в формате CSV, который требует для просмотра наличия табличного процессора."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Агрегировать статистику по:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Элементы набранные курсивом и отмеченные * представляют собой данные, которые являются необязательными для установленного сейчас способа подсчета статистики в системе (типа метрики). Вы можете получить эти данные или не получить в зависимости от настроек вашего модуля статистики."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Шаблоны отчетов по умолчанию"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Сгенерировать пользовательский отчет"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Дополнительные настройки"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Скрыть дополнительные настройки"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Столбцы"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Укажите столбцы, которые будут использоваться для построения отчета. Столбцы, которые вы выберете здесь, не только определяют то, какие данные будут в отчетах, но также определяют уровень агрегирования статистики. Например, если вы выберете столбцы «ID», «Тип» и «Месяц», отчет будет суммировать все просмотры объекта, которые были в один месяц, и представлять данные в одной строке. Если вы выберете «День» вместо «Месяц», каждый объект будет иметь отдельную строку для каждого дня."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Фильтры"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Объект не найден в базе данных"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Тип объекта"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "ID объекта"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Задайте один или несколько ID объектов, разделяя их запятыми (например, 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Вчера"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Текущий месяц"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Сортировка по"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Направление"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "По возрастанию"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "По убыванию"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Используйте формат ГГГГММ."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Используйте формат ГГГГММДД."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Одно или несколько названий городов, разделенные запятыми(например, Название города 1,Название города 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Вы должны выбрать минимум один столбец для построения отчета."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL-адрес отчета"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Следующий URL-адрес может быть использован для генерации отчета с заданными на текущий момент настройками в форме. Просто скопируйте этот адрес и откройте его в браузере. Вы также можете сохранить этот адрес в закладках браузера как URL-адрес генератора вашего пользовательского отчета."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "По контексту"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "По типу объекта и/или ID объекта"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Выбрать диапазон для отчета"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Или выбирать диапазон по:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "По географическому положению"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Фильтровать результаты по странам, регионам и/или городам."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Спонсорство"
+
+msgid "manager.setup.additionalContent"
+msgstr "Дополнительный контент"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Все, что будет введено здесь, появится на главной странице."
+
+msgid "manager.setup.advanced"
+msgstr "Расширенная"
+
+msgid "manager.setup.appearance.success"
+msgstr "Настройки внешнего вида были обновлены."
+
+msgid "manager.setup.contact.success"
+msgstr "Контактная информация для этого издания была обновлена."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Условия передачи авторских прав"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Требовать от авторов принятия следующих Условий передачи авторских прав в процессе отправки материала."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Руководство для авторов"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Рекомендуемые правила оформления, включая стандарты форматирования текста и библиографических ссылок вместе с примерами оформления ссылок, которые часто встречаются в отправляемых материалах."
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Руководство для авторов было успешно обновлено."
+
+msgid "manager.setup.checklist"
+msgstr "Контрольный список"
+
+msgid "manager.setup.competingInterests"
+msgstr "Конфликт интересов"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Во время удаления этого объекта возникла ошибка."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.groupType"
+msgstr "Группировка типов файлов"
+
+msgid "manager.setup.homepageImage"
+msgstr "Изображение на главной странице"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Загрузите изображение для отображения его на главной странице."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Неверный формат изображения для домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Неверный формат изображения заголовка для верхнего колонтитула домашней страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Описания"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Боковая панель"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "Не удается найти блок {$name}. Пожалуйста убедитесь, что модуль установлен и включен."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Ведение журнала и аудит"
+
+msgid "manager.setup.logo"
+msgstr "Логотип"
+
+msgid "manager.setup.notifications"
+msgstr "Уведомление об отправке материала автором"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Отправить копию на этот адрес электронной почты:"
+
+msgid "manager.setup.notifications.description"
+msgstr "Авторам автоматически отправляется письмо электронной почты с подтверждением отправки их материала. Вы можете отправить копии этого письма электронной почты следующим:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Правила открытого доступа"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Если журнал предоставляет читателям немедленный свободный доступ ко всему опубликованному контенту, вы можете ввести описание ваших Правил открытого доступа."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Неверный формат изображения логотипа для верхнего колонтитула страницы или загрузка не удалась. Разрешенные форматы: .gif, .jpg или .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Нижний колонтитул страницы"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Введите все изображения, текст или код HTML, который вы хотите показать в нижней части вашего сайта."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Опишите правила рецензирования журнала и процесс рецензирования для читателей и авторов. Это описание обычно включает в себя количество рецензентов, обычно дающих рецензии на материал, критерии, по которым рецензентов просят оценить материалы, примерное время выполнения рецензий и принципы подбора рецензентов."
+
+msgid "manager.setup.principalContact"
+msgstr "Контактное лицо (общие вопросы)"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Введите данные контактного лица, обычно это главный редактор, ответственный редактор или сотрудник администрации. Эти данные могут отображаться в открытом доступе на сайте."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Заявление о конфиденциальности"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Это заявление будет появляться во время регистрации пользователя, отправки автором материала и на странице «Конфиденциальность» в открытом доступе. В некоторых странах закон требует, чтобы вы в раскрыли как именно вы обрабатываете данные пользователей в этом Заявлении о конфиденциальности."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Срок согласия на рецензию по умолчанию"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Срок выполнения рецензии по умолчанию"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Недель на согласие или отказ в ответ на запрос выполнения рецензии"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Недель на выполнение рецензии"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Никогда не напоминать"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Значения по умолчанию могут быть изменены для каждой рецензии в ходе редакционного процесса."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Напоминание о согласии"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "Отправить напоминание, если рецензент не ответил на запрос рецензии в течение следующего количества дней, после того как срок ответа на запрос прошел:"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Напоминание о рецензии"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr "Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел:"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Режим рецензирования по умолчанию"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Показывать ссылку на <button type=\"button\">Обеспечение слепого рецензирования</button> во время загрузки"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Описание правил и отношений со спонсорами"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Примеры: общества ученых, подразделения университетов, объединения и т.д. Спонсоры показываются в открытом доступе на сайте."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Опытные веб-разработчики могут загрузить файл CSS для дополнительной модификации внешнего вида сайта."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Контактное лицо (техническая поддержка)"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Контактное лицо, которое может помочь редакторам, авторам и рецензентам с любыми проблемами, которые у них возникли в процессе отправки, редактирования, рецензирования или публикации материала."
+
+msgid "manager.setup.theme.success"
+msgstr "Тема оформления была обновлена. <a href=\"{$url}\" target=\"_blank\">Посмотреть сейчас</a>"
+
+msgid "manager.setup.theme"
+msgstr "Тема оформления"
+
+msgid "manager.setup.theme.description"
+msgstr "Новые темы могут быть установлены из вкладки «Модули» вверху на этой странице."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Выбранная вами тема не установлена или не включена."
+
+msgid "manager.setup.userAccess.success"
+msgstr "Информация о доступе пользователей к этому изданию была обновлена."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Параметры доступа к сайту"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} новых)"
+
+msgid "manager.users"
+msgstr "Пользователи"
+
+msgid "plugins.categories.metadata"
+msgstr "Модули метаданных"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Модули метаданных реализуют дополнительные стандарты метаданных."
+
+msgid "plugins.categories.auth"
+msgstr "Модули авторизации"
+
+msgid "plugins.categories.blocks"
+msgstr "Модули блоков"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Модули блоков — подключаемые компоненты пользовательского интерфейса, такие как различные инструменты боковой панели."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Модули шлюзов предоставляют данные в реальном времени внешним системам."
+
+msgid "plugins.categories.gateways"
+msgstr "Модули шлюзов"
+
+msgid "plugins.categories.generic"
+msgstr "Модули общего назначения"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Модули импорта/экспорта могут использоваться для обмена контентом с другими системами."
+
+msgid "plugins.categories.importexport"
+msgstr "Модули импорта/экспорта"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Модули методов платежей реализуют поддержку различных методов обработки онлайн-платежей."
+
+msgid "plugins.categories.paymethod"
+msgstr "Модули платежей"
+
+msgid "plugins.categories.reports.description"
+msgstr "Модули отчетов используются для реализации различных видов отчетов и извлечения данных."
+
+msgid "plugins.categories.reports"
+msgstr "Модули отчетов"
+
+msgid "plugins.categories.themes.description"
+msgstr "Модули тем оформления могут использоваться для изменения внешнего вида системы."
+
+msgid "plugins.categories.themes"
+msgstr "Модули тем оформления"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Модули форматирования метаданных OAI"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Эти модули форматирования преобразуют метаданные для коммуникаций OAI."
+
+msgid "plugins.categories.pubIds"
+msgstr "Модули открытых идентификаторов"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Эти модули реализуют поддержку открытого идентификатора."
+
+msgid "manager.plugins.copyError"
+msgstr "Копирование модуля завершилось неудачей. Причиной этого может являться проблема с правами. Пожалуйста, убедитесь что веб-сервер может записывать в каталог «plugins» (включая подкаталоги), но не забудьте после этого защитить директорию, задав соответствующие права."
+
+msgid "manager.plugins.delete"
+msgstr "Удалить модуль"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Вы уверены, что хотите установить этот модуль?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Вы уверены, что хотите обновить этот модуль?"
+
+msgid "grid.action.installPlugin"
+msgstr "Установить или обновить этот модуль"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Вы уверены, что хотите удалить этот модуль из системы?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Щелкнув на «Удалить», вы удалите модуль из файловой системы сервера."
+
+msgid "manager.plugins.deleteError"
+msgstr "Модуль «{$pluginName}» не может быть удален из файловой системы. Причиной этого может являться проблема с правами. Пожалуйста, убедитесь что веб-сервер может записывать в каталог «plugins» (включая подкаталоги), но не забудьте после этого защитить директорию, задав соответствующие права."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Модуль «{$pluginName}» успешно удален"
+
+msgid "manager.plugins.description"
+msgstr "Эта страница позволяет управляющему просмотреть и, возможно, сконфигурировать модули, которые установлены в данный момент. Модули разбиты по категориям, в соответствии с их функциями. Список категорий приведен ниже; щелкнув на конкретную категорию, вы увидите текущий набор модулей в данной категории."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Модуль «{$pluginName}» не существует"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Пожалуйста, сначала выберите файл"
+
+msgid "manager.plugins.upload"
+msgstr "Загрузить новый модуль"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Эта форма позволяет вам загрузить на сайт и установить новый модуль. Пожалуйста, убедитесь в том, что файл с модулем заархивирован в формате .tar.gz."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Пожалуйста, убедитесь, что файл для загрузки был выбран."
+
+msgid "manager.plugins.installed"
+msgstr "Установленные модули"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Галерея модулей"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Обзор"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Установка"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Последний совместимый релиз"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Официальный"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Этот модуль разработан и поддерживается командой Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Рецензированный"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Этот модуль был отрецензирован и одобрен командой Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Партнерский"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Этот модуль предоставлен одним из наших партнеров по разработке."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Разработчик"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "Версия {$version} выпущена {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Главная страница"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Общая информация"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Статус"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Модуль еще не был установлен."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "В настоящий момент нет совместимой версии для этого модуля."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Модуль уже установлен, и его версия более новая чем версия, доступная в галерее."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Модуль уже установлен, но может быть обновлен до более новой версии."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Модуль уже установлен и его версия актуальная."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Новее, чем доступная версия"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Может быть обновлен"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Актуальная"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Не доступна"
+
+msgid "manager.plugins.installFailed"
+msgstr "Установка не удалась. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Успешно установлена версия {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Загруженный на сайт архив модуля не содержит каталог, который соответствует имени модуля."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Загруженный модуль не соответствует категории обновляемого модуля."
+
+msgid "manager.plugins.wrongName"
+msgstr "Файл version.xml в загруженном модуле содержит имя модуля, которое не соответствует имени обновляемого модуля."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Модуль не существует. Пожалуйста, используйте «Установить»"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Модуль уже существует, но его версия — более новая, чем установленная на сайте. Пожалуйста, используйте «Обновить»"
+
+msgid "manager.plugins.settings"
+msgstr "Настройки"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "Команда «tar» не доступна. Пожалуйста, правильно настройте ее в вашем «config.inc.php»."
+
+msgid "manager.plugins.upgrade"
+msgstr "Обновить модуль"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Эта форма позволяет вам обновить модуль. Пожалуйста, убедитесь в том, что файл с модулем заархивирован в формате .tar.gz."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Обновление не удалось. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Успешно обновлен до версии {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Ошибка загрузки файла"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Выберите файл модуля"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml в каталоге модуля содержит неверные данные."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml не найден в каталоге модуля"
+
+msgid "notification.localeEnabled"
+msgstr "Язык включен."
+
+msgid "notification.localeDisabled"
+msgstr "Язык отключен."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} установлен как основной язык."
+
+msgid "notification.localeInstalled"
+msgstr "Все выбранные языки установлены и активированы."
+
+msgid "notification.localeUninstalled"
+msgstr "Язык «{$locale}» удален."
+
+msgid "notification.localeReloaded"
+msgstr "Язык «{$locale}» загружен для «{$contextName}»."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Настройки языка сохранены."
+
+msgid "notification.editedUser"
+msgstr "Пользователь отредактирован."
+
+msgid "manager.distribution.license"
+msgstr "Лицензия"
+
+msgid "manager.distribution.license.success"
+msgstr "Информация о лицензии была обновлена. "
+
+msgid "manager.distribution.license.other"
+msgstr "URL другой лицензии"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Условия лицензии"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "Введите условия публичной лицензии, которые вы хотите показывать рядом с опубликованной работой."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Пользовательские теги"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr "Добавьте пользовательские HTML-теги, также известные как метатеги, которые вы хотите добавить в тег head каждой страницы. Проконсультируйтесь с тежническим специалистом, прежде чем добавить эти теги."
+
+msgid "manager.paymentMethod"
+msgstr "Платежи"
+
+msgid "manager.paymentMethod.title"
+msgstr "Методы платежей"
+
+msgid "manager.paymentMethod.none"
+msgstr "Метод платежей не выбран"
+
+msgid "manager.paymentMethod.method"
+msgstr "Метод платедей"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валюта"
+
+msgid "settings.roles.roleOptions"
+msgstr "Параметры роли"
+
+msgid "settings.roles.showTitles"
+msgstr "Показать название роли в списке участников"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Разрешить самостоятельную регистрацию пользователя"
+
+msgid "settings.roles.recommendOnly"
+msgstr "Эта роль позволяет только рекомендовать решение рецензента, запись итогового решения требует участия редактора с соответствующими правами."
+
+msgid "settings.roles.roleName"
+msgstr "Название роли"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Аббревиатура"
+
+msgid "settings.roles.assignedStages"
+msgstr "Назначенные этапы"
+
+msgid "settings.roles.stages"
+msgstr "Этапы"
+
+msgid "settings.roles.roleDetails"
+msgstr "Подробности о роли"
+
+msgid "settings.roles.from"
+msgstr "Уровень прав"
+
+msgid "settings.roles.removeText"
+msgstr "Вы собираетесь удалить эту роль из этого контекста. Эта операция также удалит установки и назначения пользователей, связанные с этой ролью. Вы хотите продолжить?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Вам нужно задать имя роли."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Вам нужно задать аббревиатуру роли."
+
+msgid "settings.roles.uniqueName"
+msgstr "Вам нужно задать уникальное имя роли."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Вам нужно задать уникальную аббревиатуру роли."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Вам нужно задать уровень прав роли."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Вам нужно задать этап для назначения."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Разрешить редактирование метаданных материала."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Файл библиотеки обязателен. Пожалуйста, убедитесь, что вы выбрали и загрузили файл на сайт."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Имя для этого файла библиотеки обязательно."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Тип файла для этого файла библиотеки обязателен."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Контракты"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Разрешения"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Отчеты"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Другое"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Если включен «Открытый доступ», этот файл библиотеки может быть доступен для скачивания по адресу: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Выберите файлы библиотеки для присоединения"
+
+msgid "grid.action.addGenre"
+msgstr "Добавить компонент"
+
+msgid "grid.action.editGenre"
+msgstr "Редактировать этот компонент"
+
+msgid "grid.action.deleteGenre"
+msgstr "Удалить этот компонент"
+
+msgid "grid.action.restoreGenres"
+msgstr "Вернуть компоненты к настройкам по умолчанию"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Отметить файлы этого типа как зависимые файлы (например, не показываемые с опубликованным контентом)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Отметить файлы этого типа как дополнительные файлы (например, не относящиеся к основному контенту материала)"
+
+msgid "manager.setup.genres.key"
+msgstr "Ключ"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Необязательный короткий символьный идентификатор для этого жанра."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Ключ уже существует."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "Ключ может содержать только буквы, цифры, подчеркивания, дефисы; должен начинаться и заканчиваться буквой или цифрой."
+
+msgid "manager.settings.wizard"
+msgstr "Мастер настроек"
+
+msgid "manager.users.roleRequired"
+msgstr "Вам нужно выбрать как минимум одну роль, которая должна быть связана с этим пользователем."
+
+msgid "manager.website"
+msgstr "Веб-сайт"
+
+msgid "manager.website.title"
+msgstr "Настройки веб-сайта"
+
+msgid "manager.workflow"
+msgstr "Рабочий поток"
+
+msgid "manager.workflow.title"
+msgstr "Настройки рабочего потока"
+
+msgid "manager.distribution"
+msgstr "Распространение"
+
+msgid "manager.distribution.title"
+msgstr "Настройки распространения"
+
+msgid "manager.reviewForms"
+msgstr "Формы рецензии"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Вы уверены, что хотите активировать эту форму рецензии? Как только она будет назначена для рецензирования, вы больше не сможете деактивировать ее."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Вы уверены, что хотите деактивировать эту форму рецензии? Она больше не будет доступна для назначения выполнения новых рецензий."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Вы уверены, что хотите создать копию этой форму рецензии?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Заполнена"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Вы уверены, что хотите удалить эту форму рецензии?"
+
+msgid "manager.reviewForms.create"
+msgstr "Создать форму рецензии"
+
+msgid "manager.reviewForms.description"
+msgstr "Описание и инструкции"
+
+msgid "manager.reviewForms.edit"
+msgstr "Форма рецензии"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Название обязательно для формы рецензии."
+
+msgid "manager.reviewForms.inReview"
+msgstr "На рецензии"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Созданные здесь формы рецензии будут показываться рецензентам для заполнения вместо формы, отображаемой по умолчанию. Форма по умолчанию состоит из двух текстовых полей: первое —  «Для автора и редактора» и второе — «Для редактора». Формы рецензии могут быть присвоены конкретному разделу издания, и редакторы имеют возможность выбрать конкретную форму при назначении рецензии. Во всех случаях редакторы имеют возможность добавить полученные рецензии в переписку с автором."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Нет / Рецензия в свободной форме"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Формы рецензии не были созданы."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Ни одна из форм рецензий не была использована."
+
+msgid "manager.reviewForms.preview"
+msgstr "Предварительный просмотр формы"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Данные формы рецензии"
+
+msgid "manager.reviewForms.title"
+msgstr "Название"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Изменение типа элемента формы..."
+
+msgid "manager.reviewFormElements"
+msgstr "Элементы формы"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Добавить выбранный"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Галочки (можно выбрать один или более вариантов)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Выберите тип элемента"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Подтвердить удаление элемента опубликованной формы..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Скопировать в:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Создать новый элемент"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Выпадающий список"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Редактировать элемент формы"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Тип элемента"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Необходимо выбрать тип элемента для элемента формы."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Необходимо ввести вопрос, соответствующий элементу формы."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Элементы формы не были созданы."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Выбор"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Элемент"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Описание"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радиокнопки (можно выбрать только один вариант)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Рецензент обязательно должен заполнить элемент"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Включается в сообщение для автора"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Текстовое поле для ввода одного слова"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Расширенное текстовое поле"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Поле для ввода одной строки"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Видимый (для авторов)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Создать новую форму рецензии"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Запросить Декларацию о конфликте интересов во время рецензирования."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL-адрес веб-страницы, описывающей лицензию (если она доступна)."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Форма отправки материала"
+
+msgid "manager.setup.metadata.success"
+msgstr "Метаданные материала были успешно обновлены."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Охват"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr "Охват обычно описывает геопространственное расположение работы (название места или географические координаты), временной период (название периода, дата или диапазон дат) или юрисдикцию (такую как название административной единицы)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Включить охват в метаданные"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Не запрашивать охват в метаданных у автора во время отправки материала."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Просить автора указать охват в метаданных во время отправки материала."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr "Требовать, чтобы автор обязательно указал охват в метаданных до приёма его материала."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr "Ключевые слова — обычно фразы из одного или трёх слов, которые используются для указания основных тем материала."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Включить ключевые слова в метаданные"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Не запрашивать ключевые слова у автора во время отправки материала."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Просить автора указать ключевые слова во время отправки материала."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Требовать, чтобы автор обязательно указал ключевые слова до приёма его материала."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr "Язык указывает основной язык работы с помощью кода языка («ru») с дополнительным кодом страны («ru_RU»)."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Включить язык в метаданные"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Не запрашивать языки материала у автора во время отправки."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Просить автора указать языки материала во время отправки."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Требовать, чтобы автор обязательно указал языки материала до приёма этого материала."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr "Любые права, которые распространяются на отправляемый материал, сюда могут быть включены права на интеллектуальную собственность, копирайт и различные имущественные права."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Включить права в метаданные"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Не запрашивать у автора информацию о правах во время отправки."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "Просить автора указать информацию об уже существующих правах на материал во время отправки."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr "Требовать, чтобы автор обязательно указал информацию об уже существующих правах на материал до приёма этого материала."
+
+msgid "manager.setup.metadata.source.description"
+msgstr "Источником может быть ID, например DOI, другой работы или ресурса, лежащего в основе данного материала."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Включить источник в метаданные"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Не запрашивать у автора URL источника во время отправки материала."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Просить автора указать URL источника во время отправки материала."
+
+msgid "manager.setup.metadata.source.require"
+msgstr "Требовать, чтобы автор обязательно указал URL источника до приёма этого материала."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr "Темы могут быть ключевыми словами, ключевыми фразами или классификационными кодами, которые описывают тему отправляемого материала."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Включить темы в метаданные"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Не запрашивать у автора темы во время отправки материала."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Просить автора указать темы во время отправки материала."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Требовать, чтобы автор обязательно указал темы до приёма этого материала."
+
+msgid "manager.setup.metadata.type.description"
+msgstr "Природа или жанр основного контента отправляемого материала. Обычно тип — это «Text», но может также быть «Dataset», «Image» или любой из <a target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">типов Dublin Core</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Включить тип в метаданные"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Не запрашивать у автора тип во время отправки материала."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Просить автора указать тип во время отправки материала."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Требовать, чтобы автор обязательно указал тип до приёма этого материала."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr "Дисциплины — предметы или области знания в том виде как их описывают университетская наука и научные общества."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Включить дисциплины в метаданные"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Не запрашивать у автора дисциплины во время отправки материала."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Просить автора указать дисциплины во время отправки материала."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Требовать, чтобы автор обязательно указал дисциплины до приёма этого материала."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr "Поддерживающие организации могут указывать на источник финансирования исследования или другую институциональную поддержку, которая была оказана исследованию."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Включить поддерживающие организации в метаданные"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Не запрашивать у автора поддерживающие организации во время отправки материала."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Просить автора указать поддерживающие организации во время отправки материала."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr "Требовать, чтобы автор обязательно указал поддерживающие организации до приёма этого материала."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr "Собрать библиографические ссылки отправляемого материала в отдельное поле. Это может быть необходимо для работы с сервисами отслеживания цитирования такими как Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Включить библиографические ссылки в метаданные"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Не запрашивать у автора библиографические ссылки во время отправки материала."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Просить автора указать библиографические ссылки во время отправки материала."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Требовать, чтобы автор обязательно указал библиографические ссылки до приёма этого материала."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Ошибки проверки:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Встретившиеся предупреждения:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Возникшие ошибки:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Неизвестный элемент {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Неизвестный жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Неизвестная кодировка {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Кодировка контента не совпадает с {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Неизвестная группа пользователей {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr "У автора ({$authorName}) не указано имя на языке отправки ({$localeName}). Материал не может быть импортирован без этой информации."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Неизвестный загрузчик {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Временный файл {$dest} не может быть создан из {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "Указанный размер файла «{$expected}» и фактический размер «{$actual}» не совпадают"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "Новая версия «{$revisionId}» для файла «{$fileId}» создаст дублирующую запись"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Файл материала не может быть импортирован"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Ошибки импорта/экспорта:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "У импортируемого пользователя «{$username}» нет пароля. Проверьте формат вашего файла XML для импорта. Пользователь не был импортирован."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "Пароль импортируемого пользователя «{$username}» не модет быть импортирован в данном виде. Новый пароль был отправлен на адрес электронной почты пользователя. Пользователь был импортирован."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "У импортируемого пользователя «{$username}» задан простой пароль, не соответствующий требованиям. Пользователь не был импортирован."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr "Имя пользователя «{$username}» и адрес электронной почты «{$email}» принадлежат двум разным существующим пользователям."
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Название"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Путь"
+
+msgid "manager.navigationMenus"
+msgstr "Навигация"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Эта страница будет доступна по адресу: <blockquote>{$pagesPath}</blockquote>...где %PATH% — путь, введенный выше. <strong>Обратите внимание:</strong> Путь к каждой странице должен быть уникальным. Использование путей, встроенных в систему, может привести к потере доступа к важным функциям.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Контент"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Поле с путем должно содержать только буквы, цифры, «.», «/», «-» и «_»."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Этот путь уже задан для другого элемента навигационного меню."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Это название уже существует в другом навигационном меню."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Название обязательно"
+
+msgid "manager.navigationMenuItems"
+msgstr "Элементы навигационного меню"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Назначенные элементы меню"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Неназначенные элементы меню"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Области навигации активной темы"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Выберите область навигации"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Этой области уже назначено навигационное меню."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Необходимо ввести URL-адрес"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Узнать больше, когда этот элемент меню будет показан или скрыт."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "Когда элемент меню открывает подменю, не на всех устройствах можно перейти по ссылке в нем. Например, если у вас есть элемент «О журнале», который открывает подменю с «Контакты» и «Редакция», ссылка «О журнале» может быть доступна не на всех устройствах. В меню по умолчанию это обрабатывается путем создания второго элемента меню «Об этом журнале», который появляется в подменю."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Тип меню навигации"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Выберите тип меню навигации или вариант «Пользовательский», чтобы создать свой собственный тип"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Пользовательская страница"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Создать свою собственную страницу на вашем сайте и добавить ссылку на нее в меню навигации."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Внешний URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Ссылка на любой URL на другом сайте, например, https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Ссылка на страницу, отображающую контент «О журнале» в  Настройки > Журнал"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, если вы заполнили раздел «О журнале» в Настройки > Журнал."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Ссылка на страницу, отображающую контент «Выходные данные» в Настройки > Журнал."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, если вы заполнили раздел «Редакция» в Настройки > Журнал."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Ссылка на страницу, отображающую инструкции по отправке."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Ссылка на текущий выпуск."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Ссылка на архив выпусков."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Ссылка на страницу, отображающую объявления."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, если вы включите объявления в Настройки > Веб-сайт."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Ссылка на страницу входа в систему."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Ссылка на страницу регистрации пользователя."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Ссылка на личный кабинет редакции."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Ссылка на страницу профиля пользователя."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Ссылка на инструменты администрирования всего сайта."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Эта ссылка будет показываться только пользователям с правами администраторов."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Ссылка для выхода пользователя из системы."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, когда посетитель уже вошел в систему."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, когда посетитель еще не вошел в систему."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Ссылка на страницу, отображающую вашу контактную информацию."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, если вы заполнили раздел «Контактная информация» в Настройки > Контакт."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Пожалуйста выберите тип навигационного меню."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, если включены платежи в Настройки > Распространение > Платежи."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, если посетитель зашел в систему, включены платежи в Настройки > Распространение > Платежи и обязательны подписки в Настройки > Распространение > Доступ."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Ссылка на страницу поиска."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Ссылка на страницу, отображающую ваше Заявление о конфиденциальности."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Эта ссылка будет показываться только в случае, если вы ввели Заявление о конфиденциальности в Настройки > Рабочий поток > Материалы."
+
+msgid "grid.category.add"
+msgstr "Добавить категорию"
+
+msgid "grid.category.edit"
+msgstr "Редактировать категорию"
+
+msgid "grid.category.name"
+msgstr "Название"
+
+msgid "grid.category.path"
+msgstr "Путь"
+
+msgid "grid.category.urlWillBe"
+msgstr "URL категории будет: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Путь к категории должен состоять только из букв и цифр."
+
+msgid "grid.category.pathExists"
+msgstr "Такой путь к категории уже существует. Пожалуйста, введите уникальный путь."
+
+msgid "grid.category.description"
+msgstr "Описание"
+
+msgid "grid.category.parentCategory"
+msgstr "Родительская категория"
+
+msgid "grid.category.removeText"
+msgstr "Вы уверены, что хотите удалить эту категорию?"
+
+msgid "grid.category.nameRequired"
+msgstr "Пожалуйста, введите название категории."
+
+msgid "grid.category.categoryDetails"
+msgstr "Информаци о категории"
+
+msgid "stats.daily"
+msgstr "Ежедневно"
+
+msgid "stats.dateRange"
+msgstr "Диапазон дат"
+
+msgid "stats.dateRange.allDates"
+msgstr "Все даты"
+
+msgid "stats.dateRange.apply"
+msgstr "Применить"
+
+msgid "stats.dateRange.change"
+msgstr "Изменить диапазон дат"
+
+msgid "stats.dateRange.customRange"
+msgstr "Пользовательский диапазон"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Одна из введенных дат не существует."
+
+msgid "stats.dateRange.from"
+msgstr "С"
+
+msgid "stats.dateRange.instructions"
+msgstr "Введите каждую дату в формате ГГГГ-ММ-ДД. Например, если вы хотите задать дату 15 января 2019 года, введите 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Неправильный формат даты. Каждая дата должна быть в формате ГГГГ-ММ-ДД."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Дата начала должна быть до даты окончания."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Дата окончания не может быть позже чем {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Дата начала не может быть раньше чем {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Последние 12 месяцев"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Последние 30 дней"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Последние 90 дней"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Начиная с {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "До"
+
+msgid "stats.dateRange.untilDate"
+msgstr "До {$date}"
+
+msgid "stats.fileViews"
+msgstr "Просмотры файлов"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Ежемесячно"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Искать по названию, автору и ID"
+
+msgid "stats.total"
+msgstr "Всего"

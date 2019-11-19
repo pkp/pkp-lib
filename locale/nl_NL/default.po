@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Website beheerder"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Website beheerders"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Productieredacteur"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Productieredacteurs"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "PR"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Tekstredacteur"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Tekstredacteurs"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "TR"
+
+msgid "default.groups.name.proofreader"
+msgstr "Proeflezer"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Proeflezers"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PL"
+
+msgid "default.groups.name.designer"
+msgstr "Vormeger"
+
+msgid "default.groups.plural.designer"
+msgstr "Vormgevers"
+
+msgid "default.groups.abbrev.designer"
+msgstr "VG"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Interne reviewer"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Interne reviewers"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.marketing"
+msgstr "Marketing- en verkoopscoördinator"
+
+msgid "default.groups.plural.marketing"
+msgstr "Marketing- en verkoopscoördinators"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MV"
+
+msgid "default.groups.name.funding"
+msgstr "Financieel coördinator"
+
+msgid "default.groups.plural.funding"
+msgstr "Financieel coördinators"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexeerder"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexeerders"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IN"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Opmaakredacteur"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Opmaakredacteurs"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "OR"
+
+msgid "default.groups.name.author"
+msgstr "Auteur"
+
+msgid "default.groups.plural.author"
+msgstr "Auteurs"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Vertaler"
+
+msgid "default.groups.plural.translator"
+msgstr "Vertalers"
+
+msgid "default.groups.abbrev.translator"
+msgstr "V"
+
+msgid "default.groups.name.reader"
+msgstr "Lezer"
+
+msgid "default.groups.plural.reader"
+msgstr "Lezers"
+
+msgid "default.groups.abbrev.reader"
+msgstr "L"
+
+msgid "default.genres.other"
+msgstr "Andere"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Afbeelding"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML stylesheet"

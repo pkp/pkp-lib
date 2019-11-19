@@ -1,0 +1,276 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
+"Language: \n"
+
+msgid "user.affiliation"
+msgstr "Afiliasi"
+
+msgid "user.affiliation.description"
+msgstr "(Institusi Anda, contoh: \"Pusat Dokumentasi dan Informasi Ilmiah - LIPI\")"
+
+msgid "user.affiliations"
+msgstr "Afiliasi"
+
+msgid "user.authorization.accessDenied"
+msgstr "Akses ditolak."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Bukti pengesahan proses hilang atau tidak valid."
+
+msgid "user.authorization.contextRequired"
+msgstr "Anda tidak bisa menggunakan operasi ini tanpa konteks (wartawan, jurnal, konferensi, dll)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Login diperlukan."
+
+msgid "user.authorization.privateOperation"
+msgstr "Operasi yang Anda coba untuk akses mungkin bersifat privasi atau tidak ada."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Akses Anda ditolak. Akses ke situs ini sekarang dilarang."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Peran sekarang tidak mempunyai akses ke operasi ini."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Anda harus mengatur grup pengguna valid untuk mengakses operasi ini."
+
+msgid "user.biography"
+msgstr "Biografi"
+
+msgid "user.biography.description"
+msgstr "(Contoh: departemen dan pangkat)"
+
+msgid "user.changeMyPassword"
+msgstr "Ganti Kata Sandi Saya"
+
+msgid "user.changePassword"
+msgstr "Ganti Kata Sandi"
+
+msgid "user.dateLastLogin"
+msgstr "Login Terakhir"
+
+msgid "user.dateRegistered"
+msgstr "Tanggal Terdaftar"
+
+msgid "user.editMyProfile"
+msgstr "Edit Profil Saya"
+
+msgid "user.email"
+msgstr "Email"
+
+msgid "user.interests"
+msgstr "Bidang Minat Review"
+
+msgid "user.interests.description"
+msgstr "(Pisahkan masing-masing bidang dengan spasi atau koma)"
+
+msgid "user.gossip"
+msgstr "Catatan Tambahan"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Format gambar profil invalid atau gambar terlalu besar. Format yang diterima adalah .gif, .jpg, atau .png, dan gambar tidak boleh melebih 150x150 pixel."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Akun Anda tidak bisa karena alasan berikut ini: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Akun Anda tidak bisa. Hubungi administrator untuk informasi lebih lanjut."
+
+msgid "user.login.accountNotValidated"
+msgstr "Alamat email Anda belum divalidasi. Cek email Anda dan ikuti instruksi yang tersedia. Jika Anda belum menerima email. Anda mungkin perlu menghubungi administrator situs untuk bantuan."
+
+msgid "user.login.activate"
+msgstr "Aktivasi akun"
+
+msgid "user.login.activated"
+msgstr "Terima kasih untuk mengaktifkan akun Anda. Anda sekarang mungkin login dengan menggunakan credential yang Anda berikan saat membuat Akun ini."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Anda harus memilih kata sandi baru sebelum Anda login ke situs ini.<br /><br />Masukkan Nama Pengguna Anda dan kata sandi yang sekarang dan yang baru di bawah ini untuk mengganti kata sandi untuk akun Anda."
+
+msgid "user.login.forgotPassword"
+msgstr "Lupa kata sandi Anda?"
+
+msgid "user.login.loginError"
+msgstr "Nama Pengguna atau kata sandi tidak valid. Coba lagi."
+
+msgid "user.login"
+msgstr "Login"
+
+msgid "user.logIn"
+msgstr "Login"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Konfirmasi telah dikirim ke alamat email Anda. Ikuti instruksi di email untuk mengatur ulang kata sandi Anda."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Maaf, tautan yang Anda klik telah berakhir atau tidak valid. Coba mengatur ulang kata sandi lagi."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Tidak ada pengguna dengan alamat email yang spesifik."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Kata sandi baru telah dikirim ke alamat emal Anda. Anda sekarang bisa login ke situs dengan kata sandi baru Anda."
+
+msgid "user.login.registeredEmail"
+msgstr "Email pengguna yang sudah terdaftar"
+
+msgid "user.login.resetPassword"
+msgstr "Atur ulang kata sandi"
+
+msgid "user.logOut"
+msgstr "Log Out"
+
+msgid "user.mailingAddress"
+msgstr "Alamat Surat Menyurat"
+
+msgid "user.myAccount"
+msgstr "Akun Saya"
+
+msgid "user.name"
+msgstr "Nama"
+
+msgid "user.password"
+msgstr "Kata Sandi"
+
+msgid "user.repeatPassword"
+msgstr "Ulangi Kata Sandi"
+
+msgid "user.phone"
+msgstr "Telepon"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Masukkan kata sandi Anda saat ini dan yang baru di bawah ini untuk mengganti kata sandi akun Anda."
+
+msgid "user.profile.editProfile"
+msgstr "Edit Profil"
+
+msgid "user.profile.form.emailRequired"
+msgstr "Alamat email yang valid diperlukan."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Afiliasi diperlukan."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Anda harus memasukkan kata sandi baru."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Kata sandi yang sekarang Anda masukkan salah."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Notifikasi emal akses terbuka terbitan"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Kata sandi diperlukan."
+
+msgid "user.profile.form.profileImage"
+msgstr "Gambar profil"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Notifikasi email terbitan baru yang telah diterbitkan"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "URL spesifik tidak valid. Cek dua kali URL dan coba lagi. (Petunjuk: coba tambahkan http:// ke awal URL.)"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Nama pengguna diperlukan."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Biarkan bidang kata sandi kosong untuk menyimpan kata sandi yang sekarang."
+
+msgid "user.profile.newPassword"
+msgstr "Kata Sandi Baru"
+
+msgid "user.profile.oldPassword"
+msgstr "Kata Sandi Saat Ini"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.publicProfile"
+msgstr "Profil Pengguna"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Ulangi Kata Sandi Baru"
+
+msgid "user.register.form.emailExists"
+msgstr "Alamat email yang dipilih sudah digunakan oleh pengguna lain."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Kata Sandi tidak cocok."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Bidang alamat email tidak cocok."
+
+msgid "user.register.form.usernameExists"
+msgstr "Nama pengguna yang dipilih sudah digunakan oleh pengguna lain."
+
+msgid "user.register.passwordLengthRestriction"
+msgstr "Kata sandi minimal {$length} karakter."
+
+msgid "user.register.registerAs"
+msgstr "Daftar sebagai"
+
+msgid "user.register"
+msgstr "Daftar"
+
+msgid "user.register.usernameRestriction"
+msgstr "Nama pengguna hanya bisa terdiri dari huruf kecil, nomor, dan tanda penghubung/ garis bawah atau kombinasi ketiganya."
+
+msgid "user.role.reader"
+msgstr "Pembaca"
+
+msgid "user.role.readers"
+msgstr "Pembaca"
+
+msgid "user.role.reviewer"
+msgstr "Reviewer"
+
+msgid "user.role.reviewers"
+msgstr "Reviewer"
+
+msgid "user.role.siteAdmin"
+msgstr "Administrasi Situs"
+
+msgid "user.role.siteAdmins"
+msgstr "Administrasi Situs"
+
+msgid "user.roles"
+msgstr "Peran"
+
+msgid "user.sendPassword"
+msgstr "Konfirmasi"
+
+msgid "user.sendPassword.description"
+msgstr "Kirimi saya email konfirmasi termasuk nama pengguna dan kata sandi saya"
+
+msgid "user.signature"
+msgstr "Signature"
+
+msgid "user.title"
+msgstr "Gelar"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Beranda Pengguna"
+
+msgid "user.username"
+msgstr "Nama Pengguna"
+
+msgid "user.workingLanguages"
+msgstr "Bahasa"
+
+msgid "user.register.completeForm"
+msgstr "Isi form di bawah ini untuk mendaftar ke jurnal ini."

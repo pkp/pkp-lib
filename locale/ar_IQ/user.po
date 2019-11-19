@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "معلومات الحساب"
+
+msgid "user.affiliation"
+msgstr "الانتماء"
+
+msgid "user.affiliation.description"
+msgstr "(المؤسسة التي تعمل فيها، مثلاً: \"جامعة بغداد\")"
+
+msgid "user.affiliations"
+msgstr "الانتماءات"
+
+msgid "user.authorization.accessDenied"
+msgstr "يتعذر الوصول."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "رمز المصادقة للعملية مفقود أو غير صالح."
+
+msgid "user.authorization.contextRequired"
+msgstr "لا يمكنك استدعاء هذه العملية خارج السياق المناسب (صحافة، مجلة، مؤتمر... إلخ.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "يتطلب الأمر تسجيل الدخول."
+
+msgid "user.authorization.privateOperation"
+msgstr "العملية التي تحاول الوصول إليها إما شخصية أو ليس لها وجود."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "لقد تم رفض وصولك. الدخول إلى الموقع مقيد بالنسبة لك حالياً."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "الدور الحالي ليس له صلاحية الوصول إلى هذه العملية."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "لم يسبق تعيينك لطلب التقديم هذا بدور يتيح لك الوصول إلى هذه العملية."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "عليك أن تعد مجموعة مستخدمين صحيحة للوصول إلى هذه العملية."
+
+msgid "user.authorization.managerRequired"
+msgstr "مستخدم بدور مدير (أي: محرر إنتاج) عليه أن يكون معيناً للمرحلة قبل أن تتمكن من المتابعة."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "ليس لديك حالياً حق الوصول إلى هذه المرحلة من المخطط الانسيابي."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "مرحلة المخطط الانسيابي لم تحدد بعد."
+
+msgid "user.authorization.pluginRequired"
+msgstr "لم يتم تحديد البرنامج الإضافي رغم أنه مطلوب حتماً."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "ليس لديك صلاحية الوصول إلى مهمة التحكيم هذه."
+
+msgid "user.authorization.submissionQuery"
+msgstr "ليس لديك صلاحية الوصول إلى هذه المناقشة."
+
+msgid "user.biography"
+msgstr "بيان السيرة الذاتية (مثل: القسم والمرتبة العلمية)"
+
+msgid "user.changeMyPassword"
+msgstr "تبديل كلمة مروري"
+
+msgid "user.changePassword"
+msgstr "تبديل كلمة المرور"
+
+msgid "user.dateLastLogin"
+msgstr "آخر عملية دخول"
+
+msgid "user.dateRegistered"
+msgstr "تأريخ التسجيل"
+
+msgid "user.editMyProfile"
+msgstr "تعديل ملفي الشخصي"
+
+msgid "user.email"
+msgstr "البريد الالكتروني"
+
+msgid "user.givenName"
+msgstr "الاسم"
+
+msgid "user.interests"
+msgstr "إهتمامات التحكيم"
+
+msgid "user.interests.description"
+msgstr "(إفصل بين الاهتمامات عبر زر enter أو بالفوارز الإنجليزية)"
+
+msgid "user.gossip"
+msgstr "ملاحظات التحرير"
+
+msgid "user.gossip.description"
+msgstr "سجل ملاحظاتك عن هذا المحكم والتي تريد إظهارها لغيرك من المشرفين، رؤساء التحرير، وكل المحررين. هذه الملاحظات ستكون ظاهرة من أجل مهام التحكيم المستقبلية."
+
+msgid "user.group"
+msgstr "مجموعة المستخدم"
+
+msgid "user.familyName"
+msgstr "اسم العائلة"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "صيغة ملف الصورة الشخصية غير صحيحة أو أن ملف الصورة كبير الحجم جداً. الصيغ المقبولة هي: .gif، .jpg، أو .png، وحجم الصورة ينبغي أن لا يتجاوز 150 × 150 بكسل."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "حسابك تم تعطيله للسبب الآتي: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "حسابك تم تعطيله. لطفاً، اتصل بالمشرف الإداري للمزيد من المعلومات."
+
+msgid "user.login.accountNotValidated"
+msgstr "عنوان بريدك الالكتروني لم يجر التحقق من صحته بنجاح. لطفاً، تأكد من إملائه بالشكل الصحيح واتبع التعليمات الظاهرة أمامك. إن لم تتلق أي رسالة الكترونية رغم كل ذلك، قد تحتاج إلى الاتصال بالمشرف الإداري للموقع لطلب المساعدة."
+
+msgid "user.login.activate"
+msgstr "تفعيل الحساب"
+
+msgid "user.login.activated"
+msgstr "شكراً لقيامك بتفعيل الحساب. بإمكانك الآن الدخول إلى الموقع مستعملاً بيانات الدخول التي قدمتها عند تسجيلك في الموقع."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "عليك أن تختار لنفسك كلمة مرور أخرى قبل أن يتسنى لك الدخول إلى الموقع.<br /><br />لطفاً، أدخل اسم دخولك مع كلمة مرورك الحالية وكلمة مرورك الجديدة التي تريدها لتكون بديلة عن الحالية أدناه."
+
+msgid "user.login.forgotPassword"
+msgstr "أنسيت كلمة مرورك؟"
+
+msgid "user.login.loginError"
+msgstr "اسم الدخول أو كلمة المرور خاطئين. لطفاً، حاول مجدداً."
+
+msgid "user.login"
+msgstr "الدخول"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "رسالة تأكيد أُرسلت إلى عنوان بريدك الالكتروني. لطفاً اتبع التعليمات التي تجدها في تلك الرسالة لإعادة تعيين كلمة مرورك."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "عذراً، الرابط الذي اتبعته قد انتهت صلاحيته أو ليس صحيحاً. لطفاً، جرب إعادة تعيين كلمة مرورك مرة أخرى."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "لا يوجد مستخدم مسجل في الموقع باستعمال هذا البريد الالكتروني."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "كلمة مرور جديدة أُرسلت إلى عنوان بريدك الالكتروني. بإمكانك الآن الدخول إلى الموقع مستعملاً كلمة المرور الجديدة."
+
+msgid "user.login.registeredEmail"
+msgstr "البريد الالكتروني للمستخدم المسجل في الموقع"
+
+msgid "user.login.registrationComplete"
+msgstr "إكتمل التسجيل"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "شكراً لقيامك بالتسجيل! ما الذي ترغب أن تقوم به لاحقاً؟"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "معاينة طلبات النشر"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "إنشاء طلب نشر جديد"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "متابعة التصفح"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "التسجيل ينتظر التحقق"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "أبقني مسجلاً لدخولي في الموقع"
+
+msgid "user.login.resetPassword"
+msgstr "إعادة تعيين كلمة المرور"
+
+msgid "user.logOut"
+msgstr "الخروج"
+
+msgid "user.logOutAs"
+msgstr "الخروج كأنني"
+
+msgid "user.hello"
+msgstr "مرحباً "
+
+msgid "user.mailingAddress"
+msgstr "عنوان المراسلة"
+
+msgid "user.myAccount"
+msgstr "حسابي"
+
+msgid "user.name"
+msgstr "الاسم"
+
+msgid "user.password"
+msgstr "كلمة المرور"
+
+msgid "user.repeatPassword"
+msgstr "أعد كلمة المرور"
+
+msgid "user.phone"
+msgstr "الهاتف"
+
+msgid "user.preferredPublicName"
+msgstr "الاسم الشائع المفضل"
+
+msgid "user.preferredPublicName.description"
+msgstr "كيف تفضل أن تتم مخاطبتك؟ عبارة التحية، الاسم الأوسط واللواحق يمكن إضافتها هنا إذا كان ذلك يناسبك."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "أدخل كلمة مرورك الحالية والجديدة أدناه للتمكن من تغيير كلمة مرورك في الموقع."
+
+msgid "user.profile.editProfile"
+msgstr "تعديل الملف الشخصي"
+
+msgid "user.profile.form.countryRequired"
+msgstr "البلد مطلوب حتماً."
+
+msgid "user.profile.form.emailRequired"
+msgstr "عنوان بريد الكتروني صحيح مطلوب حتماً."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "الانتماء مطلوب حتماً."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "الاسم مطلوب حتماً."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "لقد أدخلت اسم العائلة ضمن لغة النظام التي تفتقر إلى الاسم الأول. لطفاً، أدخل ذلك الاسم لتلك اللغة."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "عنوان البريد الالكتروني مطلوب حتماً."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "عليك أن تدخل كلمة مرورك الجديدة."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "كلمة المرور الحالية التي أدخلتها غير صحيحة."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "إشعار البريد الالكتروني لصدور عدد مجاني"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "كلمة المرور مطلوبة حتماً."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "كلمة مرورك الجديدة مطابقة للحالية."
+
+msgid "user.profile.form.profileImage"
+msgstr "صورة الملف الشخصي"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "إشعار صدور العدد الجديد من المجلة"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "العنوان المحدد غير صحيح. لطفاً، تحقق من صحته جيداً وحاول مجدداً. (تلميح: حاول إضافة http:// إلى بداية العنوان.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "مجموعة المستخدم مطلوبة حتماً."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "اسم الدخول مطلوب حتماً."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "لا بد لك من الموافقة على فقرات بيان الخصوصية."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "أترك حقول كلمة المرور خالية للحفاظ على كلمة مرورك الحالية."
+
+msgid "user.profile.newPassword"
+msgstr "كلمة المرور الجديدة"
+
+msgid "user.profile.oldPassword"
+msgstr "كلمة المرور الحالية"
+
+msgid "user.profile"
+msgstr "الملف الشخصي"
+
+msgid "user.profile.publicProfile"
+msgstr "ملف المستخدم الشخصي"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "أعد كلمة المرور الجديدة"
+
+msgid "user.login.registerNewAccount"
+msgstr "التسجيل"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "أدخل عنوان بريدك الالكتروني المتعلق بحسابك أدناه، وستتم مراسلتك برسالة تتضمن تعليمات توضح كيفية تصفير كلمة مرورك."
+
+msgid "user.register.form.privacyConsent"
+msgstr "نعم، أوافق على جمع بياناتي وخزنها وفق ما ورد في  <a href=\"{$privacyUrl}\" target=\"_blank\">بيان الخصوصية</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "نعم، أود الحصول على إشعارات بشأن الإصدارات والإعلانات الجديدة."
+
+msgid "user.register.form.emailExists"
+msgstr "عنوان البريد الالكتروني هذا مستعمل سلفاً من قبل مستخدم آخر."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "كلمتا المرور لا تتطابقان."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "حقلا العنوان البريدي لا يتطابقان."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "اسم المستخدم يتكون من رموز حرفية ورقمية، خطوط تحتانية، شُرط، وينبغي أن يبدأ وينتهي بحرف أو رقم حصراً."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "لا بد من اختيار دور واحد على الأقل."
+
+msgid "user.register.form.usernameExists"
+msgstr "اسم الدخول الذي اخترته مستعمل سلفاً من قبل مستخدم آخر."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "كلمة المرور ينبغي أن تتكون من {$length} حروف على الأقل."
+
+msgid "user.register.registerAs"
+msgstr "سجل في {$contextName} بصفة..."
+
+msgid "user.register"
+msgstr "سجل"
+
+msgid "user.register.usernameRestriction"
+msgstr "اسم المستخدم ينبغي أن يتضمن حروفاً صغيرة فقط، أرقام، شُرط، أو خطوط تحتانية."
+
+msgid "user.register.registrationCompleted"
+msgstr "لقد سجلت بنجاح. <a href=\"{$profileUrl}\">أنقر هنا</a> لإكمال ملفك الشخصي."
+
+msgid "user.role.assistant"
+msgstr "مساعد"
+
+msgid "user.role.author"
+msgstr "مؤلف"
+
+msgid "user.role.author_s"
+msgstr "مؤلف/مؤلفون"
+
+msgid "user.role.authors"
+msgstr "المؤلفون"
+
+msgid "user.role.editor"
+msgstr "محرر"
+
+msgid "user.role.editors"
+msgstr "المحررون"
+
+msgid "user.role.reader"
+msgstr "قارئ"
+
+msgid "user.role.readers"
+msgstr "القراء"
+
+msgid "user.role.reviewer"
+msgstr "محكم"
+
+msgid "user.role.reviewers"
+msgstr "المحكمون"
+
+msgid "user.role.siteAdmin"
+msgstr "الإشراف الإداري العام للموقع"
+
+msgid "user.role.siteAdmins"
+msgstr "مشرفون إداريون للموقع"
+
+msgid "user.role.copyeditor"
+msgstr "مدقق"
+
+msgid "user.role.copyeditors"
+msgstr "المدققون"
+
+msgid "user.role.proofreader"
+msgstr "مصحح لغوي"
+
+msgid "user.role.proofreaders"
+msgstr "مصححو اللغة"
+
+msgid "user.role.layoutEditor"
+msgstr "محرر اللوح الطباعي"
+
+msgid "user.role.layoutEditors"
+msgstr "محررو الألواح الطباعية"
+
+msgid "user.roles"
+msgstr "الأدوار"
+
+msgid "user.sendPassword"
+msgstr "التأكيد"
+
+msgid "user.sendPassword.description"
+msgstr "أرسل لي رسالة بالبريد الالكتروني تتضمن اسم دخولي وكلمة مروري"
+
+msgid "user.signature"
+msgstr "التوقيع"
+
+msgid "user.title"
+msgstr "العنوان"
+
+msgid "user.url"
+msgstr "رابط الصفحة الشخصية"
+
+msgid "user.userHome"
+msgstr "السكن"
+
+msgid "user.username"
+msgstr "اسم الدخول"
+
+msgid "user.workingLanguages"
+msgstr "اللغات العاملة"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "إن رمز ORCID iD الذي حددته غير صحيح. لطفاً، أدرج الرابط كاملاً (مثلاً: \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "الهوية"
+
+msgid "user.profile.contact"
+msgstr "اسم الاتصال"
+
+msgid "user.profile.public"
+msgstr "عمومي"
+
+msgid "user.apiKey"
+msgstr "مفتاح API"
+
+msgid "user.apiKeyEnabled"
+msgstr "تمكين التطبيقات الخارجية التي تملك مفتاح API هذا من الوصول إلى هذا الحساب"
+
+msgid "user.apiKey.generate"
+msgstr "توليد مفتاح API جديد"
+
+msgid "user.apiKey.generateWarning"
+msgstr "توليد مفتاح API جديد سيؤدي إلى إبطال أي مفتاح حالي لهذا المستخدم."
+
+msgid "user.apiKey.secretRequired"
+msgstr "قبل توليد مفتاح API، لا بد للمشرف على موقعك من وضع كلمة سر في ملف التهيئة تحت مسمى (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr "إن بياناتك محفوظة حسب <a href=\"{$privacyUrl}\" target=\"_blank\">بيان الخصوصية</a> الخاص بنا."

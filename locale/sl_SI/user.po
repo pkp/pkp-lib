@@ -1,0 +1,456 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:02+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Podatki o uporabniškem računu"
+
+msgid "user.affiliation"
+msgstr "Ustanova"
+
+msgid "user.affiliation.description"
+msgstr "(Vaša ustanova, npr. \"Simon Fraser University\")"
+
+msgid "user.affiliations"
+msgstr "Ustanove"
+
+msgid "user.authorization.accessDenied"
+msgstr "Dostop zavrnjen."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Žeton za avtentikacijo manjka ali pa je neveljaven."
+
+msgid "user.authorization.contextRequired"
+msgstr "Te operacije ne morete izvesti brez konteksta (tisk, revija, konferenca, itd)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Najprej se prijavite."
+
+msgid "user.authorization.privateOperation"
+msgstr "Hoteli ste izvesti operacijo, ki vam ni na voljo ali ne obstaja."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Dostop je bil zavrnjen. Dostop do teh strani je trenutno omejen."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Vaša trenutna vloga vam ne omogoča te operacije."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Za dostop do te operacije morate nastaviti pravilno skupino uporabnikov."
+
+msgid "user.authorization.managerRequired"
+msgstr "Uporabnik z vlogo Upravnika (npr. Urednik produkcije) mora biti dodeljen v to fazo preden lahko nadaljujete."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Trenutno nimate dostopa do te faze delovnega toka."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Faza delovnega toka ni bila določena."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Vtičnik je zahtevan in ni bil določen."
+
+msgid "user.biography"
+msgstr "Biografski podatki"
+
+msgid "user.changeMyPassword"
+msgstr "Spremeni moje geslo"
+
+msgid "user.changePassword"
+msgstr "Spremeni geslo"
+
+msgid "user.dateLastLogin"
+msgstr "Zadnja prijava"
+
+msgid "user.dateRegistered"
+msgstr "Datum registracije"
+
+msgid "user.editMyProfile"
+msgstr "Uredi moj račun"
+
+msgid "user.email"
+msgstr "E-pošta"
+
+msgid "user.firstName"
+msgstr "Ime"
+
+msgid "user.initialsExample"
+msgstr "Joan Alice Smith = JAS"
+
+msgid "user.initials"
+msgstr "Inicialke"
+
+msgid "user.interests"
+msgstr "Recenzijski interesi"
+
+msgid "user.interests.description"
+msgstr "(Interese ločite med seboj s tipko Enter ali vejicami)"
+
+msgid "user.gossip"
+msgstr "Zasebne opombe"
+
+msgid "user.gossip.description"
+msgstr "Opombe o tem recenzentu, za katere bi radi, da jih vidijo tudi drugi uredniki. Opombe bodo vidne za naslednje recenzijske zadolžitve."
+
+msgid "user.group"
+msgstr "Vloga uporabnikov"
+
+msgid "user.lastName"
+msgstr "Priimek"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Napačen format slike računa ali pa je prevelika. Dovoljeni formati so .gif, .jpg ali .png. Največja velikost slike je 150x150 točk."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Vaš račun je bil onemogočen zaradi naslednjega vzroka: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Vaš račun je bil onemogočen. Prosimo obrnite se na administratorja za več informacij."
+
+msgid "user.login.accountNotValidated"
+msgstr "Vaš e-poštni naslov še ni bil preverjen. Prosimo preverite vašo elektronsko pošto in sledite navodilom, ki smo jih poslali na {$email}. Če niste dobili nobenega sporočila, preverite mapo z neželjeno pošto."
+
+msgid "user.login.activate"
+msgstr "Aktiviraj račun"
+
+msgid "user.login.activated"
+msgstr "Hvala za aktivacijo vašega računa. Zdaj se v sistem lahko prijavite z uporabo uporabniškega imena in gesla, ki ste ju navedli."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "YouPred prvo prijavo morate spremeniti geslo.<br /><br />Prosimo vnesite vaše uporabniško ime, sedanje geslo in novo geslo, da boste spremenili geslo."
+
+msgid "user.login.forgotPassword"
+msgstr "Ste pozabili vaše geslo?"
+
+msgid "user.login.loginError"
+msgstr "Napačno uporabniško ime ali geslo. Poskusite ponovno."
+
+msgid "user.login"
+msgstr "Prijava"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Potrdilo je bilo poslano na vaš e-poštni naslov. Prosimo sledite navodilom v sporočilu, da boste ponastavili vaše geslo."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Oprostite, povezava, ki ste jo uporabili, ni več veljavna ali pa je napačna. Poskusite ponovno ponastaviti geslo."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Uporabnik z vnešenim e-poštnim naslovom ne obstaja."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Novo geslo je bilo poslano na vaš e-poštni naslov. Prijavite se lahko z novim geslom."
+
+msgid "user.login.registeredEmail"
+msgstr "Registrirana e-pošta uporabnika"
+
+msgid "user.login.registrationComplete"
+msgstr "Registracija zaključena"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Hvala lepa za registracijo! Kaj bi želeli narediti zdaj?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Upravljaj s prispevki"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Oddaj nov prispevek"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Nadaljuj z branjem"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registracija še čaka na verifikacijo"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Zapomni si moje uporabniško ime in geslo"
+
+msgid "user.login.resetPassword"
+msgstr "Ponastavi geslo"
+
+msgid "user.logOut"
+msgstr "Odjava"
+
+msgid "user.logOutAs"
+msgstr "Odjava kot"
+
+msgid "user.hello"
+msgstr "Pozdravljeni,"
+
+msgid "user.mailingAddress"
+msgstr "Naslov"
+
+msgid "user.middleName"
+msgstr "Srednje ime"
+
+msgid "user.myAccount"
+msgstr "Moj račun"
+
+msgid "user.name"
+msgstr "Ime"
+
+msgid "user.password"
+msgstr "Geslo"
+
+msgid "user.repeatPassword"
+msgstr "Ponovite geslo"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Vpišite vaše dosedanje in novo geslo, da boste spremenili geslo."
+
+msgid "user.profile.editProfile"
+msgstr "Uredi račun"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Država je obvezna."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Veljaven e-potšni naslov je obvezen."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Organizacija je obvezen."
+
+msgid "user.profile.form.firstNameRequired"
+msgstr "Ime je obvezno."
+
+msgid "user.profile.form.lastNameRequired"
+msgstr "Priimek je obvezen."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "E-poštni naslov je obvezen."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Vpisati morate novo geslo."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Trenutno geslo, ki ste ga vnesli, je napačno."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Pošlji e-pošto z obvestilom o številkah revije s prostim dostopom."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Geslo je obvezno."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Vaše novo geslo je enako staremu."
+
+msgid "user.profile.form.profileImage"
+msgstr "Slika računa"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-poštno obvestilo o izidu nove številke revije"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Naveden URL naslov je napačen. Prosimo preverite URL naslov in poskusite ponovno (Nasvet: Poskusite s http:// na začetku URL-ja.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Skupina uporabnikov je obvezna."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Uporabniško ime je obvezno."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Pustite polje za geslo prazno, da obdržite trenutno geslo."
+
+msgid "user.profile.newPassword"
+msgstr "Novo geslo"
+
+msgid "user.profile.oldPassword"
+msgstr "Trenutno geslo"
+
+msgid "user.profile"
+msgstr "Račun uporabnika"
+
+msgid "user.profile.publicProfile"
+msgstr "Račun uporabnika"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Ponovite geslo"
+
+msgid "user.login.registerNewAccount"
+msgstr "Registriraj"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Spodaj vnesite email vašega računa in dobili boste email z navodili, kako ponastaviti geslo."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Da, strinjam se, da so moji podatki zbrani in shranjeni v skladu z naslednjo <a href=\"{$privacyUrl}\" target=\"_blank\">Izjavo o zasebnosti</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Da, želim biti obveščen o izdanih novih številkah in obvestilih revije."
+
+msgid "user.register.form.emailExists"
+msgstr "Izbrani e-poštni naslov je že uporabljen za drugega uporabnika."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Gesla se ne ujemata."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Polji za e-poštni naslov se ne ujemata."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Uporabniško ime lahko vsebuje le alfanumerične znake, podčrtaj in pomišljaj. Začeti in končati se mora z alfanumeričnim znakom."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Izbrana mora biti vsaj ena vloga."
+
+msgid "user.register.form.usernameExists"
+msgstr "Izbrano uporabniško ime je že uporabljeno pri drugem uporabniku."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Geslo mora biti dolgo vsaj {$length} znakov."
+
+msgid "user.register.registerAs"
+msgstr "Registrirajte se v {$contextName} kot"
+
+msgid "user.register"
+msgstr "Registracija"
+
+msgid "user.register.usernameRestriction"
+msgstr "Uporabniško ime lahko vsebuje le male črke, številke, podčrtaj ali pomišljaj."
+
+msgid "user.register.registrationCompleted"
+msgstr "Uspešno ste se registrirali. <a href=\"{$profileUrl}\">Kliknite tukaj</a>, da dopolnite preostale podatke vašega uporabniškega računa."
+
+msgid "user.role.assistant"
+msgstr "Asistent"
+
+msgid "user.role.author"
+msgstr "Avtor"
+
+msgid "user.role.author_s"
+msgstr "Avtor(ji)"
+
+msgid "user.role.authors"
+msgstr "Avtorji"
+
+msgid "user.role.editor"
+msgstr "Urednik"
+
+msgid "user.role.editors"
+msgstr "Uredniki"
+
+msgid "user.role.reader"
+msgstr "Bralec"
+
+msgid "user.role.readers"
+msgstr "Bralci"
+
+msgid "user.role.reviewer"
+msgstr "Recenzent"
+
+msgid "user.role.reviewers"
+msgstr "Recenzenti"
+
+msgid "user.role.siteAdmin"
+msgstr "Aministrator spletišča"
+
+msgid "user.role.siteAdmins"
+msgstr "Aministratorji spletišča"
+
+msgid "user.role.copyeditor"
+msgstr "Lektor"
+
+msgid "user.role.copyeditors"
+msgstr "Lektorji"
+
+msgid "user.role.proofreader"
+msgstr "Korektor"
+
+msgid "user.role.proofreaders"
+msgstr "Korektorji"
+
+msgid "user.role.layoutEditor"
+msgstr "Grafični urednik"
+
+msgid "user.role.layoutEditors"
+msgstr "Grafični uredniki"
+
+msgid "user.roles"
+msgstr "Vloge"
+
+msgid "user.salutation"
+msgstr "Naziv"
+
+msgid "user.sendPassword"
+msgstr "Potrditev"
+
+msgid "user.sendPassword.description"
+msgstr "Pošljite mi potrditveno e-pošto z mojim uporabniškim imenom in geslom."
+
+msgid "user.signature"
+msgstr "Podpis"
+
+msgid "user.suffix"
+msgstr "Pripona"
+
+msgid "user.title"
+msgstr "Naziv"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Dom uporabnika"
+
+msgid "user.username"
+msgstr "Uporabniško ime"
+
+msgid "user.workingLanguages"
+msgstr "Delovni jeziki"
+
+msgid "user.orcid"
+msgstr "ORCID ID"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Vnešeni ORCID ID je napačen. Prosimo vnesite celotno URL povezavo (npr. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identiteta"
+
+msgid "user.profile.contact"
+msgstr "Kontakt"
+
+msgid "user.profile.public"
+msgstr "Javno"
+
+msgid "user.apiKey"
+msgstr "API ključ"
+
+msgid "user.apiKeyEnabled"
+msgstr "Omogoči zunanjim aplikacijam dostop do tega uporabniškega računa z uporabo API ključa"
+
+msgid "user.apiKey.generate"
+msgstr "Generiraj nov API ključ"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Generiranje novega API ključa, bo razveljavilo vse API dosedanje ključe za tega uporabnika."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Preden generirate API ključ, morate nastaviti spremenljivko \"api_key_secret\" v konfiguracijski datoteki"
+
+msgid "user.privacyLink"
+msgstr "Vaši podatki so shranjeni v skladu z našo <a href=\"{$privacyUrl}\" target=\"_blank\">Izjavo o zasebnosti</a>."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Prispevku niste bili dodeljeni z vlogo, ki bi dovoljevala ta korak."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Nimate pravice dostopati do te recenzije."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Nimate pravice dostopati do te diskusije."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Strinjati se morate z Izjavo o zasebnosti."

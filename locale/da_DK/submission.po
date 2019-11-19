@@ -1,0 +1,1722 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
+"Language: \n"
+
+msgid "submission.agencies"
+msgstr "Instanser"
+
+msgid "submission.abstractViews"
+msgstr "Visninger af resuméer"
+
+msgid "submission.accepted"
+msgstr "Accepteret"
+
+msgid "submission.acknowledge"
+msgstr "Bekræft"
+
+msgid "submission.addSuppFile"
+msgstr "Tilføj en supplerende fil"
+
+msgid "submission.ask"
+msgstr "Spørg"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Tilbage til Redigering af manuskript"
+
+msgid "submission.changeComments"
+msgstr "Skift til"
+
+msgid "submission.comments.addComment"
+msgstr "Tilføj kommentar"
+
+msgid "submission.comments.comments"
+msgstr "Kommentarer"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Er du sikker på, at du vil slette denne kommentar?"
+
+msgid "submission.comments.corrections"
+msgstr "Rettelser"
+
+msgid "submission.comments.editComment"
+msgstr "Rediger kommentar"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importer peer reviews"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Bedømmer {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Ingen kommentarer"
+
+msgid "submission.comments.noReviews"
+msgstr "Ingen bedømmelser"
+
+msgid "submission.comments.review"
+msgstr "Bedømmelse"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Send redaktionel beslutning til bedømmere"
+
+msgid "submission.comments.subject"
+msgstr "Emne"
+
+msgid "submission.complete"
+msgstr "Udfør"
+
+msgid "submission.done"
+msgstr "Udført"
+
+msgid "submission.dueDate"
+msgstr "Forfaldsdato"
+
+msgid "submission.due"
+msgstr "Forfalden"
+
+msgid "submission.editing"
+msgstr "Redigering"
+
+msgid "submission.editMetadata"
+msgstr "Rediger metadata"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Tilbage til e-mail-log"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Er du sikker på, at du vil rydde e-mail-loggen for dette manuskript?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Er du sikker på, at du vil slette denne post i e-mail-loggen?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Slet logpost"
+
+msgid "submission.emailLog"
+msgstr "E-mail-log"
+
+msgid "submission.event.backToEventLog"
+msgstr "Tilbage til hændelseslog"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Er du sikker på, at du vil rydde dette manuskript i hændelsesloggen?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Er du sikker på, at du vil slette denne post i hændelsesloggen?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Slet logpost"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Manuskriptmetadataene er opdateret"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Manuskriptfilen er opdateret"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Bedømmelsesopgaven er accepteret af proxy"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Bedømmelsesopgaven er accepteret"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Bedømmelsesopgaven er afvist"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Forfaldsdatoen for bedømmelsen er ændret"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Bedømmeren er tildelt manuskriptet"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Bedømmerklassificeringen er fremsendt"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Tildelingen af bedømmer til manuskriptet er fjernet"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Bedømmelsesfilen er opdateret"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Bedømmelsesopgaven er startet"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Fil med bedømmelsesanbefaling"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Bedømmelsesopgaven er startet igen"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Bedømmelsen er fremsendt igen"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Bedømmers revideringsfil er opdateret"
+
+msgid "submission.files"
+msgstr "filer"
+
+msgid "submission.galley"
+msgstr "Publiceringsversion"
+
+msgid "submission.history.clearLog"
+msgstr "Ryd log"
+
+msgid "submission.history"
+msgstr "Oversigt"
+
+msgid "submission.history.noLogEntries"
+msgstr "Ingen logposter."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Seneste poster"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "E-mail-log"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Hændelseslog"
+
+msgid "submission.history.submissionNotes"
+msgstr "Manuskriptnoter"
+
+msgid "submission.history.viewLog"
+msgstr "Vis log"
+
+msgid "submission.initiated"
+msgstr "Startet"
+
+msgid "submission.lastModified"
+msgstr "Senest ændret"
+
+msgid "submission.layout.addGalley"
+msgstr "Tilføj et layoutsatsskib"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Er du sikker på, at du vil slette dette satsskib permanent?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Er du sikker på, at du vil fjerne dette billede fra satsskibet?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Er du sikker på, at du vil slette denne supplerende fil permanent?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Slet dette typografiark."
+
+msgid "submission.layout.editGalley"
+msgstr "Rediger et layoutsatsskib"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Publiceringsversion"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML-satsskibsfiler"
+
+msgid "submission.layout.galleyImages"
+msgstr "Billeder"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Bruges til at identificere elementets filformat (f.eks. HTML, PDF osv.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Etiket"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "En etiket (format) er påkrævet."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Valg af sprog er påkrævet."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "En landestandard er påkrævet."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Ingen billeder"
+
+msgid "submission.layout.galleys"
+msgstr "Publiceringsversioner"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Typografiarksfil"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Typografi"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Oprettelse af første publiceringsversion"
+
+msgid "submission.layout.layoutFile"
+msgstr "Layoutfil"
+
+msgid "submission.layout"
+msgstr "Layout"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Layoutversion"
+
+msgid "submission.layout.newGalley"
+msgstr "Opret ny publiceringsversion"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Overfør ny supplerende fil"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Der er ikke føjet en typografiarksfil til denne publiceringsversion."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Bedømmelse af supplerende fil"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Visning af manuskript (publiceringsversion)"
+
+msgid "submission.layout.viewProof"
+msgstr "Vis korrektur"
+
+msgid "submission.metadata"
+msgstr "Manuskriptmetadata"
+
+msgid "submission.noReviewAssignments"
+msgstr "Ingen bedømmelsesopgaver"
+
+msgid "submission.notes.addNewNote"
+msgstr "Tilføj ny note"
+
+msgid "submission.notes.attachedFile"
+msgstr "Vedhæftet fil"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Tilbage til Manuskriptnoter"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Noter"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Ryd alle noter"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Skjul noter"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Vil du fjerne alle manuskriptnoter?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Vil du fjerne denne manuskriptnote?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Opret ny note"
+
+msgid "submission.notes.deleteNote"
+msgstr "Slet note"
+
+msgid "submission.notes.editNote"
+msgstr "Rediger note"
+
+msgid "submission.notes.expandNotes"
+msgstr "Udvid noter"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Ingen manuskriptnoter"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Fjern overført fil"
+
+msgid "submission.notes"
+msgstr "Manuskriptnoter"
+
+msgid "submission.notes.updateNote"
+msgstr "Opdater note"
+
+msgid "submission.notes.viewNotes"
+msgstr "Vis noter"
+
+msgid "submission.originalFile"
+msgstr "Oprindelig fil"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Redigering"
+
+msgid "submission.page.history"
+msgstr "#{$id} Oversigt"
+
+msgid "submission.page.review"
+msgstr "#{$id} Bedømmelse"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Resumé"
+
+msgid "submission.peerReview"
+msgstr "Peer review"
+
+msgid "submission.recommendation"
+msgstr "Anbefaling: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Afvist"
+
+msgid "submission.request"
+msgstr "Forespørgsel"
+
+msgid "submission.response"
+msgstr "Svar"
+
+msgid "submission.restrictions"
+msgstr "Restriktioner"
+
+msgid "submission.reviewMetadata"
+msgstr "Bedøm metadata"
+
+msgid "submission.review"
+msgstr "Bedømmelse"
+
+msgid "submission.reviewVersion"
+msgstr "Bedømmelsesversion"
+
+msgid "submissions.active"
+msgstr "Aktiv"
+
+msgid "submissions.archived"
+msgstr "Arkiveret"
+
+msgid "submission.saveMetadata"
+msgstr "Gem metadata"
+
+msgid "submissions.completed"
+msgstr "Fuldført"
+
+msgid "submissions.declined"
+msgstr "Afvist"
+
+msgid "submissions.incomplete"
+msgstr "Ikke fuldført"
+
+msgid "submissions.noSubmissions"
+msgstr "Ingen manuskripter"
+
+msgid "submissions.queuedEditing"
+msgstr "I kø til redigering"
+
+msgid "submissions.queued"
+msgstr "I kø"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Afventer tildeling"
+
+msgid "submissions.ruling"
+msgstr "Afgørelse"
+
+msgid "submissions.submit"
+msgstr "Fremsend"
+
+msgid "submissions.submitted"
+msgstr "Fremsendt"
+
+msgid "submission.start"
+msgstr "Start"
+
+msgid "submission.submissionHistory"
+msgstr "Oversigt over manuskript"
+
+msgid "submission.submissionManuscript"
+msgstr "Manuskript"
+
+msgid "submission.submissionReview"
+msgstr "Bedømmelse af manuskript"
+
+msgid "submission.submitter"
+msgstr "Indsender"
+
+msgid "submission.summary"
+msgstr "Resumé"
+
+msgid "submission.supplementaryFiles"
+msgstr "Supplerende filer"
+
+msgid "submission.titleAndAbstract"
+msgstr "Titel og resumé"
+
+msgid "submission.underway"
+msgstr "Forestående"
+
+msgid "submission.uploadFileTo"
+msgstr "Overfør fil til"
+
+msgid "submission.viewMetadata"
+msgstr "Vis metadata"
+
+msgid "submission.views"
+msgstr "Visninger"
+
+msgid "author.submit.submissionCitations"
+msgstr "Indsæt en formatteret litteraturliste over værker, der er citeret i det indsendte bidrag. Adskil hver enkelt henvisning med en tom linje."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Registrerings-e-mail for CrossRef"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Indtast en gyldig registrerings-e-mail for CrossRef. Du kan gratis registrere din e-mail på CrossRef-webstedet."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "API-nøgle for ISBNdb"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Indtast din API-nøgle for ISBNdb. Hvis du ikke har en nøgle endnu, kan du gratis anmode ISBNdb-projektet om at få tilsendt en."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Registrerings-e-mail for PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Indtast en gyldig registrerings-e-mail for PubMed, hvis du har en."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "API-nøgle for WorldCat."
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Indtast en gyldig API-nøgle for WorldCat, hvis du har en."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Citationsmodul"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Vælg et af de angivne citationsmoduler."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Anvend ikke som standard (vil stadig være til rådighed for redaktøren)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Intern fejl. Der er blevet angivet en ugyldig værdi for indstillingen 'valgfrit filter'. Indsend en fejlrapport."
+
+msgid "metadata.property.displayName.author"
+msgstr "Forfattere"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "For at opnå de bedste resultater skal forfattere angives i følgende format: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Redaktører"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "For at opnå de bedste resultater skal redaktører angives i følgende format: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Artikel-/afhandlingstitel"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Indtast en gyldig artikel-/afhandlingstitel."
+
+msgid "metadata.property.displayName.source"
+msgstr "Tidsskrift-/bogtitel"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Indtast en gyldig tidsskrift-/bogtitel."
+
+msgid "metadata.property.displayName.date"
+msgstr "Udgivelsesdato"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Indtast en gyldig udgivelsesdato (format: ÅÅÅÅ-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Adgangsdato"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Indtast en gyldig adgangsdato (format: ÅÅÅÅ-MM-DD)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Nummer"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Indtast et gyldigt nummer."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Årgang"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Indtast en gyldig årgang."
+
+msgid "metadata.property.displayName.season"
+msgstr "Sæson"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Indtast et gyldigt sæson-id."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Afsnitstitel"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Indtast en gyldig afsnitstitel."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Udgave"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Indtast en gyldig udgave."
+
+msgid "metadata.property.displayName.series"
+msgstr "Serie"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Indtast en gyldig serie."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Tillæg"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Indtast et gyldigt supplement."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferencedato"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Indtast en gyldig konferencedato (format: ÅÅÅÅ-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Konferencested"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Indtast et gyldigt konferencested."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferencenavn"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Indtast et gyldigt konferencenavn."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferencesponsor"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Indtast en gyldig konferencesponsor."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Institution"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Indtast en gyldig institution."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Første side"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Indtast en gyldig første side (skal være en numerisk værdi)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Sidste side"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Indtast en gyldig sidste side (skal være en numerisk værdi)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Antal sider"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Indtast et gyldigt samlet antal sider (skal være en numerisk værdi)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Udgiversted"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Indtast et gyldigt udgiversted."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Udgivernavn"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Indtast et gyldigt udgivernavn."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN-nummer"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Indtast et gyldigt ISBN-nummer (9 eller 13 cifre)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN-nummer (tryk)"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Indtast et gyldigt ISSN-nummer (tryk)."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN-nummer"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Indtast et gyldigt eISSN-nummer."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI-nummer"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Indtast et gyldigt DOI-nummer."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Custom Publication-id"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Indtast et gyldigt Custom Publication-id."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN-kode"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Indtast en gyldig CODEN-kode."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI-kode"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Indtast en gydlg SICI-kode."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID-nummer"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Indtast et gyldigt PMID-nummer."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Link til udgivelsen"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Indtast et gyldigt alternativt link til udgivelsen."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Kommentar"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Indtast en gyldig kommentar."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Note"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Indtast en gyldig note."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Udgivelsestype"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Sørg for altid at angive en udgivelsestype. De værdier, der er tilladt pt., er bog (til bøger eller afsnit i bøger) samt tidsskrift (til artikler i tidsskrifter). Ellers vil output-formateringen af citationerne ikke fungere korrekt."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Titeltype"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Sørg altid for at angive en gyldig titeltype. De tilladte værdier er 'forkortet', 'oversat', 'alternativ' og 'ensartet'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Del af titel, der ignoreres ved sortering"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Indtast kun de første tegn i titlen, der skal ignoreres ved sortering af titlen."
+
+msgid "metadata.property.displayName.title"
+msgstr "Titel"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Indtast en gyldig titel."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Undertitel."
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Indtast en gyldig undertitel."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Delnummer"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Indtast et gyldigt delnummer."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Delnavn"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Indtast et gyldigt delnavn."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Navnetype"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Sørg for at angive en gyldig navnetype. Tilladte værdier er 'personlig', 'virksomhed' og 'konference'."
+
+msgid "submission.citations"
+msgstr "Referencer"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Referencer"
+
+msgid "submission.currentAgencies"
+msgstr "Aktuelle bureauer"
+
+msgid "submission.indexingInformation"
+msgstr "Indekserer information"
+
+msgid "submission.uploadSuccessful"
+msgstr "Din fil er blevet uploadet."
+
+msgid "submission.loadMessage"
+msgstr "Vent, mens din fil bliver uploadet til serveren."
+
+msgid "submission.artworkFileDetails"
+msgstr "Illustrations-filoplysninger"
+
+msgid "submission.fileDetails"
+msgstr "Filoplysninger"
+
+msgid "submission.nameRequired"
+msgstr "Dette element skal have et navn."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ÅÅÅÅ-MM-DD"
+
+msgid "submission.addFile"
+msgstr "Upload fil"
+
+msgid "submission.comments.addReviews"
+msgstr "Tilføj bedømmelse til e-mail"
+
+msgid "submission.copyedited"
+msgstr "Manuskriptredigeret"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Ekstern URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Indsæt en gyldig ekstern URL (medtag http://)."
+
+msgid "submission.reviewed"
+msgstr "Bedømt"
+
+msgid "submission.supportingAgencies"
+msgstr "Støtteorganisationer"
+
+msgid "submission.createRemote"
+msgstr "Opret ekstern"
+
+msgid "submission.form.name"
+msgstr "Giv denne fil et sigendenavn"
+
+msgid "submission.form.replaceExisting"
+msgstr "Erstat en eksisterende fil?"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} er blevet tildelt til at bedømme manuskriptet {$submissionId} for bedømmelsesrunde {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr "Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er ryddet."
+
+msgid "log.review.reviewReinstated"
+msgstr "Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er startet igen."
+
+msgid "submission.reviewForm"
+msgstr "Review formular"
+
+msgid "submission.reviewFormResponse"
+msgstr "Review formular respons"
+
+msgid "submission.submission"
+msgstr "Indsendelse"
+
+msgid "workflow.stage"
+msgstr "Trin"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Mine tildelte"
+
+msgid "submission.mySubmissions"
+msgstr "Mine indsendelser"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Arkiverede indsendelser"
+
+msgid "submission.status.declined"
+msgstr "Afvist"
+
+msgid "submission.status.published"
+msgstr "Publiceret"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Upload fil"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Upload indsendelsesfil"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Gennemse oplysninger"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Bekræft"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Indsendelsesfiler"
+
+msgid "submission.submit.fileAdded"
+msgstr "Fil tilføjet"
+
+msgid "submission.submit.newFile"
+msgstr "Tilføj en anden fil"
+
+msgid "submission.submit.metadataForm"
+msgstr "Yderligere beskrivelse"
+
+msgid "submission.confirm.message"
+msgstr "Din indsendelse er blevet uploadet og klar til at blive vidersendt. Hvis du ønsker det, kan du gå tilbage og gennemse og tilrette dine informationer, før du fortsætter. Klik på \"Afslut indsendelse\" når du er klar."
+
+msgid "submission.submit.finishSubmission"
+msgstr "Afslut indsendelse"
+
+msgid "submission.submit.submissionComplete"
+msgstr "Indsendelsen afsluttet"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Tak, fordi du er interesseret i at publicere i {$contextName}."
+
+msgid "submission.submit.whatNext"
+msgstr "Hvad er det næste, der sker?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "På nuværende tidspunkt kan du:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Gennemse denne indsendelse"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Påbegynde en ny indsendelse"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Vende tilbage til dashboardet"
+
+msgid "submission.contributors"
+msgstr "Liste over bidragydere"
+
+msgid "submission.documents"
+msgstr "Dokument"
+
+msgid "submission.document"
+msgstr "Dokument"
+
+msgid "submission.art"
+msgstr "Illustrationsmateriale"
+
+msgid "submission.supplementary"
+msgstr "Supplerende indhold"
+
+msgid "submission.permissions"
+msgstr "Tilladelser"
+
+msgid "submission.copyrightHolder"
+msgstr "Ophavsretsindehaver"
+
+msgid "submission.license"
+msgstr "Licens"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC - Navngivelse - Ikke-kommerciel - Ingen bearbejdede værker (By-nc-nd)"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC - Navngivelse - Ikke-kommerciel (By-nc)"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC - Navngivelse - Ikke-kommerciel - Del på samme vilkår (ShareAlike) (by-nc-sa)"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC - Navngivelse - Ingen bearbejdelse (by-nd)"
+
+msgid "submission.license.cc.by4"
+msgstr "CC - Navngivelse (by)"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC - Del på samme vilkår (ShareAlike) (by-sa)"
+
+msgid "submission.editorial"
+msgstr "Manuskriptredigering"
+
+msgid "submission.production"
+msgstr "Produktion"
+
+msgid "submission.files.downloadAll"
+msgstr "Download alle filer"
+
+msgid "submission.queries.submission"
+msgstr "Drøftelser forud for bedømmelse"
+
+msgid "submission.query.replies"
+msgstr "Svar"
+
+msgid "submission.query.from"
+msgstr "Fra"
+
+msgid "submission.query.lastReply"
+msgstr "Sidste svar"
+
+msgid "submission.query.closed"
+msgstr "Afsluttet"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Deltagere"
+
+msgid "submission.identifiers"
+msgstr "Identifikator"
+
+msgid "submission.publisherId"
+msgstr "Public URL identifier"
+
+msgid "submission.informationCenter.history"
+msgstr "Historik"
+
+msgid "submission.informationCenter.notes"
+msgstr "Noter"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Første indsendelse afsluttet."
+
+msgid "submission.event.subjectPrefix"
+msgstr "En e-mail er afsendt:"
+
+msgid "submission.event.fileUploaded"
+msgstr "En fil \"{$originalFileName}\" blev uploadet til indsendelse {$submissionId} af {$username}."
+
+msgid "editor.submission.decision.decline"
+msgstr "Afvis indsendelse"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Tilføj deltager"
+
+msgid "submission.finalDraft"
+msgstr "Filer til redigering"
+
+msgid "submission.queries.editorial"
+msgstr "Drøftelser under manuskriptredigering"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Underret"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Send til produktion"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Fjern deltager"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Du er i gang med at fjerne denne deltager fra <strong>alle</strong> trin. Hvis brugeren har andre igangværende redigeringsopgaver, vil de også blive slettet."
+
+msgid "submission.queries.production"
+msgstr "Drøftelser under produktion"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Bedømmelsesfiler"
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Venter på valg af bedømmere."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Anmod om revision"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Fremsend igen til bedømmelse"
+
+msgid "submission.queries.review"
+msgstr "Drøftelser under bedømmelse"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Bedømmerens vedhæftede fil(er)"
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Afventer svar fra bedømmere."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Såfremt, du uploader en tilretning af en eksisterende fil, skal du angive hvilken."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Dette er ikke en tilretning af en eksisterende fil"
+
+msgid "submission.submit.contributorRole"
+msgstr "Bidragyders rolle"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Primær kontaktperson for redaktionel korrespondance."
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Tilføj denne bidragyder til oversigtslisten"
+
+msgid "submission.upload.query"
+msgstr "Upload indlæg"
+
+msgid "submission.upload.userGroup"
+msgstr "Upload denne fil i min egenskab af..."
+
+msgid "submission.upload.finalDraft"
+msgstr "Upload fil"
+
+msgid "submission.queryNoteFiles"
+msgstr "Drøftelsesfiler"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Mulig kopi eller revision registreret"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "Dette filnavn minder om navnet på en tidligere uploadet fil \"{$revisedFileName}.\" Skal denne fil erstatte \"{$revisedFileName}\"? I så fald vælg nedenstående fil. Hvis ikke, vælg da \"Dette er ikke en tilretning af en eksisterende fil\" inden du fortsætter."
+
+msgid "submission.upload.productionReady"
+msgstr "Upload en produktionsklar fil"
+
+msgid "submission.upload.proof"
+msgstr "Upload en publiceringsklar fil"
+
+msgid "submission.changeFile"
+msgstr "Erstat fil"
+
+msgid "submission.submit.currentFile"
+msgstr "Eksisterende fil"
+
+msgid "submission.attachPermissions"
+msgstr "Knyt følgende tilladelser til indsendelsen:"
+
+msgid "submission.licenseURL"
+msgstr "Licens URL"
+
+msgid "submission.copyrightYear"
+msgstr "Ophavsretsår"
+
+msgid "submission.event.participantAdded"
+msgstr "\"{$name}\" ({$username}) blev tilknyttet denne indsendelse som {$userGroupName}."
+
+msgid "submission.event.fileRevised"
+msgstr "Revision \"{$name}\" (file ID {$fileId}-{$fileRevision}) blev uploadet."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "En fil \"{$title}\" fik seneste revision fjernet af {$username}."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Nye bedømmelser er indsendt."
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Upload manuskriptredigeret fil"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Sprog"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Dette tidsskrift accepterer indleverede manuskripter på en række sprog. Vælg det primære sprog for indleveringen i rullemenuen."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Du er blevet bedt om at gennemse manuskriptredigeringen af \"{$title}\"."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Indsendelseskrav"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Du skal tilkendegive, at du opfylder nedenstående krav inden du fortsætter."
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Jeg accepterer at underlægge mig de ophavsretlige betingelserne."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Acceptér de ophavsretlige betingelser"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Nye bedømmelser er blevet indsendt og bliver behandlet af redaktøren."
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Yderligere metadata"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Ikke tildelt"
+
+msgid "submission.copyediting"
+msgstr "Manuskriptredigering"
+
+msgid "submission.coverage"
+msgstr "Information om dækningsområde"
+
+msgid "submission.event.viewEmail"
+msgstr "Se e-mail"
+
+msgid "submission.authors"
+msgstr "Forfattere"
+
+msgid "submission.authorBiographies"
+msgstr "Forfatterbiografier"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.attachedFile"
+msgstr "Vedhæftet fil"
+
+msgid "submission.howToCite"
+msgstr "Citation/Eksport"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Citationsformater"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Indsendelsesinformation"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadata"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Se events fra tidligere versioner"
+
+msgid "submission.rights"
+msgstr "Rettigheder"
+
+msgid "submission.rights.tip"
+msgstr "Hvis du ønsker, kan du indsætte en kort erklæring om adgangsrettighederne i forbindelse med denne indsendelse."
+
+msgid "submission.source"
+msgstr "Kilde"
+
+msgid "submission.source.tip"
+msgstr "Er denne indsendelse hentet fra en anden ressource? Hvis det er tilfældet, kan du indsætte en URL eller en beskrivelse af ressourcen."
+
+msgid "submission.submissionTitle"
+msgstr "Title på indsendelse:"
+
+msgid "submission.submit.selectFile"
+msgstr "Vælg fil"
+
+msgid "submission.submit.fileInformation"
+msgstr "Fil-information"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Relaterede filer"
+
+msgid "submission.manageDependentFiles"
+msgstr "Håndtér relaterede filer"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Tilføj yderligere information til din indsendelse. Tryk 'Enter' efter hver benævnelse."
+
+msgid "submission.upload.dependent"
+msgstr "Upload en relateret fil"
+
+msgid "submission.type.tip"
+msgstr "Indsendelsestypen er som regel enten 'billede', 'tekst' eller anden multimedietype.  Vælg den, der er mest relevant i forbindelse med din indsendelse.  Eksempler kan ses her: <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.submit.addAuthor"
+msgstr "Tilføj bidragyder"
+
+msgid "workflow.review.internalReview"
+msgstr "Intern bedømmelse"
+
+msgid "workflow.stage.any"
+msgstr "Ethvert trin"
+
+msgid "submission.status.editorial"
+msgstr "Under manuskriptredigering"
+
+msgid "submission.status.production"
+msgstr "Under korrekturlæsning"
+
+msgid "submission.status.review"
+msgstr "Under bedømmelse"
+
+msgid "submission.status.submission"
+msgstr "Afventer redaktørbeslutning"
+
+msgid "submission.status.unassigned"
+msgstr "Ikke tildelt"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Navngiv denne fil"
+
+msgid "submission.upload.noGenre"
+msgstr "Manglende eller ugyldigt element"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Manglende eller ugyldig brugergruppe"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Vælg den fil, du ønsker at revidere."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Hvis du skal fremsende en redigeret årgang (et bind), bør du uploade årgangens enkelte kapitler særskilt, hvor du indtager rollen som årgangsredaktør."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Upload en biblioteksfil"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Kategori for indsendelsesdokument"
+
+msgid "submission.upload.fairCopy"
+msgstr "Upload endelig kopi"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Upload filer"
+
+msgid "submission.upload.response.description"
+msgstr "Efter at have bedømt den tildelte fil, bedes du skrive dine kommentarer til filen ind nedenfor og/eller uploade en annoteret kopi af filen (eller en anden fil)."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Der er i øjeblikket ingen filer der skal revideres."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Der udbedes en revision"
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Send til ekstern bedømmelse"
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Indsendelse godkendt."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Indsendelsen afvist."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Bedømmelserne afsluttet."
+
+msgid "editor.submission.noneAssigned"
+msgstr "Ingen tilføjet"
+
+msgid "editor.submission.participant"
+msgstr "Deltager"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "Brugerne er tilknyttet workflowtrinnene via brugergruppe. Enhver bruger, tilknyttet dette trin vil automatisk blive knyttet til de øvrige trin som er tilknyttet gruppen. Dette er sædvanligvis forbeholdt redaktører, forfattere og oversættere."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Vælg en brugergruppe"
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Du skal udvælge en bruger til den angivne brugergruppe."
+
+msgid "editor.submission.decision"
+msgstr "Afgørelse"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Send til intern bedømmelse"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "Sidens korrekturfil skal angives som værende godkendt for at blive gjort tilgængelig. Ønsker du at godkende den?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Godkend korrekturer"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Denne korrekturfil vil ikke længere blive gjort offentlig tilgængelig via download eller anden erhvervelse. Ønsker du at misbillige det?"
+
+msgid "submission.currentStage"
+msgstr "Nuværende trin"
+
+msgid "submission.noActionRequired"
+msgstr "Der skal ikke foretages yderligere"
+
+msgid "submission.actionNeeded"
+msgstr "Kræver handling"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Der fremkom en fejl under forsøget på at tilføje auditøren. Prøv igen."
+
+msgid "submission.event.fileDeleted"
+msgstr "En fil \"{$originalFileName}\" blev slettet under indsendelse {$submissionId} af {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr "En filrevision \"{$originalFileName}\" blev uploadet til indsendelse {$submissionId} af {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr "En filrevision \"{$originalFileName}\" blev slettet under indsendelse {$submissionId} af {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) blev tilføjet som auditør i forbindelse med filen \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) blev fjernet som auditør i forbindelse med filen \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) har afsluttet en revision og uploadet \"{$file}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) underskrevet med godkendelse i forbindelse med \"{$file}.\""
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) har godkendt korrekturen til \"{$formatName}.\""
+
+msgid "submission.overview"
+msgstr "Indsendelsesoversigt"
+
+msgid "submission.description"
+msgstr "Beskrivelse"
+
+msgid "submission.stageNotInitiated"
+msgstr "Trinnet blev ikke påbegyndt."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Du er belvet bedt om at bedømme layout til \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "Du er belvet bedt om at indeksere \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Seneste redaktørbeslutning."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Indsendelse godkendt."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Den eksterne bedømmelsesproces påbegyndt."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Revision påkrævet."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Fremsend igen til bedømmelse."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Indsendelse afvist."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Produktionsprocessen påbegyndt."
+
+msgid "notification.uploadedResponse"
+msgstr "Svar uploadet."
+
+msgid "notification.type.editorAssignment"
+msgstr "En redaktør skal tilknyttes før bedømmelse kan påbegyndes. Tilføj redaktør ved at anvende linket 'Deltagere' ovenfor."
+
+msgid "submission.productionReady"
+msgstr "Bog tilgængelig"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Upload revideret fil"
+
+msgid "submission.supplementary.creator"
+msgstr "Filens ophavsmand (eller ejer)"
+
+msgid "submission.supplementary.subject"
+msgstr "Emne"
+
+msgid "submission.supplementary.publisher"
+msgstr "Udgiver"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Bidragyder eller sponsorvirksomhed"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Gå til denne indsendelses workflow"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "En produktionsredaktør skal tilføjes før produktionsprocessen kan påbegyndes. Tilføj produktionsredaktør via linket 'Deltagere' ovenfor."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "En produktionsredaktør skal tilføjes før den redaktionelle proces kan påbegyndes. Tilføj produktionsredaktør via linket 'Deltagere' ovenfor."
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Opret et nyt bedømmelsesformularelement"
+
+msgid "grid.action.editMetadata"
+msgstr "Redigér metadata"
+
+msgid "submission.copyright"
+msgstr "Ophavsret"
+
+msgid "submission.copyrightStatement"
+msgstr "Ophavsret (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Indsæt en valid ekstern URL (inkludér http://)."
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Dette værk er under følgende licens <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Navngivelse – Ikke-kommerciel – Ingen Bearbejdede Værker (by-nc-nd)</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Dette værk er under følgende licens <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Navngivelse –Ikke-kommerciel (by-nc)</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Dette værk er under følgende licens <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Navngivelse – Ikke-kommerciel – Del på samme vilkår (ShareAlike) (by-nc-sa)</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Dette værk er under følgende licens <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Navngivelse – Ingen bearbejdelser (by-nd)</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Dette værk er under følgende licens <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Navngivelse (by)</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Dette værk er under følgende licens <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Del på samme vilkår (ShareAlike) (by-sa)</a>.</p>"
+
+msgid "submission.query.subject"
+msgstr "Emne"
+
+msgid "submission.query.messages"
+msgstr "Beskeder"
+
+msgid "submission.query.addNote"
+msgstr "Tilføj besked"
+
+msgid "grid.action.openNoteForm"
+msgstr "Tilføj et nyt svar til drøftelsen"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} svarede på {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} påbegyndte en drøftelse: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "Der er nyt under følgende drøftelse \"{$queryTitle}\" omhandlende indsendelsen \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr "Du er blevet føjet til følgende drøftelse \"{$queryTitle}\" omhandlende indsendelsen \"{$submissionTitle}\"."
+
+msgid "submission.authorBiography"
+msgstr "Forfatterbiografi"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Download henvisninger"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) blev fjernet som en {$userGroupName}."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Rettelserne er blevet indsendt."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "En bedømmelse er forfalden."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Afventer anbefalinger fra redaktører."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Nye redaktionelle anbefalinger er blevet indsendt."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Alle anbefalinger er indløbet og en afgørelse skal foretages."
+
+msgid "editor.submission.decision.accept"
+msgstr "Acceptér indsendelse"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Acceptér og spring bedømmelse over"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Tilmeld en redaktør for at aktivere de redaktionelle beslutninger på dette trin."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Vælg anbefaling"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Ændre anbefaling"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Anbefaling: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Anbefalinger: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Anbefaling"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Anbefal en redaktionel afgørelse i forbindelse med denne indsendelse."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Registrerede anbefalinger"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Næste: Vælg filer til {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Vælg de filer, du gerne vil sende videre til {$stageName} trinnet."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Forrige: Forfatternotifikationer"
+
+msgid "notification.type.editorAssign"
+msgstr "Du er blevet valgt som redaktør på indsendelsen \"{$title}\"."
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Vælg bedømmelsesfiler til deling med forfatteren/forfatterne"
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Afventer svar fra bedømmeren."
+
+msgid "submission.review.status.declined"
+msgstr "Bedømmeren har afvist bedømmelsesanmodningen."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Bedømmeren har overskredet forfaldsdato for svar."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Bedømmeren har overskredet forfaldsdato for bedømmelse."
+
+msgid "submission.review.status.accepted"
+msgstr "Denne bedømmelse er blevet accepteret."
+
+msgid "submission.review.status.received"
+msgstr "Bedømmer har indsendt bedømmelse."
+
+msgid "submission.review.status.complete"
+msgstr "Denne bedømmelse er afsluttet."
+
+msgid "submission.review.status.thanked"
+msgstr "Denne bedømmelse er afsluttet og bedømmeren har modtaget tak for deltagelse."
+
+msgid "submission.query.noParticipantOptions"
+msgstr "Der skal udpeges mindst én deltager i forbindelse med denne indsendelse før en drøftelse kan påbegyndes."
+
+msgid "submission.list.infoCenter"
+msgstr "Historik & Noter"
+
+msgid "submission.list.responseDue"
+msgstr "Svar forfalden"
+
+msgid "submission.list.reviewDue"
+msgstr "Bedømmelse forfalden"
+
+msgid "submission.list.confirmDelete"
+msgstr "Slet indsendelse?"
+
+msgid "submission.list.viewSubmission"
+msgstr "Se indsendelse"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Angivne bedømmelser afsluttet"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Tilretninger indsendt"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Manuskriptredigerede filer indsendt"
+
+msgid "submission.list.galleysCreated"
+msgstr "Publiceringsversioner oprettet"
+
+msgid "submission.list.filesPrepared"
+msgstr "Filer klargjort"
+
+msgid "submission.list.discussions"
+msgstr "Påbegynd drøftelser"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Denne indsendelse skal afsluttes før en redaktør vil bedømme den."
+
+msgid "submission.citations.description"
+msgstr "Indsæt hver reference på en ny linje så den kan ekstraheres."
+
+msgid "submission.parsedCitations"
+msgstr "Ekstraherede referencer"
+
+msgid "submission.parsedCitations.description"
+msgstr "Følgende referencer er blevet ekstraherede og vil blive knyttet til indsendelsesmetadata."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Ekstraher og gem referencer"
+
+msgid "submission.list.currentStage"
+msgstr "I øjeblikket på trin {$stage}"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "Du har fået tildelt flere roller i forbindelse med denne indsendelse. Vil du have adgang til <a href=\"{$urlAuthorWorkflow}\">Forfatter-workflowet</a>  eller til det<a href=\"{$urlEditorialWorkflow}\">Redaktionelle-workflow</a>?"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.list.reviewComplete"
+msgstr "Bedømmelse indsendt"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "Du har fået tildelt en redaktionel rolle i forbindelse med denne indsendelse. Vil du have adgang til det <a href=\"{$urlEditorialWorkflow}\">Redaktionelle workflow</a>?"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "Deltageren du valgte er blevet sat til at gennemføre en blind review bedømmelse. Hvis du vælger denne deltager, giver du vedkommende adgang til forfatterens identitet. Du opfordres til ikke at vælge denne deltager, medmindre du kan sikre integriteten i peer review processen"
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Indsendelsen skal fremsendes igen til en ny bedømmelsesrunde."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Indsendelsen er blevet fremsendt igen til en ny bedømmelsesrunde."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Indtast et sprog."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Indtast et emne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Indtast et fagområde."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Indtast et nøgleord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Indtast information om dækning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Indtast en type."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Indtast en kilde."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Indtast rettighederne."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Indtast referencerne."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Indsend som"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Vælg den rolle, som bedst beskriver dit bidrag til denne indsendelse."
+
+msgid "submission.submit.contactConsent"
+msgstr "Tilhørende kontakt"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Ja, jeg vil gerne kontaktes i forbindelse med denne indsendelse."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "Indsend med en af følgende roller, hvis du gerne selv vil kunne redigere og publicere denne indsendelse: {$managerGroups}"
+
+msgid "log.review.reviewUnconsidered"
+msgstr "{$editorName} har markeret runde {$round} bedømmelsen til indsendelse {$submissionId} som værende ikke overvejet."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.list.assignEditor"
+msgstr "Tildel Redaktør"
+
+msgid "grid.category.categories"
+msgstr "Kategorier"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titel (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titel (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Udgivelsesdato (ældste først)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Udgivelsesdato (nyeste først)"
+
+msgid "category.coverImage"
+msgstr "Forsidebillede"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorier"
+
+msgid "submission.currentCoverImage"
+msgstr "Nyeste billede"
+
+msgid "catalog.category.noItems"
+msgstr "Intet er endnu blevet offentliggjort i denne kategori."
+
+msgid "catalog.category.subcategories"
+msgstr "Underkategorier"

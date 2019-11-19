@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:40+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Sol·licitud"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Directrius"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Descarrega i revisa"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Finalització"
+
+msgid "reviewer.step1.request"
+msgstr "Sol·licita una revisió"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Se us ha seleccionat com a possible revisor/a de la tramesa següent.  A continuació es mostra una visió general de la tramesa, així com la línia temporal d'aquesta revisió.  Esperem que hi pugueu participar."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Visualitza els detalls de la tramesa"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Fitxers del revisor/a"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Rebutja la sol·licitud de revisió"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Podeu anotar la raó per la qual heu rebutjat la revisió al quadre de text següent i comunicar-ho a l'editor/a."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Accepta la revisió i continua al pas núm. 2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continua al pas núm. 3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Tramet la revisió"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Directrius per al revisor/a"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Aquesta institució publicadora té una clàusula per impedir la divulgació de continguts en cas de conflicte d'interessos amb els seus revisors/ores.  Preneu-vos un moment per llegir aquesta política."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "No tinc cap conflicte d'interessos"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Tinc un conflicte d'interessos (especifiqueu-ho a continuació)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Conflicte d’interessos"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Directrius de revisió"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Aquesta institució publicadora no ha establert directrius per al revisor/a."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Feu clic als noms dels fitxers que vulgueu descarregar i reviseu els fitxers associats amb aquesta tramesa. Podeu revisar els fitxers en pantalla o bé imprimir-los."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Introduïu (o enganxeu) la revisió d'aquesta tramesa al formulari que hi ha a continuació."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "A més, també podeu carregar fitxers de consulta per a l'editor/a i/o l'autor/a, incloses les versions revisades dels fitxers originals per revisar."
+
+msgid "reviewer.complete"
+msgstr "S'ha tramès la revisió"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Esteu segur/a que voleu trametre aquesta revisió?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Gràcies per finalitzar la revisió d'aquesta tramesa. La vostra revisió s'ha tramès correctament. Agraïm que hàgiu contribuït a garantir la qualitat de la feina que publiquem; és possible que l'editor/a us torni a contactar per obtenir més informació."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Més informació sobre les dates de venciment"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "L'editor/a us demana que accepteu o rebutgeu la revisió abans de la data de venciment de la resposta i que acabeu la revisió abans de la data de venciment de la revisió."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Per a l'autor i l'editor"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Només per a l'editor"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "L'usuari/ària actual no està assignat com a revisor/a per al document sol·licitat."

@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. درخواست"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. دستورالعمل‌ها"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. دانلود و داوری"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. تکمیل"
+
+msgid "reviewer.step1.request"
+msgstr "درخواست برای داوری"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "شما به عنوان یک داور احتمالی برای این مقاله ارسالی انتخاب شده‌اید. در زیر کلیاتی از مقاله و همچنین بازه زمانی برای داوری نمایش داده شده است. امیدواریم که بتوانید در داوری این مقاله همکاری کنید."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "مشاهده تمام جزئیات مقاله ثبت شده"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "فایل‌های داور"
+
+msgid "reviewer.submission.declineReview"
+msgstr "رد درخواست داوری"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "در صورت تمایل، دلیل رد داوری این مقاله را برای سردبیر در فیلد زیر وارد کنید."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "قبول داوری و رفتن به مرحله دوم"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "رفتن به مرحله سوم"
+
+msgid "reviewer.submission.submitReview"
+msgstr "ثبت داوری"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "دستورالعمل‌های داوری"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "این انتشارات سیاست‌هایی برای بررسی تضاد منافع دارد. لطفاً این سیاست را مطالعه کنید."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "من هیچ تضاد منافعی ندارم"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "ممکن است این مقاله شامل تضاد منافع  باشد (در زیر مشخص شده)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "تضاد منافع"
+
+msgid "reviewer.submission.guidelines"
+msgstr "دستورالعمل‌های داوری"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "این انتشارات هیچ دستورالعمل داوری را مشخص نکرده است."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "برای دانلود فالی‌های این مقاله ارسالی بر روی اسم فایل‌ها کلیک کنید."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "نتیجه داوری خود را در فرم زیر ثبت کنید."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "فایی‌هایی که مایلید سردبیر و یا نویسنده آن‌ها را مشاهده کنند را آپلود کنید."
+
+msgid "reviewer.complete"
+msgstr "داوری ثبت شد."
+
+msgid "reviewer.confirmSubmit"
+msgstr "آیا مطمئن به ثبت این داوری هستید"
+
+msgid "reviewer.complete.whatNext"
+msgstr "از تکمیل داوری این مقاله متشکریم. از همکاری شما در بهبود کیفیت محتویات منتشر شده متشکریم، ممکن است در ادامه برای دریافت اطلاعات بیشتر درباره این داوری با شما ارتباط برقرار کنیم."
+
+msgid "reviewer.aboutDueDates"
+msgstr "درباره مهلت‌ها"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "سردبیر تقاضا دارد تا در مهلت مشخص شده داوری این مقاله را قبول و یا رد کنید و در صورت پذیرش، در مدت زمان مشخص شده برای داوری نتیجه داوری را ارسال کنید."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "برای نویسنده و دبیر"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "فقط برای دبیر"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "کاربر کنونی به عنوان داور این سند ثبت نشده است."

@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:05+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Zahtev"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Uputstva"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Preuzmi i uradi recenziju"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Završetak"
+
+msgid "reviewer.step1.request"
+msgstr "Zahtev za recenziranje"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Odabrani ste kao potencijalni recenzent za sledeći rad. Niže se nalazi pregled predaje kao i rokovi za završetak recenzije. Nadamo se Vašem doprinosu."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Pogledaj sve detalje predaje"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Recenzentski fajlovi"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Dobij zahtev za recenziranje"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "U polju niže možete navesti razloge odbijanja recenziranja i poslati ih uredniku."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Prihvati zahtev i pređi na 2. korak"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Nastavi na 3. korak"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Pošalji recenziju"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Uputstva za recenzente"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Ovaj izdavač ima politiku objavljivanja potencijalnih sukoba interesa recenzenata. Molimo idzvojite malo vremena i pročitajte."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Nemam sukoba interesa"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Možda imam sukoba interesa (navedite niže)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Sukobi interesa"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Uputstva za recenziranje"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Izdavač nije dao uputstva za recenziranje."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Kliknite na imena dokumenata koji su vezani za prijavu da biste ih preuzeli na vaš računar."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Upištite ili kopirajte vašu recenziju u formu niže."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Dostavite dokumente koje bi želeli da urednik i/ili autor konsultuju, uključujući i revidirane verzije recenzentskih fajlova."
+
+msgid "reviewer.complete"
+msgstr "Recenzija je poslata"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Da li ste sigurni da želite da pošaljete ovu recenziju?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Hvala Vam što ste uradili recenziju za ovaj rad. Vaša recenzija je uspešno poslata, zahvaljujemo Vam se na doprinosu kvalitetu radova koje objavljujemo. Ukoliko bude potrebno uredni će vas kontaktirati za dodatne informacije."
+
+msgid "reviewer.aboutDueDates"
+msgstr "O rokovima"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Urednik zahteva da ili prihvatite ili odbijete recenziranje pre isteka roka za odgovor i završite recenziju do isteka roka za recenziranje"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Za urednika i autora"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Samo za urednika"

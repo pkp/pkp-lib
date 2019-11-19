@@ -1,0 +1,317 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:01+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Ime nastavitve"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Vrednost nastavitve"
+
+msgid "admin.adminFunctions"
+msgstr "Administrativne funkcije"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Ste prepričani, da želite trajno odstraniti za vir avtentikacije?"
+
+msgid "admin.auth.create"
+msgstr "Ustvari vir za avtentikacijo"
+
+msgid "admin.auth.noneCreated"
+msgstr "Na voljo ni nobenega vira za avtentikacijo."
+
+msgid "admin.authSources"
+msgstr "Viri za avtentikacijo"
+
+msgid "admin.clearDataCache"
+msgstr "Izbriši začasen pomnilnik (cash) za podatke"
+
+msgid "admin.clearTemplateCache"
+msgstr "Izbriši začasen pomnilnik (cash) za predloge"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Konfiguracijska datoteka je bila uspešno posodobljena. Opozorilo: v primeru, da spletišče ne bo pravilno delovalo, boste morda morali ročno popraviti konfiguracijsko datoteko <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Ste prepričani, da želite izbrisati začasen pomnilnik za predloge?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Ste prepričani, da želite prekiniti vse uporabniške seje? Vsi uporabniki, ki so trenutno prijavljeni v sistem, se bodo morali ponovno prijaviti v sistem (vključno z vami)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Vsebina konfiguracijske datoteke"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Ste prepričani, da želite trajno izbrisati  {$contextName} skupaj z vso pripadajočo vsebino?"
+
+msgid "admin.currentVersion"
+msgstr "Trenutna verzija"
+
+msgid "admin.dateInstalled"
+msgstr "Datum namestitve"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Spodaj je prikazana posodobljena vsebina konfiguracijske datoteke. Odprite datoteko <tt>config.inc.php</tt> v primernem urejevalniku in zamenjajte vsebino datoteke s spodnjo."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Prikaži novo konfiguracijo"
+
+msgid "admin.expireSessions"
+msgstr "Prekini uporabniške seje"
+
+msgid "admin.languages.download"
+msgstr "Prenesi jezikovni paket"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Prenesi jezikovne pakete"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Opis jezikovnega paketa ni bilo mogoče odpreti iz PKP spletne strani."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Vpis novega jezika v registracijsko datoteko, običajno \"registry/locales.xml\" ni bilo mogoče."
+
+msgid "admin.languages.cantDisable"
+msgstr "Ta jezik je primaren za to spletišče. Ne morete ga izključiti, dokler ne izberete drugega primarnega jezika."
+
+msgid "admin.languages.confirmReload"
+msgstr "Ste prepričani, da želite ponovno naložiti ta jezik? To bo izbrisalo vse obstoječe specifike, kot so email predloge."
+
+msgid "admin.languages.installedLocales"
+msgstr "Nameščeni jeziki"
+
+msgid "admin.languages.installLanguages"
+msgstr "Upravljaj jezike"
+
+msgid "admin.languages.availableLocales"
+msgstr "Jeziki, ki so na voljo"
+
+msgid "admin.languages.installLocale"
+msgstr "Namesti jezik"
+
+msgid "admin.languages.installLocales"
+msgstr "Namesti"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Namesti nov jezik"
+
+msgid "admin.languages.languageSettings"
+msgstr "Nastavitve jezika"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Za namestitev ni na voljo drugih jezikov."
+
+msgid "admin.languages.reload"
+msgstr "Ponastavi jezik"
+
+msgid "admin.languages.uninstall"
+msgstr "Odstrani jezik"
+
+msgid "admin.phpInfo"
+msgstr "Razširjene informacije o PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Razporejevalnik opravil"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proces opravila se je začel."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proces opravila se je ustavil."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Opravilo ni povzročila nobenega zapisa v \"log\"."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Izvršila se je avtomatska namestitev programske opreme {$softwareName}. Zapis v \"log\" datoteki lahko preneste tukaj: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Ste prepričani, da želite izbrisati vse \"log\" zapise opravil, ki so se zagnale iz razporejevalnika opravil?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Izbriši \"log\" zapise izvajanj opravil iz raporejevalnika opravil."
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Opomnik za recenzijo"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Opomnik za potek naročnine"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache verzija"
+
+msgid "admin.server.dbDriver"
+msgstr "Gonilnik baze podatkov"
+
+msgid "admin.server.dbVersion"
+msgstr "Verzija podatkovnega strežnika"
+
+msgid "admin.serverInformation"
+msgstr "Informacije o strežniku"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP verzija"
+
+msgid "admin.server.platform"
+msgstr "OS platforma"
+
+msgid "admin.settings"
+msgstr "Nastavitve"
+
+msgid "admin.settings.about"
+msgstr "O tem spletišču"
+
+msgid "admin.settings.contactEmail"
+msgstr "Email glavnega stika"
+
+msgid "admin.settings.contactName"
+msgstr "Ime glavnega stika"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tVaša OJS namestitev beleži več kot le eno metriko uporabe, ki so prikazane v različnih kontekstih.\n"
+"\t\tV nekaterih primerih mora biti uporabljena le ena metrika (npr. vrstni red najbolj branih člankov ali vrstni red iskalnih rezultatof. Prosimo izberite eno od konfiguriranih metrik kot privzetot.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Uvod"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Najmanjša dolžina gesla (znakov)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Jezik spletišča"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Napačen format stilske tablice. Dovoljeni formati je .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Stilska tablica spletišča"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logotip spletišča"
+
+msgid "admin.settings.siteTitle"
+msgstr "Ime spletišča"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema spletišča"
+
+msgid "admin.siteAdmin"
+msgstr "Administracija spletišča"
+
+msgid "admin.siteManagement"
+msgstr "Upravljanje spletišča"
+
+msgid "admin.siteSettings"
+msgstr "Nastavitve spletišča"
+
+msgid "admin.siteSetup"
+msgstr "Namestitev spletišča"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Konfiguracijska datoteka <tt>config.inc.php</tt> ne obstaja, ni berljiva ali je neveljavna."
+
+msgid "admin.systemInformation"
+msgstr "Informacije o sistemu"
+
+msgid "admin.versionBuild"
+msgstr "Popravek"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Preveri za posodobitve"
+
+msgid "admin.version.downloadPackage"
+msgstr "Prenesi"
+
+msgid "admin.version.downloadPatch"
+msgstr "Prenesi popravek"
+
+msgid "admin.versionHistory"
+msgstr "Zgodovina verzij"
+
+msgid "admin.version.latest"
+msgstr "Zadnja verzija"
+
+msgid "admin.versionMajor"
+msgstr "Glavna"
+
+msgid "admin.versionMinor"
+msgstr "Manjša"
+
+msgid "admin.version.moreInfo"
+msgstr "Več informacij"
+
+msgid "admin.versionRevision"
+msgstr "Revizija"
+
+msgid "admin.version.updateAvailable"
+msgstr "Na voljo je posodobljena verzija"
+
+msgid "admin.version.upToDate"
+msgstr "Vaš sistem je posodobljen"
+
+msgid "admin.version"
+msgstr "Različica"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Osnovna pot {$path} mora biti znotraj  mape z javnimi datotekami."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Mapa {$path} ni mapa ali pa ni dosegljiva."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Dadoteke {$filename} ni bilo mogoče premakniti iz {$currentFilePath} v {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Datoteka {$filename} je bial obdelana in arhivirana."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Nalagalnik datotek"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopiranje preteklih apache dnevnikov, filtriranje zapisov vezanih na to namestitev, filtering the entries related with this installation, znotraj mape vtičnika za statistične podatke o uporabi. Zagnano mora biti pod uporabnikom, ki ima dovolj privilegijev za bralni dostop do apache dnevnikov.\n"
+"\n"
+"\tTo orodje bo skopiralo le datoteke, ki še niso v usageStats mapah (stage, processing, archive, reject).\n"
+"\n"
+"Uporaba: {$scriptName} pot/do/apache/log/file.log\n"
+"Uporaba (obdelva vseh datotek znotraj mape): {$scriptName} pot/do/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Napaka: ni bilo mogoče ustvariti začasne mape {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Napaka: datoteka {$filePath} ne obstja ali ni dostopna."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Napaka: kopiranje datoteke iz {$filePath} v {$tmpFilePath} ni bilo mogoče"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Napaka: datoteke {$tmpFilePath} ni bilo mogoče odstraniti"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Opozorilo: datoteka {$filePath} že obstaja znotraj usageStats mape."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Uspešno: {$filePath} v {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Izvajanje programa \"{$utilPath}\" je vrnilo naslednjo napako: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Napaka: \"{$utilPath}\" ni možno zagnati. Preverite {$utilVar} nastavitve v config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Na voljo ni nobneih jezikovnih paketov za prenos."

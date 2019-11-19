@@ -1,0 +1,1478 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:07+00:00\n"
+"Language: \n"
+
+msgid "manager.announcements"
+msgstr "Duyurular"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Bu duyuruyu kalıcı olarak silmek istediğinizden emin misiniz?"
+
+msgid "manager.announcements.create"
+msgstr "Yeni Duyuru Oluştur"
+
+msgid "manager.announcements.createTitle"
+msgstr "Oluştur"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Son Tarih"
+
+msgid "manager.announcements.edit"
+msgstr "Duyuruyu Düzenle"
+
+msgid "manager.announcements.editTitle"
+msgstr "Düzenle"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Lütfen son tarih için gün bilgisinin yanı sıra ay ve yıl da seçiniz."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Son Tarih"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Duyuru, bu tarihe kadar okuyuculara gösterilir. Duyurunun sürekli görüntülenmesi için boş bırakın."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Lütfen son tarih için ay bilgisinin yanı sıra gün ve yıl da seçiniz."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Lütfen geçerli bir son duyuru tarihi seçiniz."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Lütfen son tarih için yıl bilgisinin yanı sıra son tarih için gün ve ay da belirleyiniz."
+
+msgid "manager.announcements.form.description"
+msgstr "Açıklama"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Duyurunun tam metni."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Duyurunun tam metni gerekli."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Duyuru başlığı ile birlikte gösterilecek kısa tanım."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Duyuru için kısa bir tanım gerekli."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Kısa Tanım"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Kaydet ve Başka Oluştur"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Bir duyuru başlığı gerekli."
+
+msgid "manager.announcements.form.title"
+msgstr "Başlık"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tür"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Lütfen geçerli bir duyuru türü seçiniz."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Duyuru oluşturulmadı."
+
+msgid "manager.announcements.title"
+msgstr "Başlık"
+
+msgid "manager.announcements.type"
+msgstr "Tür"
+
+msgid "manager.announcementTypes"
+msgstr "Duyuru tipleri"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Uyarı! Bu duyuru türü ve bu tür ile kayıtlı tüm duyurular silinecektir. Devan etmek ve bu duyuru türlerini silmek itediğinizden emin misiniz?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Duyuru Türü Oluştur"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Oluştur"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Duyuru Türünü Düzenle"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Düzenle"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Kaydet ve Başka Oluştur"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Bu isim ile duyuru türü zaten var."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "İsim"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Duyuru türü için bir isim gerekli."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Duyuru türü oluşturulmadı."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Duyuru Türü"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Bu e-posta şablonunu silmek istediğinizden emin misiniz?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Bu şablonunu ön tanımlı biçimine döndürmek istediğinizden emin misiniz?"
+
+msgid "manager.emails.createEmail"
+msgstr "E-posta Oluştur"
+
+msgid "manager.emails.disable"
+msgstr "Kapat"
+
+msgid "manager.emails.editEmail"
+msgstr "E-posta Düzenle"
+
+msgid "manager.emails.editTestExample"
+msgstr "E-posta Test Örneğini Düzenle"
+
+msgid "manager.emails.emailKey"
+msgstr "E-posta Anahtarı"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Belirtilen anahtara sahip bir e-posta zaten var. E-posta anahtarları tekil olmalıdır."
+
+msgid "manager.emails.emailTemplate"
+msgstr "E-posta Şablonu"
+
+msgid "manager.emails.enabled"
+msgstr "Bu e-posta şablonu etkinleştir"
+
+msgid "manager.emails.enable"
+msgstr "Etkinleştir"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "E-posta için tekil bir e-posta anahtarı gerekli."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "E-posta için bir metin oluşturulması gereklidir."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "E-posta için bir konu belirlenmesi gereklidir."
+
+msgid "manager.emails"
+msgstr "Hazırlanmış E-postalar"
+
+msgid "manager.emails.reset"
+msgstr "Sıfırla"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Ön Tanımlı Biçime Dön"
+
+msgid "manager.filesBrowser"
+msgstr "Dosya Tarayıcı"
+
+msgid "manager.files.confirmDelete"
+msgstr "Bu dosyayı veya dizini silmek istiyor musunuz? Bir dizinin silinebilmesi için boş olması gerekir."
+
+msgid "manager.files.createDir"
+msgstr "Dizin oluştur"
+
+msgid "manager.files.emptyDir"
+msgstr "Bu dizinde dosya bulunmadı."
+
+msgid "manager.files.indexOfDir"
+msgstr "{$dir} dizini"
+
+msgid "manager.files.parentDir"
+msgstr "Üst Dizin"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Yüklenmiş Dosyalar"
+
+msgid "manager.files.uploadFile"
+msgstr "Dosya Yükle"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Bu grubu silmek istediğinizden emin misiniz?"
+
+msgid "manager.groups.createTitle"
+msgstr "Başlık Oluştur"
+
+msgid "manager.groups.editTitle"
+msgstr "Başlığı Düzenle"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Bir grup başlığı gerekli."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Üye Ekle"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Bu grup üyeliğini silmek istediğinizden emin misiniz?"
+
+msgid "manager.groups.membership"
+msgstr "Üyelik"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Bu grupta hiç üye kayıtlı değil."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Hiç kullanıcı bulunamadı."
+
+msgid "manager.groups.title"
+msgstr "Başlık"
+
+msgid "manager.importExport"
+msgstr "Veri Alma/Verme"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Bu sistem isteğe bağlı olarak çeşitli dillerde bazı önemli bilgilerin girilmesine izin verir. Bu özelliği kullanmak için, alternatif diller seçin ve aşağıdaki seçeneklerden birini kulanın."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Tüm sayfalarda dil seçimi olanağı ile siteyi geliştirmek için desteklemek istediğiniz dilleri seçiniz. Dil seçimi menüsü yalnızca birden fazla dil desteği seçilir ise sayfalarda sunulacaktır. "
+
+msgid "manager.payment.timestamp"
+msgstr "Zaman Damgası"
+
+msgid "manager.people.authSource"
+msgstr "Yetkilenme kaynağı"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Bu üye kayıt dışı kalsın mı?"
+
+msgid "manager.people.createUser"
+msgstr "Yeni Üye Oluştur"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Rasgele bir şifre oluştur."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Üyeye kullanıcı adını ve şifresini içeren bir hoş geldin e-postası gönder."
+
+msgid "manager.people.disable"
+msgstr "Pasifleştir"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Yetki verme"
+
+msgid "manager.people.editProfile"
+msgstr "Profili Düzenle"
+
+msgid "manager.people.editUser"
+msgstr "Üye Düzenle"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Seçilen üylere e-posta gönder"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Şu şekilde kaydolmuş üyelere e-posta gönder"
+
+msgid "manager.people.emailUsers"
+msgstr "Üyelere e-posta gönder"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Dil seç"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "E-posta göndermek istediğiniz üyelerin isimlerinin yanındaki kutuları işaretleyiniz."
+
+msgid "manager.people.enable"
+msgstr "Etkinleştir"
+
+msgid "manager.people.enroll"
+msgstr "Kullanıcıyı Kaydet"
+
+msgid "manager.people.enrollment"
+msgstr "Kayıt"
+
+msgid "manager.people.enrollSelected"
+msgstr "Seçilen Üyeleri Kaydet"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Rolü Eşle"
+
+msgid "manager.people.enrollSync"
+msgstr "Eşzamanlı Kayıt"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Üyeler herhangi bir rol ile atanabilir veya iptal edilebilir."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Kullanıcıyı böyle kaydet"
+
+msgid "manager.people.invalidUser"
+msgstr "Üzgünüz, böyle bir kullanıcı yok."
+
+msgid "manager.people.mergeUser"
+msgstr "Kullanıcıyı birleştir"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "{$oldAccountCount} adlı üyenin hesap bilgilerini {$newUsername} alı üyenin hesabına taşımak istediğinizden emin misiniz? {$oldAccountCount} adlı üye hesabı kapatılacaktır ve bu işlemin geri dönüşü yoktur."
+
+msgid "manager.people.mergeUsers"
+msgstr "Üyeleri Birleştir"
+
+msgid "manager.people.mustChooseRole"
+msgstr "\"Üye Kaydı\"nı tıklamadan önce lütfen bir rol seçiniz."
+
+msgid "manager.people.mustProvideName"
+msgstr "Üye için en azından bir soyadı belirtiniz."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Eşleşmeyen üyeler."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Kayıtsız üye."
+
+msgid "manager.people"
+msgstr "Kişiler"
+
+msgid "manager.people.remove"
+msgstr "Kaldır"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Kaydet ve başka bir üye oluştur"
+
+msgid "manager.people.signInAs"
+msgstr "Bu Kişi Gibi Giriş Yap"
+
+msgid "manager.people.signInAsUser"
+msgstr "Üye olarak giriş yap"
+
+msgid "manager.people.syncUsers"
+msgstr "Üye kaydını eşzamanlı yap"
+
+msgid "manager.people.unenroll"
+msgstr "Kayıt dışı bırak"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Üye başarıyla oluşturuldu."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Üye için bir sonraki girişte şifre değiştirmeyi zorunlu kıl."
+
+msgid "manager.plugins.action"
+msgstr "Yapılacak:"
+
+msgid "manager.plugins.disable"
+msgstr "Pasifleştir"
+
+msgid "manager.plugins.enable"
+msgstr "Etkinleştir"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Eklenti Yönetimi"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Bu tüm siteyi ilgilendiren bir eklentidir. Yalnız site yöneticisi eklentiyi kullanabilir."
+
+msgid "manager.plugins"
+msgstr "Sistem Eklentileri"
+
+msgid "manager.readingTools"
+msgstr "Okuma Araçları"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "İsime Göre Hakem Arama"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "İlgi Alanı"
+
+msgid "manager.roles"
+msgstr "Görevler"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Bu öğe silinirken bir hata oluştu."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Giriş ve Denetim"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Giriş sayfası şekli için geçersiz dosya biçimi. Desteklenen dosya biçimleri .gif, .jpg, veya .png biçimleridir."
+
+msgid "manager.statistics"
+msgstr "İstatistikler ve Raporlar"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} (yeni {$numNew})"
+
+msgid "manager.users"
+msgstr "Üyeler"
+
+msgid "plugins.categories.auth"
+msgstr "Yetkilendirme Eklentileri"
+
+msgid "plugins.categories.blocks"
+msgstr "Blok Eklentileri"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Blok Eklentileri, çeşitli kenar çubuğu araçları gibi eklenip kaldırılabilir kullanıcı ara yüz bileşenleridir."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Geçiş Eklentileri diğer sistemlere anında veri sunulması içindir."
+
+msgid "plugins.categories.gateways"
+msgstr "Geçiş Eklentileri"
+
+msgid "plugins.categories.generic"
+msgstr "Genel Eklentiler"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Veri Alma/Verme Eklentileri içeriğin başka sistemlere taşınması için kullanılırlar."
+
+msgid "plugins.categories.importexport"
+msgstr "Veri Alma/Verme Eklentileri"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Ödeme Yöntemi eklentisi çevrimiçi ödeme sürecini çeşitli yollarla desteklemyi sağlar."
+
+msgid "plugins.categories.paymethod"
+msgstr "Ödeme Eklentileri"
+
+msgid "plugins.categories.reports.description"
+msgstr "Rapor eklentileri çeşitli türde veri özetleri ve rapor sağlamak için kullanılır."
+
+msgid "plugins.categories.reports"
+msgstr "Rapor Eklentileri"
+
+msgid "plugins.categories.themes.description"
+msgstr "Tema eklentileri sistemin görünüşünü değiştirmek için kullanılabilir."
+
+msgid "plugins.categories.themes"
+msgstr "Tema Eklentileri"
+
+msgid "manager.announcements.datePublish"
+msgstr "Yayımlandı"
+
+msgid "manager.emails.data"
+msgstr "Mesaj Veri Şablonu"
+
+msgid "manager.emails.details"
+msgstr "Şablon Detayları"
+
+msgid "manager.emails.disable.message"
+msgstr "You are about to disable this email template.  If there were system processes using this template, they will not use it anymore.  Do you want to confirm this operation?"
+
+msgid "manager.emails.enable.message"
+msgstr "You are about to enable this email.  Do you want to confirm this operation?"
+
+msgid "manager.emails.resetAll.message"
+msgstr "If you reset all templates, all modifications to the email templates will be lost.  Do you want to confirm this operation?"
+
+msgid "manager.emails.reset.message"
+msgstr "If you reset this template, all message data will be reset to its default value, losing all modifications.  Do you want to confirm this operation?"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Ada Göre Ara"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Hatalı sayfa logo görseli veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png."
+
+msgid "plugins.categories.metadata"
+msgstr "Üst Veri Eklentileri"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Metadata Plugins implement additional meta-data standards."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI Üst Veri Eklentileri"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Bu biçim eklentileri OAI iletişiminde hızlı üst veri sağlar."
+
+msgid "manager.website"
+msgstr "Web Sitesi"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Warning: Changing the review form element type from a multiple-choice type to an open-ended type will result in the deletion of the multiple choice options."
+
+msgid "manager.reviewFormElements"
+msgstr "Form Öğeleri"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Seçim ekle"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Onay Kutuları (Bir veya daha fazla seçebilirsiniz)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Öğe tipi seçiniz"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Yayınlanmış değerlendirme formundan bir öğe silmek istediğinize eminmisiniz?"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Şuraya kopyala:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Yeni Öğe Oluştur"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Açılır Kutu"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Form Öğelerini Düzenle"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Öpe Tipi"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Form öğeleri için öğe tipi gerekli."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Form öğeleri için bir soru gerekli."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Herhangi bir değerlendirme formu oluşturulmadı."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Seçim"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Öğe"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radyo düğmeleri (yalnızca birini seç)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Hakemlerin maddeleri doldurması zorunlu"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Yazar için mesaj dahil et"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Tek kelimelik metin kutusu"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Genişletilmiş metin kutusu"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Tek satırlık metin kutusu"
+
+msgid "manager.reviewForms"
+msgstr "Değerlendirme Formları"
+
+msgid "manager.reviewForms.completed"
+msgstr "Tamamlandı"
+
+msgid "manager.reviewForms.create"
+msgstr "Değerlendirme Formu Oluştur"
+
+msgid "manager.reviewForms.description"
+msgstr "Açıklamalar ve Talimatlar"
+
+msgid "manager.reviewForms.edit"
+msgstr "Değerlendirme Formu"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Değerlendirme formu için bir başlık gerekli."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Değerlendirmede"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Burada oluşturulan değerlendirme formları hazır değerlendirme formu yerine kullanılır. Hazır değerlendirme formu iki tane metin kutusu içerir ve bunlardan iki \"editör ve yazar\" için, ikincisi \"editör\" içindir. Değerlendirme formları dergi bölümlerine yönelik ayrı ayrı oluşturulabilir. Oluşturulan formlar hakem ataması sırasında seçilebilir. Her durumda, editörler yazar ile ilgili değerlendirme seçeneğine sahip olabileceklerdir."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Hayır / Serbest Değerlendirme Formu"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Herhangi bir değerlendirme formu oluşturulmadı."
+
+msgid "manager.reviewForms.preview"
+msgstr "Form Önizleme"
+
+msgid "manager.reviewForms.title"
+msgstr "Başlık"
+
+msgid "manager.website.information"
+msgstr "Bilgi"
+
+msgid "manager.website.appearance"
+msgstr "Görünüm"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Bir görsel dosyası gerekli. Lütfen bir dosya seçtiğinizden ve yüklediğinizden emin olun."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Arama sayfası bağlantısı."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Yönlendirme Menü Türü"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Yönlendirme menü türü seç veya özel menü oluştur"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Özel Sayfa"
+
+msgid "manager.publication.submissionStage"
+msgstr "Gönderi"
+
+msgid "manager.publication.reviewStage"
+msgstr "İnceleme"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editöryal"
+
+msgid "manager.publication.productionStage"
+msgstr "Basım"
+
+msgid "manager.publication.emails"
+msgstr "e-Postalar"
+
+msgid "manager.language.ui"
+msgstr "KA"
+
+msgid "manager.language.submissions"
+msgstr "Gönderiler"
+
+msgid "manager.language.forms"
+msgstr "Formlar"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Varsayılanları Geri Yükle"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Mevcut bir kullanıcı girilmelidir."
+
+msgid "manager.userSearch.searchByName"
+msgstr "Ada Göre Kullanıcı Ara"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Değiştir"
+
+msgid "manager.statistics.city"
+msgstr "Şehir"
+
+msgid "manager.statistics.region"
+msgstr "Bölge"
+
+msgid "manager.statistics.reports"
+msgstr "Rapor Oluştur"
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Toplu istatistikler:"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Varsayılan rapor şablonları"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Özel rapor oluştur"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Gelişmiş Seçenekler"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Gelişmiş Seçenekleri Gizle"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Sütunlar"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filtreler"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Öğe veri tabanında bulunamadı"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Öğe Türleri"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Öğe no"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Virgülle ayrılmış bir veya daha fazla nesne kimliğini tanımlayın (örn. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Dün"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Bu ay"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "göre sırala"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Yön"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Artan"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Azalan"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "YYYYAA biçimini kullanın"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "YYYYAAGG biçimini kullanın"
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Bir veya daha fazla şehir adı, virgülle ayrılmış (ör. Şehir Adı 1, Şehir Adı 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Raporu oluşturmak için en az bir sütun seçmelisiniz."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Rapor URL'si"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "İçeriğe göre"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Öğe türü ve / veya öğe kimliğine göre"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Rapor aralığı seçin"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "veya aralığı seçin"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Coğrafik bölgeye göre"
+
+msgid "plugins.categories.pubIds"
+msgstr "Genel Belirleyici Ekletirleri"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Bu eklentiler, genel bir tanımlayıcı için destek sağlar."
+
+msgid "manager.plugins.delete"
+msgstr "Eeklenti Sil"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Bu eklentiyi yüklemek istediğinizden emin misiniz?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Bu eklentiyi güncellemek istediğinizden emin misiniz?"
+
+msgid "grid.action.installPlugin"
+msgstr "Bu eklentiyi yükle veya güncelle"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Bu eklentiyi sistemden silmek istediğinizden emin misiniz?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Sil tuşuna basarsanız, eklenti sunucunun dosya sisteminden silinecektir."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "\"{$pluginName}\" eklentisi başarılı bir şekilde silindi."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "\"{$pluginName}\" eklentisi mevcut değil"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Öncelikle bir dosya seçiniz"
+
+msgid "manager.plugins.upload"
+msgstr "Yeni Bir Eklenti Yükle"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Yükleme için bir dosya seçildiğinden emin olun."
+
+msgid "manager.plugins.installed"
+msgstr "Yüklenmiş Eklentiler"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Eklenti Galerisi"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Genel Görünüm"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Yükleme"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "En Son Uyumlu Sürüm"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Resmi"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Bu eklenti, Public Knowledge Project ekibi tarafından geliştirilmekte ve sürdürülmektedir."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Değerlendirildi"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Bu eklenti, Public Knowledge Project ekibi tarafından gözden geçirildi ve onaylandı."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Ortak"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Bu eklenti, geliştirme ortaklarımızdan biri tarafından sağlanmaktadır."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Sürdürücü"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Ana Sayfa"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Özet"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Durumlar"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Bu eklenti henüz yüklenmedi."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Şu anda bu eklentinin uyumlu bir sürümü bulunmamaktadır."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Eklenti zaten yüklü ve galeride mevcut sürümden daha yeni."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Eklenti zaten yüklü, ancak daha yeni bir sürüme güncellenebilir."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Eklenti zaten yüklü ve güncel."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Mevcut sürümden daha yeni"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Yükseltilebilir"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Güncel"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Mevcut Değil"
+
+msgid "manager.plugins.installFailed"
+msgstr "Yükleme başarısız. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Başarıyla yüklenmiş sürüm {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Yüklenen eklenti arşivi, eklenti adına karşılık gelen bir klasör içermiyor."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Yüklenen eklenti, yükseltilmiş eklentinin kategorisine uymuyor."
+
+msgid "manager.plugins.wrongName"
+msgstr "Yüklenen eklenti içindeki version.xml, yükseltilmiş eklentinin ismine uymayan bir eklenti adı içeriyor."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Eklenti mevcut değil. Lütfen bunun yerine yükleyin"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Eklenti zaten var, ancak yüklü sürümünden daha yeni. Lütfen bunun yerine yeni sürüme geçin"
+
+msgid "manager.plugins.settings"
+msgstr "Ayarlar"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "tar komutu mevcut değil. Lütfen \"config.inc.php\" adresinde doğru şekilde yapılandırın."
+
+msgid "manager.plugins.upgrade"
+msgstr "Eklenti Güncelle"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Bu form bir eklentiyi yükseltmenize izin verir. Lütfen eklentinin .tar.gz dosyası olarak sıkıştırıldığından emin olun."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Güncelleme başarısız oldu. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Başarıyla yükseltilen sürüm: {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Dosya yüklenirken hata oluştu"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Eklenti dosyası seç"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "plugin dizinde version.xml geçersiz veri içeriyor."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml eklenti dizininde bulunamadı"
+
+msgid "notification.localeEnabled"
+msgstr "Dil etkinleştirildi."
+
+msgid "notification.localeDisabled"
+msgstr "Dil pasifleştirildi."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} birincil dil olarak belirlendi."
+
+msgid "notification.localeInstalled"
+msgstr "Seçilen dil/diller yüklendi ve etkinleştirildi."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} dili kaldırıldı."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} dili yeniden yüklendi."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Dil ayarları kaydedildi."
+
+msgid "notification.editedUser"
+msgstr "Kullanıcı düzenlendi."
+
+msgid "manager.paymentMethod"
+msgstr "Ödemeler"
+
+msgid "manager.paymentMethod.title"
+msgstr "Ödeme Yöntemleri"
+
+msgid "manager.paymentMethod.none"
+msgstr "Ödeme yöntemi seçilmedi"
+
+msgid "manager.paymentMethod.method"
+msgstr "Ödeme Yöntemi"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Para birimi"
+
+msgid "manager.paymentMethod.currency.description"
+msgstr "Doğrudan bu web sitesi üzerinden yapılan ödemeler seçilen para biriminde belirtilecektir."
+
+msgid "settings.roles.roleOptions"
+msgstr "Rol Seçenekleri"
+
+msgid "settings.roles.showTitles"
+msgstr "Katkıda bulunanlar listesinde rol başlığını göster"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Kullanıcıların kendi kaydına izin ver"
+
+msgid "settings.roles.recommendOnly"
+msgstr "Bu rolün yalnızca bir gözden geçirme kararının önerilmesine izin verilir ve nihai bir kararı kaydetmesi için yetkili bir editör gerektirecektir."
+
+msgid "settings.roles.roleName"
+msgstr "Rol Adı"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Kısaltma"
+
+msgid "settings.roles.assignedStages"
+msgstr "Atanan Adımlar"
+
+msgid "settings.roles.stages"
+msgstr "Adımlar"
+
+msgid "settings.roles.roleDetails"
+msgstr "Rol detayları"
+
+msgid "settings.roles.from"
+msgstr "İzin seviyesi"
+
+msgid "settings.roles.removeText"
+msgstr "Bu rolü bu bağlamdan kaldırmak üzeresiniz. Bu işlem ayrıca ilgili ayarları ve bu role tüm kullanıcı atamaları da siler. Devam etmek istiyor musun?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Bir rol adı tanımlamanız gerekli."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Bir rol kısaltması tanımlamanız gerekiyor."
+
+msgid "settings.roles.uniqueName"
+msgstr "Tekil bir rol adı tanımlamanız gerekiyor."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Tekil bir rol kısaltması tanımlamanız gerekir."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Değerlendirme formları kullanılmamıştır."
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Değerlendirme Formu Verisi"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Görüntülenebilir (yazarlar için)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Yeni bir Değerlendirme Formu oluştur"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Gönderi Formu"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Doğrulama hataları:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Karşılaşılan uyarılar:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Hatalar oluştu:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Bilinmeyen öğe {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Bilinmeyen tür {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Bilinmeyen kodlama {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "İçerik {$param} olarak kodlanmamış"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Bilinmeyen kullanıcı grubu: {$param}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Bilinmeyen yükleyici: {$param}"
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Atamak için bir adım tanımlamanız gerekir."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Bir kütüphane dosyası gereklidir. Lütfen bir dosya seçip yüklediğinizden emin olun."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Bu kütüphane dosyası için bir ad gereklidir."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Bu kütüphane dosyası için bir dosya türü gereklidir."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Sözleşmeler"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Pazarlama"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "İzinler"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Raporlar"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Diğer"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Sonuçları ülke, bölge ve / veya şehre göre daralt."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponsor"
+
+msgid "manager.setup.additionalContent"
+msgstr "Ek İçerik"
+
+msgid "manager.setup.additionalContentDescription"
+msgstr "Buraya girdiğiniz herhangi bir şey ana sayfanızda görünecektir."
+
+msgid "manager.setup.authorCopyrightNotice"
+msgstr "Telif Hakkı Bildirimi"
+
+msgid "manager.setup.authorCopyrightNoticeAgree"
+msgstr "Gönderi sürecinin bir parçası olarak yazarların Telif Hakkı Bildirimini kabul etmesini isteyin."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Yazar Rehberleri"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Tavsiye edilen yönergeler, bibliyografik ve düzenleme standartlarını, gönderide kullanılacak ortak alıntı formatlarının örneklerini içerir."
+
+msgid "manager.setup.competingInterests"
+msgstr "Çıkar Çatışması"
+
+msgid "manager.setup.competingInterestsDescription"
+msgstr "Hakemlerden, aşağıda belirttiğiniz çıkar çatışması politikasına uymaları istenecektir."
+
+msgid "manager.setup.favicon"
+msgstr "Geçersiz favori ikonu biçimi. Kabul edilen biçimler: .ico, .png ve .gif."
+
+msgid "manager.setup.groupType"
+msgstr "Dosya türü gruplaması"
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Bir rol izin düzeyi tanımlamanız gerekir."
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Bu kütüphane dosyası, \"Herkese Açık Erişim\" seçeneği ile şu adresten erişilip indirilebilir: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Eklenecek Kütüphane Dosyalarını Seç"
+
+msgid "grid.action.addGenre"
+msgstr "Bir Bileşen ekle"
+
+msgid "grid.action.editGenre"
+msgstr "Bu Bileşeni Düzenle"
+
+msgid "grid.action.deleteGenre"
+msgstr "Bu bileşeni sil"
+
+msgid "grid.action.restoreGenres"
+msgstr "Bileşenleri varsayılan ayarlara geri yükle"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Bu türdeki dosyaları bağımlı dosyalar olarak işaretleyin (ör. Yayınlanan içeriğe sahip olmamak üzere)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Bu tür dosyaları tamamlayıcı dosyalar olarak işaretleyin (ör. Birincil gönderi içeriği olayacak şekilde)"
+
+msgid "manager.setup.genres.key"
+msgstr "Anahtar"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Bu tür için isteğe bağlı kısa sembolik tanımlayıcı."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Anahtar zaten mevcut."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "Anahtar yalnızca alfanümerik karakterler, alt çizgi ve tire içerebilir ve alfanümerik bir karakterle başlayıp bitmelidir."
+
+msgid "manager.settings.wizard"
+msgstr "Ayarlar Sihirbazı"
+
+msgid "manager.users.roleRequired"
+msgstr "Bu kullanıcıyla ilişkilendirilecek en az bir rol seçmelisiniz."
+
+msgid "manager.website.title"
+msgstr "Web Sitesi Ayarları"
+
+msgid "manager.workflow"
+msgstr "İş Akışı"
+
+msgid "manager.workflow.title"
+msgstr "İş Akışı Ayarları"
+
+msgid "manager.distribution"
+msgstr "Dağıtım"
+
+msgid "manager.distribution.title"
+msgstr "Dağıtım Ayarları"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Bu makalenin değerlendirilmesi sırasında bir Çıkar Çatışması bildirimi isteyin."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "Varsa, lisansı açıklayan bir web sayfasının URL'si."
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Geçici dosya {$dest}, {$source} kaynağıdan oluşturulamadı"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "Sağlanan dosyalar \"{$expected}\" ve gerçek dosyalardaki \"{$actual}\" \"eşleşmiyor\""
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "Revizyon \"{$revisionId}\", \"{$fileId}\" gönderi dosyası için yinelenen bir kayıt oluşturur"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Gönderi dosyası içe aktarılamadı"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Başlık"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Yol"
+
+msgid "manager.navigationMenus"
+msgstr "Yönlendirme Menüleri"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "İçerik"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Yol alanı sadece alfanümerik karakterler ile bilrilkte '.', '/', '-' ve '_' içermelidir."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Bu yol başka bir gezinme menüsü öğesi için zaten mevcut."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Bu başlık başka bir gezinme menüsü için zaten mevcut."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Başlık gerekli"
+
+msgid "manager.navigationMenuItems"
+msgstr "Yönlendirme Menü Öğeleri"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Atanmış Menü Öeğeleri"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Atanmamış Menü Öğeleri"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Aktif Tema Yönlendirme Alanları"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Bir yönlendirme alanı seç"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Bu alana zaten bir yönlendirme menüsü atanmıştır."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Bir URL sağlanmalı"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Bu menü öğesinin ne zaman görüntüleneceği veya gizleneceği hakkında daha fazla bilgi edinin."
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Sitenize özel bir sayfa oluşturun ve bir gezinme menüsünde bağlantı oluşturun."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Uzak URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "https://pkp.sfu.ca gibi başka bir sitedeki herhangi bir URL'ye bağlantı verin."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Ayarlar > Dergi kısmında dergi İçeriği Hakkında'yı görüntüleyen bir sayfaya bağlantı oluştur"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Dergi Hakkında bölümünü doldurduysanız görüntülenir."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "\"Ayarlar > Dergi\" bölümündeki Yönetici Listesi içeriğini görüntüleyen bir sayfaya bağlantı verin."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Kişiler ve Kurullar bölümünü doldurduysanız görüntülenir."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Gönderi talimatlarını gösteren sayfaya bağlantı ver."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Mevcut güncel sayıya bağlantı verin."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Sayı arşivinize bağlantı verin."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Duyurularınızı görüntüleyen sayfaya bağlantı verin."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Bu bağlantı, yalnızca \"Ayarlar > Web Sitesi\" altında duyuruları etkinleştirdiyseniz görüntülenir."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Kullanıcı giriş sayfasına bağlantı verin."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Kullanıcı kayıt sayfasına bağlantı verin."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Yönetici panosuna bağlantı verin."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Kullanıcı profili sayfasına bağlantı verin."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Site yönetim araçlarına bağlantı verin."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Bu bağlantıyı sadece yönetici yetkisine sahip olanlar görüntüleyebilir."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Kullanıcıyı çıkışını kaydedecek bir bağlantı verin."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Bu bağlantı sadece ziyaretçi giriş yaptığında görüntülenecektir."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Bu bağlantı sadece ziyaretçi giriş yapmadığında görüntülenecektir."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "İletişim bilgilerinizi görüntüleyen bir sayfaya bağlantı verin."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Bu bağlantı sadece \"Ayarlar > İletişim\" altındaki Kişi bilgilerini doldurduysanız görüntülenir."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Lütfen bir yönlendirme menü tipi seçin."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Bu ödemeler bağlantısı yalnızca \"Ayarlar > Dağıtım > Ödemeler\" altında etkinleştirilirse görüntülenir."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Bu bağlantı yalnızca ziyaretçi giriş yapmışsa görüntülenir, ödemeler \"Ayarlar> Dağıtım> Ödemeler\" altında etkinleştirilir ve \"Ayarlar> Dağıtım> Erişim\" altında abonelik gereklidir."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "Bir menü öğesi bir alt menüyü açtığında, bağlantı tüm cihazlarda izlenemez. Örneğin, \"İletişim\" ve \"İçerik Ekibi\" ile bir alt menü açan \"Hakkında\" öğeniz varsa, \"Hakkında\" bağlantısına tüm cihazlarda erişilemeyebilir. Varsayılan menüde bu, alt menüde görünen \"Dergi Hakkında\" adlı ikinci bir menü öğesi oluşturarak işlenir."
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Bu sayfaya şu adreste erişilebilir: <blockquote>{$pagesPath}</blockquote>...nerede %PATH% yukarıda girilen yoldur. <strong>Not:</strong> İki sayfa aynı yola sahip olamaz. Sistemde yerleşik yollar kullanmak, önemli işlevlere erişiminizi kaybetmenize neden olabilir.</p>"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Bu değerlendirme formunu etkinleştirmek istediğinizden emin misiniz? Bir değerlendirmeye atandığında, artık bunu devre dışı bırakamazsınız."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Bu değerlendirme formunu devre dışı bırakmak istediğinizden emin misiniz? Yeni değerlendirme talepleri için artık geçerli olmayacaktır."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Bu değerlendirme formunun bir kopyasını oluşturmak istediğinizden emin misiniz?"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Bu değerlendirme formunu silmek istediğinizden emin misiniz?"
+
+msgid "manager.plugins.description"
+msgstr "Bu sayfa, Yöneticinin şu anda yüklü olan eklentileri gözden geçirmesini ve potansiyel olarak yapılandırmasını sağlar. Eklentiler, işlevlerine göre kategorilere ayrılır. Kategoriler aşağıda listelenmiştir ve her kategori içinde eklenti kümesi mevcuttur."
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Bu form, yeni bir eklenti yüklemenize ve kurmanıza izin verir. Lütfen eklentinin .tar.gz dosyası olarak sıkıştırıldığından emin olun."
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} released on {$date}"
+
+msgid "manager.plugins.copyError"
+msgstr "Eklenti kopyalanmadı. Bu bir yetki problemi olabilir. Lütfen web sunucusunun eklenti dizinine (alt dizinler dahil) yazma yetkisi olduğundan emin olun; ancak daha sonra tekrar yetkileri düzenlemeyi unutmayın."
+
+msgid "manager.plugins.deleteError"
+msgstr "\"{$pluginName}\" eklentisi dosya sisteminden silinemedi. Bu bir izin sorunu olabilir. Lütfen web sunucusunun eklenti dizinine (alt dizinler dahil) yazama yetkisi olduğundan emin olun; ancak daha sonra yazma yetkisini düzenlemeyi unutmayın."
+
+msgid "manager.statistics.reports.description"
+msgstr "Sistem, belirli bir süre boyunca site kullanımı ve gönderimlerle ilgili ayrıntıları izleyen raporlar üretir. Raporlar, görüntülenecek bir elektronik tablo uygulaması gerektiren CSV biçiminde oluşturulur."
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "İtalik olarak yazılmış ve * ile işaretlenmiş öğeler, sistemdeki istatistik sayımının geçerli yoluna (metrik tip) göre isteğe bağlı verileri temsil eder. İstatistik eklentisi yapılandırmanıza bağlı olarak bu verilere sahip olabilirsiniz."
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Raporu oluşturmak için kullanılacak sütunları tanımlayın. Burada seçtiğiniz sütunlar yalnızca raporlarda hangi verilerin sunulacağını değil, aynı zamanda istatistiklerin toplama düzeyini de tanımlar. Örneğin, Kimlik, Yazım ve Ay sütunlarını seçerseniz, rapor bir nesneden bir aydaki tüm görünümleri toplar ve bu verileri tek bir satırda gösterir. Ay yerine Gün'ü seçerseniz, her nesnenin her gün için bir satırı olacaktır."
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"{$contextObjectName} özelliği birden fazla kullanım metriği kaydetmek için yapılandırılmıştır. Kullanım istatistikleri birkaç bağlamda görüntülenecektir.\n"
+"\n"
+"Tek kullanımlık istatistiğin kullanılması gereken durumlar vardır. Örn. En çok kullanılan gönderilerin sıralı bir listesini görüntülemek veya sıralamak için\n"
+"\n"
+"arama sonuçları. Lütfen yapılandırılmış metriklerden birini varsayılan olarak seçin."
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Geçerli form ayarları ile rapor oluşturmak için aşağıdaki URL kullanılabilir. Sadece kopyalayın ve tarayıcınızda açın. Ayrıca, özel rapor URL'niz olarak favorilerinizde saklayabilirsiniz."
+
+msgid "manager.setup.homepageImage"
+msgstr "Ana Sayfa Görseli"
+
+msgid "manager.setup.homepageImageDescription"
+msgstr "Ana sayfada belirgin şekilde görüntülenecek bir görsel yükleyin."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Açıklamalar"
+
+msgid "manager.setup.layout.theme"
+msgstr "Tema"
+
+msgid "manager.setup.layout.themeDescription"
+msgstr "Yeni temalar, bu sayfanın en üst tarafında bulunan Eklentiler sekmesinden yüklenebilir."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Kenar Çubuğu"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.notifications"
+msgstr "Yazar Gönderi Bildirimi"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Bu e-posta adresine bir kopya gönderin"
+
+msgid "manager.setup.notifications.description"
+msgstr "Yazarlara otomatik olarak gönderilerinin alındığını bildiren bir e-posta gönderilir. Bu e-postanın kopyaları aşağıdakilere gönderilebilir:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Açık Erişim Politikası"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Yayınlanmış tüm içeriğe anında ücretsiz erişim sağlıyorsanız, Açık Erişim Politikanızın açıklamasını giriniz."
+
+msgid "manager.setup.pageFooter"
+msgstr "Saya Altı"
+
+msgid "manager.setup.pageFooterDescription"
+msgstr "Web sitenizin alt kısmında görünmesini istediğiniz herhangi bir resim, metin veya HTML kodunu girin."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Hakem değerlendirme politikasının süreçlerini okuyucular ve yazarlar için özetleyin. Bu tanım genellikle bir gönderiyi değerlendirmede kullanılan değerlendirme sayısını, hakemlerin başvuruları değerlendirme kriterleri, değerlendirmeyi yürütmek için beklenen süreyi ve değerlendirmeyi seçmek için kullanılan ilkeleri içermektedir."
+
+msgid "manager.setup.principalContact"
+msgstr "Temel İletişim"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Genel olarak editörlüğünüz, editörlüğün yönetimi veya genel erişilebilen web sitenizde görüntülenebilecek idari personel pozisyonu için iletişim bilgilerini girin."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Gizlilik Bildirimi"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Bu beyan, Yazar Göndersi sırasında ve herkese açık olarak sayfada bulunabilir."
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Bir değerlendirme isteğini kabul etme veya reddetme süresi haftaları."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Değerlendirme  için tamamlanan haftalar"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Asla Hatırlatma"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Varsayılanlar, editöryal süreçte her inceleme için değiştirilebilir."
+
+msgid "manager.setup.reviewOptions.remindForInvite"
+msgstr "Bir hakem, yanıt süresinden sonra aşağıdaki (değerlendirme) isteğine yanıt vermediyse bir hatırlatma gönder:"
+
+msgid "manager.setup.reviewOptions.remindForSubmit"
+msgstr "Bir hakem, değerlendirme tarihinden sonra aşağıdaki zaman (gün) içinde bir öneri sunmadıysa bir hatırlatma gönder:"
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Varsayılan İnceleme Son Başvuru Tarihleri"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Yükleme sırasında \"Kör Hakemlik Sağlanma\" başlıklı bir bağlantı sunun"
+
+msgid "manager.setup.searchEngineIndexing.sitemap"
+msgstr "Site Haritası"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Örnekler: Bilimsel dernekler, üniversite bölümleri, kooperatifler, vb. Sponsorlar kamuya açık olarak gösterilmektedir."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Deneyimli web geliştiricileri, web sitesinin görünümünü daha da özelleştirmek için bir CSS dosyası yükleyebilir."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Teknik Destek İletişimi"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Editörlere, yazarlara ve hakemlere materyallerini göndermelerini, düzenlemelerini, gözden geçirmelerini veya yayınladıkları herhangi bir problemle yardımcı olabilecek bir irtibat kişisi."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Site Erişim Seçenekleri"
+
+msgid "manager.setup.searchEngineIndexing.sitemapDescription"
+msgstr "Arama motorlarına göndermek için hazırlanmış XML site haritası için tılyaınız. <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Sponsor İlişkisi ve Politika Açıklaması"
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Gizlilik beyanınızı görüntüleyen sayfaya bağlantı verin."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Bu bağlantı sadece Ayarlar > İş Akışı > Gönderiler altında bir gizlilik bildirimi girdiyseniz görüntülenir."

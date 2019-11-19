@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Forespørsel"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Retningslinjer"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Last ned og vurder"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Fullføring"
+
+msgid "reviewer.step1.request"
+msgstr "Forespørsel om fagfellevurdering"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Du har blitt vurdert som en potensiell fagfellevurderer av følgende publikasjon. Nedenfor finner du en oversikt over innlevert materiale og en tidsplan for gjennomføring av vurderingen. Vi håper du har mulighet til å påta deg vurderingen."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Se alle innleveringsdetaljer"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Filer for fagfellevurdering"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Avvis forespørsel om fagfellevurdering"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "I feltet under kan du informere redaktøren om eventuelle grunner for avslaget av fagfellevurderingen."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Godta fagfellevurdering, fortsett til steg #2."
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Fortsett til steg #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Send inn fagfellevurdering"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Retningslinjer for fagfellevurdering"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Utgiveren har retningslinjer for åpenhet rundt potensielt konkurrerende interesser fra sine fagfellevurderere. Vennligst se igjennom disse retningslinjene."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Jeg har ingen konkurrerende interesser"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Jeg har mulige konkurrerende interesser (spesifiser under)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Konkurrerende interesser"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Retningslinjer for fagfellevurdering"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Utgiveren har ikke laget noen retningslinjer for fagfellevurdering"
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Klikk p¨å filnavnene under for å laste ned filene som hører til innleveringen"
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Skriv inn (eller lim inn) din vurdering av denne innleveringen i skjemaet under."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Last opp filene du ønsker at redaktør og/eller forfatter skal se, inkludert reviderte versjoner av originalfilen(e)."
+
+msgid "reviewer.complete"
+msgstr "Fagfellevurdering sendt inn"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Er du sikker på at du ønsker å sende inn denne fagfellevurderingen?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Takk for at du fullførte fagfellevurderingen, innleveringen var vellykket. Vi setter stor pris på ditt bidrag til å opprettholde kvaliteten i vår publikasjon. Redaktøren tar kontakt dersom mer informasjon eller avklaring er nødvendig."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Om tidsfrister"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Redaktøren ber deg om å enten akseptere eller avvise fagfellevurderingen innen tidsfristen for besvaring av forespørsel om fagfellevurdering, og levere den ferdige fagfellevurderingen innen tidssfristen for fullføring av fagfellevurdering."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Til forfatter og redaktør"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Kun til redaktør"

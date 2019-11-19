@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:01+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Информация учетной записи"
+
+msgid "user.affiliation"
+msgstr "Организация"
+
+msgid "user.affiliation.description"
+msgstr "(Ваша организация, например, «Московский государственный университет имени М.В. Ломоносова»)"
+
+msgid "user.affiliations"
+msgstr "Организации"
+
+msgid "user.authorization.accessDenied"
+msgstr "Доступ запрещен."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Ключ (token) процесса аутентификации отсутствует или является неправильным."
+
+msgid "user.authorization.contextRequired"
+msgstr "Вы не можете вызвать эту операцию без контекста (издательства, журнала, конференции и т. д.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Имя пользователя обязательно."
+
+msgid "user.authorization.privateOperation"
+msgstr "Операция, которую вы пытались выполнить, недоступна вам или отсутствует."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Доступ вам был запрещен. Доступ на этот сайт в настоящий момент ограничен."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Данная роль не имеет доступа к этой операции."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Для этого материала вам не назначена роль, позволяющая получить доступ к этой операции."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Вам нужно задать правильную группу пользователя для доступа к этой операции."
+
+msgid "user.authorization.managerRequired"
+msgstr "Пользователь с ролью управляющего (то есть Выпускающий редактор) должен быть назначен на этот этап, прежде чем вы сможете продолжить."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Сейчас у вас нет доступа на этот этап рабочего потока."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Этап рабочего потока не указан."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Модуль обязателен, но не указан."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "У вас нет доступа к этому заданию на рецензию."
+
+msgid "user.authorization.submissionQuery"
+msgstr "У вас нет разрешения на доступ к этому обсуждению."
+
+msgid "user.biography"
+msgstr "Биография (например, кафедра и должность)"
+
+msgid "user.changeMyPassword"
+msgstr "Изменить мой пароль"
+
+msgid "user.changePassword"
+msgstr "Изменить пароль"
+
+msgid "user.dateLastLogin"
+msgstr "Последний вход"
+
+msgid "user.dateRegistered"
+msgstr "Дата регистрации"
+
+msgid "user.editMyProfile"
+msgstr "Редактировать мой профиль"
+
+msgid "user.email"
+msgstr "Адрес (E-mail)"
+
+msgid "user.givenName"
+msgstr "Имя"
+
+msgid "user.interests"
+msgstr "Интересы как рецензента"
+
+msgid "user.interests.description"
+msgstr "(Разделяйте интересы запятой или нажимайте «Enter»)"
+
+msgid "user.gossip"
+msgstr "Заметки редакции"
+
+msgid "user.gossip.description"
+msgstr "Пишите здесь заметки о данном рецензенте, которые вы хотели бы сделать видимыми другим администраторам, менеджерам журнала и всем редакторам. Заметки будут видны при назначениях на рецензию в будущем."
+
+msgid "user.group"
+msgstr "Группа пользователя"
+
+msgid "user.familyName"
+msgstr "Фамилия"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Неверный формат изображения профиля или изображение слишком большое. Разрешенные форматы — .gif, .jpg, или .png, размер изображения не более 150x150 пикселей."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Ваша учетная запись была отключена по следующей причине: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Ваша учетная запись была отключена. Пожалуйста, свяжитесь с администратором для получения более подробной информации."
+
+msgid "user.login.accountNotValidated"
+msgstr "Мы отправили вам письмо электронной почты с подтверждением на адрес {$email}. Пожалуйста, следуйте инструкциям в этом письме, чтобы активировать вашу новую учетную запись. Если вы не видите письмо, пожалуйста, проверьте, свою папку спама."
+
+msgid "user.login.activate"
+msgstr "Активировать учетную запись"
+
+msgid "user.login.activated"
+msgstr "Спасибо за активацию вашей учетной записи. Теперь вы можете войти в систему, используя имя пользователя и пароль, указанные вами при создании учетной записи."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Вы должны выбрать новый пароль, прежде чем войдете на этот сайт.<br /><br />Пожалуйста, введите ниже ваше имя пользователя, ваши текущий и новый пароли, чтобы изменить пароль для вашей учетной записи."
+
+msgid "user.login.forgotPassword"
+msgstr "Забыли пароль?"
+
+msgid "user.login.loginError"
+msgstr "Неправильное имя пользователя или пароль. Попробуйте еще раз."
+
+msgid "user.login"
+msgstr "Войти в систему"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Подтверждение было отправлено на ваш адрес электронной почты. Пожалуйста, следуйте инструкциям в письме, чтобы сбросить пароль."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Извините, ссылка на которой вы щелкнули, просрочена или неправильна. Пожалуйста, попробуйте сбросить ваш пароль еще раз."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Пользователя с таким адресом электронной почты не существует."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Новый пароль был отправлен на ваш адрес электронной почты. Теперь вы можете войти на сайт с вашим новым паролем."
+
+msgid "user.login.registeredEmail"
+msgstr "Адрес электронной почты зарегистрированного пользователя"
+
+msgid "user.login.registrationComplete"
+msgstr "Регистрация завершена"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Спасибо за регистрацию! Что вы хотите сделать дальше?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Просмотреть материалы"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Отправить новый материал"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Продолжить изучать информацию на сайте"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Регистрация ожидает верификации"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Запомнить меня"
+
+msgid "user.login.resetPassword"
+msgstr "Сбросить пароль"
+
+msgid "user.logOut"
+msgstr "Выйти из системы"
+
+msgid "user.logOutAs"
+msgstr "Выйти из системы как"
+
+msgid "user.hello"
+msgstr "Добро пожаловать, "
+
+msgid "user.mailingAddress"
+msgstr "Почтовый адрес"
+
+msgid "user.myAccount"
+msgstr "Мой профиль"
+
+msgid "user.name"
+msgstr "Фамилия"
+
+msgid "user.password"
+msgstr "Пароль"
+
+msgid "user.repeatPassword"
+msgstr "Повторите пароль"
+
+msgid "user.phone"
+msgstr "Телефон"
+
+msgid "user.preferredPublicName"
+msgstr "Предпочитаемое обращение"
+
+msgid "user.preferredPublicName.description"
+msgstr "Как вы хотите, чтобы к вам обращались? При желании вы можете добавить сюда приветствие, отчество/второе имя и суффиксы."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Введите ниже ваши текущий и новый пароли для изменения пароля вашей учетной записи."
+
+msgid "user.profile.editProfile"
+msgstr "Редактировать профиль"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Страна обязательна."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Правильный адрес электронной почты обязателен."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Организация обязательна."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Имя обязательно."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Вы добавили фамилию для языка, в котором не указано имя. Пожалуйста, добавьте имя для этого языка."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Почтовый адрес обязателен."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Вы должны ввести ваш новый пароль."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Текущий пароль, введенный вами, является неправильным."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Уведомлять по электронной почте о предоставлении открытого доступа к выпуску"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Пароль обязателен."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Ваш новый пароль совпадает со старым."
+
+msgid "user.profile.form.profileImage"
+msgstr "Изображение профиля"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Уведомлять по электронной почте о выходе нового выпуска"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Указанный URL-адрес является неправильным. Пожалуйста, внимательно проверьте URL и попробуйте снова. (Подсказка: попробуйте добавить http:// в начало URL-адреса)."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Группа пользователя обзательна."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Имя пользователя обязательно."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Вы должны принять условия, описанные в Заявлении о конфиденциальности."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Оставьте поля пароля пустыми, если хотите сохранить текущий пароль."
+
+msgid "user.profile.newPassword"
+msgstr "Новый пароль"
+
+msgid "user.profile.oldPassword"
+msgstr "Текущий пароль"
+
+msgid "user.profile"
+msgstr "Профиль"
+
+msgid "user.profile.publicProfile"
+msgstr "Профиль пользователя"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Повторить новый пароль"
+
+msgid "user.login.registerNewAccount"
+msgstr "Регистрация"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Введите адрес электронной почты вашей учетной записи ниже и вам будет отправлено письмо с инструкциями по сбросу вашего пароля."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Да, я даю согласие на сбор и хранение моих данных в соответствии с <a href=\"{$privacyUrl}\" target=\"_blank\">Уведомлением о конфиденциальности</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Да, я хочу получать уведомления о новых публикациях и объявлениях."
+
+msgid "user.register.form.emailExists"
+msgstr "Выбранный адрес электронной почты уже используется другим пользователем сайта."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Пароли не совпадают."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Поля адресов электронной почты не совпадают."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Имя пользователя может содержать только строчные латинские буквы, цифры, подчеркивания и дефисы, оно должно начинаться и заканчиваться буквой или цифрой."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Должна быть выбрана хотя бы одна роль."
+
+msgid "user.register.form.usernameExists"
+msgstr "Выбранное имя пользователя уже используется другим пользователем сайта."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Пароль должен содержать не менее {$length} символов."
+
+msgid "user.register.registerAs"
+msgstr "Зарегистрироваться в «{$contextName}» как..."
+
+msgid "user.register"
+msgstr "Регистрация"
+
+msgid "user.register.usernameRestriction"
+msgstr "Имя пользователя должно содержать только строчные латинские буквы, цифры и дефисы/подчеркивания."
+
+msgid "user.register.registrationCompleted"
+msgstr "Вы успешно зарегистрировались. <a href=\"{$profileUrl}\">Щелкните здесь</a>, чтобы заполнить свой профиль пользователя."
+
+msgid "user.role.assistant"
+msgstr "Ассистент"
+
+msgid "user.role.author"
+msgstr "Автор"
+
+msgid "user.role.author_s"
+msgstr "Автор(ы)"
+
+msgid "user.role.authors"
+msgstr "Авторы"
+
+msgid "user.role.editor"
+msgstr "Редактор"
+
+msgid "user.role.editors"
+msgstr "Редакторы"
+
+msgid "user.role.reader"
+msgstr "Читатель"
+
+msgid "user.role.readers"
+msgstr "Читатели"
+
+msgid "user.role.reviewer"
+msgstr "Рецензент"
+
+msgid "user.role.reviewers"
+msgstr "Рецензенты"
+
+msgid "user.role.siteAdmin"
+msgstr "Администратор сайта"
+
+msgid "user.role.siteAdmins"
+msgstr "Администраторы сайта"
+
+msgid "user.role.copyeditor"
+msgstr "Литературный редактор"
+
+msgid "user.role.copyeditors"
+msgstr "Литературные редакторы"
+
+msgid "user.role.proofreader"
+msgstr "Корректор"
+
+msgid "user.role.proofreaders"
+msgstr "Корректоры"
+
+msgid "user.role.layoutEditor"
+msgstr "Верстальщик"
+
+msgid "user.role.layoutEditors"
+msgstr "Верстальщики"
+
+msgid "user.roles"
+msgstr "Роли"
+
+msgid "user.sendPassword"
+msgstr "Подтверждение"
+
+msgid "user.sendPassword.description"
+msgstr "Отправить мне подтверждение по электронной почте, содержащее мои имя пользователя и пароль"
+
+msgid "user.signature"
+msgstr "Подпись"
+
+msgid "user.title"
+msgstr "Обращение"
+
+msgid "user.url"
+msgstr "URL главной страницы"
+
+msgid "user.userHome"
+msgstr "Страница пользователя"
+
+msgid "user.username"
+msgstr "Имя пользователя"
+
+msgid "user.workingLanguages"
+msgstr "Рабочие языки"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Указанный вами ORCID iD не корректен. Пожалуйста, добавьте полный URI (например, «https://orcid.org/0000-0002-1825-0097»)."
+
+msgid "user.profile.identity"
+msgstr "Идентификация"
+
+msgid "user.profile.contact"
+msgstr "Контакты"
+
+msgid "user.profile.public"
+msgstr "Открытый"
+
+msgid "user.apiKey"
+msgstr "Ключ API"
+
+msgid "user.apiKeyEnabled"
+msgstr "Разрешить внешним приложениям с ключом API доступ к этой учетной записи"
+
+msgid "user.apiKey.generate"
+msgstr "Сгенерировать новый ключ API"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Генерирование нового ключа API сделает недействительным любой уже существующий ключ для этого пользователя."
+
+msgid "user.apiKey.secretRequired"
+msgstr "До генерации ключа API администратор вашего сайта должен задать секретный код в файле конфигурации («api_key_secret»)."
+
+msgid "user.privacyLink"
+msgstr "Ваши данные хранятся в соответствии с нашим <a href=\"{$privacyUrl}\" target=\"_blank\">Заявлением о конфиденциальности</a>."

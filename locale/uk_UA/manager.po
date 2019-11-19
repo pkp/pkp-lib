@@ -1,0 +1,1628 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:09+00:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Інформація"
+
+msgid "manager.website.appearance"
+msgstr "Вигляд"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Необхідний файл зображення. Переконайтеся, будь ласка, що ви вибрали та завантажили файл."
+
+msgid "manager.announcements"
+msgstr "Анонси"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Ви впевнені, що бажаєте назавжди видалити цей анонс?"
+
+msgid "manager.announcements.create"
+msgstr "Створити новий анонс"
+
+msgid "manager.announcements.createTitle"
+msgstr "Створити"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Актуально до"
+
+msgid "manager.announcements.datePublish"
+msgstr "Опубліковано"
+
+msgid "manager.announcements.edit"
+msgstr "Редагувати анонс"
+
+msgid "manager.announcements.editTitle"
+msgstr "Редагувати"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Будь ласка, крім дня, коли анонс втратить актуальність, визначте також місяць та/або рік."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Дата втрати актуальності"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Читачі бачитимуть анонс до настання цієї дати. Не заповнюйте, якщо анонс має відображатись невизначений час."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Будь ласка, крім місяця, коли анонс втратить актуальність, визначте також день та/або рік."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Будь ласка, визначте коректну дату втрати актуальності анонсу."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Будь ласка, крім року, коли анонс втратить актуальність, визначте також день та/або місяць."
+
+msgid "manager.announcements.form.description"
+msgstr "Опис"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Повний текст анонсу."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Необхідно ввести опис анонсу."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Короткий опис відображатиметься разом із назвою анонсу."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Необхідно ввести короткий опис анонсу."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Короткий опис"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Записати та створити інший"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Необхідно ввести заголовок анонсу."
+
+msgid "manager.announcements.form.title"
+msgstr "Заголовок"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Тип"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Будь ласка, оберіть коректний тип анонсу."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Жодного анонсу не було створено."
+
+msgid "manager.announcements.title"
+msgstr "Заголовок"
+
+msgid "manager.announcements.type"
+msgstr "Тип"
+
+msgid "manager.announcementTypes"
+msgstr "Типи анонсів"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Попередження! Всі анонси з цього типу будуть видалені. Ви впевнені, що бажаєте продовжити та видалити цей тип анонсу?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Створити тип анонсу"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Створити"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Редагувати тип анаонсу"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Редагувати"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Записати та створити інший"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Тип анонсу з цією назвою вже існує."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Назва"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Необхідно вказати назву для типу анонсу."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Жодних типів анонсів не було створено."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Тип анонсу"
+
+msgid "manager.publication.submissionStage"
+msgstr "Подання"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензування"
+
+msgid "manager.publication.editorialStage"
+msgstr "Редагування"
+
+msgid "manager.publication.productionStage"
+msgstr "Публікація"
+
+msgid "manager.publication.emails"
+msgstr "Електронні листи"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Ви впевнені, що хочете видалити цей поштовий шаблон?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Ви впевнені, що хочете відновити значення за замовчуванням для цього поштового шаблону?"
+
+msgid "manager.emails.addEmail"
+msgstr "Додати шаблон листа"
+
+msgid "manager.emails.createEmail"
+msgstr "Створити лист"
+
+msgid "manager.emails.data"
+msgstr "Дані про шаблон листа"
+
+msgid "manager.emails.details"
+msgstr "Інформація про шаблон"
+
+msgid "manager.emails.disable"
+msgstr "Відключити"
+
+msgid "manager.emails.disable.message"
+msgstr "Ви намагаєтеся відключити цей шаблон листа. Якщо система була налаштована на використання цього шаблону, вона не зможе надалі його використовувати. Ви підтверджуєте цю дію?"
+
+msgid "manager.emails.editEmail"
+msgstr "Редагувати лист"
+
+msgid "manager.emails.editTestExample"
+msgstr "Редагувати тестовий лист"
+
+msgid "manager.emails.emailKey"
+msgstr "Ключ листа"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Лист із таким ключем вже існує. Ключі листів повинні бути унікальними."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Шаблон листа"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Шаблони листів"
+
+msgid "manager.emails.enabled"
+msgstr "Включити цей шаблон листа"
+
+msgid "manager.emails.enable"
+msgstr "Включити"
+
+msgid "manager.emails.enable.message"
+msgstr "Ви намагаєтеся включити цей шаблон листа. Ви підтверджуєте цю дію?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Необхідно вказати унікальний ключ листа для цього листа."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Необхідно ввести текст листа."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Необхідно ввести тему листа."
+
+msgid "manager.emails"
+msgstr "Підготовані листи"
+
+msgid "manager.emails.resetAll"
+msgstr "Скинути всі шаблони"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Якщо ви скинете всі шаблони, всі зміни до шаблонів електронної пошти будуть втрачені. Ви хочете підтвердити цю операцію?"
+
+msgid "manager.emails.reset"
+msgstr "Скинути"
+
+msgid "manager.emails.reset.message"
+msgstr "Якщо ви скинете цей шаблон, усі дані повідомлення будуть скинуті до усталеного значення, втративши усі зміни. Ви хочете підтвердити цю операцію?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Скинути до стандартних"
+
+msgid "manager.filesBrowser"
+msgstr "Браузер файлів"
+
+msgid "manager.files.confirmDelete"
+msgstr "Видалити цей файл або теку? Зауважте, що тека повинна бути пустою, перш ніж її можна буде видалити."
+
+msgid "manager.files.createDir"
+msgstr "Створити теку"
+
+msgid "manager.files.emptyDir"
+msgstr "У цій теці не знайдено файлів."
+
+msgid "manager.files.indexOfDir"
+msgstr "Вміст {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Батьківська тека"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Завантажені файли"
+
+msgid "manager.files.uploadFile"
+msgstr "Завантажити файл"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Ви впевнені, що хочете видалити цю посаду?"
+
+msgid "manager.groups.createTitle"
+msgstr "Створення посади"
+
+msgid "manager.groups.editTitle"
+msgstr "Редагування посади"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Необхідно вказати назву групи."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Додати члена"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Ви впевнені, що хочете видалити членство у цій групі?"
+
+msgid "manager.groups.membership"
+msgstr "Членство"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "У цій групі немає членів."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Жодних користувачів не знайдено."
+
+msgid "manager.groups.title"
+msgstr "Назва"
+
+msgid "manager.importExport"
+msgstr "Імпорт/Експорт даних"
+
+msgid "manager.language.ui"
+msgstr "Інтерфейс користувача"
+
+msgid "manager.language.submissions"
+msgstr "Подання"
+
+msgid "manager.language.forms"
+msgstr "Форми"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Перезавантажити усталені значення"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "За бажанням, ця система може підтримувати введення всієї важливої інформації одразу кількома мовами. Для того, щоб використовувати цю можливість, оберіть альтернативні локалізації та налаштування для них зі списку нижче."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Визначіть всі локалізації, які будуть включені до меню вибору мов на кожній сторінці сайту. Меню буде відображатись лише у випадку визначення більш ніж однієї локалізації."
+
+msgid "manager.payment.timestamp"
+msgstr "Дата/Час"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Необхідно ввести користувача, який вже існує."
+
+msgid "manager.people.authSource"
+msgstr "Джерело аутентифікації"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Звільнити цього користувача від призначення?"
+
+msgid "manager.people.createUser"
+msgstr "Створити нового користувача"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Згенерувати випадковий пароль."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Надіслати користувачу вітального листа з його іменем користувача і паролем."
+
+msgid "manager.people.disable"
+msgstr "Деактивувати"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Без ролі"
+
+msgid "manager.people.editProfile"
+msgstr "Редагувати профіль"
+
+msgid "manager.people.editUser"
+msgstr "Редагувати користувача"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Надіслати листи вказаним користувачам"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Надіслати листи користувачам, які мають роль"
+
+msgid "manager.people.emailUsers"
+msgstr "Надіслати листи користувачам"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Обрати локалізацію"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Виберіть користувачів, яким ви хочете надіслати листи"
+
+msgid "manager.people.enable"
+msgstr "Активувати"
+
+msgid "manager.people.enroll"
+msgstr "Призначити користувача"
+
+msgid "manager.people.enrollment"
+msgstr "Призначення"
+
+msgid "manager.people.enrollSelected"
+msgstr "Призначити вказаних користувачів"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Синхронізувати роль"
+
+msgid "manager.people.enrollSync"
+msgstr "Синхронізація призначень"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Користувачі можуть призначатися і звільнятися від призначень в будь-який час."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Призначити користувача на роль"
+
+msgid "manager.people.invalidUser"
+msgstr "Вибачте, вказаний користувач не існує."
+
+msgid "manager.people.mergeUser"
+msgstr "Об'єднати"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Ви впевнені, що хочете об'єднати {$oldAccountCount} вибраних облікових записів у єдиний обліковий запис \"{$newUsername}\"? Після цього {$oldAccountCount} вибраних облікових записів перестануть існувати. Цю дію не можна буде відмінити."
+
+msgid "manager.people.mergeUsers"
+msgstr "Об'єднати користувачів"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Будь ласка, перш ніж натиснути кнопку \"Призначити користувача\", оберіть роль зверху сторінки."
+
+msgid "manager.people.mustProvideName"
+msgstr "Будь ласка, вкажіть принаймні прізвище користувача."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Немає відповідностей."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Немає призначених користувачів."
+
+msgid "manager.people"
+msgstr "Редакція"
+
+msgid "manager.people.remove"
+msgstr "Видалити"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Записати та створити іншого"
+
+msgid "manager.people.signInAs"
+msgstr "Зайти як"
+
+msgid "manager.people.signInAsUser"
+msgstr "Зайти як користувач"
+
+msgid "manager.people.syncUsers"
+msgstr "Синхронізація ролей користувачів"
+
+msgid "manager.people.unenroll"
+msgstr "Звільнити"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Користувач успішно створений."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Вимагати, щоб користувач змінив пароль під час наступного входу до системи."
+
+msgid "manager.plugins.action"
+msgstr "Дія:"
+
+msgid "manager.plugins.disable"
+msgstr "Заборонити"
+
+msgid "manager.plugins.enable"
+msgstr "Дозволити"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Керування модулями"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Це загальносистемний модуль. Лише адміністратор сайту може керувати цим модулем."
+
+msgid "manager.plugins"
+msgstr "Модулі системи"
+
+msgid "manager.readingTools"
+msgstr "Інструментарій для читання"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Пошук користувача за іменем"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Змінити"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Пошук рецензента за іменем"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Пошук за іменем"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Наукові інтереси рецензента"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Використовуйте нижченаведену форму, щоб вказати максимальні значення для термінів, які потрібно шукати. Форма попередньо заповнена середніми значеннями, які обчислені для цих полів."
+
+msgid "manager.roles"
+msgstr "Ролі"
+
+msgid "manager.statistics"
+msgstr "Статистика та звіти"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tВаш {$contextObjectName} налаштовано для запису більш ніж однієї метрики використання. Статистика використання відображатиметься в декількох контекстах.\n"
+"\t\tТрапляється, що має бути застосована лише одна статистика використання, наприклад, щоб відобразити впорядкований список найвживаніших подань або відранжувати\n"
+"\t\tрезультати пошуку. Будь ласка, оберіть одну з налаштованих метрик, як усталену.\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "Місто"
+
+msgid "manager.statistics.region"
+msgstr "Регіон"
+
+msgid "manager.statistics.reports"
+msgstr "Генератор звітів"
+
+msgid "manager.statistics.reports.description"
+msgstr "Система генерує звіти, які відстежують деталі, пов'язані з використанням сайту та подань за певний період часу. Звіти створюються у форматі CSV, для перегляду якого потрібний табличний процесор."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Зібрати статистику за:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Елементи виділені курсивом і позначені * представляють дані, необов'язкові для поточного способу підрахунку статистики в системі (тип метрики). Ви можете отримати ці дані чи ні, залежно від налаштувань вашого модуля статистики."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Усталені шаблони звітів"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Створити спеціальний звіт"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Додаткові налаштування"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Приховати додаткові налаштування"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Стовпці"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Визначте стовпці, які використовуватимуться для створення звіту. Вибрані тут стовпці не лише визначають, які дані будуть представлені в звітах, але також визначать рівень збору статистики. Наприклад, якщо ви виберете стовпці «ID», «Тип» і «Місяць», звіт порахує всі перегляди об'єкту за однин місяць і представить ці дані в одному рядку. Якщо ви виберете \"День\" замість \"Місяць\", у кожного об'єкта буде окремий рядок для кожного дня."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Фільтри"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Об'єкт не знайдено в базі даних"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Тип об'єкту"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "ID об'єкту"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Визначте один або декілька ID об'єктів, розділених комами (наприклад 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Вчора"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Поточний місяць"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Впорядкування за"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Напрям"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "За зростанням"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "За спаданням"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Використайте формат YYYYMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Використайте формат YYYYMMDD."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Одна або декілька назв міст, розділених комами (наприклад, Назва міста 1, Назва міста 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Щоб створити звіт, потрібно вибрати хоча б один стовпець."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL-адреса звіту"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Наступна URL-адреса може використовуватися для створення звіту за допомогою поточних параметрів, вказаних в формі. Просто скопіюйте її та відкрийте у своєму браузері. Ви також можете зберегти її у своїх закладках як URL-адресу генератора власних звітів."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "За вмістом"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "За типом об'єкта та/або ID об'єкта"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Вибрати діапазон для звіту"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Або вибрати діапазон за:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "За географічним розташуванням"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Відібрати результати за країною, регіоном та/або містом."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Спонсорство"
+
+msgid "manager.setup.additionalContent"
+msgstr "Додатковий вміст"
+
+msgid "manager.setup.additionalContentDescription"
+msgstr "Все, що вводиться тут, з'явиться на вашій домашній сторінці."
+
+msgid "manager.setup.authorCopyrightNotice"
+msgstr "Умови передачі авторських прав"
+
+msgid "manager.setup.authorCopyrightNoticeAgree"
+msgstr "Вимагати в авторів погодитись із умовами передачі авторських прав в процесі подання матеріалів."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Довідник для авторів"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Рекомендовані правила містять бібліографічні стандарти та стандарти форматування разом із прикладами оформлення цитувань, котрі використовуватимуться під час подання матеріалів."
+
+msgid "manager.setup.competingInterests"
+msgstr "Конфлікт інтересів"
+
+msgid "manager.setup.competingInterestsDescription"
+msgstr "Рецензентів проситимуть дотримуватися правил декларування конфлікту інтересів, які ви навели нижче."
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Під час видалення цього об'єкту виникла помилка."
+
+msgid "manager.setup.favicon"
+msgstr "Неправильний формат favicon. Прийнятними форматами є .ico, .png та .gif."
+
+msgid "manager.setup.groupType"
+msgstr "Групування типів файлів"
+
+msgid "manager.setup.homeHeaderImageInvalid"
+msgstr "Завантаження невдале або неправильний формат зображення для логотипу заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png."
+
+msgid "manager.setup.homepageImage"
+msgstr "Зображення на домашній сторінці"
+
+msgid "manager.setup.homepageImageDescription"
+msgstr "Завантажте зображення для відображення на домашній сторінці."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Завантаження невдале або неправильний формат зображення домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Завантаження невдале або неправильний формат зображення для заголовку домашньої сторінки. Прийнятними форматами є .gif, .jpg або .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Описи"
+
+msgid "manager.setup.layout.theme"
+msgstr "Теми"
+
+msgid "manager.setup.layout.themeDescription"
+msgstr "Нові теми можуть бути встановлені на вкладці \"Модулі\" у верхній частині цієї сторінки."
+
+msgid "manager.setup.layout.blockManagement"
+msgstr "Налаштування бічних панелей"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Бічна панель"
+
+msgid "manager.setup.layout.unselected"
+msgstr "Не вибрано"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Журналізація та аудит"
+
+msgid "manager.setup.logo"
+msgstr "Логотип"
+
+msgid "manager.setup.notifications"
+msgstr "Повідомлення про подання матеріалів автором"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Надіслати копію на цю електронну адресу"
+
+msgid "manager.setup.notifications.description"
+msgstr "Авторам автоматично надсилається електронний лист із підтвердженням їх подання. Ви можете надіслати копії цього електронного листа до нижчевказаним:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Правила відкритого доступу"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Якщо ви надаєте негайний вільний доступ до всього опублікованого вмісту, ви можете навести опис ваших правил відкритого доступу."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Завантаження невдале або неправильний формат зображення для логотипу заголовку сторінки. Прийнятними форматами є .gif, .jpg або .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Нижній колонтитул сторінки"
+
+msgid "manager.setup.pageFooterDescription"
+msgstr "Вкажіть будь-які зображення, текст або HTML-код, які ви хочете відобразити в нижній частині вашого веб-сайту."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Опишіть правила та процес рецензування для читачів та авторів. Це опис переважно містить кількість рецензентів, які зазвичай долучаються до рецензування, критерії, за якими рецензентів просять оцінити подання, очікуваний час, необхідний для рецензування, та принципи відбору рецензентів."
+
+msgid "manager.setup.principalContact"
+msgstr "Контактна особа"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Введіть контактні дані, як правило, це головний редактор, керуючий редактор чи хтось з адміністрації. Ці дані можуть відображатися на вашому сайті у відкритому доступі."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Заява про конфіденційність"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Тижнів на згоду або відмову на запит про рецензію"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Тижнів на рецензування"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Ніколи не нагадувати"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Усталені значення, які можна змінити для кожної рецензії під час редакційного процесу."
+
+msgid "manager.setup.reviewOptions.remindForInvite"
+msgstr "Надсилати нагадування, якщо рецензент не відповів на запит на рецензування протягом наступного часу (днів) після закінчення терміну відповіді:"
+
+msgid "manager.setup.reviewOptions.remindForSubmit"
+msgstr "Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:"
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Усталений термін рецензування"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Додати посилання \"Забезпечення сліпого рецензування\" під час завантаження"
+
+msgid "manager.setup.searchEngineIndexing.sitemap"
+msgstr "Мапа сайту"
+
+msgid "manager.setup.searchEngineIndexing.sitemapDescription"
+msgstr "XML мапи сайту для подання в пошукові системи знаходиться за адресою <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Опис правил та стосунків зі спонсорами"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Приклади: наукові товариства, університетські підрозділи, спілки тощо. Інформація про спонсорів оприлюднюється у відкритому доступі."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Досвідчені веб-розробники можуть завантажувати файл CSS для додаткового оформлення веб-сайту."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Контакти технічної підтримки"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Контактна особа, яка може допомогти редакторам, авторам та рецензентам у будь-яких проблемах, з якими вони стикаються під час редагування, перегляду чи публікації матеріалів."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Параметри доступу до сайту"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} нових)"
+
+msgid "manager.users"
+msgstr "Користувачі"
+
+msgid "plugins.categories.metadata"
+msgstr "Модулі метаданих"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Модулі метаданих дозволяють використання додаткових стандартів метаданих."
+
+msgid "plugins.categories.auth"
+msgstr "Модулі авторизації"
+
+msgid "plugins.categories.blocks"
+msgstr "Модулі блоків"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Модулі блоків — це модульні інтерфейсні компоненти, наприклад, різноманітні інструменти бічних панелей і т.і."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Модулі шлюзів забезпечують онлайновий зв'язок із зовнішніми системами."
+
+msgid "plugins.categories.gateways"
+msgstr "Модулі шлюзів"
+
+msgid "plugins.categories.generic"
+msgstr "Загальні модулі"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Модулі імпорту/експорту можуть використовуватись для міграції змісту з інших систем та у інші системи."
+
+msgid "plugins.categories.importexport"
+msgstr "Модулі імпорту/експорту"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Модулі платіжних компонентів забезпечують підтримку різноманітних способів здійснення онлайнових платежів."
+
+msgid "plugins.categories.paymethod"
+msgstr "Модулі платіжних компонентів"
+
+msgid "plugins.categories.reports.description"
+msgstr "Модулі звітів використовуються для формування різних типів звітів та масивів статистичних даних."
+
+msgid "plugins.categories.reports"
+msgstr "Модулі звітів"
+
+msgid "plugins.categories.themes.description"
+msgstr "Модулі тем можуть використовуватись для зміни зовнішнього вигляду системи."
+
+msgid "plugins.categories.themes"
+msgstr "Модулі тем"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Модулі форматів метаданих OAI"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Ці модулі дозволяють генерувати метадані для OAI-комунікації."
+
+msgid "plugins.categories.pubIds"
+msgstr "Модулі відкритих ідентифікаторів"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Ці модулі реалізують підтримку відкртого ідентифікатора."
+
+msgid "manager.plugins.copyError"
+msgstr "Плагін не був скопійований. Мможливо виникла проблема з правами доступу. Будь ласка, переконайтесь, що веб-сервер може записувати в каталог \"plugins\" (включаючи підкаталоги), але не забудьте пізніше захистити його, змінивши права доступу."
+
+msgid "manager.plugins.delete"
+msgstr "Видалити модуль"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Ви впевнені, що хочете встановити цей модуль?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Ви впевнені, що хочете оновити цей модуль?"
+
+msgid "grid.action.installPlugin"
+msgstr "Встановити або оновити цей модуль"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Ви впевнені, що хочете видалити цей модуль із системи?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Натиснувши «Видалити», ви видалите модуль із файлової системи сервера."
+
+msgid "manager.plugins.deleteError"
+msgstr "Модуль \"{$pluginName}\" не можна видалити з файлової системи. Можливо виникла проблема з правами доступу. Будь ласка, переконайтесь, що веб-сервер може записувати в каталог \"plugins\" плагінів (включаючи підкаталоги), але не забудьте пізніше захистити його, змінивши права."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Модуль \"{$pluginName}\" успішно видалено"
+
+msgid "manager.plugins.description"
+msgstr "Ця сторінка дозволяє Менеджеру переглянути та можливо налаштувати модулі, які зараз встановлені. Модулі поділяються на категорії відповідно до їх функцій. Категорії наведено нижче, а в кожній категорії - існуючий набір плагінів."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Модуля \"{$pluginName}\" не існує"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Будь ласка, спочатку оберіть файл"
+
+msgid "manager.plugins.upload"
+msgstr "Завантажити новий модуль"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Ця форма дозволяє завантажити та встановити новий модуль. Будь ласка, переконайтесь, що модуль заархівовано в файлі у форматі .tar.gz."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Будь ласка, переконайтеся, що обрано файл для завантаження."
+
+msgid "manager.plugins.installed"
+msgstr "Встановлені модулі"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Галерея модулів"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Огляд"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Встановлення"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Остання сумісна версія"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Офіційний"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Цей модуль розроблений та підтримується командою проекту Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Рецензований"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Цей модуль був переглянутий та затверджений командою проекту Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Партнерський"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Цей модуль надано одним з наших партнерів з розробки."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Розробник"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} випущена {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Головна сторінка"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Загальна інформація"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Статус"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Модудль ще не встановлений."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Наразі не існує сумісної версії цього модуля."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Модуль уже встановлений, і є новішою версією, ніж наявна в галереї."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Модуль уже встановлений, але може бути оновлений до новішої версії."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Модуль уже встановлений та не потребує оновлення."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Новіший ніж наявна версія"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Може бути оновлений"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Не потребує оновлення"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Недоступний"
+
+msgid "manager.plugins.installFailed"
+msgstr "Не вдалося встановити. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Успішно встановлена версія {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Завантажений архів модуля не містить каталога, який відповідає назві модуля."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Завантажений модуль не відповідає категорії оновлюваного модуля."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Plugin does not exist.  Please Install instead"
+
+msgid "manager.plugins.wrongName"
+msgstr "version.xml у завантаженому модулі містить назву модуля, яка не відповідає назві оновлюваного модуля."
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Модуль уже існує, але є новішим, ніж встановлена версія. Будь ласка, скористайтеся оновленням"
+
+msgid "manager.plugins.settings"
+msgstr "Налаштування"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "Команда tar не доступна. Будь ласка, правильно налаштуйте її в \"config.inc.php\"."
+
+msgid "manager.plugins.upgrade"
+msgstr "Оновити модуль"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Ця форма дозволяє оновити модуль. Будь ласка, переконайтесь, що модуль заархівовано в файлі у форматі .tar.gz."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Не вдалося оновити. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Успішно оновлено до версії {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Помилка завантаження файлу"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Оберіть файл модуля"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml у каталозі модулів містить неправильні дані."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml не знайдено в каталозі модулів"
+
+msgid "notification.localeEnabled"
+msgstr "Мова увімкнена."
+
+msgid "notification.localeDisabled"
+msgstr "Мова вимкнена."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} встановлена як основна мова."
+
+msgid "notification.localeInstalled"
+msgstr "Усі обрані мови встановлені та активовані."
+
+msgid "notification.localeUninstalled"
+msgstr "Мова {$locale} вилучена."
+
+msgid "notification.localeReloaded"
+msgstr "Мова {$locale} перезавантажена."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Налаштування мови збережені."
+
+msgid "notification.editedUser"
+msgstr "Користувача відредаговано."
+
+msgid "manager.distribution.indexing"
+msgstr "Індексування"
+
+msgid "manager.paymentMethod"
+msgstr "Платежі"
+
+msgid "manager.paymentMethod.title"
+msgstr "Способи оплати"
+
+msgid "manager.paymentMethod.none"
+msgstr "Спосіб оплати не обрано"
+
+msgid "manager.paymentMethod.method"
+msgstr "Спосіб оплати"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валюта"
+
+msgid "manager.paymentMethod.currency.description"
+msgstr "Платежі, здійснені безпосередньо через цей веб-сайт, будуть деноміновані у вибраній валюті."
+
+msgid "settings.roles.roleOptions"
+msgstr "Параметри ролі"
+
+msgid "settings.roles.showTitles"
+msgstr "Показати назву ролі в списку учасників"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Дозволити самостійну реєстрацію користувача"
+
+msgid "settings.roles.recommendOnly"
+msgstr "Ця роль дозволяє лише рекомендувати рішення рецензента, остаточне рішення потребуватиме участі уповноваженого редактора."
+
+msgid "settings.roles.roleName"
+msgstr "Назва ролі"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Абревіатура"
+
+msgid "settings.roles.assignedStages"
+msgstr "Призначені етапи"
+
+msgid "settings.roles.stages"
+msgstr "Етапи"
+
+msgid "settings.roles.roleDetails"
+msgstr "Подробиці про роль"
+
+msgid "settings.roles.from"
+msgstr "Рівень повноважень"
+
+msgid "settings.roles.removeText"
+msgstr "Ви збираєтеся видалити цю роль з цього контексту. Ця операція також видалить пов'язані з нею всі налаштування та призначені користувачів. Ви хочете продовжити?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Ви маєте вказати ім'я ролі."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Ви маєте вказати абревіатуру ролі."
+
+msgid "settings.roles.uniqueName"
+msgstr "Ви маєте вказати унікальне ім'я ролі."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Ви маєте вказати унікальну абревіатуру ролі."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Ви маєте вказати рівень повноважень ролі."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Ви маєте вказати етап для призначення."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Необхідний файл бібліотеки. Переконайтеся, що ви вибрали та завантажили файл."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Для файлу бібліотеки потрібне ім'я."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Для цього файлу бібліотеки потрібен тип файлу."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Контракти"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Повноваження"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Звіти"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Інше"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Цей файл бібліотеки буде доступний для завантаження, якщо увімкнено \"Публічний доступ\" за адресою: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Оберіть файли бібліотеки, які потрібно додати"
+
+msgid "grid.action.addGenre"
+msgstr "Додати компонент"
+
+msgid "grid.action.editGenre"
+msgstr "Редагувати цей компонент"
+
+msgid "grid.action.deleteGenre"
+msgstr "Видалити цей компонент"
+
+msgid "grid.action.restoreGenres"
+msgstr "Відновити компоненти з усталеними налаштуваннями"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Позначити файли цього типу як залежні файли (наприклад, як такі, що не відображатимуться з опублікованим вмістом)."
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Позначити файли цього типу як додаткові файли (наприклад, як такі, що не стосуються основного вмісту подання)"
+
+msgid "manager.setup.genres.key"
+msgstr "Ключ"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Додатковий короткий символьний ідентифікатор цього жанру."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Ключ уже існує."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "Ключ може містити лише літери, цифри, знаки підкреслення та дефіси, а також має починатися і закінчауватися літерою чи цифрою."
+
+msgid "manager.settings.wizard"
+msgstr "Майстер налаштувань"
+
+msgid "manager.users.roleRequired"
+msgstr "Потрібно вибрати принаймні одну роль, яка буде пов'язана з цим користувачем."
+
+msgid "manager.website"
+msgstr "Веб-сайт"
+
+msgid "manager.website.title"
+msgstr "Налаштування веб-сайту"
+
+msgid "manager.workflow"
+msgstr "Робочий процес"
+
+msgid "manager.workflow.title"
+msgstr "Налаштування робочого процесу"
+
+msgid "manager.distribution"
+msgstr "Розповсюдження"
+
+msgid "manager.distribution.title"
+msgstr "Налаштування розповсюдження"
+
+msgid "manager.reviewForms"
+msgstr "Форми рецензування"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Ви впевнені, що хочете активувати цю форму рецензії? Після того, як вона буде призначена для рецензування, ви більше не зможете її деактивувати."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Ви впевнені, що хочете деактивувати цю форму рецензії? Вона більше не буде доступна для виконання нових рецензій."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Ви впевнені, що хочете створити копію цієї форми рецензії?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Завершено"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Ви впевнені, що хочете видалити цю форму рецензії?"
+
+msgid "manager.reviewForms.create"
+msgstr "Створити форму рецензування"
+
+msgid "manager.reviewForms.description"
+msgstr "Опис та інструкції"
+
+msgid "manager.reviewForms.edit"
+msgstr "Форма рецензування"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Необхідно вказати назву форми рецензування."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Рецензується"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Створені тут форми рецензування будуть запропоновані рецензентам для заповнення, замість стандартної форми з двома текстовими блоками: \"для автора та редактора\" та \"лише для редактора\". Форми рецензування можуть розроблятись для окремих розділів журналу, таким чином редактори матимуть змогу в процесі рецензування обирати, яку форму має заповнити рецензент. В будь-якому випадку, редактори матимуть можливість включати рецензії до кореспонденції з автором."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Жодної / Вільна форма рецензії"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Жодної форми рецензування не було створено."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Форми рецензій не використовувались."
+
+msgid "manager.reviewForms.preview"
+msgstr "Попередній перегляд форми"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Дані форми рецензії"
+
+msgid "manager.reviewForms.title"
+msgstr "Назва"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Зміна типу елементу форми..."
+
+msgid "manager.reviewFormElements"
+msgstr "Елементи форми"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Додати варіант відповіді"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Прапорці (вибір одного або кількох варіантів з запропонованих)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Оберіть тип елемента"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Ви впевнені, що хочете видалити елемент опублікованої форми рецензування?"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Копіювати до:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Створити новий елемент"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Випадаючий список"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Редагувати елемент форми"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Тип елементу"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Необхідно вказати тип елементу форми."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Необхідно вказати питання, що відповідає елементу форми."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Жодних елементів форми не було створено."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Варіант відповіді"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Питання"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радіокнопка (вибір одного варіанту з запропонованих)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Рецензент зобов'язаний відповісти на питання"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Включити відповідь до листа автору"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Текстове поле для одного слова"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Розширене текстове поле"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Текстове поле з одним рядком"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Видимий (для авторів)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Створити нову форму рецензії"
+
+msgid "manager.setup.reviewerCompetingInterestsRequired.description"
+msgstr "Заява про конфлікт інтересів рецензента"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Запит на заяву про конфлікт інтерсів під час рецензування."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL-адреса веб-сторінки, що описує ліцензію, якщо така є."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Форма подання матеріалів"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Помилки перевірки:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Трапилися попередження:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Виникла помилка:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Невідомий елемент {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Невідомий жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Невідоме кодування {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Вміст не закодований як {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Невідома група користувачів {$param}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Невідомий завантажувач {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Тимчасовий файл {$dest} не може бути створено з {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "Вказаний розмір файлу \"{$expected}\" та фактичний розмір файлу \"($actual)\" не співпадають"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "Нова версія \"{$revisionId}\" для файлу \"{$fileId}\" створить дублюючий запис"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Файл подання неможливо імпортувати"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Назва"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Шлях"
+
+msgid "manager.navigationMenus"
+msgstr "Меню навігації"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Ця сторінка буде доступна за адресою: <blockquote>{$pagesPath}</blockquote>...where %PATH% is the path entered above. <strong>Note:</strong> No two pages can have the same path. Using paths that are built into the system may cause you to lose access to important functions.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Вміст"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Поле \"Шлях\" має містити лише літери, цифри та такі символи: '.', '/', '-', і '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Цей шлях вже вказано для іншого пункту меню навігації."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Цей заголовок вже вказано для іншого меню навігації."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Назва обов'язкова"
+
+msgid "manager.navigationMenuItems"
+msgstr "Елементи меню навігації"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Призначені елементи меню"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Непризначені пункти меню"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Області навігації активної теми"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Оберіть область навігації"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Меню навігації вже призначено для цієї області."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Потрібно вказати URL-адресу"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Дізнайтеся більше про те, коли цей пункт меню буде відображатися або приховуватися."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "Коли елемент меню відкриває підменю, це посилання може не спрацьовувати на деяких пристроях. Наприклад, якщо у вас є елемент \"Про журнал\", який відкриває підменю з \"Контакти\" та \"Редакція\", посилання \"Про журнал\" може бути відсутнім на деяких пристроях. Усталено в меню це обробляється шляхом створення другого елементу меню \"Про цей журнал\", який з'являється в підменю."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Тип меню навігації"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Виберіть тип меню навігації або варіант \"Власний\", щоб створити свій тип"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Власна сторінка"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Створити власну сторінку на своєму веб-сайті та зв'яжіть її з меню навігації."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Зовнішній URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Посилання на будь-яку URL-адресу на іншому сайті, наприклад, https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Посилання на сторінку, яка відображає інформацію про журнал в Налаштування > Журнал"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Це посилання відображатиметься, лише якщо ви заповнили розділ з інформацією про журнал в Налаштування > Журнал."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Посилання на сторінку, яка відображає вміст розділу \"Вихідні дані\" в Налаштування > Журнал."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Це посилання відображатиметься, лише якщо ви заповнили розділ \"Редакція\" в Налаштування > Журнал."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Посилання на сторінку, де відображаються інструкції щодо подання матеріалів."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Посилання на поточний випуск."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Посилання на архів випусків."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Посилання на сторінку, котра показує оголошення."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Це посилання відображатиметься, лише якщо ви увімкнули оголошення в Налаштування > Веб-сайт."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Посилання на сторінку входу користувача в систему."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Посилання на сторінку реєстрації користувача."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Посилання на панель інструментів редакції."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Посилання на сторінку профілю користувача."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Посилання на інструменти адміністрування всього сайту"
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Це посилання відображатиметься тільки для користувачів з повноваженнями адміністратора."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Посилання для виходу користувача з системи."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Це посилання відображатиметься лише тоді, коли відвідувач уже увійшов у систему."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Це посилання бвідображатиметься лише тоді, коли відвідувач ще не увійшов у систему."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Посилання на сторінку, яка відображає вашу контактну інформацію."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Це посилання відображатиметься, лише якщо ви заповнили контактну інформацію в Налаштування > Контактна інформація."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Будь ласка, оберіть тип меню навігації."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Це посилання відображатиметься лише в разі активації платежів у Налаштування > Розповсюдження > Платежі."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Це посилання відображатиметься, лише якщо відвідувач увійшов у систему, платежі увімкнені в розділі Налаштування> Розповсюдження> Платежі та обов'язкові підписки в Налаштування > Розповсюдження > Доступ."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Посилання на сторінку пошуку."
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Ця заява з'явиться під час реєстрації користувача, подання автора та на загальнодоступній сторінці конфіденційності. У деяких юрисдикціях ви юридично зобов'язані розкривати, як ви обробляєте дані користувача в цій політиці конфіденційності."
+
+msgid "manager.reviewFormElements.description"
+msgstr "Опис"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr "Автор {$authorName} не має даного імені у мові подання, {$localeName}. Не можна імпортувати подання без цієї інформації."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Помилки імпорту/експорту:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "Користувач \"{$username}\", що імпортується, не має пароля. Перевірте формат імпорту XML. Користувача не було імпортовано."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Посилання на сторінку, на якій відображається ваша заява про конфіденційність."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Це посилання відображатиметься, лише якщо ви ввели заяву про конфіденційність у розділі Налаштування> Робочий процес> Представлення."
+
+msgid "grid.category.add"
+msgstr "Додати категорію"
+
+msgid "grid.category.edit"
+msgstr "Редагувати категорію"
+
+msgid "grid.category.name"
+msgstr "Ім'я"
+
+msgid "grid.category.path"
+msgstr "Шлях"
+
+msgid "grid.category.urlWillBe"
+msgstr "URL-адреса категорії буде: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Шлях категорії повинен складатися лише з літер і цифр."
+
+msgid "grid.category.pathExists"
+msgstr "Шлях категорії вже існує. Введіть унікальний шлях."
+
+msgid "grid.category.description"
+msgstr "Опис"
+
+msgid "grid.category.parentCategory"
+msgstr "Батьківська категорія"
+
+msgid "grid.category.removeText"
+msgstr "Ви впевнені, що хочете видалити цю категорію?"
+
+msgid "grid.category.nameRequired"
+msgstr "Введіть назву категорії."
+
+msgid "grid.category.categoryDetails"
+msgstr "Деталі категорії"
+
+msgid "stats.articlesOfTotal"
+msgstr "{$count} з {$total} статей"
+
+msgid "stats.daily"
+msgstr "Щодня"
+
+msgid "stats.dateRange"
+msgstr "Проміжок часу"
+
+msgid "stats.dateRange.allDates"
+msgstr "Всі дати"
+
+msgid "stats.dateRange.apply"
+msgstr "Застосувати"
+
+msgid "stats.dateRange.change"
+msgstr "Змінити діапазон дат"
+
+msgid "stats.dateRange.customRange"
+msgstr "Спеціальний діапазон"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Одна з введених дат не існує."
+
+msgid "stats.dateRange.from"
+msgstr "Від"
+
+msgid "stats.dateRange.instruction"
+msgstr "Введіть кожну дату у форматі YYYY-MM-DD. Наприклад, якщо ви хочете дату 15 січня 2019 року, введіть 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Формат дати недійсний. Введіть кожну дату у форматі YYYY-MM-DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Дата початку повинна бути раніше дати закінчення."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Дата закінчення не може бути пізніше, ніж {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Дата початку не може бути раніше, ніж {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Останні 12 місяців"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Останні 30 днів"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Останні 90 днів"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "З {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "До"
+
+msgid "stats.dateRange.untilDate"
+msgstr "До {$date}"
+
+msgid "stats.fileViews"
+msgstr "Перегляди файлів"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Щомісячно"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Пошук за назвою, автором та ідентифікатором"
+
+msgid "stats.total"
+msgstr "Усього"

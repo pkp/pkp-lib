@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T11:06:21+00:00\n"
+"PO-Revision-Date: 2019-11-19T11:06:21+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron"
+
+msgid "plugins.generic.acron.description"
+msgstr "Αυτό το Πρόσθετο χρησιμοποιείται για την ελαχιστοποίηση της εξάρτησης από εργαλεία περιοδικού προγραμματισμού, όπως το 'cron.'"
+
+msgid "plugins.generic.acron.enabled"
+msgstr "To Πρόσθετο Acron έχει ενεργοποιηθεί."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "To Πρόσθετο Acron έχει απενεργοποιηθεί."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Το Cron tab επαναφορτώθηκε επιτυχώς."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Επαναφόρτωση προγραμματισμένων εργασιών"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Οι προγραμματισμένες εργασίες επαναφορτώθηκαν επιτυχώς."

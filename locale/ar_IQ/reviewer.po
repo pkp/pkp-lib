@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:38+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. الإلتماس"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. الإرشادات"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. التنزيل والتحكيم"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. الإكمال"
+
+msgid "reviewer.step1.request"
+msgstr "إلتماس التحكيم"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "لقد تم اختيارك كمحكم محتمل لطلب النشر الآتي وتجد أدناه نظرة عامة عنه مع الخط الزمني المتاح للتحكيم. نأمل أنك قادر على المساهمة فيه."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "معاينة كل تفاصيل طلب النشر"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "ملفات المحكم"
+
+msgid "reviewer.submission.declineReview"
+msgstr "أرفض إلتماس التحكيم"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "بإمكانك إعلام المحرر عن أي من الأسباب التي أدت إلى رفضك هذا التحكيم في الحقل أدناه."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "أقبل التحكيم، استمر إلى الخطوة #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "استمر إلى الخطوة #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "تقديم التحكيم"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "إرشادات المحكم"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "هذا الناشر لديه سياسة تستدعي الإفصاح عن وجود أي مصالح متضاربة من قبل المحكمين الذين يتعاملون معه. لطفاً، خذ وقتك لمعاينة هذه السياسة."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "ليست لدي أي مصالح متضاربة"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "قد تكون لدي بعض المصالح المتضاربة (أحددها أدناه)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "المصالح المتضاربة"
+
+msgid "reviewer.submission.guidelines"
+msgstr "إرشادات التحكيم"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "هذا الناشر لم يضع أي إرشادات تحكيم بعد."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "أنقر على أسماء الملفات المتعلقة بطلب النشر هذا أدناه لتزيلها."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "أدخل (أو إلصق) تحكيمك لطلب النشر هذا في النموذج أدناه."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "إرفع الملفات التي تود تقديمها إلى المحرر و/أو المؤلف بضمنها نسخة منقحة من ملفات التحكيم الأصلية."
+
+msgid "reviewer.complete"
+msgstr "التحكيم مسلَّم"
+
+msgid "reviewer.confirmSubmit"
+msgstr "هل أنت متأكد من رغبتك في تسليم هذا التحكيم؟"
+
+msgid "reviewer.complete.whatNext"
+msgstr "شكراً لإكمالك مهمة تحكيم هذا المؤلَّف. تم تسليم تحكيمك بنجاح. نحن نقدر مساهمتك في تحسين نوعية الأعمال التي ننشرها. قد يراسلك المحرر لاحقاً إذا تطلب الأمر الحصول على مزيد من المعلومات."
+
+msgid "reviewer.aboutDueDates"
+msgstr "عن تواريخ الاستيجاب"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "يلتمس منك المحرر الإختيار ما بين قبول التحكيم أو رفضه قبل تاريخ استيجاب الرد. إذا قبلت إجراء التحكيم، ينبغي أن يكون إنجازه قبل تاريخ استيجاب التحكيم."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "للمؤلف والمحرر"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "للمحرر حصراً"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "المستخدم الحالي ليس معيناً بمثابة محكم للوثيقة المطلوبة."

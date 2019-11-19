@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:06+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Förfrågan"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Riktlinjer"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Ladda ner & granska"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Slutförande"
+
+msgid "reviewer.step1.request"
+msgstr "Granskningsförfrågan"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Du har valts ut som potentiell granskare av följande bidrag. Nedan finns en översikt av bidraget, samt en tidsplan för granskningen. Vi hoppas att du har möjlighet att delta."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Visa alla bidragets detaljer"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Granskares filer"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Avböj granskningsförfrågan"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Du kan förse redaktören med skäl till varför du avböjer granskningsförfrågan i fältet nedan."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Acceptera granskningsförfrågan, fortsätt till steg 2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Fortsätt till steg 3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Skicka in bedömning"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Riktlinjer för granskare"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Utgivaren har en policy för avslöjande av eventuella intressekonflikter hos dess granskare. Vänligen ta dig tid att gå igenom denna policy."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Jag har inga konkurrerande intressen"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Jag kanske har konkurrerande intressen (Specificera nedan)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Intressekonflikter"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Riktlinjer för granskare"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Utgivaren har inte sammanställt några riktlinjer för granskare."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Klicka på filnamnen nedan för att ladda ner filerna som tillhör detta bidrag."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Fyll i din bedömning av detta bidrag i formuläret nedan."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Ladda upp filer som du vill att redaktörer och/eller författare ska ta hänsyn till, inklusive reviderade versioner av ursprungliga filer för granskning."
+
+msgid "reviewer.complete"
+msgstr "Bedömning inlämnad"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Är du säker på att du vill lämna in den här bedömningen?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Tack för att du slutförde granskningen av det här bidraget. Din bedömning har nu lämnats in. Vi uppskattar ditt bidrag till kvaliteten på det vi publicerar. Redaktören kan komma att kontakta dig igen ifall mer information behövs."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Om förfallodatum"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Redaktören ber dig att antingen acceptera eller avböja granskningsförfrågan innan sista svarsdatum och att slutföra granskningen vid angiven deadline."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "För författare och redaktör"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Endast för redaktör"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Nuvarande användare är inte tilldelad rollen granskare för begärt dokument."

@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
+"Language: \n"
+
+msgid "user.affiliation"
+msgstr "Tilhørsforhold"
+
+msgid "user.affiliations"
+msgstr "Tilhørsforhold"
+
+msgid "user.biography"
+msgstr "Biografierklæring"
+
+msgid "user.changeMyPassword"
+msgstr "Rediger min adgangskode"
+
+msgid "user.changePassword"
+msgstr "Skift adgangskode"
+
+msgid "user.dateLastLogin"
+msgstr "Seneste logon"
+
+msgid "user.dateRegistered"
+msgstr "Registreringsdato"
+
+msgid "user.editMyProfile"
+msgstr "Rediger min profil"
+
+msgid "user.email"
+msgstr "E-mail"
+
+msgid "user.interests"
+msgstr "Bedømmelsesinteresser"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Din konto er blevet deaktiveret af følgende årsag: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Din konto er blevet deaktiveret. Kontakt administratoren for at få flere oplysninger."
+
+msgid "user.login.accountNotValidated"
+msgstr "Vi har sendt en bekræftelses-e-mail til dig på {$email}. For at aktivere din nye konto skal du følge de angivne instruktioner i e-mailen. Hvis du ikke kan se nogen e-mail, bedes du tjekke din spam-mappe."
+
+msgid "user.login.activate"
+msgstr "Aktiver konto"
+
+msgid "user.login.activated"
+msgstr "Tak, fordi du har aktiveret din konto. Du kan nu logge på ved hjælp af de legitimationsoplysninger, du angav, da du oprettede kontoen."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Du skal vælge en ny adgangskode, inden du kan logge på dette websted.<br /><br />Angiv dit brugernavn samt din aktuelle og din nye adgangskode nedenfor for at ændre adgangskoden til din konto."
+
+msgid "user.login.forgotPassword"
+msgstr "Har du glemt din adgangskode?"
+
+msgid "user.login.loginError"
+msgstr "Ugyldigt brugernavn eller ugyldig adgangskode. Forsøg igen."
+
+msgid "user.login"
+msgstr "Log på"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Der er sendt en bekræftelse til din e-mail-adresse. Følg instruktionerne i e-mailen for at nulstille din adgangskode."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Det link, du har klikket på, er udløbet eller er ikke gyldigt. Forsøg at nulstille din adgangskode igen."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Der findes ingen brugere med den angivne e-mail-adresse."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Der er sendt en ny adgangskode til din e-mail-adresse. Du kan nu logge på webstedet med din nye adgangskode."
+
+msgid "user.login.registeredEmail"
+msgstr "E-mail-adresse på registreret bruger"
+
+msgid "user.login.resetPassword"
+msgstr "Nulstil adgangskode"
+
+msgid "user.logOut"
+msgstr "Log af"
+
+msgid "user.mailingAddress"
+msgstr "Postadresse"
+
+msgid "user.myAccount"
+msgstr "Min konto"
+
+msgid "user.name"
+msgstr "Navn"
+
+msgid "user.password"
+msgstr "Adgangskode"
+
+msgid "user.repeatPassword"
+msgstr "Gentag adgangskode"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Angiv din aktuelle og din nye adgangskode nedenfor for at ændre adgangskoden til din konto."
+
+msgid "user.profile.editProfile"
+msgstr "Rediger profil"
+
+msgid "user.profile.form.emailRequired"
+msgstr "En gyldig e-mail-adresse er påkrævet."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Du skal angive din nye adgangskode."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Den aktuelle adgangskode, du har angivet, er forkert."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "E-mail-beskeder om Open Access til nummer"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "En adgangskode er påkrævet."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profilbillede"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-mail-beskeder om publicering af ny udgave"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Den angivne URL-adresse er ikke gyldig. Kontroller URL-adressen, og forsøg igen. (Tip: Sæt http:// foran URL-adressen)."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Et brugernavn er påkrævet."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Undlad at udfylde adgangskodefelterne, hvis du vil bevare den aktuelle adgangskode."
+
+msgid "user.profile.newPassword"
+msgstr "Ny adgangskode"
+
+msgid "user.profile.oldPassword"
+msgstr "Aktuel adgangskode"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.publicProfile"
+msgstr "Brugerprofil"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Gentag ny adgangskode"
+
+msgid "user.register.form.emailExists"
+msgstr "Den valgte e-mail-adresse benyttes allerede af en anden bruger."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Adgangskoderne stemmer ikke overens."
+
+msgid "user.register.form.usernameExists"
+msgstr "Det valgte brugernavn benyttes allerede af en anden bruger."
+
+msgid "user.register.registerAs"
+msgstr "Registrer i {$contextName} som..."
+
+msgid "user.register"
+msgstr "Registrer"
+
+msgid "user.register.usernameRestriction"
+msgstr "Brugernavnet må kun indeholde små bogstaver, tal og bindestreger/understregningstegn."
+
+msgid "user.role.reader"
+msgstr "Læser"
+
+msgid "user.role.readers"
+msgstr "Læsere"
+
+msgid "user.role.reviewer"
+msgstr "Bedømmer"
+
+msgid "user.role.reviewers"
+msgstr "Bedømmere"
+
+msgid "user.role.siteAdmin"
+msgstr "Webstedsadministrator"
+
+msgid "user.role.siteAdmins"
+msgstr "Webstedsadministratorer"
+
+msgid "user.roles"
+msgstr "Roller"
+
+msgid "user.sendPassword"
+msgstr "Bekræftelse"
+
+msgid "user.sendPassword.description"
+msgstr "Send mig en bekræftelse via e-mail med mit brugernavn og min adgangskode"
+
+msgid "user.signature"
+msgstr "Signatur"
+
+msgid "user.title"
+msgstr "Titel"
+
+msgid "user.url"
+msgstr "URL-adresse"
+
+msgid "user.userHome"
+msgstr "Brugerstartside"
+
+msgid "user.username"
+msgstr "Brugernavn"
+
+msgid "user.workingLanguages"
+msgstr "Arbejdssprog"
+
+msgid "user.affiliation.description"
+msgstr "(Din institution, fx \"Aarhus Universitet\")"
+
+msgid "user.authorization.accessDenied"
+msgstr "Adgang nægtet."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Procesgodkendelse mangler eller er ugyldig"
+
+msgid "user.authorization.contextRequired"
+msgstr "Du kan ikke vælge den handling uden en kontekst (presse, tidsskrift, konference osv.)"
+
+msgid "user.authorization.loginRequired"
+msgstr "Kræver login."
+
+msgid "user.authorization.privateOperation"
+msgstr "Den handling, du forsøgte at få adgang til, er enten privat eller eksisterer ikke."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Du er blevet nægtet adgang. Der er i øjeblikket begrænset adgang til dette websted."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Den nuværende rolle har ikke adgang til denne handling."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Du skal oprette en gyldig brugergruppe for at få adgang til denne handling."
+
+msgid "user.gossip"
+msgstr "Private bemærkninger"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .jpg og .png, og billedet må ikke overskride 150 x 150 pixels."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Kræver et tilhørsforhold."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Felterne for e-mail-adresse stemmer ikke overens."
+
+msgid "user.accountInformation"
+msgstr "Kontoinformation"
+
+msgid "user.authorization.managerRequired"
+msgstr "En bruger med rollen som pressechef (f.eks. presse- eller produktionsredaktør) skal indskrives, før du kan gå videre."
+
+msgid "user.interests.description"
+msgstr "(Adskil interesser ved at trykke på Enter- eller komma-tasten)"
+
+msgid "user.group"
+msgstr "Brugergruppe"
+
+msgid "user.hello"
+msgstr "Hej"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Et land er påkrævet"
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "En e-mailadresse er påkrævet."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Din nye adgangskode er den samme som din gamle adgangskode."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "En brugergruppe er påkrævet."
+
+msgid "user.profile.identity"
+msgstr "Identitet"
+
+msgid "user.profile.contact"
+msgstr "Kontakt"
+
+msgid "user.profile.public"
+msgstr "Offentlig"
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Adgangskoden skal være på mindst {$length} tegn."
+
+msgid "user.role.editor"
+msgstr "Redaktør"
+
+msgid "user.role.editors"
+msgstr "Redaktører"
+
+msgid "user.role.author"
+msgstr "Forfatter"
+
+msgid "user.role.author_s"
+msgstr "Forfatter(e)"
+
+msgid "user.role.authors"
+msgstr "Forfattere"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Det ORCID iD du angav er ikke gyldig. Husk at inkludere den hele URI (e.g. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.login.registerNewAccount"
+msgstr "Registrér"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Du har på nuværende tidspunkt ikke adgang til dette workflow-trin."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Der blev ikke angivet et workflow-trin."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Der mangler at blive anvist en plug-in."
+
+msgid "user.login.registrationComplete"
+msgstr "Registrering fuldført"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Tak for registreringen! Hvad ønsker du at foretage dig efterfølgende?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Se indsendelser"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Foretag en ny indsendelse"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Fortsæt browsing"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registrering afventer bekræftelse"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Registrér din kontos e-mailadresse nedenfor. Du vil efterfølgende modtage en e-mail med en vejledning i, hvordan du nulstiller dit password."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Du skal vælge mindst én rolle."
+
+msgid "user.register.registrationCompleted"
+msgstr "Registreringen er gennemført. <a href=\"{$profileUrl}\">Klik her</a> for at færdigredigere din profil."
+
+msgid "user.role.copyeditor"
+msgstr "Manuskriptredaktør"
+
+msgid "user.role.copyeditors"
+msgstr "Manuskriptredaktører"
+
+msgid "user.role.proofreader"
+msgstr "Korrekturlæser"
+
+msgid "user.role.proofreaders"
+msgstr "Korrekturlæsere"
+
+msgid "user.role.layoutEditor"
+msgstr "Layoutredaktør"
+
+msgid "user.role.layoutEditors"
+msgstr "Layoutredaktører"
+
+msgid "user.logOutAs"
+msgstr "Log ud som"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Forbliv logget ind"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Brugernavnet må kun indeholde små bogstaver og tal (alfanumeriske tegn), understregningstegn og bindestreger. Det skal begynde og slutte med et alfanumerisk tegn."
+
+msgid "user.role.assistant"
+msgstr "Assistent"
+
+msgid "user.apiKey"
+msgstr "API-nøgle"
+
+msgid "user.apiKeyEnabled"
+msgstr "Aktivér eksterne applikationer med API-nøglen for at få adgang til denne konto"
+
+msgid "user.apiKey.generate"
+msgstr "Generer ny API-nøgle"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Generering af en ny API-nøgle vil ugyldiggøre enhver eksisterende nøgle til denne bruger."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Før du genererer en API-nøgle, skal din webstedsadministrator angive en skjult i config-filen (\"api_key_secret\")."
+
+msgid "user.gossip.description"
+msgstr "Bemærkninger, der indskrives her vil kun være synlige for administratorer, tidsskriftschefer og redaktører."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Du er ikke blevet tildelt denne indsendelse med en rolle, der giver dig adgang til denne handling."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Du har ikke adgangtilladelse til denne bedømmelsestildeling."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Du har ikke adgangstilladelse til denne drøftelse."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Du skal acceptere betingelserne i erklæring om beskyttelse af personlige oplysninger."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Ja, jeg accepterer at få mine data indsamlet og opbevaret i overensstemmelse med vores <a href=\"{$privacyUrl}\" target=\"_blank\">Erklæring om beskyttelse af personlige oplysninger</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Ja, jeg vil gerne holdes underrettet om nye publikationer og meddelelser."
+
+msgid "user.privacyLink"
+msgstr "Dine data er gemt i overensstemmelse med vores <a href=\"{$privacyUrl}\" target=\"_blank\">Erklæring om beskyttelse af personlige oplysninger</a>."
+
+msgid "user.givenName"
+msgstr "Fornavn"
+
+msgid "user.familyName"
+msgstr "Efternavn"
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Der kræves et fornavn."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Du har tilføjet et efternavn til et sprog, der mangler fornavnet. Tilføj et fornavn til dette sprog."
+
+msgid "user.preferredPublicName"
+msgstr "Foretrukket offentligt navn"
+
+msgid "user.preferredPublicName.description"
+msgstr "Hvordan foretrækker du at blive adresseret? Indledende hilsen, mellemnavne og suffikser kan tilføjes her, hvis du ønsker det."

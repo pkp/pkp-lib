@@ -1,0 +1,417 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "Liitekirjasto"
+
+msgid "editor.review.notInitiated"
+msgstr "Tarkistusprosessia ei ole vielä aloitettu."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Viesti käyttäjälle"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Valitse tiedostot alla lähettääksesi ne arviointivaiheeseen."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Valitse vähintään yksi tiedosto, johon käyttäjä valitaan."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Sinun täytyy kirjoittaa henkilökohtainen viesti."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Älä lähetä sähköpostia tarkastajalle"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Sinun on valikoitava käyttäjä, joka valitaan."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Lataa/Valitse tiedostot"
+
+msgid "editor.submission.selectFiles"
+msgstr "Valitse tiedostot"
+
+msgid "editor.submission.revisions"
+msgstr "Korjaukset"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Käytä <em>+Lisää arvioija</em>-kohtaa kutsuaksesi lukijoita arvioimaan käsikirjoitustiedostoja. Lehtiö-kuvake ilmaisee, että arvio on lähetetty. Kun arvio on käyty läpi, kuvake rastitetaan <em>vastaanotetuksi</em>. Kun arviot ovat myöhässä, punainen kirjekuori-kuvake ilmestyy arvioijien muistuttamista varten."
+
+msgid "editor.submission.addReviewer"
+msgstr "Lisää arvioija"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Etsi arvioija"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Etsi käyttäjä"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Näytä tiedostot kaikista käytettävissä olevista työnkulun vaiheista."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Tämänhetkiset kierroksen {$round} arviointitiedostot"
+
+msgid "editor.submission.backToSearch"
+msgstr "Takaisin hakuun"
+
+msgid "editor.review.createReviewer"
+msgstr "Luo uusi arvioija"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Lisää olemassa oleva käyttäjä rooliin"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Peru arviointipyyntö"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Arviointityyppi"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Älä lähetä kirjoittajalle sähköpostia"
+
+msgid "editor.submissionReview.open"
+msgstr "Avoin"
+
+msgid "editor.submissionReview.blind"
+msgstr "Sokko"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Kaksoissokko"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Arvioitavat tiedostot"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Sulje tiedostojen valinta"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Muokkaa arviointia"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Arvioijalle lähetettävä sähköposti"
+
+msgid "editor.review.importantDates"
+msgstr "Tärkeitä päivämääriä"
+
+msgid "editor.review.uploadRevision"
+msgstr "Lataa korjattu versio"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Pyydä kirjoittajalta korjauksia."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Pyydä kirjoittajalta korjaukset, jotka on arvioitava uudelleen."
+
+msgid "editor.review.dateAccepted"
+msgstr "Arvioinnin hyväksymispäivämäärä"
+
+msgid "editor.review.noReviews"
+msgstr "Ei tuotavia vertaisarviointeja"
+
+msgid "editor.review.reminder"
+msgstr "Muistutus arvioinnista"
+
+msgid "editor.review.thankReviewer"
+msgstr "Kiitä arvioijaa"
+
+msgid "editor.review.reminderError"
+msgstr "Virhe lähetettäessä muistutusta arvioinnista"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Virhe lähetettäessä kiitosviestiä arvioijalle"
+
+msgid "editor.review.skipEmail"
+msgstr "Älä lähetä sähköpostia arvioijalle."
+
+msgid "editor.review.sendReminder"
+msgstr "Lähetä muistutus"
+
+msgid "editor.review.rateReviewer"
+msgstr "Arvioijan arvostelu"
+
+msgid "editor.review.readReview"
+msgstr "Lue arviointi"
+
+msgid "editor.review.readNewReview"
+msgstr "Lue uusi arviointi"
+
+msgid "editor.review.responseDue"
+msgstr "Vastauksen määräpäivä: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Pyyntö lähetetty"
+
+msgid "editor.review.requestAccepted"
+msgstr "Pyyntö hyväksytty"
+
+msgid "editor.review.revertDecision"
+msgstr "Peru päätös"
+
+msgid "editor.review.reviewDue"
+msgstr "Arvioinnin määräpäivä: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Arvioinnin määräpäivä"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Arviointi suoritettu"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Arviointi vahvistettu"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Arviointi lähetetty"
+
+msgid "editor.review.reviewerComments"
+msgstr "Arvioijan kommentit"
+
+msgid "editor.review.mustSelect"
+msgstr "Sinun on valittava arvioija"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Arvioijaa lisättäessä tapahtui virhe. Yritä uudelleen."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Arvioijaa poistettaessa tapahtui virhe. Yritä uudelleen."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Lisää käyttäjä tähän arvioijien käyttäjäryhmään"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Haluatko merkitä tämän arvioinnin käsittelemättömäksi? Arviointihistoria säilytetään."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Merkitse tämä arviointi käsittelemättömäksi"
+
+msgid "editor.review.readConfirmation"
+msgstr "Kun tämä arviointi on luettu, paina \"Vahvista\" osoittaaksesi, että arviointiprosessi voi jatkua. Jos arvioija on lähettänyt arviointinsa muualle, voit ladata tiedoston alla ja painaa \"Vahvista\" edetäksesi."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Teknisen toimittamisen tiedostot"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Valitse arvioija"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Tehtävän määräpäivä"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Tehtävän aikataulu"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Lisää olemassa oleva käyttäjä arvioijaksi"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Tälle tiedostolle ei ole pyydetty tarkastusta"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Käyttäjälle lähetettävä sähköposti"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Muistutus oikoluvusta"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Teknisesti toimitettu tiedosto on hyväksyttävä, ennen kuin se voidaan lähettää tuotantovaiheeseen. Haluatko hyväksyä tämän tiedoston?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Jos et hyväksy tätä teknisesti toimitettua tiedostoa, sitä ei voida lähettää tuotantovaiheeseen. Haluatko jättää hyväksymättä tämän tiedoston?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Valitse tarkastaja"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Mitä tahansa tiedostoja, joita on ladattu käsikirjoituksen eri lähetysvaiheissa, voidaan lisätä teknisen toimittamisen tiedostoluetteloon rastittamalla Sisällytä-valintaruutu alla ja klikkaamalla Hae: kaikki saatavilla olevat tiedostot näytetään ja voidaan valita lisättäväksi. Muita tiedostoja, joita ei ole vielä ladattu vaiheeseen, voidaan lisätä luetteloon klikkaamalla Lataa tiedosto-linkkiä."
+
+msgid "editor.review"
+msgstr "Arviointi"
+
+msgid "editor.review.reviewDetails"
+msgstr "Arvioinnin tiedot"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Ei ladattuja tiedostoja"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Et ole ladannut yhtään arviointitiedostoa."
+
+msgid "editor.review.emailReviewer"
+msgstr "Lähetä sähköposti arvioijalle"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Tuotantovalmiit tiedostot"
+
+msgid "editor.submission.newRound"
+msgstr "Uusi arviointikierros"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Tallenna toimituksellinen päätös"
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Olet luomassa uuden arviointikierroksen tälle käsikirjoitukselle. Tiedostot, joita ei ole käytetty muilla arviointikierroksilla, ovat listattuna alla."
+
+msgid "editor.submission.createNewRound"
+msgstr "Luo uusi arviointikierros"
+
+msgid "editor.article.reviewForms"
+msgstr "Arviointilomakkeet"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Valitse arviointilomake"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Varoitus: Arviointilomakkeen vaihtaminen vaikuttaa kaikkiin vastauksiin, joita arvioijat ovat jo antaneet tätä lomaketta käyttäen. Haluatko varmasti jatkaa?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Ei valittuja tiedostoja"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Et ole valinnut yhtään tiedostoa arvioijan arvioitavaksi."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Keskustelun aihe vaaditaan."
+
+msgid "submission.queries.messageRequired"
+msgstr "Keskusteluviesti vaaditaan."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Liitetyt tiedostot"
+
+msgid "grid.action.editQuery"
+msgstr "Muokkaa keskustelua"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Tähän keskusteluun voidaan liittää tiedostoja alla olevasta luettelosta."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Valittu arvioija"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Hyväksy korjausvedos"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Kumoa korjausvedoksen hyväksyntä"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Hyväksy tämä korjausvedos osoittaaksesi, että oikoluku on valmis ja tiedosto on valmis julkaistavaksi."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Kumoa tämän korjausvedoksen hyväksyntä osoittaaksesi, että oikoluku ei ole enää valmis ja tiedosto ei ole valmis julkaistavaksi."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Ajoita julkaistavaksi"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Julkinen tunnus {$publicIdentifier} ei saa olla numero."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Muotoilua {$pattern} ei sallita julkisessa tunnisteessa."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Lähetä sähköposti-ilmoitus kirjoittajalle: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Lähetä sähköposti-ilmoitus toimittajalle:  {$editorNames}"
+
+msgid "editor.review.newReviewRound"
+msgstr "Vaadi uusi arviointikierros"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Arviot lisätty sähköpostiviestiin."
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Tallenna toimituksellinen suositus"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Ilmoita toimittajille"
+
+msgid ""
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Luo keskustelu tästä suosituksesta."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Älä luo keskustelua."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Älä lähetä toimittajille sähköpostia."
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Arvioi vertaisarvioinnin laatu (ei näy arvioijalle)."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Ei arviota"
+
+msgid "reviewer.list.count"
+msgstr "{$count} arvioijaa"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} / {$total} arvioijaa"
+
+msgid "reviewer.list.filterRating"
+msgstr "Arvio vähintään"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktiivista"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Meneillään olevia arviointeja"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Tehtyjä arviointeja"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Arvioijan arvosana: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} päivää sitten"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Eilen"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Päivää viimeisestä arviointipyynnöstä"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Arviointiaika keskimäärin"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Ei aiempia arviointeja"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Arvioijalle on jo tehty arviointipyyntö tähän käsikirjoitukseen."
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Asiantuntijuus"
+
+msgid "reviewer.list.biography"
+msgstr "Biografia"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Arvioija on lukittu, koska hänellä on rooli, jolla voi nähdä kirjoittajan nimen. Sokkoarviointi ei ole mahdollinen. Haluatko käyttää tätä arvioijaa joka tapauksessa?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Avaa lukitus"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Piilotettu arvioija"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Hylätyt arviointipyynnöt"
+
+msgid "editor.review.requestDeclined"
+msgstr "Pyyntö hylätty"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Arvioija ei hyväksynyt arviointipyyntöä"

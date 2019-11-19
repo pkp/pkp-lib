@@ -1,0 +1,405 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:05+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "Bidragsbibliotek"
+
+msgid "editor.review.notInitiated"
+msgstr "Granskningsprocessen har inte påbörjats ännu."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Meddelande till användare"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Välj filer nedan att skicka till granskningssteget."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Du måste välja minst en fil att tilldela till användaren."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Du måste inkludera ett personligt meddelande."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Skicka inget e-postmeddelande till manusgranskaren"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Du måste välja en användare att tilldela en fil."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Ladda upp/välj filer"
+
+msgid "editor.submission.selectFiles"
+msgstr "Välj filer"
+
+msgid "editor.submission.revisions"
+msgstr "Bearbetningar"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Använd <em>+Lägg till granskare</em> för att bjuda in läsare att granska bidragsfiler. Ikonen med en anteckningsbok visar att en granskning har skickats in och sen blir <em>Godkänd</em> ikryssad när den har lästs. Om granskningar passerar deadline visas en rött kuvert-ikon för att påminna granskare."
+
+msgid "editor.submission.addReviewer"
+msgstr "Lägg till granskare"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Sök och välj granskare"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Sök och välj användare "
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Visa filer från alla tillgängliga steg i arbetsflödet."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Aktuella granskningsfiler för omgång {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Tillbaka till sök"
+
+msgid "editor.review.createReviewer"
+msgstr "Skapa ny granskare"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Tilldela befintlig användare"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Ta bort granskare från bidrag"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Granskningstyp"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Skicka en e-postavisering till författaren/-arna: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Skicka en e-postavisering till redaktören/-erna: {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Skicka inte e-postmeddelande till författaren"
+
+msgid "editor.submissionReview.open"
+msgstr "Öppen"
+
+msgid "editor.submissionReview.blind"
+msgstr "Anonym"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Dubbelt anonym"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Filer att granska"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Stäng filväljaren"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Redigera granskning"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonym granskare"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "E-postmeddelande som kommer att skickas till granskaren"
+
+msgid "editor.review.importantDates"
+msgstr "Viktiga datum"
+
+msgid "editor.review.uploadRevision"
+msgstr "Ladda upp bearbetning"
+
+msgid "editor.review.newReviewRound"
+msgstr "Kräver ny granskningsomgång"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Bearbetning kräver inte ny omgång av sakkunniggranskning."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Bearbetning kommer att sakkunniggranskas på nytt."
+
+msgid "editor.review.dateAccepted"
+msgstr "Datum för godkännande av granskning"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Granskningar tillagda i meddelandetexten."
+
+msgid "editor.review.noReviews"
+msgstr "Inga sakkunniggranskningar att importera"
+
+msgid "editor.review.reminder"
+msgstr "Påminnelse om granskning"
+
+msgid "editor.review.thankReviewer"
+msgstr "Tacka granskare"
+
+msgid "editor.review.reminderError"
+msgstr "Fel vid utskick av påminnelse om granskning"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Fel vid utskick av tack till granskare"
+
+msgid "editor.review.skipEmail"
+msgstr "Skicka inte något e-postmeddelande till granskaren."
+
+msgid "editor.review.sendReminder"
+msgstr "Skicka en påminnelse"
+
+msgid "editor.review.readReview"
+msgstr "Läs granskning"
+
+msgid "editor.review.readNewReview"
+msgstr "Läs ny granskning"
+
+msgid "editor.review.responseDue"
+msgstr "Deadline: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Förfrågan skickad"
+
+msgid "editor.review.requestAccepted"
+msgstr "Förfrågan accepterad"
+
+msgid "editor.review.revertDecision"
+msgstr "Återställ beslut"
+
+msgid "editor.review.reviewDue"
+msgstr "Granskning förfallen: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Deadline för granskning"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Granskning avslutad"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Granskning bekräftad"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Granskning inkommen"
+
+msgid "editor.review.reviewerComments"
+msgstr "Granskares kommentarer"
+
+msgid "editor.review.rateReviewer"
+msgstr "Betygsättning av granskare"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Betygsätt kvaliteten på den inkomna granskningen. Betyget kommer inte att vara synligt för granskaren."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Inget betyg."
+
+msgid "editor.review.mustSelect"
+msgstr "Du måste välja en granskare"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Ett fel uppstod när granskaren skulle läggas till. Försök igen."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Ett fel uppstod när granskaren skulle tas bort. Försök igen."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Lägg till den här användaren i den här gransknings-användargruppen."
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Vill du markera den här granskningen som bortsedd ifrån? Granskningshistoriken kommer att bevaras."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Bortse från den här granskningen"
+
+msgid "editor.review.readConfirmation"
+msgstr "När granskningen har blivit läst, tryck på \"Bekräfta\" för att visa att granskningsprocessen kan gå vidare. Om granskaren har skickat in granskningen någon annanstans kan du ladda upp filen nedan och sedan trycka på \"Bekräfta\" för att fortsätta."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Filer för manusredigering"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Välj granskare"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Deadline för uppgiften"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Schema för uppgifter"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Lägg till en befintlig användare som granskare"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Ingen manusgranskning begärd för den här filen"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-postmeddelande som kommer att skickas till användaren"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Påminnelse om korrektur"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Den manusredigerade filen behöver godkännas innan den kan skickas vidare till Produktionssteget. Vill du godkänna den här filen?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Om den här manusredigerade filen avslås kommer den inte gå att skicka vidare till Produktionssteget. Vill du avslå den här filen?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Utse manusgranskare"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Alla filer som redan laddats upp i något steg för bidraget can läggas till till listan över Filer för manusredigering genom att kryssa i Inkludera-rutan nedan och trycka på Sök: alla tillgängliga filer kommer att listas och kan väljas. Ytterligare filer, som inte redan laddats upp till ett steg kan läggas till i listan genom att klicka på Ladda upp fil-länken."
+
+msgid "editor.review"
+msgstr "Granskning"
+
+msgid "editor.review.reviewDetails"
+msgstr "Granskningsdetaljer"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Inga filer uppladdade"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Du har inte laddat upp några granskningsfiler."
+
+msgid "editor.review.emailReviewer"
+msgstr "Skicka e-postmeddelande till granskaren"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Filer redo för produktion"
+
+msgid "editor.submission.newRound"
+msgstr "Ny granskningsomgång"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Registrera redaktörsbeslut"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Registrera redaktörsrekommendation"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Meddela redaktörer"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Skicka inget e-postmeddelande till redaktörer."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Starta en granskningsdiskussion gällande den här rekommendationen."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Starta ingen granskningsdiskussion."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Du håller på att skapa en ny granskningsomgång för det här bidraget. Filer som inte har använts i andra granskningsomgångar listas nedan."
+
+msgid "editor.submission.createNewRound"
+msgstr "Skapa ny granskningsomgång"
+
+msgid "editor.article.reviewForms"
+msgstr "Granskningsformulär"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Välj granskningsformulär"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Varning: Genom att ändra granskningsformuläret påverkas alla svar granskare redan matat in med hjälp av det här formuläret. Vill du verkligen fortsätta?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Inga filer valda."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Du har inte valt några filer som granskaren ska granska."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Det krävs ett ämne för diskussionen."
+
+msgid "submission.queries.messageRequired"
+msgstr "Det krävs ett meddelande i diskussionen."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Bifogade filer"
+
+msgid "grid.action.editQuery"
+msgstr "Redigera diskussion"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Filer kan bifogas från listan nedan för att inkludera dem i diskussionen."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Välj granskare"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Godkänn korrektur"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Ta tillbaka godkännande av korrektur"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Godkänn det här korrekturet för att markera att korrekturläsningen är färdig och filen klar att publiceras."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Ta tillbaka godkännandet av det här korrekturet för att markera att korrekturläsningen inte är komplett ännu och att filen inte är klar att publiceras."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Den publika identifikatorn '{$publicIdentifier}' får inte vara en siffra."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Mönstret {$pattern} tillåts inte för den publika identifikatorn."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Planera för publicering"
+
+msgid "reviewer.list.count"
+msgstr "{$count} granskare"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} av {$total} granskare"
+
+msgid "reviewer.list.filterRating"
+msgstr "Med lägsta betyg"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktiva"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Aktiva, pågående granskningsuppdrag"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Färdiga granskningar"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Betyg på granskare: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} dagar sedan"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Igår"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dagar sedan tilldelning av senaste granskning"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Genomsnittligt antal dagar för färdigställande av granskning"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Aldrig tilldelad något granskningsuppdrag"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Den här granskaren har redan fått i uppdrag att granska det här bidraget."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Den här granskaren är låst eftersom hen har blivit tilldelad en roll som kan se författarens identitet. Anonym granskning kan inte garanteras. Vill du trots detta låsa upp den här granskaren?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Lås upp"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Granskningsintressen"
+
+msgid "reviewer.list.biography"
+msgstr "Biografi"

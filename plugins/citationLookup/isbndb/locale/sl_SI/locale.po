@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T11:06:19+00:00\n"
+"PO-Revision-Date: 2019-11-19T11:06:19+00:00\n"
+"Language: \n"
+
+msgid "plugins.citationLookup.isbndb.displayName"
+msgstr "Povezava z ISBNdb bazo podatkov"
+
+msgid "plugins.citationLookup.isbndb.description"
+msgstr "Vtičnik implementira povezavo s ISBNdb bibliografsko bazo podatkov."
+
+msgid "plugins.citationLookup.isbndbExtraction.displayName"
+msgstr "Servis za ISBN izluščevanje"
+
+msgid "plugins.citationLookup.isbndbExtraction.description"
+msgstr "Poišči ISBN za izbrani  NLM 3.0 element citiranja."
+
+msgid "plugins.citationLookup.isbndbLookup.displayName"
+msgstr "Servis za iskanje po ISBN"
+
+msgid "plugins.citationLookup.isbndbLookup.description"
+msgstr "Poišči opis citata v NLM 3.0 obliki za izbran ISBN."

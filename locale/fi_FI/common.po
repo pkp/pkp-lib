@@ -1,0 +1,1542 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
+"Language: \n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Nykyinen tyylitiedosto"
+
+msgid "about.description"
+msgstr "Kuvaus"
+
+msgid "about.guidelines"
+msgstr "Oppaat"
+
+msgid "about.aboutSite"
+msgstr "Tietoa sivustosta"
+
+msgid "about.contact"
+msgstr "Yhteystiedot"
+
+msgid "about.contact.email"
+msgstr "Sähköposti"
+
+msgid "about.contact.phone"
+msgstr "Puhelin"
+
+msgid "about.contact.principalContact"
+msgstr "Pääasiallinen yhteyshenkilö"
+
+msgid "about.contact.supportContact"
+msgstr "Tuen yhteyshenkilö"
+
+msgid "about.other"
+msgstr "Muuta"
+
+msgid "about.people"
+msgstr "Henkilöt"
+
+msgid "about.policies"
+msgstr "Toimintaperiaatteet"
+
+msgid "about.siteMap"
+msgstr "Sivustokartta"
+
+msgid "announcement.announcements"
+msgstr "Ilmoitukset"
+
+msgid "announcement.announcementsHome"
+msgstr "Ilmoitukset"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Enemmän ilmoituksia..."
+
+msgid "announcement.noneExist"
+msgstr "Ei julkaistuja ilmoituksia."
+
+msgid "announcement.posted"
+msgstr "Lähetetty"
+
+msgid "announcement.postedOn"
+msgstr "Lähetetty: {$postDate}"
+
+msgid "announcement.view"
+msgstr "Näytä ilmoitus"
+
+msgid "common.allDownloads"
+msgstr "Kaikki lataukset"
+
+msgid "common.navigation.sidebar"
+msgstr "Sivupalkki"
+
+msgid "common.navigation.site"
+msgstr "Sivuston navigointi"
+
+msgid "common.navigation.siteContext"
+msgstr "Sivuston kontekstin navigointi"
+
+msgid "common.navigation.user"
+msgstr "Käyttäjän navigointi"
+
+msgid "common.tasks"
+msgstr "Tehtävät"
+
+msgid "common.list"
+msgstr "Lista"
+
+msgid "common.grid"
+msgstr "Kehikko"
+
+msgid "common.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän kohteen? Tätä toimintoa ei voi kumota."
+
+msgid "common.abstract"
+msgstr "Abstrakti"
+
+msgid "common.accepted"
+msgstr "Hyväksytty"
+
+msgid "common.acknowledged"
+msgstr "Vastaanotettu"
+
+msgid "common.action"
+msgstr "Toimenpide"
+
+msgid "common.activate"
+msgstr "Aktivoi"
+
+msgid "common.active"
+msgstr "Aktiivinen"
+
+msgid "common.add"
+msgstr "Lisää"
+
+msgid "common.addSelf"
+msgstr "Lisää itsesi"
+
+msgid "common.name"
+msgstr "Nimi"
+
+msgid "common.all"
+msgstr "Kaikki"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö"
+
+msgid "common.titleSmallWords"
+msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with"
+
+msgid "common.alreadyAssigned"
+msgstr "Valittu"
+
+msgid "common.altText"
+msgstr "Vaihtoehtoinen teksti"
+
+msgid "common.and"
+msgstr "ja"
+
+msgid "common.applyAction"
+msgstr "Toteuta toimenpide"
+
+msgid "common.assign"
+msgstr "Osoita"
+
+msgid "common.assigned"
+msgstr "Osoitettu"
+
+msgid "common.assigned.date"
+msgstr "Osoitettu: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Saatavilla"
+
+msgid "common.back"
+msgstr "Takaisin"
+
+msgid "common.between"
+msgstr "välillä"
+
+msgid "common.cancel"
+msgstr "Peruuta"
+
+msgid "common.cancelled"
+msgstr "Peruutettu"
+
+msgid "common.warning"
+msgstr "Varoitus"
+
+msgid "common.error"
+msgstr "Virhe"
+
+msgid "common.notice"
+msgstr "Huomaa"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "Kuvavarmennuksen vahvistusta tälle verkkosivustolle ei ole määritelty oikein. Salainen avain puuttuu."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "Kuvavarmennuksen vahvistusta tälle verkkosivustolle ei ole määritelty oikein. Salainen avain on virheellinen."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Sinun täytyy suorittaa tarkastus, jota käytetään roskapostin lähettämisen estämiseksi."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Et läpäissyt tarkastusta, jota käytetään roskapostin lähettämisen estämiseksi."
+
+msgid "common.captchaField.description"
+msgstr "Kirjoita kirjaimet, kuten ne näkyvät kuvassa."
+
+msgid "common.captchaField"
+msgstr "Vahvistus"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br /> <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/> </a> <br/> Tämä työ on lisensoitu <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 License -lisenssillä</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\"> <br /> <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a> <br /> Tämä työ on lisensoitu <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License -lisenssillä</a>. </div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Tekemäsi muutokset on tallennettu."
+
+msgid "common.chooseOne"
+msgstr "Valitse yksi"
+
+msgid "common.clearSearch"
+msgstr "Tyhjennä hakulauseke"
+
+msgid "common.close"
+msgstr "Sulje"
+
+msgid "common.closePanel"
+msgstr "Sulje paneeli"
+
+msgid "common.closeWindow"
+msgstr "Sulje ikkuna"
+
+msgid "common.complete"
+msgstr "Suorita"
+
+msgid "common.completed"
+msgstr "Suoritettu"
+
+msgid "common.completed.date"
+msgstr "Suoritettu: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Vahvista"
+
+msgid "common.confirmed.date"
+msgstr "Vahvistettu: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Sisältö"
+
+msgid "common.contents"
+msgstr "Sisältö"
+
+msgid "common.continue"
+msgstr "Jatka"
+
+msgid "common.copy"
+msgstr "Kopioi"
+
+msgid "common.country"
+msgstr "Maa"
+
+msgid "common.create"
+msgstr "Luo"
+
+msgid "common.dateCompleted"
+msgstr "Suoritettu (pvm)"
+
+msgid "common.date"
+msgstr "Päivämäärä"
+
+msgid "common.dateModified"
+msgstr "Muutettu (pvm)"
+
+msgid "common.dateRequested"
+msgstr "Pyydetty (pvm)"
+
+msgid "common.dateSubmitted"
+msgstr "Lähetetty (pvm)"
+
+msgid "common.dateUploaded"
+msgstr "Ladattu (pvm)"
+
+msgid "common.dateHijri"
+msgstr "Islamilainen kalenteri"
+
+msgid "common.day"
+msgstr "Päivä"
+
+msgid "common.deactivate"
+msgstr "Poista käytöstä"
+
+msgid "common.default"
+msgstr "Oletus"
+
+msgid "common.declined"
+msgstr "Hylätty"
+
+msgid "common.delete"
+msgstr "Poista"
+
+msgid "common.deleteSelection"
+msgstr "Poista valinta"
+
+msgid "common.designation"
+msgstr "Merkintätunnus"
+
+msgid "common.description"
+msgstr "Kuvaus"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; kun {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pikseliä"
+
+msgid "common.disable"
+msgstr "Poista käytöstä"
+
+msgid "common.disabled"
+msgstr "Ei käytössä"
+
+msgid "common.discipline"
+msgstr "Tieteenala"
+
+msgid "common.done"
+msgstr "Valmis"
+
+msgid "common.download"
+msgstr "Lataa"
+
+msgid "common.edit"
+msgstr "Muokkaa"
+
+msgid "common.enable"
+msgstr "Ota käyttöön"
+
+msgid "common.enabled"
+msgstr "Käytössä"
+
+msgid "common.error.databaseError"
+msgstr "Tapahtui tietokantavirhe: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Tapahtui tuntematon tietokannan yhteysvirhe."
+
+msgid "common.error.framesRequired"
+msgstr "Tämä sivu vaatii kehykset. <a href=\"{$url}\">Klikkaa tästä</a> kehyksettömään versioon."
+
+msgid "common.event"
+msgstr "Tapahtuma"
+
+msgid "common.export"
+msgstr "Vie"
+
+msgid "common.finish"
+msgstr "Lopeta"
+
+msgid "common.fullscreen"
+msgstr "Koko näyttö"
+
+msgid "common.fullscreenOff"
+msgstr "Koko näyttö pois"
+
+msgid "common.false"
+msgstr "Väärä"
+
+msgid "common.file"
+msgstr "Tiedosto"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Tiedostonimi"
+
+msgid "common.fileSize"
+msgstr "Tiedoston koko"
+
+msgid "common.fileType"
+msgstr "Tiedostotyyppi"
+
+msgid "common.fileUploaderError"
+msgstr "Järjestelmän tiedostojen latausohjelma käynnistyy. Jos se ei ilmesty näkyviin, on todennäköistä, että tämä selain ei tue sen ajoaikoja. Ota yhteys ylläpitoon."
+
+msgid "common.filter"
+msgstr "Suodattimet"
+
+msgid "common.filterRemove"
+msgstr "Poista suodatin: {$filterTitle}"
+
+msgid "common.go"
+msgstr "Mene"
+
+msgid "common.height"
+msgstr "Korkeus"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Etusivu"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Etusivun ylätunnisteen logo"
+
+msgid "common.hour"
+msgstr "Tunti"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Tuo"
+
+msgid "common.initiate"
+msgstr "Aloita"
+
+msgid "common.inProgress"
+msgstr "Käynnissä"
+
+msgid "common.itemsPerPage"
+msgstr "Kohteita per sivu"
+
+msgid "common.keywords"
+msgstr "Avainsanat"
+
+msgid "common.language"
+msgstr "Kieli"
+
+msgid "common.languages"
+msgstr "Kielet"
+
+msgid "common.less"
+msgstr "Vähemmän"
+
+msgid "common.manage"
+msgstr "Hallinnoi"
+
+msgid "common.mailingAddress"
+msgstr "Postiosoite"
+
+msgid "common.billingAddress"
+msgstr "Laskutusosoite (jos eri)"
+
+msgid "common.minute"
+msgstr "Minuutti(a)"
+
+msgid "common.modify"
+msgstr "Muuta"
+
+msgid "common.month"
+msgstr "Kuukausi"
+
+msgid "common.more"
+msgstr "Enemmän"
+
+msgid "common.noneAssigned"
+msgstr "Ei osoitettuja"
+
+msgid "common.none"
+msgstr "Ei yhtään"
+
+msgid "common.no"
+msgstr "Nro"
+
+msgid "common.noComments"
+msgstr "Ei kommentteja"
+
+msgid "common.notApplicable"
+msgstr "Ei käytettävissä"
+
+msgid "common.notApplicableShort"
+msgstr "Ei käytettävissä"
+
+msgid "common.notAvailable"
+msgstr "Ei saatavilla"
+
+msgid "common.note"
+msgstr "Muistiinpano"
+
+msgid "common.notes"
+msgstr "Muistiinpanot"
+
+msgid "common.notes.tooltip"
+msgstr "Muistiinpanot (keltainen: uusia muistiinpanoja, sininen: katsotut muistiinpanot, harmaa: ei muistiinpanoja)"
+
+msgid "common.notified"
+msgstr "Ilmoitettu"
+
+msgid "common.notified.date"
+msgstr "Ilmoitettu: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Ei osumia"
+
+msgid "common.off"
+msgstr "Pois päältä"
+
+msgid "common.on"
+msgstr "Päällä"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Valinnat"
+
+msgid "common.order"
+msgstr "Järjestä"
+
+msgid "common.orderDown"
+msgstr "Siirrä {$itemTitle} alas"
+
+msgid "common.orderUp"
+msgstr "Siirrä {$itemTitle} ylös"
+
+msgid "common.originalFileName"
+msgstr "Alkuperäinen tiedostonimi"
+
+msgid "common.or"
+msgstr "tai"
+
+msgid "common.other"
+msgstr "Muu"
+
+msgid "common.overdue"
+msgstr "Myöhässä"
+
+msgid "common.pageNumber"
+msgstr "Sivu {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage} %"
+
+msgid "common.plugin"
+msgstr "Lisäosa"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\"-lisäosa on otettu käyttöön."
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\"-lisäosa on poistettu käytöstä."
+
+msgid "common.prefix"
+msgstr "Prefiksi"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Esimerkkejä: A, The"
+
+msgid "common.preview"
+msgstr "Esikatselu"
+
+msgid "common.publisher"
+msgstr "Julkaisija"
+
+msgid "common.quality"
+msgstr "Laatu"
+
+msgid "common.queue.long.active"
+msgstr "Kaikki aktiiviset"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "VS:"
+
+msgid "common.readMore"
+msgstr "Lue lisää"
+
+msgid "common.readMoreWithTitle"
+msgstr "Lue lisää nimikkeestä {$title}"
+
+msgid "common.record"
+msgstr "Tallenna"
+
+msgid "common.refresh"
+msgstr "Päivitä"
+
+msgid "common.related"
+msgstr "Liittyvä"
+
+msgid "common.reminder"
+msgstr "Muistutus"
+
+msgid "common.reminded.date"
+msgstr "Muistutettu: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Etä-"
+
+msgid "common.remoteURL"
+msgstr "Etä-URL-osoite"
+
+msgid "common.remove"
+msgstr "Poista"
+
+msgid "common.removeSelection"
+msgstr "Poista valinta"
+
+msgid "common.replaced"
+msgstr "Korvattu"
+
+msgid "common.replaceFile"
+msgstr "Korvaa tiedosto"
+
+msgid "common.requiredField"
+msgstr "*Pakollinen kenttä"
+
+msgid "common.required"
+msgstr "Vaaditaan"
+
+msgid "common.reset"
+msgstr "Palauta"
+
+msgid "common.saveAndContinue"
+msgstr "Tallenna ja jatka"
+
+msgid "common.saveAndEmail"
+msgstr "Tallenna ja lähetä sähköpostilla"
+
+msgid "common.save"
+msgstr "Tallenna"
+
+msgid "common.search"
+msgstr "Hae"
+
+msgid "common.searchQuery"
+msgstr "Hakukysely"
+
+msgid "common.second"
+msgstr "Sekunti(a)"
+
+msgid "common.selectAll"
+msgstr "Valitse kaikki"
+
+msgid "common.selectNone"
+msgstr "Ei valintaa"
+
+msgid "common.select"
+msgstr "Valitse"
+
+msgid "common.sendEmail"
+msgstr "Lähetä sähköpostia"
+
+msgid "common.size"
+msgstr "Koko"
+
+msgid "common.source"
+msgstr "Lähde"
+
+msgid "common.status"
+msgstr "Tila"
+
+msgid "common.subject"
+msgstr "Aihe"
+
+msgid "common.subjects"
+msgstr "Aiheet"
+
+msgid "common.subtitle"
+msgstr "Alaotsikko"
+
+msgid "common.suggest"
+msgstr "Ehdota"
+
+msgid "common.title"
+msgstr "Otsikko"
+
+msgid "common.top"
+msgstr "Alkuun"
+
+msgid "common.true"
+msgstr "Tosi"
+
+msgid "common.type"
+msgstr "Tyyppi"
+
+msgid "common.component"
+msgstr "Osa"
+
+msgid "common.uninitiated"
+msgstr "Ei aloitettu"
+
+msgid "common.unread"
+msgstr "Lukematon"
+
+msgid "common.untitled"
+msgstr "Nimetön"
+
+msgid "common.updated"
+msgstr "Päivitetty"
+
+msgid "common.uploadedDate"
+msgstr "Ladattu (pvm)"
+
+msgid "common.upload"
+msgstr "Lataa"
+
+msgid "common.uploadFailed"
+msgstr "Tiedostoa ei voitu ladata tai korjata."
+
+msgid "common.up"
+msgstr "Ylös"
+
+msgid "common.upload.addFile"
+msgstr "Lataa tiedosto"
+
+msgid "common.upload.changeFile"
+msgstr "Vaihda tiedostoa"
+
+msgid "common.upload.dragFile"
+msgstr "Vedä ja pudota tiedosto tähän aloittaaksesi latauksen"
+
+msgid "common.url"
+msgstr "URL-osoite"
+
+msgid "common.user"
+msgstr "Käyttäjä"
+
+msgid "common.view"
+msgstr "Näytä"
+
+msgid "common.viewProfile"
+msgstr "Näytä profiili"
+
+msgid "common.weeks"
+msgstr "viikkoa"
+
+msgid "common.width"
+msgstr "Leveys"
+
+msgid "common.year"
+msgstr "Vuosi"
+
+msgid "common.yes"
+msgstr "Kyllä"
+
+msgid "common.loading"
+msgstr "Ladataan..."
+
+msgid "common.plugins"
+msgstr "Lisäosat"
+
+msgid "common.metric"
+msgstr "Mittari"
+
+msgid "common.count"
+msgstr "Määrä"
+
+msgid "debug.databaseQueries"
+msgstr "Tietokantakyselyiden määrä"
+
+msgid "debug.executionTime"
+msgstr "Sivu luotu ajassa"
+
+msgid "debug.memoryUsage"
+msgstr "Muistin käyttö"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Kielialuelista \"{$localeList}\" ladattu XML-tiedostosta"
+
+msgid "debug.notes.localeLoad"
+msgstr "Kielialuetiedosto \"{$localeFile}\" ladattu XML-tiedostosta"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Puuttuva kielialueen avain \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Muistiinpanot:"
+
+msgid "defaultMetric.title"
+msgstr "Oletusmittari"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Saatavilla olevat mittarit"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Lataa arviointitiedosto"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Lataa tiedosto"
+
+msgid "email.addAttachment"
+msgstr "Lisää liite"
+
+msgid "email.addBccRecipient"
+msgstr "Lisää piilokopion vastaanottaja"
+
+msgid "email.addCcRecipient"
+msgstr "Lisää kopion vastaanottaja"
+
+msgid "email.addToRecipient"
+msgstr "Lisää vastaanottaja"
+
+msgid "email.attachments"
+msgstr "Liitteet"
+
+msgid "email.bcc"
+msgstr "Piilokopio"
+
+msgid "email.bccSender"
+msgstr "Lähetä kopio tästä viestistä osoitteeseeni ({$address})"
+
+msgid "email.body"
+msgstr "Teksti"
+
+msgid "email.cc"
+msgstr "Kopio"
+
+msgid "email.compose"
+msgstr "Lähetä sähköpostia"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Viestissäsi on liikaa vastaanottajia."
+
+msgid "email.compose.tooSoon"
+msgstr "Yrität lähettää viestin liian pian edellisen jälkeen. Odota hetki ennen seuraavan viestin lähettämistä."
+
+msgid "email.email"
+msgstr "Sähköposti"
+
+msgid "email.from"
+msgstr "Keneltä"
+
+msgid "email.invalid"
+msgstr "Sähköpostiosoite {$email} on virheellinen."
+
+msgid "email.multipart"
+msgstr "Tämä on MIME-muotoinen moniosainen viesti."
+
+msgid "email.recipient"
+msgstr "Vastaanottaja"
+
+msgid "email.recipients"
+msgstr "Vastaanottajat"
+
+msgid "email.sender"
+msgstr "Lähettäjä"
+
+msgid "email.senderName"
+msgstr "Lähettäjän nimi"
+
+msgid "email.senderEmail"
+msgstr "Lähettäjän sähköposti"
+
+msgid "email.send"
+msgstr "Lähetä"
+
+msgid "email.skip"
+msgstr "Ohita sähköposti"
+
+msgid "email.subject"
+msgstr "Aihe"
+
+msgid "email.subjectRequired"
+msgstr "Anna sähköpostin aihe."
+
+msgid "email.bodyRequired"
+msgstr "Anna sähköpostin leipäteksti."
+
+msgid "email.to"
+msgstr "Kenelle"
+
+msgid "form.url.invalid"
+msgstr "Määritetty URL-osoite on virheellinen. Tarkista se ja yritä uudelleen."
+
+msgid "form.confirmSubmit"
+msgstr "Haluatko varmasti lähettää tämän lomakkeen?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Vahvista"
+
+msgid "form.emailRequired"
+msgstr "Sähköpostiosoite vaaditaan."
+
+msgid "form.dataHasChanged"
+msgstr "Tämän lomakkeen tiedot ovat muuttuneet. Haluatko jatkaa tallentamatta?"
+
+msgid "form.errorsOccurred"
+msgstr "Tätä lomaketta käsiteltäessä tapahtui virheitä"
+
+msgid "form.formLanguage.description"
+msgstr "Syöttääksesi alla oleva tieto muilla kielillä valitse ensin kieli."
+
+msgid "form.formLanguage"
+msgstr "Lomakkeen kieli"
+
+msgid "form.contains"
+msgstr "sisältää"
+
+msgid "form.is"
+msgstr "on"
+
+msgid "form.startsWith"
+msgstr "alkaa"
+
+msgid "form.postRequired"
+msgstr "Lomaketta ei lähetetty oikein."
+
+msgid "form.fileRequired"
+msgstr "Tiedoston lataaminen vaaditaan."
+
+msgid "form.required"
+msgstr "(*Pakollinen tieto)"
+
+msgid "form.resubmit"
+msgstr "Lähetä uudelleen"
+
+msgid "form.saveToUpload"
+msgstr "Käytä Tallenna-painiketta ladataksesi tiedoston."
+
+msgid "form.send"
+msgstr "Lähetä"
+
+msgid "form.submit"
+msgstr "Lähetä"
+
+msgid "form.invalidImage"
+msgstr "Virheellinen kuva ladattiin. Hyväksytyt muodot ovat .png, .gif ja .jpg."
+
+msgid "help.help"
+msgstr "Ohjeet"
+
+msgid "help.toc"
+msgstr "Sisällysluettelo"
+
+msgid "help.previous"
+msgstr "Edellinen"
+
+msgid "help.next"
+msgstr "Seuraava"
+
+msgid "help.upALevel"
+msgstr "Yksi taso ylöspäin"
+
+msgid "icon.checked.alt"
+msgstr "Valittu"
+
+msgid "icon.comment.alt"
+msgstr "Kommentoi"
+
+msgid "icon.delete.alt"
+msgstr "Poista"
+
+msgid "icon.edit.alt"
+msgstr "Muokkaa"
+
+msgid "icon.folder.alt"
+msgstr "Kansio"
+
+msgid "icon.font_large.alt"
+msgstr "Suuri"
+
+msgid "icon.font_medium.alt"
+msgstr "Keskikokoinen"
+
+msgid "icon.font_small.alt"
+msgstr "Pieni"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Kirje"
+
+msgid "icon.mail.alt"
+msgstr "Posti"
+
+msgid "icon.unchecked.alt"
+msgstr "Ei valittu"
+
+msgid "icon.view.alt"
+msgstr "Näytä"
+
+msgid "informationCenter.informationCenter"
+msgstr "Tietokeskus"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Toimituksellinen historia"
+
+msgid "informationCenter.addNote"
+msgstr "Lisää muistiinpano"
+
+msgid "informationCenter.noNotes"
+msgstr "Ei näytettäviä muistiinpanoja."
+
+msgid "informationCenter.pastNotes"
+msgstr "Aiemmat korjauksiin liittyvät muistiinpanot"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Haluatko varmasti poistaa tämän muistiinpanon?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Tämänhetkinen korjattu versio"
+
+msgid "informationCenter.pastHistory"
+msgstr "Aiemmat korjatut versiot"
+
+msgid "informationCenter.history.noItems"
+msgstr "Ei lokiin kirjattuja tapahtumia."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Lähetetty uusi muistiinpano."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Ilmoitus lähetetty käyttäjille."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Ilmoitus lähetetty käyttäjille."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Valitse ennaltamäärätty viesti tai täytä alla oleva lomake."
+
+msgid "stageParticipants.notify.message"
+msgstr "Viesti"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Varmista, että olet täyttänyt viestikentän ja valinnut vähintään yhden vastaanottajan."
+
+msgid "locale.primary"
+msgstr "Ensisijainen kielialue"
+
+msgid "locale.supported"
+msgstr "Tuetut kielialueet"
+
+msgid "navigation.access"
+msgstr "Käyttäjät &amp; Roolit"
+
+msgid "navigation.about"
+msgstr "Tietoa"
+
+msgid "navigation.admin"
+msgstr "Ylläpito"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Olet täällä:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Työkalut"
+
+msgid "navigation.tools.importExport"
+msgstr "Tuonti/Vienti"
+
+msgid "navigation.tools.statistics"
+msgstr "Tilastot"
+
+msgid "navigation.browse"
+msgstr "Selaa"
+
+msgid "navigation.browseByAuthor"
+msgstr "Kirjoittajan mukaan"
+
+msgid "navigation.browseByTitle"
+msgstr "Otsikon mukaan"
+
+msgid "navigation.dashboard"
+msgstr "Hallintapaneeli"
+
+msgid "navigation.data"
+msgstr "Tiedot"
+
+msgid "navigation.home"
+msgstr "Etusivu"
+
+msgid "navigation.infoForReaders"
+msgstr "Lukijoille"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Tietoa lukijoille"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} {$total}:sta kohteesta"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} {$total}:sta kohteesta"
+
+msgid "navigation.login"
+msgstr "Kirjaudu sisään"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Seuraava vaihe"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Edellinen vaihe"
+
+msgid "navigation.publicMenu"
+msgstr "Julkinen valikko"
+
+msgid "navigation.register"
+msgstr "Rekisteröidy"
+
+msgid "navigation.search"
+msgstr "Hae"
+
+msgid "navigation.settings"
+msgstr "Asetukset"
+
+msgid "navigation.setup"
+msgstr "Asetukset"
+
+msgid "navigation.sitemap"
+msgstr "Sivustokartta"
+
+msgid "navigation.stepNumber"
+msgstr "Vaihe {$step}"
+
+msgid "navigation.submissions"
+msgstr "Käsikirjoitukset"
+
+msgid "navigation.system"
+msgstr "Järjestelmä"
+
+msgid "navigation.userHome"
+msgstr "Käyttäjän etusivu"
+
+msgid "navigation.user"
+msgstr "Käyttäjä"
+
+msgid "navigation.userManagement"
+msgstr "Käyttäjien hallinnointi"
+
+msgid "navigation.viewFrontend"
+msgstr "Näytä sivusto"
+
+msgid "notification.addedAuditor"
+msgstr "Tarkastaja lisätty."
+
+msgid "notification.removedAuditor"
+msgstr "Tarkastaja poistettu."
+
+msgid "notification.addedQuery"
+msgstr "Lisätty keskustelu"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Arviointi merkitty vastaanotetuksi. Sähköpostiviestiä ei lähetetty."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Arviointitiedostot päivitetty."
+
+msgid "notification.allow"
+msgstr "Salli tällaiset ilmoitukset."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Ilmoitustyyppi lisätty."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Ilmoitustyyppiä muokattu."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Ilmoitustyyppi poistettu."
+
+msgid "notification.addedAnnouncement"
+msgstr "Ilmoitus lisätty."
+
+msgid "notification.editedAnnouncement"
+msgstr "Ilmoitusta muokattu."
+
+msgid "notification.removedAnnouncement"
+msgstr "Ilmoitus poistettu."
+
+msgid "notification.addedAuthor"
+msgstr "Kirjoittaja lisätty."
+
+msgid "notification.editedAuthor"
+msgstr "Kirjoittajaa muokattu."
+
+msgid "notification.confirmError"
+msgstr "Tilaustasi vahvistettaessa tapahtui virhe."
+
+msgid "notification.confirmSuccess"
+msgstr "Tilauksesi onnistui."
+
+msgid "notification.email"
+msgstr "En halua sähköpostia tämäntyyppisistä ilmoituksista."
+
+msgid "notification.noneExist"
+msgstr "Sinulle ei ole ilmoituksia tällä hetkellä."
+
+msgid "notification.addedNote"
+msgstr "Muistiinpano lähetetty."
+
+msgid "notification.removedNote"
+msgstr "Muistiinpano poistettu."
+
+msgid "notification.removedFile"
+msgstr "Tiedosto poistettu."
+
+msgid "notification.removedSubmission"
+msgstr "Poistettu käsikirjoitus."
+
+msgid "notification.notification"
+msgstr "Ilmoitus"
+
+msgid "notification.notifications"
+msgstr "Ilmoitukset"
+
+msgid "notification.sentNotification"
+msgstr "Ilmoitus lähetetty."
+
+msgid "notification.settings"
+msgstr "Ilmoitusten asetukset"
+
+msgid "notification.settingsDescription"
+msgstr "Valitse järjestelmän tapahtumat, joista haluat ilmoituksen. Valinnan poistaminen kohdasta estää tapahtumaan liittyvien ilmoitusten näkymisen järjestelmässä ja niiden lähettämisen sinulle sähköpostitse. Valitut tapahtumat näkyvät järjestelmässä ja lisäksi voit valita haluatko samat ilmoitukset sähköpostitse vai et."
+
+msgid "notification.reminderError"
+msgstr "Salasanan lähettämisessä tapahtui virhe. Varmista, että kirjoitit sähköpostiosoitteesi oikein."
+
+msgid "notification.reminderSent"
+msgstr "Uusi salasanasi on lähetetty annettuun sähköpostiosoitteeseen."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Käsikirjoituksen metatiedot tallennettu."
+
+msgid "search.author"
+msgstr "Kirjoittajan mukaan"
+
+msgid "search.abstract"
+msgstr "Abstrakti"
+
+msgid "search.advancedFilters"
+msgstr "Lisäsuodattimet"
+
+msgid "search.advancedSearchMore"
+msgstr "Lisää hakuvaihtoehtoja"
+
+msgid "search.advancedSearchLess"
+msgstr "Piilota lisähakuvaihtoehdot"
+
+msgid "search.searchAgain"
+msgstr "Hae uudestaan"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Indeksin tyhjennys"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "valmis"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "virhe"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artikkelia indeksoitu"
+
+msgid "search.coverage"
+msgstr "Kattavuus"
+
+msgid "search.date"
+msgstr "Julkaisupäivämäärä"
+
+msgid "search.dateFrom"
+msgstr "Julkaistu jälkeen"
+
+msgid "search.dateTo"
+msgstr "Julkaistu ennen"
+
+msgid "search.deleteFilter"
+msgstr "Poista"
+
+msgid "search.discipline"
+msgstr "Tieteenala(t)"
+
+msgid "search.fullText"
+msgstr "Kokoteksti"
+
+msgid "search.indexTerms"
+msgstr "Asiasanat"
+
+msgid "search.indexTermsLong"
+msgstr "Kaikki asiasanakentät"
+
+msgid "search.matchAll"
+msgstr "Yhdistä kaikki kategoriat"
+
+msgid "search.noKeywordError"
+msgstr "Anna vähintään yksi haun avainsana."
+
+msgid "search.noResults"
+msgstr "Ei tuloksia"
+
+msgid "search.operator.and"
+msgstr "and"
+
+msgid "search.operator.not"
+msgstr "not"
+
+msgid "search.operator.or"
+msgstr "or"
+
+msgid "search.SearchFor"
+msgstr "Hae..."
+
+msgid "search.searchResults"
+msgstr "Hakutulokset"
+
+msgid "search.subject"
+msgstr "Avainsana(t)"
+
+msgid "search.titleIndex"
+msgstr "Selaa otsikkohakemistoa"
+
+msgid "search.title"
+msgstr "Otsikko"
+
+msgid "search.typeMethodApproach"
+msgstr "Tyyppi (menetelmä/lähestymistapa)"
+
+msgid "grid.action.downloadFile"
+msgstr "Lataa tämä tiedosto"
+
+msgid "context.path"
+msgstr "Polku"
+
+msgid "review.ensuringBlindReview"
+msgstr "Sokkoarvioinnin varmistaminen"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Lue nykyiset arviointiperiaatteet"
+
+msgid "grid.action.deleteNotification"
+msgstr "Poista tehtävä"
+
+msgid "grid.action.markNew"
+msgstr "Merkitse lukemattomaksi"
+
+msgid "grid.action.markRead"
+msgstr "Merkitse luetuksi"
+
+msgid "dashboard.tasks"
+msgstr "Tehtävät"
+
+msgid "dashboard.myQueue"
+msgstr "Oma jononi"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"\n"
+"\t\t<p>Jotta tähän painoon lähetetyn käsikirjoituksen sokkovertaisarvioinnin rehellisyys voidaan varmistaa, kirjoittajien ja arvioijien henkilöllisyyden paljastuminen toisilleen on estettävä kaikin keinoin. Tämä tarkoittaa, että kirjoittajat, toimittajat ja arvioijat (jotka osana arviointiaan lataavat asiakirjoja) tarkistavat onko seuraavat tekstiä ja tiedoston ominaisuuksia koskevat toimenpiteet tehty:</p> <ul><li>Asiakirjan kirjoittajat ovat poistaneet nimensä tekstistä käyttäen lähdeviitteissä ja alaviitteissä pelkkää \"Kirjoittaja\"-sanaa ja vuosilukua oikeiden nimiensä, artikkelin otsikon jne. sijaan.</li><li>Microsoft Office -asiakirjoissa kirjoittajan tiedot on poistettava myös tiedoston ominaisuuksista (ks. Tiedosto-kohta Wordissa) klikkaamalla seuraavia kohtia, Microsoft-sovelluksen päävalikon Tiedosto-kohdasta aloittaen: Tiedosto &gt; Tallenna nimellä &gt; Työkalut (tai Valinnat Macissa) &gt; Turvallisuus &gt; Poista henkilökohtaiset tiedot tiedoston ominaisuuksista tallennuksen yhteydessä &gt; Tallenna.</li> <li>Myös PDF-tiedostoissa kirjoittajien nimet on poistettava asiakirjan ominaisuuksista, jotka löytyvät Tiedosto-kohdan alta Adobe Acrobatin päävalikossa.</li> </ul>\n"
+"\t"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Arviointiaikataulu"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Toimittajan pyyntö"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Vastauksen määräpäivä"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Arvioinnin määräpäivä"
+
+msgid "submission.task.responseDueDate"
+msgstr "Vastauksen määräpäivä"
+
+msgid "navigation.goBack"
+msgstr "Mene takaisin"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} valittiin käsikirjoituksen arvioijaksi ja sähköposti-ilmoitus lähetettiin."
+
+msgid "notification.removedReviewer"
+msgstr "Arvioija poistettu."
+
+msgid "notification.addedStageParticipant"
+msgstr "Käyttäjä lisätty työvaiheeseen osallistujaksi."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Uusi ilmoitus."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Arviointia odotetaan."
+
+msgid "notification.type.auditorRequest"
+msgstr "Tarkastuspyyntö tiedostoa \"{$file}\" koskien"
+
+msgid "notification.type.allReviewsIn"
+msgstr "Kaikki arvioinnit ovat saapuneet ja {$stage}-vaiheessa tarvitaan päätös."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Korjattu tiedosto on ladattu toimituksellista käsittelyäsi varten {$stage}-vaiheessa."
+
+msgid "notification.type.pendingRevisions"
+msgstr "{$stage}-vaiheessa käsiteltävät korjaukset."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Korjaukset lähetetty {$stage}-vaiheeseen."
+
+msgid "notification.type.metadataModified"
+msgstr "Käsikirjoituksen \"{$title}\" metatietoja on muutettu."
+
+msgid "notification.type.reviewerComment"
+msgstr "Arvioija on kommentoinut käsikirjoitusta \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Tiedosto käsitelty."
+
+msgid "user.authorization.submissionFile"
+msgstr "Nykyisellä käyttäjällä ei ole pääsyoikeutta kyseiseen käsikirjoitustiedostoon."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Virheellinen lähetys."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Virheellinen esitysmuoto."
+
+msgid "navigation.archives"
+msgstr "Arkistot"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "Sinulla ei tällä hetkellä ole riittäviä oikeuksia tarkastella käsikirjoitusta. Muokkaa profiiliasi varmistaaksesi, että sinulle on myönnetty oikeat roolit kohdassa “Rekisteröidy”."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "Nykyinen käyttäjä ei ole pyydetyn käsikirjoituksen kirjoittaja. Varmista, että olet kirjautunut oikealla käyttäjätilillä."
+
+msgid "notification.type.queryActivity"
+msgstr "Keskustelutapahtumat."
+
+msgid "notification.type.queryAdded"
+msgstr "Keskustelu lisätty."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Valitse tekninen toimittaja Osallistujat-listan Lisää-linkkiä käyttäen."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Odottavat tekniset toimittamiset."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Kierroksen {$round} tila"
+
+msgid "navigation.skip.main"
+msgstr "Siirry sisältöalueeseen"
+
+msgid "navigation.skip.nav"
+msgstr "Siirry navigaatioon"
+
+msgid "navigation.skip.footer"
+msgstr "Siirry alatunnisteeseen"
+
+msgid "common.downloadPdf"
+msgstr "Lataa PDF"
+
+msgid "common.from"
+msgstr "Alkaen"
+
+msgid "common.until"
+msgstr "Saakka"
+
+msgid "common.saving"
+msgstr "Tallentaa"
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Kiitosviesti lähetetty arvioijalle."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Lähetä ilmoitus kaikille rekisteröityneille käyttäjille"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} valittiin käsikirjoituksen arvioijaksi, mutta sähköposti-ilmoitusta ei lähetetty."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Navigaatiovalikko päivitettiin onnistuneesti."
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Navigaatiovalikon kohde poistettiin onnistuneesti."
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Navigaatiovalikon kohde lisättiin onnistuneesti."
+
+msgid "notification.addedNavigationMenu"
+msgstr "Navigaatiovalikko lisättiin onnistuneesti"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Navigaatiovalikko päivitettiin onnistuneesti"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Navigaatiovalikko poistettiin onnistuneesti"
+
+msgid "stageParticipants.options"
+msgstr "Oikeudet"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii toisen toimittajan päätöksen vahvistamiseen."
+
+msgid "common.deleting"
+msgstr "Poistetaan"
+
+msgid "common.lessThan"
+msgstr "{$value} tai vähemmän"
+
+msgid "common.moreThan"
+msgstr "{$value} tai enemmän"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} / {$total}"
+
+msgid "common.pagination.label"
+msgstr "Selaa sivuja"
+
+msgid "common.publicAccess"
+msgstr "Julkinen saatavuus"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Aloita keskustelu"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Aloita keskustelu käyttäjän {$userFullName} kanssa."
+
+msgid "list.viewMore"
+msgstr "Näytä lisätietoja {$name}"
+
+msgid "list.viewLess"
+msgstr "Piilota lisätiedot {$name}"
+
+msgid "common.filterAdd"
+msgstr "Lisää suodatin: {$filterTitle}"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Arviointipyyntö päivitetty."
+
+msgid "common.commaListSeparator"
+msgstr ","
+
+msgid "common.semicolonListSeparator"
+msgstr ";"
+
+msgid "email.compose.error"
+msgstr "Sähköpostin lähetyksessä tapahtui virhe. Ole hyvä ja yritä uudelleen tai ota yhteyttä sivuston ylläpitäjään."

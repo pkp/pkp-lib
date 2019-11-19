@@ -1,0 +1,588 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
+"Language: \n"
+
+msgid "manager.announcements"
+msgstr "Ανακοινώσεις"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά τη συγκεκριμένη ανακοίνωση;"
+
+msgid "manager.announcements.create"
+msgstr "Δημιουργία νέας ανακοίνωσης"
+
+msgid "manager.announcements.createTitle"
+msgstr "Δημιουργία "
+
+msgid "manager.announcements.dateExpire"
+msgstr "Ημερομηνία λήξης"
+
+msgid "manager.announcements.edit"
+msgstr "Διαμόρφωση ανακοίνωσης"
+
+msgid "manager.announcements.editTitle"
+msgstr "Διαμόρφωση "
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Επιλέξτε έτος ή/και μήνα εκτός από την ημέρα της ημερομηνίας λήξης."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Ημερομηνία λήξης"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Η ανακοίνωση θα προβάλλεται στους αναγνώστες μέχρι τη συγκεκριμένη ημερομηνία. Αφήστε κενό σε περίπτωση όπου πρέπει να εμφανίζεται επ’αόριστον."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Επιλέξτε έτος ή/και ημέρα εκτός από τον μήνα της ημερομηνίας λήξης."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Επιλέξτε έγκυρη ημερομηνία λήξης της ανακοίνωσης."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Επιλέξτε μήνα ή/και ημέρα εκτός από το έτος της ημερομηνίας λήξης."
+
+msgid "manager.announcements.form.description"
+msgstr "Περιγραφή"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Πλήρες κείμενο της ανακοίνωσης."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Απαιτείται περιγραφή της ανακοίνωσης."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Σύντομη περιγραφή που εμφανίζεται μαζί με τον τίτλο της ανακοίνωσης."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Απαιτείται σύντομη περιγραφή της ανακοίνωσης."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Σύντομη περιγραφή"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Αποθήκευση και δημιουργία νέου"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Απαιτείται τίτλος ανακοίνωσης."
+
+msgid "manager.announcements.form.title"
+msgstr "Τίτλος"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Τύπος"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Επιλέξτε έγκυρο τύπο ανακοίνωσης."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Δεν έχουν δημιουργηθεί ανακοινώσεις."
+
+msgid "manager.announcements.title"
+msgstr "Τίτλος"
+
+msgid "manager.announcements.type"
+msgstr "Τύπος"
+
+msgid "manager.announcementTypes"
+msgstr "Τύποι Ανακοινώσεων"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Προσοχή! Όλες οι ανακοινώσεις με τον συγκεκριμένο τύπο ανακοίνωσης θα διαγραφούν επίσης. Είστε βέβαιοι ότι επιθυμείτε να συνεχίσετε και να διαγράψετε τον συγκεκριμένο τύπο ανακοίνωσης;"
+
+msgid "manager.announcementTypes.create"
+msgstr "Δημιουργία τύπου ανακοινώσεων"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Δημιουργία "
+
+msgid "manager.announcementTypes.edit"
+msgstr "Διαμόρφωση τύπου ανακοινώσεων"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Διαμόρφωση"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr " Αποθήκευση και δημιουργία νέου "
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Ένας τύπος ανακοίνωσης με το συγκεκριμένο όνομα υπάρχει ήδη."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Όνομα"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Απαιτείται όνομα τύπου ανακοίνωσης."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Δεν έχουν δημιουργηθεί τύποι ανακοινώσεων."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Τύπος ανακοίνωσης"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε το συγκεκριμένο πρότυπο μηνύματος?"
+
+msgid "manager.emails.confirmReset"
+msgstr " Είστε βέβαιοι ότι επιθυμείτε να επαναφέρετε το συγκεκριμένο πρότυπο μηνύματος στις προεπιλεγμένες τιμές του?"
+
+msgid "manager.emails.createEmail"
+msgstr "Δημιουργία μηνύματος"
+
+msgid "manager.emails.disable"
+msgstr "Απενεργοποίηση"
+
+msgid "manager.emails.editEmail"
+msgstr "Επεξεργασία μηνύματος"
+
+msgid "manager.emails.editTestExample"
+msgstr "Επεξεργασία παραδείγματος δοκιμής ηλεκτρονικού ταχυδρομείου"
+
+msgid "manager.emails.emailKey"
+msgstr "Κλειδί ηλεκτρονικού ταχυδρομείου"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου με το συγκεκριμένο κλειδί υπάρχει ήδη. Τα κλειδιά του ηλεκτρονικού ταχυδρομείου πρέπει να είναι μοναδικά."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Πρότυπο e-mail μήνυμα ηλεκτρονικού ταχυδρομείου"
+
+msgid "manager.emails.enabled"
+msgstr "Ενεργοποίηση του συγκεκριμένου προτύπου μηνύματος"
+
+msgid "manager.emails.enable"
+msgstr "Ενεργοποίηση"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr " Απαιτείται η συμπλήρωση του κυρίου σώματος για το μήνυμα."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Απαιτείται ο ορισμός θέματος για το μήνυμα."
+
+msgid "manager.emails"
+msgstr "Έτοιμα Emails"
+
+msgid "manager.emails.reset"
+msgstr "Επαναφορά"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Επαναφορά των προεπιλογών"
+
+msgid "manager.filesBrowser"
+msgstr "Ευρετήριο Αρχείων"
+
+msgid "manager.files.confirmDelete"
+msgstr "Διαγραφή του συγκεκριμένου αρχείου ή καταλόγου; Λάβετε υπόψη ότι ο κατάλογος δεν πρέπει να περιέχει δεδομένα πριν από τη διαγραφή του."
+
+msgid "manager.files.createDir"
+msgstr "Δημιουργία καταλόγου"
+
+msgid "manager.files.emptyDir"
+msgstr "Δεν εντοπίστηκαν αρχεία στον κατάλογο αυτό."
+
+msgid "manager.files.indexOfDir"
+msgstr "Ευρετήρια για {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Γονικός κατάλογος"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Αρχεία που έχουν φορτωθεί"
+
+msgid "manager.files.uploadFile"
+msgstr "Φόρτωση αρχείου"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη ομάδα;"
+
+msgid "manager.groups.createTitle"
+msgstr "Δημιουργία τίτλου"
+
+msgid "manager.groups.editTitle"
+msgstr "Επεξεργασία τίτλου"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Απαιτείται τίτλος ομάδας."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Προσθήκη μελών"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε την εγγεγραμμένη ομάδα;"
+
+msgid "manager.groups.membership"
+msgstr "Εγγεγραμμένα μέλη"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Η ομάδα αυτή δεν έχει μέλη."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Δεν ήταν δυνατός ο εντοπισμός χρηστών."
+
+msgid "manager.groups.title"
+msgstr "Τίτλος"
+
+msgid "manager.importExport"
+msgstr "Εισαγωγή/Εξαγωγή δεδομένων"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Το σύστημα επιτρέπει εναλλακτικά την καταχώριση ορισμένων σημαντικών πληροφοριών και σε δύο πρόσθετες γλώσσες. Για να χρησιμοποιήσετε τη λειτουργία αυτή, επιλέξτε μία ή δυο από τις εναλλακτικές τοπικές ρυθμίσεις και επιλέξτε από τις επιλογές που θα εμφανιστούν παρακάτω."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Επιλέξτε όλες τις τοπικές ρυθμίσεις που θα υποστηρίζονται στον ιστότοπο μέσω του μενού επιλογής γλώσσας να εμφανίζονται σε κάθε σελίδα. Το μενού εμφανίζεται μόνο, εάν έχει επιλεχθεί κάποια από τις τοπικές ρυθμίσεις."
+
+msgid "manager.payment.timestamp"
+msgstr "Σφραγίδα Ημερομηνίας"
+
+msgid "manager.people.authSource"
+msgstr "Πηγή πιστοποίησης"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Απαλλάσετε  τον συγκεκριμένο χρήστη από τον ρόλο του;"
+
+msgid "manager.people.createUser"
+msgstr "Δημιουργία νέου χρήστη"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Δημιουργία τυχαίου κωδικού πρόσβασης."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Αποστολή μηνύματος ηλεκτρονικού ταχυδρομείου για το καλωσόρισμα του χρήστη μαζί με το όνομα χρήστη και τον κωδικό πρόσβασης."
+
+msgid "manager.people.disable"
+msgstr "Απενεργοποίηση"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Χωρίς ρόλο"
+
+msgid "manager.people.editProfile"
+msgstr "Επεξεργασία προφίλ  χρήστη"
+
+msgid "manager.people.editUser"
+msgstr "Επεξεργασία χρήστη"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Αποστολή μηνύματος στους επιλεγμένους χρήστες"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Χρήστες ηλεκτρονικού ταχυδρομείου εγγεγραμμένοι ως"
+
+msgid "manager.people.emailUsers"
+msgstr "Αποστολή μηνύματος σε χρήστες"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Επιλέξτε τοπική ρύθμιση"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Επιλέξτε τους χρήστες στους οποίους επιθυμείτε να αποστείλετε μήνυμα ηλεκτρονικού ταχυδρομείου μέσω επιλογής των πλαισίων που βρίσκονται δίπλα από τα ονόματά τους"
+
+msgid "manager.people.enable"
+msgstr "Ενεργοποίηση"
+
+msgid "manager.people.enroll"
+msgstr " Ανάθεση ρόλου"
+
+msgid "manager.people.enrollment"
+msgstr "Ανάθεση ρόλων"
+
+msgid "manager.people.enrollSelected"
+msgstr "Ανάθεση ρόλου στους επιλεγμένους χρήστες"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Συγχρονισμός Ρόλου "
+
+msgid "manager.people.enrollSync"
+msgstr "Συγχρονισμένη ανάθεση ρόλων"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Εάν δεν έχουν επιλεγεί ρόλοι, ο χρήστης θα δημιουργηθεί στο σύστημα αλλά δεν θα είναι εγγεγραμμένος σε κάποιον ρόλο στα πλαίσια του συγκεκριμένου περιοδικού. Κατόπιν της δημιουργίας του χρήστη, η ανάθεση ή μη ρόλων μπορεί να πραγματοποιηθεί ανά πάσα στιγμή."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Ανάθεση ρόλου "
+
+msgid "manager.people.invalidUser"
+msgstr "Ο χρήστης δεν υπάρχει."
+
+msgid "manager.people.mergeUser"
+msgstr "Συγχώνευση χρήστη"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Είστε βέβαιοι ότι επιθυμείτε να συγχωνεύσετε τον λογαριασμό με το όνομα χρήστη \"{$oldUsername}\" σε λογαριασμό με το όνομα χρήστη  \"{$newUsername}\"; Ο λογαριασμός με το όνομα χρήστη \"{$oldUsername}\" θα διαγραφεί οριστικά. Η ενέργεια αυτή είναι μη αναστρέψιμη."
+
+msgid "manager.people.mergeUsers"
+msgstr "Συγχώνευση χρηστών"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Σας παρακαλούμε επιλέξτε έναν ρόλο στην κορυφή της σελίδας πριν πατήσετε \"Ανάθεση Ρόλου\"."
+
+msgid "manager.people.mustProvideName"
+msgstr "Σας παρακαλούμε θα πρέπει πρώτα να συμπληρώσετε τουλάχιστον το επώνυμο του χρήστη."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Δεν υπάρχει αντιστοίχηση μεταξύ των χρηστών."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Δεν υπάρχουν χρήστες με τέτοιο ρόλο."
+
+msgid "manager.people"
+msgstr "Ανθρώπινοι πόροι"
+
+msgid "manager.people.remove"
+msgstr "Κατάργηση"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Αποθήκευση και δημιουργία νέου"
+
+msgid "manager.people.signInAs"
+msgstr "Σύνδεση ως"
+
+msgid "manager.people.signInAsUser"
+msgstr "Σύνδεση ως χρήστης"
+
+msgid "manager.people.syncUsers"
+msgstr "Συγχρονισμός ανάθεσης ρόλων"
+
+msgid "manager.people.unenroll"
+msgstr "Απαλλαγή "
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Ο χρήστης δημιουργήθηκε επιτυχώς."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Ο χρήστης πρέπει να αλλάξει τον κωδικό πρόσβασης στην επόμενη σύνδεσή του."
+
+msgid "manager.plugins.action"
+msgstr "Ενέργεια:"
+
+msgid "manager.plugins.disable"
+msgstr "Απενεργοποίηση"
+
+msgid "manager.plugins.enable"
+msgstr "Ενεργοποίηση"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Διαχείριση Plugin"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Πρόκειται για plugin σχετικά με ολόκληρο τον ιστότοπο. Η διαχείριση του συγκεκριμένου plugin μπορεί να γίνει αποκλειστικά από τον Διαχειριστή Ιστοτόπου."
+
+msgid "manager.plugins"
+msgstr "Plugins συστήματος"
+
+msgid "manager.readingTools"
+msgstr "Εργαλεία Ανάγνωσης"
+
+msgid "manager.roles"
+msgstr "Ρόλοι"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Μη έγκυρη μορφή αρχείου εικόνας αρχικής σελίδας του περιοδικού. Έγκυρες μορφές αρχείων είναι .gif, .jpg, ή .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Μη έγκυρη μορφή αρχείου εικόνας τίτλου της κεφαλίδας της αρχικής σελίδας του περιοδικού. Έγκυρες μορφές αρχείων είναι .gif, .jpg, ή .png."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Σύνδεση και έλεγχος"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr " Μη έγκυρη μορφή εικόνας λογοτύπου της κεφαλίδας της σελίδας. Έγκυρες μορφές είναι .gif, .jpg, ή .png."
+
+msgid "manager.setup.selectOne"
+msgstr "Επιλέξτε ένα"
+
+msgid "manager.statistics"
+msgstr "Στατιστικά &amp; Αναφορές"
+
+msgid "manager.statistics.reports.description"
+msgstr "Το σύστημα παράγει τις εκθέσεις που παρακολουθούν τις λεπτομέρειες που σχετίζονται με τη χρήση της ιστοσελίδας και οι παρατηρήσεις σε μια δεδομένη χρονική περίοδο. Οι εκθέσεις που δημιουργούνται σε μορφή CSV που απαιτεί μια εφαρμογή λογιστικών φύλλων για να το δείτε."
+
+msgid "manager.statistics.reports"
+msgstr "Δημιουργία  Εκθέσεων"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count}  ({$percentage}F)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew}  new)"
+
+msgid "manager.users"
+msgstr "Χρήστες"
+
+msgid "plugins.categories.auth"
+msgstr "Plugin πιστοποίηση"
+
+msgid "plugins.categories.blocks"
+msgstr "Block Plugins"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Τα Block Plugins είναι προσαρμόσιμα UI συστατικά, όπως τα διάφορα sidebar εργαλεία."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Τα Plugins πύλης (gateway) επιτρεπούν τη ζωντανή παροχή δεδομένων σε εξωτερικά συστήματα."
+
+msgid "plugins.categories.gateways"
+msgstr "Plugins πύλης (gateway)"
+
+msgid "plugins.categories.generic"
+msgstr "Γενικά Plugins"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Η εισαγωγή/εξαγωγή των Plugins μπορεί να χρησιμοποιηθεί για τη μεταφορά περιεχομένου από και προς άλλα συστήματα."
+
+msgid "plugins.categories.importexport"
+msgstr "Εισαγωγή/Εξαγωγή Plugins"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Τα Plugins Πληρωμών μπορούν να υποστηρίξουν διάφορες μεθόδους Online Πληρωμών."
+
+msgid "plugins.categories.paymethod"
+msgstr "Plugins Πληρωμών"
+
+msgid "plugins.categories.reports.description"
+msgstr "Τα Plugins Αναφορών χρησιμοποιούνται για την δημιουργία διαφόρων τύπων αναφορών και εξαγωγής δεδομένων."
+
+msgid "plugins.categories.reports"
+msgstr "Plugins Αναφορών"
+
+msgid "plugins.categories.themes.description"
+msgstr "Τα Theme Plugins μπορούν να χρησιμοποιηθούν για να αλλάξει η εμφάνιση του συστήματος."
+
+msgid "plugins.categories.themes"
+msgstr "Θεματικά (Theme) Plugins"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Απαιτείτα ένα μοναδικό κλειδί email για το email."
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Αναζήτηση Αξιολογητή κατά Όνομα"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Ενδιαφέροντα Αξιολόγησης"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Παρουσιάστηκε σφάλμα κατά την διαγραφή του φίλτρου"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI Metadata Format Plugins"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Αυτοί οι τύποι Plugins μεταφέρους τα μεταδεδομένα στις ΟΑΙ επικοινωνίας."
+
+msgid "grid.action.addGenre"
+msgstr "Προσθήκη Μέρος Βιβλίου"
+
+msgid "manager.reviewForms"
+msgstr "Φόρμες αξιολόγησης"
+
+msgid "manager.reviewForms.completed"
+msgstr "Ολοκληρωμένη"
+
+msgid "manager.reviewForms.create"
+msgstr "Δημιουργία Φόρμας Αξιολόγησης"
+
+msgid "manager.reviewForms.description"
+msgstr "Περιγραφή και Οδηγίες"
+
+msgid "manager.reviewForms.edit"
+msgstr "Φόρμα Αξιολόγησης"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Ένας τίτλος απαιτείται για τη φόρμα αξιολόγησης."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Σε αξιολόγηση"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Οι φόρμες αξιολόγησης που δημιουργήθηκαν εδώ, θα εμφανιστούν στους αξιολογητές για να συμπληρωθούν, αντί για τις εξ΄ορισμού φόρμες που συνίστανται από δύο ανοικτά πλαίσια κειμένου, το πρώτο \"για τον συγγραφέα και τον επιμελητή\" και το δεύτερο \"για τον επιμελητή\". Οι φόρμες αξιολόγησης μπορούν να χρησιμοποιηθούν σε μια συγκεκριμένη ενότητα της έκδοσης, και οι επιμελητές θα έχουν τη δυνατότητα να επιλέξουν ποια φόρμα θα χρησιμοποιήσουν για την αξιολόγηση. Σε κάθε περίπτωση, οι επιμελητές θα έχουν την επιλογή να συμπεριλάβουν τις αξιολογήσεις στην επικοινωνία τους με τους συγγραφείς."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Καμία/ Ελεύθερη Φόρμα Αξιολόγησης"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Καμία φόρμα αξιολόγησης δεν έχει δημιουργηθεί."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Καμία φόρμα αξιολόγησης δεν έχει χρησιμοποιηθεί."
+
+msgid "manager.reviewForms.preview"
+msgstr "Φόρμα Προεπισκόπησης"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Δεδομένα Φόρμας Αξιολόγησης"
+
+msgid "manager.reviewForms.title"
+msgstr "Τίτλος"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Αλλάζοντας τον τύπο πεδίου της φόρμας..."
+
+msgid "manager.reviewFormElements"
+msgstr "Πεδία Φόρμας"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Προσθήκη Επιλογής"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Checkboxes (επιλέξτε ένα ή περισσότερα)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Επιλέξτε τύπο πεδίου"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Είστε σίγουροι ότι επιθυμείτε να διαγράψετε ένα στοιχείο μιας δημοσιευμένης φόρμας αξιολόγησης?"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Αντιγραφή σε:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Δημιουργία νέου πεδίου"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Drop-down box"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Επεξεργασία Πεδίου Φόρμας"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Τύπος πεδίου"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Απαιτείται ένα τύπος πεδίου για το πεδίο της φόρμας."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Απαιτείται μια ερώτηση για το πεδίο της φόρμας."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Δεν έχει δημιουργηθεί πεδίο."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Επιλογή"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Πεδίο"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radio buttons (επιλέξτε ένα ή περισσότερα)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Απαιτείται οι αξιολογητές να συμπληρώσουν το πεδίο"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Πλαίσιο κειμένου μονής λέξης"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Εκτεταμένο πλαίσιο κειμένου"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Πλαίσιο κειμένου μονής γραμμής"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Ορατό (για συγγραφείς)"

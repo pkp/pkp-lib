@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Διαχειριστής Ιστοτόπου"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Διαχειριστές Ιστοτόπου"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Επιμελητής Παραγωγής"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Επιμελητές Παραγωγής"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ΕΠ"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Επιμελητής Κειμένων"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Επιμελητές Κειμένων"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "ΕΚ"
+
+msgid "default.groups.name.proofreader"
+msgstr "Επιμελητής Τυπογραφικών Δοκιμίων"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Επιμελητές Τυπογραφικών Δοκιμίων"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "ΕTΔ"
+
+msgid "default.groups.name.designer"
+msgstr "Σχεδιαστής"
+
+msgid "default.groups.plural.designer"
+msgstr "Σχεδιαστές"
+
+msgid "default.groups.abbrev.designer"
+msgstr "ΣΧ"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Εσωτερικός Αξιολογητής"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Εσωτερικοί Αξιολογητές"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "ΕΑΞ"
+
+msgid "default.groups.name.marketing"
+msgstr "Συντονιστής Προώθησης και Πωλήσεων"
+
+msgid "default.groups.plural.marketing"
+msgstr "Συντονιστές Προώθησης και Πωλήσεων"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "ΣΠΠ"
+
+msgid "default.groups.name.funding"
+msgstr "Συντονιστής Χρηματοδότησης"
+
+msgid "default.groups.plural.funding"
+msgstr "Συντονιστές Χρηματοδότησης"
+
+msgid "default.groups.abbrev.funding"
+msgstr "ΣΧρ"
+
+msgid "default.groups.name.indexer"
+msgstr "Δημιουργός Ευρετηρίων"
+
+msgid "default.groups.plural.indexer"
+msgstr "Δημιουργοί Ευρετηρίων"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "ΔΕ"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Επιμελητής Σελιδοποίησης"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Επιμελητές Σελιδοποίησης"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "ΕΣ"
+
+msgid "default.groups.name.author"
+msgstr "Συγγραφέας"
+
+msgid "default.groups.plural.author"
+msgstr "Συγγραφείς"
+
+msgid "default.groups.abbrev.author"
+msgstr "ΣΓ"
+
+msgid "default.groups.name.translator"
+msgstr "Μεταφραστής"
+
+msgid "default.groups.plural.translator"
+msgstr "Μεταφραστές"
+
+msgid "default.groups.abbrev.translator"
+msgstr "ΜΦ"
+
+msgid "default.groups.name.reader"
+msgstr "Αναγνώστης"
+
+msgid "default.groups.plural.reader"
+msgstr "Αναγνώστες"
+
+msgid "default.groups.abbrev.reader"
+msgstr "ΑΝ"
+
+msgid "default.genres.other"
+msgstr "Άλλο"
+
+msgid "default.genres.multimedia"
+msgstr "Πολυμέσα"
+
+msgid "default.genres.image"
+msgstr "Εικόνα"
+
+msgid "default.genres.styleSheet"
+msgstr "Αρχείο HTML"

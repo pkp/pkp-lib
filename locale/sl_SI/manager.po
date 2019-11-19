@@ -1,0 +1,1529 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:02+00:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Informacije"
+
+msgid "manager.website.appearance"
+msgstr "Videz"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Zahtevana je datotek s sliko. Prosimo preverite, da ste izbrali in naložili datoteko."
+
+msgid "manager.announcements"
+msgstr "Obvestila"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Ste prepričani, da hočete trajno zbrisati to obvestilo?"
+
+msgid "manager.announcements.create"
+msgstr "Ustvari novo obvestilo"
+
+msgid "manager.announcements.createTitle"
+msgstr "Ustvari"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Preteče"
+
+msgid "manager.announcements.datePublish"
+msgstr "Objavljeno"
+
+msgid "manager.announcements.edit"
+msgstr "Uredi obvestilo"
+
+msgid "manager.announcements.editTitle"
+msgstr "Uredi"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Prosim izberite leto in/ali mesec poleg dneva preteka."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Datum preteka"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Obvestilo bo prikazano bralcem do tega datuma. Pustite prazno, če mora biti obvestilo prikazano nedoločen čas."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Prosim izberite leto in/ali dan poleg meseca preteka."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Prosim izberite veljaven datum poteka obvestila."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Prosim izberite mesec in/ali dan poleg leta preteka."
+
+msgid "manager.announcements.form.description"
+msgstr "Opis"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Celotno besedilo obvestila"
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Opis obvestila je obvezen."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Kratek opis, ki bo poleg naslova obvestila."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Kratek opis obvestila je obvezen."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Kratek opis"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Shrani in ustvari novo"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Naslov obvestila je obvezen"
+
+msgid "manager.announcements.form.title"
+msgstr "Naslov"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tip"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Prosimo izberite veljaven tip obvestila."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Nobeno obvestilo ni bilo narejeno."
+
+msgid "manager.announcements.title"
+msgstr "Naslov"
+
+msgid "manager.announcements.type"
+msgstr "Tip"
+
+msgid "manager.announcementTypes"
+msgstr "Tipi obvestil"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Pozor! Vsa obvestila tega tipa bodo izbrisana. Ali ste prepričani, da želite nadaljevati in izbrisati ta tip sporočil?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Ustvari tip obvestil"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Ustvari"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Uredi tip obvestil"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Uredi"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Shrani in ustvari novega"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Tip obvestila s tem imenom že obstaja."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Ime"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Ime tipa obvestila je obvezno."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Noben tip obvestila ni bil ustvarjen."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tip obvestila"
+
+msgid "manager.publication.submissionStage"
+msgstr "Oddaja"
+
+msgid "manager.publication.reviewStage"
+msgstr "Recenzija"
+
+msgid "manager.publication.editorialStage"
+msgstr "Lektoriranje"
+
+msgid "manager.publication.productionStage"
+msgstr "Produkcija"
+
+msgid "manager.publication.emails"
+msgstr "Emaili"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Ali ste prepričani, da želite zbrisati to predlogo e-pošte?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Ali ste prepričani, da želite ponastaviti to predlogo e-pošte na privzete vrednosti?"
+
+msgid "manager.emails.createEmail"
+msgstr "Ustvari e-pošto"
+
+msgid "manager.emails.data"
+msgstr "Podatki predloge e-pošte"
+
+msgid "manager.emails.details"
+msgstr "Podrobnosti predloge e-pošte"
+
+msgid "manager.emails.disable"
+msgstr "Onemogoči"
+
+msgid "manager.emails.disable.message"
+msgstr "Onemogočate predlogo e-pošte. Če procesi sistema to predlogo uporabljajo, je ne bodo več mogli. Želite potrditi to operacijo?"
+
+msgid "manager.emails.editEmail"
+msgstr "Uredi e-pošto"
+
+msgid "manager.emails.editTestExample"
+msgstr "Uredi testni primer e-pošte"
+
+msgid "manager.emails.emailKey"
+msgstr "Ključ e-pošte"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "E-pošta s tem ključem že obstaja. Ključi e-pošte morajo biti unikatni."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Predloga e-pošte"
+
+msgid "manager.emails.enabled"
+msgstr "Omogoči to predlogo e-pošte"
+
+msgid "manager.emails.enable"
+msgstr "Omogoči"
+
+msgid "manager.emails.enable.message"
+msgstr "Vključili boste to e-pošto. Ali potrjujete to operacijo?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Unikatni ključ e-pošte je obvezen."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Za e-pošto je obvezno telo."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Zadeva je pri e-pošti obvezna."
+
+msgid "manager.emails"
+msgstr "Pripravljene e-pošte"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Če boste ponastavili vse e-poštne predloge, se bodo vse dosedanje spremembe le-teh izgubile. Ste prepričani, da želite nadaljevati?"
+
+msgid "manager.emails.reset"
+msgstr "Ponastavi"
+
+msgid "manager.emails.reset.message"
+msgstr "Če boste ponastavili e-poštno predlogo, se bodo ponastavili vsi podatki sporočila na privzete vrednosti, z izgubo vseh sprememb. Ste prepričani, da želite nadaljevati?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Ponastavi na privzeto"
+
+msgid "manager.filesBrowser"
+msgstr "Datotečni brskalnik"
+
+msgid "manager.files.confirmDelete"
+msgstr "Zbrišem datoteko oziroma mapo? Upoštevajte, da mora biti mapa izpraznjena pred brisanjem."
+
+msgid "manager.files.createDir"
+msgstr "Ustvari mapo"
+
+msgid "manager.files.emptyDir"
+msgstr "V tej mapi ni datotek"
+
+msgid "manager.files.indexOfDir"
+msgstr "Indeks mape {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Višja mapa"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Naložene datoteke"
+
+msgid "manager.files.uploadFile"
+msgstr "Naloži datoteko"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Ste prepričani, da želite zbrisati to skupino?"
+
+msgid "manager.groups.createTitle"
+msgstr "Ustvari naslov"
+
+msgid "manager.groups.editTitle"
+msgstr "Uredi naslov"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Naslov skupine je obvezen."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Dodaj člana"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Ste prepričani, da želite izbrisati člana iz te skupine?"
+
+msgid "manager.groups.membership"
+msgstr "Članstvo"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Ta skupina nima članov."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Ne najdem nobenega uporabnika."
+
+msgid "manager.groups.title"
+msgstr "Naslov"
+
+msgid "manager.importExport"
+msgstr "Uvoz/izvoz podatkov"
+
+msgid "manager.language.ui"
+msgstr "UV"
+
+msgid "manager.language.submissions"
+msgstr "Prispevki"
+
+msgid "manager.language.forms"
+msgstr "Obrazci"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Ponastavi na privzeto"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Sistem omogoča opcijsko dodajanje določenih pomembnih informacij v večih jezikih. Za uporabo te možnosti izberite dodatne jezike in možnosti spodaj."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Izberite jezike, ki bodo podprti in na voljo v meniju na vsaki strani. Meni bo na voljo le, če bo na voljo več jezikov."
+
+msgid "manager.payment.timestamp"
+msgstr "Časovni žig"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Vnesite obstoječega uporabnika."
+
+msgid "manager.people.authSource"
+msgstr "Vir avtentikacije"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Želite zbrisati vlogo temu uporabniku?"
+
+msgid "manager.people.createUser"
+msgstr "Ustvari novega uporabnika"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Ustvari naključno geslo."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Pošlji uporabniku e-pošto z dobrodošlico z njegovim imenom in geslom."
+
+msgid "manager.people.disable"
+msgstr "Onemogoči"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Brez vlog"
+
+msgid "manager.people.editProfile"
+msgstr "Uredi račun"
+
+msgid "manager.people.editUser"
+msgstr "Uredi uporabnika"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Pošlji e-pošto izbranim uporabnikom"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Pošlji e-pošto uporabnikom z vlogo"
+
+msgid "manager.people.emailUsers"
+msgstr "Pošlji e-pošto uporabnikom"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Izberi jezik"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "S kljukico v kvadratkih poleg uporabnikovih imen izberite uporabnike, ki jim želite poslati e-pošto."
+
+msgid "manager.people.enable"
+msgstr "Omogoči"
+
+msgid "manager.people.enroll"
+msgstr "Dodaj vlogo uporabniku"
+
+msgid "manager.people.enrollment"
+msgstr "Dodajanje vlog"
+
+msgid "manager.people.enrollSelected"
+msgstr "Dodaj vloge izbranim uporabnikom"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Sinhroniziraj vloge"
+
+msgid "manager.people.enrollSync"
+msgstr "Sinhroniziraj vloge uporabnika"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Uporabniku je lahko v vsakem trenutku dodeljena ali izbrisana določena vloga."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Dodaj uporabniku vlogo kot"
+
+msgid "manager.people.invalidUser"
+msgstr "Oprostite, izbrani uporabnik ne obstaja."
+
+msgid "manager.people.mergeUser"
+msgstr "Združi uporabnika"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Ali ste prepričani, da želite združiti uporabniške račune {$oldAccountCount} v uporabniški račun z uporabniškim imenom \"{$newUsername}\"? Izbrani uporabniški računi {$oldAccountCount} ne bodo več obstajali. Ta akcija je nepovratna."
+
+msgid "manager.people.mergeUsers"
+msgstr "Združi uporabnike"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Prosimo izberite vloge na vrhu strani, preden kliknete 'Dodaj vlogo uporabniku'."
+
+msgid "manager.people.mustProvideName"
+msgstr "Najprej navedite vsaj priimek uporabnika."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Ni nobenih odgovarjajočih uporabnikov."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Ni uporabnikov z dodeljeno vlogo."
+
+msgid "manager.people"
+msgstr "Ljudje"
+
+msgid "manager.people.remove"
+msgstr "Odstrani"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Shrani in ustvari novega"
+
+msgid "manager.people.signInAs"
+msgstr "Prijavi se kot"
+
+msgid "manager.people.signInAsUser"
+msgstr "Prijavi se kot uporabnik"
+
+msgid "manager.people.syncUsers"
+msgstr "Sinhroniziraj vloge dodeljene uporabnikom"
+
+msgid "manager.people.unenroll"
+msgstr "Odvzemi vlogo"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Uporabnik je bil uspešno ustvarjen."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Zahtevaj, da uporabnik spremeni geslo ob naslednji prijavi."
+
+msgid "manager.plugins.action"
+msgstr "Akcija:"
+
+msgid "manager.plugins.disable"
+msgstr "Onemogoči"
+
+msgid "manager.plugins.enable"
+msgstr "Omogoči"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Upravljanje z vtičniki"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Ta vtičnik se nanaša na celotno spletišče in z njim upravlja le administrator spletišča."
+
+msgid "manager.plugins"
+msgstr "Sistemski vtičniki"
+
+msgid "manager.readingTools"
+msgstr "Orodja za branje"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Išči uporabnika po imenu"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Spremeni"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Iskanje recenzentov po imenu"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Iskanje po imenu"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Interesi recenzentov"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Uporabite spodnji obrazec za nastavitev največjega števila terminov po katerih želite iskati. Obrazec je prednastavljen s povprečnim številom polj."
+
+msgid "manager.roles"
+msgstr "Vloge"
+
+msgid "manager.statistics"
+msgstr "Statistike in poročila"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"Vaša {$contextObjectName} namestitev beleži več kot le eno metriko uporabe, ki so prikazane v različnih kontekstih.\n"
+"\t\tV nekaterih primerih mora biti uporabljena le ena metrika (npr. vrstni red najbolj branih člankov ali vrstni red iskalnih rezultatof. Prosimo izberite eno od konfiguriranih metrik kot privzeto."
+
+msgid "manager.statistics.city"
+msgstr "Mesto"
+
+msgid "manager.statistics.region"
+msgstr "Regija"
+
+msgid "manager.statistics.reports"
+msgstr "Generator poročil"
+
+msgid "manager.statistics.reports.description"
+msgstr "Sistem pripravi poročila s podrobnimi podatki o uporabi spletišča in prispevkih v določenem časovnem obdobju. Poročila so pripravljena v CSV formatu, kar pomeni, da za ogled potrebujete preglednico."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Združi statistike po:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Postavke v poševni pisavi in označene z * predstavljajo podatke, ki so opcijski v izbranem načinu štetja v sistemu (metrični sistem). Lahko imate te podatke ali ne, odvisno od vaših nastavitev vtičnika za statistike."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Privzeta predloga poročil"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Pripravi poročilo po meri"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Napredne možnosti"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Skrij napredne možnosti"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Stolpci"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Določite stolpce, ki se bodo uporabili za pripravo poročila. Stolpci, ki jih boste tukaj izbrali, ne bodo le definirali, katteri podatki bodo predstavljeni, ampak tudi nivo združevanja. Npr. če izberete stolpce ID, tip in mesec, bo poročilo seštelo vse vpoglede v objekt v enem mesecu in prikazalo podatek v eni vrstici. Če namesto meseca izberete dan, potem bo v poročilu vsak objekt imel vrstico za vsak dan."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filtri"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Objekt ne obstaja v bazi podatkov"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Tip objekta"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "ID objekta"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Podatje enega ali več IDjev objektov, razdeljene z vejico (npr. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Včeraj"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Trenutni mesec"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Urejeno po"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Urejenost"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Naraščajoče"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Padajoče"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Uporabite YYYYMM format."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Uporabite YYYYMMDD format."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Eden ali več imen mest, razdeljenih z vejico (npr. Maribor, Ljubljana)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Za pripravo poročila morate izbrati vsaj en stolpec."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL poročila"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Spodnji URL se lahko uporabi, da se avtomatsko pripravi poročilo s trenutnimi nastavitvami. Enostavno skopirajte URL v brskalnik in ga odprite. Lahko ga tudi shranite med vaše zaznamke."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Po kontekstu"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Po tipu objekta in /ali IDju objekta"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Izberite časovni obseg poročila"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Ali izberite obseg po:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Po geo-lokaciji"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Zoži rezultate po državi, regiji in/ali mestu."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponzor"
+
+msgid "manager.setup.additionalContent"
+msgstr "Dodatna vsebina"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Vse, kar boste vpisali tukaj, se bo prikazalo na domači strani."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Opomba o avtorskih pravicah"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Zahtevaj od avtorjev, da se strinjajo z obvestilom o avtorskih pravicah v postopku oddaje prispevka."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Priporočila za avtorje"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Priporočila za avtorje naj vsebujejo navodila za pravilno podajanje bibliografskih podatkov in oblikovanje besedila ter pravilen format referenc, priporočljivo je navesti tudi primere le-teh."
+
+msgid "manager.setup.citationFilterLookupDescription"
+msgstr ""
+"<p>Omogočiti in nastaviti morate povezave do zunanjih baz citatov. To pomaga pri preprečevati napačna citiranja avtorja in doda dodatne informacije (npr. DOIs or PubMed IDs) obvezne za elektronsko objavljanje.</p>\n"
+"\t<p>Na voljo je nekaj vmesnikov do zunanjih podatkovnih baz po katerih lahko iščete citate. Nekatere od teh baz zahtevajo registracijo ali vpis konfiguracijskih podatkov. Na spletnih straneh teh podatkovnih baz poiščite navodila, kako se registrirati. Dodate lahko povezavo do ene ali več podatkovnih baz s klikom na gumb \"Dodaj postavko\" spodaj.</p>\n"
+"\t<p>Obstoječe povezave do baz lahko spremenite ali izbrišete s klikom na ikono zobnika poleg povezave..</p>\n"
+"\t<p><strong>Opozorilo:</strong> Da zagotovite končanje postopka preverjanja v razumljivem času, je potrebno nastaviti direktivo <tt>citation_checking_max_processes</tt> v konfiguracijski datoteki na primerno vrednost. Preverite v \"General Settings\" poglavju v <tt>config.inc.php</tt> za več informacij.</p>"
+
+msgid "manager.setup.competingInterests"
+msgstr "Nasprotujoči interesi"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Med brisanjem je prišlo do napake."
+
+msgid "manager.setup.favicon"
+msgstr "Napačen format favikona. Dovoljeni formati so .ico, .png in .gif."
+
+msgid "manager.setup.filter.lookup.grid.description.worldCat"
+msgstr ""
+"<p>Ta filter se povezuje na OCLC servise <a href=\"http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp\" target=\"_blank\">xISBN</a> in <a href=\"http://www.worldcat.org/\" target=\"_blank\">Worldcat</a> (opcijsko).</p>\n"
+"\t<p>Če imatete Worldcat <a href=\"http://oclc.org/developer/develop/web-services.html\" target=\"_blank\">API ključ</a> se z Worldcat-om lahko povežete z vpisom API ključa spodaj.</p>"
+
+msgid "manager.setup.filter.parser.grid.description.freeCite"
+msgstr "<p>Ta filter se povezuje s <a href=\"http://freecite.library.brown.edu/\" target=\"_blank\">FreeCite</a> web servisi.</p>"
+
+msgid "manager.setup.groupType"
+msgstr "Grupiranje po tipu datoteke"
+
+msgid "manager.setup.homeHeaderImageInvalid"
+msgstr "Napačen format slike za logotip glave osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png."
+
+msgid "manager.setup.homepageImage"
+msgstr "Slika domače strani"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Naloži sliko, ki se bo prikazovala na domači strani."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Napačen format slike za logotip osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Napačen format slike za glavo osnovne strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Opisi"
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.description"
+msgstr "Nove teme se lahko namestijo v zavihku Vtičniki na vrhu te strani."
+
+msgid "manager.setup.layout.blockManagement"
+msgstr "Upravljanje stranskih orodnih stolpcev"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Stranki orodni stolpec"
+
+msgid "manager.setup.layout.unselected"
+msgstr "Neizbrano"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Logiranje in pregledovanje"
+
+msgid "manager.setup.logo"
+msgstr "Logotip"
+
+msgid "manager.setup.notifications"
+msgstr "Obveščanje avtorja prispevka"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Pošlji kopijo na ta email naslov"
+
+msgid "manager.setup.notifications.description"
+msgstr "Avtorjem se bo avtomatsko poslal email s potrditvijo oddaje prispevka. Kopijo lahko pošljete tudi spodnjim:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Politika odprtega dostopa"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Če uporabljate politko takojšnjega prostega dostopa za vse objvaljene vsebine, lahko vpišete opis vaše politike odprtega dostopa."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Napačen format slike za glavo strani ali pa je prišlo do napake pri nalaganju. Dovoljeni formati so .gif, .jpg, or .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Noga strani"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Vnesite slike, besedilo ali HTML kodo, za katero želite, da se pojavlja na dnu spletne strani."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Orišite recenzentsko politiko in postopek za bralce in avtorje.Ta oris pogosto vsebuje tipično število recenzentov za prispevek, kriterije po katerih recenzenti ocenjujejo prispevek, pričakovan čas opravljanja recenzije in način določanaj recenzentov."
+
+msgid "manager.setup.principalContact"
+msgstr "Glavni kontakt"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Vnesite podatke kontakta, tipično glavni urednik, vodja uredništva ali administrativna oseba, ki je lahko objavljena na javno dostopni spletni strani."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Izjava o varovanju podatkov"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Ta izjava se bo prikazala med procesom avtorjeve oddaje prispevka in na javno dostopni strani O reviji."
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Število dovoljenih tednov do sprejetja ali zavrnitve opravljanja recenzije"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Število dovoljenih tednov za dokončanje recenzije"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Nikoli ne pošlji opomnika"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Privzete vrednosti je možno spremeniti pri vsaki recenziji posebej med uredniškim postopkom."
+
+msgid "manager.setup.reviewOptions.remindForInvite"
+msgstr "Pošlji opomnik, če recenzent ni odgovoril na prošnoj za opravljanje recnezije v naslednjim času (dnevih) po roku za odgovor:"
+
+msgid "manager.setup.reviewOptions.remindForSubmit"
+msgstr "Pošlji opomnik, če recenzent ni oddal recenzentsko priporočilo po naslednjem času (v dnevih) po pretečenem roku za končanje recnezije:"
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Privzeti roki za recenzijo"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Prikaži povezavo do \"Zagotavljanje dvojne slepe recenzije\" med postopkom nalaganja datotek"
+
+msgid "manager.setup.searchEngineIndexing.sitemap"
+msgstr "Zemljevid strani"
+
+msgid "manager.setup.searchEngineIndexing.sitemapDescription"
+msgstr "Na voljo je XML zemljevid strani za prijavo v iskalnike: <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Odnosi s sponzorji in opis politike"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Primeri: akademska združenja, univerzitetni oddelki, kooperative, itd. Sponzorji so prikazani javno."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Izkušeni WEB razvijalci lahko naložijo CSS datoteko, s katero še dodatno prilagodijo videz spletne strani."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Kontakt za podporo"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Kontaktna oseba, ki lahko pomaga urednikom, avtorjem in recenzentom v primeru, da imajo težave z oddajo prispevka, opravljanjem recenzije, vodnejem uredniškega postopka ali drugimi tehničnimi težavami."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Možnosti dostopa do spletišča"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} novi)"
+
+msgid "manager.users"
+msgstr "Uporabniki"
+
+msgid "plugins.categories.metadata"
+msgstr "Vtičniki za metapodatke"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Vtičniki za metapodatke implementirajo dodatne standarde za meta-podatke."
+
+msgid "plugins.categories.auth"
+msgstr "Vtičniki za avtorizacije"
+
+msgid "plugins.categories.blocks"
+msgstr "Vtičniki blokov"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Vtičniki blokov so dodatne komponente uporabniškega vmesnika, kot npr. različna orodja stranske orodne vrstice."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Vtičniki prehodov (Gateway) posredujejo žive podatke zunanjim sistemom."
+
+msgid "plugins.categories.gateways"
+msgstr "Vtičniki prehodov (Gateway)"
+
+msgid "plugins.categories.generic"
+msgstr "Splošni vtičniki"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Uvozno/izvozni vtičniki se uporabijo za prenašanje podatkov v in iz drugih sistemov."
+
+msgid "plugins.categories.importexport"
+msgstr "Uvozno/izvozni vtičniki"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Vtičniki za plačevanje implementirajo podporo za različne načine elektronskih postopkov plačevanja."
+
+msgid "plugins.categories.paymethod"
+msgstr "Vtičniki za plačevanje"
+
+msgid "plugins.categories.reports.description"
+msgstr "Z vtičniki za poročila implementiramo različne tipe poročil in izvlečke podatkov."
+
+msgid "plugins.categories.reports"
+msgstr "Vtičniki za poročila"
+
+msgid "plugins.categories.themes.description"
+msgstr "Vtičniki za teme se uporabljajo za spreminjanje izgleda sistema."
+
+msgid "plugins.categories.themes"
+msgstr "Vtičniki za teme"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Vtičniki za OAI metapodatkovni format"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Ti vtičniki določajo metapodatke pri OAI komunikacijah."
+
+msgid "plugins.categories.pubIds"
+msgstr "Vtičniki za javne identifikatorje"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Ti vtičniki implementirajo podporo za javne identifikatorje."
+
+msgid "manager.plugins.copyError"
+msgstr "Vtičnik ni bil uspešno skopiran. Lahko, da gre za težave s pravicami. Prosimo, da zagotovite, da bo spletni strežnik lahko pisal v mapo z vtičniki (vključno s podmapami) in ne pozabite kasneje ponovno zavarovati."
+
+msgid "manager.plugins.delete"
+msgstr "Odstrani vtičnik"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Ste prepričani, da želite namestiti ta vtičnik?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Ste prepričani, da želite nadgraditi ta vtičnik?"
+
+msgid "grid.action.installPlugin"
+msgstr "Namesti ali nadgradi ta vtičnik"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Ste prepričani, da želite odstraniti ta vtičnik iz sistema?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "S klikom na briši, boste odstrnaili vtičnik iz strežnikovega datotečnega sistema."
+
+msgid "manager.plugins.deleteError"
+msgstr "Vtičnik \"{$pluginName}\"  ni mogel biti odstranjen iz datotečnega sistema. Lahko, da gre za težave s pravicami. Prosimo, da zagotovite, da bo spletni strežnik lahko pisal v mapo z vtičniki (vključno s podmapami) in ne pozabite kasneje ponovno zavarovati."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Vtičnik \"{$pluginName}\" je bil uspešno odstranjen"
+
+msgid "manager.plugins.description"
+msgstr "Ta stran omogoča administratorju, da pregelda in konfigurira vtičnike, ki so trenutno nameščeni. Vtičniki so razdeljeni v kategorije, odvisno od njihove funkcionalnosti. Kategorije so naštete spodaj, skupaj s pripadajočimi vtičniki."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Vtičnik \"{$pluginName}\" ne obstaja"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Prosimo, najprej izberite datoteko"
+
+msgid "manager.plugins.upload"
+msgstr "Naloži nov vtičnik"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Ta stran  omogoča, da naložite in namestite nov vtičnik. Vtičnik mora biti stisnjen kot .tar.gz datoteka."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Prosimo, da zagotovite, da je bila datoteka za nalaganje izbrana."
+
+msgid "manager.plugins.installed"
+msgstr "Nameščeni vtičniki"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Katalog vtičnikov"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Pregled"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Namestitev"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Zadnja kompatibilna verzija"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Uradno"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Ta vtičnik je bil razvit in ga vzdržuje ekipa Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Pregledano"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Ta vtičnik je bil pregledan in odobren s strani Public Knowledge Project ekipe."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Ta vtičnik je posredoval eden od naših partnerskih razvijalcev."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Vzdrževalec"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} objavljena dne {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Domača stran"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Povzetek"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Vtičnik še ni bil namščen."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Trenutno ni na voljo kompatibilne verzije tega vtičnika."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Vtičnik je že nameščen in je novejši od različice, ki je na voljo v katalogu."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Vtičnik je že nameščen, a je lahko posodobljen na novejšo verzijo."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Vtičnik je nameščen in ažuren (ni novejše verzije)."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Novejši od verzije, ki je na voljo"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Lahko je posodobljen"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Ažuren"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Ni na voljo"
+
+msgid "manager.plugins.installFailed"
+msgstr "Namestitev ni uspela. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Uspešna namestitev verzije {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Naložena datoteka z vtičnikom ne vsebuje mape, ki bi ustrezala imenu vtičnika."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Naloženi vtičnik ne ustreza kategoriji nadgrajenega vtičnika."
+
+msgid "manager.plugins.wrongName"
+msgstr "Datoteka version.xml v naloženem vtičniku vsebuje ime vtičnika, ki ne ustreza nadgrajenemu vtičniku."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Vtičnik ne obstaja. Najprej ga namestite."
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Vtičnik že obstaja, a je novejši, kot nameščen. Prosimo, da ga nadgradite."
+
+msgid "manager.plugins.settings"
+msgstr "Nastavitve"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "Ukaz tar ni na voljo. Prosimo, da ga pravilno nastavite v datoteki \"config.inc.php\"."
+
+msgid "manager.plugins.upgrade"
+msgstr "Nadgradi vtičnik"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Ta stran  omogoča, da nadgradite vtičnik. Vtičnik mora biti stisnjen kot .tar.gz datoteka."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Nadgradnja ni uspela. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Uspešno nadgrajeno na verzijo {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Napaka pri nalaganju datoteke"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Izberite datoteko za vtičnik"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml v mapi vtičnika vsebuje napačne podatek."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml ne obstaja v mapi vtičnika"
+
+msgid "notification.localeEnabled"
+msgstr "Jezik vključen."
+
+msgid "notification.localeDisabled"
+msgstr "Jezik izključen."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "Primarni jezik je nastavljen na {$locale}."
+
+msgid "notification.localeInstalled"
+msgstr "Vsi izbrani jeziki so namščeni in aktivirani."
+
+msgid "notification.localeUninstalled"
+msgstr "Jezik {$locale} je odstranjen."
+
+msgid "notification.localeReloaded"
+msgstr "Jezik {$locale} je ponovno nameščen."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Nastavitve jezika so shranjene."
+
+msgid "notification.editedUser"
+msgstr "Uporabnik je spremenjen."
+
+msgid "manager.paymentMethod"
+msgstr "Plačila"
+
+msgid "manager.paymentMethod.title"
+msgstr "Načini plačila"
+
+msgid "manager.paymentMethod.none"
+msgstr "Noben način plačila ni izbran"
+
+msgid "manager.paymentMethod.method"
+msgstr "Način plačila"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Valuta"
+
+msgid "settings.roles.roleOptions"
+msgstr "Možnosti vloge"
+
+msgid "settings.roles.showTitles"
+msgstr "Prikaži naslov vloge na seznamu sodelavcev"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Dovoli uporabnikom, da se sami registrirajo"
+
+msgid "settings.roles.recommendOnly"
+msgstr "Ta vloga omogoča uporabniku, da samo predlaga recenzentsko odločitev, končno odločitev pa mora sprejeti avtorizirani urednik."
+
+msgid "settings.roles.roleName"
+msgstr "Ime vloge"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Okrajšava"
+
+msgid "settings.roles.assignedStages"
+msgstr "Dodeljena fazam"
+
+msgid "settings.roles.stages"
+msgstr "Faze"
+
+msgid "settings.roles.roleDetails"
+msgstr "Podrobnosti vloge"
+
+msgid "settings.roles.from"
+msgstr "Nivo pravic"
+
+msgid "settings.roles.removeText"
+msgstr "Odstraniti želite vlogo iz tega konteksta. S tem se bodo odstranile vse pripadajoče nastavitve in dodelitve uporabnikov tej vlogi. Ste prepričani, da želite nadaljevati?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Ime vloge je obvezno."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Okrajšava vloge je obvezna."
+
+msgid "settings.roles.uniqueName"
+msgstr "Ime vloge mora biti unikatno."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Okrajšava vloge mora biti unikatna."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Definirati morate nivo pravic za vlogo."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Izbrati morate fazo, ki jo boste dodelili vlogi."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Datoteka iz knjižnice je obvezna. Prosimo, da preverite, če ste jo izbrali in naložili."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Ime datoteke je obvezno."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Tip datoteke je obvezen."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Pogodbe"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Dovoljenja"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Poročila"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Ostalo"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Ta datoteka v knjižnici je lahko javno dostopan za prenos, če je omogočen \"Javni dostop\" preko: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Pripnite datoteke iz knjižnice"
+
+msgid "grid.action.addGenre"
+msgstr "Dodaj komponento"
+
+msgid "grid.action.editGenre"
+msgstr "Uredi to komponento"
+
+msgid "grid.action.deleteGenre"
+msgstr "Odstrani to komponento"
+
+msgid "grid.action.restoreGenres"
+msgstr "Povrni privzete nastavitve komponent"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Označi datoteke tega tipa kot odvisne datoteke (potem ne bodo naštete med objavljenimi vsebinami)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Ozači datoteke tega tipa kot dodatne datoteke (torej ne predstavljajo primane vsebine prispevka)"
+
+msgid "manager.setup.genres.key"
+msgstr "Ključ"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Neobvezna krajša simbolična oznaka za ta tip datoteke."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Ta ključ že obstaja."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "Ključ lahko vsebuje samo alfanumerične znake, podčrtaj ali pomišljaj in se  mora začeti z alfanumeričnim znakom."
+
+msgid "manager.settings.wizard"
+msgstr "Nastavitveni čarovnik"
+
+msgid "manager.users.roleRequired"
+msgstr "Izbrati morate vsaj eno vlogo, ki je dodeljena uporabniku."
+
+msgid "manager.website"
+msgstr "Spletna stran"
+
+msgid "manager.website.title"
+msgstr "Nastavitve spletne strani"
+
+msgid "manager.workflow"
+msgstr "Delovni tok"
+
+msgid "manager.workflow.title"
+msgstr "Nastavitve delovnega toka"
+
+msgid "manager.distribution"
+msgstr "Distribucija"
+
+msgid "manager.distribution.title"
+msgstr "Nastavitve distribucije"
+
+msgid "manager.reviewForms"
+msgstr "Recenzentski obrazci"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Ste prepričani, da želite aktivirati ta recenzentski obrazec? Ko bo dodeljen prvi recenziji prispevka, ga ne boste mogli več deaktivirati."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Ste prepričani, da želite deaktivirati ta recenzijski obrazec? Po deaktivaciji ne bo več na voljo za dodelitev recenziji prispevka."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Ste prepričani, da želite narediti kopijo tega recenzentskega obrazca?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Končano"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Ste prepričani, da želite odstraniti ra recenzentski obrazec?"
+
+msgid "manager.reviewForms.create"
+msgstr "Ustvari recenzentski obrazec"
+
+msgid "manager.reviewForms.description"
+msgstr "Opis in navodila"
+
+msgid "manager.reviewForms.edit"
+msgstr "Recenzentski obrazec"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Naslov recenzentskega obrazca je obvezen."
+
+msgid "manager.reviewForms.inReview"
+msgstr "V recenziji"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Pripravljeni recenzijski obrazci so namenjeni recenzentom namesto privzetih le z dvema opisnima poljema in običajno vsebujejo več različnih polj. Enim, ki je namenjen avtorju in uredniku, ter drugim, ki je namenjen le uredniku. Recenzijski obrazec je lahko oddljen določeni rubriki ali pa ga izbere urednik. V vsakem primeru bo urednik avtorju lahko posredoval mnenje recenzenta."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Noben/Prost recenzijski obrazec"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Pripravljenega ni bilo nobenega recenzijskega obrazca."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Uporabljen ni bil noben recenzijski obrazec."
+
+msgid "manager.reviewForms.preview"
+msgstr "Predogled obrazca"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Vpogled v podatke recenzijskega obrazca"
+
+msgid "manager.reviewForms.title"
+msgstr "Naslov"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Spreminjanje tipa gradnika obrazca..."
+
+msgid "manager.reviewFormElements"
+msgstr "Gradniki obrazca"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Dodaj izbiro"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Potrditveno polje (izberete lahko enega ali več)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Izberi tip gradnika"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Potrdi odstranitev gradnika recenzijskega obrazca..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopiraj na:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Ustvari nov gradnik"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Spustni meni"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Uredi gradnik"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tip gradnika"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Tip gradnika je obvezen."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Za ta gradnik je obvezno vprašanje."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Ustvrj eni bil še noben gradnik."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Izbira"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Gradnik"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radio gumb (izberete lahko le enega)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Recenzenti morajao obvezno izpolniti ta gradnik"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Bo vključen v sporočilo avtorju"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Enobesedno tekstovno polje"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Povečano tekstovno polje"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Enovrstično tekstovno polje"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Vidno (za avtorje)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Ustvari nov recenzijski obrazec"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Zahtevaj izjavo o navzkrižju interesov pri recenziji."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL povezava do spletne strani, ki opisuje licenco (če je na voljo)."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Obrazec za oddajo"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Validacijske napake:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Opozorila:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Napake:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Neznan element {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Neznan žanr {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Neznano en-kodiranje {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Vsebina ni kodirana kot  {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Neznana uporabniška skupina {$param}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Neznan nalagalnik {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Začasna datoteka {$dest} ne more biti ustvarjena iz {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "Pričakovan velikost datoteke \"{$expected}\" in dobljena velikost datoteke \"{$actual}\" se ne skladata"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "Verzija \"{$revisionId}\" za datoteko prispevka  \"{$fileId}\" ni povzročila dvojni zapis"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Datoteka prispevka ni mogla biti uvožena"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Naslov"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Pot"
+
+msgid "manager.navigationMenus"
+msgstr "Navigacijski meniji"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Ta stran bo dostopna na: <blockquote>{$pagesPath}</blockquote>...kjer je %PATH% pot vpisana zgoraj. <strong>Opozorilo:</strong> Dve strani ne moreta imeti iste poti. Uporaba poti, ki so že vgrajene v sistem, lahko povzroči nedostopnost pomembnih funkcij.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Vsebina"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Polje pot lahko vsebuje le alfanumerične znake in '.', '/', '-' ter '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Ta pot je že uporabljena pri drugem navigacijskem meniju."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Ta naslov je že uporbljen pri drugem navigacijskem meniju."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Naslov je obvezen"
+
+msgid "manager.navigationMenuItems"
+msgstr "Postavke navigacijskega menija"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Dodeljene postavke menija"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Nedodeljene postavke menija"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Navigacijska področja aktivne teme"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Izberi navigacisjko področje"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "URL je obvezen"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Več o tem, kdaj bo ta postavka menija vidna in kdaj skrita."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "Če postavka menija odpre podmeni, potem povezava postavke ne deluje na vseh napravah. Na prirem, če imate postavko \"O reviji), ki odpre podmeni s postavkami \"Kontakti\" in \"Uredniški odbor\", potem povezava \"O reviji\" ne deluje na vseh napravh. V privzetih menijih je to rešeno tako, da je v podmeniju narejena nova postavka za \"O reviji\"."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Tip navigacijskega menija"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Izberi tip navigacijskega menija ali Po meri, za kreiranje novega"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Stran po meri"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Ustvari te svojo stran na vašem spletišču in povezavo nanjo iz navigacijskega menija."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Oddaljen URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Povezava ne katerikoli URL na drugi spletni strani, kot na primer http://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Povezava na stran z vsebino O reviji, ki je določena v Nastavitve > Revija"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Ta povezava bo vidna le, če ste izpolnili polje O reviji v Natavitve > Revija."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Povezava do strani s kolofonom, ki je nastavljen v Nastavitve > Revija."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Ta povezava bo vidna le, če ste izpolnili polje Uredniško odbor pod Nastavitve > Revija."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Povezava do strani z navodili za oddajo prispevka."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Povezava do trenutno izdane številke revije."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Povezava do arhiva izdanih številk."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Povezava do vaših obvestil."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Ta povezava bo vidna le, če ste omogočili obvestila v Natavitve > Spletna stran."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Povezava do prijavne strani uporabnika."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Povezava do registracijekse strani za uporabnika."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Povezava do uredniške nadzorne plošče."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Povezava do uporabniškega profila."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Povezava do administrativnih orodij za celotno spletišče."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Ta povezava bo vidna le uporabnkom administratorjem."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Povezava, ki odjavi uporabnika iz sistema."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Ta povezva bo vidna le, če bo uporabnik prijavljen v sistem."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Ta povezva bo vidna le, če uporabnik ne bo prijavljen v sistem."
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "To področje ima že dodeljen navigacijski meni."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Povezava do strani z vašimi kontaktnimi podatki."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Ta povezava bo prikazana le, če ste izpolnili kontaktne podatke v Nastavitve > Kontakti"
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Prosimo izberite tip navigacijskega menija"
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Ta povezava bo vidna le, če so omogočena plačila pod Nastavitve > Distribucija > Plačila."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Ta povezava bo vidna le, če je obiskovalec prijavljen, če so omogočena plačila pod Nastavitve > Distribucija > Plačila in če je zahtevno naročilo pod Nastavtive > Distribucija > Dostop."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Povezava do strani za iskanje."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Povezava do strani z Izjavo o zasebnosti."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Ta povezava bo vidna le, če ste vpisali izjavo o zasebnosti pod Nastavitve > Delovni tok > Oddaja."
+
+msgid "grid.category.add"
+msgstr "Dodaj kategorijo"
+
+msgid "grid.category.edit"
+msgstr "Uredi kategorijo"
+
+msgid "grid.category.name"
+msgstr "Ime"
+
+msgid "grid.category.path"
+msgstr "Naslov"
+
+msgid "grid.category.urlWillBe"
+msgstr "URL kategorije bo {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Naslov kategorije mora biti zapisan samo s črkami in številkami."
+
+msgid "grid.category.pathExists"
+msgstr "Tak naslov kategorije že obstaja. Vnesite edinstven naslov."
+
+msgid "grid.category.description"
+msgstr "Opis"
+
+msgid "grid.category.parentCategory"
+msgstr "Višja kategorija"
+
+msgid "grid.category.removeText"
+msgstr "Ste prepričani, da želite izbrisati to kategorijo?"
+
+msgid "grid.category.nameRequired"
+msgstr "Vnesite ime kategorije."
+
+msgid "grid.category.categoryDetails"
+msgstr "Podrobnosti kategorije"

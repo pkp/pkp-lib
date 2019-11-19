@@ -1,0 +1,192 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:41+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Doplňkové lokalizace"
+
+msgid "installer.administratorAccount"
+msgstr "Účet administrátora"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Tento uživatelský účet se stane administrátorem stránek a bude mít kompletní přístup do systému. Další uživatelské účty mohou být vytvořeny po instalaci."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NE</span>"
+
+msgid "installer.checkYes"
+msgstr "Ano"
+
+msgid "installer.clientCharset"
+msgstr "Znaková sada klienta"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Kódování, které má být použito pro data posílaná a přijímaná z prohlížečů."
+
+msgid "installer.configFileError"
+msgstr "Konfigurační soubor <tt>config.inc.php</tt> neexistuje nebo není čitelný."
+
+msgid "installer.connectionCharset"
+msgstr "Znaková sada pro připojení"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Obsah konfiguračního souboru"
+
+msgid "installer.createDatabase"
+msgstr "Vytvořit novou databázi"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Pro použití této možnosti musí Váš databázový systém podporovat vzdálené vytvoření databáze a Váš uživatelský účet musí mít potřebná oprávnění pro vytváření nových databází. Pokud byla tato možnost vybrána a instalace selže, vytvořte ručně databázi na Vašem serveru a s spusťte znovu instalaci s touto volbou vypnutou."
+
+msgid "installer.databaseDriver"
+msgstr "Ovladač databáze"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Ovladače databází uvedené v závorkách zřejmě nemají nahrané požadované PHP rozšíření a instalace pravděpodobně selže.</strong><br />Jakékoliv nepodporované ovladače databází uvedené výše, jsou uvedeny pouze pro akademické účely a nebudou pravděpodobně pracovat."
+
+msgid "installer.databaseHost"
+msgstr "Host"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Nechejte hostname prázdné pro připojení s použitím domain sockets namísto přes TCP/IP. Toto není nutné s MySQL, které použije automaticky sockets pokud je vložen \"localhost\", ale je vyžadováno jinými databázovými servery jako např. PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Název databáze"
+
+msgid "installer.databasePassword"
+msgstr "Heslo"
+
+msgid "installer.databaseSettings"
+msgstr "Nastavení databáze"
+
+msgid "installer.databaseUsername"
+msgstr "Uživatelské jméno"
+
+msgid "installer.filesDir"
+msgstr "Adresář pro nahrávání souborů"
+
+msgid "installer.fileSettings"
+msgstr "Nastavení souboru"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Musí být zvolena znaková sada klienta."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Musí být zvolen ovladač databáze."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Je vyžadován název databáze."
+
+msgid "installer.form.emailRequired"
+msgstr "Je vyžadována platná emailová adresa pro účet administrátora."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Je vyžadován adresář pro ukládání nahraných souborů."
+
+msgid "installer.form.localeRequired"
+msgstr "Musí být zvolena lokalizace."
+
+msgid "installer.form.passwordRequired"
+msgstr "Je vyžadováno heslo pro účet administrátora."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Hesla administrátora si neodpovídají."
+
+msgid "installer.form.separateMultiple"
+msgstr "Více hodnot oddělte čárkami"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Uživatelské jméno administrátora může obsahovat pouze alfanumerické znaky, podtržítka a pomlčky a musí začínat a končit alfanumerickým znakem."
+
+msgid "installer.form.usernameRequired"
+msgstr "Je vyžadováno uživatelské jméno pro účet administrátora."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>VAROVÁNÍ: Vaše současná verze PHP nesplňuje minimální požadavky pro instalaci. Doporučuje se upgrade na novější vydání PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Chyby, ke kterým došlo v průběhu instalace"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL příkazy pro instalaci"
+
+msgid "installer.installFileError"
+msgstr "Instalační soubor <tt>dbscripts/xml/install.xml</tt> neexistuje nebo není čitelný."
+
+msgid "installer.installFilesDirError"
+msgstr "Adresář určený pro nahrané soubory neexistuje nebo není zapsatelný."
+
+msgid "installer.installParseDBFileError"
+msgstr "Chyba při parsování instalačního souboru databáze <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Chyba při parsování souboru šablony emailu <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Lokalizace"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Označené soubory lokalizace mohou být nekompletní."
+
+msgid "installer.localeSettings"
+msgstr "Nastavení lokalizace"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Jedinečný identifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting)."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identifikátor OAI úložiště"
+
+msgid "installer.publicFilesDirError"
+msgstr "Adresář veřejných souborů (public) neexistuje nebo není zapsatelný."
+
+msgid "installer.releaseNotes"
+msgstr "Poznámky k vydání"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Chyba při parsování filtru konfiguračního souboru <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Upgrade není podporován. Přečtěte si, prosím, docs/UPGRADE-UNSUPPORTED pro další informace."
+
+msgid "installer.oaiSettings"
+msgstr "Nastavení OAI"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Předinstalační kroky"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<p>1. Následující soubory a složky (a jejich obsah) musí být zapisovatelné:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> je zapisovatelný (volitelné): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> je zapisovatelný: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> je zapisovatelný: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> je zapisovatelný: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> je zapisovatelný: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> je zapisovatelný: {$writable_db_cache}</li>\n"
+"\t\t</ul>"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Váše instalace PHP nemá povolený modul XSL. Buď ho povolte, nebo změňte parametr xslt_command parameter ve vašem konfiguračním souboru config.inc.php.</p>"
+
+msgid "installer.beacon"
+msgstr "Signál"
+
+msgid "installer.beacon.enable"
+msgstr "Poskytněte, prosím, unikátní ID a OAI base URL vašich stránek pro PKP - budou využity pouze pro statistické účely a bezpečnostní varování."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Verze PHP vašeho serveru není podporována tímto software. Zkontrolujte, prosím, znovu požadavky na konfiguraci serveru v docs/README."
+
+msgid "installer.miscSettings"
+msgstr "Různá nastavení"

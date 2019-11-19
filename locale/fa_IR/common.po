@@ -1,0 +1,1482 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
+"Language: \n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "پروژه دانش عمومی"
+
+msgid "common.currentStyleSheet"
+msgstr "استایل شیت کنونی"
+
+msgid "about.description"
+msgstr "توضیح"
+
+msgid "about.guidelines"
+msgstr "راهنما"
+
+msgid "about.aboutSite"
+msgstr "درباره سایت"
+
+msgid "about.contact"
+msgstr "اطلاعات تماس"
+
+msgid "about.contact.email"
+msgstr "ایمیل"
+
+msgid "about.contact.phone"
+msgstr "تلفن"
+
+msgid "about.contact.principalContact"
+msgstr "تماس با سردبیر"
+
+msgid "about.contact.supportContact"
+msgstr "تماس با پشتیبانی"
+
+msgid "about.other"
+msgstr "غیره"
+
+msgid "about.people"
+msgstr "افراد"
+
+msgid "about.policies"
+msgstr "سیاست‌ها"
+
+msgid "about.siteMap"
+msgstr "نقشه سایت"
+
+msgid "announcement.announcements"
+msgstr "اطلاعیه‌ها"
+
+msgid "announcement.announcementsHome"
+msgstr "اطلاعیه‌ها"
+
+msgid "announcement.moreAnnouncements"
+msgstr "اطلاعیه‌های بیشتر"
+
+msgid "announcement.noneExist"
+msgstr "هیچ اطلاعیه‌ای منتشر نشده است"
+
+msgid "announcement.posted"
+msgstr "پست شد"
+
+msgid "announcement.postedOn"
+msgstr "پست شده در تاریخ {$postDate}"
+
+msgid "announcement.view"
+msgstr "دیدن اطلاعیه"
+
+msgid "common.allDownloads"
+msgstr "تمامی دانلودها"
+
+msgid "common.navigation.sidebar"
+msgstr "نوار حاشیه"
+
+msgid "common.navigation.site"
+msgstr "پیمایش سایت"
+
+msgid "common.navigation.siteContext"
+msgstr "پیمایش محتوای سایت"
+
+msgid "common.navigation.user"
+msgstr "پیمایش کاربران"
+
+msgid "common.tasks"
+msgstr "وظایف"
+
+msgid "common.list"
+msgstr "لیست"
+
+msgid "common.grid"
+msgstr "شبکه"
+
+msgid "common.confirmDelete"
+msgstr "آیا مطمئنید که می‌خواهید این مورد را حذف کنید؟ این عمل بازگشت ناپذیر است"
+
+msgid "common.abstract"
+msgstr "چکیده"
+
+msgid "common.accepted"
+msgstr "پذیرفته شده"
+
+msgid "common.acknowledged"
+msgstr "تأیید شده"
+
+msgid "common.action"
+msgstr "عملیات"
+
+msgid "common.activate"
+msgstr "فعال‌سازی"
+
+msgid "common.active"
+msgstr "تعداد داوری‌های فعال"
+
+msgid "common.add"
+msgstr "افزودن"
+
+msgid "common.addSelf"
+msgstr "مرا اضافه کن"
+
+msgid "common.name"
+msgstr "نام"
+
+msgid "common.all"
+msgstr "همه"
+
+msgid "common.alphaList"
+msgstr "آ ا ب پ ت ث ج چ ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی"
+
+msgid "common.titleSmallWords"
+msgstr "از و یک نه اما اگر است وگرنه زمانی که در توسط روی با"
+
+msgid "common.alreadyAssigned"
+msgstr "منتسب شده"
+
+msgid "common.altText"
+msgstr "متن جایگزین"
+
+msgid "common.and"
+msgstr "و"
+
+msgid "common.applyAction"
+msgstr "اعمال کن"
+
+msgid "common.assign"
+msgstr "انتخاب"
+
+msgid "common.assigned"
+msgstr "انتساب داده شد"
+
+msgid "common.assigned.date"
+msgstr "انتساب شده در تاریخ : {$dateAssigned}"
+
+msgid "common.available"
+msgstr "در دسترس"
+
+msgid "common.back"
+msgstr "بازگشت"
+
+msgid "common.between"
+msgstr "بین"
+
+msgid "common.cancel"
+msgstr "لغو"
+
+msgid "common.cancelled"
+msgstr "لغو شد"
+
+msgid "common.warning"
+msgstr "اخطار"
+
+msgid "common.error"
+msgstr "خطا"
+
+msgid "common.notice"
+msgstr "توجه"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) وارد نشده است."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) نامعتبر است."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "برای جلوگیری از ارسال هرزنامه بایستی مرحله اعتبار سنجی را بگذرانید."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "شما مرحله اعتبار سنجی را که برای جلوگیری از ارسال هرزنامه است نگذراندید"
+
+msgid "common.captchaField.description"
+msgstr "لطفاً حروف موجود در تصویر فوق را به ترتیبی که می‌بینید وارد کنید. به بزرگی و کوچکی حروف توجه کنید."
+
+msgid "common.captchaField"
+msgstr "اعتبار سنجی"
+
+msgid "common.ccLicense"
+msgstr "<br /><br />  <a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">  <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc/3.0/80x15.png\"/>  </a>  <br/>  کار حاضر تحت مجوز   <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">  Creative Commons Attribution 3.0  </a>  می‌باشد."
+
+msgid "common.ccLicense.rt"
+msgstr "<div class=\"rtBlock\">  <br />  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\" target=\"_new\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc/3.0/80x15.png\" /></a>  <br />  کار حاضر تحت مجوز   <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">  Creative Commons Attribution 3.0  </a>  می‌باشد."
+
+msgid "common.changesSaved"
+msgstr "تغییرات ذخیره شد"
+
+msgid "common.chooseOne"
+msgstr "یکی را انتخاب کنید"
+
+msgid "common.close"
+msgstr "بستن"
+
+msgid "common.closePanel"
+msgstr "بستن پنل"
+
+msgid "common.closeWindow"
+msgstr "بستن پنجره"
+
+msgid "common.complete"
+msgstr "کامل"
+
+msgid "common.completed"
+msgstr "کامل شد"
+
+msgid "common.completed.date"
+msgstr "کامل شد در تاریخ: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "تأیید"
+
+msgid "common.confirmed.date"
+msgstr "تأیید شده در تاریخ: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "محتوا"
+
+msgid "common.contents"
+msgstr "محتویات"
+
+msgid "common.continue"
+msgstr "ادامه"
+
+msgid "common.copy"
+msgstr "کپی"
+
+msgid "common.country"
+msgstr "کشور"
+
+msgid "common.create"
+msgstr "ایجاد"
+
+msgid "common.dateCompleted"
+msgstr "تاریخ تکمیل"
+
+msgid "common.date"
+msgstr "تاریخ"
+
+msgid "common.dateModified"
+msgstr "تاریخ تغییر"
+
+msgid "common.dateRequested"
+msgstr "تاریخ درخواست"
+
+msgid "common.dateSubmitted"
+msgstr "تاریخ ارسال"
+
+msgid "common.dateUploaded"
+msgstr "تاریخ آپلود"
+
+msgid "common.dateHijri"
+msgstr "تقویم هجری قمری"
+
+msgid "common.day"
+msgstr "روز"
+
+msgid "common.deactivate"
+msgstr "غیر فعال‌سازی"
+
+msgid "common.default"
+msgstr "پیش‌فرض"
+
+msgid "common.declined"
+msgstr "رد شده"
+
+msgid "common.delete"
+msgstr "حذف"
+
+msgid "common.deleting"
+msgstr "حذف"
+
+msgid "common.deleteSelection"
+msgstr "حذف انتخاب شده‌ها"
+
+msgid "common.designation"
+msgstr "تعیین"
+
+msgid "common.description"
+msgstr "توضیح"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} پیکسل"
+
+msgid "common.disable"
+msgstr "غیرفعال کردن"
+
+msgid "common.disabled"
+msgstr "غیرفعال"
+
+msgid "common.discipline"
+msgstr "رشته علمی"
+
+msgid "common.done"
+msgstr "انجام شد"
+
+msgid "common.download"
+msgstr "دانلود"
+
+msgid "common.downloadPdf"
+msgstr "دانلود PDF"
+
+msgid "common.edit"
+msgstr "ویرایش"
+
+msgid "common.enable"
+msgstr "فعال کردن"
+
+msgid "common.enabled"
+msgstr "فعال"
+
+msgid "common.error.databaseError"
+msgstr "یک خطای پایگاه داده رخ داده است: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "یک خطای اتصال پایگاه داده ناشناخته رخ داده است"
+
+msgid "common.error.framesRequired"
+msgstr "این صفحه نیاز به فریم دارد. برای مشاهده نسخه بدون فریم  <a href=\"{$url}\">  اینجا  </a>  را کلیک کنید."
+
+msgid "common.event"
+msgstr "رویداد"
+
+msgid "common.export"
+msgstr "استخراج"
+
+msgid "common.finish"
+msgstr "اتمام"
+
+msgid "common.fullscreen"
+msgstr "تمام صفحه"
+
+msgid "common.fullscreenOff"
+msgstr "خروج از تمام صفحه"
+
+msgid "common.false"
+msgstr "غلط"
+
+msgid "common.file"
+msgstr "فایل"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}، {$userGroup}، {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$userGroup}،  {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "نام فایل"
+
+msgid "common.fileSize"
+msgstr "اندازه فایل"
+
+msgid "common.fileType"
+msgstr "نوع فایل"
+
+msgid "common.fileUploaderError"
+msgstr "سامانه آپلود فایل در حال بارگذاری است. در صورت عدم نمایش صحیح، احتمال آن می‌رود که این سامانه در مرورگر شما پشتیبانی نمی‌شود. برای حل این مشکل با مدیر سایت تماس حاصل فرمایید."
+
+msgid "common.from"
+msgstr "از"
+
+msgid "common.until"
+msgstr "تا"
+
+msgid "common.go"
+msgstr "برو"
+
+msgid "common.height"
+msgstr "ارتفاع"
+
+msgid "common.homepageNavigationLabel"
+msgstr "صفحه اصلی"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "لوگوی بخش سرتیتر صفحه اصلی"
+
+msgid "common.hour"
+msgstr "ساعت"
+
+msgid "common.id"
+msgstr "شناسه مقاله"
+
+msgid "common.import"
+msgstr "درون‌ریزی اطلاعات"
+
+msgid "common.initiate"
+msgstr "راه‌اندازی"
+
+msgid "common.inProgress"
+msgstr "در حال پیشروی"
+
+msgid "common.itemsPerPage"
+msgstr "تعداد موارد در هر صفحه"
+
+msgid "common.keywords"
+msgstr "کلمات کلیدی"
+
+msgid "common.language"
+msgstr "زبان"
+
+msgid "common.languages"
+msgstr "زبان‌ها"
+
+msgid "common.less"
+msgstr "کمتر"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "مدیریت"
+
+msgid "common.mailingAddress"
+msgstr "آدرس پستی"
+
+msgid "common.billingAddress"
+msgstr "آدرس پستی (در صورت تفاوت)"
+
+msgid "common.minute"
+msgstr "دقیقه(ها)"
+
+msgid "common.modify"
+msgstr "تغییر"
+
+msgid "common.month"
+msgstr "ماه"
+
+msgid "common.more"
+msgstr "بیشتر"
+
+msgid "common.noneAssigned"
+msgstr "هیچ موردی انتساب داده نشده"
+
+msgid "common.none"
+msgstr "هیچکدام"
+
+msgid "common.no"
+msgstr "خیر"
+
+msgid "common.noComments"
+msgstr "بدون نظر"
+
+msgid "common.notApplicable"
+msgstr "نامربوط"
+
+msgid "common.notApplicableShort"
+msgstr "ن / م"
+
+msgid "common.notAvailable"
+msgstr "موجود نیست"
+
+msgid "common.note"
+msgstr "یادداشت"
+
+msgid "common.notes"
+msgstr "یادداشت‌ها"
+
+msgid "common.notes.tooltip"
+msgstr "یادداشت‌ها (زرد: یادداشت جدید؛ آبی: یادداشت‌های مشاهده شده؛ خاکستری: بدون یادداشت)"
+
+msgid "common.notified"
+msgstr "اعلام شده"
+
+msgid "common.notified.date"
+msgstr "اعلام شده در تاریخ: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "بدون تطبیق"
+
+msgid "common.off"
+msgstr "خاموش"
+
+msgid "common.on"
+msgstr "روشن"
+
+msgid "common.ok"
+msgstr "تائید"
+
+msgid "common.options"
+msgstr "امکانات"
+
+msgid "common.order"
+msgstr "ترتیب"
+
+msgid "common.orderUp"
+msgstr "افزایش موقعیت {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "کاهش موقعیت {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "نام اصلی فایل"
+
+msgid "common.or"
+msgstr "یا"
+
+msgid "common.other"
+msgstr "دیگر"
+
+msgid "common.overdue"
+msgstr "به تأخیر افتاده"
+
+msgid "common.pageNumber"
+msgstr "صفحه {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "افزونه"
+
+msgid "common.pluginEnabled"
+msgstr "افزونه «{$pluginName}» فعال شد"
+
+msgid "common.pluginDisabled"
+msgstr "افزونه «{$pluginName}» غیرفعال شد"
+
+msgid "common.prefix"
+msgstr "پیشوند"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "برای مثال: الف، ..."
+
+msgid "common.preview"
+msgstr "نگاه اجمالی"
+
+msgid "common.publisher"
+msgstr "ناشر"
+
+msgid "common.quality"
+msgstr "کیفیت"
+
+msgid "common.queue.long.active"
+msgstr "مقالات ارسالی فعال"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "پاسخ:"
+
+msgid "common.readMore"
+msgstr "مطالعه بیشتر"
+
+msgid "common.readMoreWithTitle"
+msgstr "مطالعه بیشتر درباره {$title}"
+
+msgid "common.record"
+msgstr "ذخیره"
+
+msgid "common.refresh"
+msgstr "بارگذاری مجدد صفحه"
+
+msgid "common.related"
+msgstr "موارد مربوطه"
+
+msgid "common.reminder"
+msgstr "یادآوری"
+
+msgid "common.reminded.date"
+msgstr "یادآوری شده در تاریخ: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "از راه دور"
+
+msgid "common.remoteURL"
+msgstr "آدرس URL"
+
+msgid "common.remove"
+msgstr "حذف"
+
+msgid "common.removeSelection"
+msgstr "حذف انتخاب  شده‌ها"
+
+msgid "common.replaced"
+msgstr "جایگزین شد"
+
+msgid "common.replaceFile"
+msgstr "جایگزین کردن فایل"
+
+msgid "common.requiredField"
+msgstr "* فیلد مورد نیاز"
+
+msgid "common.required"
+msgstr "مورد نیاز"
+
+msgid "common.reset"
+msgstr "تنظیم مجدد"
+
+msgid "common.saveAndContinue"
+msgstr "ذخیره و ادامه"
+
+msgid "common.saveAndEmail"
+msgstr "ذخیره و ایمیل"
+
+msgid "common.save"
+msgstr "ذخیره"
+
+msgid "common.saving"
+msgstr "ذخیره"
+
+msgid "common.search"
+msgstr "جستجو"
+
+msgid "common.searchQuery"
+msgstr "عبارت مورد جستجو"
+
+msgid "common.second"
+msgstr "ثانیه(ها)"
+
+msgid "common.selectAll"
+msgstr "انتخاب همه"
+
+msgid "common.selectNone"
+msgstr "انتخاب هیچکدام"
+
+msgid "common.select"
+msgstr "انتخاب"
+
+msgid "common.sendEmail"
+msgstr "ارسال ایمیل"
+
+msgid "common.size"
+msgstr "اندازه"
+
+msgid "common.source"
+msgstr "منبع"
+
+msgid "common.status"
+msgstr "وضعیت"
+
+msgid "common.subject"
+msgstr "موضوع"
+
+msgid "common.subjects"
+msgstr "موضوعات"
+
+msgid "common.subtitle"
+msgstr "زیر عنوان"
+
+msgid "common.suggest"
+msgstr "پیشنهاد دادن"
+
+msgid "common.title"
+msgstr "عنوان"
+
+msgid "common.top"
+msgstr "فوق"
+
+msgid "common.true"
+msgstr "صحیح"
+
+msgid "common.type"
+msgstr "نوع"
+
+msgid "common.component"
+msgstr "اجزاء"
+
+msgid "common.uninitiated"
+msgstr "آغاز نشده است"
+
+msgid "common.unread"
+msgstr "خوانده نشده"
+
+msgid "common.untitled"
+msgstr "بدون عنوان"
+
+msgid "common.updated"
+msgstr "بروز رسانی شد"
+
+msgid "common.uploadedDate"
+msgstr "تاریخ آپلود"
+
+msgid "common.upload"
+msgstr "آپلود"
+
+msgid "common.uploadFailed"
+msgstr "فایل قابل آپلود نیست. لطفاً دوباره امتحان کنید و یا با مدیر سایت تماس بگیرید"
+
+msgid "common.upload.addFile"
+msgstr "آپلود فایل"
+
+msgid "common.upload.changeFile"
+msgstr "تغییر فایل"
+
+msgid "common.upload.dragFile"
+msgstr "می‌توانید فایل را به درون کادر بکشید تا آپلود شود"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "کاربر"
+
+msgid "common.view"
+msgstr "مشاهده"
+
+msgid "common.viewProfile"
+msgstr "مشاهده پروفایل"
+
+msgid "common.weeks"
+msgstr "هفته"
+
+msgid "common.width"
+msgstr "پهنا"
+
+msgid "common.year"
+msgstr "سال"
+
+msgid "common.yes"
+msgstr "بلی"
+
+msgid "common.loading"
+msgstr "در حال بارگذاری ..."
+
+msgid "common.plugins"
+msgstr "افزونه‌ها"
+
+msgid "common.metric"
+msgstr "معیار اندازه‌گیری"
+
+msgid "common.count"
+msgstr "تعداد"
+
+msgid "debug.databaseQueries"
+msgstr "تعداد query در بانک اطلاعاتی"
+
+msgid "debug.executionTime"
+msgstr "صفحه تولید شد در"
+
+msgid "debug.memoryUsage"
+msgstr "میزان مصرف حافظه"
+
+msgid "debug.notes.localeListLoad"
+msgstr "لیست زبان‌ها (بارگذاری شده از فایل «{$localeList}»)"
+
+msgid "debug.notes.localeLoad"
+msgstr "لیست زبان‌ها (بارگذاری شده از فایل «{$localeFile}»)"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "زبان مربوط به کد «{$key}» یافت نشد."
+
+msgid "debug.notes"
+msgstr "یادداشت‌ها:"
+
+msgid "defaultMetric.title"
+msgstr "معیار اندازه‌گیری پیش‌فرض"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "معیارهای اندازه‌گیری موجود"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "آپلود فایل داوری"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "آپلود فایل"
+
+msgid "email.addAttachment"
+msgstr "افزودن پیوست"
+
+msgid "email.addBccRecipient"
+msgstr "افزودن مخاطب (محرمانه)"
+
+msgid "email.addCcRecipient"
+msgstr "افزودن مخاطب"
+
+msgid "email.addToRecipient"
+msgstr "افزودن کردن گیرنده"
+
+msgid "email.attachments"
+msgstr "پیوست‌ها"
+
+msgid "email.bcc"
+msgstr "مخاطب (محرمانه)"
+
+msgid "email.bccSender"
+msgstr "یک رونوشت از این پیام به آدرس من ({$address}) نیز ارسال کن."
+
+msgid "email.body"
+msgstr "متن"
+
+msgid "email.cc"
+msgstr "مخاطب"
+
+msgid "email.compose"
+msgstr "ارسال ایمیل"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "تعداد گیرنده‌های این پیام بیش از حد مجاز است."
+
+msgid "email.compose.tooSoon"
+msgstr "ارسال ایمیل مجدد در حال حاضر مقدور نیست. لطفاً اندکی بعد، مجدداً اقدام کنید."
+
+msgid "email.email"
+msgstr "ایمیل"
+
+msgid "email.from"
+msgstr "از طرف"
+
+msgid "email.invalid"
+msgstr "آدرس ایمیل {$email} معتبر نیست"
+
+msgid "email.multipart"
+msgstr "این یک پیام چند قسمتی با ساختار MIME می‌باشد."
+
+msgid "email.recipient"
+msgstr "گیرنده"
+
+msgid "email.recipients"
+msgstr "گیرنده‌ها"
+
+msgid "email.sender"
+msgstr "فرستنده"
+
+msgid "email.senderName"
+msgstr "نام فرستنده"
+
+msgid "email.senderEmail"
+msgstr "ایمیل فرستنده"
+
+msgid "email.send"
+msgstr "ارسال"
+
+msgid "email.skip"
+msgstr "انجام عملیات بدون ارسال ایمیل"
+
+msgid "email.subject"
+msgstr "موضوع"
+
+msgid "email.subjectRequired"
+msgstr "لطفاً موضوع ایمیل را مشخص کنید"
+
+msgid "email.bodyRequired"
+msgstr "لطفاً متن ایمیل را وارد کنید"
+
+msgid "email.to"
+msgstr "به"
+
+msgid "form.url.invalid"
+msgstr "URL وارد شده معتبر نمی‌باشد. لطفاً آن را دوباره بررسی کنید."
+
+msgid "form.confirmSubmit"
+msgstr "آیا مطمئن به ثبت این فرم هستید؟"
+
+msgid "form.confirmSubmit.title"
+msgstr "تأیید"
+
+msgid "form.emailRequired"
+msgstr "وارد کردن آدرس ایمیل الزامی است."
+
+msgid "form.dataHasChanged"
+msgstr "داده‌های موجود در این فرم تغییر داده شده‌اند. آیا مطمئنید که می‌خواهید بدون ذخیره آن‌ها ادامه دهید؟"
+
+msgid "form.errorsOccurred"
+msgstr "هنگام پردازش فرم خطاهایی رخ داد"
+
+msgid "form.formLanguage.description"
+msgstr "برای وارد کردن اطلاعات زیر به زبان دیگر ابتدا زبان مورد نظر را انتخاب کنید"
+
+msgid "form.formLanguage"
+msgstr "زبان فرم"
+
+msgid "form.contains"
+msgstr "شامل"
+
+msgid "form.is"
+msgstr "برابر با"
+
+msgid "form.startsWith"
+msgstr "شروع با"
+
+msgid "form.postRequired"
+msgstr "داده‌های فرم به صورت صحیحی وارد نشده است"
+
+msgid "form.fileRequired"
+msgstr "آپلود کردن فایل الزامی است."
+
+msgid "form.required"
+msgstr "(* الزامی)"
+
+msgid "form.resubmit"
+msgstr "ارائه مجدد"
+
+msgid "form.saveToUpload"
+msgstr "برای آپلود فایل بر روی ذخیره کلیک کنید"
+
+msgid "form.send"
+msgstr "ارسال"
+
+msgid "form.submit"
+msgstr "ثبت"
+
+msgid "form.invalidImage"
+msgstr "تصویر آپلود شده معتبر نیست. فرمت‌های معتبر شامل jpg، png و gif می‌باشد."
+
+msgid "help.help"
+msgstr "راهنما"
+
+msgid "help.toc"
+msgstr "فهرست مطالب"
+
+msgid "help.previous"
+msgstr "قبلی"
+
+msgid "help.next"
+msgstr "بعدی"
+
+msgid "help.upALevel"
+msgstr "یک لایه بالاتر"
+
+msgid "icon.checked.alt"
+msgstr "بررسی شده"
+
+msgid "icon.comment.alt"
+msgstr "نظر"
+
+msgid "icon.delete.alt"
+msgstr "حذف"
+
+msgid "icon.edit.alt"
+msgstr "ویرایش"
+
+msgid "icon.folder.alt"
+msgstr "پوشه"
+
+msgid "icon.font_large.alt"
+msgstr "بزرگ"
+
+msgid "icon.font_medium.alt"
+msgstr "متوسط"
+
+msgid "icon.font_small.alt"
+msgstr "کوچک"
+
+msgid "icon.info.alt"
+msgstr "اطلاعات"
+
+msgid "icon.letter.alt"
+msgstr "نامه"
+
+msgid "icon.mail.alt"
+msgstr "پست"
+
+msgid "icon.unchecked.alt"
+msgstr "بررسی نشده"
+
+msgid "icon.view.alt"
+msgstr "نما"
+
+msgid "informationCenter.informationCenter"
+msgstr "مرکز اطلاعات"
+
+msgid "informationCenter.editorialHistory"
+msgstr "سوابق بررسی مقاله"
+
+msgid "informationCenter.addNote"
+msgstr "افزودن یادداشت"
+
+msgid "informationCenter.noNotes"
+msgstr "یادداشتی برای نمایش وجود ندارد"
+
+msgid "informationCenter.pastNotes"
+msgstr "یادداشت اصلاحات پیشین"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "آیا مطمئن به حذف این یادداشت هستید؟"
+
+msgid "informationCenter.currentHistory"
+msgstr "اصلاحات کنونی"
+
+msgid "informationCenter.pastHistory"
+msgstr "اصلاحات پیشین"
+
+msgid "informationCenter.history.noItems"
+msgstr "هیچ رخدادی ثبت نشده است."
+
+msgid "informationCenter.history.notePosted"
+msgstr "پست پاداشت جدید."
+
+msgid "informationCenter.history.messageSent"
+msgstr "ارسال اطلاع‌رسانی به کاربران"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "اطلاع‌رسانی ها به کاربر ارسال شود"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "انتخاب پیام های آماده"
+
+msgid "stageParticipants.notify.message"
+msgstr "پیام"
+
+msgid "stageParticipants.notify.warning"
+msgstr "مطمئن شوید که پیام را وارد کرده باشید و حداقل یک دریافت کننده را انتخاب نموده باشید."
+
+msgid "stageParticipants.options"
+msgstr "مجوزهای انتساب"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "این همکار فقط اجازه توصیه یک تصمیم را دارد. برای اتخاذ تصمیم نهایی نقشی با سطح دسترسی دبیر نیاز است."
+
+msgid "locale.primary"
+msgstr "زبان اصلی"
+
+msgid "locale.supported"
+msgstr "زبان‌های حمایت شده"
+
+msgid "navigation.access"
+msgstr "کاربران و نقش‌ها"
+
+msgid "navigation.about"
+msgstr "درباره"
+
+msgid "navigation.admin"
+msgstr "مدیریت"
+
+msgid "navigation.archives"
+msgstr "بایگانی‌ها"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "شما اینجایید:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "ابزارها"
+
+msgid "navigation.tools.importExport"
+msgstr "برون دهی/درون‌ریزی"
+
+msgid "navigation.tools.statistics"
+msgstr "آمار"
+
+msgid "navigation.browse"
+msgstr "پیمایش"
+
+msgid "navigation.browseByAuthor"
+msgstr "مرور بر اساس نویسنده"
+
+msgid "navigation.browseByTitle"
+msgstr "مرور بر اساس عنوان"
+
+msgid "navigation.dashboard"
+msgstr "داشبورد"
+
+msgid "navigation.data"
+msgstr "داده"
+
+msgid "navigation.home"
+msgstr "صفحه اصلی"
+
+msgid "navigation.infoForReaders"
+msgstr "برای خوانندگان"
+
+msgid "navigation.infoForReaders.long"
+msgstr "اطاعات برای خوانندگان"
+
+msgid "navigation.items"
+msgstr "{$from} الی  {$to}(از مجموع {$total} مورد)"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} از {$total} مورد"
+
+msgid "navigation.login"
+msgstr "ورود"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "مرحله بعدی"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "مرحله قبلی"
+
+msgid "navigation.publicMenu"
+msgstr "موی عمومی"
+
+msgid "navigation.register"
+msgstr "ثبت‌نام"
+
+msgid "navigation.search"
+msgstr "جستجو"
+
+msgid "navigation.settings"
+msgstr "تنظیمات"
+
+msgid "navigation.setup"
+msgstr "نصب"
+
+msgid "navigation.sitemap"
+msgstr "نقشه سایت"
+
+msgid "navigation.skip.main"
+msgstr "رفتن به محتوای اصلی"
+
+msgid "navigation.skip.nav"
+msgstr "رفتن به منوی گشت‌وگذار"
+
+msgid "navigation.skip.footer"
+msgstr "رفتن به پاورقی سایت"
+
+msgid "navigation.stepNumber"
+msgstr "{$step} مرحله"
+
+msgid "navigation.submissions"
+msgstr "مقالات ارسالی"
+
+msgid "navigation.system"
+msgstr "سیستم"
+
+msgid "navigation.userHome"
+msgstr "صفحه اصلی کاربر"
+
+msgid "navigation.user"
+msgstr "کاربر"
+
+msgid "navigation.userManagement"
+msgstr "مدیریت کاربران"
+
+msgid "navigation.viewFrontend"
+msgstr "مشاهده سایت"
+
+msgid "notification.addedAuditor"
+msgstr "حسابرس افزوده شد"
+
+msgid "notification.removedAuditor"
+msgstr "حسابرس حذف شد"
+
+msgid "notification.addedQuery"
+msgstr "گفتگو افزوده شد"
+
+msgid "notification.reviewAcknowledged"
+msgstr "داوری به عنوان اطلاع داده شده علامت گذاری شد. اما ایمیلی ارسال نشد."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "ایمیل تشکر به داور ارسال شد."
+
+msgid "notification.updatedReviewFiles"
+msgstr "فایل داوری آپلود شد."
+
+msgid "notification.allow"
+msgstr "فعال‌سازی این نوع از اطلاع‌رسانی"
+
+msgid "notification.addedAnnouncementType"
+msgstr "نوع اطلاعیه افزوده شد"
+
+msgid "notification.editedAnnouncementType"
+msgstr "نوع اطلاعیه ویرایش شد"
+
+msgid "notification.removedAnnouncementType"
+msgstr "نوع اطلاعیه حذف شد"
+
+msgid "notification.addedAnnouncement"
+msgstr "اطلاعیه افزوده شد"
+
+msgid "notification.editedAnnouncement"
+msgstr "اطلاعیه ویرایش شد"
+
+msgid "notification.removedAnnouncement"
+msgstr "اطلاعیه حذف شد"
+
+msgid "notification.addedAuthor"
+msgstr "نویسنده افزوده شد"
+
+msgid "notification.editedAuthor"
+msgstr "نویسنده ویرایش شد"
+
+msgid "notification.confirmError"
+msgstr "بروز خطا هنگام تأیید اشتراک شما"
+
+msgid "notification.confirmSuccess"
+msgstr "اشتراک شما فعال شد"
+
+msgid "notification.noneExist"
+msgstr "هیچ موردی برای اطلاع‌رسانی وجود ندارد"
+
+msgid "notification.addedNote"
+msgstr "یادداشت پست شد"
+
+msgid "notification.removedNote"
+msgstr "یادداشت حذف شد"
+
+msgid "notification.removedFile"
+msgstr "فایل حذف شد"
+
+msgid "notification.removedSubmission"
+msgstr "مقاله ارسالی حذف شد."
+
+msgid "notification.notification"
+msgstr "اطلاع‌رسانی"
+
+msgid "notification.notifications"
+msgstr "اطلاع‌رسانی‌ها"
+
+msgid "notification.sentNotification"
+msgstr "اطلاع‌رسانی ارسال شد"
+
+msgid "notification.settings"
+msgstr "تنظیمات اطلاع‌رسانی"
+
+msgid "notification.settingsDescription"
+msgstr "لطفاً رویدادی از سیستم را که مایلید در مورد آن به شما اطلاع‌رسانی شود انتخاب نمایید. عدم انتخاب یک رویداد سبب می‌گردد که اطلاع‌رسانی آن در فیلد اطلاع‌رسانی شما ظاهر نشود."
+
+msgid "notification.reminderError"
+msgstr "بروز خطا هنگام ارسال رمز عبور شما، مطمئن شوید که آدرس ایمیل را صحیح وارد کرده‌اید."
+
+msgid "notification.reminderSent"
+msgstr "رمز عبور جدیدی برایتان به آدرس ایمیلی که وارد کردید ارسال شد."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "فراداده‌های مقاله ارسالی ذخیره شد."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "ارسال ایمیل اطلاع‌رسانی به تمامی کاربران ثبت نامی"
+
+msgid "search.author"
+msgstr "نویسندگان"
+
+msgid "search.abstract"
+msgstr "چکیده"
+
+msgid "search.advancedFilters"
+msgstr "جستجوی پیشرفته"
+
+msgid "search.advancedSearchMore"
+msgstr "گزینه های بیشتری برای جستجو"
+
+msgid "search.advancedSearchLess"
+msgstr "مخفی کردن گزینه های بیشتر جستجو"
+
+msgid "search.searchAgain"
+msgstr "جستجو دوباره"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "پاک کردن نمایه"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "تمام شد"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "خطا"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} تعداد مقالات نمایه شده."
+
+msgid "search.coverage"
+msgstr "پوشش"
+
+msgid "search.date"
+msgstr "تاریخ"
+
+msgid "search.dateFrom"
+msgstr "از"
+
+msgid "search.dateTo"
+msgstr "تا"
+
+msgid "search.deleteFilter"
+msgstr "حذف"
+
+msgid "search.discipline"
+msgstr "تخصص"
+
+msgid "search.fullText"
+msgstr "تمام متن"
+
+msgid "search.indexTerms"
+msgstr "موارد نمایه"
+
+msgid "search.indexTermsLong"
+msgstr "تمامی فیلدهای نمایه"
+
+msgid "search.matchAll"
+msgstr "مطابق بودن با همه بخش ها"
+
+msgid "search.noKeywordError"
+msgstr "باید حداقل یک کلید واژه جستجو وارد کنید"
+
+msgid "search.noResults"
+msgstr "بی نتیجه"
+
+msgid "search.operator.and"
+msgstr "و"
+
+msgid "search.operator.not"
+msgstr "نه"
+
+msgid "search.operator.or"
+msgstr "یا"
+
+msgid "search.SearchFor"
+msgstr "جستجو برای"
+
+msgid "search.searchResults"
+msgstr "نتایج جستجو"
+
+msgid "search.subject"
+msgstr "کلید واژه"
+
+msgid "search.titleIndex"
+msgstr "پیمایش لیست عناوین"
+
+msgid "search.title"
+msgstr "عنوان"
+
+msgid "search.typeMethodApproach"
+msgstr "نوع، روش یا راهکار"
+
+msgid "grid.action.downloadFile"
+msgstr "دانلود این فایل"
+
+msgid "context.path"
+msgstr "مسیر"
+
+msgid "review.ensuringBlindReview"
+msgstr "اطمینان از داوری محرمانه"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "مطالعه سیاست‌های داوری"
+
+msgid "grid.action.deleteNotification"
+msgstr "حذف وظیفه"
+
+msgid "grid.action.markNew"
+msgstr "علامت گذاری به عنوان جدید"
+
+msgid "grid.action.markRead"
+msgstr "علامت گذاری به عنوان خوانده شده"
+
+msgid "dashboard.tasks"
+msgstr "وظایف"
+
+msgid "dashboard.myQueue"
+msgstr "وظایف من"
+
+msgid "review.blindPeerReview"
+msgstr "<p>برای دستیابی به اهداف سیاست‌های داوری محرمانه، باید تمامی تلاش‌ها برای عدم آگاهی نویسنده و داور از هویت همدیگر انجام گیرد. که نیازمند بررسی موارد زیر توسط سردبیر، ویراستیار و داور است:</p>\t <ul>\t   <li>نام نویسنده از داخل مقاله (قسمت نویسنده و پاورقی) و همچنین از نام فایل حذف شود.</li>\t   <li>در فایل‌های Microsoft Word نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>\t   <li>در مورد فایل‌های PDF نیز نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>\t </ul>"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "زمان‌بندی داوری"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "درخواست دبیر"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "مهلت پاسخ"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "مهلت انجام داوری"
+
+msgid "submission.task.responseDueDate"
+msgstr "مهلت پاسخ"
+
+msgid "navigation.goBack"
+msgstr "بازگشت"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} به عنوان داور به این مقاله ارسالی انتساب داده شده و ایمیلی برای اطلاع رسانی به آنها ارسال شد."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} برای داوری این مقاله ارسالی، انتساب داده شد و ایمیل اطلاع‌رسانی ارسال نشد."
+
+msgid "notification.removedReviewer"
+msgstr "داور حذف شد"
+
+msgid "notification.addedStageParticipant"
+msgstr "کاربر به عنوان همکار به این مرحله افزوده شد"
+
+msgid "notification.type.newAnnouncement"
+msgstr "یک اطلاعیه جدید ایجاد شده است"
+
+msgid "notification.type.reviewAssignment"
+msgstr "در انتظار داوری"
+
+msgid "notification.type.auditorRequest"
+msgstr "درخواست حسابرسی برای \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "تمامی داوری‌های در حال اجرا و تصمیم اتخاذ شده در  {$stage} نیاز است."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "فایل اصلاح شده جهت بازبینی مجدد در {$stage} آپلود شده است"
+
+msgid "notification.type.pendingRevisions"
+msgstr "اصلاحاتی که در {$stage} باید بررسی شود "
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "اصلاحات در {$stage} ثبت شد."
+
+msgid "notification.type.metadataModified"
+msgstr "فراداده‌های «{$title}» تغییر داده شده است"
+
+msgid "notification.type.reviewerComment"
+msgstr "داور برای \"{$title}\" نظری داده است"
+
+msgid "notification.signedFile"
+msgstr "فایل در نظر گرفته شد."
+
+msgid "user.authorization.submissionFile"
+msgstr "این کاربر اجازه دسترسی به این فایل‌ها را ندارد."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "مقاله ارسالی نامعتبر"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "ارائه نامعتبر"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "شما مجوز دسترسی کافی برای مشاهده این مقاله را ندارید. مطمئن شوید که دسترسی مناسبی در قسمت نقش‌ها برای شما اختصاص داده شده است."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "این کاربر نویسنده این مقاله نیست. لطفاً مطمئن شویدکه با حساب کاربری صحیحی وارد شده اید."
+
+msgid "notification.type.queryActivity"
+msgstr "روند تصمیم گیری"
+
+msgid "notification.type.queryAdded"
+msgstr "تصمیم گیری اضافه شده است"
+
+msgid "notification.type.assignCopyeditors"
+msgstr "اختصاص یک ویراستیار با استفاده از گزینه \"افزودن لینک\" در بخش همکاران"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "در انتظار ویراستاری"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "وضعیت دور {$round}"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "المان منوی گشت‌وگذار با موفقیت به‌روزرسانی شد"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "المان منوی گشت‌وگذار با موفقیت حذف شد"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "المان منوی گشت‌وگذار با موفقیت افزوده شد"
+
+msgid "notification.addedNavigationMenu"
+msgstr "منوی گشت‌وگذار با موفقیت افزوده شد"
+
+msgid "notification.editedNavigationMenu"
+msgstr "منوی گشت‌وگذار با موفقیت به‌روزرسانی شد"
+
+msgid "notification.removedNavigationMenu"
+msgstr "منوی گشت‌وگذار با موفقیت حذف شد"

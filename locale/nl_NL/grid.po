@@ -1,0 +1,666 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "Geen onderdelen"
+
+msgid "grid.settings"
+msgstr "Instellingen"
+
+msgid "grid.noAuditors"
+msgstr "Geen correctors"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Dit onderdeel bevindt zich op een andere site."
+
+msgid "grid.action.uninstall"
+msgstr "De-installeren"
+
+msgid "grid.action.manageAccess"
+msgstr "Toegang beheren"
+
+msgid "grid.action.sort"
+msgstr "Sorteren"
+
+msgid "grid.action.addItem"
+msgstr "Onderdeel toevoegen"
+
+msgid "grid.action.addNote"
+msgstr "Noot toevoegen"
+
+msgid "grid.action.addQuery"
+msgstr "Discussie toevoegen"
+
+msgid "grid.action.readQuery"
+msgstr "Discussie lezen"
+
+msgid "grid.action.deleteQuery"
+msgstr "Discussie verwijderen"
+
+msgid "grid.action.updateQuery"
+msgstr "Discussie bijwerken"
+
+msgid "grid.action.addUser"
+msgstr "Gebruiker toevoegen"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Reviewer verwijder"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Keur dit geredigeerde bestand goed om het aan een volgende redactiestap door te geven"
+
+msgid "grid.action.reload"
+msgstr "Herladen"
+
+msgid "grid.action.delete"
+msgstr "Verwijderen"
+
+msgid "grid.action.deleteFile"
+msgstr "Bestand verwijderen"
+
+msgid "grid.action.deleteMedia"
+msgstr "Media verwijderen"
+
+msgid "grid.action.editMedia"
+msgstr "Media bewerken"
+
+msgid "grid.action.editSection"
+msgstr "Sectie bewerken"
+
+msgid "grid.action.export"
+msgstr "Exporteren"
+
+msgid "grid.action.deleteSection"
+msgstr "Sectie verwijderen"
+
+msgid "grid.action.editorialHistory"
+msgstr "Redactiegeschiedenis"
+
+msgid "grid.action.remove"
+msgstr "Weghalen"
+
+msgid "grid.action.edit"
+msgstr "Bewerken"
+
+msgid "grid.action.approve"
+msgstr "Goedkeuren"
+
+msgid "grid.action.disapprove"
+msgstr "Afkeuren"
+
+msgid "grid.action.setApproval"
+msgstr "Goed- of afkeuren"
+
+msgid "grid.action.moreInformation"
+msgstr "Meer informatie"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Terug naar standaardwaarden"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Weet u zeker dat u de standaardwaarden wilt herstellen?"
+
+msgid "grid.action.addAuthor"
+msgstr "Auteur toevoegen"
+
+msgid "grid.action.editAuthor"
+msgstr "Auteur bewerken"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Auteur verwijderen"
+
+msgid "grid.action.addAuditor"
+msgstr "Corrector toevoegen"
+
+msgid "grid.action.upgrade"
+msgstr "Upgraden"
+
+msgid "grid.action.order"
+msgstr "Sorteren"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Sorteren opheffen"
+
+msgid "grid.action.extendAll"
+msgstr "Alles openklappen"
+
+msgid "grid.action.collapse"
+msgstr "Dichtklappen"
+
+msgid "grid.action.collapseAll"
+msgstr "Alles dichtklappen"
+
+msgid "grid.action.wizard"
+msgstr "Instellingen assistent"
+
+msgid "grid.action.moveItem"
+msgstr "Item verplaatsen"
+
+msgid "grid.action.downloadAll"
+msgstr "Download alle bestanden als archief"
+
+msgid "grid.action.readReview"
+msgstr "Review lezen"
+
+msgid "grid.action.email"
+msgstr "Stuur e-mail"
+
+msgid "grid.action.addReviewer"
+msgstr "Voeg een reviewer toe"
+
+msgid "grid.action.addFile"
+msgstr "Voeg een bestand toe"
+
+msgid "grid.action.editFile"
+msgstr "Bewerk een bestand"
+
+msgid "grid.action.selectFiles"
+msgstr "Selecteer de te beheren bestanden"
+
+msgid "grid.action.requestRevisions"
+msgstr "Vraag revisies voor deze inzending"
+
+msgid "grid.action.accept"
+msgstr "Deze inzending accepteren"
+
+msgid "grid.action.decline"
+msgstr "Deze inzending afwijzen"
+
+msgid "grid.action.internalReview"
+msgstr "Stuur deze inzending naar interne review"
+
+msgid "grid.action.externalReview"
+msgstr "Stuur deze inzending naar peer review"
+
+msgid "grid.action.sendToProduction"
+msgstr "Stuur deze inzending naar productie"
+
+msgid "grid.action.settings"
+msgstr "Instellingen"
+
+msgid "grid.action.importexport"
+msgstr "Importeer of exporteer content of sitegegevens"
+
+msgid "grid.action.orderItems"
+msgstr "Schakel sorteren in"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Bewerk dit checklistitem"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Verwijder dit checklistitem"
+
+msgid "grid.action.resetAll"
+msgstr "Zet alle items terug naar standaardwaarde"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Voeg een nieuw e-mail sjabloon toe"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Bewerk dit e-mail sjabloon"
+
+msgid "grid.action.disableEmail"
+msgstr "Schakel dit e-mail sjabloon uit"
+
+msgid "grid.action.resetEmail"
+msgstr "Zet dit e-mail sjabloon terug naar de standaardwaarde"
+
+msgid "grid.action.expandAll"
+msgstr "Alles uitklappen"
+
+msgid "grid.action.requestAccount"
+msgstr "Deelnemer toevoegen"
+
+msgid "grid.action.expand"
+msgstr "Uitklappen"
+
+msgid "grid.action.notify"
+msgstr "Bericht deze gebruiker"
+
+msgid "grid.action.addUserGroup"
+msgstr "Voeg een gebruikersgroep toe"
+
+msgid "grid.action.editUserGroup"
+msgstr "Gebruikersgroep bewerken"
+
+msgid "grid.action.disable"
+msgstr "Schakel uit"
+
+msgid "grid.action.details"
+msgstr "Bekijk dit item"
+
+msgid "grid.action.enrolExisting"
+msgstr "Maak een bestaande gebruiker reviewer"
+
+msgid "grid.action.selectCreate"
+msgstr "Maak een nieuwe reviewer"
+
+msgid "grid.action.search"
+msgstr "Zoeken"
+
+msgid "grid.action.advancedSearch"
+msgstr "Geavanceerd zoeken"
+
+msgid "grid.action.viewLibrary"
+msgstr "Bekijk documentbibliotheek"
+
+msgid "grid.action.viewMetadata"
+msgstr "Bekijk de metadata voor deze inzending"
+
+msgid "grid.action.sendReminder"
+msgstr "Stuur deze gebruiker een herinnering"
+
+msgid "grid.action.newRound"
+msgstr "Maak een nieuwe ronde"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Bekijk de richtlijnen voor review"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Bekijk het beleid over belangenconflicten"
+
+msgid "grid.action.thankReviewer"
+msgstr "Stuur een bedankje naar deze reviewer"
+
+msgid "grid.action.uploadFile"
+msgstr "Laad een bestand"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Voeg een nieuwsberichttype toe"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Nieuwsbericht toevoegen"
+
+msgid "grid.action.mergeUser"
+msgstr "Gebruiker samenvoegen"
+
+msgid "grid.action.unassignUser"
+msgstr "Toekenning gebruiker terugdraaien"
+
+msgid "grid.action.history"
+msgstr "Bekijk geschiedenis"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Deze review is afgewerkt, maar u kan ze ook terugtrekken"
+
+msgid "grid.action.enable"
+msgstr "Inschakelen"
+
+msgid "grid.action.bookInfo"
+msgstr "Informatie over de inzending"
+
+msgid "grid.action.logInAs"
+msgstr "Log in als"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Exporteer alle gebruikers"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Weet u zeker dat u alle gebruikers wil exporteren?"
+
+msgid "grid.action.activate"
+msgstr "Activeren"
+
+msgid "grid.action.deactivate"
+msgstr "Deactiveren"
+
+msgid "grid.action.copy"
+msgstr "Kopiëren"
+
+msgid "grid.action.preview"
+msgstr "Bekijk voorvertoning"
+
+msgid "grid.action.install"
+msgstr "Installeren"
+
+msgid "grid.action.moreItems"
+msgstr "Laad meer"
+
+msgid "grid.action.users"
+msgstr "Gebruikers bekijken/selecteren"
+
+msgid "grid.task.status.completed"
+msgstr "Deze taak is uitgevoerd"
+
+msgid "grid.task.status.new"
+msgstr "Dit is een nieuw item en heeft uw aandacht nodig"
+
+msgid "grid.task.status.uploaded"
+msgstr "De kolomtitel geeft aan wie het bestand geladen heeft"
+
+msgid "grid.task.status.unfinished"
+msgstr "Review nog niet gereed"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Dit review is gereed. Klik op het ikoon aan de links om het te lezen."
+
+msgid "grid.columns.actions"
+msgstr "Acties"
+
+msgid "grid.columns.institution"
+msgstr "Instituut"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Goedkeurder"
+
+msgid "grid.columns.locale"
+msgstr "Taalkode"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsors"
+
+msgid "grid.action.addSponsor"
+msgstr "Voeg een sponsor toe"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Verwijder sponsor"
+
+msgid "grid.action.editSponsor"
+msgstr "Bewerk sponsor"
+
+msgid "grid.action.addSeries"
+msgstr "Voeg een serie toe"
+
+msgid "grid.action.editSeries"
+msgstr "Bewerk serie"
+
+msgid "grid.action.deleteSeries"
+msgstr "Verwijder serie"
+
+msgid "grid.action.addCategory"
+msgstr "Categorie toevoegen"
+
+msgid "grid.action.editCategory"
+msgstr "Categorie bewerken"
+
+msgid "grid.action.deleteCategory"
+msgstr "Categorie verwijderen"
+
+msgid "grid.contributor.title"
+msgstr "Bijgedragen door"
+
+msgid "grid.action.addContributor"
+msgstr "Voeg een bijdrager toe"
+
+msgid "grid.action.editContributor"
+msgstr "Bewerk bijdrager"
+
+msgid "grid.action.deleteContributor"
+msgstr "Verwijder bijdrager"
+
+msgid "grid.reviewForm.title"
+msgstr "Reviewformulieren"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Antwoord-opties"
+
+msgid "grid.noFiles"
+msgstr "Geen bestanden"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Bestanden"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Bibliotheek inzending"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Bibliotheek redactie"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Bibliotheek review"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Bibliotheek productie"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Bibliotheek van ontwerpen voor productie"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Checklist inzending"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Checklist onderdeel"
+
+msgid "author.users.contributor.name"
+msgstr "Naam"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Rol"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Primair contact"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "In bladerlijsten"
+
+msgid "grid.roles.currentRoles"
+msgstr "Huidige rollen"
+
+msgid "grid.roles.add"
+msgstr "Rol toevoegen"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Ken toe aan stadium"
+
+msgid "grid.user.currentUsers"
+msgstr "Huidige gebruikers"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Op dit moment toegekend"
+
+msgid "grid.user.allRoles"
+msgstr "All rollen"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Alle toegangsniveaus"
+
+msgid "grid.user.add"
+msgstr "Gebruiker toevoegen"
+
+msgid "grid.user.enroll"
+msgstr "Gebruiker toekennen"
+
+msgid "grid.user.edit"
+msgstr "Gebruiker bewerken"
+
+msgid "grid.user.email"
+msgstr "E-mail"
+
+msgid "grid.user.enable"
+msgstr "Inschakelen"
+
+msgid "grid.user.disable"
+msgstr "Afsluiten"
+
+msgid "grid.user.disableReason"
+msgstr "Reden voor het afsluiten van de gebruiker"
+
+msgid "grid.user.enableReason"
+msgstr "Reden voor het inschakelen van de gebruiker"
+
+msgid "grid.user.error"
+msgstr "Er is een fout opgetreden bij het bewerken van de gebruiker. Probeer het opnieuw."
+
+msgid "grid.user.errorEmail"
+msgstr "Er is een fout opgetreden bij het verzenden van deze e-mail. Kijk na of de configuratie van uw server klopt en/of neem contact op met uw systeembeheerder"
+
+msgid "grid.user.cannotAdminister"
+msgstr "U heeft niet voldoende bevoegdheden om deze gebruiker te bewerken."
+
+msgid "grid.user.authSource"
+msgstr "Authenticatie bij"
+
+msgid "grid.user.mustProvideName"
+msgstr "Geef als eerste de achternaam van de gebruiker"
+
+msgid "grid.user.generatePassword"
+msgstr "Genereer wachtwoord"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Genereer een willekeurig wachtwoord voor deze gebruiker."
+
+msgid "grid.user.notifyUser"
+msgstr "Stuur de gebruiker een notificatie"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Stuur de gebruiker een welkomstmail"
+
+msgid "grid.user.mustChangePassword"
+msgstr "Wachtwoord veranderen"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Gebruiker moet een nieuw wachtwoord kiezen bij de volgende login."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Verplicht de gebruiker een nieuw wachtwoord te kiezen bij de volgende login."
+
+msgid "grid.user.moreDetails"
+msgstr "Meer gebruikersdetails"
+
+msgid "grid.user.lessDetails"
+msgstr "Minder gebruikers details"
+
+msgid "grid.user.userDetails"
+msgstr "Gebruikers details"
+
+msgid "grid.user.userRoles"
+msgstr "Rollen van de gebruiker"
+
+msgid "grid.user.userNoRoles"
+msgstr "Deze gebruiker heeft geen rollen."
+
+msgid "grid.user.step1"
+msgstr "Stap #1: Gebruikersgegevens invullen"
+
+msgid "grid.user.step2"
+msgstr "Stap #2: Rollen toevoegen aan {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Rollen toevoegen"
+
+msgid "grid.user.addRole"
+msgstr "Rol toevoegen"
+
+msgid "grid.user.selectUser"
+msgstr "Kies gebruiker"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Kies een gebruiker"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Inloggen als deze gebruiker? Alle acties worden dan uitgevoerd en geregistreerd als deze gebruiker."
+
+msgid "grid.user.mergeUsers"
+msgstr "Gebruikers samenvoegen"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Gebruiker samenvoegen"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Bij deze gebruiker voegen"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Alle gebruikers met een rol"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Weet u zeker dat u dit account met de gebruikersnaam \"{$oldUsername}\" wil samenvoegen met het account met gebruikersnaam \"{$newUsername}\"? Het account met de gebruikersnaam \"{$oldUsername}\" zal daarbij worden verwijderd. Deze actie kan niet worden ongedaan gemaakt."
+
+msgid "grid.preparedEmails.title"
+msgstr "Voorbereide e-mail sjablonen"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Huidige lijst"
+
+msgid "grid.plugin.allCategories"
+msgstr "Alle categorieën"
+
+msgid "grid.plugin.disable"
+msgstr "Weet u zeker dat u deze plugin uit wilt schakelen?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Proefcorrecties zijn gemaakt, maar u kan ze ook terugtrekken."
+
+msgid "grid.artworkFile.caption"
+msgstr "Bijschrift"
+
+msgid "grid.artworkFile.credit"
+msgstr "Bron"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Copyrighthouder"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Contactgegevens (indien verschillend van auteur/uitgever)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Toelatingsvoorwaarden"
+
+msgid "grid.artworkFile.placement"
+msgstr "Plaatsing in nummer"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Wijs toe aan stap in redactieproces"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Verwijder van stap in redactieproces"
+
+msgid "grid.userGroup.allStages"
+msgstr "Alle stappen van het redactieproces"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Rollen die zijn toegekend aan"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Met toegangsniveau"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "De rol {$userGroupName} is een standaardrol en kan niet worden verwijderd."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "De rol {$userGroupName} kan niet worden verwijderd: in gebruik voor {$usersCount} gebruiker/s."
+
+msgid "grid.userGroup.removed"
+msgstr "De rol {$userGroupName} werd verwijderd."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "De rol {$userGroupName} is toegekend aan de stap {$stageName} in het redactieproces."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "De rol {$userGroupName} is verwijderd van de stap {$stageName} in het redactieproces."
+
+msgid "grid.submission.itemTitle"
+msgstr "Auteur; titel"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Neem onvolledige inzendingen op die niet door een auteur zijn ingediend."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Voeg menu toe"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Voeg menu-item toe"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Het navigatiemenu heeft geen items"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Er zijn geen navigatiemenu's"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Kies een type..."

@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Bahasa Tambahan"
+
+msgid "installer.administratorAccount"
+msgstr "Akun Administrator"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Akun pengguna ini akan menjadi administrator situs dan memiliki akses penuh ke sistem. Akun pengguna tambahan dapat dibuat setelah instalasi. "
+
+msgid "installer.checkNo"
+msgstr "<span class=\"formError\">Tidak</span>"
+
+msgid "installer.checkYes"
+msgstr "Ya"
+
+msgid "installer.clientCharset"
+msgstr "Klien karakter set"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Kode karakter yang dikirim dan diterima perambah."
+
+msgid "installer.configFileError"
+msgstr "Konfigurasi file <tt>config.inc.php</tt> tidak ada atau tidak terbaca."
+
+msgid "installer.connectionCharset"
+msgstr "Koneksi karakter set "
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Isi file konfigurasi"
+
+msgid "installer.createDatabase"
+msgstr "Membuat database baru"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Untuk menggunakan opsi ini sistem database Anda harus support pembuatan database dengan kendali jauh dan akun Anda harus memiliki hak akses yang sesuai untuk membuat database baru. Jika instalasi gagal dengan opsi ini, buat database secara manual pada server Anda dan lakukan instalasi lagi dengan menonaktifkan pilihan ini."
+
+msgid "installer.databaseDriver"
+msgstr "Database Driver"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Driver database yang tercantum dalam tanda kurung tidak memiliki ekstensi PHP yang diperlukan dan instalasi mungkin akan gagal.</strong><br />Setiap driver database yang tidak didukung diatas hanya untuk tujuan akademi dan tidak akan bekerja baik pada OJS."
+
+msgid "installer.databaseHost"
+msgstr "Host"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Biarkan nama host kosong untuk terhubung menggunakan soket domain dan bukan melalui TCP/IP. Tidak perlu melakukan perubahan nama host jika Anda menggunakan MySQL yang secara otomatis menggunakan soket jika [localhost] dimasukkan, namun perubahan nama host diperlukan jika server database Anda adalah PostgreSQL atau yang lainnya."
+
+msgid "installer.databaseName"
+msgstr "Database"
+
+msgid "installer.databasePassword"
+msgstr "Kata Sandi"
+
+msgid "installer.databaseSettings"
+msgstr "Pengaturan Database"
+
+msgid "installer.databaseUsername"
+msgstr "Nama Pengguna"
+
+msgid "installer.encryption"
+msgstr "Algoritma Enkripsi Kata Sandi"
+
+msgid "installer.filesDir"
+msgstr "Direktori untuk unggah"
+
+msgid "installer.fileSettings"
+msgstr "Pengaturan File"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Klien karakter set harus."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Driver database harus dipilih."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Nama database diperlukan."
+
+msgid "installer.form.emailRequired"
+msgstr "Alamat email yang valid untuk akun administrator diperlukan."
+
+msgid "installer.form.encryptionRequired"
+msgstr "Algoritma untuk enkripsi kata sandi harus dipilih."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Direktori untuk menyimpan file unggahan."
+
+msgid "installer.form.localeRequired"
+msgstr "Bahasa harus dipilih."
+
+msgid "installer.form.passwordRequired"
+msgstr "Kata Sandi untuk akun administrator diperlukan."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Kata Sandi administrator tersebut tidak cocok."
+
+msgid "installer.form.separateMultiple"
+msgstr "Pisahkan beberapa nilai dengan koma."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Nama administrator hanya dapat berisi karakter alfanumeik, garis bawah, dan tanda hubung, dan harus dimulai dan diakhiri dengan karakter alfanumerik."
+
+msgid "installer.form.usernameRequired"
+msgstr "Nama pengguna untuk akun administrator diperlukan."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>PERINGATAN: Versi PHP Anda saat ini tidak memenuhi persyaratan minimum untuk instalasi. Disarankan untuk memperbaharui menjadi versi PHP terbaru.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Kesalahan terjadi pada saat instalasi"
+
+msgid "installer.installerSQLStatements"
+msgstr "Laporan SQL untuk instalasi"
+
+msgid "installer.installFileError"
+msgstr "File instalasi <tt>dbscripts/xml/install.xml</tt> Tidak ada atau tidak dapat terbaca."
+
+msgid "installer.installFilesDirError"
+msgstr "Direktori khusus untuk file unggah tidak ada atau tidak dapat diisi"
+
+msgid "installer.installParseDBFileError"
+msgstr "Kesalahan penguraian file instalasi database<tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Kesalaha penguraian file template email<tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Bahasa"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Bahasa yang ditandai mungkin tidak lengkap."
+
+msgid "installer.localeSettings"
+msgstr "Setting Bahasa"
+
+msgid "installer.manualInstall"
+msgstr "Instal Manual"
+
+msgid "installer.miscSettings"
+msgstr "Pengaturan Lain"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Repositori yang menyimpan OAI identifier untuk memudahkan metadata harvesting situs Anda oleh <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protokol untuk Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Repositori identifier OAI"
+
+msgid "installer.pleaseUpgradeAfterManualInstall"
+msgstr "Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi utama untuk upgrade ini."
+
+msgid "installer.publicFilesDirError"
+msgstr "Direktori file umum tidak ada atau tidak dapat diisi."

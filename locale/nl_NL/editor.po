@@ -1,0 +1,414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "Bibliotheek van de inzending"
+
+msgid "editor.review.notInitiated"
+msgstr "De review stap is nog niet gestart."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Bericht aan gebruiker"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Selecteer hieronder bestanden om te laten reviewen in de review stap."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Selecteer minstens één bestand dat u aan de gebruiker wil toewijzen."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Voeg een persoonlijk bericht toe."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Verstuur geen e-mail aan de corrector."
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Selecteer een gebruiker om het bestand aan toe te wijzen."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Upload/selecteer bestanden"
+
+msgid "editor.submission.selectFiles"
+msgstr "Selecteer bestanden"
+
+msgid "editor.submission.revisions"
+msgstr "Gereviseerde versies"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Gebruik <em>Voeg reviewer toe</em> om reviewers uit te nodigen om de bestanden van de inzending te reviewen. Het notitieboek-icoon duidt aan dat een review werd ingediend; nadat die bekeken is, wordt ze als <em>Aanvaard</em> gemarkeerd. Wanneer reviews te laat zijn, verschijnt een icoon van een rode envelop ter herinnering aan de reviewers."
+
+msgid "editor.submission.addReviewer"
+msgstr "Voeg reviewer toe"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Zoek een reviewer"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Zoek een gebruiker"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Toon alle bestanden van alle stappen van het redactieproces waartoe u toegang heeft."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Huidige reviewbestanden voor ronde {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Terug naar zoeken"
+
+msgid "editor.review.createReviewer"
+msgstr "Maak nieuwe reviewer aan"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Ken een rol toe aan een bestaande gebruiker"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Verwijder reviewer"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Reviewtype"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Verstuur een verwittigings-e-mail aan de auteur(s): {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Verstuur een verwittigings-e-mail aan de redacteur(s): {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Verstuur geen verwittigings-e-mail"
+
+msgid "editor.submissionReview.open"
+msgstr "Open"
+
+msgid "editor.submissionReview.blind"
+msgstr "Blind"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Dubbel blind"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Bestanden voor review"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Sluit bestandsselectie"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Bewerk review"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonieme reviewer"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Verstuur een e-mail aan de reviewer"
+
+msgid "editor.review.importantDates"
+msgstr "Belangrijke datums"
+
+msgid "editor.review.uploadRevision"
+msgstr "Upload gereviseerde versie"
+
+msgid "editor.review.newReviewRound"
+msgstr "Nieuwe reviewronde nodig"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Gereviseerde versies zullen niet opnieuw worden onderworpen aan peer review."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Gereviseerde versies zullen worden onderworpen aan een nieuwe ronde van peer review."
+
+msgid "editor.review.dateAccepted"
+msgstr "Datum van aanvaarding review"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Reviews werden toegevoegd aan bericht."
+
+msgid "editor.review.noReviews"
+msgstr "Er is geen peer review om te importeren"
+
+msgid "editor.review.reminder"
+msgstr "Review herinnering"
+
+msgid "editor.review.thankReviewer"
+msgstr "Bedank reviewer"
+
+msgid "editor.review.reminderError"
+msgstr "Fout bij het versturen van een review herinnering"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Fout bij het versturen van een bedanking aan de reviewer"
+
+msgid "editor.review.skipEmail"
+msgstr "Verstuur geen e-mail aan de reviewer."
+
+msgid "editor.review.sendReminder"
+msgstr "Verstuur herinnering"
+
+msgid "editor.review.readReview"
+msgstr "Lees review"
+
+msgid "editor.review.readNewReview"
+msgstr "Lees nieuwe review"
+
+msgid "editor.review.responseDue"
+msgstr "Review wordt verwacht voor {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Verzoek is verzonden"
+
+msgid "editor.review.requestAccepted"
+msgstr "Verzoek is aanvaard"
+
+msgid "editor.review.requestDeclined"
+msgstr "Verzoek is afgewezen"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "De reviewer heeft het reviewverzoek afgewezen."
+
+msgid "editor.review.revertDecision"
+msgstr "Maak beslissing ongedaan"
+
+msgid "editor.review.reviewDue"
+msgstr "Review wordt verwacht op: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Uiterste reviewdatum"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Review voltooid"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Review aanvaard"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Review ingediend"
+
+msgid "editor.review.reviewerComments"
+msgstr "Opmerkingen van de reviewer"
+
+msgid "editor.review.rateReviewer"
+msgstr "Beoordeling van de reviewer"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Beoordeel de kwaliteit van de ingediende review. Deze beoordeling is niet zichtbaar voor de reviewer."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Geen beoordeling"
+
+msgid "editor.review.mustSelect"
+msgstr "Selecteer een reviewer"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Er was een fout bij het toevoegen van de reviewer. Probeer opnieuw."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Er was een fout bij het verwijderen van de reviewer. Probeer opnieuw."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Voeg deze gebruiker toe bij de reviewers"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Wilt u geen rekening houden met deze review? De reviewgeschiedenis zal bewaard blijven."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Houd geen rekening met deze review"
+
+msgid "editor.review.readConfirmation"
+msgstr "Klik na het lezen van deze review op \"Bevestig\" om aan te duiden dat het reviewproces mag verder gaan. Als de reviewer zijn/haar review elders heeft ingediend, kan het bestand hier worden opgeladen; druk daarna \"Bevestig\" om verder te gaan."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Bestanden voor tekstredactie"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Selecteer reviewer"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Verwachte datum voor taak"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Taakplanning"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Registreer een bestaande gebruiker als reviewer"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Geen correctieronde nodig voor dit bestand"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Verstuur een e-mail aan de gebruiker"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Herinnering proeflezing"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Het geredigeerde bestand moet worden goedgekeurd voor het in productie kan worden gegeven. Wilt u dit bestand goedkeuren?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Als dit geredigeerde bestand wordt afgekeurd, kan het niet meer in productie worden gegeven. Wilt u dit bestand afkeuren?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Voeg corrector toe"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Bestanden die al waren opgeladen voor eender welke fase in het redactieproces kunnen worden toegevoegd aan de lijst voor tekstredactie door de optie \"Opnemen\" hieronder aan te vinken en op Zoeken te klikken: alle beschikbare bestanden worden dan opgelijst en kunnen worden opgenomen voor tekstredactie. Extra bestanden kunnen worden toegevoegd via de link Upload bestanden."
+
+msgid "editor.review"
+msgstr "Review"
+
+msgid "editor.review.reviewDetails"
+msgstr "Details review"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Geen reviewbestanden opgeladen"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "U heeft geen reviewbestanden opgeladen."
+
+msgid "editor.review.emailReviewer"
+msgstr "Verstuur een e-mail aan de reviewer"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Bestanden die klaar zijn voor publicatie"
+
+msgid "editor.submission.newRound"
+msgstr "Nieuwe reviewronde"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Bewaar redacteursbeslissing"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Bewaar redacteursaanbeveling"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Verwittig redacteurs"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Verstuur geen e-mail aan de redacteurs."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Start een beoordelings-discussie over deze aanbeveling."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Start geen beoordelings-discussie over deze aanbeveling."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "U zal een nieuwe reviewronde sttarten voor deze inzending. Bestanden die nog niet werden opgenomen in andere reviewrondes worden hieronder getoond."
+
+msgid "editor.submission.createNewRound"
+msgstr "Start een nieuwe reviewronde."
+
+msgid "editor.article.reviewForms"
+msgstr "Reviewformulieren"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Selecteer een reviewformulier"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Waarschuwing: wijziging van dit reviewformulier zal betrekking hebben op alle antwoorden die reviewers hebben gegeven met dit formulier. Weet u zeker dat u wilt verder gaan?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Geen bestanden geselecteerd"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "U heeft geen bestanden geselecteerd om te laten reviewen."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Een onderwerp voor deze discussie is vereist."
+
+msgid "submission.queries.messageRequired"
+msgstr "Een bericht voor deze discussie is vereist."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Bijgevoegde bestanden"
+
+msgid "grid.action.editQuery"
+msgstr "Bewerk discussie"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Via onderstaande lijst kunnen  bestanden worden toegevoegd aan deze discussie."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Geselecteerde reviewer"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Keur proef goed"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Maak goedkeuring proef ongedaan"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Keur deze proef goed om aan te duiden dat proeflezing afgerond is en dat het bestand klaar is voor publicatie."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Maak de goedkeuring van deze proef ongedaan om aan te duiden dat proeflezing niet langer afgerond is en dat het bestand niet klaar is voor publicatie."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "De publieke identificatie '{$publicIdentifier}' mag geen cijfer zijn."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Het patroon {$pattern} is niet toegelaten voor de publieke identificatie."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Inplannen voor publicatie in"
+
+msgid "reviewer.list.count"
+msgstr "{$count} reviewers"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} van {$total} reviewers"
+
+msgid "reviewer.list.filterRating"
+msgstr "Minimumbeoordeling"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} actief"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Actieve openstaande reviews"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Voltooide reviews"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Afgewezen reviewverzoeken"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Reviewer beoordeling: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} dagen geleden"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Gisteren"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dagen na de toewijzing van de laatste review"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Gemiddeld aantal dagen om een review af te ronden"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Nooit toegewezen"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Deze reviewer werd al toegewezen als reviewer voor deze inzending."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Deze reviewer is geblokkeerd omdat hij/zij de identiteit van de auteur kan zien. Blinde peer review kan niet worden gegarandaard. Wilt u deze reviewer toch de-blokkeren?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Deblokkeer"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Reviewvoorkeuren"
+
+msgid "reviewer.list.biography"
+msgstr "Biografie"

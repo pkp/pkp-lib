@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Account informatie"
+
+msgid "user.affiliation"
+msgstr "Affiliatie"
+
+msgid "user.affiliation.description"
+msgstr "(Uw instituut, bv. \"Simon Fraser University\")"
+
+msgid "user.affiliations"
+msgstr "Affiliaties"
+
+msgid "user.authorization.accessDenied"
+msgstr "Toegang geweigerd."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Het process authentication token ontbreekt of is ongeldig."
+
+msgid "user.authorization.contextRequired"
+msgstr "U kunt deze bewerking niet aanroepen zonder een context (press, journal, conference, enz.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Login verplicht."
+
+msgid "user.authorization.privateOperation"
+msgstr "De bewerking die u wilde uitvoeren is afgeschermd of bestaat niet."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "De toegang is geweigerd. Deze site heeft momenteel een beperkte toegang"
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "De huidige rol mag deze bewerking niet uitvoeren."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Uw huidige gebruikersrol laat deze bewerking niet toe voor deze inzending."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "U moet een geldige gebruikersgroep instellen om deze bewerking te doen."
+
+msgid "user.authorization.managerRequired"
+msgstr "Een gebruiker met de rol Perscontact  (zoals Pers of Productieredacteur) moet aan dit stadium toegekend zijn voor u verder kunt gaan."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "U heeft geen toegang tot die stap van het redactieproces."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Er werd geen stap in het redactieproces opgegeven."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Er werd geen plugin opgegeven, hoewel dit verplicht is."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "U heeft geen toegangsrechten tot deze reviewtaak."
+
+msgid "user.authorization.submissionQuery"
+msgstr "U heeft geen toegansgrechten tot deze discussie."
+
+msgid "user.biography"
+msgstr "Biografie"
+
+msgid "user.changeMyPassword"
+msgstr "Wachtwoord veranderen"
+
+msgid "user.changePassword"
+msgstr "Verander wachtwoord"
+
+msgid "user.dateLastLogin"
+msgstr "Laatste login"
+
+msgid "user.dateRegistered"
+msgstr "Datum registratie"
+
+msgid "user.editMyProfile"
+msgstr "Profiel bewerken"
+
+msgid "user.email"
+msgstr "E-mail"
+
+msgid "user.givenName"
+msgstr "Voornaam"
+
+msgid "user.interests"
+msgstr "Review-interesses"
+
+msgid "user.interests.description"
+msgstr "(scheid interesses met de enter- of komma-toets)"
+
+msgid "user.gossip"
+msgstr "Privé-opmerkingen"
+
+msgid "user.gossip.description"
+msgstr "Voeg opmerkingen over deze reviewer toe, die zichtbaar zullen zijn voor andere website- en tijdschriftbeheerders en alle redacteurs. Opmerkingen zullen zichtbaar blijven voor toekomstige reviewopdrachten."
+
+msgid "user.group"
+msgstr "Gebruikersgroep"
+
+msgid "user.familyName"
+msgstr "Achternaam"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Ongeldig formaat voor de profielafbeelding of te grote afbeelding. Geaccepteerde formaten zijn .gif, .jpg en .png. De afbeelding mag niet groter zijn dan 150x150 pixels."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Uw toegang is geblokkeerd vanwege de volgende reden: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Uw toegang is geblokkeerd. Neem contact op met de beheerder voor meer informatie."
+
+msgid "user.login.accountNotValidated"
+msgstr "Uw e-mailadres is niet gevalideerd. Controleer uw e-mail en volg de gegeven instructies. Als u geen e-mail heeft ontvangen op {$email}, kunt u contact opnemen met de beheerder."
+
+msgid "user.login.activate"
+msgstr "Activeer toegang"
+
+msgid "user.login.activated"
+msgstr "Dank u voor het activeren van uw account. U kunt nu inloggen met de gegevens die u heeft opgegeven bij het aanmaken van uw account"
+
+msgid "user.login.changePasswordInstructions"
+msgstr "U moet een nieuw wachtwoord kiezen voordat u in kunt loggen op de site.<br /><br />Geef uw gebruikersnaam en uw huidige en nieuwe wachtwoord om het wachtwoord voor uw account te veranderen."
+
+msgid "user.login.forgotPassword"
+msgstr "Wachtwoord vergeten?"
+
+msgid "user.login.loginError"
+msgstr "Verkeerde gebruikersnaam of wachtwoord. Probeer het opnieuw"
+
+msgid "user.login"
+msgstr "Inloggen"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Er is een bevestiging gestuurd naar uw e-mailadres. Volg de instructies in die e-mail om uw wachtwoord terug te zetten"
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Helaas, de link waar u op klikte is verlopen of ongeldig. Probeer het terugzetten van uw wachtwoord opnieuw."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Er is geen gebruiker met dit e-mailadres."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Er is een nieuw wachtwoord verstuurd naar uw e-mailadres. U kunt nu inloggen met uw nieuwe wachtwoord."
+
+msgid "user.login.registeredEmail"
+msgstr "E-mail van geregistreerde gebruiker"
+
+msgid "user.login.registrationComplete"
+msgstr "Registratie voltooid"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Bedankt voor uw registratie! Wat wilt u nu doen?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Inzendingen bekijken"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Nieuwe inzending"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Verder bladeren"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Ongeverifieerde registratie"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Houd me aangemeld"
+
+msgid "user.login.resetPassword"
+msgstr "Wachtwoord terugzetten"
+
+msgid "user.logOut"
+msgstr "Afmelden"
+
+msgid "user.logOutAs"
+msgstr "Meld me af als"
+
+msgid "user.hello"
+msgstr "Hallo,"
+
+msgid "user.mailingAddress"
+msgstr "Postadres"
+
+msgid "user.myAccount"
+msgstr "Mijn gegevens"
+
+msgid "user.name"
+msgstr "Naam"
+
+msgid "user.password"
+msgstr "Wachtwoord"
+
+msgid "user.repeatPassword"
+msgstr "Herhaal wachtwoord"
+
+msgid "user.phone"
+msgstr "Telefoon"
+
+msgid "user.preferredPublicName"
+msgstr "Publieke gebruikersnaam"
+
+msgid "user.preferredPublicName.description"
+msgstr "Hoe wilt u worden aangesproken? Hier kunnen desgewenst groetformules, tweede namen en tussenvoegsels worden toegevoegd."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Geef uw huidige en nieuwe wachtwoord om het wachtwoord voor uw account te veranderen."
+
+msgid "user.profile.editProfile"
+msgstr "Bewerk profiel"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Een land is verplicht."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Een geldig e-mailadres is verplicht."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Een affiliatie is verplicht."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Een voornaam is verplicht."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "U heeft een achternaam ingevuld voor een taal die geen voornaam heeft. Vul een voornaam in voor deze taal."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Een postadres is verplicht."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "U moet uw nieuwe wachtwoord opgeven."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Het huidige wachtwoord was niet juist."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "E-mail berichtgeving bij vrij toegankelijk worden van een nummer"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Een wachtwoord is verplicht."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Uw nieuwe wachtwoord is hetzelfde als het oude wachtwoord."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profielafbeelding"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-mail berichtgeving bij publicatie nieuw nummer"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "De opgegeven URL is niet geldig. Controleer de URL en probeer het opnieuw. (Tip: probeer http:// vooraan de URL te zetten.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Een gebruikersgroep is verplicht."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Een gebruikersnaam is verplicht"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "U moet akkoord gaan met de voorwaarden van de privacy verklaring."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Laat het wachtwoordveld leeg om het huidige wachtwoord te houden."
+
+msgid "user.profile.newPassword"
+msgstr "Nieuw wachtwoord"
+
+msgid "user.profile.oldPassword"
+msgstr "Huidig wachtwoord"
+
+msgid "user.profile"
+msgstr "Profiel"
+
+msgid "user.profile.publicProfile"
+msgstr "Gebruikersprofiel"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Herhaal nieuw wachtwoord"
+
+msgid "user.login.registerNewAccount"
+msgstr "Registreer"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Vul het e-mailadres voor uw account in, en er zal een e-mail worden verstuurd met instructies voor het vernieuwen van uw wachtwoord."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Ja, ik stem ermee in dat mijn gegevens worden verzameld en verwerkt volgens de  <a href=\"{$privacyUrl}\" target=\"_blank\">privacy verklaring<a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Ja, ik wil op de hoogte worden gehouden van publicaties en nieuwsberichten."
+
+msgid "user.register.form.emailExists"
+msgstr "Het gekozen e-mailadres is al in gebruik bij een andere gebruiker."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "De wachtwoorden komen niet overeen."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "De e-mailadresvelden komen niet overeen"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "De gebruikersnaam mag uitsluitend bestaan uit alfanumerieke tekens (geen hoofdletters), liggende streepjes en koppeltekens, en moet beginnen en eindigen met een alfanumeriek teken."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Selecteer minstens één rol."
+
+msgid "user.register.form.usernameExists"
+msgstr "De gekozen gebruikersnaam is al in gebruik bij een andere gebruiker."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Het wachtwoord moet minstens {$length} tekens bevatten."
+
+msgid "user.register.registerAs"
+msgstr "Registreer voor {$contextName} als..."
+
+msgid "user.register"
+msgstr "Registreren"
+
+msgid "user.register.usernameRestriction"
+msgstr "De gebruikersnaam mag alleen kleine letters, cijfers, liggende streepjes en koppeltekens bevatten."
+
+msgid "user.register.registrationCompleted"
+msgstr "U bent met succes geregistreerd. <a href=\"{$profileUrl}\">Klik hier</a> om uw gebruikersprofiel te vervolledigen."
+
+msgid "user.role.assistant"
+msgstr "Assistent"
+
+msgid "user.role.author"
+msgstr "Auteur"
+
+msgid "user.role.author_s"
+msgstr "Auteur(s)"
+
+msgid "user.role.authors"
+msgstr "Auteurs"
+
+msgid "user.role.editor"
+msgstr "Redacteur"
+
+msgid "user.role.editors"
+msgstr "Redacteurs"
+
+msgid "user.role.reader"
+msgstr "Lezer"
+
+msgid "user.role.readers"
+msgstr "Lezers"
+
+msgid "user.role.reviewer"
+msgstr "Reviewer"
+
+msgid "user.role.reviewers"
+msgstr "Reviewers"
+
+msgid "user.role.siteAdmin"
+msgstr "Sitebeheerder"
+
+msgid "user.role.siteAdmins"
+msgstr "Sitebeheerders"
+
+msgid "user.role.copyeditor"
+msgstr "Tekstredacteur"
+
+msgid "user.role.copyeditors"
+msgstr "Tekstredacteurs"
+
+msgid "user.role.proofreader"
+msgstr "Proeflezer"
+
+msgid "user.role.proofreaders"
+msgstr "Proeflezers"
+
+msgid "user.role.layoutEditor"
+msgstr "Opmaakredacteur"
+
+msgid "user.role.layoutEditors"
+msgstr "Opmaakredacteurs"
+
+msgid "user.roles"
+msgstr "Rollen"
+
+msgid "user.sendPassword"
+msgstr "Bevestiging"
+
+msgid "user.sendPassword.description"
+msgstr "Stuur mij een e-mail met gebruikersnaam en wachtwoord ter bevestiging"
+
+msgid "user.signature"
+msgstr "Ondertekening"
+
+msgid "user.title"
+msgstr "Titel"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Gebruiker"
+
+msgid "user.username"
+msgstr "Gebruikersnaam"
+
+msgid "user.workingLanguages"
+msgstr "Talen"
+
+msgid "user.orcid"
+msgstr "ORCID ID"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Het ORCID ID dat u heeft opgegeven is ongeldig. Vul de volledige URI in (bv. \"http://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identiteit"
+
+msgid "user.profile.contact"
+msgstr "Contact"
+
+msgid "user.profile.public"
+msgstr "Publiek"
+
+msgid "user.apiKey"
+msgstr "API sleutel"
+
+msgid "user.apiKeyEnabled"
+msgstr "Verleen externe toepassingen toegang tot dit account via de API sleutel"
+
+msgid "user.apiKey.generate"
+msgstr "Maak nieuwe API sleutel aan"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Een nieuwe API sleutel zal eerdere sleutels voor deze gebruiker ongeldig maken."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Voor u een API sleutel kan aanmaken, moet uw website beheerder de instelling \"api_key_secret\" in het config.inc.php bestand opslaan."
+
+msgid "user.privacyLink"
+msgstr "Uw gegevens worden bewaard in overeenstemming met onze <a href=\"{$privacyUrl}\" target=\"_blank\">privacy verklaring</a>."

@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:05+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Webbplatsadministratör"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Webbplatsadministratörer"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Produktionsredaktör"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Produktionsredaktörer"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "P.red"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Manusredaktör"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Manusredaktörer"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "M.red"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korrekturläsare"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korrekturläsare"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Korr"
+
+msgid "default.groups.name.designer"
+msgstr "Designer"
+
+msgid "default.groups.plural.designer"
+msgstr "Designers"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Design"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Intern granskare"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Interna granskare"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IG"
+
+msgid "default.groups.name.marketing"
+msgstr "Marknadsförings- och försäljningskoordinator"
+
+msgid "default.groups.plural.marketing"
+msgstr "Marknadsförings- och försäljningskoordinatorer"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MF"
+
+msgid "default.groups.name.funding"
+msgstr "Finansieringskoordinator"
+
+msgid "default.groups.plural.funding"
+msgstr "Finansieringskoordinatorer"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FK"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexerare"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexerare"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "Ind"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Layout-redaktör"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Layout-redaktörer"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "L.red"
+
+msgid "default.groups.name.author"
+msgstr "Författare"
+
+msgid "default.groups.plural.author"
+msgstr "Författare"
+
+msgid "default.groups.abbrev.author"
+msgstr "Förf"
+
+msgid "default.groups.name.translator"
+msgstr "Översättare"
+
+msgid "default.groups.plural.translator"
+msgstr "Översättare"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Övers"
+
+msgid "default.groups.name.reader"
+msgstr "Läsare"
+
+msgid "default.groups.plural.reader"
+msgstr "Läsare"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Läs"
+
+msgid "default.genres.other"
+msgstr "Övriga"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Bild"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML-stilmall"

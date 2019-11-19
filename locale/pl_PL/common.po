@@ -1,0 +1,1536 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:57+00:00\n"
+"Language: \n"
+
+msgid "about.aboutSite"
+msgstr "O stronie"
+
+msgid "about.contact"
+msgstr "Kontakt"
+
+msgid "about.contact.email"
+msgstr "E-mail"
+
+msgid "about.contact.phone"
+msgstr "Tel."
+
+msgid "about.contact.principalContact"
+msgstr "Główna osoba do kontaktu"
+
+msgid "about.contact.supportContact"
+msgstr "Wsparcie techniczne"
+
+msgid "about.other"
+msgstr "Inne"
+
+msgid "about.people"
+msgstr "Redakcja"
+
+msgid "about.policies"
+msgstr "Zasady"
+
+msgid "about.siteMap"
+msgstr "Mapa strony"
+
+msgid "announcement.announcements"
+msgstr "Ogłoszenia"
+
+msgid "announcement.announcementsHome"
+msgstr "Ogłoszenia"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Więcej ogłoszeń..."
+
+msgid "announcement.noneExist"
+msgstr "Żadne ogłoszenie nie zostało opublikowane."
+
+msgid "announcement.posted"
+msgstr "Opublikowane"
+
+msgid "announcement.view"
+msgstr "Pokaż ogłoszenie"
+
+msgid "common.action"
+msgstr "Działanie"
+
+msgid "common.activate"
+msgstr "Aktywuj"
+
+msgid "common.active"
+msgstr "Aktywne"
+
+msgid "common.add"
+msgstr "Dodaj"
+
+msgid "common.addSelf"
+msgstr "Dodaj siebie"
+
+msgid "common.all"
+msgstr "Wszystkie"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.alreadyAssigned"
+msgstr "Przypisany"
+
+msgid "common.altText"
+msgstr "Alternatywny tekst"
+
+msgid "common.and"
+msgstr "oraz"
+
+msgid "common.applyAction"
+msgstr "Zastosuj działanie"
+
+msgid "common.assign"
+msgstr "Przypisz"
+
+msgid "common.assigned"
+msgstr "Przypisany"
+
+msgid "common.back"
+msgstr "Wróć"
+
+msgid "common.between"
+msgstr "pomiędzy"
+
+msgid "common.cancel"
+msgstr "Anuluj"
+
+msgid "common.cancelled"
+msgstr "Anulowany"
+
+msgid "common.captchaField.description"
+msgstr "Wprowadź znaki, które wyświetlają się na obrazku powyżej."
+
+msgid "common.captchaField"
+msgstr "Weryfikacja"
+
+msgid "common.ccLicense"
+msgstr ""
+"<br /><br />\n"
+"\t\t<a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\tUtwór dostępny na licencji <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Uznanie autorstwa 3.0</a>."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tUtwór dostępny na licencji <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\">Creative Commons Uznanie autorstwa 3.0</a>.\n"
+"\t</div>"
+
+msgid "common.changesSaved"
+msgstr "Twoje zmiany zostały zapisane."
+
+msgid "common.chooseOne"
+msgstr "Wybierz z listy"
+
+msgid "common.close"
+msgstr "Zamknij"
+
+msgid "common.closeWindow"
+msgstr "Zamknij okno"
+
+msgid "common.complete"
+msgstr "Dokończ"
+
+msgid "common.completed"
+msgstr "Skończone"
+
+msgid "common.continue"
+msgstr "Kontynuuj"
+
+msgid "common.copy"
+msgstr "Kopiuj"
+
+msgid "common.country"
+msgstr "Kraj"
+
+msgid "common.create"
+msgstr "Utwórz"
+
+msgid "common.dateCompleted"
+msgstr "Data ukończenia"
+
+msgid "common.date"
+msgstr "Data"
+
+msgid "common.dateModified"
+msgstr "Data modyfikacji"
+
+msgid "common.dateRequested"
+msgstr "Data prośby"
+
+msgid "common.dateSubmitted"
+msgstr "Data przesłania"
+
+msgid "common.dateUploaded"
+msgstr "Data przesłania"
+
+msgid "common.day"
+msgstr "Dzień"
+
+msgid "common.deactivate"
+msgstr "Dezaktywuj"
+
+msgid "common.default"
+msgstr "Domyślny"
+
+msgid "common.delete"
+msgstr "Usuń"
+
+msgid "common.deleteSelection"
+msgstr "Usuń zaznaczone"
+
+msgid "common.description"
+msgstr "Opis"
+
+msgid "common.disable"
+msgstr "Wyłącz"
+
+msgid "common.disabled"
+msgstr "Wyłączone"
+
+msgid "common.discipline"
+msgstr "Dyscyplina"
+
+msgid "common.done"
+msgstr "Skończone"
+
+msgid "common.download"
+msgstr "Pobierz"
+
+msgid "common.edit"
+msgstr "Edycja"
+
+msgid "common.enable"
+msgstr "Włącz"
+
+msgid "common.enabled"
+msgstr "Włączone"
+
+msgid "common.error.databaseError"
+msgstr "Wystąpił błąd bazy danych: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Wystąpił nieznany błąd połączenia z bazą danych."
+
+msgid "common.error.framesRequired"
+msgstr "Ta strona wymaga ramek. <a href=\"{$url}\">Kliknij tutaj</a> aby zobaczyć wersję pozbawioną ramek."
+
+msgid "common.event"
+msgstr "Zdarzenie"
+
+msgid "common.export"
+msgstr "Eksportuj"
+
+msgid "common.fullscreen"
+msgstr "Pełny ekran"
+
+msgid "common.fullscreenOff"
+msgstr "Wyłącz pełny ekran"
+
+msgid "common.false"
+msgstr "Nieprawdziwy"
+
+msgid "common.file"
+msgstr "Plik"
+
+msgid "common.fileName"
+msgstr "Nazwa pliku"
+
+msgid "common.fileSize"
+msgstr "Rozmiar pliku"
+
+msgid "common.fileType"
+msgstr "Rodzaj pliku"
+
+msgid "common.height"
+msgstr "Wysokość"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logo nagłówka strony głównej"
+
+msgid "common.hour"
+msgstr "Godzina"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Importuj"
+
+msgid "common.initiate"
+msgstr "Inicjuj"
+
+msgid "common.inProgress"
+msgstr "W trakcie"
+
+msgid "common.keywords"
+msgstr "Słowa kluczowe"
+
+msgid "common.language"
+msgstr "Język / Language"
+
+msgid "common.languages"
+msgstr "Języki"
+
+msgid "common.manage"
+msgstr "Zarządzaj"
+
+msgid "common.mailingAddress"
+msgstr "Adres"
+
+msgid "common.minute"
+msgstr "Minut"
+
+msgid "common.modify"
+msgstr "Modyfikuj"
+
+msgid "common.month"
+msgstr "Miesiąc"
+
+msgid "common.noneAssigned"
+msgstr "Żaden nie przypisany"
+
+msgid "common.none"
+msgstr "Brak"
+
+msgid "common.no"
+msgstr "Nie"
+
+msgid "common.noComments"
+msgstr "Brak komentarzy"
+
+msgid "common.notApplicable"
+msgstr "Nieodpowiedni"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "Niedostępny"
+
+msgid "common.note"
+msgstr "Uwaga"
+
+msgid "common.notes"
+msgstr "Uwagi"
+
+msgid "common.off"
+msgstr "Wyłączone"
+
+msgid "common.on"
+msgstr "Włączone"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Opcje"
+
+msgid "common.order"
+msgstr "Kolejność"
+
+msgid "common.originalFileName"
+msgstr "Nazwa pliku"
+
+msgid "common.or"
+msgstr "lub"
+
+msgid "common.other"
+msgstr "Inny"
+
+msgid "common.plugin"
+msgstr "Wtyczka"
+
+msgid "common.pluginEnabled"
+msgstr "Wtyczka \"{$pluginName}\" została włączona."
+
+msgid "common.pluginDisabled"
+msgstr "Wtyczka \"{$pluginName}\" zosała wyłączona."
+
+msgid "common.preview"
+msgstr "Podgląd"
+
+msgid "common.publisher"
+msgstr "Wydawca"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.record"
+msgstr "Zapisz"
+
+msgid "common.refresh"
+msgstr "Odśwież"
+
+msgid "common.related"
+msgstr "Powiązane"
+
+msgid "common.remove"
+msgstr "Usuń"
+
+msgid "common.removeSelection"
+msgstr "Usuń zaznaczone"
+
+msgid "common.replaced"
+msgstr "Zamienione"
+
+msgid "common.replaceFile"
+msgstr "Zamień plik"
+
+msgid "common.requiredField"
+msgstr "* Oznacza wymagane pole"
+
+msgid "common.required"
+msgstr "Wymagane"
+
+msgid "common.saveAndContinue"
+msgstr "Zapisz i kontynuuj"
+
+msgid "common.saveAndEmail"
+msgstr "Zapisz i wyślij e-mail"
+
+msgid "common.save"
+msgstr "Zapisz"
+
+msgid "common.search"
+msgstr "Szukaj"
+
+msgid "common.second"
+msgstr "Sekunda"
+
+msgid "common.selectAll"
+msgstr "Zaznacz wszystkie"
+
+msgid "common.selectNone"
+msgstr "Odznacz wszystkie"
+
+msgid "common.select"
+msgstr "Zaznacz"
+
+msgid "common.size"
+msgstr "Rozmiar"
+
+msgid "common.source"
+msgstr "Źródło"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.subject"
+msgstr "Przedmiot"
+
+msgid "common.suggest"
+msgstr "Zasugeruj"
+
+msgid "common.title"
+msgstr "Tytuł"
+
+msgid "common.top"
+msgstr "Góra"
+
+msgid "common.true"
+msgstr "Prawda"
+
+msgid "common.type"
+msgstr "Typ"
+
+msgid "common.uninitiated"
+msgstr "Niewprowadzone"
+
+msgid "common.untitled"
+msgstr "Bez nazwy"
+
+msgid "common.updated"
+msgstr "Zaktualizowany"
+
+msgid "common.upload"
+msgstr "Prześlij"
+
+msgid "common.uploadFailed"
+msgstr "Plik nie może zostać przesłany. Spróbuj ponownie lub skontaktuj się z administratorem."
+
+msgid "common.up"
+msgstr "W górę"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Użytkownik"
+
+msgid "common.view"
+msgstr "Widok"
+
+msgid "common.weeks"
+msgstr "Tygodnie"
+
+msgid "common.width"
+msgstr "Szerokość"
+
+msgid "common.year"
+msgstr "Rok"
+
+msgid "common.yes"
+msgstr "Tak"
+
+msgid "common.loading"
+msgstr "Ładowanie..."
+
+msgid "debug.databaseQueries"
+msgstr "Liczba kwerend w bazie danych"
+
+msgid "debug.executionTime"
+msgstr "Strona wygenerowana w"
+
+msgid "debug.memoryUsage"
+msgstr "Zużycie pamięci"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Tłumaczenie \"{$localeList}\" załadowano z XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Tłumaczenie \"{$localeFile}\" załadowano z XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Brak tłumaczenia dla klucza \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Notatki:"
+
+msgid "email.addAttachment"
+msgstr "Dodaj załącznik"
+
+msgid "email.addBccRecipient"
+msgstr "Dodaj odbiorców ukrytych (UDW)"
+
+msgid "email.addCcRecipient"
+msgstr "Dodaj odbiorców w kopii (DW)"
+
+msgid "email.addToRecipient"
+msgstr "Dodaj odbiorców"
+
+msgid "email.attachments"
+msgstr "Załączniki"
+
+msgid "email.bcc"
+msgstr "UDW"
+
+msgid "email.bccSender"
+msgstr "Wyślij kopię tej wiadomości na mój adres e-mail ({$address})"
+
+msgid "email.body"
+msgstr "Treść"
+
+msgid "email.cc"
+msgstr "DW"
+
+msgid "email.compose"
+msgstr "Wyślij e-mail"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Wiadomość, którą wysyłasz ma zbyt wielu odbiorców."
+
+msgid "email.compose.tooSoon"
+msgstr "Od wysłania ostatniej wiadomości upłynęło zbyt mało czasu. Spróbuj poczekać zanim wyślesz kolejną wiadomość."
+
+msgid "email.email"
+msgstr "E-mail"
+
+msgid "email.from"
+msgstr "Od"
+
+msgid "email.invalid"
+msgstr "Adres e-mail {$email} jest nieprawidłowy."
+
+msgid "email.multipart"
+msgstr "To jest wieloczęściowa wiadomość w formacie MIME."
+
+msgid "email.recipient"
+msgstr "Odbiorca"
+
+msgid "email.recipients"
+msgstr "Odbiorcy"
+
+msgid "email.sender"
+msgstr "Nadawca"
+
+msgid "email.send"
+msgstr "Wyślij"
+
+msgid "email.skip"
+msgstr "Pomiń e-mail"
+
+msgid "email.subject"
+msgstr "Temat"
+
+msgid "email.to"
+msgstr "Do"
+
+msgid "form.errorsOccurred"
+msgstr "Wystąpiły błędy podczas przetwarzania tego formularza."
+
+msgid "form.formLanguage.description"
+msgstr "Aby umieścić poniżej informację w innym języku, najpierw wybierz język z listy rozwijanej."
+
+msgid "form.formLanguage"
+msgstr "Język formularza"
+
+msgid "form.contains"
+msgstr "zawiera"
+
+msgid "form.is"
+msgstr "jest"
+
+msgid "form.startsWith"
+msgstr "zaczyna się od"
+
+msgid "form.postRequired"
+msgstr "Formularz nie został wysłany poprawnie."
+
+msgid "form.required"
+msgstr "(* Wymagane)"
+
+msgid "form.resubmit"
+msgstr "Wyślij ponownie"
+
+msgid "form.saveToUpload"
+msgstr "Wybierz plik do przesłania na stronę."
+
+msgid "form.send"
+msgstr "Wyślij"
+
+msgid "form.submit"
+msgstr "Wyślij"
+
+msgid "help.help"
+msgstr "Pomoc"
+
+msgid "help.toc"
+msgstr "Spis treści"
+
+msgid "help.upALevel"
+msgstr "Wyżej o jeden poziom"
+
+msgid "icon.checked.alt"
+msgstr "Zaznaczone"
+
+msgid "icon.comment.alt"
+msgstr "Komentarz"
+
+msgid "icon.delete.alt"
+msgstr "Usuń"
+
+msgid "icon.edit.alt"
+msgstr "Edytuj"
+
+msgid "icon.folder.alt"
+msgstr "Folder"
+
+msgid "icon.font_large.alt"
+msgstr "Powiększ"
+
+msgid "icon.font_medium.alt"
+msgstr "Rozmiar normalny"
+
+msgid "icon.font_small.alt"
+msgstr "Pomniejsz"
+
+msgid "icon.info.alt"
+msgstr "Informacje"
+
+msgid "icon.letter.alt"
+msgstr "List"
+
+msgid "icon.mail.alt"
+msgstr "Poczta"
+
+msgid "icon.unchecked.alt"
+msgstr "Niezaznaczone"
+
+msgid "icon.view.alt"
+msgstr "Widok"
+
+msgid "locale.primary"
+msgstr "Podstawowy język"
+
+msgid "locale.supported"
+msgstr "Wspierane języki"
+
+msgid "navigation.about"
+msgstr "O czasopiśmie"
+
+msgid "navigation.browse"
+msgstr "Przeglądaj"
+
+msgid "navigation.browseByTitle"
+msgstr "Wg tytułu"
+
+msgid "navigation.dashboard"
+msgstr "Panel roboczy"
+
+msgid "navigation.home"
+msgstr "Start"
+
+msgid "navigation.infoForReaders"
+msgstr "dla czytelników"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informacje dla czytelników"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} z {$total} elementów"
+
+msgid "navigation.login"
+msgstr "Zaloguj"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Następny krok"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Poprzedni krok"
+
+msgid "navigation.register"
+msgstr "Zarejestruj"
+
+msgid "navigation.search"
+msgstr "Wyszukaj"
+
+msgid "navigation.stepNumber"
+msgstr "Krok {$step}"
+
+msgid "navigation.userHome"
+msgstr "Moje konto"
+
+msgid "navigation.user"
+msgstr "Użytkownik"
+
+msgid "notification.allow"
+msgstr "Pozwól, aby ten rodzaj powiadomień wyświetlał się w moim czytniku powiadomień."
+
+msgid "notification.confirmError"
+msgstr "Wystąpił błąd podczas potwierdzania twojej subskrypcji."
+
+msgid "notification.confirmSuccess"
+msgstr "Zostałeś zasubskrybowany(a)."
+
+msgid "notification.email"
+msgstr "Wyślij e-mail dla tych rodzajów powiadomień."
+
+msgid "notification.location"
+msgstr "Idź do URL"
+
+msgid "notification.mailList"
+msgstr "Lista mailingowa"
+
+msgid "notification.mailList.emailInvalid"
+msgstr "Podaj poprawny adres e-mail."
+
+msgid "notification.mailList.privacyProtection"
+msgstr "Polityka prywatności"
+
+msgid "notification.mailList.protectedContent"
+msgstr "<a href=\"{$subscribeUrl}\">Subskrybuj</a> zabezpieczoną zawartość."
+
+msgid "notification.mailList.submit"
+msgstr "<a href=\"{$submitUrl}\">Wysłać</a> artykuł"
+
+msgid "notification.mailList.register"
+msgstr "Zapraszamy do zarejestrowania się na stronie, aby..."
+
+msgid "notification.mailList.review"
+msgstr "Wziąć udział w <a href=\"{$reviewUrl}\">procesie recenzji</a>"
+
+msgid "notification.noneExist"
+msgstr "Nie masz powiadomień."
+
+msgid "notification.notification"
+msgstr "Powiadomienie"
+
+msgid "notification.notifications"
+msgstr "Powiadomienia RSS / Atom"
+
+msgid "notification.notificationsNew"
+msgstr "({$numNew} nowe)"
+
+msgid "notification.notificationsDescription"
+msgstr "Masz {$unreadCount} nieprzeczytanych oraz {$readCount} przeczytanych powiadomień. <a href=\"{$settingsUrl}\">Kliknij tutaj</a>, aby zmienić swoje ustawienia powiadomień."
+
+msgid "notification.settings"
+msgstr "Ustawienia powiadomień"
+
+msgid "notification.settingsDescription"
+msgstr "Zaznacz wydarzenia, o których chcesz być informowany(a). Odznaczenie wpisu spowoduje, że nie będziesz informowany(a) o tego rodzaju wydarzeniach."
+
+msgid "notification.subscribe"
+msgstr "Subskrybuj"
+
+msgid "notification.subscribeError"
+msgstr "Twój adres e-mail znajduje się już w bazie subskrybentów."
+
+msgid "notification.subscribeSuccess"
+msgstr "E-mail został wysłany na adres, który podałeś(aś). Kliknij w link znajdujący się w wiadomości, aby dodać swój adres do listy mailingowej."
+
+msgid "notification.reminderError"
+msgstr "Wystąpił błąd podczas wysyłania twojego hasła, upewnij się, że poprawnie podałeś(aś) swój adres e-mail."
+
+msgid "notification.reminderSent"
+msgstr "Twoje nowe hasło zostało wysłane na e-mail, który podałeś(aś)."
+
+msgid "notification.unsubscribe"
+msgstr "Zrezygnuj z subskrypcji"
+
+msgid "notification.unsubscribeError"
+msgstr "Wystąpił błąd podczas wypisywania cię z listy subskrybentów. Upewnij się, że twój adres e-mail oraz hasło są poprawne."
+
+msgid "notification.unsubscribeSuccess"
+msgstr "Zostałeś(aś) wypisany(a) z listy subskrybentów."
+
+msgid "search.abstract"
+msgstr "Abstrakt"
+
+msgid "search.coverage"
+msgstr "Zasięg"
+
+msgid "search.date"
+msgstr "Data"
+
+msgid "search.dateFrom"
+msgstr "Od"
+
+msgid "search.dateTo"
+msgstr "Do"
+
+msgid "search.discipline"
+msgstr "Dyscyplina"
+
+msgid "search.fullText"
+msgstr "Pełny tekst"
+
+msgid "search.indexTerms"
+msgstr "Słowa kluczowe"
+
+msgid "search.matchAll"
+msgstr "Wszystkie kategorie"
+
+msgid "search.noKeywordError"
+msgstr "Musisz podać przynajmniej jedno słowo kluczowe."
+
+msgid "search.noResults"
+msgstr "Brak wyników"
+
+msgid "search.operator.and"
+msgstr "oraz"
+
+msgid "search.operator.not"
+msgstr "nie"
+
+msgid "search.operator.or"
+msgstr "lub"
+
+msgid "search.subject"
+msgstr "Słowa kluczowe"
+
+msgid "search.titleIndex"
+msgstr "Przeszukaj indeks tytułów"
+
+msgid "search.title"
+msgstr "Tytuł"
+
+msgid "search.typeMethodApproach"
+msgstr "Typ (metoda/podejście)"
+
+msgid "common.error"
+msgstr "Błąd"
+
+msgid "announcement.postedOn"
+msgstr "Opublikowany {$postDate}"
+
+msgid "common.accepted"
+msgstr "Zaakceptowany"
+
+msgid "common.acknowledged"
+msgstr "Potwierdzony"
+
+msgid "common.titleSmallWords"
+msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with"
+
+msgid "common.warning"
+msgstr "Ostrzeżenie"
+
+msgid "common.notice"
+msgstr "Uwaga"
+
+msgid "common.confirm"
+msgstr "Potwierdź"
+
+msgid "common.content"
+msgstr "Zawartość"
+
+msgid "common.declined"
+msgstr "Odrzucony"
+
+msgid "common.finish"
+msgstr "Zakończ"
+
+msgid "common.go"
+msgstr "Idź"
+
+msgid "common.less"
+msgstr "Mniej"
+
+msgid "common.billingAddress"
+msgstr "Adres rozliczeniowy (jeżeli inny)"
+
+msgid "common.more"
+msgstr "Więcej"
+
+msgid "common.notified"
+msgstr "Powiadomiony"
+
+msgid "common.noMatches"
+msgstr "Brak dopasowań"
+
+msgid "common.overdue"
+msgstr "Opóźniony"
+
+msgid "common.reminder"
+msgstr "Przypomnienie"
+
+msgid "common.remote"
+msgstr "Zdalny"
+
+msgid "common.remoteURL"
+msgstr "Zdalny URL"
+
+msgid "common.reset"
+msgstr "Reset"
+
+msgid "common.unread"
+msgstr "Nieczytany"
+
+msgid "common.plugins"
+msgstr "Wtyczki"
+
+msgid "common.metric"
+msgstr "Metryka"
+
+msgid "common.count"
+msgstr "Zlicz"
+
+msgid "defaultMetric.title"
+msgstr "Domyślna metryka"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Dostępne metryki"
+
+msgid "email.subjectRequired"
+msgstr "Podaj tytuł wiadomości."
+
+msgid "email.bodyRequired"
+msgstr "Wpisz treść wiadomości."
+
+msgid "form.confirmSubmit"
+msgstr "Czy na pewno przesłać ten formularz?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Potwierdź"
+
+msgid "form.emailRequired"
+msgstr "Adres e-mail jest wymagany."
+
+msgid "form.dataHasChanged"
+msgstr "Dane w tym formularzu uległy zmianie. Kontynuować?"
+
+msgid "form.invalidImage"
+msgstr "Został przesłany obraz o niepoprawnym rozszerzeniu. Akceptowane formaty to PNG, GIF lub JPG."
+
+msgid "navigation.access"
+msgstr "Użytkownicy i ich role"
+
+msgid "navigation.admin"
+msgstr "Administracja"
+
+msgid "navigation.browseByAuthor"
+msgstr "Wg autora"
+
+msgid "navigation.data"
+msgstr "Dane"
+
+msgid "navigation.publicMenu"
+msgstr "Menu publiczne"
+
+msgid "navigation.settings"
+msgstr "Ustawienia"
+
+msgid "navigation.setup"
+msgstr "Konfiguracja"
+
+msgid "navigation.sitemap"
+msgstr "Mapa strony"
+
+msgid "navigation.submissions"
+msgstr "Zgłoszenia"
+
+msgid "navigation.system"
+msgstr "System"
+
+msgid "navigation.userManagement"
+msgstr "Zarządzanie użytkownikami"
+
+msgid "search.advancedSearchMore"
+msgstr "Dodatkowe opcje wyszukiwania (kliknij, aby wyświetlić)"
+
+msgid "search.advancedSearchLess"
+msgstr "Dodatkowe opcje wyszukiwania (kliknij, aby ukryć)"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Czyszczenie indeksu"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "wykonano"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "błąd"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "Zaindeksowano {$numIndexed} artykułów"
+
+msgid "search.deleteFilter"
+msgstr "Usuń"
+
+msgid "search.indexTermsLong"
+msgstr "Wszystkie indeksowane terminy"
+
+msgid "grid.action.downloadFile"
+msgstr "Pobierz plik"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Aktualny szablon"
+
+msgid "about.description"
+msgstr "Opis"
+
+msgid "about.guidelines"
+msgstr "Wytyczne"
+
+msgid "common.allDownloads"
+msgstr "Wszystkie do pobrania"
+
+msgid "common.navigation.sidebar"
+msgstr "Pasek boczny"
+
+msgid "common.navigation.site"
+msgstr "Nawigacja"
+
+msgid "common.navigation.siteContext"
+msgstr "Nawigacja kontekstowa"
+
+msgid "common.navigation.user"
+msgstr "Nawigacja użytkownika"
+
+msgid "common.tasks"
+msgstr "Zadania"
+
+msgid "common.list"
+msgstr "Lista"
+
+msgid "common.grid"
+msgstr "Siatka"
+
+msgid "common.confirmDelete"
+msgstr "Czy na pewno usunąć ten element? Po usunięciu nie będzie go można przywrócić."
+
+msgid "common.abstract"
+msgstr "Abstrakt"
+
+msgid "common.name"
+msgstr "Nazwa"
+
+msgid "common.assigned.date"
+msgstr "Przypisany: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Dostępny"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "Konfiguracja systemu captcha dla tej strony nie jest poprawna. Brakuje tajnego klucza (secret key)."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "Konfiguracja systemu captcha dla tej strony nie jest poprawna. Wprowadzony tajny klucz (secret key) jest niepoprawny."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Aby przejść dalej musisz potwierdzić captcha."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Błąd sprawdzania systemu captcha."
+
+msgid "common.closePanel"
+msgstr "Zamknij panel"
+
+msgid "common.completed.date"
+msgstr "Ukończone: {$dateCompleted}"
+
+msgid "common.confirmed.date"
+msgstr "Potwierdzone: {$dateConfirmed}"
+
+msgid "common.contents"
+msgstr "Zawartość"
+
+msgid "common.dateHijri"
+msgstr "Kalendarz Hijri"
+
+msgid "common.designation"
+msgstr "Przeznaczenie"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; przy {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pikseli"
+
+msgid "common.downloadPdf"
+msgstr "Pobierz PDF"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$userGroup}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$userGroup}, {$originalFilename}"
+
+msgid "common.fileUploaderError"
+msgstr "Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy."
+
+msgid "common.homepageNavigationLabel"
+msgstr "Strona domowa"
+
+msgid "common.itemsPerPage"
+msgstr "Elementów na stronę"
+
+msgid "common.notes.tooltip"
+msgstr "Uwagi (żółty: nowe; niebieski: przeczytane; szary: brak)"
+
+msgid "common.notified.date"
+msgstr "Powiadomiony: {$dateNotified}"
+
+msgid "common.pageNumber"
+msgstr "Strona {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.prefix"
+msgstr "Prefiks"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Przykłady: A, The"
+
+msgid "common.quality"
+msgstr "Jakość"
+
+msgid "common.queue.long.active"
+msgstr "Wszystkie aktywne"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.readMore"
+msgstr "Czytaj więcej"
+
+msgid "common.readMoreWithTitle"
+msgstr "Przeczytaj więcej na temat {$title}"
+
+msgid "common.reminded.date"
+msgstr "Powiadomiony: {$dateReminded}"
+
+msgid "common.searchQuery"
+msgstr "Zapytanie"
+
+msgid "common.sendEmail"
+msgstr "Wyślij e-mail"
+
+msgid "common.subjects"
+msgstr "Przedmioty"
+
+msgid "common.subtitle"
+msgstr "Podtytuł"
+
+msgid "common.component"
+msgstr "Element"
+
+msgid "common.uploadedDate"
+msgstr "Data przesłania"
+
+msgid "common.upload.addFile"
+msgstr "Prześlij plik"
+
+msgid "common.upload.changeFile"
+msgstr "Zamień plik"
+
+msgid "common.upload.dragFile"
+msgstr "Przeciągnij i upuść plik tutaj, aby rozpocząć przesyłanie"
+
+msgid "common.viewProfile"
+msgstr "Wyświetl profil"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Prześlij plik recenzji"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Prześlij plik"
+
+msgid "email.senderName"
+msgstr "Nadawca"
+
+msgid "email.senderEmail"
+msgstr "Adres e-mail nadawcy"
+
+msgid "form.url.invalid"
+msgstr "Podany URL jest niepoprawny. Sprawdź adres i spróbuj ponownie."
+
+msgid "form.fileRequired"
+msgstr "Plik jest wymagany."
+
+msgid "help.previous"
+msgstr "Poprzedni"
+
+msgid "help.next"
+msgstr "Następny"
+
+msgid "informationCenter.informationCenter"
+msgstr "Centrum informacji"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Historia redakcji"
+
+msgid "informationCenter.addNote"
+msgstr "Dodaj uwagę"
+
+msgid "informationCenter.noNotes"
+msgstr "Brak uwag do wyświetlenia"
+
+msgid "informationCenter.pastNotes"
+msgstr "Poprzednie uwagi"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Czy na pewno usunąć uwagę?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Aktualna wersja"
+
+msgid "informationCenter.pastHistory"
+msgstr "Poprzednie wersje"
+
+msgid "informationCenter.history.noItems"
+msgstr "Brak elementów do wyświetlenia."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Utworzono nową uwagę."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Powiadomienia wysłane do użytkowników."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Powiadomienia wysłane do użytkowników."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Wybierz przygotowaną wcześniej wiadomość lub wypełnij formularz widoczny poniżej."
+
+msgid "stageParticipants.notify.message"
+msgstr "Wiadomość"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Upewnij się, że wypełniłeś(aś) wszystkie pola oraz wybrałeś(aś) przynajmniej jednego odbiorcę."
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Jesteś tutaj:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Narzędzia"
+
+msgid "navigation.tools.importExport"
+msgstr "Import/Eksport"
+
+msgid "navigation.tools.statistics"
+msgstr "Statystyki"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} z {$total} elementów"
+
+msgid "navigation.skip.main"
+msgstr "Przejdź do sekcji głównej"
+
+msgid "navigation.skip.nav"
+msgstr "Przejdź do głównego menu"
+
+msgid "navigation.skip.footer"
+msgstr "Przejdź do stopki"
+
+msgid "navigation.viewFrontend"
+msgstr "Wyświetl stronę"
+
+msgid "notification.addedAuditor"
+msgstr "Dodano kontrolera."
+
+msgid "notification.removedAuditor"
+msgstr "Usunięto kontrolera"
+
+msgid "notification.addedQuery"
+msgstr "Dodano dyskusję"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Recenzja oznaczona jako potwierdzona. E-mail nie został wysłany."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Pliki recenzji zaktualizowane."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Rodzaj powiadomienia dodany."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Rodzaj powiadomienia zmieniony."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Rodzaj powiadomienia usunięty."
+
+msgid "notification.addedAnnouncement"
+msgstr "Powiadomienie dodane."
+
+msgid "notification.editedAnnouncement"
+msgstr "Powiadomienie zmienione."
+
+msgid "notification.removedAnnouncement"
+msgstr "Powiadomienie usunięte."
+
+msgid "notification.addedAuthor"
+msgstr "Autor dodany."
+
+msgid "notification.editedAuthor"
+msgstr "Autor zmieniony."
+
+msgid "notification.addedNote"
+msgstr "Powiadomienie opublikowane."
+
+msgid "notification.removedNote"
+msgstr "Powiadomienie usunięte."
+
+msgid "notification.removedFile"
+msgstr "Plik usunięty."
+
+msgid "notification.removedSubmission"
+msgstr "Zgłoszenie usunięte."
+
+msgid "notification.sentNotification"
+msgstr "Powiadomienie wysłane."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadane przesłanego tekstu zapisane."
+
+msgid "search.author"
+msgstr "Według autora"
+
+msgid "search.advancedFilters"
+msgstr "Filtry zaawansowane"
+
+msgid "search.searchAgain"
+msgstr "Wyszukaj ponownie"
+
+msgid "search.SearchFor"
+msgstr "Znajdź"
+
+msgid "search.searchResults"
+msgstr "Wyniki wyszukiwania"
+
+msgid "context.path"
+msgstr "Ścieżka"
+
+msgid "review.ensuringBlindReview"
+msgstr "Zapewnienie podwójnej ślepej recenzji"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Wyświetl warunki recenzji"
+
+msgid "grid.action.deleteNotification"
+msgstr "Usuń zadanie"
+
+msgid "grid.action.markNew"
+msgstr "Oznacz nowe"
+
+msgid "grid.action.markRead"
+msgstr "Oznacz przeczytane"
+
+msgid "dashboard.tasks"
+msgstr "Zadania"
+
+msgid "dashboard.myQueue"
+msgstr "Moja kolejka"
+
+msgid "review.blindPeerReview"
+msgstr "<p>Aby umożliwić wykonanie podwójnej ślepej recenzji, wszystkie dane autorów oraz recenzentów lub inne elementy mogące pomóc w ich zidentyfikowaniu muszą zostać bezwzględnie usunięte z przesłanych plików. W tym celu sprawdź czy:</p><ul><li>Autorzy dokumentu usunęli swoje dane z tekstu.</li><li>Medatane w plikach Microsoft Word i podobnych programów zostały usunięte (zobacz Plik &gt; Zapisz jako &gt; Narzędzia &gt; Bezpieczeństwo &gt; Usuń informacje o autorze przy zapisywaniu &gt; Zapisz).</li><li>W przypadku plików PDF informacje o autorach powinny być usunięte z właściwości dokumentu. Ustawienia te możesz znaleźć przechodząc z poziomu głównego menu Adobe Acrobat do zakładki Plik.</li></ul>"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Harmonogram recenzji"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Prośba redaktora"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Odpowiedz do"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Wykonaj recenzję do"
+
+msgid "submission.task.responseDueDate"
+msgstr "Odpowiedz do"
+
+msgid "navigation.goBack"
+msgstr "Wróć"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem został wysłany."
+
+msgid "notification.removedReviewer"
+msgstr "Recenzent usunięty."
+
+msgid "notification.addedStageParticipant"
+msgstr "Użytkownik dodany jako uczestnik etapu."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Nowe powiadomienie."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Recenzja w trakcie."
+
+msgid "notification.type.auditorRequest"
+msgstr "Przejrzyj zapytanie dla \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Wszystkie recenzje są gotowe - decyzja jest niezbędna w etapie {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Przejrzany plik został przesłany i jest dostępny w etapie {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Poprawiony tekst do rozważenia w etapie {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Poprawiony tekst przesłany do etapu {$stage}."
+
+msgid "notification.type.metadataModified"
+msgstr "Metadane tytułu \"{$title}\" zmodyfikowane."
+
+msgid "notification.type.reviewerComment"
+msgstr "Recenzent dodał komentarz do \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Plik rozpatrzony."
+
+msgid "user.authorization.submissionFile"
+msgstr "Wybrany użytkownik nie posiada praw dostępu do zgłoszonego pliku."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Nieprawidłowo przesłany tekst."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Nieprawidłowa reprezentacja."
+
+msgid "navigation.archives"
+msgstr "Archiwum"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "Nie posiadasz odpowiednich uprawnień, aby przeglądać zgłoszenie. Wprowadź zmiany w swoim profilu, aby upewnić się, że otrzymałeś(aś) odpowiednie uprawnienia (rolę)."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "Nie jesteś autorem zgłoszonego tekstu. Sprawdź, czy jesteś zalogowany(a) korzystając z poprawnego konta użytkownika."
+
+msgid "notification.type.queryActivity"
+msgstr "Aktywność."
+
+msgid "notification.type.queryAdded"
+msgstr "Dyskusja dodana."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Przypisz korektora. Użyj linku Dodaj w części Uczestnicy."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Oczekujące na korektę."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status rundy {$round}"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Element menu został zaktualizowany"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Element menu został usunięty"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Element menu został dodany"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Menu zostało dodane"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Menu zostało zaktualizowane"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Menu zostało usunięte"
+
+msgid "common.deleting"
+msgstr "Usuwanie"
+
+msgid "common.from"
+msgstr "Od"
+
+msgid "common.until"
+msgstr "Do"
+
+msgid "common.saving"
+msgstr "Zapisywanie"
+
+msgid "stageParticipants.options"
+msgstr "Uprawnienia"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Ten uczestnik jest uprawniony jedynie do zarekomendowania decyzji i wymaga działania redaktora w celu zapisania decyzji."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Wiadomość z podziękowaniem została przesłana do recenzenta."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Wyślij e-mail z podziękowaniem do wszystkich zarejestrowanych użytkowników"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem nie został wysłany."

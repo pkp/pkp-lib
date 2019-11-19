@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T11:06:23+00:00\n"
+"PO-Revision-Date: 2019-11-19T11:06:23+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Plugin Acron"
+
+msgid "plugins.generic.acron.reload"
+msgstr "Recarregar Tarefas Agendadas"
+
+msgid "plugins.generic.acron.description"
+msgstr "Este plugin pretende reduzir a dependência da aplicação de outras ferramentas de escalonamento periódico, como o 'cron'."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "O Plugin Acron foi ativado."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "O Plugin Acron foi desativado."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "A tabela Cron foi recarregada com sucesso."
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Tarefas Agendadas foram recarregadas."

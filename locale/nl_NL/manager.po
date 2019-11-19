@@ -1,0 +1,1751 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Informatie"
+
+msgid "manager.website.appearance"
+msgstr "Weergave"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Een afbeelding is verplicht. Kies een afbeelding en laad ze op."
+
+msgid "manager.announcements"
+msgstr "Nieuwsberichten"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Weet u zeker dat u dit nieuwsbericht wilt verwijderen?"
+
+msgid "manager.announcements.create"
+msgstr "Nieuw nieuwsbericht maken"
+
+msgid "manager.announcements.createTitle"
+msgstr "Aanmaken"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Verloopt"
+
+msgid "manager.announcements.datePublish"
+msgstr "Gepubliceerd op"
+
+msgid "manager.announcements.edit"
+msgstr "Nieuwsbericht bewerken"
+
+msgid "manager.announcements.editTitle"
+msgstr "Bewerken"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Kies een jaar en/of maand naast de dag van de afloopdatum."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Afloopdatum"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Het nieuwsbericht wordt tot de afloopdatum getoond aan de lezers. Leeg laten als het nieuwsbericht blijvend getoond moet worden."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Kies een jaar en/of dag naast de maand van de afloopdatum."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Kies een geldige afloopdatum voor het nieuwsbericht."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Kies een maand en/of dag naast het jaar van de afloopdatum."
+
+msgid "manager.announcements.form.description"
+msgstr "Beschrijving"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "De volledige tekst van het nieuwsbericht."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Een beschrijving is verplicht."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Een korte beschrijving die bij de titel van het nieuwsbericht getoond wordt."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Een korte beschrijving is verplicht."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Korte beschrijving"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Bewaar en maak er nog een aan"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Een titel voor het nieuwsbericht is verplicht."
+
+msgid "manager.announcements.form.title"
+msgstr "Titel"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Type"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Kies een geldig nieuwsberichttype."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Er zijn geen nieuwsberichten aangemaakt."
+
+msgid "manager.announcements.title"
+msgstr "Titel"
+
+msgid "manager.announcements.type"
+msgstr "Type"
+
+msgid "manager.announcementTypes"
+msgstr "Nieuwsberichttypes"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Waarschuwing! Alle nieuwsberichten van dit type worden ook verwijderd.Weet u zeker dat u door wilt gaan en dit nieuwsberichttype wilt verwijderen?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Nieuwsberichttype aanmaken"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Aanmaken"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Bewerk nieuwsberichttype"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Bewerken"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Bewaar en maak er nog een aan"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Er bestaat al een nieuwsberichttype met deze naam."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Naam"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Een naam voor het nieuwsberichttype is verplicht."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Er zijn geen nieuwsberichttypes aangemaakt."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Nieuwsberichttype"
+
+msgid "manager.publication.submissionStage"
+msgstr "Inzending"
+
+msgid "manager.publication.reviewStage"
+msgstr "Review"
+
+msgid "manager.publication.editorialStage"
+msgstr "Redactie"
+
+msgid "manager.publication.productionStage"
+msgstr "Productie"
+
+msgid "manager.publication.emails"
+msgstr "E-mails"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "De instellingen voor e-mail zijn bijgewerkt."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Reviewer richtlijnen"
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Reviewer richtlijnen zijn bijgewerkt."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "De review instellingen zijn bijgewerkt."
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "De instellingen voor review herinneringen zijn bijgewerkt."
+
+msgid "manager.emails.confirmDelete"
+msgstr "Weet u zeker dat u dit e-mail sjabloon wilt verwijderen?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Weet u zeker dat u dit e-mail sjabloon wilt terugzetten naar de standaardwaarde?"
+
+msgid "manager.emails.addEmail"
+msgstr "Voeg e-mail sjabloon toe"
+
+msgid "manager.emails.createEmail"
+msgstr "E-mail aanmaken"
+
+msgid "manager.emails.data"
+msgstr "Sjabloon berichtinhoud"
+
+msgid "manager.emails.details"
+msgstr "Sjabloon details"
+
+msgid "manager.emails.disable"
+msgstr "Schakel uit"
+
+msgid "manager.emails.disable.message"
+msgstr "U staat op het punt dit sjabloon uit te schakelen. Als er systeemprocessen zijn die dit sjabloon gebruiken, zullen ze het niet meer gebruiken. Wilt u deze bewerking bevestigen?"
+
+msgid "manager.emails.editEmail"
+msgstr "E-mail bewerken"
+
+msgid "manager.emails.editTestExample"
+msgstr "Bewerk testvoorbeeld e-mail"
+
+msgid "manager.emails.emailKey"
+msgstr "E-mail sleutel"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Een e-mail met de opgegeven sleutel bestaat al. E-mail sleutels moeten uniek zijn."
+
+msgid "manager.emails.emailTemplate"
+msgstr "E-mail sjabloon"
+
+msgid "manager.emails.enabled"
+msgstr "Schakel dit e-mail sjabloon in"
+
+msgid "manager.emails.enable"
+msgstr "Schakel in"
+
+msgid "manager.emails.enable.message"
+msgstr "U staat op het punt deze e-mail in te schakelen. Wilt u deze bewerking bevestigen?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Er is een unieke e-mail sleutel nodig voor de e-mail."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "De e-mail moet tekst bevatten."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "De e-mail moet een onderwerp hebben."
+
+msgid "manager.emails"
+msgstr "Voorbereide e-mails"
+
+msgid "manager.emails.reset"
+msgstr "Herstel"
+
+msgid "manager.emails.reset.message"
+msgstr "Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Standaard terugzetten"
+
+msgid "manager.filesBrowser"
+msgstr "Bestanden bekijken"
+
+msgid "manager.files.confirmDelete"
+msgstr "Dit bestand of deze map verwijderen? Merk op dat een map leeg moet zijn voor deze verwijderd kan worden."
+
+msgid "manager.files.createDir"
+msgstr "Creëer map"
+
+msgid "manager.files.emptyDir"
+msgstr "Geen bestanden in deze map."
+
+msgid "manager.files.indexOfDir"
+msgstr "Index van {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Bovenliggende map"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Geladen bestanden"
+
+msgid "manager.files.uploadFile"
+msgstr "Bestand laden"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Weet u zeker dat u deze groep wilt verwijderen?"
+
+msgid "manager.groups.createTitle"
+msgstr "Titel aanmaken"
+
+msgid "manager.groups.editTitle"
+msgstr "Bewerk titel"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Een groeptitel is verplicht."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Lid toevoegen"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Weet u zeker dat u het lidmaatschap van deze groep wilt verwijderen?"
+
+msgid "manager.groups.membership"
+msgstr "Lidmaatschap"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Deze groep heeft geen leden."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Geen gebruikers gevonden."
+
+msgid "manager.groups.title"
+msgstr "Titel"
+
+msgid "manager.importExport"
+msgstr "Importeer/Exporteer gegevens"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Inzendingen"
+
+msgid "manager.language.forms"
+msgstr "Formulieren"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Herlaad standaardwaarden"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Dit systeem biedt de mogelijkheid om bepaalde kritische informatie in een aantal andere talen in te voeren. Kies daarvoor bijkomende talen en maak een keuze uit de opties hieronder."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Kies alle gewenste talen voor de site. Gebruikers kunnen een taal kiezen door een keuzemenu dat op iedere pagina getoond wordt. Dit menu wordt alleen getoond als meer dan één taal gekozen wordt."
+
+msgid "manager.payment.timestamp"
+msgstr "Datum en tijd"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Vul een bestaande gebruiker in."
+
+msgid "manager.people.authSource"
+msgstr "Authenticatiebron"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Deze gebruiker uitschrijven?"
+
+msgid "manager.people.createUser"
+msgstr "Maak een nieuwe gebruiker aan"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Genereer een willekeurig wachtwoord."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Stuur de gebruiker een e-mail met diens gebruikersnaam en wachtwoord."
+
+msgid "manager.people.disable"
+msgstr "Blokkeer"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Zonder rol"
+
+msgid "manager.people.editProfile"
+msgstr "Bewerk profiel"
+
+msgid "manager.people.editUser"
+msgstr "Bewerk gebruiker"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Verstuur een e-mail aan geselecteerde gebruikers"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Verstuur een e-mail aan gebruikers die zijn ingeschreven als"
+
+msgid "manager.people.emailUsers"
+msgstr "Verstuur een e-mail aan gebruikers"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Kies een taal"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Kies de gebruikers die u wilt e-mailen door de vakjes naast hun naam aan  te vinken"
+
+msgid "manager.people.enable"
+msgstr "Toelaten"
+
+msgid "manager.people.enroll"
+msgstr "Gebruiker inschrijven"
+
+msgid "manager.people.enrollment"
+msgstr "Inschrijving"
+
+msgid "manager.people.enrollSelected"
+msgstr "Schrijf de geselecteerde gebruikers in"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Synchroniseer rollen"
+
+msgid "manager.people.enrollSync"
+msgstr "Synchroniseer inschrijving"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Gebruikers kunnen op ieder moment een rol krijgen of daarvan ontheven worden."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Schrijf gebruiker in als"
+
+msgid "manager.people.invalidUser"
+msgstr "Sorry, de gevraagde gebruiker bestaat niet."
+
+msgid "manager.people.mergeUser"
+msgstr "Gebruiker samenvoegen"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Weer u zeker dat u de geselecteerde {$oldAccountCount} account(s) wilt samenvoegen met \"{$newUsername}\"? de geselecteerde {$oldAccountCount} account(s) zullen achteraf niet meer bestaan. Deze actie is onomkeerbaar."
+
+msgid "manager.people.mergeUsers"
+msgstr "Gebruikers samenvoegen"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Kies een van de rollen bovenaan de pagina voor op \"Gebruiker inschrijven\" te klikken."
+
+msgid "manager.people.mustProvideName"
+msgstr "Svp eerst minimaal een achternaam voor de gebruiker opgeven."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Geen passende gebruikers."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Geen gebruikers ingeschreven."
+
+msgid "manager.people"
+msgstr "Contact"
+
+msgid "manager.people.remove"
+msgstr "Verwijder"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Bewaren en een volgende aanmaken"
+
+msgid "manager.people.signInAs"
+msgstr "Inloggen als"
+
+msgid "manager.people.signInAsUser"
+msgstr "Inloggen als gebruiker"
+
+msgid "manager.people.syncUsers"
+msgstr "Synchroniseer ingeschreven gebruikers"
+
+msgid "manager.people.unenroll"
+msgstr "Uitschrijven"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Gebruiker met succes aangemaakt."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Verplicht de gebruiker om een nieuw wachtwoord te kiezen bij de eerstvolgende inlog."
+
+msgid "manager.plugins.action"
+msgstr "Actie:"
+
+msgid "manager.plugins.disable"
+msgstr "Uitschakelen"
+
+msgid "manager.plugins.enable"
+msgstr "Inschakelen"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Plugin beheer"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Dit is een site-plugin. Alleen de sitebeheerder kan deze plugin beheren."
+
+msgid "manager.plugins"
+msgstr "Systeemplugins"
+
+msgid "manager.readingTools"
+msgstr "Leesgereedschappen"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Zoek een gebruiker op naam"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Wijzig"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Zoek een reviewer op naam"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Zoeken op naam"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Review interesses"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Gebruik het formulier hieronder om de maximumwaarden op te geven voor de termen waar u op wilt zoeken. Het formulier wordt vooraf gevuld met de gemiddelden voor die velden."
+
+msgid "manager.roles"
+msgstr "Rollen"
+
+msgid "manager.statistics"
+msgstr "Statistieken & rapporten"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"Uw {$contextObjectName} is geconfigureerd voor meer dan een gebruiksmeting. Gebruiksstatistieken worden in verschillende contexten getoond.\n"
+"\t\tSoms wordt een enkele statistiek getoond, bv, om een lijst van meestgebruikte artikels te tonen of om zoekresultaten te wegen. Kies een van de methodes als standaard."
+
+msgid "manager.statistics.city"
+msgstr "Stad"
+
+msgid "manager.statistics.region"
+msgstr "Regio"
+
+msgid "manager.statistics.reports"
+msgstr "Rapporteringstool"
+
+msgid "manager.statistics.reports.description"
+msgstr "Het systeem maakt rapporten met gegevens over het bezoek van de website en inzendingen over een bepaalde tijdperiode. Rapporten worden gegenereerd in CSV formaat, dat met een spreadheet programma kan worden bekeken."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Groepeer statistieken per:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Items in cusief en gemarkeerd met * geven optionele gegevens weer voor de geselecteerde telmethode in het systeem (type van gebruiksmeting). De gegevens kunnen wel of niet beschikbaar zijn, afhankelijk van de instelling van uw statistieken plugin."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Standaard rapportsjablonen"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Genereer aangepast rapport"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Geavanceerde opties"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Verberg geavanceerde opties"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Kolommen"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Definieer de kolommen die zullen worden gebruikt voor het rapport. De kolommen die hier worden geselecteerd bepalen niet alleen welke gegevens zullen worden opgenomen in de rapporten, maar ook de onderverdeling van de statistieken. Wanneer bijvoorbeeld de kolommen ID, Type en Maand worden gekozen, zal het rapport alle gebruiksstatistieken van één maand presenteren in één rij. Wanneer wordt gekozen voor Dag, zal elk object een nieuwe rij krijgen voor elke dag."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filters"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Object werd niet gevonden in de databank"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Objecttype"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Object id"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Definieer een of meer object id's, gescheiden door komma's (bv. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Gisteren"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Huidige maand"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Sorteer op"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Richting"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Oplopend"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Aflopend"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Gebruik het formaat JJJJMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Gebruik het formaat JJJJMMDD."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Eén of meer namen van steden, gescheiden door komma's (bv. stad 1,stad 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Selecteer minstens één kolom om het rapport te genereren."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL voor het rapport"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "De volgende URL kan worden gebruikt om het rapport opnieuw te genereren met de huidige instellingen, door de URL te kopiëren en plakken in uw browser. Door de URL te bookmarken, kan hij ook werken als aangepaste rapportengenerator."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Op context"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Op objecttype en/of object id"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Selecteer bereik van het rapport"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Of selecteer bereik op:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Op geolocatie"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Reduceer resultaten op land, regio en/of stad."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponsor"
+
+msgid "manager.setup.additionalContent"
+msgstr "Bijkomende inhoud"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Deze inhoud zal op de homepage worden verschijnen."
+
+msgid "manager.setup.advanced"
+msgstr "Geavanceerd"
+
+msgid "manager.setup.appearance.success"
+msgstr "De weergave-instellingen zijn bijgewerkt."
+
+msgid "manager.setup.contact.success"
+msgstr "De contactgegevens voor de uitgeverij zijn bijgewerkt."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Copyright verklaring"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Verplicht auteurs om akkoord te gaan met volgende copyright verklaring als deel van het inzendingsproces."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Richtlijnen voor auteurs"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Aanbevolen richtlijnen omvatten bibliografische en opmaakrichtlijnen voor inzendingen, naast voorbeelden van citatieformaten."
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "De auteursrichtlijnen zijn met succes bijgewerkt."
+
+msgid "manager.setup.checklist"
+msgstr "Controlelijst"
+
+msgid "manager.setup.competingInterests"
+msgstr "Strijdige belangen"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Er is een fout opgetreden bij het verwijderen van dit onderdeel."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.groupType"
+msgstr "Groepering per bestandstype"
+
+msgid "manager.setup.homepageImage"
+msgstr "Afbeelding voor homepage"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Laad een afbeelding op die prominent op de homepage wordt getoond."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Onbruikbaar bestandsformaat voor de homepage afbeelding. Bruikbaar zijn .gif, .jpg of .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Onbruikbaar bestandsformaat voor de homepage koptitel. Bruikbaar zijn .gif, .jpg of .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Beschrijvingen"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Sidebar"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "De {$name} blok kan niet worden gevonden. Zorg ervoor dat de plugin geïnstalleerd en ingeschakeld is."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Logboek en controle"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.notifications"
+msgstr "Verwittiging van inzending door een auteur"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Verstuur een kopie aan dit e-mailadres"
+
+msgid "manager.setup.notifications.description"
+msgstr "Auteurs krijgen na inzending automatisch een bevestigings-e-mail. Kopies van deze e-mail kunnen worden verstuurd aan volgende ontvangers:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Open Access beleid"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Wanneer alle inhoud onmiddellijk gratis wordt gepubliceerd, kan hier een beschrijving worden gegeven van het Open Access beleid."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Onbruikbaar bestandsformaat voor het paginakop-logo. Bruikbaar zijn .gif, .jpg of .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Voettekst"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Geef op welke afbeeldingen, tekst of HTML code u onderaan elke webpagina wilt tonen."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Beschrijf het peer review beleid en het verloop ervan voor lezers en auteurs. Deze beschrijving bevat doorgaans een aanduiding van het aantal reviewers die worden aangesteld om een inzending te beoordelen, de criteria waaraan reviewers wordt gevraagd om inzendingen te beoordelen, verwachte tijd voor het voltooien van reviews en de principes waarmee reviewers worden geselecteerd."
+
+msgid "manager.setup.principalContact"
+msgstr "Eerste contactpersoon"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Vul contactgegevens in van de eindredacteur, hoofdredacteur of een administratieve functie, die op de homepage van het tijdschrift worden getoond bij Contactpersoon."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Privacy verklaring"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Deze verklaring verschijnt bij de registratie van nieuwe gebruikers, inzending, en op de publiek toegankelijke Privacy pagina. In sommige rechtssystemen bent u wettelijk verplicht om in een privacy verklaring bekend te maken hoe gebruikersgegevens worden verwerkt."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Standaard antwoorddatum"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Standaard reviewdatum"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Uiterste datum voor het beantwoorden van een reviewverzoek (in weken)"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Uiterste datum voor het voltooien van een review (in weken)"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Stuur nooit een herinnering"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Standaardwaarden kunnen worden aangepast voor elke review afzonderlijk tijdens het redactieproces."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Antwoordherinnering"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "Verstuur een herinnerings-e-mail als een reviewer niet binnen het opgegeven aantal dagen na de uiterste antwoorddatum heeft geantwoord op een reviewverzoek."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Review herinnering"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr "Verstuur een herinnerings-e-mail als een reviewer niet binnen het opgegeven aantal dagen na de uiterste reviewdatum een aanbeveling heeft ingediend."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Standaard reviewmodus"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr "Bied bij het opladen een link aan naar \"Verzekering van blinde review\""
+
+msgid "manager.setup.sponsors.note"
+msgstr "Sponsors en beleid"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Voorbeelden: wetenschappelijke instellingen, universiteitsdepartementen, collectieven, enz. Sponsors worden publiek getoond."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Ervaren webontwikkelaars kunnen een CSS bestand opladen om de weergave van de website aan te passen."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Contactgegevens technische ondersteuning"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Een contactpersoon die redacteurs, auteurs en reviewers kan assisteren met mogelijke problemen bij het inzenden, redigeren, reviewen of publiceren van teksten."
+
+msgid "manager.setup.theme.success"
+msgstr "De stijl is bijgewerkt. <a href=\"{$url}\" target=\"_blank\">Bekijk nu</a>"
+
+msgid "manager.setup.theme"
+msgstr "Stijl"
+
+msgid "manager.setup.theme.description"
+msgstr "Nieuwe stijlen kunnen worden geïnstalleerd op het plugins tabblad bovenaan deze pagina."
+
+msgid "manager.setup.theme.notFound"
+msgstr "De stijl die u heeft geselecteerd is niet geïnstalleerd of ingeschakeld."
+
+msgid "manager.setup.userAccess.success"
+msgstr "De instellingen voor gebruikerstoegang voor deze uitgeverij zijn bijgewerkt."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Toegangsopties"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} nieuw)"
+
+msgid "manager.users"
+msgstr "Gebruikers"
+
+msgid "plugins.categories.metadata"
+msgstr "Metadata plugins"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Metadata Plugins implementeren aanvullende metadata standaards"
+
+msgid "plugins.categories.auth"
+msgstr "Authenticatie plugins"
+
+msgid "plugins.categories.blocks"
+msgstr "Block plugins"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Block plugins zijn inschakelbare gebruikersinterface componenten zoals de gereedschappen in de sidebar."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway Plugins leveren actuele gegevens aan externe systemen."
+
+msgid "plugins.categories.gateways"
+msgstr "Gateway plugins"
+
+msgid "plugins.categories.generic"
+msgstr "Generieke plugins"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Import/Export plugins kunnen gebruikt worden om gegevens van en naar andere systemen te verplaatsen."
+
+msgid "plugins.categories.importexport"
+msgstr "Import/Export plugins"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Betalingsmethode plugins implementeren de ondersteuning voor verschillende manieren om online te betalen."
+
+msgid "plugins.categories.paymethod"
+msgstr "Betalingsmethode plugins"
+
+msgid "plugins.categories.reports.description"
+msgstr "Rapportage plugins worden gebruikt voor het implementeren van verschillende soorten rapporten en data-extracties voor conferentiebeheerders"
+
+msgid "plugins.categories.reports"
+msgstr "Rapportage plugins"
+
+msgid "plugins.categories.themes.description"
+msgstr "Thema plugins kunnen gebruikt worden om het uiterlijk van het systeem te veranderen."
+
+msgid "plugins.categories.themes"
+msgstr "Thema plugins"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI Metadata formaat plugins"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Deze plugins beheren metadata-formaten voor OAI communicatie."
+
+msgid "plugins.categories.pubIds"
+msgstr "Publieke identificatie plugins"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Deze plugins bieden ondersteuning voor publieke identificatie."
+
+msgid "manager.plugins.copyError"
+msgstr "Plugin werd niet met succes gekopieerd. Er is mogelijk een probleem met rechten. Zorg ervoor dat de plugins folder op de webserver schrijfbaar is (inclusief subfolders), maar vergeet niet om de beveiliging later weer te herstellen."
+
+msgid "manager.plugins.delete"
+msgstr "Verwijder plugin"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Weet u zeker dat u deze plugin wilt installeren?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Weet u zeker dat u deze plugin wilt bijwerken?"
+
+msgid "grid.action.installPlugin"
+msgstr "Installeer of upgrade deze plugin"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Weet u zeker dat u deze plugin wilt verwijderen van het systeem?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Door op \"Verwijderen\" te klikken, wordt de plugin van de server verwijderd."
+
+msgid "manager.plugins.deleteError"
+msgstr "Plugin \"{$pluginName}\" kan niet worden verwijderd van de server. Er is mogelijk een probleem met rechten. Zorg ervoor dat de plugins folder op de webserver schrijfbaar is (inclusief subfolders), maar vergeet niet om de beveiliging later weer te herstellen."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Plugin \"{$pluginName}\" werd met succes verwijderd"
+
+msgid "manager.plugins.description"
+msgstr "Op deze pagina kan de beheerder de geïnstalleerde plugins bekijken en mogelijk configureren. Plugins zijn onderverdeeld in functionele categorieën. Hieronder wordt per categorie een lijst met geïnstalleerde plugins getoond."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Plugin \"{$pluginName}\" bestaat niet"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Selecteer eerst een bestand"
+
+msgid "manager.plugins.upload"
+msgstr "Laad een nieuwe plugin"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Met dit formulier kan u een nieuwe plugin opladen en installeren. Zorg ervoor dat de plugin gecomprimeerd is als een .tar.gz archiefbestand."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Zorg ervoor dat een bestand werd geselecteerd om op te laden."
+
+msgid "manager.plugins.installed"
+msgstr "Geïnstalleerde plugins"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Plugins overzicht"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Overzicht"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Installatie"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Laatste compatibele versie"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Officieel"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Deze plugin wordt ontwikkeld en onderhouden door het Public Knowledge Project team."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Officieel ondersteund"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Deze plugin is beoordeeld en goedgekeurd door het Public Knowledge Project team."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Deze plugin wordt ontwikkeld door een van onze partners."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Onderhouder"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} gepubliceerd op {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Homepage"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Samenvatting"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "De plugin is nog niet geïnstalleerd."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Er is geen compatibele versie van deze plugin beschikbaar."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Plugin is al geïnstalleerd, en is recenter dan de versie in het overzicht."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Plugin is al geïnstalleerd, maar kan worden bijgewerkt naar een recentere versie."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Plugin is al geïnstalleerd en up-to-date."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Recenter dan de beschikbare versie"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Kan worden bijgewerkt"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Up-to-date"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Niet beschikbaar"
+
+msgid "manager.plugins.installFailed"
+msgstr "Installatie mislukt. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Versie {$versionNumber} met succes geïnstalleerd"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Het opgeladen plugin archiefbestand bevat geen folder die overeenkomt met de naam van de plugin."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "De opgeladen plugin komt niet overeen met de categorie van de bijgewerkte plugin."
+
+msgid "manager.plugins.wrongName"
+msgstr "Het version.xml bestand voor de opgeladen plugin bevat een plugin naam die niet overeenkomt met de naam van de bijgewerkte plugin."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Plugin bestaat niet. Installeer."
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Plugin bestaat al, maar is recenter dan de geïnstalleerde versie. Werk de geïnstalleerde plugin bij"
+
+msgid "manager.plugins.settings"
+msgstr "Instellingen"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "Het tar commando is niet beschikbaar. Stel het juiste pad in, in het \"config.inc.php\" bestand."
+
+msgid "manager.plugins.upgrade"
+msgstr "Werk plugin bij"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Met dit formulier kan u een plugin bijwerken. Zorg ervoor dat de plugin gecomprimeerd is als een .tar.gz. archiefbestand."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Upgrade is mislukt. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Met succes bijgewerkt naar versie {$versionString}."
+
+msgid "manager.plugins.uploadError"
+msgstr "Fout bij het opladen van het bestand"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Selecteer plugin bestand"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "Het version.xml bestand in de plugin folder bevat ongeldige gegevens."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "Het version.xml bestand werd niet gevonden in de plugin folder."
+
+msgid "notification.localeEnabled"
+msgstr "Taal ingeschakeld."
+
+msgid "notification.localeDisabled"
+msgstr "Taal uitgeschakeld."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} ingesteld als hoofdtaal."
+
+msgid "notification.localeInstalled"
+msgstr "Alle geselecteerde taal/talen zijn geïnstalleerd en actief."
+
+msgid "notification.localeUninstalled"
+msgstr "Taal {$locale} verwijderd."
+
+msgid "notification.localeReloaded"
+msgstr "Taal {$locale} vernieuwd."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Taalinstellingen zijn bewaard."
+
+msgid "notification.editedUser"
+msgstr "Gebruiker is bewerkt."
+
+msgid "manager.distribution.license"
+msgstr "Licentie"
+
+msgid "manager.distribution.license.success"
+msgstr "De licentiegegevens zijn bijgewerkt."
+
+msgid "manager.distribution.license.other"
+msgstr "Andere licentie-URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Licentievoorwaarden"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "Vul publieke licentievoorwaarden in die u wilt laten tonen bij gepubliceerd werk."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Eigen tags"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr "Voeg eigen HTML tags toe, ook bekend als meta-tags, die u wilt laten invoegen bij de titelgegevens van elke pagina. Raadpleeg een technische adviseur vooraleer hier tags in te voegen."
+
+msgid "manager.paymentMethod"
+msgstr "Betalingen"
+
+msgid "manager.paymentMethod.title"
+msgstr "Betaalwijzen"
+
+msgid "manager.paymentMethod.none"
+msgstr "Geen betaalwijze geselecteerd"
+
+msgid "manager.paymentMethod.method"
+msgstr "Betaalwijze"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Munt"
+
+msgid "settings.roles.roleOptions"
+msgstr "Rol-instellingen"
+
+msgid "settings.roles.showTitles"
+msgstr "Toon titel van de rol in het overzicht van bijdragers"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Laat toe dat gebruikers zichzelf registreren"
+
+msgid "settings.roles.recommendOnly"
+msgstr "Deze rol mag uitsluitend aanbevelingen doen voor reviewbeslissingen. Alleen een bevoegde redacteur kan de finale beslissing vastleggen."
+
+msgid "settings.roles.roleName"
+msgstr "Rol naam"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Afkorting"
+
+msgid "settings.roles.assignedStages"
+msgstr "Toegewezen stappen van het redactieproces"
+
+msgid "settings.roles.stages"
+msgstr "Stappen"
+
+msgid "settings.roles.roleDetails"
+msgstr "Rol details"
+
+msgid "settings.roles.from"
+msgstr "Toegangsniveau"
+
+msgid "settings.roles.removeText"
+msgstr "U staat op het punt om deze rol te verwijderen uit deze context. Deze actie zal ook alle gerelateerde instellingen verwijderen, en alle taken die aan deze rol zijn toegewezen. Wilt u doorgaan?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Een naam voor de rol is verplicht."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Een afkorting voor de rol is verplicht."
+
+msgid "settings.roles.uniqueName"
+msgstr "Een unieke naam voor de rol is verplicht."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Een unieke afkorting voor de rol is verplicht."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Een toegangsniveau voor de rol is verplicht."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Er moet een stap in het redactieproces worden geselecteerd."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Een bibliotheekbestand is verplicht. Zorg ervoor dat u een bestand heeft gekozen en opgeladen."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Een naam voor dit bibliotheekbestand is verplicht."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Een bestandstype voor dit bibliotheekbestand is verplicht."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Contracten"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Toelatingen"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Rapporten"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Overige"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Dit bibliotheekbestand kan worden beschikbaar gesteld voor downloaden, door \"Publieke toegang\" in te schakelen, op <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Selecteer bibliotheekbestanden"
+
+msgid "grid.action.addGenre"
+msgstr "Voeg een onderdeel toe"
+
+msgid "grid.action.editGenre"
+msgstr "Bewerk dit onderdeel"
+
+msgid "grid.action.deleteGenre"
+msgstr "Verwijder dit onderdeel"
+
+msgid "grid.action.restoreGenres"
+msgstr "Herstel de onderdelen naar de standaardwaarden"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Markeer bestanden van dit type als secundaire bestanden (zodat ze niet worden opgenomen bij de uiteindelijke publicatie)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Markeer bestanden van dit type als toegevoegde bestanden (d.w.z. geen primaire inzendingen)"
+
+msgid "manager.setup.genres.key"
+msgstr "Sleutel"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Een optionele korte symbolische identificatie voor dit genre."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "De sleutel bestaat al."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "De sleutel kan uitsluitend alfanumerieke tekens, liggende streepjes en koppeltekens bevatten, en moeten beginnen en eindigen met een alfanumeriek teken."
+
+msgid "manager.settings.wizard"
+msgstr "Instellingen assistent"
+
+msgid "manager.users.roleRequired"
+msgstr "Selecteer minstens één rol die aan deze gebruiker wordt toegekend."
+
+msgid "manager.website"
+msgstr "Website"
+
+msgid "manager.website.title"
+msgstr "Website instellingen"
+
+msgid "manager.workflow"
+msgstr "Redactieproces"
+
+msgid "manager.workflow.title"
+msgstr "Instellingen redactieproces"
+
+msgid "manager.distribution"
+msgstr "Distributie"
+
+msgid "manager.distribution.title"
+msgstr "Distributie-instellingen"
+
+msgid "manager.reviewForms"
+msgstr "Reviewformulieren"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Weet u zeker dat u dit reviewformulier wilt activeren? Eens het in gebruik is voor een review, kan het niet meer worden gedeactiveerd."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Weet u zeker dat u dit reviewformulier wilt deactiveren? Het zal niet langer beschikbaar zijn voor nieuwe reviews."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Weet u zeker dat u dfit reviewformulier wilt kopiëren?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Afgerond"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Weet u zeker dat u dit reviewformulier wilt verwijderen?"
+
+msgid "manager.reviewForms.create"
+msgstr "Maak reviewformulier aan"
+
+msgid "manager.reviewForms.description"
+msgstr "Beschrijving en instructies"
+
+msgid "manager.reviewForms.edit"
+msgstr "Reviewformulier"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Een titel is verplicht voor het reviewformulier"
+
+msgid "manager.reviewForms.inReview"
+msgstr "Onder review"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Hier aangemaakte reviewformulieren worden aangeboden aan reviewers om verder in te vullen. Ze komen in de plaats van het standaardformulier dat uit twee tekstvelden bestaat, het eerste \"voor auteur en redacteur\"  en het tweede \"voor redacteur\". Reviewformulieren kunnen ontworpen worden voor een specifieke sectie van het tijdschrift. Redacteurs kunnen kiezen welk formulier gebruikt moet worden bij het toekennen van de review. In alle gevallen hebben redacteurs de mogelijkheid om de reviews op te nemen in de correspondentie met de auteur."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Geen / Vrije vorm review"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Er zijn geen reviewformulieren aangemaakt"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Er zijn geen reviewformulieren in gebruik."
+
+msgid "manager.reviewForms.preview"
+msgstr "Voorvertoningsformulier"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Gegevens van reviewformulier"
+
+msgid "manager.reviewForms.title"
+msgstr "Titel"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Waarschuwing: Het veranderen van elementtype van het reviewformulier van multiple-choice naar open vraag zal resulteren in het verwijderen van de multiple-choice opties."
+
+msgid "manager.reviewFormElements"
+msgstr "Formulieritems"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Selectie toevoegen"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Aankruisvelden (u kunt één of meer velden aankruisen)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Kies itemtype"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Bevestig het verwijderen van een gepubliceerd item..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopieer naar"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Maak nieuw item"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Uitklapmenu"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Bewerk formulieritem"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Elementtype"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Een elementtype is verplicht voor een formulierelement"
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "En vraag is verplicht bij een formulierelement"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Er zijn geen items aangemaakt"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Selectie"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Item"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Beschrijving"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radioknoppen (u kunt er slechts één kiezen)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Reviewers moeten dit item afronden"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Opgenomen in boodschap aan de auteur"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Tekstveld voor één woord"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Uitgebreid tekstveld"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Tekstveld voor één regel"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Zichtbaar (voor auteurs)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Maak een nieuw reviewformulier"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Vraag een verklaring over strijdbare belangen tijdens het proces van peer review."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL van een webpagina die de licentie beschrijft, indien beschikbaar."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Inzendingsformulier"
+
+msgid "manager.setup.metadata.success"
+msgstr "De metadata voor de inzending zijn met succes bijgewerkt."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Dekking "
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr "Dekking beschrijft doorgaans de ruimtelijke locatie van een werk (een plaats of geografische coördinaten), tijdsperiode (een periode, omschrijving, datum of periode) of wetgeving (zoals een geïdentificeerde administratief orgaan)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Schakel metadata over de dekking in"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Vraag auteurs niet om metadata over dekking toe te voegen tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Vraag auteurs om metadata over dekking toe te voegen tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr "Verplicht auteurs om metadata over dekking toe te voegen tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr "Trefwoorden zijn doorgaans woordgroepen van één- tot drie woorden om de hoofdthema's van een inzending aan te duiden."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Schakel metadata over trefwoorden in"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Vraag auteurs niet om trefwoorden toe te voegen tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Vraag auteurs om trefwoorden toe te voegen tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Verplicht auteurs om trefwoorden toe te voegen tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr "Taal duidt de hoofdtaal aan van een werk, met een taalcode (\"en\") en een optionele landcode (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Schakel metadata over talen in"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Vraag auteurs niet om talen van een inzending aan te duiden tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Vraag auteurs om talen van een inzending aan te duiden tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Verplicht auteurs om talen van een inzending aan te duiden tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr "Rechten op de inzending, zoals intellectuele eigendomsrechten (IPR), copyright en verschillende eigendomsrechten."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Schakel metadata over rechten in"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Vraag auteurs niet om de rechten die rusten op een inzending bekend te maken tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "Vraag auteurs om de rechten die rusten op een inzending bekend te maken tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr "Verplicht auteurs om de rechten die rusten op een inzending bekend te maken tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.source.description"
+msgstr "De bron kan een ID zijn, zoals een DOI, of een ander werk of bron waarvan de inzending is afgeleid."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Schakel metadata over bronnen in"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Vraag auteurs niet om een bron-URL voor een inzending op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Vraag auteurs om een bron-URL voor een inzending op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.source.require"
+msgstr "Verplicht auteurs om een bron-URL voor een inzending op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr "Onderwerpen zijn trefwoorden, trefwoordengroepen of classificatiecodes die het thema van de inzending beschrijven."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Schakel metadata over onderwerpen in"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Vraag auteurs niet om onderwerpen op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Vraag auteurs om onderwerpen op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Verplicht auteurs om onderwerpen op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.type.description"
+msgstr "De aard of het genre van de hoofdinhoud van de inzending. Het type is gewoonlijk \"Tekst\", maar kan ook \"Dataverzameling\", \"Afbeelding\" of een andere van de <a target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a> zijn."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Schakel metadata over het type in"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Vraag auteurs niet om het type op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Vraag auteurs om het type op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Verplicht auteurs om het type op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr "Disciplines zijn types van onderzoek of kennistakken die door universiteitsfaculteiten en wetenschappelijke genootschappen worden beschreven."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Schakel metadata over disciplines in"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Vraag auteurs niet om disciplines op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Vraag auteurs om disciplines op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Verplicht auteurs om disciplines op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr "Ondersteunende instanties kunnen de bron aangeven van onderzoeksfinanciering of andere institutionele ondersteuning die het onderzoek heeft vergemakkelijkt."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Schakel metadata over ondersteunende instellingen in"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Vraag auteurs niet om ondersteunende instellingen bekend te maken tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Vraag auteurs om ondersteunende instellingen bekend te maken tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr "Verplicht auteurs om ondersteunende instellingen bekend te maken tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr "Verzamel de referenties van een inzending in een apart veld. Dit kan nodig zijn voor diensten als Crossref die citaties van publicaties opsporen."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Schakel metadata over referenties in"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Vraag auteurs niet om referenties op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Vraag auteurs om referenties op te geven tijdens het inzendingsproces."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Verplicht auteurs om referenties op te geven tijdens het inzendingsproces."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Valideringsfouten:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Waarschuwingen:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Fouten:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Onbekend element {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Onbekend genre {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Onbekende codering {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "De inhoud is niet gecodeerd als {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Onbekende gebruikersgroep {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr "De auteur {$authorName} heeft geen voornaam in de taal van de inzending, {$localeName}. De inzending kan niet worden geïmporteerd zonder deze gegevens."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Onbekende uploader {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Tijdelijk bestand {$dest} voor {$source} kon niet worden gemaakt"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "De opgegeven bestandsgrootte \"{$expected}\" komt niet overeen met de eigenlijke bestandgrootte \"{$actual}\""
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "De revisie \"{$revisionId}\" voor bestand \"{$fileId}\" zou een dubbele ingang creëren"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Het bestand kon niet worden geïmporteerd"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Import/export fouten"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "De geïmporteerde gebruiker \"{$username}\" heeft geen wachtwoord. Controleer het XML formaat van het importbestand. De gebruiker werd niet geïmporteerd."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "Het wachtwoord van de geïmporteerde gebruiker \"{$username}\" kon niet als dusdanig worden geïmporteerd. Er werd een e-mail met een niew wachtwoord verstuurd aan de gebruiker. Deze gebruiker werd geïmporteerd."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "De geïmporteerde gebruiker \"{$username}\" heeft een te eenvoudig wachtwoord dat niet geldig is. De gebruiker werd niet geïmporteerd."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr "De gebruikersnaam \"{$username}\" en het e-mailadres \"{$email}\" behoren tot twee verschillende gebruikers."
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Titel"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Pad"
+
+msgid "manager.navigationMenus"
+msgstr "Navigatiemenu's"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Deze pagina zal toegankelijk zijn op  <blockquote>{$pagesPath}</blockquote>...waar %PATH% het pad is dat hierboven werd opgegeven. <strong>Opmerking:</strong> Een pad kan niet worden gebruikt voor meer dan één pagina. Als u paden gebruikt die in het systeem geïntegreerd zijn, kunnen belangrijke functies onbeschikbaar worden.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Inhoud"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Het pad mag alleen alfanumerieke tekens bevatten, en \".\", \"/\", \"-\" en \"_\"."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Het pad bestaat al voor een ander item in het navigatiemenu."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Deze titel bestaat al voor een ander navigatiemenu."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Een titel is verplicht"
+
+msgid "manager.navigationMenuItems"
+msgstr "Navigatiemenu-items"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Toegewezen menu-items"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Niet-toegewezen menu-items"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Plaatsen voor navigatie in de huidige website-stijl"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Selecteer een plaats waar de navigatie wordt getoond"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Er is al een navigatiemenu toegewezen aan deze plaats."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Er moet een URL worden opgegeven"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Leer meer over wanneer dit menu-item zal worden getoond of verborgen."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "Als een menu-item een submenu opent, is de bijhorende link niet op alle toestellen toegankelijk. Wanneer een menu bijvoorbeeld een \"Over\" item bevat dat een submenu opent met \"Contactgegevens\" en \"Redactie\", kan de \"Over\"-link zelf niet op alle toestellen toegankelijk zijn. In het standaardmenu wordt dit opgevangen door een secundair menu-item \"Over het tijdschrift\" op te nemen in het submenu."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Type navigatiemenu"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Selecteer een type navigatiemenu, of \"Aangepast\" om een eigen type te maken."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Aangepaste pagina"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Maak een eigen pagina op de website, en creëer een link in een navigatiemenu."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Externe URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Link naar een URL op een andere website, zoals https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Link naar een \"Over het tijdschrift\" pagina in Instellingen > Tijdschrift"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer de sectie \"Over het tijdschrift\" is ingevuld in Instellingen > Tijdschrift > Impressum."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Link naar een \"Redactie\" pagina in Instellingen > Tijdschrift."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer de sectie \"Redactie\" is ingevuld in Instellingen > Tijdschrift > Impressum."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Link naar de pagina met instructies voor inzendingen."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Link naar het huidige nummer."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Link naar het archief."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Link naar de pagina met nieuwsberichten."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer nieuwsberichten ingeschakeld zijn in Instellingen > Website."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Link naar de aanmeldingspagina."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Link naar de registratiepagina voor gebruikers."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Link naar het dashboard voor redacteurs."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Link naar de profielpagina van een gebruiker."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Link naar de beheersinstellingen voor de hele website."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond aan website beheerders."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Een link die gebruikers afmeldt."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer een gebruiker is aangemeld."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer een bezoeker niet is aangemeld."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Link naar een pagina met contactgegevens."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer de sectie \"Contact\" is ingevuld in Instellingen > Tijdschrift."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Selecteer een type voor het navigatiemenu."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer betalingen zijn ingeschakeld in Instellingen > Distributie > Betalingen."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond wanneer de gebruiker ingelogd is, betalingen zijn ingeschakeld in Instellingen > Distributie > Betalingen, en abonnementen als verplicht zijn ingesteld in Instellingen > Distributie > Toegang."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Link naar de zoekpagina."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Link naar de pagina met de privacy verklaring."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Deze link zal alleen worden getoond als een privacy verklaring werd ingevoerd in Instellingen > Redactieproces > Inzending."
+
+msgid "grid.category.add"
+msgstr "Voeg categorie toe"
+
+msgid "grid.category.edit"
+msgstr "Bewerk categorie"
+
+msgid "grid.category.name"
+msgstr "Naam"
+
+msgid "grid.category.path"
+msgstr "Pad"
+
+msgid "grid.category.urlWillBe"
+msgstr "De categorie zal de volgende URL krijgen: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Het pad van de categorie mag uitsluitend letters en cijfers bevatten."
+
+msgid "grid.category.pathExists"
+msgstr "Het pad voor deze categorie bestaat al. Gebruik een uniek pad."
+
+msgid "grid.category.description"
+msgstr "Beschrijving"
+
+msgid "grid.category.parentCategory"
+msgstr "Bovenliggende categorie"
+
+msgid "grid.category.removeText"
+msgstr "Weet u zeker dat u deze categorie wilt verwijderen?"
+
+msgid "grid.category.nameRequired"
+msgstr "Vul een naam voor de categorie in."
+
+msgid "grid.category.categoryDetails"
+msgstr "Categorie informatie"

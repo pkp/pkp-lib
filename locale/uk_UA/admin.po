@@ -1,0 +1,340 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:08+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Задаємо назву"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Задаємо значення"
+
+msgid "admin.adminFunctions"
+msgstr "Адміністративні функції"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Ви впевнені, що бажаєте видалити назавжди це джерело аутентифікації?"
+
+msgid "admin.auth.create"
+msgstr "Створити джерело аутентифікації"
+
+msgid "admin.auth.noneCreated"
+msgstr "Жодних джерел аутентифікації не було визначено."
+
+msgid "admin.authSources"
+msgstr "Джерела аутентифікації"
+
+msgid "admin.clearDataCache"
+msgstr "Очистити кеш даних"
+
+msgid "admin.clearTemplateCache"
+msgstr "Очистити кеш шаблонів"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Ваш файл конфігурації успішно оновлений. Будь ласка, зауважте, що у разі, якщо Ваш сайт тепер не функціонує коректно, можливо, потрібно вручну виправити Вашу конфігурацію шляхом безпосереднього редагування файлу <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Ви впевнені, що бажаєте очистити кеш скомпільованих шаблонів?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Ви впевнені, що бажаєте припинити всі користувацькі сесії? Всі користувачі, які зараз знаходяться у системі (і Ви, в тому числі), будуть вимушені заходити знову."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Зміст файлу конфігурації"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Ви впевнені, що хочете назавжди видалити {$contextName} та весь його вміст?"
+
+msgid "admin.currentVersion"
+msgstr "Поточна версія"
+
+msgid "admin.dateInstalled"
+msgstr "Дата встановлення"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Зміст вашої оновленої конфігурації наведено нижче. Для застосування змін конфігурації ви повинні відкрити <tt>config.inc.php</tt> у текстовому редакторі та замінити його зміст змістом текстового поля, наведеного нижче."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Показати нову конфігурацію"
+
+msgid "admin.expireSessions"
+msgstr "Припинити користувацькі сесії"
+
+msgid "admin.languages.download"
+msgstr "Завантажити мову"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Завантажити мови"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Не вдається відкрити дескриптор мови з веб-сайту PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Не вдається додати нову мову до файлу списку мов, як правило, це \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "Ця мова є основною мовою сайту. Ви не можете відключити її, доки не оберете іншу основну мову."
+
+msgid "admin.languages.confirmReload"
+msgstr "Ви впевнені, що бажаєте перезавантажити мову? Це призведе до знищення усіх існуючих мовних даних, таких як шаблони листів."
+
+msgid "admin.languages.installedLocales"
+msgstr "Встановлені мови"
+
+msgid "admin.languages.installLanguages"
+msgstr "Керування мовами"
+
+msgid "admin.languages.availableLocales"
+msgstr "Наявні мови"
+
+msgid "admin.languages.installLocale"
+msgstr "Встановити мову"
+
+msgid "admin.languages.installLocales"
+msgstr "Встановити"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Встановити нові мови"
+
+msgid "admin.languages.languageSettings"
+msgstr "Мовні налаштування"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Жодної мови не доступно для встановлення."
+
+msgid "admin.languages.reload"
+msgstr "Перезавантажити локалізацію"
+
+msgid "admin.languages.uninstall"
+msgstr "Демонтувати локалізацію"
+
+msgid "admin.phpInfo"
+msgstr "Розширена інформація про PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Заплановане завдання"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Розпочато виконання завдання."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Завершено виконання завдання."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Завдання не створювало запису в журналі подій."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Ваша інсталяція {$softwareName} автоматично виконала і завершила це завдання, ви можете завантажити файл з журналом подій за цим посиланням: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Ви впевнені, що хочете видалити усі журнали подій, що містять інформацію про виконання запланованих завдань?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Видалити журнали подій з інформацією про виконання запланованих завдань"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Нагадування рецензенту"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Нагадування про закінчення терміну дії підписки"
+
+msgid "admin.server.apacheVersion"
+msgstr "Версія Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Драйвер бази даних"
+
+msgid "admin.server.dbVersion"
+msgstr "Версія серверу баз даних"
+
+msgid "admin.serverInformation"
+msgstr "Інформація про сервер"
+
+msgid "admin.server.phpVersion"
+msgstr "Версія PHP"
+
+msgid "admin.server.platform"
+msgstr "Операційна платформа"
+
+msgid "admin.settings"
+msgstr "Налаштування"
+
+msgid "admin.settings.aboutDescription"
+msgstr "Інформація про сайт"
+
+msgid "admin.settings.contactEmail"
+msgstr "Email основної контактної особи"
+
+msgid "admin.settings.contactName"
+msgstr "Ім'я основної контактної особи"
+
+msgid "admin.settings.form.contactEmailRequired"
+msgstr "Необхідно вказати адресу електронної пошти основної контактної особи."
+
+msgid "admin.settings.form.contactNameRequired"
+msgstr "Необхідно вказати ім'я основної контактної особи."
+
+msgid "admin.settings.form.minPasswordLengthRequired"
+msgstr "Необхідно вказати мінімальну довжину пароля (не менше 4 символів)."
+
+msgid "admin.settings.form.titleRequired"
+msgstr "Необхідно вказати назву."
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tВаша установка налаштована для запису більш ніж одного показника використання. Статистика використання відображатиметься в декількох контекстах.\n"
+"\t\tТрапляються випадки, коли має бути використана лише одна статистика використання, наприклад, щоб відобразити впорядкований список матеріалів, які використовуються найчастіше або ранжувати результати пошуку.\n"
+"\t\tБудь ласка, оберіть одну з налаштованих метрик як усталену.\n"
+"\t"
+
+msgid "admin.settings.homeHeaderImage.altText"
+msgstr "Логотип сайту"
+
+msgid "admin.settings.homeHeaderImageInvalid"
+msgstr "Неприпустимий формат зображення логотипу. Припустимі формати .gif, .jpg, або .png."
+
+msgid "admin.settings.introduction"
+msgstr "Вступ"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Мінімальна довжина пароля"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Мова сайту"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Неприпустимий формат таблиці стилю сайту. Припустимий формат .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Таблиця стилю сайту"
+
+msgid "admin.settings.siteLogo"
+msgstr "Логотип сайту"
+
+msgid "admin.settings.siteTitle"
+msgstr "Заголовок сайту"
+
+msgid "admin.settings.siteTheme"
+msgstr "Тема сайту"
+
+msgid "admin.siteAdmin"
+msgstr "Адміністрування сайту"
+
+msgid "admin.siteManagement"
+msgstr "Керування сайтом"
+
+msgid "admin.siteSettings"
+msgstr "Налаштування сайту"
+
+msgid "admin.siteSetup"
+msgstr "Налаштування сайту"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Файл конфігурації <tt>config.inc.php</tt> не існує, не доступний для читання або пошкоджений."
+
+msgid "admin.systemInformation"
+msgstr "Інформація про систему"
+
+msgid "admin.versionBuild"
+msgstr "Збірка"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Перевірити наявність оновлень"
+
+msgid "admin.version.downloadPackage"
+msgstr "Завантажити"
+
+msgid "admin.version.downloadPatch"
+msgstr "Завантажити виправлення"
+
+msgid "admin.versionHistory"
+msgstr "Історія версій"
+
+msgid "admin.version.latest"
+msgstr "Остання версія"
+
+msgid "admin.versionMajor"
+msgstr "Базова"
+
+msgid "admin.versionMinor"
+msgstr "Додаткова"
+
+msgid "admin.version.moreInfo"
+msgstr "Більше інформації"
+
+msgid "admin.versionRevision"
+msgstr "Ревізія"
+
+msgid "admin.version.updateAvailable"
+msgstr "Доступна оновлена версія"
+
+msgid "admin.version.upToDate"
+msgstr "Ваша система використовує поточну версію"
+
+msgid "admin.version"
+msgstr "Версія"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Основний каталог {$path} повинен знаходитись у каталозі загальнодоступних файлів."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Папка {$path} це не каталог або вона недоступна для читання."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Файл {$filename} не можна перенести з {$currentFilePath} в {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Файл {$filename} був оброблений та заархівований."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Завантажувач файлів"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Копіює передані файли журналу доступу apache, відфільтровуючи записи, пов'язані з цією інсталяцією,\n"
+"\t\tв каталог поточних файлів, що знаходиться в каталозі stage модуля «Статистика використання». Має запускатися під користувачем з достатніми правами для читання файлів журналу доступу apache.\n"
+"\n"
+"\t\tЦей інструмент копіює лише файли, які ще не знаходяться в каталогах завантажувача файлів модуля «Статистика використання» (stage, processing, archive, reject).\n"
+"\n"
+"\t\tВиклик: {$scriptName} path/to/apache/log/file.log\n"
+"\t\tВиклик (обробка усіх файлів в каталозі): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Помилка: не можу створити тимчасовий каталог {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Помилка: Файл {$filePath} не існує або до нього немає доступу."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Помилка: не можу скопіювати файл з {$filePath} в {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Помилка: не можу видалити файл {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Попередження: файл {$filePath} уже існує в каталозі статистики використання."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Успіх: {$filePath} в {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Виконання програми «{$utilPath}» завершилось такою помилкою: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Помилка: не можу виконати «{$utilPath}». Перевірте ваші налаштування {$utilVar} у файлі config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Відсутні мови для завантаження."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Дійсно змінити основну локалізацію сайту? Імена користувачів, які потрібні на основній локалі сайту, будуть скопійовані з існуючої основної локалі, де вони відсутні."

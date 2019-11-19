@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:07+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonim Okuyucu"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Yorumunuz"
+
+msgid "comments.titleRequired"
+msgstr "Yorum başlığı gerekli."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Bu yorum ile birlikte, varsa yoruma verilen yanıtlar da silinecek. Bunu yapmak istediğinizden emin misiniz?"
+
+msgid "comments.delete"
+msgstr "Bu yorumu sil"
+
+msgid "comments.email"
+msgstr "Gönderenin e-postası"
+
+msgid "comments.emailReply"
+msgstr "E-posta ile yanıt"
+
+msgid "comments.enterComment"
+msgstr "Yorum Giriniz"
+
+msgid "comments.inResponseTo"
+msgstr "Yanıt olarak: <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Gönderenin Adı"
+
+msgid "comments.noComments"
+msgstr "Hiç okuyucu yorumu yok."
+
+msgid "comments.nReplies"
+msgstr "({$num} yanıt)"
+
+msgid "comments.oneReply"
+msgstr "(1 yanıt)"
+
+msgid "comments.postAnonymously"
+msgstr "Bu yorumu isimsiz gönder"
+
+msgid "comments.postReply"
+msgstr "Yanıtı Gönder"
+
+msgid "comments.readerComments"
+msgstr "Okuyucu Yorumları"
+
+msgid "comments.readMore"
+msgstr "Kalanı oku"
+
+msgid "comments.replies"
+msgstr "Yanıtlar"
+
+msgid "comments.title"
+msgstr "Başlık"
+
+msgid "comments.viewAllComments"
+msgstr "Tüm yorumları gör"
+
+msgid "reader.fullText"
+msgstr "Tam Metin:"

@@ -1,0 +1,216 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
+"Language: \n"
+
+msgid "user.affiliation"
+msgstr "Ustanova"
+
+msgid "user.affiliations"
+msgstr "Ustanove"
+
+msgid "user.biography"
+msgstr "Biografski podaci"
+
+msgid "user.biography.description"
+msgstr "(npr. institucija i zvanje)"
+
+msgid "user.changeMyPassword"
+msgstr "Promjena moje lozinke"
+
+msgid "user.changePassword"
+msgstr "Promjena lozinke"
+
+msgid "user.dateLastLogin"
+msgstr "Zadnja prijava"
+
+msgid "user.dateRegistered"
+msgstr "Datum registracije"
+
+msgid "user.editMyProfile"
+msgstr "Uređivanje mog profila"
+
+msgid "user.email"
+msgstr "E-pošta"
+
+msgid "user.interests"
+msgstr "Recenzentski interesi"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Vaš korisnički račun je onemogućen zbog sljedećeg razloga: {$razlog}"
+
+msgid "user.login.accountDisabled"
+msgstr "Vaš korisnički račun je onemogućen. Molimo kontaktirajte administratora za više informacija."
+
+msgid "user.login.accountNotValidated"
+msgstr "Vaša adresa e-pošte nije validirana. Molimo provjerite vašu zaprimljenu e-poštu i slijedite zadane naputke. Ukoliko niste zaprimili poruku, pokušajte sa drugom adresom ili kontaktirajte administratora ove stranice."
+
+msgid "user.login.activate"
+msgstr "Aktivirajte korisnički račun"
+
+msgid "user.login.activated"
+msgstr "Hvala na aktivaciji vašeg korisničkog računa. Sada se možete prijavljivati u sustav korisničkim imenom i lozinkom koje ste prethodno unijeli."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Morate odabrati novu lozinku prije nego što se prijavite na ovu stranicu.<br /><br />Molimo unesite ispod vaše korisničko ime i vašu sadašnju i novu lozinku kako biste promijenili lozinku za vaš korisnički račun."
+
+msgid "user.login.forgotPassword"
+msgstr "Zaboravili ste lozinku?"
+
+msgid "user.login"
+msgstr "Prijava"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Potvrda je poslana na vašu adresu e-pošte. Molimo slijedite upute u  e-pošti zbog ponovnog uspostavljanja vaše lozinke."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Oprostite, poveznica na koju ste kliknuli nije važeća ili nije valjana. Molimo pokušajte ponovno zatražiti izmjenu vaše lozinke."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Ne postoji korisnik s navedenom adresom e-pošte."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Nova lozinka je poslana na vašu adresu e-pošte. Možete se sada prijaviti na stranici s vašom novom lozinkom."
+
+msgid "user.login.registeredEmail"
+msgstr "Registrirana e-pošta korisnika"
+
+msgid "user.login.resetPassword"
+msgstr "Izdaj novu lozinku"
+
+msgid "user.logOut"
+msgstr "Odjava"
+
+msgid "user.mailingAddress"
+msgstr "Adresa"
+
+msgid "user.myAccount"
+msgstr "Moji podaci"
+
+msgid "user.name"
+msgstr "Ime"
+
+msgid "user.password"
+msgstr "Lozinka"
+
+msgid "user.repeatPassword"
+msgstr "Ponovite lozinku"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.profile.form.emailRequired"
+msgstr "Važeća adresa e-pošte je obavezna."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Morate unijeti vašu novu lozinku."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Sadašnja lozinka koju ste unijeli je neispravna."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Obavijesti e-pošte o brojevima časopisa otvorenog pristupa"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Lozinka je obavezna."
+
+msgid "user.profile.form.profileImage"
+msgstr "Korisnička slika"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Želim e-poštom primati obavijesti o novim objavljenim brojevima"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Navedena URL adresa nije valjana. Molimo vas da provjerite adresu i pokušate ponovno. (Savjet: Pokušajte dodati http:// na početak URL-a)"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Korisničko ime je obavezno."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Ostavite polje za lozinku prazno da biste zadržali sadašnju lozinku."
+
+msgid "user.profile.newPassword"
+msgstr "Nova lozinka"
+
+msgid "user.profile.oldPassword"
+msgstr "Sadašnja lozinka"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.publicProfile"
+msgstr "Korisnički profil"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Ponovite novu lozinku"
+
+msgid "user.register.completeForm"
+msgstr "Ispunite ovaj formular kako biste se registrirali na ovaj časopis."
+
+msgid "user.register.form.emailExists"
+msgstr "Odabrana adresa e-pošte već postoji."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Lozinke se ne podudaraju."
+
+msgid "user.register.form.usernameExists"
+msgstr "Odabrano korisničko ime već postoji."
+
+msgid "user.register.passwordLengthRestriction"
+msgstr "Lozinka mora imati najmanje {$length} znakova."
+
+msgid "user.register.registerAs"
+msgstr "Registrirajte se kao"
+
+msgid "user.register"
+msgstr "Registracija"
+
+msgid "user.register.usernameRestriction"
+msgstr "Korisničko ime mora sadržavati samo mala slova (a-ž), brojeve (0-9), crtice (-) i podvlake (_)."
+
+msgid "user.role.reader"
+msgstr "Čitatelj"
+
+msgid "user.role.readers"
+msgstr "Čitatelji"
+
+msgid "user.role.reviewer"
+msgstr "Recenzent"
+
+msgid "user.role.reviewers"
+msgstr "Recenzenti"
+
+msgid "user.role.siteAdmins"
+msgstr "Administratori stranice"
+
+msgid "user.roles"
+msgstr "Uloge"
+
+msgid "user.sendPassword"
+msgstr "Potvrda"
+
+msgid "user.sendPassword.description"
+msgstr "Pošaljite mi e-poštom potvrdu registracije sa mojim korisničkim imenom i lozinkom"
+
+msgid "user.signature"
+msgstr "Signatura"
+
+msgid "user.title"
+msgstr "Titula"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.username"
+msgstr "Korisničko ime"
+
+msgid "user.workingLanguages"
+msgstr "Jezici sučelja"

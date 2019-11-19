@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:02+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonimni uporabnik"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Telo komentarja"
+
+msgid "comments.titleRequired"
+msgstr "Naslov komentarja je obvezen"
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Brisanje komentarja bo pobrisalo tudi vse odgovore nanj. Ste prepričani, da to želite?"
+
+msgid "comments.delete"
+msgstr "Briši ta komentar"
+
+msgid "comments.email"
+msgstr "E-pošta pošiljatelja"
+
+msgid "comments.emailReply"
+msgstr "E-poštni odgovor"
+
+msgid "comments.enterComment"
+msgstr "Vpišite komentar"
+
+msgid "comments.inResponseTo"
+msgstr "Kot odgovor na <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Ime pošiljatelja"
+
+msgid "comments.noComments"
+msgstr "Bralci niso oddali nobenega komentarja."
+
+msgid "comments.nReplies"
+msgstr "({$num} odgovorov)"
+
+msgid "comments.oneReply"
+msgstr "(1 odgovor)"
+
+msgid "comments.postAnonymously"
+msgstr "Pošljite komentar anonimno"
+
+msgid "comments.postReply"
+msgstr "Pošlji odgovor"
+
+msgid "comments.readerComments"
+msgstr "Komentarji bralcev"
+
+msgid "comments.readMore"
+msgstr "Preberi več"
+
+msgid "comments.replies"
+msgstr "Odgovori"
+
+msgid "comments.title"
+msgstr "Naslov"
+
+msgid "comments.viewAllComments"
+msgstr "Poglej vse komentarje"
+
+msgid "reader.fullText"
+msgstr "Celotno besedilo:"

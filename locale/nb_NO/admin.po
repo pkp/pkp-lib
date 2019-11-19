@@ -1,0 +1,234 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Administrative funksjoner"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Er du sikker på at du vil slette denne valideringskilde for alltid?"
+
+msgid "admin.auth.create"
+msgstr "Opprett valideringskilde"
+
+msgid "admin.auth.noneCreated"
+msgstr "Ingen valideringskilder er definert."
+
+msgid "admin.authSources"
+msgstr "Valideringskilder"
+
+msgid "admin.clearDataCache"
+msgstr "Tøm data-cacher"
+
+msgid "admin.clearTemplateCache"
+msgstr "Tøm mal-cache"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Oppdateringen av konfigurasjonen var vellykket. Vennligst merk at hvis nettstedet ikke lenger virker som det skal, så må du kanskje ordne konfigurasjonen manuelt, ved å redigere <tt>config.inc.php</tt> direkte."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Er du sikker på at du vil tømme cachen med kompilerte maler?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Er du sikker på at du vil avbryte alle brukersesjoner? Alle brukere som for øyeblikket er logget inn på systemet vil måtte logge inn igjen (du også)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Innholdet i konfigurasjonsfilen"
+
+msgid "admin.currentVersion"
+msgstr "Nyeste versjon"
+
+msgid "admin.dateInstalled"
+msgstr "Installasjonsdato"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Nedenfor vises innholdet i din oppdaterte konfigurasjon. For å iverksette endringene må du åpne <tt>config.inc.php</tt> i et egnet tekstbehandlingsprogram og erstatte innholdet i den med innholdet i tekstfeltet nedenfor."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Vis ny konfigurasjon"
+
+msgid "admin.expireSessions"
+msgstr "Avbryt brukersesjoner"
+
+msgid "admin.languages.confirmReload"
+msgstr "Er du sikker på at du vil laste opp igjen denne lokalinnstillingen? Dette vil slette alle nåværende lokalinnstilling-spesifikke data som for eksempel tilpassete e-post maler."
+
+msgid "admin.languages.installedLocales"
+msgstr "Installerte lokalinnstillinger"
+
+msgid "admin.languages.installLanguages"
+msgstr "Installer språk"
+
+msgid "admin.languages.installLocales"
+msgstr "Installer"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installer nye lokalinnstillinger"
+
+msgid "admin.languages.languageSettings"
+msgstr "Språkinnstillinger"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Ingen øvrige lokalinnstillinger er tilgjengelig for installasjon."
+
+msgid "admin.languages.reload"
+msgstr "Last opp igjen lokalfilsett"
+
+msgid "admin.languages.uninstall"
+msgstr "Avinstaller lokalinnstilling"
+
+msgid "admin.phpInfo"
+msgstr "Mer PHP-informasjon"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache versjon"
+
+msgid "admin.server.dbDriver"
+msgstr "Databasedriver"
+
+msgid "admin.server.dbVersion"
+msgstr "Databaseserver versjon"
+
+msgid "admin.serverInformationDescription"
+msgstr "Operativsystem og serverens programvareversjoner. Klikk på <span class=\"highlight\">Mer PHP-informasjon</span> for å se flere detaljer om denne serverens PHP-konfigurasjon."
+
+msgid "admin.serverInformation"
+msgstr "Serverinformasjon"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP-versjon"
+
+msgid "admin.server.platform"
+msgstr "OS-plattform"
+
+msgid "admin.settings.about"
+msgstr "Om beskrivelsen av nettstedet"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-postadresse til hovedkontaktperson"
+
+msgid "admin.settings.contactName"
+msgstr "Navn på hovedkontaktperson"
+
+msgid "admin.settings.introduction"
+msgstr "Innledning"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minste passordlengde"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "tegn"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Nettstedspråk"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Ugyldig filformat for nettstedets stilark. Det tillatte filformatet er .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Nettstedets stilark (style sheet)"
+
+msgid "admin.settings.siteTitle"
+msgstr "Nettstedets tittel"
+
+msgid "admin.siteAdmin"
+msgstr "Nettstedsadministrasjon"
+
+msgid "admin.siteManagement"
+msgstr "Nettstedadministrasjon"
+
+msgid "admin.siteSettings"
+msgstr "Nettstedsinnstillinger"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Konfigurasjonsfilen <tt>config.inc.php</tt> finnes ikke, er ikke lesbar, eller er ugyldig."
+
+msgid "admin.systemInformation"
+msgstr "Systeminformasjon"
+
+msgid "admin.versionBuild"
+msgstr "Build"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Se etter oppdateringer"
+
+msgid "admin.version.downloadPackage"
+msgstr "Last ned"
+
+msgid "admin.version.downloadPatch"
+msgstr "Last ned patch"
+
+msgid "admin.versionHistory"
+msgstr "Versjonshistorikk"
+
+msgid "admin.version.latest"
+msgstr "Siste versjon"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.version.moreInfo"
+msgstr "Mer informasjon"
+
+msgid "admin.versionRevision"
+msgstr "Revisjon"
+
+msgid "admin.version.updateAvailable"
+msgstr "En oppdatert versjon er tilgjengelig"
+
+msgid "admin.version.upToDate"
+msgstr "Systemet er nyeste versjon"
+
+msgid "admin.version"
+msgstr "Versjon"
+
+msgid "admin.settings"
+msgstr "Innstillinger"
+
+msgid "admin.settings.siteTheme"
+msgstr "Nettstedstema"
+
+msgid "admin.siteSetup"
+msgstr "Nettstedsoppsett"
+
+msgid "admin.languages.download"
+msgstr "Last ned språkfil"
+
+msgid "admin.languages.availableLocales"
+msgstr "Tilgjengelige språk"
+
+msgid "admin.languages.installLocale"
+msgstr "Installer språk"
+
+msgid "admin.scheduledTask"
+msgstr "Planlagt oppgave"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Oppgave startet."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Oppgave stoppet."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Oppgaven skapte ikke noen loggfil."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Din {$softwareName} installasjon utførte og avsluttet denne oppgaven automatisk, og du kan laste ned loggfila her: {$url}"
+
+msgid "admin.settings.siteLogo"
+msgstr "Nettstedets logo"
+
+msgid "admin.error.executingUtil"
+msgstr "Feil: Kan ikke eksekvere \"{$utilPath}\".  Sjekk {$utilVar}-innstillingene i config.inc.php."

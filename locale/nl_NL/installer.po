@@ -1,0 +1,191 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Bijkomende talen"
+
+msgid "installer.administratorAccount"
+msgstr "Beheerdersaccount"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Deze gebruiker wordt de sitebeheerder en heeft volledige toegang tot het systeem. Bijkomende gebruikersaccounts kunnen na installatie aangemaakt worden."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NEE</span>"
+
+msgid "installer.checkYes"
+msgstr "Ja"
+
+msgid "installer.clientCharset"
+msgstr "Browser karakterset"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "De codering die gebruikt moet worden voor de gegevens die verzonden worden naar en ontvangen worden van browsers."
+
+msgid "installer.configFileError"
+msgstr "Het configuratiebestand <tt>config.inc.php</tt> bestaat niet of kan niet gelezen worden."
+
+msgid "installer.connectionCharset"
+msgstr "Connectie karakterset"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Inhoud van het configuratiebestand"
+
+msgid "installer.createDatabase"
+msgstr "Nieuwe database aanmaken"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Om deze optie te kunnen gebruiken moet uw databasesysteem het op afstand aanmaken van databases en de opgeven gebruiker moet rechten hebben om nieuwe databases aan  te maken. Als installatie met deze optie mislukt, maak de database dan met de hand aan op uw server en voer de installatie opnieuw uit zonder deze optie in te schakelen."
+
+msgid "installer.databaseDriver"
+msgstr "Database stuurprogramma"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Database stuurprogramma's die tussen haakjes staan lijken de verplichte PHP extensie niet geladen te hebben en doen de installatie waarschijnlijk mislukken als ze geselecteerd worden.</strong><br />De niet-ondersteunde database stuurprogramma's die hierboven getoond worden zijn alleen voor academische toepassingen en werken waarschijnlijk niet."
+
+msgid "installer.databaseHost"
+msgstr "Machine"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Laat de machinenaam leeg om met domain sockets  te werken in plaats van met TCP/IP. Dit is niet nodig bij MySQL, dat automatisch gebruik maakt van sockets als \"localhost\" opgegeven wordt,  maar het is verplicht bij sommige andere databasesystemen zoals PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Databasenaam"
+
+msgid "installer.databasePassword"
+msgstr "Wachtwoord"
+
+msgid "installer.databaseSettings"
+msgstr "Databaseinstellingen"
+
+msgid "installer.databaseUsername"
+msgstr "Gebruikersnaam"
+
+msgid "installer.filesDir"
+msgstr "Map voor het laden van bestanden"
+
+msgid "installer.fileSettings"
+msgstr "Bestandsinstellingen"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Er moet een karakterset voor de browser gekozen worden."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Er moet een database-stuurprogramma gekozen worden."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "De databasenaam is verplicht."
+
+msgid "installer.form.emailRequired"
+msgstr "Een geldig e-mailadres voor de beheerder is verplicht."
+
+msgid "installer.form.filesDirRequired"
+msgstr "De map voor het bewaren van geladen bestanden is verplicht."
+
+msgid "installer.form.localeRequired"
+msgstr "Er moet een taal gekozen worden."
+
+msgid "installer.form.passwordRequired"
+msgstr "Het wachtwoord voor de beheerder is verplicht."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "De beheerderswachtwoorden komen niet overeen."
+
+msgid "installer.form.separateMultiple"
+msgstr "Scheid meerdere waarden met komma's"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "De gebruikersnaam van de de beheerder mag alleen alfanumerieke tekens, liggende streepjes en koppelstreepjes bevatten en moet beginnen en eindigen met een alfanumeriek teken."
+
+msgid "installer.form.usernameRequired"
+msgstr "De gebruikersnaam voor de beheerder is verplicht."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>WAARSCHUWING: Uw huidige PHP versie voldoet niet aan de minimale eisen. Het is aan te bevelen om te upgraden naar een meer recente versie.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Fouten tijdens de installatie"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL opdrachten voor installatie"
+
+msgid "installer.installFileError"
+msgstr "Het installatiebestand <tt>dbscripts/xml/install.xml</tt> bestaat niet of kan niet gelezen worden."
+
+msgid "installer.installFilesDirError"
+msgstr "De map voor het laden van bestanden bestaat niet of er mag niet in geschreven worden."
+
+msgid "installer.installParseDBFileError"
+msgstr "Fout bij het parseren van het database installatiebestand <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Fout in het filter configuratiebestand <tt>{$file}</tt>"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Upgrade wordt niet ondersteund. Zie docs/UPGRADE-UNSUPPORTED voor details."
+
+msgid "installer.locale"
+msgstr "Taal"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "De gemarkeerde talen zijn mogelijk onvolledig"
+
+msgid "installer.localeSettings"
+msgstr "Taalinstelingen"
+
+msgid "installer.oaiSettings"
+msgstr "OAI instellingen"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Een unieke identificatie om metadatarecords van deze site te indexeren, gebruikmakend van het <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "OAI repository identificatie"
+
+msgid "installer.publicFilesDirError"
+msgstr "De map met publieke bestanden bestaat niet of er mag niet in geschreven worden."
+
+msgid "installer.releaseNotes"
+msgstr "Over deze versie"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Voorbereidende stappen voor de installatie"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<p>1. Volgende bestanden en folders (en hun inhoud) moeten schrijfbaar zijn:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> is schrijfbaar (optioneel): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> is schrijfbaar: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> is schrijfbaar: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> is schrijfbaar: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> is schrijfbaar: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> is schrijfbaar: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"<p>2. Er moet een folder bestaan voor het opladen van bestanden, en die folder moet schrijfbaar zijn (zie \"Bestandsinstellingen\" hieronder).</p>"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>De XSL module is niet ingeschakeld in uw PHP installatie. Schakel die module in, of configureer de xslt_command parameter in het config.inc.php bestand.</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Geef een unieke ID op voor de website, en een basis-URL voor OAI. Deze gegevens worden uitsluitend gebruikt voor statistieken en beveiliging."
+
+msgid "installer.unsupportedPhpError"
+msgstr "De PHP versie van uw server wordt niet ondersteund door deze software. Controleer de systeemvereisten in docs/README."

@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:01+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrator spletišča"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administratorji spletišča"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Urednik produkcije"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Uredniki produkcije"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "UrPro"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Lektor"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Lektorji"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "LE"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korektor"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korektorji"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "KO"
+
+msgid "default.groups.name.designer"
+msgstr "Oblikovalec"
+
+msgid "default.groups.plural.designer"
+msgstr "Oblikovalci"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Obli"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Interni recenzent"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Interni recenzenti"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.marketing"
+msgstr "Koordinator marketinga in prodaje"
+
+msgid "default.groups.plural.marketing"
+msgstr "Koordinatorji marketinga in prodaje"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MP"
+
+msgid "default.groups.name.funding"
+msgstr "Koordinator financiranja"
+
+msgid "default.groups.plural.funding"
+msgstr "Koordinatorji financiranja"
+
+msgid "default.groups.abbrev.funding"
+msgstr "KF"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexer"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexers"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Grafični urednik"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Grafični uredniki"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "GraUr"
+
+msgid "default.groups.name.author"
+msgstr "Avtor"
+
+msgid "default.groups.plural.author"
+msgstr "Avtorji"
+
+msgid "default.groups.abbrev.author"
+msgstr "Avt"
+
+msgid "default.groups.name.translator"
+msgstr "Prevajalec"
+
+msgid "default.groups.plural.translator"
+msgstr "Prevajalci"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Pre"
+
+msgid "default.groups.name.reader"
+msgstr "Bralec"
+
+msgid "default.groups.plural.reader"
+msgstr "Bralci"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Bra"
+
+msgid "default.genres.other"
+msgstr "Ostalo"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedija"
+
+msgid "default.genres.image"
+msgstr "Slika"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML stilska tablica"

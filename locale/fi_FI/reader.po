@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:48+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonyymi käyttäjä"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Teksti"
+
+msgid "comments.titleRequired"
+msgstr "Kommentin otsikko vaaditaan."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Tämä kommentin poistaminen poistaa myös kaikki siihen liittyvät vastaukset. Haluatko varmasti poistaa kommentin?"
+
+msgid "comments.delete"
+msgstr "Poista tämä kommentti"
+
+msgid "comments.email"
+msgstr "Lähettäjän sähköposti"
+
+msgid "comments.emailReply"
+msgstr "Lähetä sähköpostivastaus"
+
+msgid "comments.enterComment"
+msgstr "Kirjoita kommentti"
+
+msgid "comments.inResponseTo"
+msgstr "Vastauksena viestiin <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Lähettäjän nimi"
+
+msgid "comments.noComments"
+msgstr "Yhtään lukijakommenttia ei ole lähetetty."
+
+msgid "comments.nReplies"
+msgstr "({$num} vastausta)"
+
+msgid "comments.oneReply"
+msgstr "(1 vastaus)"
+
+msgid "comments.postAnonymously"
+msgstr "Lähetä tämä kommentti anonyymina"
+
+msgid "comments.postReply"
+msgstr "Lähetä vastaus"
+
+msgid "comments.readerComments"
+msgstr "Lukijakommentit"
+
+msgid "comments.readMore"
+msgstr "Lue lisää"
+
+msgid "comments.replies"
+msgstr "Vastaukset"
+
+msgid "comments.title"
+msgstr "Otsikko"
+
+msgid "comments.viewAllComments"
+msgstr "Näytä kaikki kommentit"
+
+msgid "reader.fullText"
+msgstr "Kokoteksti:"

@@ -1,0 +1,498 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Ανώνυμος Χρήστης"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Κείμενο μηνύματος"
+
+msgid "comments.titleRequired"
+msgstr "Απαιτείται τίτλος για το σχόλιο."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Διαγράφοντας το σχόλιο, διαγράφονται και οι απαντήσεις σε αυτό. Επιθυμείτε να συνεχίσετε;"
+
+msgid "comments.delete"
+msgstr "Διαγραφή σχολίου"
+
+msgid "comments.email"
+msgstr "Ηλεκτρονική διεύθυνση αποστολέα"
+
+msgid "comments.emailReply"
+msgstr "Απαντητικό μήνυμα"
+
+msgid "comments.enterComment"
+msgstr "Εισαγωγή σχόλιου"
+
+msgid "comments.inResponseTo"
+msgstr "Σε απάντηση του <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Όνομα αποστολέα"
+
+msgid "comments.noComments"
+msgstr "Κανένα σχόλιο αναγνωστών"
+
+msgid "comments.nReplies"
+msgstr "({$num} Απαντήσεις)"
+
+msgid "comments.oneReply"
+msgstr "(1 Απάντηση)"
+
+msgid "comments.postAnonymously"
+msgstr "Καταχωρήστε το σχόλιο ανώνυμα"
+
+msgid "comments.postReply"
+msgstr "Στείλτε απάντηση"
+
+msgid "comments.readerComments"
+msgstr "Σχόλια Aναγνωστών"
+
+msgid "comments.readMore"
+msgstr "Διαβάστε περισσότερα"
+
+msgid "comments.replies"
+msgstr "Απαντήσεις"
+
+msgid "comments.title"
+msgstr "Τίτλος"
+
+msgid "comments.viewAllComments"
+msgstr "Προβολή όλων των σχολίων"
+
+msgid "reader.fullText"
+msgstr "Πλήρες κείμενο:"
+
+msgid "rt.addComment"
+msgstr "Προσθήκη σχολίου"
+
+msgid "rt.admin.configuration"
+msgstr "Ρυθμίσεις"
+
+msgid "rt.admin.contexts.confirmDelete"
+msgstr "Επιβεβαιώνετε τη διαγραφή του συγκεκριμένου πλαισίου και όλων των σχετικών αναζητήσεων;"
+
+msgid "rt.admin.contexts.createContext"
+msgstr "Δημιουργία πλαισίου αναζήτησης"
+
+msgid "rt.admin.contexts.edit.editContext"
+msgstr "Επεξεργασία πλαισίου αναζήτησης"
+
+msgid "rt.admin.contexts.metadata"
+msgstr "Μεταδεδομένα"
+
+msgid "rt.admin.contexts.options.authorTerms"
+msgstr "Χρησιμοποιήστε τα ονόματα Συγγραφέων ως προκαθορισμένους όρους αναζήτησης για να δώσετε δυνατότητα στους Χρήστες να βρουν και άλλα έργα των Συγγραφέων του συγκεκριμένου τεκμηρίου."
+
+msgid "rt.admin.contexts.options.citedBy"
+msgstr "Χρησιμοποιήστε τα ονόματα Συγγραφέων ως προκαθορισμένους όρους αναζήτησης και περιγράψτε το πλαίσιο ως αναζήτηση για παραπομπές στο άρθρο."
+
+msgid "rt.admin.contexts.options.defineTerms"
+msgstr "Χρησιμοποιήστε τη λέξη που έχει επισημανθεί από τον Αναγνώστη ως προκαθορισμένο όρο αναζήτησης ή αφήστε κενό, σε περίπτωση που δεν έχει γίνει καμία επιλογή για το συγκεκριμένο τεκμήριο (π.χ., στο πλαίσιο \"Ορισμός όρων\"). Για να ανοίξει το πλαίσιο, πρέπει η επιλογή \"Ορισμός όρων\" να είναι ενεργοποιημένη στις &lt;a href=\"{$settingsUrl}\"&gt;Ρυθμίσεις RST&lt;/a&gt;."
+
+msgid "rt.admin.contexts.options.geoTerms"
+msgstr "Χρησιμοποιήστε τα δεδομένα γεωγραφικής ευρετηρίασης ως προκαθορισμένους όρους αναζήτησης."
+
+msgid "rt.admin.contexts.options"
+msgstr "Επιλογές"
+
+msgid "rt.admin.management"
+msgstr "Διαχείριση"
+
+msgid "rt.admin.sharing"
+msgstr "Διαμοιρασμός"
+
+msgid "rt.admin.sharing.enabled"
+msgstr "Ενεργοποίηση διαμοιρασμού"
+
+msgid "rt.admin.sharing.description"
+msgstr "Για την ενεργοποίηση της δυνατότητας διαμοιρασμού για τους Χρήστες, απαιτείται η δημιουργία λογαριασμού στο &lt;a href=\"http://www.addthis.com\"&gt;addthis.com&lt;/a&gt;. Κατά τη δημιουργία λογαριασμού, αντιγράψτε και επικολλήστε τον κώδικο του κουμπιού διαμοιρασμού παρακάτω."
+
+msgid "rt.admin.sharing.basic"
+msgstr "Βασικές ρυθμίσες"
+
+msgid "rt.admin.sharing.userNameLabel"
+msgstr "Όνομα Χρήστη στο AddThis.com"
+
+msgid "rt.admin.sharing.buttonStyleLabel"
+msgstr "Μορφοποίηση κουμπιού"
+
+msgid "rt.admin.sharing.dropDownMenuLabel"
+msgstr "Χρήση αναδυόμενου μενού"
+
+msgid "rt.admin.sharing.advanced"
+msgstr "Σύνθετες ρυθμίσεις (προαιρετικά)"
+
+msgid "rt.admin.sharing.customizationLink"
+msgstr "Δείτε τις <a href=\"https://www.addthis.com/academy/how-to-create-custom-buttons-with-addthis/\">AddThis.com οδηγίες παραμετροποίησης</a> για περισσότερες λεπτομέρειες."
+
+msgid "rt.admin.sharing.brandLabel"
+msgstr "Είδος"
+
+msgid "rt.admin.sharing.dropDownLabel"
+msgstr "Επιλογές αναδυόμενου μενού <br /> (οι τιμές διαχωρίζονται με κόμμα)"
+
+msgid "rt.admin.sharing.languageLabel"
+msgstr "Γλώσσα"
+
+msgid "rt.admin.sharing.logolabel"
+msgstr "Λογότυπο"
+
+msgid "rt.admin.sharing.logoBackgroundLabel"
+msgstr "Φόντο λογοτύπου"
+
+msgid "rt.admin.sharing.logoColorLabel"
+msgstr "Χρώμα λογοτύπου"
+
+msgid "rt.admin.readingToolsEnabled"
+msgstr "Εργαλεία μελέτης"
+
+msgid "rt.admin.searches.confirmDelete"
+msgstr "Επιβεβαιώνετε τη διαγραφή της συγκεκριμένης αναζήτησης;"
+
+msgid "rt.admin.searches.createSearch"
+msgstr "Έναρξη αναζήτησης"
+
+msgid "rt.admin.searches.edit.editSearch"
+msgstr "Επεξεργασία αναζήτησης"
+
+msgid "rt.admin.selectedVersion"
+msgstr "Συναφή τεκμήρια"
+
+msgid "rt.admin.settings.abstract"
+msgstr "Περίληψη (παρουσιάζει την περίληψη του άρθρου)"
+
+msgid "rt.admin.settings.viewReviewPolicy"
+msgstr "Δείτε την πολιτική αξιολόγησης"
+
+msgid "rt.admin.settings.authorBio"
+msgstr "Σχετικά με τον Συγγραφέα (προβολή βιογραφικών στοιχείων που έχουν καταχωρηθεί από τον Συγγραφέα)."
+
+msgid "rt.admin.settings.captureCite"
+msgstr "Οδηγίες δημιουργίας βιβλιογραφικής αναφοράς τεκμηρίου."
+
+msgid "rt.admin.settings.defineTerms"
+msgstr "Αναζήτηση όρων σε λεξικό (δυνατότητα επιλογής όρου σε τεκμήριο και αποστολής του σε λεξικό)."
+
+msgid "rt.admin.settings.disableRelatedItems"
+msgstr "Απενεργοποίηση προβολής συναφών τεκμηρίων"
+
+msgid "rt.admin.settings.emailAuthor"
+msgstr "Αποστολή μηνύματος ηλεκτρονικού ταχυδρομείου στον Συγγραφέα (οδηγεί σε πρότυπο μηνύματος με καταχωρημένη τη διεύθυνση του Συγγραφέα)."
+
+msgid "rt.admin.settings.emailOthers"
+msgstr "Γνωστοποίηση σε συνάδελφο (οδηγεί σε πρότυπο μηνύματος που περιέχει τον σύνδεσμο του τεκμηρίου)."
+
+msgid "rt.admin.settings.findingReferences"
+msgstr "Εύρεση αναφορών"
+
+msgid "rt.admin.settings.printerFriendly"
+msgstr "Εκτυπώσιμη έκδοση"
+
+msgid "rt.admin.settings.supplementaryFiles"
+msgstr "Συμπληρωματικά αρχεία (προβολή της λίστας πρόσθετων αρχείων που συμπεριέλαβε ο Συγγραφέας στην υποβολή)."
+
+msgid "rt.admin.settings.viewMetadata"
+msgstr "Ευρετηρίαση μεταδεδομένων (εμφάνιση των μεταδεδομένων ευρετηρίασης που παρέχονται από τον Συγγραφέα και το σύστημα)."
+
+msgid "rt.admin.status"
+msgstr "Κατάσταση"
+
+msgid "rt.admin.configureSharing"
+msgstr "Ρύθμιση AddThis"
+
+msgid "rt.admin.validateUrls.complete"
+msgstr "Η επικύρωση ολοκληρώθηκε."
+
+msgid "rt.admin.validateUrls.ok"
+msgstr "OK"
+
+msgid "rt.admin.validateUrls.urlIsInvalid"
+msgstr "Το {$url} δεν είναι έγκυρο."
+
+msgid "rt.admin.validateUrls"
+msgstr "Επικύρωση URL για εργαλεία μελέτης"
+
+msgid "rt.admin.validateUrls.validate"
+msgstr "Επικύρωση"
+
+msgid "rt.admin.versions.confirmDelete"
+msgstr "Επιβεβαιώνετε τη διαγραφή της Συλλογής και όλων των σχετικών περιεχομένων και αναζητήσεων;"
+
+msgid "rt.admin.versions.confirmRestore"
+msgstr "Επιβεβαιώνετε την επαναφορά των προεπιλεγμένων ρυθμίσεων των Συλλογών; Εάν ναι, θα πρέπει να επιλέξτε μια ενεργή Συλλογή στη σελίδα Ρυθμίσεις."
+
+msgid "rt.admin.versions.createVersion"
+msgstr "Δημιουργία Συλλογής"
+
+msgid "rt.admin.versions.edit.editVersion"
+msgstr "Επεξεργασία Συλλογής"
+
+msgid "rt.admin.versions.export"
+msgstr "Εξαγωγή"
+
+msgid "rt.admin.versions.importVersion"
+msgstr "Εισαγωγή Συλλογής"
+
+msgid "rt.admin.versions.metadata"
+msgstr "Μεταδεδομένα"
+
+msgid "rt.admin.versions.restoreVersions"
+msgstr "Επαναφορά στις προκαθορισμένες Συλλογές"
+
+msgid "rt.authorBio"
+msgstr "Σχετικά με τον Συγγραφέα"
+
+msgid "rt.captureCite.format"
+msgstr "Μορφή παραπομπής"
+
+msgid "rt.captureCite"
+msgstr "Οδηγίες δημιουργίας παραπομπής τεκμηρίου"
+
+msgid "rt.captureCite.online"
+msgstr "Διαδικτυακά"
+
+msgid "rt.captureCite.web"
+msgstr "Web"
+
+msgid "rt.colleague"
+msgstr "Γνωστοπόιηση σε συναδέλφο"
+
+msgid "rt.context.abbrev"
+msgstr "Συντομογραφία"
+
+msgid "rt.context.and"
+msgstr "και"
+
+msgid "rt.context.citesContextDescription"
+msgstr "Εάν το άρθρο έχει ευρετηριαστεί στο Google Scholar, μπορεί να παρατίθεται σύνδεσμος \"Cited by...\", που οδηγεί σε λίστα έργων που παραπέμπουν σε αυτό το άρθρο. Επίσης, το Google Scholar εμφανίζει όλα τα τεκμήρια που παραθέτουν τον τίτλο και τον Συγγραφέα. Για πρόσβαση σε διαδικτυακούς πόρους που είναι αποκλειστικά διαθέσιμοι μέσω της βιβλιοθήκης του ιδρύματός σας, ενδέχεται να μπορείτε να μεταβείτε στις Προτιμήσεις Scholar στο Google Scholar και να ενεργοποιήσετε τους Συνδέσμους βιβλιοθήκης (Library Links)."
+
+msgid "rt.context"
+msgstr "Πλαίσιο αναζήτησης"
+
+msgid "rt.context.defineTermsDescription"
+msgstr "Εάν το τεκμήριο είναι αρχείο HTML (και όχι PDF), η επισήμανση (με διπλό κλικ) οποιασδήποτε λέξης του κειμένου, θα την εμφανίζει στο πλαίσιο \"Λέξη για Προσδιορισμό\". Σε διαφορετική περίπτωση, οι λέξεις μπορούν να πληκτρολογηθούν ή να επικολληθούν στο πλαίσιο. Για περισσότερες πληροφορίες σχετικά με τις πηγές στις οποίες πραγματοποιήθηκε αναζήτηση για τη λέξη, κάντε κλικ στο \"ΣΧΕΤΙΚΑ\". Οι πηγές έχουν επιλεχθεί με βάση τη σχετικότητά τους και την παροχή ανοικτής πρόσβασης σε όλο το περιεχόμενο ή σε τμήμα αυτού."
+
+msgid "rt.context.description"
+msgstr "Περιγραφή"
+
+msgid "rt.context.order"
+msgstr "Διάταξη"
+
+msgid "rt.contexts"
+msgstr "Πλαίσια αναζήτησης"
+
+msgid "rt.context.searchDescription"
+msgstr "Οι όροι αναζήτησης έχουν επιλεγεί από τους Συγγραφείς. Υπάρχει δυνατότητα διαγραφής τους από τους αναγνώστες, καθώς άλλοι όροι ή φράσεις απέφεραν καλύτερα αποτελέσματα σε αναζητήσεις Boolean (AND). Για περισσότερες πληροφορίες σχετικά με τις πηγές στις οποίες πραγματοποιήθηκε αναζήτηση για τη λέξη, κάντε κλικ στο \"ΣΧΕΤΙΚΑ\". Οι πηγές έχουν επιλεχθεί με βάση τη σχετικότητά τους και την παροχή ανοικτής πρόσβασης σε όλο το περιεχόμενο ή σε τμήμα αυτού."
+
+msgid "rt.context.searchTerms"
+msgstr "Όροι αναζήτησης"
+
+msgid "rt.context.termToDefine"
+msgstr "Λέξη για προσδιορισμό"
+
+msgid "rt.context.title"
+msgstr "Τίτλος"
+
+msgid "rt.emailAuthor"
+msgstr "Αποστολή ηλεκτρονικού μηνύματος στους Συγγραφείς"
+
+msgid "rt.email.needLogin"
+msgstr "* * Απαιτεί <a target=\"_parent\" href=\"{$loginUrl}\">εγγραφή</a>"
+
+msgid "rt.email.sent"
+msgstr "Το μήνυμα εστάλη."
+
+msgid "rt.findingReferences"
+msgstr "Εύρεση αναφορών"
+
+msgid "rt.findingReferences.googleScholar"
+msgstr "Google Scholar"
+
+msgid "rt.findingReferences.windowsLiveAcademic"
+msgstr "Windows Live Academic"
+
+msgid "rt.lookUp"
+msgstr "Όροι αναζήτησης"
+
+msgid "rt.metadata.dublinCore.contributor"
+msgstr "Συντελεστής"
+
+msgid "rt.metadata.dublinCore.coverage"
+msgstr "Κάλυψη"
+
+msgid "rt.metadata.dublinCore.date"
+msgstr "Ημερομηνία"
+
+msgid "rt.metadata.dublinCore.description"
+msgstr "Περιγραφή"
+
+msgid "rt.metadata.dublinCore"
+msgstr "Dublin Core"
+
+msgid "rt.metadata.dublinCore.format"
+msgstr "Μορφή"
+
+msgid "rt.metadata.dublinCore.identifier"
+msgstr "Αναγνωριστικό"
+
+msgid "rt.metadata.dublinCore.language"
+msgstr "Γλώσσα"
+
+msgid "rt.metadata.dublinCore.publisher"
+msgstr "Εκδότης"
+
+msgid "rt.metadata.dublinCore.relation"
+msgstr "Σχέση"
+
+msgid "rt.metadata.dublinCore.rights"
+msgstr "Δικαιώματα"
+
+msgid "rt.metadata.dublinCore.source"
+msgstr "Πηγή"
+
+msgid "rt.metadata.dublinCore.subject"
+msgstr "Θέμα"
+
+msgid "rt.metadata.dublinCore.title"
+msgstr "Τίτλος"
+
+msgid "rt.metadata.dublinCore.type"
+msgstr "Τύπος"
+
+msgid "rt.metadata.forThisDocument"
+msgstr "Μεταδεδομένα του εγγράφου"
+
+msgid "rt.metadata.pkp.abstract"
+msgstr "Περίληψη"
+
+msgid "rt.metadata.pkp.copyright"
+msgstr "Πνευματικά δικαιώματα και άδειες"
+
+msgid "rt.metadata.pkp.coverage"
+msgstr "Γεωχωρική τοποθεσία, χρονολογική περίοδος, δείγμα έρευνας (φύλο, ηλικία, κτλ.)"
+
+msgid "rt.metadata.pkp.date"
+msgstr "(ΧΧΧΧ-MM-ΗΗ)"
+
+msgid "rt.metadata.pkp.discipline"
+msgstr "Επιστημονικοί κλάδοι"
+
+msgid "rt.metadata.pkp.format"
+msgstr "Μορφή αρχείου"
+
+msgid "rt.metadata.pkp.genre"
+msgstr "Κατάσταση & είδος"
+
+msgid "rt.metadata.pkpItem"
+msgstr "Στοιχεία μεταδεδομένων PKP"
+
+msgid "rt.metadata.pkp.language"
+msgstr "Αγγλικά=en"
+
+msgid "rt.metadata.pkp.publisher"
+msgstr "Φορέας διοργάνωσης, τοποθεσία"
+
+msgid "rt.metadata.pkp.source"
+msgstr "Περιοδικό/τίτλος συνεδρίου, τόμος, αρ. (έτος)"
+
+msgid "rt.metadata.pkp.sponsors"
+msgstr "Χορηγοί"
+
+msgid "rt.metadata.pkp.subject"
+msgstr "Λέξεις-κλειδιά"
+
+msgid "rt.metadata.pkp.suppFiles"
+msgstr "Συμπληρωματικά αρχεία"
+
+msgid "rt.metadata.pkp.title"
+msgstr "Τίτλος εγγράφου"
+
+msgid "rt.metadata.pkp.type"
+msgstr "Τύπος"
+
+msgid "rt.metadata.pkp.uri"
+msgstr "Μόνιμος προσδιοριστής URI"
+
+msgid "rt.printVersion"
+msgstr "Έντυπη έκδοση"
+
+msgid "rt.readingTools"
+msgstr "Εργαλεία μελέτης"
+
+msgid "rt.relatedItems"
+msgstr "Συναφή τεκμήρια"
+
+msgid "rt.reviewPolicy"
+msgstr "Πολιτική αξιολόγησης"
+
+msgid "rt.search.description"
+msgstr "Περιγραφή"
+
+msgid "rt.searches"
+msgstr "Αναζητήσεις"
+
+msgid "rt.search.order"
+msgstr "Διάταξη"
+
+msgid "rt.search"
+msgstr "Αναζήτηση"
+
+msgid "rt.search.searchPost"
+msgstr "Καταχώριση δεδομένων"
+
+msgid "rt.search.searchUrl"
+msgstr "Αναζήτηση συνδέσμου URL"
+
+msgid "rt.search.suggest"
+msgstr "Προτείνετε μια πηγή"
+
+msgid "rt.search.title"
+msgstr "Τίτλος"
+
+msgid "rt.search.url"
+msgstr "Σύνδεσμος URL"
+
+msgid "rt.suppFiles.download"
+msgstr "Μεταφόρτωση"
+
+msgid "rt.suppFiles"
+msgstr "Συμπληρωματικά αρχεία"
+
+msgid "rt.suppFiles.viewMetadata"
+msgstr "Μεταδεδομένα ευρετηρίασης"
+
+msgid "rt.version.description"
+msgstr "Περιγραφή"
+
+msgid "rt.version.key"
+msgstr "Κλειδί"
+
+msgid "rt.version.locale"
+msgstr "Γλώσσα"
+
+msgid "rt.versions"
+msgstr "Σύλλογές συναφών τεκμηρίων"
+
+msgid "rt.version.title"
+msgstr "Τίτλος"
+
+msgid "rt.version"
+msgstr "Έκδοση"
+
+msgid "rt.viewMetadata"
+msgstr "Ευρετηρίαση μεταδεδομένων"

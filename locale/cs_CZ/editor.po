@@ -1,0 +1,408 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:40+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "Knihovna příspěvku"
+
+msgid "editor.review.notInitiated"
+msgstr "Recenzní proces doposud nezačal."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Zpráva uživateli"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Vyberte z níže uvedených souborů ty, které se odešlou do recenzní fáze."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Musíte vybrat alespoň jeden soubor, kterému chcete přiřadit uživatele."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Musíte zahrnout osobní zprávu."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Neposílat email auditorovi."
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Musíte vybrat uživatele, kterého chcete přiřadit."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Nahrát/vybrat soubory"
+
+msgid "editor.submission.selectFiles"
+msgstr "Vyberte soubory"
+
+msgid "editor.submission.revisions"
+msgstr "Recenze"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Pomocí <em> + Přidat recenzenta </ em> můžete pozvat čtenáře, aby si prohlédli soubory příspěvku. Ikona poznámkového bloku označuje, že byla odevzdána recenze, která byla po konzultaci zaškrtnuta <em> Potvrzeno </ em>. Když jsou recenze po termínu, objeví se červená ikona obálky, která tuto skutečnost připomíná recenzentům."
+
+msgid "editor.submission.addReviewer"
+msgstr "Přidat recenzenta"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Lokalizovat recenzenta"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Vyhledat uživatele"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Ukázat soubory ze všech přístupných etap workflow."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Souasné soubory recenzentů pro fázi {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Zpět na vyhledávání"
+
+msgid "editor.review.createReviewer"
+msgstr "Vytvořit nového recenzenta"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Zapojit existujícího uživatele"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Zrušit přiřazení recenzenta"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Typ recenze"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Neposílat autorovi email"
+
+msgid "editor.submissionReview.open"
+msgstr "Otevřený"
+
+msgid "editor.submissionReview.blind"
+msgstr "Anonymní"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Dvojitě anonymní (Double-blind)"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Soubory k recenzi"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Uzavřít sekci souborů"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Editovat recenzenta"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Email, který má být zaslán recenzentovi"
+
+msgid "editor.review.importantDates"
+msgstr "Důležité termíny"
+
+msgid "editor.review.uploadRevision"
+msgstr "Nahrát recenze"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Požadovat od autora úpravy."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Požadovat od autora úpravy, které budou předmětem další recenze."
+
+msgid "editor.review.dateAccepted"
+msgstr "Datum souhlasu recenzenta s provedením recenze"
+
+msgid "editor.review.noReviews"
+msgstr "Nejsou žádní recenzenti k importu"
+
+msgid "editor.review.reminder"
+msgstr "Připomenutí recenze"
+
+msgid "editor.review.thankReviewer"
+msgstr "Poděkování recenzentovi"
+
+msgid "editor.review.reminderError"
+msgstr "Chyba při odesílání připomenutí recenze"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Chyba při odesílání poděkování recenzentovi"
+
+msgid "editor.review.skipEmail"
+msgstr "Neposílat email recenzentovi"
+
+msgid "editor.review.sendReminder"
+msgstr "Odeslat připomenutí"
+
+msgid "editor.review.readReview"
+msgstr "Číst recenzi"
+
+msgid "editor.review.readNewReview"
+msgstr "Přečíst novou recenzi"
+
+msgid "editor.review.responseDue"
+msgstr "Termín reakce: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Požadavek odeslán"
+
+msgid "editor.review.requestAccepted"
+msgstr "Požadavek přijat"
+
+msgid "editor.review.revertDecision"
+msgstr "Vrátit rozhodnutí"
+
+msgid "editor.review.reviewDue"
+msgstr "Termín recenze: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Termín recenze"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Recenze ukončena"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Recenze potvrzena"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Recenze odeslána"
+
+msgid "editor.review.reviewerComments"
+msgstr "Recenzentovy komentáře"
+
+msgid "editor.review.mustSelect"
+msgstr "Je třeba vybrat recenzenta"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Při vybírání recenzenta došlo k chybě. Zkuste to, prosím, znovu."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Při odebírání recenzenta došlo k chybě. Zkuste to, prosím, znovu."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Zapsat uživatele ze uživatelské skupiny \"Recenzenti\""
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Chtěli byste tuto recenzi označit za nedostatečnou? Historie recenzí bude zachována."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Označit tuto recenzi za nedostatečnou"
+
+msgid "editor.review.readConfirmation"
+msgstr "Po přečtení této recenze stiskněte tlačítko \"Potvrdit\" a označte, že proces přezkoumání může pokračovat. Pokud recenzent podal recenzi jiným způsobem, můžete nahrát níže uvedený soubor a pak pokračovat stisknutím tlačítka \"Potvrdit\"."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Soubory k redakční úpravě"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Vybrat recenzenta"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Termín úkolu"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Plán úkolů"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Zapsat existujícího uživatele jako recenzenta"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Pro tento soubor není třeba posudek"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Email, který má být odeslán autorovi"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Připomínka korektury"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Programar per publicar"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Soubor po redakční úpravě musí být potvrzen před odesláním do produkční fáze. Chcete tento soubor potvrdit?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Zrušení potvrzení redakční úpravy souboru způsobí, že nebude možné ho poslat do produkční fáze. Chcete skutečně zrušit potvrzení tohoto souboru?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Přiřadit posuzovatele"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Všechny soubory, které již byly nahrány do libovolné fáze odeslání, lze přidat do seznamu souborů pro redakční úpravy zaškrtnutím políčka Zahrnout a klepnutím na tlačítko Hledat: budou uvedeny všechny dostupné soubory a mohou být vybrány k zařazení. Další soubory, které ještě nebyly nahrané do této fáze, lze přidat do seznamu kliknutím na odkaz Nahrát soubor."
+
+msgid "editor.review"
+msgstr "Recenze"
+
+msgid "editor.review.reviewDetails"
+msgstr "Detaily recenze"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Žádné soubory nebyly nahrány"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Nenahráli jste žádné soubory recenzí."
+
+msgid "editor.review.emailReviewer"
+msgstr "Email recenzentovi"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Soubory připravené pro produkční fázi"
+
+msgid "editor.submission.newRound"
+msgstr "Nové kolo recenzí"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Nahrát rozhodnutí editora"
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Pro tento příspěvek se chystáte vytvořit nové kolo recenzí. Soubory, které nebyly použity v jiných kolech recenzí, jsou uvedeny níže."
+
+msgid "editor.submission.createNewRound"
+msgstr "Vytvořit nové kolo recenzí"
+
+msgid "editor.article.reviewForms"
+msgstr "Recenzní formuláře"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Vybrat recenzní formulář"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Upozornění: Změna recenzního formuláře  ovlivní všechny odpovědi, které recenzenti provedli pomocí tohoto formuláře. Opravdu chcete pokračovat?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Nebyly vybrány žádné soubory"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Nevybrali jste žádné soubory pro recenzenta k recenzi."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Je třeba vyplnit předmět diskuse"
+
+msgid "submission.queries.messageRequired"
+msgstr "Je třeba vyplnit obsah diskusní zprávy."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Připojené soubory"
+
+msgid "grid.action.editQuery"
+msgstr "Editovat diskusi"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "K diskusi lze připojit soubory ze seznamu níže."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Vybraný recenzent"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Potvrdit korekturu"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Odvolat potvrzení korektury"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Potvrdit tuto korekturu, aby bylo indikováno, že korektura byla ukončena a soubor je připravený k publikaci."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Odstranit potvrzení tuto korektury, aby bylo indikováno, že korektura není ukončena a soubor není připravený k publikaci."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Veřejný identifikátor '{$publicIdentifier}' nesmí být číslo."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Vzor {$pattern} není povolen jako veřejný identifikátor."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Odeslání emailového upozornění autorovi/autorům: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Odeslání emailového upozornění redaktorovi/redaktorům: {$editorNames}"
+
+msgid "editor.review.newReviewRound"
+msgstr "Požadovat nové kolo recenzí"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Recenzenti přidáni do těla zprávy."
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Záznam doporučení redakce"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Upozornit redaktory"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Neposílat email redaktorům"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Vytvořit diskusi recenzentů o tomto doporučení."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Diskusi recenzentů nezahajovat."
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonymní recenzent"
+
+msgid "editor.review.rateReviewer"
+msgstr "Hodnocení recenzenta"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Ohodnoťe kvalitu recenze. Ohodnocení nebude sdíleno s recenzentem."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Bez hodnocení"
+
+msgid "reviewer.list.count"
+msgstr "{$count} recenzentů"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} z {$total} recenzetů"
+
+msgid "reviewer.list.filterRating"
+msgstr "Hodnocení je nejméně"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktivních"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Aktivní recenzenti s momentálně přidělenými úkoly"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Hotové recenze"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Odmítnuté požadavky na recenzi"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Hodnocení recenzenta: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Před {$days} dny"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Včera"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dnů od posledního přidělení recenze"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Průměrný počet dnů na provedení recenze"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Nikdy nebyla přidělena recenze"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Recenzentovi již byla přidělen tento příspěvek."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Tento recenzent je uzamčen, protože mu byla přidělena role, která mu umožňuje zobrazit totožnost autora. Slepé peer review nelze zaručit. Chcete přesto tohoto recenzenta odemknout?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Odmčen/a"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Zájmy recenzenta"
+
+msgid "reviewer.list.biography"
+msgstr "Biografie"

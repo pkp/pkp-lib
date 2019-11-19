@@ -1,0 +1,414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Double-blind"
+
+msgid "editor.submissionReview.blind"
+msgstr "Blind"
+
+msgid "editor.submissionReview.open"
+msgstr "Åben"
+
+msgid "editor.submissionLibrary"
+msgstr "Indsendelsesbibliotek"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Vælg en bruger"
+
+msgid "editor.review.notInitiated"
+msgstr "Bedømmelsesprocessen er endnu ikke påbegyndt."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Upload/vælg filer"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Vedhæftede filer"
+
+msgid "editor.submission.selectFiles"
+msgstr "Vælg filer"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Produktionsklare filer"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Vælg filer nedenfor og send dem videre til bedømmelsestrinnet"
+
+msgid "editor.submission.newRound"
+msgstr "Ny bedømmelsesrunde"
+
+msgid "editor.submission.addReviewer"
+msgstr "Tilføj bedømmer"
+
+msgid "editor.submission.revisions"
+msgstr "Revisioner"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Anmod om revision fra forfatteren."
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Spring e-mail over"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Registrér beslutning"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Anmod forfatteren om at sende manuskripttilretninger, der efterfølgende vil undergå yderligere bedømmelse."
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Find en bedømmer"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Vælg bedømmer"
+
+msgid "editor.review.createReviewer"
+msgstr "Opret ny bedømmer"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Tilmeld en allerede registreret bruger"
+
+msgid "editor.submission.backToSearch"
+msgstr "Tilbage til Søg"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "E-mail, der skal sendes til bedømmeren"
+
+msgid "editor.review.skipEmail"
+msgstr "Spring e-mail over"
+
+msgid "editor.review.importantDates"
+msgstr "Vigtige datoer"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Bedømmelsen er forfalden"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Filer, der skal bedømmes"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Form for bedømmelse (review)"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Tilføj en allerede registreret bruger som bedømmer"
+
+msgid "editor.review.userGroupSelect"
+msgstr "Tilmeld brugeren denne bedømmer-brugergruppe"
+
+msgid "editor.review.requestSent"
+msgstr "Anmodning sendt"
+
+msgid "editor.review.responseDue"
+msgstr "Svar senest: {$date}"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Gældende bedømmelsesfiler for runde {$round}"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Planlæg publicering"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Vis filer fra alle tilgængelige redaktionelle trin."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Her starter du en ny bedømmelsesrunde. Filer, der ikke er blevet brugt i tidligere bedømmelsesrunder er anført nedenfor."
+
+msgid "editor.submission.createNewRound"
+msgstr "Start en ny bedømmelsesrunde"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Udvalgte bedømmer"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Filer fra nedenstående liste kan vedhæftes og indgå i denne drøftelse."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Besked til bruger"
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Vælg mindst én fil, der skal tildeles brugeren."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Personlig besked skal inkluderes."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Send ikke e-mail til auditor"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "For at tildele skal der vælges en bruger."
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Brug <em>+Tilføj bedømmer</em> for at invitere læsere til at bedømme indsendelsesfilerne. Notesbog-ikonet indikerer, at der er indløbet en bedømmelse, som efterfølgende bliver markeret <em>Godtaget</em> efter det er blevet inddraget. Når bedømmelserne er forfalden fremkommer et rødt brevikon for at rykke bedømmerne."
+
+msgid "editor.review.unassignReviewer"
+msgstr "Fjern bedømmer"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Luk filvalg"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Redigér bedømmelse"
+
+msgid "editor.review.uploadRevision"
+msgstr "Upload revision"
+
+msgid "editor.review.dateAccepted"
+msgstr "Dato for accept af bedømmelse"
+
+msgid "editor.review.noReviews"
+msgstr "Ingen peer reviews at importere"
+
+msgid "editor.review.reminder"
+msgstr "Påmindelse til bedømmer"
+
+msgid "editor.review.thankReviewer"
+msgstr "Tak bedømmer"
+
+msgid "editor.review.reminderError"
+msgstr "Fejl i forbindelsen med påmindelse til bedømmer"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Fejl i forbindelse med afsendelse af tak til bedømmer"
+
+msgid "editor.review.readReview"
+msgstr "Læs bedømmelse"
+
+msgid "editor.review.readNewReview"
+msgstr "Læs ny bedømmelse"
+
+msgid "editor.review.requestAccepted"
+msgstr "Anmodning accepteret"
+
+msgid "editor.review.revertDecision"
+msgstr "Fortryd afgørelse"
+
+msgid "editor.review.sendReminder"
+msgstr "Send påmindelse"
+
+msgid "editor.review.reviewDue"
+msgstr "Bedømmelse forfalden: {$date}"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Bedømmelse afsluttet"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Bedømmelse bekræftet"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Bedømmelse indsendt"
+
+msgid "editor.review.reviewerComments"
+msgstr "Kommentarer fra bedømmer"
+
+msgid "editor.review.rateReviewer"
+msgstr "Bedømmerklassificering"
+
+msgid "editor.review.mustSelect"
+msgstr "Bedømmer skal udvælges"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "En fejl indtrådte i forbindelse med valg af bedømmer. Prøv igen."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "En fejl indtrådte i forbindelse med fjernelse af bedømmer. Prøv igen."
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Ønsker du at markere denne bedømmelse som værende afvist? Bedømmelsesforløbet bliver gemt."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Afvis denne bedømmelse"
+
+msgid "editor.review.readConfirmation"
+msgstr "Klik \"Bekræft\" efter at have læst denne bedømmelse for at markere at bedømmelsesprocessen kan fortsætte. Hvis bedømmeren har indsendt sin bedømmelse andetsteds, kan du uploade filen nedenfor og dernæst klikke \"Bekræft\" for at fortsætte."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Manuskriptredigerede filer"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Opgavens forfaldsdato"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Opgavens tidsplan"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Ingen revision påkrævet i forbindelse med denne fil"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-mail, der skal sendes til bruger"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Påmindelse om korrektur"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Den manuskriptredigerede fil skal godkendes før den kan blive sendt til produktions-trinnet. Ønsker du at godkende denne fil?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "En afvisning af den manuskriptredigerede fil vil forhindre den i at blive sendt til produktionstrinnet. Ønsker du at afvise denne fil?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Tilføj auditor"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Enhver fil, der allerede er blevet uploadet til et af indsendelsestrinnene kan tilføjes manuskriptredigeringslisten ved nedenfor at markere afkrydsningsfeltet ud for 'Inkludér' og klikke 'Søg': Alle tilgængelige filer vil stå opført og kan tilvælges. Ekstra filer, der ikke allerede er uplodet til et af trinnene, kan tilføjes listen ved at klikke på linket 'Upload fil'."
+
+msgid "editor.review"
+msgstr "Bedømmelse"
+
+msgid "editor.review.reviewDetails"
+msgstr "Bedømmelsesdetaljer"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Ingen filer er uploadet"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Du har ikke uploadet nogen bedømmelsesfiler."
+
+msgid "editor.review.emailReviewer"
+msgstr "Send bedømmer en e-mail"
+
+msgid "editor.article.reviewForms"
+msgstr "Bedømmelsesformular"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Vælg bedømmelsesformular"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Advarsel: Ved at ændre bedømmelsesformularen påvirkes alle de svar, hvor bedømmeren har anvendt denne formular. Er du sikker på, at du vil fortsætte?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Ingen fil er valgt"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Du har ikke valgt nogen fil til bedømmelse."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Et emnenavn skal tilføjes indlægget."
+
+msgid "submission.queries.messageRequired"
+msgstr "En besked skal tilføjes indlægget."
+
+msgid "grid.action.editQuery"
+msgstr "Redigér indlægget"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Godkend korrekturen"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Tilbagekald godkendelse af korrektur"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Godkend denne korrektur for at markere, at korrekturlæsningen er afsluttet og filen er klar til at blive publiceret."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Tilbagekald denne godkendelse af korrekturen for at markere, at korrekturlæsningen ikke længere er afsluttet og at filen ikke er klar til publicering."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Send en  besked via e-mail til forfatteren: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Send en  besked via e-mail til redaktøren: {$editorNames}"
+
+msgid "editor.review.newReviewRound"
+msgstr "Forlang en ny bedømmelsesrunde"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Bedømmelser er tilføjet mailbesked"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Registrér redaktionel anbefaling"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Meddel redaktører"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Send ikke en e-mail til redaktørerne."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Opret i forbindelse med denne anbefaling en debat (drøftelse) under bedømmelsen."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Opret ikke en debat (drøftelse) under bedømmelsen."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Public identifier '{$publicIdentifier}' må ikke være et nummer."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Mønsteret {$pattern} er ikke tilladt i forbindelse med en 'public identifier'."
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonym bedømmer"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Vurder kvaliteten af den indleverede bedømmelse. Denne vurdering vil ikke blive delt med bedømmeren."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Ingen vurdering"
+
+msgid "reviewer.list.count"
+msgstr "{$count} bedømmere"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} af {$total} bedømmere"
+
+msgid "reviewer.list.filterRating"
+msgstr "Vurderet mindst"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktive"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Aktive bedømmelser tilmeldt i øjeblikket"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Bedømmelser afsluttet"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Bedømmervurdering: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} dage siden"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "I går"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dage siden sidste bedømmelse blev tildelt"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Det gennemsnitlige antal dage for færdiggørelse af bedømmelse"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Aldrig tildelt"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Denne bedømmer er allerede blevet tildelt denne indsendelse til bedømmelse."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Denne bedømmer er låst, fordi vedkommende har fået tildelt en rolle, som giver adgang til at se forfatterens identitet. Blind peer review kan ikke garanteres. Vil du alligevel låse op for denne anmelder?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Lås op"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Bedømmelsesinteresser"
+
+msgid "reviewer.list.biography"
+msgstr "Biografi"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Bedømmelsesanmodning afslået"
+
+msgid "editor.review.requestDeclined"
+msgstr "Anmodning afvist"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Bedømmeren afviste denne anmodning om bedømmelse."

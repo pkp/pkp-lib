@@ -1,0 +1,435 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:38+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "مكتبة المؤلَّف"
+
+msgid "editor.review.notInitiated"
+msgstr "عملية التحكيم لم يباشر بها بعد."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "رسالة إلى المستخدم"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "إختر الملفات أدناه لإرسالها إلى مرحلة التحكيم."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "عليك أن تختار ملفاً واحداً على الأقل لتعيينه لأحد المستخدمين."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "عليك أن تضمَّن رسالة شخصية."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "لا ترسل الرسالة إلى المتابع"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "عليك أن تختار المستخدم الذي تريد تعيينه."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "رفع/إختيار الملفات"
+
+msgid "editor.submission.selectFiles"
+msgstr "إختيار الملفات"
+
+msgid "editor.submission.revisions"
+msgstr "التنقيحات"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "استعمل <em>+إضافة محكم</em> لدعوة القراء لتحكيم ملفات طلب النشر. إيقونة دفتر الملاحظات تشير إلى أن أحد التحكيمات قد تم تسليمه، وهو بدوره سيدقق <em>يُعلَّم</em> بعد أن يخضع للمشاورة. عندما تتأخر التحكيمات عن موعدها، ستظهر إيقونة الظرف الأحمر لغرض تذكير المحكمين المتأخرين."
+
+msgid "editor.submission.addReviewer"
+msgstr "إضافة محكم"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "حدد محكماً"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "حدد مستخدماً"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "أظهر الملفات من كل مراحل المخطط الانسيابي المتاحة."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "ملفات التحكيم الحالية للجولة {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "العودة إلى البحث"
+
+msgid "editor.review.createReviewer"
+msgstr "إنشاء محكم جديد"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "إمنح الدور لمستخدم مسجل"
+
+msgid "editor.review.unassignReviewer"
+msgstr "إلغاء تعيين المحكم"
+
+msgid "editor.review.cancelReviewer"
+msgstr "إلغاء المحكم"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "إعادة المحكم"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "نوع التحكيم"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "أرسل إشعاراً برسالة الكترونية إلى المؤلف/المؤلفين: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "رسل إشعاراً برسالة الكترونية إلى المحرر/المحررين: {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "لا ترسل إشعاراً بريدياً"
+
+msgid "editor.submissionReview.open"
+msgstr "علني"
+
+msgid "editor.submissionReview.blind"
+msgstr "سري"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "مضاعف السرية"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "الملفات التي في النية تحكيمها"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "إنهاء إختيار الملفات"
+
+msgid "editor.submissionReview.editReview"
+msgstr "تعديل التحكيم"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "محكم مجهول الهوية"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "الرسالة المعدة للمحكم"
+
+msgid "editor.review.importantDates"
+msgstr "تواريخ هامة"
+
+msgid "editor.review.uploadRevision"
+msgstr "رفع التحكيم"
+
+msgid "editor.review.newReviewRound"
+msgstr "يتطلب جولة تحكيم أخرى"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "التحكيمات لن تخضع لجولة أخرى من التحكيم المناظر."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "التحكيمات ستخضع لجولة أخرى من التحكيم المناظر."
+
+msgid "editor.review.dateAccepted"
+msgstr "تاريخ قبول التحكيم"
+
+msgid "editor.review.reviewsAdded"
+msgstr "التنقيحات أُضيفت إلى متن الرسالة."
+
+msgid "editor.review.noReviews"
+msgstr "لا توجد تحكيمات مناظرة لاستيرادها"
+
+msgid "editor.review.reminder"
+msgstr "تذكير التحكيم"
+
+msgid "editor.review.thankReviewer"
+msgstr "أشكر المحكم"
+
+msgid "editor.review.reminderError"
+msgstr "حدث خطأ عند إرسال تذكير التحكيم"
+
+msgid "editor.review.thankReviewerError"
+msgstr "حدث خطأ عند إرسال الشكر إلى المحكم"
+
+msgid "editor.review.skipEmail"
+msgstr "لا ترسل الرسالة إلى المحكم."
+
+msgid "editor.review.sendReminder"
+msgstr "أرسل تذكيراً"
+
+msgid "editor.review.readReview"
+msgstr "قراءة التحكيم"
+
+msgid "editor.review.readNewReview"
+msgstr "قراءة تحكيم جديد"
+
+msgid "editor.review.responseDue"
+msgstr "موعد الاستجابة: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "أُرسل الطلب"
+
+msgid "editor.review.requestAccepted"
+msgstr "قُبل الطلب"
+
+msgid "editor.review.requestDeclined"
+msgstr "الطلب مرفوض"
+
+msgid "editor.review.requestCancelled"
+msgstr "الطلب مُلغى"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "المحكم رفض التماس التحكيم هذا."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "المحرر ألغى التماس التحكيم هذا."
+
+msgid "editor.review.revertDecision"
+msgstr "استرجاع القرار"
+
+msgid "editor.review.reviewDue"
+msgstr "موعد تسليم التحكيم: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "تاريخ استيجاب التحكيم"
+
+msgid "editor.review.reviewCompleted"
+msgstr "إكتمل التحكيم"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "التحكيم مؤكد"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "التحكيم مسلَّم"
+
+msgid "editor.review.reviewerComments"
+msgstr "تعليقات المحكم"
+
+msgid "editor.review.rateReviewer"
+msgstr "تقييم المحكم"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "أعط تقييماً لمستوى التحكيم المقدم. هذا التقييم لا تتم مشاركته مع المحكم."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "لا تقييم"
+
+msgid "editor.review.mustSelect"
+msgstr "عليك أن تختار محكماً"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "حدث خطأ عند إضافة المحكم. لطفاً، حاول مرة أخرى."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "حدث خطأ عند إزالة المحكم. لطفاً، حاول مرة أخرى."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "حدث خطأ ما عند إعادة الالتماس من المحكم. لطفاً، حاول مجدداً."
+
+msgid "editor.review.userGroupSelect"
+msgstr "إمنح الدور للمستخدم المسجل ضمن مجموعة المحكم هذه"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "هل تريد تأشير هذا التحكيم على أنه غير معتبر؟ سيتم الاحتفاظ به ضمن وقائع التحكيم."
+
+msgid "editor.review.unconsiderReview"
+msgstr "هذا التحكيم غير معتبر"
+
+msgid "editor.review.readConfirmation"
+msgstr "بمجرد قراءة هذا التحكيم، إضغط \"تأكيد التحكيم\" للإشارة إلى أن عملية التحكيم يمكنها أن تستمر. إذا قدم المحكم تحكيمه بطريقة أخرى، بإمكانك رفع ملفه أدناه ومن ثم الضغط على \"تأكيد التحكيم\" للمتابعة."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "تدقيق الملفات"
+
+msgid "editor.submission.selectReviewer"
+msgstr "إختر المحكم"
+
+msgid "editor.submission.taskDueDate"
+msgstr "تاريخ استيجاب المهمة"
+
+msgid "editor.submission.taskSchedule"
+msgstr "جدولة المهمة"
+
+msgid "editor.review.enrollReviewer"
+msgstr "إمنح أحد المستخدمين دور المحكم"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "ليس هناك طلب متابعة لهذا الملف"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "الرسالة المعدة للمستخدم"
+
+msgid "editor.submission.proof.reminder"
+msgstr "تذكير القراءة التصحيحية"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "لا بد من المصادقة على الملف المدقق قبل إرساله إلى مرحلة الإنتاج. هل تريد المصادقة على هذا الملف الآن؟"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "رفع المصادقة عن هذا الملف المدقق سيمنع إرساله إلى مرحلة الإنتاج. هل تريد رفع المصادقة عن هذا الملف؟"
+
+msgid "editor.submission.addAuditor"
+msgstr "عيِّن متابعاً"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "أي ملفات سبق رفعها إلى أي من مراحل الإنتاج يمكن إضافتها إلى قائمة الملفات المدققة عبر تأشير خانة التضمين أدناه والنقر على أمر البحث. سيتم عرض جميع الملفات ليصير بالإمكان إختيارها. أما أي ملفات أخرى لم يسبق رفعها إلى أي من المراحل، فبالإمكان رفعها الآن عبر النقر على رابط رفع الملف."
+
+msgid "editor.review"
+msgstr "التحكيم"
+
+msgid "editor.review.reviewDetails"
+msgstr "تفاصيل التحكيم"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "لم تُرفع أي ملفات بعد"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "لم يسبق لك رفع أي ملفات تحكيم."
+
+msgid "editor.review.emailReviewer"
+msgstr "مراسلة المحكم"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "الملفات الجاهزة للإنتاج"
+
+msgid "editor.submission.newRound"
+msgstr "جولة تحكيم جديدة"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "تسجيل قرار التحرير"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "تسجيل توصيات هيئة التحرير"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "إشعار المحررين"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "لا ترسل رسالة إلى المحررين."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "إنشاء مناقشة بشأن هذه التوصية."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "لا تُنشئ مناقشة بشأن التحكيم."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "أنت على وشك إنشاء جولة تحكيم جديدة لطلب النشر هذا. الملفات التي لم تستعمل في جولات تحكيم أخرى مدرجة أدناه."
+
+msgid "editor.submission.createNewRound"
+msgstr "إنشاء جولة تحكيم جديدة"
+
+msgid "editor.article.reviewForms"
+msgstr "نماذج التحكيم"
+
+msgid "editor.article.selectReviewForm"
+msgstr "إختر نموذج التحكيم"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "تحذير: تغيير نموذج التحكيم سيؤثر على الإجابات التي قدمها المحكمون مستعملين هذا النموذج. هل أنت متأكد من رغبتك في المتابعة؟"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "لم يتم اختيار أي ملفات بعد"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "لم تم باختيار أي ملفات لتطلب من المحكم تحكيمها."
+
+msgid "submission.queries.subjectRequired"
+msgstr "موضوع المناقشة مطلوب حتماً."
+
+msgid "submission.queries.messageRequired"
+msgstr "متن المناقشة مطلوب حتماً."
+
+msgid "submission.queries.attachedFiles"
+msgstr "الملفات المرفقة"
+
+msgid "grid.action.editQuery"
+msgstr "تعديل المناقشة"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "يمكن إرفاق الملفات ضمن هذه المناقشة من القائمة أدناه."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "المحكم المختار"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "أصادق على القراءة التصحيحية"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "إلغاء المصادقة على القراءة التصحيحية"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "صادق على هذه القراءة التصحيحة للإشارة إلى إكتمالها واعتبار الملف جاهزاً للنشر."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "ألغِ المصادقة على هذه القراءة التصحيحة للإشارة إلى عدم إكتمالها واعتبار الملف غير جاهز للنشر."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "المعرف العام '{$publicIdentifier}' يجب أن لا يكون رقماً."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "إن النمط {$pattern} غير مسموح به للمعرفات العامة."
+
+msgid "editor.submission.schedulePublication"
+msgstr "جدوله للنشر"
+
+msgid "reviewer.list.count"
+msgstr "{$count} محكم/محكمين"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} من أصل {$total} محكم"
+
+msgid "reviewer.list.filterRating"
+msgstr "مقيَّم على الأقل"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} نشط/نشطون"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "المحكمون النشطون المعينون حالياً"
+
+msgid "reviewer.list.completedReviews"
+msgstr "التحكيمات المكتملة"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "إلتماسات التحكيم المرفوضة"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "إلتماسات التحكيم الملغاة"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "تقييم المحكم: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} يوم/أيام مضت"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "البارحة"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "يوماً منذ آخر تحكيم تم تعيينه"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "معدل أيام إكمال التحكيم"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "لم يسبق تعيينه"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "هذا المحكم قد سبق تعيينه لتحكيم طلب التقديم هذا."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "هذا المحكم مستبعد لأنه قد أوكل إليه دور يسمح له بمعاينة هوية المؤلف. لا يمكن ضمان شرط التحكيم السري. هل ما زلت تريد رفع الاستبعاد عن هذا المحكم؟"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "رفع الاستبعاد"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "إهتمامات التحكيم"
+
+msgid "reviewer.list.biography"
+msgstr "السيرة الذاتية"
+
+msgid "reviewer.list.empty"
+msgstr "تعذر العثور على محكمين"

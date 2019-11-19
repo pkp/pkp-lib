@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:57+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonimowy użytkownik"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Treść"
+
+msgid "comments.titleRequired"
+msgstr "Wymagane jest podanie tytułu komentarza."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Usunięcie komentarza spowoduje usunięcie powiązanych wątków (komentarzy). Czy na pewno chcesz usunąć swój komentarz?"
+
+msgid "comments.delete"
+msgstr "Usuń komentarz"
+
+msgid "comments.email"
+msgstr "Wyślij e-mail"
+
+msgid "comments.emailReply"
+msgstr "Odpowiedz na e-mail"
+
+msgid "comments.enterComment"
+msgstr "Wpisz komentarz"
+
+msgid "comments.inResponseTo"
+msgstr "W odpowiedzi na <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Imię i nazwisko"
+
+msgid "comments.noComments"
+msgstr "Nie opublikowano żadnych komentarzy."
+
+msgid "comments.nReplies"
+msgstr "({$num} odpowiedzi)"
+
+msgid "comments.oneReply"
+msgstr "(1 Odpowiedź)"
+
+msgid "comments.postAnonymously"
+msgstr "Opublikuj komentarz jako anonim"
+
+msgid "comments.postReply"
+msgstr "Opublikuj odpowiedź"
+
+msgid "comments.readerComments"
+msgstr "Komentarze czytelników"
+
+msgid "comments.readMore"
+msgstr "Czytaj więcej"
+
+msgid "comments.replies"
+msgstr "Odpowiedzi"
+
+msgid "comments.title"
+msgstr "Tytuł"
+
+msgid "comments.viewAllComments"
+msgstr "Zobacz wszystkie komentarze"
+
+msgid "reader.fullText"
+msgstr "Pełny tekst:"

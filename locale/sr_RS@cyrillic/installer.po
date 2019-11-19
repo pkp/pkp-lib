@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:03+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:03+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Додатне локализације"
+
+msgid "installer.administratorAccount"
+msgstr "Администраторски налог"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Овај кориснички налог ће постати администратор сајта и имати потпуни приступ систему. Додатни кориснички налози могу бити креирани након инсталације."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"formError\">НЕ</span>"
+
+msgid "installer.checkYes"
+msgstr "Да"
+
+msgid "installer.clientCharset"
+msgstr "Скуп знакова клијента"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Енкодинг који се користи за слање и примање података из броwсер-а."
+
+msgid "installer.configFileError"
+msgstr "Конфигурациони фајл <тт>цонфиг.инц.пхп</тт> не постоји или је нечитљив."
+
+msgid "installer.connectionCharset"
+msgstr "Скуп знакова конекције"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Садржај конфигурационог фајла"
+
+msgid "installer.createDatabase"
+msgstr "Креирај нову базу података"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Да бисте користили ову опцију, систем ваше базе података мора подржавати креирање удаљене базе података и ваш користички налог мора имати адекватне дозволе за креирање нове базе података. Уколико инсталација није успела са овом одабраном могућношћу, ручно креирајте базу података на вашем серверу и поновно покрените инсталациони програм без ове опције."
+
+msgid "installer.databaseDriver"
+msgstr "Драјвери базе података"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Драјвери базе података излистани у угластим заградама немају потребну PHP екстензију и инсталација вероватно неће успешно завршити уколико су одабрани.</strong><br />Било који од неподржаних, доле излистаних драјвери база података су излистани искључиво за академске сврхе и вероватно неће радити."
+
+msgid "installer.databaseHost"
+msgstr "Хост"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Оставите име главног рачунара празно да би се спојили користећи спојнице домена уместо преко TCP/IP-a. Ово није неопходно са MySQL-ом, који ће аутоматски користити спојнице ако је уписано \"localhost\", али је обавезно са неким другим серверима база података као што је PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Име базе података"
+
+msgid "installer.databasePassword"
+msgstr "Лозинка"
+
+msgid "installer.databaseSettings"
+msgstr "Подешавање базе података"
+
+msgid "installer.databaseUsername"
+msgstr "Корисничко име"
+
+msgid "installer.filesDir"
+msgstr "Фолдер за додате фајлове"
+
+msgid "installer.fileSettings"
+msgstr "Подешавање фајлова"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Клијентски скуп знакова мора бити одабран."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Драјвер базе података мора бити одабран."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Име базе података је обавезно."
+
+msgid "installer.form.emailRequired"
+msgstr "Исправна имејл адреса за администраторски налог је обавезна."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Фолдер који ће се користити за чување посланих фајлова је обавезан."
+
+msgid "installer.form.localeRequired"
+msgstr "Барем једна локализација мора бити одабрана."
+
+msgid "installer.form.passwordRequired"
+msgstr "Лозинка за администраторски налог је обавезна."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Администраторске лозинке се не подударају."
+
+msgid "installer.form.separateMultiple"
+msgstr "Раздвојите вишеструке вриедности зарезима."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Администраторско корисничко име може да садржи само словне и бројчане знаке, подвлачења и цртице, а мора почети и завршити са словним или бројчаним знаком."
+
+msgid "installer.form.usernameRequired"
+msgstr "Корисничко име за администраторски налог је обавезно."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>УПОЗОРЕЊЕ: Ваша тренутна верзија PHP-а не одговара минималним захтевима инсталације. Препоручујемо да инсталирате новију верзију PHP-a.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Појавиле су се грешке у инсталацији"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL изјаве за инсталацију"
+
+msgid "installer.installFileError"
+msgstr "Инсталациони фолдер <tt>dbscripts/xml/install.xml</tt> не постоји или је нечитљив."
+
+msgid "installer.installFilesDirError"
+msgstr "Фолдер одређен за послате фајлове не постоји или се не може писати у њега."
+
+msgid "installer.installParseDBFileError"
+msgstr "Грешка код синтаксичке анализе инсталацијског фајла базе података:  <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Грешка приликом анализирања фајла шаблона имејла <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Превод"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Означене локализације су некомплетне."
+
+msgid "installer.localeSettings"
+msgstr "Подешавање локализације"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Јединствени идентификатор који се користи за идентификацију записа метаподатака индексираних на овом сајту користећи <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>, Протокол за сакупљање метаподатака."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Идентификатор репозиторијума"
+
+msgid "installer.publicFilesDirError"
+msgstr "Фолдер јавних фајлова не постоји или се не може писати по њему."
+
+msgid "installer.releaseNotes"
+msgstr "Напомене о издању"
+
+msgid "installer.oaiSettings"
+msgstr "OAI подешавања"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Кораци пре инсталације"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Error parsing the filter configuration file <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Надоградња није подржана. Погледајте документ docs/UPGRADE-UNSUPPORTED за детаље."
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<p>1. Следећи фајлови и директоријуми (и њихов садржај) морају бити доступни за уписивање:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> је доступан (опционо): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> је доступан: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> је доступан: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> је доступан: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> је доступан: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> је доступан: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Директоријум за достављене фајлове мора бити направљен и доступан за уписивање (погледајте \"Подешавање фајлова\" ниже).</p>"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Ваша PHP инсталација нема доступан XSL модул. Или га омогућите или подесите xslt_command параметар у вашем config.inc.php фајлу.</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Обезбедите јединствени ID сајта базни OAI URL за PKP за статистику и сигурносна обавештења."

@@ -1,0 +1,332 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Configuració de nom"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Configuració de valor"
+
+msgid "admin.adminFunctions"
+msgstr "Funcions administratives"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Esteu segur/a que voleu suprimir aquesta font d’autenticació de manera permanent?"
+
+msgid "admin.auth.create"
+msgstr "Crea una font d’autenticació"
+
+msgid "admin.auth.noneCreated"
+msgstr "No s’ha definit cap font d’autenticació."
+
+msgid "admin.authSources"
+msgstr "Fonts d’autenticació"
+
+msgid "admin.clearDataCache"
+msgstr "Esborra la memòria cau de dades"
+
+msgid "admin.clearTemplateCache"
+msgstr "Esborra la memòria cau de plantilles"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "El fitxer de configuració s'ha desat correctament. Tingueu en compte que si el seu lloc ja no funciona correctament potser haureu de modificar manualment la configuració editant <tt>config.inc.php</tt> directament."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Esteu segur/a que voleu esborrar la memòria cau de les plantilles compilades?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Esteu segur/a que voleu vèncer totes les sessions d'usuari/ària? Tots els usuaris/àries que tinguin la sessió iniciada al sistema hauran d'iniciar la sessió de nou, inclòs vós."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Continguts del fitxer de configuració"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copia el/s fitxer/s de registre passat/s, i filtra les entrades relacionades amb la instal·lació del directori de fitxers actual, dins del directori UsageStatsPlugin. Heu d'accedir amb un usuari amb suficients privilegis per llegir els fitxers de registre d'apache.\n"
+"\n"
+"Aquesta eina només copiarà els fitxers que no es trobin al fitxer d'estats d'ús\\n als directoris de càrrega (fase, processament, arxivar i rebutjar).\n"
+"\n"
+"Ús: {$scriptName} path/to/apache/log/file.log\n"
+"Ús (s'estan processant tots els fitxers a un directori de fitxer): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Hi ha hagut un error: no s'ha pogut crear un directori temporal a {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Hi ha hagut un error: el fitxer {$filePath} no existeix o bé no s'hi pot accedir."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Hi ha hagut un error: no es pot copiar el fitxer des de {$filePath} a {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Hi ha hagut un error: no s'ha pogut eliminar el fitxer {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Atenció: el fitxer {$filePath} ja existeix dins del directori d'estats d'ús."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "L'operació: {$filePath} a {$destinationPath}s'ha realitzat correctament."
+
+msgid "admin.currentVersion"
+msgstr "Versió actual"
+
+msgid "admin.dateInstalled"
+msgstr "Data d’instal·lació"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "El contingut de la configuració actualitzada es mostra a continuació. Per aplicar els canvis de configuració heu d'obrir <tt>config.inc.php</tt> en un editor de textos compatible i remplaçar el contingut amb el del camp de text a continuació."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Visualitza la nova configuració"
+
+msgid "admin.expireSessions"
+msgstr "Fes vèncer les sessions d’usuari/usuària"
+
+msgid "admin.languages.download"
+msgstr "Descarrega la configuració regional"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Descarrega configuracions regionals"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "No s'ha pogut obrir el descriptor de llengua des del lloc web de PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "No s'ha pogut afegir la nova configuració regional al fitxer de registre de configuracions regionals, normalment «registry/locales.xml»."
+
+msgid "admin.languages.cantDisable"
+msgstr "Aquesta és la configuració regional principal del lloc web. No podeu inhabilitar-la fins que no hàgiu triat una altra configuració regional primària."
+
+msgid "admin.languages.confirmReload"
+msgstr "Esteu segur/a que voleu tornar a carregar aquesta configuració regional? Això eliminarà qualsevol dada de configuració regional existent, com ara les plantilles de correu electrònic personalitzades."
+
+msgid "admin.languages.installedLocales"
+msgstr "Configuracions regionals instal·lades"
+
+msgid "admin.languages.installLanguages"
+msgstr "Gestiona les configuracions regionals"
+
+msgid "admin.languages.availableLocales"
+msgstr "Configuracions regionals disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Instal·la una configuració regional"
+
+msgid "admin.languages.installLocales"
+msgstr "Instal·la"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instal·la configuracions regionals noves"
+
+msgid "admin.languages.languageSettings"
+msgstr "Configuració de llengua"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "No hi ha cap altra configuració regional disponible per instal·lar."
+
+msgid "admin.languages.reload"
+msgstr "Actualitza la configuració regional"
+
+msgid "admin.languages.uninstall"
+msgstr "Desinstal·la la configuració regional"
+
+msgid "admin.phpInfo"
+msgstr "Informació de PHP ampliada"
+
+msgid "admin.scheduledTask"
+msgstr "Tasques planificades"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "S'ha iniciat la tasca."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "S'ha aturat la tasca."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "La tasca no ha generat cap registre (log)."
+
+msgid "admin.scheduledTask.openAccessNotification"
+msgstr "Notificació d'accés obert"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Recordatori de revisió"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Recordatori de caducitat de la subscripció"
+
+msgid "admin.server.apacheVersion"
+msgstr "Versió d’Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Controlador de la base de dades"
+
+msgid "admin.server.dbVersion"
+msgstr "Versió del servidor de la base de dades"
+
+msgid "admin.serverInformationDescription"
+msgstr "Versions del programari del servidor i del sistema operatiu principal. Feu clic a <span class=\"highlight\">Informació PHP Avançada</span> per visualitzar els detalls de configuració d'aquest servidor PHP."
+
+msgid "admin.serverInformation"
+msgstr "Informació del servidor"
+
+msgid "admin.server.phpVersion"
+msgstr "Versió de PHP"
+
+msgid "admin.server.platform"
+msgstr "Plataforma del SO"
+
+msgid "admin.settings"
+msgstr "Configuració"
+
+msgid "admin.settings.about"
+msgstr "Quant a la descripció del lloc"
+
+msgid "admin.settings.contactEmail"
+msgstr "Adreça electrònica del contacte principal"
+
+msgid "admin.settings.contactName"
+msgstr "Nom del contacte principal"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tLa instal·lació està configurada per enregistrar més d'una analítica web. Les estadístiques d'ús es mostraran en diversos contextos.\n"
+"\t\tHi ha casos en què s'ha d'utilitzar una estadística d'ús, p.ex. per mostrar una llista ordenada de les trameses més emprades o bé per ordenar els resultats d'una cerca. Seleccioneu una de les analítiques configurades com a analítica per defecte.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Introducció"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Longitud mínima de la contrasenya"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "caràcters"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Llengua del lloc"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "El format del full d'estil del lloc web no és vàlid. El format admès és .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Full d’estil del lloc"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema del lloc web"
+
+msgid "admin.settings.siteTitle"
+msgstr "Títol del lloc"
+
+msgid "admin.siteAdmin"
+msgstr "Administració del lloc"
+
+msgid "admin.siteManagement"
+msgstr "Administració del lloc web"
+
+msgid "admin.siteSettings"
+msgstr "Configuració del lloc"
+
+msgid "admin.siteSetup"
+msgstr "Desplegament del lloc web"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "El fitxer de configuració <tt>config.inc.php</tt> no existeix, no es pot llegir o bé no és vàlid."
+
+msgid "admin.systemInformation"
+msgstr "Informació del sistema"
+
+msgid "admin.versionBuild"
+msgstr "Muntatge"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Cerca actualitzacions"
+
+msgid "admin.version.downloadPackage"
+msgstr "Baixa"
+
+msgid "admin.version.downloadPatch"
+msgstr "Baixa el pedaç"
+
+msgid "admin.versionHistory"
+msgstr "Historial de versions"
+
+msgid "admin.version.latest"
+msgstr "Versió més recent"
+
+msgid "admin.versionMajor"
+msgstr "Principal"
+
+msgid "admin.versionMinor"
+msgstr "Secundària"
+
+msgid "admin.version.moreInfo"
+msgstr "Més informació"
+
+msgid "admin.versionRevision"
+msgstr "Revisió"
+
+msgid "admin.version.updateAvailable"
+msgstr "Hi ha una versió actualitzada disponible."
+
+msgid "admin.version.upToDate"
+msgstr "El sistema està actualitzat."
+
+msgid "admin.version"
+msgstr "Versió"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "La ruta principal {$path} ha d'estar dins d'un directori de fitxer públic."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "La carpeta {$path} no és un directori o bé no es pot llegir."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "No s'ha pogut more el fitxer {$filename} des de {$currentFilePath} a {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "El fitxer {$filename} s'ha processat i arxivat correctament."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Carregador de fitxers"
+
+msgid "admin.copyAccessLogFileTool.error.noEgrep"
+msgstr "No s'ha configurat la ruta Egrep. Consulteu config.inc.php, secció cli."
+
+msgid "admin.copyAccessLogFileTool.error.noGunzip"
+msgstr "No s'ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "La instal·lació de l'{$softwareName} ha executat i finalitzat aquesta tasca automàticament i ja podeu descarregar-vos el fitxer de registre aquí: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Esteu segur que voleu eliminar tots els registres d'execució de tasques programats?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Neteja els registres d'execució de tasques programats"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "L'execució del programa \"{$utilPath}\" ha produït el següent error: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Error: no es pot executar \"{$utilPath}\". Comprovi la configuració de {$utilVar} a config.inc.php."
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Segur que voleu eliminar permanentment {$contextName} i tots els seus continguts?"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logotip del lloc"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "No hi ha configuracions regionals disponibles per descarregar."

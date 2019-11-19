@@ -1,0 +1,202 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Configuracions regionals addicionals"
+
+msgid "installer.administratorAccount"
+msgstr "Compte de l’administrador/a"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Aquest compte d'usuari/ària esdevindrà l'administrador/a del lloc web i tindrà accés complet al sistema. Una vegada finalitzada la instal·lació, és possible crear comptes d'usuari/ària addicionals."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NO</span>"
+
+msgid "installer.checkYes"
+msgstr "Sí"
+
+msgid "installer.clientCharset"
+msgstr "Joc de caràcters del client"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Codificació que s’utilitzarà per a les dades que s’enviïn als navegadors i es rebin des d’aquests."
+
+msgid "installer.configFileError"
+msgstr "El fitxer de configuració <tt>config.inc.php</tt> no existeix o no té permís de lectura."
+
+msgid "installer.connectionCharset"
+msgstr "Joc de caràcters de la connexió"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Continguts del fitxer de configuració"
+
+msgid "installer.createDatabase"
+msgstr "Crea una base de dades nova"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Per utilitzar aquesta opció, el vostre sistema de bases de dades ha d'admetre la creació remota de bases de dades i el vostre compte d'usuari/ària ha de tenir els permisos adequats per crear noves bases de dades. Si heu seleccionat aquesta opció i la instal·lació falla, creeu la base de dades manualment al servidor i torneu a executar l'instal·lador amb l'opció desactivada."
+
+msgid "installer.databaseDriver"
+msgstr "Controlador de la base de dades"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Els controladors de bases de dades llistats entre parèntesis no sembla que tinguin carregada l'extensió PHP requerida, per la qual cosa si els seleccioneu és probable que la instal·lació falli.</strong><br />Els controladors de bases de dades no acceptats només es llisten per a finalitats acadèmiques i és poc probable que funcionin."
+
+msgid "installer.databaseHost"
+msgstr "Amfitrió"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Deixeu en blanc el nom de l'amfitrió si voleu connectar-vos utilitzant sòcols de domini, en lloc de fer-ho mitjançant TCP/IP. Aquesta acció no és necessària si treballeu amb MySQL, perquè aquest sistema utilitza sòcols automàticament si s'hi introdueix «localhost». En canvi, sí que és necessària amb altres servidors de bases de dades, com ara PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Nom de la base de dades"
+
+msgid "installer.databasePassword"
+msgstr "Contrasenya"
+
+msgid "installer.databaseSettings"
+msgstr "Configuració de la base de dades"
+
+msgid "installer.databaseUsername"
+msgstr "Nom d’usuari"
+
+msgid "installer.encryptionInstructions"
+msgstr "Es recomana l'SHA1."
+
+msgid "installer.encryption"
+msgstr "Algorisme de xifratge de contrasenyes"
+
+msgid "installer.filesDir"
+msgstr "Directori per a penjar fitxers"
+
+msgid "installer.fileSettings"
+msgstr "Configuració dels fitxers"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Heu de seleccionar un joc de caràcters del client."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Heu de seleccionar un controlador de la base de dades."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Heu d’introduir el nom de la base de dades."
+
+msgid "installer.form.emailRequired"
+msgstr "Heu d’introduir una adreça electrònica vàlida per al compte d’administrador/a."
+
+msgid "installer.form.encryptionRequired"
+msgstr "Heu de seleccionar l’algorisme que s’utilitzarà per a xifrar les contrasenyes d’usuari/usuària."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Heu d’introduir el directori que s’utilitzarà per a emmagatzemar els fitxers penjats."
+
+msgid "installer.form.localeRequired"
+msgstr "Heu de seleccionar una configuració regional."
+
+msgid "installer.form.passwordRequired"
+msgstr "Heu d’introduir una contrasenya per al compte d’administrador/a."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Les contrasenyes d’administrador/a no coincideixen."
+
+msgid "installer.form.separateMultiple"
+msgstr "Separeu els valors múltiples amb comes."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "El nom d’usuari de l’administrador/a només pot contenir caràcters alfanumèrics, ratlles baixes i guionets, i ha de començar i acabar amb un caràcter alfanumèric."
+
+msgid "installer.form.usernameRequired"
+msgstr "Heu d’introduir un nom d’usuari per al compte d’administrador/a."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>ADVERTIMENT: La versió actual de PHP no compleix els requisits mínims per a la instal·lació. Us recomanem que instal·leu una versió de PHP més recent.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "S’han produït errors durant la instal·lació."
+
+msgid "installer.installerSQLStatements"
+msgstr "Expressions SQL per a la instal·lació"
+
+msgid "installer.installFileError"
+msgstr "El fitxer d'instal·lació <tt>dbscripts/xml/install.xml</tt> no existeix o no té permís de lectura."
+
+msgid "installer.installFilesDirError"
+msgstr "El directori especificat per als fitxers penjats no existeix o no té permís d’escriptura."
+
+msgid "installer.installParseDBFileError"
+msgstr "Hi ha hagut un error durant l'anàlisi del fitxer <tt>{$file}</tt> d'instal·lació de la base de dades."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Hi ha hagut un error durant l'anàlisi del fitxer <tt>{$file}</tt> de plantilla de missatge de correu electrònic."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Hi ha hagut un error durant l'anàlisi del fitxer <tt>{$file}</tt> de configuració del filtre."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "L'actualització no és compatible. Cosulteu docs/UPGRADE-UNSUPPORTED per veure'n els detalls."
+
+msgid "installer.locale"
+msgstr "Configuració regional"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Les configuracions regionals marcades poden estar incompletes."
+
+msgid "installer.localeSettings"
+msgstr "Paràmetres de configuració regional"
+
+msgid "installer.oaiSettings"
+msgstr "Configuració OAI"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Identificador únic utilitzat per identificar els registres de metadades indexats des d'aquest lloc web mitjançant el Protocol for Metadata Harvesting (protocol per a la recopilació de metadades) de <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identificador del dipòsit OAI"
+
+msgid "installer.publicFilesDirError"
+msgstr "El directori per als fitxers públics no existeix o no té permís d’escriptura."
+
+msgid "installer.releaseNotes"
+msgstr "Notes de la versió"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Passos previs a la instal·lació"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Els fitxers i directoris següents (i el seu contingut) han de tenir permisos d'escriptura.</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> té permisos d'escriptura (opcional): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> té permisos d'escriptura: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> té permisos d'escriptura: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> té permisos d'escriptura: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> té permisos d'escriptura: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> té permisos d'escriptura: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Heu de crear un directori per als fitxers carregats i li heu de donar permís d'escriptura (consulteu «Configuració dels fitxers» més avall).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Heu instal·lat el PHP amb el mòdul XSL desactivat. Activeu-lo o configureu el paràmetre xslt_command en el vostre fitxer config.inc.php .</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Aporteu un únic ID de lloc i una URL de base OAI a PKP només per a propòsits de seguretat i d'alertes de seguretat."
+
+msgid "installer.miscSettings"
+msgstr "Paràmetres diversos"

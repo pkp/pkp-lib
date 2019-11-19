@@ -1,0 +1,1821 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
+"Language: \n"
+
+msgid "author.submit.submissionCitations"
+msgstr "لیست مرتب شده‌ای از مراجع بکار رفته در این مقاله ارسالی را وارد کنید."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "داوری جدید ثبت شده و توسط سردبیر بررسی خواهد شد."
+
+msgid "submission.confirm.message"
+msgstr "مقاله ی شما با موفقیت بر روی این سامانه بارگذاری گردیده و آماده ی ارسال میباشد . شما میتوانید قبل از عبور از این مرحله برای بازنگری یا اصلاح موارد وارد شده به مراحل قبلی بازگردید"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "موارد ضروری برای ارسال"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "قبل از ورود به قسمت های بعدی نسبت به موارد زیر اطمینان حاصل کنید"
+
+msgid "submission.submit.submissionComplete"
+msgstr "ثبت مقاله تکمیل شد."
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "ممنونیم که در {$contextName} مقاله خود را ثبت نمودید."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "قوانین و شرایط ثبت"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "تمامی شرایط را میپذیرم"
+
+msgid "submission.submit.whatNext"
+msgstr "برای ادامه ؟"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "شما می توانید:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "وضعیت مقاله ثبت شده را مرور کنید."
+
+msgid "submission.submit.whatNext.create"
+msgstr "مقاله جدیدی ثبت کنید."
+
+msgid "submission.submit.whatNext.return"
+msgstr "به داشبورد برگردید."
+
+msgid "submission.submit.extendedMetadata"
+msgstr "فراداده ها را گسترش دهید."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "ایمیل ثبت‌نام CrossRef"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "لطفاً ایمیل ثبت‌نام   CrossRef   معتبری را وارد کنید. می تونید با ایمیل خود به رایگان در وب‌سایت  CrossRef  ثبت‌نام کنید."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "کلید ISBNdb API"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "لطفاً کلید   ISBNdb API  خود را وارد کنید. اگر ندارید می‌توانید به رایگان آن را از پروژه  ISBNdb  درخواست کنید."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "ایمیل ثبت‌نام PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "لطفاً ایمیل ثبت‌نام PubMed معتبری را در صورتی که دارید وارد کنید."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "کلید WorldCat API"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "لطفاً کلید معتبر WorldCat API معتبری را در صورتی که دارید وارد کنید."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "ماژول ارجاعات"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "لطفاً یکی از ماژول‌های ارجاعات ارائه شده را انتخاب کنید."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "به‌صورت پیش‌فرض به کار برده نشود. (البته در دسترس سردبیر خواهد بود)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "خطای داخلی. یک مقدار غیر معتبر برای «فیلتر اختیاری» ارسال شده است. لطفاً این را به عنوان باگ گزارش کنید."
+
+msgid "metadata.property.displayName.author"
+msgstr "نویسندگان"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "برای حصول بهترین نتیجه نویسندگان را با فرمت زیر وارد کنید  Coleman Jr, D. (Ralf) Dr"
+
+msgid "metadata.property.displayName.editor"
+msgstr "دبیران"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "برای حصول بهترین نتیجه نام دبیران را با فرمت زیر وارد کنید  Coleman Jr, D. (Ralf) Dr"
+
+msgid "metadata.property.displayName.article-title"
+msgstr "عنوان مقاله"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "لطفاً عنوان مقاله معتبری را وارد کنید."
+
+msgid "metadata.property.displayName.source"
+msgstr "عنوان مجله/کتاب"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "لطفاً عنوان مجله / کتاب را وارد کنید"
+
+msgid "metadata.property.displayName.date"
+msgstr "تاریخ چاپ"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "لطفاً تاریخ چاپ را وارد کنید: YYYY-MM-DD"
+
+msgid "metadata.property.displayName.access-date"
+msgstr "تاریخ دسترسی"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "لطفاً تاریخ دسترسی را وارد کنید: YYYY-MM-DD"
+
+msgid "metadata.property.displayName.issue"
+msgstr "شماره مجله"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "لطفاً شماره مجله را وارد کنید"
+
+msgid "metadata.property.displayName.volume"
+msgstr "دوره"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "لطفاً دوره را وارد کنید"
+
+msgid "metadata.property.displayName.season"
+msgstr "فصل"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "لطفاً فصل را وارد کنید"
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "عنوان فصل"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "لطفاً عنوان فصل را وارد کنید"
+
+msgid "metadata.property.displayName.edition"
+msgstr "شماره ویرایش"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "لطفاً شماره ویرایش را وارد کنید"
+
+msgid "metadata.property.displayName.series"
+msgstr "سری‌ها"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "لطفاً شماره سری را وارد کنید"
+
+msgid "metadata.property.displayName.supplement"
+msgstr "ویژه‌نامه"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "لطفاً ویژه نامه را وارد کنید"
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "تاریخ کنفرانس"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "لطفاً تاریخ کنفرانس را وارد کنید: YYYY-MM-DD"
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "محل کنفرانس"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "لطفاً محل کنفرانس را وارد کنید"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "نام کنفرانس"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "لطفاً نام کنفرانس را وارد کنید"
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "حامی کنفرانس"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "لطفاً حامی کنفرانس را وارد کنید"
+
+msgid "metadata.property.displayName.institution"
+msgstr "موسسه"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "لطفاً موسسه را وارد کنید"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "صفحه شروع"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "لطفاً صفحه شروع را وارد کنید"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "صفحه پایان"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "لطفاً صفحه پایان را وارد کنید"
+
+msgid "metadata.property.displayName.size"
+msgstr "تعداد صفحات"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "لطفاً تعداد صفحات را وارد کنید"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "محل ناشر"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "لطفاً محل ناشر را وارد کنید"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "نام ناشر"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "لطفاً نام ناشر را وارد کنید"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "شابک"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "لطفاً شاپا را وارد کنید"
+
+msgid "metadata.property.displayName.issn"
+msgstr "شاپا چاپی"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "لطفاً شاپا چاپی را وارد کنید"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "شاپا الکترونیکی"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "لطفاً شاپا الکترونیکی را وارد کنید"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "لطفاً DOI را وارد کنید"
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "شناسه نشر سفارشی"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "لطفاً شناسه محلی چاپ را وارد کنید"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "لطفاً CODEN را وارد کنید"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "لطفاً SICI را وارد کنید"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "لطفاً PMID را وارد کنید"
+
+msgid "metadata.property.displayName.uri"
+msgstr "لینک به چاپ"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "لطفاً لینک به صفحه چاپ را وارد کنید"
+
+msgid "metadata.property.displayName.comment"
+msgstr "نظرات"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "لطفاً توضیح را وارد کنید"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "یادداشت"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "لطفاً یادداشت را وارد کنید"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "نوع نشر"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "لطفاً مطمئن شوید که نوع نشر را تنظیم کرده‌اید. گزینه‌های ممکن عبارتند از: کتاب و مجله. در غیر این صورت فرمت خروجی ارجاع صحیح نخواهد بود."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "نوع عنوان"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "لطفاً یک نوع عنوان معتبر وارد کنید، که می‌تواند شامل: \"خلاصه\"، \"ترجمه\"، \"جایگزین\" و یا \"یکنواخت\" باشد."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "قسمتی از عنوان که در زمان مرتب‌سازی نادیده گرفته می‌شود."
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "لطفاً تنها کاراکترهای آغازین عنوان را که در زمان مرتب‌سازی بایستی نادیده گرفته شوند وارد کنید."
+
+msgid "metadata.property.displayName.title"
+msgstr "عنوان"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "لطفاً یک عنوان معتبر وارد کنید"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "زیر عنوان"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "لطفاً یک زیر عنوان معتبر وارد کنید"
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "شماره قطعه"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "لطفاً یک شماره قطعه معتبر وارد کنید"
+
+msgid "metadata.property.displayName.partName"
+msgstr "نام قطعه"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "لطفاً یک نام قطعه معتبر وارد کنید"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "نوع نام"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "یک نوع برای نام خود وارد کنید. این نوع می‌تواند: \"حقیقی\"، \"سازمانی\" یا \"کنفرانس\" باشد"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "انتساب نشده"
+
+msgid "common.queue.long.myAssigned"
+msgstr "انتساب شده برای من"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "بایگانی مقالات ارسالی"
+
+msgid "submission.authors"
+msgstr "نویسنده ی مقاله"
+
+msgid "submission.authorBiography"
+msgstr "بیوگرافی نویسنده"
+
+msgid "submission.authorBiographies"
+msgstr "بیوگرافی نویسندگان"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} و سایر همکاران."
+
+msgid "submission.mySubmissions"
+msgstr "نوشته های من"
+
+msgid "submission.addFile"
+msgstr "اضافه کردن فایل"
+
+msgid "submission.agencies"
+msgstr "آژانسها"
+
+msgid "submission.abstractViews"
+msgstr "مشاهده چکیده"
+
+msgid "submission.accepted"
+msgstr "پذیرش"
+
+msgid "submission.acknowledge"
+msgstr "تشکر"
+
+msgid "submission.addSuppFile"
+msgstr "اضافه کردن فایل مکمل"
+
+msgid "submission.ask"
+msgstr "درخواست"
+
+msgid "submission.attachedFile"
+msgstr "فایل ضمیمه"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "بازگشت به صفحه ویرایش مقاله ارسالی"
+
+msgid "submission.changeComments"
+msgstr "تغییر بده به"
+
+msgid "submission.changeFile"
+msgstr "تغییر فایل"
+
+msgid "submission.citations"
+msgstr "مراجع"
+
+msgid "submission.citations.editor.citationlist.approved"
+msgstr "تایید شده"
+
+msgid "submission.citations.editor.citationlist.deleteCitationConfirmation"
+msgstr "آیا میخواهید این ارجاع را حذف کنید؟"
+
+msgid "submission.citations.editor.citationlist.errorDeletingCitation"
+msgstr "بروز خطا هنگام حذف ارجاع. لطفا این خطا را گزارش کنید."
+
+msgid "submission.citations.editor.citationlist.newCitation"
+msgstr "ارجاع جدید"
+
+msgid "submission.citations.editor.citationlist.notApproved"
+msgstr "تایید نشده"
+
+msgid "submission.citations.editor.citationlist.title"
+msgstr "ویرایش ارجاعات"
+
+msgid "submission.citations.editor.clickToEdit"
+msgstr "برای ویرایش کلیک کنید"
+
+msgid "submission.citations.editor.details.authorQuery"
+msgstr "پرسش از نویسنده "
+
+msgid "submission.citations.editor.details.authorQueryBody"
+msgstr "پیعام شما برای نویسنده"
+
+msgid "submission.citations.editor.details.authorQueryExplanation"
+msgstr "میتوانید از نویسنده اطلاعات بیشتری در مورد ارجاع فعلی درخواست کنید. با کلیک بر روی دکمه ارسال، پیغام خود را برای نویسنده ارسال کنید."
+
+msgid "submission.citations.editor.details.authorQuerySubject"
+msgstr "موضوع:"
+
+msgid "submission.citations.editor.details.cannotSelectDefaultForLabel"
+msgstr "شما نمی توانید برچسب یک فیلد را غیرفعال کنید. لطفا ابتدا فیلد را حذف کنید"
+
+msgid "submission.citations.editor.details.checkInGoogleScholar"
+msgstr "چک کردن در گوگل اسکولار"
+
+msgid "submission.citations.editor.details.changeFieldInfo"
+msgstr "چند حرف اول را برای انتخاب وارد کنید."
+
+msgid "submission.citations.editor.details.citationExportPreview"
+msgstr "پیش نمایش برون دهی ارجاع"
+
+msgid "submission.citations.editor.details.citationImprovementResultsActive"
+msgstr "برون دهی نتایج سرویس ارجاع داخلی (کلیک برای بستن)"
+
+msgid "submission.citations.editor.details.citationImprovementResultsInactive"
+msgstr "برون دهی نتایج سرویس ارجاع داخلی (کلیک برای بازکردن)"
+
+msgid "submission.citations.editor.details.citationServices"
+msgstr "سرویس های ارجاع"
+
+msgid "submission.citations.editor.details.clickToDismissMessage"
+msgstr "با کلیک بر روی متن پیام می توانید آن را پاک کنید"
+
+msgid "submission.citations.editor.details.dataSaved"
+msgstr "تغییرات ذخیره شدند"
+
+msgid "submission.citations.editor.details.editRawCitationDatabaseServices"
+msgstr "انتخاب سرویس های پایگاه های ارجاعات"
+
+msgid "submission.citations.editor.details.editRawCitationExpertSettingsActive"
+msgstr "برون دهی تنظیمات ویرایش ارجاع (کلیک برای بستن)"
+
+msgid "submission.citations.editor.details.editRawCitationExpertSettingsInactive"
+msgstr "برون دهی تنظیمات ویرایش ارجاع (کلیک برای بازکردن)"
+
+msgid "submission.citations.editor.details.editRawCitationExtractionServices"
+msgstr "انتخاب سرویس های استخراج ارجاع:"
+
+msgid "submission.citations.editor.details.editRawCitationFilterValidationError"
+msgstr "خطای داخلی: فیلتر نامناسب. لطفا خطا را گزارش کنید"
+
+msgid "submission.citations.editor.details.explainImprovementOptions"
+msgstr "اگر به‌طور پیش‌فرض نتایج مورد نظر خود را دریافت نکردید، در این صورت گزینه های مختلفی برای بهینه سازی ارجاع دارید. گاهی  ویرایش دستی فیلدهای مهم کمک کننده است. اگر فایده ای نداشت می تونید گوگل اسکولار را جستجو کنید و یا از خود نویسنده سؤال کنید."
+
+msgid "submission.citations.editor.details.googleScholar"
+msgstr "گوگل اسکولار"
+
+msgid "submission.citations.editor.details.googleScholarExplanation"
+msgstr "اگر ارجاعی مناسبی در هیچکدام از سرویس های ارجاع یافت نشد می توانید در گوگل اسکولار جستجو کنید. متأسفانه گوگل اسکولار قسمتی برای جستجو بر اساس فیلد ندارد وبنابراین راهی برای خودکارسازی عمل جستجو و برگرداندن داده های حاصله وجود ندارد. لذا باید نتایج جستجو را بصورت دستی در فیلد های مربوطه کپی کنید."
+
+msgid "submission.citations.editor.details.manualEditing"
+msgstr "ویرایش دستی"
+
+msgid "submission.citations.editor.details.messages"
+msgstr "لطفا توجه کنید: بر روی پیام کلیک کنید تا پاک شود"
+
+msgid "submission.citations.editor.details.newFieldInfo"
+msgstr "... اینجا را کلیک کنید تا یک فیلد جدید اضافه کنید"
+
+msgid "submission.citations.editor.details.queryCitation"
+msgstr "استعلام مجدد از سرویس های ارجاعی"
+
+msgid "submission.citations.editor.details.queryGoogleScholar"
+msgstr "جستجو در گوگل اسکولار"
+
+msgid "submission.citations.editor.details.processRawCitation"
+msgstr "پروسه"
+
+msgid "submission.citations.editor.details.processRawCitationGoAhead"
+msgstr "برو جلو"
+
+msgid "submission.citations.editor.details.processRawCitationTitle"
+msgstr "تغییر ارجاع اصلی"
+
+msgid "submission.citations.editor.details.processRawCitationWarning"
+msgstr "شما می خواهید متن ارجاع اصلی را تغییر دهید. در این صورت تمام فیلدها با مقادیر جدید جایگزین می شود. در نتیجه تغییرات دستی که قبلا داده بودید ممکن است از بین برود."
+
+msgid "submission.citations.editor.details.saveAndApprove"
+msgstr "ذخیره و تایید"
+
+msgid "submission.citations.editor.details.saveAndRevokeApproval"
+msgstr "تایید مجدد"
+
+msgid "submission.citations.editor.details.sendAuthorQuery"
+msgstr "ارسال پیام"
+
+msgid "submission.citations.editor.details.sendAuthorQuerySuccess"
+msgstr "پیام ارسال شد"
+
+msgid "submission.citations.editor.details.sourceResultsUse"
+msgstr "استفاده"
+
+msgid "submission.citations.editor.details.sourceResultsUseAll"
+msgstr "استفاده از همه"
+
+msgid "submission.citations.editor.details.sourceResultsUseAllExplanation"
+msgstr "برای انتقال تمام فیلدهای نتایج از این منبع مستقیما به لیست فیلدهای خودتان کلیک کنید"
+
+msgid "submission.citations.editor.details.sourceResultsUseExplanation"
+msgstr "برای انتقال این فیلد نتایج از این منبع مستقیما به لیست فیلدهای خودتان کلیک کنید"
+
+msgid "submission.citations.editor.details.rawCitation"
+msgstr "متن اصلی ارجاع"
+
+msgid "submission.citations.editor.details.rawCitationRequired"
+msgstr "متن ارجاع لازم است"
+
+msgid "submission.citations.editor.details.unsavedChanges"
+msgstr "ارجاع دارای داده های ذخیره نشده می باشد. لطفا بر روی ذخیره کلیک کنید تا تغییرات را ذخیره کنید و یا بر روی انصراف کلیک کنید تا تغییرات دور ریخته شود."
+
+msgid "submission.citations.editor.details.dontShowMessageAgain"
+msgstr "مجددا این پیام را نشان نده"
+
+msgid "submission.citations.editor.edit"
+msgstr "ویرایش ارجاعات"
+
+msgid "submission.citations.editor.export"
+msgstr "برون دهی ارجاعات"
+
+msgid "submission.citations.editor.export.exportDescription"
+msgstr "<a id=\"markForExport\" href=\"\">  اینجا را کلیک کنید  </a>  تا تمام خروجی تولید شده را انتخاب کنید. سپس می توانید آن را در فایل خود کپی کنید."
+
+msgid "submission.citations.editor.export.filterSelectionDescription"
+msgstr "لطفا یکی از گزینه های برون دهی زیر را انتخاب کنید."
+
+msgid "submission.citations.editor.export.filterSelectionError"
+msgstr "شما هیچ کدام از گزینه های خروجی را انتخاب نکرده اید."
+
+msgid "submission.citations.editor.export.foundUnapprovedCitationsMessage"
+msgstr "<p>  شما هنوز تمام ارجاعات را تایید نکرده اید. لطفا به قسمت  <strong>  ویرایش ارجاعات  </strong>  رفته و مطمئن شوید که تمام ارجاعات را قبل از انتقال آن‌ها تایید کرده اید. ارجاعات تایید نشده در زمینه سفید ظاهر می شوند در حالیکه ارجاعات تایید شده در زمینه آبی کمرنگ ظاهر می شوند.  </p>"
+
+msgid "submission.citations.editor.export.noExportOutput"
+msgstr "فیلتر خروجی  '{$filterName}'  تولید خطا کرده است. لطفا خطا را گزارش کنید."
+
+msgid "submission.citations.editor.export.pleaseSelectXmlFilter"
+msgstr "گزینه های خروجی XML"
+
+msgid "submission.citations.editor.export.pleaseSelectPlaintextFilter"
+msgstr "خروجی استایل ارجاع (آزمایشی)!"
+
+msgid "submission.citations.editor.introduction"
+msgstr "مقدمه"
+
+msgid "submission.citations.editor.introduction.introductionMessage"
+msgstr "<h4>  به دستیار نشانه‌گذاری ارجاعات خوش‌آمدید!  </h4>  <p>  با این ابزار می توانید ارجاعات ارسال شده توسط نویسنده را برای برون دهی به کلیشه چاپی NLM2.3 و یا XML3.0 نشانه‌گذاری کنید و یا بصورت خروجی متنی در آورید. این ابزار در ابتدا بصورت خودکار سعی در استخراج و تشخیص ارجاعات خواهد کرد، ولی شما می توانید در هر مرحله وارد عمل شده و نتایج را ویرایش کنید.  </p>  <ul>  <li>  <p>  <strong>  تنظیمات دستیار  </strong>  </p>  <p>  تنظیمات دستیار نشانه‌گذاری توسط مدیر مجله در  <a href=\"{$citationSetupUrl}\">  مرحله  ۳.۷ نصب مجله: دستیار نشانه‌گذاری ارجاعات  </a>   انجام می شود. ابزارهای مختلفی برای استخراج و بررسی ارجاعات را می تواند اضافه، تنظیم، و یا حذف کرد. برای اطلاعات بیشتر با مدیر مجله تماس بگیرید.  </p>  </li>  <li>  <p>  <strong>  گشت و گذلر در دستیار نشانه‌گذاری   </strong>  </p>  <p>  برای گشت وگذار بین  <strong>  مقدمه  </strong>  ،   <strong>  ویرایش"
+
+msgid "submission.citations.editor.loadMessage"
+msgstr "لطفا تا بارگذاری کامل دستیار نشانه‌گذاری ارجاعات صبر کنید."
+
+msgid "submission.citations.editor.pleaseImportCitationsFirst"
+msgstr "<p>  هیچ ارجاعی برای این مقاله وجود ندارد.  </p>  <p>  لطفا به  <a href=\"{$articleMetadataUrl}\">  صفحه فراداده   </a>  مقاله رفته و لیستی از ارجاعات را وارد کنید.  </p>"
+
+msgid "submission.citations.editor.pleaseSelect"
+msgstr "لطفا انتخاب کنید..."
+
+msgid "submission.citations.editor.unprocessedCitations"
+msgstr "ارجاعات این مقاله هنوز در سرور در حال پردازش است."
+
+msgid "submission.citations.editor.unprocessedCitationsButton"
+msgstr "تازه سازی لیست ارجاع"
+
+msgid "submission.citations.editor.unprocessedCitationsButtonTitle"
+msgstr "برای تازه سازی لیست ارجاع کلیک کنید"
+
+msgid "submission.citations.filter.invalidMetadata"
+msgstr "بروز خطا در {$filterName}: یکی از المان های داده برگشتی از منبع داده با فرمت فراداده داخلی مطابقت ندارد. بنابراین نتایج حاصل از منبع داده رد شد. لطفا خطا را گزارش کنید."
+
+msgid "submission.citations.filter.noResultFromFilterError"
+msgstr "چندین سرویس ارجاع هیچ نتیجه ای برنگرداندند. می توانید بصورت دستی فیلدها را ویرایش کنید و سپس سرویس ارجاع را از نو جستجو کنید. اگر فایده نداشت در این صورت ارجاع در خواستی در هیچ یک از سرویسها تعریف نشده است."
+
+msgid "submission.citations.filter.unsupportedPublicationType"
+msgstr "نوع محتوای پشتیبانی نشده. لطفاً به صورت دستی ارجاع را اصلاع و نوع محتوا را وارد کنید ( که می تواند: کتاب، مجله، پایان نامه و یا کتابچه کنفرانس باشد.)"
+
+msgid "submission.citations.filter.webserviceError"
+msgstr "فراخانی سرویس تحت وب {$filterName} در فراخوانی آدرس {$webserviceUrl} با خطا روبرو شد. که ممکن است به دلیل دردسترس نبودن موقت سرویس باشد. شما می توانید همچنان با سایر سرویسها کارکرده و نتایج خود را ذخیره کنید. اگر باز در تلاشهای مجدد با خطا روبرو شدید لطفاً آن را به مدیر سایت اطلاع دهید."
+
+msgid "submission.citations.filter.webserviceResultTransformationError"
+msgstr "در {$filterName} خطائی رخ داده است. تبدیل نتایج XML به صورت فراداده متکی به فیلد شکست خورده است. ممکن است دلیل آن این باشد که سرویس وب مذکور داده های بی‌اعتبار و یا ناکامل برگردانده است. لطفا این خطا را گزارش کنید."
+
+msgid "submission.citations.metadata.changeWarning"
+msgstr "آیا مطمئن هستید که می خواهید لیست ارجاعات را بروز رسانی کنید؟ در صورت کلیک بر روی تایید تمام تغییرات دبیر از بین می رود. اگر مطمئن نیستید با دبیر تماس بگیرید."
+
+msgid "submission.comments.addComment"
+msgstr "اضافه کردن نقطه نظر"
+
+msgid "submission.comments.comments"
+msgstr "نظرات"
+
+msgid "submission.comments.confirmDelete"
+msgstr "آیا میخواهید این نظر را حذف کنید؟"
+
+msgid "submission.comments.corrections"
+msgstr "اصلاحات"
+
+msgid "submission.comments.editComment"
+msgstr "ویرایش نقطه نظر"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "درج نظرات داوران"
+
+msgid "submission.comments.addReviews"
+msgstr "افزودن داوری به ایمیل"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "داور {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "هیچ اظهار نظری نیست"
+
+msgid "submission.comments.noReviews"
+msgstr "فاقد داوری"
+
+msgid "submission.comments.review"
+msgstr "داوری"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "ارسال تصمیم داوران"
+
+msgid "submission.comments.subject"
+msgstr "موضوع"
+
+msgid "submission.complete"
+msgstr "کامل"
+
+msgid "submission.contributors"
+msgstr "لیست پدید آورندگان"
+
+msgid "submission.copyedited"
+msgstr "ویراستاری شده"
+
+msgid "submission.copyediting"
+msgstr "ویراستاری"
+
+msgid "submission.queryNoteFiles"
+msgstr "فایل بررسی"
+
+msgid "submission.coverage"
+msgstr "اطلاعات پوشش داده شده"
+
+msgid "submission.done"
+msgstr "انجام شد"
+
+msgid "submission.dueDate"
+msgstr "مهلت"
+
+msgid "submission.due"
+msgstr "مهلت"
+
+msgid "submission.editing"
+msgstr "ویرایش"
+
+msgid "submission.editMetadata"
+msgstr "ویرایش فراداده"
+
+msgid "submission.editorial"
+msgstr "ویرایش شده"
+
+msgid "submission.email.backToEmailLog"
+msgstr "بازگشت به سوابق ایمیل"
+
+msgid "submission.email.confirmClearLog"
+msgstr "آیا میخواهید سوابق ایمیل این مقاله ارسالی را حذف کنید؟"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "آیا میخواهید این سابقه ایمیل را حذف کنید؟"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "حذف سابقه"
+
+msgid "submission.emailLog"
+msgstr "سوابق ایمیل"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} به این مقاله به عنوان {$userGroupName} انتساب داده شدند  ."
+
+msgid "submission.event.participantRemoved"
+msgstr "«{$name}» ({$username}) به عنوان یک {$userGroupName} حذف شد."
+
+msgid "submission.event.backToEventLog"
+msgstr "بازگشت به سابقه رویدادها"
+
+msgid "submission.event.confirmClearLog"
+msgstr "آیا میخواهید سوابق رویدادهای این مقاله ارسال را حذف کنید."
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "آیا میخواهید این سابقه رویداد را از لیست حذف کنید؟"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "حذف سابقه"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "مقاله اراسل شد."
+
+msgid "submission.event.fileRevised"
+msgstr "اصلاحات \"{$name}\" (با شناسه فایل {$fileId}-{$fileRevision}) آپلود شد."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "فراداده ارسال شده به روز رسانی شد."
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "فایل ارسال شده به روز رسانی شد."
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "داوری به وسیله پروکسی مورد قبول واقع شد"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "انجام داوری مورد قبول واقع شد"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "از انجام داوری خود داری شد."
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "مهلت داوری تعیین شد"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "داور تعیین شد"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "تخصیص امتیاز به داور"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "داور تعیین شده لغو شد"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "نسخه داوری به روز رسانی شد"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "داوری آغاز شد"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "نظرات داوری"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "داوری دوباره از سرگرفته شد"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "داوری دوباره اغاز شد"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "نسخه داوری"
+
+msgid "submission.event.subjectPrefix"
+msgstr "یک ایمیل ارسال شده است"
+
+msgid "submission.event.viewEmail"
+msgstr "نمایش ایمیل"
+
+msgid "submission.files"
+msgstr "فایل ها"
+
+msgid "submission.files.downloadAll"
+msgstr "دانلود همه ی فایل ها"
+
+msgid "submission.galley"
+msgstr "کلیشه چاپی"
+
+msgid "submission.history.clearLog"
+msgstr "پاک کردن سوابق"
+
+msgid "submission.history"
+msgstr "سوابق"
+
+msgid "submission.history.noLogEntries"
+msgstr "هیج سابقه ای وجود ندارد"
+
+msgid "submission.history.recentLogEntries"
+msgstr "سوابق اخیر"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "سوابق ایمیل ها"
+
+msgid "submission.history.submissionEventLog"
+msgstr "سوابق رویدادها"
+
+msgid "submission.history.submissionNotes"
+msgstr "یاداشتهای ارسال شده"
+
+msgid "submission.history.viewLog"
+msgstr "مشاهده سوابق"
+
+msgid "submission.howToCite"
+msgstr "ارجاع به مقاله"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "شیوه ی ارجاع دهی"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "دانلود ارجاعات"
+
+msgid "submission.initiated"
+msgstr "آغاز پردازش"
+
+msgid "submission.identifiers"
+msgstr "شناسه ها"
+
+msgid "submission.publisherId"
+msgstr "شناسه عمومی URL"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "اطلاعات مقاله ارسالی"
+
+msgid "submission.informationCenter.metadata"
+msgstr "فراداده"
+
+msgid "submission.informationCenter.notes"
+msgstr "یادداشت"
+
+msgid "submission.informationCenter.history"
+msgstr "سوابق"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "رخدادهای نسخه های قبلی را نیز نمایش بده"
+
+msgid "submission.stageParticipants.notify"
+msgstr "اطلاع‌رسانی"
+
+msgid "submission.lastModified"
+msgstr "تاریخ آخرین تغییر در وضعیت"
+
+msgid "submission.layout.addGalley"
+msgstr "افزودن کلیشه چاپی"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "آیا میخواهید برای همیشه این کلیشه چاپی را حذف کنید؟"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "آیا میخواهید این تصویر را از این کلیشه چاپی حذف کنید؟"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "آیا میخواهید برای همیشه این فایل مکمل را حذف کنید؟"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "حذف این استایل شیت"
+
+msgid "submission.layout.editGalley"
+msgstr "ویرایش کلیشه چاپی"
+
+msgid "submission.layout.galleyFormat"
+msgstr "فرمت کلیشه چاپی"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "فایل های کلیشه چاپی  HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "تصاویر"
+
+msgid "submission.layout.galleyLabel"
+msgstr "برچسب کلیشه چاپی"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "برچسب کلیشه چاپی برای شناسایی فرمت فایل میباشد. مانند  HTML, PDF"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "برچسبی برای این کلیشه چاپی لازم است"
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "زبان کلیشه چاپی می بایست مشخص شود"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "زبان کلیشه چاپی می بایست مشخص شود"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "آدرس اینترنتی"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "لطفاً یک آدرس اینترنتی صحیح وارد کنید (شامل http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "فاقد تصویر"
+
+msgid "submission.layout.galleys"
+msgstr "کلیشه های چاپی"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "فایل استایل شیت"
+
+msgid "submission.layout.galleyStyle"
+msgstr "استایل"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "ایجاد کلیشه چاپی اولیه"
+
+msgid "submission.layout.layoutFile"
+msgstr "فایل صفحه‌آرا"
+
+msgid "submission.layout"
+msgstr " صفحه‌آرایی"
+
+msgid "submission.layout.layoutVersion"
+msgstr "نسخه صفحه‌آرا"
+
+msgid "submission.layout.newGalley"
+msgstr "ایجاد کلیشه چاپی جدید"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "آپلود فایل مکمل جدید"
+
+msgid "submission.layout.noStyleFile"
+msgstr "هیچ فایل استایل شیتی برای این کلیشه چاپی تعیین نشده است"
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "بررسی فایل های مکمل"
+
+msgid "submission.layout.viewingGalley"
+msgstr "مشاهده کلیشه چاپی ارسال شده"
+
+msgid "submission.layout.viewProof"
+msgstr "مشاهده نسخه بازبینی"
+
+msgid "submission.metadata"
+msgstr "فراداده "
+
+msgid "submission.noReviewAssignments"
+msgstr "داوری منتسب نشده است"
+
+msgid "submission.notes.addNewNote"
+msgstr "اضافه کردن یادداشت جدید"
+
+msgid "submission.notes.attachedFile"
+msgstr "ضمیمه فایل "
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "بازگشت به یادداشتهای ارسال شده"
+
+msgid "submission.notes.breadcrumb"
+msgstr "یادداشت ها"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "پاک کردن تمام یادداشت"
+
+msgid "submission.notes.collapseNotes"
+msgstr "جمع کردن یادداشتها"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "آیا تمام یادداشتها ی ارسال شده پاک شود؟"
+
+msgid "submission.notes.confirmDelete"
+msgstr "آیا این یادداشت ارسال شده پاک شود؟"
+
+msgid "submission.notes.createNewNote"
+msgstr "ایجاد یادداشت جدید"
+
+msgid "submission.notes.deleteNote"
+msgstr "پاک کردن یادداشت"
+
+msgid "submission.notes.editNote"
+msgstr "ویرایش یادداشت"
+
+msgid "submission.notes.expandNotes"
+msgstr "باز کردن یادداشتها"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "بدون یادداشت"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "حذف فایل بارگذاری شده"
+
+msgid "submission.notes"
+msgstr "یادداشتهای مقاله ارسالی"
+
+msgid "submission.notes.updateNote"
+msgstr "به روز کردن یادداشت"
+
+msgid "submission.notes.viewNotes"
+msgstr "مشاهده یادداشتها"
+
+msgid "submission.originalFile"
+msgstr "فایل اصلی"
+
+msgid "submission.page.editing"
+msgstr "#{$id} ویرایش"
+
+msgid "submission.page.history"
+msgstr "#{$id} سوابق"
+
+msgid "submission.page.review"
+msgstr "#{$id} داوری"
+
+msgid "submission.page.summary"
+msgstr "#{$id} خلاصه"
+
+msgid "submission.page.citations"
+msgstr "#{$id} ارجاعات"
+
+msgid "submission.peerReview"
+msgstr "داوری"
+
+msgid "submission.production"
+msgstr "تولید"
+
+msgid "submission.recommendation"
+msgstr "توصیه و نظرات: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "رد"
+
+msgid "submission.request"
+msgstr "درخواست"
+
+msgid "submission.response"
+msgstr "پاسخ"
+
+msgid "submission.restrictions"
+msgstr "محدودیت ها"
+
+msgid "submission.reviewMetadata"
+msgstr "بررسی فراداده"
+
+msgid "submission.review"
+msgstr "داوری"
+
+msgid "submission.reviewed"
+msgstr "داوری شده"
+
+msgid "submission.reviewVersion"
+msgstr "نسخه داوری"
+
+msgid "submission.rights"
+msgstr "حقوق"
+
+msgid "submission.rights.tip"
+msgstr "در صورت تمایل می توانید بیانیه کوتاهی در مورد حق دسترسی به این مقاله ارسالی بنویسید."
+
+msgid "submissions.active"
+msgstr "جاری"
+
+msgid "submissions.archived"
+msgstr "آرشیو"
+
+msgid "submission.saveMetadata"
+msgstr "ذخیره کردن فراداده"
+
+msgid "submissions.completed"
+msgstr "تکمیل شده"
+
+msgid "submissions.declined"
+msgstr "رد"
+
+msgid "submissions.incomplete"
+msgstr "ناتمام"
+
+msgid "submissions.noSubmissions"
+msgstr "خالی"
+
+msgid "submissions.queuedEditing"
+msgstr "در نوبت ویرایش"
+
+msgid "submissions.queued"
+msgstr "در نوبت"
+
+msgid "submissions.queuedUnassigned"
+msgstr "منتظر انتساب"
+
+msgid "submissions.ruling"
+msgstr "اتخاذ تصمیم"
+
+msgid "submission.source"
+msgstr "منبع"
+
+msgid "submission.source.tip"
+msgstr "آیا این مقاله از منابع دیگری بهره برده است. در صورت تمایل می توانید آدرس اینترنتی صفحه ای که در مورد این منابع توضیح می دهد را وارد کنید."
+
+msgid "submissions.submit"
+msgstr "ثبت"
+
+msgid "submissions.submitted"
+msgstr "ثبت شده"
+
+msgid "submission.submission"
+msgstr "مقاله ارسالی"
+
+msgid "submission.submissionTitle"
+msgstr "عنوان مقاله مقاله ارسالی"
+
+msgid "submission.start"
+msgstr "شروع"
+
+msgid "submission.submissionHistory"
+msgstr "سوابق مقاله ارسالی"
+
+msgid "submission.submissionManuscript"
+msgstr "فایل مقاله ارسالی"
+
+msgid "submission.submissionReview"
+msgstr "داوری مقاله ارسالی"
+
+msgid "submission.submitter"
+msgstr "ارسال کننده"
+
+msgid "submission.submit.finishSubmission"
+msgstr "نهایی کردن ارسال"
+
+msgid "submission.submit.selectFile"
+msgstr "انتخاب فایل"
+
+msgid "submission.submit.fileInformation"
+msgstr "اطلاعات فایل"
+
+msgid "submission.submit.fileAdded"
+msgstr "فایل شما با موفقیت اضافه شد"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "این پدیدآورنده در فهرست پدید آورندگان نمایش داده شود"
+
+msgid "submission.submit.newFile"
+msgstr "اضافه کردن فایل جدید"
+
+msgid "submission.submit.metadataForm"
+msgstr "پالایش بیشتر"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "اطلاعات تکمیلی در مورد مقاله ثبت شده خود وارد کنید. هر مورد را با زدن اینتر مشخص کنید."
+
+msgid "submission.submit.submissionLocale"
+msgstr "زبان مقاله"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "مقاله را می توانید در چندین زبان مختلف ارسال کنید. از منوی زیر می توانید زبان اصلی مقاله را انتخاب نمایید"
+
+msgid "submission.submit.submissionFiles"
+msgstr "فایل مقاله"
+
+msgid "submission.submit.dependentFiles"
+msgstr "فایل های وابسته"
+
+msgid "submission.manageDependentFiles"
+msgstr "مدیریت فایل های وابسته"
+
+msgid "submission.upload.dependent"
+msgstr "آپلود یک فایل وابسته"
+
+msgid "submission.upload.query"
+msgstr "آپلود فایل گفتگو"
+
+msgid "submission.summary"
+msgstr "خلاصه"
+
+msgid "submission.supplementaryFiles"
+msgstr "فایل های مکمل"
+
+msgid "submission.supportingAgencies"
+msgstr "آژانس های پشتیبانی کننده"
+
+msgid "submission.currentAgencies"
+msgstr "نمایندگان جاری"
+
+msgid "submission.indexingInformation"
+msgstr "اطلاعات نمایه"
+
+msgid "submission.titleAndAbstract"
+msgstr "عنوان و چکیده"
+
+msgid "submission.type.tip"
+msgstr "نوع داده ارسالی معمولاً متن، تصویر و یا محتوای چند رسانه ای مانند نرم‌افزار است. لطفاً نوع داده ای که بیشترین ارتباط را با محتوای شما دارد را انتخاب کنید. می توانید مثالهایی را در لینک زیر مشاهده کنید:   <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.underway"
+msgstr "شروع"
+
+msgid "submission.uploadFileTo"
+msgstr "آپلود فایل در"
+
+msgid "submission.createRemote"
+msgstr "ایجاد از راه دور"
+
+msgid "submission.viewMetadata"
+msgstr "مشاهده فراداده"
+
+msgid "submission.views"
+msgstr "دیده شده"
+
+msgid "submission.uploadSuccessful"
+msgstr "فایل شما آپلود شد"
+
+msgid "submission.loadMessage"
+msgstr "لطفا تا آپلود کامل فایل صبر کنید."
+
+msgid "submission.artworkFileDetails"
+msgstr "جزئیات فایل هنری"
+
+msgid "submission.fileDetails"
+msgstr "جزئیات فایل"
+
+msgid "submission.nameRequired"
+msgstr "برای این مورد یک نام لازم است"
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "نویسنده مسئول مکاتبات است"
+
+msgid "submission.submit.contributorRole"
+msgstr "نقش پدیدآورنده"
+
+msgid "submission.submit.addAuthor"
+msgstr "افزودن مشارکت کننده"
+
+msgid "submission.form.name"
+msgstr "نام فایل را مشخص کنید( برای مثال: متن مقاله؛ جدول 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "جایگزینی با فایل موجود؟"
+
+msgid "workflow.review.internalReview"
+msgstr "داور داخلی"
+
+msgid "workflow.stage.any"
+msgstr "همه ی مراحل"
+
+msgid "workflow.stage"
+msgstr "مرحله"
+
+msgid "submission.status.editorial"
+msgstr "در حال ویراستیاری"
+
+msgid "submission.status.production"
+msgstr "در حل بازبینی نهایی"
+
+msgid "submission.status.review"
+msgstr "در حال داوری"
+
+msgid "submission.status.submission"
+msgstr "منتظر تصمیم سردبیر"
+
+msgid "submission.status.unassigned"
+msgstr "مشخص نشده"
+
+msgid "submission.status.declined"
+msgstr "رد شده"
+
+msgid "submission.status.published"
+msgstr "منتشر شده"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. آپلود فایل"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "آپلود فایل مقاله"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. بازبینی جزییات"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. تایید"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "باید برای این فایل یک نام مشخص کنید"
+
+msgid "submission.upload.noGenre"
+msgstr "اجزاء نامعتبر یا ناموجود!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "گروه کاربری نامعتبر یا ناموجود!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "شناسایی احتمالی فایل تکراری"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "نام فایل آپلودی با فایل آپلود شده قبلی شباهت داد ({$revisedFileName}). آیا میخواهید این فایل جایگزین شود؟ اگر بله که فایل را از زیر انتخاب کنید. وگرنه گزینه \"این فایل نسخه اصلاحی فایل موجود نیست\" را انتخاب کنید"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "لطفاً فایلی که مایلید اصلاح کنید را انتخاب کنید."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "اگر قصد تغییر فایلی که پیشتر بارگذاری کرده اید را دارید ، نوع آن را مشخص کنید"
+
+msgid "submission.upload.uploadNewFile"
+msgstr "این فایل نسخه اصلاحی فایل موجود نیست"
+
+msgid "submission.upload.userGroup"
+msgstr "این فایل تحت کدام نقش ثبت شود؟"
+
+msgid "submission.upload.userGroupDescription"
+msgstr "اگر د رحال ثبت شماره ویراش شده هستید، باید تمامی فصل های این شماره را به صورت جداگانه آپلود کنید."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "آپلود فایل کتابخانه"
+
+msgid "submission.upload.libraryCategory"
+msgstr "ثبت حوزه سند"
+
+msgid "submission.upload.finalDraft"
+msgstr "آپلود فایل"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "آپلود فایل ویراستاری شده"
+
+msgid "submission.upload.fairCopy"
+msgstr "آپلود کپی منصفانه"
+
+msgid "submission.upload.uploadFiles"
+msgstr "آپلود فایل‌ها"
+
+msgid "submission.upload.response.description"
+msgstr "بعد از داوری فایل اختصاص یافته، بر روی فایل، نظرات خود را بگذارید و یا آنکه نظرات خود را در فایل جداگانه ای نوشته و آپلود نمایید."
+
+msgid "submission.upload.productionReady"
+msgstr "فایل آماده به تولید را آپلود کنید"
+
+msgid "submission.upload.proof"
+msgstr "فایل آماده به انتشار را آپلود کنید."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "هیچ فایلی برای بررسی در این مرحله وجود ندارد."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "نیازمند انجام اصلاحات"
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "اصلاحات ثبت شد."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "ارسال به داور خارجی"
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "مقاله ارسالی پذیرش شد."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "مقاله ارسالی پذیرش نشد."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "در حال انتظار برای انتخاب داور"
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "درخواست‌های داوری در انتظار تأیید"
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "داوری جدید ثبت شد."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "داوری تکمیل شد."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "مهلت داوری سپری شده است."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "در انتظار توصیه دبیر"
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "یک توصیه جدید ثبت شد."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "تمام توصیه‌ها ثبت شده است و نیازمند اتخاذ تصمیم است"
+
+msgid "editor.submission.stageParticipants"
+msgstr "همکاران"
+
+msgid "editor.submission.noneAssigned"
+msgstr "انتساب داده نشده"
+
+msgid "editor.submission.participant"
+msgstr "همکار"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "افزودن همکار"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "کاربران بر اساس گروه کاربری‌شان به مراحل گردش کار انتساب داده می‌شوند.هر کاربری که به این مرحله افزوده شود. به صورت خودکار به تمامی مرحله‌هایی که آن گروه کاربری می‌تواند انتساب یابد، انتساب داده می‌شود. این عمل به صورت معمول برای سردبیر، نویسنده و مترجمان است."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "حذف همکار"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "شما در حال حذف این همکار از <strong>تمامی</strong> مراحل هستید. حتی اگر یک حسابرسی در حال انجام نیز داشته باشد، تمامی آن‌ها حذف خواهند شد."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "باید یک گروه کاربری انتخاب شود."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "باید کاربری را برای گروه کاربری مشخص شده انتخاب کنید."
+
+msgid "editor.submission.decision"
+msgstr "تصمیم"
+
+msgid "editor.submission.decision.accept"
+msgstr "ارسال برای ویراستاری"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "درخواست اصلاحات"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "ارسال مجدد برای داوری"
+
+msgid "editor.submission.decision.decline"
+msgstr "عدم پذیرش مقاله"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "ارسال برای چاپ"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "پذیرفتن و نادیده گرفتن داوری"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "ارسال به داور داخلی"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "برای آنکه نسخه بازبینی نهایی قابل دسترسی باشد باید صفحه قابل بازبینی نهایی به عنوان تأیید شده، تیک خورده باشد.  مایلید که تأیید کنید؟"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "تأیید نسخه بازبینی نهایی"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "این نسخه بازبینی نهایی دیگر برای دانلود و یا خرید در دسترس نخواهد بود. آیا می‌خواهید این نسخه را لغو تأیید کنید."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "یک دبیر انتساب کنید تا اتخاذ تصمیم برای این مرحله قابل اجرا باشد"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "ایجاد توصیه"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "تغییر توصیه‌ها"
+
+msgid "editor.submission.recommendation.display"
+msgstr "توصیه: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "توصیه‌ها: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "توصیه"
+
+msgid "editor.submission.recommendation.description"
+msgstr "توصیه یک تصمیم برای این مقاله ارسالی "
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "توصیه‌های ثبت شده"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "بعدی: فایل‌ها را از {$stageName} انتخاب کنید."
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "فایل‌های که مایلید به مرحله {$stageName} انتقال داده شوند را انتخاب کنید."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "قبلی: اطلاع‌رسانی‌هایاطلاع‌رسانی نویسنده"
+
+msgid "submission.currentStage"
+msgstr "مرحله جاری"
+
+msgid "submission.noActionRequired"
+msgstr "هیچ فعالیتی نیاز نیست"
+
+msgid "submission.actionNeeded"
+msgstr "فعالیت های مورد نیاز"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "فایل داوری"
+
+msgid "submission.submit.currentFile"
+msgstr "فایل جاری"
+
+msgid "submission.finalDraft"
+msgstr "فایل های پیشنویس"
+
+msgid "editor.submission.addAuditorError"
+msgstr "در انتساب حسابرس خطایی رخ داد. لطفاً دوباره تلاش کنید."
+
+msgid "submission.event.fileUploaded"
+msgstr "فایل «{$originalFileName}» توسط {$username} برای مقاله شماره  {$submissionId} آپلود شد."
+
+msgid "submission.event.fileDeleted"
+msgstr "فایل \"{$originalFileName}\" مربوط به مقاله ارسالی {$submissionId} توسط {$username} حذف شد."
+
+msgid "submission.event.revisionUploaded"
+msgstr "فایل اصلاحی \"{$originalFileName}\" مربوط به مقاله ارسالی {$submissionId} توسط {$username} آپلود شد."
+
+msgid "submission.event.revisionDeleted"
+msgstr "فایل اصلاحی \"{$originalFileName}\" مربوط به مقاله ارسالی {$submissionId} توسط {$username} حدف شد."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "آخرین  نسخه اصلاحی فایل \"{$title}\" توسط {$username} حذف شد."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) به عنوان حسابرس فایل \"{$file}\" افزوده شد."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) از حسابرسی فایل \"{$file}\" حذف شد."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) آپلود و بررسی فایل \"{$file}\" تکمیل کرد."
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) فایل \"{$file}\"  را امضا کرد."
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) نسخه بازبینی شده نهایی \"{$formatName}\" را تایید کرد."
+
+msgid "submission.overview"
+msgstr "شمای کلی مقاله ارسالی"
+
+msgid "submission.description"
+msgstr "توضیح"
+
+msgid "submission.stageNotInitiated"
+msgstr "مرحله آغاز نشده است"
+
+msgid "submission.documents"
+msgstr "اسناد ارسال شده."
+
+msgid "notification.type.editorAssign"
+msgstr "شما به عنوان دبیر به مقاله‌ای با عنوان «{$title}» انتساب شده‌اید."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "از شما خواسته شده است تا ویراستاری \"{$title}\" را بررسی کنید."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "از شما خواسته شده است تا صفحه‌بندی \"{$title}\" را بررسی کنید."
+
+msgid "notification.type.indexRequest"
+msgstr "از شما خواسته شده است که نمایه‌ای برای \"{$title}\" ایجاد کنید."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "آخرین تصمیم سردبیر"
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "مقاله ارسالی پذیرفته شد."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "روند داوری (داور خارجی) آغاز شد."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "نیازمند اصلاحات"
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "ارسال دوباره برای داوری"
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "مقاله ارسالی رد شد."
+
+msgid "notification.uploadedResponse"
+msgstr "پاسخ آپلود شد"
+
+msgid "notification.type.editorAssignment"
+msgstr "باید قبل از آغاز روند داوری سردبیر مشخص شود. لطفاً با استفاده از گزینه بالا یک سردبیر بی افزایید."
+
+msgid "grid.reviewAttachments.title"
+msgstr "فایل‌های ضمیمه داوری "
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "انتخاب فایل‌های داوری برای اشتراک گداری با نویسنده(گان)"
+
+msgid "submission.productionReady"
+msgstr "کتاب در دسترس است"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "آپلود فایل‌های اصلاح شده شده"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} برای داوری مقاله  {$submissionId} در دور {$round} داوری انتساب یافت."
+
+msgid "log.review.reviewCleared"
+msgstr "دور {$round} داوری {$reviewerName} برای مقاله {$submissionId} پاک شد."
+
+msgid "log.review.reviewReinstated"
+msgstr "دور {$round} داوری {$reviewerName} برای مقاله  {$submissionId} از نو شروع شد."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "در انتظار پاسخ داور"
+
+msgid "submission.review.status.declined"
+msgstr "داور، انجام این داوری را نپذیرفت"
+
+msgid "submission.review.status.responseOverdue"
+msgstr "مهلت زمان پاسخ به پذیرش داوری سپری شده است."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "مهلت زمان انجام داوری سپری شده است."
+
+msgid "submission.review.status.accepted"
+msgstr "داوری پذیرفته شده است."
+
+msgid "submission.review.status.received"
+msgstr "داور، نتیجه داوری خود را ثبت کرده است."
+
+msgid "submission.review.status.complete"
+msgstr "این داوری تکمیل شده است."
+
+msgid "submission.review.status.thanked"
+msgstr "این داوری تکمیل شده است و از داور قدردانی شده است."
+
+msgid "submission.document"
+msgstr "سند"
+
+msgid "submission.art"
+msgstr "اثار هنری"
+
+msgid "submission.supplementary"
+msgstr "محتویات مکمل"
+
+msgid "submission.supplementary.creator"
+msgstr "سازنده (یا صاحب) فایل"
+
+msgid "submission.supplementary.subject"
+msgstr "موضوع"
+
+msgid "submission.supplementary.publisher"
+msgstr "ناشر"
+
+msgid "submission.supplementary.sponsor"
+msgstr "مراکز مشارکت کننده یا حمایت کننده"
+
+msgid "grid.action.itemWorkflow"
+msgstr "رفتن به گردش کار این مقاله "
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "پروسه انتشار آغاز شد."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "قبل از شروع روند انتشار باید یک دبیر تولید انتساب داده شود. می‌توانید از قسمت افزودن لینک یک دبیر تولید را به همکاران بی افزایید."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "قبل از شروع روند داوری باید یک دبیر تولید انتساب داده شود. می‌توانید از قسمت افزودن لینک یک دبیر تولید را به همکاران بی افزایید.  "
+
+msgid "submission.reviewForm"
+msgstr "فرم داوری"
+
+msgid "submission.reviewFormResponse"
+msgstr "پاسخ فرم داوری"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "ایجاد یک عنصر جدید در فرم داوری"
+
+msgid "grid.action.editMetadata"
+msgstr "ویرایش فراداده‌ها"
+
+msgid "submission.permissions"
+msgstr "مجوز ها"
+
+msgid "submission.attachPermissions"
+msgstr "مجوز های زیر به مقاله اضافه شود"
+
+msgid "submission.license"
+msgstr "مجوز"
+
+msgid "submission.copyright"
+msgstr "حق نشر"
+
+msgid "submission.copyrightHolder"
+msgstr "دارنده ی حق نشر"
+
+msgid "submission.copyrightYear"
+msgstr "سال حق نشر"
+
+msgid "submission.copyrightStatement"
+msgstr "حق نشر {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "لطفاً یک آدرس معتبر اینترنتی وارد کنید (شامل http://)."
+
+msgid "submission.licenseURL"
+msgstr "آدرس اینترنتی مجوز"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>این پروژه تحت مجوز بین المللی <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a> می باشد.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>این پروژه تحت مجوز بین المللی <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 </a> می باشد.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>این پروژه تحت مجوز بین المللی <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> می باشد.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>این پروژه تحت مجوز بین المللی <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Attribution-NoDerivatives 4.0 </a> می باشد.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>این پروژه تحت مجوز بین المللی <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 </a> می باشد.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>این پروژه تحت مجوز بین المللی <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0</a> می باشد.</p>"
+
+msgid "submission.queries.submission"
+msgstr "گفتگوهای قبل از ارسال به داوری"
+
+msgid "submission.queries.review"
+msgstr "مرور گفتگو ها"
+
+msgid "submission.queries.editorial"
+msgstr "گفتگوی ویراستاری"
+
+msgid "submission.queries.production"
+msgstr "گفتگوی انتشار"
+
+msgid "submission.query.subject"
+msgstr "موضوع"
+
+msgid "submission.query.messages"
+msgstr "پیامها"
+
+msgid "submission.query.replies"
+msgstr "پاسخ ها"
+
+msgid "submission.query.from"
+msgstr "فرم"
+
+msgid "submission.query.lastReply"
+msgstr "آخرین پاسخ"
+
+msgid "submission.query.closed"
+msgstr "خروجی"
+
+msgid "submission.query.addNote"
+msgstr "افزودن پیام"
+
+msgid "grid.action.openNoteForm"
+msgstr "افزودن جواب به این گفتگو"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} جواب داد به {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} یک گفتگو را شروع کرد: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "یک فعالیت جدید در گفتگویی با عنوان \"{$queryTitle}\" مربوط به مقاله ثبت شده \"{$submissionTitle}\" انجام گرفته است."
+
+msgid "submission.query.new.contents"
+msgstr "شما به گفتگویی با عنوان \"{$queryTitle}\" مربوط به مقاله ثبت شده \"{$submissionTitle}\" افزوده شده اید."
+
+msgid "submission.query.noParticipantOptions"
+msgstr "قبل از آغاز گفتگو باید حداقل یک همکار به این مقاله انتساب داده شود."
+
+msgid "submission.list.infoCenter"
+msgstr "گزارش فعالیت‌ها"
+
+msgid "submission.list.responseDue"
+msgstr "مهلت پاسخ"
+
+msgid "submission.list.reviewDue"
+msgstr "مهلت داوری"
+
+msgid "submission.list.confirmDelete"
+msgstr "حذف مقاله ارسالی؟"
+
+msgid "submission.list.viewSubmission"
+msgstr "مشاهده مقالات ارسالی"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "داوری انساب داده شده تکمیل شد."
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "اصلاحات ارسال شد."
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "فایل ویراستاری شده ثبت شد."
+
+msgid "submission.list.galleysCreated"
+msgstr "کلیشه چاپی ایجاد شد."
+
+msgid "submission.list.filesPrepared"
+msgstr "فایل‌ها آماده شدند."
+
+msgid "submission.list.discussions"
+msgstr "باز کردن یک گفتگو"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "ارسال مقاله باید تکمیل شود تا دبیر بتواند آن را برای داوری ارسال کند."

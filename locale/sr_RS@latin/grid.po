@@ -1,0 +1,654 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:04+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "Nema stavki"
+
+msgid "grid.settings"
+msgstr "Podešavanja"
+
+msgid "grid.action.sort"
+msgstr "Poređaj"
+
+msgid "grid.action.addItem"
+msgstr "Dodaj stavku"
+
+msgid "grid.action.delete"
+msgstr "Obriši"
+
+msgid "grid.action.remove"
+msgstr "Ukloni"
+
+msgid "grid.action.edit"
+msgstr "Izmeni"
+
+msgid "grid.action.approve"
+msgstr "Odobriti"
+
+msgid "grid.action.decline"
+msgstr "Odbij predaju"
+
+msgid "grid.action.moreInformation"
+msgstr "Više informacija"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Vrati na osnovne vrednosti"
+
+msgid "grid.columns.actions"
+msgstr "Akcije"
+
+msgid "grid.columns.institution"
+msgstr "Institucije"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.sponsor.title"
+msgstr "Ustanove podrške"
+
+msgid "grid.contributor.title"
+msgstr "Izvori podrške"
+
+msgid "grid.action.addAuthor"
+msgstr "Dodaj autora"
+
+msgid "grid.reviewForm.title"
+msgstr "Forme recenzija"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Fajlovi"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Biblioteka predatih radova"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Urednička biblioteka"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Recezentska biblioteka"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Produkciona biblioteka"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Biblioteka produkcijskih šablona"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Spisak za proveru predatih radova"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Stavke spiska za proveru"
+
+msgid "author.users.contributor.name"
+msgstr "Ime"
+
+msgid "author.users.contributor.email"
+msgstr "Imejl"
+
+msgid "author.users.contributor.role"
+msgstr "Uloga"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Primarni kontakt"
+
+msgid "grid.action.addUser"
+msgstr "Dodaj korisnika"
+
+msgid "grid.action.deleteFile"
+msgstr "Obriši fajl"
+
+msgid "grid.action.deleteMedia"
+msgstr "Obriši mediju"
+
+msgid "grid.action.editMedia"
+msgstr "Uredi mediju"
+
+msgid "grid.action.editAuthor"
+msgstr "Izmeni autora"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Obriši autora"
+
+msgid "grid.action.upgrade"
+msgstr "Nadogradi"
+
+msgid "grid.action.order"
+msgstr "Poredak"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Poništi poredak"
+
+msgid "grid.action.extendAll"
+msgstr "Otvori se"
+
+msgid "grid.action.collapse"
+msgstr "Zatvori"
+
+msgid "grid.action.collapseAll"
+msgstr "Zatvori sve"
+
+msgid "grid.action.wizard"
+msgstr "Čarobnjak podešavanja"
+
+msgid "grid.action.moveItem"
+msgstr "Premesti stavku"
+
+msgid "grid.action.downloadAll"
+msgstr "Preuzmi sve fajlove kao arhivu"
+
+msgid "grid.action.readReview"
+msgstr "Pročitaj recenziju"
+
+msgid "grid.action.email"
+msgstr "Pošalji imejl"
+
+msgid "grid.action.addReviewer"
+msgstr "Dodaj recenzenta"
+
+msgid "grid.action.addFile"
+msgstr "Dodaj fajl"
+
+msgid "grid.action.editFile"
+msgstr "Izmeni fajl"
+
+msgid "grid.action.selectFiles"
+msgstr "Obeleži fajlove za uređivanje"
+
+msgid "grid.action.accept"
+msgstr "Prihvati predaju"
+
+msgid "grid.action.settings"
+msgstr "Podešavanja"
+
+msgid "grid.action.importexport"
+msgstr "Uvezi ili izvezi sadržaj ili podatke sa sajta"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Dodaj novi imejl šablon"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Uredi šablon"
+
+msgid "grid.action.disableEmail"
+msgstr "Isključi šablon"
+
+msgid "grid.action.resetEmail"
+msgstr "Resetuj šablon na osnovne postavke"
+
+msgid "grid.action.internalReview"
+msgstr "Pošalji rad internom recenzentu"
+
+msgid "grid.action.externalReview"
+msgstr "Pošalji rad spoljašnjem recenzentu"
+
+msgid "grid.action.sendToProduction"
+msgstr "Pošalji rad u produkciju"
+
+msgid "grid.action.orderItems"
+msgstr "Onogući mod \"poretka\""
+
+msgid "grid.noAuditors"
+msgstr "Nema revizora"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Ovaj objekat je hostovan na udaljenom serveru."
+
+msgid "grid.action.manageAccess"
+msgstr "Upravljaj pristupom"
+
+msgid "grid.action.addNote"
+msgstr "Dodaj napomenu"
+
+msgid "grid.action.addQuery"
+msgstr "Dodaj diskusiju"
+
+msgid "grid.action.readQuery"
+msgstr "Pročitaj diskusiju"
+
+msgid "grid.action.deleteQuery"
+msgstr "Obriši diskusiju"
+
+msgid "grid.action.updateQuery"
+msgstr "Ažuriraj diskusiju"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Otkaži recenzenta"
+
+msgid "grid.action.reload"
+msgstr "Učitaj ponovo"
+
+msgid "grid.action.editSection"
+msgstr "Uredi sekciju"
+
+msgid "grid.action.export"
+msgstr "Izvoz"
+
+msgid "grid.action.deleteSection"
+msgstr "Obriši sekciju"
+
+msgid "grid.action.editorialHistory"
+msgstr "Istorija uređivanja"
+
+msgid "grid.action.disapprove"
+msgstr "Nije odobreno"
+
+msgid "grid.action.setApproval"
+msgstr "Podesi odobrenje"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Da li ste sigurni da želite da vratite na podrazumevane vrednosti?"
+
+msgid "grid.action.addAuditor"
+msgstr "Dodaj revizora"
+
+msgid "grid.action.requestRevisions"
+msgstr "Zahtevaj reviziju za ovu predaju"
+
+msgid "grid.action.resetAll"
+msgstr "Vrati sve stavke na osnovne vrednosti"
+
+msgid "grid.roles.currentRoles"
+msgstr "Trenutne uloge"
+
+msgid "grid.roles.add"
+msgstr "Napravi novu ulogu"
+
+msgid "grid.user.currentUsers"
+msgstr "Trenutni korisnici"
+
+msgid "grid.user.allRoles"
+msgstr "Sve uloge"
+
+msgid "grid.action.expandAll"
+msgstr "Proširi sve"
+
+msgid "grid.action.requestAccount"
+msgstr "Dodaj učesnika"
+
+msgid "grid.action.expand"
+msgstr "Proširi"
+
+msgid "grid.action.notify"
+msgstr "Obavesti ovog korisnika"
+
+msgid "grid.action.addUserGroup"
+msgstr "Dodaj novu grupu korisnika"
+
+msgid "grid.action.editUserGroup"
+msgstr "Izmeni ovu grupu korisnika"
+
+msgid "grid.action.disable"
+msgstr "Onemogući"
+
+msgid "grid.action.details"
+msgstr "Pogledaj ovu stavku"
+
+msgid "grid.action.enrolExisting"
+msgstr "Uključi postojećeg korisnika kao recenzenta"
+
+msgid "grid.action.selectCreate"
+msgstr "Napravi novog recenzenta"
+
+msgid "grid.action.search"
+msgstr "Pretraga"
+
+msgid "grid.action.advancedSearch"
+msgstr "Napredna pretraga"
+
+msgid "grid.action.viewLibrary"
+msgstr "Pogledaj biblioteku dokumenata"
+
+msgid "grid.action.viewMetadata"
+msgstr "Pogledaj metapodatke za ovu predaju"
+
+msgid "grid.action.sendReminder"
+msgstr "Pošalji podsetnik o zadatku ovom korsniku"
+
+msgid "grid.action.newRound"
+msgstr "Napravi novi krug"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Pogledaj uputstva za recenziranje"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Pogledaj uputstvo za politiku sukoba interesa"
+
+msgid "grid.action.thankReviewer"
+msgstr "Pošalji zahvalnicu ovom recenzentu"
+
+msgid "grid.action.uploadFile"
+msgstr "Dodaj fajl"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Dodaj tip obaveštenja"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Dodaj obaveštenje"
+
+msgid "grid.action.mergeUser"
+msgstr "Spoji korisnike"
+
+msgid "grid.action.unassignUser"
+msgstr "Otkaži korisnika"
+
+msgid "grid.action.history"
+msgstr "Pogledaj istoriju"
+
+msgid "grid.action.enable"
+msgstr "Omogući"
+
+msgid "grid.action.bookInfo"
+msgstr "Informacije o predaji"
+
+msgid "grid.action.logInAs"
+msgstr "Prijavi se kao"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Izvezi sve korisnike"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Da li ste sigurni da želite da izvezete sve korisnike?"
+
+msgid "grid.action.activate"
+msgstr "Aktiviraj"
+
+msgid "grid.action.deactivate"
+msgstr "Deaktiviraj"
+
+msgid "grid.action.copy"
+msgstr "Kopiraj"
+
+msgid "grid.action.preview"
+msgstr "Prikaži"
+
+msgid "grid.action.install"
+msgstr "Instaliraj"
+
+msgid "grid.action.moreItems"
+msgstr "Učitaj više"
+
+msgid "grid.task.status.completed"
+msgstr "Ovaj zadatak je završen"
+
+msgid "grid.task.status.new"
+msgstr "Označeno kada se razmatra"
+
+msgid "grid.task.status.uploaded"
+msgstr "Naziv ove kolone daje informaciju o tome ko je dodao ovaj fajl"
+
+msgid "grid.task.status.unfinished"
+msgstr "Zadatak nije završen"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Ova recenzija je spremna. Kliknite na ikonicu napomene sa leve strane da biste je pročitali."
+
+msgid "grid.columns.auditor"
+msgstr "Revizor"
+
+msgid "grid.columns.locale"
+msgstr "Lokalizacija"
+
+msgid "grid.action.addSponsor"
+msgstr "Dodaj ustanovu podrške"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Obriši ustanovu podrške"
+
+msgid "grid.action.editSponsor"
+msgstr "Izmeni ustanovu podrške"
+
+msgid "grid.action.addSeries"
+msgstr "Dodaj serije"
+
+msgid "grid.action.editSeries"
+msgstr "Izmeni serije"
+
+msgid "grid.action.deleteSeries"
+msgstr "Obriši serije"
+
+msgid "grid.action.addCategory"
+msgstr "Dodaj kategoriju"
+
+msgid "grid.action.editCategory"
+msgstr "Izmeni kategoriju"
+
+msgid "grid.action.deleteCategory"
+msgstr "Obriši kategoriju"
+
+msgid "grid.action.addContributor"
+msgstr "Dodaj saradnika"
+
+msgid "grid.action.editContributor"
+msgstr "Imeni saradnika"
+
+msgid "grid.action.deleteContributor"
+msgstr "Obriši saradnika"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Opcije odgovora"
+
+msgid "grid.noFiles"
+msgstr "Nema fajlova"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "U listi za pregled"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Dodela u fazi"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Trenutne uloge"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Svi nivoi pristupa"
+
+msgid "grid.user.add"
+msgstr "Dodaj korisnika"
+
+msgid "grid.user.enroll"
+msgstr "Uključi korisnika"
+
+msgid "grid.user.edit"
+msgstr "Izmeni korisnika"
+
+msgid "grid.user.email"
+msgstr "Imejl"
+
+msgid "grid.user.enable"
+msgstr "Omogući"
+
+msgid "grid.user.disable"
+msgstr "Onemogući"
+
+msgid "grid.user.disableReason"
+msgstr "Razlog za isključivanje korisnika"
+
+msgid "grid.user.enableReason"
+msgstr "Razlog za uključivanje korisnika"
+
+msgid "grid.user.error"
+msgstr "Došlo je do greške prilikom administracije ovog korisnika. Pokušajte ponovo."
+
+msgid "grid.user.authSource"
+msgstr "Izvor autentifikacije"
+
+msgid "grid.user.generatePassword"
+msgstr "Generiši lozinku"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Generiši nasumičnu lozinku za ovog korisnika."
+
+msgid "grid.user.notifyUser"
+msgstr "Obavesti korisnika"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Pošalji korisniku imejl dobrodošlice."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Izmeni lozinku"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Korisnik mora promeniti lozinku pri sledećem pristupu."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Zahtevaj od korisnika da promene lozinku pri sledećem pristupu."
+
+msgid "grid.user.moreDetails"
+msgstr "Više detalja o korisniku"
+
+msgid "grid.user.lessDetails"
+msgstr "Manje detalja o korisniku"
+
+msgid "grid.user.userDetails"
+msgstr "Detalji korisnika"
+
+msgid "grid.user.userRoles"
+msgstr "Uloge korisnika"
+
+msgid "grid.user.userNoRoles"
+msgstr "Ovaj korisnik nema uloga."
+
+msgid "grid.user.step1"
+msgstr "1. korak: Unesite detalje korisnika"
+
+msgid "grid.user.step2"
+msgstr "2. korak: Dodajte uloge korisniku {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Dodaj uloge"
+
+msgid "grid.user.addRole"
+msgstr "Dodaj ulogu"
+
+msgid "grid.user.selectUser"
+msgstr "Odaberi korsnika"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Molimo odaberite korisnika"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Prijavi se kao ovaj korisnik? Sve što radite biće pripisano ovom korisniku."
+
+msgid "grid.user.mergeUsers"
+msgstr "Spoji korisnike"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Spoji korisnika"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Spoji u ovog kjorisnika"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Svi uključeni korisnici"
+
+msgid "grid.user.mergeUsers.noneEnrolled"
+msgstr "Nema korsnika sa tom ulogom."
+
+msgid "grid.preparedEmails.title"
+msgstr "Pripremljeni šabloni imejl poruka"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Trenutna lista"
+
+msgid "grid.plugin.allCategories"
+msgstr "Sve kategorije"
+
+msgid "grid.plugin.disable"
+msgstr "Da li ste sigurni da želite da onemogućite ovaj dodatak?"
+
+msgid "grid.submission.itemTitle"
+msgstr "Autor; Naslov"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Odobri ovaj korektorski fajl za slanje u sledeću fazu."
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Uredi stavku sa ček liste"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Obriši stavku sa čekliste"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Recenzija je gotova ali je možete i zanemariti"
+
+msgid "grid.user.errorEmail"
+msgstr "Došlo je do greške prilikom slanja imejla, uverite se da je imejl server podešen kako treba i da funkcioniše ili kontaktirajte administratora servera."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Nemate dovoljno prava da administrirate ovog korisnika. Da biste administrirali korisnike morate biti administrator sajta."
+
+msgid "grid.user.mustProvideName"
+msgstr "Molimo unesite prvo barem prezime za korisnika"
+
+msgid "grid.user.mergeUsers.into.description"
+msgstr "Sada treba da odaberete korisnika na kog će se preneti osobine prethodnog korisnika, autorstva, uređivački zadaci i slično."
+
+msgid "grid.user.mergeUsers.from.description"
+msgstr "Odaberite korisnika kog želite da spojite sa drugim korisnikom (kada neko ima na primer dva naloga). Nalog koji je prvi odabran biće obrisan, a sve vezano za njega biće preneto na drugi nalog."
+
+msgid "grid.user.mergeUsers.mergeUserSelect.confirm"
+msgstr "Da li ste sigurni da želite da spojite ovog korisnika sa drugim? Drugog korisnika ćete odabrati na sledećoj stranici."
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Da li ste sigurni da želite da spojite nalog sa korisničkim imenom \"{$oldUsername}\" sa nalogom sa korisničkim imenom \"{$newUsername}\"? Nalog sa korisničkim imenom \"{$oldUsername}\" neće više postojati. Ova operacija je nepovratna."
+
+msgid "grid.action.fileUnconsider"
+msgstr "Došlo je do lektorskih izmena. Možete da zanemarite ovaj zadatak"
+
+msgid "grid.artworkFile.caption"
+msgstr "Naslov"
+
+msgid "grid.artworkFile.credit"
+msgstr "Zasluge"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Nosilac autorskih prava"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Kontakt informacije (ukoliko nije autor ili izdavač)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Uslovi pristupa"
+
+msgid "grid.artworkFile.placement"
+msgstr "Položaj u predaji"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Dodeli fazu"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Ukloni fazu"
+
+msgid "grid.userGroup.allStages"
+msgstr "Sve faze procesa rada"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Izlistaj uloge dodeljene"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Sa nivoom pristupa podešenim na"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Uloga {$userGroupName} je sistemska i ne može biti uklonjena."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "Ne mogu da uklonim ulogu {$userGroupName}. Trenutno je dodeljena za {$usersCount} korisnik(a)."
+
+msgid "grid.userGroup.removed"
+msgstr "Uloga {$userGroupName} je uklonjena."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Uloga {$userGroupName} je dodeljena fazi {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Uloga {$userGroupName} je uklonjena iz faze {$stageName}."

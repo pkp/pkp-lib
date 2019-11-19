@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T11:06:19+00:00\n"
+"PO-Revision-Date: 2019-11-19T11:06:19+00:00\n"
+"Language: \n"
+
+msgid "plugins.citationLookup.isbndb.displayName"
+msgstr "Łącznik bazy danych ISBNdb"
+
+msgid "plugins.citationLookup.isbndb.description"
+msgstr "Łączy z bibliograficzną bazą danych ISBNdb."
+
+msgid "plugins.citationLookup.isbndbExtraction.displayName"
+msgstr "Sposób pozyskiwania ISBN"
+
+msgid "plugins.citationLookup.isbndbExtraction.description"
+msgstr "Znajdź ISBN dla opisu NLM 3.0."
+
+msgid "plugins.citationLookup.isbndbLookup.displayName"
+msgstr "Usługa pozyskiwania ISBN"
+
+msgid "plugins.citationLookup.isbndbLookup.description"
+msgstr "Szukaj pełnego opisu NLM 3.0 za pomocą podanego ISBN."

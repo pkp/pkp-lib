@@ -1,0 +1,803 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
+"Language: \n"
+
+msgid "author.submit.submissionCitations"
+msgstr "Sediakan daftar referensi yang telah diformat untuk karya yang dikutip di penyerahan ini. Pisahkan referensi individu dengan garis kosong."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Email Registrasi CrossRef"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Masukkan email registrasi CrossRef yang valid. Anda bisa mendaftarkan email Anda secara gratis di web site CrossRef."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "Kunci ISBNdb API"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Masukkan kunci ISBNdb API Anda. Jika Anda belum mempunyai kunci, Anda dapat meminta satu secara gratis dari proyek ISBNdb."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Email Pendaftaran PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Masukkan email pendaftaran PubMed yang valid jika Anda sudah punya."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "Kunci WorldCat API"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Masukkan kunci WorldCat API yang valid jika Anda sudah punya."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Modul Sitiran"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Pilih satu modul Sitiran yang diberikan."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Jangan gunakan by default (akan masih tersedia untuk the editor)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Kesalahan internal. Nilai non-valid telah diposting untuk pengaturan 'penyaringan opsional'. Laporkan ini sebagai bug."
+
+msgid "metadata.property.displayName.author"
+msgstr "Penulis"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "Untuk hasil terbaik, penulis harus dimasukkan di format berikut ini: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Editor"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "Untuk hasil terbaik, editor harus dimasukkan di format berikut ini: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Judul Artikel/ Makalah"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Masukkan judul artikel/ makalah yang valid."
+
+msgid "metadata.property.displayName.source"
+msgstr "Judul Buku/ Jurnal"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Masukkan judul buku/jurnal yang valid."
+
+msgid "metadata.property.displayName.date"
+msgstr "Tanggal Penerbitan"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Masukkan tanggal penerbitan yang valid (format: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Data Mengakses"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Masukkan data mengakses yang valid. (format: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Terbitan"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Masukkan terbitan yang valid."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Volume"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Masukkan volume yang valid."
+
+msgid "metadata.property.displayName.season"
+msgstr "Musim"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Masukkan pengidentifikasi musim yang valid."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Judul Bab"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Masukkan judul bab yang valid."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Edisi"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Masukkan edisi yang valid."
+
+msgid "metadata.property.displayName.series"
+msgstr "Seri"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Masukkan seri yang valid."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Tambahan"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Masukkan tambahan yang valid."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Tanggal Konferensi"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Masukkan tanggal konferensi yang valid (format: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Lokasi Konferensi"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Masukkan lokasi konferensi yang valid."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Nama konferensi"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Masukkan nama konferensi yang valid."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Sponsor Konferensi"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Masukkan sponsor konferensi yang valid."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Institusi"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Masukkan institusi yang valid."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Halaman Pertama"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Masukkan halaman pertama yang valid (harus nilai numerik)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Halaman Terakhir"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Masukkan halaman terakhir yang valid (harus nilai numerik)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Jumlah Halaman"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Masukkan jumlah total halaman yang valid (harus nilai numerik)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Lokasi Penerbit"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Masukkan lokasi penerbit yang valid."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Nama Penerbit"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Masukkan nama penerbit yang valid."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Masukkan ISBN yang valid (9 atau 13 nomor)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Print ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Masukkan print ISSN yang valid."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Masukkan eISSN yang valid."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Masukkan DOI yang valid."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Custom Publication ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Masukkan custom publication ID valid."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Masukkan CODEN yang valid."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Masukkan SICI yang valid."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Masukkan PMID yang valid."
+
+msgid "metadata.property.displayName.uri"
+msgstr "tautan  ke penerbitan"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Masukkan tautan alternatif yang valid ke penerbitan."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Komentar"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Masukkan komentar yang valid."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Catatan Tambahan"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Masukkan Catatan Tambahan yang valid."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Tipe Publikasi"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Pastikan Anda selalu mengatur tipe penerbitan. Nilai yang didukung sekarang ini adalah tipe penerbitan buku (untuk buku atau bab buku) dan jurnal (untuk artikel jurnal). Jika tidak, pemformatan output sitiran tidak akan bekerja secara benar."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Tipe Judul"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Pastikan Anda mengatur tipe judul yang valid.\n"
+"Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah \"disingkat\", \"diterjemahkan\", \"alternatif\" dan \"seragam\"."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Bagian judul diabaikan saat menyortir"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Masukkan hanya karakter awal  judul yang seharusnya diabaikan saat menyortir file."
+
+msgid "metadata.property.displayName.title"
+msgstr "Judul"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Masukkan judul yang valid."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Subtitle"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Masukkan subtitle yang valid."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Nomor Bagian"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Masukkan nomor bagian yang valid."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Nama Bagian"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Masukkan nama bagian yang valid."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Tipe Nama"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Pastikan Anda mengatur tipe nama yang valid. Nilai dukungan adalah 'personal', 'corporate' dan 'conference'."
+
+msgid "submission.agencies"
+msgstr "Nama Agen"
+
+msgid "submission.abstractViews"
+msgstr "Lihat Sari"
+
+msgid "submission.accepted"
+msgstr "Diterima"
+
+msgid "submission.acknowledge"
+msgstr "Diketahui"
+
+msgid "submission.addSuppFile"
+msgstr "Tambah file tambahan"
+
+msgid "submission.ask"
+msgstr "Tanya"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Kembali ke Pengeditan Naskah"
+
+msgid "submission.changeComments"
+msgstr "Ubah ke"
+
+msgid "submission.citations"
+msgstr "Referensi"
+
+msgid "submission.comments.addComment"
+msgstr "Tambahkan Komentar"
+
+msgid "submission.comments.comments"
+msgstr "Komentar"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Apakah Anda yakin ingin menghapus komentar ini?"
+
+msgid "submission.comments.corrections"
+msgstr "Koreksi"
+
+msgid "submission.comments.editComment"
+msgstr "Edit Komentar"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Impor Peer Review"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Reviewer {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Tidak ada komentar"
+
+msgid "submission.comments.noReviews"
+msgstr "Tidak ada review"
+
+msgid "submission.comments.review"
+msgstr "Review"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Kirim keputusan editorial Reviewer"
+
+msgid "submission.comments.subject"
+msgstr "Subjek"
+
+msgid "submission.complete"
+msgstr "Lengkap"
+
+msgid "submission.done"
+msgstr "Selesai"
+
+msgid "submission.dueDate"
+msgstr "Tenggat Waktu"
+
+msgid "submission.due"
+msgstr "Jatuh Tempo"
+
+msgid "submission.editing"
+msgstr "Pengeditan"
+
+msgid "submission.editMetadata"
+msgstr "Edit Metadata"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Kembali ke log email"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Apakah Anda yakin ingin membersihkan log email untuk penyerahan ini?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Apakah Anda yakin ingin menghapus entri log email ini?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Hapus Entri Log"
+
+msgid "submission.emailLog"
+msgstr "Log Email"
+
+msgid "submission.event.backToEventLog"
+msgstr "Kembali ke Log Event"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Apakah Anda yakin ingin membersihkan log event untuk penyerahan ini?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Apakah Anda yakin ingin menghapus entri log event ini?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Hapus entri log"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Metadata naskah telah di-update"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "File naskah telah di-update"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "tugas review yang diterima oleh proxy"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Tugas review diterima"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Tugas review ditolak"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Tenggat waktu review dimodifikasi"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Reviewer yang ditugaskan untuk naskah"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Penilaian Reviewer diserahkan"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Reviewer tidak ditugaskan dari naskah"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "file review di-update"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Tugas review dimulai"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "File Rekomendasi review"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Tugas Review dimulai"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Review diserahkan ulang"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "File revisi Reviewer revisions file di-update"
+
+msgid "submission.files"
+msgstr "File"
+
+msgid "submission.galley"
+msgstr "Galley"
+
+msgid "submission.history.clearLog"
+msgstr "Bersihkan Log"
+
+msgid "submission.history"
+msgstr "Sejarah"
+
+msgid "submission.history.noLogEntries"
+msgstr "Tidak ada log entri."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Entri yang sekarang"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Log Email"
+
+msgid "submission.history.submissionEventLog"
+msgstr " Log Event"
+
+msgid "submission.history.submissionNotes"
+msgstr "Catatan Naskah"
+
+msgid "submission.history.viewLog"
+msgstr "Lihat Log"
+
+msgid "submission.initiated"
+msgstr "Dimulai"
+
+msgid "submission.lastModified"
+msgstr "Terakhir Dimodifikasi"
+
+msgid "submission.layout.addGalley"
+msgstr "Tambahkan Galley Layout"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Apakah Anda yakin ingin menghapus galley ini secara permanen?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Apakah Anda yakin ingin memindahkan gambar ini dari galley?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Apakah Anda yakin ingin menghapus file tambahan ini secara permanen?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Hapus stylesheet ini."
+
+msgid "submission.layout.editGalley"
+msgstr "Edit  Galley Layout"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Format Galley"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "File Galley HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "Gambar"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Label galley digunakan untuk mengidentifikasi format file item (contoh: HTML, PDF, dll.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Label"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Label galley diperlukan."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Bahasa galley diperlukan."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Galley locale diperlukan."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Tidak ada gambar"
+
+msgid "submission.layout.galleys"
+msgstr "Galley"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "File Stylesheet"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Model"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Kreasi Galley Awal"
+
+msgid "submission.layout.layoutFile"
+msgstr "File Layout"
+
+msgid "submission.layout"
+msgstr "Layout"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Versi Layout"
+
+msgid "submission.layout.newGalley"
+msgstr "Buat Galley Baru"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "upload File Tambahan Baru"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Tidak ada file stylesheet yang telah ditambahkan ke galley ini."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Review File Tambahan"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Melihat Galley Naskah"
+
+msgid "submission.layout.viewProof"
+msgstr "Lihat Proof"
+
+msgid "submission.metadata"
+msgstr "Metadata Naskah"
+
+msgid "submission.noReviewAssignments"
+msgstr "Tidak ada tugas review"
+
+msgid "submission.notes.addNewNote"
+msgstr "Tambahkan Catatan Baru"
+
+msgid "submission.notes.attachedFile"
+msgstr "Lampiran File"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Kembali ke catatan naskah"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Catatan"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Hapus semua catatan"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Catatan Gagal"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Pindahkan semua catatan naskah?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Pindahkan catatan naskah ini?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Buat Catatan Baru"
+
+msgid "submission.notes.deleteNote"
+msgstr "Hapus Catatan"
+
+msgid "submission.notes.editNote"
+msgstr "Edit Catatan"
+
+msgid "submission.notes.expandNotes"
+msgstr "Perluas Catatan"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Tidak ada catatan naskah"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Hapus File yang diunggah"
+
+msgid "submission.notes"
+msgstr "Catatan naskah"
+
+msgid "submission.notes.updateNote"
+msgstr "Update catatan"
+
+msgid "submission.notes.viewNotes"
+msgstr "Lihat catatan"
+
+msgid "submission.originalFile"
+msgstr "File Asli"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Pengeditan"
+
+msgid "submission.page.history"
+msgstr "#{$id} Sejarah"
+
+msgid "submission.page.review"
+msgstr "#{$id} Review"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Ringkasan"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Sitiran"
+
+msgid "submission.peerReview"
+msgstr "Peer&nbsp;Review"
+
+msgid "submission.recommendation"
+msgstr "Rekomendasi: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Tolak"
+
+msgid "submission.request"
+msgstr "Permintaan"
+
+msgid "submission.response"
+msgstr "Respon"
+
+msgid "submission.restrictions"
+msgstr "Pembatasan"
+
+msgid "submission.reviewMetadata"
+msgstr "Metadata Review"
+
+msgid "submission.review"
+msgstr "Tinjauan"
+
+msgid "submission.reviewVersion"
+msgstr "Versi Review"
+
+msgid "submissions.active"
+msgstr "Aktif"
+
+msgid "submissions.archived"
+msgstr "Diarsipkan"
+
+msgid "submission.saveMetadata"
+msgstr "Simpan Metadata"
+
+msgid "submissions.completed"
+msgstr "Lengkap"
+
+msgid "submissions.declined"
+msgstr "Ditolak"
+
+msgid "submissions.incomplete"
+msgstr "Tidak lengkap"
+
+msgid "submissions.noSubmissions"
+msgstr "Tidak ada naskah"
+
+msgid "submissions.queuedEditing"
+msgstr "Dalam proses pengeditan"
+
+msgid "submissions.queued"
+msgstr "Antri"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Menunggu Penugasan"
+
+msgid "submissions.ruling"
+msgstr "Aturan"
+
+msgid "submissions.submit"
+msgstr "Pengajuan"
+
+msgid "submissions.submitted"
+msgstr "Telah diserahkan"
+
+msgid "submission.start"
+msgstr "Mulai"
+
+msgid "submission.submissionHistory"
+msgstr "Sejarah Naskah"
+
+msgid "submission.submissionManuscript"
+msgstr "Manuskrip"
+
+msgid "submission.submissionReview"
+msgstr "Review Naskah"
+
+msgid "submission.submitter"
+msgstr "Naskah"
+
+msgid "submission.summary"
+msgstr "Ringkasan"
+
+msgid "submission.supplementaryFiles"
+msgstr "File Tambahan"
+
+msgid "submission.supportingAgencies"
+msgstr "Agen Pendukung"
+
+msgid "submission.currentAgencies"
+msgstr "Agen Terkini"
+
+msgid "submission.indexingInformation"
+msgstr "Mengindeks Informasi"
+
+msgid "submission.titleAndAbstract"
+msgstr "Judul dan Sari"
+
+msgid "submission.underway"
+msgstr "Sedang Berlangsung"
+
+msgid "submission.uploadFileTo"
+msgstr "Unggah File ke"
+
+msgid "submission.viewMetadata"
+msgstr "Lihat Metadata"
+
+msgid "submission.views"
+msgstr "Lihat"
+
+msgid "submission.uploadSuccessful"
+msgstr "File Anda telah diupload."
+
+msgid "submission.uploadSuccessfulContinue"
+msgstr "File Anda telah diupload. Tekan lanjutkan untuk mengedit metadata file."
+
+msgid "submission.loadMessage"
+msgstr "Tunggu sementara file Anda diupload ke server."
+
+msgid "submission.artworkFileDetails"
+msgstr "Detail File Karya Seni"
+
+msgid "submission.fileDetails"
+msgstr "Detail File"
+
+msgid "submission.nameRequired"
+msgstr "Nama diperlukan untuk item ini."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} telah ditugaskan untuk mereview naskah {$submissionId} untuk tahapan review {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr "Ronde {$round} review oleh {$reviewerName} untuk naskah {$submissionId} telah selesai."
+
+msgid "log.review.reviewReinstated"
+msgstr "Ronde {$round} review oleh {$reviewerName} untuk naskah {$submissionId} telah dimulai ulang."
+
+msgid "submission.reviewForm"
+msgstr "Form Review"
+
+msgid "submission.reviewFormResponse"
+msgstr "Respon Form Review"

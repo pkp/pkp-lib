@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:00+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Анонимный пользователь"
+
+msgid "comments.anonymousNamed"
+msgstr "«{$userName}»"
+
+msgid "comments.body"
+msgstr "Текст комментария"
+
+msgid "comments.titleRequired"
+msgstr "Заголовок комментария обязателен."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Удаление этого комментария приведет к удалению всех ответов на него. Вы уверены, что хотите это сделать?"
+
+msgid "comments.delete"
+msgstr "Удалить этот комментарий"
+
+msgid "comments.email"
+msgstr "Адрес электронной почты комментатора"
+
+msgid "comments.emailReply"
+msgstr "Ответить письмом электронной почты"
+
+msgid "comments.enterComment"
+msgstr "Ввести комментарий"
+
+msgid "comments.inResponseTo"
+msgstr " В ответ на <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Имя комментатора"
+
+msgid "comments.noComments"
+msgstr "Нет опубликованных комментариев читателей."
+
+msgid "comments.nReplies"
+msgstr "(Ответов - {$num})"
+
+msgid "comments.oneReply"
+msgstr "(1 ответ)"
+
+msgid "comments.postAnonymously"
+msgstr "Опубликовать этот комментарий анонимно"
+
+msgid "comments.postReply"
+msgstr "Опубликовать ответ"
+
+msgid "comments.readerComments"
+msgstr "Комментарии читателей"
+
+msgid "comments.readMore"
+msgstr "Читать дальше"
+
+msgid "comments.replies"
+msgstr "Ответы"
+
+msgid "comments.title"
+msgstr "Заголовок"
+
+msgid "comments.viewAllComments"
+msgstr "Просмотреть все комментарии"
+
+msgid "reader.fullText"
+msgstr "Полный текст:"

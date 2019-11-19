@@ -1,0 +1,1823 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
+"Language: \n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Huidige stylesheet"
+
+msgid "about.description"
+msgstr "Beschrijving"
+
+msgid "about.guidelines"
+msgstr "Richtlijnen"
+
+msgid "about.aboutSite"
+msgstr "Over de site"
+
+msgid "about.contact"
+msgstr "Contact"
+
+msgid "about.contact.email"
+msgstr "E-mail"
+
+msgid "about.contact.phone"
+msgstr "Telefoon"
+
+msgid "about.contact.principalContact"
+msgstr "Eerste contactpersoon"
+
+msgid "about.contact.supportContact"
+msgstr "Contactgegevens technische ondersteuning"
+
+msgid "about.other"
+msgstr "Overig"
+
+msgid "about.people"
+msgstr "Contact"
+
+msgid "about.policies"
+msgstr "Beleid"
+
+msgid "about.siteMap"
+msgstr "Sitemap"
+
+msgid "announcement.announcements"
+msgstr "Nieuwsberichten"
+
+msgid "announcement.announcementsHome"
+msgstr "Nieuwsberichten"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Meer nieuwsberichten..."
+
+msgid "announcement.noneExist"
+msgstr "Er zijn geen nieuwsberichten gepubliceerd."
+
+msgid "announcement.posted"
+msgstr "Geplaatst"
+
+msgid "announcement.postedOn"
+msgstr "Geplaatst op {$postDate}"
+
+msgid "announcement.view"
+msgstr "Bekijk nieuwsbericht"
+
+msgid "common.allDownloads"
+msgstr "Alle downloads"
+
+msgid "common.navigation.sidebar"
+msgstr "Navigatiemenu"
+
+msgid "common.navigation.site"
+msgstr "Navigatie website"
+
+msgid "common.navigation.siteContext"
+msgstr "Navigatie website context"
+
+msgid "common.navigation.user"
+msgstr "Navigatie gebruiker"
+
+msgid "common.tasks"
+msgstr "Taken"
+
+msgid "common.list"
+msgstr "Lijst"
+
+msgid "common.grid"
+msgstr "Rooster"
+
+msgid "common.confirmDelete"
+msgstr "Weet u zeker dat u dit item wil verwijderen? Deze actie kan niet worden ongedaan gemaakt."
+
+msgid "common.abstract"
+msgstr "Samenvatting"
+
+msgid "common.accepted"
+msgstr "Geaccepteerd"
+
+msgid "common.acknowledged"
+msgstr "Erkend"
+
+msgid "common.action"
+msgstr "Actie"
+
+msgid "common.activate"
+msgstr "Activeer"
+
+msgid "common.active"
+msgstr "Actief"
+
+msgid "common.add"
+msgstr "Voeg toe"
+
+msgid "common.addSelf"
+msgstr "Uzelf toevoegen"
+
+msgid "common.name"
+msgstr "Naam"
+
+msgid "common.all"
+msgstr "Alle"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.titleSmallWords"
+msgstr "van een de en of noch maar is als dan anders als om van bij op uit voor in over tot in met"
+
+msgid "common.alreadyAssigned"
+msgstr "Toegewezen"
+
+msgid "common.altText"
+msgstr "Alternatieve tekst"
+
+msgid "common.altTextInstructions"
+msgstr "Geef de alternatieve tekst voor deze afbeelding om de toegankelijkheid voor gebruikers met tekst-browsers of hulpapparaten te waarborgen"
+
+msgid "common.and"
+msgstr "en"
+
+msgid "common.applyAction"
+msgstr "Actie uitvoeren"
+
+msgid "common.assign"
+msgstr "Wijs toe"
+
+msgid "common.assigned"
+msgstr "Toegewezen"
+
+msgid "common.assigned.date"
+msgstr "Datum van toewijzing: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Beschikbaar"
+
+msgid "common.back"
+msgstr "Terug"
+
+msgid "common.between"
+msgstr "tussen"
+
+msgid "common.cancel"
+msgstr "Annuleer"
+
+msgid "common.cancelled"
+msgstr "Geannuleerd"
+
+msgid "common.warning"
+msgstr "Waarschuwing"
+
+msgid "common.error"
+msgstr "Fout"
+
+msgid "common.notice"
+msgstr "Opmerking"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "De captcha validering voor deze website is niet correct geconfigureerd. De geheime sleutel ontbreekt."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "De captcha validering voor deze website is niet correct geconfigureerd. De geheime sleutel is ongeldig."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Voltooi de controle of u een echte gebruiker bent, om spam-inzendingen te vermijden."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "U heeft de controle of u een echte gebruiker bent, om spam-inzendingen te vermijden, niet voltooid."
+
+msgid "common.captchaField.description"
+msgstr "Voer de letters uit de afbeelding hierboven in."
+
+msgid "common.captchaField"
+msgstr "Validatie"
+
+msgid "common.ccLicense"
+msgstr ""
+"<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\t Dit werk wordt gepubliceerd onder een <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  licentie</a>."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tDit werk wordt gepubliceerd onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 licentie</a>.\n"
+"\t</div>"
+
+msgid "common.changesSaved"
+msgstr "Uw wijzigingen zijn opgeslagen."
+
+msgid "common.chooseOne"
+msgstr "Maak een keuze"
+
+msgid "common.close"
+msgstr "Sluit"
+
+msgid "common.closePanel"
+msgstr "Sluit venster"
+
+msgid "common.closeWindow"
+msgstr "Sluit venster"
+
+msgid "common.complete"
+msgstr "Voltooi"
+
+msgid "common.completed"
+msgstr "Voltooid"
+
+msgid "common.completed.date"
+msgstr "Datum van voltooiing: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Bevestig"
+
+msgid "common.confirmed.date"
+msgstr "Datum van bevestiging: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Inhoud"
+
+msgid "common.contents"
+msgstr "Inhoud"
+
+msgid "common.continue"
+msgstr "Doorgaan"
+
+msgid "common.copy"
+msgstr "Kopieer"
+
+msgid "common.country"
+msgstr "Land"
+
+msgid "common.create"
+msgstr "Maak aan"
+
+msgid "common.dateCompleted"
+msgstr "Datum van voltooiing"
+
+msgid "common.date"
+msgstr "Datum"
+
+msgid "common.dateModified"
+msgstr "Datum van wijziging"
+
+msgid "common.dateRequested"
+msgstr "Datum van verzoek"
+
+msgid "common.dateSubmitted"
+msgstr "Datum van inzending"
+
+msgid "common.dateUploaded"
+msgstr "Datum van upload"
+
+msgid "common.dateHijri"
+msgstr "Hijri kalender"
+
+msgid "common.day"
+msgstr "Dag"
+
+msgid "common.deactivate"
+msgstr "Deactiveer"
+
+msgid "common.default"
+msgstr "Standaard"
+
+msgid "common.declined"
+msgstr "Geweigerd"
+
+msgid "common.delete"
+msgstr "Verwijder"
+
+msgid "common.deleting"
+msgstr "Verwijdering"
+
+msgid "common.deleteSelection"
+msgstr "Verwijder selectie"
+
+msgid "common.designation"
+msgstr "Benoeming"
+
+msgid "common.description"
+msgstr "Beschrijving"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; @ {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.disable"
+msgstr "Uitschakelen"
+
+msgid "common.disabled"
+msgstr "Uitgeschakeld"
+
+msgid "common.discipline"
+msgstr "Discipline"
+
+msgid "common.done"
+msgstr "Voltooid"
+
+msgid "common.download"
+msgstr "Downloaden"
+
+msgid "common.downloadPdf"
+msgstr "Download PDF"
+
+msgid "common.edit"
+msgstr "Wijzig"
+
+msgid "common.enable"
+msgstr "Inschakelen"
+
+msgid "common.enabled"
+msgstr "Ingeschakeld"
+
+msgid "common.error.databaseError"
+msgstr "Er is een databasefout opgetreden: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Er is een onbekende fout in de databaseverbinding opgetreden."
+
+msgid "common.error.framesRequired"
+msgstr "Deze pagina vereist frames. <a href=\"{$url}\">Klik hier</a> voor een versie zonder frames."
+
+msgid "common.event"
+msgstr "Gebeurtenis"
+
+msgid "common.export"
+msgstr "Exporteer"
+
+msgid "common.finish"
+msgstr "Voltooi"
+
+msgid "common.fullscreen"
+msgstr "Schermvullend"
+
+msgid "common.fullscreenOff"
+msgstr "Niet schermvullend"
+
+msgid "common.false"
+msgstr "Onwaar"
+
+msgid "common.file"
+msgstr "Bestand"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Bestandsnaam"
+
+msgid "common.fileSize"
+msgstr "Bestandsgrootte"
+
+msgid "common.fileType"
+msgstr "Bestandstype"
+
+msgid "common.fileUploaderError"
+msgstr "Het venster voor het opladen van een bestand is actief. Als het niet verschijnt, wordt de uitvoering waarschijnlijk niet ondersteund door deze webbrowser. Contacteer de beheerder voor hulp."
+
+msgid "common.filter"
+msgstr "Filters"
+
+msgid "common.filterAdd"
+msgstr "Voeg filter toe: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Verwijder filter: {$filterTitle}"
+
+msgid "common.from"
+msgstr "Van"
+
+msgid "common.until"
+msgstr "Tot"
+
+msgid "common.go"
+msgstr "Ga"
+
+msgid "common.height"
+msgstr "Hoogte"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Home"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Homepage logo"
+
+msgid "common.hour"
+msgstr "Uur"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Importeer"
+
+msgid "common.initiate"
+msgstr "Begin"
+
+msgid "common.inProgress"
+msgstr "In uitvoering"
+
+msgid "common.itemsPerPage"
+msgstr "Items per pagina"
+
+msgid "common.keywords"
+msgstr "Trefwoorden"
+
+msgid "common.language"
+msgstr "Taal"
+
+msgid "common.languages"
+msgstr "Talen"
+
+msgid "common.less"
+msgstr "Minder"
+
+msgid "common.lessThan"
+msgstr "{$value} of kleiner"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Beheer"
+
+msgid "common.mailingAddress"
+msgstr "Postadres"
+
+msgid "common.billingAddress"
+msgstr "Factuuradres (indien verschillend)"
+
+msgid "common.minute"
+msgstr "Minu(u)t(en)"
+
+msgid "common.modify"
+msgstr "Wijzig"
+
+msgid "common.month"
+msgstr "Maand"
+
+msgid "common.more"
+msgstr "Meer"
+
+msgid "common.moreThan"
+msgstr "{$value} of meer"
+
+msgid "common.noneAssigned"
+msgstr "Geen toegewezen"
+
+msgid "common.none"
+msgstr "Geen"
+
+msgid "common.no"
+msgstr "Nee"
+
+msgid "common.noComments"
+msgstr "Geen commentaren"
+
+msgid "common.notApplicable"
+msgstr "Niet van toepassing"
+
+msgid "common.notApplicableShort"
+msgstr "NVT"
+
+msgid "common.notAvailable"
+msgstr "Niet beschikbaar"
+
+msgid "common.note"
+msgstr "Opmerking"
+
+msgid "common.noTemporaryFile"
+msgstr "Het bestand dat u heeft opgeladen kan niet worden gevonden. Probeer het opnieuw op te laden."
+
+msgid "common.notes"
+msgstr "Opmerkingen"
+
+msgid "common.notes.tooltip"
+msgstr "Noten (geel: bevat nieuwe noten; blauw: bevat noten die al gezien waren; grijs: bevat geen noten)"
+
+msgid "common.notified"
+msgstr "Bericht gegeven"
+
+msgid "common.notified.date"
+msgstr "Verwittigd: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Niet gevonden"
+
+msgid "common.off"
+msgstr "Uit"
+
+msgid "common.on"
+msgstr "Aan"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Opties"
+
+msgid "common.order"
+msgstr "Sorteren"
+
+msgid "common.orderUp"
+msgstr "Verplaats {$itemTitle} naar boven"
+
+msgid "common.orderDown"
+msgstr "Verplaats {$itemTitle} naar onder"
+
+msgid "common.originalFileName"
+msgstr "Originele bestandsnaam"
+
+msgid "common.or"
+msgstr "of"
+
+msgid "common.other"
+msgstr "Overig"
+
+msgid "common.overdue"
+msgstr "Te laat"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} van {$total}"
+
+msgid "common.pagination.label"
+msgstr "Blader naar verdere pagina's"
+
+msgid "common.pageNumber"
+msgstr "Pagina {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.pluginEnabled"
+msgstr "De plugin \"{$pluginName}\" is ingeschakeld."
+
+msgid "common.pluginDisabled"
+msgstr "De plugin \"{$pluginName}\" is uitgeschakeld."
+
+msgid "common.prefix"
+msgstr "Prefix"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Zet korte niet-betekenisvolle woorden waarmee de titel begint, zoals \"een\" of \"de/het\" (of gelijkaardige korte woorden die de alfabetische volgorde verstoren) in Prefix."
+
+msgid "common.preview"
+msgstr "Voorvertoning"
+
+msgid "common.publisher"
+msgstr "Uitgever"
+
+msgid "common.quality"
+msgstr "Kwaliteit"
+
+msgid "common.queue.long.active"
+msgstr "Alle actieve"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Lees meer"
+
+msgid "common.readMoreWithTitle"
+msgstr "Lees meer over {$title}"
+
+msgid "common.record"
+msgstr "Vastleggen"
+
+msgid "common.refresh"
+msgstr "Verversen"
+
+msgid "common.related"
+msgstr "Verwant"
+
+msgid "common.reminder"
+msgstr "Herinnering"
+
+msgid "common.reminded.date"
+msgstr "Datum van herinnering: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Remote"
+
+msgid "common.remoteURL"
+msgstr "RemoteURL"
+
+msgid "common.remove"
+msgstr "Verwijder"
+
+msgid "common.removeSelection"
+msgstr "Selectie weghalen"
+
+msgid "common.replaced"
+msgstr "Vervangen"
+
+msgid "common.replaceFile"
+msgstr "Vervang bestand"
+
+msgid "common.requiredField"
+msgstr "* Betekent verplicht veld"
+
+msgid "common.required"
+msgstr "Verplicht"
+
+msgid "common.reset"
+msgstr "Herstel"
+
+msgid "common.saveAndContinue"
+msgstr "Bewaar en ga door"
+
+msgid "common.saveAndEmail"
+msgstr "Bewaar en e-mail"
+
+msgid "common.save"
+msgstr "Bewaar"
+
+msgid "common.saving"
+msgstr "Opslaan"
+
+msgid "common.search"
+msgstr "Zoek"
+
+msgid "common.searchQuery"
+msgstr "Zoekterm"
+
+msgid "common.clearSearch"
+msgstr "Verwijder zoekterm"
+
+msgid "common.second"
+msgstr "Seconde(n)"
+
+msgid "common.selectAll"
+msgstr "Selecteer alle"
+
+msgid "common.selectNone"
+msgstr "Selecteer niets"
+
+msgid "common.select"
+msgstr "Selecteer"
+
+msgid "common.sendEmail"
+msgstr "Verstuur e-mail"
+
+msgid "common.size"
+msgstr "Grootte"
+
+msgid "common.source"
+msgstr "Bron"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.subject"
+msgstr "Onderwerp"
+
+msgid "common.subjects"
+msgstr "Onderwerpen"
+
+msgid "common.subtitle"
+msgstr "Ondertitel"
+
+msgid "common.suggest"
+msgstr "Suggereer"
+
+msgid "common.title"
+msgstr "Titel"
+
+msgid "common.top"
+msgstr "Boven"
+
+msgid "common.true"
+msgstr "Waar"
+
+msgid "common.type"
+msgstr "Type"
+
+msgid "common.component"
+msgstr "Onderdeel"
+
+msgid "common.uninitiated"
+msgstr "Onbekend"
+
+msgid "common.unread"
+msgstr "Ongelezen"
+
+msgid "common.untitled"
+msgstr "Zonder titel"
+
+msgid "common.updated"
+msgstr "Bijgewerkt"
+
+msgid "common.uploadedDate"
+msgstr "Datum van upload"
+
+msgid "common.upload"
+msgstr "Laden"
+
+msgid "common.uploadFailed"
+msgstr "Het bestand kon niet geladen worden. Probeer het opnieuw of neem contact op met de beheerder als het probleem niet verdwijnt."
+
+msgid "common.up"
+msgstr "Omhoog"
+
+msgid "common.upload.addFile"
+msgstr "Upload bestand"
+
+msgid "common.upload.restore"
+msgstr "Herstel het origineel"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Voorbeeld van de huidige geselecteerde afbeelding."
+
+msgid "common.upload.changeFile"
+msgstr "Wijzig bestand"
+
+msgid "common.upload.dragFile"
+msgstr "Sleep bestand hierheen om te uploaden"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Gebruiker"
+
+msgid "common.view"
+msgstr "Bekijk"
+
+msgid "common.viewProfile"
+msgstr "Bekijk profiel"
+
+msgid "common.weeks"
+msgstr "weken"
+
+msgid "common.width"
+msgstr "Breedte"
+
+msgid "common.year"
+msgstr "Jaar"
+
+msgid "common.yes"
+msgstr "Ja"
+
+msgid "common.loading"
+msgstr "Laden..."
+
+msgid "common.plugins"
+msgstr "Plugins"
+
+msgid "common.metric"
+msgstr "Meting"
+
+msgid "common.count"
+msgstr "Aantal"
+
+msgid "common.publicAccess"
+msgstr "Publieke toegang"
+
+msgid "debug.databaseQueries"
+msgstr "Aantal database queries"
+
+msgid "debug.executionTime"
+msgstr "Pagina aangemaakt in"
+
+msgid "debug.memoryUsage"
+msgstr "Geheugengebruik:"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Talenlijst \"{$localeList}\" uit XML geladen"
+
+msgid "debug.notes.localeLoad"
+msgstr "Taalbestand \"{$localeFile}\" uit XML geladen"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Ontbrekende taalsleutel \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Notities:"
+
+msgid "defaultMetric.title"
+msgstr "Standaardmeting"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Beschikbare metingen"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Upload bestand voor review"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Upload bestand"
+
+msgid "email.addAttachment"
+msgstr "Voeg bijlage toe"
+
+msgid "email.addBccRecipient"
+msgstr "Voeg BCC toe"
+
+msgid "email.addCcRecipient"
+msgstr "Voeg CC toe"
+
+msgid "email.addToRecipient"
+msgstr "Voeg ontvanger toe"
+
+msgid "email.attachments"
+msgstr "Bijlagen"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Verstuur een kopie van dit bericht naar mijn adres ({$address})"
+
+msgid "email.body"
+msgstr "Hoofdtekst"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Stuur e-mail"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "U probeert een bericht naar teveel ontvangers te versturen."
+
+msgid "email.compose.tooSoon"
+msgstr "U probeert een bericht te snel na het laatste bericht te versturen. Wacht met het verzenden van nog een bericht."
+
+msgid "email.compose.error"
+msgstr "Er was een probleem bij het versturen van een e-mailbericht. Probeer het later opnieuw, of contacteer uw systeembeheerder."
+
+msgid "email.email"
+msgstr "E-mail"
+
+msgid "email.from"
+msgstr "Van"
+
+msgid "email.invalid"
+msgstr "Het e-mailadres {$email} is ongeldig."
+
+msgid "email.multipart"
+msgstr "Dit is een bericht in delen in MIME formaat."
+
+msgid "email.recipient"
+msgstr "Ontvanger"
+
+msgid "email.recipients"
+msgstr "Ontvangers"
+
+msgid "email.sender"
+msgstr "afzender"
+
+msgid "email.senderName"
+msgstr "Naam afzender"
+
+msgid "email.senderEmail"
+msgstr "E-mailadres afzender"
+
+msgid "email.send"
+msgstr "Verstuur"
+
+msgid "email.skip"
+msgstr "Sla e-mail over"
+
+msgid "email.subject"
+msgstr "Onderwerp"
+
+msgid "email.subjectRequired"
+msgstr "Geef een onderwerp voor de e-mail"
+
+msgid "email.bodyRequired"
+msgstr "Geef de tekst voor de e-mail"
+
+msgid "email.to"
+msgstr "Aan"
+
+msgid "form.url.invalid"
+msgstr "De opgegeven URL is ongeldig. Controleer en probeer opnieuw."
+
+msgid "form.confirmSubmit"
+msgstr "Weet u zeker dat u dit formulier wilt insturen?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Bevestig"
+
+msgid "form.emailRequired"
+msgstr "een e-mailadres is verplicht"
+
+msgid "form.dataHasChanged"
+msgstr "De gegevens op dit formulier zijn veranderd. toch doorgaan?"
+
+msgid "form.disallowedLocales"
+msgstr "Alleen volgende talen zijn toegelaten: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Deze eigenschap is niet toegelaten."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Sleep bestanden hierheen om ze op te laden"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Uw browser ondersteunt het slepen van bestanden niet."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Gebruik het formulier hieronder om uw bestanden op te laden."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr "Het bestand is te groot ({{filesize}}mb). Bestanden groter dan {{maxFilesize}}mb kunnen niet worden opgeladen."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Bestanden van dit type kunnen niet worden opgeladen."
+
+msgid "form.dropzone.dictResponseError"
+msgstr "De server antwoordde met een {{statusCode}} code. Contacteer de systeembeheerder als het probleem blijft duren."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Annuleer opladen"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Opladen is geannuleerd."
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Weet u zeker dat u het opladen van dit bestand wilt annuleren?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Verwijder bestand"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "U kan niet meer bestanden opladen."
+
+msgid "form.errorA11y"
+msgstr "Ga naar {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Ga naar volgende fout"
+
+msgid "form.errorOne"
+msgstr "Verbeter één fout."
+
+msgid "form.errorMany"
+msgstr "Verbeter {$count} fouten."
+
+msgid "form.errors"
+msgstr "Het formulier is niet opgeslagen omdat er {$count} fout(en) zijn opgetreden. Verbeter deze fouten en probeer het opnieuw."
+
+msgid "form.errorUnknown"
+msgstr "Er is een onbekende fout opgetreden. Het is mogelijk dat u bent afgemeld. Herlaad de pagina en probeer het opnieuw."
+
+msgid "form.errorsOccurred"
+msgstr "Er zijn fouten opgetreden bij het verwerken van dit formulier"
+
+msgid "form.formLanguage.description"
+msgstr "Selecteer eerst de taal om de informatie hieronder in bijkomende talen in te voeren."
+
+msgid "form.formLanguage"
+msgstr "Taal van het formulier"
+
+msgid "form.contains"
+msgstr "bevat"
+
+msgid "form.is"
+msgstr "is"
+
+msgid "form.missingRequired"
+msgstr "Dit veld is verplicht."
+
+msgid "form.startsWith"
+msgstr "begint met"
+
+msgid "form.postRequired"
+msgstr "Het formulier is niet op de juiste manier afgesloten."
+
+msgid "form.csrfInvalid"
+msgstr "Er waren fouten bij het indienen van het formulier."
+
+msgid "form.fileRequired"
+msgstr "Er moet een bestand worden opgeladen."
+
+msgid "form.required"
+msgstr "(* Verplicht)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "U moet dit veld invullen in {$language}."
+
+msgid "form.requireId"
+msgstr "U moet een geldige ID invullen."
+
+msgid "form.resubmit"
+msgstr "Zend opnieuw in"
+
+msgid "form.saveToUpload"
+msgstr "Gebruik Bewaar om het bestand te laden."
+
+msgid "form.send"
+msgstr "Zend"
+
+msgid "form.submit"
+msgstr "Zend in"
+
+msgid "form.invalidImage"
+msgstr "Er is een ongeldige afbeelding geladen. Toegestaan zijn .png, .gif en .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} in {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} talen volledig"
+
+msgid "help.help"
+msgstr "Help"
+
+msgid "help.toc"
+msgstr "Inhoudsopgave"
+
+msgid "help.previous"
+msgstr "Vorige"
+
+msgid "help.next"
+msgstr "Volgende"
+
+msgid "help.upALevel"
+msgstr "Een niveau omhoog"
+
+msgid "icon.checked.alt"
+msgstr "Aangevinkt"
+
+msgid "icon.comment.alt"
+msgstr "Commentaar"
+
+msgid "icon.delete.alt"
+msgstr "Verwijder"
+
+msgid "icon.edit.alt"
+msgstr "Bewerk"
+
+msgid "icon.folder.alt"
+msgstr "Folder"
+
+msgid "icon.font_large.alt"
+msgstr "Groot"
+
+msgid "icon.font_medium.alt"
+msgstr "Middel"
+
+msgid "icon.font_small.alt"
+msgstr "Klein"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Brief"
+
+msgid "icon.mail.alt"
+msgstr "Post"
+
+msgid "icon.unchecked.alt"
+msgstr "Niet aangevinkt"
+
+msgid "icon.view.alt"
+msgstr "Weergave"
+
+msgid "informationCenter.informationCenter"
+msgstr "Informatiecentrum"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Redactiegeschiedenis"
+
+msgid "informationCenter.addNote"
+msgstr "Voeg noot toe"
+
+msgid "informationCenter.noNotes"
+msgstr "Er zijn geen noten om weer te geven."
+
+msgid "informationCenter.pastNotes"
+msgstr "Noten bij eerdere versies"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Weet u zeker dat u deze noot wilt verwijderen?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Huidige versie"
+
+msgid "informationCenter.pastHistory"
+msgstr "Eerdere versies"
+
+msgid "informationCenter.history.noItems"
+msgstr "Er zijn geen gebeurtenissen gelogd."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Nieuwe noot toegevoegd."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Verwittiging verstuurd aan gebruikers."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Verwittiging verstuurd aan gebruikers."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Start discussie"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Begin discussie tussen uzelf en {$userFullName}"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Kies een voorbereid ontwerp, of vul onderstaand formulier in."
+
+msgid "stageParticipants.notify.message"
+msgstr "Bericht"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Zorg ervoor dat u een berichttekst heeft ingevuld en minstens één ontvanger heeft geselecteerd."
+
+msgid "stageParticipants.options"
+msgstr "Rechten die kunnen worden toegekend"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Deze persoon is slechts bevoegd om redactie-aanbevelingen te doen en zal een redacteur met voldoende rechten moeten vragen om editeursbeslissingen te maken."
+
+msgid "locale.primary"
+msgstr "Primaire taal"
+
+msgid "locale.supported"
+msgstr "Ondersteunde talen"
+
+msgid "navigation.access"
+msgstr "Gebruikersrollen"
+
+msgid "navigation.about"
+msgstr "Over"
+
+msgid "navigation.admin"
+msgstr "Beheer"
+
+msgid "navigation.archives"
+msgstr "Archieven"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "U bent hier:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Hulpmiddelen"
+
+msgid "navigation.tools.importExport"
+msgstr "Importeren/exporteren"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistieken"
+
+msgid "navigation.browse"
+msgstr "Blader"
+
+msgid "navigation.browseByAuthor"
+msgstr "Op auteur"
+
+msgid "navigation.browseByTitle"
+msgstr "Op titel"
+
+msgid "navigation.dashboard"
+msgstr "Dashboard"
+
+msgid "navigation.data"
+msgstr "Gegevens"
+
+msgid "navigation.home"
+msgstr "Home"
+
+msgid "navigation.infoForReaders"
+msgstr "Voor lezers"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informatie voor lezers"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} van {$total} items"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} van {$total} items"
+
+msgid "navigation.login"
+msgstr "Inloggen"
+
+msgid "navigation.nextPage"
+msgstr ">>"
+
+msgid "navigation.nextStep"
+msgstr "Volgende stap"
+
+msgid "navigation.previousPage"
+msgstr "<<"
+
+msgid "navigation.previousStep"
+msgstr "Vorige stap"
+
+msgid "navigation.publicMenu"
+msgstr "Publiek menu"
+
+msgid "navigation.register"
+msgstr "Registreren"
+
+msgid "navigation.search"
+msgstr "Zoek"
+
+msgid "navigation.settings"
+msgstr "Instellingen"
+
+msgid "navigation.setup"
+msgstr "Instellen"
+
+msgid "navigation.sitemap"
+msgstr "Site Map"
+
+msgid "navigation.skip.main"
+msgstr "Ga naar tekst"
+
+msgid "navigation.skip.nav"
+msgstr "Ga naar het hoofdnavigatiemenu"
+
+msgid "navigation.skip.footer"
+msgstr "Ga naar de voettekst van deze webpagina"
+
+msgid "navigation.stepNumber"
+msgstr "Stap {$step}"
+
+msgid "navigation.submissions"
+msgstr "Inzendingen"
+
+msgid "navigation.system"
+msgstr "Systeem"
+
+msgid "navigation.userHome"
+msgstr "Gebruiker"
+
+msgid "navigation.user"
+msgstr "Gebruiker"
+
+msgid "navigation.userManagement"
+msgstr "Gebruikersbeheer"
+
+msgid "navigation.viewFrontend"
+msgstr "Toon website"
+
+msgid "notification.addedAuditor"
+msgstr "Corrector toegevoegd."
+
+msgid "notification.removedAuditor"
+msgstr "Corrector verwijderd."
+
+msgid "notification.addedQuery"
+msgstr "Vraag toegevoegd"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Review is gemarkeerd als ontvangen. Geen e-mail verzonden."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Bedankings-e-mail verstuurd naar reviewer."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Reviewbestanden zijn bijgewerkt."
+
+msgid "notification.allow"
+msgstr "Toon deze soorten attenderingen in uw attenderingenlijst"
+
+msgid "notification.addedAnnouncementType"
+msgstr "Nieuwsbericht-type toegevoegd."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Nieuwsbericht-type bijgewerkt."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Nieuwsbericht-type verwijderd."
+
+msgid "notification.addedAnnouncement"
+msgstr "Nieuwsbericht toegevoegd."
+
+msgid "notification.editedAnnouncement"
+msgstr "Nieuwsbericht bijgewerkt."
+
+msgid "notification.removedAnnouncement"
+msgstr "Nieuwsbericht verwijderd."
+
+msgid "notification.addedAuthor"
+msgstr "Auteur toegevoegd."
+
+msgid "notification.editedAuthor"
+msgstr "Auteur bijgewerkt."
+
+msgid "notification.confirmError"
+msgstr "Er is een fout opgetreden bij het bevestigen van uw abonnement."
+
+msgid "notification.confirmSuccess"
+msgstr "U bent met succes geabonneerd"
+
+msgid "notification.email"
+msgstr "Stuur me een e-mail voor deze types van nieuwsberichten."
+
+msgid "notification.noneExist"
+msgstr "U heeft momenteel geen attenderingen"
+
+msgid "notification.addedNote"
+msgstr "Noot gepost."
+
+msgid "notification.removedNote"
+msgstr "Noot verwijderd."
+
+msgid "notification.removedFile"
+msgstr "Bestand verwijderd."
+
+msgid "notification.removedSubmission"
+msgstr "Inzending verwijderd."
+
+msgid "notification.notification"
+msgstr "Attendering"
+
+msgid "notification.notifications"
+msgstr "Attenderingen"
+
+msgid "notification.sentNotification"
+msgstr "Attendering verstuurd."
+
+msgid "notification.settings"
+msgstr "Attenderingsinstellingen"
+
+msgid "notification.settingsDescription"
+msgstr "Kies de gebeurtenissen waarop u geattendeerd wilt worden.  Niet aanvinken van een onderdeel voorkomt attenderingen daarop."
+
+msgid "notification.reminderError"
+msgstr "Er is een fout opgetreden bij het verzenden van uw wachtwoord. Controleer het e-mailadres dat u hebt opgegeven."
+
+msgid "notification.reminderSent"
+msgstr "Uw nieuwe wachtwoord is verstuurd naar het opgegeven e-mailadres."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadata voor inzending opgeslagen."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Verstuur e-mail naar alle geregistreerde gebruikers"
+
+msgid "search.author"
+msgstr "Auteurs"
+
+msgid "search.abstract"
+msgstr "Samenvatting"
+
+msgid "search.advancedFilters"
+msgstr "Geavanceerde filters"
+
+msgid "search.advancedSearchMore"
+msgstr "Meer zoekopties"
+
+msgid "search.advancedSearchLess"
+msgstr "Verberg geavanceerde zoekopties"
+
+msgid "search.searchAgain"
+msgstr "Zoek opnieuw"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Verwijder zoekindex"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "Herindexering voltooid"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "Fout bij herindexering"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artikels geïndexeerd"
+
+msgid "search.coverage"
+msgstr "Dekking"
+
+msgid "search.date"
+msgstr "Datum"
+
+msgid "search.dateFrom"
+msgstr "Van"
+
+msgid "search.dateTo"
+msgstr "Tot"
+
+msgid "search.deleteFilter"
+msgstr "Verwijder"
+
+msgid "search.discipline"
+msgstr "Discipline(s)"
+
+msgid "search.fullText"
+msgstr "Volledige tekst"
+
+msgid "search.indexTerms"
+msgstr "Geïndexeerde termen"
+
+msgid "search.indexTermsLong"
+msgstr "Alle indextermen"
+
+msgid "search.matchAll"
+msgstr "Vergelijk alle categorieën"
+
+msgid "search.noKeywordError"
+msgstr "U moet minstens één zoekwoord opgeven."
+
+msgid "search.noResults"
+msgstr "Geen resultaten"
+
+msgid "search.operator.and"
+msgstr "en"
+
+msgid "search.operator.not"
+msgstr "niet"
+
+msgid "search.operator.or"
+msgstr "of"
+
+msgid "search.SearchFor"
+msgstr "Zoek naar"
+
+msgid "search.searchResults"
+msgstr "Zoekresultaten"
+
+msgid "search.subject"
+msgstr "Trefwoord(en"
+
+msgid "search.titleIndex"
+msgstr "Blader door de titelindex"
+
+msgid "search.title"
+msgstr "Titel"
+
+msgid "search.typeMethodApproach"
+msgstr "Type (methode/benadering)"
+
+msgid "grid.action.downloadFile"
+msgstr "Download dit bestand"
+
+msgid "context.path"
+msgstr "Pad"
+
+msgid "review.ensuringBlindReview"
+msgstr "Verzeker een blinde review"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Lees het huidige review beleid"
+
+msgid "grid.action.deleteNotification"
+msgstr "Verwijder taak"
+
+msgid "grid.action.markNew"
+msgstr "Markeer als nieuw"
+
+msgid "grid.action.markRead"
+msgstr "Markeer als gelezen"
+
+msgid "dashboard.tasks"
+msgstr "Taken"
+
+msgid "dashboard.myQueue"
+msgstr "Mijn wachtlijst"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"<p>Om de integriteit van het blinde peer-review proces te garanderen voor inzendingen voor dit tijdschrift, moeten alle maatregelen worden genomen om de identiteit van auteurs en reviewers te verbergen voor elkaar. Daarom moeten auteurs, redacteurs en reviewers (die bestanden opladen als deel van het reviewproces) nagaan of de volgende stappen werden genomen om de tekst en bestandseigenschappen te zuiveren:</p>\n"
+"\t\t\t<ul><li>De auteurs van een document hebben hun namen uit de tekst verwijderd, en in de literatuurlijst verwijzingen naar hun eigen publicaties geanonymiseerd tot \"Auteur\" en publicatiejaar.</li>\n"
+"\t\t\t<li>Voor  Microsoft Office documenten moet eveneens auteursidentificatie worden verwijderd van de bestandseigenschappen, door volgende handelingen: Bestand > Opslaan als > Opties > Beveiligingscentrum > Verwijder persoonlijke gegevens bij opslaan van het bestand > Opslaan.</li>\n"
+"\t\t\t<li>Voor PDF bestanden moeten de auteursnamen eveneens worden verwijderd uit Documenteigenschappen, onder Bestand in het hoofdmenu van Adobe Acrobat.</li>\n"
+"\t\t</ul>"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Review planning"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Verzoek van de hoofdredacteur"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Uiterste antwoorddatum"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Uiterste reviewdatum"
+
+msgid "submission.task.responseDueDate"
+msgstr "Uiterste antwoorddatum"
+
+msgid "navigation.goBack"
+msgstr "Terug"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} werd toegewezen als reviewer voor deze inzending, en er werd een bevestigings-e-mail verstuurd."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} werd toegewezen als reviewer voor deze inzending, zonder dat een bevestigings-e-mail werd verstuurd."
+
+msgid "notification.removedReviewer"
+msgstr "Reviewer verwijderd."
+
+msgid "notification.addedStageParticipant"
+msgstr "Gebruiker toegevoegd als deelnemer."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Nieuw nieuwsbericht."
+
+msgid "notification.type.reviewAssignment"
+msgstr "U heeft een actief reviewverzoek."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Reviewverzoek bijgewerkt."
+
+msgid "notification.type.auditorRequest"
+msgstr "Correctieverzoek voor \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Alle reviews zijn ingediend en er wordt een beslissing verwacht in {$stage}"
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Een gereviseerde versie van een bestand is opgeladen voor redactionele beoordeling in {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Er worden nog revisies verwacht in {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revisies zijn ingediend in {$stage}"
+
+msgid "notification.type.metadataModified"
+msgstr "Metadata voor \"{$title}\" is bijgewerkt."
+
+msgid "notification.type.reviewerComment"
+msgstr "Een reviewer heeft opmerkingen toegevoegd voor \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Bestand aanvaard."
+
+msgid "user.authorization.submissionFile"
+msgstr "De huidige gebruiker heeft onvoldoende rechten om het opgegeven bestand te bekijken."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Ongeldige inzending."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Ongeldige weergave."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "U heeft onvoldoende rechten om de inzending te bekijken. Bewerk uw profiel in \"Registreer als\", om ervoor te zorgen dat u voldoende rechten heeft."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "De huidige gebruiker is niet de auteur van de opgevraagde inzending. Controleer of u ingelogd bent met het juiste gebruikersaccount."
+
+msgid "notification.type.queryActivity"
+msgstr "Activiteit in de discussie."
+
+msgid "notification.type.queryAdded"
+msgstr "Discussie toegevoegd."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Wijs een tekstredacteur toe met de \"Wijs toe\" link in het overzicht van deelnemers."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Wacht op tekstredactie."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Ronde {$round} status"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Navigatiemenu bijgewerkt."
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Item verwijderd uit navigatiemenu"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Item toegevoegd aan navigatiemenu"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Navigatiemenu toegevoegd"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Navigatiemenu bijgewerkt"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Navigatiemenu verwijderd"
+
+msgid "list.viewMore"
+msgstr "Toon meer details over {$name}"
+
+msgid "list.viewLess"
+msgstr "Verberg details over {$name}"
+
+msgid "validator.accepted"
+msgstr "Accepteer dit item."
+
+msgid "validator.active_url"
+msgstr "Dit is geen geldige URL."
+
+msgid "validator.after"
+msgstr "Deze datum moet later zijn dan {$date}."
+
+msgid "validator.alpha"
+msgstr "Dit mag uitsluitend letters bevatten."
+
+msgid "validator.alpha_dash"
+msgstr "Dit mag uitsluitend letters, cijfers en liggende streepjes bevatten."
+
+msgid "validator.alpha_num"
+msgstr "Dit mag uitsluitend letters en cijfers bevatten."
+
+msgid "validator.array"
+msgstr "Dit is geen geldige reeks."
+
+msgid "validator.before"
+msgstr "Deze datum moet vroeger zijn dan {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Dit moet tussen {$min} en {$max} zijn."
+
+msgid "validator.between.file"
+msgstr "Dit moet tussen {$min} en {$max} kilobytes zijn."
+
+msgid "validator.between.string"
+msgstr "Dit moet tussen {$min} en {$max} tekens zijn."
+
+msgid "validator.between.array"
+msgstr "Dit moet tussen {$min} en {$max} items bevatten."
+
+msgid "validator.boolean"
+msgstr "Dit veld moet waar of onwaar zijn."
+
+msgid "validator.confirmed"
+msgstr "De bevestiging voor dit veld komt niet overeen met de waarde voor het veld."
+
+msgid "validator.currency"
+msgstr "Dit is geen geldige munteenheid."
+
+msgid "validator.date"
+msgstr "Dit is geen geldige datum."
+
+msgid "validator.date_format"
+msgstr "Deze datum is niet in het formaat {$format}."
+
+msgid "validator.different"
+msgstr "De {$attribute} en {$other} moeten verschillen."
+
+msgid "validator.digits"
+msgstr "Dit moet {$digits} cijfers lang zijn."
+
+msgid "validator.digits_between"
+msgstr "Dit moet tussen {$min} en {$max} cijfers zijn."
+
+msgid "validator.email"
+msgstr "Dit is geen geldig e-mailadres."
+
+msgid "validator.exists"
+msgstr "Het geselecteerde {$attribute} is ongeldig."
+
+msgid "validator.filled"
+msgstr "Dit veld is verplicht."
+
+msgid "validator.image"
+msgstr "Dit moet een afbeelding zijn."
+
+msgid "validator.in"
+msgstr "Het geselecteerde {$attribute} is ongeldig."
+
+msgid "validator.integer"
+msgstr "Dit is geen geldig geheel getal."
+
+msgid "validator.ip"
+msgstr "Dit is geen geldig IP-adres."
+
+msgid "validator.issn"
+msgstr "Dit is geen geldig ISSN."
+
+msgid "validator.json"
+msgstr "Dit is geen geldige JSON."
+
+msgid "validator.locale"
+msgstr "Deze taal wordt niet aanvaard."
+
+msgid "validator.localeExpected"
+msgstr "Dit veld is meertalig. Voor elke ondersteunde taal moeten afzonderlijke waarden worden ingevuld."
+
+msgid "validator.localeKey"
+msgstr "Talen moeten worden aangeduid met de taalcode. Voorbeelden: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Dit mag niet groter zijn dan {$max}."
+
+msgid "validator.max.file"
+msgstr "Dit mag niet groter zijn dan {$max} kilobytes."
+
+msgid "validator.max.string"
+msgstr "Dit mag niet langer zijn dan {$max} tekens."
+
+msgid "validator.max.array"
+msgstr "Dit mag niet meer dan {$max} items bevaten."
+
+msgid "validator.mimes"
+msgstr "Dit moet een bestand zijn van het type {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Dit moet minstens {$min} zijn."
+
+msgid "validator.min.file"
+msgstr "Dit moet minstens {$min} kilobytes zijn."
+
+msgid "validator.min.string"
+msgstr "Dit moet minstens {$min} tekens zijn."
+
+msgid "validator.min.array"
+msgstr "Dit moet minstens {$min} items zijn."
+
+msgid "validator.not_in"
+msgstr "Het geselecteerde {$attribute} is ongeldig."
+
+msgid "validator.numeric"
+msgstr "Dit is geen geldig cijfer."
+
+msgid "validator.orcid"
+msgstr "Dit is geen geldige ORCID identificatie."
+
+msgid "validator.present"
+msgstr "Het {$attribute} veld is verplicht."
+
+msgid "validator.regex"
+msgstr "Dit is niet correct geformuleerd."
+
+msgid "validator.required"
+msgstr "Dit veld is verplicht."
+
+msgid "validator.required_if"
+msgstr "Dit veld is verplicht wanneer {$other} {$values} is."
+
+msgid "validator.required_unless"
+msgstr "Dit veld is verplicht tenzij {$other} {$values} is."
+
+msgid "validator.required_with"
+msgstr "Dit veld is verplicht wanneer {$value} is opgegeven."
+
+msgid "validator.required_with_all"
+msgstr "Dit veld is verplicht wanneer {$values} zijn opgegeven."
+
+msgid "validator.required_without"
+msgstr "Dit veld is verplicht wanneer {$value} niet is opgegeven."
+
+msgid "validator.required_without_all"
+msgstr "Dit veld is verplicht wanneer {$values} niet zijn opgegeven."
+
+msgid "validator.same"
+msgstr "Het {$attribute} en {$other} moeten overeen komen."
+
+msgid "validator.size.numeric"
+msgstr "Dit moet {$size} zijn."
+
+msgid "validator.size.file"
+msgstr "Dit moet {$size} kilobytes zijn."
+
+msgid "validator.size.string"
+msgstr "Dit moet {$size} tekens lang zijn."
+
+msgid "validator.size.array"
+msgstr "Dit moet {$size} items bevatten."
+
+msgid "validator.string"
+msgstr "Dit is geen geldige string"
+
+msgid "validator.timezone"
+msgstr "Dit is geen geldige tijdzone."
+
+msgid "validator.unique"
+msgstr "De {$attribute} bestaat al."
+
+msgid "validator.url"
+msgstr "Dit is geen geldige URL."

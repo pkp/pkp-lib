@@ -1,0 +1,334 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Ονομασία ρύθμισης"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Τιμή ρύθμισης"
+
+msgid "admin.adminFunctions"
+msgstr "Λειτουργίες διαχείρισης"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Επιβεβαιώνετε τη διαγραφή της πηγής πιστοποίησης;"
+
+msgid "admin.auth.create"
+msgstr "Δημιουργία πηγής πιστοποίησης"
+
+msgid "admin.auth.noneCreated"
+msgstr "Δεν έχουν οριστεί πηγές πιστοποίησης."
+
+msgid "admin.authSources"
+msgstr "Πηγές πιστοποίησης"
+
+msgid "admin.clearDataCache"
+msgstr "Καθαρισμός κρυφής μνήμης δεδομένων"
+
+msgid "admin.clearTemplateCache"
+msgstr "Καθαρισμός κρυφής μνήμης προτύπων"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Το αρχείο ρυθμίσεων ενημερώθηκε επιτυχώς. Σε περίπτωση που ο ιστότοπος δεν λειτουργεί σωστά, ίσως χρειαστεί να παραμετροποιήσετε χειροκίνητα τις ρυθμίσεις με άμεση επεξεργασία του αρχείου &lt;tt&gt;config.inc.php&lt;/tt&gt;."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Επιβεβαιώνετε τη διαγραφή των υπαρχόντων προτύπων από την κρυφή μνήμη;"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Επιβεβαιώνετε τον τερματισμό όλων των συνδέσεων Χρηστών στο σύστημα; Όλοι οι Χρήστες που αυτή τη στιγμή είναι συνδεδεμένοι στο σύστημα θα πρέπει να συνδεθούν ξανά (αφορά και τη δική σας σύνδεση)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Περιεχόμενα αρχείου ρυθμίσεων"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Επιβεβαιώνετε τη μόνιμη διαγραφή του {$contextName} και όλων των περιεχομένων;"
+
+msgid "admin.currentVersion"
+msgstr "Τρέχουσα έκδοση"
+
+msgid "admin.dateInstalled"
+msgstr "Ημερομηνία εγκατάστασης"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Τα περιεχόμενα των ενημερωμένων ρυθμίσεων εμφανίζονται παρακάτω. Για να εφαρμόσετε τις αλλαγές στις ρυθμίσεις πρέπει να ανοίξετε το αρχείο &lt;tt&gt;config.inc.php&lt;/tt&gt; με κατάλληλο πρόγραμμα επεξεργασίας κειμένου και να αντικαταστήσετε τα περιεχόμενά του με το περιεχόμενο του ακόλουθου πεδίου κειμένου."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Προβολή νέων ρυθμίσεων"
+
+msgid "admin.expireSessions"
+msgstr "Τερματισμός συνδέσεων Χρηστών"
+
+msgid "admin.languages.download"
+msgstr "Λήψη αρχείου γλώσσας"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Λήψη αρχείων γλώσσας"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Δεν είναι δυνατό να ανοίξει ο προσδιοριστής γλώσσας από τον ιστότοπο του PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Δεν είναι δυνατό να προστεθεί η νέα γλώσσα στο μητρώο γλωσσών, συνήθως \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "Αυτή η γλώσσα είναι η κύρια γλώσσα του ιστότοπου. Δεν μπορείτε να την απενεργοποιήσετε έως ότου επιλέξετε άλλη κύρια γλώσσα."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Επιβεβαιώνετε την αλλαγή της κύριας γλώσσας του ιστότοπου; Απαιτείται η καταχώριση των ονομάτων Χρηστών στην κύρια γλώσσα του ιστοτόπου. Όπου απουσιάζουν, θα αντιγραφούν από το αντίστοιχο πεδίο της τρέχουσας κύριας γλώσσας."
+
+msgid "admin.languages.confirmReload"
+msgstr "Επιβεβαιώνετε την επαναφόρτωση της γλώσσας; Πρόκειται να διαγραφούν όλα τα δεδομένα που σχετίζονται με τη γλώσσα αυτή, όπως τα επεξεργασμένα πρότυπα ηλεκτρονικών μηνυμάτων."
+
+msgid "admin.languages.installedLocales"
+msgstr "Εγκατεστημένες γλώσσες"
+
+msgid "admin.languages.installLanguages"
+msgstr "Εγκατάσταση γλωσσών"
+
+msgid "admin.languages.availableLocales"
+msgstr "Διαθέσιμες γλώσσες"
+
+msgid "admin.languages.installLocale"
+msgstr "Εγκατάσταση γλώσσας"
+
+msgid "admin.languages.installLocales"
+msgstr "Εγκατάσταση γλωσσών "
+
+msgid "admin.languages.installNewLocales"
+msgstr "Εγκατάσταση νέων γλωσσών"
+
+msgid "admin.languages.languageSettings"
+msgstr "Ρυθμίσεις γλωσσών"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Καμία επιπλέον γλώσσα δεν είναι διαθέσιμη για  εγκατάσταση."
+
+msgid "admin.languages.reload"
+msgstr "Επαναφορτωση γλώσσας"
+
+msgid "admin.languages.uninstall"
+msgstr "Απεγκατασταση γλώσσας"
+
+msgid "admin.phpInfo"
+msgstr "Αναλυτικές Πληροφορίες για το PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Προγραμματισμένη ενέργεια"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Η ενέργεια άρχισε."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Η ενέργεια σταμάτησε."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Η ενέργεια δεν δημιούργησε κανένα αρχείο καταγραφής."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Η εγκατάσταση του {$softwareName} εκτελέστηκε αυτόματα. Μπορείτε να κατεβάσετε το αρχείο καταγραφής της εγκατάστασης εδώ: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Επιβεβαιώνετε τη διαγραφή όλων των αρχείων διεκπεραίωσης των προγραμματισμένων εργασιών;"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Διαγραφή αρχείων διεκπεραίωσης προγραμματισμένων εργασιών"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Υπενθύμιση αξιολόγησης"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Υπενθύμιση λήξης συνδρομής"
+
+msgid "admin.server.apacheVersion"
+msgstr "Έκδοση Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Οδηγός βάσης δεδομένων"
+
+msgid "admin.server.dbVersion"
+msgstr "Έκδοση εξυπηρετητή βάσης δεδομένων"
+
+msgid "admin.serverInformation"
+msgstr "Πληροφορίες εξυπηρετητή"
+
+msgid "admin.server.phpVersion"
+msgstr "Έκδοση PHP"
+
+msgid "admin.server.platform"
+msgstr "Πλατφόρμα λειτουργικού συστήματος"
+
+msgid "admin.settings"
+msgstr "Ρυθμίσεις"
+
+msgid "admin.settings.aboutDescription"
+msgstr "Σχετικά με τον ιστότοπο"
+
+msgid "admin.settings.contactEmail"
+msgstr "Ηλεκτρονική διεύθυνση Υπεύθυνου Επικοινωνίας"
+
+msgid "admin.settings.contactName"
+msgstr "Ονοματεπώνυμο Υπεύθυνου Επικοινωνίας"
+
+msgid "admin.settings.form.contactEmailRequired"
+msgstr "Απαιτείται η διεύθυνση ηλεκτρονικού ταχυδρομείου του Υπεύθυνου Επικοινωνίας."
+
+msgid "admin.settings.form.contactNameRequired"
+msgstr "Απαιτείται το ονοματεπώνυμο του Υπεύθυνου Επικοινωνίας."
+
+msgid "admin.settings.form.minPasswordLengthRequired"
+msgstr "Πρέπει να εισάγετε έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες."
+
+msgid "admin.settings.form.titleRequired"
+msgstr "Απαιτείται η συμπλήρωση του τίτλου."
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr "Η εγκατάστασή σας έχει ρυθμιστεί ώστε να καταγράφει περισσότερες από μία μετρήσεις χρήσης. Τα στατιστικά στοιχεία χρήσης θα εμφανίζονται σε διάφορα συγκείμενα. Σε κάποιες περιπτώσεις χρησιμοποιείται ένα μοναδικό στατιστικό χρήσης (π.χ. για την εμφάνιση ενός καταλόγου των πιο δημοφιλών άρθρων ή για την ταξινόμηση των αποτελεσμάτων μίας αναζήτησης). Παρακαλούμε ορίστε ένα από τα διαμορφωμένα σύνολα ως προεπιλογή."
+
+msgid "admin.settings.homeHeaderImage.altText"
+msgstr "Λογότυπο ιστοτόπου"
+
+msgid "admin.settings.homeHeaderImageInvalid"
+msgstr "Μη έγκυρος τύπος αρχείου εικόνας λογοτύπου. Αποδεκτοί τύποι αρχείων είναι οι .gif, .jpg, ή .png."
+
+msgid "admin.settings.introduction"
+msgstr "Εισαγωγή"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Ελάχιστο μήκος κωδικού πρόσβασης"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Γλώσσα ιστοτόπου"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Μη έγκυρος τύπος αρχείου γραφικής μορφοποίησης ιστοτόπου. Αποδεκτός τύπος αρχείου είναι το .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Αρχείο γραφικής μορφοποίησης ιστοτόπου"
+
+msgid "admin.settings.siteLogo"
+msgstr "Λογότυπο ιστοτόπου"
+
+msgid "admin.settings.siteTitle"
+msgstr "Τίτλος ιστοτόπου"
+
+msgid "admin.settings.siteTheme"
+msgstr "Γραφική μορφοποίηση ιστοτόπου"
+
+msgid "admin.siteAdmin"
+msgstr "Τεχνική διαχείριση ιστοτόπου"
+
+msgid "admin.siteManagement"
+msgstr "Διαχείριση ιστοτόπου"
+
+msgid "admin.siteSettings"
+msgstr "Ρυθμίσεις ιστοτόπου"
+
+msgid "admin.siteSetup"
+msgstr "Παραμετροποίηση λειτουργιών ιστοτόπου"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Το αρχείο ρυθμίσεων &lt;tt&gt;config.inc.php&lt;/tt&gt; δεν υπάρχει, δεν είναι αναγνώσιμο, ή δεν είναι έγκυρο."
+
+msgid "admin.systemInformation"
+msgstr "Πληροφορίες συστήματος"
+
+msgid "admin.versionBuild"
+msgstr "Έκδοση"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Ελέγξτε για ενημερώσεις"
+
+msgid "admin.version.downloadPackage"
+msgstr "Μεταφόρτωση"
+
+msgid "admin.version.downloadPatch"
+msgstr "Μεταφόρτωση επιρράματος κώδικα (patch)"
+
+msgid "admin.versionHistory"
+msgstr "Ιστορικό εκδόσεων"
+
+msgid "admin.version.latest"
+msgstr "Τελευταία έκδοση"
+
+msgid "admin.versionMajor"
+msgstr "Πρωτεύουσα"
+
+msgid "admin.versionMinor"
+msgstr "Δευτερεύουσα"
+
+msgid "admin.version.moreInfo"
+msgstr "Περισσότερες πληροφορίες"
+
+msgid "admin.versionRevision"
+msgstr "Αναθεώρηση"
+
+msgid "admin.version.updateAvailable"
+msgstr "Μια νεώτερη έκδοση του λογισμικού είναι διαθέσιμη."
+
+msgid "admin.version.upToDate"
+msgstr "Το σύστημά σας διαθέτει την τελευταία έκδοση του λογισμικού."
+
+msgid "admin.version"
+msgstr "Έκδοση"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Η βασική διαδρομή {$path} θα πρέπει να είναι μέσα στον φάκελο των δημοσίων αρχείων."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Ο {$path} δεν είναι φάκελος ή δεν είναι αναγνώσιμος."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Το αρχείο {$filename} δεν μπόρεσε να μετακινηθεί από {$currentFilePath} στο {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Το αρχείο {$filename} επεξεργάστηκε και αρχειοθετήθηκε."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Φορτωτής αρχείων"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Αντιγράψτε τη λίστα αρχείων προσβασης apache access log file(s) στον τρέχοντα κατάλογο αρχείων στο μενού UsageStatsPlugin, φιλτράροντας τις καταχωρήσεις που σχετίζονται με αυτή την εγκατάσταση. Η ενέργεια πρέπει να πραγματοποιηθεί από Χρήστη με δικαιώματα πρόσβασης στα αρχεία apache.\n"
+"\n"
+"Αυτό το εργαλείο θα αντιγράψει μόνο τα αρχεία που δεν βρίσκονται ήδη στη λίστα usageStats (στάδιο, επεξεργασία, αρχειοθέτηση, απόρριψη).\n"
+"\n"
+"Usage: {$scriptName} path/to/apache/log/file.log\n"
+"Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Σφάλμα: ο προσωρινός φάκελος δε μπορεί να δημιουργηθεί {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Σφάλμα: Ο φάκελος {$filePath} δεν υπάρχει ή δεν υπάρχει πρόσβαση σ'αυτόν."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Σφάλμα: δε μπορεί να γίνει αντιγραφή φακέλου από {$filePath} στο {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Σφάλμα: δε μπορεί να γίνει διαγραφή του φακέλου {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Προσοχή: ο φάκελος {$filePath} ήδη υπάρχει μέσα στον κατάλογο στατιστικών στοιχείων χρήσης."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Επιτυχία: {$filePath} σε {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "H εκτέλεση του προγράμματος \"{$utilPath}\" επέστρεψε το ακόλουθο σφάλμα: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Σφάλμα: δε μπορεί να εκτελεστεί to \"{$utilPath}\". Ελέγξτε την {$utilVar} ρύθμιση στο config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Δεν υπάρχουν γλώσσες διαθέσιμες για λήψη."

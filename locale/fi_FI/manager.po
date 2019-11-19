@@ -1,0 +1,1515 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:48+00:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Tietoja"
+
+msgid "manager.website.appearance"
+msgstr "Ulkoasu"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Kuvatiedosto vaaditaan. Varmista, että olet valinnut ja ladannut tiedoston."
+
+msgid "manager.announcements"
+msgstr "Ilmoitukset"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän ilmoituksen pysyvästi?"
+
+msgid "manager.announcements.create"
+msgstr "Luo uusi ilmoitus"
+
+msgid "manager.announcements.createTitle"
+msgstr "Luo"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Voimassaolon päättyminen"
+
+msgid "manager.announcements.datePublish"
+msgstr "Julkaistu"
+
+msgid "manager.announcements.edit"
+msgstr "Muokkaa ilmoitusta"
+
+msgid "manager.announcements.editTitle"
+msgstr "Muokkaa"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Valitse vuosi ja/tai kuukausi voimassaolon päättymispäivän lisäksi."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Voimassaolon päättymispäivämäärä"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Ilmoitus näkyy lukijoille tähän päivään asti. Jätä tyhjäksi, mikäli ilmoituksen tulee näkyä toistaiseksi."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Valitse vuosi ja/tai päivä voimassaolon päättymiskuukauden lisäksi."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Valitse sopiva ilmoituksen voimassaolon päättymispäivämäärä."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Valitse kuukausi ja/tai päivä voimassaolon päättymisvuoden lisäksi."
+
+msgid "manager.announcements.form.description"
+msgstr "Kuvaus"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Ilmoituksen koko teksti."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Ilmoituksen kuvaus vaaditaan."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Lyhyt kuvaus, joka näkyy ilmoituksen otsikon kanssa."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Lyhyt ilmoituksen kuvaus vaaditaan."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Lyhyt kuvaus"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Tallenna ja luo uusi"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Ilmoituksen otsikko vaaditaan."
+
+msgid "manager.announcements.form.title"
+msgstr "Otsikko"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tyyppi"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Valitse kelvollinen ilmoitustyyppi."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Yhtään ilmoitusta ei ole luotu."
+
+msgid "manager.announcements.title"
+msgstr "Otsikko"
+
+msgid "manager.announcements.type"
+msgstr "Tyyppi"
+
+msgid "manager.announcementTypes"
+msgstr "Ilmoitustyypit"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Varoitus! Kaikki tämän ilmoitustyypin ilmoitukset poistetaan samalla. Haluatko varmasti jatkaa ja poistaa tämän ilmoitustyypin?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Luo ilmoitustyyppi"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Luo"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Muokkaa ilmoitustyyppiä"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Muokkaa"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Tallenna ja luo uusi"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Tämänniminen ilmoitustyyppi on jo olemassa."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nimi"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Ilmoitustyypin nimi vaaditaan."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Yhtään ilmoitustyyppiä ei ole luotu."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Ilmoitustyyppi"
+
+msgid "manager.publication.submissionStage"
+msgstr "Käsikirjoituksen vastaanotto"
+
+msgid "manager.publication.reviewStage"
+msgstr "Arviointi"
+
+msgid "manager.publication.editorialStage"
+msgstr "Toimitus"
+
+msgid "manager.publication.productionStage"
+msgstr "Tuotanto"
+
+msgid "manager.publication.emails"
+msgstr "Sähköpostit"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän sähköpostipohjan?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Haluatko varmasti palauttaa tähän sähköpostipohjaan sen oletusarvot?"
+
+msgid "manager.emails.createEmail"
+msgstr "Luo sähköposti"
+
+msgid "manager.emails.data"
+msgstr "Mallipohjan viestitiedot"
+
+msgid "manager.emails.details"
+msgstr "Mallipohjan tiedot"
+
+msgid "manager.emails.disable"
+msgstr "Poista käytöstä"
+
+msgid "manager.emails.disable.message"
+msgstr "Olet poistamassa tämän sähköpostipohjan käytöstä. Jos jotkin järjestelmäprosessit käyttivät tätä pohjaa, ne eivät käytä sitä enää. Haluatko vahvistaa tämän toimenpiteen?"
+
+msgid "manager.emails.editEmail"
+msgstr "Muokkaa sähköpostia"
+
+msgid "manager.emails.editTestExample"
+msgstr "Muokkaa sähköpostin testiesimerkkiä"
+
+msgid "manager.emails.emailKey"
+msgstr "Sähköpostiavain"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Sähköposti, jolla on kyseinen avain, on jo olemassa. Sähköpostiavainten on oltava uniikkeja."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Sähköpostipohja"
+
+msgid "manager.emails.enabled"
+msgstr "Ota tämä sähköpostipohja käyttöön"
+
+msgid "manager.emails.enable"
+msgstr "Ota käyttöön"
+
+msgid "manager.emails.enable.message"
+msgstr "Olet ottamassa tämän sähköpostipohjan käyttöön. Haluatko vahvistaa tämän toimenpiteen?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Sähköpostille vaaditaan uniikki sähköpostiavain, joka ei sisällä välilyöntejä tai erikoismerkkejä."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Sähköpostin leipäteksti vaaditaan."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Sähköpostin aihe vaaditaan."
+
+msgid "manager.emails"
+msgstr "Valmiit sähköpostit"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Jos palautat kaikki mallipohjat oletusarvoisiksi, kaikki sähköpostipohjiin tehdyt muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?"
+
+msgid "manager.emails.reset"
+msgstr "Palauta"
+
+msgid "manager.emails.reset.message"
+msgstr "Jos palautat tämän mallipohjan, kaikki viestitiedot palautetaan oletusarvoisiksi ja kaikki muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Palauta oletusarvot"
+
+msgid "manager.filesBrowser"
+msgstr "Tiedostoselain"
+
+msgid "manager.files.confirmDelete"
+msgstr "Poistetaanko tämä tiedosto tai hakemisto? Huomaa, että hakemiston on oltava tyhjä, ennen kuin se voidaan poistaa."
+
+msgid "manager.files.createDir"
+msgstr "Luo hakemisto"
+
+msgid "manager.files.emptyDir"
+msgstr "Tässä hakemistossa ei ole yhtään tiedostoa."
+
+msgid "manager.files.indexOfDir"
+msgstr "Hakemiston {$dir} sisällys"
+
+msgid "manager.files.parentDir"
+msgstr "Ylähakemisto"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Ladatut tiedostot"
+
+msgid "manager.files.uploadFile"
+msgstr "Lataa tiedosto"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän ryhmän?"
+
+msgid "manager.groups.createTitle"
+msgstr "Luo ryhmän nimi"
+
+msgid "manager.groups.editTitle"
+msgstr "Muokkaa nimeä"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Ryhmän nimi vaaditaan."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Lisää jäsen"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän ryhmän jäsenyyden?"
+
+msgid "manager.groups.membership"
+msgstr "Jäsenyys"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Tässä ryhmässä ei ole jäseniä."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Yhtään käyttäjää ei löytynyt."
+
+msgid "manager.groups.title"
+msgstr "Otsikko"
+
+msgid "manager.importExport"
+msgstr "Tuo/Vie tietoja"
+
+msgid "manager.language.ui"
+msgstr "Käyttöliittymä"
+
+msgid "manager.language.submissions"
+msgstr "Käsikirjoitukset"
+
+msgid "manager.language.forms"
+msgstr "Lomakkeet"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Lataa oletusarvot uudelleen"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Tämä järjestelmä sallii halutessasi tiettyjen tärkeiden tietojen syöttämisen useilla lisäkielillä. Käyttääksesi tätä ominaisuutta valitse vaihtoehtoiset kielialueet ja vaihtoehdot alla olevasta listasta."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Valitse kaikki sivustolla tuettavat kielialueet kielivalikosta, joka tulee näkymään jokaisella sivulla. Valikko näkyy vain, jos useampi kuin yksi kielialue on valittuna."
+
+msgid "manager.payment.timestamp"
+msgstr "Aikaleima"
+
+msgid "manager.people.authSource"
+msgstr "Todentamislähde"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Poistetaanko käyttäjältä tämä rooli?"
+
+msgid "manager.people.createUser"
+msgstr "Luo uusi käyttäjä"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Luo satunnainen salasana."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Lähetä käyttäjälle tervetulosähköposti, jossa on hänen käyttäjätunnuksensa ja salasanansa."
+
+msgid "manager.people.disable"
+msgstr "Poista käytöstä"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Ilman roolia"
+
+msgid "manager.people.editProfile"
+msgstr "Muokkaa profiilia"
+
+msgid "manager.people.editUser"
+msgstr "Muokkaa käyttäjää"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Lähetä sähköposti valituille käyttäjille"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Lähetä sähköposti käyttäjille, joille on lisätty rooli"
+
+msgid "manager.people.emailUsers"
+msgstr "Lähetä käyttäjille sähköpostia"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Valitse kielialue"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Valitse käyttäjät, joille haluat lähettää sähköpostin, rastittamalla valintaruudut nimien vieressä"
+
+msgid "manager.people.enable"
+msgstr "Aktivoi"
+
+msgid "manager.people.enroll"
+msgstr "Lisää käyttäjälle rooli"
+
+msgid "manager.people.enrollment"
+msgstr "Roolin lisääminen"
+
+msgid "manager.people.enrollSelected"
+msgstr "Lisää valitut käyttäjät rooliin"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Synkronoi rooli"
+
+msgid "manager.people.enrollSync"
+msgstr "Synkronoitu roolin lisääminen"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Käyttäjät voidaan valita rooliin tai poistaa roolista milloin tahansa."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Lisää käyttäjälle rooli"
+
+msgid "manager.people.invalidUser"
+msgstr "Pyydettyä käyttäjää ei ole olemassa."
+
+msgid "manager.people.mergeUser"
+msgstr "Yhdistä käyttäjä"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Haluatko varmasti yhdistää valitut {$oldAccountCount} tiliä tiliin, jonka käyttäjätunnus on \"{$newUsername}\"? Valitut {$oldAccountCount} tiliä poistetaan kokonaan. Tätä toimintoa ei voi kumota."
+
+msgid "manager.people.mergeUsers"
+msgstr "Yhdistä käyttäjät"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Valitse sivun yläosasta rooli, ennen kuin klikkaat “Lisää käyttäjälle rooli”."
+
+msgid "manager.people.mustProvideName"
+msgstr "Anna käyttäjälle ensin ainakin sukunimi."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Ei vastaavia jäseniä."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Ei rooliin lisättyjä käyttäjiä."
+
+msgid "manager.people"
+msgstr "Henkilöt"
+
+msgid "manager.people.remove"
+msgstr "Poista"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Tallenna ja luo uusi"
+
+msgid "manager.people.signInAs"
+msgstr "Kirjaudu sisään"
+
+msgid "manager.people.signInAsUser"
+msgstr "Kirjaudu sisään käyttäjänä"
+
+msgid "manager.people.syncUsers"
+msgstr "Synkronoi käyttäjien lisääminen rooliin"
+
+msgid "manager.people.unenroll"
+msgstr "Poista käyttäjältä rooli"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Käyttäjä luotiin onnistuneesti."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Vaadi, että käyttäjä vaihtaa salasanansa kirjautuessaan sisään seuraavan kerran."
+
+msgid "manager.plugins.action"
+msgstr "Toiminto:"
+
+msgid "manager.plugins.disable"
+msgstr "Poista käytöstä"
+
+msgid "manager.plugins.enable"
+msgstr "Ota käyttöön"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Lisäosien hallinnointi"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Tämä on sivustonlaajuinen lisäosa. Vain sivuston ylläpitäjä voi hallinnoida tätä lisäosaa."
+
+msgid "manager.plugins"
+msgstr "Järjestelmän lisäosat"
+
+msgid "manager.readingTools"
+msgstr "Lukutyökalut"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Hae käyttäjää nimen mukaan"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Muuta"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Hae arvioijia nimen mukaan"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Hae nimen mukaan"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Sisällölliset ja tutkimusmenetelmälliset osaamisalueet?"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Käytä alla olevaa lomaketta asettaaksesi maksimiarvot termeille, joita haluat hakea. Lomakkeeseen on esitäytetty kyseisten kenttien laskennalliset keskiarvot."
+
+msgid "manager.roles"
+msgstr "Roolit"
+
+msgid "manager.statistics"
+msgstr "Tilastot &amp; Raportit"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tSinun {$contextObjectName}si on määritetty tallentamaan useita käytön mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista oletukseksi.\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "Kaupunki"
+
+msgid "manager.statistics.region"
+msgstr "Alue"
+
+msgid "manager.statistics.reports"
+msgstr "Raporttigeneraattori"
+
+msgid "manager.statistics.reports.description"
+msgstr "Järjestelmä luo raportteja, jotka jäljittävät sivuston käyttöön ja käsikirjoituksiin liittyviä tietoja tietyltä aikaväliltä. Raportit luodaan CSV-muodossa, jonka katseleminen edellyttää taulukkolaskentasovellusta."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Kokoa tilastot:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Kursivoidut ja tähdellä (*) merkityt kohdat ovat tietoja, jotka ovat vapaavalintaisia järjestelmän tämänhetkisessä tilastojen laskemistavassa (mittarityyppi). Sinulla joko on kyseiset tiedot tai ne saattavat puuttua tilastointilisäosasi määrityksistä riippuen."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Raporttien oletusmallipohjat"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Luo mukautettu raportti"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Lisävalinnat"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Piilota lisävalinnat"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Sarakkeet"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Määritä sarakkeet, joita käytetään raportin muodostamiseen. Tässä valitsemasi sarakkeet määrittävät raporteissa esitettyjen tietojen lisäksi myös tilastojen koontitason. Jos esimerkiksi valitset tunniste-, tyyppi- ja kuukausisarakkeet, raportti laskee yhteen kaikki objektin katselukerrat yhdeltä kuukaudelta ja esittää tiedot yhdellä rivillä. Jos valitset kuukauden sijaan päivä-sarakkeen, kullakin objektilla on rivi jokaiselle päivälle."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Suodattimet"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Objektia ei löydy tietokannasta"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Objektityyppi"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Objektitunniste"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Määritä yksi tai useampi objektitunniste (erota pilkulla, esim. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Eilen"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Kuluva kuukausi"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Järjestä"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Suunta"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Nouseva"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Laskeva"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Käytä VVVVKK-muotoa."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Käytä VVVVKKPP-muotoa."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Yksi tai useampia kaupungin nimiä (erota pilkulla, esim. Kaupungin nimi 1,Kaupungin nimi 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Sinun on valittava vähintään yksi sarake luodaksesi raportin."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Raportin URL-osoite"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Seuraavaa URL-osoitetta voidaan käyttää raportin luomiseen tämänhetkisillä lomakkeen asetuksilla. Kopioi se, liitä selaimesi osoiteriville ja paina enteriä. Suosikkien avulla voit tallentaa mukautetun raportin URL-osoite-generaattorin."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Kontekstin mukaan"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Objektityypin ja/tai objektitunnisteen mukaan"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Valitse raportin aikaväli"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Tai valitse aikaväli:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Maantieteellisen sijainnin mukaan"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Rajaa tuloksia maan, alueen ja/tai kaupungin mukaan."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Tukija"
+
+msgid "manager.setup.additionalContent"
+msgstr "Lisäsisältö"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Kaikki tähän syötetty tieto näkyy etusivullasi."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Tekijänoikeushuomautus"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Vaadi kirjoittajia hyväksymään tekijänoikeushuomautus osana käsikirjoituksen lähetysprosessia."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Kirjoittajan ohjeet"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Suositellut ohjeet sisältävät bibliografisten ja muotoilustandardien lisäksi esimerkkejä tavallisista, käsikirjoituksissa käytettävistä viittausmuodoista."
+
+msgid "manager.setup.competingInterests"
+msgstr "Sidonnaisuudet"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Tätä kohdetta poistaessa tapahtui virhe."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.groupType"
+msgstr "Tiedostotyyppien ryhmittely"
+
+msgid "manager.setup.homepageImage"
+msgstr "Etusivun kuva"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Lataa kuva, joka näytetään näkyvästi etusivulla."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Etusivun kuvan muoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Etusivun ylätunnisteen otsikkokuvan muoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Kuvaukset"
+
+msgid "manager.setup.theme"
+msgstr "Teema"
+
+msgid "manager.setup.theme.description"
+msgstr "Uusia teemoja voidaan asentaa sivun yläreunasta löytyvältä Lisäosat-välilehdeltä."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Kirjaaminen ja tarkastus"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.notifications"
+msgstr "Ilmoitus kirjoittajan tekemästä käsikirjoituksen lähetyksestä"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Lähetä kopio tähän sähköpostiosoitteeseen"
+
+msgid "manager.setup.notifications.description"
+msgstr "Kirjoittajille lähetetään automaattisesti sähköposti-ilmoitus käsikirjoituksen vastaanottamisesta. Sinulla saattaa olla kopiot tästä seuraaville henkilöille lähetetystä sähköpostista:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Avoimen saatavuuden periaate"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Jos kaikki julkaistu sisältö on välittömästi vapaasti saatavilla, voit kirjoittaa kuvauksen soveltamastasi avoimen saatavuuden periaatteesta."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Sivun ylätunnisteen logon kuvamuoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Sivun alatunniste"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Anna kuvia, tekstiä tai HTML-koodi, joiden haluat näkyvän sivustosi alareunassa."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Esitä vertaisarvioinnin periaatteiden ja prosessien pääpiirteet lukijoille ja kirjoittajille. Tämä kuvaus voi sisältää tyypillisen arvioijien määrän käsikirjoitusta kohti, sovellettavat arviointikriteerit, arviointiin oletettavasti kuluvan ajan ja arvioijien valintaa koskevat periaatteet."
+
+msgid "manager.setup.principalContact"
+msgstr "Pääasiallinen yhteyshenkilö"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Anna yhteystiedot (yleensä pääasiallisen päätoimittajan, toimituspäällikön tai hallinnollisen työntekijän), jotka näytetään julkisella verkkosivustollasi."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Tietosuojaseloste"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Arviointipyynnön hyväksymiseen tai siitä kieltäytymiseen annettava aika (vk)"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Arvioinnin suorittamiseen annettava aika (vk)"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Älä muistuta koskaan"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Jokaisen arvioinnin oletusarvoja voidaan muokata toimitusprosessin aikana."
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "Lähetä muistutus, jos arvioija ei ole vastannut arviointipyyntöön seuraavan ajan (pv) kuluttua vastauksen määräpäivästä:"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr "Lähetä muistutus jos arvioija ei ole lähettänyt suositusta seuraavan ajan (pv) kuluttua arvioinnin määräpäivästä:"
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Arvioinnin oletusmääräajat"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Tukijasuhteiden ja -periaatteiden kuvaus"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Esimerkkejä: tieteelliset yhdistykset, yliopistojen laitokset, osuuskunnat jne. Tukijat näytetään julkisesti."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Kokeneet www-kehittäjät voivat ladata CSS-tiedoston mukauttaakseen sivuston ulkoasua pidemmälle."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Teknisen tuen yhteyshenkilö"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Yhteyshenkilö, joka osaa auttaa toimittajia, kirjoittajia ja arvioijia lähettämiseen, toimittamiseen, arviointiin tai aineiston julkaisemiseen liittyvissä ongelmissa."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Sivuston pääsyoikeuksien valinnat"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage} %)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} uutta)"
+
+msgid "manager.users"
+msgstr "Käyttäjät"
+
+msgid "plugins.categories.metadata"
+msgstr "Metatietolisäosat"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Metatietolisäosilla otetaan käyttöön uusia metatietostandardeja."
+
+msgid "plugins.categories.auth"
+msgstr "Auktorisointilisäosat"
+
+msgid "plugins.categories.blocks"
+msgstr "Lohkolisäosat"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Lohkolisäosat ovat erillisiä käyttöliittymän osia, kuten erilaisia sivupalkkityökaluja."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Yhdyskäytävälisäosat tarjoavat ulkoisille järjestelmille reaaliaikaisia tietoja."
+
+msgid "plugins.categories.gateways"
+msgstr "Yhdyskäytävälisäosat"
+
+msgid "plugins.categories.generic"
+msgstr "Yleiset lisäosat"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Tuonti-/vientilisäosien avulla voidaan siirtää sisältöä muista järjestelmistä ja muihin järjestelmiin."
+
+msgid "plugins.categories.importexport"
+msgstr "Tuonti-/vientilisäosat"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Maksutapalisäosilla otetaan käyttöön tuki erilaisille maksujen käsittelytavoille verkossa."
+
+msgid "plugins.categories.paymethod"
+msgstr "Maksulisäosat"
+
+msgid "plugins.categories.reports.description"
+msgstr "Raporttilisäosia käytetään erilaisten raporttien ja tietopoimintojen toteuttamiseen."
+
+msgid "plugins.categories.reports"
+msgstr "Raporttilisäosat"
+
+msgid "plugins.categories.themes.description"
+msgstr "Teemalisäosien avulla voidaan muuttaa järjestelmän ulkoasua."
+
+msgid "plugins.categories.themes"
+msgstr "Teemalisäosat"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI:n metatietomuoto -lisäosat"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Nämä muotolisäosat ilmaisevat metatiedot OAI- viestinnässä."
+
+msgid "plugins.categories.pubIds"
+msgstr "Julkisen tunnisteen lisäosat"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Näillä lisäosilla otetaan käyttöön julkisen tunnisteen tuki."
+
+msgid "manager.plugins.copyError"
+msgstr "Lisäosaa ei kopioitu onnistuneesti. Tämä voi olla käyttöoikeuteen liittyvä ongelma. Varmista, että verkkopalvelin kykenee kirjoittamaan lisäosahakemiston (ja alihakemistot), mutta muista suojata se myöhemmin uudelleen."
+
+msgid "manager.plugins.delete"
+msgstr "Poista lisäosa"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Haluatko varmasti asentaa tämän lisäosan?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Haluatko varmasti päivittää tämän lisäosan?"
+
+msgid "grid.action.installPlugin"
+msgstr "Asenna tai päivitä tämä lisäosa"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Haluatko varmasti poistaa tämän lisäosan järjestelmästä?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Klikkaamalla poista-painiketta poistat lisäosan palvelimen tiedostojärjestelmästä."
+
+msgid "manager.plugins.deleteError"
+msgstr "Lisäosaa \"{$pluginName}\" ei voitu poistaa tiedostojärjestelmästä. Tämä voi olla käyttöoikeuteen liittyvä ongelma. Varmista, että verkkopalvelin kykenee kirjoittamaan lisäosahakemiston (ja alihakemistot), mutta muista suojata se myöhemmin uudelleen."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Lisäosa \"{$pluginName}\" poistettiin onnistuneesti"
+
+msgid "manager.plugins.description"
+msgstr "Tällä sivulla hallinnoija voi tarkistaa ja mahdollisesti määrittää jo asennetut lisäosat. Lisäosat on jaettu kategorioihin funktionsa mukaan. Kategoriat on lueteltu alla, ja joka kategoriassa on siihen tällä hetkellä kuuluvat lisäosat."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Lisäosaa \"{$pluginName}\" ei ole olemassa"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Valitse ensin tiedosto"
+
+msgid "manager.plugins.upload"
+msgstr "Lataa uusi lisäosa"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Tämän lomakkeen avulla voit ladata ja asentaa uuden lisäosan. Varmista, että lisäosa on pakattu .tar.gz-tiedostoksi."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Varmista, että latausta varten on valittu tiedosto."
+
+msgid "manager.plugins.installed"
+msgstr "Asennetut lisäosat"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Lisäosagalleria"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Yleiskatsaus"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Asennus"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Viimeisin yhteensopiva julkaisuversio"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Virallinen"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Tarkistettu"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Kumppani"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Ylläpitäjä"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} released on {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Etusivu"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Yhteenveto"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Tila"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Lisäosaa ei ole vielä asennettu."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Tästä lisäosasta ei ole tällä hetkellä saatavilla yhteensopivaa versiota."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Lisäosa on jo asennettu, ja se on uudempi kuin galleriassa saatavilla oleva versio."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Lisäosa on jo asennettu, mutta se voidaan päivittää uudempaan versioon."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Lisäosa on jo asennettu ja ajan tasalla."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Uudempi kuin saatavilla oleva versio"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Voidaan päivittää"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Ajan tasalla"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Ei saatavilla"
+
+msgid "manager.plugins.installFailed"
+msgstr "Asennus epäonnistui. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Onnistuneesti asennettu versio {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Ladatussa lisäosa-arkistossa ei ole lisäosan nimeä vastaavaa kansiota."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Ladattu lisäosa ei kuulu päivitetyn lisäosan kategoriaan."
+
+msgid "manager.plugins.wrongName"
+msgstr "Ladatun lisäosan version.xml sisältää lisäosan nimen, joka ei vastaa päivitetyn lisäosan nimeä."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Lisäosaa ei ole olemassa. Asenna sen sijaan"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Lisäosa on jo olemassa, mutta se on uudempi kuin asennettu versio. Päivitä sen sijaan"
+
+msgid "manager.plugins.settings"
+msgstr "Asetukset"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "Tar-komento ei ole käytettävissä. Määritä se oikein \"config.inc.php\"-tiedostossasi."
+
+msgid "manager.plugins.upgrade"
+msgstr "Päivitä lisäosa"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Tämän lomakkeen avulla voit päivittää lisäosan. Varmista, että lisäosa on pakattu .tar.gz-tiedostoksi."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Päivitys epäonnistui. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Onnistuneesti päivitetty versioon {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Virhe tiedostoa ladattaessa"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Valitse lisäosatiedosto"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml lisäosahakemistossa sisältää virheellisiä tietoja."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml:ää ei löytynyt lisäosahakemistosta"
+
+msgid "notification.localeEnabled"
+msgstr "Kielialue otettu käyttöön."
+
+msgid "notification.localeDisabled"
+msgstr "Kielialue poistettu käytöstä."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} määritelty ensisijaiseksi kielialueeksi."
+
+msgid "notification.localeInstalled"
+msgstr "Kaikki valitut kielialueet asennettu ja aktivoitu."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} kielialueen asennus poistettu."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} kielialue ladattu uudelleen."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Kielialueiden asetukset tallennettu."
+
+msgid "notification.editedUser"
+msgstr "Käyttäjää muokattu."
+
+msgid "manager.paymentMethod"
+msgstr "Maksut"
+
+msgid "manager.paymentMethod.title"
+msgstr "Maksutavat"
+
+msgid "manager.paymentMethod.none"
+msgstr "Maksutapaa ei ole valittu"
+
+msgid "manager.paymentMethod.method"
+msgstr "Maksutapa"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Valuutta"
+
+msgid "settings.roles.roleOptions"
+msgstr "Rooleihin liittyvät valinnat"
+
+msgid "settings.roles.showTitles"
+msgstr "Näytä roolin nimi tekijäluettelossa"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Salli käyttäjän rekisteröityä itse"
+
+msgid "settings.roles.roleName"
+msgstr "Roolin nimi"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Lyhenne"
+
+msgid "settings.roles.assignedStages"
+msgstr "Valitut työvaiheet"
+
+msgid "settings.roles.stages"
+msgstr "Vaiheet"
+
+msgid "settings.roles.roleDetails"
+msgstr "Roolin tiedot"
+
+msgid "settings.roles.from"
+msgstr "Käyttöoikeustaso"
+
+msgid "settings.roles.removeText"
+msgstr "Olet poistamassa tätä roolia tästä kontekstista. Tämä toimenpide poistaa myös rooliin liittyvät asetukset ja kaikki käyttäjien valinnat tähän rooliin. Haluatko jatkaa?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Roolin nimi on määritettävä."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Roolin lyhenne on määritettävä."
+
+msgid "settings.roles.uniqueName"
+msgstr "Uniikki roolin nimi on määritettävä."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Uniikki roolin lyhenne on määritettävä."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Roolin käyttöoikeustaso on määritettävä."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Vaihe, johon valinta tehdään, on määritettävä."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Kirjastotiedosto vaaditaan. Varmista, että olet valinnut ja ladannut tiedoston."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Tälle kirjastotiedostolle vaaditaan nimi."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Tälle kirjastotiedostolle vaaditaan tiedostotyyppi."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Sopimukset"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Markkinointi"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Luvat"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Raportit"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Muu"
+
+msgid "grid.action.addGenre"
+msgstr "Lisää osa"
+
+msgid "grid.action.editGenre"
+msgstr "Muokkaa tätä osaa"
+
+msgid "grid.action.deleteGenre"
+msgstr "Poista tämä osa"
+
+msgid "grid.action.restoreGenres"
+msgstr "Palauta osien oletusasetukset"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Merkitse tämäntyyppiset tiedostot riippuviksi tiedostoiksi (esim. ei luetteloida julkaistun sisällön kanssa)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Merkitse tämäntyyppiset tiedostot liitetiedostoiksi (esim. ei ensisijainen käsikirjoituksen sisältö)"
+
+msgid "manager.settings.wizard"
+msgstr "Ohjattu asetusten luonti"
+
+msgid "manager.users.roleRequired"
+msgstr "Valitse vähintään yksi rooli, joka liitetään tähän käyttäjään."
+
+msgid "manager.website"
+msgstr "Verkkosivusto"
+
+msgid "manager.website.title"
+msgstr "Verkkosivuston asetukset"
+
+msgid "manager.workflow"
+msgstr "Työnkulku"
+
+msgid "manager.workflow.title"
+msgstr "Työnkulun asetukset"
+
+msgid "manager.distribution"
+msgstr "Jakelu"
+
+msgid "manager.distribution.title"
+msgstr "Jakeluasetukset"
+
+msgid "manager.reviewForms"
+msgstr "Arviointilomakkeet"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Haluatko varmasti aktivoida tämän arviointilomakkeen? Aktivointia ei voi enää voi poistaa, kun lomake on valittu arviointiin."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Haluatko varmasti poistaa tämän arviointilomakkeen aktivoinnin? Lomake ei ole enää käytettävissä uusissa arviointitoimeksiannoissa."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Haluatko varmasti tehdä kopion tästä arviointilomakkeesta?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Valmis"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän arviointilomakkeen?"
+
+msgid "manager.reviewForms.create"
+msgstr "Luo arviointilomake"
+
+msgid "manager.reviewForms.description"
+msgstr "Kuvaus ja ohjeet"
+
+msgid "manager.reviewForms.edit"
+msgstr "Arviointilomake"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Arviointilomakkeelle vaaditaan otsikko."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Arvioinnissa"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Tässä luodut vertaisarviointilomakkeet annetaan arvioijien täytettäväksi, kahdesta avoimesta tekstikentästä (\"kirjoittajalle ja toimittajalle\" ja \"toimittajalle\") muodostuvan oletuslomakkeen sijaan. Arviointilomakkeita voidaan määrittää tiettyjä painon osastoja varten, ja toimittajilla on mahdollisuus valita käytettävä lomake arviointia osoitettaessa. Toimittajilla on kaikissa tapauksissa mahdollisuus sisällyttää arvioinnit kirjoittajan kanssa käytävään kirjeenvaihtoon."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Ei valintaa / Vapaamuotoinen arviointi"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Yhtään arviointilomaketta ei ole luotu."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Yhtään arviointilomaketta ei ole käytetty."
+
+msgid "manager.reviewForms.preview"
+msgstr "Esikatsele lomaketta"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Arviointilomakkeen tiedot"
+
+msgid "manager.reviewForms.title"
+msgstr "Otsikko"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Muutetaan lomakekohdan tyyppiä..."
+
+msgid "manager.reviewFormElements"
+msgstr "Lomakkeen kohdat"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Lisää valinta"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Valintaruudut (voit valita yhden tai useamman)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Valitse kohdan tyyppi"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Vahvista seuraavan julkaistun lomakekohdan poistaminen..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopioi kohteeseen:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Luo uusi kohta"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Pudotusvalikko"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Muokkaa lomakkeen kohtaa"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Kohdan tyyppi"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Lomakekohdalle vaaditaan kohdan tyyppi."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Lomakekohdalle vaaditaan kysymys."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Yhtään lomakkeen kohtaa ei ole luotu."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Valinta"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Kohta"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Valintanapit (voit valita vain yhden)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Arvioijien on täytettävä kohta"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Liitetään kirjoittajalle lähetettävään viestiin"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Yhden sanan tekstikenttä"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Laaja tekstikenttä"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Yhden rivin tekstikenttä"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Nähtävissä (kirjoittajille)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Luo uusi arviointilomake"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL-osoite verkkosivulle, jossa kerrotaan lisenssistä (mikäli saatavilla)."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Käsikirjoituksen lähettämislomake"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Vahvistusvirheitä:"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Sivupalkki"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Tapahtui virheitä:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Tuntematon kohta {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Tuntematon osa {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Tuntematon merkistökoodaus {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Tuntematon käyttäjäryhmä {$param}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Tuntematon lataaja {$param}"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Vaaditaan rekisteröity käyttäjä."
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Tätä lisäosaa kehittää ja ylläpitää Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Tämä lisäosan on tarkistanut ja hyväksynyt Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Tämän lisäosan tarjoaa kehitystyökumppani."
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Varoituksia:"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Sisältö on koodattu muotoon {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Väliaikaista tiedostoa {$dest} ei voitu luoda kohteesta {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "Annettu tiedostokoko \"{$expected}\" ja varsinainen tiedostokoko \"{$actual}\" eivät täsmää"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "Revisio \"{$revisionId}\" käsikirjoitustiedostolle \"{$fileId}\" loisi duplikaatin"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Käsikirjoitustiedostoa ei voitu tuoda"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Otsikko"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Polku"
+
+msgid "manager.navigationMenus"
+msgstr "Navigaatiovalikot"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Tämä sivu löytyy sijainnista <blockquote>{$pagesPath}</blockquote>...jossa %PATH% on yllä näkyvä polku. <strong>Huomaa:</strong> Kahdella sivulla ei voi olla samaa polkua. Mikäli annat polun, joka on jo järjestelmän käytössä, voi jokin toiminto poistua käytöstä.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Sisältö"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Polku voi sisältää vain alfanumeerisia merkkejä sekä merkit '.', '/', '-', ja '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Tämä polku on jo käytössä toisessa valikon kohteessa."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Tämä otsikko on jo käytössä toisessa valikossa."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Otsikko vaaditaan"
+
+msgid "manager.navigationMenuItems"
+msgstr "Navigaatiovalikon kohteet"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Käytössä olevat kohteet"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Pois käytöstä olevat kohteet"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Ulkoasuteeman aktiiviset navigaatioalueet"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Valitse navigaatioalue"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "URL vaaditaan"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Lisätietoja tämän kohteen näkyvyydestä."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "Kun valikon kohde avaa alavalikon, siinä olevaa linkkiä ei voi seurata kaikilla laitteilla. Esimerkiksi, mikäli sinulla on \"Tietoja\"-kohde, joka avaa \"Yhteistiedot\"-kohteen sisältävän alavalikon, ei \"Tietoja\"-kohteen linkki ole välttämättä avattavissa joillakin laitteilla. Tällöin alavalikkoon voi laittaa toisen kohteen, joka johtaa halutulle sivulle."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Navigaatiovalikon tyyppi"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Valitse navigaatiovalikon tyyppi tai Muokattu oman valikon luomiseksi"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Muokattu sivu"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Luo muokattu sivu ja lisää siihen johtava linkki navigaatiovalikkoon."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Ulkoinen URL"
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Linkki, joka kirjaa vierailijan ulos."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Tämä linkki näytetään vain, kun vierailija on kirjautunut sisään."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Tämä linkki näytetään vain, kun vierailija ei ole kirjautuneena sisään."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Linkki toimituksen hallintapaneeliin."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Linkki käyttäjän profiiliin."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Linkki sivuston ylläpitoasetuksiin."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Tämä linkki näytetään vain ylläpitäjille."
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Linkki mihin tahansa ulkoiselle sivulle, kuten https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Linkki \"Tietoja julkaisusta\" -sivulle."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Tämä linkki näkyy vain mikäli olet täyttänyt \"Tietoja julkaisusta\"-kohdan lehden asetuksista."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Linkki \"Toimituskunta\"-sivulle."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Tämä linkki näkyy vain mikäli olet täyttänyt \"Toimituskunta\"-kohdan lehden asetuksista."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Linkki \"Käsikirjoitukset\"-sivulle."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Linkki uusimpaan numeroon."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Linkki arkistoon."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Linkki ilmoitusten arkistoon."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Tämä linkki näkyy vain mikäli olet aktivoinut ilmoitukset lehden asetuksista."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Linkki kirjautumissivulle."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Linkki rekisteröitymissivulle."
+
+msgid "settings.roles.recommendOnly"
+msgstr "Tällä roolilla voi tehdä vain toimituksellisia suosituksia. Suosituksen vahvistamiseen vaaditaan varsinainen toimittaja."
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Jos \"Julkinen saatavuus\" on valittuna, tiedosto on ladattavissa osoitteesta: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Valitse liitettävät tiedostot"
+
+msgid "manager.setup.genres.key"
+msgstr "Avain"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Vapaaehtoinen lyhyt tunniste genrelle"
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Avain on jo käytössä"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "Avain voi sisältää vain alfanumeerisia merkkejä, alaviivoja ja väliviivoja ja sen pitää alkaa ja loppua alfanumeeriseen merkkiin."
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Tälle alueelle on jo osoitettu navigaatiovalikko."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Linkki yhteystiedosto-sivulle."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Tämä linkki näkyy vain, jos olet täyttänyt asetukset kohdasta Asetukset > Yhteystiedot."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Valitse navigaatiovalikon tyyppi."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Tämä linkki näkyy vain, jos olet ottanut maksut käyttöön kohdasta Asetukset > Jakelu > Maksut."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Tämä linkki näkyy vain, jos käyttäjä on kirjautunut sisään, maksut on otettu käyttöön kohdasta Asetukset > Jakelu > Maksut ja lehti on ottanut käyttöön embargon kohdasta Asetukset > Jakelu > Saatavuus."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Linkki hakusivulle."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Linkki tietosuojaselosteen sisältävälle sivulle."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Tämä linkki näkyy ainoastaan, jos olet syöttänyt tietosuojaselosteen asetusten kohtaan Asetukset > Työnkulku > Käsikirjoituksen vastaanotto"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Tietosuojaseloste näkyy rekisteröitymisen ja käsikirjoituksen lähetyksen yhteydessä sekä julkisella tietosuojaselostesivulla. Joidenkin maiden lainsäädäntö velvoittaa kuvaamaan miten kerättyjä henkilötietoja käytetään."
+
+msgid "grid.category.add"
+msgstr "Lisää kategoria"
+
+msgid "grid.category.edit"
+msgstr "Muokkaa kategoriaa"
+
+msgid "grid.category.name"
+msgstr "Nimi"
+
+msgid "grid.category.path"
+msgstr "Polku"
+
+msgid "grid.category.urlWillBe"
+msgstr "Kategorian URL-osoitteeksi tulee: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Kategorian polussa voi olla vain kirjaimia ja numeroita. Kansalliset merkit, kuten ä, ö ja å, eivät ole sallittuja."
+
+msgid "grid.category.pathExists"
+msgstr "Kategorian polku on jo käytössä. Anna toinen polku."
+
+msgid "grid.category.description"
+msgstr "Kuvaus"
+
+msgid "grid.category.parentCategory"
+msgstr "Yläkategoria"
+
+msgid "grid.category.removeText"
+msgstr "Oletko varma, että haluat poistaa tämän kategorian?"
+
+msgid "grid.category.nameRequired"
+msgstr "Anna kategorian nimi."
+
+msgid "grid.category.categoryDetails"
+msgstr "Kategorian tiedot"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Kuvaus"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr "Kirjoittajalle {$authorName} ei ole annettu nimeä käsikirjoituksessa käytettävällä kielellä, {$localeName}. Käsikirjoitusta ei voida tuoda ilman tätä tietoa."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Tuonti/Vienti-virheet:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "Käyttäjällä \"{$username}\" ei ole salasanaa. Tarkista tuontiin käytetty XML-tiedosto. Käyttäjän tiedot jätettiin tuomatta."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "Käyttäjän \"{$username}\" salasanaa ei voitu tuoda sellaisenaan. Käyttäjälle on lähetetty uusi salasana sähköpostitse. Muut käyttäjän tiedot on tuotu onnistuneesti."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "Käyttäjällä \"{$username}\" on salaamaton salasana, jota ei sallita. Käyttäjän tiedot jätettiin tuomatta."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr "Käyttäjänimi \"{$username}\" ja sähköposti \"{$email}\" eivät täsmää saman olemassa olevan käyttäjän tietojen kanssa."

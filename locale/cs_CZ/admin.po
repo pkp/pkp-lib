@@ -1,0 +1,316 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:40+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Administrátorské funkce"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Jste si jisti, že chcete trvale odstranit tento zdroj ověření?"
+
+msgid "admin.auth.create"
+msgstr "Vytvořit zdroj ověření"
+
+msgid "admin.auth.noneCreated"
+msgstr "Nebyly definovány žádné zdroje ověření."
+
+msgid "admin.authSources"
+msgstr "Zdroje ověření"
+
+msgid "admin.clearDataCache"
+msgstr "Vymazat mezipaměti dat"
+
+msgid "admin.clearTemplateCache"
+msgstr "Vymazat dočasné mezipaměti"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Váš konfigurační soubor byl úspěšně aktualizován. Vemte, prosím, v úvahu, že pokud již Vaše stránka nefunguje správně, budete možná muset ručně opravit vaši konfiguraci přímo úpravou souboru <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Jste si jisti, že chcete vymazat mezipaměť zkompilovaných šablon?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Jste si jistý, že chcete ukončit všechny uživatelské relace? Všichni uživatelé přihlášení do systému budou donuceni se znovu přihlásit (včetně vás)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Obsah konfiguračního souboru"
+
+msgid "admin.currentVersion"
+msgstr "Aktuální verze"
+
+msgid "admin.dateInstalled"
+msgstr "Datum instalace"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Obsah Vaší aktualizované konfigurace je zobrazen níže. K provedení změn konfigurace musíte otevřít <tt>config.inc.php</tt> ve vhodném textovém editoru a nahradit jeho obsah obsahem textového pole níže."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Zobrazit novou konfiguraci"
+
+msgid "admin.expireSessions"
+msgstr "Vypršení uživatelské relace"
+
+msgid "admin.languages.confirmReload"
+msgstr "Jste si jistý, že chcete znovu načíst tuto lokalizaci? To vymaže všechna existující data vztahující se k lokalizaci jako například přizpůsobené e-mailové šablony."
+
+msgid "admin.languages.installedLocales"
+msgstr "Instalované lokalizace"
+
+msgid "admin.languages.installLanguages"
+msgstr "Spravovat lokalizace"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalovat"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalovat nové lokalizace"
+
+msgid "admin.languages.languageSettings"
+msgstr "Nastavení jazyka"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Žádné další lokalizace nejsou dostupné pro instalaci."
+
+msgid "admin.languages.reload"
+msgstr "Znovu načíst lokalizace"
+
+msgid "admin.languages.uninstall"
+msgstr "Odinstalovat lokalizaci"
+
+msgid "admin.phpInfo"
+msgstr "Rozšířené informace o PHP"
+
+msgid "admin.server.apacheVersion"
+msgstr "Verze Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Ovladač databáze"
+
+msgid "admin.server.dbVersion"
+msgstr "Verze databázového serveru"
+
+msgid "admin.serverInformation"
+msgstr "Informace o serveru"
+
+msgid "admin.server.phpVersion"
+msgstr "Verze PHP"
+
+msgid "admin.server.platform"
+msgstr "Platforma OS"
+
+msgid "admin.settings.about"
+msgstr "O popisu stránky"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mail hlavní kontaktní osoby"
+
+msgid "admin.settings.contactName"
+msgstr "Jméno hlavní kontaktní osoby"
+
+msgid "admin.settings.introduction"
+msgstr "Úvod"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimální délka hesla"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Jazyk stránky"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Neplatný formát stylu stránky. Podporovaný formát je .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Styl stránky"
+
+msgid "admin.settings.siteTitle"
+msgstr "Název stránky"
+
+msgid "admin.siteAdmin"
+msgstr "Administrace stránek"
+
+msgid "admin.siteManagement"
+msgstr "Správa stránek"
+
+msgid "admin.siteSettings"
+msgstr "Nastavení stránek"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Konfigurační soubor <tt>config.inc.php</tt> neexistuje, není čitelný nebo je neplatný."
+
+msgid "admin.systemInformation"
+msgstr "Systémové informace"
+
+msgid "admin.versionBuild"
+msgstr "Sestavení"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Zkontrolovat aktualizace"
+
+msgid "admin.version.downloadPackage"
+msgstr "Stáhnout"
+
+msgid "admin.version.downloadPatch"
+msgstr "Stáhnout patch"
+
+msgid "admin.versionHistory"
+msgstr "Historie verze"
+
+msgid "admin.version.latest"
+msgstr "Nejaktuálnější verze"
+
+msgid "admin.versionMajor"
+msgstr "Hlavní"
+
+msgid "admin.versionMinor"
+msgstr "Vedlejší"
+
+msgid "admin.version.moreInfo"
+msgstr "Více informací"
+
+msgid "admin.versionRevision"
+msgstr "Revize"
+
+msgid "admin.version.updateAvailable"
+msgstr "Je dostupná aktualizace systému"
+
+msgid "admin.version.upToDate"
+msgstr "Používáte aktuální verzi systému"
+
+msgid "admin.version"
+msgstr "Verze"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nastavení - název"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Nastavení - hodnota"
+
+msgid "admin.languages.download"
+msgstr "Stažení lokalizace"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Stažení lokalizací"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Nelze otevřít deskriptor jazyků ze stránek PKP"
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Nelze přidat novou lokalizaci do souboru registru lokalizací, typicky \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "Tato lokalizace je primární jazyk těchto stránek. Nemůžete ji vypnout dokud nezvolíte jinou primární lokalizaci."
+
+msgid "admin.languages.availableLocales"
+msgstr "Dostupné lokalizace"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalovat lokalizaci"
+
+msgid "admin.scheduledTask"
+msgstr "Naplánovaná úloha"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Naplánovaný proces se spustil."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Naplánovaný proces byl ukončen."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Úloha nevytvořila žádný záznam do logu."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Instalace {$softwareName} se automatiky provedla a ukončila tuto úlohu, záznam logu si můžete stáhnout zde: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Jste si jisti, že chcete smazat logy všech provedených úloh?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Smazat logy provedení naplánovaných úloh."
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Připomenutí recenze"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Připomenutí vypršení předplatného"
+
+msgid "admin.settings"
+msgstr "Nastavení"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo stránek"
+
+msgid "admin.settings.siteTheme"
+msgstr "Téma stránek"
+
+msgid "admin.siteSetup"
+msgstr "Nastavení stránek"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Základní cesta {$path} musí být v rámci veřejně přístupných složek."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Složka {$path} není knihovna, nebo není zapisovatelná."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Soubor {$filename} nemohl být přesunut z {$currentFilePath} do {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Soubor {$filename}  byl zpracován a archivován."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Nahrávání souboru"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nejsou dostupné žádné lokalizace ke stažení."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Chyba: nelze zkopírovat soubor z {$filePath} do {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Chyba: nelze smazat soubor {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Varování: soubor {$filePath} již v knihovně usage stats existuje."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Úspěch:  {$filePath} do {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Při běhu programu \"{$utilPath}\" došlo k následující chybě: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Chyba: nelze spustit \"{$utilPath}\".  Zkontrolujte vaše nastavení {$utilVar} v config.inc.php."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Chyba: nezle otevřít dočasnou složku {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Chyba: Soubor {$filePath} neexistuje, nebo je k němu zakázaný přístup."
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"Vaše instalace je nakonfigurována k zaznamenávání více, než jedné metriky přístupů. Statistika přístupů bude zobrazována v různých souvislostech.\n"
+"\t\tJsou případy, kdy je třeba použít pouze jedna statistika přístupů, např. při zobrazování uspořádaného seznamu nejpoužívanějších příspěvků, nebo při hodnocení\n"
+"\t\tvýsledků vyhledávání. Zvolte, prosím, jednu z metrik jako výchozí."
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Zkopírujte soubor protokolu  přístupů v Apache, proveďte filtraci položek souvisejících s touto instalací,\n"
+"do aktuální knihovny souborů v rámci knihovny UsageStatsPlugin stage. Toto je třeba dělat pod uživatelem, který má dostatečná práva ke čtení souborů protokolu Apache.\n"
+"\n"
+"Tento nástroj zkopíruje pouze ty soubory, které doposud v knihovnách v rámci usageStats neexistují (etapa, zpracování, archiv, odmítnutí).\n"
+"\n"
+"Použití: {$scriptName} cesta/k/apache/log/file.log\n"
+"Použití (zpracování všech souborů v knihovně): {$scriptName} cesta/k/apache/directory"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Jste si jisti, že chcete trvale odstranit {$contextName} a všechen jeho/její obsah?"

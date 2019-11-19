@@ -1,0 +1,666 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:08+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "Немає елементів"
+
+msgid "grid.settings"
+msgstr "Налаштування"
+
+msgid "grid.noAuditors"
+msgstr "Немає аудиторів"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Цей елемент розміщений на віддаленому сервері."
+
+msgid "grid.action.uninstall"
+msgstr "Видалити"
+
+msgid "grid.action.manageAccess"
+msgstr "Керувати доступом"
+
+msgid "grid.action.sort"
+msgstr "Сортувати"
+
+msgid "grid.action.addItem"
+msgstr "Додати елемент"
+
+msgid "grid.action.addNote"
+msgstr "Додати нотатку"
+
+msgid "grid.action.addQuery"
+msgstr "Додати обговорення"
+
+msgid "grid.action.readQuery"
+msgstr "Прочитати обговорення"
+
+msgid "grid.action.deleteQuery"
+msgstr "Видалити обговорення"
+
+msgid "grid.action.updateQuery"
+msgstr "Оновити обговорення"
+
+msgid "grid.action.addUser"
+msgstr "Додати користувача"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Скасувати призначення цього рецензента"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Схвалити цей файл, що пройшов літературне редагування, для передачі його на наступний етап"
+
+msgid "grid.action.reload"
+msgstr "Перезавантажити"
+
+msgid "grid.action.delete"
+msgstr "Видалити"
+
+msgid "grid.action.deleteFile"
+msgstr "Видалити файл"
+
+msgid "grid.action.deleteMedia"
+msgstr "Видалити медіа"
+
+msgid "grid.action.editMedia"
+msgstr "Редагувати медіа"
+
+msgid "grid.action.editSection"
+msgstr "Редагувати розділ"
+
+msgid "grid.action.export"
+msgstr "Експортувати"
+
+msgid "grid.action.deleteSection"
+msgstr "Видалити розділ"
+
+msgid "grid.action.editorialHistory"
+msgstr "Редакційна історія"
+
+msgid "grid.action.remove"
+msgstr "Видалити"
+
+msgid "grid.action.edit"
+msgstr "Редагувати"
+
+msgid "grid.action.approve"
+msgstr "Схвалити"
+
+msgid "grid.action.disapprove"
+msgstr "Скасувати схвалення"
+
+msgid "grid.action.setApproval"
+msgstr "Встановити схвалення"
+
+msgid "grid.action.moreInformation"
+msgstr "Більше інформації"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Відновити усталені налаштування"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Ви впевнені, що хочете відновити усталені значення?"
+
+msgid "grid.action.addAuthor"
+msgstr "Додати учасника"
+
+msgid "grid.action.editAuthor"
+msgstr "Редагувати автора"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Видалити автора"
+
+msgid "grid.action.addAuditor"
+msgstr "Додати аудитора"
+
+msgid "grid.action.upgrade"
+msgstr "Оновити"
+
+msgid "grid.action.order"
+msgstr "Впорядкувати"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Скасувати впорядкування"
+
+msgid "grid.action.extendAll"
+msgstr "Показати все"
+
+msgid "grid.action.collapse"
+msgstr "Згорнути"
+
+msgid "grid.action.collapseAll"
+msgstr "Згорнути все"
+
+msgid "grid.action.wizard"
+msgstr "Майстер налаштувань"
+
+msgid "grid.action.moveItem"
+msgstr "Перемістити елемент"
+
+msgid "grid.action.downloadAll"
+msgstr "Завантажити усі файли одним архівом"
+
+msgid "grid.action.readReview"
+msgstr "Прочитати цю рецензію"
+
+msgid "grid.action.email"
+msgstr "Надіслати email"
+
+msgid "grid.action.addReviewer"
+msgstr "Додати рецензента"
+
+msgid "grid.action.addFile"
+msgstr "Додати файл"
+
+msgid "grid.action.editFile"
+msgstr "Редагувати файл"
+
+msgid "grid.action.selectFiles"
+msgstr "Виберіть файли для керування"
+
+msgid "grid.action.requestRevisions"
+msgstr "Запит нових версій для цього подання"
+
+msgid "grid.action.accept"
+msgstr "Прийняти це подання"
+
+msgid "grid.action.decline"
+msgstr "Відхилити це подання"
+
+msgid "grid.action.internalReview"
+msgstr "Надіслати це подання на внутрішню рецензію"
+
+msgid "grid.action.externalReview"
+msgstr "Надіслати це подання на зовнішню рецензію"
+
+msgid "grid.action.sendToProduction"
+msgstr "Надіслати це подання на публікацію"
+
+msgid "grid.action.settings"
+msgstr "Налаштування"
+
+msgid "grid.action.importexport"
+msgstr "Імпорт чи експорт вмісту або даних сайту"
+
+msgid "grid.action.orderItems"
+msgstr "Увімкнути режим впорядкування"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Редагувати цей пункт вимог"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Видалити цей пункт вимог"
+
+msgid "grid.action.resetAll"
+msgstr "Встановлення всіх елементів до усталених значень"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Додати новий шаблон електронного листа"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Редагувати цей шаблон електронного листа"
+
+msgid "grid.action.disableEmail"
+msgstr "Вимкнути цей шаблон електронного листа"
+
+msgid "grid.action.resetEmail"
+msgstr "Встановити усталені значення для цього шаблону електронного листа"
+
+msgid "grid.action.expandAll"
+msgstr "Розгорнути все"
+
+msgid "grid.action.requestAccount"
+msgstr "Додати учасника"
+
+msgid "grid.action.expand"
+msgstr "Розгорнути"
+
+msgid "grid.action.notify"
+msgstr "Повідомити цього користувача"
+
+msgid "grid.action.addUserGroup"
+msgstr "Додати нову групу користувачів"
+
+msgid "grid.action.editUserGroup"
+msgstr "Редагувати цю групу користувачів"
+
+msgid "grid.action.disable"
+msgstr "Вимкнути"
+
+msgid "grid.action.details"
+msgstr "Показати цей елемент"
+
+msgid "grid.action.enrolExisting"
+msgstr "Записати існуючого користувача в рецензенти"
+
+msgid "grid.action.selectCreate"
+msgstr "Створити нового рецензента"
+
+msgid "grid.action.search"
+msgstr "Шукати"
+
+msgid "grid.action.advancedSearch"
+msgstr "Розширений пошук"
+
+msgid "grid.action.viewLibrary"
+msgstr "Показати бібліотеку документів"
+
+msgid "grid.action.viewMetadata"
+msgstr "Показати метадані для цього подання"
+
+msgid "grid.action.sendReminder"
+msgstr "Надіслати нагадування про завдання цьому користувачеві"
+
+msgid "grid.action.newRound"
+msgstr "Створити новий раунд"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Показати довідник рецензента"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Показати рекомендації політики щодо конфлікту інтересів"
+
+msgid "grid.action.thankReviewer"
+msgstr "Надіслати повідомлення з подякою цьому рецензенту"
+
+msgid "grid.action.uploadFile"
+msgstr "Завантажити файл"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Додати тип оголошення"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Додати оголошення"
+
+msgid "grid.action.mergeUser"
+msgstr "Об'єднати користувачів"
+
+msgid "grid.action.unassignUser"
+msgstr "Скасувати призначення користувача"
+
+msgid "grid.action.history"
+msgstr "Показати історію"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Ця рецензія завершена але ви ще можете її розглянути"
+
+msgid "grid.action.enable"
+msgstr "Увімкнути"
+
+msgid "grid.action.bookInfo"
+msgstr "Інформація про подання"
+
+msgid "grid.action.logInAs"
+msgstr "Увійти як"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Експортувати усіх користувачів"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Ви впевнені, що хочете експортувати усіх користувачів?"
+
+msgid "grid.action.activate"
+msgstr "Активувати"
+
+msgid "grid.action.deactivate"
+msgstr "Деактивувати"
+
+msgid "grid.action.copy"
+msgstr "Копіювати"
+
+msgid "grid.action.preview"
+msgstr "Попередній перегляд"
+
+msgid "grid.action.install"
+msgstr "Встановити"
+
+msgid "grid.action.moreItems"
+msgstr "Завантажити ще"
+
+msgid "grid.task.status.completed"
+msgstr "Це завдання виконане"
+
+msgid "grid.task.status.new"
+msgstr "Позначено після розгляду"
+
+msgid "grid.task.status.uploaded"
+msgstr "Назва колонки вказує, хто завантажив цей файл"
+
+msgid "grid.task.status.unfinished"
+msgstr "Завдання не виконане"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Ця рецензія готова. Натисніть значок нотатки ліворуч, щоб прочитати її."
+
+msgid "grid.columns.actions"
+msgstr "Дії"
+
+msgid "grid.columns.institution"
+msgstr "Установа"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Аудитор"
+
+msgid "grid.columns.locale"
+msgstr "Мова"
+
+msgid "grid.sponsor.title"
+msgstr "Спонсори"
+
+msgid "grid.action.addSponsor"
+msgstr "Додати спонсора"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Видалити спонсора"
+
+msgid "grid.action.editSponsor"
+msgstr "Редагувати спонсора"
+
+msgid "grid.action.addSeries"
+msgstr "Додати серію"
+
+msgid "grid.action.editSeries"
+msgstr "Редагувати серію"
+
+msgid "grid.action.deleteSeries"
+msgstr "Видалити серію"
+
+msgid "grid.action.addCategory"
+msgstr "Додати категорію"
+
+msgid "grid.action.editCategory"
+msgstr "Редагувати категорію"
+
+msgid "grid.action.deleteCategory"
+msgstr "Видалити категорію"
+
+msgid "grid.contributor.title"
+msgstr "Учасник"
+
+msgid "grid.action.editContributor"
+msgstr "Редагувати учасника"
+
+msgid "grid.action.deleteContributor"
+msgstr "Видалити учасника"
+
+msgid "grid.reviewForm.title"
+msgstr "Форми рецензування"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Варіанти відповіді"
+
+msgid "grid.noFiles"
+msgstr "Немає файлів"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Файли"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Бібліотека подань"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Редакційна бібліотека"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Бібліотека рецензій"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Бібліотека публікацій"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Бібліотека шаблонів публікацій"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Вимоги до подань"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Пункт вимог"
+
+msgid "author.users.contributor.name"
+msgstr "Ім'я"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Роль"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Контактна особа"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "У списки перегляду"
+
+msgid "grid.roles.currentRoles"
+msgstr "Поточні ролі"
+
+msgid "grid.roles.add"
+msgstr "Створити нову роль"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Призначення етапу"
+
+msgid "grid.user.currentUsers"
+msgstr "Поточні користувачі"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Поточні призначення"
+
+msgid "grid.user.allRoles"
+msgstr "Всі ролі"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Усі рівні повноважень"
+
+msgid "grid.user.add"
+msgstr "Додати користувача"
+
+msgid "grid.user.enroll"
+msgstr "Записати користувача"
+
+msgid "grid.user.edit"
+msgstr "Редагувати користувача"
+
+msgid "grid.user.email"
+msgstr "Адреса електронної пошти"
+
+msgid "grid.user.enable"
+msgstr "Включити"
+
+msgid "grid.user.disable"
+msgstr "Відключити"
+
+msgid "grid.user.disableReason"
+msgstr "Причина відключення користувача"
+
+msgid "grid.user.enableReason"
+msgstr "Причина включення користувача"
+
+msgid "grid.user.error"
+msgstr "Під час адміністрування цього користувача виникла помилка. Будь ласка, спробуйте знову."
+
+msgid "grid.user.errorEmail"
+msgstr "Під час надсилання цього листа виникла помилка. Будь ласка, переконайтеся, що поштовий сервер функціонує належним чином та/або зверніться до системного адміністратора."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Ви не маєте достатніх повноважень, щоб редагувати дані цього користувача."
+
+msgid "grid.user.authSource"
+msgstr "Джерело аутентифікації"
+
+msgid "grid.user.mustProvideName"
+msgstr "Будь ласка, спочатку вкажіть принаймні прізвище користувача."
+
+msgid "grid.user.generatePassword"
+msgstr "Генерувати пароль"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Генерувати випадковий пароль для цього користувача."
+
+msgid "grid.user.notifyUser"
+msgstr "Сповістити користувача"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Надіслати користувачу вітального листа."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Змінити пароль"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Користувач повинен змінити пароль під час наступного входу до системи."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Вимагати, щоб користувач змінив свій пароль під час наступного входу до системи."
+
+msgid "grid.user.moreDetails"
+msgstr "Детальніше про користувача"
+
+msgid "grid.user.lessDetails"
+msgstr "Стисліше про користувача"
+
+msgid "grid.user.userDetails"
+msgstr "Інформація про користувача"
+
+msgid "grid.user.userRoles"
+msgstr "Ролі користувача"
+
+msgid "grid.user.userNoRoles"
+msgstr "Цей користувач не має жодних ролей."
+
+msgid "grid.user.step1"
+msgstr "Крок 1: Заповніть інформацію про користувача"
+
+msgid "grid.user.step2"
+msgstr "Крок 2: Дайте призначення користувачу {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Додати ролі"
+
+msgid "grid.user.addRole"
+msgstr "Додати роль"
+
+msgid "grid.user.selectUser"
+msgstr "Обрати користувача"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Будь ласка, оберіть користувача"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Увійти як цей користувач? Усі ваші дії будуть виконуватись від імені цього користувача."
+
+msgid "grid.user.mergeUsers"
+msgstr "Об'єднати користувачів"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Об'єднати користувача"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Об'єднати в цього користувача"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Усі зареєстровані користувачі"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Ви впевнені, що хочете об'єднати обліковий запис з іменем користувача \"{$oldUsername}\" в обліковий запис з ім'ям користувача \"{$newUsername}\"? Обліковий запис з ім'ям користувача \"{$oldUsername}\" зникне. Цю дію неможливо відмінити."
+
+msgid "grid.preparedEmails.title"
+msgstr "Шаблони підготовлених електронних листів"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Поточний список"
+
+msgid "grid.plugin.allCategories"
+msgstr "Усі категорії"
+
+msgid "grid.plugin.disable"
+msgstr "Ви впевнені, що хочете відключити цей модуль?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Зроблено коректурні виправлення. Ви можете скасувати розгляд цього завдання"
+
+msgid "grid.artworkFile.caption"
+msgstr "Підпис"
+
+msgid "grid.artworkFile.credit"
+msgstr "Автор"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Власник авторських прав"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Контактна інформація (якщо не автор/видавець)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Умови використання"
+
+msgid "grid.artworkFile.placement"
+msgstr "Розміщення в матеріалі"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Призначити етап"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Скасувати призначення етапу"
+
+msgid "grid.userGroup.allStages"
+msgstr "Усі етапи робочого процесу"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Список ролей, призначених"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "З рівнем повноважень"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Роль {$userGroupName} є усталеною і не може бути видалена."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "Неможливо видалити роль {$userGroupName}. Зараз вона призначена {$usersCount} користувачу(ам)."
+
+msgid "grid.userGroup.removed"
+msgstr "Роль {$userGroupName} видалена."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Роль {$userGroupName} призначена на етап {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Призначення ролі {$userGroupName} на етап {$stageName} скасовано."
+
+msgid "grid.submission.itemTitle"
+msgstr "Автор; Назва"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Включати неповні матеріали, не подані автором."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Додати меню"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Додати пункт меню"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Немає пунктів меню навігації"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Немає меню навігації"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Оберіть тип..."
+
+msgid "grid.action.users"
+msgstr "Переглянути / вибрати користувачів"
+
+msgid "grid.action.addContributor"
+msgstr "Додати учасника"

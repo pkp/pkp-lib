@@ -1,0 +1,1692 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:08+00:00\n"
+"Language: \n"
+
+msgid "author.submit.submissionCitations"
+msgstr "Gönderide atıf yapılan kaynaklar için biçimlendirilmiş bir referans listesi verin. Lütfen her referansı yeni bir satırdan başlatın."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef Kayıt E-postası"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Lütfen geçerli bir CrossRef e-postas adresi kaydediniz. E-postanızı CrossRef web sayfasında ücretsiz olarak kayıt edebilirsiniz."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API Anahtarı"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Lütfen ISBNdb API anahtarınız giriniz. Henüz bir anahtarınız yok ise ISBNdb projesinden ücretsiz olarak talep edebilirsiniz."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed kayıt e-postası"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Eğer varsa geçerli bir PubMed kayıt e-postası giriniz."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API Anahtarı"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Eğer varsa geçerli bir WorldCat API anahtarı giriniz."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Atıf Modülü"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Lütfen verilen atıf modüllerinden birini seçiniz."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Varsayılanı kullanmayınız (editör tarafından kullanılabilir olacak)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Dahili hata. \"İsteğe bağlı filitre\" ayarlarına geçerli olmayan bir değer gönderildi. Bunu hata mesajı olarak rapor edin."
+
+msgid "metadata.property.displayName.author"
+msgstr "Yazarlar"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "En iyi sonuç için yazarlar aşağıdaki biçimde girmelidir: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Editörler"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "En iyi sonuç için editörler aşağıdaki biçimde girmelidir: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Makale Adı"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Lütfen geçerli bir makale adı giriniz."
+
+msgid "metadata.property.displayName.source"
+msgstr "Yayın Başlığı"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Lütfen geçerli bri yayın başlığı giriniz."
+
+msgid "metadata.property.displayName.date"
+msgstr "Yayın Tarihi"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Lütfen geçerli bir yayın tarihi giriniz (Biçim: YYYY-AA-GG)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Erişim Tarihi"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Lütfen geçerli bir erişim tarihi giriniz (Biçim: YYYY-AA-GG)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Sayı"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Lütfen geçerli bir sayı giriniz."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Cilt"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Lütfen geçerli bir cilt sayısı giriniz."
+
+msgid "metadata.property.displayName.season"
+msgstr "Dönem"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Lütfen geçerli bir dönem belirleyici giriniz."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Bölüm Başlığı"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Lütfen geçerli bir bölüm adı giriniz."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Baskı"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Lütfen geçerli bir baskı sayısı giriniz."
+
+msgid "metadata.property.displayName.series"
+msgstr "Seriler"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Lütfen geçerli bir seri bilgisi giriniz."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Ek"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Lütfen geçerli bir ek bilgisi giriniz."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferans Tarihi"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Lütfen geçerli bir konferans tarihi giriniz (Biçim: YYYY-AA-GG)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Konferans Yeri"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Lütfen geçerli bir konferans yeri giriniz."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferans Adı"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Lütfen geçerli bir konferans adı giriniz."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferans Sponsoru"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Lütfen geçerli bir konferans sponsoru giriniz."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Kurum"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Lütfen geçerli bir kurum adı giriniz."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "İlk Sayfa"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Lütfen geçerli bir ilk sayfa giriniz (numerik olmalıdır)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Son sayfa"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Lütfen geçerli bir son sayfa giriniz (numerik olmalıdır)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Sayfa Sayısı"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Lütfen geçerli toplam sayfa sayısını giriniz (numerik olmalıdır)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Yayın Yeri"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Lütfen geçerli bir yayın yeri giriniz."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Yayıncı Adı"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Lütfen eçerli bir yayıncı adı giriniz."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Lütfen (9 veya 13 haneli) ISBN numarası giriniz."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Basılı ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Lütfen geçerli bir basılı ISBN numarası giriniz."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Lütfen eçerli bir eISSN numarası giriniz."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Lütfen geçerli bir DOI giriniz."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Özel Yayıncı Numarası (ID)"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Lütfen özel yayıncı numarasını (ID) giriniz."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Lütfen geçerli bir CODEN giriniz."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Lütfen geçerli bir SICI giriniz."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Lütfen geçerli bir PMID giriniz."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Yayın Bağlantısı"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Lütfen yayı için geçerli bir alternatif bağlantı giriniz."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Yorum"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Lütfen geçerli bir yorum giriniz."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Açıklama"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Lütfen geçerli bir açıklama giriniz."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Yayın Türü"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Her zaman bir yayın türü belirlediğinizden emin olun. Şu halde desteklenen türler kitap (kitaplar ve kitap bölümleri) ve dergidir (dergi makaleleri). Aksi halde atıf çıkış biçimlendirmesi düzgün çalışmaz."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Başlık Türü"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Lütfen geçerli başlık türü belirlediğinizden emin olun. Desteklenen değerler 'kısaltılmış', 'çevrilmiş', 'alternatif' ve 'tek biçim'dir."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Başlığın parçası sıralama yapılırken yok sayılır."
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Lütfen başlığın sadece ilk karakterleri girin. Başlık sıralanırken yok sayılır."
+
+msgid "metadata.property.displayName.title"
+msgstr "Başlık"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Lütfen geçerli bir başlık giriniz."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Alt başlık"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Lütfen geçerli bir alt başlık giriniz."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Bölüm Numarası"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Lütfen geçerli bir bölüm numarası giriniz."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Bölüm Adı"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Lütfen geçerli bir bölüm adı giriniz."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Ad Türü"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Lütfen geçerli bir isim türü belirlediğinizden emin olunuz. Desteklenen isimler 'kişisel', 'kurumsal' ve 'konferans'tır."
+
+msgid "submission.agencies"
+msgstr "Aracılık Edenler"
+
+msgid "submission.abstractViews"
+msgstr "Özet Görüntüleri"
+
+msgid "submission.accepted"
+msgstr "Kabul edildi"
+
+msgid "submission.acknowledge"
+msgstr "Onaylama"
+
+msgid "submission.addSuppFile"
+msgstr "Ek bir dosya yükle"
+
+msgid "submission.ask"
+msgstr "İstek"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Gönderi Düzenlemeye Dön"
+
+msgid "submission.changeComments"
+msgstr "ile değiştir"
+
+msgid "submission.citations"
+msgstr "Referanslar"
+
+msgid "submission.comments.addComment"
+msgstr "Yorum ekle"
+
+msgid "submission.comments.comments"
+msgstr "Yorumlar"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Bu yorumu silmek istediğinize emin misiniz?"
+
+msgid "submission.comments.corrections"
+msgstr "Düzeltmeler"
+
+msgid "submission.comments.editComment"
+msgstr "Yorum düzelt"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Hakem Değerlendirmelerini Al"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Hakem {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Yorum yok"
+
+msgid "submission.comments.noReviews"
+msgstr "Değerlendirme yok"
+
+msgid "submission.comments.review"
+msgstr "Değerlendirme"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Hakemlere editör kararını gönder"
+
+msgid "submission.comments.subject"
+msgstr "Konu"
+
+msgid "submission.complete"
+msgstr "Tamam"
+
+msgid "submission.done"
+msgstr "Yapıldı"
+
+msgid "submission.dueDate"
+msgstr "Son gün"
+
+msgid "submission.due"
+msgstr "Son Tarih"
+
+msgid "submission.editing"
+msgstr "Düzenleme"
+
+msgid "submission.editMetadata"
+msgstr "Üst Veriyi Düzenle"
+
+msgid "submission.email.backToEmailLog"
+msgstr "E-posta günlüğüne geri dön"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Bu başvuru için e-posta günlüğünü silmek istediğinizden emin misiniz?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Bu e-posta günlüğü girişini silmek istediğinizden emin misiniz?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Günlük Girişini Sil"
+
+msgid "submission.emailLog"
+msgstr "E-posta Kayıtları"
+
+msgid "submission.event.backToEventLog"
+msgstr "Olay Günlüğüne Geri Dön"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Bu başvuru için olay günlüğünü silmek istediğinizden emin misiniz?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Bu olay günlüğü girişini silmek istediğinizden emin misiniz?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Günlük Girişini Sil"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Gönderi Üst Verisi Güncellendi"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Gönderi dosyası güncellendi"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Değerlendirme ataması vekil (proxy) tarafından kabul edildi"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Değerlendirme ataöası kabul edildi"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Değerlendirme ataması reddedildi"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Değerlendirme son tarihi değiştirildi"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Gönderiye hakem atandı"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Hakemi değerlendirme bilgisi kaydedildi"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Hakem değerlendirme görevinden alındı"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Değerlendirme dosyası güncellendi"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Değerlendirme görevi başladı"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Hakem öneri dosyası"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Değerlendirme görevi tekrar verildi"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Değerlendirme tekrar gönderildi"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Hakem revizyon dosyaları güncellendi"
+
+msgid "submission.files"
+msgstr "Dosyalar"
+
+msgid "submission.galley"
+msgstr "Dizgi"
+
+msgid "submission.history.clearLog"
+msgstr "Günlüğü Temizle"
+
+msgid "submission.history"
+msgstr "Geçmiş"
+
+msgid "submission.history.noLogEntries"
+msgstr "Günlük girişi yok."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Yeni Eirişler"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "E-posta Günlüğü"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Olay Günlüğü"
+
+msgid "submission.history.submissionNotes"
+msgstr "Başvuru Notları"
+
+msgid "submission.history.viewLog"
+msgstr "Günlüğü Göster"
+
+msgid "submission.initiated"
+msgstr "Başlatılmış"
+
+msgid "submission.lastModified"
+msgstr "Son değişiklik"
+
+msgid "submission.layout.addGalley"
+msgstr "Mizanpaj Dizgisi Ekle"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Bu dizgiyi tamamen silmek istediğinizden emin misiniz?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Dizgiden bu resmi çıkarmak istediğinize emin misiniz?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Bu ek dosyayı tamamen silmek istediğinizden emin misiniz?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Bu stil sayfasını sil."
+
+msgid "submission.layout.editGalley"
+msgstr "Mizanpaj Dizgisini Düzenle"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Dizgi Biçimi"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML Dizgi Dosyaları"
+
+msgid "submission.layout.galleyImages"
+msgstr "Şekiller"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Dizgi etiketi, dosya tipini göstermek için kullanılır (Örneğin; HTML, PDF, PostScript)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Etiket"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Dizgi etiketi gerekli."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Dizgi dili gerekli."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Dizgi yeri gerekli."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Şekil yok"
+
+msgid "submission.layout.galleys"
+msgstr "Dizgiler"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stil Sayfa Dosyası"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stil"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Başlangıç dizgi tablası oluşturma"
+
+msgid "submission.layout.layoutFile"
+msgstr "Mizanpaj Dosyası"
+
+msgid "submission.layout"
+msgstr "Mizanpaj"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Mizanpaj Sürümü"
+
+msgid "submission.layout.newGalley"
+msgstr "Yeni Dizgi Oluştur"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Yeni Ek Dosya Yükle"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Bu dizgiye stil sayfa dosyası eklenmedi."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Ek Dosya Değerlendirme"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Başvuru Dizgisini Görüntüleme"
+
+msgid "submission.layout.viewProof"
+msgstr "Dizgiyi Gör"
+
+msgid "submission.metadata"
+msgstr "Başvuru Üst Verisi"
+
+msgid "submission.noReviewAssignments"
+msgstr "Değerlendirme Görevi Yok"
+
+msgid "submission.notes.addNewNote"
+msgstr "Yeni Not Ekle"
+
+msgid "submission.notes.attachedFile"
+msgstr "Dosya Eki"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Gönderi Notlarına Geri Dön"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Notlar"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Tüm Notları Sil"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Notları Dağıt"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Tüm Gönderi Notlarını Kaldır?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Bu Gönderi Notunu Kaldır?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Yeni Not Oluştur"
+
+msgid "submission.notes.deleteNote"
+msgstr "Notu Sil"
+
+msgid "submission.notes.editNote"
+msgstr "Notu Düzenle"
+
+msgid "submission.notes.expandNotes"
+msgstr "Notları Aç"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Gönderi Notu Yok"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Yüklenmiş Dosyayı Kaldır"
+
+msgid "submission.notes"
+msgstr "Gönderi Notları"
+
+msgid "submission.notes.updateNote"
+msgstr "Notu Güncelle"
+
+msgid "submission.notes.viewNotes"
+msgstr "Notları Gör"
+
+msgid "submission.originalFile"
+msgstr "Orijinal dosya"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Düzeltme"
+
+msgid "submission.page.history"
+msgstr "#{$id} Geçmiş"
+
+msgid "submission.page.review"
+msgstr "#{$id} Değerlendirme"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Özet"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Atıflar"
+
+msgid "submission.peerReview"
+msgstr "Hakem Değerlendirme"
+
+msgid "submission.recommendation"
+msgstr "Hakem Kararı: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Reddedildi"
+
+msgid "submission.request"
+msgstr "İstek"
+
+msgid "submission.response"
+msgstr "Yanıt"
+
+msgid "submission.restrictions"
+msgstr "Sınırlamalar"
+
+msgid "submission.reviewMetadata"
+msgstr "Üst Veriyi Düzenle"
+
+msgid "submission.review"
+msgstr "Değerlendirme"
+
+msgid "submission.reviewVersion"
+msgstr "Değerlendirme Sürümü"
+
+msgid "submissions.active"
+msgstr "Etkin"
+
+msgid "submissions.archived"
+msgstr "Arşivde"
+
+msgid "submission.saveMetadata"
+msgstr "Üst Veriyi Kaydet"
+
+msgid "submissions.completed"
+msgstr "Tamamlanmış"
+
+msgid "submissions.declined"
+msgstr "Reddedilmiş"
+
+msgid "submissions.incomplete"
+msgstr "Tamamlanmamış"
+
+msgid "submissions.noSubmissions"
+msgstr "Gönderi Yok"
+
+msgid "submissions.queuedEditing"
+msgstr "Baskı Düzenlemesinde"
+
+msgid "submissions.queued"
+msgstr "Sırada"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Editöre iletilecek"
+
+msgid "submissions.ruling"
+msgstr "Kurallar"
+
+msgid "submissions.submit"
+msgstr "Gönderi"
+
+msgid "submissions.submitted"
+msgstr "Gönderildi"
+
+msgid "submission.start"
+msgstr "Başla"
+
+msgid "submission.submissionHistory"
+msgstr "Başvuru Geçmişi"
+
+msgid "submission.submissionManuscript"
+msgstr "Gönderi Mizanpajı"
+
+msgid "submission.submissionReview"
+msgstr "Gönderi Değerlendirme"
+
+msgid "submission.submitter"
+msgstr "Gönderici"
+
+msgid "submission.summary"
+msgstr "Özet"
+
+msgid "submission.supplementaryFiles"
+msgstr "Ek Dosyalar"
+
+msgid "submission.supportingAgencies"
+msgstr "Destekleyen Kurumlar"
+
+msgid "submission.currentAgencies"
+msgstr "Güncel Kurumlar"
+
+msgid "submission.indexingInformation"
+msgstr "Dizinleme Bilgisi"
+
+msgid "submission.titleAndAbstract"
+msgstr "Başlık ve Özet"
+
+msgid "submission.underway"
+msgstr "Yolunda"
+
+msgid "submission.uploadFileTo"
+msgstr "Dosya yükleme"
+
+msgid "submission.viewMetadata"
+msgstr "Üst veriyi görüntüle"
+
+msgid "submission.views"
+msgstr "Görüşler"
+
+msgid "submission.uploadSuccessful"
+msgstr "Dosyanız yüklendi."
+
+msgid "submission.loadMessage"
+msgstr "Dosyanız sunucuya yüklenirken lütfen bekleyiniz."
+
+msgid "submission.artworkFileDetails"
+msgstr "Çizim Dosya Detayı"
+
+msgid "submission.fileDetails"
+msgstr "Dosya Detayları"
+
+msgid "submission.nameRequired"
+msgstr "Bu madde için bir isim gerekiyor."
+
+msgid "submission.date.mmdd"
+msgstr "AA-GG"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-AA-GG"
+
+msgid "submission.comments.addReviews"
+msgstr "Değerlendirmeleri e-postaya ekle"
+
+msgid "submission.copyedited"
+msgstr "Sayfa Düzenleme"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Uzak URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Litfen geçerli bir uzak URL giriniz (http:// dahil"
+
+msgid "submission.reviewed"
+msgstr "Değerlendirildi"
+
+msgid "submission.createRemote"
+msgstr "Uzak Erişim Oluştur"
+
+msgid "submission.form.name"
+msgstr "Bu dosyaya anlamlı bir ad ver"
+
+msgid "submission.form.replaceExisting"
+msgstr "Mevcut Dosya Değiştirilsin mi?"
+
+msgid "submission.addFile"
+msgstr "Dosya Yükle"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} {$submissionId} numaralı gönderiyi değerlendirmeyi {$round}. kez kabul etti."
+
+msgid "log.review.reviewCleared"
+msgstr "{$submissionId} numaralı gönderinin {$round}. tur değerlendirmesi {$reviewerName} tarafından kaldırıldı."
+
+msgid "log.review.reviewReinstated"
+msgstr "{$submissionId} numaralı gönderinin {$round}.  değerlendirme turu {$reviewerName} tarafından yeniden başlatıldı."
+
+msgid "submission.reviewForm"
+msgstr "Değerlendirme Formu"
+
+msgid "submission.reviewFormResponse"
+msgstr "Değerlendirme Formu Yanıtı"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Yeni değerlendirmeler gönderilmiştir ve editör tarafından incelenmektedir."
+
+msgid "submission.confirm.message"
+msgstr "Başvurunuz yüklendi ve gönderilmeye hazır. Devam etmeden önce girmiş olduğunuz bilgileri gözden geçirmek ve düzeltmek için geri dönebilirsiniz. Hazır olduğunuzda, \"Gönderiyi Sonlandır\"ı tıklayın."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Gönderi Gereksinimleri"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Devam etmeden önce aşağıdaki koşulları tamamladığınızı okumalı ve kabul etmelisiniz."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Gönderi tamamlandı"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "{$contextName} ile yayınlama isteğiniz için teşekkür ederiz."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Telif hakkı bildirimini kabul et"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Telif hakkı bildiriminin koşullarına uymayı kabul ediyorum."
+
+msgid "submission.submit.whatNext"
+msgstr "Sonra ne olur?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Şimdilik şunları yapabilirsiniz:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Bu gönderiyi incele"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Yeni bir gönderi oluştur"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Gösterge paneline dön"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Genişletilmiş Üst Veri"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Atanmamış"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Atamalarım"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Arşivlenmiş Gönderiler"
+
+msgid "submission.authors"
+msgstr "Yazarlar"
+
+msgid "submission.authorBiography"
+msgstr "Yazar Biyografisi"
+
+msgid "submission.authorBiographies"
+msgstr "Yazar Biyografileri"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} ve diğ."
+
+msgid "submission.mySubmissions"
+msgstr "Yazılarım"
+
+msgid "submission.attachedFile"
+msgstr "Eklenmiş dosya"
+
+msgid "submission.changeFile"
+msgstr "Dosya Değiştir"
+
+msgid "submission.citations.description"
+msgstr "Her bir referansı yeni bir satıra girin, böylece çıkartılabilir."
+
+msgid "submission.parsedCitations"
+msgstr "Çıkarılan Referanslar"
+
+msgid "submission.parsedCitations.description"
+msgstr "Aşağıdaki referanslar çıkarılmıştır ve gönderi üst verilerine bağlanacaktır."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Çıkarılan ve Kaydedilen Referanslar"
+
+msgid "submission.contributors"
+msgstr "Katkıda Bulunanların Listesi"
+
+msgid "submission.copyediting"
+msgstr "Kopya Düzenleme"
+
+msgid "submission.queryNoteFiles"
+msgstr "Tartışma Dosyaları"
+
+msgid "submission.coverage"
+msgstr "Kapsam Bilgisi"
+
+msgid "submission.editorial"
+msgstr "Kopya Düzenleme"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} ({$username}) bu gönderiye {$userGroupName} olarak atandı."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) bu gönderi için {$userGroupName}'den kaldırıldı."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "İlk gönderi tamamlandı."
+
+msgid "submission.event.fileRevised"
+msgstr "\"{$name}\" adlı revizyon (file ID {$fileId}-{$fileRevision}) olarak yüklendi."
+
+msgid "submission.event.subjectPrefix"
+msgstr "Bir e-posta gönderildi:"
+
+msgid "submission.event.viewEmail"
+msgstr "E-postayı Görüntüle"
+
+msgid "submission.files.downloadAll"
+msgstr "Tüm Dosyaları İndir"
+
+msgid "submission.howToCite"
+msgstr "Nasıl Atıf Yapılır"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Daha Fazla Atıf Biçimi"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Atıf İndir"
+
+msgid "submission.identifiers"
+msgstr "Tanımlayıcılar"
+
+msgid "submission.publisherId"
+msgstr "Genel URL Tanımlayıcı"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Gönderi Bilgisi"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Üst Veri"
+
+msgid "submission.informationCenter.notes"
+msgstr "Notlar"
+
+msgid "submission.informationCenter.history"
+msgstr "Geçmiş"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Önceki sürüm etkinliklerini göster"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Bildir"
+
+msgid "submission.production"
+msgstr "Basım"
+
+msgid "submission.rights"
+msgstr "Haklar"
+
+msgid "submission.rights.tip"
+msgstr "Dilerseniz, bu gönderi veya bu erişim üzerinde tutulan erişim hakları hakkında kısa bir açıklama girebilirsiniz."
+
+msgid "submission.source"
+msgstr "Kaynak"
+
+msgid "submission.source.tip"
+msgstr "Bu gönderi başka bir kaynaktan mı yapılıyor? Öyleyse, bu kaynağın bir URL'sini veya açıklamasını girebilirsiniz."
+
+msgid "submission.submission"
+msgstr "Gönderi"
+
+msgid "submission.submissionTitle"
+msgstr "Gönderi Başlığı:"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Gönderiyi Bitir"
+
+msgid "submission.submit.selectFile"
+msgstr "Dosya Seç"
+
+msgid "submission.submit.fileInformation"
+msgstr "Dosya Bilgisi"
+
+msgid "submission.submit.fileAdded"
+msgstr "Dosya Eklendi"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Bu katkı veren göz atma listelerine dahil edilsin mi?"
+
+msgid "submission.submit.newFile"
+msgstr "Başka Bir Dosya Ekle"
+
+msgid "submission.submit.metadataForm"
+msgstr "Ek İyileştirmeler"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Gönderiniz için ek bilgi ekleyin. Her terimden sonra 'enter' tuşuna basın."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Gönderi Dili"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Çoklu dillerde gönderi kabul edilir. Yukarıdaki açılır listeden gönderinin birincil dilini seçin."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Gönderi Dosyaları"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Bağımlı Dosyalar"
+
+msgid "submission.manageDependentFiles"
+msgstr "Bağımlı Dosyaları Yönet"
+
+msgid "submission.upload.dependent"
+msgstr "Bağımlı Bir Dosya Yükle"
+
+msgid "submission.upload.query"
+msgstr "Tartışma Dosyası Yükle"
+
+msgid "submission.type.tip"
+msgstr "Gönderi türü genellikle 'görsel', 'metin' veya 'yazılım' veya 'etkileşimli' dahil olmak üzere diğer çoklu ortam türlerinden biridir. Lütfen gönderinizle ilgili olanı seçin. Örnekler <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a> adresinde bulunabilir."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Editör yazışmaları için ana iletişim."
+
+msgid "submission.submit.contributorRole"
+msgstr "Katkıda bulunanın rolü"
+
+msgid "submission.submit.addAuthor"
+msgstr "Katkıda Bulunan Ekle"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Lütfen bir dil ekleyiniz."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Lütfen bir konu ekleyiniz."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Lütfen bir disiplin ekleyiniz."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Lütfen bir anahtar kelime ekleyiniz."
+
+msgid "submission.submit.form.agenciesRequired"
+msgstr "Lütfen bir destek veren kurumu ekleyin."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Lütfen kapsam bilgilerini girin."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Lütfen tür giriniz."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Lütfen kaynak giriniz."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Lütfen hakları giriniz."
+
+msgid "workflow.review.internalReview"
+msgstr "Dahili Değerlendirirme"
+
+msgid "workflow.stage.any"
+msgstr "Herhangi Bir Aşama"
+
+msgid "workflow.stage"
+msgstr "Aşama"
+
+msgid "submission.status.editorial"
+msgstr "Kopya Düzenlemede"
+
+msgid "submission.status.production"
+msgstr "Düzeltmede"
+
+msgid "submission.status.review"
+msgstr "Değerlendirmede"
+
+msgid "submission.status.submission"
+msgstr "Editör Kararı Bekleniyor"
+
+msgid "submission.status.unassigned"
+msgstr "Atanmayan"
+
+msgid "submission.status.declined"
+msgstr "Reddedilen"
+
+msgid "submission.status.published"
+msgstr "Yayımlanan"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Dosya Yükle"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Gönderi Dosyası Yükle"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Değerlendirme Detayları"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Onayla"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Bu dosya için bir dosya adı girmelisiniz"
+
+msgid "submission.upload.noGenre"
+msgstr "Eksik veya geçersiz bileşen!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Eksik veya geçersiz kullanıcı grubu!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Muhtemel Çoğaltma veya Revizyon Algılandı"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "Yüklenen dosyanın adı, daha önce yüklenen dosyanın adı \"{$revisedFileName}\" benzerdir. Bu dosyanın \"{$revisedFileName}\" yerini alması mı bekleniyor? Öyleyse, aşağıdaki dosyayı seçin. Aksi takdirde, devam etmeden önce \"Bu mevcut bir dosyanın revizyonu değil\"i seçin."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Lütfen revize etmek istediğiniz dosyayı seçiniz."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Mevcut bir dosyanın revizyonunu yüklüyorsanız, lütfen hangi dosyayı olduğunu belirtin."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Bu mevcut bir dosyanın revizyonu değil"
+
+msgid "submission.upload.userGroup"
+msgstr "Bu dosyayı rolüm olarak yükle ..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Düzenlenen bir cildi gönderiyorsanız, tüm cilt bölümlerini tek tek, birim editör olarak rolünüzün altına yüklemelisiniz."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Kütüphane Dosyası Yükle"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Başvuru Belge Kategorisi"
+
+msgid "submission.upload.finalDraft"
+msgstr "Dosya Yükle"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Düzenlenmiş Kopya Dosyası Yükle"
+
+msgid "submission.upload.fairCopy"
+msgstr "Adil Kopyayı Yükle"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Dosyaları Yükle"
+
+msgid "submission.upload.response.description"
+msgstr "Atanan dosyayı değerlendirdikten sonra, aşağıdaki dosyadaki tüm yorumları kaydedin ve / veya dosyanın açıklamalı bir kopyasını (veya başka bir dosya) yükleyin."
+
+msgid "submission.upload.productionReady"
+msgstr "Basıma Hazır Dosya Yükle"
+
+msgid "submission.upload.proof"
+msgstr "Yayına Hazır Bir Dosya Yükle"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Şu anda gözden geçirebileceğiniz bir dosya yok."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Düzeltmeler talep edildi."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Düzeltmeler gönderildi."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Gönderi başka bir değerlendirme turu için tekrar gönderilmelidir."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Gönderi başka bir inceleme turu için tekrar gönderildi."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Harici değerlendirmeye gönderildi."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Gönderi kabul edildi."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Gönderi reddedildi."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Hakemlerin atanması bekleniyor."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Hakemlerden yanıtı bekliyor."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Yeni değerlendirmeler gönderildi."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Tüm değerlendirmeler bekliyor ve bir karar gerekli."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Bir değerlendirme gecikti."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Editörlerin önerilerini bekliyoruz."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Yeni editöryal yazım önerileri gönderildi."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Tüm öneriler tatmam ve bir karara ihtiyaç var."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Katılımcılar"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Hiçbiri Atanmamış"
+
+msgid "editor.submission.participant"
+msgstr "Katılımcı"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Katılımcı Ata"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "Kullanıcılar, kullanıcı grubu tarafından iş akışının aşamalarına atanır. Bu aşamaya atanan herhangi bir kullanıcı otomatik olarak kullanıcı gruplarının atandığı diğer aşamalara atanacaktır. Bu genellikle editörler, yazarlar ve çevirmenler için ayrılmıştır."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Katılımcıyı Kaldır"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "Bu katılımcıyı tüm aşamalardan kaldırmak üzeresiniz. Kullanıcının bekleyen denetim görevleri varsa, bunlar da kaldırılacaktır."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Bir kullanıcı gurubu seçmelisiniz."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Belirtilen kullanıcı grubu için bir kullanıcı seçmelisiniz."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "Seçtiğiniz katılımcı, kör hakemlik yapmak üzere atanmıştır. Onları bir katılımcı olarak atarsanız, yazarın kimliğine erişebilecekler. Hakem değerlendirme sürecinin bütünlüğünü bağımsız olarak sağlayamadığınız sürece, bu katılımcıyı atamaya teşvik edilmezsiniz."
+
+msgid "editor.submission.decision"
+msgstr "Karar"
+
+msgid "editor.submission.decision.accept"
+msgstr "Gönderiyi Kabul Et"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Revizyon İste"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Değerlendirme İçin Yeniden Gönder"
+
+msgid "editor.submission.decision.decline"
+msgstr "Gönderiyi Reddet"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Basıma Gönder"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Kabul Et ve Değerlendirmeyi Atla"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "İç Değerlendirmeye Gönder"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "Sayfa düzeltme dosyası, kullanılmak üzere onaylandığı şekilde kontrol edilmelidir. Onaylamak istiyor musun?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Düzeltmeleri Kabul Et"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Bu dosya düzeltmeleri artık indirme veya satın alma için herkese açık olmayacaktır. Onaylamamak mı istiyorsun?"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Bu aşamada editör kararlarını etkinleştirmek için bir editör atayın."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Öneri Yap"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Öneri Değiştir"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Öneri: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Öneriler: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Öneri"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Bu gönderi için bir editör kararı tavsiye et."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Kayıtlı Öneriler"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Sonraki: {$stageName} için dosyaları seç"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "{$stageName} aşamasına iletmek istediğiniz dosyaları seçin."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Önceki: Yazar Bildirimi"
+
+msgid "submission.currentStage"
+msgstr "Şu Anki Aşama"
+
+msgid "submission.noActionRequired"
+msgstr "Eylem gerekli değil"
+
+msgid "submission.actionNeeded"
+msgstr "Eylem gerekli"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Dosyaları Değerlendir"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Yeni bir inceleme formu öğesi oluştur"
+
+msgid "grid.action.editMetadata"
+msgstr "Üst Veri Düzenle"
+
+msgid "submission.permissions"
+msgstr "İzinler"
+
+msgid "submission.attachPermissions"
+msgstr "Gönderiye aşağıdaki izinleri ekleyin:"
+
+msgid "submission.license"
+msgstr "Lisans"
+
+msgid "submission.copyright"
+msgstr "Telif Hakkı"
+
+msgid "submission.copyrightHolder"
+msgstr "Telif Hakkı Sahibi"
+
+msgid "submission.copyrightYear"
+msgstr "Telif Hakkı Tarihi"
+
+msgid "submission.copyrightStatement"
+msgstr "Telif Hakkı (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Lütfen geçerli bir uzak URL sağlayın (http:// dahil)"
+
+msgid "submission.licenseURL"
+msgstr "Lisans URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Bu çalışma <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> ile lisanslanmıştır.</p>"
+
+msgid "submission.submit.currentFile"
+msgstr "Güncel dosya"
+
+msgid "submission.finalDraft"
+msgstr "Taslak Dosyalar"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Denetçiyi atamaya çalışırken bir hata oluştu. Lütfen tekrar deneyin."
+
+msgid "submission.event.fileUploaded"
+msgstr "\"{$originalFileName}\" adlı dosya, {$submissionId} numaralı gönderi için {$username} tarafından gönderilmek üzere yüklendi."
+
+msgid "submission.event.fileDeleted"
+msgstr "\"{$originalFileName}\" adlı dosya, {$submissionId} numaralı gönderi için {$username} tarafından silindi."
+
+msgid "submission.event.revisionUploaded"
+msgstr "\"{$originalFileName}\"  adlı dosya, {$submissionId}  numaralı gönderi için {$username} revizyon dosyası yüklendi."
+
+msgid "submission.event.revisionDeleted"
+msgstr "\"{$originalFileName}\"  adlı dosya, {$submissionId}  numaralı gönderi için {$username} revizyon dosyası silindi."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "\"{$title}\" adlı dosyanın son revizyonu {$username} tarafından kaldırıldı."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}), \"{$file}\" dosyası için denetçi olarak eklendi."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}), \"{$file}\" dosyasının denetçiliğinden kaldırıldı."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) bir denetimi tamamladı ve \"{$file}\" adlı dosyayı yükledi."
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}),  \"{$file}\" için imzaladı."
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}), \"{$formatName}.\" için düzeltmeleri onayladı."
+
+msgid "submission.overview"
+msgstr "Gönderiye Genel Bakış"
+
+msgid "submission.description"
+msgstr "Açıklama"
+
+msgid "submission.stageNotInitiated"
+msgstr "Aşama başlatılmadı."
+
+msgid "submission.documents"
+msgstr "Gönderi Dokümanları"
+
+msgid "notification.type.editorAssign"
+msgstr "\"{$title}\" adlı gönderiye editör olarak atandınız."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "\"{$title}\" için kopya düzenlemesini incelemeniz istendi."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "\"{$title}\" için sayfa düzenlenmesini incelemeniz istendi."
+
+msgid "notification.type.indexRequest"
+msgstr "\"{$title}\" için bir indeks oluşturmanız istendi."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "En son editör kararı."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Gönderi kabul edildi."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Dış inceleme süreci başladı."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Düzeltme gerekli."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Yeniden değerlendirmeye gönder."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Gönderi reddedildi."
+
+msgid "notification.uploadedResponse"
+msgstr "Yanıt yüklendi."
+
+msgid "notification.type.editorAssignment"
+msgstr "Değerlendirme başlatılmadan önce bir editör atanmalıdır. Lütfen Katılımcılar listesini kullanarak düzenleyici ekleyin."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Hakem Ekleri"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Yazar(lar) ile paylaşmak için değerlendirme dosyalarını seçin"
+
+msgid "submission.productionReady"
+msgstr "Kitap mevcut"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Revize Edilmiş Dosyayı Yükle"
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Hakemden yanıt bekleniyor."
+
+msgid "submission.review.status.declined"
+msgstr "Hakem bu değerlendirme isteğini reddetti."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Hakem yanıt tarihini geçirdi."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Hakem değerlendirme tarihini geçirdi."
+
+msgid "submission.review.status.accepted"
+msgstr "Bu değerlendirme kabul edildi."
+
+msgid "submission.review.status.received"
+msgstr "Hakem değerlendirmesini gönderdi."
+
+msgid "submission.review.status.complete"
+msgstr "Bu değerlendirme tamamlandı."
+
+msgid "submission.review.status.thanked"
+msgstr "Bu değerlendirme tamamlandı ve değerlendirme yapana, katkılarından dolayı teşekkür edildi."
+
+msgid "submission.document"
+msgstr "Doküman"
+
+msgid "submission.art"
+msgstr "Sanat Eseri"
+
+msgid "submission.supplementary"
+msgstr "Tamamlayıcı İçerik"
+
+msgid "submission.supplementary.creator"
+msgstr "Dosyanın yaratıcısı (veya sahibi)"
+
+msgid "submission.supplementary.subject"
+msgstr "Konu"
+
+msgid "submission.supplementary.publisher"
+msgstr "Yayıncı"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Katılımcı veya sponsor kuruluş"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Bu gönderinin iş akışına git"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Basım süreci başlatıldı."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "Basım süreci başlatılmadan önce bir basım editörü atanmalıdır. Lütfen Katılımcılar listesini kullanarak bir basım editörü ekleyin."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "Editöryal süreç başlatılmadan önce bir basım editörü atanmalıdır. Lütfen Katılımcılar listesini kullanarak bir basım editörü ekleyin."
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Bu çalışma  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 International License</a> ile lisanslanmıştır.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Bu çalışma <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a> ile lisanslanmıtır.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Bu çalışma <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Attribution-NoDerivatives 4.0 International License</a> ile lisanslanmıştır.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Bu çalışma <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a> ile lisanslanmıştır.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Bu çalışma <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a> ile lisanslanmıştır.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Ön Değerlendirme Tartışmaları"
+
+msgid "submission.queries.review"
+msgstr "Değerlendirme Tartışmaları"
+
+msgid "submission.queries.editorial"
+msgstr "Kopya Düzeltme Tartışmaları"
+
+msgid "submission.queries.production"
+msgstr "Basım Tartışmaları"
+
+msgid "submission.query.subject"
+msgstr "Konu"
+
+msgid "submission.query.messages"
+msgstr "Mesajlar"
+
+msgid "submission.query.replies"
+msgstr "Cevaplar"
+
+msgid "submission.query.from"
+msgstr "den"
+
+msgid "submission.query.lastReply"
+msgstr "Son Yanıt"
+
+msgid "submission.query.closed"
+msgstr "Kapalı"
+
+msgid "submission.query.addNote"
+msgstr "Mesaj Ekle"
+
+msgid "grid.action.openNoteForm"
+msgstr "Tartışmaya yeni bir cevap ekleyin."
+
+msgid "submission.query.activity"
+msgstr "{$responderName}, {$noteTitle} adlı cevabı: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} bir tartışma başlattı: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "\"{$submissionTitle}\" gönderisi ile ilgili \"{$queryTitle}\" başlıklı tartışmada yeni etkinlik var."
+
+msgid "submission.query.new.contents"
+msgstr "\"{$submissionTitle}\" gönderisi ile ilgili \"{$queryTitle}\" başlıklı bir tartışmaya eklendiniz."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "Bir tartışma başlatmadan önce bu gönderiye en az bir katılımcı atamalısınız."
+
+msgid "submission.list.infoCenter"
+msgstr "Etkinlik Günlüğü ve Notlar"
+
+msgid "submission.list.responseDue"
+msgstr "Cevap Zamanı"
+
+msgid "submission.list.reviewDue"
+msgstr "Değerlendirme Zamanı"
+
+msgid "submission.list.reviewComplete"
+msgstr "Değerlendirme Gönderildi"
+
+msgid "submission.list.confirmDelete"
+msgstr "Gönderi Silinsin mi?"
+
+msgid "submission.list.itemOrdererUp"
+msgstr "{$itemTitle} başlığının konumunu artır"
+
+msgid "submission.list.itemOrdererDown"
+msgstr "{$itemTitle} başlığının konumunu düşür"
+
+msgid "submission.list.viewSubmission"
+msgstr "Gönderiyi Görüntüle"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Atanan incelemeler tamamlandı"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revizyonlar gönderildi"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Kopya düzenleme dosyaları gönderildi"
+
+msgid "submission.list.galleysCreated"
+msgstr "Basım dizgisi oluşturuldu"
+
+msgid "submission.list.filesPrepared"
+msgstr "Dosya hazırlandı"
+
+msgid "submission.list.discussions"
+msgstr "Açık tartışmalar"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "Bu gönderim için birden fazla rol atadınız.  <a href=\"{$urlAuthorWorkflow}\">Yazarın iş akışı</a> ya da <a href=\"{$urlEditorialWorkflow}\">İçerik iş akışı</a> na erişmek ister misiniz?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "Bu gönderim için bir editoryal rol atandınız. <a href=\"{$urlEditorialWorkflow}\">İçerik iş akışı</a>na erişmek ister misiniz?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Bu gönderi bir editör tarafından gözden geçirilmeden önce tamamlanmalıdır."
+
+msgid "submission.list.currentStage"
+msgstr "Şu anda {$stage} aşamasında."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "olarak Gönder"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Bu gönderiye katkınızı en iyi tanımlayan rolü seçin."
+
+msgid "submission.submit.contactConsent"
+msgstr "Sorumlu İletişimi"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Evet, bu gönderi ile ilgili olarak iletişime geçmek istiyorum."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "Bu gönderiyi kendiniz düzenleyip yayınlamak istiyorsanız, aşağıdaki rollerden herhangi birini gönderin: {$managerGroups}"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Lütfen referansları giriniz."

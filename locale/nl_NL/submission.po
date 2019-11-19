@@ -1,0 +1,1746 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"Language: \n"
+
+msgid "author.submit.submissionCitations"
+msgstr "Geef een geformatteerde lijst met referenties van de werken die geciteerd worden in deze inzending."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Er zijn nieuwe reviews ingediend die door de redacteur worden bekeken."
+
+msgid "submission.confirm.message"
+msgstr "Uw inzending is opgeladen en klaar om verzonden te worden. U kan teruggaan om de gegevens die u heeft ingevuld na te kijken en te wijzigen voor u verder gaat. Als u klaar bent, klikt u op \"Voltooi inzending\"."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Stuur in als"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Selecteer de rol die uw bijdrage aan deze inzending het best omschrijft."
+
+msgid "submission.submit.contactConsent"
+msgstr "Correspondentie-contact"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Ja, ik wil gecontacteerd worden over deze inzending."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "Stuur in als een van volgende rollen als u de inzending zelf wilt redigeren en publiceren: {$managerGroups}"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Controlelijst voor inzendingen"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "U moet onderstaande vereisten lezen en bevestigen dat de inzending eraan voldoet voor u kan verder gaan."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Inzending voltooid"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Bedankt voor uw interesse om te publiceren in {$contextName}."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Geef aan dat u zich akkoord verklaart met de copyright verklaring"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Ja, ik verklaar dat ik me zal houden aan de voorwaarden van de copyright verklaring"
+
+msgid "submission.submit.whatNext"
+msgstr "Wat is de volgende stap?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "U kan nu:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Deze inzending reviewen"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Een nieuwe inzending indienen"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Terugkeren naar uw dashboard"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Uitgebreide metadata"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef registratie e-mail"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Geef een geldig CrossRef registratie e-mailadres. U kunt uw e-mail gratis registreren op de CrossRef website."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API sleutel"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Geef uw ISBNdb API sleutel. Als u niet zo'n sleutel heeft, kunt u die gratis aanvragen bij het ISBNdb project."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed registratie e-mail"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Geeft een geldig PubMed registratie e-mailadres, als u er een heeft."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API sleutel"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Geef een geldige WorldCat API sleutel, als u die heeft."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Citatiemodule"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Kies een van de gegeven citatiemodules."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Standaard niet gebruiken (nog steeds beschikbaar voor de redacteur)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Interne fout. Er is een ongeldige waarde verstuurd voor de 'optionele filter' instelling. Gelieve dit als fout te melden."
+
+msgid "metadata.property.displayName.author"
+msgstr "Auteurs"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "Voor het beste resultaat moeten auteurs in het volgende formaat ingevoerd worden: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Redacteurs"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "Voor het beste resultaat moeten redacteurs in het volgende formaat ingevoerd worden: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Artikel/Paper titel"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Geef een geldige titel voor het artikel of papaer"
+
+msgid "metadata.property.displayName.source"
+msgstr "Tijdschrift/boek titel"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Geef een geldige titel voor het tijdschrift of boek."
+
+msgid "metadata.property.displayName.date"
+msgstr "Publicatiedatum"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Geef een geldige publicatiedatum (DD-MM-YYYY)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Datum gebruik"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Geef een geldige gebruiksdatum (DD-MM-YYYY)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Nummer"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Geef een geldig nummer."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Volume"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Geef een geldig volume."
+
+msgid "metadata.property.displayName.season"
+msgstr "Seizoen"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Geef een geldige seizoensidentificatie."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Hoofdstuktitel"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Geef een geldige hoofdstuktitel."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Editie"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Geef een geldige editie."
+
+msgid "metadata.property.displayName.series"
+msgstr "Serie"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Geef een geldige serie."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Supplement"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Geef een geldig supplement."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Datum van de conferentie"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Geef een geldige datum voor de converentie (formaat: DD-MM-YYYY)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Lokatie van de conferentie"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Geef en geldige lokatie voor de conferentie."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Naam van de conferentie"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Geef een geldige naam voor de conferentie."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Sponsor van de conferentie"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Geef een geldige naam voor de conferentie-sponsor."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Instituut"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Geef een geldig instituut."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Eerste pagina"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Geef een geldige eerste pagina (moet een numerieke waarde zijn)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Laatste pagina"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Geef een geldig laatste pagina op (moet een numerieke waarde zijn)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Aantal pagina's"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Geef een geldig totaal aantal pagina's (moet een numerieke waarde zijn)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Lokatie van de uitgever"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Geef een geldige lokatie voor de uitgever."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Naam van de uitgever"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Geef een geldige uitgeversnaam"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Geef een geldig ISBN (9 of 13 cijfers)"
+
+msgid "metadata.property.displayName.issn"
+msgstr "Print ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Geef een geldig print ISSN"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Geef een geldig eISSN"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Geef een geldige DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Aangepaste publicatie ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Geef een geldige aangepaste publicatie ID"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Geef een geldige CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Geef een geldige SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Geef een geldige PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Link naar de publicatie"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Geef een geldige alternatieve link naar de publicatie."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Opmerking"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Geef een geldige opmerking."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Annotatie"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Geef een geldige annotatie."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Publicatietype"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Vergewis u ervan dat u altijd een publicatietype instelt. Ondersteunde waarden zijn boek (voor boeken of hoofdstukken) en tijdschrift (voor tijdschriftartikels). De citatie-uitvoerformattering zal anders niet goed werken."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Titel type"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Stel een geldig titel type in. Geldige waarden zijn 'abbreviated', 'translated', 'alternative' en 'uniform'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Deel van de titel genegeerd bij het sorteren"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Geef alleen de eerste tekens van de titel die genegeerd moet worden bij het sorteren van de titel."
+
+msgid "metadata.property.displayName.title"
+msgstr "Titel"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Geef een geldige titel"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Ondertitel"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Geef een geldige ondertitel"
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Nummer van het onderdeel"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Geef een geldig onderdeel nummer."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Naam van het onderdeel"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Geef een geldige onderdeel naam"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Type van de naam"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Geef een geldig naam-type. Geldige waarden zijn 'personal', 'corporate' en 'conference'."
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Niet toegewezen"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Toegewezen aan mij"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Gearchiveerde inzendingen"
+
+msgid "submission.authors"
+msgstr "Auteurs"
+
+msgid "submission.authorBiography"
+msgstr "Biografie auteur"
+
+msgid "submission.authorBiographies"
+msgstr "Biografieën auteurs"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} e.a."
+
+msgid "submission.mySubmissions"
+msgstr "Geschreven door mij"
+
+msgid "submission.addFile"
+msgstr "Bestand laden"
+
+msgid "submission.agencies"
+msgstr "Organisaties"
+
+msgid "submission.abstractViews"
+msgstr "Samenvatting bekeken"
+
+msgid "submission.accepted"
+msgstr "Geaccepteerd"
+
+msgid "submission.acknowledge"
+msgstr "Erkenning"
+
+msgid "submission.addSuppFile"
+msgstr "Voeg een aanvullend bestand toe"
+
+msgid "submission.ask"
+msgstr "Vraag"
+
+msgid "submission.attachedFile"
+msgstr "Bijgevoegd bestand"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Terug naar bewerken inzending"
+
+msgid "submission.changeComments"
+msgstr "Verander in"
+
+msgid "submission.changeFile"
+msgstr "Wijzig bestand"
+
+msgid "submission.citations"
+msgstr "Referenties"
+
+msgid "submission.citations.description"
+msgstr "Vul elke referentie op een nieuwe regel in zodat ze kunnen worden geëxtraheerd."
+
+msgid "submission.parsedCitations"
+msgstr "Geëxtraheerde referenties"
+
+msgid "submission.parsedCitations.description"
+msgstr "Volgende referenties zijn geëxtraheerd en zullen gelinkt worden aan de metadata van de inzending."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Extraheer en bewaar referenties"
+
+msgid "submission.comments.addComment"
+msgstr "Commentaar toevoegen"
+
+msgid "submission.comments.comments"
+msgstr "Commentaren"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Weet u zeker dat u dit commentaar wilt verwerken?"
+
+msgid "submission.comments.corrections"
+msgstr "Correcties"
+
+msgid "submission.comments.editComment"
+msgstr "Commentaar bewerken"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importeer peer reviews"
+
+msgid "submission.comments.addReviews"
+msgstr "Voeg reviews toe aan e-mail"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Reviewer {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Geen commentaren"
+
+msgid "submission.comments.noReviews"
+msgstr "Geen reviews"
+
+msgid "submission.comments.review"
+msgstr "Review"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Stuur de redactionele beslissing naar de reviewers"
+
+msgid "submission.comments.subject"
+msgstr "Onderwerp"
+
+msgid "submission.complete"
+msgstr "Gereed"
+
+msgid "submission.contributors"
+msgstr "Lijst van bijdragers"
+
+msgid "submission.copyedited"
+msgstr "Tekstredactie uitgevoerd"
+
+msgid "submission.copyediting"
+msgstr "Tekstredactie"
+
+msgid "submission.queryNoteFiles"
+msgstr "Discussie bestanden"
+
+msgid "submission.coverage"
+msgstr "Informatie over de dekking"
+
+msgid "submission.done"
+msgstr "Gedaan"
+
+msgid "submission.dueDate"
+msgstr "Verwacht vóór"
+
+msgid "submission.due"
+msgstr "Wordt verwacht"
+
+msgid "submission.editing"
+msgstr "Bewerken"
+
+msgid "submission.editMetadata"
+msgstr "Bewerk metadata"
+
+msgid "submission.editorial"
+msgstr "Tekstredactie"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Terug naar e-mail logboek"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Weet u zeker dat u de e-mail log voor deze inzending wilt wissen?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Weet u zeker dat deze e-mail uit het logboek wilt verwijderen?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Verwijder uit logboek"
+
+msgid "submission.emailLog"
+msgstr "E-mail logboek"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} ({$username}) is toegewezen aan deze inzending als {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) is verwijderd als {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Terug naar logboek"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Weet u zeker dat u het logboek van deze inzending wilt wissen?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Weet u zeker dat u deze gebeurtenis uit het logboek wilt verwijderen?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Verwijder uit logboek"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Initiële inzending voltooid."
+
+msgid "submission.event.fileRevised"
+msgstr "Revisie \"{$name}\" (bestands-ID {$fileId}-{$fileRevision}) werd opgeladen."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Metadata van de inzending veranderd"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Ingezonden bestand veranderd"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Reviewtaak geaccepteerd door vertegenwoordiger"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Reviewtaak geaccepteerd"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Reviewtaak geweigerd"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Uiterste reviewdatum gewijzigd"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Reviewer toegekend aan de inzending"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Beoordeling reviewer ingezonden"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Toekenning reviewer ingetrokken"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Bestand review bijgewerkt"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Review gestart"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Bestand met aanbevelingen review"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Review opnieuw gestart"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Review opnieuw ingezonden"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Bestand met revisies reviewer bijgewerkt"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Een e-mail is verstuurd:"
+
+msgid "submission.event.viewEmail"
+msgstr "Bekijk e-mail"
+
+msgid "submission.files"
+msgstr "Bestanden"
+
+msgid "submission.files.downloadAll"
+msgstr "Download alle bestanden"
+
+msgid "submission.galley"
+msgstr "Proefdruk"
+
+msgid "submission.history.clearLog"
+msgstr "Wis logboek"
+
+msgid "submission.history"
+msgstr "Geschiedenis"
+
+msgid "submission.history.noLogEntries"
+msgstr "Logboek is leeg."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Recente toevoegingen"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Logboek e-mail"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Logboek gebeurtenissen"
+
+msgid "submission.history.submissionNotes"
+msgstr "Aantekeningen inzending"
+
+msgid "submission.history.viewLog"
+msgstr "Bekijk logboek"
+
+msgid "submission.howToCite"
+msgstr "Citeerhulp"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Meer citatieformaten"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Download citatie"
+
+msgid "submission.indexing"
+msgstr "Indexeren"
+
+msgid "submission.initiated"
+msgstr "Geïnitieerd"
+
+msgid "submission.identifiers"
+msgstr "Identificatie"
+
+msgid "submission.publisherId"
+msgstr "Publieke URL"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Informatie over de inzending"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadata"
+
+msgid "submission.informationCenter.notes"
+msgstr "Opmerkingen"
+
+msgid "submission.informationCenter.history"
+msgstr "Geschiedenis"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Toon gebeurtenissen van eerdere versies"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Verstuur een melding"
+
+msgid "submission.lastModified"
+msgstr "Laatst gewijzigd"
+
+msgid "submission.layout.addGalley"
+msgstr "Voeg een opmaak proefdruk toe"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Weet u zeker dat u deze proefdruk wilt verwijderen?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Weet u zeker dat u deze afbeelding wilt verwijderen uit de proeven?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Weet u zeker dat u dit aanvullend bestand wilt verwijderen?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Verwijder deze stylesheet."
+
+msgid "submission.layout.editGalley"
+msgstr "Bewerken opmaakproefdruk"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Proef-formaat"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML proefdruk bestanden"
+
+msgid "submission.layout.galleyImages"
+msgstr "Afbeeldingen"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Label"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Het proefdruk label wordt gebruik om het item te identificeren (bv. HTML, PDF, enz.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Een proefdruk label is verplicht."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Een proefdruk taal is verplicht."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Een proefdruk taal is verplicht."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Remote URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Geef de remote URL (inclusief http://)"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "No images have been added to this galley."
+
+msgid "submission.layout.galleys"
+msgstr "Proefdrukken"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stylesheet bestand"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stijl"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Aanmaak eerste proefdruk"
+
+msgid "submission.layout.layoutFile"
+msgstr "Opmaakbestand"
+
+msgid "submission.layout"
+msgstr "Layout"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Opmaakversie"
+
+msgid "submission.layout.newGalley"
+msgstr "Nieuwe proefdruk maken"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Nieuw aanvullend bestand laden"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Er is geen stylesheet bestand aan deze proefdruk gekoppeld."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Beoordeling aanvullende bestanden"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Inzendingsproeven bekijken"
+
+msgid "submission.layout.viewProof"
+msgstr "Bekijk proef"
+
+msgid "submission.metadata"
+msgstr "Metadata inzending"
+
+msgid "submission.noReviewAssignments"
+msgstr "Geen review taken"
+
+msgid "submission.notes.addNewNote"
+msgstr "Notitie toevoegen"
+
+msgid "submission.notes.attachedFile"
+msgstr "Bestandsbijlage"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Terug naar notities"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Notities"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Wis alle notities"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Notities inklappen"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Alle notities van deze inzending verwijderen?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Deze notitie verwijderen?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Nieuwe notitie"
+
+msgid "submission.notes.deleteNote"
+msgstr "Verwijder notitie"
+
+msgid "submission.notes.editNote"
+msgstr "Notitie bewerken"
+
+msgid "submission.notes.expandNotes"
+msgstr "Notities uitklappen"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Geen notities bij de inzending"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Verwijder geladen bestand"
+
+msgid "submission.notes"
+msgstr "Notities bij de inzending"
+
+msgid "submission.notes.updateNote"
+msgstr "Verander notitie"
+
+msgid "submission.notes.viewNotes"
+msgstr "Bekijk notities"
+
+msgid "submission.originalFile"
+msgstr "Origineel bestand"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Bewerken"
+
+msgid "submission.page.history"
+msgstr "#{$id} Geschiedenis"
+
+msgid "submission.page.review"
+msgstr "#{$id} Review"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Samenvatting"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Citaties"
+
+msgid "submission.peerReview"
+msgstr "Peer review"
+
+msgid "submission.production"
+msgstr "Productie"
+
+msgid "submission.recommendation"
+msgstr "Aanbeveling: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Afgewezen"
+
+msgid "submission.request"
+msgstr "Aanvraag"
+
+msgid "submission.response"
+msgstr "Reactie"
+
+msgid "submission.restrictions"
+msgstr "Berperkingen"
+
+msgid "submission.reviewMetadata"
+msgstr "Beoordeel Metadata"
+
+msgid "submission.review"
+msgstr "Review"
+
+msgid "submission.reviewed"
+msgstr "Gereviewed"
+
+msgid "submission.reviewVersion"
+msgstr "Review versie"
+
+msgid "submission.rights"
+msgstr "Rechten"
+
+msgid "submission.rights.tip"
+msgstr "Als u dat wilt, kunt u hier een korte beschrijving geven van de toegangsrechten voor deze inzending."
+
+msgid "submissions.active"
+msgstr "Actief"
+
+msgid "submissions.archived"
+msgstr "Gearchiveerd"
+
+msgid "submission.saveMetadata"
+msgstr "Bewaar metadata"
+
+msgid "submissions.completed"
+msgstr "Gereed"
+
+msgid "submissions.declined"
+msgstr "Afgewezen"
+
+msgid "submissions.incomplete"
+msgstr "Onvolledig"
+
+msgid "submissions.noSubmissions"
+msgstr "Geen inzendingen"
+
+msgid "submissions.queuedEditing"
+msgstr "Wacht op bewerking"
+
+msgid "submissions.queued"
+msgstr "In de wachtrij"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Wacht op toekenning"
+
+msgid "submissions.ruling"
+msgstr "Oordeel"
+
+msgid "submission.source"
+msgstr "Bron"
+
+msgid "submission.source.tip"
+msgstr "Is deze inzending afgeleid van een andere bron? In dat geval kunt u een URL of beschrijving van die bron geven."
+
+msgid "submissions.submit"
+msgstr "Zend in"
+
+msgid "submissions.submitted"
+msgstr "Ingezonden"
+
+msgid "submission.submission"
+msgstr "Inzending"
+
+msgid "submission.submissionTitle"
+msgstr "Titel van de inzending:"
+
+msgid "submission.start"
+msgstr "Start"
+
+msgid "submission.submissionHistory"
+msgstr "Geschiedenis inzending"
+
+msgid "submission.submissionManuscript"
+msgstr "Manuscript inzending"
+
+msgid "submission.submissionReview"
+msgstr "Review inzending"
+
+msgid "submission.submitter"
+msgstr "Inzender"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Voltooi inzending"
+
+msgid "submission.submit.selectFile"
+msgstr "Selecteer bestand"
+
+msgid "submission.submit.fileInformation"
+msgstr "Informatie over bestand"
+
+msgid "submission.submit.fileAdded"
+msgstr "Bestand toegevoegd"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Deze bijdrager opnemen in het overzicht?"
+
+msgid "submission.submit.newFile"
+msgstr "Voeg een ander bestand toe"
+
+msgid "submission.submit.metadataForm"
+msgstr "Bijkomende verfijningen"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "Voeg bijkomende gegevens toe voor uw inzending. Druk \"enter\" na elke term."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Taal van de inzending"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Inzendingen worden aanvaard in verschillende talen. Kies de hoofdtaal van de inzending in bovenstaand selectiemenu."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Bestanden van de inzending"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Secundaire bestanden"
+
+msgid "submission.manageDependentFiles"
+msgstr "Beheer secundaire bestanden"
+
+msgid "submission.upload.dependent"
+msgstr "Laad een secundair bestand op"
+
+msgid "submission.upload.query"
+msgstr "Laad een discussie bestand op"
+
+msgid "submission.summary"
+msgstr "Samenvatting"
+
+msgid "submission.supplementaryFiles"
+msgstr "Aanvullende bestanden"
+
+msgid "submission.supportingAgencies"
+msgstr "Ondersteunende organisatie"
+
+msgid "submission.currentAgencies"
+msgstr "Huidige agenten"
+
+msgid "submission.indexingInformation"
+msgstr "Indexeringsinformatie"
+
+msgid "submission.titleAndAbstract"
+msgstr "Titel en samenvatting"
+
+msgid "submission.type.tip"
+msgstr "De inzending is doorgaans een 'afbeelding', 'tekst' of ander multimediatype, zoals 'software' of 'interactief'. Kies het meest relevante type voor uw inzending. Voorbeelden kunnen worden gevonden op <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>."
+
+msgid "submission.underway"
+msgstr "Onderweg"
+
+msgid "submission.uploadFileTo"
+msgstr "Bestand laden in"
+
+msgid "submission.createRemote"
+msgstr "Remote aanmaken"
+
+msgid "submission.viewMetadata"
+msgstr "Bekijk metadata"
+
+msgid "submission.views"
+msgstr "Bekeken"
+
+msgid "submission.uploadSuccessful"
+msgstr "Uw bestand is geladen"
+
+msgid "submission.loadMessage"
+msgstr "Wacht tot uw bestand is geladen in de server."
+
+msgid "submission.artworkFileDetails"
+msgstr "Details grafische bestanden"
+
+msgid "submission.fileDetails"
+msgstr "Bestandsdetails"
+
+msgid "submission.nameRequired"
+msgstr "Een naam is verplicht voor dit onderdeel."
+
+msgid "submission.date.mmdd"
+msgstr "DD-MM"
+
+msgid "submission.date.yyyymmdd"
+msgstr "DD-MM-YYYY"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Eerste contactpersoon voor redactionele correspondentie."
+
+msgid "submission.submit.contributorRole"
+msgstr "Rol van de bijdrager"
+
+msgid "submission.submit.addAuthor"
+msgstr "Voeg bijdrager toe"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vul een taal in."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vul een onderwerp in."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vul een discipline in."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vul een trefwoord in."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vul de gegevens over het bereik in."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vul het type in."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vul de bron in."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vul de rechten in."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vul de referenties in."
+
+msgid "submission.form.name"
+msgstr "Geef dit een behulpzame naam"
+
+msgid "submission.form.replaceExisting"
+msgstr "Een bestaand bestand vervangen?"
+
+msgid "workflow.review.internalReview"
+msgstr "Interne review"
+
+msgid "workflow.stage.any"
+msgstr "Eender welke stap"
+
+msgid "workflow.stage"
+msgstr "Stap"
+
+msgid "submission.status.editorial"
+msgstr "In tekstredactie"
+
+msgid "submission.status.production"
+msgstr "In proeflezing"
+
+msgid "submission.status.review"
+msgstr "In review"
+
+msgid "submission.status.submission"
+msgstr "In afwachting van een redacteursbeslissing"
+
+msgid "submission.status.unassigned"
+msgstr "Niet toegewezen"
+
+msgid "submission.status.declined"
+msgstr "Geweigerd"
+
+msgid "submission.status.published"
+msgstr "Gepubliceerd"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Laad bestand op"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Laad een bestand op voor de inzending"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Metadata"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Bevestig"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Vul een bestandsnaam in voor dit bestand"
+
+msgid "submission.upload.noGenre"
+msgstr "Ontbrekend of ongeldig onderdeel!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Ontbrekende of ongeldige gebruikersgroep!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Mogelijk dubbel of revisie gedetecteerd"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "De naam van het opgeladen bestand lijkt op die van een eerder opgeladen bestand, \"{$revisedFileName}\". Is het de bedoeling dat dit nieuwe bestand het bestaande \"{$revisedFileName}\" vervangt? Selecteer in dat geval \"Dit is geen gereviseerde versie van een bestaand bestand\" voor u verder gaat."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Selecteer het bestand dat u wilt reviseren."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Als u een gereviseerde versie van een bestaand bestand wilt opladen, selecteer dan om welk bestand het gaat."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Dit is geen gereviseerde versie van een bestaand bestand"
+
+msgid "submission.upload.userGroup"
+msgstr "Laad dit bestand op in mijn hoedanigheid als..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "Als u een geëditeerd volume indient, moet u alle hoofdstukken individueel opladen in uw hoedanigheid als volumeredacteur."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Bibliotheekbestand opladen"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Documenttype van de inzending"
+
+msgid "submission.upload.finalDraft"
+msgstr "Bestand opladen"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Geredigeerd bestand opladen"
+
+msgid "submission.upload.fairCopy"
+msgstr "Netversie opladen"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Bestanden opladen"
+
+msgid "submission.upload.response.description"
+msgstr "Beoordeel het toegewezen bestand en geef hieronder uw opmerkingen, en/of laad een kopie van het bestand met opmerkingen op (of een ander bestand)."
+
+msgid "submission.upload.productionReady"
+msgstr "Bestand opladen dat klaar is voor productie"
+
+msgid "submission.upload.proof"
+msgstr "Proef opladen"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "U heeft geen bestanden om te reviewen."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Er werden revisies gevraagd."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Revisies zijn ingediend."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "De inzending moet worden ingediend voor een nieuwe reviewronde."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "De inzending is ingediend voor een nieuwe reviewronde."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Doorgegeven aan peer review."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Inzending aanvaard."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Inzending geweigerd."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "In afwachting van toewijzing van reviewers."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "In afwachting van antwoorden van reviewers."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Er zijn nieuwe reviews ingediend."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Alle reviews zijn voltooid, er moet een beslissing worden genomen."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Een review is te laat."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "In afwachting van redacteursaanbevelingen."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Er zijn nieuwe redacteursaanbevelingen ingediend."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Alle aanbevelingen zijn ingediend, er moet een beslissing worden genomen."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Deelnemers"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Geen toegewezen"
+
+msgid "editor.submission.participant"
+msgstr "Deelnemer"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Wijs deelnemer toe"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "Gebruikers worden toegewezen aan stappen van het redactieproces op basis van hun gebruikersgroep. Gebruikers die worden toegewezen aan deze stap zullen automatisch worden toegewezen aan andere stappen waartoe hun gebruikersgroep toegang heeft. Dit is meestal voorbehouden voor redacteurs, auteurs en vertalers."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Verwijder deelnemer"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "U staat op het punt om deze deelnemer te verwijderen uit <strong>alle</strong> stappen. Als de deelnemer nog actieve proeflezingstaken heeft, zullen die ook worden verwijderd."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "U moet een gebruikersgroep selecteren."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "U moet een gebruiker selecteren voor de opgegeven gebruikersgroep."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "De geselecteerde deelnemer wordt toegewezen voor een blinde review. Als u hem/haar als deelnemer toewijst, krijgt hij/zij toegang tot de identiteit van de auteur. Het is aangewezen om deze deelnemer niet toe te wijzen tenzij de integriteit van het blinde peer review proces toch kan worden gegarandeerd."
+
+msgid "editor.submission.decision"
+msgstr "Beslissing"
+
+msgid "editor.submission.decision.accept"
+msgstr "Inzending aanvaarden"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Vraag revisies"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Opnieuw indienen voor review"
+
+msgid "editor.submission.decision.decline"
+msgstr "Inzending weigeren"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "In productie geven"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Aanvaarden en review overslaan"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "In interne review geven"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "De drukproef moet als goedgekeurd worden aangeduid om beschikbaar te worden gemaakt. Wilt u ze goedkeuren?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Proeven goedkeuren"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "Deze drukproef zal niet langer publiek beschikbaar zijn voor downloaden of aankopen. Wilt u ze afkeuren?"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Wijs een redacteur toe om editeursbeslissingen voor deze stap in te schakelen."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Aanbeveling maken"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Aanbeveling wijzigen"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Aanbeveling: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Aanbevelingen: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Aanbeveling"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Beveel een redacteursbeslissing aan voor deze inzending."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Opgeslagen aanbevelingen"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Volgende stap: selecteer bestanden voor {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Seleteer de bestanden die u wilt doorsturen naar de {$stageName} stap."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Vorige stap: auteur verwittigen"
+
+msgid "submission.currentStage"
+msgstr "Huidige stap"
+
+msgid "submission.noActionRequired"
+msgstr "Geen actie vereist"
+
+msgid "submission.actionNeeded"
+msgstr "Actie vereist"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Review bestanden"
+
+msgid "submission.submit.currentFile"
+msgstr "Huidig bestand"
+
+msgid "submission.finalDraft"
+msgstr "Proefbestanden"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Er was een fout bij het toewijzen van een corrector. Probeer opnieuw."
+
+msgid "submission.event.fileUploaded"
+msgstr "Er werd een bestand \"{$originalFileName}\" opgeladen voor inzending {$submissionId} door {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr "Er werd een bestand \"{$originalFileName}\" verwijderd voor inzending {$submissionId} door {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr "Een gereviseerde versie \"{$originalFileName}\" van de inzending {$submissionId} werd opgeladen door {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr "Een gereviseerde versie \"{$originalFileName}\" van de inzending {$submissionId} werd verwijderd door {$username}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "De laatste revisie van het bestand \"{$title}\" is verwijderd door {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) is toegevoegd als corrector voor het bestand \"{$file}\"."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) is verwijderd als corrector voor het bestand \"{$file}\"."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) heeft een proeflezing voltooid en het bestand \"{$file}\" opgeladen."
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) heeft zich afgemeld voor \"{$file}\"."
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) heeft de proeven voor \"{$formatName}\" goedgekeurd."
+
+msgid "submission.overview"
+msgstr "Overzicht inzendingen"
+
+msgid "submission.description"
+msgstr "Beschrijving"
+
+msgid "submission.stageNotInitiated"
+msgstr "Stap nog niet begonnen"
+
+msgid "submission.documents"
+msgstr "Documenten van de inzending"
+
+msgid "notification.type.editorAssign"
+msgstr "U werd toegewezen als redacteur voor de inzending \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "U werd gevraagd om de tekstredactie te controleren voor \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "U werd gevraagd om de opmaak te controleren voor \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "U werd gevraagd om een index te creëren voor \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Laatste redacteursbeslissing."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Inzending aanvaard."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Peer review gestart."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Revisie vereist."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Dien opnieuw in voor review."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Inzending geweigerd."
+
+msgid "notification.uploadedResponse"
+msgstr "Antwoord opgeladen."
+
+msgid "notification.type.editorAssignment"
+msgstr "Er moet een redacteur worden toegewezen alvorens een reviewronde kan worden opgestart. Voeg een redacteur toe via de lijst onder Deelnemers."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Bijlagen van de reviewer"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Selecteer reviewbestanden om te delen met de auteur(s)"
+
+msgid "submission.productionReady"
+msgstr "Boek beschikbaar"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Laad een gereviseerde versie op"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} is toegekend voor het reviewen van inzending {$submissionId} voor reviewronde {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr "De review voor ronde {$round} door {$reviewerName} voor inzending {$submissionId} is gewist."
+
+msgid "log.review.reviewUnconsidered"
+msgstr "{$editorName} heeft de review voor ronde {$round} van de inzending {$submissionId} gemarkeerd als 'niet in rekening genomen'."
+
+msgid "log.review.reviewReinstated"
+msgstr "De review voor ronde {$round} door {$reviewerName} voor inzending {$submissionId} is opnieuw gestart."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "In afwachting van een antwoord van de reviewer."
+
+msgid "submission.review.status.declined"
+msgstr "De reviewer heeft dit reviewverzoek afgewezen."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "De reviewer heeft te laat geantwoord op het reviewverzoek."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "De reviewer heeft de review te laat ingediend."
+
+msgid "submission.review.status.accepted"
+msgstr "Deze review is aanvaard."
+
+msgid "submission.review.status.received"
+msgstr "De reviewer heeft een review ingediend."
+
+msgid "submission.review.status.complete"
+msgstr "Deze review is voltooid."
+
+msgid "submission.review.status.thanked"
+msgstr "Deze review is voltooid en de reviewer werd bedankt voor zijn/haar bijdrage."
+
+msgid "submission.document"
+msgstr "Document"
+
+msgid "submission.art"
+msgstr "Grafisch werk"
+
+msgid "submission.supplementary"
+msgstr "Bijkomende inhoud"
+
+msgid "submission.supplementary.creator"
+msgstr "Maker (of eigenaar) van het bestand"
+
+msgid "submission.supplementary.subject"
+msgstr "Onderwerp"
+
+msgid "submission.supplementary.publisher"
+msgstr "Uitgever"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Bijdrager of sponsor"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Bekijk het redactieproces voor deze inzending"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Productieproces opgestart."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "Er moet een productieredacteur worden toegewezen alvorens het productieproces kan worden opgestart. Voeg een productieredacteur toe via de lijst onder Deelnemers."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "Er moet een productieredacteur worden toegewezen alvorens het redactieproces kan worden opgestart. Voeg een productieredacteur toe via de lijst onder Deelnemers."
+
+msgid "submission.reviewForm"
+msgstr "Reviewformulier"
+
+msgid "submission.reviewFormResponse"
+msgstr "Reactie reviewformulier"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Maak een nieuw element voor het reviewformulier"
+
+msgid "grid.action.editMetadata"
+msgstr "Bewerk metadata"
+
+msgid "submission.permissions"
+msgstr "Rechten"
+
+msgid "submission.attachPermissions"
+msgstr "Verleen volgende rechten voor de inzending:"
+
+msgid "submission.license"
+msgstr "Licentie"
+
+msgid "submission.copyright"
+msgstr "Copyright"
+
+msgid "submission.copyrightHolder"
+msgstr "Copyright houder"
+
+msgid "submission.copyrightYear"
+msgstr "Copyright jaar"
+
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Geef een geldige externe URL op (inclusief http://)."
+
+msgid "submission.licenseURL"
+msgstr "Licentie URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Naamsvermelding-NietCommercieel 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "Naamsvermelding-NietCommercieel-GelijkDelen 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Naamsvermelding-GeenAfgeleideWerken 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Naamsvermelding 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Naamsvermelding-GelijkDelen 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.nl\">Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 4.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.nl\">Naamsvermelding-NietCommercieel 4.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl\">Naamsvermelding-NietCommercieel-GelijkDelen 4.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.nl\">Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.nl\">Naamsvermelding 4.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.nl\">Naamsvermelding-GelijkDelen 4.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/deed.nl\">Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 3.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/deed.nl\">Naamsvermelding-NietCommercieel 3.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/deed.nl\">Naamsvermelding-NietCommercieel-GelijkDelen 3.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/deed.nl\">Naamsvermelding-GeenAfgeleideWerken 3.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed.nl\">Naamsvermelding 3.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.nl\">Naamsvermelding-GelijkDelen 3.0 Internationaal</a> licentie.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Pre-review-discussies"
+
+msgid "submission.queries.review"
+msgstr "Review-discussies"
+
+msgid "submission.queries.editorial"
+msgstr "Teksredactie-discussies"
+
+msgid "submission.queries.production"
+msgstr "Productie-discussies"
+
+msgid "submission.query.subject"
+msgstr "Onderwerp"
+
+msgid "submission.query.messages"
+msgstr "Berichten"
+
+msgid "submission.query.replies"
+msgstr "Antwoorden"
+
+msgid "submission.query.from"
+msgstr "Van"
+
+msgid "submission.query.lastReply"
+msgstr "Laatste antwoord"
+
+msgid "submission.query.closed"
+msgstr "Afgesloten"
+
+msgid "submission.query.addNote"
+msgstr "Voeg een bericht toe"
+
+msgid "grid.action.openNoteForm"
+msgstr "Voeg een nieuw antwoord toe aan de discussie"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} heeft geantwoord in {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} heeft een discussie gestart: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "Er is nieuwe activiteit in de discussie met de titel \"{$queryTitle}\" over de inzending \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr "U werd toegevoegd aan een discussie met de titel \"{$queryTitle}\" over de inzending \"{$submissionTitle}\"."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "U moet minstens één deelnemer selecteren alvorens u een discussie kan starten."
+
+msgid "submission.list.infoCenter"
+msgstr "Log van activiteiten en opmerkingen"
+
+msgid "submission.list.count"
+msgstr "{$count} inzendingen"
+
+msgid "submission.list.itemsOfTotal"
+msgstr "{$count} van {$total} inzendingen"
+
+msgid "submission.list.responseDue"
+msgstr "In afwachting van een antwoord"
+
+msgid "submission.list.reviewDue"
+msgstr "In afwachting van een review"
+
+msgid "submission.list.reviewComplete"
+msgstr "Review ingediend"
+
+msgid "submission.list.confirmDelete"
+msgstr "Inzending verwijderen?"
+
+msgid "submission.list.viewSubmission"
+msgstr "Inzending bekijken"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Reviews voltooid"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revisies ingediend"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Geredigeerde bestanden ingediend"
+
+msgid "submission.list.galleysCreated"
+msgstr "Proeven aangemaakt"
+
+msgid "submission.list.filesPrepared"
+msgstr "Bestanden voorbereid"
+
+msgid "submission.list.discussions"
+msgstr "Actieve discussies"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "U vervult verschillende rollen voor deze inzending. Wilt u de inzending bekijken als <a href=\"{$urlAuthorWorkflow}\">Auteur</a>  of <a href=\"{$urlEditorialWorkflow}\">Redacteur</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "U bent redacteur voor deze inzending. Wilt u de inzending bekijken als <a href=\"{$urlEditorialWorkflow}\">Redacteur</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Deze inzending moet worden voltooid alvorens ze kan worden beoordeeld door een redacteur."
+
+msgid "submission.list.currentStage"
+msgstr "Nu in de {$stage} stap."
+
+msgid "submission.list.assignEditor"
+msgstr "Wijs een redacteur aan"
+
+msgid "grid.category.categories"
+msgstr "Categorieën"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titel (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titel (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publicatiedatum (oudste eerst)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publicatiedatum (nieuwste eerst)"
+
+msgid "category.coverImage"
+msgstr "Omslagafbeelding"
+
+msgid "submission.submit.placement.categories"
+msgstr "Categorieën"
+
+msgid "submission.currentCoverImage"
+msgstr "Huidige omslagafbeelding"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} titels"
+
+msgid "catalog.noTitlesSection"
+msgstr "Er zijn nog geen titels gepubliceerd voor deze sectie"

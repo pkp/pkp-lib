@@ -1,0 +1,825 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
+"Language: \n"
+
+msgid "submission.agencies"
+msgstr "Agentziak"
+
+msgid "submission.abstractViews"
+msgstr "Laburpenen ikuspegiak"
+
+msgid "submission.accepted"
+msgstr "Onartua"
+
+msgid "submission.acknowledge"
+msgstr "Hartu-agiria"
+
+msgid "submission.addSuppFile"
+msgstr "Gehitu Fitxategi osagarria"
+
+msgid "submission.ask"
+msgstr "Galdetu"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Itzuli Bidalketaren ediziora"
+
+msgid "submission.changeComments"
+msgstr "Aldatu hona:"
+
+msgid "submission.comments.addComment"
+msgstr "Gehitu oharra"
+
+msgid "submission.comments.comments"
+msgstr "Oharrak"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Ziur zaude ohar hau ezabatu nahi duzula?"
+
+msgid "submission.comments.corrections"
+msgstr "Zuzenketak"
+
+msgid "submission.comments.editComment"
+msgstr "Editatu oharra"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Inportatu adituen ebaluazioa"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "{$reviewerLetter} Ebaluatzailea:"
+
+msgid "submission.comments.noComments"
+msgstr "Oharrik ez"
+
+msgid "submission.comments.noReviews"
+msgstr "Ebaluaziorik ez"
+
+msgid "submission.comments.review"
+msgstr "Ebaluazioa"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Bidali editorearen erabakia Ebaluatzaileei "
+
+msgid "submission.comments.subject"
+msgstr "Gaia"
+
+msgid "submission.complete"
+msgstr "Bukatuta"
+
+msgid "submission.done"
+msgstr "Eginda"
+
+msgid "submission.dueDate"
+msgstr "Epea"
+
+msgid "submission.due"
+msgstr "Epea"
+
+msgid "submission.editing"
+msgstr "Edizioa"
+
+msgid "submission.editMetadata"
+msgstr "Editatu metadatuak"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Itzuli Mezu elektronikoen logera"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Ziur zaude bidalketa honen mezu elektronikoen loga garbitu nahi duzula?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Ziur zaude mezu elektronikoen logeko sarrera hau ezabatu nahi duzula?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Ezabatu logeko sarrera"
+
+msgid "submission.emailLog"
+msgstr "Mezu elektronikoen loga"
+
+msgid "submission.event.backToEventLog"
+msgstr "Itzuli Gertaeren logera"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Ziur zaude bidalketa honen gertaeren loga garbitu nahi duzula?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Ziur zaude gertaeren logeko sarrera hau ezabatu nahi duzula?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Ezabatu logeko sarrera"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Bidalketaren metadatuak eguneratu"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Bidalketa-fitxategia eguneratu"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Ebaluazioa egitea ordezkari bidez onartu"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Ebaluazioa egitea onartu"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Ebaluazioa egitea ez da onartu"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Ebaluazioaren mugaeguna aldatu"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Ebaluatzailea izendatu"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Ebaluatzailearen kalifikazioa bidali"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Ebaluatzailea kendu"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Ebaluazio-fitxategia eguneratu"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Ebaluazioa hasi"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Ebaluazioko gomendioen fitxategia"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Ebaluazioa berriro hasi"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Ebaluazioa berriro bidali"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Ebaluatzailearen aldaketen fitxategia eguneratu"
+
+msgid "submission.files"
+msgstr "Fitxategiak"
+
+msgid "submission.galley"
+msgstr "Galerada"
+
+msgid "submission.history.clearLog"
+msgstr "Garbitu loga"
+
+msgid "submission.history"
+msgstr "Historia"
+
+msgid "submission.history.noLogEntries"
+msgstr "Ez dago sarrerarik logean."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Azken sarrerak"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Mezu elektronikoen loga"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Gertaeren loga"
+
+msgid "submission.history.submissionNotes"
+msgstr "Bidalketaren oharrak"
+
+msgid "submission.history.viewLog"
+msgstr "Ikusi loga"
+
+msgid "submission.initiated"
+msgstr "Hasita"
+
+msgid "submission.lastModified"
+msgstr "Azken aldaketa"
+
+msgid "submission.layout.addGalley"
+msgstr "Gehitu Maketazio-galerada bat"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Ziur zaude galerada hau betiko ezabatu nahi duzula?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Ziur zaude irudi hau kendu nahi duzula galeradatik?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Ziur zaude fitxategi osagarri hau betiko ezabatu nahi duzula?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Ezabatu estilo-orri hau."
+
+msgid "submission.layout.editGalley"
+msgstr "Editatu Maketazio-galerada bat"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Galerada-formatua"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML galerada-fitxategiak"
+
+msgid "submission.layout.galleyImages"
+msgstr "Irudiak"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Fitxategi-formatua (HTML, PDF, etab.) identifikatzeko erabiltzen da galeradaren etiketa."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Etiketa"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Galerada-etiketa eman behar da."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Galeradaren hizkuntza zehaztu behar da."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Galeradaren locale hizkuntza-paketea zehaztu behar da."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "irudirik ez"
+
+msgid "submission.layout.galleys"
+msgstr "Galeradak"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Estilo-orriaren fitxategia"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Estiloa"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Lehenengo galerada-sortzea"
+
+msgid "submission.layout.layoutFile"
+msgstr "Maketazio-fitxategia"
+
+msgid "submission.layout"
+msgstr "Maketazioa"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Maketazio-bertsioa"
+
+msgid "submission.layout.newGalley"
+msgstr "Sortu galerada berria"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Kargatu Fitxategi osagarri berria"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Galerada honi ez zaio estilo-orriaren fitxategirik gehitu."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Fitxategi osagarriaren berrikustea"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Bidalketaren galerada ikusi"
+
+msgid "submission.layout.viewProof"
+msgstr "Ikusi Proba"
+
+msgid "submission.metadata"
+msgstr "Bidalketaren metadatuak"
+
+msgid "submission.noReviewAssignments"
+msgstr "Ebaluaziorik gabe"
+
+msgid "submission.notes.addNewNote"
+msgstr "Gehitu ohar berria"
+
+msgid "submission.notes.attachedFile"
+msgstr "Fitxategi erantsia"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Itzuli Bidalketaren oharretara"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Oharrak"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Garbitu ohar guztiak"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Tolestu oharrak"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Bidalketaren ohar guztiak kendu?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Bidalketaren ohar hau kendu?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Sortu ohar berria"
+
+msgid "submission.notes.deleteNote"
+msgstr "Ezabatu oharra"
+
+msgid "submission.notes.editNote"
+msgstr "Editatu oharra"
+
+msgid "submission.notes.expandNotes"
+msgstr "Zabaldu oharrak"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Bidalketaren oharrik ez"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Kendu kargatutako fitxategia"
+
+msgid "submission.notes"
+msgstr "Bidalketaren oharrak"
+
+msgid "submission.notes.updateNote"
+msgstr "Eguneratu oharra"
+
+msgid "submission.notes.viewNotes"
+msgstr "Ikusi oharrak"
+
+msgid "submission.originalFile"
+msgstr "Jatorrizko fitxategia"
+
+msgid "submission.page.editing"
+msgstr "{$id} Edizioa"
+
+msgid "submission.page.history"
+msgstr "{$id} Historia"
+
+msgid "submission.page.review"
+msgstr "{$id} Ebaluazioa"
+
+msgid "submission.page.summary"
+msgstr "{$id} Sumarioa"
+
+msgid "submission.peerReview"
+msgstr "Adituen ebaluazioa"
+
+msgid "submission.recommendation"
+msgstr "Gomendioa: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Ezetsia"
+
+msgid "submission.request"
+msgstr "Eskatu"
+
+msgid "submission.response"
+msgstr "Erantzuna"
+
+msgid "submission.restrictions"
+msgstr "Murrizketak"
+
+msgid "submission.reviewMetadata"
+msgstr "Berrikusi metadatuak"
+
+msgid "submission.review"
+msgstr "Ebaluazioa"
+
+msgid "submission.reviewVersion"
+msgstr "Ebaluazio-bertsioa"
+
+msgid "submissions.active"
+msgstr "Aktibo"
+
+msgid "submissions.archived"
+msgstr "Artxibatuta"
+
+msgid "submission.saveMetadata"
+msgstr "Gorde metadatuak"
+
+msgid "submissions.completed"
+msgstr "Bukatuta"
+
+msgid "submissions.declined"
+msgstr "Ez da onartu"
+
+msgid "submissions.incomplete"
+msgstr "Osatu gabe"
+
+msgid "submissions.noSubmissions"
+msgstr "Bidalketarik ez"
+
+msgid "submissions.queuedEditing"
+msgstr "Editatzen"
+
+msgid "submissions.queued"
+msgstr "Ilaran"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Esleitzeko zain"
+
+msgid "submissions.ruling"
+msgstr "Ebazpena"
+
+msgid "submissions.submit"
+msgstr "Bidali"
+
+msgid "submissions.submitted"
+msgstr "Bidalita"
+
+msgid "submission.start"
+msgstr "Hasi"
+
+msgid "submission.submissionHistory"
+msgstr "Bidalketaren historia"
+
+msgid "submission.submissionManuscript"
+msgstr "Bidalketaren eskuizkribua"
+
+msgid "submission.submissionReview"
+msgstr "Bidalketaren ebaluazioa"
+
+msgid "submission.submitter"
+msgstr "Bidaltzailea"
+
+msgid "submission.summary"
+msgstr "Sumarioa"
+
+msgid "submission.supplementaryFiles"
+msgstr "Fitxategi osagarriak"
+
+msgid "submission.titleAndAbstract"
+msgstr "Titulua eta laburpena"
+
+msgid "submission.underway"
+msgstr "Lanean"
+
+msgid "submission.uploadFileTo"
+msgstr "Kargatu fitxategia:"
+
+msgid "submission.viewMetadata"
+msgstr "Ikusi metadatuak"
+
+msgid "submission.views"
+msgstr "Ikuspegiak"
+
+msgid "submission.citations"
+msgstr "Erreferentziak"
+
+msgid "metadata.property.displayName.author"
+msgstr "Egileak"
+
+msgid "metadata.property.displayName.editor"
+msgstr "Editoreak"
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Artikuluaren titulua"
+
+msgid "metadata.property.displayName.source"
+msgstr "Egunkariaren/Liburuaren titulua"
+
+msgid "metadata.property.displayName.date"
+msgstr "Argitalpen-data"
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Sartze-data"
+
+msgid "metadata.property.displayName.issue"
+msgstr "Jaulkipena"
+
+msgid "metadata.property.displayName.volume"
+msgstr "Bolumena"
+
+msgid "metadata.property.displayName.season"
+msgstr "Garaia"
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Kapituluaren titulua"
+
+msgid "metadata.property.displayName.edition"
+msgstr "Edizioa"
+
+msgid "metadata.property.displayName.series"
+msgstr "Seriea"
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Gehigarria"
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Ekitaldiaren data"
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Ekitaldiaren tokia"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Ekitaldiaren izena"
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Ekitaldiaren babeslea"
+
+msgid "metadata.property.displayName.institution"
+msgstr "Erakundea"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Lehen orrialdea"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Azken orrialdea"
+
+msgid "metadata.property.displayName.size"
+msgstr "Orrialde-zenbakia"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Argitaratzailearen helbidea"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Argitaratzailearen izena"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.displayName.issn"
+msgstr "Inprimaketa ISSN"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "ISSN elektronikoa"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Argitalpen pertsonalizatuaren ID"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.displayName.uri"
+msgstr "Argitalpenerako lotura"
+
+msgid "metadata.property.displayName.comment"
+msgstr "Iruzkina"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Oharra"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Argitalpen-mota"
+
+msgid "submission.page.citations"
+msgstr "#{$id} aipuak"
+
+msgid "submission.currentAgencies"
+msgstr "Uneko agentziak"
+
+msgid "submission.indexingInformation"
+msgstr "Indexatze-informazioa"
+
+msgid "submission.uploadSuccessful"
+msgstr "Fitxategia kargatu da. Sakatu jarraitu fitxategiaren metadatuak editatzeko."
+
+msgid "submission.loadMessage"
+msgstr "Itxaron fitxategia zerbitzarian kargatu arte."
+
+msgid "submission.fileDetails"
+msgstr "Fitxategiaren xehetasunak"
+
+msgid "author.submit.submissionCitations"
+msgstr "Eman aurkezpenean aipatutako lanen erreferentzien formatudun zerrenda."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef-en erregistratzeko helbide elektronikoa"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Mesedez, sartu CrossRef-en erregistratzeko baliozko helbide elektronikoa. Zure helbide elektronikoa doan erregistra dezakezu CrossRef-en web orrian."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API gakoa"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Mesedez, sartu zure ISBNdb API gakoa. Gakorik ez baduzu, doan eska dezakezu ISBNdb proiektuaren orrian."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed-en erregistratzeko helbide elektronikoa"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Mesedez, sartu PubMed-en erregistratzeko baliozko helbide elektronikoa, baldin baduzu."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API gakoa"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Mesedez, sartu baliozko WorldCat API gakoa, baldin baduzu."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Aipuen modulua"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Mesedez, aukeratu aipuen moduluetako bat."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Ez erabili lehenespen gisa hautatutakoa (editorearentzat erabilgarri egongo da oraindik)."
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Barneko errorea. Balio desegokia jarri da “aukerako iragazkia” ezarpenean. Mesedez, eman errorearen berri."
+
+msgid "metadata.property.validationMessage.author"
+msgstr "Emaitza hobeak izateko, egileak honako formatu honetan idatzi behar dira: Coleman Jr. D. (Ralf) Dr."
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "Emaitza hobeak izateko, editoreak honako formatu honetan idatzi behar dira: Coleman Jr. D. (Ralf) Dr."
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Mesedez, idatzi artikuluaren/txostenaren baliozko titulua."
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Mesedez, idatzi aldizkariaren/liburuaren baliozko titulua."
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Mesedez, idatzi baliozko argitalpen-data (formatua: UUUU-HH-EE)."
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Mesedez, idatzi baliozko atzipen-data (formatua: UUUU-HH-EE)."
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Mesedez, idatzi baliozko gaia."
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Mesedez, idatzi baliozko bolumena."
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Mesedez, idatzi denboraldi-identifikatzaile egokia."
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Mesedez, idatzi kapituluaren baliozko titulua."
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Mesedez, idatzi baliozko edizioa."
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Mesedez, idatzi baliozko saila."
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Mesedez, idatzi baliozko eranskina."
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Mesedez, idatzi kongresuaren baliozko data (formatua: UUUU-HH-EE)."
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Mesedez, idatzi kongresuaren baliozko kokalekua."
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Mesedez, idatzi kongresuaren baliozko izena."
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Mesedez, idatzi kongresuaren baliozko babeslea."
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Mesedez, idatzi baliozko erakundea."
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Mesedez, idatzi baliozko lehenengo orria (zenbakia izan behar du)."
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Mesedez, idatzi baliozko azkeneko orria (zenbakia izan behar du)."
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Mesedez, idatzi guztira dituen orrien baliozko kopurua (zenbakia izan behar du)."
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Mesedez, idatzi editorearen baliozko kokalekua."
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Mesedez, idatzi argitaratzailearen baliozko izena."
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Mesedez, idatzi baliozko ISBN-a (9 edo 13 zenbaki)."
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Mesedez, idatzi baliozko Print ISSN-a."
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Mesedez, idatzi baliozko eISSN-a."
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Mesedez, idatzi baliozko DOI-a."
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Mesedez, idatzi argitalpen pertsonalizatuaren baliozko ID-a."
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Mesedez, idatzi baliozko CODEN-a."
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Mesedez, idatzi baliozko SICI-a."
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Mesedez, idatzi baliozko PMID-a."
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Mesedez, idatzi argitalpenerako beste baliozko lotura bat."
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Mesedez, idatzi baliozko iruzkina."
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Mesedez, idatzi baliozko oharra."
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Mesedez, egiaztatu argitalpen mota beti ezartzen duzula. Orain, onartutako balioak liburua (liburuentzat edo liburuetako kapituluentzat) eta aldizkaria (aldizkarietako artikuluentzat) dira. Bestela, aipuen irteera-formatuak ez du behar bezala funtzionatuko."
+
+msgid "submission.artworkFileDetails"
+msgstr "Artelanen Artxiboaren Xehetasunak"
+
+msgid "submission.nameRequired"
+msgstr "Elementu honek izena behar du."
+
+msgid "submission.date.mmdd"
+msgstr "HH-EE"
+
+msgid "submission.date.yyyymmdd"
+msgstr "UUUU-HH-EE"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Izen mota"
+
+msgid "submission.addFile"
+msgstr "Kargatu fitxategia"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Urruneko URL"
+
+msgid "submission.reviewed"
+msgstr "Berrikusia"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Titulu mota"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Mesedez, ziur izan titulu mota baliodun bat ezartzen duzula. Balio onartuak 'laburtua', 'itzulia', 'alternatiboa' eta 'uniformea' dira."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Tituluaren zati bat ez da kontuan hartu sailkatzean."
+
+msgid "metadata.property.displayName.title"
+msgstr "Titulua"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Mesedez, sartu titulu baliodun bat."
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Mesedez, sartu soilik titulua sailkatzean kontuan hartu beharko ez liratekeen tituluaren hasierako hizkiak."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Azpidatzia"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Mesedez, sartu azpidatzi baliodun bat."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Zatiaren zenbakia"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Mesedez, sartu zatiaren zenbaki baliodun bat."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Zatiaren izena"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Mesedez, sartu zatiaren izen baliodun bat."
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Mesedez, ziur izan izen mota baliodun bat ezartzen duzula. Balio onartua 'pertsonala', 'korporatiboa' eta 'konferentzia' dira."
+
+msgid "submission.comments.addReviews"
+msgstr "Erantsi berrikuspenak posta elektronikoari"
+
+msgid "submission.copyedited"
+msgstr "Zuzendua"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Mesedez, eman urruneko URL baliodun bat (sartu http://)"
+
+msgid "submission.supportingAgencies"
+msgstr "Agentzia babesleak"
+
+msgid "submission.createRemote"
+msgstr "Sortu urrunekoa"
+
+msgid "submission.form.name"
+msgstr "Eman fitxategi honi izen erabilgarri bat"
+
+msgid "submission.form.replaceExisting"
+msgstr "Ordeztu jada badagoen fitxategi bat?"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} izendatu da {$submissionId}"
+
+msgid "log.review.reviewCleared"
+msgstr "{$reviewerName} ebaluatzailearen {$submissionId} artikuluaren {$round}. ebaluazio-buelta ezabatu egin da."
+
+msgid "log.review.reviewReinstated"
+msgstr "{$reviewerName} berriro hasi da {$submissionId} artikulua {$round}. bueltan ebaluatzen."
+
+msgid "submission.reviewForm"
+msgstr "Ebaluazio-inprimakia"
+
+msgid "submission.reviewFormResponse"
+msgstr "Ebaluazio-inprimakiaren erantzuna"

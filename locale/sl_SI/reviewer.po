@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:02+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Prošnja"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Navodila"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Prenos & Recenzija"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Zaključek"
+
+msgid "reviewer.step1.request"
+msgstr "Prošnja za recenzijo"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Izbrani ste bili kot potencialni recenzent naslednjega prispevka. Spodaj je kratek pregeld prispevka in predvidena časovnica za opralvjanje recenzije. Upamo, da boste lahko sodelovali."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Poglej vse podatke prispevka"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Recenzentske datoteke"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Zavrni prošnjo za recenzijo"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "V polju spodaj lahko urendiku sporočite, zakaj zavračate to prošnjo za recenzijo."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Sprejmi recenzijo, Nadaljuj na korak  #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Nadaljuj na korak #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Oddaj recenzijo"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Recenzentska navodila"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Izdajatelj ima pravilo, da morate razkriti potencialno navzkrižje interesov. Prosimo, da si preberete politiko navzkrižje interesov."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Nimam nobenega navzkrižja interesov"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Morda imam navzkrižje interesov (opišite spodaj)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Navzkrižje interesov"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Recenzentska navodila"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Izdajatelj ni definiral nobenih recenzentskih navodil."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Kliknite na imena datotek spodaj, da prenesete datoteke prispevka."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Vpišite vašo recenzijo v spodnji obrazec."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Naložite datoteke, za katere bi radi, da jih pregledata urednik in/ali avtor, lahko tudi posodobljene verzije originalnih datotek prispevka."
+
+msgid "reviewer.complete"
+msgstr "Recenzija oddana"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Ste prepričani, da želite oddati to recenzijo?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Hvala lepa za opravljanje te recenzije. Recenzija je bila uspešno oddana. Zahvaljujemo se vam za vaše delo, ki pomaga pri kvaliteti objavljenih prispevkov. V primeru, da bo urednik potreboval še kakšne informacije, se lahko še obrne na vas."
+
+msgid "reviewer.aboutDueDates"
+msgstr "O datumskih rokih"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Urednik vas prosi, da sprejmete ali zavrnete recenzijo do roka za odziv recenzenta ter končate recenzijo do roka za dokončanje recenzije."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Za avtorja in urednika"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Samo za urednika"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Trenutni uporabnik ni dodeljen kot recenzent za zahtevani dokument."

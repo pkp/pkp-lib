@@ -34,9 +34,6 @@
 		<field name="date_logged" type="T">
 			<NOTNULL/>
 		</field>
-		<field name="ip_address" type="C2" size="39">
-			<NOTNULL/>
-		</field>
 		<field name="event_type" type="I8"/>
 		<field name="message" type="X"/>
 		<field name="is_translated" type="I1"/>
@@ -98,7 +95,6 @@
 		<field name="date_sent" type="T">
 			<NOTNULL/>
 		</field>
-		<field name="ip_address" type="C2" size="39"/>
 		<field name="event_type" type="I8"/>
 		<field name="from_address" type="C2" size="255"/>
 		<field name="recipients" type="X"/>

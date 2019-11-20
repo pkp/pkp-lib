@@ -83,7 +83,6 @@ class EventLogDAO extends DAO {
 		$entry->setId($row['log_id']);
 		$entry->setUserId($row['user_id']);
 		$entry->setDateLogged($this->datetimeFromDB($row['date_logged']));
-		$entry->setIPAddress($row['ip_address']);
 		$entry->setEventType($row['event_type']);
 		$entry->setAssocType($row['assoc_type']);
 		$entry->setAssocId($row['assoc_id']);
@@ -115,13 +114,12 @@ class EventLogDAO extends DAO {
 	function insertObject($entry) {
 		$this->update(
 			sprintf('INSERT INTO event_log
-				(user_id, date_logged, ip_address, event_type, assoc_type, assoc_id, message, is_translated)
+				(user_id, date_logged, event_type, assoc_type, assoc_id, message, is_translated)
 				VALUES
-				(?, %s, ?, ?, ?, ?, ?, ?)',
+				(?, %s, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($entry->getDateLogged())),
 			array(
 				(int) $entry->getUserId(),
-				$entry->getIPAddress(),
 				(int) $entry->getEventType(),
 				(int) $entry->getAssocType(),
 				(int) $entry->getAssocId(),

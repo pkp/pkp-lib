@@ -1282,7 +1282,7 @@ msgid "editor.submission.decision.decline"
 msgstr "Refuser la soumission"
 
 msgid "editor.submission.decision.sendToProduction"
-msgstr "Envoyer pour publication"
+msgstr "Envoyer pour mise en production"
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Accepter sans évaluation"
@@ -1324,10 +1324,10 @@ msgid "editor.submission.recordedRecommendations"
 msgstr "Enregistrer les recommandations"
 
 msgid "editor.submission.decision.nextButton"
-msgstr "Poursuivre (faire parvenir fichiers pour la {$stageName})"
+msgstr "Poursuivre (faire parvenir les fichiers pour l'étape de {$stageName})"
 
 msgid "editor.submission.decision.selectFiles"
-msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape {$stageName}."
+msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape de {$stageName}."
 
 msgid "editor.submission.decision.previousAuthorNotification"
 msgstr "Précédent  (avis à l'auteur-e)"
@@ -1660,7 +1660,7 @@ msgid "submission.list.viewSubmission"
 msgstr "Voir la soumission"
 
 msgid "submission.list.reviewsCompleted"
-msgstr "Assigner les évaluations complétées"
+msgstr "Évaluations assignées complétées"
 
 msgid "submission.list.revisionsSubmitted"
 msgstr "Révisions soumises"

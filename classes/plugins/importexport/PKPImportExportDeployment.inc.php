@@ -206,10 +206,10 @@ class PKPImportExportDeployment {
 	function removeImportedObjects($assocType) {
 		switch ($assocType) {
 			case ASSOC_TYPE_SUBMISSION:
-				$processedSubmisssionsIds = $this->getProcessedObjectsIds(ASSOC_TYPE_SUBMISSION);
-				if (!empty($processedSubmisssionsIds)) {
+				$processedSubmissionsIds = $this->getProcessedObjectsIds(ASSOC_TYPE_SUBMISSION);
+				if (!empty($processedSubmissionsIds)) {
 					$submissionDao = Application::getSubmissionDAO();
-					foreach ($processedSubmisssionsIds as $submissionId) {
+					foreach ($processedSubmissionsIds as $submissionId) {
 						if ($submissionId) {
 							$submissionDao->deleteById($submissionId);
 						}

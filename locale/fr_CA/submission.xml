@@ -346,7 +346,7 @@
 	<message key="submission.submit.metadataForm.tip">Ajouter d'autres métadonnées sur votre soumission. Veuillez appuyer sur la touche « Entrée » après chaque terme.</message>
 	<message key="submission.submit.submissionLocale">Langue de la soumission</message>
 	<message key="submission.submit.submissionLocaleDescription">Les soumissions dans plusieurs langues sont acceptées. Choisir la langue principale de la soumission parmi celles présentes dans le menu déroulant.</message>
-	<message key="submission.submit.submissionFiles">Fichiers de soumission</message>
+	<message key="submission.submit.submissionFiles">Fichiers de la soumission</message>
 	<message key="submission.submit.dependentFiles">Fichiers reliés</message>
 	<message key="submission.manageDependentFiles">Gestion des fichiers reliés</message>
 	<message key="submission.upload.dependent">Téléverser un fichier relié</message>
@@ -415,7 +415,7 @@
 	<message key="submission.upload.uploadNewFile">Fichier original (ne remplace pas un fichier existant)</message>
 	<message key="submission.upload.userGroup">Téléverser ce fichier. Mon rôle est...</message>
 	<message key="submission.upload.userGroupDescription">S'il s'agit d'un volume édité par plusieurs auteurs-es, vous devriez téléverser tous les chapitres du volume individuellement, en tant qu'éditeur du volume.</message>
-	<message key="submission.upload.uploadLibraryFile">Téléverser un fichier bibliothèque</message>
+	<message key="submission.upload.uploadLibraryFile">Téléverser un fichier dans la bibliothèque</message>
 	<message key="submission.upload.libraryCategory">Catégorie de document</message>
 	<!-- File uploads -->
 	<message key="submission.upload.finalDraft">Téléverser le fichier</message>
@@ -467,7 +467,7 @@
 	<message key="editor.submission.decision.requestRevisions">Demande de révisions à l'auteur-e</message>
 	<message key="editor.submission.decision.resubmit">Resoumettre pour évaluation</message>
 	<message key="editor.submission.decision.decline">Refuser la soumission</message>
-	<message key="editor.submission.decision.sendToProduction">Envoyer pour publication</message>
+	<message key="editor.submission.decision.sendToProduction">Envoyer pour mise en production</message>
 	<message key="editor.submission.decision.skipReview">Accepter sans évaluation</message>
 	<message key="editor.submission.decision.sendInternalReview">Envoyer à l'évaluateur interne</message>
 	<message key="editor.submission.decision.approveProofsDescription">Le fichier d'épreuves mis en page doit être approuvé pour qu'il soit rendu disponible. Souhaitez-vous l'approuver ?</message>
@@ -483,8 +483,8 @@
 	<message key="editor.submission.recommendation">Recommandation</message>
 	<message key="editor.submission.recommendation.description">Recommander une décision éditoriale pour cette soumission.</message>
 	<message key="editor.submission.recordedRecommendations">Enregistrer les recommandations</message>
-	<message key="editor.submission.decision.nextButton">Poursuivre (faire parvenir fichiers pour la {$stageName})</message>
-	<message key="editor.submission.decision.selectFiles">Sélectionner les fichiers que vous voulez faire suivre à l'étape {$stageName}.</message>
+	<message key="editor.submission.decision.nextButton">Poursuivre (faire parvenir les fichiers pour l'étape de {$stageName})</message>
+	<message key="editor.submission.decision.selectFiles">Sélectionner les fichiers que vous voulez faire suivre à l'étape de {$stageName}.</message>
 	<message key="editor.submission.decision.previousAuthorNotification">Précédent  (avis à l'auteur-e)</message>
 	<!-- workflow navigation keys -->
 	<message key="submission.currentStage">Étape actuelle</message>
@@ -577,7 +577,7 @@
 	<message key="submission.license.cc.by4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Ce travail est disponible sous la licence  <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fr">Creative Commons Attribution 4.0 International </a>.</p>]]></message>
 	<message key="submission.license.cc.by-sa4.footer"><![CDATA[<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Ce travail est disponible sous licence <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International</a>.</p>]]></message>
 	<!-- Submission Queries -->
-	<message key="submission.queries.submission">Discussions pré-évaluation</message>
+	<message key="submission.queries.submission">Discussions préévaluation</message>
 	<message key="submission.queries.review">Discussions sur l'évaluation</message>
 	<message key="submission.queries.editorial">Discussions sur la révision</message>
 	<message key="submission.queries.production">Discussions sur la production</message>
@@ -606,7 +606,7 @@
 	<message key="submission.list.itemOrdererUp">Avancer la position de {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">Reculer la position de {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Voir la soumission</message>
-	<message key="submission.list.reviewsCompleted">Assigner les évaluations complétées</message>
+	<message key="submission.list.reviewsCompleted">Évaluations assignées complétées</message>
 	<message key="submission.list.revisionsSubmitted">Révisions soumises</message>
 	<message key="submission.list.copyeditsSubmitted">Les fichiers de révision ont été soumis</message>
 	<message key="submission.list.galleysCreated">Les épreuves ont été créées</message>

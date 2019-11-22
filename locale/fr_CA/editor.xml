@@ -103,13 +103,13 @@
 	<message key="editor.review.emailReviewer">Envoyer un courriel à l'évaluateur-trice</message>
 	<message key="editor.submission.production.productionReadyFiles">Fichiers prêts pour la production</message>
 	<message key="editor.submission.newRound">Nouveau cycle d'évaluation</message>
-	<message key="editor.submissionReview.recordDecision">Enregistrement la décision éditoriale</message>
+	<message key="editor.submissionReview.recordDecision">Enregistrement de la décision éditoriale</message>
 	<message key="editor.submissionReview.recordRecommendation">Enregistrer la recommandation éditoriale</message>
 	<message key="editor.submissionReview.recordRecommendation.notifyEditors">Aviser les rédacteurs-trices</message>
 	<message key="editor.submissionReview.recordRecommendation.skipEmail">Ne pas envoyer de courriel aux rédacteurs-trices</message>
 	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Créer une discussion d'évaluation à propos de cette recommandation.</message>
 	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Ne pas créer une discussion d'évaluation.</message>
-	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer un nouveau cycle d'évaluation pour cette soumission. Les fichiers qui n'ont pas été utilisés dans un cycle prcédent sont listés ci-dessous.</message>
+	<message key="editor.submission.newRoundDescription">Vous êtes sur le point de créer un nouveau cycle d'évaluation pour cette soumission. Les fichiers qui n'ont pas été utilisés dans un cycle précédent sont listés ci-dessous.</message>
 	<message key="editor.submission.createNewRound">Créer un nouveau cycle d'évaluation</message>
 	<message key="editor.article.reviewForms">Formulaires d'évaluation</message>
 	<message key="editor.article.selectReviewForm">Sélectionner un formulaire d'évaluation</message>

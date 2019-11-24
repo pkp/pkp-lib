@@ -333,7 +333,7 @@ msgid "editor.submission.newRound"
 msgstr "Nouveau cycle d'évaluation"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr "Enregistrement la décision éditoriale"
+msgstr "Enregistrement de la décision éditoriale"
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Enregistrer la recommandation éditoriale"
@@ -351,7 +351,7 @@ msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Ne pas créer une discussion d'évaluation."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Vous êtes sur le point de créer un nouveau cycle d'évaluation pour cette soumission. Les fichiers qui n'ont pas été utilisés dans un cycle prcédent sont listés ci-dessous."
+msgstr "Vous êtes sur le point de créer un nouveau cycle d'évaluation pour cette soumission. Les fichiers qui n'ont pas été utilisés dans un cycle précédent sont listés ci-dessous."
 
 msgid "editor.submission.createNewRound"
 msgstr "Créer un nouveau cycle d'évaluation"

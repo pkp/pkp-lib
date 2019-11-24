@@ -976,7 +976,7 @@ msgid "submission.submit.submissionLocaleDescription"
 msgstr "Les soumissions dans plusieurs langues sont acceptées. Choisir la langue principale de la soumission parmi celles présentes dans le menu déroulant."
 
 msgid "submission.submit.submissionFiles"
-msgstr "Fichiers de soumission"
+msgstr "Fichiers de la soumission"
 
 msgid "submission.submit.dependentFiles"
 msgstr "Fichiers reliés"
@@ -1162,7 +1162,7 @@ msgid "submission.upload.userGroupDescription"
 msgstr "S'il s'agit d'un volume édité par plusieurs auteurs-es, vous devriez téléverser tous les chapitres du volume individuellement, en tant qu'éditeur du volume."
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Téléverser un fichier bibliothèque"
+msgstr "Téléverser un fichier dans la bibliothèque"
 
 msgid "submission.upload.libraryCategory"
 msgstr "Catégorie de document"
@@ -1282,7 +1282,7 @@ msgid "editor.submission.decision.decline"
 msgstr "Refuser la soumission"
 
 msgid "editor.submission.decision.sendToProduction"
-msgstr "Envoyer pour publication"
+msgstr "Envoyer pour mise en production"
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Accepter sans évaluation"
@@ -1324,10 +1324,10 @@ msgid "editor.submission.recordedRecommendations"
 msgstr "Enregistrer les recommandations"
 
 msgid "editor.submission.decision.nextButton"
-msgstr "Poursuivre (faire parvenir fichiers pour la {$stageName})"
+msgstr "Poursuivre (faire parvenir les fichiers pour l'étape de {$stageName})"
 
 msgid "editor.submission.decision.selectFiles"
-msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape {$stageName}."
+msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape de {$stageName}."
 
 msgid "editor.submission.decision.previousAuthorNotification"
 msgstr "Précédent  (avis à l'auteur-e)"
@@ -1588,7 +1588,7 @@ msgid "submission.license.cc.by-sa4.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Ce travail est disponible sous licence <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fr\">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International</a>.</p>"
 
 msgid "submission.queries.submission"
-msgstr "Discussions pré-évaluation"
+msgstr "Discussions préévaluation"
 
 msgid "submission.queries.review"
 msgstr "Discussions sur l'évaluation"
@@ -1660,7 +1660,7 @@ msgid "submission.list.viewSubmission"
 msgstr "Voir la soumission"
 
 msgid "submission.list.reviewsCompleted"
-msgstr "Assigner les évaluations complétées"
+msgstr "Évaluations assignées complétées"
 
 msgid "submission.list.revisionsSubmitted"
 msgstr "Révisions soumises"

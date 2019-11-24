@@ -376,7 +376,7 @@
 	<message key="informationCenter.currentHistory">Révision en cours</message>
 	<message key="informationCenter.pastHistory">Révisions antérieures</message>
 	<message key="informationCenter.history.noItems">Aucune activité n'a été enregistrée.</message>
-	<message key="informationCenter.history.notePosted">Nouvelle note publiée.</message>
+	<message key="informationCenter.history.notePosted">Nouvelle note enregistrée.</message>
 	<message key="informationCenter.history.messageSent">Avis envoyé aux utilisateurs-trices.</message>
 	<!-- Stage Participants -->
 	<message key="stageParticipants.history.messageSent">Avis envoyé aux utilisateurs-trices.</message>

@@ -46,6 +46,33 @@ ini_set('include_path', '.'
 	. ENV_SEPARATOR . ini_get('include_path')
 );
 
+if (key_exists('HTTP_ACCEPT', $GLOBALS['_SERVER']) &&
+	$GLOBALS['_SERVER']['HTTP_ACCEPT'] == 'application/json') {
+	register_shutdown_function(function() {
+		$error = error_get_last();
+		if (in_array($error['type'], [E_ERROR, E_COMPILE_ERROR, E_USER_ERROR])) {
+			http_response_code(500);
+			header('content-type: application/json');
+			echo(json_encode([
+				'error' => 'api.500.serverError',
+				'errorMessage' => "The request cannot be completed due to a server error.",
+			]));
+			error_log("ERROR: " . $error['file'] . ": " . $error['line'] . ": " . $error['message']);
+		}
+	});
+
+	set_exception_handler(function ($exception) {
+		http_response_code(500);
+		header('content-type: application/json');
+		echo(json_encode([
+			'error' => 'api.500.serverError',
+			'errorMessage' => "The request cannot be completed due to a server error.",
+		]));
+		error_log("EXCEPTION: " . $exception->getFile() . ": " . $exception->getLine() . ": " . $exception->getMessage());
+		die();
+	});
+}
+
 // System-wide functions
 require('./lib/pkp/includes/functions.inc.php');
 

@@ -41,6 +41,11 @@ function fatalError($reason) {
 		$isErrorCondition = false;
 	}
 
+	if (key_exists('HTTP_ACCEPT', $GLOBALS['_SERVER']) &&
+		$GLOBALS['_SERVER']['HTTP_ACCEPT'] == 'application/json') {
+		throw new Exception("Fatal Error: " . $reason);
+	}
+
 	echo "<h1>" . htmlspecialchars($reason) . "</h1>";
 
 	if ($showStackTrace) {

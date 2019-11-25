@@ -49,6 +49,8 @@ class APIHandler extends PKPHandler {
 				'determineRouteBeforeAppMiddleware' => true,
 			)
 		));
+		unset($this->_app->getContainer()['errorHandler']);
+		unset($this->_app->getContainer()['phpErrorHandler']);
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
 		$this->_app->add(new ApiTokenDecodingMiddleware($this));
 		$this->_app->add(new ApiCsrfMiddleware($this));

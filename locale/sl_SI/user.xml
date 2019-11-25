@@ -35,15 +35,11 @@
 	<message key="user.dateRegistered">Datum registracije</message>
 	<message key="user.editMyProfile">Uredi moj račun</message>
 	<message key="user.email">E-pošta</message>
-	<message key="user.firstName">Ime</message>
-	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.initials">Inicialke</message>
 	<message key="user.interests">Recenzijski interesi</message>
 	<message key="user.interests.description">(Interese ločite med seboj s tipko Enter ali vejicami)</message>
 	<message key="user.gossip">Zasebne opombe</message>
 	<message key="user.gossip.description">Opombe o tem recenzentu, za katere bi radi, da jih vidijo tudi drugi uredniki. Opombe bodo vidne za naslednje recenzijske zadolžitve.</message>
 	<message key="user.group">Vloga uporabnikov</message>
-	<message key="user.lastName">Priimek</message>
 	<message key="user.profile.form.profileImageInvalid">Napačen format slike računa ali pa je prevelika. Dovoljeni formati so .gif, .jpg ali .png. Največja velikost slike je 150x150 točk.</message>
 	<message key="user.login.accountDisabledWithReason">Vaš račun je bil onemogočen zaradi naslednjega vzroka: {$reason}</message>
 	<message key="user.login.accountDisabled">Vaš račun je bil onemogočen. Prosimo obrnite se na administratorja za več informacij.</message>
@@ -71,7 +67,6 @@
 	<message key="user.logOutAs">Odjava kot</message>
 	<message key="user.hello">Pozdravljeni,</message>
 	<message key="user.mailingAddress">Naslov</message>
-	<message key="user.middleName">Srednje ime</message>
 	<message key="user.myAccount">Moj račun</message>
 	<message key="user.name">Ime</message>
 	<message key="user.password">Geslo</message>
@@ -82,8 +77,6 @@
 	<message key="user.profile.form.countryRequired">Država je obvezna.</message>
 	<message key="user.profile.form.emailRequired">Veljaven e-potšni naslov je obvezen.</message>
 	<message key="user.profile.form.affiliationRequired">Organizacija je obvezen.</message>
-	<message key="user.profile.form.firstNameRequired">Ime je obvezno.</message>
-	<message key="user.profile.form.lastNameRequired">Priimek je obvezen.</message>
 	<message key="user.profile.form.mailingAddressRequired">E-poštni naslov je obvezen.</message>
 	<message key="user.profile.form.newPasswordRequired">Vpisati morate novo geslo.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Trenutno geslo, ki ste ga vnesli, je napačno.</message>
@@ -137,11 +130,9 @@
 	<message key="user.role.layoutEditor">Grafični urednik</message>
 	<message key="user.role.layoutEditors">Grafični uredniki</message>
 	<message key="user.roles">Vloge</message>
-	<message key="user.salutation">Naziv</message>
 	<message key="user.sendPassword">Potrditev</message>
 	<message key="user.sendPassword.description">Pošljite mi potrditveno e-pošto z mojim uporabniškim imenom in geslom.</message>
 	<message key="user.signature">Podpis</message>
-	<message key="user.suffix">Pripona</message>
 	<message key="user.title">Naziv</message>
 	<message key="user.url">URL</message>
 	<message key="user.userHome">Dom uporabnika</message>
@@ -163,4 +154,10 @@
 	<message key="user.authorization.invalidReviewAssignment">Nimate pravice dostopati do te recenzije.</message>
 	<message key="user.authorization.submissionQuery">Nimate pravice dostopati do te diskusije.</message>
 	<message key="user.profile.form.privacyConsentRequired">Strinjati se morate z Izjavo o zasebnosti.</message>
+	<message key="user.givenName">Ime</message>
+	<message key="user.familyName">Priimek</message>
+	<message key="user.preferredPublicName">Želeno javno ime</message>
+	<message key="user.preferredPublicName.description">Kako želite biti naslovljeni? Dodate lahko naziv, srednje ime in pripone, ki bi jih želeli.</message>
+	<message key="user.profile.form.givenNameRequired">Ime je obvezno</message>
+	<message key="user.profile.form.givenNameRequired.locale">Dodali ste priimek v jeziku za katerega niste podali imena. Prosimo dodajte še ime za ta jezik.</message>
 </locale>

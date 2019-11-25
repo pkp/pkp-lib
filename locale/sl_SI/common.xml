@@ -146,7 +146,7 @@
 	<message key="common.fullscreenOff">Ugasni celozaslonsko</message>
 	<message key="common.false">Napačno</message>
 	<message key="common.file">Datoteka</message>
-	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
+	<message key="common.file.namingPattern">{$username}, {$originalFilename}</message>
 	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileName">Ime datoteke</message>
 	<message key="common.fileSize">Dolžina datoteke</message>
@@ -559,4 +559,11 @@
 	<message key="common.clearSearch">Odstrani iskalni pogoj</message>
 	<message key="common.publicAccess">Javni dostop</message>
 	<message key="notification.type.reviewAssignmentUpdated">Recenzijska zadolžitev je bila posodobljena.</message>
+	<message key="common.dateDecided">Datum odločitve</message>
+	<message key="common.commaListSeparator">,</message>
+	<message key="common.semicolonListSeparator">;</message>
+	<message key="common.pagination.goToPage">Pojdi na {$page}</message>
+	<message key="common.pagination.next">Naslednja stran</message>
+	<message key="common.pagination.previous">Predhodna stran</message>
+	<message key="email.compose.error">Prišlo je do težave pri pošiljanju emaila. Poskusite ponovno kasneje ali kontaktirajte administratorja.</message>
 </locale>

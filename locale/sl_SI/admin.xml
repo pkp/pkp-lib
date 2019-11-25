@@ -127,4 +127,5 @@ Uporaba (obdelva vseh datotek znotraj mape): {$scriptName} pot/do/apache/directo
 	<message key="admin.error.utilExecutionProblem">Izvajanje programa "{$utilPath}" je vrnilo naslednjo napako: {$output}</message>
 	<message key="admin.error.executingUtil">Napaka: "{$utilPath}" ni možno zagnati. Preverite {$utilVar} nastavitve v config.inc.php.</message>
 	<message key="admin.languages.noLocalesToDownload">Na voljo ni nobneih jezikovnih paketov za prenos.</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">Ste prepričani, da želite spremeniti primarni jezik revije? Uporabniška imena (ki so obvezna v primarnem jeziku), ki niso podana v novem jeziku, bodo skopirana iz obstoječega jezika.</message>
 </locale>

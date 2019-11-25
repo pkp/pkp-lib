@@ -274,4 +274,5 @@
 	<message key="grid.navigationMenus.navigationMenu.selectType">Izberite tip...</message>
 	
 	<message key="grid.action.uninstall">Odstrani</message>
+	<message key="grid.action.users">Poglej/izberi uporabnike</message>
 </locale>

@@ -112,7 +112,6 @@ class EmailLogDAO extends DAO {
 		$entry->setAssocId($row['assoc_id']);
 		$entry->setSenderId($row['sender_id']);
 		$entry->setDateSent($this->datetimeFromDB($row['date_sent']));
-		$entry->setIPAddress($row['ip_address']);
 		$entry->setEventType($row['event_type']);
 		$entry->setFrom($row['from_address']);
 		$entry->setRecipients($row['recipients']);
@@ -133,13 +132,12 @@ class EmailLogDAO extends DAO {
 	function insertObject(&$entry) {
 		$this->update(
 			sprintf('INSERT INTO email_log
-				(sender_id, date_sent, ip_address, event_type, assoc_type, assoc_id, from_address, recipients, cc_recipients, bcc_recipients, subject, body)
+				(sender_id, date_sent, event_type, assoc_type, assoc_id, from_address, recipients, cc_recipients, bcc_recipients, subject, body)
 				VALUES
-				(?, %s, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				(?, %s, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($entry->getDateSent())),
 			array(
 				$entry->getSenderId(),
-				$entry->getIPAddress(),
 				$entry->getEventType(),
 				$entry->getAssocType(),
 				$entry->getAssocId(),

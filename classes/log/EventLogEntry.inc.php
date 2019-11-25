@@ -57,22 +57,6 @@ class EventLogEntry extends DataObject {
 	}
 
 	/**
-	 * Get IP address of user that initiated the event.
-	 * @return string
-	 */
-	function getIPAddress() {
-		return $this->getData('ipAddress');
-	}
-
-	/**
-	 * Set IP address of user that initiated the event.
-	 * @param $ipAddress string
-	 */
-	function setIPAddress($ipAddress) {
-		$this->setData('ipAddress', $ipAddress);
-	}
-
-	/**
 	 * Get event type.
 	 * @return int
 	 */

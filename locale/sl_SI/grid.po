@@ -661,3 +661,6 @@ msgstr "Izberite tip..."
 
 msgid "grid.action.uninstall"
 msgstr "Odstrani"
+
+msgid "grid.action.users"
+msgstr "Poglej/izberi uporabnike"

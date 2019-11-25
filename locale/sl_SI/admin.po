@@ -315,3 +315,6 @@ msgstr "Napaka: \"{$utilPath}\" ni možno zagnati. Preverite {$utilVar} nastavit
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Na voljo ni nobneih jezikovnih paketov za prenos."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Ste prepričani, da želite spremeniti primarni jezik revije? Uporabniška imena (ki so obvezna v primarnem jeziku), ki niso podana v novem jeziku, bodo skopirana iz obstoječega jezika."

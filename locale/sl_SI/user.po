@@ -80,15 +80,6 @@ msgstr "Uredi moj račun"
 msgid "user.email"
 msgstr "E-pošta"
 
-msgid "user.firstName"
-msgstr "Ime"
-
-msgid "user.initialsExample"
-msgstr "Joan Alice Smith = JAS"
-
-msgid "user.initials"
-msgstr "Inicialke"
-
 msgid "user.interests"
 msgstr "Recenzijski interesi"
 
@@ -103,9 +94,6 @@ msgstr "Opombe o tem recenzentu, za katere bi radi, da jih vidijo tudi drugi ure
 
 msgid "user.group"
 msgstr "Vloga uporabnikov"
-
-msgid "user.lastName"
-msgstr "Priimek"
 
 msgid "user.profile.form.profileImageInvalid"
 msgstr "Napačen format slike računa ali pa je prevelika. Dovoljeni formati so .gif, .jpg ali .png. Največja velikost slike je 150x150 točk."
@@ -188,9 +176,6 @@ msgstr "Pozdravljeni,"
 msgid "user.mailingAddress"
 msgstr "Naslov"
 
-msgid "user.middleName"
-msgstr "Srednje ime"
-
 msgid "user.myAccount"
 msgstr "Moj račun"
 
@@ -220,12 +205,6 @@ msgstr "Veljaven e-potšni naslov je obvezen."
 
 msgid "user.profile.form.affiliationRequired"
 msgstr "Organizacija je obvezen."
-
-msgid "user.profile.form.firstNameRequired"
-msgstr "Ime je obvezno."
-
-msgid "user.profile.form.lastNameRequired"
-msgstr "Priimek je obvezen."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "E-poštni naslov je obvezen."
@@ -380,9 +359,6 @@ msgstr "Grafični uredniki"
 msgid "user.roles"
 msgstr "Vloge"
 
-msgid "user.salutation"
-msgstr "Naziv"
-
 msgid "user.sendPassword"
 msgstr "Potrditev"
 
@@ -391,9 +367,6 @@ msgstr "Pošljite mi potrditveno e-pošto z mojim uporabniškim imenom in geslom
 
 msgid "user.signature"
 msgstr "Podpis"
-
-msgid "user.suffix"
-msgstr "Pripona"
 
 msgid "user.title"
 msgstr "Naziv"
@@ -454,3 +427,21 @@ msgstr "Nimate pravice dostopati do te diskusije."
 
 msgid "user.profile.form.privacyConsentRequired"
 msgstr "Strinjati se morate z Izjavo o zasebnosti."
+
+msgid "user.givenName"
+msgstr "Ime"
+
+msgid "user.familyName"
+msgstr "Priimek"
+
+msgid "user.preferredPublicName"
+msgstr "Želeno javno ime"
+
+msgid "user.preferredPublicName.description"
+msgstr "Kako želite biti naslovljeni? Dodate lahko naziv, srednje ime in pripone, ki bi jih želeli."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Ime je obvezno"
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Dodali ste priimek v jeziku za katerega niste podali imena. Prosimo dodajte še ime za ta jezik."

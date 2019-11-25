@@ -1712,8 +1712,21 @@ msgstr "Kategorije"
 msgid "submission.currentCoverImage"
 msgstr "Trenutna slika"
 
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} Naslovi"
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
 
-msgid "catalog.noTitlesSection"
-msgstr "Zaenkrat še ni objavljenih naslovov v tem razdelku."
+msgid "log.review.reviewUnconsidered"
+msgstr "{$editorName} je označil recenzijski krog {$round} za prispevek {$submissionId} za ne-upoštevajočega."
+
+msgid "submission.list.assignEditor"
+msgstr "Dodeljen urednik"
+
+msgid "category.coverImage"
+msgstr "Naslovnica"
+
+msgid "catalog.category.noItems"
+msgstr "V tej kategorij ni bilo še ničesar objavljeno."
+
+msgid "catalog.category.subcategories"
+msgstr "Podkategorije"
+

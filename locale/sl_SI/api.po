@@ -34,3 +34,12 @@ msgstr "Zahtevan zvezek, številka ali leto je neveljaveno."
 
 msgid "api.submissions.unknownError"
 msgstr "Prišlo je do nepričakovane napake. Ponovno naložite spletno stran in poskusite ponovno."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Zahteva je neveljavna. Datum mora biti v formatu YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Zahteva je neveljavna. Začetni datum dateStart ne more biti kasnejši od končnega dateEnd."
+
+msgid "api.stats.400.wrongTimeSegmentDaily"
+msgstr "Zahteva je neveljavna. Dnevni segment (timeSegment 'daily') je lahko uporabljen samo, če je časovni razpon manjši od 90 dni (dateStart - dateEnd)."

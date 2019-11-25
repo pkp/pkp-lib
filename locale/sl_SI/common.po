@@ -382,7 +382,7 @@ msgid "common.file"
 msgstr "Datoteka"
 
 msgid "common.file.namingPattern"
-msgstr "{$username}, {$userGroup}, {$originalFilename}"
+msgstr "{$username}, {$originalFilename}"
 
 msgid "common.file.anonymousNamingPattern"
 msgstr "{$genre}, {$originalFilename}"
@@ -1542,3 +1542,24 @@ msgstr "Javni dostop"
 
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Recenzijska zadolžitev je bila posodobljena."
+
+msgid "common.dateDecided"
+msgstr "Datum odločitve"
+
+msgid "common.commaListSeparator"
+msgstr ","
+
+msgid "common.semicolonListSeparator"
+msgstr ";"
+
+msgid "common.pagination.goToPage"
+msgstr "Pojdi na {$page}"
+
+msgid "common.pagination.next"
+msgstr "Naslednja stran"
+
+msgid "common.pagination.previous"
+msgstr "Predhodna stran"
+
+msgid "email.compose.error"
+msgstr "Prišlo je do težave pri pošiljanju emaila. Poskusite ponovno kasneje ali kontaktirajte administratorja."

@@ -598,13 +598,6 @@ msgstr "Priporočila za avtorje"
 msgid "manager.setup.authorGuidelines.description"
 msgstr "Priporočila za avtorje naj vsebujejo navodila za pravilno podajanje bibliografskih podatkov in oblikovanje besedila ter pravilen format referenc, priporočljivo je navesti tudi primere le-teh."
 
-msgid "manager.setup.citationFilterLookupDescription"
-msgstr ""
-"<p>Omogočiti in nastaviti morate povezave do zunanjih baz citatov. To pomaga pri preprečevati napačna citiranja avtorja in doda dodatne informacije (npr. DOIs or PubMed IDs) obvezne za elektronsko objavljanje.</p>\n"
-"\t<p>Na voljo je nekaj vmesnikov do zunanjih podatkovnih baz po katerih lahko iščete citate. Nekatere od teh baz zahtevajo registracijo ali vpis konfiguracijskih podatkov. Na spletnih straneh teh podatkovnih baz poiščite navodila, kako se registrirati. Dodate lahko povezavo do ene ali več podatkovnih baz s klikom na gumb \"Dodaj postavko\" spodaj.</p>\n"
-"\t<p>Obstoječe povezave do baz lahko spremenite ali izbrišete s klikom na ikono zobnika poleg povezave..</p>\n"
-"\t<p><strong>Opozorilo:</strong> Da zagotovite končanje postopka preverjanja v razumljivem času, je potrebno nastaviti direktivo <tt>citation_checking_max_processes</tt> v konfiguracijski datoteki na primerno vrednost. Preverite v \"General Settings\" poglavju v <tt>config.inc.php</tt> za več informacij.</p>"
-
 msgid "manager.setup.competingInterests"
 msgstr "Nasprotujoči interesi"
 
@@ -613,14 +606,6 @@ msgstr "Med brisanjem je prišlo do napake."
 
 msgid "manager.setup.favicon"
 msgstr "Napačen format favikona. Dovoljeni formati so .ico, .png in .gif."
-
-msgid "manager.setup.filter.lookup.grid.description.worldCat"
-msgstr ""
-"<p>Ta filter se povezuje na OCLC servise <a href=\"http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp\" target=\"_blank\">xISBN</a> in <a href=\"http://www.worldcat.org/\" target=\"_blank\">Worldcat</a> (opcijsko).</p>\n"
-"\t<p>Če imatete Worldcat <a href=\"http://oclc.org/developer/develop/web-services.html\" target=\"_blank\">API ključ</a> se z Worldcat-om lahko povežete z vpisom API ključa spodaj.</p>"
-
-msgid "manager.setup.filter.parser.grid.description.freeCite"
-msgstr "<p>Ta filter se povezuje s <a href=\"http://freecite.library.brown.edu/\" target=\"_blank\">FreeCite</a> web servisi.</p>"
 
 msgid "manager.setup.groupType"
 msgstr "Grupiranje po tipu datoteke"
@@ -1527,3 +1512,102 @@ msgstr "Vnesite ime kategorije."
 
 msgid "grid.category.categoryDetails"
 msgstr "Podrobnosti kategorije"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr "Avtor {$authorName} nima podanega imena v jeziku prispevka,  {$localeName}. Prispevek ne more biti uvožen brez te informacije."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Uvozno/izvozne napake:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "Uporabnik \"{$username}\" nima gesla. Preverite uvozno XML datoteko. Uporabnik ni bil uvožen."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "Geslo uporabnika \"{$username}\" ni bilo mogoče uvoziti. Uporabniku je bil poslan email z novim geslom. Uporabnik je bil uvožen."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "Uporabnik \"{$username}\" ima geslo, ki ni v veljavni obliki (je 'plain password'). Uporabnik ni bil uvožen."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr "Uporabniško ime \"{$username}\" in email \"{$email}\" ne sovpadata z enim in istim uporabnikom."
+
+msgid "stats.articlesOfTotal"
+msgstr "{$count} od {$total} člankov"
+
+msgid "stats.daily"
+msgstr "Dnevno"
+
+msgid "stats.dateRange"
+msgstr "Datumsko območje"
+
+msgid "stats.dateRange.allDates"
+msgstr "Vsi datumi"
+
+msgid "stats.dateRange.apply"
+msgstr "Potrdi"
+
+msgid "stats.dateRange.change"
+msgstr "Spremeni območje"
+
+msgid "stats.dateRange.customRange"
+msgstr "Poljubno območje"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Eden od podanih datumov ne obstaja."
+
+msgid "stats.dateRange.from"
+msgstr "Od"
+
+msgid "stats.dateRange.instruction"
+msgstr "Vsi datumi morajo biti oblike YYYY-MM-DD. Če želite izbrati 15. januar 2019, potem vpišite 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Oblika datuma je napačna. Vsi datumi morajo biti oblike YYYY-MM-DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Začetni datum mora biti pred končnim."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Končni datum ne sme biti kasnejši od {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Začetni datum ne sme biti pred {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Zadnjih 12 mesecev"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Zadnjih 30 dni"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Zadnjih 90 dni"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Od {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Do"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Do {$date}"
+
+msgid "stats.fileViews"
+msgstr "Ogledi datotek"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Mesečno"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Išči po naslovu, avtorju in IDju"
+
+msgid "stats.total"
+msgstr "Skupaj"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Opis"

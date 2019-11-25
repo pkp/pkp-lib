@@ -399,10 +399,16 @@ msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Odkleni"
 
 msgid "reviewer.list.reviewInterests"
-msgstr "Recenzijski interesi"
+msgstr "Recenzentski interesi"
 
 msgid "reviewer.list.biography"
-msgstr "Biogrfija"
+msgstr "Biografija"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Prošnja za recenzijo je zavrnjena"
+
+msgid "editor.review.requestDeclined"
+msgstr "Zahteva zavrnjena"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzent je zavrnil zahtevo za to recenzijo."

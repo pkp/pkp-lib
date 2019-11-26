@@ -17,4 +17,7 @@
 	<message key="plugins.generic.acron.reload">Ricarica i compiti programmati</message>
 	<message key="plugins.generic.acron.enabled">Il plugin Acron è stato abilitato.</message>
 	<message key="plugins.generic.acron.disabled">Il plugin Acron è stato disabilitato.</message>
+	<message key="plugins.generic.acron.description">Questo plugin cerca di ridurre la dipendenza dell'applicazione da strumenti per la programmazione di compiti come 'cron'.</message>
+	<message key="plugins.generic.acron.reloadedCronTab">Compito programmato ricaricato con successo</message>
+	<message key="plugins.generic.acron.tasksReloaded">I compiti programmati sono stati ricaricati</message>
 </locale>

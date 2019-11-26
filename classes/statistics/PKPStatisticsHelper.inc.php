@@ -264,11 +264,11 @@ abstract class PKPStatisticsHelper {
 		$args = array(
 			'metricType' => $metricType,
 			'columns' => $columns,
-			'filters' => serialize($filter)
+			'filters' => json_encode($filter)
 		);
 
 		if (!empty($orderBy)) {
-			$args['orderBy'] = serialize($orderBy);
+			$args['orderBy'] = json_encode($orderBy);
 		}
 
 		return $dispatcher->url($request, ROUTE_PAGE, null, 'management', 'tools', 'generateReport', $args);

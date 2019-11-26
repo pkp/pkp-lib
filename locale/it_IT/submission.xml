@@ -71,6 +71,7 @@
 	<message key="submission.history.submissionEventLog">Registro degli eventi</message>
 	<message key="submission.history.submissionNotes">Note alla proposta</message>
 	<message key="submission.history.viewLog">Vedi il Registro</message>
+	<message key="submission.indexing">Indicizzazione</message>
 	<message key="submission.initiated">Iniziato</message>
 	<message key="submission.lastModified">Ultima modifica</message>
 	<message key="submission.layout.addGalley">Aggiungi una gabbia</message>
@@ -279,8 +280,6 @@
 	<message key="submission.form.replaceExisting">Sostituire un file esistente?</message>
 	<message key="submission.addFile">Carica file</message>
 	<message key="log.review.reviewerAssigned">A {$reviewerName} è stato assegnato il compito di revisionare la proposta {$submissionId} per il {$round} ciclo di revisione.</message>
-	<message key="log.review.reviewCleared">Il ciclo di review nr. {$round} assegnato a {$reviewerName} per la proposta {$submissionId} è stato portato a termine.</message>
-	<message key="log.review.reviewReinstated">Il {$round} ciclo di revisione, assegnato a {$reviewerName} per la proposta {$submissionId} è riniziato.</message>
 
 	<message key="submission.reviewForm">Modulo di revisione</message>
 	<message key="submission.reviewFormResponse">Risposta del modulo di revisione</message>
@@ -533,6 +532,8 @@
 	<message key="submission.query.new.contents">Sei stato aggiunto alla discussione intitolata "{$queryTitle}" riguardo la proposta "{$submissionTitle}".</message>
 	<message key="submission.query.noParticipantOptions">Devi assegnare almeno un partecipante a questa proposta prima di inziare una discussione.</message>
 	<message key="submission.list.infoCenter">Log attività e note</message>
+	<message key="submission.list.count">{$count} proposte</message>
+	<message key="submission.list.itemsOfTotal">{$count} su un totale di {$total} proposte</message>
 	<message key="submission.list.responseDue">Termine per la risposta</message>
 	<message key="submission.list.reviewDue">Termine per la revisione</message>
 	<message key="submission.list.confirmDelete">Cancelli la proposta ?</message>
@@ -575,4 +576,15 @@
 	<message key="submission.submit.form.citationsRequired">Per favore inserisci le citazioni.</message>
 	<message key="log.review.reviewUnconsidered">{$editorName} ha segnalato il {$round} ciclio di revisione per la proposta {$submissionId} come da non considerare.</message>
 	<message key="submission.list.assignEditor">Assegna editor</message>
+	<message key="grid.category.categories">Categorie</message>
+	<message key="catalog.sortBy.titleAsc">Titolo (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Titolo (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Data di pubblicazione (dalla meno recente)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Data di pubblicazione (dalla più recente)</message>
+	<message key="category.coverImage">Immagine di copertina</message>
+	<message key="submission.submit.placement.categories">Categorie</message>
+	<message key="submission.currentCoverImage">Immagine corrente</message>
+	<message key="catalog.category.noItems">In questa categoria non è ancora stato pubblicato niente.</message>
+	<message key="catalog.category.subcategories">Sottocategorie</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
 </locale>

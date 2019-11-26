@@ -32,7 +32,6 @@ class SubmissionFileLog extends SubmissionLog {
 
 		// Set implicit parts of the log entry
 		$entry->setDateLogged(Core::getCurrentDate());
-		$entry->setIPAddress($request->getRemoteAddr());
 
 		$user = $request->getUser();
 		if ($user) $entry->setUserId($user->getId());

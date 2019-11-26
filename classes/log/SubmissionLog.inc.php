@@ -38,7 +38,6 @@ class SubmissionLog {
 
 		// Set implicit parts of the log entry
 		$entry->setDateLogged(Core::getCurrentDate());
-		$entry->setIPAddress($request->getRemoteAddr());
 
 		if (Validation::isLoggedInAs()) {
 			// If user is logged in as another user log with real userid

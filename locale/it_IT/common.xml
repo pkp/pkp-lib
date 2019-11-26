@@ -275,7 +275,7 @@
 	<message key="notification.allow">Attiva questo tipo di avvisi.</message>
 	<message key="notification.confirmError">Errore nella conferma.</message>
 	<message key="notification.confirmSuccess">Sei stato iscritto con successo.</message>
-	<message key="notification.email">Notificami questo tipo di evento per email</message>
+	<message key="notification.email">Non notificarmi questo tipo di evento per email</message>
 	<message key="notification.notification">Notifica</message>
 	<message key="notification.notifications">Notifiche</message>
 	<message key="notification.settings">Impostazioni delle notifiche</message>

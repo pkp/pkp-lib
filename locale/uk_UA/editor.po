@@ -395,20 +395,38 @@ msgstr "Наукові інтереси рецензента"
 msgid "reviewer.list.biography"
 msgstr "Біографія"
 
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Рецензент відхилив цей запит на перегляд."
+
+msgid "editor.review.cancelReviewer"
+msgstr "Відмінити рецензента"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Відновити рецензента"
+
 msgid "editor.review.anonymousReviewer"
 msgstr "Анонімний рецензент"
 
 msgid "editor.review.requestDeclined"
 msgstr "Запит відхилено"
 
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "Рецензент відхилив цей запит на перегляд."
+msgid "editor.review.requestCancelled"
+msgstr "Запит відмінено"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Редактор відмінив цей запит на рецензування."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Трапилась помилка у відновленні рецензента. Будь ласка, спробуйте знову."
 
 msgid "reviewer.list.declinedReviews"
-msgstr "Запити на перегляд відхилено"
+msgstr "Запити на рецензування відхилено"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Запити на рецензування відмінено"
 
 msgid "reviewer.list.warnOnAssign"
-msgstr "Цей рецензент заблокований, оскільки йому призначено роль, яка дозволяє переглядати ідентифікацію автора. Сліпа експертна оцінка не може бути гарантована. Хочете розблокувати цього рецензента?"
+msgstr "Цей рецензент заблокований через те, що вона/він має роль, яка дозволяє переглядати особисті дані автора. Сліпе рецензування не може бути гарантованим. Чи бажаєте Ви в будь-якому випадку розблокувати цього рецензента?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Розблокувати"

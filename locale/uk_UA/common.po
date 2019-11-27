@@ -207,7 +207,7 @@ msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t<br /><br />\n"
-"\t<target=\"_blank\"a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
 "\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t</a>\n"
 "\t<br />\n"
@@ -409,7 +409,7 @@ msgid "common.filterRemove"
 msgstr "Скасувати фільтр: {$filterTitle}"
 
 msgid "common.from"
-msgstr "Від"
+msgstr "З"
 
 msgid "common.until"
 msgstr "До"
@@ -500,6 +500,9 @@ msgstr "Немає"
 
 msgid "common.no"
 msgstr "Ні"
+
+msgid "common.noItemsFound"
+msgstr "Нічого не знайдено."
 
 msgid "common.noComments"
 msgstr "Немає коментарів"
@@ -720,6 +723,9 @@ msgstr "Заголовок"
 msgid "common.top"
 msgstr "До початку"
 
+msgid "common.toWithValue"
+msgstr "До: {$value}"
+
 msgid "common.true"
 msgstr "Істина"
 
@@ -764,6 +770,12 @@ msgstr "Нагору"
 
 msgid "common.upload.addFile"
 msgstr "Завантажити файл"
+
+msgid "common.upload.restore"
+msgstr "Відновити попереднє"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Попередній перегляд обраного зображення."
 
 msgid "common.upload.changeFile"
 msgstr "Змінити файл"
@@ -939,6 +951,63 @@ msgstr "Необхідно ввести email"
 msgid "form.dataHasChanged"
 msgstr "Дані цієї форми були змінені.Бажаєте продовжити без збереження?"
 
+msgid "form.disallowedLocales"
+msgstr "Тільки наступні мови дозволені: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Ця властивість не дозволена."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Перетягніть файли сюди для завантаження"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Ваш бразуер не підтримує drag'n'drop для завантаження файлів."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Будь ласка, використовуйте форму нижче для завантаження ваших файлів."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr "Файл занадато великий ({{filesize}}МБ). Файли більші, ніж {{maxFilesize}}МБ не можуть бути завантаженими."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Файли цього типу не можуть бути завантаженими."
+
+msgid "form.dropzone.dictResponseError"
+msgstr "Сервер відповів із кодом {{statusCode}}. Будь ласка, зконтактуйте із системним адміністратором, якщо ця проблема продовжується."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Вімінити завантаження"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Завантаження відмінено"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Ви впевнені, що хочете відмінити це завантаження?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Видалити файл"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Ви більше не можете завантажувати файли."
+
+msgid "form.errorA11y"
+msgstr "Перейдіть до {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Перейти до наступної помилки"
+
+msgid "form.errorOne"
+msgstr "Будь ласка, виправіть помилку."
+
+msgid "form.errorMany"
+msgstr "Будь ласка, виправте {$count} помил(ки/ок)."
+
+msgid "form.errors"
+msgstr "Форма не збереглася через {$count} помилк(у/и). Будь ласка, виправте її/їх та спробуйте знову."
+
+msgid "form.errorUnknown"
+msgstr "Виникла неочікувана помилка. Ви могли вийти із свого акаунта. Будь ласка, перезавантажте сторінку та спробуйте ща раз."
+
 msgid "form.errorsOccurred"
 msgstr "Під час обробки цієї форми виникли помилки"
 
@@ -953,6 +1022,9 @@ msgstr "містить"
 
 msgid "form.is"
 msgstr "дорівнює"
+
+msgid "form.missingRequired"
+msgstr "Це поле необхідно заповнити."
 
 msgid "form.startsWith"
 msgstr "починається з"
@@ -969,6 +1041,12 @@ msgstr "Необхідно завантажити файл."
 msgid "form.required"
 msgstr "(* обов'язкове)"
 
+msgid "form.requirePrimaryLocale"
+msgstr "Ви повинні заповнити це поле {$language}."
+
+msgid "form.requireId"
+msgstr "Ви повинні надати валідний ID."
+
 msgid "form.resubmit"
 msgstr "Відправити знову"
 
@@ -983,6 +1061,12 @@ msgstr "Відправити"
 
 msgid "form.invalidImage"
 msgstr "Неправильне зображення. Допустимими форматами є: .png, .gif, або .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} в {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} мов завершено"
 
 msgid "help.help"
 msgstr "Допомога"
@@ -1095,6 +1179,18 @@ msgstr "Назначення привілеїв"
 msgid "stageParticipants.recommendOnly"
 msgstr "Цей учасник має право лише рекомендувати редакційне рішення і необхідно бути авторизованим редактором,щоб записувати редакційні рішення."
 
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Дозвіл на редагування метаданих подання."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Дозволити зміну метаданих для цього користувача"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Учасник"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Для цього користувача не дозволено робити змін"
+
 msgid "locale.primary"
 msgstr "Основна локалізація"
 
@@ -1190,6 +1286,9 @@ msgstr "Встановлення"
 
 msgid "navigation.sitemap"
 msgstr "Мапа сайту"
+
+msgid "navigation.skip.announcements"
+msgstr "Перейти до оголошень"
 
 msgid "navigation.skip.main"
 msgstr "Перейти до головного"
@@ -1579,8 +1678,204 @@ msgstr "Підтвердьте"
 msgid "common.dateDecided"
 msgstr "Дата вирішена"
 
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Переглянути призначення оновлено."
-
 msgid "email.compose.error"
 msgstr "Під час надсилання повідомлення електронної пошти виникла проблема. Повторіть спробу пізніше або зверніться до системного адміністратора."
+
+msgid "notification.cancelledReviewer"
+msgstr "Рецензента відмінено."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензування розпочато заново."
+
+msgid "notification.editStageParticipant"
+msgstr "Етап призначення було змінено."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Призначення для рецензування було оновлено."
+
+msgid "validator.accepted"
+msgstr "Будь ласка, прийміть цей пункт."
+
+msgid "validator.active_url"
+msgstr "Ця URL адреса не валідна."
+
+msgid "validator.after"
+msgstr "Це повинна бути дата після {$date}."
+
+msgid "validator.alpha"
+msgstr "Це може містити тільки букви."
+
+msgid "validator.alpha_dash"
+msgstr "Це може містити тільки букви, числа, дефіс, тире та нижнє підкреслення."
+
+msgid "validator.alpha_num"
+msgstr "Це може містити тільки букви та числа."
+
+msgid "validator.array"
+msgstr "Це не є валідним масивом."
+
+msgid "validator.before"
+msgstr "Ця дата має бути до {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Це має бути між {$min} та {$max}."
+
+msgid "validator.between.file"
+msgstr "Це має бути між {$min} та {$max} кілобайтами."
+
+msgid "validator.between.string"
+msgstr "Це має бути між {$min} та {$max} знаками."
+
+msgid "validator.between.array"
+msgstr "Це має бути між {$min} та {$max} пунктами."
+
+msgid "validator.boolean"
+msgstr "Це поле повинно бути так або ні."
+
+msgid "validator.confirmed"
+msgstr "Підтвердження для цього поля не співпадає."
+
+msgid "validator.currency"
+msgstr "Це не є валідною валютою."
+
+msgid "validator.date"
+msgstr "Ця дата не валідна."
+
+msgid "validator.date_format"
+msgstr "Це не співпадає із форматом {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} та {$other} повинні бути різними."
+
+msgid "validator.digits"
+msgstr "Це має містити {$digits} цифр."
+
+msgid "validator.digits_between"
+msgstr "Це має бути між {$min} та {$max} цифрами."
+
+msgid "validator.email"
+msgstr "Ця email адреса не валідна."
+
+msgid "validator.exists"
+msgstr "Обраний {$attribute} не є валідним."
+
+msgid "validator.filled"
+msgstr "Це поле повинно бути заповненим."
+
+msgid "validator.image"
+msgstr "Це повинно бути зображенням."
+
+msgid "validator.in"
+msgstr "Обраний {$attribute} не є валідним."
+
+msgid "validator.integer"
+msgstr "Це не є валідним числом."
+
+msgid "validator.ip"
+msgstr "Це не є валідною IP адресою."
+
+msgid "validator.issn"
+msgstr "Це не є валідним ISSN."
+
+msgid "validator.json"
+msgstr "Ця не є валідною JSON строкою."
+
+msgid "validator.locale"
+msgstr "Ця мова не може бути прийнятою."
+
+msgid "validator.localeExpected"
+msgstr "Це поле є багатомовним. Окремі значення мають бути наданими для кожної мови, яка підтримується."
+
+msgid "validator.localeKey"
+msgstr "Мови мають бути зазначені за допомогою мовних кодів. Приклади: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Це не повинно бути більшим, ніж {$max}."
+
+msgid "validator.max.file"
+msgstr "Це не повинно бути більшим, ніж {$max} кілобайт."
+
+msgid "validator.max.string"
+msgstr "Це не повинно бути більшим, ніж {$max} знаків."
+
+msgid "validator.max.array"
+msgstr "Це не повинно бути більшим, ніж {$max} пунктів."
+
+msgid "validator.mimes"
+msgstr "Це має бути файл типу {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Це має бути щонайменше {$min}."
+
+msgid "validator.min.file"
+msgstr "Це має бути щонайменше {$min} кілобайт."
+
+msgid "validator.min.string"
+msgstr "Це має бути щонайменше {$min} знаків."
+
+msgid "validator.min.array"
+msgstr "Це має бути щонайменше {$min} пунктів."
+
+msgid "validator.not_in"
+msgstr "Обраний {$attribute} не є валідним."
+
+msgid "validator.numeric"
+msgstr "Це число не є валідним."
+
+msgid "validator.orcid"
+msgstr "Це не є валідним ORCID."
+
+msgid "validator.present"
+msgstr "{$attribute} поле має бути присутнім."
+
+msgid "validator.regex"
+msgstr "Це не представлено у правильному форматі."
+
+msgid "validator.required"
+msgstr "Це поле необхідно заповнити."
+
+msgid "validator.required_if"
+msgstr "Це поле необхідно заповнити, коли {$other} складає {$value}."
+
+msgid "validator.required_unless"
+msgstr "Це поле необхідно заповнити тільки якщо {$other} у значеннях {$values}."
+
+msgid "validator.required_with"
+msgstr "Це поле необхідно заповнити, коли {$values} є присутніми."
+
+msgid "validator.required_with_all"
+msgstr "Це поле необхідно заповнити, коли {$values} є присутніми."
+
+msgid "validator.required_without"
+msgstr "Це поле необхідно заповнити, коли {$values} не є присутніми."
+
+msgid "validator.required_without_all"
+msgstr "Це поле необхідно заповнити, коли жоден із {$values} є присутнім."
+
+msgid "validator.same"
+msgstr "{$attribute} та {$other} мають співпадати."
+
+msgid "validator.size.numeric"
+msgstr "Це має бути {$size}."
+
+msgid "validator.size.file"
+msgstr "Це має бути {$size} кілобайтів."
+
+msgid "validator.size.string"
+msgstr "Це має бути {$size} знаків."
+
+msgid "validator.size.array"
+msgstr "Це має містити {$size} пункти."
+
+msgid "validator.string"
+msgstr "Це не є валідною строкою."
+
+msgid "validator.timezone"
+msgstr "Це не є валідним часовим поясом."
+
+msgid "validator.unique"
+msgstr "{$attribute} уже є обраним."
+
+msgid "validator.url"
+msgstr "Це не є валідною URL адресою."
+

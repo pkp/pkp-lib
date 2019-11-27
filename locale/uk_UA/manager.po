@@ -718,9 +718,6 @@ msgstr "Надсилати нагадування, якщо рецензент �
 msgid "manager.setup.reviewOptions.remindForSubmit"
 msgstr "Надсилати нагадування, якщо рецензент не подав рекомендацію протягом наступного часу (днів) після закінчення терміну розгляду:"
 
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Усталений термін рецензування"
-
 msgid "manager.setup.reviewOptions.showBlindReviewLink"
 msgstr "Додати посилання \"Забезпечення сліпого рецензування\" під час завантаження"
 
@@ -911,7 +908,7 @@ msgid "manager.plugins.pluginGallery.status"
 msgstr "Статус"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr "Модудль ще не встановлений."
+msgstr "Модуль ще не встановлений."
 
 msgid "manager.plugins.noCompatibleVersion"
 msgstr "Наразі не існує сумісної версії цього модуля."
@@ -950,7 +947,7 @@ msgid "manager.plugins.wrongCategory"
 msgstr "Завантажений модуль не відповідає категорії оновлюваного модуля."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Plugin does not exist.  Please Install instead"
+msgstr "Модуль не існує. Будь ласка, встановіть його"
 
 msgid "manager.plugins.wrongName"
 msgstr "version.xml у завантаженому модулі містить назву модуля, яка не відповідає назві оновлюваного модуля."
@@ -1304,7 +1301,7 @@ msgid "manager.setup.licenseURLDescription"
 msgstr "URL-адреса веб-сторінки, що описує ліцензію, якщо така є."
 
 msgid "manager.setup.metadata.submission"
-msgstr "Форма подання матеріалів"
+msgstr "Форма подання"
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Помилки перевірки:"
@@ -1626,3 +1623,282 @@ msgstr "Пошук за назвою, автором та ідентифікат
 
 msgid "stats.total"
 msgstr "Усього"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Налаштування електронних листів оновлено."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Настанови для рецензента"
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Настанови для рецензента оновлено."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Налаштування рецензування оновлено."
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Деталі нагадування для рецензентів оновлено."
+
+msgid "manager.emails.addEmail.success"
+msgstr "Шаблон для електронних листів оновлено."
+
+msgid "manager.emails.customTemplate"
+msgstr "Власний шаблон"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Шаблон для електронних листів був оновлений."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Ключ для електронних листів може включати лише букви, числа та нижні підкреслення."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Ви повинні зазначити ID при додаванні шаблона для email."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Ключ, який зазначено, вже у використанні."
+
+msgid "manager.emails.sentFrom"
+msgstr "Надіслано від"
+
+msgid "manager.emails.sentTo"
+msgstr "Відправлено до"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Предмет: {$subject}"
+
+msgid "manager.setup.advanced"
+msgstr "Додаткові налаштування"
+
+msgid "manager.setup.appearance.success"
+msgstr "Налаштування вигляду оновлено."
+
+msgid "manager.setup.contact.success"
+msgstr "Контактні деталі для цього видавничого продукту оновлено."
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Настанови для авторів успішно оновлено."
+
+msgid "manager.setup.checklist"
+msgstr "Контрольний список"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "Блок {$name} не знайдено. Будь ласка, впевніться, що плагін встановлено та увімкнено."
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Файл, який Ви завантажили не може бути знайдено. Спробуйте, будь ласка, пізніше."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Дедлайн для відповіді за замовчуванням"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Дедлайн для завершення за замовчуванням"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Нагадування для відповіді"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Нагадування для рецензування"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Спосіб рецензування за замовчуванням"
+
+msgid "manager.setup.theme.success"
+msgstr "Тему було оновлено. <a href=\"{$url}\" target=\"_blank\">Переглянути зараз</a>"
+
+msgid "manager.setup.theme"
+msgstr "Теми"
+
+msgid "manager.setup.theme.description"
+msgstr "Нові теми можуть бути встановлені на вкладці \"Модулі\" у верхній частині цієї сторінки."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Тема, яку ви обрали, не інстальована або не увімкнена."
+
+msgid "manager.setup.userAccess.success"
+msgstr "The user access details for this press have been updated."
+
+msgid "manager.distribution.license"
+msgstr "Ліцензія"
+
+msgid "manager.distribution.license.success"
+msgstr "Деталі щодо ліцензії оновлено. "
+
+msgid "manager.distribution.license.other"
+msgstr "Інша URL для ліцензії"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Умови ліцензії"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "Введіть публічні умови ліцензії, які б Ви хотіли відображати поруч із опублікованими роботами."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Теги користувача"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr "Додати власні HTML теги, також відомі як мета теги, які ви бажаєте вставити у голову (head) кожної сторінки. Проконсультуйтесь із технічним радником перед тим як додавати ці теги."
+
+msgid "manager.setup.metadata.success"
+msgstr "Метадані подання успішно оновлено."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Охоплення"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr "Охоплення зазвичай вказує на місце або географічні координати, де робота була створена, часовий період (період, дата, розмах дат) або юрисдикцію (наприклад, адміністративна одиниця)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Включити метадані по охопленню"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Не вимагати дані по охопленню від авторів під час подання."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Запитати у автора пропозиції щодо охоплення під час подання."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr "Вимагати у автора пропозиції щодо охоплення перед прийняттям подання."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr "Ключові слова це зазвичай фрази, які складаються від одного до трьох слів та використовуються для опису основних тем подання."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Включити ключові слова у метадані"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Не вимагати ключові слова від авторів під час подання."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Прохати автора пропозиції щодо ключових слів під час подання."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Вимагати у автора пропозиції щодо ключових слів перед прийняттям подання."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr "Мова вказує на основу мову, яка використовувалася у цій роботі, позначається спеціальним кодом мови (\"en\") та (опціонально) країни (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Включити мову у метадані"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Не вимагати у авторів вказувати мову роботи під час подання."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Прохати авторів вказати мову роботи під час подання."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Вимагати від авторів ввести дані про мову роботи перед його прийняттям подання."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr "Будь-які права над  поданням, які можуть включати Права інтелектуальної власності, Авторське право та різноманітні права на володіння."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Включити права у метадані"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Не вимагати від авторів вказувати права під час подання."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "Прохати авторів зазначати будь-які попередні права доступу під час подання."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr "Вимагати від автірів вказувати будь-які попередні права доступу перед прийняттям подання."
+
+msgid "manager.setup.metadata.source.description"
+msgstr "Джерелом може бути ID, наприклад, таке як DOI, або інша робота або ресурс, від якого робота є похідною."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Включити джерело у метадані"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Не вимагати URL на джерело у автора під час подання."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Прохати автора вказати URL на джерело під час подання."
+
+msgid "manager.setup.metadata.source.require"
+msgstr "Вимагати від автора зазначати URL на джерело перед прийняттям подання."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr "Об'єктами мають бути ключові слова, фрази або класифікаційні коди, які описуються тему подання."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Включити об'єкт у метадані"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Не вимагати від авторів вказувати об'єкт(и) під час подання."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Прохати авторів зазначати об'єкт(и) під час подання."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Вимагати від авторів зазначати об'єкт(и) перед прийняттм подання."
+
+msgid "manager.setup.metadata.type.description"
+msgstr "Природа або жарн основного контенту подання. Цей тип зазвичай це \"Текст\", \"Набір даних\", \"Зображеня\" або будь-який із <a target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">типів згідно із Dublin Core</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Включити тип у метадані"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Не вимагати від авторів вказання типу під час подання."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Прохати авторів зазначати тип під час подання."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Вимагати від авторів зазначати тип перед прийняттям подання."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr "Disciplines are types of study or branches of knowledge as described by university faculties and learned societies."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Включити дисципліни у метадані"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Не вимагати від авторів вказувати дисципліни під час подання."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Прохати авторів зазначати дисципліни під час подання."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Вимагати від авторів зазначати дисипліни перед прийняттям подання."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr "Підтримуючі агенції можуть вказувати на джерела фінансування, гранти або будь-яку іншу інституційну підтримку дослідження."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Включити підтримуючі агенції у метадані"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Не вимагати від авторів вказання підтримуючих агенцій під час подання."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Прохати авторів зазначати всі дотичні підтримуючі агенції під час подання."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr "Вимгати від авторів зазначити всі дотичні підтримючі агенції перед прийняттям подання."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr "Збирати бібліографічний опис (список використаної літератури) у окремому полі. Це може бути потрібно для виконання вимог служб, які збирають/аналізують цитування, наприклад, Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Включити бібліографічний опис у метадані"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Не вимагати бібліографічний опис у авторів під час подання."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Прохати авторів зазначати бібліографічний опис під час подання."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "Пароль імпортованого користувача \"{$username}\" не може бути внесено в такому вигляді. Новий пароль надіслано на електронну адресу користувача. Користувача внесено."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "Імпортований користувач \"{$username}\" має простий пароль, який не є валідним. Користувача не було внесено."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr "Користувач \"{$username}\" та електронна адреса \"{$email}\" не співпадають із одним і тим же існуючим користувачем."
+
+msgid "stats.dateRange.instructions"
+msgstr "Введіть кожну дату у форматі YYYY-MM-DD (РРРР-ММ-ДД). Наприклад, якщо потрібна дата це 15 Січня 2019 року, введіть 2019-01-15."

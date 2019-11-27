@@ -659,8 +659,15 @@ msgstr "Немає меню навігації"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Оберіть тип..."
 
-msgid "grid.action.users"
-msgstr "Переглянути / вибрати користувачів"
-
 msgid "grid.action.addContributor"
 msgstr "Додати учасника"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Видалити цю групу користувачів"
+
+msgid "grid.action.users"
+msgstr "Переглянути/Обрати користувачів"
+
+msgid "grid.action.newVersion"
+msgstr "Створити нову версію"
+

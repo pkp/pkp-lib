@@ -1723,3 +1723,63 @@ msgstr "Підкатегорії"
 
 msgid "submission.list.reviewComplete"
 msgstr "Опублікований огляд"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Анотація"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr "Авторам зараз дозволено редагувати метадані, коли подання на стадії {stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr "Авторам зараз не дозволено редагувати метадані, коли подання на стадії {stage}."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Редагувтаи призначення"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Заборонити редагувати метадані"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Дозволити редагувати метадані"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr "Ви впевнені, що хочете закрити доступ авторам цього подання до редагування метаданих подання на цій стадії?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr "Ви впевнені, що хочете дозволити авторам цього подання редагувати метадані подання на цій стадії?"
+
+msgid "log.review.reviewUnconsidered"
+msgstr "{$editorName} позначив раунд {$round} рецензування подання {$submissionId} як невизначений."
+
+msgid "submission.query.leaveQuery"
+msgstr "Облишити обговорення"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr "If you leave this discussion you will no longer be notified of new messages. Would you like to leave the discussion?"
+
+msgid "submission.list.empty"
+msgstr "Не знайдено жодного подання."
+
+msgid "submission.list.reviewCancelled"
+msgstr "Рецензування відмінено"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "До цього подання Ви призначені в декількох ролях. Ви бажаєте переглянути подання <a href=\"{$urlAuthorWorkflow}\">як автор</a> чи <a href=\"{$urlEditorialWorkflow}\">як редактор</a>? Останнє дозволяє вносити зміни у редакторський процес для цього подання"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "До цього подання Ви призначені як редактор. Ви бажаєте переглянути <a href=\"{$urlEditorialWorkflow}\">процес редагування</a>?"
+
+msgid "submission.production.version"
+msgstr "Версія {$submissionVersion}"
+
+msgid "submission.production.newVersion"
+msgstr "Нова версія"
+
+msgid "submission.production.editMetadata"
+msgstr "Метадані цієї версії"
+
+msgid "submission.production.editMetadata.info"
+msgstr "Це метадані версії {$version}."
+
+msgid "submission.production.editMetadata.previous"
+msgstr "Попередні версії доступні через відповідну вкладку на стадії верстки."

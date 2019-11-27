@@ -188,14 +188,18 @@ class ManagementHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function workflow($args, $request) {
+		$settingsData = $this->_setupWorkflowSettingsData($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
-		$context = $request->getContext();
-		$dispatcher = $request->getDispatcher();
+		$templateMgr->assign('settingsData', $settingsData);
+		$templateMgr->display('management/workflow.tpl');
+	}
 
-		$contextApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-		$emailTemplatesApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'emailTemplates');
-
+	/**
+	 * Setup workflow settings data
+	 * @param $request PKPRequest
+	 */
+	function _setupWorkflowSettingsData($request){
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_SUBMISSION,
 			LOCALE_COMPONENT_APP_SUBMISSION,
@@ -204,6 +208,12 @@ class ManagementHandler extends Handler {
 			LOCALE_COMPONENT_PKP_MANAGER,
 			LOCALE_COMPONENT_APP_MANAGER
 		);
+
+		$context = $request->getContext();
+		$dispatcher = $request->getDispatcher();
+
+		$contextApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$emailTemplatesApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'emailTemplates');
 
 		$supportedFormLocales = $context->getSupportedFormLocales();
 		$localeNames = AppLocale::getAllLocales();
@@ -239,9 +249,7 @@ class ManagementHandler extends Handler {
 				'emailTemplates' => $emailTemplatesListPanel->getConfig(),
 			],
 		];
-		$templateMgr->assign('settingsData', $settingsData);
-
-		$templateMgr->display('management/workflow.tpl');
+		return $settingsData;
 	}
 
 	/**
@@ -250,14 +258,25 @@ class ManagementHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function distribution($args, $request) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
+		$settingsData = $this->_setupDistributionSettingsData($request);
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
+		$templateMgr->assign('settingsData', $settingsData);
+		$templateMgr->display('management/distribution.tpl');
+	}
+
+	/**
+	 * Setup distribution settings data
+	 * @param $request PKPRequest
+	 */
+	function _setupDistributionSettingsData($request) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
+
 		$context = $request->getContext();
 		$router = $request->getRouter();
 		$dispatcher = $request->getDispatcher();
 
-		$apiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+		$contextApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 		$sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
 		$paymentsUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_payments');
 
@@ -267,8 +286,8 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		$licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
-		$searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+		$licenseForm = new \APP\components\forms\context\LicenseForm($contextApiUrl, $locales, $context);
+		$searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($contextApiUrl, $locales, $context, $sitemapUrl);
 		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
 		$settingsData = [
@@ -278,7 +297,7 @@ class ManagementHandler extends Handler {
 				FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
 			],
 		];
-		$templateMgr->assign('settingsData', $settingsData);
+		return $settingsData;
 	}
 
 	/**

@@ -1696,3 +1696,36 @@ msgstr "{$editorName} ha segnalato il {$round} ciclio di revisione per la propos
 
 msgid "submission.list.assignEditor"
 msgstr "Assegna editor"
+
+msgid "grid.category.categories"
+msgstr "Categorie"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titolo (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titolo (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Data di pubblicazione (dalla meno recente)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Data di pubblicazione (dalla più recente)"
+
+msgid "category.coverImage"
+msgstr "Immagine di copertina"
+
+msgid "submission.submit.placement.categories"
+msgstr "Categorie"
+
+msgid "submission.currentCoverImage"
+msgstr "Immagine corrente"
+
+msgid "catalog.category.noItems"
+msgstr "In questa categoria non è ancora stato pubblicato niente."
+
+msgid "catalog.category.subcategories"
+msgstr "Sottocategorie"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"

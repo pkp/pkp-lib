@@ -772,7 +772,7 @@ msgid "notification.confirmSuccess"
 msgstr "Sei stato iscritto con successo."
 
 msgid "notification.email"
-msgstr "Notificami questo tipo di evento per email"
+msgstr "Non notificarmi questo tipo di evento per email"
 
 msgid "notification.notification"
 msgstr "Notifica"

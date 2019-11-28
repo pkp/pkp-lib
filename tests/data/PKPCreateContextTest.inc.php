@@ -112,7 +112,7 @@ abstract class PKPCreateContextTest extends WebTestCase {
 		self::$driver->executeScript('window.scrollTo(0,0);'); // Scroll to top of page
 		$actions = new WebDriverActions(self::$driver);
 		$actions->moveToElement($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Settings"]'))
-			->click($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Journal" or text()="Press"]'))
+			->click($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[text()="Journal" or text()="Press" or text()="Server"]'))
 			->perform();
 		$this->click('//button[contains(text(),"Contact")]');
 

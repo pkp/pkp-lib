@@ -33,7 +33,7 @@ msgid "editor.submission.selectFiles"
 msgstr "Selecionar Arquivos"
 
 msgid "editor.submission.revisions"
-msgstr "Avaliações"
+msgstr "Revisões"
 
 msgid "editor.submission.addReviewer"
 msgstr "Adicionar Avaliador"

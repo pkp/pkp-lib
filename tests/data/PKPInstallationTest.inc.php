@@ -49,6 +49,7 @@ abstract class PKPInstallationTest extends WebTestCase {
 		$this->click('id=createDatabase');
 
 		// Locale
+		self::$driver->executeScript('window.scrollTo(0,0);'); // Avoid PPS click-unclickable problem
 		$this->click('id=additionalLocales-en_US');
 		$this->click('id=additionalLocales-fr_CA');
 		$this->select('id=connectionCharset', 'label=Unicode (UTF-8)');

@@ -1629,6 +1629,12 @@ msgstr "Não há atividades em \"{$queryTitle}\" sobre a submissão \"{$submissi
 msgid "submission.query.new.contents"
 msgstr "Você foi adicionado a uma conversa chamada \"{$queryTitle}\" sobre a submissão  \"{$submissionTitle}\"."
 
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "Você deve designar ao menos um participante à submissão antes de iniciar uma discussão."
+
 msgid "submission.supplementary"
 msgstr "Conteúdo Suplementar"
 

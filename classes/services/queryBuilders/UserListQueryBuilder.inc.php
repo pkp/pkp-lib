@@ -422,6 +422,7 @@ class UserListQueryBuilder extends BaseQueryBuilder {
 					$q->where(function($q) use ($word) {
 						$q->where(Capsule::raw('lower(u.username)'), 'LIKE', "%{$word}%")
 							->orWhere(Capsule::raw('lower(u.email)'), 'LIKE', "%{$word}%")
+							->orWhere(Capsule::raw('lower(u.gossip)'), 'LIKE', "%{$word}%")
 							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', IDENTITY_SETTING_GIVENNAME);
 								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");

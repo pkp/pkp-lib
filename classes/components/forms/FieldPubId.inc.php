@@ -46,6 +46,9 @@ class FieldPubId extends Field {
 	/** @var string The submission ID to use when generating a pub id */
 	public $submissionId;
 
+	/** @var string The publication ID to use when generating a pub id */
+	public $publicationId;
+
 	/** @var string The year of publication to use when generating a pub id */
 	public $year;
 
@@ -77,6 +80,9 @@ class FieldPubId extends Field {
 		}
 		if (isset($this->submissionId)) {
 			$config['submissionId'] = $this->submissionId;
+		}
+		if (isset($this->publicationId)) {
+			$config['publicationId'] = $this->publicationId;
 		}
 		if (isset($this->year)) {
 			$config['year'] = $this->year;

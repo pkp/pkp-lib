@@ -21,10 +21,10 @@ use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverBy;
 
 abstract class PKPStatsTest extends WebTestCase {
-  /**
-   * Generate usage stats
-   */
-  public function generateUsageStats() {
+	/**
+	 * Generate usage stats
+	 */
+	public function generateUsageStats() {
 
 		// Fix missing schema constant error
 		Services::get('schema');
@@ -67,24 +67,24 @@ abstract class PKPStatsTest extends WebTestCase {
 			}
 			$currentDate->add(new DateInterval('P1D'));
 		}
-  }
+	}
 
-  /**
-   * Open a stats page
-   */
-  public function goToStats($username, $password, $menuItemTitle) {
+	/**
+	 * Open a stats page
+	 */
+	public function goToStats($username, $password, $menuItemTitle) {
 		$this->open(self::$baseUrl);
 		$this->logIn($username, $password);
 		$actions = new WebDriverActions(self::$driver);
 		$actions->moveToElement($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[contains(text(), "Statistics")]'))
 			->click($this->waitForElementPresent('//ul[@id="navigationPrimary"]//a[contains(text(), "' . $menuItemTitle . '")]'))
 			->perform();
-  }
+	}
 
-  /**
-   * Test the date range selection and the chart
-   */
-  public function checkGraph($totalAbstractViews, $abstractViews, $files, $totalFileViews, $fileViews) {
+	/**
+	 * Test the date range selection and the chart
+	 */
+	public function checkGraph($totalAbstractViews, $abstractViews, $files, $totalFileViews, $fileViews) {
 		$yesterday =  date('Y-m-d', strtotime('yesterday'));
 		$daysAgo90 = date('Y-m-d', strtotime('-91 days'));
 		$daysAgo10 = date('Y-m-d', strtotime('-10 days'));
@@ -114,7 +114,7 @@ abstract class PKPStatsTest extends WebTestCase {
 			$dayLabel = strftime(Config::getVar('general', 'date_format_long'), $currentDate->getTimestamp());
 			$this->waitForElementPresent('//div[@class="pkpStats__graph"]//table/tbody/tr/th[contains(text(),"' . $dayLabel . '")]');
 			$currentDate->add(new DateInterval('P1D'));
-    }
+	}
 		$this->waitForElementPresent($selector = '//div[@class="pkpStats__graphSelectors"]//button[contains(text(), "Monthly")]');
 		$this->click($selector);
 		$this->waitForElementPresent($selector = '//div[@class="pkpStats__graphSelectors"]//button[contains(text(), "' . $files . '")]');
@@ -122,12 +122,12 @@ abstract class PKPStatsTest extends WebTestCase {
 		$this->waitForElementPresent('//div[@class="pkpStats__graph"]//table/caption[contains(text(), "' . $totalFileViews . '")]');
 		$this->waitForElementPresent('//div[@class="pkpStats__graph"]//table/thead/tr/th[contains(text(), "' . $fileViews . '")]');
 		self::$driver->executeScript('$(".pkpStats__graph table[aria-live]").addClass("-screenReader");');
-  }
+	}
 
-  /**
-   * Test the publication details table
-   */
-  public function checkTable($articleDetails, $articles, $authors) {
+	/**
+	 * Test the publication details table
+	 */
+	public function checkTable($articleDetails, $articles, $authors) {
 		$this->waitForElementPresent('//h2[contains(text(), "' . $articleDetails . '")]');
 		$this->waitForElementPresent('//div[contains(text(), "2 of 2 ' . $articles . '")]');
 		foreach ($authors as $author) {
@@ -141,18 +141,17 @@ abstract class PKPStatsTest extends WebTestCase {
 		$this->waitForElementPresent('//div[@class="pkpStats__table"]//td[@class="pkpTable__cell"]//span[contains(text(), "' . $authors[0] . '")]');
 		$this->waitForElementPresent('//div[contains(text(), "1 of 1 ' . $articles . '")]');
 		$this->type($selector, '');
-  }
+	}
 
-  /**
-   * Test the stats filters
-   */
-  public function checkFilters($filters) {
+	/**
+	 * Test the stats filters
+	 */
+	public function checkFilters($filters) {
 		$this->waitForElementPresent($selector = '//button[contains(text(), "Filters")]');
-    $this->click($selector);
-    foreach ($filters as $filter) {
-      $this->waitForElementPresent('//div[@class="pkpStats__filterSet"]//button[contains(text(), "' . $filter . '")]');
-    }
+		$this->click($selector);
+		foreach ($filters as $filter) {
+			$this->waitForElementPresent('//div[@class="pkpStats__filterSet"]//button[contains(text(), "' . $filter . '")]');
+		}
 		$this->click($selector); // Close filters
-  }
-
+	}
 }

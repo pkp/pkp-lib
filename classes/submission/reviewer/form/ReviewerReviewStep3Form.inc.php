@@ -111,7 +111,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
 		if ($reviewAssignment->getReviewFormId()) {
@@ -260,7 +260,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			)
 		);
 
-		parent::execute();
+		parent::execute(...$functionParams);
 	}
 }
 

@@ -130,7 +130,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
@@ -138,7 +138,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
 			$this->_logEventAndCreateNotification($request, $submission);
 		}
-		return parent::execute();
+		return parent::execute(...$functionParams);
 	}
 
 	/**

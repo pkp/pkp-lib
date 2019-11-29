@@ -208,7 +208,7 @@ class RegistrationForm extends Form {
 	 * Register a new user.
 	 * @return int|null User ID, or false on failure
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$requireValidation = Config::getVar('email', 'require_validation');
 		$userDao = DAORegistry::getDAO('UserDAO');
 
@@ -255,7 +255,7 @@ class RegistrationForm extends Form {
 			$user->setDisabledReason(__('user.login.accountNotValidated', array('email' => $this->getData('email'))));
 		}
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 
 		$userDao->insertObject($user);
 		$userId = $user->getId();

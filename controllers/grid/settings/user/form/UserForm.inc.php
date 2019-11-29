@@ -103,8 +103,7 @@ class UserForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
-
+	function execute(...$functionArgs) {
 		if (isset($this->userId)) {
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
 			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
@@ -117,7 +116,7 @@ class UserForm extends Form {
 			}
 		}
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 	}
 
 }

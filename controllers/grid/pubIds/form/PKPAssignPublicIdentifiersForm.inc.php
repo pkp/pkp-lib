@@ -128,8 +128,8 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	 *  true if the pub id shall be saved here
 	 *  false if this form is integrated somewhere else, where the pub object will be updated.
 	 */
-	function execute($save = false) {
-		parent::execute();
+	function execute($save = false, ...$functionArgs) {
+		parent::execute($save, ...$functionArgs);
 
 		$pubObject = $this->getPubObject();
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();

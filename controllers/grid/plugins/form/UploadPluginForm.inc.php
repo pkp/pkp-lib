@@ -64,8 +64,8 @@ class UploadPluginForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		parent::execute();
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
 
 		// Retrieve the temporary file.
 		$request = Application::get()->getRequest();

@@ -296,7 +296,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 * Save changes to submission.
 	 * @return int the submission ID
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
+
 		$submissionDao = Application::getSubmissionDAO();
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();

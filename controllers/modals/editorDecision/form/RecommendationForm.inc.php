@@ -141,7 +141,9 @@ class RecommendationForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		// Record the recommendation.
 		$request = Application::get()->getRequest();
 		$submission = $this->getSubmission();

@@ -48,8 +48,8 @@ class UserRoleForm extends UserForm {
 	/**
 	 * Update user's roles.
 	 */
-	function execute() {
-		parent::execute();
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
 
 		// Role management handled by parent form, just return user.
 		$userDao = DAORegistry::getDAO('UserDAO');

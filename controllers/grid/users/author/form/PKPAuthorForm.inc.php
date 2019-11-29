@@ -173,7 +173,7 @@ class PKPAuthorForm extends Form {
 	 * Save author
 	 * @see Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$publication = $this->getPublication();
 
@@ -202,7 +202,7 @@ class PKPAuthorForm extends Form {
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
 
 		// in order to be able to use the hook
-		parent::execute();
+		parent::execute(...$functionParams);
 
 		if ($existingAuthor) {
 			$authorDao->updateObject($author);

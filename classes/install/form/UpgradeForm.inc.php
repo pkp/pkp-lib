@@ -28,7 +28,9 @@ class UpgradeForm extends MaintenanceForm {
 	/**
 	 * Perform installation.
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		define('RUNNING_UPGRADE', 1);
 		$templateMgr = TemplateManager::getManager($this->_request);
 		$installer = new Upgrade($this->_data);

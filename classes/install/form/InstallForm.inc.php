@@ -184,8 +184,12 @@ class InstallForm extends MaintenanceForm {
 
 	/**
 	 * Perform installation.
+	 * @param ...$functionArgs Function arguments
+	 * @return mixed
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
+
 		$templateMgr = TemplateManager::getManager($this->_request);
 		$installer = new Install($this->_data);
 

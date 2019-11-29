@@ -127,7 +127,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 	 * @see Form::execute()
 	 * @return SubmissionFile if successful, otherwise null
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		// Identify the file genre and category.
 		$revisedFileId = $this->getRevisedFileId();
 		if ($revisedFileId) {
@@ -178,7 +178,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 			)
 		);
 		
-		$hookResult = parent::execute($submissionFile);
+		$hookResult = parent::execute($submissionFile, ...$functionParams);
 		if ($hookResult) { 
 			return $hookResult;
 		}

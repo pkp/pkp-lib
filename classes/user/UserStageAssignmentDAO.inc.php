@@ -70,7 +70,7 @@ class UserStageAssignmentDAO extends UserDAO {
 	 * @return object DAOResultFactory
 	 */
 	function filterUsersNotAssignedToStageInUserGroup($submissionId, $stageId, $userGroupId, $name = null, $rangeInfo = null) {
-		$site = Application::getRequest()->getSite();
+		$site = Application::get()->getRequest()->getSite();
 		$primaryLocale = $site->getPrimaryLocale();
 		$locale = AppLocale::getLocale();
 		$params = array(

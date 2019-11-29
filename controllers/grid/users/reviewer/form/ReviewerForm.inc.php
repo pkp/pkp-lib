@@ -319,7 +319,9 @@ class ReviewerForm extends Form {
 	/**
 	 * Save review assignment
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		$submission = $this->getSubmission();
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();

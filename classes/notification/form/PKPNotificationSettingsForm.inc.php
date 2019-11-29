@@ -127,7 +127,9 @@ class PKPNotificationSettingsForm extends Form {
 	/**
 	 * @copydoc Form::execute
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$userId = $user->getId();

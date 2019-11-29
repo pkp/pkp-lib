@@ -118,7 +118,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$reviewerSubmission = $this->getReviewerSubmission();
 
 		// Set competing interests.
@@ -140,6 +140,6 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 			$reviewerAction->confirmReview($this->request, $reviewAssignment, $reviewerSubmission, false);
 		}
 
-		parent::execute();
+		parent::execute(...$functionParams);
 	}
 }

@@ -97,7 +97,17 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		$this->click('css=[id^=submitFormButton-]');
 
 		// Page 2: File wizard
-		$element = $this->waitForElementPresent($selector = 'id=cancelButton');
+		// We want cancelFormButton for PPS, cancelButton for OJS/OMP
+		switch (Application::getName()) {
+			case 'pps':
+				$selector = '//div[@class="pkp_modal_panel"]//a[starts-with(@id,"cancelFormButton")]';
+				break;
+			case 'ojs2':
+			case 'omp':
+			default:
+				$selector = 'id=cancelButton';
+		}
+		$element = $this->waitForElementPresent($selector);
 		sleep(2); // FIXME: Avoid occasional failures with the genre dropdown getting hit instead of cancel
 
 		// Try to avoid ghost-popup-menu-intercepting-clicks at start of page 3
@@ -109,7 +119,16 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		foreach ($data['files'] as $file) {
 			if (!isset($file['file'])) $file['file'] = DUMMY_PDF;
-			$this->click('css=[id^=component-grid-files-submission-submissionwizardfilesgrid-addFile-button-]');
+			switch (Application::getName()) {
+				case 'pps':
+					$this->click('css=[id^=component-grid-articlegalleys-articlegalleygrid-addGalley-button-');
+					break;
+				case 'ojs2':
+				case 'omp':
+				default:
+					$this->click('css=[id^=component-grid-files-submission-submissionwizardfilesgrid-addFile-button-]');
+					break;
+			}
 			$metadata = isset($file['metadata'])?$file['metadata']:array();
 			$this->uploadWizardFile($file['fileTitle'], $file['file'], $metadata);
 		}
@@ -178,6 +197,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 		// Unpack pieces for later use outside $metadata
 		$genreName = $metadata['genre'];
 		unset($metadata['genre']);
+
+		// Preprint server has an additional label step for galley uploads
+		if (Application::getName() == 'pps') {
+			$this->type('css=[name=label]', strtoupper($extension));
+			$this->click('//div[@class="pkp_modal_panel"]//button[@class="pkp_button submitFormButton"]');
+		}
 
 		// Pick the genre and upload the file
 		$this->waitForElementPresent('id=genreId');

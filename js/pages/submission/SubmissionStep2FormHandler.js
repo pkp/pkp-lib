@@ -53,7 +53,11 @@
 			prototype.showFileUploadWizard_ = function(sourceElement, event, data) {
 
 		if (data == 'submissionFilesGridDiv') {
+			// OJS and OMP: Click the "add file" button
 			$('#' + data).find('[id*="-addFile-button-"]').click();
+		} else if (data.startsWith('formatsGridContainer')) {
+			// Preprint server: Click the "add galley" button
+			$('#' + data).find('[id*="-addGalley-button-"]').click();
 		}
 	};
 

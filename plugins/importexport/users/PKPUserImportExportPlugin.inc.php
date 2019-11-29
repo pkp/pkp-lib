@@ -23,7 +23,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	function register($category, $path, $mainContextId = null) {
 		$success = parent::register($category, $path, $mainContextId);
 		$this->addLocaleData();
-		$this->import('PKPUserImportExportDeployment');
+		import('lib.pkp.' . str_replace('/', '.', $this->getPluginPath()) . '.PKPUserImportExportDeployment');
 		return $success;
 	}
 

@@ -32,20 +32,6 @@ if (!defined('DIRECTORY_SEPARATOR')) {
 define('BASE_SYS_DIR', dirname(INDEX_FILE_LOCATION));
 chdir(BASE_SYS_DIR);
 
-// Update include path - for backwards compatibility only
-// Try to use absolute (/...) or relative (./...) filenames
-// wherever possible to bypass the costly file name normalization
-// process.
-ini_set('include_path', '.'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/classes'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/pages'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/classes'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/pages'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/vendor/adodb/adodb-php'
-	. ENV_SEPARATOR . ini_get('include_path')
-);
-
 // System-wide functions
 require('./lib/pkp/includes/functions.inc.php');
 

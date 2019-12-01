@@ -240,8 +240,6 @@ class ManagementHandler extends Handler {
 			],
 		];
 		$templateMgr->assign('settingsData', $settingsData);
-
-		$templateMgr->display('management/workflow.tpl');
 	}
 
 	/**

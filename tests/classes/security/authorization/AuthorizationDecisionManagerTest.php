@@ -21,7 +21,7 @@ import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 class AuthorizationDecisionManagerTest extends PolicyTestCase {
 	private $decisionManager;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->decisionManager = new AuthorizationDecisionManager();
 	}

@@ -21,11 +21,14 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRequest');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
 
+/**
+ * @runTestsInSeparateProcesses
+ */
 class PKPRequestTest extends PKPTestCase {
 	protected $request;
 	private $getRemoteAddrTestConfigData;
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		HookRegistry::rememberCalledHooks();
 		$this->request = new PKPRequest();
@@ -34,7 +37,7 @@ class PKPRequestTest extends PKPTestCase {
 		$this->getRemoteAddrTestConfigData = Registry::get('configData');
 	}
 
-	public function tearDown() {
+	public function tearDown() : void {
 		HookRegistry::resetCalledHooks();
 
 		// Restore the config data after testTrustXForwardedFor tests

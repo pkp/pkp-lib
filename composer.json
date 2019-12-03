@@ -3,7 +3,7 @@
 		"ralouphie/getallheaders": "*",
 		"components/jqueryui": "1.*",
 		"components/jquery": "3.*",
-		"oyejorge/less.php": "1.*",
+		"wikimedia/less.php": "1.*",
 		"phpmailer/phpmailer": "6.*",
 		"smarty/smarty": "3.*",
 		"ezyang/htmlpurifier": "4.*",
@@ -22,7 +22,7 @@
 	},
 	"require-dev": {
 		"facebook/webdriver": "~1.6",
-		"phpunit/phpunit": "~6",
+		"phpunit/phpunit": "~8",
 		"psy/psysh": "@stable"
 	},
 	"config": {

@@ -56,7 +56,7 @@ class MetadataDescriptionTest extends PKPTestCase {
 			)
 		);
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', ASSOC_TYPE_CITATION);
 	}

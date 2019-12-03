@@ -72,10 +72,14 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 
 		// Find the "Make a New Submission" link
 		if ($location == 'frontend') {
-			$this->click('//a[contains(text(), \'Make a New Submission\')]');
+			$selector = '//a[contains(text(), \'Make a New Submission\')]';
 		} else {
-			$this->click('//a[contains(text(), \'New Submission\')]');
+			$selector = '//a[contains(text(), \'New Submission\')]';
 		}
+		sleep(5);
+		$this->waitForElementPresent($selector);
+		$submitElement = $this->click($selector);
+		self::$driver->wait()->until(WebDriverExpectedCondition::stalenessOf($submitElement));
 
 		// Check the default checklist items.
 		$this->waitForElementPresent('id=checklist-0');
@@ -246,16 +250,17 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			'role' => 'Author',
 		), $data);
 
+		sleep(5);
 		$this->click('css=[id^=component-grid-users-author-authorgrid-addAuthor-button-]');
-		$this->waitForElementPresent('css=[id^=givenName-]');
-		$this->type('css=[id^=givenName-]', $data['givenName']);
-		$this->type('css=[id^=familyName-]', $data['familyName']);
+		$this->waitForElementPresent($selector='//form[@id="editAuthor"]//input[@name="givenName[en_US]"]');
+		$this->type($selector, $data['givenName']);
+		$this->type('//form[@id="editAuthor"]//input[@name="familyName[en_US]"]', $data['familyName']);
 		$this->select('id=country', 'label=' . $data['country']);
-		$this->type('css=[id^=email-]', $data['email']);
-		if (isset($data['affiliation'])) $this->type('css=[id^=affiliation-]', $data['affiliation']);
+		$this->type('//form[@id="editAuthor"]//input[@name="email"]', $data['email']);
+		if (isset($data['affiliation'])) $this->type('//form[@id="editAuthor"]//input[@name="affiliation[en_US]"]', $data['affiliation']);
 		$this->click('//label[contains(.,\'' . $this->escapeJS($data['role']) . '\')]');
-		$this->click('//button[text()=\'Save\']');
-		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('div.pkp_modal_panel')));
+		$submitElement = $this->click('//form[@id="editAuthor"]//button[text()=\'Save\']');
+		self::$driver->wait()->until(WebDriverExpectedCondition::stalenessOf($submitElement));
 	}
 
 	/**

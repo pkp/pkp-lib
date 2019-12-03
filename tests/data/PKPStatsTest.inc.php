@@ -102,7 +102,7 @@ abstract class PKPStatsTest extends WebTestCase {
 		self::$driver->executeScript('$(".pkpDateRange__form .pkpButton").focus();');
 		$this->click('//button[contains(text(), "Apply")]');
 		self::$driver->wait()->until(WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::cssSelector('.pkpDateRange__options')));
-		$this->waitForTextPresent($daysAgo50 . ' — ' . $daysAgo10);
+		$this->waitForElementPresent('//span[contains(text(),"' . $daysAgo50 . ' — ' . $daysAgo10 . '")]');
 
 		// Test that the hidden timeline table for screen readers is getting populated
 		// with rows of content.

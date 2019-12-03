@@ -21,7 +21,7 @@ class DataObjectTest extends PKPTestCase {
 	/** @var DataObject */
 	protected $dataObject;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->dataObject = new DataObject();
 	}

@@ -51,7 +51,7 @@ abstract class PKPTestCase extends TestCase {
 	/**
 	 * @copydoc TestCase::setUp()
 	 */
-	protected function setUp() {
+	protected function setUp() : void {
 		$this->setBackupGlobals(true);
 
 		// Rather than using "include_once()", ADOdb uses
@@ -80,7 +80,7 @@ abstract class PKPTestCase extends TestCase {
 	/**
 	 * @copydoc TestCase::tearDown()
 	 */
-	protected function tearDown() {
+	protected function tearDown() : void {
 		// Restore registry keys.
 		foreach($this->getMockedRegistryKeys() as $mockedRegistryKey) {
 			Registry::set($mockedRegistryKey, $this->registryBackup[$mockedRegistryKey]);
@@ -95,7 +95,7 @@ abstract class PKPTestCase extends TestCase {
 	/**
 	 * @copydoc TestCase::getActualOutput()
 	 */
-	public function getActualOutput() {
+	public function getActualOutput() : string {
 		// We do not want to see output.
 		return '';
 	}

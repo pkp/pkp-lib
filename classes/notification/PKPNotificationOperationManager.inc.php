@@ -368,7 +368,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param $request PKPRequest
 	 * @param $notification object Notification
 	 */
-	private function sendNotificationEmail($request, $notification) {
+	protected function sendNotificationEmail($request, $notification) {
 		$userId = $notification->getUserId();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);

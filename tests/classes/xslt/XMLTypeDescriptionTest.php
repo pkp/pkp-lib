@@ -22,7 +22,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @see PHPUnit_Framework_TestCase::tearDown()
 	 */
-	function tearDown() {
+	function tearDown() : void {
 		PKPTestHelper::xdebugScream(true);
 	}
 

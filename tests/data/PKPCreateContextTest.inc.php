@@ -34,15 +34,12 @@ abstract class PKPCreateContextTest extends WebTestCase {
 	 * Create and set up test data
 	 */
 	function createContext() {
-		$this->open(self::$baseUrl);
-
 		$this->waitForElementPresent($selector='css=[id^=component-grid-admin-context-contextgrid-createContext-button-]');
 		$this->click($selector);
 
 		// Test required fields
 		$this->click('//button[@label="Français (Canada)"]');
 		$this->setInputValue('[name="name-fr_CA"]', $this->contextName['fr_CA']);
-		$this->click('//button[@label="Français (Canada)"]');
 		$this->click('//div[@id="editContext"]//button[contains(text(),"Save")]');
 		$this->waitForElementPresent('//div[@id="context-name-error-en_US"]//span[contains(text(),"This field is required.")]');
 		$this->waitForElementPresent('//div[@id="context-acronym-error-en_US"]//span[contains(text(),"This field is required.")]');
@@ -69,7 +66,9 @@ abstract class PKPCreateContextTest extends WebTestCase {
 		$this->open(self::$baseUrl);
 		$actions = new WebDriverActions(self::$driver);
 		$actions->moveToElement($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
-			->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Administration")]'))
+			->perform();
+		$actions = new WebDriverActions(self::$driver);
+		$actions->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Administration")]', true))
 			->perform();
 
 		$this->click('//a[starts-with(text(),"Hosted")]');
@@ -82,21 +81,21 @@ abstract class PKPCreateContextTest extends WebTestCase {
 		$this->click('//button[contains(text(),"Appearance")]');
 		$this->waitForElementPresent($selector = '//*[@id="appearance"]//button[contains(text(),"Save")]');
 		$this->click($selector);
-		$this->waitForTextPresent('The theme has been updated.');
+		$this->waitForElementPresent('//div[contains(text(),"The theme has been updated.")]');
 
 		sleep(5); // FIXME: Avoid intermittent failure to scroll to top of page
 		self::$driver->executeScript('window.scrollTo(0,0);'); // Scroll to top of page
 		$this->click('//button[contains(text(),"Languages")]');
 		$this->waitForElementPresent($selector = '//input[@id="select-cell-fr_CA-contextPrimary"]');
 		$this->click($selector);
-		$this->waitForTextPresent('Locale settings saved.');
+		$this->waitForElementPresent('//div[contains(text(),"Locale settings saved.")]');
 		$this->click('css=input#select-cell-en_US-contextPrimary');
 
 		$this->click('//button[contains(text(),"Search Indexing")]');
 		$this->setInputValue('[name="searchDescription-en_US"]', $this->contextDescription);
 		$this->setInputValue('[name="customHeaders-en_US"]', '<meta name="pkp" content="Test metatag.">');
 		$this->click('//*[@id="indexing"]//button[contains(text(),"Save")]');
-		$this->waitForTextPresent('The search engine index settings have been updated.');
+		$this->waitForElementPresent('//div[contains(text(),"The search engine index settings have been updated.")]');
 
 		// Test the form tooltip
 		sleep(5); // FIXME: Avoid intermittent failure to open tooltip
@@ -140,6 +139,6 @@ abstract class PKPCreateContextTest extends WebTestCase {
 		$this->setInputValue('[name="contactEmail"]', 'rvaca@mailinator.com');
 		$this->setInputValue('[name="supportEmail"]', 'rvaca@mailinator.com');
 		$this->click($selector);
-		$this->waitForTextPresent('The contact details for this ' . $this->contextType . ' have been updated.');
+		$this->waitForElementPresent('//div[contains(text(),"The contact details for this ' . $this->contextType . ' have been updated.")]');
 	}
 }

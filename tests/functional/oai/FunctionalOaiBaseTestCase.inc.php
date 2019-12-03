@@ -29,7 +29,7 @@ class FunctionalOaiBaseTestCase extends DatabaseTestCase {
 		);
 	}
 
-	public function setUp() {
+	public function setUp() : void {
 		// Retrieve and check configuration.
 		$webtestBaseUrl = getenv('BASEURL');
 		if (empty($webtestBaseUrl)) {

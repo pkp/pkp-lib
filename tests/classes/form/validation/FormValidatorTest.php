@@ -24,7 +24,7 @@ class FormValidatorTest extends PKPTestCase {
 	private
 		$form;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->form = new Form('some template');
 	}

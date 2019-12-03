@@ -17,13 +17,13 @@ class PublicationTest extends PKPTestCase {
 	/**
 	 * @see PKPTestCase::setUp()
 	 */
-	protected function setUp() {
+	protected function setUp() : void {
 		$this->publication = DAORegistry::getDAO('PublicationDAO')->newDataObject();
 	}
 	/**
 	 * @see PKPTestCase::tearDown()
 	 */
-	protected function tearDown() {
+	protected function tearDown() : void {
 		unset($this->publication);
 	}
 	//

@@ -26,7 +26,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		return array('filters', 'filter_settings', 'filter_groups');
 	}
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		// Create a test filter group.

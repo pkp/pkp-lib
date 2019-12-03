@@ -103,7 +103,7 @@ class FileCacheTest extends PKPTestCase {
 	//
 	// Protected methods.
 	//
-	protected function setUp() {
+	protected function setUp() : void {
 		$this->cacheManager = CacheManager::getManager();
 		$this->cacheMisses = 0;
 

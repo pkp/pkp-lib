@@ -16,7 +16,7 @@ mkdir screenshots
 
 # Download and start Selenium server.
 wget -q -O selenium.jar "https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar"
-java -Dwebdriver.chrome.driver=/usr/lib/chromium-browser/chromedriver -jar selenium.jar &
+java -Dwebdriver.chrome.driver=/usr/bin/chromedriver -jar selenium.jar &
 
 # Wait for Selenium to start before continuing.
 until wget -O - -q "http://localhost:4444/wd/hub/status" | fgrep "Server is running"; do sleep 1; done

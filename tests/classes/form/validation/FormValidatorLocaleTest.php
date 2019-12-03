@@ -25,6 +25,7 @@ class FormValidatorLocaleTest extends PKPTestCase {
 	 * @covers FormValidatorLocale::getMessage
 	 */
 	public function testGetMessage() {
+		$form = new Form('some template');
 		$formValidator = new FormValidatorLocale($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
 		self::assertSame('##some.message.key## (English)', $formValidator->getMessage());
 	}

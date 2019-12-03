@@ -36,12 +36,12 @@ class ConfigTest extends PKPTestCase {
 
 	/**
 	 * @depends testSetConfigFileName
-	 * @expectedException PHPUnit\Framework\Exception
 	 * @covers Config::reloadData
 	 */
 	public function testReloadDataWithNonExistentConfigFile() {
 		$this->expectOutputRegex('/Cannot read configuration file some_config/');
 		Config::setConfigFileName('some_config');
+		$this->expectError();
 		Config::reloadData();
 	}
 

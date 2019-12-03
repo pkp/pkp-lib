@@ -36,7 +36,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		$requestDummy = $this->getMockBuilder(PKPRequest::class)->getMock();
 		$result = $this->notificationMgr->getNotificationMessage($requestDummy, $notification);
 
-		$this->assertContains('notification.type.newAnnouncement', $result);
+		$this->assertEquals('##notification.type.newAnnouncement##', $result);
 	}
 
 	/**
@@ -167,7 +167,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		return array('NotificationDAO', 'NotificationSettingsDAO', 'UserDAO');
 	}
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		$this->notificationMgr = new PKPNotificationManager();

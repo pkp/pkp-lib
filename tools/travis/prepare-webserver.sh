@@ -16,10 +16,16 @@ if [ -z "$TRAVIS" ] ; then
 	echo "(Skipping phpenv add)"
 else
 	phpenv config-add lib/pkp/tools/travis/php.ini
+	if [ "$TRAVIS_PHP_VERSION" = "7.4" ]; then
+		# PHP 7.4 appears to need a manual zip installation on Travis
+		sudo apt-get install libzip-dev
+		pecl install zip
+	fi
 fi
 
 # This script runs as the travis user, so cannot bind to port 80. To work
 # around this, we use socat to forward requests from port 80 to port 8080.
+sudo apt-get install socat
 sudo socat TCP-LISTEN:80,fork,reuseaddr TCP:localhost:8080 &
 
 # Run the PHP internal server on port 8080.

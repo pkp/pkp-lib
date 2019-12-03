@@ -58,8 +58,9 @@ abstract class PKPInstallationTest extends WebTestCase {
 		$this->type('css=[id^=filesDir-]', getenv('FILESDIR'));
 
 		// Execute
-		$this->click('css=[id^=submitFormButton-]');
-		$this->waitForTextPresent('has completed successfully.');
+		$submitButton = $this->click('css=[id^=submitFormButton-]');
+		$this->waitForElementPresent('//p[contains(text(),"has completed successfully.")]');
+		self::$driver->wait()->until(WebDriverExpectedCondition::stalenessOf($submitButton));
 	}
 }
 

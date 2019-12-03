@@ -19,8 +19,11 @@ require_mock_env('env1');
 import('lib.pkp.classes.core.PKPComponentRouter');
 import('lib.pkp.tests.classes.core.PKPRouterTestCase');
 
+/**
+ * @runTestsInSeparateProcesses
+ */
 class PKPComponentRouterTest extends PKPRouterTestCase {
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->router = new PKPComponentRouter();
 	}

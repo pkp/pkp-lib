@@ -57,7 +57,7 @@ abstract class WebTestCase extends PKPTestCase {
 	/**
 	 * @copydoc PHPUnit_Framework_TestCase::setUpBeforeClass()
 	 */
-	public static function setUpBeforeClass() {
+	public static function setUpBeforeClass() : void {
 		// Retrieve and check configuration.
 		self::$baseUrl = getenv('BASEURL');
 		self::$timeout = (int) getenv('TIMEOUT') ?: 60; // Default 60 seconds
@@ -85,11 +85,7 @@ abstract class WebTestCase extends PKPTestCase {
 	/**
 	 * @copydoc PHPUnit_Framework_TestCase::setUp()
 	 */
-	protected function setUp() {
-		$screenshotsFolder = 'lib/pkp/tests/results';
-		$this->screenshotPath = BASE_SYS_DIR . '/' . $screenshotsFolder;
-		$this->screenshotUrl = getenv('BASEURL') . '/' . $screenshotsFolder;
-
+	protected function setUp() : void {
 		if (empty(self::$baseUrl)) {
 			$this->markTestSkipped(
 				'Please set BASEURL as an environment variable.'
@@ -129,7 +125,7 @@ abstract class WebTestCase extends PKPTestCase {
 	/**
 	 * @copydoc PHPUnit_Framework_TestCase::tearDown()
 	 */
-	protected function tearDown() {
+	protected function tearDown() : void {
 		parent::tearDown();
 		if (Config::getVar('general', 'installed')) {
 			$affectedTables = $this->getAffectedTables();
@@ -151,11 +147,12 @@ abstract class WebTestCase extends PKPTestCase {
 		if ($password === null) $password = $username . $username;
 
 		$this->open(self::$baseUrl);
-		$this->click('link=Login');
-		$this->waitForElementPresent($selector='css=[id=username]');
+		$this->click('//ul[@id="navigationUser"]//a[contains(text(),"Login")]');
+		sleep(5);
+		$this->waitForElementPresent($selector='//form[@id="login"]//input[@id="username"]');
 		$this->type($selector, $username);
-		$this->type('css=[id=password]', $password);
-		$this->click('css=#login button.submit');
+		$this->type('//form[@id="login"]//input[@id="password"]', $password);
+		$this->click('//form[@id="login"]//button');
 	}
 
 	/**
@@ -180,17 +177,19 @@ abstract class WebTestCase extends PKPTestCase {
 
 		// Find registration page
 		$this->open(self::$baseUrl);
-		$this->click('link=Register');
+		$registerLink = $this->click('//ul[@id="navigationUser"]//a[contains(text(),"Register")]');
+		self::$driver->wait()->until(WebDriverExpectedCondition::stalenessOf($registerLink));
 
 		// Fill in user data
-		$this->waitForElementPresent('css=[id=givenName]');
-		$this->type('css=[id=givenName]', $data['givenName']);
-		$this->type('css=[id=familyName]', $data['familyName']);
-		$this->type('css=[id=username]', $username);
-		$this->type('css=[id=email]', $data['email']);
-		$this->type('css=[id=password]', $data['password']);
-		$this->type('css=[id=password2]', $data['password2']);
-		if (isset($data['affiliation'])) $this->type('css=[id=affiliation]', $data['affiliation']);
+		$this->waitForElementPresent($selector='//form[@id="register"]//input[@id="givenName"]');
+		sleep(2); // Avoid intermittent failures to fill in fields in Travis tests
+		$this->type($selector, $data['givenName']);
+		$this->type('//form[@id="register"]//input[@id="familyName"]', $data['familyName']);
+		$this->type('//form[@id="register"]//input[@id="username"]', $username);
+		$this->type('//form[@id="register"]//input[@id="email"]', $data['email']);
+		$this->type('//form[@id="register"]//input[@id="password"]', $data['password']);
+		$this->type('//form[@id="register"]//input[@id="password2"]', $data['password2']);
+		if (isset($data['affiliation'])) $this->type('//form[@id="register"]//input[@id="affiliation"]', $data['affiliation']);
 		if (isset($data['country'])) $this->select('id=country', 'label=' . $data['country']);
 
 		// Select the specified roles
@@ -202,12 +201,8 @@ abstract class WebTestCase extends PKPTestCase {
 
 		// Save the new user
 		$this->waitForElementPresent($formButtonSelector = '//button[contains(.,\'Register\')]');
-		$this->click($formButtonSelector);
-		$this->waitForElementPresent('css=ul#navigationUser>li.profile>a');
-
-		if (in_array('Author', $data['roles'])) {
-			$this->waitForElementPresent('//h4[contains(.,\'My Authored\')]');
-		}
+		$formButton = $this->click($formButtonSelector);
+		self::$driver->wait()->until(WebDriverExpectedCondition::stalenessOf($formButton));
 	}
 
 	/**
@@ -217,7 +212,9 @@ abstract class WebTestCase extends PKPTestCase {
 		$this->open(self::$baseUrl);
 		$actions = new WebDriverActions(self::$driver);
 		$actions->moveToElement($this->waitForElementPresent('css=ul#navigationUser>li.profile>a'))
-			->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Logout")]'))
+			->perform();
+		$actions = new WebDriverActions(self::$driver);
+		$actions->click($this->waitForElementPresent('//ul[@id="navigationUser"]//a[contains(text(),"Logout")]'))
 			->perform();
 	}
 
@@ -298,7 +295,7 @@ abstract class WebTestCase extends PKPTestCase {
 
 		$this->waitForElementPresent('css=div.moxie-shim-html5 input[type="file"]');
 		$this->type('css=div.moxie-shim-html5 input[type="file"]', $testFile);
-		$this->waitForElementPresent('css=span.pkpUploaderFilename');
+		self::$driver->wait()->until(WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//button[@id="continueButton"]')));
 	}
 
 	/**
@@ -429,15 +426,6 @@ abstract class WebTestCase extends PKPTestCase {
 		return $element;
 	}
 
-	protected function waitForTextPresent($text) {
-		$this->waitForElementPresent('//*[contains(text(),' . $this->quoteXpath($text) . ')]');
-	}
-
-	protected function assertTextPresent($text) {
-		$element = self::$driver->findElement(WebDriverBy::xpath('//*[contains(text(),' . $this->quoteXpath($text) . ')]'));
-		$this->assertFalse(empty($element));
-	}
-
 	protected function type($selector, $text) {
 		$element = $this->waitForElementPresent($selector);
 		$element->clear();
@@ -455,7 +443,8 @@ abstract class WebTestCase extends PKPTestCase {
 	protected function click($selector) {
 		self::$driver->wait()->until(WebDriverExpectedCondition::elementToBeClickable($findBy = $this->_webDriverBy($selector)));
 		$actions = new WebDriverActions(self::$driver);
-		$actions->click(self::$driver->findElement($findBy))->perform();
+		$actions->click($element = self::$driver->findElement($findBy))->perform();
+		return $element;
 	}
 
 	protected function quoteXpath($string) {
@@ -477,5 +466,13 @@ abstract class WebTestCase extends PKPTestCase {
 		self::$driver->wait()->until(function() use ($driver) {
 			return $driver->executeScript("return typeof jQuery !== 'undefined' && jQuery.active == 0;");
 		});
+	}
+
+	protected function onNotSuccessfulTest(Throwable $t) : void {
+		// Take a screenshot.
+		$screenshotsFolder = BASE_SYS_DIR . '/lib/pkp/tests/results/';
+		self::$driver->takeScreenshot($screenshotsFolder . time() . '.png');
+
+		parent::onNotSuccessfulTest($t);
 	}
 }

@@ -67,63 +67,63 @@ class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * Tests special error conditions while setting composite types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testCompositeWithoutParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting composite types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testCompositeWithWrongParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_COMPOSITE => 'string'), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting controlled vocab types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testControlledVocabWithoutParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_VOCABULARY);
 	}
 
 	/**
 	 * Tests special error conditions while setting controlled vocab types
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testControlledVocabWithWrongParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_VOCABULARY => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting non-parameterized type
 	 * @covers MetadataProperty::__construct
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testNonParameterizedTypeWithParameter() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_STRING => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting an unsupported type
 	 * @covers MetadataProperty::getSupportedTypes
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testSetUnsupportedType() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), 0x99999999, true, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
 	 * Tests special error conditions while setting an unsupported cardinality
 	 * @covers MetadataProperty::getSupportedCardinalities
-	 * @expectedException InvalidArgumentException
 	 */
 	public function testSetUnsupportedCardinality() {
+		$this->expectException(InvalidArgumentException::class);
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, true, 0x99999999);
 	}
 

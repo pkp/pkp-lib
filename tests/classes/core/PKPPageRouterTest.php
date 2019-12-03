@@ -22,8 +22,11 @@ import('lib.pkp.tests.classes.core.PKPRouterTestCase');
 import('classes.security.Validation'); // This will import our mock validation class.
 import('classes.i18n.AppLocale'); // This will import our mock locale.
 
+/**
+ * @runTestsInSeparateProcesses
+ */
 class PKPPageRouterTest extends PKPRouterTestCase {
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->router = $this->getMockBuilder(PKPPageRouter::class)
 			->setMethods(array('getCacheablePages'))

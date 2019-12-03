@@ -40,7 +40,7 @@ class DispatcherTest extends PKPTestCase {
 	/**
 	 * @see PKPTestCase::setUp()
 	 */
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		// Mock application object without calling its constructor.

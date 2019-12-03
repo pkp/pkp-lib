@@ -224,7 +224,7 @@ class XMLNode {
 		return $out;
 	}
 
-	function xmlentities($string, $quote_style=ENT_QUOTES) {
+	static function xmlentities($string, $quote_style=ENT_QUOTES) {
 		return htmlspecialchars($string, $quote_style, 'UTF-8');
 	}
 

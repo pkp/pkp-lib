@@ -235,8 +235,20 @@ class EmailTemplateDAO extends SchemaDAO {
 		$data = $xmlDao->parse($templateDataFile, array('email_texts', 'email_text', 'subject', 'body', 'description'));
 		if (!$data) return false;
 		$locale = $data->getAttribute('locale');
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 
 		foreach ($data->getChildren() as $emailNode) {
+			$subject = $emailNode->getChildValue('subject');
+			$body = $emailNode->getChildValue('body');
+			$description = $emailNode->getChildValue('description');
+
+			// Translate variable contents
+			foreach (array(&$subject, &$body, &$description) as &$var) {
+				$var = preg_replace_callback('{{translate key="([^"]+)"}}', function($matches) {
+					return __($matches[1]);
+				}, $var);
+			}
+
 			if ($emailKey && $emailKey != $emailNode->getAttribute('key')) continue;
 			$dataSource = $this->getDataSource();
 			$sql[] = 'DELETE FROM email_templates_default_data WHERE email_key = ' . $dataSource->qstr($emailNode->getAttribute('key')) . ' AND locale = ' . $dataSource->qstr($locale);
@@ -250,9 +262,9 @@ class EmailTemplateDAO extends SchemaDAO {
 				(' .
 				$dataSource->qstr($emailNode->getAttribute('key')) . ', ' .
 				$dataSource->qstr($locale) . ', ' .
-				$dataSource->qstr($emailNode->getChildValue('subject')) . ', ' .
-				$dataSource->qstr($emailNode->getChildValue('body')) . ', ' .
-				$dataSource->qstr($emailNode->getChildValue('description')) .
+				$dataSource->qstr($subject) . ', ' .
+				$dataSource->qstr($body) . ', ' .
+				$dataSource->qstr($description) .
 				")";
 			if (!$returnSql) {
 				$this->update(array_shift($sql));

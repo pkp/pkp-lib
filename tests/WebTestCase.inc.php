@@ -63,6 +63,7 @@ abstract class WebTestCase extends PKPTestCase {
 		self::$timeout = (int) getenv('TIMEOUT') ?: 60; // Default 60 seconds
 		if (!self::$driver) {
 			$options = new ChromeOptions();
+			$options->addArguments(array('--whitelisted-ips=\'\''));
 			$browsersize = getenv('BROWSERSIZE') ?: '1280,960';
 			$options->addArguments(array('--window-size=' . $browsersize));
 			$caps = DesiredCapabilities::chrome();

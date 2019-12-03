@@ -194,12 +194,12 @@ class PKPToolsHandler extends ManagementHandler {
 		}
 
 		$columns = $request->getUserVar('columns');
-		$filters = json_decode($request->getUserVar('filters'));
+		$filters = (array) json_decode($request->getUserVar('filters'));
 		if (!$filters) $filters = $request->getUserVar('filters');
 
 		$orderBy = $request->getUserVar('orderBy');
 		if ($orderBy) {
-			$orderBy = json_decode($orderBy);
+			$orderBy = (array) json_decode($orderBy);
 			if (!$orderBy) $orderBy = $request->getUserVar('orderBy');
 		} else {
 			$orderBy = array();

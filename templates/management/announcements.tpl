@@ -15,6 +15,10 @@
 		<tab id="announcements" label="{translate key="manager.setup.announcements"}">
 	    {capture assign=announcementGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.ManageAnnouncementGridHandler" op="fetchGrid" escape=false}{/capture}
 	    {load_url_in_div id="announcementGridContainer" url=$announcementGridUrl}
+			<announcements-list-panel
+				v-bind="components.announcements"
+				@set="set"
+			/>
 		</tab>
 		<tab id="announcementTypes" label="{translate key="manager.announcementTypes"}">
 	    {capture assign=announcementTypeGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid" escape=false}{/capture}
@@ -24,7 +28,7 @@
 	</tabs>
 </div>
 <script type="text/javascript">
-	pkp.registry.init('settings-announcements-{$uuid}', 'SettingsContainer', {ldelim}{rdelim});
+	pkp.registry.init('settings-announcements-{$uuid}', 'SettingsContainer', {$settingsData|json_encode});
 </script>
 
 {include file="common/footer.tpl"}

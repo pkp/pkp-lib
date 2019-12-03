@@ -298,6 +298,37 @@ class ManagementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
+		$announcementsListPanel = new \PKP\components\listPanels\ListPanel(
+			'announcements',
+			__('announcement.announcements'),
+			[
+				'itemsMax' => 2,
+				'items' => [
+					[
+						'id' => 1,
+						'title' => 'This is my example',
+						'datePosted' => '2019-01-12',
+						'url' => 'https://google.com',
+					],
+					[
+						'id' => 2,
+						'title' => 'This is my other example',
+						'datePosted' => '2018-01-12',
+						'url' => 'https://google.com',
+					],
+				],
+				'filters' => [],
+			]
+		);
+
+		$settingsData = [
+			'components' => [
+				'announcements' => $announcementsListPanel->getConfig(),
+			]
+		];
+
+		$templateMgr->assign('settingsData', $settingsData);
+
 		$templateMgr->display('management/announcements.tpl');
 	}
 

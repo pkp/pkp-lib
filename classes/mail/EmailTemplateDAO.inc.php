@@ -235,7 +235,7 @@ class EmailTemplateDAO extends SchemaDAO {
 		$data = $xmlDao->parse($templateDataFile, array('email_texts', 'email_text', 'subject', 'body', 'description'));
 		if (!$data) return false;
 		$locale = $data->getAttribute('locale');
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 
 		foreach ($data->getChildren() as $emailNode) {
 			$subject = $emailNode->getChildValue('subject');

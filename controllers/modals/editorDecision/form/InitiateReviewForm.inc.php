@@ -39,7 +39,9 @@ class InitiateReviewForm extends EditorDecisionForm {
 	/**
 	 * Execute the form.
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		$request = Application::get()->getRequest();
 
 		// Retrieve the submission.

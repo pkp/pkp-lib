@@ -35,7 +35,7 @@ if [[ "$TEST" == "pgsql" ]]; then
 	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
 	psql -c "CREATE USER \"ojs-ci\" WITH PASSWORD 'ojs-ci';" -U postgres
 	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"ojs-ci\" TO \"ojs-ci\";" -U postgres
-	echo "localhost:5432:ojs-ci:ojs-ci:ojs-ci" > ~/.pgpass
+	echo "${DBHOST}:5432:${DBNAME}:${DBUSERNAME}:${DBPASSWORD}" > ~/.pgpass
 	chmod 600 ~/.pgpass
 	export DBTYPE=PostgreSQL
 elif [[ "$TEST" == "mysql" ]]; then

@@ -110,110 +110,126 @@ class EditorialStatisticsService {
 	public static function compileSubmissions(SubmissionStatistics $rangedStatistics, SubmissionStatistics $statistics) : array
 	{
 		$percentage = '%.2f%%';
-		$defaultFormat = '%d';
+		$integer = '%d';
 		$indent = '&emsp;';
+		
+		$itemFactory = function($name, $valueGenerator, $format) {
+			return [
+				'name' => $name,
+				'value' => $valueGenerator,
+				'format' => $format
+			];
+		};
 
 		$items = [
-			self::SUBMISSIONS_RECEIVED => [
-				'name' => __('manager.statistics.editorial.submissionsReceived'),
-				'value' => function ($source, $type) {
+			self::SUBMISSIONS_RECEIVED => $itemFactory(
+				__('manager.statistics.editorial.submissionsReceived'),
+				function ($source, $type) {
 					return $type == 'average' ? $source->getReceivedPerYear() : $source->getReceived();
-				}
-			],
-			self::SUBMISSIONS_ACCEPTED => [
-				'name' => __('manager.statistics.editorial.submissionsAccepted'),
-				'value' => function ($source, $type) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_ACCEPTED => $itemFactory(
+				__('manager.statistics.editorial.submissionsAccepted'),
+				function ($source, $type) {
 					return $type == 'average' ? $source->getAcceptedPerYear() : $source->getAccepted();
-				}
-			],
-			self::SUBMISSIONS_DECLINED => [
-				'name' => __('manager.statistics.editorial.submissionsDeclined'),
-				'value' => function ($source, $type) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_DECLINED => $itemFactory(
+				__('manager.statistics.editorial.submissionsDeclined'),
+				function ($source, $type) {
 					return $type == 'average' ? $source->getDeclinedPerYear() : $source->getDeclined();
-				}
-			],
-			self::SUBMISSIONS_DECLINED_DESK_REJECT => [
-				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.deskReject'),
-				'value' => function ($source, $type) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_DECLINED_DESK_REJECT => $itemFactory(
+				$indent . __('manager.statistics.editorial.submissionsDeclined.deskReject'),
+				function ($source, $type) {
 					return $type == 'average' ? $source->getDeclinedByDeskRejectPerYear() : $source->getDeclinedByDeskReject();
-				}
-			],
-			self::SUBMISSIONS_DECLINED_POST_REVIEW => [
-				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.postReview'),
-				'value' => function ($source, $type) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_DECLINED_POST_REVIEW => $itemFactory(
+				$indent . __('manager.statistics.editorial.submissionsDeclined.postReview'),
+				function ($source, $type) {
 					return $type == 'average' ? $source->getDeclinedByPostReviewPerYear() : $source->getDeclinedByPostReview();
-				}
-			],
-			self::SUBMISSIONS_DECLINED_OTHER => [
-				'name' => $indent . __('manager.statistics.editorial.submissionsDeclined.other'),
-				'value' => function ($source, $type) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_DECLINED_OTHER => $itemFactory(
+				$indent . __('manager.statistics.editorial.submissionsDeclined.other'),
+				function ($source, $type) {
 					return $type == 'average' ? $source->getDeclinedByOtherReasonPerYear() : $source->getDeclinedByOtherReason();
-				}
-			],
-			self::SUBMISSIONS_PUBLISHED => [
-				'name' => __('manager.statistics.editorial.submissionsPublished'),
-				'value' => function ($source, $type) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_PUBLISHED => $itemFactory(
+				__('manager.statistics.editorial.submissionsPublished'),
+				function ($source, $type) {
 					return $type == 'average' ? $source->getPublishedPerYear() : $source->getPublished();
-				}
-			],
-			self::SUBMISSIONS_DAYS_TO_DECIDE => [
-				'name' => __('manager.statistics.editorial.averageDaysToDecide'),
-				'value' => function ($source) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_DAYS_TO_DECIDE => $itemFactory(
+				__('manager.statistics.editorial.averageDaysToDecide'),
+				function ($source) {
 					return $source->getAverageDaysToFirstDecision();
-				}
-			],
-			self::SUBMISSIONS_DAYS_TO_ACCEPT => [
-				'name' => $indent . __('manager.statistics.editorial.averageDaysToAccept'),
-				'value' => function ($source) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_DAYS_TO_ACCEPT => $itemFactory(
+				$indent . __('manager.statistics.editorial.averageDaysToAccept'),
+				function ($source) {
 					return $source->getAverageDaysToAccept();
-				}
-			],
-			self::SUBMISSIONS_DAYS_TO_REJECT => [
-				'name' => $indent . __('manager.statistics.editorial.averageDaysToReject'),
-				'value' => function ($source) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_DAYS_TO_REJECT => $itemFactory(
+				$indent . __('manager.statistics.editorial.averageDaysToReject'),
+				function ($source) {
 					return $source->getAverageDaysToReject();
-				}
-			],
-			self::SUBMISSIONS_ACCEPTANCE_RATE => [
-				'name' => __('manager.statistics.editorial.acceptanceRate'),
-				'value' => function ($source) {
+				},
+				$integer
+			),
+			self::SUBMISSIONS_ACCEPTANCE_RATE => $itemFactory(
+				__('manager.statistics.editorial.acceptanceRate'),
+				function ($source) {
 					return $source->getAcceptanceRate();
 				},
-				'format' => $percentage
-			],
-			self::SUBMISSIONS_REJECTION_RATE => [
-				'name' => __('manager.statistics.editorial.rejectionRate'),
-				'value' => function ($source) {
+				$percentage
+			),
+			self::SUBMISSIONS_REJECTION_RATE => $itemFactory(
+				__('manager.statistics.editorial.rejectionRate'),
+				function ($source) {
 					return $source->getRejectionRate();
 				},
-				'format' => $percentage
-			],
-			self::SUBMISSIONS_REJECTION_RATE_DESK_REJECT => [
-				'name' => $indent . __('manager.statistics.editorial.deskRejectRejectionRate'),
-				'value' => function ($source) {
+				$percentage
+			),
+			self::SUBMISSIONS_REJECTION_RATE_DESK_REJECT => $itemFactory(
+				$indent . __('manager.statistics.editorial.deskRejectRejectionRate'),
+				function ($source) {
 					return $source->getDeclinedByDeskRejectRate();
 				},
-				'format' => $percentage
-			],
-			self::SUBMISSIONS_REJECTION_RATE_POST_REVIEW => [
-				'name' => $indent . __('manager.statistics.editorial.postReviewRejectionRate'),
-				'value' => function ($source) {
+				$percentage
+			),
+			self::SUBMISSIONS_REJECTION_RATE_POST_REVIEW => $itemFactory(
+				$indent . __('manager.statistics.editorial.postReviewRejectionRate'),
+				function ($source) {
 					return $source->getDeclinedByPostReviewRate();
 				},
-				'format' => $percentage
-			],
-			self::SUBMISSIONS_REJECTION_RATE_OTHER => [
-				'name' => $indent . __('manager.statistics.editorial.otherRejectionRate'),
-				'value' => function ($source) {
+				$percentage
+			),
+			self::SUBMISSIONS_REJECTION_RATE_OTHER => $itemFactory(
+				$indent . __('manager.statistics.editorial.otherRejectionRate'),
+				function ($source) {
 					return $source->getDeclinedByOtherReasonRate();
 				},
-				'format' => $percentage
-			]
+				$percentage
+			)
 		];
 		$return = [];
-		foreach ($items as $key => $item) {
-			['name' => $name, 'value' => $value, 'format' => $format] = $item;
-			$format = $format ?? $defaultFormat;
+		foreach ($items as $key => ['name' => $name, 'value' => $value, 'format' => $format]) {
 			$return[$key] = [
 				'name' => $name,
 				'period' => sprintf($format, $value($rangedStatistics, 'period')),

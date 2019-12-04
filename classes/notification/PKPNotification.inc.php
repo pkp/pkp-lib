@@ -80,7 +80,6 @@ define('NOTIFICATION_TYPE_PAYMENT_REQUIRED',			0x1000028);
 
 define('NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED',			0x1000029);
 
-
 class PKPNotification extends DataObject {
 
 	/**

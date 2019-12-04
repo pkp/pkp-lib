@@ -735,6 +735,42 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	}
 
 	/**
+	 * Get the name of a workflow stage
+	 *
+	 * @param int $stageId One of the WORKFLOW_STAGE_* constants
+	 * @return string
+	 */
+	public static function getWorkflowStageName($stageId) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
+		switch ($stageId) {
+			case WORKFLOW_STAGE_ID_SUBMISSION: return __('submission.submission');
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return __('workflow.review.internalReview');
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return __('workflow.review.externalReview');
+			case WORKFLOW_STAGE_ID_EDITING: return __('submission.editorial');
+			case WORKFLOW_STAGE_ID_PRODUCTION: return __('submission.production');
+		}
+		throw new Exception('Name requested for an unrecognized stage id.');
+	}
+
+	/**
+	 * Get the hex color (#000000) of a workflow stage
+	 *
+	 * @param int $stageId One of the WORKFLOW_STAGE_* constants
+	 * @return string
+	 */
+	public static function getWorkflowStageColor($stageId) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
+		switch ($stageId) {
+			case WORKFLOW_STAGE_ID_SUBMISSION: return '#d00a0a';
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return '#e05c14';
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return '#e08914';
+			case WORKFLOW_STAGE_ID_EDITING: return '#007ab2';
+			case WORKFLOW_STAGE_ID_PRODUCTION: return '#00b28d';
+		}
+		throw new Exception('Color requested for an unrecognized stage id.');
+	}
+
+	/**
 	 * Get a human-readable version of the max file upload size
 	 *
 	 * @return string

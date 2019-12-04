@@ -1846,14 +1846,38 @@ msgstr "Last 30 days"
 msgid "stats.dateRange.last90Days"
 msgstr "Last 90 days"
 
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Last two years"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Last year"
+
 msgid "stats.dateRange.sinceDate"
 msgstr "Since {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Year to date"
 
 msgid "stats.dateRange.to"
 msgstr "To"
 
 msgid "stats.dateRange.untilDate"
 msgstr "Until {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr "The percentage for the selected date range is calculated for submissions that were submitted during this date range.<br><br>"
+"In most cases, the total percentage will be inaccurate because it includes submissions that have not yet had a chance to be accepted or rejected.<br><br>"
+"For a more accurate number, select a date range that ends at least one year ago to make sure that all included submissions have been handled by an editor."
+
+msgid "stats.description.averageDaysToDecision"
+msgstr "The average number of days before a submission receives its first editorial decision, such as desk rejection or send for review.<br><br>"
+"The averages for the selected date range are calculated for submissions that were submitted during this date range."
+
+msgid "stats.descriptionForStat"
+msgstr "Description for {$stat}"
+
+msgid "stats.editorialActivity"
+msgstr "Editorial Activity"
 
 msgid "stats.fileViews"
 msgstr "File Views"
@@ -1870,5 +1894,59 @@ msgstr "PDF"
 msgid "stats.searchSubmissionDescription"
 msgstr "Search by title, author and ID"
 
+msgid "stats.submissionsActive"
+msgstr "Active Submissions"
+
 msgid "stats.total"
 msgstr "Total"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total Within Date Range"
+
+msgid "stats.trends"
+msgstr "Trends"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Submissions Received"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Submissions Accepted"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Submissions Declined"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Submissions Declined (Desk Reject)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Submissions Declined (After Review)"
+
+msgid "stats.name.submissionsDeclinedOther"
+msgstr "Submissions Declined (Other)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Submissions Published"
+
+msgid "stats.name.averageDaysToDecision"
+msgstr "Average Days to First Editorial Decision"
+
+msgid "stats.name.averageDaysToAccept"
+msgstr "Average Days to Accept"
+
+msgid "stats.name.averageDaysToReject"
+msgstr "Average Days to Reject"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Acceptance Rate"
+
+msgid "stats.name.declineRate"
+msgstr "Rejection Rate"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Desk Reject Rate"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "After Review Reject Rate"
+
+msgid "stats.name.declinedOtherRate"
+msgstr "Other Reject Rate"

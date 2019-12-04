@@ -16,7 +16,6 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.Services');
-import('lib.pkp.classes.validation.ValidatorFactory');
 import('classes.statistics.StatisticsHelper');
 import('lib.pkp.classes.submission.PKPSubmission'); // import STATUS_ constants
 
@@ -135,7 +134,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publications::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -281,7 +280,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
 		}
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -344,7 +343,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
 		}
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -393,7 +392,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publication::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -483,7 +482,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publication::abstract::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -534,7 +533,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 
 		\HookRegistry::call('API::stats::publication::galley::params', array(&$allowedParams, $slimRequest));
 
-		$result = $this->_validateDates($allowedParams);
+		$result = $this->_validateStatDates($allowedParams);
 		if ($result !== true) {
 			return $response->withStatus(400)->withJsonError($result);
 		}
@@ -596,58 +595,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		}
 
 		return $returnParams;
-	}
-
-	/**
-	 * A helper method to validate start and end date params
-	 *
-	 * @param array $params The params to validate
-	 * @return boolean|string True if they validate, or a string which
-	 *   contains the locale key of an error message.
-	 */
-	protected function _validateDates($params) {
-		$validator = \ValidatorFactory::make(
-			$params,
-			[
-				'dateStart' => [
-					'date_format:Y-m-d',
-					'after_or_equal:' . STATISTICS_EARLIEST_DATE,
-					'before_or_equal:dateEnd',
-				],
-				'dateEnd' => [
-					'date_format:Y-m-d',
-					'before_or_equal:yesterday',
-					'after_or_equal:dateStart',
-				],
-			],
-			[
-				'*.date_format' => 'invalidFormat',
-				'dateStart.after_or_equal' => 'tooEarly',
-				'dateEnd.before_or_equal' => 'tooLate',
-				'dateStart.before_or_equal' => 'invalidRange',
-				'dateEnd.after_or_equal' => 'invalidRange',
-			]
-		);
-
-		if ($validator->fails()) {
-			$errors = $validator->errors()->getMessages();
-			if ((!empty($errors['dateStart'] && in_array('invalidFormat', $errors['dateStart'])))
-					|| (!empty($errors['dateEnd'] && in_array('invalidFormat', $errors['dateEnd'])))) {
-				return 'api.stats.400.wrongDateFormat';
-			}
-			if (!empty($errors['dateStart'] && in_array('tooEarly', $errors['dateStart']))) {
-				return 'api.stats.400.earlyDateRange';
-			}
-			if (!empty($errors['dateEnd'] && in_array('tooLate', $errors['dateEnd']))) {
-				return 'api.stats.400.lateDateRange';
-			}
-			if ((!empty($errors['dateStart'] && in_array('invalidRange', $errors['dateStart'])))
-					|| (!empty($errors['dateEnd'] && in_array('invalidRange', $errors['dateEnd'])))) {
-				return 'api.stats.400.wrongDateRange';
-			}
-		}
-
-		return true;
 	}
 
 	/**

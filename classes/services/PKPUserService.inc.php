@@ -39,7 +39,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 *
 	 * @param array $args
 	 *		@option int contextId If not supplied, CONTEXT_ID_NONE will be used and
-	 *			no submissions will be returned. To retrieve submissions from all
+	 *			no submissions will be returned. To retrieve users from all
 	 *			contexts, use CONTEXT_ID_ALL.
 	 * 		@option string orderBy
 	 * 		@option string orderDirection
@@ -80,9 +80,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	}
 
 	/**
-	 * Build the user query object for getUsers requests
+	 * Build the user query object for getMany requests
 	 *
-	 * @see self::getUsers()
+	 * @see self::getMany()
 	 * @return object Query object
 	 */
 	private function _getQueryBuilder($args = array()) {
@@ -94,6 +94,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'roleIds' => null,
 			'assignedToSubmission' => null,
 			'assignedToSubmissionStage' => null,
+			'registeredAfter' => '',
+			'registeredBefore' => '',
 			'includeUsers' => null,
 			'excludeUsers' => null,
 			'status' => 'active',
@@ -110,6 +112,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->filterByRoleIds($args['roleIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
+			->registeredAfter($args['registeredAfter'])
+			->registeredBefore($args['registeredBefore'])
 			->includeUsers($args['includeUsers'])
 			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])
@@ -491,7 +495,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return array
 	 */
 	public function getAccessibleStageRoles($userId, $contextId, &$submission, $stageId) {
-		
+
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
 
@@ -520,4 +524,57 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		return $accessibleStageRoles;
 	}
 
+	/**
+	 * Get a count of users matching the passed arguments
+	 *
+	 * @param array $args See self::getMany()
+	 */
+	public function count($args = []) {
+		$qb = $this->_getQueryBuilder($args);
+		return $qb
+			->get() // Calls PKPUserQueryBuilder::get() to get the query object
+			->get() // Calls Laravel's get method to execute the query
+			->count();
+	}
+
+	/**
+	 * Get a count of users matching the passed arguments broken down
+	 * by role
+	 *
+	 * @param array $args See self::getMany()
+	 * @return array List of roles with id, name and total
+	 */
+	public function getRolesOverview($args = []) {
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
+
+		// Ignore roles because we'll get all roles in the application
+		if (isset($args['roleIds'])) {
+			unset($args['roleIds']);
+		}
+
+		$result = [
+			[
+				'id' => 'total',
+				'name' => __('stats.total'),
+				'total' => $this->count($args),
+			],
+		];
+
+		$roleNames = Application::get()->getRoleNames();
+
+		// Don't include the admin user if we are limiting the overview to one context
+		if (!empty($args['contextId'])) {
+			unset($roleNames[ROLE_ID_SITE_ADMIN]);
+		}
+
+		foreach ($roleNames as $roleId => $roleName) {
+			$result[] = [
+				'id' => $roleId,
+				'name' => __($roleName),
+				'total' => $this->count(array_merge($args, ['roleIds' => $roleId])),
+			];
+		}
+
+		return $result;
+	}
 }

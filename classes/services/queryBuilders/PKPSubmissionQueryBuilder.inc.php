@@ -223,8 +223,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	public function get() {
 		$this->columns[] = 's.*';
 		$q = Capsule::table('submissions as s')
-					->orderBy($this->orderColumn, $this->orderDirection)
-					->groupBy('s.submission_id');
+					->orderBy($this->orderColumn, $this->orderDirection);
 
 		// context
 		// Never permit a query without a context_id clause unless the '*' wildcard

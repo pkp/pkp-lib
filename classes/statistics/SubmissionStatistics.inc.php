@@ -22,9 +22,9 @@ class SubmissionStatistics {
 
 	/**
 	 * Constructor
-	 * @param $data object Must receive the result from the SubmissionStatisticsQueryBuilder query builder
+	 * @param $data stdClass Must receive the result from the SubmissionStatisticsQueryBuilder query builder
 	 */
-	public function __construct(object $data) {
+	public function __construct(\stdClass $data) {
 		$this->_data = $data;
 	}
 

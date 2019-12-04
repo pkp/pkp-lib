@@ -37,7 +37,7 @@ class UserStatistics {
 	 */
 	public function getRegistrationsByRole(int $roleId) : int
 	{
-		return (int) $this->_data[$roleId]->total ?? 0;
+		return (int) ($this->_data[$roleId]->total ?? 0);
 	}
 
 	/**
@@ -47,7 +47,7 @@ class UserStatistics {
 	 */
 	public function getRegistrationsByRolePerYear(int $roleId) : float
 	{
-		return (float) $this->data[$roleId]->average ?? 0;
+		return (float) ($this->_data[$roleId]->average ?? 0);
 	}
 
 	/**

@@ -31,7 +31,7 @@ abstract class PKPInstallationTest extends WebTestCase {
 	 */
 	function testInstallation() {
 		$this->open(self::$baseUrl);
-		$this->waitForTextPresent($this->_getInstallerText());
+		$this->waitForElementPresent('//h1[contains(text(),' . $this->quoteXpath($this->_getInstallerText()) . ')]');
 
 		// Administrator
 		$this->waitForElementPresent('css=[id^=adminUsername-]');

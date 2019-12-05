@@ -70,7 +70,7 @@
 				<div class="pkpStats__tableHeader">
 					<h2 class="pkpStats__tableTitle" id="editorialActivityTabelLabel">
 						{translate key="stats.trends"}
-						<span v-if="isLoadingItems" class="pkpSpinner" aria-hidden="true"></span>
+						<span v-if="isLoading" class="pkpSpinner" aria-hidden="true"></span>
 					</h2>
 					<div class="pkpStats__tableActions">
 						<date-range

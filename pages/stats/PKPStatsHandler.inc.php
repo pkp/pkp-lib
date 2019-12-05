@@ -90,19 +90,19 @@ class PKPStatsHandler extends Handler {
 
 		// Compile table rows
 		$tableRows = [];
-		foreach ($totals as $key => $total) {
+		foreach ($totals as $i => $stat) {
 			$row = [
-				'key' => $key,
-				'name' => $this->_getStatName($key),
+				'key' => $stat['key'],
+				'name' => $stat['name'],
 			];
-			if (in_array($key, $percentageStats)) {
-				$row['total'] = ($total * 100) . '%';
-				$row['dateRange'] = ($dateRangeTotals[$key] * 100) . '%';
+			if (in_array($stat['key'], $percentageStats)) {
+				$row['total'] = ($stat['value'] * 100) . '%';
+				$row['dateRange'] = ($dateRangeTotals[$i]['value'] * 100) . '%';
 			} else {
-				$row['total'] = $total;
-				$row['dateRange'] = $dateRangeTotals[$key];
+				$row['total'] = $stat['value'];
+				$row['dateRange'] = $dateRangeTotals[$i]['value'];
 			}
-			$description = $this->_getStatDescription($key);
+			$description = $this->_getStatDescription($stat['key']);
 			if ($description) {
 				$row['description'] = $description;
 			}
@@ -110,7 +110,6 @@ class PKPStatsHandler extends Handler {
 		}
 
 		// Get the worflow stage counts
-		// $stageIds = Application::get()->getApplicationStages();
 		$activeByStage = [];
 		foreach (Application::get()->getApplicationStages() as $stageId) {
 			$activeByStage[] = [
@@ -313,7 +312,7 @@ class PKPStatsHandler extends Handler {
 				[
 					'name' => 'total',
 					'label' => __('stats.total'),
-					'value' => 'total',
+					'value' => 'value',
 				],
 			],
 			'tableRows' => Services::get('user')->getRolesOverview(['contextId' => $context->getId()]),
@@ -323,31 +322,13 @@ class PKPStatsHandler extends Handler {
 	}
 
 	/**
+	 * Get a description for stats that require one
 	 *
+	 * @param string $key
+	 * @return void
 	 */
-	protected function _getStatName($stat) {
-		switch ($stat) {
-			case 'submissionsReceived': return __('stats.name.submissionsReceived');
-			case 'submissionsAccepted': return __('stats.name.submissionsAccepted');
-			case 'submissionsDeclined': return __('stats.name.submissionsDeclined');
-			case 'submissionsDeclinedDeskReject': return ' ' . __('stats.name.submissionsDeclinedDeskReject');
-			case 'submissionsDeclinedPostReview': return ' ' . __('stats.name.submissionsDeclinedPostReview');
-			case 'submissionsDeclinedOther': return ' ' . __('stats.name.submissionsDeclinedOther');
-			case 'submissionsPublished': return __('stats.name.submissionsPublished');
-			case 'averageDaysToDecision': return __('stats.name.averageDaysToDecision');
-			case 'averageDaysToAccept': return ' ' . __('stats.name.averageDaysToAccept');
-			case 'averageDaysToReject': return ' ' . __('stats.name.averageDaysToReject');
-			case 'acceptanceRate': return __('stats.name.acceptanceRate');
-			case 'declineRate': return __('stats.name.declineRate');
-			case 'declinedDeskRate': return ' ' . __('stats.name.declinedDeskRate');
-			case 'declinedReviewRate': return ' ' . __('stats.name.declinedReviewRate');
-			case 'declinedOtherRate': return ' ' . __('stats.name.declinedOtherRate');
-		}
-		return $stat;
-	}
-
-	protected function _getStatDescription($stat) {
-		switch ($stat) {
+	protected function _getStatDescription($key) {
+		switch ($key) {
 			case 'averageDaysToDecision': return __('stats.description.averageDaysToDecision');
 			case 'acceptanceRate': return __('stats.description.acceptRejectRate');
 			case 'declineRate': return __('stats.description.acceptRejectRate');

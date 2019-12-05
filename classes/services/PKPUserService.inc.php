@@ -556,7 +556,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			[
 				'id' => 'total',
 				'name' => __('stats.total'),
-				'total' => $this->count($args),
+				'value' => $this->count($args),
 			],
 		];
 
@@ -571,7 +571,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$result[] = [
 				'id' => $roleId,
 				'name' => __($roleName),
-				'total' => $this->count(array_merge($args, ['roleIds' => $roleId])),
+				'value' => $this->count(array_merge($args, ['roleIds' => $roleId])),
 			];
 		}
 

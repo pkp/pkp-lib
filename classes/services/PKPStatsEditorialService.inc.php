@@ -27,6 +27,8 @@ class PKPStatsEditorialService {
 	public function getOverview($args = []) {
 		import('classes.workflow.EditorDecisionActionsManager');
 		import('lib.pkp.classes.submission.PKPSubmission');
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		$received = $this->countSubmissionsReceived($args);
 		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
@@ -58,21 +60,81 @@ class PKPStatsEditorialService {
 		}
 
 		$overview = [
-			'submissionsReceived' => $received,
-			'submissionsAccepted' => $accepted,
-			'submissionsDeclined' => $declined,
-			'submissionsDeclinedDeskReject' => $declinedDesk,
-			'submissionsDeclinedPostReview' => $declinedReview,
-			'submissionsDeclinedOther' => $declinedOther,
-			'submissionsPublished' => $this->countSubmissionsPublished($args),
-			'averageDaysToDecision' => $this->getAverageDaysToDecisions([], $args),
-			'averageDaysToAccept' => $this->getAverageDaysToDecisions([SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION, SUBMISSION_EDITOR_DECISION_ACCEPT], $args),
-			'averageDaysToReject' => $this->getAverageDaysToDecisions([SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE], $args),
-			'acceptanceRate' => round($acceptanceRate, 2),
-			'declineRate' => round($declineRate, 2),
-			'declinedDeskRate' => round($declinedDeskRate, 2),
-			'declinedReviewRate' => round($declinedReviewRate, 2),
-			'declinedOtherRate' => round($declinedOtherRate, 2),
+			[
+				'key' => 'submissionsReceived',
+				'name' => __('stats.name.submissionsReceived'),
+				'value' => $received,
+			],
+			[
+				'key' => 'submissionsAccepted',
+				'name' => __('stats.name.submissionsAccepted'),
+				'value' => $accepted,
+			],
+			[
+				'key' => 'submissionsDeclined',
+				'name' => __('stats.name.submissionsDeclined'),
+				'value' => $declined,
+			],
+			[
+				'key' => 'submissionsDeclinedDeskReject',
+				'name' => __('stats.name.submissionsDeclinedDeskReject'),
+				'value' => $declinedDesk,
+			],
+			[
+				'key' => 'submissionsDeclinedPostReview',
+				'name' => __('stats.name.submissionsDeclinedPostReview'),
+				'value' => $declinedReview,
+			],
+			[
+				'key' => 'submissionsDeclinedOther',
+				'name' => __('stats.name.submissionsDeclinedOther'),
+				'value' => $declinedOther,
+			],
+			[
+				'key' => 'submissionsPublished',
+				'name' => __('stats.name.submissionsPublished'),
+				'value' => $this->countSubmissionsPublished($args),
+			],
+			[
+				'key' => 'averageDaysToDecision',
+				'name' => __('stats.name.averageDaysToDecision'),
+				'value' => $this->getAverageDaysToDecisions([], $args),
+			],
+			[
+				'key' => 'averageDaysToAccept',
+				'name' => __('stats.name.averageDaysToAccept'),
+				'value' => $this->getAverageDaysToDecisions([SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION, SUBMISSION_EDITOR_DECISION_ACCEPT], $args),
+			],
+			[
+				'key' => 'averageDaysToReject',
+				'name' => __('stats.name.averageDaysToReject'),
+				'value' => $this->getAverageDaysToDecisions([SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE], $args),
+			],
+			[
+				'key' => 'acceptanceRate',
+				'name' => __('stats.name.acceptanceRate'),
+				'value' => round($acceptanceRate, 2),
+			],
+			[
+				'key' => 'declineRate',
+				'name' => __('stats.name.declineRate'),
+				'value' => round($declineRate, 2),
+			],
+			[
+				'key' => 'declinedDeskRate',
+				'name' => __('stats.name.declinedDeskRate'),
+				'value' => round($declinedDeskRate, 2),
+			],
+			[
+				'key' => 'declinedReviewRate',
+				'name' => __('stats.name.declinedReviewRate'),
+				'value' => round($declinedReviewRate, 2),
+			],
+			[
+				'key' => 'declinedOtherRate',
+				'name' => __('stats.name.declinedOtherRate'),
+				'value' => round($declinedOtherRate, 2),
+			],
 		];
 
 		\HookRegistry::call('EditorialStats::overview', [&$overview, $args]);

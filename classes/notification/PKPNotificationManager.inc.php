@@ -156,6 +156,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				return __($reviewRound->getStatusKey($isAuthor));
 			case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
 				return __('payment.type.publication.required');
+			case NOTIFICATION_TYPE_EDITORIAL_REPORT:
+				$notificationSettings = $this->getNotificationSettings($notification->getId());
+				return $notificationSettings['contents'];
 			default:
 				$delegateResult = $this->getByDelegate(
 					$notification->getType(),
@@ -399,6 +402,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
 				import('lib.pkp.classes.notification.managerDelegate.PKPEditingProductionStatusNotificationManager');
 				return new PKPEditingProductionStatusNotificationManager($notificationType);
+			case NOTIFICATION_TYPE_EDITORIAL_REPORT:
+				import('lib.pkp.classes.notification.managerDelegate.EditorialReportNotificationManager');
+				return new EditorialReportNotificationManager($notificationType);
 		}
 		return null; // No delegate required, let calling context handle null.
 	}

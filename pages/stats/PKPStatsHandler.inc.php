@@ -88,19 +88,33 @@ class PKPStatsHandler extends Handler {
 			'declinedOtherRate',
 		];
 
+		// Stats that should be indented in the table
+		$indentStats = [
+			'submissionsDeclinedDeskReject',
+			'submissionsDeclinedPostReview',
+			'submissionsDeclinedOther',
+			'averageDaysToAccept',
+			'averageDaysToReject',
+			'declinedDeskRate',
+			'declinedReviewRate',
+			'declinedOtherRate',
+		];
+
 		// Compile table rows
 		$tableRows = [];
 		foreach ($totals as $i => $stat) {
 			$row = [
 				'key' => $stat['key'],
 				'name' => $stat['name'],
+				'total' => $stat['value'],
+				'dateRange' => $dateRangeTotals[$i]['value'],
 			];
+			if (in_array($stat['key'], $indentStats)) {
+				$row['name'] = ' ' . $row['name'];
+			}
 			if (in_array($stat['key'], $percentageStats)) {
 				$row['total'] = ($stat['value'] * 100) . '%';
 				$row['dateRange'] = ($dateRangeTotals[$i]['value'] * 100) . '%';
-			} else {
-				$row['total'] = $stat['value'];
-				$row['dateRange'] = $dateRangeTotals[$i]['value'];
 			}
 			$description = $this->_getStatDescription($stat['key']);
 			if ($description) {

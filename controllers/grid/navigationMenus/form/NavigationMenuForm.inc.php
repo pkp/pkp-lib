@@ -153,7 +153,9 @@ class NavigationMenuForm extends Form {
 	/**
 	 * Save NavigationMenu .
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
 		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
 

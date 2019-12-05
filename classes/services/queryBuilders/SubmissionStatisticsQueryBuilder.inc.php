@@ -78,6 +78,15 @@ class SubmissionStatisticsQueryBuilder extends BaseQueryBuilder {
 
 		$capsule = $this->capsule;
 
+		$publishedSubmissionsQuery = $capsule
+			->table('published_submissions AS ps')
+			->where('ps.submission_id', Capsule::raw('ranged_s.submission_id'))
+			->whereRaw(
+				'ps.date_published BETWEEN COALESCE(?, ps.date_published) AND COALESCE(?, ps.date_published)',
+				[$this->_start, $this->_end]
+			)
+			->select(Capsule::raw(0));
+
 		// Query to extract statistics from the submissions
 		$statisticsQuery = $capsule
 			->table('submissions AS s')
@@ -158,11 +167,8 @@ class SubmissionStatisticsQueryBuilder extends BaseQueryBuilder {
 				// Statistics for all submissions
 				Capsule::raw('COUNT(ranged_s.submission_id) AS submission_received'),
 				Capsule::raw('COUNT(CASE WHEN ranged_ed.decision IN (' . SUBMISSION_EDITOR_DECISION_ACCEPT . ', ' . SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION . ') THEN 0 END) AS submission_accepted'),
-				Capsule::raw('COUNT(CASE WHEN s.status = ' . STATUS_PUBLISHED . ' AND EXISTS (
-					SELECT 0
-					FROM published_submissions ps
-					WHERE ps.submission_id = ranged_s.submission_id
-					' . ($dateFormat ? ' AND ' . sprintf($dateFormat, 'ps.date_published') : '') . '
+				Capsule::raw('COUNT(CASE WHEN s.status = ' . STATUS_PUBLISHED . ' AND EXISTS ('
+					. $publishedSubmissionsQuery->toSql() . '
 				) THEN 0 END) AS submission_published'),
 				Capsule::raw('COUNT(CASE WHEN ranged_ed.decision = ' . SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE . ' THEN 0 END) AS submission_declined_initial'),
 				Capsule::raw('COUNT(CASE WHEN ranged_ed.decision = ' . SUBMISSION_EDITOR_DECISION_DECLINE . ' THEN 0 END) AS submission_declined'),
@@ -254,7 +260,7 @@ class SubmissionStatisticsQueryBuilder extends BaseQueryBuilder {
 				Capsule::raw('(COALESCE(statistics.submission_declined_initial, 0) + COALESCE(statistics.submission_declined, 0) + COALESCE(statistics.submission_declined_other, 0)) / years.count AS avg_submission_declined_total')
 			]);
 
-		return self::addBindings($query, $statisticsQuery, $yearsQuery);
+		return self::addBindings($query, $publishedSubmissionsQuery, $statisticsQuery, $yearsQuery);
 	}
 
 	/**

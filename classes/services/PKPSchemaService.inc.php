@@ -252,8 +252,7 @@ class PKPSchemaService {
 				if (is_object($value) || is_array($value)) {
 					$value = serialize($value);
 				}
-				$value = (string) $value;
-				return get_magic_quotes_gpc() ? stripslashes($value) : $value;
+				return (string) $value;
 			case 'array':
 				$newArray = [];
 				if (is_array($schema->items)) {

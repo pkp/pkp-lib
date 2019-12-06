@@ -66,9 +66,30 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 
-		// Create and insert the submission (ID needed for other entities)
+		// Searching for ID
+		$internalSubmissionId = NULL;
+		$internalAdvice       = NULL;
+		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
+			if (is_a($n, 'DOMElement')) {
+				if (strcmp($n->getAttribute('type'), 'internal') == 0) {
+					// TODO: check if textContent is a valid integer (as string)
+					$internalSubmissionId = (int)$n->textContent;
+					$internalAdvice = $n->getAttribute('advice');
+					break;
+				}
+			}
+		}
+
+		// Create new submissionDAO object
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->newDataObject();
+		// In case 'internal update': get existing submission by submission ID
+		if (strcmp($internalAdvice, 'update') == 0) {
+			$submission = $submissionDao->getById($internalSubmissionId);
+		// Else create new submission
+		} else {
+			$submission = $submissionDao->newDataObject();
+		}
+
 		$submission->setContextId($context->getId());
 		$submission->stampLastActivity();
 		$submission->setStatus(STATUS_QUEUED);
@@ -78,7 +99,19 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$submission->setSubmissionProgress(0);
 		import('lib.pkp.classes.workflow.WorkflowStageDAO');
 		$submission->setStageId(WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
-		$submissionDao->insertObject($submission);
+
+		if (strcmp($internalAdvice, 'update') == 0) {
+			// Drop authors and submission_files where submission_id = $internalSubmissionId
+			// extracted from the xml file.
+			import('lib.pkp.classes.db.DAO');
+			$dao = new DAO;
+			$query = "DELETE FROM `authors` WHERE submission_id={$internalSubmissionId}";
+			$dao->update($query);
+			$query = "DELETE FROM submission_files WHERE submission_id = {$internalSubmissionId}";
+			$dao->update($query);
+		} else {
+			$submissionDao->insertObject($submission);
+		}
 		$deployment->setSubmission($submission);
 
 		// Handle any additional attributes etc.
@@ -149,9 +182,11 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 				$this->parseIdentifier($n, $submission);
 				break;
 			case 'authors':
+				// TODO: delete before adding them again
 				$this->parseAuthors($n, $submission);
 				break;
 			case 'submission_file':
+				// TODO: delete before adding them again
 				$this->parseSubmissionFile($n, $submission);
 				break;
 			case 'copyrightYear':
@@ -177,6 +212,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	function parseIdentifier($element, $submission) {
 		$deployment = $this->getDeployment();
 		$advice = $element->getAttribute('advice');
+
 		switch ($element->getAttribute('type')) {
 			case 'internal':
 				// "update" advice not supported yet.

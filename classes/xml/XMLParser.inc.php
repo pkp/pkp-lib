@@ -26,10 +26,6 @@ define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
 import('lib.pkp.classes.xml.XMLParserDOMHandler');
 
 class XMLParser {
-
-	/** @var int original magic_quotes_runtime setting */
-	var $magicQuotes;
-
 	/** @var object instance of XMLParserHandler */
 	var $handler;
 
@@ -41,9 +37,6 @@ class XMLParser {
 	 * Initialize parser and set parser options.
 	 */
 	function __construct() {
-		// magic_quotes_runtime must be disabled for XML parsing
-		$this->magicQuotes = get_magic_quotes_runtime();
-		if ($this->magicQuotes) set_magic_quotes_runtime(0);
 		$this->errors = array();
 	}
 
@@ -239,15 +232,6 @@ class XMLParser {
 	function destroyParser($parser) {
 		xml_parser_free($parser);
 	}
-
-	/**
-	 * Perform required clean up for this object.
-	 */
-	function destroy() {
-		// Set magic_quotes_runtime back to original setting
-		if ($this->magicQuotes) set_magic_quotes_runtime($this->magicQuotes);
-	}
-
 }
 
 /**

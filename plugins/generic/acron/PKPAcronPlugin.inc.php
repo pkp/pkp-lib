@@ -286,9 +286,6 @@ class PKPAcronPlugin extends GenericPlugin {
 			$tree = $xmlParser->parse($filePath);
 
 			if (!$tree) {
-				$xmlParser->destroy();
-
-				// TODO: graceful error handling
 				fatalError('Error parsing scheduled tasks XML file: ' . $filePath);
 			}
 
@@ -319,8 +316,6 @@ class PKPAcronPlugin extends GenericPlugin {
 					'args' => $args
 				);
 			}
-
-			$xmlParser->destroy();
 		}
 
 		// Store the object.

@@ -75,7 +75,6 @@ class ScheduledTaskTool extends CommandLineTool {
 		$tree = $xmlParser->parse($file);
 
 		if (!$tree) {
-			$xmlParser->destroy();
 			printf("Unable to parse file \"%s\"!\n", $file);
 			exit(1);
 		}
@@ -95,8 +94,6 @@ class ScheduledTaskTool extends CommandLineTool {
 				$this->executeTask($className, ScheduledTaskHelper::getTaskArgs($task));
 			}
 		}
-
-		$xmlParser->destroy();
 	}
 
 	/**

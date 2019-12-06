@@ -273,4 +273,11 @@ class XMLParserHandler {
 	function getResult() {
 		return null;
 	}
+
+	/**
+	 * Perform clean up for this object
+	 * @deprecated
+	 */
+	function destroy() {
+	}
 }

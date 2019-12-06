@@ -313,10 +313,7 @@ class NavigationMenuItemDAO extends DAO {
 			$supportedLocales = $site->getSupportedLocales();
 		}
 
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		foreach ($tree->getChildren() as $setting) {
 			$site = $setting->getAttribute('site');

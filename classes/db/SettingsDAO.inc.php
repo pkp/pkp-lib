@@ -142,11 +142,7 @@ class SettingsDAO extends DAO {
 	function installSettings($id, $filename, $paramArray = array()) {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
-
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		foreach ($tree->getChildren() as $setting) {
 			$nameNode = $setting->getChildByName('name');
@@ -174,9 +170,6 @@ class SettingsDAO extends DAO {
 				);
 			}
 		}
-
-		$xmlParser->destroy();
-
 	}
 
 	/**

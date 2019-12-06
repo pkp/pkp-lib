@@ -719,10 +719,7 @@ class UserGroupDAO extends DAO {
 		$site = $siteDao->getSite();
 		$installedLocales = $site->getInstalledLocales();
 
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		foreach ($tree->getChildren() as $setting) {
 			$roleId = hexdec($setting->getAttribute('roleId'));

@@ -233,7 +233,6 @@ class Installer {
 		$installTree = $xmlParser->parse($installPath);
 		if (!$installTree) {
 			// Error reading installation file
-			$xmlParser->destroy();
 			$this->setError(INSTALLER_ERROR_GENERAL, 'installer.installFileError');
 			return false;
 		}
@@ -247,7 +246,6 @@ class Installer {
 
 		// Parse descriptor
 		$this->parseInstallNodes($installTree);
-		$xmlParser->destroy();
 
 		$result = $this->getErrorType() == 0;
 
@@ -637,10 +635,7 @@ class Installer {
 		$tree = $xmlParser->parse($filterConfigFile);
 
 		// Validate the filter configuration.
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		// Get the filter helper.
 		if ($filterHelper === false) {
@@ -662,8 +657,6 @@ class Installer {
 			}
 		}
 
-		// Get rid of the parser.
-		$xmlParser->destroy();
 		return true;
 	}
 

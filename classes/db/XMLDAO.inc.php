@@ -26,7 +26,6 @@ class XMLDAO {
 	function &parse($file) {
 		$parser = new XMLParser();
 		$data =& $parser->parse($file);
-		$parser->destroy();
 		return $data;
 	}
 
@@ -40,7 +39,6 @@ class XMLDAO {
 		$parser = new XMLParser();
 		$parser->setHandler($handler);
 		$data =& $parser->parse($file);
-		$parser->destroy();
 		return $data;
 	}
 
@@ -53,7 +51,6 @@ class XMLDAO {
 	function &parseStruct($file, $tagsToMatch = array()) {
 		$parser = new XMLParser();
 		$data =& $parser->parseStruct($file, $tagsToMatch);
-		$parser->destroy();
 		return $data;
 	}
 }

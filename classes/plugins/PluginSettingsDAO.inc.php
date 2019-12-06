@@ -247,10 +247,7 @@ class PluginSettingsDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		// Check for existing settings and leave them if they are already in place.
 		$currentSettings = $this->getPluginSettings($contextId, $pluginName);
@@ -277,8 +274,6 @@ class PluginSettingsDAO extends DAO {
 				$this->updateSetting($contextId, $pluginName, $name, $value, $type);
 			}
 		}
-
-		$xmlParser->destroy();
 	}
 }
 

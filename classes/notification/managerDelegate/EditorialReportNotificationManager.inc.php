@@ -198,7 +198,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 				__('navigation.submissions'),
 				__('stats.total')
 			]);
-			foreach ($activeSubmissions as list('name' => $name, 'value' => $value)) {
+			foreach ($activeSubmissions as ['name' => $name, 'value' => $value]) {
 				$file->fputcsv([$name, $value]);
 			}
 
@@ -206,22 +206,20 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 			$file->fputcsv([
 				__('manager.statistics.editorial.trends'),
 				__('manager.statistics.totalWithinDateRange'),
-				__('common.average') . '/' . __('common.year'),
 				__('stats.total')
 			]);
-			foreach ($submissions as list('name' => $name, 'period' => $period, 'average' => $average, 'total' => $total)) {
-				$file->fputcsv([str_replace('&emsp;', '', $name), $period, $average, $total]);
+			foreach ($submissions as ['name' => $name, 'period' => $period, 'total' => $total]) {
+				$file->fputcsv([str_replace('&emsp;', '', $name), $period, $total]);
 			}
 
 			$file->fputcsv([]);
 			$file->fputcsv([
 				__('manager.users'),
 				__('manager.statistics.totalWithinDateRange'),
-				__('common.average') . '/' . __('common.year'),
 				__('stats.total')
 			]);
-			foreach ($users as list('name' => $name, 'period' => $period, 'average' => $average, 'total' => $total)) {
-				$file->fputcsv([str_replace('&emsp;', '', $name), $period, $average, $total]);
+			foreach ($users as ['name' => $name, 'period' => $period, 'total' => $total]) {
+				$file->fputcsv([str_replace('&emsp;', '', $name), $period, $total]);
 			}
 
 			$this->_attachmentFilename = $file->getRealPath();

@@ -87,7 +87,6 @@ class EditorialStatisticsService {
 			self::USERS_ALL => [
 				'name' => __('manager.statistics.users.allRoles'),
 				'period' => $rangedStatistics->getRegistrations(),
-				'average' => round($statistics->getRegistrationsPerYear()),
 				'total' => $statistics->getRegistrations()
 			]
 		];
@@ -124,50 +123,50 @@ class EditorialStatisticsService {
 		$items = [
 			self::SUBMISSIONS_RECEIVED => $itemFactory(
 				__('manager.statistics.editorial.submissionsReceived'),
-				function ($source, $type) {
-					return $type == 'average' ? $source->getReceivedPerYear() : $source->getReceived();
+				function ($source) {
+					return $source->getReceived();
 				},
 				$integer
 			),
 			self::SUBMISSIONS_ACCEPTED => $itemFactory(
 				__('manager.statistics.editorial.submissionsAccepted'),
-				function ($source, $type) {
-					return $type == 'average' ? $source->getAcceptedPerYear() : $source->getAccepted();
+				function ($source) {
+					return $source->getAccepted();
 				},
 				$integer
 			),
 			self::SUBMISSIONS_DECLINED => $itemFactory(
 				__('manager.statistics.editorial.submissionsDeclined'),
-				function ($source, $type) {
-					return $type == 'average' ? $source->getDeclinedPerYear() : $source->getDeclined();
+				function ($source) {
+					return $source->getDeclined();
 				},
 				$integer
 			),
 			self::SUBMISSIONS_DECLINED_DESK_REJECT => $itemFactory(
 				$indent . __('manager.statistics.editorial.submissionsDeclined.deskReject'),
-				function ($source, $type) {
-					return $type == 'average' ? $source->getDeclinedByDeskRejectPerYear() : $source->getDeclinedByDeskReject();
+				function ($source) {
+					return $source->getDeclinedByDeskReject();
 				},
 				$integer
 			),
 			self::SUBMISSIONS_DECLINED_POST_REVIEW => $itemFactory(
 				$indent . __('manager.statistics.editorial.submissionsDeclined.postReview'),
-				function ($source, $type) {
-					return $type == 'average' ? $source->getDeclinedByPostReviewPerYear() : $source->getDeclinedByPostReview();
+				function ($source) {
+					return $source->getDeclinedByPostReview();
 				},
 				$integer
 			),
 			self::SUBMISSIONS_DECLINED_OTHER => $itemFactory(
 				$indent . __('manager.statistics.editorial.submissionsDeclined.other'),
-				function ($source, $type) {
-					return $type == 'average' ? $source->getDeclinedByOtherReasonPerYear() : $source->getDeclinedByOtherReason();
+				function ($source) {
+					return $source->getDeclinedByOtherReason();
 				},
 				$integer
 			),
 			self::SUBMISSIONS_PUBLISHED => $itemFactory(
 				__('manager.statistics.editorial.submissionsPublished'),
-				function ($source, $type) {
-					return $type == 'average' ? $source->getPublishedPerYear() : $source->getPublished();
+				function ($source) {
+					return $source->getPublished();
 				},
 				$integer
 			),
@@ -232,8 +231,8 @@ class EditorialStatisticsService {
 		foreach ($items as $key => ['name' => $name, 'value' => $value, 'format' => $format]) {
 			$return[$key] = [
 				'name' => $name,
-				'period' => sprintf($format, $value($rangedStatistics, 'period')),
-				'total' => sprintf($format, $value($statistics, 'total'))
+				'period' => sprintf($format, $value($rangedStatistics)),
+				'total' => sprintf($format, $value($statistics))
 			];
 		}
 		return $return;

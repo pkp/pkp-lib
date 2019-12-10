@@ -8,7 +8,7 @@
  * The publications statistics page.
  *
  *}
-{include file="common/header.tpl" suppressPageTitle=true}
+{include file="common/header.tpl" suppressPageTitle=true pageTitle="stats.publicationStats"}
 
 <div class="pkp_page_content">
 	{assign var="uuid" value=""|uniqid|escape}

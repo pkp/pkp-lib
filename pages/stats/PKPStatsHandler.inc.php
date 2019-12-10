@@ -85,19 +85,16 @@ class PKPStatsHandler extends Handler {
 			'declineRate',
 			'declinedDeskRate',
 			'declinedReviewRate',
-			'declinedOtherRate',
 		];
 
 		// Stats that should be indented in the table
 		$indentStats = [
 			'submissionsDeclinedDeskReject',
 			'submissionsDeclinedPostReview',
-			'submissionsDeclinedOther',
-			'averageDaysToAccept',
-			'averageDaysToReject',
+			'daysToAccept',
+			'daysToReject',
 			'declinedDeskRate',
 			'declinedReviewRate',
-			'declinedOtherRate',
 		];
 
 		// Compile table rows
@@ -315,23 +312,7 @@ class PKPStatsHandler extends Handler {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
-
-		$templateMgr->assign('statsComponentData', [
-			'tableColumns' => [
-				[
-					'name' => 'name',
-					'label' => __('common.name'),
-					'value' => 'name',
-				],
-				[
-					'name' => 'total',
-					'label' => __('stats.total'),
-					'value' => 'value',
-				],
-			],
-			'tableRows' => Services::get('user')->getRolesOverview(['contextId' => $context->getId()]),
-		]);
-
+		$templateMgr->assign('userStats', Services::get('user')->getRolesOverview(['contextId' => $context->getId()]));
 		$templateMgr->display('stats/users.tpl');
 	}
 
@@ -343,7 +324,7 @@ class PKPStatsHandler extends Handler {
 	 */
 	protected function _getStatDescription($key) {
 		switch ($key) {
-			case 'averageDaysToDecision': return __('stats.description.averageDaysToDecision');
+			case 'daysToDecision': return __('stats.description.daysToDecision');
 			case 'acceptanceRate': return __('stats.description.acceptRejectRate');
 			case 'declineRate': return __('stats.description.acceptRejectRate');
 		}

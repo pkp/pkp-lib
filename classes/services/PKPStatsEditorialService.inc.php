@@ -32,10 +32,9 @@ class PKPStatsEditorialService {
 
 		$received = $this->countSubmissionsReceived($args);
 		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
-		$declined = $this->countByStatus(STATUS_DECLINED, $args);
 		$declinedDesk = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
 		$declinedReview = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
-		$declinedOther = $declined - $declinedDesk - $declinedReview;
+		$declined = $declinedDesk + $declinedReview;
 
 		// Calculate the acceptance/decline rates
 		if (!$received) {
@@ -44,20 +43,38 @@ class PKPStatsEditorialService {
 			$declineRate = 0;
 			$declinedDeskRate = 0;
 			$declinedReviewRate = 0;
-			$declinedOtherRate = 0;
 		} elseif (empty($args['dateStart']) && empty($args['dateEnd'])) {
 			$acceptanceRate = $accepted / $received;
 			$declineRate = $declined / $received;
 			$declinedDeskRate = $declinedDesk / $received;
 			$declinedReviewRate = $declinedReview / $received;
-			$declinedOtherRate = $declinedOther / $received;
 		} else {
-			$acceptanceRate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_ACCEPT, $args) / $received;
-			$declineRate = '';
-			$declinedDeskRate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args) / $received;
-			$declinedReviewRate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_DECLINE, $args) / $received;
-			$declinedOtherRate = '';
+			// To calculate the acceptance/decline rates within a date range
+			// we must collect the total number of all submissions made within
+			// that date range which have received a decision. The acceptance
+			// rate is the number of submissions made within the date range
+			// that were accepted divided by the number of submissions made
+			// within the date range that were accepted or declined. This
+			// excludes submissions that were made within the date range but
+			// have not yet been accepted or declined.
+			$acceptedForSubmissionDate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
+			$declinedDeskForSubmissionDate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
+			$declinedReviewForSubmissionDate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
+			$totalDecidedForSubmissionDate = $acceptedForSubmissionDate + $declinedDeskForSubmissionDate + $declinedReviewForSubmissionDate;
+			$acceptanceRate =  $acceptedForSubmissionDate / $totalDecidedForSubmissionDate;
+			$declineRate = ($declinedDeskForSubmissionDate + $declinedReviewForSubmissionDate) / $totalDecidedForSubmissionDate;
+			$declinedDeskRate =  $declinedDeskForSubmissionDate / $totalDecidedForSubmissionDate;
+			$declinedReviewRate =  $declinedReviewForSubmissionDate / $totalDecidedForSubmissionDate;
 		}
+
+		// Calculate the number of days it took for most submissions to
+		// receive decisions
+		$firstDecisionDays = $this->getDaysToDecisions([], $args);
+		$acceptDecisionDays = $this->getDaysToDecisions([SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION, SUBMISSION_EDITOR_DECISION_ACCEPT], $args);
+		$declineDecisionDays = $this->getDaysToDecisions([SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE], $args);
+		$firstDecisionDaysRate = empty($firstDecisionDays) ? 0 : $this->calculateDaysToDecisionRate($firstDecisionDays, 0.8);
+		$acceptDecisionDaysRate = empty($acceptDecisionDays) ? 0 : $this->calculateDaysToDecisionRate($acceptDecisionDays, 0.8);
+		$declineDecisionDaysRate = empty($declineDecisionDays) ? 0 : $this->calculateDaysToDecisionRate($declineDecisionDays, 0.8);
 
 		$overview = [
 			[
@@ -86,29 +103,24 @@ class PKPStatsEditorialService {
 				'value' => $declinedReview,
 			],
 			[
-				'key' => 'submissionsDeclinedOther',
-				'name' => __('stats.name.submissionsDeclinedOther'),
-				'value' => $declinedOther,
-			],
-			[
 				'key' => 'submissionsPublished',
 				'name' => __('stats.name.submissionsPublished'),
 				'value' => $this->countSubmissionsPublished($args),
 			],
 			[
-				'key' => 'averageDaysToDecision',
-				'name' => __('stats.name.averageDaysToDecision'),
-				'value' => $this->getAverageDaysToDecisions([], $args),
+				'key' => 'daysToDecision',
+				'name' => __('stats.name.daysToDecision'),
+				'value' => $firstDecisionDaysRate,
 			],
 			[
-				'key' => 'averageDaysToAccept',
-				'name' => __('stats.name.averageDaysToAccept'),
-				'value' => $this->getAverageDaysToDecisions([SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION, SUBMISSION_EDITOR_DECISION_ACCEPT], $args),
+				'key' => 'daysToAccept',
+				'name' => __('stats.name.daysToAccept'),
+				'value' => $acceptDecisionDaysRate,
 			],
 			[
-				'key' => 'averageDaysToReject',
-				'name' => __('stats.name.averageDaysToReject'),
-				'value' => $this->getAverageDaysToDecisions([SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE], $args),
+				'key' => 'daysToReject',
+				'name' => __('stats.name.daysToReject'),
+				'value' => $declineDecisionDaysRate,
 			],
 			[
 				'key' => 'acceptanceRate',
@@ -129,11 +141,6 @@ class PKPStatsEditorialService {
 				'key' => 'declinedReviewRate',
 				'name' => __('stats.name.declinedReviewRate'),
 				'value' => round($declinedReviewRate, 2),
-			],
-			[
-				'key' => 'declinedOtherRate',
-				'name' => __('stats.name.declinedOtherRate'),
-				'value' => round($declinedOtherRate, 2),
 			],
 		];
 
@@ -258,6 +265,27 @@ class PKPStatsEditorialService {
 	}
 
 	/**
+	 * A helper function to calculate the number of days it took reach an
+	 * editorial decision on a given portion of submission decisions
+	 *
+	 * This can be used to answer questions like how many days it took for
+	 * a decision to be reached in 80% of submissions.
+	 *
+	 * For example, if passed an array of [5, 8, 10, 20] and a percentage of
+	 * .75, it would return 10 since 75% of the array values are 10 or less.
+	 *
+	 * @param array $days An array of integers representing the dataset of
+	 *  days to reach a decision.
+	 * @param float $percentage The percentage of the dataset that must be
+	 *  included in the rate. 75% = 0.75
+	 * @return int The number of days X% of submissions received the decision
+	 */
+	public function calculateDaysToDecisionRate($days, $percentage) {
+		sort($days);
+		return end(array_slice($days, 0, ceil(count($days) * $percentage))) ?? 0;
+	}
+
+	/**
 	 * Get a QueryBuilder object with the passed args
 	 *
 	 * @param array $args [
@@ -288,5 +316,4 @@ class PKPStatsEditorialService {
 
 		return $qb;
 	}
-
 }

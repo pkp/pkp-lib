@@ -8,7 +8,7 @@
  * The editorial statistics page.
  *
  *}
-{include file="common/header.tpl" suppressPageTitle=true}
+{include file="common/header.tpl" suppressPageTitle=true pageTitle="stats.editorialActivity"}
 
 <div class="pkp_page_content">
 	{assign var="uuid" value=""|uniqid|escape}
@@ -24,7 +24,7 @@
 						<span class="pkpStats--editorial__stageCount">{{ totalActive }}</span>
 						<span class="pkpStats--editorial__stageLabel">{translate key="stats.submissionsActive"}</span>
 					</h2>
-					<div v-for="stage in activeByStage" class="pkpStats--editorial__stage">
+					<div v-for="stage in activeByStage" :key="stage.name" class="pkpStats--editorial__stage">
 						<span class="pkpStats--editorial__stageCount">{{ stage.count }}</span>
 						<span class="pkpStats--editorial__stageLabel">{{ stage.name }}</span>
 					</div>

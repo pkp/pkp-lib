@@ -229,7 +229,7 @@ abstract class PKPStatsEditorialQueryBuilder extends BaseQueryBuilder {
 		$q = $this->_getDaysToDecisionsObject($decisions);
 		$dateDiff = $this->_dateDiff('ed.date_decided', 's.date_submitted');
 		$q->select(Capsule::raw($dateDiff . ' as time'));
-		return $q->pluck('time');
+		return $q->pluck('time')->toArray();
 	}
 
 	/**

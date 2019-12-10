@@ -8,27 +8,30 @@
  * The editorial statistics page.
  *
  *}
-{include file="common/header.tpl" suppressPageTitle=true}
+{include file="common/header.tpl" suppressPageTitle=true pageTitle="stats.userStatistics"}
 
 <div class="pkp_page_content">
-	{assign var="uuid" value=""|uniqid|escape}
-	<div id="users-stats-handler-{$uuid}" class="pkpStats pkpStats--users">
-		<pkp-header id="usersTabelLabel">
-			<h1>{translate key="manager.statistics.statistics.registeredUsers"}</h1>
-		</pkp-header>
-		<div class="pkpStats__container">
-			<div class="pkpStats__content">
-				<pkp-table
-					labelled-by="usersTabelLabel"
-					:columns="tableColumns"
-					:rows="tableRows"
-				></pkp-table>
-			</div>
+	<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
+	<div class="pkpStats__container">
+		<div class="pkpStats__content">
+			<table class="pkpTable" labelled-by="usersTableLabel">
+				<thead>
+					<tr>
+						<th>{translate key="common.name"}</th>
+						<th>{translate key="stats.total"}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{foreach from=$userStats item=$row}
+						<tr>
+							<td>{$row.name}</td>
+							<td>{$row.value}</td>
+						</tr>
+					{/foreach}
+				</tbody>
+			</table>
 		</div>
 	</div>
-	<script>
-		pkp.registry.init('users-stats-handler-{$uuid}', 'Container', {$statsComponentData|json_encode});
-	</script>
 </div>
 
 {include file="common/footer.tpl"}

@@ -90,6 +90,8 @@ class PKPStatsUserHandler extends APIHandler {
 			}
 		}
 
+		$params = array_merge($defaultParams, $params);
+
 		\HookRegistry::call('API::stats::users::params', array(&$params, $slimRequest));
 
 		$params['contextId'] = [$request->getContext()->getId()];

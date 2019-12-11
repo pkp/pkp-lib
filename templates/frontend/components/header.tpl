@@ -34,7 +34,7 @@
 					<button class="pkp_site_nav_toggle">
 						<span>Open Menu</span>
 					</button>
-					<div class="pkp_site_name">3
+					<div class="pkp_site_name">
 					{capture assign="homeUrl"}
 						{if $currentContext && $multipleContexts}
 							{url page="index" router=$smarty.const.ROUTE_PAGE}

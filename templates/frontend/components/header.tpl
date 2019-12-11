@@ -64,10 +64,8 @@
 				</div>
 
 				{* Primary site navigation *}
-				<nav class="cmp_skip_to_content">
-					{include file="frontend/components/skipLinks.tpl"}
-				</nav>
-				
+				{include file="frontend/components/skipLinks.tpl"}
+
 				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 				{/capture}

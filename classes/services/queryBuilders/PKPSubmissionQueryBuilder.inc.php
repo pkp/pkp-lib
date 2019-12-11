@@ -343,7 +343,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 			$q->whereNotNull('s.date_submitted')
 				->mergeBindings($sub)
-				->where(Capsule::raw('(' . $sub->toSql() . ')'),'=','0');
+				->where(Capsule::raw('(' . $sub->toSql() . ')'),'=','0')
+				->groupBy('s.date_submitted'); // postgres compatibility
 		}
 
 		// search phrase

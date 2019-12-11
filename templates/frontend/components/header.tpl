@@ -34,7 +34,7 @@
 					<button class="pkp_site_nav_toggle">
 						<span>Open Menu</span>
 					</button>
-					<div class="pkp_site_name">
+					<div class="pkp_site_name">3
 					{capture assign="homeUrl"}
 						{if $currentContext && $multipleContexts}
 							{url page="index" router=$smarty.const.ROUTE_PAGE}
@@ -64,13 +64,13 @@
 				</div>
 
 				{* Primary site navigation *}
-				{capture assign="primaryMenu"}
-					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
-				{/capture}
-
 				<nav class="cmp_skip_to_content">
 					{include file="frontend/components/skipLinks.tpl"}
 				</nav>
+				
+				{capture assign="primaryMenu"}
+					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+				{/capture}
 
 				<nav class="pkp_site_nav_menu" aria-label="{translate|escape key="common.navigation.site"}">
 					<div class="pkp_navigation_primary_row">

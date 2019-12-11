@@ -1798,6 +1798,9 @@ msgstr "Please enter a category name."
 msgid "grid.category.categoryDetails"
 msgstr "Category Details"
 
+msgid "stats.allUsers"
+msgstr "All Users"
+
 msgid "stats.daily"
 msgstr "Daily"
 

@@ -555,7 +555,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$result = [
 			[
 				'id' => 'total',
-				'name' => __('stats.total'),
+				'name' => __('stats.allUsers'),
 				'value' => $this->count($args),
 			],
 		];

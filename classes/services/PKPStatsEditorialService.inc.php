@@ -61,10 +61,19 @@ class PKPStatsEditorialService {
 			$declinedDeskForSubmissionDate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
 			$declinedReviewForSubmissionDate = $this->countByDecisionsForSubmittedDate(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
 			$totalDecidedForSubmissionDate = $acceptedForSubmissionDate + $declinedDeskForSubmissionDate + $declinedReviewForSubmissionDate;
-			$acceptanceRate =  $acceptedForSubmissionDate / $totalDecidedForSubmissionDate;
-			$declineRate = ($declinedDeskForSubmissionDate + $declinedReviewForSubmissionDate) / $totalDecidedForSubmissionDate;
-			$declinedDeskRate =  $declinedDeskForSubmissionDate / $totalDecidedForSubmissionDate;
-			$declinedReviewRate =  $declinedReviewForSubmissionDate / $totalDecidedForSubmissionDate;
+
+			// Never divide by 0
+			if (!$totalDecidedForSubmissionDate) {
+				$acceptanceRate = 0;
+				$declineRate = 0;
+				$declinedDeskRate = 0;
+				$declinedReviewRate = 0;
+			} else {
+				$acceptanceRate =  $acceptedForSubmissionDate / $totalDecidedForSubmissionDate;
+				$declineRate = ($declinedDeskForSubmissionDate + $declinedReviewForSubmissionDate) / $totalDecidedForSubmissionDate;
+				$declinedDeskRate =  $declinedDeskForSubmissionDate / $totalDecidedForSubmissionDate;
+				$declinedReviewRate =  $declinedReviewForSubmissionDate / $totalDecidedForSubmissionDate;
+			}
 		}
 
 		// Calculate the number of days it took for most submissions to
@@ -282,7 +291,8 @@ class PKPStatsEditorialService {
 	 */
 	public function calculateDaysToDecisionRate($days, $percentage) {
 		sort($days);
-		return end(array_slice($days, 0, ceil(count($days) * $percentage))) ?? 0;
+		$arrayPart = array_slice($days, 0, ceil(count($days) * $percentage));
+		return end($arrayPart) ?? 0;
 	}
 
 	/**
@@ -307,9 +317,6 @@ class PKPStatsEditorialService {
 		}
 		if (!empty($args['contextIds'])) {
 			$qb->filterByContexts($args['contextIds']);
-		}
-		if (!empty($args['sectionIds'])) {
-			$qb->filterBySections($args['sectionIds']);
 		}
 
 		\HookRegistry::call('Stats::editorial::queryBuilder', array($qb, $args));

@@ -826,6 +826,9 @@ msgstr "{$count} ({$percentage}%)"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} new)"
 
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registered users"
+
 msgid "manager.users"
 msgstr "Users"
 

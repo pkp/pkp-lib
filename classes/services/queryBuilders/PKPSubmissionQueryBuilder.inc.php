@@ -223,7 +223,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	public function get() {
 		$this->columns[] = 's.*';
 		$q = Capsule::table('submissions as s')
-					->orderBy($this->orderColumn, $this->orderDirection);
+					->orderBy($this->orderColumn, $this->orderDirection)
+					->groupBy('s.submission_id');
 
 		// context
 		// Never permit a query without a context_id clause unless the '*' wildcard
@@ -394,7 +395,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->countOnly)) {
 			$q->select(Capsule::raw('count(*) as submission_count'));
 		} else {
-			$q->distinct('s.*')->select($this->columns);
+			$q->select($this->columns);
 		}
 
 		return $q;

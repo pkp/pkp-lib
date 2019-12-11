@@ -115,11 +115,11 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		// Get required submission and context
 		$submission = !empty($args['submission'])
 			? $args['submission']
-			: Services::get('submission')->get($publication->getData('submissionId'));
+			: $args['submission'] = Services::get('submission')->get($publication->getData('submissionId'));
 
 		$submissionContext = !empty($args['context'])
 			? $args['context']
-			: Services::get('context')->get($submission->getData('contextId'));
+			: $args['context'] = Services::get('context')->get($submission->getData('contextId'));
 
 		$values = [];
 
@@ -163,8 +163,8 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					break;
 				case 'galleys':
 					$values[$prop] = array_map(
-						function($galley) use ($request) {
-							return Services::get('galley')->getSummaryProperties($galley, ['request' => $request]);
+						function($galley) use ($request, $args) {
+							return Services::get('galley')->getSummaryProperties($galley, $args);
 						},
 						$publication->getData('galleys')
 					);

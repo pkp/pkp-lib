@@ -24,8 +24,6 @@
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
-	{include file="frontend/components/skipLinks.tpl"}
-
 	<div class="pkp_structure_page">
 
 		{* Header *}
@@ -36,48 +34,41 @@
 					<button class="pkp_site_nav_toggle">
 						<span>Open Menu</span>
 					</button>
-					{* Logo or site title. Only use <h1> heading on the homepage.
-						 Otherwise that should go to the page title. *}
-					{if $requestedOp == 'index'}
-						<h1 class="pkp_site_name">
-					{else}
-						<div class="pkp_site_name">
-					{/if}
-
-						{capture assign="homeUrl"}
-							{if $currentContext && $multipleContexts}
-								{url page="index" router=$smarty.const.ROUTE_PAGE}
-							{else}
-								{url context="index" router=$smarty.const.ROUTE_PAGE}
-							{/if}
-						{/capture}
-						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-							<a href="{$homeUrl}" class="is_img">
-								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} />
-							</a>
-						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
-							<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
-						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-							<a href="{$homeUrl}" class="is_img">
-								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
-							</a>
+					<div class="pkp_site_name">
+					{capture assign="homeUrl"}
+						{if $currentContext && $multipleContexts}
+							{url page="index" router=$smarty.const.ROUTE_PAGE}
 						{else}
-							<a href="{$homeUrl}" class="is_img">
-								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
-							</a>
+							{url context="index" router=$smarty.const.ROUTE_PAGE}
 						{/if}
-					{if $requestedOp == 'index'}
-						</h1>
+					{/capture}
+					{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+						<a href="{$homeUrl}" class="is_img">
+							<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} />
+						</a>
+					{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+						<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle}</a>
+					{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
+						<a href="{$homeUrl}" class="is_img">
+							<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
+						</a>
 					{else}
-						</div>
+						<a href="{$homeUrl}" class="is_img">
+							<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
+						</a>
+					{/if}
+					</div>
+					{if !$requestedPage || $requestedPage === 'index'}
+						<h1 class="pkp_screen_reader">{$displayPageHeaderTitle|escape}</h1>
 					{/if}
 				</div>
 
 				{* Primary site navigation *}
+				{include file="frontend/components/skipLinks.tpl"}
+
 				{capture assign="primaryMenu"}
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 				{/capture}
-
 
 				<nav class="pkp_site_nav_menu" aria-label="{translate|escape key="common.navigation.site"}">
 					<div class="pkp_navigation_primary_row">
@@ -107,4 +98,5 @@
 			{assign var=hasSidebar value=0}
 		{/if}
 		<div class="pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-			<div id="pkp_content_main" class="pkp_structure_main" role="main">
+			<div class="pkp_structure_main" role="main">
+				<a id="pkp_content_main"></a>

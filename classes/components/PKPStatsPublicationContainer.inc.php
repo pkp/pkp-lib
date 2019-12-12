@@ -89,7 +89,7 @@ class PKPStatsPublicationContainer extends PKPStatsComponent {
 						'abstracts' => __('stats.publications.abstracts'),
 						'files' => __('submission.files'),
 					],
-					$this->i18n,
+					$this->i18n
 				),
 			]
 		);

@@ -58,7 +58,7 @@
 						</a>
 					{/if}
 					</div>
-					{if $requestedPage === 'index'}
+					{if !$requestedPage || $requestedPage === 'index'}
 						<h1 class="pkp_screen_reader">{$displayPageHeaderTitle|escape}</h1>
 					{/if}
 				</div>

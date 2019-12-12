@@ -17,6 +17,7 @@ import('lib.pkp.classes.handler.PKPHandler');
 
 use \Slim\App;
 import('lib.pkp.classes.core.APIResponse');
+import('lib.pkp.classes.handler.APIError');
 import('classes.core.Services');
 
 class APIHandler extends PKPHandler {
@@ -49,8 +50,12 @@ class APIHandler extends PKPHandler {
 				'determineRouteBeforeAppMiddleware' => true,
 			)
 		));
-		unset($this->_app->getContainer()['errorHandler']);
-		unset($this->_app->getContainer()['phpErrorHandler']);
+
+		$c = $this->_app->getContainer();
+		$c['errorHandler'] = function ($c) {
+			return new APIError();
+		};
+
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
 		$this->_app->add(new ApiTokenDecodingMiddleware($this));
 		$this->_app->add(new ApiCsrfMiddleware($this));

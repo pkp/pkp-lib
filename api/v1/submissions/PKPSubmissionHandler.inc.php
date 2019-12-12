@@ -130,7 +130,6 @@ class PKPSubmissionHandler extends APIHandler {
 			'get',
 			'edit',
 			'delete',
-			'getGalleys',
 			'getParticipants',
 			'getPublications',
 			'getPublication',

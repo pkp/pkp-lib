@@ -740,7 +740,7 @@ class PKPTemplateManager extends Smarty {
 			'currentLocale' => AppLocale::getLocale(),
 			'primaryLocale' => AppLocale::getPrimaryLocale(),
 			'baseUrl' => $this->_request->getBaseUrl(),
-			'contextPath' => isset($context) ? $context->getPath() : '',
+			'contextPath' => empty($context) ? $context->getPath() : '',
 			'apiBasePath' => '/api/v1',
 			'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
 			'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,

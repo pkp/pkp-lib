@@ -56,11 +56,6 @@ class PKPSubmissionHandler extends APIHandler {
 					'handler' => [$this, 'getPublication'],
 					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
 				],
-				[
-					'pattern' => $this->getEndpointPattern() . '/{submissionId}/publications/{publicationId}/publish',
-					'handler' => [$this, 'publishPublication'],
-					'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
-				],
 			],
 			'POST' => [
 				[
@@ -382,7 +377,7 @@ class PKPSubmissionHandler extends APIHandler {
 
 		// Don't allow submissions to be added via the site-wide API
 		if (!$request->getContext()) {
-			return $response->withStatus(400)->withJsonError('api.submissions.403.contextRequired');
+			return $response->withStatus(403)->withJsonError('api.submissions.403.contextRequired');
 		}
 
 		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
@@ -497,12 +492,20 @@ class PKPSubmissionHandler extends APIHandler {
 		$request = $this->getRequest();
 
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$allowedParams = ['submissionIds' => $submission->getId(), 'count' => 1000];
+
+		if (!$submission) {
+			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+		}
+
+		$args = [
+			'submissionIds' => $submission->getId(),
+			'count' => 1000
+		];
 
 		$userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray();
 
 		$items = [];
-		$publicationsIterator = Services::get('publication')->getMany($allowedParams);
+		$publicationsIterator = Services::get('publication')->getMany($args);
 		foreach ($publicationsIterator as $publication) {
 			$items[] = Services::get('publication')->getSummaryProperties(
 				$publication,
@@ -515,7 +518,7 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$data = [
-			'itemsMax' => Services::get('publication')->getMax($allowedParams),
+			'itemsMax' => Services::get('publication')->getMax($args),
 			'items' => $items,
 		];
 
@@ -744,11 +747,6 @@ class PKPSubmissionHandler extends APIHandler {
 
 		if (!empty($errors)) {
 			return $response->withStatus(400)->withJson($errors);
-		}
-
-		// Don't publish the publication for GET requests
-		if ($slimRequest->isGet()) {
-			return $response->withJson([], 200);
 		}
 
 		$publication = Services::get('publication')->publish($publication);

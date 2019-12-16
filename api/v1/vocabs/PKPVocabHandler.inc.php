@@ -7,10 +7,10 @@
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionHandler
- * @ingroup api_v1_submission
+ * @class PKPVocabHandler
+ * @ingroup api_v1_vocab
  *
- * @brief Handle API requests for submission operations.
+ * @brief Handle API requests for controlled vocab operations.
  *
  */
 

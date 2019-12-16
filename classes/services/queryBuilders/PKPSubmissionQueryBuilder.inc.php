@@ -343,7 +343,8 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 			$q->whereNotNull('s.date_submitted')
 				->mergeBindings($sub)
-				->where(Capsule::raw('(' . $sub->toSql() . ')'),'=','0');
+				->where(Capsule::raw('(' . $sub->toSql() . ')'),'=','0')
+				->groupBy('s.date_submitted'); // postgres compatibility
 		}
 
 		// search phrase
@@ -395,7 +396,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 		if (!empty($this->countOnly)) {
 			$q->select(Capsule::raw('count(*) as submission_count'));
 		} else {
-			$q->distinct('s.*')->select($this->columns);
+			$q->select($this->columns);
 		}
 
 		return $q;

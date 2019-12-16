@@ -966,4 +966,37 @@ class Installer {
 
 		return true;
 	}
+
+	/**
+	 * Set the notification settings for journal managers and subeditors so
+	 * that they are opted out of the monthly stats email.
+	 */
+	public function setStatsEmailSettings() {
+		import('lib.pkp.classes.notification.PKPNotification'); // NOTIFICATION_TYPE_EDITORIAL_REPORT
+		$roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+
+		for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next(); ) {
+			foreach ($roleIds as $roleId) {
+				for ($userGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next(); ) {
+					for ($users = DAORegistry::getDAO('UserGroupDAO')->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next(); ) {
+						DAORegistry::getDAO('NotificationSubscriptionSettingsDAO')->update(
+							'INSERT INTO notification_subscription_settings
+								(setting_name, setting_value, user_id, context, setting_type)
+								VALUES
+								(?, ?, ?, ?, ?)',
+							array(
+								'blocked_emailed_notification',
+								NOTIFICATION_TYPE_EDITORIAL_REPORT,
+								$user->getId(),
+								$context->getId(),
+								'int'
+							)
+						);
+					}
+				}
+			}
+		}
+
+		return true;
+	}
 }

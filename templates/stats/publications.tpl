@@ -8,7 +8,7 @@
  * The publications statistics page.
  *
  *}
-{include file="common/header.tpl" suppressPageTitle=true}
+{include file="common/header.tpl" suppressPageTitle=true pageTitle="stats.publicationStats"}
 
 <div class="pkp_page_content">
 	{assign var="uuid" value=""|uniqid|escape}
@@ -210,7 +210,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		pkp.registry.init('publication-stats-handler-{$uuid}', 'StatsContainer', {$statsComponent->getConfig()|json_encode});
+		pkp.registry.init('publication-stats-handler-{$uuid}', 'StatsPublicationsContainer', {$statsComponent->getConfig()|json_encode});
 	</script>
 </div>
 

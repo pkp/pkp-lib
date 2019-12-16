@@ -371,4 +371,65 @@ class APIHandler extends PKPHandler {
 		}
 		return $value;
 	}
+
+	/**
+	 * A helper method to validate start and end date params for stats
+	 * API handlers
+	 *
+	 * 1. Checks the date formats
+	 * 2. Ensures a start date is not earlier than STATISTICS_EARLIEST_DATE
+	 * 3. Ensures an end date is no later than yesterday
+	 * 4. Ensures the start date is not later than the end date
+	 *
+	 * @param array $params The params to validate
+	 * @param string $dateStartParam Where the find the start date in the array of params
+	 * @param string $dateEndParam Where to find the end date in the array of params
+	 * @return boolean|string True if they validate, or a string which
+	 *   contains the locale key of an error message.
+	 */
+	protected function _validateStatDates($params, $dateStartParam = 'dateStart', $dateEndParam = 'dateEnd') {
+		import('lib.pkp.classes.validation.ValidatorFactory');
+		$validator = \ValidatorFactory::make(
+			$params,
+			[
+				$dateStartParam => [
+					'date_format:Y-m-d',
+					'after_or_equal:' . STATISTICS_EARLIEST_DATE,
+					'before_or_equal:' . $dateEndParam,
+				],
+				$dateEndParam => [
+					'date_format:Y-m-d',
+					'before_or_equal:yesterday',
+					'after_or_equal:' . $dateStartParam,
+				],
+			],
+			[
+				'*.date_format' => 'invalidFormat',
+				$dateStartParam . '.after_or_equal' => 'tooEarly',
+				$dateEndParam . '.before_or_equal' => 'tooLate',
+				$dateStartParam . '.before_or_equal' => 'invalidRange',
+				$dateEndParam . '.after_or_equal' => 'invalidRange',
+			]
+		);
+
+		if ($validator->fails()) {
+			$errors = $validator->errors()->getMessages();
+			if ((!empty($errors[$dateStartParam]) && in_array('invalidFormat', $errors[$dateStartParam]))
+					|| (!empty($errors[$dateEndParam]) && in_array('invalidFormat', $errors[$dateEndParam]))) {
+				return 'api.stats.400.wrongDateFormat';
+			}
+			if (!empty($errors[$dateStartParam]) && in_array('tooEarly', $errors[$dateStartParam])) {
+				return 'api.stats.400.earlyDateRange';
+			}
+			if (!empty($errors[$dateEndParam]) && in_array('tooLate', $errors[$dateEndParam])) {
+				return 'api.stats.400.lateDateRange';
+			}
+			if ((!empty($errors[$dateStartParam]) && in_array('invalidRange', $errors[$dateStartParam]))
+					|| (!empty($errors[$dateEndParam]) && in_array('invalidRange', $errors[$dateEndParam]))) {
+				return 'api.stats.400.wrongDateRange';
+			}
+		}
+
+		return true;
+	}
 }

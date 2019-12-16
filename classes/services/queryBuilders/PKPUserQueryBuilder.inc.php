@@ -42,6 +42,12 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	/** @var int submission stage ID */
 	protected $assignedToSubmissionStageId = null;
 
+	/** @var string get users registered after this date */
+	protected $registeredAfter = '';
+
+	/** @var string get users registered before this date */
+	protected $registeredBefore = '';
+
 	/** @var array user IDs */
 	protected $includeUsers = null;
 
@@ -146,6 +152,28 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 		if ($submissionStage && $this->assignedToSubmissionId) {
 			$this->assignedToSubmissionStageId = $submissionStage;
 		}
+		return $this;
+	}
+
+	/**
+	 * Limit results to users who registered after this date
+	 *
+	 * @param $date string
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function registeredAfter($date) {
+		$this->registeredAfter = $date;
+		return $this;
+	}
+
+	/**
+	 * Limit results to users who registered before this date
+	 *
+	 * @param $date string
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function registeredBefore($date) {
+		$this->registeredBefore = $date;
 		return $this;
 	}
 
@@ -385,6 +413,17 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 				$q->leftJoin('user_group_stage as ugs', 'sa.user_group_id', '=', 'ugs.user_group_id');
 				$q->where('ugs.stage_id', '=', Capsule::raw((int) $stageId));
 			}
+		}
+
+		// date registered
+		if (!empty($this->registeredAfter)) {
+			$q->where('u.date_registered', '>=', $this->registeredAfter);
+		}
+		if (!empty($this->registeredBefore)) {
+			// Include useres who registered up to the end of the day
+			$dateTime = new \DateTime($this->registeredBefore);
+			$dateTime->add(new \DateInterval('P1D'));
+			$q->where('u.date_registered', '<', $dateTime->format('Y-m-d'));
 		}
 
 		// review stage id

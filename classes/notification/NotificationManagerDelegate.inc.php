@@ -56,9 +56,9 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * creation of the passed notification type.
 	 * @copydoc PKPNotificationOperationManager::createNotification()
 	 */
-	function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false) {
+	function createNotification($request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null) {
 		assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
-		return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params, $suppressEmail);
+		return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params, $suppressEmail, $mailConfigurator);
 	}
 
 	/**

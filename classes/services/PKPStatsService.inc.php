@@ -256,7 +256,7 @@ class PKPStatsService {
 	}
 
 	/**
-	 * Get all time segments (months or days) beween the start and end date
+	 * Get all time segments (months or days) between the start and end date
 	 * with empty values.
 	 *
 	 * @param $startDate string

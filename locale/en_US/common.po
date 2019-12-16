@@ -1675,6 +1675,12 @@ msgstr "Awaiting Copyedits."
 msgid "notification.type.roundStatusTitle"
 msgstr "Round {$round} Status"
 
+msgid "notification.type.editorialReport"
+msgstr "Statistics report summary."
+
+msgid "notification.type.editorialReport.contents"
+msgstr "This is a kind reminder for you to check your journal's health through the editorial report."
+
 msgid "semicolon"
 msgstr "{$label}:"
 

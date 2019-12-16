@@ -59,8 +59,7 @@
 									'$.pkp.controllers.MenuHandler');
 						{rdelim});
 					 </script>
-					<ul class="pkp_navigation_primary pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.site"}">
-						<a id="navigationPrimary"></a>
+					<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list" role="navigation" aria-label="{translate|escape key="common.navigation.site"}">
 
 						{* Users with ONLY the reader role *}
 						{if (count((array) $userRoles) === 1 && in_array(ROLE_ID_READER, (array) $userRoles))}

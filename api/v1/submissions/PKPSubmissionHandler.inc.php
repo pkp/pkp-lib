@@ -182,7 +182,69 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
 		}
 
-		$params = $this->_buildListRequestParams($slimRequest);
+		$defaultParams = [
+			'count' => 20,
+			'offset' => 0,
+		];
+
+		// Only admins and managers may access submissions they are not assigned to
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+		$canAccessUnassignedSubmission = !empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles));
+		if (!$canAccessUnassignedSubmission) {
+			$defaultParams['assignedTo'] = $currentUser->getId();
+		}
+
+		$params = array_merge($defaultParams, $slimRequest->getQueryParams());
+
+		foreach ($params as $param => $val) {
+			switch ($param) {
+				case 'orderBy':
+					if (in_array($val, array('dateSubmitted', 'dateLastActivity', 'lastModified', 'title'))) {
+						$params[$param] = $val;
+					}
+					break;
+
+				case 'orderDirection':
+					$params[$param] = $val === 'ASC' ? $val : 'DESC';
+					break;
+
+				// Always convert status and stageIds to array
+				case 'status':
+				case 'stageIds':
+					if (is_string($val) && strpos($val, ',') > -1) {
+						$val = explode(',', $val);
+					} elseif (!is_array($val)) {
+						$val = array($val);
+					}
+					$params[$param] = array_map('intval', $val);
+					break;
+
+				case 'assignedTo':
+				case 'daysInactive':
+				case 'offset':
+					$params[$param] = (int) $val;
+					break;
+
+				case 'searchPhrase':
+					$params[$param] = $val;
+					break;
+
+				// Enforce a maximum count to prevent the API from crippling the
+				// server
+				case 'count':
+					$params[$param] = min(100, (int) $val);
+					break;
+
+				case 'isIncomplete':
+				case 'isOverdue':
+					$params[$param] = true;
+					break;
+			}
+		}
+
+		$params['contextId'] = $request->getContext()->getId();
+
+		\HookRegistry::call('API::submissions::params', array(&$params, $slimRequest));
 
 		// Prevent users from viewing submissions they're not assigned to,
 		// except for journal managers and admins.
@@ -192,23 +254,23 @@ class PKPSubmissionHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
 		}
 
-		$items = array();
+		$items = [];
 		$submissionsIterator = $submissionService->getMany($params);
 		if (count($submissionsIterator)) {
-			$propertyArgs = array(
+			$propertyArgs = [
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toArray()
-			);
+			];
 			foreach ($submissionsIterator as $submission) {
 				$items[] = $submissionService->getSummaryProperties($submission, $propertyArgs);
 			}
 		}
 
-		$data = array(
+		$data = [
 			'itemsMax' => $submissionService->getMax($params),
 			'items' => $items,
-		);
+		];
 
 		return $response->withJson($data, 200);
 	}
@@ -233,89 +295,6 @@ class PKPSubmissionHandler extends APIHandler {
 		));
 
 		return $response->withJson($data, 200);
-	}
-
-	/**
-	 * Convert params passed to list requests. Coerce type and only return
-	 * white-listed params.
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @return array
-	 */
-	private function _buildListRequestParams($slimRequest) {
-
-		$request = Application::get()->getRequest();
-		$currentUser = $request->getUser();
-
-		// Merge query params over default params
-		$defaultParams = array(
-			'count' => 20,
-			'offset' => 0,
-		);
-
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$canAccessUnassignedSubmission = !empty(array_intersect(array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER), $userRoles));
-		if (!$canAccessUnassignedSubmission) {
-			$defaultParams['assignedTo'] = $currentUser->getId();
-		}
-
-		$requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-		$returnParams = array();
-
-		// Process query params to format incoming data as needed
-		foreach ($requestParams as $param => $val) {
-			switch ($param) {
-
-				case 'orderBy':
-					if (in_array($val, array('dateSubmitted', 'dateLastActivity', 'lastModified', 'title'))) {
-						$returnParams[$param] = $val;
-					}
-					break;
-
-				case 'orderDirection':
-					$returnParams[$param] = $val === 'ASC' ? $val : 'DESC';
-					break;
-
-				// Always convert status and stageIds to array
-				case 'status':
-				case 'stageIds':
-					if (is_string($val) && strpos($val, ',') > -1) {
-						$val = explode(',', $val);
-					} elseif (!is_array($val)) {
-						$val = array($val);
-					}
-					$returnParams[$param] = array_map('intval', $val);
-					break;
-
-				case 'assignedTo':
-				case 'daysInactive':
-				case 'offset':
-					$returnParams[$param] = (int) $val;
-					break;
-
-				case 'searchPhrase':
-					$returnParams[$param] = $val;
-					break;
-
-				// Enforce a maximum count to prevent the API from crippling the
-				// server
-				case 'count':
-					$returnParams[$param] = min(100, (int) $val);
-					break;
-
-				case 'isIncomplete':
-				case 'isOverdue':
-					$returnParams[$param] = true;
-					break;
-			}
-		}
-
-		$returnParams['contextId'] = $request->getContext()->getId();
-
-		\HookRegistry::call('API::submissions::params', array(&$returnParams, $slimRequest));
-
-		return $returnParams;
 	}
 
 	/**

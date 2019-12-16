@@ -96,8 +96,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			'status' => null,
 			'stageIds' => null,
 			'searchPhrase' => null,
-			'count' => 20,
-			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
 			'daysInactive' => null,

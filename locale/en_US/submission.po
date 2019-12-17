@@ -1916,6 +1916,9 @@ msgstr "Are you sure you don't want this scheduled for publication?"
 msgid "publication.version.all"
 msgstr "All Versions"
 
+msgid "publication.version.confirm"
+msgstr "Are you sure you want to create a new version?"
+
 msgid "publication.version.details"
 msgstr "Publication details for version {$version}"
 

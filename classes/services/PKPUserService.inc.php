@@ -100,8 +100,6 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'excludeUsers' => null,
 			'status' => 'active',
 			'searchPhrase' => null,
-			'count' => 20,
-			'offset' => 0,
 		);
 
 		$args = array_merge($defaultArgs, $args);

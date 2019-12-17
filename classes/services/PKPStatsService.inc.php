@@ -166,8 +166,6 @@ class PKPStatsService {
 		$defaultArgs = [
 			'dateStart' => STATISTICS_EARLIEST_DATE,
 			'dateEnd' => date('Ymd', strtotime('yesterday')),
-			'count' => 30,
-			'offset' => 0,
 
 			// Require a context to be specified to prevent unwanted data leakage
 			// if someone forgets to specify the context. If you really want to

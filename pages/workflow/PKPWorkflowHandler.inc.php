@@ -297,6 +297,7 @@ abstract class PKPWorkflowHandler extends Handler {
 				'activityLog' => __('submission.list.infoCenter'),
 				'cancel' => __('common.cancel'),
 				'ok' => __('common.ok'),
+				'no' => __('common.no'),
 				'preview' => __('common.preview'),
 				'publicationTabsLabel' => __('publication.version.details'),
 				'publish' => __('publication.publish'),
@@ -308,6 +309,8 @@ abstract class PKPWorkflowHandler extends Handler {
 				'unscheduleConfirm' => __('publication.unschedule.confirm'),
 				'view' => __('common.view'),
 				'version' => __('semicolon', ['label' => __('admin.version')]),
+				'versionConfirm' => __('publication.version.confirm'),
+				'yes' => __('common.yes'),
 			],
 		];
 

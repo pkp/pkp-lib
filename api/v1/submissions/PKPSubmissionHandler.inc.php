@@ -131,7 +131,6 @@ class PKPSubmissionHandler extends APIHandler {
 			'addPublication',
 			'versionPublication',
 			'editPublication',
-			'checkPublishRequirements',
 			'publishPublication',
 			'unpublishPublication',
 			'deletePublication',
@@ -144,7 +143,6 @@ class PKPSubmissionHandler extends APIHandler {
 		$requiresPublicationWriteAccess = [
 			'addPublication',
 			'editPublication',
-			'checkPublishRequirements',
 		];
 		if (in_array($routeName, $requiresPublicationWriteAccess)) {
 			import('lib.pkp.classes.security.authorization.PublicationWritePolicy');
@@ -159,7 +157,7 @@ class PKPSubmissionHandler extends APIHandler {
 		];
 		if (in_array($routeName, $requiresProductionStageAccess)) {
 			import('lib.pkp.classes.security.authorization.StageRolePolicy');
-			$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], WORKFLOW_STAGE_ID_PRODUCTION));
+			$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], WORKFLOW_STAGE_ID_PRODUCTION, false));
 		}
 
 		return parent::authorize($request, $args, $roleAssignments);

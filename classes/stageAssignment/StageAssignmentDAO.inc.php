@@ -196,7 +196,7 @@ class StageAssignmentDAO extends DAO {
 		$stageAssignment->setUserGroupId($row['user_group_id']);
 		$stageAssignment->setDateAssigned($row['date_assigned']);
 		$stageAssignment->setStageId($row['stage_id']);
-		$stageAssignment->setRecommendOnly($row['recommend_only']);
+		$stageAssignment->setRecommendOnly((boolean) $row['recommend_only']);
 		$stageAssignment->setCanChangeMetadata($row['can_change_metadata']);
 
 		return $stageAssignment;

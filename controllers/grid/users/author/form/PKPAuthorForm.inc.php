@@ -183,6 +183,7 @@ class PKPAuthorForm extends Form {
 			$this->_author = $authorDao->newDataObject();
 			$author = $this->getAuthor();
 			$author->setData('publicationId', $publication->getId());
+			$author->setData('seq', count($publication->getData('authors')));
 			$existingAuthor = false;
 		} else {
 			$existingAuthor = true;

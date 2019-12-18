@@ -713,6 +713,9 @@ msgstr "Ведение журнала и аудит"
 msgid "manager.setup.logo"
 msgstr "Логотип"
 
+msgid "manager.setup.noTemporaryFile"
+msgstr "Файл, который вы загрузили на сервер, не удаётся найти. Пожалуйста, попробуйте загрузить его снова."
+
 msgid "manager.setup.notifications"
 msgstr "Уведомление об отправке материала автором"
 
@@ -774,18 +777,13 @@ msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Напоминание о согласии"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr ""
-"Отправить напоминание, если рецензент не ответил на запрос рецензии в "
-"течение следующего количества дней, после того как срок ответа на запрос "
-"прошел."
+msgstr "Отправить напоминание, если рецензент не ответил на запрос рецензии в течение следующего количества дней, после того как срок ответа на запрос прошел."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Напоминание о рецензии"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Отправить напоминание, если рецензент не отправил рекомендацию в течение "
-"следующего количества дней, после того как срок отправки рецензии прошел."
+msgstr "Отправить напоминание, если рецензент не отправил рекомендацию в течение следующего количества дней, после того как срок отправки рецензии прошел."
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Режим рецензирования по умолчанию"
@@ -831,6 +829,9 @@ msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} новых)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Зарегистрированные пользователи"
 
 msgid "manager.users"
 msgstr "Пользователи"
@@ -1802,7 +1803,10 @@ msgid "grid.category.nameRequired"
 msgstr "Пожалуйста, введите название категории."
 
 msgid "grid.category.categoryDetails"
-msgstr "Информаци о категории"
+msgstr "Информация о категории"
+
+msgid "stats.allUsers"
+msgstr "Все пользователи"
 
 msgid "stats.daily"
 msgstr "Ежедневно"
@@ -1852,14 +1856,39 @@ msgstr "Последние 30 дней"
 msgid "stats.dateRange.last90Days"
 msgstr "Последние 90 дней"
 
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Последние два года"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Последний год"
+
 msgid "stats.dateRange.sinceDate"
 msgstr "Начиная с {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Год до даты"
 
 msgid "stats.dateRange.to"
 msgstr "До"
 
 msgid "stats.dateRange.untilDate"
 msgstr "До {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr "Процент для выбранного диапазона дат рассчитывается по материалам, отправленным в этот период и по которым было принято окончательное решение.<br><br>"
+"Например, рассмотрим ситуацию, когда в этот период было отправлено 10 материалов: четыре из них были приняты, четыре — отклонены и два ещё ждут окончательного решения.<br><br>"
+"Доля принятых будет 50% (4 из 8 материалов), так как два материала, по которым ещё не принято окончательное решение, не учитываются."
+
+msgid "stats.description.daysToDecision"
+msgstr "Число дней, за которое большинство материалов получают первое решение редакции, например, сразу отклонить или отправить на рецензию.<br><br>"
+"Оно показывает, за какое время 80% материалов получает такое решение.<br><br>"
+"Данная статистика описывает срок ожидания принятия решения для большинства авторов, отправивших материал в Ваш журнал."
+
+msgid "stats.descriptionForStat"
+msgstr "Описание для {$stat}"
+
+msgid "stats.editorialActivity"
+msgstr "Активность редакции"
 
 msgid "stats.fileViews"
 msgstr "Просмотры файлов"
@@ -1876,10 +1905,56 @@ msgstr "PDF"
 msgid "stats.searchSubmissionDescription"
 msgstr "Искать по названию, автору и ID"
 
+msgid "stats.submissionsActive"
+msgstr "Активных материалов"
+
 msgid "stats.total"
 msgstr "Всего"
 
-msgid "manager.setup.noTemporaryFile"
-msgstr ""
-"Файл, который вы загрузили на сервер, не удаётся найти. Пожалуйста, "
-"попробуйте загрузить его снова."
+msgid "stats.totalWithinDateRange"
+msgstr "Всего в период времени"
+
+msgid "stats.trends"
+msgstr "Тренды"
+
+msgid "stats.userStatistics"
+msgstr "Статистика по пользователям"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Получено материалов"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Принято материалов"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Отклонено материалов"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Отклонено материалов (сразу)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Отклонено материалов (после рецензии)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Опубликовано материалов"
+
+msgid "stats.name.daysToDecision"
+msgstr "Дней до первого решения редакции"
+
+msgid "stats.name.daysToAccept"
+msgstr "Дней до принятия"
+
+msgid "stats.name.daysToReject"
+msgstr "Дней до отклонения"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Доля принятых"
+
+msgid "stats.name.declineRate"
+msgstr "Доля отклоненных"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Доля отклоненных сразу"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Доля отклоненных после рецензии"

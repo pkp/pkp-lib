@@ -1675,6 +1675,12 @@ msgstr "Ожидание литературного редактирование
 msgid "notification.type.roundStatusTitle"
 msgstr "Статус раунда {$round}"
 
+msgid "notification.type.editorialReport"
+msgstr "Сводный отчёт по статистике."
+
+msgid "notification.type.editorialReport.contents"
+msgstr "Напоминаем Вам о необходимости проверить состояние Вашего журнала с помощью редакционного отчёта."
+
 msgid "semicolon"
 msgstr "{$label}:"
 

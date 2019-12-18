@@ -250,11 +250,12 @@ abstract class PKPContentBaseTestCase extends WebTestCase {
 			'role' => 'Author',
 		), $data);
 
-		sleep(5);
-		$this->click('css=[id^=component-grid-users-author-authorgrid-addAuthor-button-]');
-		$this->waitForElementPresent($selector='//form[@id="editAuthor"]//input[@name="givenName[en_US]"]');
+		$this->waitForElementPresent($selector='css=[id^=component-grid-users-author-authorgrid-addAuthor-button-]');
+		$this->click($selector);
+		$this->waitForElementPresent($selector='css=[id^=givenName]');
 		$this->type($selector, $data['givenName']);
-		$this->type('//form[@id="editAuthor"]//input[@name="familyName[en_US]"]', $data['familyName']);
+		$this->waitForElementPresent($selector='css=[id^=familyName]');
+		$this->type($selector, $data['familyName']);
 		$this->select('id=country', 'label=' . $data['country']);
 		$this->type('//form[@id="editAuthor"]//input[@name="email"]', $data['email']);
 		if (isset($data['affiliation'])) $this->type('//form[@id="editAuthor"]//input[@name="affiliation[en_US]"]', $data['affiliation']);

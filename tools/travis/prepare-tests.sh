@@ -21,10 +21,9 @@ export DBUSERNAME=ojs-ci # Database username
 export DBPASSWORD=ojs-ci # Database password
 export FILESDIR=files # Files directory (relative to OJS installation -- do not do this in production!)
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
-export BROWSER_BINARY=/usr/bin/chromium-browser # For Chromedriver to find the browser
 
 # Install required software
-sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl chromium-chromedriver chromium-browser ghostscript
+sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl ghostscript
 
 # Generate sample files to use for testing.
 echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # Generate a dummy PDF file

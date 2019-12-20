@@ -12,11 +12,15 @@
 set -xe
 
 # Run the data build suite (integration tests).
-if [[ "$TEST" == "mysql" ]]; then
-	./lib/pkp/tools/runAllTests.sh -bHd
-else
-	./lib/pkp/tools/runAllTests.sh -bd
-fi
+# Environment variables used in Cypress need prefix.
+export CYPRESS_baseUrl=${BASEURL}
+export CYPRESS_DBTYPE=${DBTYPE}
+export CYPRESS_DBUSERNAME=${DBUSERNAME}
+export CYPRESS_DBNAME=${DBNAME}
+export CYPRESS_DBPASSWORD=${DBPASSWORD}
+export CYPRESS_DBHOST=${DBHOST}
+export CYPRESS_FILESDIR=${FILESDIR}
+$(npm bin)/cypress run --config video=false
 
 # Dump the database before continuing. Some tests restore this to reset the
 # environment.
@@ -24,8 +28,6 @@ fi
 
 # Run the rest of the test suite (unit tests etc).
 sudo rm -f cache/*.php
-if [[ "$DBTYPE" == "MySQL" ]]; then
-	./lib/pkp/tools/runAllTests.sh -CcPpfHd
-else
-	./lib/pkp/tools/runAllTests.sh -CcPpfd
-fi
+
+# Run the tests.
+./lib/pkp/tools/runAllTests.sh -CcPpd

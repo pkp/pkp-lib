@@ -137,29 +137,24 @@ abstract class PKPWorkflowHandler extends Handler {
 		// they are not assigned in any role and have a manager role in the
 		// context.
 		$currentStageId = $submission->getStageId();
-<<<<<<< HEAD
-		$canEditPublication = false; // Access to title, abstract, metadata, etc
-=======
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		$workflowRoles = Application::getWorkflowTypeRoles();
 		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
 		$canAccessPublication = false; // View title, metadata, etc.
 		$canEditPublication = Services::get('submission')->canEditPublication($submission->getId(), $request->getUser()->getId());
->>>>>>> 8b1dba176... pkp/pkp-lib#4874 Fix view and save UI for publications
 		$canAccessProduction = false; // Access to galleys and issue entry
 		$canPublish = false; // Ability to publish, unpublish and create versions
+		$canAccessEditorialHistory = false; // Access to activity log
 		// unassigned managers
 		if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [ROLE_ID_MANAGER])) {
 			$canAccessProduction = true;
-<<<<<<< HEAD
 			$canPublish = true;
-=======
 			$canAccessPublication = true;
->>>>>>> 8b1dba176... pkp/pkp-lib#4874 Fix view and save UI for publications
+			$canAccessEditorialHistory = true;
 
 		} elseif (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[$currentStageId])) {
 			$canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
-<<<<<<< HEAD
+			$canAccessPublication = true;
 
 			// "Recommend only" stage assignments can not publish
 			$result = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId(
@@ -177,9 +172,9 @@ abstract class PKPWorkflowHandler extends Handler {
 					}
 				}
 			}
-=======
-			$canAccessPublication = true;
->>>>>>> 8b1dba176... pkp/pkp-lib#4874 Fix view and save UI for publications
+		}
+		if (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $accessibleWorkflowStages[$currentStageId])) {
+			$canAccessEditorialHistory = true;
 		}
 
 		$supportedFormLocales = $submissionContext->getSupportedFormLocales();
@@ -379,6 +374,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		$templateMgr->assign([
+			'canAccessEditorialHistory' => $canAccessEditorialHistory,
 			'canAccessPublication' => $canAccessPublication,
 			'canEditPublication' => $canEditPublication,
 			'canAccessProduction' => $canAccessProduction,

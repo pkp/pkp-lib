@@ -38,7 +38,9 @@ class ApiAuthorizationMiddleware {
 		$this->_handler->setSlimRequest($slimRequest);
 		$request = $this->_handler->getRequest();
 		$args = array($slimRequest);
-		if ($this->_handler->authorize($request, $args, $this->_handler->getRoleAssignments())) {
+		if (!$slimRequest->getAttribute('route')) {
+			return $request->getRouter()->handleAuthorizationFailure($request, 'api.404.endpointNotFound');
+		} elseif ($this->_handler->authorize($request, $args, $this->_handler->getRoleAssignments())) {
 			$this->_handler->validate($request, $args);
 			$this->_handler->initialize($request, $args);
 			return true;

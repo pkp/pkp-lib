@@ -30,6 +30,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 	 *  for. One of WORKFLOW_TYPE_*.
 	 */
 	function __construct($request, $workflowType = null) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		parent::__construct('user.authorization.accessibleWorkflowStage');
 		$this->_request = $request;
 		$this->_workflowType = $workflowType;

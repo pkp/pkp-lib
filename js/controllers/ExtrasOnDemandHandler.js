@@ -53,7 +53,7 @@
 		if ($widgetWrapper.hasClass('active')) {
 			// Identify if there is a scrollable parent.
 			$scrollable = $widgetWrapper.closest('.scrollable');
-			if ($scrollable.size() > 0) {
+			if ($scrollable.length > 0) {
 				// Scroll the parent so that all extra content in
 				// extras container is visible.
 				this.scrollToMakeVisible_($widgetWrapper, $scrollable);

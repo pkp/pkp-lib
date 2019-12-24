@@ -169,7 +169,7 @@
 		if (typeof(this.options.title) !== 'undefined') {
 			$modal.append('<div class="header">' + this.options.title + '</div>');
 		} else {
-            $modal.append('<div class="header">' + '</div>');
+			$modal.append('<div class="header">' + '</div>');
 		}
 
 		// Close button

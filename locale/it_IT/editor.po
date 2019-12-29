@@ -2,20 +2,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
+"PO-Revision-Date: 2019-12-29 20:34+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:53+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Archivio delle proposte"
 
 msgid "editor.review.notInitiated"
-msgstr "Il processo di revisione non è ancora iniziato"
+msgstr "Il processo di revisione non è ancora iniziato."
 
 msgid "editor.submission.uploadSelectFiles"
 msgstr "Carica/seleziona file"
@@ -57,10 +60,10 @@ msgid "editor.review.importantDates"
 msgstr "Date importanti"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Richiedi modifiche all'autore"
+msgstr "Le revisioni non sono saranno inviate nuovamente ai revisori."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Richiedi modifiche all'autore per una nuova valutazione da parte dei revisori"
+msgstr "Le revisioni saranno inviate nuovamente ai revisori."
 
 msgid "editor.review.readReview"
 msgstr "Leggi la revisione"
@@ -90,7 +93,7 @@ msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Nessun file selezionato"
 
 msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr "Non hai selezionato alcun file per il revisore"
+msgstr "Non è stato selezionato alcun file per il revisore."
 
 msgid "editor.review.reviewDetails"
 msgstr "Dettagli"
@@ -126,7 +129,7 @@ msgid "editor.submission.selectFiles"
 msgstr "Seleziona files"
 
 msgid "editor.submission.fileList.includeAllStages"
-msgstr "Mostra i file di tutte le fasi di lavorazione che sono accessibili"
+msgstr "Mostra i file accessibili di tutte le fasi di lavorazione."
 
 msgid "editor.submission.review.currentFiles"
 msgstr "Attuali file in revisione per il round {$round}"
@@ -162,7 +165,7 @@ msgid "editor.review.dateAccepted"
 msgstr "Data per l'accettazione della revisione"
 
 msgid "editor.review.reviewsAdded"
-msgstr "Revisione aggiunta al messaggio email"
+msgstr "Commenti dei revisori aggiunti  al messaggio email."
 
 msgid "editor.review.noReviews"
 msgstr "Nessuna peer reviews da importare"
@@ -180,7 +183,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Errore nel mandare i ringraziamenti al revisore"
 
 msgid "editor.review.skipEmail"
-msgstr "Non mandare email al revisore"
+msgstr "Non inviare email al revisore."
 
 msgid "editor.review.sendReminder"
 msgstr "Manda avviso"
@@ -273,7 +276,7 @@ msgid "editor.review.noReviewFilesUploaded"
 msgstr "Nessun file caricato"
 
 msgid "editor.review.noReviewFilesUploaded.details"
-msgstr "Non hai caricato nessun file revisionato"
+msgstr "Non è stato caricato alcun file pertinente alla revisione."
 
 msgid "editor.submission.newRound"
 msgstr "Nuovo round di revisione"
@@ -285,10 +288,10 @@ msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Notifica gli editors"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Non mandare mail agli editors"
+msgstr "Non inviare email agli editors."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Crea una discussione riguardo questa raccomandazione"
+msgstr "Crea una discussione in merito a questa raccomandazione."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Non creare uan discussione al riguardo."
@@ -336,7 +339,9 @@ msgid "editor.submission.proofreading.confirmCompletion"
 msgstr "Approvare questa bozza significa che la correzione bozze è finita e il file è pronto per essere pubblicato."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Revocare l'approvazione per questa bozza significa indicare che la correzzione delle bozze non è completata e il file non è pronto per essere pubblicato"
+msgstr ""
+"Revocare l'approvazione per questa bozza per indicare che la correzione di "
+"bozze non è stata completata e il file non è pronto per essere pubblicato."
 
 msgid "editor.submission.schedulePublication"
 msgstr "Pianifica per la pubblicazione"
@@ -412,3 +417,55 @@ msgstr "Biografia"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Revisioni non accettate"
+
+msgid "reviewer.list.empty"
+msgstr "Non sono stati identificati revisori"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Inviti alla revisione eliminati"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Si è verificato un errore nel ripristino del revisore. Si prega di riprovare."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Revisore ringraziato"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "L'editor ha rimosso questo invito alla revisione."
+
+msgid "editor.review.requestCancelled"
+msgstr "Richiesta cancellata"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Ripristina revisore"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Elimina revisore"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Modifica la decisione"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Manoscritto accettato per la revisione."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Inviato in produzione."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Inviato ad un nuovo ciclo di revisione."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Manoscritto pubblicato."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Manoscritto accettato."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Manoscritto rifiutato."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decisione registrata"
+
+msgid "editor.activityLog"
+msgstr "Registro attività"

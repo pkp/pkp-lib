@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
+"PO-Revision-Date: 2019-12-29 20:34+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:53+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.abstractViews"
 msgstr "Viste dell'abstract"
@@ -171,7 +174,7 @@ msgid "submission.history"
 msgstr "Registro"
 
 msgid "submission.history.noLogEntries"
-msgstr "Registro vuoto"
+msgstr "Registro vuoto."
 
 msgid "submission.history.recentLogEntries"
 msgstr "Registrazioni recenti"
@@ -405,7 +408,7 @@ msgid "submissions.queued"
 msgstr "Accodato"
 
 msgid "submissions.queuedUnassigned"
-msgstr "In attesa di assegnazione"
+msgstr "In attesa di assegnazione ad un Editor."
 
 msgid "submissions.ruling"
 msgstr "Parere"
@@ -468,7 +471,7 @@ msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr "Errore interno. E' stato inserito un carattere non valido per l'impostazione dei 'filtri opzionali'. Segnala l'errore come bug."
 
 msgid "metadata.property.displayName.author"
-msgstr "Autori."
+msgstr "Autori"
 
 msgid "metadata.property.validationMessage.author"
 msgstr "Per un risultato ottimale, gli autori vanno inseriti nel formato: Coleman Jr, D. (Ralf) Dr."
@@ -501,7 +504,7 @@ msgid "metadata.property.displayName.volume"
 msgstr "Volume"
 
 msgid "metadata.property.validationMessage.volume"
-msgstr "Inserisci il numero del volume"
+msgstr "Inserire il numero del volume."
 
 msgid "metadata.property.displayName.chapter-title"
 msgstr "Titolo del capitolo"
@@ -546,13 +549,13 @@ msgid "metadata.property.displayName.series"
 msgstr "Serie"
 
 msgid "metadata.property.validationMessage.series"
-msgstr "Inserisci una serie valida"
+msgstr "Inserire una serie valida."
 
 msgid "metadata.property.displayName.institution"
 msgstr "Istituzione"
 
 msgid "metadata.property.validationMessage.institution"
-msgstr "Inserisci un'istituzione valida"
+msgstr "Inserisci un'istituzione valida."
 
 msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
@@ -597,7 +600,7 @@ msgid "metadata.property.displayName.annotation"
 msgstr "Annotazione"
 
 msgid "metadata.property.validationMessage.annotation"
-msgstr "Inserisci un'annotazione valida"
+msgstr "Inserisci un'annotazione valida."
 
 msgid "submission.agencies"
 msgstr "Agenzie"
@@ -642,7 +645,7 @@ msgid "metadata.property.displayName.conf-sponsor"
 msgstr "Sponsor del convegno"
 
 msgid "metadata.property.validationMessage.conf-sponsor"
-msgstr "Inserisci i nomi degli sponsor del convegno"
+msgstr "Inserisci i nomi degli sponsor del convegno."
 
 msgid "metadata.property.displayName.fpage"
 msgstr "Pagina iniziale"
@@ -720,16 +723,16 @@ msgid "submission.page.citations"
 msgstr "#{$id} Citazioni"
 
 msgid "submission.nameRequired"
-msgstr "Inserisci un nome per questa risorsa"
+msgstr "Inserisci un nome per questa risorsa."
 
 msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
-msgstr "Seleziona uno dei moduli di citazione"
+msgstr "Seleziona uno dei moduli di citazione."
 
 msgid "metadata.property.displayName.publisher-id"
 msgstr "ID personalizzato"
 
 msgid "metadata.property.validationMessage.publisher-id"
-msgstr "Inserisci un ID personalizzato valido"
+msgstr "Inserisci un ID personalizzato valido."
 
 msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "Non usare per default (sarà comunque disponibile agli editor)"
@@ -744,7 +747,9 @@ msgid "metadata.property.displayName.nonSort"
 msgstr "Parte del titolo ignorata ai fini dell'ordinamento"
 
 msgid "metadata.property.validationMessage.nonSort"
-msgstr "Inserisci solo i caratteri iniziali del titolo che devono essere ignorati nell'ordinamento dei titoli"
+msgstr ""
+"Inserisci solo i caratteri iniziali del titolo che devono essere ignorati "
+"nell'ordinamento dei titoli."
 
 msgid "metadata.property.displayName.title"
 msgstr "Titolo"
@@ -768,7 +773,7 @@ msgid "metadata.property.displayName.partName"
 msgstr "Nome della parte"
 
 msgid "metadata.property.validationMessage.partName"
-msgstr "Inserisci un nome della parte valido"
+msgstr "Inserisci un nome della parte valido."
 
 msgid "metadata.property.displayName.name-type"
 msgstr "Tipo di nome"
@@ -789,7 +794,7 @@ msgid "submission.comments.addReviews"
 msgstr "Aggiungi il commento del revisore al messaggio"
 
 msgid "submission.layout.galleyRemoteURLValid"
-msgstr "Inserisci una URL remota valida (includi http://)"
+msgstr "Inserisci una URL remota valida (includi http://)."
 
 msgid "submission.form.name"
 msgstr "Dai al file un nome comprensibile"
@@ -999,7 +1004,9 @@ msgid "submission.source"
 msgstr "Fonte"
 
 msgid "submission.source.tip"
-msgstr "Questa proposta deriva da un'altra opera ? Se si, dovresti inserire un URL o una descrizione dell'opera in questione"
+msgstr ""
+"Questo manoscritto proviene da altra fonte? Se si, inserire un URL o una "
+"descrizione della fonte."
 
 msgid "submission.submission"
 msgstr "Proposta"
@@ -1047,7 +1054,7 @@ msgid "submission.manageDependentFiles"
 msgstr "Gestisci i file in subordine"
 
 msgid "submission.upload.dependent"
-msgstr "Carica un file in subordine."
+msgstr "Carica un file subordinato"
 
 msgid "submission.upload.query"
 msgstr "Carica un file di discussione"
@@ -1119,10 +1126,15 @@ msgid "submission.upload.possibleRevision"
 msgstr "Trovata una possibile duplicazione o revisione"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "Il nome del file caricato ricorda molto un file già caricato, \"{$revisedFileName}.\" Con questo file si intende sovrascrivere \"{$revisedFileName}\"? Se è cosi, seleziona il file qui sotto. Altrimenti seleziona \"Questa non è una revisione di un file esistente\" prima di procedere"
+msgstr ""
+"Il nome del file caricato è molto simile ad un file già inserito, \""
+"{$revisedFileName}.\" Con questo file si intende sovrascrivere \""
+"{$revisedFileName}\"? Se è cosi, selezionare il file da questo elenco. "
+"Altrimenti selezionare \"Questa non è la revisione di un file esistente\" "
+"prima di procedere."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
-msgstr "Per favore selezionea il file che vuoi revisionare"
+msgstr "Seleziona il file che vuoi modificare."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Questa non è una revisione di un file esistente"
@@ -1170,7 +1182,7 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Le revisioni sono state inviate."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "Inviata ad una revisione esterna"
+msgstr "Inviata a revisione esterna."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Accettata."
@@ -1179,7 +1191,7 @@ msgid "editor.submission.roundStatus.declined"
 msgstr "Non accettata."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "In attesa che i revisiori vengano assegnati"
+msgstr "In attesa di assegnazione dei revisori."
 
 msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "In attesa delle risposte dai revisori."
@@ -1194,10 +1206,10 @@ msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Una revisione è in ritardo."
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "Si è in attesa delle valutazioni da parte degli editors"
+msgstr "In attesa delle valutazioni da parte degli editors."
 
 msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "Sono state inviate nuove valutazioni da parte degli editor"
+msgstr "Sono state inviate nuove valutazioni da parte degli editor."
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Sono giunte tutte le valutazioni ed ora è necessaria una decisione."
@@ -1221,7 +1233,7 @@ msgid "editor.submission.removeStageParticipant"
 msgstr "Rimuovi partecipante"
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
-msgstr "Devi selezionare un gruppo di utenti"
+msgstr "Selezionare un gruppo di utenti."
 
 msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "Devi selezionare un utente per questo specifico gruppo di utenti."
@@ -1278,7 +1290,7 @@ msgid "editor.submission.recommendation"
 msgstr "Valutazione"
 
 msgid "editor.submission.recommendation.description"
-msgstr "Proponi una decisione editoriale per questa proposta"
+msgstr "Proponi una decisione editoriale per questo manoscritto."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Registra le valutazioni"
@@ -1338,7 +1350,7 @@ msgid "submission.description"
 msgstr "Descrizione"
 
 msgid "submission.stageNotInitiated"
-msgstr "Fase non iniziata"
+msgstr "Fase non iniziata."
 
 msgid "submission.documents"
 msgstr "Documenti della proposta"
@@ -1359,7 +1371,7 @@ msgid "notification.type.editorDecisionTitle"
 msgstr "Ultima decisione dell'editor."
 
 msgid "notification.type.editorDecisionAccept"
-msgstr "Proposta accettata"
+msgstr "Manoscritto accettato."
 
 msgid "notification.type.editorDecisionExternalReview"
 msgstr "La revisione esterna è inziata."
@@ -1632,7 +1644,7 @@ msgid "submission.list.reviewComplete"
 msgstr "Revisione inviata"
 
 msgid "submission.list.currentStage"
-msgstr "Attualmente nella fase: {$stage}"
+msgstr "Attualmente nella fase: {$stage}."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr "Il partecipante che hai selezionato è già stato indicato per fare una revisione cieca. Se lo assegni com partecipante avrà accesso all'identità dell'autore. Ti chiediamo di non assegnare questa persona come partecipante se non quando puoi assicurare la sua integrità nel condurre la revisione."
@@ -1647,13 +1659,13 @@ msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "La proposta è stata inviata di nuovo per un altro giro di revisione."
 
 msgid "submission.submit.form.languagesRequired"
-msgstr "Per favore inserisci una lingua"
+msgstr "Inserire una lingua."
 
 msgid "submission.submit.form.subjectsRequired"
-msgstr "Per favore inserisci un soggetto"
+msgstr "Inserire  un oggetto."
 
 msgid "submission.submit.form.disciplinesRequired"
-msgstr "Per favore inserisci una disciplina"
+msgstr "Inserire una disciplina."
 
 msgid "submission.submit.form.keywordsRequired"
 msgstr "Per favore inserisci le parole chiave."
@@ -1662,16 +1674,16 @@ msgid "submission.submit.form.agenciesRequired"
 msgstr "Per favore inserisci una agenzia sponsorizzatrice"
 
 msgid "submission.submit.form.coverageRequired"
-msgstr "Per favore inserisci la copertura della proposta"
+msgstr "Inserirei la copertura dell'articolo."
 
 msgid "submission.submit.form.typeRequired"
-msgstr "Per favore inserisci il tipo"
+msgstr "Inserire la tipologia."
 
 msgid "submission.submit.form.sourceRequired"
-msgstr "Per favore inserisci la fonte"
+msgstr "Inserire la fonte."
 
 msgid "submission.submit.form.rightsRequired"
-msgstr "Per favore inserisci i diritti sulla proposta"
+msgstr "Inserire i diritti sull'articolo."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Carica come"
@@ -1729,3 +1741,263 @@ msgstr "Sottocategorie"
 
 msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
+
+msgid "publication.wordCount"
+msgstr "Limite di parole: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"L'abstract è troppo lungo. E' di {$count}  mentre non  deve superare le "
+"{$limit} parole."
+
+msgid "publication.version.details"
+msgstr "Dettagli di pubblicazione per la versione {$version}"
+
+msgid "publication.version.all"
+msgstr "Tutte le versioni"
+
+msgid "publication.unschedule.confirm"
+msgstr "Confermi di non voler pianificare la pubblicazione di questo articolo?"
+
+msgid "publication.unschedule"
+msgstr "Rimuovi dalla pianificazione"
+
+msgid "publication.unpublish.confirm"
+msgstr "Confermi di non voler pubblicare questo articolo?"
+
+msgid "publication.unpublish"
+msgstr "Rimuovi dalla pubblicazione"
+
+msgid "publication.titleAbstract.success"
+msgstr "Titolo e abstract sono stati aggiornati."
+
+msgid "publication.titleAbstract"
+msgstr "Titolo e abstract"
+
+msgid "publication.status.unscheduled"
+msgstr "Rimosso dalla pianficazione"
+
+msgid "publication.status.unpublished"
+msgstr "Rimosso dalla pubblicazione"
+
+msgid "publication.status.scheduled"
+msgstr "Pianificato"
+
+msgid "publication.status.published"
+msgstr "Pubblicato"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Per essere pubblicato un'articolo deve essere nella fase di copy-editing o "
+"produzione."
+
+msgid "publication.required.declined"
+msgstr "Un'articolo rigettato non puo' essere pubblicato."
+
+msgid "publication.publish.success"
+msgstr "Lo status di pubblicazione sono stati modificati."
+
+msgid "publication.publish.requirements"
+msgstr "Prima della pubblicazione confermare i seguenti requisiti."
+
+msgid "publication.publish"
+msgstr "Pubblicare"
+
+msgid "publication.publicationLicense.success"
+msgstr "Le informazioni su copyright e licenza sono state aggiornate."
+
+msgid "publication.publicationLicense"
+msgstr "Permessi e dichiarazioni"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Gli identificatori sono stati aggiornati."
+
+msgid "publication.metadata.success"
+msgstr "I metadati sono stati aggiornati."
+
+msgid "publication.invalidSubmission"
+msgstr "L'articolo per questa uscita non è stato trovato."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Una versione non è più pubblicata."
+
+msgid "publication.event.versionScheduled"
+msgstr "Una nuova versione è stata pianificata per la pubblicazione."
+
+msgid "publication.event.versionPublished"
+msgstr "E' stata pubblicata una nuova versione."
+
+msgid "publication.event.versionCreated"
+msgstr "E' stata creata una nuova versione."
+
+msgid "publication.event.unpublished"
+msgstr "Questo articolo è stato rimosso da un'uscita."
+
+msgid "publication.event.scheduled"
+msgstr "Questo articolo è stato assegnato ad una uscita."
+
+msgid "publication.event.published"
+msgstr "Questo articolo è stato pubblicato."
+
+msgid "publication.editDisabled"
+msgstr "Questa versione è stata pubblicata e non può' essere modificata."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "La data deve avere il formato YYY-MM-DD, ad esempio 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Data di pubblicazione"
+
+msgid "publication.createVersion"
+msgstr "Crea una nuova versione"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"L'anno di copyright sarà configurato automaticamente quando questo articolo "
+"sarà assegnato ad un'uscita."
+
+msgid "publication.contributors"
+msgstr "Co-autori"
+
+msgid "publication.citations.success"
+msgstr "Le referenze sono state aggiornate."
+
+msgid "submission.publication"
+msgstr "Pubblicazione"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Incarico di revisione cancellato"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Incarico di revisione"
+
+msgid "submission.list.empty"
+msgstr "Non  è stata trovato alcun contributo."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Se lasci questa conversazione non riceverai più notifiche di nuovi messaggi. "
+"Confermi di voler lasciare la conversazione?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Lascia questa conversazione"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+">2<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-sa/3.0/88x31.png\" />3</a>4<p>Questo articolo è soggetto a licenza <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">"
+"Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">2<"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Questo articolo è soggetto a licenza <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Questo articolo è soggetto a licenza <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Attribution-NoDerivatives 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Questo articolo è soggetto a <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Questo articolo è soggetto a licenza <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
+"Commons Attribution-NonCommercial 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Questo articolo è soggetto a licenza <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International "
+"License</a>.</p>"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ha completato la revisione per il {$round} ciclo  per il "
+"manoscritto  {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"L'Editor {$userName} ha confermato una revisione per il {$round} ciclo per "
+"il manoscritto {$submissionId}."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Confermi di voler consentire agli autori di questo articolo di modificarne i "
+"metadati in questa fase?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Confermi di voler negare agli autori di questo articolo di modificarne i "
+"metadati in questa fase?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Consenti la modifica dei metadati"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Disabilita la possibilità di modificare i metadati"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Modifica l'assegnazione"
+
+msgid "submission.status.scheduled"
+msgstr "Pianificato"
+
+msgid "submissions.inactive"
+msgstr "Non attivo da {$days} giorni"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Questa è una versione superata pubblicata il {$datePublished}. Visita la <a "
+"href=\"{$urlRecentVersion}\">versione più recente</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$versionId})"
+
+msgid "submission.versions"
+msgstr "Versioni"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Aggiornato il  {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Gli autori non possono effettuare modifiche ai dati dell'articolo quando è "
+"nella fase {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Gli autori non possono effettuare modifiche ai dati dell'articolo quando è "
+"nella fase {stage}."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstract"
+
+msgid "author.publicationNotFound"
+msgstr "Non è possibile trovare articoli per questo autore."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Gli autori di questo articolo non possono essere modificati perché "
+"l'articolo è già stato pubblicato."

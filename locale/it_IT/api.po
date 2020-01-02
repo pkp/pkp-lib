@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2020-01-01 12:34+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/it/>"
+"\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "La tua richiesta è stata rifiutata. Questo perchè il tuo login è scaduto. Ricarica la pagina e prova di nuovo."
@@ -34,3 +37,119 @@ msgstr "Il richiesto volume, numero o anno non è valido."
 
 msgid "api.submissions.unknownError"
 msgstr "E' avvenuto un errore inatteso. Per favore ricarica la pagina e prova di nuovo."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Il vocabolario {$vocab}  non è supportato."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "La lingua {$locale} non è supportata."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Il tema attivo, {$themePluginPath}, non è abilitato e non può essere "
+"installato."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Non è stato possibile importare il file per un errore di configurazione del "
+"server. Contattare l'amministratore di sistema."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Non è possibile importare file di dimensioni superiori a {$maxSize}."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Non è stato possibile importare uno o più files."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Non è stato trovato alcun file da importare per questa richiesta."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Questo endpoint non è disponibile nel contest. E' necessario accedervi dal "
+"namespace dell'intero sito."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"La richiesta non è valida. L'ordine dei risultati deve essere 'desc' or "
+"'asc'."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"La richiesta non è valida. l'intervallo timelineInterval deve essere "
+"'giorno' o 'mese'."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "La data di termine non può essere oltre ieri."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "La data di inizio non può essere prima del 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "La data di inizio deve anticipare la data di scadenza."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "La data deve essere nel formato YYYY-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Non hai i permessi per modificare questa pubblicazione."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Non è possibile trovare la directory pubblica o non è possibile salvarvi i "
+"file. Contattre l'amministratore per risolvere questo problema."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Non si dispone di spazio sufficiente nella user directory. Il file che si "
+"sta importando è di {$fileUploadSize}kb mentre sono disponibili "
+"{$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Non hai i permessi per caricare file."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Il file che hai importato non corrisponde alla sua estensione. Potrebbe "
+"essere  stato rinominato utilizzando un nome  incompatibile, ad esempio "
+"modificare photo.png in photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "L'immagine che hai caricato non è valida."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "E' possibile solo caricare i seguenti tipi di file: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Per poter eliminare questa uscita è necessario prima terminarne la "
+"pubblicazione."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Non è possibile modificare lo status direttamente attraverso l'API. "
+"Utilizzare gli endpoints  /publish e /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Non è possibile modificare questo articolo perché è già stato pubblicato."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "L'uscita di cui vuoi terminare la pubblicazione non è pubblicata."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "L'uscita che vuoi pubblicare è già stata pubblicata."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Non è possibile trovare il template email richiesto."
+
+msgid "api.404.endpointNotFound"
+msgstr "l'URL richiesto non è riconosciuto."
+
+msgid "api.404.resourceNotFound"
+msgstr "Non è possibile trovare la risorsa richiesta."
+
+msgid "api.403.unauthorized"
+msgstr "Non hai i permessi necessari per accedere a questa risorsa."
+
+msgid "api.400.paramNotSupported"
+msgstr "Il parametro {$param} non è supportato."

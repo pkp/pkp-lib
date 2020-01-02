@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2020-01-01 12:34+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
 msgstr "Informazioni sul sito"
@@ -444,7 +447,7 @@ msgid "debug.executionTime"
 msgstr "Pagina generata in"
 
 msgid "debug.memoryUsage"
-msgstr "Utilizzo della memoria:"
+msgstr "Utilizzo della memoria"
 
 msgid "debug.notes.localeListLoad"
 msgstr "Caricata lista \"{$localeList}\" da XML"
@@ -702,7 +705,7 @@ msgid "search.noResults"
 msgstr "Nessun risultato"
 
 msgid "search.operator.and"
-msgstr "and"
+msgstr "e"
 
 msgid "search.operator.not"
 msgstr "not"
@@ -730,22 +733,35 @@ msgstr "Re:"
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\tSe non diversamente indicato, i contenuti di questa rivista sono pubblicati sotto licenza\n"
-" <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0</a>."
+"\t\tSe non diversamente indicato, i contenuti di questa rivista sono "
+"pubblicati sotto licenza\n"
+" <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">Creative Commons Attribution 3.0</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tSe non diversamente indicato, i contenuti di questa rivista sono pubblicati sotto licenza <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_new\">Creative Commons Attribution 3.0</a>.\n"
-"\t</div>"
+"\t\tSe non diversamente indicato, i contenuti di questa rivista sono "
+"pubblicati sotto licenza <a rel=\"license\" href=\"https://creativecommons."
+"org/licenses/by/3.0/\" target=\"_new\">Creative Commons Attribution 3.0</a>."
+"\n"
+"\t</div>\n"
+"\t"
 
 msgid "common.manage"
 msgstr "Gestisci"
@@ -772,7 +788,7 @@ msgid "notification.confirmSuccess"
 msgstr "Sei stato iscritto con successo."
 
 msgid "notification.email"
-msgstr "Non notificarmi questo tipo di evento per email"
+msgstr "Non inviarmi notifiche email per questo tipo di evento."
 
 msgid "notification.notification"
 msgstr "Notifica"
@@ -886,16 +902,16 @@ msgid "common.plugins"
 msgstr "Plugin"
 
 msgid "email.subjectRequired"
-msgstr "Inserisci l'oggetto del messaggio"
+msgstr "Inserisci l'oggetto del messaggio."
 
 msgid "email.bodyRequired"
-msgstr "Inserisci un testo nel messaggio"
+msgstr "Inserisci un testo nel messaggio."
 
 msgid "form.confirmSubmit.title"
 msgstr "Conferma"
 
 msgid "form.emailRequired"
-msgstr "Inserisci un indirizzo email"
+msgstr "Inserisci un indirizzo email."
 
 msgid "form.invalidImage"
 msgstr "Formato dell'immagine non valido. I formati consentiti sono .png, .gif, or .jpg."
@@ -952,7 +968,7 @@ msgid "common.tasks"
 msgstr "Lavori"
 
 msgid "common.confirmDelete"
-msgstr "Sei sicuro di voler eliminare il file?"
+msgstr "Sei sicuro di voler eliminare il file? Questa azione è irreversibile."
 
 msgid "common.abstract"
 msgstr "Abstract"
@@ -1018,13 +1034,15 @@ msgid "informationCenter.addNote"
 msgstr "Aggiungi una nota"
 
 msgid "informationCenter.noNotes"
-msgstr "Non sono presenti note"
+msgstr "Non sono presenti note."
 
 msgid "informationCenter.pastNotes"
 msgstr "Note di revisione precedenti"
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr "Scegli un messaggio predefinito da inviare oppure scrivi nel campo sottostante"
+msgstr ""
+"Scegli un messaggio predefinito da inviare oppure scrivi nel campo "
+"sottostante."
 
 msgid "stageParticipants.notify.message"
 msgstr "Messaggio"
@@ -1072,10 +1090,10 @@ msgid "notification.addedStageParticipant"
 msgstr "Utente aggiunto ai partecipanti."
 
 msgid "notification.addedAuditor"
-msgstr "Valutatore aggiunto"
+msgstr "Valutatore aggiunto."
 
 msgid "notification.removedAuditor"
-msgstr "Valutatore rimosso"
+msgstr "Valutatore rimosso."
 
 msgid "notification.type.auditorRequest"
 msgstr "Valutatore richiesto per \"{$file}\""
@@ -1129,7 +1147,9 @@ msgid "common.captcha.error.missing-input-secret"
 msgstr "La validazione dei captcha per questo sito non è configurata correttamente. La chiave segreta non è presente."
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "La validazione dei captcha per questo sito non è configurata correttamente. La chiave segreta non è valida"
+msgstr ""
+"La validazione dei captcha per questo sito non è configurata correttamente. "
+"La chiave segreta non è valida."
 
 msgid "common.captcha.error.missing-input-response"
 msgstr "Devi completare il check di validazione, serve per evitare l'invio di spam."
@@ -1258,16 +1278,16 @@ msgid "informationCenter.pastHistory"
 msgstr "Revisione precedente"
 
 msgid "informationCenter.history.noItems"
-msgstr "Non ci sono eventi registrati"
+msgstr "Non ci sono eventi registrati."
 
 msgid "informationCenter.history.notePosted"
 msgstr "Inviata un nuova nota."
 
 msgid "informationCenter.history.messageSent"
-msgstr "Avviso inviato agli utenti"
+msgstr "Avviso inviato agli utenti."
 
 msgid "stageParticipants.history.messageSent"
-msgstr "Avviso inviato agli utenti"
+msgstr "Avviso inviato agli utenti."
 
 msgid "stageParticipants.notify.warning"
 msgstr "Per favore controlla di aver compilato il campo del messaggio e di aver scelto almeno un destinatario."
@@ -1309,43 +1329,43 @@ msgid "notification.addedAnnouncementType"
 msgstr "Tipo annuncio aggiunto."
 
 msgid "notification.editedAnnouncementType"
-msgstr "Tipo annuncio modificato"
+msgstr "Tipo annuncio modificato."
 
 msgid "notification.removedAnnouncementType"
-msgstr "Tipo annuncio rimosso"
+msgstr "Tipo annuncio rimosso."
 
 msgid "notification.addedAnnouncement"
-msgstr "Annuncio aggiunto"
+msgstr "Annuncio aggiunto."
 
 msgid "notification.editedAnnouncement"
-msgstr "Annuncio modificato"
+msgstr "Annuncio modificato."
 
 msgid "notification.removedAnnouncement"
-msgstr "Annuncio rimosso"
+msgstr "Annuncio rimosso."
 
 msgid "notification.addedAuthor"
-msgstr "Autore aggiunto"
+msgstr "Autore aggiunto."
 
 msgid "notification.editedAuthor"
-msgstr "Autore modificato"
+msgstr "Autore modificato."
 
 msgid "notification.addedNote"
 msgstr "Nota inviata."
 
 msgid "notification.removedNote"
-msgstr "Nota cancellata"
+msgstr "Nota cancellata."
 
 msgid "notification.removedFile"
-msgstr "File rimosso"
+msgstr "File rimosso."
 
 msgid "notification.removedSubmission"
 msgstr "Proposta rimossa."
 
 msgid "notification.sentNotification"
-msgstr "Notifica inviata"
+msgstr "Notifica inviata."
 
 msgid "notification.savedSubmissionMetadata"
-msgstr "Metadati della proposta salvati"
+msgstr "Metadati della sottomissione salvati."
 
 msgid "notification.sendNotificationConfirmation"
 msgstr "Invia la mail di notifica a tutti gli utenti registrati"
@@ -1436,11 +1456,27 @@ msgstr "Tasks"
 
 msgid "review.blindPeerReview"
 msgstr ""
-"<p> Per garantire l'integrità della blind peer-review per le proposte a questa pubblicazione, viene fatto ogni sforzo per impedire che le identità degli autori e dei revisori siano note l'una all'altra. Ciò implica che gli autori, gli editor e i revisori (che caricano documenti come parte della loro revisione) controllino se i seguenti passi sono stati presi riguardo al testo e alle proprietà del file: </ p>\n"
-"<ul> <li> Gli autori del documento devono cancellare i loro nomi dal testo, con \"Autore\" e anno utilizzati nei riferimenti e note a piè di pagina, al posto del nome dell'autore, del titolo dell'articolo, ecc. </ li>\n"
-"<li> Con i documenti di Microsoft Office, l'identificazione dell'autore dovrebbe anche essere rimossa dalle proprietà per il file (vedi sotto File in Word), facendo clic su quanto segue: iniziando con File nel menu principale dell'applicazione Microsoft: File & gt; Salva come & gt; Strumenti (o Opzioni con un Mac) & gt; Sicurezza & gt; Rimuovi le informazioni personali dalle proprietà del file su save & gt; Salva. </ li>\n"
-"<li> Con i PDF, i nomi degli autori dovrebbero anche essere rimossi dalle Proprietà del documento che si trovano sotto File nel menu principale di Adobe Acrobat. </ li>\n"
-"</ ul>"
+"\n"
+"\t\t<p> Per garantire l'integrità della blind peer-review per le proposte a "
+"questa pubblicazione, viene fatto ogni sforzo per impedire che le identità "
+"degli autori e dei revisori siano note l'una all'altra. Ciò implica che gli "
+"autori, gli editor e i revisori (che caricano documenti come parte della "
+"loro revisione) controllino se i seguenti accorgimenti siano stati presi "
+"riguardo al testo e alle proprietà del file: </p>\n"
+"<ul> <li> Gli autori del documento devono cancellare i propri nomi dal "
+"testo, nei riferimenti e note a piè di pagina, al posto del nome "
+"dell'autore, del titolo dell'articolo, ecc. </li>\n"
+"<li> Con i documenti di Microsoft Office, l'identificazione dell'autore "
+"dovrebbe anche essere rimossa dalle proprietà per il file (vedi sotto File "
+"in Word), facendo clic su quanto segue: da File nel menu principale di "
+"Microsoft: File & gt; Salva come & gt; Strumenti (o Opzioni con un Mac) & gt;"
+" Sicurezza & gt; Rimuovi le informazioni personali dalle proprietà del file "
+"su save & gt; Salva. </li>\n"
+"<li> Con i PDF, i nomi degli autori dovrebbero anche essere rimossi dalle "
+"Proprietà del documento che si trovano sotto File nel menu principale di "
+"Adobe Acrobat. </li>\n"
+"</ul>\n"
+"\t"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Schedulazione revisione"
@@ -1467,10 +1503,10 @@ msgid "notification.removedReviewer"
 msgstr "Revisore rimosso."
 
 msgid "notification.type.newAnnouncement"
-msgstr "Nuovo annuncio"
+msgstr "Nuovo annuncio."
 
 msgid "notification.type.reviewAssignment"
-msgstr "Revisione in attesa"
+msgstr "Revisione in attesa."
 
 msgid "notification.type.allRevisionsIn"
 msgstr "Un file rivisto è stato caricato per permetterti di fare considerazioni editoriali nel passaggio {$stage}."
@@ -1488,7 +1524,7 @@ msgid "notification.type.reviewerComment"
 msgstr "Un revisore ha commentato \"{$title}\"."
 
 msgid "notification.signedFile"
-msgstr "File considerato"
+msgstr "File considerato."
 
 msgid "user.authorization.submissionFile"
 msgstr "L'utente corrente non è autorizzato ad accedere al file di questa specifica proposta."
@@ -1497,28 +1533,31 @@ msgid "user.authorization.invalidSubmission"
 msgstr "Proposta non valida."
 
 msgid "user.authorization.invalidRepresentation"
-msgstr "Rappresentazione non valida"
+msgstr "Rappresentazione non valida."
 
 msgid "user.authorization.authorRoleMissing"
-msgstr "Non hai sufficienti privilegi per vedere la proposta. Controlla il tuo profilo per accertati che ti sinoa stati dati i ruoli appropiati sotto \"Registrato come\""
+msgstr ""
+"Non hai sufficienti permessi per vedere la sottomissione. Controlla il tuo "
+"profilo per accertati che ti sia stato assegnato il ruolo appropriato alla "
+"voce \"Registrato come\"."
 
 msgid "user.authorization.submissionAuthor"
 msgstr "Non sei loggato come l'autore della proposta richiesta. Per favore verifica che tui sia loggato con il corretto account."
 
 msgid "notification.type.queryActivity"
-msgstr "Un nuovo commento all'interno di una discussione"
+msgstr "Commenti all'interno di una discussione."
 
 msgid "notification.type.queryAdded"
-msgstr "Una nuova discussione è stata aggiunta"
+msgstr "E' stata aperta una nuova discussione."
 
 msgid "notification.type.assignCopyeditors"
 msgstr "Assegna un copyeditor usando il link Assegna nella lista dei partecipanti."
 
 msgid "notification.type.awaitingCopyedits"
-msgstr "In attesa del copyediting"
+msgstr "In attesa del copyediting."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Round {$round} Status"
+msgstr "Stato del {$round} ciclo"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1548,7 +1587,371 @@ msgid "list.viewLess"
 msgstr "Nascondi i dettagli riguardo {$name}"
 
 msgid "common.commaListSeparator"
-msgstr ","
+msgstr ", "
 
 msgid "common.semicolonListSeparator"
-msgstr ";"
+msgstr "; "
+
+msgid "validator.url"
+msgstr "URL non valido."
+
+msgid "validator.unique"
+msgstr "{$attribute} è già in uso."
+
+msgid "validator.timezone"
+msgstr "Fuso orario non valido."
+
+msgid "validator.string"
+msgstr "Stringa non valida."
+
+msgid "validator.size.array"
+msgstr "Deve contenere {$size} oggetti."
+
+msgid "validator.size.string"
+msgstr "Deve essere {$size} caratteri."
+
+msgid "validator.size.file"
+msgstr "Deve essere {$size} kilobytes."
+
+msgid "validator.size.numeric"
+msgstr "Deve essere {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} e {$other} devono essere uguali."
+
+msgid "validator.required_without_all"
+msgstr "Questo campo è obbligatorio quando nessun {$values} è presente."
+
+msgid "validator.required_without"
+msgstr "Questo campo è obbligatorio quanto {$values} non è presente."
+
+msgid "validator.required_with_all"
+msgstr "Questo campo è obbligatorio quando è presente {$values}."
+
+msgid "validator.required_with"
+msgstr "Questo campo è obbligatorio quando è presente {$values}."
+
+msgid "validator.required_unless"
+msgstr "Questo campo è obbligatorio a meno che {$other} è in {$values}."
+
+msgid "validator.required_if"
+msgstr "Questo campo è obbligatorio quando {$other} è {$value}."
+
+msgid "validator.required"
+msgstr "Questo campo è obbligatorio."
+
+msgid "validator.regex"
+msgstr "Non formattato correttamente."
+
+msgid "validator.present"
+msgstr "Deve esserci il campo {$attribute}."
+
+msgid "validator.orcid"
+msgstr "ORCID non valido."
+
+msgid "validator.numeric"
+msgstr "Numero non valido."
+
+msgid "validator.not_in"
+msgstr "{$attribute} non è valido."
+
+msgid "validator.min.array"
+msgstr "Deve avere almeno {$min} oggetti."
+
+msgid "validator.min.string"
+msgstr "Deve essere almeno {$min} caratteri."
+
+msgid "validator.min.file"
+msgstr "Deve essere almeno {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Deve essere almeno {$min}."
+
+msgid "validator.mimes"
+msgstr "Deve essere un file di tipo  {$values}."
+
+msgid "validator.max.array"
+msgstr "Non può più di {$max} oggetti."
+
+msgid "validator.max.string"
+msgstr "Non puo' essere maggiore di {$max} caratteri."
+
+msgid "validator.max.file"
+msgstr "Non puo' essere maggiore di {$max} kilobytes."
+
+msgid "validator.max.numeric"
+msgstr "Non puo' essere maggiore di {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Le lingue devono essere specificate utilizzando il codice locale. Ad esempio:"
+" en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Questo campo è multilingue. Devono essere forniti valori separati per ogni "
+"lingua supportata."
+
+msgid "validator.locale"
+msgstr "Lingua non accettata."
+
+msgid "validator.json"
+msgstr "Stringa JSON non valida."
+
+msgid "validator.issn"
+msgstr "ISSN non valido."
+
+msgid "validator.ip"
+msgstr "Indirizzo IP non valido."
+
+msgid "validator.integer"
+msgstr "Numero intero non valido."
+
+msgid "validator.in"
+msgstr "{$attribute} non valido."
+
+msgid "validator.image"
+msgstr "Deve essere un'immagine."
+
+msgid "validator.filled"
+msgstr "Questo campo è richiesto."
+
+msgid "validator.exists"
+msgstr "{$attribute} non valido."
+
+msgid "validator.email"
+msgstr "Indirizzo email non valido."
+
+msgid "validator.digits_between"
+msgstr "Deve essere tra {$min} e {$max} cifre."
+
+msgid "validator.digits"
+msgstr "Deve essere di {$digits} cifre."
+
+msgid "validator.different"
+msgstr "{$attribute} e {$other} devono essere differenti."
+
+msgid "validator.date_format"
+msgstr "Non corrisponde al formato {$format}."
+
+msgid "validator.date"
+msgstr "Data non valida."
+
+msgid "validator.currency"
+msgstr "Valuta non valida."
+
+msgid "validator.confirmed"
+msgstr "La conferma per questo campo non corrisponde."
+
+msgid "validator.boolean"
+msgstr "Questo campo deve essere vero o falso."
+
+msgid "validator.between.array"
+msgstr "Deve essere tra {$min} e {$max} oggetti."
+
+msgid "validator.between.string"
+msgstr "Deve essere tra {$min} e {$max} caratteri."
+
+msgid "validator.before"
+msgstr "Questa data deve essere prima del {$date}."
+
+msgid "validator.between.file"
+msgstr "Deve essere tra {$min} e {$max} kilobytes."
+
+msgid "validator.between.numeric"
+msgstr "Deve essere tra {$min} e {$max}."
+
+msgid "validator.array"
+msgstr "Stringa non valida."
+
+msgid "validator.alpha_num"
+msgstr "Può contenere solo lettere e numeri."
+
+msgid "validator.alpha_dash"
+msgstr "Può contenere solo lettere, numeri, trattini e sottolineature."
+
+msgid "validator.alpha"
+msgstr "Può contenere solo lettere."
+
+msgid "validator.after"
+msgstr "La data deve essere dopo il {$date}."
+
+msgid "validator.active_url"
+msgstr "URL non valido."
+
+msgid "validator.accepted"
+msgstr "Accettare questo articolo.."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Le ricordiamo di verificare l'efficienza della testata grazie al report "
+"editoriale."
+
+msgid "notification.type.editorialReport"
+msgstr "Riepilogo delle statistiche."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Pubblicazione non valida."
+
+msgid "notification.editStageParticipant"
+msgstr "La fase di lavorazione è stata aggiornata."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Questo reviewer è stato re-invitato."
+
+msgid "notification.cancelledReviewer"
+msgstr "Questo reviewer è stato rimosso."
+
+msgid "navigation.skip.announcements"
+msgstr "Vai agli annunci"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Nessuna modifica è stata apportata a questo partecipante"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Partecipante"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Consenti a questo utente di modificare i dettagli di pubblicazione."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Permessi"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} di lingue completate"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} in {$localeName}"
+
+msgid "form.requireId"
+msgstr "Fornire un ID valido."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Completare questo campo in {$language}."
+
+msgid "form.missingRequired"
+msgstr "Questo campo è obbligatorio."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Si è verificato un errore imprevisto. Potresti essere stato sloggato. "
+"Ricaricare la pagina e riprovare."
+
+msgid "form.errors"
+msgstr ""
+"Il modulo non è stato salvato perché ci sono {$count} errori. Correggerli e "
+"riprovare."
+
+msgid "form.errorMany"
+msgstr "Correggere {$count} errori."
+
+msgid "form.errorOne"
+msgstr "Correggere un errore."
+
+msgid "form.errorGoTo"
+msgstr "Vai al prossimo errore"
+
+msgid "form.errorA11y"
+msgstr "Vai a {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Non è possibile importare altri files."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Rimuovi file"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Confermi di voler cancellare l'importazione?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Importazione cancellata"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Cancella importazione"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Il server ha risposto con il codice {{statusCode}}. Contattare "
+"l'amministratore di sistema se il problema persiste."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Non è possibile importare file di questo tipo."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Il file è troppo pensate ({{filesize}}mb). Non è possibile importare file "
+"maggiori di  {{maxFilesize}}mb."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Utilizza il modulo di fallback sotto per caricare i tuoi file."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Il tuo browser non supporta il caricamento drag'n'drop."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Trascina qui i file da importare"
+
+msgid "form.disallowedProp"
+msgstr "Questa proprietà non è disponibile."
+
+msgid "form.disallowedLocales"
+msgstr "Sono consentite solo le seguenti lingue: {$languages}."
+
+msgid "email.compose.error"
+msgstr ""
+"Non è stato possibile inviare il messaggio. Riprovare o contattare "
+"l'amministratore di sistema."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Preview dell'immagine selezionata."
+
+msgid "common.upload.restore"
+msgstr "Ripristina originale"
+
+msgid "common.toWithValue"
+msgstr "A: {$value}"
+
+msgid "common.submenu"
+msgstr "Sottomenu"
+
+msgid "common.selectedPrefix"
+msgstr "Selezionato:"
+
+msgid "common.removeItem"
+msgstr "Rimuovere {$item}"
+
+msgid "common.pagination.previous"
+msgstr "Pagina precedente"
+
+msgid "common.pagination.next"
+msgstr "Pagina seguente"
+
+msgid "common.pagination.goToPage"
+msgstr "Vai a {$page}"
+
+msgid "common.orderDown"
+msgstr "Diminuire la posizione di {$itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Aumentare la posizione di {$itemTitle}"
+
+msgid "common.noTemporaryFile"
+msgstr "Non è possibile trovare il file che hai importato. Importarlo di nuovo."
+
+msgid "common.noItemsFound"
+msgstr "Non è stato trovato alcun elemento."
+
+msgid "common.lastActivity"
+msgstr "Ultima attività registrata il  {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Da: {$value}"
+
+msgid "common.dateDecided"
+msgstr "Data di decisione"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Fornire una descrizione per l'immagine per gli utenti di un browser solo "
+"testo o con dispositivi assistive. Ad esempio: \"Il nostro editor alla "
+"conferenza PKP.\""

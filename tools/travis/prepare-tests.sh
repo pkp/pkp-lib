@@ -12,8 +12,6 @@
 set -xe
 
 # Set some environment variables.
-export DUMMY_PDF=~/dummy.pdf # This is used for PDF uploads. It's generated below.
-export DUMMY_ZIP=~/dummy.zip # This is used for ZIP uploads. It's generated below.
 export BASEURL="http://localhost" # This is the URL to the OJS installation directory.
 export DBHOST=localhost # Database hostname
 export DBNAME=ojs-ci # Database name
@@ -23,11 +21,7 @@ export FILESDIR=files # Files directory (relative to OJS installation -- do not 
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
 
 # Install required software
-sudo apt-get install -q -y a2ps libbiblio-citation-parser-perl libhtml-parser-perl ghostscript
-
-# Generate sample files to use for testing.
-echo "This is a test" | a2ps -o - | ps2pdf - ${DUMMY_PDF} # Generate a dummy PDF file
-zip ${DUMMY_ZIP} ${DUMMY_PDF} # Generate a dummy ZIP archive using the PDF
+sudo apt-get install -q -y libbiblio-citation-parser-perl libhtml-parser-perl
 
 # Create the database and grant permissions.
 if [[ "$TEST" == "pgsql" ]]; then

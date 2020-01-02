@@ -12,8 +12,6 @@
 #
 # Some tests will certain require environment variables in order to cnfigure
 # the environment. In particular...
-#  DUMMY_PDF=dummy.pdf: Path to dummy PDF file to use for document uploads
-#  DUMMY_ZIP=dummy.zip: Path to dummy ZIP file to use for document uploads
 #  BASEURL="http://localhost/omp": Full URL to base URL, excluding index.php
 #  DBHOST=localhost: Hostname of database server
 #  DBNAME=yyy: Database name

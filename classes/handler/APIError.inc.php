@@ -30,21 +30,6 @@ class APIError extends \Slim\Handlers\Error {
 			'errorMessage' => "The request cannot be completed due to a server error."
 		];
 
-		if ($this->displayErrorDetails) {
-			$error['exception'] = [];
-
-			do {
-				$error['exception'][] = [
-					'type' => get_class($exception),
-					'code' => $exception->getCode(),
-					'message' => $exception->getMessage(),
-					'file' => $exception->getFile(),
-					'line' => $exception->getLine(),
-					'trace' => explode("\n", $exception->getTraceAsString()),
-				];
-			} while ($exception = $exception->getPrevious());
-		}
-
 		return json_encode($error, JSON_PRETTY_PRINT);
 	}	
 }

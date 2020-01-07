@@ -35,6 +35,14 @@ abstract class PKPServices {
 	abstract protected function init();
 
 	/**
+	 * A static method to register a service
+	 * @param string $service
+	 */
+	public static function register(Pimple\ServiceProviderInterface $service) {
+		self::_instance()->container->register($service);
+	}
+
+	/**
 	 * A static method to get a service
 	 * @param string $service
 	 */

@@ -265,7 +265,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		foreach ($submission->getData('publications') as $publication) {
 			$publicationList[] = Services::get('publication')->getProperties(
 				$publication,
-				['id', 'datePublished', 'status'],
+				['id', 'datePublished', 'status', 'version'],
 				[
 					'context' => $submissionContext,
 					'submission' => $submission,

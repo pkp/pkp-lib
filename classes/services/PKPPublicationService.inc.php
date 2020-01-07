@@ -390,6 +390,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$newPublication->setData('id', null);
 		$newPublication->setData('datePublished', '');
 		$newPublication->setData('status', STATUS_QUEUED);
+		$newPublication->setData('version', $publication->getData('version') + 1);
 		$newPublication->stampModified();
 		$newPublication = $this->add($newPublication, $request);
 

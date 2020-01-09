@@ -20,7 +20,7 @@ export CYPRESS_DBNAME=${DBNAME}
 export CYPRESS_DBPASSWORD=${DBPASSWORD}
 export CYPRESS_DBHOST=${DBHOST}
 export CYPRESS_FILESDIR=${FILESDIR}
-$(npm bin)/cypress run --config video=false
+$(npm bin)/cypress run --headless --browser chrome
 
 # Dump the database before continuing. Some tests restore this to reset the
 # environment.

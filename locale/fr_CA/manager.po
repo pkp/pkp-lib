@@ -2,16 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2020-01-07 10:13+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
+"helene.vezina@umontreal.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: fr_CA\n"
-# localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
+# localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "manager.website.information"
 msgstr "Renseignements"
 
@@ -524,8 +528,15 @@ msgstr "Statistiques et rapports"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"Votre {$contextObjectName} a été configuré-e pour enregistrer plus d'une mesure d'utilisation. Les statistiques d'utilisation seront affichées dans plusieurs contextes.\n"
-"Il y a des cas où seule une statistique d'utilisation doit être utilisée, par exemple pour afficher une liste ordonnée des articles les plus consultés ou pour classer les résultats de recherche. Veuillez sélectionner l'une des mesures configurées par défaut."
+"\n"
+"\t\tVotre {$contextObjectName} a été configuré-e pour enregistrer plus d'une "
+"mesure d'utilisation. Les statistiques d'utilisation seront affichées dans "
+"plusieurs contextes.\n"
+"\t\tIl y a des cas où seule une statistique d'utilisation doit être "
+"utilisée, par exemple pour afficher une liste ordonnée des articles les plus "
+"consultés ou pour classer les résultats de recherche.\n"
+"\t\tVeuillez sélectionner l'une des  mesures configurées par défaut.\n"
+"\t"
 
 msgid "manager.statistics.city"
 msgstr "Ville"
@@ -576,7 +587,9 @@ msgid "manager.statistics.reports.objectId"
 msgstr "Identifiant (ID) de l'objet"
 
 msgid "manager.statistics.reports.objectId.label"
-msgstr "Définir un ou plusieur identifiant(s) d'objet, séparés par une virgule (par exemple 1,2,3,4,5)"
+msgstr ""
+"Définir un ou plusieur identifiant(s) d'objet, séparés par une virgule (par "
+"exemple 1,2,3,4,5)."
 
 msgid "manager.statistics.reports.yesterday"
 msgstr "Hier"
@@ -681,7 +694,7 @@ msgid "manager.setup.groupType"
 msgstr "Groupement par type de fichier"
 
 msgid "manager.setup.homepageImage"
-msgstr "Image de la page d'accueil."
+msgstr "Image de la page d'accueil"
 
 msgid "manager.setup.homepageImage.description"
 msgstr "Téléverser une image qui sera affichée en pleine grandeur sur la page d'accueil."
@@ -756,7 +769,8 @@ msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Délai par défaut pour compléter l'évaluation"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Délai de réponse alloué pour accepter ou décliner l'invitation (semaines)"
+msgstr ""
+"Délai de réponse alloué pour accepter ou décliner l'invitation (semaines)."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Délai alloué pour compléter l'évaluation (semaines)"
@@ -770,14 +784,20 @@ msgstr "Les valeurs par défauts peuvent être modifiées pour chaque évaluatio
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Rappel de demande d'évaluation"
 
+#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Envoyer un rappel si l'évaluateur-trice n'a pas répondu à la demande d'évaluation dans le délai suivant (jours) :"
+msgstr ""
+"Envoyer un rappel si l'évaluateur-trice n'a pas répondu à la demande "
+"d'évaluation dans le délai suivant (jours) :"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Rappel de délai d'échéance de l'évaluation"
 
+#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Envoyer un rappel si l'évaluateur-trice n'a pas fait sa recommandation dans le délai suivant (jours) :"
+msgstr ""
+"Envoyer un rappel si l'évaluateur-trice n'a pas fait sa recommandation dans "
+"le délai suivant (jours) :"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Politique en matière de commandites"
@@ -978,7 +998,7 @@ msgid "manager.plugins.pluginGallery.status"
 msgstr "État"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr "Le plugiciel n'est pas encore installé"
+msgstr "Le plugiciel n'est pas encore installé."
 
 msgid "manager.plugins.noCompatibleVersion"
 msgstr "Il n'existe actuellement aucune version compatible de ce plugiciel."
@@ -1077,7 +1097,7 @@ msgid "notification.localeSettingsSaved"
 msgstr "Les paramètres du paramètre régional ont été sauvegardés."
 
 msgid "notification.editedUser"
-msgstr "Utilisateur-trice modifié-e"
+msgstr "Utilisateur-trice modifié-e."
 
 msgid "manager.paymentMethod"
 msgstr "Paiements"
@@ -1359,7 +1379,7 @@ msgid "grid.action.createReviewForm"
 msgstr "Créer un nouveau formulaire d'évaluation"
 
 msgid "manager.setup.competingInterests.required"
-msgstr "Demander une déclaration d'intérêts divergents lors de l'évaluation"
+msgstr "Demander une déclaration d'intérêts divergents lors de l'évaluation."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "URL de la page décrivant la licence, si disponible."
@@ -1569,7 +1589,7 @@ msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr "Ce lien ne sera affiché que si le visiteur ou la visiteuse est connecté-e, si les paiements sont activés dans Paramètres > Distribution > Paiements et si l'abonnement est exigé dans Paramètres > Distribution > Accès."
 
 msgid "manager.navigationMenus.search.description"
-msgstr "Lien vers la page de recherche"
+msgstr "Lien vers la page de recherche."
 
 msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Lien vers la page affichant la déclaration de confidentialité."
@@ -1632,7 +1652,7 @@ msgid "stats.dateRange.customRange"
 msgstr "Période personnalisée"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr "L'une des dates entrées n'existe pas"
+msgstr "L'une des dates entrées n'existe pas."
 
 msgid "stats.dateRange.from"
 msgstr "De"
@@ -1685,3 +1705,5 @@ msgstr "Chercher par titre, auteur-e et identifiant (ID)"
 msgid "stats.total"
 msgstr "Total"
 
+msgid "manager.setup.metadata.coverage"
+msgstr "Couverture de contenu"

@@ -34,6 +34,12 @@
 		// Attach form elements events.
 		$form.find('#template').change(
 				this.callbackWrapper(this.selectTemplateHandler_));
+
+		// Change the NAME placeholder in the mail editor
+		$('[name="firstName"]').keyup(
+				this.callbackWrapper(this.addReviewerNameToMailEditor));
+		$('[name="lastName"]').keyup(
+				this.callbackWrapper(this.addReviewerNameToMailEditor));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.grid.users.reviewer.form.
@@ -118,6 +124,28 @@
 			}
 		}
 		return processedJsonData.status;
+	};
+
+
+	/**
+	 * Add reviewerName to Email template editor
+	 * @protected
+	 */
+	$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler.
+			prototype.addReviewerNameToMailEditor = function() {
+		var firstName = $('[name="firstName"]').val(),
+				lastName = $('[name="lastName"]').val(),
+				reviewerName = firstName + ' ' + lastName;
+
+		$('[name^="personalMessage"]').val()
+				.replace('{$reviewerName}', reviewerName);
+		$("iframe[id^='personalMessage']")
+				.contents()
+				.find('[data-symbolic="reviewerName"]')
+				.each(function() {
+					$(this).html(reviewerName);
+					$(this).attr('class', '');
+				});
 	};
 
 /** @param {jQuery} $ jQuery closure. */

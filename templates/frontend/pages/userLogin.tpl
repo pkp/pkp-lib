@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/userLogin.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User login form.
@@ -12,6 +12,9 @@
 
 <div class="page page_login">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
+	<h1>
+		{translate key="user.login"}
+	</h1>
 
 	{* A login message may be displayed if the user was redireceted to the
 	   login page from another request. Examples include if login is required
@@ -31,7 +34,7 @@
 			</div>
 		{/if}
 
-		<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
+		<input type="hidden" name="source" value="{$source|escape}" />
 
 		<fieldset class="fields">
 			<div class="username">

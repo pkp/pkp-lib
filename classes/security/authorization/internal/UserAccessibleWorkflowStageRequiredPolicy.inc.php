@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/UserAccessibleWorkflowStageRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserAccessibleWorkflowStageRequiredPolicy
@@ -53,8 +53,9 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 
 		$accessibleWorkflowStages = array();
 		$workflowStages = Application::getApplicationStages();
+		$userService = Services::get('user');
 		foreach ($workflowStages as $stageId) {
-			$accessibleStageRoles = $this->_getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
+			$accessibleStageRoles = $userService->getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
 			if (!empty($accessibleStageRoles)) {
 				$accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
 			}
@@ -80,41 +81,6 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		return AUTHORIZATION_DENY;
 	}
 
-
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Check for roles that give access to the passed workflow stage.
-	 * @param int $userId
-	 * @param int $contextId
-	 * @param Submission $submission
-	 * @param int $stageId
-	 * @return array
-	 */
-	function _getAccessibleStageRoles($userId, $contextId, &$submission, $stageId) {
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
-
-		$accessibleStageRoles = array();
-
-		// If unassigned, only managers and admins have access
-		if ($stageAssignmentsResult->wasEmpty()) {
-			$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-			$accessibleStageRoles = array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN), $userRoles);
-
-		// Assigned users have access based on their assignment
-		} else {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			while ($stageAssignment = $stageAssignmentsResult->next()) {
-				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
-				$accessibleStageRoles[] = $userGroup->getRoleId();
-			}
-			$accessibleStageRoles = array_unique($accessibleStageRoles);
-		}
-
-		return $accessibleStageRoles;
-	}
 }
 
 

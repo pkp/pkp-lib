@@ -3,8 +3,8 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
@@ -122,11 +122,7 @@ abstract class PKPSubmissionHandler extends Handler {
 			import("classes.submission.form.$formClass");
 
 			$submitForm = new $formClass($context, $submission);
-			if ($submitForm->isLocaleResubmit()) {
-				$submitForm->readInputData();
-			} else {
-				$submitForm->initData();
-			}
+			$submitForm->initData();
 			return new JSONMessage(true, $submitForm->fetch($request));
 		} elseif($step == $this->getStepCount()) {
 			$templateMgr = TemplateManager::getManager($request);

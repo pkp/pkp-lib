@@ -8,8 +8,8 @@
 /**
  * @file classes/template/PKPTemplateManager.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemplateManager
@@ -51,6 +51,9 @@ class PKPTemplateManager extends Smarty {
 
 	/** @var array of HTML head content to output */
 	private $_htmlHeaders = array();
+
+	/** @var array Key/value list of constants to expose in the JS interface */
+	private $_constants = array();
 
 	/** @var string Type of cacheability (Cache-Control). */
 	private $_cacheability;
@@ -118,6 +121,63 @@ class PKPTemplateManager extends Smarty {
 			'pageTitle' => $application->getNameKey(),
 			'applicationName' => __($application->getNameKey()),
 		));
+
+		// Assign meta tags
+		if ($currentContext) {
+			$favicon = $currentContext->getLocalizedFavicon();
+			if (!empty($favicon)) {
+				$publicFileManager = new PublicFileManager();
+				$faviconDir = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId());
+				$this->addHeader('favicon', '<link rel="icon" href="' . $faviconDir . '/' . $favicon['uploadName'] . '">');
+			}
+		}
+
+		if (Config::getVar('general', 'installed')) {
+			$activeTheme = null;
+			$contextOrSite = $currentContext ? $currentContext : $request->getSite();
+			$allThemes = PluginRegistry::getPlugins('themes');
+			foreach ($allThemes as $theme) {
+				if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
+					$activeTheme = $theme;
+					break;
+				}
+			}
+			$this->assign(['activeTheme' => $activeTheme]);
+		}
+
+		$this->setConstants([
+			'REALLY_BIG_NUMBER',
+			'UPLOAD_MAX_FILESIZE',
+			'WORKFLOW_STAGE_ID_PUBLISHED',
+			'WORKFLOW_STAGE_ID_SUBMISSION',
+			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
+			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',
+			'WORKFLOW_STAGE_ID_EDITING',
+			'WORKFLOW_STAGE_ID_PRODUCTION',
+			'INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT',
+			'ROLE_ID_MANAGER',
+			'ROLE_ID_SITE_ADMIN',
+			'ROLE_ID_AUTHOR',
+			'ROLE_ID_REVIEWER',
+			'ROLE_ID_ASSISTANT',
+			'ROLE_ID_READER',
+			'ROLE_ID_SUB_EDITOR',
+			'ROLE_ID_SUBSCRIPTION_MANAGER',
+		]);
+
+		// Always pass these ListBuilder constants to the browser
+		// because we a ListBuilder may be loaded in an ajax request
+		// and won't have an opportunity to pass its constants to
+		// the template manager. This is not a recommended practice,
+		// but these are the only constants from a controller that are
+		// required on the frontend. We can remove them once the
+		// ListBuilderHandler is no longer needed.
+		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+		$this->setConstants([
+			'LISTBUILDER_SOURCE_TYPE_TEXT',
+			'LISTBUILDER_SOURCE_TYPE_SELECT',
+			'LISTBUILDER_OPTGROUP_LABEL',
+		]);
 
 		if (is_a($router, 'PKPPageRouter')) {
 			$this->assign(array(
@@ -215,7 +275,7 @@ class PKPTemplateManager extends Smarty {
 						$publicFileManager = new PublicFileManager();
 						$this->addStyleSheet(
 							'contextStylesheet',
-							$request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getAssocType(), $currentContext->getId()) . '/' . $contextStyleSheet,
+							$request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId()) . '/' . $contextStyleSheet,
 							array(
 								'priority' => STYLE_SEQUENCE_LATE
 							)
@@ -384,9 +444,6 @@ class PKPTemplateManager extends Smarty {
 			// Clear the cache whenever the active theme is changed
 			HookRegistry::register('Context::edit', array($this, 'clearThemeTemplateCache'));
 			HookRegistry::register('Site::edit', array($this, 'clearThemeTemplateCache'));
-
-			// Inject CSS links into the HTML Galley string
-			HookRegistry::register('HtmlArticleGalleyPlugin::htmlGalleyContent', array($this, 'loadHtmlGalleyStyles'), HOOK_SEQUENCE_CORE);
 		}
 	}
 
@@ -569,6 +626,17 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
+	 * Set constants to be exposed in JavaScript at pkp.const.<constant>
+	 *
+	 * @param array $names Array of constant names
+	 */
+	function setConstants($names) {
+		foreach ($names as $name) {
+			$this->_constants[$name] = constant($name);
+		}
+	}
+
+	/**
 	 * Register all files required by the core JavaScript library
 	 */
 	function registerJSLibrary() {
@@ -621,28 +689,6 @@ class PKPTemplateManager extends Smarty {
 			array(
 				'priority' => STYLE_SEQUENCE_LATE,
 				'contexts' => array('backend')
-			)
-		);
-
-		// Load constants for new component library
-		$const = array(
-			'ROLE_ID_MANAGER' => ROLE_ID_MANAGER,
-			'ROLE_ID_SITE_ADMIN' => ROLE_ID_SITE_ADMIN,
-			'ROLE_ID_AUTHOR' => ROLE_ID_AUTHOR,
-			'ROLE_ID_REVIEWER' => ROLE_ID_REVIEWER,
-			'ROLE_ID_ASSISTANT' => ROLE_ID_ASSISTANT,
-			'ROLE_ID_READER' => ROLE_ID_READER,
-			'ROLE_ID_SUB_EDITOR' => ROLE_ID_SUB_EDITOR,
-			'ROLE_ID_SUBSCRIPTION_MANAGER' => ROLE_ID_SUBSCRIPTION_MANAGER,
-		);
-		$output = 'pkp.const = ' . json_encode($const) . ';';
-		$this->addJavaScript(
-			'pkpAppData',
-			$output,
-			array(
-				'priority' => STYLE_SEQUENCE_LATE,
-				'contexts' => array('backend'),
-				'inline' => true,
 			)
 		);
 
@@ -705,10 +751,7 @@ class PKPTemplateManager extends Smarty {
 		$output .= '$.pkp.app = ' . json_encode($app_data) . ';';
 
 		// Load exposed constants
-		$exposedConstants = $application->getExposedConstants();
-		if (!empty($exposedConstants)) {
-			$output .= '$.pkp.cons = ' . json_encode($exposedConstants) . ';';
-		}
+		$output .= '$.pkp.cons = ' . json_encode($this->_constants) . ';';
 
 		// Load locale keys
 		$localeKeys = $application->getJSLocaleKeys();
@@ -725,15 +768,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Allow plugins to load data within their own namespace
-		$plugin_data = array();
-		HookRegistry::call('TemplateManager::registerJSLibraryData', array(&$plugin_data));
-
-		if (!empty($plugin_data) && is_array($plugin_data)) {
-			$output .= '$.pkp.plugins = {};';
-			foreach($plugin_data as $namespace => $data) {
-				$output .= $namespace . ' = ' . json_encode($data) . ';';
-			}
-		}
+		$output .= '$.pkp.plugins = {};';
 
 		// Load current user data
 		if (!Config::getVar('general', 'installed')) {
@@ -834,6 +869,19 @@ class PKPTemplateManager extends Smarty {
 	 * @copydoc Smarty::display()
 	 */
 	function display($template = null, $cache_id = null, $compile_id = null, $parent = null) {
+
+		// Output global constants used in new component library
+		$output = 'pkp.const = ' . json_encode($this->_constants) . ';';
+		$this->addJavaScript(
+			'pkpAppData',
+			$output,
+			array(
+				'priority' => STYLE_SEQUENCE_LATE,
+				'contexts' => array('backend'),
+				'inline' => true,
+			)
+		);
+
 		// Give any hooks registered against the TemplateManager
 		// the opportunity to modify behavior; otherwise, display
 		// the template as usual.
@@ -912,7 +960,7 @@ class PKPTemplateManager extends Smarty {
 		if ($instance === null) {
 			$instance = new TemplateManager();
 			$themes = PluginRegistry::getPlugins('themes');
-			if (is_null($themes)) {
+			if (empty($themes)) {
 				$themes = PluginRegistry::loadCategory('themes', true);
 			}
 			$instance->initialize($request);
@@ -1251,7 +1299,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Check the router
-		$dispatcher = PKPApplication::getDispatcher();
+		$dispatcher = Application::get()->getDispatcher();
 		$routerShortcuts = array_keys($dispatcher->getRouterNames());
 		assert(in_array($router, $routerShortcuts));
 
@@ -1508,6 +1556,11 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$appVersion = $versionDao->getCurrentVersion()->getVersionString();
+		} else $appVersion = null;
+
 		$stylesheets = $this->getResourcesByContext($this->_styleSheets, $params['context']);
 
 		ksort($stylesheets);
@@ -1518,6 +1571,9 @@ class PKPTemplateManager extends Smarty {
 				if (!empty($style['inline'])) {
 					$output .= '<style type="text/css">' . $style['style'] . '</style>';
 				} else {
+					if ($appVersion && strpos($style['style'], '?') === false) {
+						$style['style'] .= '?v=' . $appVersion;
+					}
 					$output .= '<link rel="stylesheet" href="' . $style['style'] . '" type="text/css" />';
 				}
 			}
@@ -1527,44 +1583,45 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Styles to be injected from a theme plugin into HTML galley file
-	 * Usage: $this->addStyle('name', 'style.css', array('contexts' => 'htmlGalley'));
-	 * @param $hookName string
-	 * @param array [
-	 *      $args[0] ArticleGalley
-	 *      $args[1] string HTML
-	 *      $args[2] SubmissionFile
-	 *      $args[3] array embedded files
-	 *      ]
+	 * Inject default styles into a HTML galley
+	 *
+	 * Any styles assigned to the `htmlGalley` context will be injected into the
+	 * galley unless the galley already has an embedded CSS file.
+	 *
+	 * @param $htmlContent string The HTML file content
+	 * @param $embeddedFiles array Additional files embedded in this galley
 	 */
-	function loadHtmlGalleyStyles($hookName, $args) {
-		$contents =& $args[1];
-		$embeddableFiles = $args[3];
+	function loadHtmlGalleyStyles($htmlContent, $embeddedFiles) {
 
-		if (empty($contents)) return false;
-
-		$attachedStyles = false;
-		foreach ($embeddableFiles as $embeddableFile) {
-			if ($embeddableFile->getFileType() =='text/css') $attachedStyles = true;
+		if (empty($htmlContent)) {
+			return $htmlContent;
 		}
 
-		if ($attachedStyles) return false;
+		$hasEmbeddedStyle = false;
+		foreach ($embeddedFiles as $embeddedFile) {
+			if ($embeddedFile->getFileType() === 'text/css') {
+				$hasEmbeddedStyle = true;
+				break;
+			}
+		}
 
-		$output = '';
+		if ($hasEmbeddedStyle) {
+			return $htmlContent;
+		}
+
+		$links = '';
 		$styles = $this->getResourcesByContext($this->_styleSheets, 'htmlGalley');
-		ksort($styles);
 
 		if (!empty($styles)) {
-			foreach ($styles as $htmlStyles) {
-				foreach ($htmlStyles as $htmlStyle) {
-					$output .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css" />' . "\n";
+			ksort($styles);
+			foreach ($styles as $priorityGroup) {
+				foreach ($priorityGroup as $htmlStyle) {
+					$links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
 				}
 			}
 		}
 
-		if (!empty($output)) {
-			$contents = str_ireplace('<head>', '<head>' . "\n" . $output, $contents);
-		}
+		return str_ireplace('<head>', '<head>' . "\n" . $links, $htmlContent);
 	}
 
 	/**
@@ -1581,6 +1638,11 @@ class PKPTemplateManager extends Smarty {
 			$params['context'] = 'frontend';
 		}
 
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
+		} else $appVersion = null;
+
 		$scripts = $this->getResourcesByContext($this->_javaScripts, $params['context']);
 
 		ksort($scripts);
@@ -1591,6 +1653,9 @@ class PKPTemplateManager extends Smarty {
 				if ($data['inline']) {
 					$output .= '<script type="text/javascript">' . $data['script'] . '</script>';
 				} else {
+					if ($appVersion && strpos($data['script'], '?') === false) {
+						$data['script'] .= '?v=' . $appVersion;
+					}
 					$output .= '<script src="' . $data['script'] . '" type="text/javascript"></script>';
 				}
 			}
@@ -1646,7 +1711,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Don't load menus for an area that's not registered by the active theme
 		$themePlugins = PluginRegistry::getPlugins('themes');
-		if (is_null($themePlugins)) {
+		if (empty($themePlugins)) {
 			$themePlugins = PluginRegistry::loadCategory('themes', true);
 		}
 		$activeThemeNavigationAreas = array();

@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPUserService.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUserService
@@ -39,7 +39,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 *
 	 * @param array $args
 	 *		@option int contextId If not supplied, CONTEXT_ID_NONE will be used and
-	 *			no submissions will be returned. To retrieve submissions from all
+	 *			no submissions will be returned. To retrieve users from all
 	 *			contexts, use CONTEXT_ID_ALL.
 	 * 		@option string orderBy
 	 * 		@option string orderDirection
@@ -52,7 +52,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * 		@option string searchPhrase
 	 * 		@option int count
 	 * 		@option int offset
-	 * @return array
+	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
 		$userListQB = $this->_getQueryBuilder($args);
@@ -62,7 +62,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**
@@ -71,7 +71,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	public function getMax($args = array()) {
 		$userListQB = $this->_getQueryBuilder($args);
 		$countQO = $userListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
+		$countRange = new DBResultRange($args['count']??null, 1);
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$countResult = $userDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
 		$countQueryResults = new DAOResultFactory($countResult, $userDao, '_returnUserFromRowWithData');
@@ -80,9 +80,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	}
 
 	/**
-	 * Build the user query object for getUsers requests
+	 * Build the user query object for getMany requests
 	 *
-	 * @see self::getUsers()
+	 * @see self::getMany()
 	 * @return object Query object
 	 */
 	private function _getQueryBuilder($args = array()) {
@@ -94,12 +94,12 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			'roleIds' => null,
 			'assignedToSubmission' => null,
 			'assignedToSubmissionStage' => null,
+			'registeredAfter' => '',
+			'registeredBefore' => '',
 			'includeUsers' => null,
 			'excludeUsers' => null,
 			'status' => 'active',
 			'searchPhrase' => null,
-			'count' => 20,
-			'offset' => 0,
 		);
 
 		$args = array_merge($defaultArgs, $args);
@@ -110,6 +110,8 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->orderBy($args['orderBy'], $args['orderDirection'])
 			->filterByRoleIds($args['roleIds'])
 			->assignedToSubmission($args['assignedToSubmission'], $args['assignedToSubmissionStage'])
+			->registeredAfter($args['registeredAfter'])
+			->registeredBefore($args['registeredBefore'])
 			->includeUsers($args['includeUsers'])
 			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])
@@ -133,7 +135,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');
 
-		return $queryResults->toArray();
+		return $queryResults->toIterator();
 	}
 
 	/**
@@ -161,6 +163,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		$defaultArgs = array(
 			'contextId' => CONTEXT_ID_NONE,
+			'reviewStage' => null,
 			'reviewsCompleted' => null,
 			'reviewsActive' => null,
 			'daysSinceLastAssignment' => null,
@@ -169,10 +172,12 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		);
 
 		$args = array_merge($defaultArgs, $args);
+		$args['roleIds'] = [ROLE_ID_REVIEWER];
 
 		$reviewerListQB = $this->_getQueryBuilder($args);
 		$reviewerListQB
 			->getReviewerData(true)
+			->filterByReviewStage($args['reviewStage'])
 			->filterByReviewerRating($args['reviewerRating'])
 			->filterByReviewsCompleted($args['reviewsCompleted'])
 			->filterByReviewsActive($args['reviewsActive'])
@@ -223,13 +228,13 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					$values[$prop] = $user->getEmail();
 					break;
 				case 'orcid':
-					$values[$prop] = $user->getOrcid(null);
+					$values[$prop] = $user->getOrcid();
 					break;
 				case 'biography':
 					$values[$prop] = $user->getBiography(null);
 					break;
 				case 'signature':
-					$values[$prop] = $user->getSignature();
+					$values[$prop] = $user->getSignature(null);
 					break;
 				case 'authId':
 					$values[$prop] = $user->getAuthId();
@@ -259,6 +264,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					break;
 				case 'reviewsDeclined':
 					$values[$prop] = $user->getData('declinedCount');
+					break;
+				case 'reviewsCancelled':
+					$values[$prop] = $user->getData('cancelledCount');
 					break;
 				case 'averageReviewCompletionDays':
 					$values[$prop] = $user->getData('averageTime');
@@ -315,6 +323,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 								'roleId' => (int) $userGroup->getRoleId(),
 								'showTitle' => (boolean) $userGroup->getShowTitle(),
 								'permitSelfRegistration' => (boolean) $userGroup->getPermitSelfRegistration(),
+								'permitMetadataEdit' => (boolean) $userGroup->getPermitMetadataEdit(),
 								'recommendOnly' => (boolean) $userGroup->getRecommendOnly(),
 							);
 						}
@@ -392,7 +401,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	public function getReviewerSummaryProperties($user, $args = null) {
 		$props = array (
 			'id','_href','userName','fullName','affiliation','biography','groups','interests','gossip',
-			'reviewsActive','reviewsCompleted','reviewsDeclined','averageReviewCompletionDays',
+			'reviewsActive','reviewsCompleted','reviewsDeclined','reviewsCancelled','averageReviewCompletionDays',
 			'dateLastReviewAssignment','reviewerRating', 'orcid','disabled',
 		);
 
@@ -421,7 +430,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return boolean
 	 */
 	public function canCurrentUserGossip($userId) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 		$currentUser = $request->getUser();
@@ -447,5 +456,123 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Can this user access the requested workflow stage
+	 *
+	 * The user must have an assigned role in the specified stage or
+	 * be a manager or site admin that has no assigned role in the
+	 * submission.
+	 *
+	 * @param string $stageId One of the WORKFLOW_STAGE_ID_* contstants.
+	 * @param string $workflowType Accessing the editorial or author workflow? WORKFLOW_TYPE_*
+	 * @param array $userAccessibleStages User's assignments to the workflow stages. ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES
+	 * @param array $userRoles User's roles in the context
+	 * @return Boolean
+	 */
+	public function canUserAccessStage($stageId, $workflowType, $userAccessibleStages, $userRoles) {
+		$workflowRoles = Application::get()->getWorkflowTypeRoles()[$workflowType];
+
+		if (array_key_exists($stageId, $userAccessibleStages)
+			&& !empty(array_intersect($workflowRoles, $userAccessibleStages[$stageId]))) {
+				return true;
+		}
+		if (empty($userAccessibleStages) && in_array(ROLE_ID_MANAGER, $userRoles)) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Check for roles that give access to the passed workflow stage.
+	 * @param int $userId
+	 * @param int $contextId
+	 * @param Submission $submission
+	 * @param int $stageId
+	 * @return array
+	 */
+	public function getAccessibleStageRoles($userId, $contextId, &$submission, $stageId) {
+
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
+
+		$accessibleStageRoles = array();
+
+		// If unassigned, only managers and admins have access
+		if ($stageAssignmentsResult->wasEmpty()) {
+			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$userRoles = $roleDao->getByUserId($userId, $contextId);
+			foreach ($userRoles as $userRole) {
+				if (in_array($userRole->getId(), array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER))) {
+					$accessibleStageRoles[] = $userRole->getId();
+				}
+			}
+			$accessibleStageRoles = array_unique($accessibleStageRoles);
+		// Assigned users have access based on their assignment
+		} else {
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			while ($stageAssignment = $stageAssignmentsResult->next()) {
+				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
+				$accessibleStageRoles[] = $userGroup->getRoleId();
+			}
+			$accessibleStageRoles = array_unique($accessibleStageRoles);
+		}
+
+		return $accessibleStageRoles;
+	}
+
+	/**
+	 * Get a count of users matching the passed arguments
+	 *
+	 * @param array $args See self::getMany()
+	 */
+	public function count($args = []) {
+		$qb = $this->_getQueryBuilder($args);
+		return $qb
+			->get() // Calls PKPUserQueryBuilder::get() to get the query object
+			->get() // Calls Laravel's get method to execute the query
+			->count();
+	}
+
+	/**
+	 * Get a count of users matching the passed arguments broken down
+	 * by role
+	 *
+	 * @param array $args See self::getMany()
+	 * @return array List of roles with id, name and total
+	 */
+	public function getRolesOverview($args = []) {
+		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
+
+		// Ignore roles because we'll get all roles in the application
+		if (isset($args['roleIds'])) {
+			unset($args['roleIds']);
+		}
+
+		$result = [
+			[
+				'id' => 'total',
+				'name' => __('stats.allUsers'),
+				'value' => $this->count($args),
+			],
+		];
+
+		$roleNames = Application::get()->getRoleNames();
+
+		// Don't include the admin user if we are limiting the overview to one context
+		if (!empty($args['contextId'])) {
+			unset($roleNames[ROLE_ID_SITE_ADMIN]);
+		}
+
+		foreach ($roleNames as $roleId => $roleName) {
+			$result[] = [
+				'id' => $roleId,
+				'name' => __($roleName),
+				'value' => $this->count(array_merge($args, ['roleIds' => $roleId])),
+			];
+		}
+
+		return $result;
 	}
 }

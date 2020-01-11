@@ -1,0 +1,1475 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:06+00:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Information"
+
+msgid "manager.website.appearance"
+msgstr "Utseende"
+
+msgid "manager.website.imageFileRequired"
+msgstr "En bildfil krävs. Se till att du har valt och laddat upp en fil."
+
+msgid "manager.announcements"
+msgstr "Meddelanden"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Är du säker på att du vill ta bort meddelandet permanent?"
+
+msgid "manager.announcements.create"
+msgstr "Skapa nytt meddelande"
+
+msgid "manager.announcements.createTitle"
+msgstr "Skapa"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Förfallodatum"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publicerat"
+
+msgid "manager.announcements.edit"
+msgstr "Redigera meddelande"
+
+msgid "manager.announcements.editTitle"
+msgstr "Redigera"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Utöver dag, välj också år och/eller månad för förfallande."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Förfaller den"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Meddelandet kommer att vara publikt till och med detta datum. Lämna blankt om meddelandet ska visas permanent."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Utöver månad, välj även år och/eller dag för förfallande."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Välj ett giltigt datum för meddelandets förfallande."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Utöver år, välj även månad och/eller dag för förfallande."
+
+msgid "manager.announcements.form.description"
+msgstr "Beskrivning"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Hela meddelandet."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Beskrivning av meddelandet krävs."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "En kortare beskrivning som kommer att synas vid meddelandets titel."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Kort beskrivning av meddelandet krävs."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Kort beskrivning"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Spara och skapa ytterligare"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Titel krävs."
+
+msgid "manager.announcements.form.title"
+msgstr "Titel"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Typ"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Välj en giltig meddelandetyp."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Inga meddelanden har skapats."
+
+msgid "manager.announcements.title"
+msgstr "Titel"
+
+msgid "manager.announcements.type"
+msgstr "Typ"
+
+msgid "manager.announcementTypes"
+msgstr "Meddelandetyper"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Varning! Alla meddelanden under den här meddelandetypen kommer att tas bort. Är du säker på att du vill ta bort meddelandetypen?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Skapa meddelandetyp"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Skapa"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Redigera meddelandetyp"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Redigera"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Spara och skapa ytterligare"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Det finns redan en meddelandetyp med det här namnet."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Namn"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Meddelandetyp krävs."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Inga meddelandetyper har skapats."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Meddelandetyp"
+
+msgid "manager.publication.submissionStage"
+msgstr "Bidrag"
+
+msgid "manager.publication.reviewStage"
+msgstr "Granskning"
+
+msgid "manager.publication.editorialStage"
+msgstr "Redigering"
+
+msgid "manager.publication.productionStage"
+msgstr "Produktion"
+
+msgid "manager.publication.emails"
+msgstr "E-post"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Är du säker på att du vill ta bort e-postmallen?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Är du säker på att du vill återställa e-postmallen till dess defaultvärde?"
+
+msgid "manager.emails.createEmail"
+msgstr "Skapa e-postmeddelande"
+
+msgid "manager.emails.data"
+msgstr "Mallens meddelandedata"
+
+msgid "manager.emails.details"
+msgstr "Malldetaljer"
+
+msgid "manager.emails.disable"
+msgstr "Inaktivera"
+
+msgid "manager.emails.disable.message"
+msgstr "Du är på väg att inaktivera den här e-postmallen. Systemprocesser som använder mallen kommer inte längre kunna göra det. Vill du fortsätta?"
+
+msgid "manager.emails.editEmail"
+msgstr "Redigera e-postmeddelande"
+
+msgid "manager.emails.editTestExample"
+msgstr "Redigera e-postexemplet"
+
+msgid "manager.emails.emailKey"
+msgstr "Kod för e-postadress"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "En e-postadress med angiven kod existerar redan. Koder för e-postadresser måste vara unika."
+
+msgid "manager.emails.emailTemplate"
+msgstr "E-postmall"
+
+msgid "manager.emails.enabled"
+msgstr "Aktivera den här e-postmallen"
+
+msgid "manager.emails.enable"
+msgstr "Aktivera"
+
+msgid "manager.emails.enable.message"
+msgstr "Du är på väg att aktivera det här e-postmeddelandet.  Är du säker?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Unik e-postadress som inte innehåller mellanslag eller specialtecken krävs."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "E-postmeddelandet måste innehålla text."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Ämne krävs."
+
+msgid "manager.emails"
+msgstr "E-postmallar"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Alla ändringar som gjorts i e-postmallarna kommer att försvinna. Vill du fortsätta?"
+
+msgid "manager.emails.reset"
+msgstr "Återställ"
+
+msgid "manager.emails.reset.message"
+msgstr "Om du återställer den här mallen kommer alla ändringar i den att försvinna. Vill du fortsätta?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Återställ till defaultutseende"
+
+msgid "manager.filesBrowser"
+msgstr "Filutforskare"
+
+msgid "manager.files.confirmDelete"
+msgstr "Vill du radera den här filen eller mappen? Observera att mappar måste vara tomma innan de kan raderas."
+
+msgid "manager.files.createDir"
+msgstr "Skapa mapp"
+
+msgid "manager.files.emptyDir"
+msgstr "Inga filer hittades i mappen."
+
+msgid "manager.files.indexOfDir"
+msgstr "Index för {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Överordnad mapp"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Uppladdade filer"
+
+msgid "manager.files.uploadFile"
+msgstr "Ladda upp fil"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Är du säker på att du vill ta bort den här gruppen?"
+
+msgid "manager.groups.createTitle"
+msgstr "Skapa titel"
+
+msgid "manager.groups.editTitle"
+msgstr "Redigera titel"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Titel krävs."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Lägg till medlem"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Är du säker på att du vill ta bort det här medlemskapet?"
+
+msgid "manager.groups.membership"
+msgstr "Medlemskap"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Den här gruppen har inga medlemmar."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Inga användare hittades."
+
+msgid "manager.groups.title"
+msgstr "Titel"
+
+msgid "manager.importExport"
+msgstr "Importera/exportera data"
+
+msgid "manager.language.ui"
+msgstr "Gränssnitt"
+
+msgid "manager.language.submissions"
+msgstr "Skicka in bidrag"
+
+msgid "manager.language.forms"
+msgstr "Formulär"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Återställ till default"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Systemet tillåter att viss viktig information kan fyllas i på flera språk. Välj ytterligare språk/regioner och gör inställningar nedan."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Välj de språk/regioner som ska gå att byta mellan på varje sida på webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts."
+
+msgid "manager.payment.timestamp"
+msgstr "Tidsstämpel"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Du måste ange en befintlig användare."
+
+msgid "manager.people.authSource"
+msgstr "Autentiseringskälla"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Vill du ta bort den här användaren?"
+
+msgid "manager.people.createUser"
+msgstr "Skapa ny användare"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Generera ett slumpmässigt lösenord."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Skicka ett välkomstmeddelande till användaren innehållandes användarnamn och lösenord."
+
+msgid "manager.people.disable"
+msgstr "Inaktivera"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Utan roll"
+
+msgid "manager.people.editProfile"
+msgstr "Redigera profil"
+
+msgid "manager.people.editUser"
+msgstr "Redigera användare"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Skicka e-postmeddelande till valda användare"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Skicka e-postmeddelande till användare med rollen"
+
+msgid "manager.people.emailUsers"
+msgstr "Skicka e-postmeddelande till användare"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Välj språk/region"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Välj användare du vill skicka e-postmeddelande till genom att bocka i rutan vid respektive namn"
+
+msgid "manager.people.enable"
+msgstr "Aktivera"
+
+msgid "manager.people.enroll"
+msgstr "Tilldela roll till användare"
+
+msgid "manager.people.enrollment"
+msgstr "Tilldelning av roller"
+
+msgid "manager.people.enrollSelected"
+msgstr "Tilldela roll till valda användare"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Synkronisera roll"
+
+msgid "manager.people.enrollSync"
+msgstr "Synkronisera tilldelning av roller"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Användare kan tilldelas eller tas bort från en roll när som helst."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Tilldela användare rollen"
+
+msgid "manager.people.invalidUser"
+msgstr "Användaren finns inte."
+
+msgid "manager.people.mergeUser"
+msgstr "Slå ihop användare"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Är du säker på att du vill slå ihop kontot för \"{$oldUsername}\" med kontot för\"{$newUsername}\"? Kontot \"{$oldUsername}\" kommer att tas bort och kan inte återskapas."
+
+msgid "manager.people.mergeUsers"
+msgstr "Slå ihop flera användare"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Välj en roll längst upp på sidan innan du klickar på \"Tilldela roll\"."
+
+msgid "manager.people.mustProvideName"
+msgstr "Lägg åtminstone till ett efternamn."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Inga användare hittades."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Inga användare med tilldelade roller."
+
+msgid "manager.people"
+msgstr "Personer"
+
+msgid "manager.people.remove"
+msgstr "Ta bort"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Spara och skapa ytterligare"
+
+msgid "manager.people.signInAs"
+msgstr "Logga in som"
+
+msgid "manager.people.signInAsUser"
+msgstr "Logga in som användare"
+
+msgid "manager.people.syncUsers"
+msgstr "Synkronisera tilldelning av roller"
+
+msgid "manager.people.unenroll"
+msgstr "Ta bort roll"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Användarkonto skapat."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Användaren måste ändra sitt lösenord vid nästa inloggning."
+
+msgid "manager.plugins.action"
+msgstr "Åtgärd:"
+
+msgid "manager.plugins.disable"
+msgstr "Inaktivera "
+
+msgid "manager.plugins.enable"
+msgstr "Aktivera"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Administration av plugins"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Det här är ett plugin för hela webbplatsen. Endast webbplatsens administratör har behörighet att hantera den."
+
+msgid "manager.plugins"
+msgstr "Systemplugins"
+
+msgid "manager.readingTools"
+msgstr "Läsverktyg"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Sök användare med namn"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Ändra"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Sök granskare med namn"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Sök med namn"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Intresseområden för granskning"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Använd formuläret nedan för att välja maxvärde för termerna du vill söka efter. Formuläret är förifyllt med beräknat medel för respektive fält."
+
+msgid "manager.roles"
+msgstr "Roller"
+
+msgid "manager.statistics"
+msgstr "Statistik &amp; Rapporter"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\t{$contextObjectName} är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.\n"
+"\t\tDet finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för\n"
+"\t\tatt rangordna sökresultat. Välj ett av de konfigurerade värdena som default.\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "Stad"
+
+msgid "manager.statistics.region"
+msgstr "Region"
+
+msgid "manager.statistics.reports"
+msgstr "Rapportgenerator"
+
+msgid "manager.statistics.reports.description"
+msgstr "Systemet genererar rapporter som spårar detaljer kopplade till webbplatsens användande och inskickade bidrag för en given tidsperiod. Rapporterna genereras i CSV-format som kräver ett kalkylbladsprogram för att kunna visas."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Sammanställ statistik för:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Kursiverade objekt markerade med * representerar data som är valfria för det aktuella sättet att räkna statistik i systemet (metrisk). Du kan eventuellt ha datan, beroende på konfigurationen av ditt statistikplugin."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Rapportmallar, default"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Generera anpassad rapport"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Avancerade alternativ"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Göm avancerade alternativ"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Kolumner"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Definiera kolumnerna som kommer användas för att skapa rapporten. Kolumnerna du väljer här definierar vilka data och hur data presenteras i rapporterna. Till exempel, om du väljer kolumnerna ID, Typ och Månad kommer rapporten att sammanställa alla visningar av ett objekt från en månad och presentera dessa data i en rad. Om du väljer Dag i stället för Månad kommer varje objekt ha en rad för varje dag."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filter"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Objektet hittades inte i databasen"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Objekttyp"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Objekt-ID"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Definiera ett eller flera ID, separerade med komma (t.ex. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Igår"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Nuvarande månad"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Sortera efter"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Riktning"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Stigande"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Fallande"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Använd formatet ÅÅÅÅMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Använd formatet ÅÅÅÅMMDD."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "En eller flera städer, separerade med komma (t.ex. Stad 1,Stad 2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Du måste välja åtminstone en kolumn för att generera rapporten."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Rapport-URL"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Följande URL kan användas för att generera rapporten med nuvarande inställningar. Kopiera och klistra in den i din webbläsare. Du kan också spara den bland dina favoriter."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Efter sammanhang"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Efter objekttyp och/eller objekt-ID"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Välj intervall för rapporten"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Eller välj intervall efter:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Geografisk plats"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Avgränsa reslutat efter land, region och/eller stad."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponsor"
+
+msgid "manager.setup.additionalContent"
+msgstr "Ytterligare innehåll"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Det som fylls i här kommer att synas på din förstasida."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Upphovsrättsdeklaration"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Kräv att författare godkänner upphovsrättsdeklarationen när bidrag skickas in."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Riktlinjer för författare"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder tillsammans med exempel på vanliga referensformat att använda vid inlämning av bidrag."
+
+msgid "manager.setup.competingInterests"
+msgstr "Intressekonflikter"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Ett fel uppstod vid borttagning av detta objekt."
+
+msgid "manager.setup.favicon"
+msgstr "Adressikon (eng. \"favicon\")"
+
+msgid "manager.setup.groupType"
+msgstr "Gruppering av filtyper"
+
+msgid "manager.setup.homepageImage"
+msgstr "Bild på förstasidan"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Ladda upp en bild som får en framträdande plats på förstasidan."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Ogiltigt format för bild på förstasidan, eller misslyckad uppladdning. Godkända format är .gif, .jpg, och .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Ogiltigt format för titelbild på förstasidans sidhuvud. Godkända format är .gif, .jpg, och .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Beskrivningar"
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.description"
+msgstr "Nya teman kan installeras från fliken Plugins högst upp på den här sidan."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Sidomeny"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Loggning och revidering"
+
+msgid "manager.setup.logo"
+msgstr "Logotyp"
+
+msgid "manager.setup.notifications"
+msgstr "Avisering om bidrag från författare"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Skicka en kopia till den här e-postadressen"
+
+msgid "manager.setup.notifications.description"
+msgstr "Författare får automatiskt ett e-postmeddelande som bekräftar deras inskickade bidrag. Du kan få kopior av detta meddelande skickade till följande:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Open access-policy"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Om du ger omedelbar fri tillgång till allt publicerat innehåll, kan du fylla i open access-policy."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Ogiltigt format för logotyp på sidhuvudet. Godkända format är .gif, .jpg, och .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Sidfot"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Lägg till bilder, text eller HTML-kod som du vill ska synas längst ned på din webbplats."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Sammanfatta granskningspolicyn och -processen för läsare och författare. Den här beskrivningen innehåller ofta antal granskare som normalt används när ett bidrag granskas, kriterier som granskarna ombeds gå efter när de bedömer inskickade bidrag, förväntad tid som krävs för att genomföra granskningar, och principerna som används för att välja granskare."
+
+msgid "manager.setup.principalContact"
+msgstr "Primär kontakt"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Integritetspolicy"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr "Den här texten kommer att synas vid användarregistrering, när författare skickar in bidrag och på den publika sidan Integritet. I vissa jurisdiktioner är det ett lagkrav att publicera hur man hanterar persondata i en integritetspolicy."
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Antal veckor tillåtna för granskning"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Påminn aldrig"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Defaultvärden kan ändras för varje granskning under redaktionsprocessen."
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "Skicka en påminnelse om granskaren inte har svarat på en granskningsförfrågan inom följande antal dagar efter deadline:"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr "Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom följande antal dagar efter deadline:"
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Default-deadlines för granskning"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Sponsorrelation och policybeskrivning"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Kontakt för teknisk support"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Kontaktperson som kan assistera redaktörer, författare och granskare vid eventuella problem med insändning av bidrag, redaktionellt arbete, granskning eller publicering."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Alternativ för tillgång till webbplatsen"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} nya)"
+
+msgid "manager.users"
+msgstr "Användare"
+
+msgid "plugins.categories.metadata"
+msgstr "Metadata-plugins"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Metadata-plugins implementerar ytterligare metadatastandarder."
+
+msgid "plugins.categories.auth"
+msgstr "Autentiserings-plugins"
+
+msgid "plugins.categories.blocks"
+msgstr "Block-plugins"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Block är komponenter av användargränssnittet, t.ex. de olika verktygen i sidomenyn."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway-plugins tillhandahåller live-data till externa system."
+
+msgid "plugins.categories.gateways"
+msgstr "Gateway-plugins"
+
+msgid "plugins.categories.generic"
+msgstr "Allmänna plugins"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Import/export-plugins kan användas för att överföra innehåll från och till andra system."
+
+msgid "plugins.categories.importexport"
+msgstr "Import/export-plugins"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Plugins för betalningsmetod implementerar stöd för olika sätt att göra betalningar online."
+
+msgid "plugins.categories.paymethod"
+msgstr "Plugins för betalningsmetod"
+
+msgid "plugins.categories.reports.description"
+msgstr "Rapport-plugins används för att implementera olika typer av rapporter och dataextrahering."
+
+msgid "plugins.categories.reports"
+msgstr "Rapport-plugins"
+
+msgid "plugins.categories.themes.description"
+msgstr "Tema-plugins kan användas för att ändra systemets utseende."
+
+msgid "plugins.categories.themes"
+msgstr "Tema-plugins"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Plugins för OAI-metadataformat"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "De här format-pluginsen exponerar metadata i OAI-baserad kommunikation."
+
+msgid "plugins.categories.pubIds"
+msgstr "Plugins för publika identifikatorer"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "De här pluginsen implementerar stöd för publika identifikatorer."
+
+msgid "manager.plugins.copyError"
+msgstr "Pluginet kopierades inte. Detta kan bero på problem med behörigheter. Se till att webbservern kan skriva till katalogen för plugins (underkataloger inkluderade) men glöm inte att säkra den igen."
+
+msgid "manager.plugins.delete"
+msgstr "Ta bort plugin"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Är du säker på att du vill installera det här pluginet?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Är du säker på att du vill uppgradera det här pluginet?"
+
+msgid "grid.action.installPlugin"
+msgstr "Installera eller uppgradera det här pluginet"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Är du säker på att du vill ta bort det här pluginet från systemet?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "När du trycker på Ta bort kommer du att ta bort pluginet från servern."
+
+msgid "manager.plugins.deleteError"
+msgstr "Pluginet \"{$pluginName}\" kunde inte tas bort från filsystemet. Detta kan bero på problem med behörigheter. Se till att webbservern kan skriva till katalogen för plugins (underkataloger inkluderade) men glöm inte att säkra den igen."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Pluginet \"{$pluginName}\" togs bort"
+
+msgid "manager.plugins.description"
+msgstr "Den här sidan gör det möjligt för den ansvariga att granska och eventuellt konfigurera de installerade pluginen. Pluginen är uppdelade i kategorier efter funktion. Kategorierna listas nedan och i varje kategori ligger pluginen."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Pluginet \"{$pluginName}\" finns inte"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Välj först en fil"
+
+msgid "manager.plugins.upload"
+msgstr "Ladda upp ett nytt plugin"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Det här formuläret tillåter dig att ladda upp och installera ett nytt plugin. Se till att pluginet är komprimerat till en .tar.gz-fil."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Se till att en fil för uppladdning valts."
+
+msgid "manager.plugins.installed"
+msgstr "Installerade plugin"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galleri för plugins"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Översikt"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Installation"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Senaste kompatibla releasen"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Officiell"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Det här pluginet är utvecklat och underhålls av Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Granskad"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Det här pluginet har granskats och godkänts av Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Det här pluginet tillhandahålls av en av våra utvecklingspartners."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Ansvarig"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} släpptes {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Webbplats"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Sammanfattning"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Det här pluginet har inte installerats ännu."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "För närvarande finns ingen kompatibel version av pluginet tillgänglig."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Pluginet har redan installerats och är nyare än den version som finns tillgänglig i galleriet."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Pluginet har redan installerats men kan uppdateras till en nyare version."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Pluginet är redan installerat och uppdaterat."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Nyare än tillgänglig version"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Kan uppgraderas"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Aktuell"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Inte tillgänglig"
+
+msgid "manager.plugins.installFailed"
+msgstr "Installation misslyckades. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Installation av version {$versionNumber} lyckades"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Den uppladdade filen innehåller inte en mapp som överensstämmer med pluginets namn."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Det uppladdade pluginet passar inte det uppgraderade pluginets kategori"
+
+msgid "manager.plugins.wrongName"
+msgstr "Filen version.xml i det uppladdade pluginet innehåller ett namn som inte stämmer överens med namnet på det uppgraderade pluginet."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Pluginet finns inte. Installera i stället."
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Pluginet finns redan men är nyare än den installerade versionen. Uppgradera i stället."
+
+msgid "manager.plugins.settings"
+msgstr "Inställningar"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "Kommandot tar är inte tillgängligt. Konfigurera det korrekt i \"config.inc.php\"."
+
+msgid "manager.plugins.upgrade"
+msgstr "Uppgradera plugin"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Det här formuläret tillåter dig att uppgradera ett plugin. Se till att pluginet är komprimerat till en .tar.gz-fil."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Uppgradering misslyckades. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Uppgradering till version {$versionString} lyckades"
+
+msgid "manager.plugins.uploadError"
+msgstr "Fel vid uppladdning av fil"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Välj fil"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml i pluginkatalogen innehåller ogiltiga data."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml hittades inte i pluginkatalogen"
+
+msgid "notification.localeEnabled"
+msgstr "Språk/region aktiverad."
+
+msgid "notification.localeDisabled"
+msgstr "Språk/region inaktiverad."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} har gjorts till primär språk/region-inställning."
+
+msgid "notification.localeInstalled"
+msgstr "Alla valda språk/regioner installerade och aktiverade."
+
+msgid "notification.localeUninstalled"
+msgstr "Språket/regionen {$locale} avinstallerad."
+
+msgid "notification.localeReloaded"
+msgstr "Språket/regionen {$locale} laddades om."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Språk/region-inställningar sparade."
+
+msgid "notification.editedUser"
+msgstr "Användare ändrades."
+
+msgid "manager.paymentMethod"
+msgstr "Betalningar"
+
+msgid "manager.paymentMethod.title"
+msgstr "Betalningsmetoder"
+
+msgid "manager.paymentMethod.none"
+msgstr "Ingen betalningsmetod vald"
+
+msgid "manager.paymentMethod.method"
+msgstr "Betalningsmetod"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Valuta"
+
+msgid "settings.roles.roleOptions"
+msgstr "Alternativ för roller"
+
+msgid "settings.roles.showTitles"
+msgstr "Visa rollens titel i listan över medarbetare"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Tillåt användare att registrera sig själva"
+
+msgid "settings.roles.recommendOnly"
+msgstr "Den här rollen tillåts bara rekommendera ett granskningsbeslut, en behörig redaktör krävs för att registrera ett slutgiltigt beslut."
+
+msgid "settings.roles.roleName"
+msgstr "Rollnamn"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Förkortning"
+
+msgid "settings.roles.assignedStages"
+msgstr "Tilldelade steg"
+
+msgid "settings.roles.stages"
+msgstr "Steg"
+
+msgid "settings.roles.roleDetails"
+msgstr "Rolldetaljer"
+
+msgid "settings.roles.from"
+msgstr "Behörighetsnivå"
+
+msgid "settings.roles.removeText"
+msgstr "Du är på väg att ta bort den här rollen från det här sammanhanget. Du kommer också att ta bort relaterade inställningar och alla användares uppgifter i den här rollen. Vill du fortsätta?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Du måste fylla i ett rollnamn."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Du måste fylla i en förkortning."
+
+msgid "settings.roles.uniqueName"
+msgstr "Du måste fylla i ett unikt rollnamn."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Du måste fylla i en unik förkortning av rollen."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Du måste välja behörighetsnivå."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Du måste välja ett steg."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "En fil krävs. Se till att du har valt och laddat upp en fil."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Ett namn krävs."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "En typ krävs."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Kontrakt"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marknadsföring"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Behörigheter"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Rapporter"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Övrigt"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr "<p>Om \"Publik tillgång\" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Välj biblioteksfiler att bifoga"
+
+msgid "grid.action.addGenre"
+msgstr "Lägg till komponent"
+
+msgid "grid.action.editGenre"
+msgstr "Ändra kompontenten"
+
+msgid "grid.action.deleteGenre"
+msgstr "Ta bort kompontenten"
+
+msgid "grid.action.restoreGenres"
+msgstr "Återställ komponenterna till defaultinställningar"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Markera filer av den här typen som underordnade (t.ex. för att inte listas med publicerat innehåll)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Markera filer av den här typen som kompletterande filer (t.ex. inte primärt bidrag)"
+
+msgid "manager.setup.genres.key"
+msgstr "Kod"
+
+msgid "manager.setup.genres.key.description"
+msgstr "En kort symbolisk identifikator för den här genren."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Koden finns redan."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr "Koden kan innehålla alfanumeriska tecken, understreck och bindestreck. Den måste börja och sluta med ett alfanumeriskt tecken."
+
+msgid "manager.settings.wizard"
+msgstr "Inställningsguide"
+
+msgid "manager.users.roleRequired"
+msgstr "Du behöver välja åtminstone en roll till den här användaren."
+
+msgid "manager.website"
+msgstr "Webbplats"
+
+msgid "manager.website.title"
+msgstr "Inställningar för webbplats"
+
+msgid "manager.workflow"
+msgstr "Arbetsflöde"
+
+msgid "manager.workflow.title"
+msgstr "Inställningar för arbetsflöde"
+
+msgid "manager.distribution"
+msgstr "Distribution"
+
+msgid "manager.distribution.title"
+msgstr "Inställningar för distribution"
+
+msgid "manager.reviewForms"
+msgstr "Granskningsformulär"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Är du säker på att du vill aktivera det här granskningsformuläret? När ett granskningsuppdrag tilldelats det kommer du inte längre kunna inaktivera det."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Är du säker på att du vill inaktivera det här granskningsformuläret? Det kommer inte längre finnas tillgängligt för nya granskningsuppdrag."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Är du säker på att du vill skapa en kopia av detta granskningsformulär?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Avslutade"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Är du säker på att du vill ta bort det här granskningsformuläret?"
+
+msgid "manager.reviewForms.create"
+msgstr "Skapa granskningsformulär"
+
+msgid "manager.reviewForms.description"
+msgstr "Beskrivning och instruktioner"
+
+msgid "manager.reviewForms.edit"
+msgstr "Granskningsformulär"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Titel krävs."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Under granskning"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Formulären för sakkunniggranskning som skapas här kommer att visas för granskare i stället för standardformuläret som består av två fritextrutor, \"till författare och redaktör\" och \"till redaktör\". Granskningsformulär kan vara gjorda för en specifik typ av press, och redaktörer har möjlighet att välja vilket formulär som ska användas. I samtliga fall kan redaktörer välja att inkludera utlåtanden i kommunikation med författaren."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Inget / Fritext"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Inga granskningsformulär har skapats."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Inga granskningsformulär har använts."
+
+msgid "manager.reviewForms.preview"
+msgstr "Förhandsgranska formulär"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Granskningsformulärdata"
+
+msgid "manager.reviewForms.title"
+msgstr "Titel"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Ändrar typ av fråga..."
+
+msgid "manager.reviewFormElements"
+msgstr "Formulärfrågor"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Lägg till svarsalternativ"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Kryssrutor (ett eller flera val är möjliga)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Välj typ av fråga"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Bekräfta borttagning av publicerad formulärfråga..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopiera till:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Skapa ny fråga"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Rullgardinsmeny"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Ändra fråga"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Typ av fråga"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Typ av fråga krävs."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Frågetext krävs."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Inga frågor har skapats."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Svarsalternativ"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Fråga"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Alternativknappar (endast ett val är möjligt)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Gör denna fråga obligatorisk för granskare"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Inkluderad i meddelande till författare"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Textruta, ett ord"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Textruta, utökad"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Textruta, en rad"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Synlig (för författare)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Skapa nytt granskningsformulär"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Begär redovisning av intressekonflikter vid sakkunniggranskning."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL till webbsida som beskriver licensen, om en sådan finns tillgänglig."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Formulär för insändning av bidrag"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Valideringsfel:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Påträffade varningar:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Inträffade fel:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Okänt element {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Okänd genre {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Okänd kod {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Innehållet är inte kodat som {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Okänd användargrupp {$param}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Okänd uppladdare {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Temporär fil {$dest} kunde inte skapas från {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "Den angivna filstorleken \"{$expected}\" och den faktiska filstorleken \"{$actual}\" stämmer inte överens"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr "Bearbetningen \"{$revisionId}\" för bidragsfil \"{$fileId}\" skulle skapa en dublettpost"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Bidragsfilen kunde inte importeras"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Fel underi mport/export:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr "Den importerade användaren \"{$username}\" saknar lösenord. Kolla formatet på din import-XML. Användaren importerades inte."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr "Lösenordet för den importerade användaren \"{$username}\" kunde inte importerad i sin befintliga form. Användaren har fått ett nytt vlösenord via e-post. Användaren är importerad."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr "Den importerade användaren \"{$username}\" har ett okrypterat lösenord, vilket inte är giltigt. Användaren importerades inte."
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Titel"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Sökväg"
+
+msgid "manager.navigationMenus"
+msgstr "Navigationsmenyer"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Den här sidan kommer att bli tillgänglig på: <blockquote>{$pagesPath}</blockquote>...där %PATH% är sökvägen som angivits ovan. <strong>Note:</strong> Fler än en sida kan inte ha samma sökväg. Att använda sökvägar som redan används av systemet kan göra så att du förlorar tillgången till viktiga funktioner.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Innehåll"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "Sökvägsfältet får bara innehålla alfanumeriska tecken samt '.', '/', '-', och '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Den här sökvägen används redan för ett annat element i navigationsmenyn."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Den här titeln används redan för ett annat element i navigationsmenyn."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Titel måste anges."
+
+msgid "manager.navigationMenuItems"
+msgstr "Element i navigationsmenyn"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Placerade menyelement"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Menyelement utan placering"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Navigationsytor för aktiva teman"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Välj en navigationsyta"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Den här ytan har redan en navigationsmeny knuten till sig."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "En URL måste anges"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Läs mer om när det här menyelementet kommer att vara synligt och respektive dolt."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr "När ett element i menyn öppnar en undermeny kan inte dess länk ses på alla enheter. Om det till exempel finns ett \"Om\"-element som öppnar en undermeny med \"Kontakt\" och \"Redaktion\" är det inte säkert att \"Om\"-länken kan ses på alla enheter. I defaultmenyn hanteras detta genom att den skapar ytterligare ett menyelement, \"Om tidskriften\", som visas i undermenyn."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Typ av navigationsmeny"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Välj Typ av navigationsmeny eller Anpassad för att skapa din egen"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Anpassad sida"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Skapa en anpassad sida på din webbplats och länka till den från en navigationsmeny."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Extern URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Länka till vilken URL som helst utanför webbplatsen, till exempel https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Länka till en sida som visar innehållet i Om tidskriften från Inställningar > Tidskrift"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Den här länken visas bara om du har fyllt i sektionen Om tidskriften under Inställningar > Tidskrift."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Länka till en sida som visar innehållet i Redaktionsruta i Inställningar > Tidskrift."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Den här länken visas bara om du har fyllt i sektionen Redaktionsruta under Inställningar > Tidskrift."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Länka till sidan som visar instruktioner för att skicka in bidrag."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Länka till senaste numret."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Länka till tidskriftsarkivet."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Länka till en sida som visar era meddelanden."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Den här länken visas bara om meddelanden är aktiverate under Inställningar > Webbplats."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Länka till sidan för användarinloggning."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Länka till sidan för användarregistrering."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Länka till den redaktionella översikten."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Länka till sidan för användarprofil."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Länka till administrationsverktyg för hela webbplatsen."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Den här länken visas bara för administratörer."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "En länk för att logga ut som användare."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Den här länken visas bara om besökaren är inloggad."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Den här länken visas bara när besökaren inte är inloggad."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Länka till en sida som visar er kontaktinformation."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Den här länken visas bara om du har fyllt i kontaktinformationen under Inställningar > Kontakt."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Välj en navigationsmeny-typ."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Den här länken visas bara om betalningar är aktiverade under Inställningar > Distribution > Betalningar."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Den här länken visas bara om besökaren är inloggad, betalningar är aktiverade under Inställningar > Distribution > Betalningar och prenumerationer krävs enligt Inställningar > Distribution > Tillgång."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Länk till söksidan."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Länk till sidan som visar er integritetspolicy."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Den här länken visas enbart om det finns en integritetspolicy inmatad under Inställningar > Arbetsflöde > Bidrag."

@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PluginHelper.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginHelper
@@ -66,7 +66,7 @@ class PluginHelper {
 			$returnCode = 0;
 			exec($tarBinary.' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir), $output, $returnCode);
 			if ($returnCode) {
-				$errorMsg = __('common.invalidFileType');
+				$errorMsg = __('form.dropzone.dictInvalidFileType');
 			}
 		} else {
 			$errorMsg = __('manager.plugins.tarCommandNotFound');
@@ -111,11 +111,11 @@ class PluginHelper {
 
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
+		$pluginDest = Core::getBaseDir() . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
 
 		$fileManager = new FileManager();
-		if (!$installedPlugin) {
+		if (!$installedPlugin || !file_exists($pluginDest)) {
 			$pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
-			$pluginDest = Core::getBaseDir() . '/' . strtr($pluginVersion->getProductType(), '.', '/') . '/' . $pluginVersion->getProduct();
 
 			// Copy the plug-in from the temporary folder to the
 			// target folder.
@@ -177,7 +177,6 @@ class PluginHelper {
 		return array(
 			'clientCharset' => Config::getVar('i18n', 'client_charset'),
 			'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
-			'databaseCharset' => Config::getVar('i18n', 'database_charset'),
 			'databaseDriver' => Config::getVar('database', 'driver'),
 			'databaseHost' => Config::getVar('database', 'host'),
 			'databaseUsername' => Config::getVar('database', 'username'),
@@ -191,8 +190,6 @@ class PluginHelper {
 	 * @param $category string
 	 * @param $plugin string
 	 * @param $path string path to plugin Directory
-	 * @param $category string
-	 * @param $plugin string
 	 * @return Version|null The upgraded version, on success; null on fail
 	 */
 	function upgradePlugin($category, $plugin, $path, &$errorMsg) {

@@ -3,8 +3,8 @@
 /**
  * @file classes/security/RoleDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RoleDAO
@@ -102,7 +102,7 @@ class RoleDAO extends DAO {
 			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id)
 			' . $this->userDao->getFetchJoins() . '
-			WHERE ' . (isset($roleId) ? 'ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
+			WHERE 1=1' . (isset($roleId) ? ' AND ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
 			$paramArray,
 			$dbResultRange
 		);
@@ -140,12 +140,12 @@ class RoleDAO extends DAO {
 	 */
 	function getByUserId($userId, $contextId = null) {
 		$params = array((int) $userId);
-		if ($contextId) $params[] = (int) $contextId;
+		if ($contextId !== null) $params[] = (int) $contextId;
 		$result = $this->retrieve(
 			'SELECT	DISTINCT ug.role_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
+			WHERE	uug.user_id = ?' . ($contextId !== null ? ' AND ug.context_id = ?' : ''),
 			$params
 		);
 

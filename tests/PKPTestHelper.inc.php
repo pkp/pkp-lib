@@ -2,8 +2,8 @@
 /**
  * @file tests/PKPTestHelper.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TestHelper
@@ -34,6 +34,10 @@ abstract class PKPTestHelper {
 					$createLikeSql = "CREATE TABLE backup_$table LIKE $table";
 					break;
 				case 'postgres':
+				case 'postgres64':
+				case 'postgres7':
+				case 'postgres8':
+				case 'postgres9':
 					$createLikeSql = "CREATE TABLE backup_$table (LIKE $table)";
 					break;
 				default:
@@ -107,6 +111,10 @@ abstract class PKPTestHelper {
 				}
 				break;
 			case 'postgres':
+			case 'postgres64':
+			case 'postgres7':
+			case 'postgres8':
+			case 'postgres9':
 				// WARNING: Does not send a password.
 				exec($cmd = 'zcat ' .
 					escapeshellarg($filename) .

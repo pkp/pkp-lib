@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:21-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:21-07:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonymous User"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Body"
+
+msgid "comments.titleRequired"
+msgstr "A comment title is required."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Deleting this comment will also delete any replies to it. Are you sure you wish to do this?"
+
+msgid "comments.delete"
+msgstr "Delete this comment"
+
+msgid "comments.email"
+msgstr "Poster Email"
+
+msgid "comments.emailReply"
+msgstr "Email Reply"
+
+msgid "comments.enterComment"
+msgstr "Enter Comment"
+
+msgid "comments.inResponseTo"
+msgstr "In response to <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Poster Name"
+
+msgid "comments.noComments"
+msgstr "No reader comments have been posted."
+
+msgid "comments.nReplies"
+msgstr "({$num} Replies)"
+
+msgid "comments.oneReply"
+msgstr "(1 Reply)"
+
+msgid "comments.postAnonymously"
+msgstr "Post this comment anonymously"
+
+msgid "comments.postReply"
+msgstr "Post Reply"
+
+msgid "comments.readerComments"
+msgstr "Reader Comments"
+
+msgid "comments.readMore"
+msgstr "Read more"
+
+msgid "comments.replies"
+msgstr "Replies"
+
+msgid "comments.title"
+msgstr "Title"
+
+msgid "comments.viewAllComments"
+msgstr "View all comments"
+
+msgid "reader.fullText"
+msgstr "Full Text:"

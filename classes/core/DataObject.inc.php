@@ -3,8 +3,8 @@
 /**
  * @file classes/core/DataObject.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataObject
@@ -48,9 +48,10 @@ class DataObject {
 	 * Get a piece of data for this object, localized to the current
 	 * locale if possible.
 	 * @param $key string
+	 * @param $preferredLocale string
 	 * @return mixed
 	 */
-	function &getLocalizedData($key) {
+	public function getLocalizedData($key, $preferredLocale = null) {
 		$localePrecedence = AppLocale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {
 			$value =& $this->getData($key, $locale);

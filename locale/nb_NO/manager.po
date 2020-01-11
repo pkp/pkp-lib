@@ -1,0 +1,1236 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
+"Language: \n"
+
+msgid "manager.announcements"
+msgstr "Oppslagstavle"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Er du sikker på at du vil slette dette oppslaget for alltid?"
+
+msgid "manager.announcements.create"
+msgstr "Lag et nytt oppslag"
+
+msgid "manager.announcements.createTitle"
+msgstr "Opprett"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Utløper"
+
+msgid "manager.announcements.edit"
+msgstr "Rediger oppslag"
+
+msgid "manager.announcements.editTitle"
+msgstr "Rediger"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Vennligst velg år og/eller måned, i tillegg til utløpsdatoen."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Utløpsdato"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Oppslaget vil vises til denne dato. La stå tomt hvis oppslaget skal vises på ubestemt tid."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Vennligst velg år og/eller dag, i tillegg til utløpsdatoens måned."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Vennligst velg en gyldig utløpsdato for oppslaget."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Vennligst velg måned og/eller dag, i tillegg til utløpsdatoens år."
+
+msgid "manager.announcements.form.description"
+msgstr "Beskrivelse"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Oppslagsteksten."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "En oppslagsbeskrivelse er påkrevet."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "En kort beskrivelse som vil bli vist sammen med oppslagets tittel."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "En kort oppslagsbeskrivelse er påkrevet."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Kort beskrivelse"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Lagre og opprett en til"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "En oppslagtittel er påkrevet."
+
+msgid "manager.announcements.form.title"
+msgstr "Tittel"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Type"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Vennligst velg en gyldig oppslagstype."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Ingen oppslag er opprettet."
+
+msgid "manager.announcements.title"
+msgstr "Tittel"
+
+msgid "manager.announcements.type"
+msgstr "Type"
+
+msgid "manager.announcementTypes"
+msgstr "Oppslagstyper"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Advarsel! Alle oppslag med denne oppslagstypen vil også bli slettet. Er du sikker på at du vil fortsette, og slette denne oppslagstypen?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Opprett oppslagstype"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Opprett"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Rediger oppslagstype"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Rediger"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Lagre og opprett en til"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "En oppslagstype med dette navnet finnes allerede."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Navn"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Et oppslagstypenavn er påkrevet."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Ingen oppslagstyper er opprettet."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Oppslagstype"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Er du sikker på at du vil slette denne e-postmalen?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Er du sikker på at du vil tilbakestille denne e-postmalen til default verdier?"
+
+msgid "manager.emails.createEmail"
+msgstr "Lag e-post"
+
+msgid "manager.emails.disable"
+msgstr "Slå av"
+
+msgid "manager.emails.editEmail"
+msgstr "Rediger e-post"
+
+msgid "manager.emails.editTestExample"
+msgstr "Rediger e-post testeksempel"
+
+msgid "manager.emails.emailKey"
+msgstr "E-postnøkkel"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "En e-post med denne nøkkelen finnes allerede. E-postnøkler må være unike."
+
+msgid "manager.emails.emailTemplate"
+msgstr "E-postmal"
+
+msgid "manager.emails.enabled"
+msgstr "Slå på denne e-postmalen"
+
+msgid "manager.emails.enable"
+msgstr "Slå på"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "En meldingstekst er påkrevet for e-posten."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Et emne er påkrevet for e-posten."
+
+msgid "manager.emails"
+msgstr "Forberedte e-poster"
+
+msgid "manager.emails.reset"
+msgstr "Tilbakestill"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Tilbakestill til standardverdier"
+
+msgid "manager.filesBrowser"
+msgstr "Filutforsker"
+
+msgid "manager.files.confirmDelete"
+msgstr "Slett denne filen eller mappen? Merk at mappen må være tom før den kan slettes."
+
+msgid "manager.files.createDir"
+msgstr "Opprett mappe"
+
+msgid "manager.files.emptyDir"
+msgstr "Ingen filer funnet i denne mappen."
+
+msgid "manager.files.indexOfDir"
+msgstr "Indeks for {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Mappen ovenfor"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Opplastete filer"
+
+msgid "manager.files.uploadFile"
+msgstr "Last opp fil"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Er du sikker på at du vil slette denne gruppen?"
+
+msgid "manager.groups.createTitle"
+msgstr "Opprett tittel"
+
+msgid "manager.groups.editTitle"
+msgstr "Rediger tittel"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "En gruppetittel er påkrevet."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Legg til medlem"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Er du sikker på at du vil slette dette gruppemedlemskapet?"
+
+msgid "manager.groups.membership"
+msgstr "Medlemskap"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Denne gruppen har ingen medlemmer."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Ingen brukere ble funnet."
+
+msgid "manager.groups.title"
+msgstr "Tittel"
+
+msgid "manager.importExport"
+msgstr "Importer/eksporter data"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Dette systemet gjør det mulig å kreve at en del informasjon skrives inn på opptil to tilleggsspråk. For å bruke denne funksjonen, må du velge alternative lokalinnstillinger blant valgmulighetene på listen nedenfor."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Velg alle lokalinnstillinger som nettstedet skal støtte, via en språkvalgmeny som vises på hver side. Menyen kommer bare til å bli vist hvis flere enn en lokalinnstilling er valgt."
+
+msgid "manager.payment.timestamp"
+msgstr "Tidsreferanse"
+
+msgid "manager.people.authSource"
+msgstr "Valideringskilde"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Avløs denne brukeren?"
+
+msgid "manager.people.createUser"
+msgstr "Opprett ny bruker"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Generer et tilfeldig passord."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Send brukeren en velkomst-e-post med brukernavn og passord."
+
+msgid "manager.people.disable"
+msgstr "Slå av"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Uten rolle"
+
+msgid "manager.people.editProfile"
+msgstr "Rediger profil"
+
+msgid "manager.people.editUser"
+msgstr "Rediger bruker"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "E-post til valgte brukere"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "E-post til brukere vervet som"
+
+msgid "manager.people.emailUsers"
+msgstr "E-post til brukere"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Velg en lokalinnstilling"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Velg de brukerne du vil sende e-post ved å krysse av i feltet ved siden av navnet"
+
+msgid "manager.people.enable"
+msgstr "Slå på"
+
+msgid "manager.people.enroll"
+msgstr "Verve bruker"
+
+msgid "manager.people.enrollment"
+msgstr "Verving"
+
+msgid "manager.people.enrollSelected"
+msgstr "Verve utvalgte brukere"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Synkroniser rolle"
+
+msgid "manager.people.enrollSync"
+msgstr "Synk verving"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Roller kan tildeles eller avløses når som helst etter at brukeren er opprettet."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Verve bruker som"
+
+msgid "manager.people.invalidUser"
+msgstr "Beklager, brukeren du leter etter finnes ikke."
+
+msgid "manager.people.mergeUser"
+msgstr "Slå sammen bruker"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Er du sikker på at du vil slå kontoen med brukernavnet \"{$oldAccountCount}\" sammen med kontoen med brukernavnet \"{$newUsername}\"? Kontoen med brukernavnet \"{$oldAccountCount}\" vil ikke lenger finnes. NB: Denne handlingen kan ikke gjøres om."
+
+msgid "manager.people.mergeUsers"
+msgstr "Slå sammen brukere"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Vennligst velg en rolle (øverst på siden) før du klikker 'Verve bruker'."
+
+msgid "manager.people.mustProvideName"
+msgstr "Vennligst før inn minst et etternavn for denne brukeren før du går videre."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Ingen tilsvarende brukere."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Ingen vervete brukere."
+
+msgid "manager.people"
+msgstr "Personer"
+
+msgid "manager.people.remove"
+msgstr "Fjern"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Lagre og opprett en til"
+
+msgid "manager.people.signInAs"
+msgstr "Logg inn som"
+
+msgid "manager.people.signInAsUser"
+msgstr "Logg inn som bruker"
+
+msgid "manager.people.syncUsers"
+msgstr "Synkroniser brukerverving"
+
+msgid "manager.people.unenroll"
+msgstr "Avløs"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Brukeren er nå opprettet."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Krev at brukeren endrer passordet sitt ved neste innlogging."
+
+msgid "manager.plugins.action"
+msgstr "Handling:"
+
+msgid "manager.plugins.disable"
+msgstr "Slå av"
+
+msgid "manager.plugins.enable"
+msgstr "Slå på"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Administrasjon av programutvidelser"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Dette er en programutvidelse for hele nettstedet. Bare nettstedsadministratoren kan administrere denne programutvidelsen."
+
+msgid "manager.plugins"
+msgstr "Programutvidelser"
+
+msgid "manager.readingTools"
+msgstr "Leseverktøy"
+
+msgid "manager.roles"
+msgstr "Roller"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Ugyldig hjemmesidebildeformat. Aksepterte format er .gif, .jpg, eller .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Ugyldig hjemmesidetopptekst tittelbildeformat. Aksepterte format er .gif, .jpg, eller .png."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Logging og revisjon"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Ugyldig sidetopptekst logobildeformat. Aksepterte format er .gif, .jpg, eller .png."
+
+msgid "manager.statistics"
+msgstr "Statistikk og rapporter"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} nye)"
+
+msgid "manager.users"
+msgstr "Brukere"
+
+msgid "plugins.categories.auth"
+msgstr "Programutvidelser for validering"
+
+msgid "plugins.categories.blocks"
+msgstr "Programutvidelser for blokker"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Programutvidelser for blokker er brukergrensesnittkomponenter, som de ulike verktøyene i sidemenyen."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Programutvidelser for porter gir kontinuerlige data til eksterne systemer."
+
+msgid "plugins.categories.gateways"
+msgstr "Programutvidelser for porter"
+
+msgid "plugins.categories.generic"
+msgstr "Generiske programutvidelser"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Programutvidelser for import/eksport kan brukes for å overføre innhold til og fra andre systemer."
+
+msgid "plugins.categories.importexport"
+msgstr "Programutvidelser for import/eksport"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Programutvidelser for betalingsmetoder implementerer støtter for forskjellige metoder for å behandle online-betalinger."
+
+msgid "plugins.categories.paymethod"
+msgstr "Programutvidelser for betaling"
+
+msgid "plugins.categories.reports.description"
+msgstr "Programutvidelser for rapportering brukes for å implementere ulike typer rapporter og datauttrekk for konferanseadministratorer."
+
+msgid "plugins.categories.reports"
+msgstr "Programutvidelser for rapportering"
+
+msgid "plugins.categories.themes.description"
+msgstr "Theme Plugins can be used to change the system's appearance."
+
+msgid "plugins.categories.themes"
+msgstr "Programutvidelser for tema"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "En unik e-postnøkkel er påkrevd for e-posten."
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Søk etter fagfelle etter navn"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Det oppstod en feil ved sletting."
+
+msgid "manager.announcements.datePublish"
+msgstr "Publisert"
+
+msgid "manager.emails.details"
+msgstr "Maldetaljer"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Søk etter navn"
+
+msgid "manager.emails.data"
+msgstr "Malmeldingsdata"
+
+msgid "manager.emails.disable.message"
+msgstr "Du er i ferd med å deaktivere denne e-postmalen. Om det finnes systemprosesser som benytter denne malen, vil de ikke bruke den mer. Ønsker du å bekrefte deaktivering?"
+
+msgid "manager.emails.enable.message"
+msgstr "Du er i ferd med å aktivere denne e-posten. Ønsker du å bekrefte denne aktiveringen?"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Om du tilbakestiller alle maler vil alle endringer som er gjort i e-postmalene bli borte. Ønsker du å bekrefte tilbakestillingen?"
+
+msgid "manager.emails.reset.message"
+msgstr "Om du tilbakestiller denne malen, vil alle data i meldingen bli tilbakestilt til standardverdier og alle endringer vil bli borte. Vil du bekrefte denne tilbakestillingen?"
+
+msgid "plugins.categories.metadata"
+msgstr "Programutvidelser for metadata"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Programtillegg for OAI metadata-format"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Disse format-programtilleggene tilgjengeliggjør metadata i OAI-kommunikasjon."
+
+msgid "manager.website"
+msgstr "Nettsted"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Advarsel: Hvis elementtypen for vurderingsskjemaet endres fra flervalgselement til åpne element vil det føre til at flervalgsalternativene blir slettet."
+
+msgid "manager.reviewFormElements"
+msgstr "Skjemaelementer"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Legg til utvalg"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Avkryssingsbokser (du kan velge flere enn én)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Velg elementtype"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Er du sikker på at du vil slette dette elementet i et publisert vurderingsskjema?"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopier til:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Lagt nytt element"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Rullegardinboks"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Rediger skjemaelement"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Elementtype"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Skjemaelementet krever en elementtype."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Skjemaelementet krever et spørsmål."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Ingen skjemaelementer er opprettet."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Utvalg"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Element"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radioknapper (du kan velge bare én)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Fagfeller må ferdigstille elementet"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Tekstboks for enkeltord"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Utvidet tekstboks"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Tekstboks for enkeltlinje"
+
+msgid "manager.reviewForms"
+msgstr "Vurderingsskjemaer"
+
+msgid "manager.reviewForms.completed"
+msgstr "Ferdigstilt"
+
+msgid "manager.reviewForms.create"
+msgstr "Opprett vurderingsskjema"
+
+msgid "manager.reviewForms.description"
+msgstr "Beskrivelse og instruks"
+
+msgid "manager.reviewForms.edit"
+msgstr "Vurderingsskjema"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Vurderingsskjemaet må få en tittel."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Under vurdering"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Her kan det opprettes tilpassete vurderingsskjema som fagkonsulentene kan pålegges å fylle ut, i stedet for det enkle standardskjemaet som bare inneholder de to åpne tekstboksene 'For redaktør' og 'For redaktør og forfatter'. Tilpassete vurderingsskjema kan knyttes til hver enkelt seksjon i tidsskriftet, og redaktørene vil få mulighet til å velge hvilket skjema som skal brukes til hvert enkelt vurderingsoppdrag. Redaktørene vil dessuten alltid få mulighet til å inkludere fagkonsulentuttalelser i e-post til forfatteren."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Ingen / åpent vurderingsskjema"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Ingen vurderingsskjema er opprettet."
+
+msgid "manager.reviewForms.preview"
+msgstr "Forhåndsvis skjema"
+
+msgid "manager.reviewForms.title"
+msgstr "Tittel"
+
+msgid "manager.website.information"
+msgstr "Informasjon"
+
+msgid "manager.website.appearance"
+msgstr "Utseende"
+
+msgid "manager.website.imageFileRequired"
+msgstr "En bildefil er påkrevet. Vennligst velg en bildefil og last opp."
+
+msgid "manager.publication.submissionStage"
+msgstr "Manuskript"
+
+msgid "manager.publication.reviewStage"
+msgstr "Fagfellevurdering"
+
+msgid "manager.publication.editorialStage"
+msgstr "Redaksjonelt"
+
+msgid "manager.publication.productionStage"
+msgstr "Produksjon"
+
+msgid "manager.publication.emails"
+msgstr "E-poster"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Manuskript"
+
+msgid "manager.language.forms"
+msgstr "Skjema"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Last inn standardverdier på nytt"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Søk etter bruker etter namn"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Endre"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Fagfellevurderingsinteresser"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Bruk skjemaet under for å sette maksverdier for termene du ønsker å søke etter. Skjemaet er forhåndsutfylt med det kalkulerte gjennomsnittet for disse feltene."
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr "Ditt {$contextObjectName} er konfigurert til å samle mer enn en type brukerstatistikk. Brukerstatistikk vil bli vist i flere ulike kontekster. Det er tilfeller der bare en enkelt brukerstatistikk kan bli brukt, for eksempel ved visning av en liste over de mest brukte manuskript eller for å rangere søkeresultat. Vennligst sett en av de konfigurerte statistikkene som standardverdi."
+
+msgid "manager.statistics.city"
+msgstr "By"
+
+msgid "manager.statistics.region"
+msgstr "Region"
+
+msgid "manager.statistics.reports"
+msgstr "Rapportgenerator"
+
+msgid "manager.statistics.reports.description"
+msgstr "Dette systemet genererer rapporter med detaljer knyttet til sidebruk og innsendinger over en gitt periode. Rapporter er genererte i CSV-format som krever et program for regneark for å bli vist."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Samlet statistikk av:"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Punkter i kursiv markert med * representerer data som er valgfrie for den valgte måten å registrere statistikk i systemet (statistikktype). Du kan ha den type data eller ikke, avhengig av hvordan din programutvidelse for statistikk er konfigurert."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Mal for standardrapport"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Generer en tilpasset rapport"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Avanserte valg"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Skjul avanserte valg"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Kolonner"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Definer hvilke kolonner som vil bli brukt for å lage rapporten. Kolonnene du velger her definerer ikke bare hvilke data som vil bli presentert i rapporten, men også på hvilke nivå statistikken vil bli aggregert. For eksempel, om du velger kolonnene ID, type og måned, vil rapporten summere alle visningene av et objekt fra en måned og presentere dataene i en rad. Om du velger dag istedenfor måned, vil hvert objekt ha en rad for hver dag."
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filter"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Objektet ble ikke funnet i databasen"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Type objekt"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Objekt-id"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Definer en eller flere objekt-ider, separert med komma(f. eks. 1,2,3,4,5)."
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "I går"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Denne måneden"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Sorter etter"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Retning"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Stigende"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Synkende"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Bruk formatet ÅÅÅÅMM"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Bruk formatet ÅÅÅÅMMDD"
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Navn på en eller flere byer, separert med komma (f. eks. By1, By2)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Du må velge minimum en kolonne for å generere rapporten."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Rapport-URL"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "Følgende url kan bli brukt til å generere en rapport ut fra skjemaoppsettet. Kopier og lim inn url-en i en nettleser. Du kan bruke dine favoritter til å lagre dine tilpassede rapporter."
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Etter kontekst"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Etter type objekt og/eller objekt-id"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Velg rapportomfang"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Eller velg omfang etter:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Etter geolokasjon"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Avgrens resultatene etter land, region og/eller by."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponsor"
+
+msgid "manager.setup.additionalContent"
+msgstr "Tilleggsinnhold"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Alt som blir skrevet her vil bli vist på din hjemmeside."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Opphavsrettsnotis"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Krev at forfatterne aksepterer opphavsrettsnotisen."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Forfatterinstruks"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Forfatterinstruksen bør inneholde format- og bibliografistandarder i tillegg til eksempler på vanlige referansestiler som skal brukes i manuskriptet."
+
+msgid "manager.setup.competingInterests"
+msgstr "Interessekonflikter"
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Synlig (for forfattere)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Lag et nytt vurderingsskjema"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Krev en erklæring om interessekonflikter i løpet av fagfellevurderingen."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL til en nettside som beskriver lisensen, om mulig."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Innsendingsskjema"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Valideringsfeil:"
+
+msgid "settings.roles.roleOptions"
+msgstr "Rollevalg"
+
+msgid "settings.roles.showTitles"
+msgstr "Vis rolletittel i bidragsyterlisten"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Tillat brukere å registrere seg"
+
+msgid "settings.roles.roleName"
+msgstr "Rollenavn"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Forkortelse"
+
+msgid "settings.roles.assignedStages"
+msgstr "Tildelte trinn"
+
+msgid "settings.roles.stages"
+msgstr "Trinn"
+
+msgid "settings.roles.roleDetails"
+msgstr "Rolledetaljer"
+
+msgid "settings.roles.from"
+msgstr "Rettighetsnivå"
+
+msgid "settings.roles.removeText"
+msgstr "Du er i ferd med å fjerne denne rollen fra denne konteksten. Denne handlingen vil også slette relaterte innstillinger og alle brukeroppdragene knyttet til rollen.  Vil du fortsette?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Du må definere et rollenavn."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Du må definere en rolleforkortelse."
+
+msgid "settings.roles.uniqueName"
+msgstr "Du må definere et unikt rollenavn."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Du må definere en unik rolleforkortelse."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Du må definere rettighetene for en rolle."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Du må velge et trinn å tildele til."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "En bibliotekfil er påkrevet. Vennligst forsikre deg om at du har valgt og lastet opp en fil."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Et navn er påkrevet for denne bibliotekfilen"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "En filtype er påkrevet for denne bibliotekfilen."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Kontrakter"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Markedsføring"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Tillatelser"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Rapporter"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Andre"
+
+msgid "grid.action.addGenre"
+msgstr "Legg til en komponent"
+
+msgid "grid.action.editGenre"
+msgstr "Rediger denne komponenten"
+
+msgid "grid.action.deleteGenre"
+msgstr "Slett denne komponenten"
+
+msgid "grid.action.restoreGenres"
+msgstr "Gjenopprett komponentene til standardoppsettet"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Marker filer av denne typen som sekundærfiler (dvs. skal ikke bli vist sammen med publisert innhold)"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Marker filer av denne typen som tilleggsfiler (dvs. ikke hovedmanuskript)"
+
+msgid "manager.settings.wizard"
+msgstr "Veiviser for instillinger"
+
+msgid "manager.users.roleRequired"
+msgstr "Du må velge minimum en rolle for denne brukeren."
+
+msgid "manager.website.title"
+msgstr "Innstillinger for nettsted"
+
+msgid "manager.workflow"
+msgstr "Arbeidsflyt"
+
+msgid "manager.workflow.title"
+msgstr "Instillinger for arbeidsflytt"
+
+msgid "manager.distribution"
+msgstr "Distribusjon"
+
+msgid "manager.distribution.title"
+msgstr "Innstillinger for distribusjon"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Er du sikker på at du vil aktivere dette vurderingsskjemaet? Når det først er knyttet til en vurdering, vil du ikke lenger kunne deaktivere det."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Er du sikker på at du ønsker å deaktivere dette vurderingsskjemaet? Det vil ikke lenger være tilgjengelig for nye vurderingsoppdrag."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Er du sikker på at du ønsker å lage en kopi av dette vurderingsskjemaet?"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Er du sikker på at du ønsker å slette dette vurderingsskjemaet?"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Ingen vurderingsskjema er brukt."
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Vurderingsskjema for data"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Inkludert i melding til forfatter"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Siste versjon av programutvidelse allerede installert."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Nyere enn tilgjengelig versjon"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Kan bli oppgradert"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Oppgradert til siste versjon"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Ikke tilgjengelig"
+
+msgid "manager.plugins.installFailed"
+msgstr "Installasjonen mislyktes. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Vellykket installering av versjon {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Den opplastete programutvidelsen inneholder ikke en mappe som samstemmer med navnet på programutvidelsen."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Den opplastete programutvidelsen passer ikke til kategorien til den oppgraderte programutvidelsen."
+
+msgid "manager.plugins.wrongName"
+msgstr "Versjon.xml i den opplastete programutvidelsen inneholder et programutvidelsesnavn som ikke samstemmer med navnet på den oppgraderte programutvidelsen."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Programutvidelsen eksisterer ikke. Vennligst installer istedenfor."
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Programutvidelsen eksisterer allerede, men er nyere enn den installerte versjonen. Vennligst oppgrader istedenfor."
+
+msgid "manager.plugins.settings"
+msgstr "Innstillinger"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "Tar-kommandoen er ikke tilgjengelig. Vennligst sjekk at innstillingene er korrekte i \"config.inc.php\"."
+
+msgid "manager.plugins.upgrade"
+msgstr "Oppgrader programutvidelse"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Dette skjemaet gir deg mulighet til å oppgradere en programutvidelse. Vennligst sjekk at programutvidelsen er komprimert til en .tar.gz.-fil."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Oppgradering mislyktes. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Vellykket oppgradering til versjon {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Feil ved opplasting av fil"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Velg programutvidelsesfil"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "versjon.xml i programutvidelsesmappen inneholder ugyldige data."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "versjon.xml ikke funnet i programutvidelsesmappen."
+
+msgid "notification.localeEnabled"
+msgstr "Lokalinnstilling slått på."
+
+msgid "notification.localeDisabled"
+msgstr "Lokalinnstilling slått av."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} definert som primær lokalinnstilling."
+
+msgid "notification.localeInstalled"
+msgstr "Alle valgte lokalinnstillinger er installert og aktivert."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} lokalinnstillinger avinstallert."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} lokalinnstillinger lastet inn på nytt."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Lokalinnstillinger lagret."
+
+msgid "notification.editedUser"
+msgstr "Redigert av bruker."
+
+msgid "manager.paymentMethod"
+msgstr "Betalinger"
+
+msgid "manager.paymentMethod.title"
+msgstr "Betalingsmåter"
+
+msgid "manager.paymentMethod.none"
+msgstr "Betalingsmåte er ikke valgt"
+
+msgid "manager.paymentMethod.method"
+msgstr "Betalingsmåte"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Valuta"
+
+msgid "plugins.categories.pubIds"
+msgstr "Programutvidelser for offentlig identifikatorer."
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Disse programutvidelsene implementerer støtte for en offentlig identifikator."
+
+msgid "manager.plugins.copyError"
+msgstr "Programutvidelsen ble ikke kopiert. Det kan skyldes rettighetsproblemer. Vennligst sjekk at tjeneren kan skrive til programutvidelsesmappen (inkludert undermapper), men ikke glem å sikre den igjen etterpå."
+
+msgid "manager.plugins.delete"
+msgstr "Slett programutvidelse"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Er du sikker på at du ønsker å installere denne programutvidelsen?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Er du sikker på at du ønsker å oppgradere denne programutvidelsen?"
+
+msgid "grid.action.installPlugin"
+msgstr "Installer eller oppgrader denne programutvidelsen"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Er du sikker på at du ønsker å slette denne programutvidelsen fra systemet?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Ved å trykke slett, vil programutvidelsen bli slettet fra tjenerens filsystem."
+
+msgid "manager.plugins.deleteError"
+msgstr "Programutvidelse \"{$pluginName}\" kunne ikke slettes fra filsystemet. Det kan skyldes rettighetsproblemer. Vennligst sjekk at tjeneren kan skrive til programutvidelsesmappen (inkludert undermapper), men ikke glem å sikre den igjen etterpå."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Programutvidelse \"{$pluginName}\" er vellykket slettet"
+
+msgid "manager.plugins.description"
+msgstr "Denne siden gir Redaksjonsleder mulighet til å vurdere og konfigurere programutvidelsene som er installert. Programutvidelsene er fordelt i kategorier etter funksjon. Kategoriene er listet under med programutvidelser tilhørende hver kategori."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Programutvidelse \"{$pluginName}\" eksisterer ikke"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Vennligst velg en fil først"
+
+msgid "manager.plugins.upload"
+msgstr "Last opp en ny programutvidelse"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Dette skjemaet gir deg mulighet til å laste opp og installere en ny programutvidelse. Vennligst sjekk at programutvidelsen er komprimert til en .tar.gz.-fil."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Vennligst sjekk at en fil var valgt for opplasting"
+
+msgid "manager.plugins.installed"
+msgstr "Installerte programutvidelser"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Liste over programutvidelser"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Oversikt"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Installasjon"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Siste kompatible versjon"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Offisiell"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Vurdert"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Vedlikeholder"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "Versjon: {$version}"
+
+msgid "manager.plugins.pluginGallery.date"
+msgstr "Versjonsdato: {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Hjemmeside"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Oppsummering"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Programutvidelsen har ikke blitt installert."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Det er for øyeblikket ingen kompatible versjoner av programutvidelsen tilgjengelig."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Programutvidelse allerede installert, og er nyere enn versjonen som er tilgjengelig i listen over programutvidelser."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Programutvidelse allerede installert, men kan bli oppdatert til en nyere versjon."
+
+msgid "plugins.categories.metadata.description"
+msgstr "Programutvidelser for metadata implementerer ytterligere metadata-standarder"
+
+msgid "manager.setup.groupType"
+msgstr "Gruppering av filtyper"
+
+msgid "manager.setup.homepageImage"
+msgstr "Hjemmesidebilde"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Last opp et bilde som skal vises på hjemmesiden."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Beskrivelser"
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.description"
+msgstr "Nye tema kan bli installert fra fanen for programutvidelser på toppen av denne siden."
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.notifications"
+msgstr "Melding om innsendt manuskript"
+
+msgid "manager.setup.notifications.copyPrimaryContact"
+msgstr "Send en kopi til tidsskriftets hovedkontakt, som ble oppgitt i Oppsett trinn 1"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Send en kopi til denne e-postadressen"
+
+msgid "manager.setup.notifications.description"
+msgstr "Forfattere får automatisk tilsendt en e-post når de har sendt inn et manuskript. Kopi av denne e-posten kan også sendes til følgende:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Open Access-retningslinjer"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Om tidsskriftet gir åpen tilgang til alt publisert innhold, skriv inn en erklæring om tidsskriftets retningslinjer for Open Access"
+
+msgid "manager.setup.pageFooter"
+msgstr "Bunntekst"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Legg inn bilder, tekst eller HTML-kode som du ønsker skal vises nederst på nettsiden."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Beskriv tidsskriftets retningslinjer og fremgangsmåter for fagfellevurdering for lesere og forfattere. Denne beskrivelsen vil ofte inkludere tallet på fagfeller som vanligvis vurderer et manuskript, kriteriene for vurdering, forventet tidsbruk på vurderingene og prinsippene for å velge fagfeller."
+
+msgid "manager.setup.principalContact"
+msgstr "Hovedkontakt"
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Skriv inn kontaktinformasjon, vanligvis for en hovedredaktør, redaksjonsleder, eller administrativt personell, som kan vises på den offentlig tilgjengelige nettsiden."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Personvernopplysninger"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Uker tillatt for å akseptere eller avslå en vurderingsforespørsel"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Uker tillatt for å ferdigstille fagfellevurderingen."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Ikke send påminnelse"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Standardverdien kan bli endret for hver vurdering i løpet av den redaksjonelle prosessen."
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "Send en påminnelse om en fagfelle ikke har svart på vurderingsforespørselen innen en tid (dager) etter oppdragets frist."
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr "Send en påminnelse om en fagfelle ikke har sendt inn en anbefaling innen en tid (dager) etter oppdragets frist."
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Standardfrist for fagfellevurdering"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Beskrivelse av relasjon til sponsorer og retningslinjer"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Eksempler: vitenskapelige foreninger, institutter, organisasjoner osv. Sponsorer blir vist offentlig."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Erfarne nettutviklere kan laste opp en CSS-fil for videre å tilpasse nettsidens utseende."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Teknisk kontaktperson"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "En kontaktperson som kan bistå redaktører, forfattere og fagfeller med problemer knyttet til manuskriptinnsending, redigering eller publisering."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Tilgangsmuligheter"

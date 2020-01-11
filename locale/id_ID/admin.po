@@ -1,0 +1,198 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Fungsi Administratif"
+
+msgid "admin.auth.confirmDelete"
+msgstr " Apakah Anda yakin ingin menghapus sumber pengesahan ini secara permanen?"
+
+msgid "admin.auth.create"
+msgstr "Buat Sumber Pengesahan"
+
+msgid "admin.auth.noneCreated"
+msgstr "Tidak ada sumber pengesahan yang ditemukan."
+
+msgid "admin.authSources"
+msgstr "Sumber Pengesahan"
+
+msgid "admin.clearDataCache"
+msgstr "Hapus Data Cache"
+
+msgid "admin.clearTemplateCache"
+msgstr "Hapus Template Cache"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "File konfigurasi Anda telah sukses diupdate. Jika situs Anda tidak lagi berfungsi dengan benar, Anda mungkin perlu memperbaiki konfigurasi Anda secara manual dengan mengedit <tt>config.inc.php</tt> secara langsung."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Apakah Anda yakin ingin membersihkan template cache yang disusun?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Apakah Anda yakin ingin mengakhiri seluruh sesi pengguna? Semua pengguna yang sedang <em>log in</em> ke sistem akan dipaksa untuk <em>log in</em> lagi (termasuk diri Anda). "
+
+msgid "admin.contentsOfConfigFile"
+msgstr "File konfigurasi isi"
+
+msgid "admin.currentVersion"
+msgstr "Versi Terkini"
+
+msgid "admin.dateInstalled"
+msgstr "Tanggal penginstalan"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Isi dari konfigurasi yang sudah diupdate milik Anda ditampilkan sekarang. Untuk menerapkan perubahan konfigurasi Anda harus membuka <tt>config.inc.php</tt> di text editor yang sesuai dan mengganti isinya dengan isi text editor di bawah ini."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Tampilkan Konfigurasi Baru"
+
+msgid "admin.expireSessions"
+msgstr "Akhiri Sesi Pengguna"
+
+msgid "admin.languages.confirmReload"
+msgstr "Apakah Anda yakin ingin memuat ulang locale ini? Ini akan menghapus semua data spesifik-locale yang sudah ada seperti template email yang disesuaikan."
+
+msgid "admin.languages.installedLocales"
+msgstr "Locale yang diinstal"
+
+msgid "admin.languages.installLanguages"
+msgstr "Mengatur Locale"
+
+msgid "admin.languages.installLocales"
+msgstr "Instal"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instal Locale"
+
+msgid "admin.languages.languageSettings"
+msgstr "Pengaturan Locale"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Tidak ada locale tambahan yang tersedia untuk instalasi."
+
+msgid "admin.languages.reload"
+msgstr "Reload locale"
+
+msgid "admin.languages.uninstall"
+msgstr "Uninstal locale"
+
+msgid "admin.phpInfo"
+msgstr " Informasi Detail PHP"
+
+msgid "admin.saveSystemConfig"
+msgstr "Simpan Konfigurasi"
+
+msgid "admin.server.apacheVersion"
+msgstr "Versi Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Database driver"
+
+msgid "admin.server.dbVersion"
+msgstr "Versi server database"
+
+msgid "admin.serverInformationDescription"
+msgstr "Informasi mengenai sistem operasi dan versi perangkat lunak server. Klik <span class=\"highlight\">Informasi Detail PHP</span> untuk melihat detail konfigurasi server PHP."
+
+msgid "admin.serverInformation"
+msgstr "Informasi Server"
+
+msgid "admin.server.phpVersion"
+msgstr "Versi PHP"
+
+msgid "admin.server.platform"
+msgstr "Platform OS"
+
+msgid "admin.settings.about"
+msgstr "Deskripsi Situs"
+
+msgid "admin.settings.contactEmail"
+msgstr "Email Kontak Utama"
+
+msgid "admin.settings.contactName"
+msgstr "Nama Kontak Utama"
+
+msgid "admin.settings.introduction"
+msgstr "Pendahuluan"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Panjang Kata Sandi Min"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "Karakter"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Bahasa Situs"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr " Format lembar model situs invalid. Format yang dapat diterima adalah .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Style Sheet"
+
+msgid "admin.settings.siteTitle"
+msgstr "Nama Situs"
+
+msgid "admin.siteAdmin"
+msgstr "Administrasi Situs"
+
+msgid "admin.siteManagement"
+msgstr "Manajemen Situs"
+
+msgid "admin.siteSettings"
+msgstr "Pengaturan Situs"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "File konfigurasi <tt>config.inc.php</tt> tidak ada, tidak terbaca, atau invalid."
+
+msgid "admin.systemInformation"
+msgstr "Informasi Sistem"
+
+msgid "admin.versionBuild"
+msgstr "Tubuh"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Cek untuk update"
+
+msgid "admin.version.downloadPackage"
+msgstr "Unduh"
+
+msgid "admin.version.downloadPatch"
+msgstr "Download Patch"
+
+msgid "admin.versionHistory"
+msgstr "Sejarah Versi"
+
+msgid "admin.version.latest"
+msgstr "Versi Terbaru"
+
+msgid "admin.versionMajor"
+msgstr "Mayor"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.version.moreInfo"
+msgstr "Informasi lebih lanjut"
+
+msgid "admin.versionRevision"
+msgstr "Revisi"
+
+msgid "admin.version.updateAvailable"
+msgstr "Versi yang telah diupdate sudah tersedia"
+
+msgid "admin.version.upToDate"
+msgstr "Sistem Anda up-to-date"
+
+msgid "admin.version"
+msgstr "Versi"

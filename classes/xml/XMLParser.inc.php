@@ -8,8 +8,8 @@
 /**
  * @file classes/xml/XMLParser.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLParser
@@ -26,10 +26,6 @@ define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
 import('lib.pkp.classes.xml.XMLParserDOMHandler');
 
 class XMLParser {
-
-	/** @var int original magic_quotes_runtime setting */
-	var $magicQuotes;
-
 	/** @var object instance of XMLParserHandler */
 	var $handler;
 
@@ -41,9 +37,6 @@ class XMLParser {
 	 * Initialize parser and set parser options.
 	 */
 	function __construct() {
-		// magic_quotes_runtime must be disabled for XML parsing
-		$this->magicQuotes = get_magic_quotes_runtime();
-		if ($this->magicQuotes) set_magic_quotes_runtime(0);
 		$this->errors = array();
 	}
 
@@ -93,16 +86,14 @@ class XMLParser {
 		xml_set_character_data_handler($parser, "characterData");
 
 		import('lib.pkp.classes.file.FileWrapper');
-		$wrapper =& FileWrapper::wrapper($file);
+		$wrapper = FileWrapper::wrapper($file);
 
 		// Handle responses of various types
 		while (true) {
 			$newWrapper = $wrapper->open();
-			if (is_object($newWrapper)) {
+			if (is_a($newWrapper, 'FileWrapper')) {
 				// Follow a redirect
-				unset($wrapper);
-				$wrapper =& $newWrapper;
-				unset ($newWrapper);
+				$wrapper = $newWrapper;
 			} elseif (!$newWrapper) {
 				// Could not open resource -- error
 				$returner = false;
@@ -213,7 +204,7 @@ class XMLParser {
 	 */
 	function &parseStruct($file, $tagsToMatch = array()) {
 		import('lib.pkp.classes.file.FileWrapper');
-		$wrapper =& FileWrapper::wrapper($file);
+		$wrapper = FileWrapper::wrapper($file);
 		$fileContents = $wrapper->contents();
 		if (!$fileContents) {
 			$result = false;
@@ -241,15 +232,6 @@ class XMLParser {
 	function destroyParser($parser) {
 		xml_parser_free($parser);
 	}
-
-	/**
-	 * Perform required clean up for this object.
-	 */
-	function destroy() {
-		// Set magic_quotes_runtime back to original setting
-		if ($this->magicQuotes) set_magic_quotes_runtime($this->magicQuotes);
-	}
-
 }
 
 /**
@@ -290,5 +272,12 @@ class XMLParserHandler {
 	 */
 	function getResult() {
 		return null;
+	}
+
+	/**
+	 * Perform clean up for this object
+	 * @deprecated
+	 */
+	function destroy() {
 	}
 }

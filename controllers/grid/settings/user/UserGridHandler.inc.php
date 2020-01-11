@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/user/UserGridHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserGridHandler
@@ -359,7 +359,7 @@ class UserGridHandler extends GridHandler {
 			$userRoleForm->execute();
 
 			// Successfully managed newly created user's roles.
-			return DAO::getDataChangedEvent($userId);
+			return DAO::getDataChangedEvent();
 		} else {
 			return new JSONMessage(false);
 		}
@@ -473,11 +473,18 @@ class UserGridHandler extends GridHandler {
 	 */
 	function editEmail($args, $request) {
 		$user = $request->getUser();
+		$context = $request->getContext();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('rowId');
 
-		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		if (
+			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
+				$context &&
+				$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)
+			)
+		) {
 			// We don't have administrative rights over this user.
 			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		} else {
@@ -498,11 +505,18 @@ class UserGridHandler extends GridHandler {
 	 */
 	function sendEmail($args, $request) {
 		$user = $request->getUser();
+		$context = $request->getContext();
 
 		// Identify the user Id.
 		$userId = $request->getUserVar('userId');
 
-		if ($userId !== null && !Validation::canAdminister($userId, $user->getId())) {
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		if (
+			!$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
+				$context &&
+				$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)
+			)
+		) {
 			// We don't have administrative rights over this user.
 			return new JSONMessage(false, __('grid.user.cannotAdminister'));
 		}
@@ -515,7 +529,7 @@ class UserGridHandler extends GridHandler {
 			$userEmailForm->execute();
 			return new JSONMessage(true);
 		} else {
-			return new JSONMessage(false, $userEmailForm->fetch($request));
+			return new JSONMessage(false, __('validator.filled'));
 		}
 	}
 

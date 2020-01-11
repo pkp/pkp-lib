@@ -1,0 +1,183 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:48+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Muut kielialueet"
+
+msgid "installer.administratorAccount"
+msgstr "Ylläpitäjätili"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Tästä käyttäjätilistä tulee sivuston ylläpitäjä, jolla on käyttöoikeudet koko järjestelmään. Lisää käyttäjätilejä voidaan luoda asennuksen jälkeen."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">EI</span>"
+
+msgid "installer.checkYes"
+msgstr "Kyllä"
+
+msgid "installer.clientCharset"
+msgstr "Asiakkaan merkistö"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Koodaus, jota käytetään selaimiin lähettäviin ja niistä vastaanotettaviin tietoihin."
+
+msgid "installer.configFileError"
+msgstr "Määritystiedostoa <tt>config.inc.php</tt> ei ole olemassa tai sitä ei voi lukea."
+
+msgid "installer.connectionCharset"
+msgstr "Yhteyden merkistö"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Määritystiedoston sisältö"
+
+msgid "installer.createDatabase"
+msgstr "Luo uusi tietokanta"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Käyttääksesi tätä valintaa tietokantajärjestelmäsi on tuettava tietokannan etäluontia ja käyttäjätililläsi on oltava oikeudet luoda uusia tietokantoja. Jos asennus epäonnistuu tämän vaihtoehdon ollessa valittuna, luo tietokanta palvelimellesi manuaalisesti ja suorita asennusohjelma uudelleen tämän valinnan ollessa pois käytöstä."
+
+msgid "installer.databaseDriver"
+msgstr "Tietokantaohjain"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Sulkeissa luetelluilla tietokantaohjaimilla ei vaikuta olevan vaadittua PHP-laajennusta ladattuna ja asennus tulee todennäköisesti epäonnistumaan, jos se valitaan.</strong><br>Kaikki yllä luetellut ei-tuetut tietokantaohjaimet on lueteltu yksinomaan akateemisia tarkoituksia varten, eivätkä ne todennäköisesti toimi."
+
+msgid "installer.databaseHost"
+msgstr "Isäntä"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Jätä isäntänimi tyhjäksi muodostaaksesi yhteyden käyttäen verkkoalueliitäntää TCP/IP-protokollien sijaan. Tämä ei ole välttämätöntä MySQL:ssä, joka käyttää liitäntöjä automaattisesti, jos “localhost” syötetään. Jotkin muut tietokantapalvelimet, kuten PostgreSQL, kuitenkin vaativat sen."
+
+msgid "installer.databaseName"
+msgstr "Tietokannan nimi"
+
+msgid "installer.databasePassword"
+msgstr "Salasana"
+
+msgid "installer.databaseSettings"
+msgstr "Tietokanta-asetukset"
+
+msgid "installer.databaseUsername"
+msgstr "Käyttäjätunnus"
+
+msgid "installer.filesDir"
+msgstr "Hakemisto latauksille"
+
+msgid "installer.fileSettings"
+msgstr "Tiedostoasetukset"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Asiakkaan merkistö on valittava."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Tietokantaohjain on valittava."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Tietokannan nimi vaaditaan."
+
+msgid "installer.form.emailRequired"
+msgstr "Ylläpitäjätilille vaaditaan voimassa oleva sähköpostiosoite."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Hakemisto ladattujen tiedostojen tallentamista varten vaaditaan."
+
+msgid "installer.form.localeRequired"
+msgstr "Kielialue on valittava."
+
+msgid "installer.form.passwordRequired"
+msgstr "Ylläpitäjätilille vaaditaan salasana."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Ylläpitäjän salasanat eivät täsmää."
+
+msgid "installer.form.separateMultiple"
+msgstr "Erota arvot pilkuilla"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Ylläpitäjän käyttäjätunnus voi sisältää vain aakkosnumeerisia merkkejä, alaviivoja ja yhdysmerkkejä, ja sen täytyy alkaa ja päättyä aakkosnumeeriseen merkkiin."
+
+msgid "installer.form.usernameRequired"
+msgstr "Ylläpitäjätilille vaaditaan käyttäjätunnus."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>VAROITUS: Nykyinen PHP-versiosi ei täytä asennusta koskevia vähimmäisvaatimuksia. On suositeltavaa päivittää PHP uudempaan versioon.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Asennuksen aikana tapahtui virheitä"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL-lauseet asennusta varten"
+
+msgid "installer.installFileError"
+msgstr "Asennustiedostoa <tt>dbscripts/xml/install.xml</tt> ei ole olemassa tai se ei ole luettavissa."
+
+msgid "installer.installFilesDirError"
+msgstr "Ladatuille tiedostoille tarkoitettua hakemistoa ei ole olemassa tai se ei ole kirjoituskelpoinen."
+
+msgid "installer.installParseDBFileError"
+msgstr "Virhe jäsennettäessä tietokannan asennustiedostoa <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Virhe jäsennettäessä sähköpostipohjatiedostoa <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Virhe jäsennettäessä suodattimen määritystiedostoa <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Päivitystä ei tueta. Katso docs/UPGRADE-UNSUPPORTED saadaksesi lisätietoja."
+
+msgid "installer.locale"
+msgstr "Kielialue"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Merkityt kielialueet saattavat olla vaillinaisia."
+
+msgid "installer.localeSettings"
+msgstr "Kielialueiden asetukset"
+
+msgid "installer.oaiSettings"
+msgstr "OAI-asetukset"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Yksilöivä tunniste, jota käytetään sellaisten metatietorekisterien tunnistamiseen, jotka on indeksoitu tältä sivustolta <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiativen</a> protokollaa metatietojen haravoinnista käyttäen."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Tietovaraston tunniste"
+
+msgid "installer.publicFilesDirError"
+msgstr "Julkista tiedostohakemistoa ei ole olemassa tai se ei ole kirjoituskelpoinen."
+
+msgid "installer.releaseNotes"
+msgstr "Julkistamiseen liittyvät muistiinpanot"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Esiasennuksen vaiheet"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Seuraavista tiedostoista ja hakemistoista (ja niiden sisällöstä) on tehtävä kirjoituskelpoisia:</p> <ul> <li><tt>config.inc.php</tt> on kirjoituskelpoinen (valinnainen): {$writable_config}</li> <li><tt>public/</tt> on kirjoituskelpoinen: {$writable_public}</li> <li><tt>cache/</tt> on kirjoituskelpoinen: {$writable_cache}</li> <li><tt>cache/t_cache/</tt> on kirjoituskelpoinen: {$writable_templates_cache}</li> <li><tt>cache/t_compile/</tt> on kirjoituskelpoinen: {$writable_templates_compile}</li> <li><tt>cache/_db</tt> on kirjoituskelpoinen: {$writable_db_cache}</li> </ul> <p>2. Ladattujen tiedostojen tallentamista varten on luotava hakemisto ja se on tehtävä kirjoituskelpoiseksi (ks. “Tiedostoasetukset” alla).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>PHP-asennuksellasi ei ole XSL-moduulia käytössä. Ota se käyttöön tai määritä xslt_command -parametri config.inc.php -tiedostossa.</p>"
+
+msgid "installer.beacon"
+msgstr "Jäljite"
+
+msgid "installer.beacon.enable"
+msgstr "Anna yksilöivä sivuston tunniste ja OAI:n perus-URL-osoite PKP:lle ainoastaan tilastointia ja suojavaroitustarkoituksia varten."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Tämä ohjelmisto ei tue palvelimesi PHP-versiota. Tarkista vaatimukset docs/README-tiedostosta."

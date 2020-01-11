@@ -3,8 +3,8 @@
 /**
  * @file controllers/wizard/fileUpload/form/PKPSubmissionFilesUploadBaseForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFilesUploadBaseForm
@@ -137,7 +137,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 				// If we have a review stage id then we also expect a review round.
 				if (!$this->getData('fileStage') == SUBMISSION_FILE_QUERY && !is_a($this->getReviewRound(), 'ReviewRound')) assert(false);
 				// Can only upload submission files, review files, review attachments, dependent files, or query attachments.
-				if (!in_array($this->getData('fileStage'), array(SUBMISSION_FILE_SUBMISSION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_QUERY, SUBMISSION_FILE_DEPENDENT))) fatalError('Invalid file stage!');
+				if (!in_array($this->getData('fileStage'), array(SUBMISSION_FILE_SUBMISSION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_ATTACHMENT, SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_QUERY, SUBMISSION_FILE_DEPENDENT, SUBMISSION_FILE_ATTACHMENT))) fatalError('Invalid file stage!');
 
 				// Hide the revision selector for review
 				// attachments to make it easier for reviewers

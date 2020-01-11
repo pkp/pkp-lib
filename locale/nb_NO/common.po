@@ -1,0 +1,1005 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
+"Language: \n"
+
+msgid "about.aboutSite"
+msgstr "Om nettstedet"
+
+msgid "about.contact"
+msgstr "Kontakt"
+
+msgid "about.contact.email"
+msgstr "E-post"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.principalContact"
+msgstr "Hovedkontakt"
+
+msgid "about.contact.supportContact"
+msgstr "Teknisk kontaktperson"
+
+msgid "about.other"
+msgstr "Andre"
+
+msgid "about.people"
+msgstr "Personer"
+
+msgid "about.policies"
+msgstr "Retningslinjer"
+
+msgid "about.siteMap"
+msgstr "Nettstedskart"
+
+msgid "announcement.announcements"
+msgstr "Oppslag"
+
+msgid "announcement.announcementsHome"
+msgstr "Oppslagstavle"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Flere oppslag ..."
+
+msgid "announcement.noneExist"
+msgstr "Ingen oppslag er publisert."
+
+msgid "announcement.posted"
+msgstr "Innlevert"
+
+msgid "announcement.viewLink"
+msgstr "Mer ..."
+
+msgid "announcement.view"
+msgstr "Vis oppslag"
+
+msgid "common.copy"
+msgstr "Kopi"
+
+msgid "common.preview"
+msgstr "Forhåndsvis"
+
+msgid "common.activate"
+msgstr "Slå på"
+
+msgid "common.deactivate"
+msgstr "Slå av"
+
+msgid "common.action"
+msgstr "Handling"
+
+msgid "common.active"
+msgstr "Aktive"
+
+msgid "common.add"
+msgstr "Legg til"
+
+msgid "common.addSelf"
+msgstr "Legg til deg selv"
+
+msgid "common.all"
+msgstr "Alle"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å"
+
+msgid "common.alreadyAssigned"
+msgstr "Oppnevnt"
+
+msgid "common.altText"
+msgstr "Alternativ tekst"
+
+msgid "common.and"
+msgstr "og"
+
+msgid "common.applyAction"
+msgstr "Utfør handling"
+
+msgid "common.assign"
+msgstr "Oppnevn"
+
+msgid "common.assigned"
+msgstr "Oppnevnt"
+
+msgid "common.back"
+msgstr "Tilbake"
+
+msgid "common.between"
+msgstr "mellom"
+
+msgid "common.cancel"
+msgstr "Avbryt"
+
+msgid "common.cancelled"
+msgstr "Avbrutt"
+
+msgid "common.captchaField.altText"
+msgstr "Valideringsbilde"
+
+msgid "common.captchaField.badCaptcha"
+msgstr "Tegnene du skrev inn stemte ikke overens med tegnene i bildet. Vennligst prøv en gang til."
+
+msgid "common.captchaField.description"
+msgstr "Vennligst skriv inn de tegnene du ser i bildet ovenfor."
+
+msgid "common.captchaField"
+msgstr "Validering"
+
+msgid "common.changesSaved"
+msgstr "Endringene dine er lagret."
+
+msgid "common.chooseOne"
+msgstr "Velg en"
+
+msgid "common.close"
+msgstr "Lukk"
+
+msgid "common.closeWindow"
+msgstr "Lukk vindu"
+
+msgid "common.complete"
+msgstr "Utført"
+
+msgid "common.completed"
+msgstr "Utført"
+
+msgid "common.continue"
+msgstr "Fortsett"
+
+msgid "common.country"
+msgstr "Land"
+
+msgid "common.create"
+msgstr "Opprett"
+
+msgid "common.dateCompleted"
+msgstr "Utført dato"
+
+msgid "common.date"
+msgstr "Dato"
+
+msgid "common.dateModified"
+msgstr "Endret dato"
+
+msgid "common.dateRequested"
+msgstr "Bestilt dato"
+
+msgid "common.dateSubmitted"
+msgstr "Innsendingsdato"
+
+msgid "common.dateUploaded"
+msgstr "Opplastet dato"
+
+msgid "common.day"
+msgstr "Dag"
+
+msgid "common.default"
+msgstr "Default"
+
+msgid "common.delete"
+msgstr "Slett"
+
+msgid "common.deleteSelection"
+msgstr "Slett valgte"
+
+msgid "common.description"
+msgstr "Beskrivelse"
+
+msgid "common.disabled"
+msgstr "Er slått av"
+
+msgid "common.discipline"
+msgstr "Fagdisiplin"
+
+msgid "common.done"
+msgstr "Ferdig"
+
+msgid "common.download"
+msgstr "Last ned"
+
+msgid "common.edit"
+msgstr "Rediger"
+
+msgid "common.enabled"
+msgstr "Er slått på"
+
+msgid "common.error.databaseError"
+msgstr "Det har skjedd en databasefeil: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Det har skjedd en ukjent feil med databaseforbindelsen."
+
+msgid "common.error.framesRequired"
+msgstr "Denne siden krever frames. <a href=\"{$url}\">Klikk her</a> for å se en framesfri versjon."
+
+msgid "common.event"
+msgstr "Hendelse"
+
+msgid "common.export"
+msgstr "Eksporter"
+
+msgid "common.file"
+msgstr "Fil"
+
+msgid "common.fileName"
+msgstr "Filnavn"
+
+msgid "common.fileSize"
+msgstr "Filstørrelse"
+
+msgid "common.fileType"
+msgstr "Filtype"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.height"
+msgstr "Høyde"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Tidsskriftets hjemmeside: topplogo"
+
+msgid "common.hour"
+msgstr "Klokkeslett"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Importer"
+
+msgid "common.initiate"
+msgstr "Sett i gang"
+
+msgid "common.inProgress"
+msgstr "Under arbeid"
+
+msgid "common.keywords"
+msgstr "Nøkkelord"
+
+msgid "common.language"
+msgstr "Språk"
+
+msgid "common.languages"
+msgstr "Språk"
+
+msgid "common.mailingAddress"
+msgstr "Postadresse"
+
+msgid "common.minute"
+msgstr "Minutt(er)"
+
+msgid "common.modify"
+msgstr "Endre"
+
+msgid "common.month"
+msgstr "Måned"
+
+msgid "common.noneAssigned"
+msgstr "Ingen oppnevnt"
+
+msgid "common.none"
+msgstr "Ingen"
+
+msgid "common.no"
+msgstr "Nei"
+
+msgid "common.notApplicable"
+msgstr "Kan ikke brukes"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "Ikke tilgjengelig"
+
+msgid "common.note"
+msgstr "Notat"
+
+msgid "common.notes"
+msgstr "Notater"
+
+msgid "common.off"
+msgstr "Av"
+
+msgid "common.on"
+msgstr "På"
+
+msgid "common.options"
+msgstr "Valg"
+
+msgid "common.order"
+msgstr "Ordne"
+
+msgid "common.originalFileName"
+msgstr "Opprinnelig filnavn"
+
+msgid "common.or"
+msgstr "eller"
+
+msgid "common.other"
+msgstr "Andre"
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.publisher"
+msgstr "Utgiver"
+
+msgid "common.record"
+msgstr "Journalfør"
+
+msgid "common.related"
+msgstr "Relaterte"
+
+msgid "common.remove"
+msgstr "Fjern"
+
+msgid "common.removeSelection"
+msgstr "Fjern valgte"
+
+msgid "common.replaced"
+msgstr "Erstattet"
+
+msgid "common.replaceFile"
+msgstr "Erstatt fil"
+
+msgid "common.requiredField"
+msgstr "* Må fylles ut"
+
+msgid "common.required"
+msgstr "Påkrevet"
+
+msgid "common.saveAndContinue"
+msgstr "Lagre og fortsett"
+
+msgid "common.saveAndEmail"
+msgstr "Lagre og e-post"
+
+msgid "common.save"
+msgstr "Lagre"
+
+msgid "common.search"
+msgstr "Søk"
+
+msgid "common.second"
+msgstr "Sekund(er)"
+
+msgid "common.selectAll"
+msgstr "Velg alle"
+
+msgid "common.selectNone"
+msgstr "Velg ingen"
+
+msgid "common.select"
+msgstr "Velg"
+
+msgid "common.size"
+msgstr "Størrelse"
+
+msgid "common.source"
+msgstr "Kilde"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.subject"
+msgstr "Emne"
+
+msgid "common.suggest"
+msgstr "Foreslå"
+
+msgid "common.title"
+msgstr "Tittel"
+
+msgid "common.top"
+msgstr "Til topps"
+
+msgid "common.type"
+msgstr "Type"
+
+msgid "common.uninitiated"
+msgstr "Ikke igangsatt"
+
+msgid "common.untitled"
+msgstr "Uten tittel"
+
+msgid "common.updated"
+msgstr "Oppdatert"
+
+msgid "common.upload"
+msgstr "Last opp"
+
+msgid "common.up"
+msgstr "Opp"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Bruker"
+
+msgid "common.view"
+msgstr "Vis"
+
+msgid "common.weeks"
+msgstr "uker"
+
+msgid "common.width"
+msgstr "Bredde"
+
+msgid "common.year"
+msgstr "År"
+
+msgid "common.yes"
+msgstr "Ja"
+
+msgid "debug.databaseQueries"
+msgstr "Antall databaseanrop"
+
+msgid "debug.executionTime"
+msgstr "Side generert i"
+
+msgid "debug.memoryUsage"
+msgstr "Minneforbruk:"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Lastet lokalinnstillingsliste \"{$localeList}\" fra XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Lastet lokalinnstillingsfil \"{$localeFile}\" fra XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Mangler lokalinnstillingsnøkkel \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Notater:"
+
+msgid "email.addAttachment"
+msgstr "Legg til vedlegg"
+
+msgid "email.addBccRecipient"
+msgstr "Legg til blindkopimottaker"
+
+msgid "email.addCcRecipient"
+msgstr "Legg til kopimottaker"
+
+msgid "email.addToRecipient"
+msgstr "Legg til mottaker"
+
+msgid "email.attachments"
+msgstr "Vedlegg"
+
+msgid "email.bcc"
+msgstr "Blindkopi til"
+
+msgid "email.bccSender"
+msgstr "Send en kopi av denne meldingen til min adresse ({$address})"
+
+msgid "email.body"
+msgstr "Meldingstekst"
+
+msgid "email.cc"
+msgstr "Kopi til"
+
+msgid "email.compose"
+msgstr "Send e-post"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Meldingen du forsøker å sende har for mange mottakere."
+
+msgid "email.compose.tooSoon"
+msgstr "Det er for kort tid siden du sendte den forrige meldingen din. Vennligst vent litt før du prøver å sende meldingen en gang til."
+
+msgid "email.email"
+msgstr "E-post"
+
+msgid "email.from"
+msgstr "Fra"
+
+msgid "email.invalid"
+msgstr "E-postadressen {$email} er ugyldig."
+
+msgid "email.multipart"
+msgstr "Dette er en melding i flere deler i MIME format."
+
+msgid "email.recipient"
+msgstr "Mottaker"
+
+msgid "email.recipients"
+msgstr "Mottakere"
+
+msgid "email.sender"
+msgstr "Sender"
+
+msgid "email.send"
+msgstr "Send"
+
+msgid "email.skip"
+msgstr "Ikke send e-post"
+
+msgid "email.subject"
+msgstr "Emne"
+
+msgid "email.to"
+msgstr "Til"
+
+msgid "form.contains"
+msgstr "inneholder"
+
+msgid "form.errorsOccurred"
+msgstr "Det oppsto feil ved behandlingen av dette skjemaet"
+
+msgid "form.formLanguage.description"
+msgstr "Hvis du vil skrive inn informasjonen på flere språk, skal du først velge språk her."
+
+msgid "form.formLanguage"
+msgstr "Språk for skjema"
+
+msgid "form.is"
+msgstr "er"
+
+msgid "form.postRequired"
+msgstr "Skjemaet ble ikke levert riktig."
+
+msgid "form.required"
+msgstr "(* Påkrevet)"
+
+msgid "form.resubmit"
+msgstr "Send inn igjen"
+
+msgid "form.saveToUpload"
+msgstr "Bruk Lagre for å laste opp filen."
+
+msgid "form.send"
+msgstr "Send"
+
+msgid "form.submit"
+msgstr "Send inn"
+
+msgid "help.contents"
+msgstr "Innhold"
+
+msgid "help.help"
+msgstr "Hjelp"
+
+msgid "help.helpIndex"
+msgstr "Hjelp - emneindeks"
+
+msgid "help.matchesFound"
+msgstr "{$matches} treff"
+
+msgid "help.noMatchingTopics"
+msgstr "Ingen tilsvarende emner i Hjelp ble funnet."
+
+msgid "help.relatedTopics"
+msgstr "Relaterte emner"
+
+msgid "help.searchFor"
+msgstr "Søk emner i Hjelp for"
+
+msgid "help.searchResultsFor"
+msgstr "Resultat for"
+
+msgid "help.searchResults"
+msgstr "Søkeresultat"
+
+msgid "help.search"
+msgstr "Søk i hjelp"
+
+msgid "help.toc"
+msgstr "Innholdsoversikt"
+
+msgid "help.upALevel"
+msgstr "Opp et nivå"
+
+msgid "icon.checked.alt"
+msgstr "Merket"
+
+msgid "icon.comment.alt"
+msgstr "Kommentar"
+
+msgid "icon.delete.alt"
+msgstr "Slett"
+
+msgid "icon.edit.alt"
+msgstr "Rediger"
+
+msgid "icon.folder.alt"
+msgstr "Folder"
+
+msgid "icon.font_large.alt"
+msgstr "Stor"
+
+msgid "icon.font_medium.alt"
+msgstr "Middelstor"
+
+msgid "icon.font_small.alt"
+msgstr "Liten"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Brev"
+
+msgid "icon.mail.alt"
+msgstr "Post"
+
+msgid "icon.unchecked.alt"
+msgstr "Umerket"
+
+msgid "icon.view.alt"
+msgstr "Vis"
+
+msgid "locale.primary"
+msgstr "Primærespråk"
+
+msgid "locale.supported"
+msgstr "Støttete språk"
+
+msgid "navigation.about"
+msgstr "Om"
+
+msgid "navigation.browse"
+msgstr "Finn fram"
+
+msgid "navigation.browseByTitle"
+msgstr "i titler"
+
+msgid "navigation.home"
+msgstr "Hjem"
+
+msgid "navigation.infoForReaders"
+msgstr "For lesere"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informasjon for lesere"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} av {$total} elementer"
+
+msgid "navigation.login"
+msgstr "Logg inn"
+
+msgid "navigation.nextPage"
+msgstr ">>"
+
+msgid "navigation.nextStep"
+msgstr "Neste steg"
+
+msgid "navigation.previousPage"
+msgstr "<<"
+
+msgid "navigation.previousStep"
+msgstr "Forrige steg"
+
+msgid "navigation.register"
+msgstr "Registrer"
+
+msgid "navigation.search"
+msgstr "Søk"
+
+msgid "navigation.stepNumber"
+msgstr "Steg {$step}"
+
+msgid "navigation.userHome"
+msgstr "Min side"
+
+msgid "navigation.user"
+msgstr "Bruker"
+
+msgid "search.abstract"
+msgstr "Sammendrag"
+
+msgid "search.author"
+msgstr "Forfattere"
+
+msgid "search.coverage"
+msgstr "Dekning"
+
+msgid "search.date"
+msgstr "Dato"
+
+msgid "search.dateFrom"
+msgstr "Fra"
+
+msgid "search.dateTo"
+msgstr "Til"
+
+msgid "search.discipline"
+msgstr "Fagdisiplin(er)"
+
+msgid "search.fullText"
+msgstr "Fulltekst"
+
+msgid "search.indexTerms"
+msgstr "Emneord"
+
+msgid "search.matchAll"
+msgstr "Treff i alle kategorier"
+
+msgid "search.noKeywordError"
+msgstr "Du må skrive inn minst ett søkeord."
+
+msgid "search.noResults"
+msgstr "Ingen resultat"
+
+msgid "search.operator.and"
+msgstr "AND"
+
+msgid "search.operator.not"
+msgstr "NOT"
+
+msgid "search.operator.or"
+msgstr "OR"
+
+msgid "search.reviseSearch"
+msgstr "Revider søk"
+
+msgid "search.searchAllCategories"
+msgstr "Søk i alle kategorier"
+
+msgid "search.searchCategories"
+msgstr "Søk i kategorier"
+
+msgid "search.searchResults"
+msgstr "Søkeresultat"
+
+msgid "search.subject"
+msgstr "Emneord"
+
+msgid "search.titleIndex"
+msgstr "Finn fram i tittelregister"
+
+msgid "search.title"
+msgstr "Tittel"
+
+msgid "search.typeMethodApproach"
+msgstr "Type (metode/innfallsvinkel)"
+
+msgid "notification.notification"
+msgstr "Varsling"
+
+msgid "notification.notifications"
+msgstr "Varslinger"
+
+msgid "common.ccLicense"
+msgstr ""
+"<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\tDette verket er lisensiert med en <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0-lisens</a>."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tDette verket er lisensiert med en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0-lisens</a>.\n"
+"\t</div>"
+
+msgid "common.re"
+msgstr "Ad:"
+
+msgid "common.false"
+msgstr "Feil"
+
+msgid "common.manage"
+msgstr "Administrer"
+
+msgid "common.noComments"
+msgstr "Ingen kommentar"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.true"
+msgstr "Korrekt"
+
+msgid "common.uploadFailed"
+msgstr "Filen kunne ikke lastes opp. Vennligst forsøk igjen eller kontakt administrator dersom feilen ikke blir borte."
+
+msgid "form.startsWith"
+msgstr "begynner med"
+
+msgid "navigation.dashboard"
+msgstr "Navigasjonskonsoll"
+
+msgid "notification.allow"
+msgstr "Disse varslingstypene skal vises i mine varslinger."
+
+msgid "notification.confirmError"
+msgstr "Det oppstod en feil i behandlingen av ditt varslingsabonnement."
+
+msgid "notification.confirmSuccess"
+msgstr "Ditt varslingsabonnement er nå i orden."
+
+msgid "notification.noneExist"
+msgstr "Du har ingen varslinger for øyeblikket"
+
+msgid "notification.settings"
+msgstr "Varslingsinnstillinger"
+
+msgid "notification.settingsDescription"
+msgstr "Velg hvilke hendelser du vil bli varslet om. Fjerning av avkryssing vil hindre at du får varsling om en hendelsestype."
+
+msgid "notification.reminderError"
+msgstr "Det oppstod en feil ved utsendelsen av passord, vennligst forsikre deg om at du har lagt inn e-postadressen din korrekt."
+
+msgid "notification.reminderSent"
+msgstr "Ditt nye passord har blitt sendt til den e-postadressen du oppgav."
+
+msgid "common.disable"
+msgstr "Slå av"
+
+msgid "common.enable"
+msgstr "Slå på"
+
+msgid "common.fullscreen"
+msgstr "Fullskjerm"
+
+msgid "common.fullscreenOff"
+msgstr "Fullskjerm av"
+
+msgid "common.pluginEnabled"
+msgstr "Programutvidelsen \"{$pluginName}\" er slått på."
+
+msgid "common.pluginDisabled"
+msgstr "Programutvidelsen \"{$pluginName}\" er slått av."
+
+msgid "common.refresh"
+msgstr "Oppdater"
+
+msgid "common.loading"
+msgstr "Laster ..."
+
+msgid "announcement.postedOn"
+msgstr "Annonsert {$postDate}"
+
+msgid "common.accepted"
+msgstr "Godtatt"
+
+msgid "common.titleSmallWords"
+msgstr "og i av med for på"
+
+msgid "common.warning"
+msgstr "Advarsel"
+
+msgid "common.confirm"
+msgstr "Bekreft"
+
+msgid "common.content"
+msgstr "Innhold"
+
+msgid "common.declined"
+msgstr "Avslått"
+
+msgid "common.finish"
+msgstr "Avslutt"
+
+msgid "common.go"
+msgstr "Fortsett"
+
+msgid "common.less"
+msgstr "Mindre enn"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.billingAddress"
+msgstr "Fakturaadresse (om annen)"
+
+msgid "common.more"
+msgstr "Mer"
+
+msgid "common.noMatches"
+msgstr "Ingen treff"
+
+msgid "common.overdue"
+msgstr "Forfalt"
+
+msgid "common.reminder"
+msgstr "Påminnelse"
+
+msgid "common.signoff"
+msgstr "Logg av"
+
+msgid "common.unread"
+msgstr "Ulest"
+
+msgid "common.plugins"
+msgstr "Programutvidelser"
+
+msgid "form.confirmSubmit.title"
+msgstr "Bekreft"
+
+msgid "navigation.access"
+msgstr "Brukere og roller"
+
+msgid "navigation.admin"
+msgstr "Administrasjon"
+
+msgid "navigation.settings"
+msgstr "Innstillinger"
+
+msgid "navigation.setup"
+msgstr "Oppsett"
+
+msgid "common.element"
+msgstr "Element"
+
+msgid "email.subjectRequired"
+msgstr "Vennligst fyll ut emnefelt for e-post."
+
+msgid "email.bodyRequired"
+msgstr "Vennligst skriv inn innholdet i e-posten."
+
+msgid "form.confirmSubmit"
+msgstr "Er du sikker på at du vil sende inn dette skjemaet?"
+
+msgid "form.emailRequired"
+msgstr "Du må oppgi en e-postadresse."
+
+msgid "form.dataHasChanged"
+msgstr "Data i skjemaet har blitt endret. Vil du fortsette likevel?"
+
+msgid "form.invalidImage"
+msgstr "Bildet som ble lastet opp, var av feil type. Mulige formater er .png, .gif, oeller.jpg."
+
+msgid "navigation.browseByAuthor"
+msgstr "Etter forfatter"
+
+msgid "navigation.data"
+msgstr "Data"
+
+msgid "navigation.submissions"
+msgstr "Innsendinger"
+
+msgid "navigation.system"
+msgstr "System"
+
+msgid "navigation.userManagement"
+msgstr "Brukeradministrasjon"
+
+msgid "common.remote"
+msgstr "Ekstern"
+
+msgid "common.remoteURL"
+msgstr "Ekstern URL"
+
+msgid "navigation.sitemap"
+msgstr "Nettstedskart"
+
+msgid "common.reset"
+msgstr "Tilbakestill"
+
+msgid "about.guidelines"
+msgstr "Veiledninger"
+
+msgid "common.name"
+msgstr "Navn"
+
+msgid "navigation.archives"
+msgstr "Arkiv"
+
+msgid "semicolon"
+msgstr "{$label}:"

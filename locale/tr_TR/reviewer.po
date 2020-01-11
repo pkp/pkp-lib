@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:07+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. İstek"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Rehberler"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. İndirme ve Görüntülemeler"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Tamamlama"
+
+msgid "reviewer.step1.request"
+msgstr "Değerlendirme İsteği"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Aşağıdaki gönderinin potansiyel hakemi olarak seçildiniz. Aşağıda, bu hakemlik isteğinin zaman çizelgesinin yanı sıra değerlendirme için genel bir bilgilendirme sunulmaktadır. Değerlendirmeyi kabul edeceğinizi umuyoruz."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Tüm Gönderi Detaylarını Görüntüle"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Hakem Dosyaları"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Değerlendirme İsteğini Reddet"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Aşağıdaki alanda bu isteği reddetme nedeninizi editöre bildirebilirsiniz."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Adım #2'ye geçebilmek için Değerlendirmeyi Kabul Et"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Adım #3 için devam edin"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Değerlendirmeyi Gönder"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Hakem Rehberleri"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Bu yayıncı, hakemlerden potansiyel çıkar çatışması açıklanması için bir politikaya sahiptir. Lütfen bu politikayı gözden geçirmek için bir dakikanızı ayırın."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Herhangi bir çıkar çatışmam yoktur."
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Rekabet edebilir çıkar çatışmalarım olabilir (Aşağıda belirtin)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Çıkar Çatışmaları"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Hakem Rehberleri"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Bu yayıncı hakem rehberleri için herhangi bir düzenleme yapmadı."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Bu gönderi ile ilgili dosyaları indirmek için aşağıdaki dosya adlarına tıklayınız."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Bu gönderi ile ilgili değerlendirmenizi aşağıdaki forma girin (veya yapıştırın)."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Orijinal inceleme dosyasının / dosyalarının gözden geçirilmiş sürümleri de dahil olmak üzere editör ve / veya yazarın istemesini istediğiniz dosyaları yükleyin."
+
+msgid "reviewer.complete"
+msgstr "Değerlendirme Gönderildi"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Bu değerlendirmeyi göndermek istediğinizden emin misiniz?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Bu gönderimin değerlendirmesini tamamladığınız için teşekkür ederiz. Değerlendirmeniz başarıyla gönderildi. Dergimizin kalitesine katkınız için teşekkür ederiz; editör, gerekirse daha fazla bilgi için sizinle tekrar iletişime geçebilir."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Son Tarihler Hakkında"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Editör, Değerlendirme Son Tarihi'nden önce incelemeyi kabul ettiğinizi veya reddettiğinizi ve Değerlendirme Son Tarihine kadar değerlendirmeyi tamamlamanızı beklemektedir."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Editör ve yazar için"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Yalnızca editör için"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Mevcut kullanıcı istenen doküman için hakem olarak atanmadı."

@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/reviewer/form/ReviewerReviewStep1Form.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewStep1Form
@@ -73,7 +73,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 
 		// "View metadata" action.
-		import('lib.pkp.controllers.modals.submissionMetadata.linkAction.ReviewerViewMetadataLinkAction');
+		import('lib.pkp.controllers.modals.review.ReviewerViewMetadataLinkAction');
 		$viewMetadataLinkAction = new ReviewerViewMetadataLinkAction($request, $reviewAssignment->getSubmissionId(), $reviewAssignment->getId());
 		$templateMgr->assign('viewMetadataAction', $viewMetadataLinkAction);
 
@@ -118,7 +118,7 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 	/**
 	 * @see Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$reviewerSubmission = $this->getReviewerSubmission();
 
 		// Set competing interests.
@@ -140,6 +140,6 @@ class ReviewerReviewStep1Form extends ReviewerReviewForm {
 			$reviewerAction->confirmReview($this->request, $reviewAssignment, $reviewerSubmission, false);
 		}
 
-		parent::execute();
+		parent::execute(...$functionParams);
 	}
 }

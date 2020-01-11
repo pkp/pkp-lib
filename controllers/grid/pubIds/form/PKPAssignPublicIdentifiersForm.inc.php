@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/pubIds/form/PKPAssignPublicIdentifiersForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAssignPublicIdentifiersForm
@@ -49,7 +49,7 @@ class PKPAssignPublicIdentifiersForm extends Form {
 		$this->_approval = $approval;
 		$this->_confirmationText = $confirmationText;
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();
 
@@ -69,6 +69,12 @@ class PKPAssignPublicIdentifiersForm extends Form {
 			'approval' => $this->getApproval(),
 			'confirmationText' => $this->getConfirmationText(),
 		));
+		if ($request->getUserVar('submissionId')) {
+			$templateMgr->assign('submissionId', $request->getUserVar('submissionId'));
+		}
+		if ($request->getUserVar('publicationId')) {
+			$templateMgr->assign('publicationId', $request->getUserVar('publicationId'));
+		}
 		return parent::fetch($request, $template, $display);
 	}
 
@@ -122,8 +128,8 @@ class PKPAssignPublicIdentifiersForm extends Form {
 	 *  true if the pub id shall be saved here
 	 *  false if this form is integrated somewhere else, where the pub object will be updated.
 	 */
-	function execute($save = false) {
-		parent::execute();
+	function execute($save = false, ...$functionArgs) {
+		parent::execute($save, ...$functionArgs);
 
 		$pubObject = $this->getPubObject();
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();

@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:38+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "لغات إضافية"
+
+msgid "installer.administratorAccount"
+msgstr "حساب المشرف الإداري"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "حساب هذا المستخدم سيكون بمثابة المشرف الإداري الذي ستكون له حرية الوصول الكاملة للنظام. المزيد من حسابات المستخدمين يمكن إنشاؤها بعد إكمال التنصيب."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">لا</span>"
+
+msgid "installer.checkYes"
+msgstr "نعم"
+
+msgid "installer.clientCharset"
+msgstr "نظام الحروف للزبون"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "الترميز المستعمل عند إرسال البيانات واستلامها من المستعرض."
+
+msgid "installer.configFileError"
+msgstr "ملف الإعدادات <tt>config.inc.php</tt> لا وجود له أو تتعذر قراءته."
+
+msgid "installer.connectionCharset"
+msgstr "نظام حروف الاتصال"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "محتويات ملف الإعدادات"
+
+msgid "installer.createDatabase"
+msgstr "إنشاء قاعدة بيانات جديدة"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "لاستعمال هذا الخيار، على نظام قاعدة البيانات عندك أن يدعم إنشاء قاعدة بيانات عن بعد وأن يمتلك حساب المستخدم لديك الصلاحيات الكافية لإنشاء قاعدة بيانات جديدة. إن فشلت عملية التنصيب عند تفعيل هذا الخيار، عليك بإنشاء قاعدة البيانات يدوياً على الملقم، ثم شغل برنامج التنصيب مجدداً مع تعطيل هذا الخيار."
+
+msgid "installer.databaseDriver"
+msgstr "مشغل قاعدة البيانات"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>قواعد البيانات الظاهرة بين الأقواس المربعة لا يبدو أنها تمتلك ما يوائمها مع لغة البرمجة PHP ولذلك، فإن التنصيب باستعمالها سيفشل على الأرجح.</strong><br />أي قاعدة بيانات غير مدعومة مدرجة أعلاه ذُكرت لمجرد العرض الأكاديمي وهي لا يُتوقع منها العمل مع النظام."
+
+msgid "installer.databaseHost"
+msgstr "المضيف"
+
+msgid "installer.databaseHostInstructions"
+msgstr "أترك اسم المضيف فارغاً للاتصال مستعملاً مقابس المجال بدلاً عن بروتوكول TCP/IP. هذا الأمر ليس ضرورياً مع MySQL، التي ستستعمل تلقائياً مقابس الاتصال إذا تم إدخال عبارة \"localhost\"، ولكنه مطلوب مع بعض ملقمات قواعد البيانات الأخرى، مثل: PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "اسم قاعدة البيانات"
+
+msgid "installer.databasePassword"
+msgstr "كلمة المرور"
+
+msgid "installer.databaseSettings"
+msgstr "إعدادات قاعدة البيانات"
+
+msgid "installer.databaseUsername"
+msgstr "اسم المستخدم"
+
+msgid "installer.filesDir"
+msgstr "حافظة الملفات المرفوعة إلى الموقع"
+
+msgid "installer.fileSettings"
+msgstr "إعدادات الملفات"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "ينبغي اختيار نظام الحروف للزبون."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "ينبغي اختيار مشغل قاعدة البيانات."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "اسم قاعدة البيانات مطلوب حتماً."
+
+msgid "installer.form.emailRequired"
+msgstr "عنوان بريد الكتروني صحيح مطلوب حتماً لحساب المشرف الإداري."
+
+msgid "installer.form.filesDirRequired"
+msgstr "ينبغي اختيار حافظة الملفات التي سيتم رفعها إلى الموقع."
+
+msgid "installer.form.localeRequired"
+msgstr "ينبغي اختيار لغة الموقع."
+
+msgid "installer.form.passwordRequired"
+msgstr "ينبغي تحديد كلمة المرور لحساب المشرف الإداري."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "كلمتا المرور لا تتطابقان."
+
+msgid "installer.form.separateMultiple"
+msgstr "إفصل بين الكلمات المتعددة بفوارز إنجليزية"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "اسم الدخول للمشرف الإداري يمكن أن يتضمن حروفاً وأرقاماً، خطوط تحتانية، وشُرط، وينبغي أن يبدأ وينتهي بحرف أو رقم حصراً."
+
+msgid "installer.form.usernameRequired"
+msgstr "ينبغي إدخال اسم الدخول للمشرف الإداري حتماً."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>تحذير: نسختك من برنامج PHP لا تلبي متطلبات الحد الأدنى المطلوبة للتنصيب. ننصح بترقيتها إلى نسخة أحدث تتوافق مع متطلبات تشغيل النظام.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "حدثت أخطاء خلال عملية التنصيب"
+
+msgid "installer.installerSQLStatements"
+msgstr "عبارات SQL للتنصيب"
+
+msgid "installer.installFileError"
+msgstr "ملف التنصيب <tt>dbscripts/xml/install.xml</tt> مفقود أو تتعذر قراءته."
+
+msgid "installer.installFilesDirError"
+msgstr "حافظة الملفات المخصصة لحفظ الملفات المرفوعة إلى الموقع غير موجودة أو أنها لا تقبل الكتابة عليها."
+
+msgid "installer.installParseDBFileError"
+msgstr "حدث خطأ عند تحليل ملف تنصيب قاعدة البيانات <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "حدث خطأ عند تحليل ملف قوالب الرسائل الالكترونية <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "حدث خطأ عند تحليل ملف إعدادات التصفية <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "الترقية غير مدعومة. أنظر الملف: docs/UPGRADE-UNSUPPORTED للمزيد من التفاصيل."
+
+msgid "installer.locale"
+msgstr "اللغة"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "اللغات المعلمة قد تكون غير مكتملة تماماً."
+
+msgid "installer.localeSettings"
+msgstr "إعدادات اللغة"
+
+msgid "installer.oaiSettings"
+msgstr "إعدادات OAI"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "يتم استعمال معرَّف فريد لتعريف سجلات البيانات الوصفية المفهرسة في هذا الموقع باستعمال بروتوكول <a href=\"https://www.openarchives.org/\" target=\"_blank\">مبادرة المحفوظات المفتوحة</a> لحصاد البيانات الوصفية."
+
+msgid "installer.oaiRepositoryId"
+msgstr "معرَّف المستودع"
+
+msgid "installer.publicFilesDirError"
+msgstr "حافظة الملفات العمومية غير موجودة أو أنها لا تقبل الكتابة عليها."
+
+msgid "installer.releaseNotes"
+msgstr "ملاحظات الإطلاق"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "خطوات ما قبل التنصيب"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. الملفات وحوافظ الملفات الآتية (ومحتوياتها) يجب أن تكون قابلة للتعديل:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> قابل للتعديل (إختيارياً): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> قابل للتعديل: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> قابل للتعديل: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> قابل للتعديل: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> قابل للتعديل: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> قابل للتعديل: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. ينبغي إنشاء حافظة ملفات مخصصة لحفظ الملفات المرفوعة إلى الموقع، مع جعلها قابلة للتعديل (أنظر \"إعدادات الملفات\" أدناه).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>إن تنصيبك الحالي لبرنامج PHP لا يمتلك وحدة مممكنة لمعالجة XSL. عليك إما أن تقوم بتمكينها، أو تعديل معيار الأمر xslt_command في ملف التهيئة config.inc.php.</p>"
+
+msgid "installer.beacon"
+msgstr "المرشد"
+
+msgid "installer.beacon.enable"
+msgstr "زود الموقع برمز تعريفي فريد ورابط أساسي لـ OAI فقط لأغراض إحصائية وما يتعلق بإشعارات الأمان لمشروع المعرفة العامة."
+
+msgid "installer.unsupportedPhpError"
+msgstr "إن نسخة PHP التي يعمل بها ملقمك لا يدعمها هذا النظام. أعد التحقق من متطلبات التنصيب الواردة في الملف docs/README."

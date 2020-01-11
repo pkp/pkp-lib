@@ -3,8 +3,8 @@
 /**
  * @file tools/installPluginVersionTool.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class InstallPluginVersionTool
@@ -81,6 +81,10 @@ class InstallPluginVersionTool extends CommandLineTool {
 				$installer->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
 				return false;
 			}
+		}
+		if (!isset($installer->dataXMLParser)) {
+			$installer->dataXMLParser = new DBDataXMLParser();
+			$installer->dataXMLParser->setDBConn($installer->dbconn);
 		}
 		$result = true;
 		$param = array(&$installer, &$result);

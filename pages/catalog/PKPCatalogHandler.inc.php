@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file pages/catalog/CatalogHandler.inc.php
+ * @file pages/catalog/PKPCatalogHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class CatalogHandler
+ * @class PKPCatalogHandler
  * @ingroup pages_catalog
  *
  * @brief Handle requests for the public-facing catalog.
@@ -52,7 +52,7 @@ class PKPCatalogHandler extends Handler {
 		if (!$category) $this->getDispatcher()->handle404();
 
 		$this->setupTemplate($request);
-		import('lib.pkp.classes.submission.Submission'); // STATUS_ constants
+		import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_ constants
 
 		$orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
 		list($orderBy, $orderDir) = explode('-', $orderOption);
@@ -71,22 +71,21 @@ class PKPCatalogHandler extends Handler {
 			'count' => $count,
 			'offset' => $offset,
 			'status' => STATUS_PUBLISHED,
-			'returnObject' => SUBMISSION_RETURN_PUBLISHED,
 		);
-		$publishedSubmissions = $submissionService->getMany($params);
-		$total = $submissionService->getMax($context->getId(), $params);
+		$submissionsIterator = $submissionService->getMany($params);
+		$total = $submissionService->getMax($params);
 
 		// Provide the parent category and a list of subcategories
 		$parentCategory = $categoryDao->getById($category->getParentId());
 		$subcategories = $categoryDao->getByParentId($category->getId());
 
-		$this->_setupPaginationTemplate($request, $publishedSubmissions, $page, $count, $offset, $total);
+		$this->_setupPaginationTemplate($request, count($submissionsIterator), $page, $count, $offset, $total);
 
 		$templateMgr->assign(array(
 			'category' => $category,
 			'parentCategory' => $parentCategory,
 			'subcategories' => $subcategories,
-			'publishedSubmissions' => $publishedSubmissions,
+			'publishedSubmissions' => iterator_to_array($submissionsIterator),
 		));
 
 		return $templateMgr->display('frontend/pages/catalogCategory.tpl');
@@ -140,22 +139,22 @@ class PKPCatalogHandler extends Handler {
 	 * Set up the basic template.
 	 */
 	function setupTemplate($request) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
 		parent::setupTemplate($request);
 	}
 
 	/**
 	 * Assign the pagination template variables
 	 * @param $request PKPRequest
-	 * @param $publishedMonographs array Monographs being shown
+	 * @param $submissionsCount int Number of monographs being shown
 	 * @param $page int Page number being shown
 	 * @param $count int Max number of monographs being shown
 	 * @param $offset int Starting position of monographs
 	 * @param $total int Total number of monographs available
 	 */
-	protected function _setupPaginationTemplate($request, $publishedMonographs, $page, $count, $offset, $total) {
+	protected function _setupPaginationTemplate($request, $submissionsCount, $page, $count, $offset, $total) {
 		$showingStart = $offset + 1;
-		$showingEnd = min($offset + $count, $offset + count($publishedMonographs));
+		$showingEnd = min($offset + $count, $offset + $submissionsCount);
 		$nextPage = $total > $showingEnd ? $page + 1 : null;
 		$prevPage = $showingStart > 1 ? $page - 1 : null;
 
@@ -169,4 +168,3 @@ class PKPCatalogHandler extends Handler {
 		));
 	}
 }
-

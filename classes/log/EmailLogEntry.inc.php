@@ -3,8 +3,8 @@
 /**
  * @file classes/log/EmailLogEntry.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EmailLogEntry
@@ -51,22 +51,6 @@ class EmailLogEntry extends DataObject {
 	 */
 	function setDateSent($dateSent) {
 		$this->setData('dateSent', $dateSent);
-	}
-
-	/**
-	 * Get IP address of sender.
-	 * @return string
-	 */
-	function getIPAddress() {
-		return $this->getData('ipAddress');
-	}
-
-	/**
-	 * Set IP address of sender.
-	 * @param $ipAddress string
-	 */
-	function setIPAddress($ipAddress) {
-		$this->setData('ipAddress', $ipAddress);
 	}
 
 	/**

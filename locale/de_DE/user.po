@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:24-07:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Konto-Information"
+
+msgid "user.affiliation"
+msgstr "Institution"
+
+msgid "user.affiliation.description"
+msgstr "(Ihre Institution, z.B. \"Simon Fraser University\")"
+
+msgid "user.affiliations"
+msgstr "Institutionen"
+
+msgid "user.authorization.accessDenied"
+msgstr "Zugang verweigert."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Das Authentifizierungstoken des Prozesses fehlt oder ist ungültig."
+
+msgid "user.authorization.contextRequired"
+msgstr "Sie können diese Operation nicht ohne einen Kontext (Presse, Zeitschrift, Konferenz etc.) aufrufen."
+
+msgid "user.authorization.loginRequired"
+msgstr "Login erforderlich."
+
+msgid "user.authorization.privateOperation"
+msgstr "Die Operation, auf die Sie zugreifen wollten, ist entweder privat oder existiert nicht."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Ihnen wurde der Zugang verweigert. Der Zugang zu dieser Site ist momentan beschränkt."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Die aktuelle Rolle hat keinen Zugriff auf diese Operation."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Sie sind dieser Einreichung nicht in einer Rolle zugeordnet worden, die auf diese Maßnahme zugreifen kann."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Sie müssen eine gültige Benutzer/innen-Gruppe setzen, um auf diese Operation zugreifen zu können."
+
+msgid "user.authorization.managerRequired"
+msgstr "Ein/e Benutzer/in mit einer Verwalter/innen-Rolle (z.B. Produktionsredakteur/in) muss dem Arbeitsschritt hinzugefügt werden, bevor Sie weitermachen können."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Sie haben momentan keinen Zugriff auf diese Phase des Publikationsprozesses."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Es wurde kein Arbeitsschritt angegeben."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Es wurde kein Plugin angegeben, obwohl es erforderlich ist."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Sie haben keine Berechtigung, auf diese Begutachtungsanfrage zuzugreifen."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Sie haben keine Berechtigung, auf diese Diskussion zuzugreifen."
+
+msgid "user.biography"
+msgstr "Angaben zum Lebenslauf"
+
+msgid "user.changeMyPassword"
+msgstr "Mein Passwort ändern"
+
+msgid "user.changePassword"
+msgstr "Passwort ändern"
+
+msgid "user.dateLastLogin"
+msgstr "Letztes Einloggen am"
+
+msgid "user.dateRegistered"
+msgstr "Angemeldet am"
+
+msgid "user.editMyProfile"
+msgstr "Mein Profil bearbeiten"
+
+msgid "user.email"
+msgstr "E-Mail"
+
+msgid "user.givenName"
+msgstr "Vorname"
+
+msgid "user.interests"
+msgstr "Interessen"
+
+msgid "user.interests.description"
+msgstr "(Trennen Sie Interessen durch die Enter-Taste oder durch Komma.)"
+
+msgid "user.gossip"
+msgstr "Private Notizen"
+
+msgid "user.gossip.description"
+msgstr "Anmerkungen über diese/n Gutachter/in hinzufügen, die Sie mit anderen Administrator/innen, Zeitschriftenverwalter/innen und (Teil-)Redakteur/innen teilen möchten. Die Anmerkungen werden bei künftigen Begutachtungsanfragen berücksichtigt werden können."
+
+msgid "user.group"
+msgstr "Benutzer/innen-Gruppe"
+
+msgid "user.familyName"
+msgstr "Nachname"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild darf eine Größe von 150x150 Pixel nicht überschreiten."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Ihr Konto wurde aus folgenden Gründen deaktiviert: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Ihr Konto wurde deaktiviert. Für nähere Informationen setzen Sie sich bitte mit der/dem Website-Administrator/in in Verbindung."
+
+msgid "user.login.accountNotValidated"
+msgstr "Wir haben Ihnen eine Bestätigungs-E-Mail an {$email} geschickt. Bitte folgen Sie den Hinweisen in dieser E-Mail, um Ihr Konto zu aktivieren. Wenn Sie keine E-Mail erhalten haben, kontrollieren Sie bitte auch Ihren Spam-Ordner."
+
+msgid "user.login.activate"
+msgstr "Aktiviere Konto"
+
+msgid "user.login.activated"
+msgstr "Danke, dass Sie Ihr Konto aktiviert haben. Sie können sich nun unter Verwendung der von Ihnen bei der Erstellung Ihres Kontos gemachten Angaben einloggen."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Damit Sie sich auf dieser Seite einloggen können, müssen Sie ein neues Passwort auswählen.<br /><br />Sie ändern das Passwort für Ihr Konto, indem Sie unten Ihren Benutzer/innennamen und das aktuelle sowie das neue Passwort eintragen."
+
+msgid "user.login.forgotPassword"
+msgstr "Passwort vergessen?"
+
+msgid "user.login.loginError"
+msgstr "Benutzer/innen-Name oder Passwort ungültig. Versuchen Sie es erneut."
+
+msgid "user.login"
+msgstr "Einloggen"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Eine Bestätigung wurde an Ihre E-Mail-Adresse versandt. Zur Wiederherstellung Ihres Passwortes folgen Sie bitte den Anweisungen aus der E-Mail."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Leider ist der Link, den Sie angeklickt haben, abgelaufen oder ungültig. Versuchen Sie bitte erneut, Ihr Passwort wiederherzustellen."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Zu der angegebenen E-Mail-Adresse existiert kein/e Benutzer/in."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Ein neues Passwort wurde an Ihre E-Mail-Adresse versandt. Sie können sich jetzt mit dem neuen Passwort einloggen."
+
+msgid "user.login.registeredEmail"
+msgstr "E-Mail-Adresse der registrierten Benutzerin/des registrierten Benutzers"
+
+msgid "user.login.registrationComplete"
+msgstr "Registrierung abgeschlossen"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Danke für Ihre Registrierung! Was möchten Sie als nächstes tun?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Einreichungen ansehen"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Neue Einreichung"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Weiter stöbern"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registrierung wartet noch auf Verifizierung"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Eingeloggt bleiben"
+
+msgid "user.login.resetPassword"
+msgstr "Passwort zurücksetzen"
+
+msgid "user.logOut"
+msgstr "Ausloggen"
+
+msgid "user.logOutAs"
+msgstr "Ausloggen als"
+
+msgid "user.hello"
+msgstr "Hallo, "
+
+msgid "user.mailingAddress"
+msgstr "Adresse"
+
+msgid "user.myAccount"
+msgstr "Mein Konto"
+
+msgid "user.name"
+msgstr "Name"
+
+msgid "user.password"
+msgstr "Passwort"
+
+msgid "user.repeatPassword"
+msgstr "Passwort wiederholen"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.preferredPublicName"
+msgstr "Bevorzugter Öffentlicher Name"
+
+msgid "user.preferredPublicName.description"
+msgstr "Wie möchten Sie angesprochen werden? Titel, weitere Vornamen und Namenszusätze können hier angegeben werden, wenn Sie es wünschen."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Sie ändern das Passwort Ihres Kontos, indem Sie nachfolgend Ihr aktuelles und Ihr neues Passwort eintragen."
+
+msgid "user.profile.editProfile"
+msgstr "Profil bearbeiten"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Ein Staat ist erforderlich."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Eine gültige E-Mail-Adresse ist erforderlich."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Die Angabe einer Institution ist erforderlich."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Die Angabe eines Vornamens ist erforderlich."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Sie haben in einer Sprache einen Nachnamen angegeben, aber keinen Vornamen. Bitte fügen Sie einen Vornamen in dieser Sprache hinzu."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Eine Postanschrift ist erforderlich."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Tragen Sie Ihr neues Passwort ein."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Das von Ihnen eingetragene aktuelle Passwort ist nicht korrekt."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "E-Mail-Benachrichtigung über freien Zugang"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Ein Passwort ist erforderlich."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Ihr neues Passwort ist mit ihrem alten Passwort identisch."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profilbild"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-Mail-Benachrichtigung: Neue Ausgabe erschienen"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Die angegebene URL ist ungültig. Bitte überprüfen Sie die URL nochmals und versuchen es erneut. (Hinweis: Fügen Sie http:// an den Anfang der URL an.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Die Angabe einer Benutzer/innen-Gruppe ist erforderlich."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Die Angabe eines Benutzer/innen-Namens ist erforderlich."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Sie müssen den Bedingungen der Erklärung zum Schutz persönlicher Daten zustimmen."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Wenn Sie Ihr aktuelles Passwort beibehalten wollen, lassen Sie die Passwortfelder frei."
+
+msgid "user.profile.newPassword"
+msgstr "Neues Passwort"
+
+msgid "user.profile.oldPassword"
+msgstr "Aktuelles Passwort"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.publicProfile"
+msgstr "Profil"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Neues Passwort wiederholen"
+
+msgid "user.login.registerNewAccount"
+msgstr "Noch kein/e Benutzer/in? Registrieren Sie sich."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Aus Sicherheitsgründen schickt das System den registrierten Benutzer/innen ein neues Passwort statt des aktuellen Passworts per E-Mail. <br /><br />Tragen Sie zur Wiederherstellung des Passwortes unten Ihre E-Mail-Adresse ein. Eine Bestätigung geht an diese E-Mail-Adresse."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Ja, ich stimme zu, dass meine Daten in Übereinstimmung mit der <a href=\"{$privacyUrl}\" target=\"_blank\">Erklärung zum Schutz persönlicher Daten</a> erfasst und gespeichert werden."
+
+msgid "user.register.form.emailConsent"
+msgstr "Ja, ich möchte über neue Veröffentlichungen und Ankündigungen benachrichtigt werden."
+
+msgid "user.register.form.emailExists"
+msgstr "Die ausgewählte E-Mail-Adresse wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Die Passwörter stimmen nicht überein."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Die E-Mail-Adressen stimmen nicht überein."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Der Nutzername darf nur Kleinbuchstaben, Ziffern, Unterstriche und Bindestriche enthalten. Er muss mit einem Kleinbuchstaben oder einer Ziffer beginnen und enden."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Mindestens eine Rolle muss ausgewählt werden."
+
+msgid "user.register.form.usernameExists"
+msgstr "Der ausgewählte Benutzer/innen-Name wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Das Passwort muss mindestens {$length} Zeichen enthalten."
+
+msgid "user.register.registerAs"
+msgstr "Sich bei {$contextName} registrieren als..."
+
+msgid "user.register"
+msgstr "Registrieren"
+
+msgid "user.register.usernameRestriction"
+msgstr "Der Benutzer/innen-Name darf nur Kleinbuchstaben, Zahlen, Bindestriche und Unterstriche enthalten."
+
+msgid "user.register.registrationCompleted"
+msgstr "Sie haben sich erfolgreich registriert. <a href=\"{$profileUrl}\">Klicken Sie hier</a>, um Ihr Profil zu vervollständigen."
+
+msgid "user.role.assistant"
+msgstr "Assistent/in"
+
+msgid "user.role.author"
+msgstr "Autor/in"
+
+msgid "user.role.author_s"
+msgstr "Autor/innen"
+
+msgid "user.role.authors"
+msgstr "Autor/innen"
+
+msgid "user.role.editor"
+msgstr "Redakteur/in"
+
+msgid "user.role.editors"
+msgstr "Redakteur/innen"
+
+msgid "user.role.reader"
+msgstr "Leser/in"
+
+msgid "user.role.readers"
+msgstr "Leser/innen"
+
+msgid "user.role.reviewer"
+msgstr "Gutachter/in"
+
+msgid "user.role.reviewers"
+msgstr "Gutachter/innen"
+
+msgid "user.role.siteAdmin"
+msgstr "Website-Administrator/in"
+
+msgid "user.role.siteAdmins"
+msgstr "Website-Administrator/innen"
+
+msgid "user.role.copyeditor"
+msgstr "Lektor/in"
+
+msgid "user.role.copyeditors"
+msgstr "Lektor/innen"
+
+msgid "user.role.proofreader"
+msgstr "Korrekturlektor/in"
+
+msgid "user.role.proofreaders"
+msgstr "Korrekturlektor/innen"
+
+msgid "user.role.layoutEditor"
+msgstr "Layouter/in"
+
+msgid "user.role.layoutEditors"
+msgstr "Layouter/innen"
+
+msgid "user.roles"
+msgstr "Funktion"
+
+msgid "user.sendPassword"
+msgstr "Bestätigung"
+
+msgid "user.sendPassword.description"
+msgstr "Senden Sie mir eine Bestätigungs-E-Mail mit meinem Benutzer/innen-Namen und meinem Passwort."
+
+msgid "user.signature"
+msgstr "Signatur"
+
+msgid "user.title"
+msgstr "Titel"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Persönliche Startseite"
+
+msgid "user.username"
+msgstr "Benutzer/innen-Name"
+
+msgid "user.workingLanguages"
+msgstr "Arbeitssprachen"
+
+msgid "user.orcid"
+msgstr "ORCID-iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "Die angegebene ORCID-iD ist ungültig. Bitte geben Sie den kompletten URI an (z.B. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identität"
+
+msgid "user.profile.contact"
+msgstr "Kontakt"
+
+msgid "user.profile.public"
+msgstr "Öffentlich"
+
+msgid "user.apiKey"
+msgstr "API-Key"
+
+msgid "user.apiKeyEnabled"
+msgstr "Externen Anwendungen mittels des API-Keys ermöglichen, auf diesen Account zuzugreifen"
+
+msgid "user.apiKey.generate"
+msgstr "Neuen API-Key erzeugen"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Das Erzeugen eines neuen API-Keys wird alle existierenden Keys für diese/n Nutzer/in ungültig machen."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Bevor Sie einen API-Key erzeugen, muss Ihr Website-Administrator/Ihre Website-Administratorin die Einstellung \"api_key_secret\" in der Konfigurationsdatei festlegen."
+
+msgid "user.privacyLink"
+msgstr "Ihre Daten werden in Übereinstimmung mit unserer <a href=\"{$privacyUrl}\" target=\"_blank\">Erklärung zum Schutz persönlicher Daten</a> gespeichert."

@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/DataObjectGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataObjectGridCellProvider
@@ -66,7 +66,9 @@ class DataObjectGridCellProvider extends GridCellProvider {
 		// For localized fields, $data will be an array; otherwise,
 		// it will be a value suitable for conversion to string.
 		// If it's localized, fetch the value in the current locale.
-		if (is_array($data)) $data=$data[$this->getLocale()];
+		if (is_array($data)) {
+			$data = $element->getLocalizedData($columnId);
+		}
 
 		return array('label' => $data);
 	}

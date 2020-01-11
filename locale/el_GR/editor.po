@@ -1,0 +1,414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "Αρχείο υποβολής"
+
+msgid "editor.review.notInitiated"
+msgstr "Η διαδικασία αξιολόγησης δεν έχει ξεκινήσει."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Μήνυμα προς τον Χρήστη"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Επιλέξτε αρχεία για αποστολή στο στάδιο αξιολόγησης."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Πρέπει να επιλέξετε τουλάχιστον ένα αρχείο προς ανάθεση στον Χρήστη."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Πρέπει να συμπεριλάβετε ένα προσωπικό μήνυμα."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Να μην αποσταλεί μήνυμα στον Ελεγκτή (Auditor)"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Πρέπει να επιλέξετε έναν Χρήστη για να γίνει η ανάθεση."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Μεταφόρτωση/Επιλογή αρχείων"
+
+msgid "editor.submission.selectFiles"
+msgstr "Επιλογή αρχείων"
+
+msgid "editor.submission.revisions"
+msgstr "Αναθεωρήσεις"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Επιλέξτε <em>+Προσθήκη Αξιολογητή</em> για να προσκαλέσετε Αναγνώστες να αξιολογήσουν τα αρχεία της υποβολής. Το εικονίδιο υποδεικνύει ότι έχει υποβληθεί μια αξιολόγηση, που αφού αναγνωσθεί επισημαίνεται ως αναγνωσθείσα. Με την παρέλευση της προθεσμίας αξιολόγησης, εμφανίζεται ένα κόκκινο εικονίδιο για την αποστολή υπενθύμισης στους Αξιολογητές."
+
+msgid "editor.submission.addReviewer"
+msgstr "Προσθήκη Αξιολογητή"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Εύρεση Αξιολογητή"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Εύρεση Χρήστη"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Προβολή αρχείων από όλα τα προσβάσιμα στάδια της ροής εργασιών."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Τρέχοντα αρχεία αξιολόγησης για τον γύρο {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Πίσω στην Αναζήτηση"
+
+msgid "editor.review.createReviewer"
+msgstr "Δημιουργία νέου Αξιολογητή"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Εγγραφή υπάρχοντα Χρήστη"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Αφαίρεση Αξιολογητή"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Τύπος αξιολόγησης"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Αποστολή ειδοποίησης στον/στους Συγγραφέα/εις: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Αποστολή ειδοποίησης στον/στους Επιμελητή/ες: {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Να μην αποσταλεί ειδοποίηση."
+
+msgid "editor.submissionReview.open"
+msgstr "Ανοικτή"
+
+msgid "editor.submissionReview.blind"
+msgstr "\"Τυφλή\""
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Διπλή \"Τυφλή\""
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Αρχεία προς αξιολόγηση"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Κλείσιμο μενού επιλογής αρχείων"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Επεξεργασία αξιολόγησης"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Ανώνυμος Αξιολογητής"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Μήνυμα προς αποστολή στον Αξιολογητή"
+
+msgid "editor.review.importantDates"
+msgstr "Σημαντικές ημερομηνίες"
+
+msgid "editor.review.uploadRevision"
+msgstr "Μεταφόρτωση αναθεωρημένου αρχείου"
+
+msgid "editor.review.newReviewRound"
+msgstr "Αίτημα για νέο γύρο αξιολόγησης"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Τα αναθεωρημένα κείμενα δεν θα υποβληθούν σε νέο γύρο αξιολόγησης."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Τα αναθεωρημένα κείμενα θα υποβληθούν σε νέο γύρο αξιολόγησης."
+
+msgid "editor.review.dateAccepted"
+msgstr "Ημερομηνία αποδοχής αξιολόγησης"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Οι αξιολογήσεις προστέθηκαν στο κείμενο του μηνύματος."
+
+msgid "editor.review.noReviews"
+msgstr "Δεν υπάρχουν αξιολογήσεις προς εισαγωγή"
+
+msgid "editor.review.reminder"
+msgstr "Υπενθύμιση αξιολόγησης"
+
+msgid "editor.review.thankReviewer"
+msgstr "Ευχαριστήστε τον Αξιολογητή"
+
+msgid "editor.review.reminderError"
+msgstr "Λάθος κατά την αποστολή υπενθύμισης αξιολόγησης"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Λάθος κατά την αποστολή ευχαριστήριου μηνύματος στον Αξιολογητή"
+
+msgid "editor.review.skipEmail"
+msgstr "Να μην αποσταλεί μήνυμα στον Αξιολογητή."
+
+msgid "editor.review.sendReminder"
+msgstr "Αποστολή υπενθύμισης"
+
+msgid "editor.review.readReview"
+msgstr "Ανάγνωση αξιολόγοησης"
+
+msgid "editor.review.readNewReview"
+msgstr "Ανάγνωση νέας αξιολόγησης"
+
+msgid "editor.review.responseDue"
+msgstr "Προθεσμία απάντησης: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Το αίτημα απεστάλη."
+
+msgid "editor.review.requestAccepted"
+msgstr "Το αίτημα έγινε αποδεκτό."
+
+msgid "editor.review.requestDeclined"
+msgstr "Το αίτημα απορρίφθηκε."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Ο Αξιολογητής απέρριψε το αίτημα αξιολόγησης."
+
+msgid "editor.review.revertDecision"
+msgstr "Αναίρεση απόφασης"
+
+msgid "editor.review.reviewDue"
+msgstr "Προθεσμία αξιολόγησης: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Προβλεπόμενη προθεσμία αξιολόγησης"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Η αξιολόγηση ολοκληρώθηκε"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Η αξιολόγηση επιβεβαιώθηκε"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Η αξιολόγηση υποβλήθηκε"
+
+msgid "editor.review.reviewerComments"
+msgstr "Σχόλια Αξιολογητή"
+
+msgid "editor.review.rateReviewer"
+msgstr "Βαθμολογία Αξιολογητή"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Βαθμολογήστε την ποιότητα της αξιολόγησης που υποβλήθηκε. Η βαθμολογία δεν κοινοποιείται στον Αξιολογητή."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Δεν υπάρχει βαθμολογία"
+
+msgid "editor.review.mustSelect"
+msgstr "Πρέπει να επιλέξετε έναν Αξιολογητή"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Παρουσιάστηκε λάθος κατά την καταχώρηση του Αξιολογητή. Παρακαλούμε προσπαθήστε ξανά."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Παρουσιάστηκε λάθος κατά τη διαγραφή του Αξιολογητή. Παρακαλούμε προσπαθήστε ξανά."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Ένταξη Χρήστη στη συγκεκριμένη ομάδα Αξιολογητών"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Θέλετε να επισημάνετε την αξιολόγηση ως μη ληφθείσα υπόψη; Το ιστορικό της αξιολόγησης θα διατηρηθεί."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Σήμανση ως μη ληφθείσα υπόψη"
+
+msgid "editor.review.readConfirmation"
+msgstr "Όταν διαβάσετε αυτή την αξιολόγηση, επιλέξτε \"Επιβεβαίωση\", προκειμένου να συνεχιστεί η διαδικασία αξιολόγησης. Εάν ο Αξιολογητής έχει υποβάλει την αξιολόγησή του αλλού, μπορείτε να ανεβάσετε το σχετικό αρχείο και να επιλέξετε \"Επιβεβαίωση\"."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Αρχεία επιμελημένων κειμένων"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Επιλογή Αξιολογητή"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Προβλεπόμενη προθεσμία ολοκλήρωσης εργασίας"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Προγραμματισμός εργασιών"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Ανάθεση ρόλου Αξιολογητή σε υπάρχοντα Χρήστη"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Δεν έχει ζητηθεί έλεγχος του αρχείου."
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Μήνυμα προς αποστολή στον Χρήστη"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Υπενθύμιση επιμέλειας κειμένου"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Πριν την αποστολή στο στάδιο παραγωγής, το επιμελημένο αρχείο πρέπει να γίνει αποδεκτό. Επιβεβαιώνετε την αποδοχή του αρχείου;"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Η μη αποδοχή του επιμελημένου αρχείου καθιστά αδύνατη την αποστολή του στο στάδιο παραγωγής. Επιβεβαιώνετε την ενέργεια;"
+
+msgid "editor.submission.addAuditor"
+msgstr "Ανάθεση σε Ελεγκτή (Auditor)"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Είναι δυνατή η προσθήκη αρχείων που μεταφορτώθηκαν σε οποιοδήποτε στάδιο της υποβολής στη λίστα των αρχείων προς επιμέλεια: επιλέξτε το κουτί ελέγχου \"Συμπερίληψη\" και στη συνέχεια \"Αναζήτηση\" για να εμφανιστούν όλα τα διαθέσιμα αρχεία. Πρόσθετα αρχεία που δεν έχουν μεταφορτωθεί σε κάποιο στάδιο μπορούν να συμπεριληφθούν επιλέγοντας τον σύνδεσμο \"Μεταφόρτωση αρχείου\"."
+
+msgid "editor.review"
+msgstr "Αξιολόγηση"
+
+msgid "editor.review.reviewDetails"
+msgstr "Λεπτομέρειες αξιολόγησης"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Δε μεταφορτώθηκαν αρχεία"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Δεν έχετε μεταφορτώσει αρχεία αξιολόγησης στην πλατφόρμα."
+
+msgid "editor.review.emailReviewer"
+msgstr "Αποστολή μηνύματος στον Αξιολογητή"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Αρχεία έτοιμα για την παραγωγή"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Πρόγραμματισμός δημοσίευσης"
+
+msgid "editor.submission.newRound"
+msgstr "Νέος γύρος αξιολόγησης"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Καταγραφή απόφασης Επιμελητή"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Καταγραφή σύστασης Επιμελητή"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Ενημέρωση Επιμελητών"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Να μην αποσταλεί μήνυμα στους Επιμελητές."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Εκκίνηση συζήτησης σχετικά με αυτή τη σύσταση."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Να μην πραγματοποιηθεί συζήτηση σχετικά με τη σύσταση."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Πρόκειται να ξεκινήσετε ένα νέο γύρο αξιολόγησης για αυτή την υποβολή. Τα αρχεία που δεν έχουν χρησιμοποιηθεί σε άλλους γύρους αξιολόγησης παρατίθενται παρακάτω."
+
+msgid "editor.submission.createNewRound"
+msgstr "Έναρξη νέου γύρου αξιολόγησης"
+
+msgid "editor.article.reviewForms"
+msgstr "Φόρμες αξιολόγησης"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Επιλέξτε φόρμα αξιολόγησης"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Προσοχή: Η αλλαγή της φόρμας αξιολόγησης θα επηρεάσει όλες τις απαντήσεις των Αξιολογητών που έχουν γίνει με την χρήση αυτής της φόρμας. Επιβεβαιώνετε την αλλαγή;"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Δεν έχουν επιλεγεί αρχεία"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Δεν έχετε επιλέξει αρχεία προς έλεγχο από τον Αξιολογητή."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Απαιτείται ένα θέμα συζήτησης."
+
+msgid "submission.queries.messageRequired"
+msgstr "Απαιτείται ένα μήνυμα συζήτησης."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Συνημμένα αρχεία"
+
+msgid "grid.action.editQuery"
+msgstr "Επεξεργασία συζήτησης"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Αρχεία από την παρακάτω λίστα μπορούν να συνπεριληφθούν στη συζήτηση."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Επιλεγμένος Αξιολογητής"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Αποδοχή δοκιμίου"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Αναίρεση αποδοχής δοκιμίου"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Αποδεχθείτε αυτή την έκδοση του δοκιμίου για να ολοκληρωθεί η διαδικασία επιμέλειας και το αρχείο να είναι έτοιμο για δημοσίευση."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Η αναίρεση αποδοχής δοκιμίου το επαναφέρει σε κατάσταση επιμέλειας και καθιστά αδύνατη την άμεση δημοσίευσή του."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Το δημόσιο αναγνωριστικό '{$publicIdentifier}' δεν πρέπει να είναι αριθμός."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Το πρότυπο {$pattern} δεν επιτρέπεται για το δημόσιο αναγνωριστικό."
+
+msgid "reviewer.list.count"
+msgstr "{$count} Αξιολογητές"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} από {$total} Αξιολογητές"
+
+msgid "reviewer.list.filterRating"
+msgstr "Έχει βαθμολογηθεί τουλάχιστον"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} ενεργοί"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Ανατεθειμένες ενεργές υποβολές"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Ολοκληρωμένες αξιολογήσεις"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Απόρριψη αιτημάτων αξιολόγησης"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Βαθμολογία αξιολογήσεων: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} ημέρες πριν"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Εχθές"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Ημέρες από την τελευταία ανάθεση αξιολόγησης"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Μέσος όρος ημερών για την ολοκλήρωση της αξιολόγησης"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Χωρίς καμία ανάθεση"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Η αξιολόγηση έχει ήδη ανατεθεί σε αυτόν τον Αξιολογητή."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Αυτός ο Αξιολογητής έχει εξαιρεθεί, γιατί κατέχει έναν ρόλο που του επιτρέπει την πρόσβαση στην ταυτότητα του Συγγραφέα και δεν διασφαλίζεται η \"τυφλή\" Αξιολόγηση. Θέλετε να συμπεριληφθεί στους Αξιολογητές;"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Ξεκλείδωμα"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Ενδιαφέροντα αξιολόγησης"
+
+msgid "reviewer.list.biography"
+msgstr "Βιογραφικό"

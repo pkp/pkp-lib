@@ -2,8 +2,8 @@
 /**
  * @file controllers/grid/files/SubmissionFilesGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFilesGridDataProvider
@@ -69,7 +69,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		return array(
 			'submissionId' => $submission->getId(),
 			'stageId' => $this->getStageId(),
-			'fileStage' => $this->getFileStage()
+			'fileStage' => $this->getFileStage(),
 		);
 	}
 
@@ -88,7 +88,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider {
 		// Retrieve all submission files for the given file stage.
 		$submission = $this->getSubmission();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage());
+		$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $this->getFileStage(), null);
 		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
 	}
 

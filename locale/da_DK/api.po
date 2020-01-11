@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
+"Language: \n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Din anmodning blev ikke accepteret. Det kan skyldes, at dit login er udløbet. Prøv at genindlæse siden og prøv igen."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Du kan kun se de ikke-publicerede indlæg, som du er blevet tildelt."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Du kan ikke slette en indsendelse, der ikke er indsat i denne kontekst."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Du har ikke tilladelse til at slette denne indsendelse."
+
+msgid "api.404.resourceNotFound"
+msgstr "Den ønskede ressource blev ikke fundet."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Din anmodning kunne ikke imødekommes, da de nødvendige oplysninger mangler."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Den ønskede årgang, nummer eller år er ikke gyldigt."
+
+msgid "api.submissions.unknownError"
+msgstr "En uventet fejl opstod. Genindlæs siden og prøv igen."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parameteren {$param} understøttes ikke."
+
+msgid "api.403.unauthorized"
+msgstr "Du har ikke tilstrækkelige rettigheder til at få adgang til den ønskede ressource."
+
+msgid "api.404.endpointNotFound"
+msgstr "Den angivne URL blev ikke genkendt."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Din anmodning var ikke gyldig. Datoen skal være i formatet ÅÅÅÅ-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Din anmodning var ikke gyldig. DateStart kan ikke være senere end dateEnd."
+
+msgid "api.stats.400.wrongTimeSegmentDaily"
+msgstr "Din anmodning var ikke gyldig. Tidssegmentet 'daily' kan kun bruges sammen med et datointerval (dateStart og datoEnd) inden for de sidste 90 dage."

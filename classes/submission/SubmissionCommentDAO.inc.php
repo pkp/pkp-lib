@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/SubmissionCommentDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionCommentDAO
@@ -82,35 +82,6 @@ class SubmissionCommentDAO extends DAO {
 			$this,
 			'_fromRow'
 		);
-	}
-
-	/**
-	 * Retrieve most recent SubmissionComment
-	 * @param $submissionId int
-	 * @param $commentType int
-	 * @return SubmissionComment
-	 */
-	function getMostRecentSubmissionComment($submissionId, $commentType = null, $assocId = null) {
-		$params = array((int) $submissionId);
-		if ($commentType) $params[] = (int) $commentType;
-		if ($assocId) $params[] = (int) $assocId;
-
-		$result = $this->retrieveLimit(
-			'SELECT a.* FROM submission_comments a WHERE submission_id = ?'
-			. ($commentType?' AND comment_type = ?':'')
-			. ($assocId?' AND assoc_id = ?':'')
-			. ' ORDER BY date_posted DESC',
-			$params,
-			1
-		);
-
-		$returner = null;
-		if (isset($result) && $result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		return $returner;
 	}
 
 	/**

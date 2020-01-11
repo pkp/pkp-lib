@@ -8,8 +8,8 @@
 /**
  * @file classes/core/Core.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Core
@@ -20,7 +20,7 @@
 
 
 define('PKP_LIB_PATH', 'lib' . DIRECTORY_SEPARATOR . 'pkp');
-define('USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'botAgents.txt');
+define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counterBots' .  DIRECTORY_SEPARATOR . 'generated' . DIRECTORY_SEPARATOR . 'COUNTER_Robots_list.txt');
 
 class Core {
 
@@ -97,7 +97,7 @@ class Core {
 	 * expressions to find bots inside user agent strings.
 	 * @return boolean
 	 */
-	static function isUserAgentBot($userAgent, $botRegexpsFile = USER_AGENTS_FILE) {
+	static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE) {
 		static $botRegexps;
 		Registry::set('currentUserAgentsFile', $botRegexpsFile);
 
@@ -109,6 +109,8 @@ class Core {
 		}
 
 		foreach ($botRegexps[$botRegexpsFile] as $regexp) {
+			// make the search case insensitive
+			$regexp .= 'i';
 			if (PKPString::regexp_match($regexp, $userAgent)) {
 				return true;
 			}
@@ -385,29 +387,25 @@ class Core {
 	 */
 	static function _botFileListCacheMiss($cache) {
 		$id = $cache->getCacheId();
-		$botRegexps = array_filter(file(Registry::get('currentUserAgentsFile')),
-			array('Core', '_filterBotRegexps'));
+		$filteredBotRegexps = array_filter(file(Registry::get('currentUserAgentsFile')),
+			function ($regexp) {
+				$regexp = trim($regexp);
+				return !empty($regexp) && $regexp[0] != '#';
+			}
+		);
+		$botRegexps = array_map(function ($regexp) {
+				$delimiter = '/';
+				$regexp = trim($regexp);
+				if(strpos($regexp, $delimiter) !== 0) {
+					// Make sure delimiters are in place.
+					$regexp = $delimiter . $regexp . $delimiter;
+				}
+				return $regexp;
+			},
+			$filteredBotRegexps
+		);
 		$cache->setEntireCache($botRegexps);
 		return $botRegexps;
-	}
-
-	/**
-	 * Filter the regular expressions to find bots, adding
-	 * delimiters if necessary.
-	 * @param $regexp string
-	 */
-	static function _filterBotRegexps(&$regexp) {
-		$delimiter = '/';
-		$regexp = trim($regexp);
-		if (!empty($regexp) && $regexp[0] != '#') {
-			if(strpos($regexp, $delimiter) !== 0) {
-				// Make sure delimiters are in place.
-				$regexp = $delimiter . $regexp . $delimiter;
-			}
-		} else {
-			return false;
-		}
-		return true;
 	}
 
 	/**

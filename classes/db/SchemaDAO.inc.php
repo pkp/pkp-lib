@@ -2,8 +2,8 @@
 /**
  * @file classes/db/SchemaDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SchemaDAO
@@ -39,9 +39,28 @@ abstract class SchemaDAO extends DAO {
 	abstract public function newDataObject();
 
 	/**
+	 * Retrieve an object by ID
+	 * @param $objectId int
+	 * @return DataObject
+	 */
+	public function getById($objectId) {
+		$result = $this->retrieve(
+			'SELECT * FROM ' . $this->tableName . ' WHERE ' . $this->primaryKeyColumn . ' = ?',
+			(int) $objectId
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Insert a new object
 	 *
-	 * @param $object DataObject The object to insert into the database
+	 * @param DataObject $object The object to insert into the database
 	 * @return int The new object's id
 	 */
 	public function insertObject($object) {
@@ -49,15 +68,10 @@ abstract class SchemaDAO extends DAO {
 		$schema = $schemaService->get($this->schemaName);
 		$sanitizedProps = $schemaService->sanitize($this->schemaName, $object->_data);
 
-		$primaryDbProps = [];
-		foreach ($this->primaryTableColumns as $propName => $columnName) {
-			if (isset($sanitizedProps[$propName])) {
-				$primaryDbProps[$columnName] = $sanitizedProps[$propName];
-			}
-		}
+		$primaryDbProps = $this->_getPrimaryDbProps($object);
 
 		if (empty($primaryDbProps)) {
-			fatalError('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
+			throw new Exception('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->tableName . ' table.');
 		}
 
 		$columnsList = join(', ', array_keys($primaryDbProps));
@@ -118,12 +132,7 @@ abstract class SchemaDAO extends DAO {
 		$schema = $schemaService->get($this->schemaName);
 		$sanitizedProps = $schemaService->sanitize($this->schemaName, $object->_data);
 
-		$primaryDbProps = [];
-		foreach ($this->primaryTableColumns as $propName => $columnName) {
-			if ($propName !== 'id' && isset($sanitizedProps[$propName])) {
-				$primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
-			}
-		}
+		$primaryDbProps = $this->_getPrimaryDbProps($object);
 
 		$set = join('=?,', array_keys($primaryDbProps)) . '=?';
 		$this->update(
@@ -144,7 +153,8 @@ abstract class SchemaDAO extends DAO {
 				foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
 					// Delete rows with a null value
 					if (is_null($localeValue)) {
-						$this->update("DELETE FROM $this->settingsTableName WHERE setting_name = ? AND locale = ?",[
+						$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name = ? AND locale = ?", [
+							$object->getId(),
 							$propName,
 							$localeKey,
 						]);
@@ -173,7 +183,9 @@ abstract class SchemaDAO extends DAO {
 			$deleteSettingNames = join(',', array_map(function($settingName) {
 				return "'$settingName'";
 			}, $deleteSettings));
-			$this->update("DELETE FROM $this->settingsTableName WHERE setting_name in ($deleteSettingNames)");
+			$this->update("DELETE FROM $this->settingsTableName WHERE $this->primaryKeyColumn = ? AND setting_name in ($deleteSettingNames)", [
+				$object->getId(),
+			]);
 		}
 	}
 
@@ -246,5 +258,44 @@ abstract class SchemaDAO extends DAO {
 		}
 
 		return $object;
+	}
+
+	/**
+	 * Get the ID of the last inserted context.
+	 * @return int
+	 */
+	public function getInsertId() {
+		return $this->_getInsertId($this->tableName, $this->primaryKeyColumn);
+	}
+
+	/**
+	 * A helper function to compile the key/value set for the primary table
+	 *
+	 * @param DataObject
+	 * @return array
+	 */
+	private function _getPrimaryDbProps($object) {
+		$schema = Services::get('schema')->get($this->schemaName);
+		$sanitizedProps = Services::get('schema')->sanitize($this->schemaName, $object->_data);
+
+		$primaryDbProps = [];
+		foreach ($this->primaryTableColumns as $propName => $columnName) {
+			if ($propName !== 'id' && array_key_exists($propName, $sanitizedProps)) {
+				$primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
+				// Convert empty string values for DATETIME columns into null values
+				// because an empty string can not be saved to a DATETIME column
+				if ($primaryDbProps[$columnName] === ''
+						&& isset($schema->properties->{$propName}->validation)
+						&& (
+							in_array('date_format:Y-m-d H:i:s', $schema->properties->{$propName}->validation)
+							|| in_array('date_format:Y-m-d', $schema->properties->{$propName}->validation)
+						)
+				) {
+					$primaryDbProps[$columnName] = null;
+				}
+			}
+		}
+
+		return $primaryDbProps;
 	}
 }

@@ -5,8 +5,8 @@
 /**
  * @file js/controllers/modal/ModalHandler.js
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ModalHandler
@@ -166,8 +166,10 @@
 		var $modal = $('<div class="pkp_modal_panel"></div>');
 
 		// Title bar
-		if (this.options.title !== 'undefined') {
+		if (typeof(this.options.title) !== 'undefined') {
 			$modal.append('<div class="header">' + this.options.title + '</div>');
+		} else {
+			$modal.append('<div class="header">' + '</div>');
 		}
 
 		// Close button

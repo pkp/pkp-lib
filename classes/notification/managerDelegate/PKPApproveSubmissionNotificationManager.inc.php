@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/managerDelegate/PKPApproveSubmissionNotificationManager.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPApproveSubmissionNotificationManager
@@ -25,13 +25,13 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 		parent::__construct($notificationType);
 	}
 
-	/** 
+	/**
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	function getNotificationUrl($request, $notification) {
-		$dispatcher = Application::getDispatcher();
+		$dispatcher = Application::get()->getDispatcher();
 		$context = $request->getContext();
-		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());	
+		return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
 	}
 
 	/**
@@ -56,8 +56,6 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submissionId);
 
-		$context = $request->getContext();
-		$contextId = $context->getId();
 		$notificationDao = DAORegistry::getDAO('NotificationDAO');
 
 		$notificationTypes = array(
@@ -74,7 +72,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 				$submissionId,
 				null,
 				$type,
-				$contextId
+				$submission->getData('contextId')
 			);
 			$notification = $notificationFactory->next();
 
@@ -84,7 +82,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 					$request,
 					null,
 					$type,
-					$contextId,
+					$submission->getData('contextId'),
 					ASSOC_TYPE_SUBMISSION,
 					$submissionId,
 					NOTIFICATION_LEVEL_NORMAL
@@ -101,7 +99,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 	 */
 	protected function multipleTypesUpdate() {
 		return true;
-	} 
+	}
 }
 
 

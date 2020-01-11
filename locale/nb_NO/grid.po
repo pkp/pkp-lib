@@ -1,0 +1,336 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "Ingen elementer"
+
+msgid "grid.action.sort"
+msgstr "Sorter"
+
+msgid "grid.action.addItem"
+msgstr "Legg til element"
+
+msgid "grid.action.delete"
+msgstr "Slett"
+
+msgid "grid.action.edit"
+msgstr "Rediger"
+
+msgid "grid.columns.actions"
+msgstr "Handlinger"
+
+msgid "grid.columns.institution"
+msgstr "Institusjon"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsorer"
+
+msgid "grid.contributor.title"
+msgstr "Bidragsyter"
+
+msgid "grid.settings"
+msgstr "Innstillinger"
+
+msgid "grid.action.remove"
+msgstr "Fjern"
+
+msgid "grid.action.approve"
+msgstr "Godkjenn"
+
+msgid "grid.action.decline"
+msgstr "Avslå"
+
+msgid "grid.action.moreInformation"
+msgstr "Mer informasjon"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Tilbakestill til standardinnstillinger"
+
+msgid "grid.action.addAuthor"
+msgstr "Legg til forfatter"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Filer"
+
+msgid "author.users.contributor.name"
+msgstr "Navn"
+
+msgid "author.users.contributor.email"
+msgstr "E-post"
+
+msgid "author.users.contributor.role"
+msgstr "Rolle"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Primærkontakt"
+
+msgid "grid.action.addUser"
+msgstr "Legg til bruker"
+
+msgid "grid.action.deleteFile"
+msgstr "Slett fil"
+
+msgid "grid.action.upgrade"
+msgstr "Oppdater"
+
+msgid "grid.action.downloadFile"
+msgstr "Last ned denne filen"
+
+msgid "grid.action.downloadAll"
+msgstr "Last ned filene som et arkiv"
+
+msgid "grid.action.email"
+msgstr "Send e-post"
+
+msgid "grid.action.addFile"
+msgstr "Legg til en fil"
+
+msgid "grid.action.editFile"
+msgstr "Endre en fil"
+
+msgid "grid.action.uploadFile"
+msgstr "Last opp en fil"
+
+msgid "grid.user.selectUser"
+msgstr "Velg bruker"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Vennligst velg en bruker"
+
+msgid "grid.action.editAuthor"
+msgstr "Endre forfatter"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Slett forfatter"
+
+msgid "grid.action.addAuditor"
+msgstr "Legg til en forfatter"
+
+msgid "grid.action.moveItem"
+msgstr "Flytt elementet"
+
+msgid "grid.action.accept"
+msgstr "Aksepter denne innleveringen"
+
+msgid "grid.action.requestAccount"
+msgstr "Legg til en deltaker"
+
+msgid "grid.action.expand"
+msgstr "Utvid"
+
+msgid "grid.action.addUserGroup"
+msgstr "Legg til en ny brukergruppe"
+
+msgid "grid.action.editUserGroup"
+msgstr "Endre denne brukergruppen"
+
+msgid "grid.action.addSponsor"
+msgstr "Legg til sponsor"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Slett sponsor"
+
+msgid "grid.action.editSponsor"
+msgstr "Endre sponsor"
+
+msgid "grid.action.addCategory"
+msgstr "Legg til kategori"
+
+msgid "grid.action.editCategory"
+msgstr "Endre kategori"
+
+msgid "grid.action.deleteCategory"
+msgstr "Slett kategori"
+
+msgid "grid.action.addContributor"
+msgstr "Legg til bidragsyter"
+
+msgid "grid.action.editContributor"
+msgstr "Endre bidragsyter"
+
+msgid "grid.action.deleteContributor"
+msgstr "Slett bidragsyter"
+
+msgid "grid.noFiles"
+msgstr "Ingen filer"
+
+msgid "grid.user.add"
+msgstr "Legg til bruker"
+
+msgid "grid.user.edit"
+msgstr "Endre bruker"
+
+msgid "grid.user.email"
+msgstr "E-post"
+
+msgid "grid.user.generatePassword"
+msgstr "Generer passord"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Generer et tilfeldig passord for denne brukeren."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Endre passord"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Bruker må endre passord neste gang det logges inn."
+
+msgid "grid.user.userDetails"
+msgstr "Brukerdetaljer"
+
+msgid "grid.user.userRoles"
+msgstr "Brukerroller"
+
+msgid "grid.user.userNoRoles"
+msgstr "Denne brukeren har ingen roller."
+
+msgid "grid.user.step1"
+msgstr "Steg #1: Fyll inn brukerdetaljer"
+
+msgid "grid.user.step2"
+msgstr "Steg #2: Legg til brukerroller til {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Legg til roller"
+
+msgid "grid.plugin.allCategories"
+msgstr "Alle kategorier"
+
+msgid "grid.action.disable"
+msgstr "Deaktivér"
+
+msgid "grid.action.details"
+msgstr "Vis dette elementet"
+
+msgid "grid.action.advancedSearch"
+msgstr "Avansert søk"
+
+msgid "grid.action.history"
+msgstr "Vis historie"
+
+msgid "grid.roles.currentRoles"
+msgstr "Nåværende roller"
+
+msgid "grid.roles.add"
+msgstr "Legg til rolle"
+
+msgid "grid.user.currentUsers"
+msgstr "Nåværende brukere"
+
+msgid "grid.user.allRoles"
+msgstr "Alle roller"
+
+msgid "grid.user.enable"
+msgstr "Aktivér"
+
+msgid "grid.user.disable"
+msgstr "Deaktivér"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Nåværende liste"
+
+msgid "grid.action.order"
+msgstr "Bestill"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Avbestill bestilling"
+
+msgid "grid.action.viewMetadata"
+msgstr "Vis metadata for denne innleveringen"
+
+msgid "grid.action.expandAll"
+msgstr "Utvid alle"
+
+msgid "grid.action.notify"
+msgstr "Varsle denne brukeren"
+
+msgid "grid.task.status.completed"
+msgstr "Denne oppgaven er gjennomført"
+
+msgid "grid.genres.title"
+msgstr "Sjangre"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Sjekkliste for innlevering"
+
+msgid "grid.user.mustProvideName"
+msgstr "Vennligst oppgi minst et etternavn for brukeren."
+
+msgid "grid.user.notifyUser"
+msgstr "Varsle bruker"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Send velkomstepost til bruker."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Krev at brukeren endrer passordet neste gang de logger inn."
+
+msgid "grid.user.moreDetails"
+msgstr "Flere brukerdetaljer"
+
+msgid "grid.user.lessDetails"
+msgstr "Mindre brukerdetaljer"
+
+msgid "grid.plugin.disable"
+msgstr "Er du sikker på at vil deaktivere denne programutvidelsen?"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Legg til ny e-postmal"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Rediger denne e-postmalen"
+
+msgid "grid.action.resetEmail"
+msgstr "Tilbakestill den e-postmalen til standard"
+
+msgid "grid.action.enrolExisting"
+msgstr "Legg til en eksisterende bruker som fagfellevurderer"
+
+msgid "grid.action.selectCreate"
+msgstr "Lag en ny fagfellevurderer"
+
+msgid "grid.action.sendReminder"
+msgstr "Send en oppgavepåminnelse til denne brukeren"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Se retningslinjene for fagfellevurdering"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Legg til oppslagstype"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Legg til oppslag"
+
+msgid "grid.action.mergeUser"
+msgstr "Slå sammen brukere"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Denne fagfellevurderingen er ferdig. Klikk på ikonet til venstre for å lese den."
+
+msgid "grid.columns.locale"
+msgstr "Språk"
+
+msgid "grid.action.thankReviewer"
+msgstr "Send en takk til denne fagfellevurdereren."
+
+msgid "grid.user.enroll"
+msgstr "Innruller bruker"
+
+msgid "grid.user.error"
+msgstr "Det oppstod en feil under administrering av denne brukeren. Vennligst prøv på nytt."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Du har ikke tilstrekkelige rettigheter til å kunne endre denne brukeren"

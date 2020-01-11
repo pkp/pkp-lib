@@ -3,8 +3,8 @@
 /**
  * @file classes/context/Context.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Context
@@ -20,7 +20,7 @@
  define('METADATA_REQUEST', 'request');
  define('METADATA_REQUIRE', 'require');
 
-class Context extends DataObject {
+abstract class Context extends DataObject {
 
 	/**
 	 * Get the localized name of the context
@@ -101,7 +101,7 @@ class Context extends DataObject {
 	 * @return string
 	 */
 	function getPath() {
-		return $this->getData('path');
+		return $this->getData('urlPath');
 	}
 
 	/**
@@ -109,7 +109,7 @@ class Context extends DataObject {
 	 * @param $path string
 	 */
 	function setPath($path) {
-		$this->setData('path', $path);
+		$this->setData('urlPath', $path);
 	}
 
 	/**
@@ -182,6 +182,18 @@ class Context extends DataObject {
 	 */
 	function getAcronym($locale) {
 		return $this->getData('acronym', $locale);
+	}
+
+	/**
+	 * Get localized favicon
+	 * @return string
+	 */
+	function getLocalizedFavicon() {
+		$faviconArray = $this->getData('favicon');
+		foreach (array(AppLocale::getLocale(), AppLocale::getPrimaryLocale()) as $locale) {
+			if (isset($faviconArray[$locale])) return $faviconArray[$locale];
+		}
+		return null;
 	}
 
 	/**
@@ -288,9 +300,7 @@ class Context extends DataObject {
 	 * Get the association type for this context.
 	 * @return int
 	 */
-	function getAssocType() {
-		assert(false); // Must be overridden by subclasses
-	}
+	public abstract function getAssocType();
 
 	/**
 	 * @deprecated Most settings should be available from self::getData(). In
@@ -341,7 +351,7 @@ class Context extends DataObject {
 	function getMetricTypes($withDisplayNames = false) {
 		// Retrieve report plugins enabled for this journal.
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, $this->getId());
-		if (!is_array($reportPlugins)) return array();
+		if (empty($reportPlugins)) return array();
 
 		// Run through all report plugins and retrieve all supported metrics.
 		$metricTypes = array();

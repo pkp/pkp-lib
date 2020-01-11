@@ -3,8 +3,8 @@
 /**
  * @file tests/data/PKPInstallationTest.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPInstallationTest
@@ -14,6 +14,9 @@
  */
 
 import('lib.pkp.tests.WebTestCase');
+
+use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\WebDriverBy;
 
 abstract class PKPInstallationTest extends WebTestCase {
 	/**
@@ -28,7 +31,7 @@ abstract class PKPInstallationTest extends WebTestCase {
 	 */
 	function testInstallation() {
 		$this->open(self::$baseUrl);
-		$this->assertTextPresent($this->_getInstallerText());
+		$this->waitForElementPresent('//h1[contains(text(),' . $this->quoteXpath($this->_getInstallerText()) . ')]');
 
 		// Administrator
 		$this->waitForElementPresent('css=[id^=adminUsername-]');
@@ -46,18 +49,18 @@ abstract class PKPInstallationTest extends WebTestCase {
 		$this->click('id=createDatabase');
 
 		// Locale
+		self::$driver->executeScript('window.scrollTo(0,0);'); // Avoid PPS click-unclickable problem
 		$this->click('id=additionalLocales-en_US');
 		$this->click('id=additionalLocales-fr_CA');
 		$this->select('id=connectionCharset', 'label=Unicode (UTF-8)');
-		$this->select('id=databaseCharset', 'label=Unicode (UTF-8)');
 
 		// Files
 		$this->type('css=[id^=filesDir-]', getenv('FILESDIR'));
 
 		// Execute
-		$this->clickAndWait('css=[id^=submitFormButton-]');
-		$this->waitForTextPresent('has completed successfully.');
-		$this->waitJQuery();
+		$submitButton = $this->click('css=[id^=submitFormButton-]');
+		$this->waitForElementPresent('//p[contains(text(),"has completed successfully.")]');
+		self::$driver->wait()->until(WebDriverExpectedCondition::stalenessOf($submitButton));
 	}
 }
 

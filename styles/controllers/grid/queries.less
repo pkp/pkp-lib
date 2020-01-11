@@ -1,8 +1,8 @@
 /**
  * @file styles/controllers/grid/queries.less
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_controllers_query
@@ -27,23 +27,32 @@
         margin-bottom: @double;
     }
 
-    .add_note {
-        text-align: right;
+    .queryEditButtons {
 
-        a {
-            &:extend(.pkp_button all);
+        > div {
+            display: inline-block;
         }
 
         .pkp_spinner {
             opacity: 0;
-            margin-right: 1em;
         }
 
         &.is_loading {
-
             .pkp_spinner {
                 opacity: 1;
             }
+        }
+    }
+
+    .leave_query {
+        a {
+            &:extend(.pkp_button_link_offset all);
+        }
+    }
+
+    .add_note {
+        a {
+            &:extend(.pkp_button all);
         }
     }
 

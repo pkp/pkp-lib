@@ -3,8 +3,8 @@
 /**
  * @file classes/install/Installer.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Installer
@@ -29,7 +29,7 @@ import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionDAO');
 import('lib.pkp.classes.config.ConfigParser');
 
-require_once './lib/pkp/lib/adodb/adodb-xmlschema.inc.php';
+require_once './lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php';
 
 class Installer {
 
@@ -233,7 +233,6 @@ class Installer {
 		$installTree = $xmlParser->parse($installPath);
 		if (!$installTree) {
 			// Error reading installation file
-			$xmlParser->destroy();
 			$this->setError(INSTALLER_ERROR_GENERAL, 'installer.installFileError');
 			return false;
 		}
@@ -247,7 +246,6 @@ class Installer {
 
 		// Parse descriptor
 		$this->parseInstallNodes($installTree);
-		$xmlParser->destroy();
 
 		$result = $this->getErrorType() == 0;
 
@@ -364,10 +362,8 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('schema: %s', $action['file']));
 
-				require_once './lib/pkp/lib/adodb/adodb-xmlschema.inc.php';
 				$schemaXMLParser = new adoSchema($this->dbconn);
 				$dict = $schemaXMLParser->dict;
-				$dict->SetCharSet($this->dbconn->charSet);
 				$sql = $schemaXMLParser->parseSchema($fileName);
 				$schemaXMLParser->destroy();
 
@@ -639,10 +635,7 @@ class Installer {
 		$tree = $xmlParser->parse($filterConfigFile);
 
 		// Validate the filter configuration.
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		// Get the filter helper.
 		if ($filterHelper === false) {
@@ -664,8 +657,6 @@ class Installer {
 			}
 		}
 
-		// Get rid of the parser.
-		$xmlParser->destroy();
 		return true;
 	}
 
@@ -723,7 +714,7 @@ class Installer {
 		foreach ($categories as $category) {
 			PluginRegistry::loadCategory($category);
 			$plugins = PluginRegistry::getPlugins($category);
-			if (is_array($plugins)) {
+			if (!empty($plugins)) {
 				foreach ($plugins as $plugin) {
 					$versionFile = $plugin->getPluginPath() . '/version.xml';
 
@@ -831,18 +822,18 @@ class Installer {
 
 		// Sanitize plugin names for use in sql IN().
 		$sanitizedPluginNames = array_map(function($name) {
-			return '"' . preg_replace("/[^A-Za-z0-9]/", '', $name) . '"';
+			return "'" . preg_replace("/[^A-Za-z0-9]/", '', $name) . "'";
 		}, array_keys($plugins));
 
 		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
 		$result = $pluginSettingsDao->retrieve(
-			'SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name="context";'
+			"SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name='context';"
 		);
 
 		$sidebarSettings = [];
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
-			if ($row['setting_value'] != BLOCK_CONTEXT_SIDEBAR) {
+			if ($row['setting_value'] != 1) { // BLOCK_CONTEXT_SIDEBAR
 				$result->MoveNext();
 			}
 			$seq = $pluginSettingsDao->getSetting($row['context_id'], $row['plugin_name'], 'seq');
@@ -930,7 +921,7 @@ class Installer {
 						$value = METADATA_REQUIRE;
 					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledSubmission' && $row['setting_value'] && $value !== METADATA_REQUIRE) {
 						$value = METADATA_REQUEST;
-					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledWorkflow' && $row['setting_value'] && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRED) {
+					} elseif ($row['setting_name'] === $metadataSetting . 'EnabledWorkflow' && $row['setting_value'] && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
 						$value = METADATA_ENABLE;
 					}
 					$result->MoveNext();
@@ -970,6 +961,39 @@ class Installer {
 						$metadataSetting . 'Required',
 					]
 				);
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * Set the notification settings for journal managers and subeditors so
+	 * that they are opted out of the monthly stats email.
+	 */
+	public function setStatsEmailSettings() {
+		import('lib.pkp.classes.notification.PKPNotification'); // NOTIFICATION_TYPE_EDITORIAL_REPORT
+		$roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+
+		for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next(); ) {
+			foreach ($roleIds as $roleId) {
+				for ($userGroups = DAORegistry::getDAO('UserGroupDAO')->getByRoleId($context->getId(), $roleId); $userGroup = $userGroups->next(); ) {
+					for ($users = DAORegistry::getDAO('UserGroupDAO')->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next(); ) {
+						DAORegistry::getDAO('NotificationSubscriptionSettingsDAO')->update(
+							'INSERT INTO notification_subscription_settings
+								(setting_name, setting_value, user_id, context, setting_type)
+								VALUES
+								(?, ?, ?, ?, ?)',
+							array(
+								'blocked_emailed_notification',
+								NOTIFICATION_TYPE_EDITORIAL_REPORT,
+								$user->getId(),
+								$context->getId(),
+								'int'
+							)
+						);
+					}
+				}
 			}
 		}
 

@@ -1,0 +1,909 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
+"Language: \n"
+
+msgid "submission.agencies"
+msgstr "ΦορείςΓραφεία"
+
+msgid "submission.abstractViews"
+msgstr "Προβολές Περίληψης"
+
+msgid "submission.accepted"
+msgstr "Δεκτό"
+
+msgid "submission.acknowledge"
+msgstr "Ελήφθη"
+
+msgid "submission.addSuppFile"
+msgstr "Πρόσθεση Συμπληρωματικού Αρχείου"
+
+msgid "submission.ask"
+msgstr "Ερώτημα"
+
+msgid "submission.attachedFile"
+msgstr "Επισυναπτόμενο Αρχείο"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Πίσω στην επιμέλεια υποβολής"
+
+msgid "submission.changeComments"
+msgstr "Αλλαγή σε"
+
+msgid "submission.citations"
+msgstr "Αναφορές"
+
+msgid "submission.comments.addComment"
+msgstr " Προσθήκη σχολίου"
+
+msgid "submission.comments.comments"
+msgstr "Σχόλια"
+
+msgid "submission.comments.confirmDelete"
+msgstr " Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε το συγκεκριμένο σχόλιο;"
+
+msgid "submission.comments.corrections"
+msgstr "Διορθώσεις"
+
+msgid "submission.comments.editComment"
+msgstr "Διαμόρφωση σχολίου"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Εισαγωγή αξιολογήσεων"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Αξιολογητής  {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Κανένα σχόλιο"
+
+msgid "submission.comments.noReviews"
+msgstr "Καμία αξιολογήσεις"
+
+msgid "submission.comments.review"
+msgstr "Αξιολόγηση"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Αποστολή απόφασης επιμελητών στους αξιολογητές"
+
+msgid "submission.comments.subject"
+msgstr "Θέμα"
+
+msgid "submission.complete"
+msgstr "Ολοκλήρωση"
+
+msgid "submission.done"
+msgstr "Τέλος"
+
+msgid "submission.dueDate"
+msgstr "Προσθεσμία (Due Date)"
+
+msgid "submission.due"
+msgstr "Στον/ην"
+
+msgid "submission.editing"
+msgstr "Επιμέλεια (Διαμόρφωση)"
+
+msgid "submission.editMetadata"
+msgstr "Διόρθωση μεταδεδομένων"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Επιστροφή στο ημερολόγιο των email"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε το ημερολόγιο των email για τη συγκεκριμένη υποβολή;"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr " Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη καταχώριση από το ημερολόγιο των email;"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Διαγραφή καταχώρισης ημερολογίους"
+
+msgid "submission.emailLog"
+msgstr "Email Log"
+
+msgid "submission.event.participantAdded"
+msgstr "Ο/Η \"{$name}\" ({$username}) έχει προστεθεί ως {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "Ο/Η \"{$name}\" ({$username}) έχει αφαιρεθεί από {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Επιστροφή στο ημερολόγιο συμβάντων "
+
+msgid "submission.event.confirmClearLog"
+msgstr " Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε το ημερολόγιο (log) συμβάντων για τη συγκεκριμένη υποβολή;"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr " Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη καταχώριση από το ημερολόγιο (Log) συμβάντων;"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Διαγραφή καταχώρισης ημερολογίου"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Ενημερώθηκαν τα μεταδεδομένα υποβολής"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Υποβολή ενημερωμένου αρχείου "
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Αποδοχή ανάθεσης αξιολόγησης από διακομιστή μεσολάβησης"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Αποδοχή ανάθεσης αξιολόγησης"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Απόρριψη ανάθεσης αξιολόγησης από διακομιστή μεσολάβησης"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Αναθεώρηση Προσθεσμίας Αξιολόγησης"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr " Ορισμός Αξιολογητή "
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Υποβολή βαθμολογία αξιολόγησης "
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr " Απόσυρση Αξιολογητή "
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Το αρχείο αξιολόγησης ενημερώθηκε"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Ενεργοποίηση ανάθεσης αξιολόγησης"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Αρχείο εισηγήσεων αξιολόγησης"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Εκ νέου ενεργοποίηση ανάθεσης αξιολόγησης"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Εκ νέου υποβολή αξιολόγησης"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Το αρχείο αναθεωρήσεων του αξιολογητή ενημερώθηκε"
+
+msgid "submission.files"
+msgstr "Αρχεία"
+
+msgid "submission.galley"
+msgstr "Τυπογραφικό Δοκίμιο"
+
+msgid "submission.history.clearLog"
+msgstr "Καθαρισμός ημερολογίου"
+
+msgid "submission.history"
+msgstr "Ιστορικό"
+
+msgid "submission.history.noLogEntries"
+msgstr "Δεν καταχωρίσεις στο ημερολόγιο."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Πρόσφατες καταχωρίσεις"
+
+msgid "submission.history.submissionEmailLog"
+msgstr " Ημερολόγιο e-mail"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Ημερολόγιο (Log) συμβάντων"
+
+msgid "submission.history.submissionNotes"
+msgstr "Σημειώσεις υποβολής"
+
+msgid "submission.history.viewLog"
+msgstr "Προβολή ημερολογίου"
+
+msgid "submission.initiated"
+msgstr "Ενεργοποιήθηκε)"
+
+msgid "submission.lastModified"
+msgstr "Τελευταία τροποποίηση"
+
+msgid "submission.layout.addGalley"
+msgstr "Προσθήκη Τυπογραφικού Δοκιμίου"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά αυτό το Τυπογραφικό Δοκίμιο;"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr " Είστε βέβαιοι ότι επιθυμείτε να καταργήσετε τη συγκεκριμένη εικόνα από το  Τυπογραφικό Δοκίμιο;"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr " Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά το συγκεκριμένο συμπληρωματικό αρχείο;"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Διαγραφή του συγκεκριμένου StyleSheet."
+
+msgid "submission.layout.editGalley"
+msgstr "Διαμόρφωση Τυπογραφικού Δοκιμίου"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Μορφή Τυπογραφικού Δοκιμίου"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Αρχεία Τυπογραφικού Δοκιμίου σε μορφή HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "Εικόνες"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Η ετικέτα του Τυπογραφικού Δοκιμίου χρησιμοποιείται για αναγνώριση της μορφής αρχείου του τεκμηρίου (π.χ.,HTML, PDF, κτλ.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Ετικέτα"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Απαιτείται ετικέτα Τυπογραφικού Δοκιμίου ."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Απαιτείται ο ορισμός μιας γλώσσας για το Τυπογραφικό Δοκίμιο."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Απαιτείται μια τοπική ρύθμιση (locale) για το Τυπογραφικό Δοκίμιο."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Καμία εικόνα δεν έχει προστεθεί σε αυτό το  Τυπογραφικό Δοκίμιο."
+
+msgid "submission.layout.galleys"
+msgstr "Τυπογραφικά Δοκίμια"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Αρχείο StyleSheet"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Στυλ"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Δημιουργία αρχικού Τυπογραφικού Δοκιμίου "
+
+msgid "submission.layout.layoutFile"
+msgstr "Αρχείο Σελιδοποίησης"
+
+msgid "submission.layout"
+msgstr "Σελιδοποιηση"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Έκδοση Σελιδοποίησης"
+
+msgid "submission.layout.newGalley"
+msgstr "Δημιουργία νέου Τυπογραφικού Δοκιμίου"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Φόρτωση νέου συμπληρωματικού αρχείου"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Δεν έχει γίνει προσθήκη Stylesheet στο συγκεκριμένο Τυπογραφικό Δοκίμιο."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Αξιολόγηση συμπληρωματικού αρχείου "
+
+msgid "submission.layout.viewingGalley"
+msgstr "Προβολή Υποβληθέντων Τυπογραφικών Δοκιμίων"
+
+msgid "submission.layout.viewProof"
+msgstr "Προβολή επιμελημένου τυπογραφικού δοκιμίου"
+
+msgid "submission.metadata"
+msgstr "Υποβολή Μεταδεδομένων"
+
+msgid "submission.noReviewAssignments"
+msgstr "Καμία Ανάθεση Αξιολόγησης"
+
+msgid "submission.notes.addNewNote"
+msgstr "Προσθέστε Νέα Σημείωση "
+
+msgid "submission.notes.attachedFile"
+msgstr "Συνημμένο Αρχείο"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Πίσω στις Σημειώσεις Υποβολών"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Σημειωσεις"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Καθαρισμός όλων των  σημειώσεων"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Αναδίπλωση Σημειώσεων (Collapse Notes)"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Θέλετε να  απομακρύνετε όλες τις σημειώσεις;"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Θέλετε να  απομακρύνετε αυτή τη σημείωση;"
+
+msgid "submission.notes.createNewNote"
+msgstr "Δημιουργία Νέας Σημείωσης"
+
+msgid "submission.notes.deleteNote"
+msgstr "Διαγραφή  Σημείωσης"
+
+msgid "submission.notes.editNote"
+msgstr "Επεξεργασία  Σημείωσης"
+
+msgid "submission.notes.expandNotes"
+msgstr "Επεξήγηση Σημειώσεων  "
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Καμία σημείωση  υποβολής"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Απομάκρυνση   Ανεβασμένου Αρχείου"
+
+msgid "submission.notes"
+msgstr "Σημειώσεις Υποβολής"
+
+msgid "submission.notes.updateNote"
+msgstr "Ενημέρωση  Σημείωσης"
+
+msgid "submission.notes.viewNotes"
+msgstr "Προβολή Σημειώσεων"
+
+msgid "submission.originalFile"
+msgstr "Πρωτότυπο αρχείο"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Επιμέλεια"
+
+msgid "submission.page.history"
+msgstr "#{$id} Ιστορικό"
+
+msgid "submission.page.review"
+msgstr "#{$id} Αξιολόγηση"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Σύνοψη"
+
+msgid "submission.peerReview"
+msgstr "Ομότιμη Κρίση"
+
+msgid "submission.recommendation"
+msgstr "Εισήγηση Αξιολογητή: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Απορριπτέο"
+
+msgid "submission.request"
+msgstr "Αίτημα"
+
+msgid "submission.response"
+msgstr "Απόκριση"
+
+msgid "submission.restrictions"
+msgstr "Περιορισμοί"
+
+msgid "submission.reviewMetadata"
+msgstr "Επισκόπηση μεταδεδομένων"
+
+msgid "submission.review"
+msgstr "Αξιολόγηση"
+
+msgid "submission.reviewVersion"
+msgstr "Αξιολόγηση Έκδοσης"
+
+msgid "submissions.active"
+msgstr "Ενεργά"
+
+msgid "submissions.archived"
+msgstr "Αρχειοθετημένα"
+
+msgid "submission.saveMetadata"
+msgstr "Αποθήκευση μεταδεδομένων"
+
+msgid "submissions.completed"
+msgstr "Ολοκληρώθηκε"
+
+msgid "submissions.declined"
+msgstr "Μη αποδεκτή"
+
+msgid "submissions.incomplete"
+msgstr "Ελλειπής"
+
+msgid "submissions.noSubmissions"
+msgstr "Καμία Υποβολή"
+
+msgid "submissions.queuedEditing"
+msgstr "Σε αναμονή για επιμέλεια"
+
+msgid "submissions.queued"
+msgstr "Σε αναμονή"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Σε αναμονή για ανάθεση"
+
+msgid "submissions.ruling"
+msgstr "Δικαίωμα Επιμελητή (Ruling)"
+
+msgid "submissions.submit"
+msgstr "Υποβολή"
+
+msgid "submissions.submitted"
+msgstr "Υποβληθέντα"
+
+msgid "submission.start"
+msgstr "Έναρξη"
+
+msgid "submission.submissionHistory"
+msgstr "Υποβολή Ιστορικού"
+
+msgid "submission.submissionManuscript"
+msgstr "Υποβολή χειρογράφου"
+
+msgid "submission.submissionReview"
+msgstr "Υποβολή Αξιολόγησης"
+
+msgid "submission.submitter"
+msgstr "Υποβολέας"
+
+msgid "submission.summary"
+msgstr "Σύνοψη"
+
+msgid "submission.supplementaryFiles"
+msgstr "Συμπληρωματικά Αρχεία"
+
+msgid "submission.titleAndAbstract"
+msgstr "Τίτλος και Περίληψη"
+
+msgid "submission.underway"
+msgstr "Σε εξέλιξη"
+
+msgid "submission.uploadFileTo"
+msgstr "Ανεβάστε στο αρχείο στο"
+
+msgid "submission.viewMetadata"
+msgstr "Προβολή μεταδεδομένων "
+
+msgid "submission.views"
+msgstr "Προβολές"
+
+msgid "author.submit.submissionCitations"
+msgstr "Παροχή μια λίστας αναφορών για εργασίες που αναφέρονται (cited) σε αυτή την υποβολή."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Email Εγγραφής στο CrossRef"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο email εγγραφής στο CrossRef. Μπορείτε να εγγραφείτε δωρεάν στον ιστότοπο του CrossRef."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API κλειδί"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "Παρακαλούμε εισάγετε το ISBNdb API κλειδί σας. Αν δεν έχετε ένα τέτοιο κλειδί μπορείτε να αποκτήσετε ένα δωρεάν από τον ιστότοπο του ISBNdb project."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Email Εγγραφής στο PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Παρακαλούμε εισάγετε  ένα έγκυρο email εγγραφής στο PubMed αν έχετε."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API κλειδί"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Παρακαλούμε εισάγετε  ένα έγκυρο WorldCat API κλειδί αν έχετε."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Module Αναφορών/Παραπομπών"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Παρακαλούμε επιλέξτε ένα από τα διαθέσιμα module αναφορών"
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Μην το χρησιμοποείτε εξ'ορισμού (θα είναι ακόμα διαθέσιμο στον επιμελητή)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "Εσωτερικό σφάλμα. Μια μη έγκυρη δηλώθηκε στην ρύθμιση \"optional filter\". Παρακαλούμε αναφέρατε το πρόβλημα."
+
+msgid "metadata.property.displayName.author"
+msgstr "Συγγραφείς"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "Για καλύτερα αποτελέσμα, οι συγγραφείς θα πρέπει να εισάγονται με την εξής μορφή: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Επιμελητές"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "Για καλύτερα αποτελέσμα, οι επιμελητές θα πρέπει να εισάγονται με την εξής μορφή: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Τίτλος Άρθρου"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τίτλο άρθρου"
+
+msgid "metadata.property.displayName.source"
+msgstr "Τίτλος Περιοδικού/Βιβλίου"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τίτλο περιοδικού/βιβλίου"
+
+msgid "metadata.property.displayName.date"
+msgstr "Ημερομηνία Δημοσίευσης"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία δημοσίευσης (μορφή:  YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Ημερομηνία Πρόσβασης"
+
+msgid "metadata.property.displayName.issue"
+msgstr "Τεύχος"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο τεύχος"
+
+msgid "metadata.property.displayName.volume"
+msgstr "Τόμος"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τόμο"
+
+msgid "metadata.property.displayName.season"
+msgstr "Περίοδος"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο αναγνωριστικό περιόδου"
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Τίτλος κεφαλαίου"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τίτλος κεφαλαίου"
+
+msgid "metadata.property.displayName.edition"
+msgstr "Έκδοση"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη έκδοση"
+
+msgid "metadata.property.displayName.series"
+msgstr "Σειρά"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη σειρά"
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Συμπλήρωμα"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο συμππλήρωμα"
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Ημερομηνία Συνεδρίου"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία συνεδρίου (μορφή: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Τόπος διεξαγωγής συνεδρίου"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τόπο διεξαγωγής συνεδρίου"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Τίτλος Συνεδρίου"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τίτλος συνεδρίου"
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Χορηγός Συνεδρίου"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο Χορηγό Συνεδρίου"
+
+msgid "metadata.property.displayName.institution"
+msgstr "Ίδρυμα"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τίτλος Ιδρύματος"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Πρώτη Σελίδα"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη πρώτη σελίδα (πρέπει να είναι μια αριθμητική τιμή)"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Τελευταία Σελίδα"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη τελευταία σελίδα (πρέπει να είναι μια αριθμητική τιμή)"
+
+msgid "metadata.property.displayName.size"
+msgstr "Αριθμός Σελίδων"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο σύνολο σελίδων (πρέπει να είναι μια αριθμητική τιμή)"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη ημερομηνία πρόσβασης (μορφή: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Έδρα Εκδότη"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Παρακαλούμε εισάγετε μια έγκυρη έδρα εκδότη"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Τίτλος Εκδότη"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τίτλος εκδότη"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο ISBN (9 ή 13 νούμερα)"
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN εντύπου"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο ISSN εντύπου"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο eISSN"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο DOI"
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "ID Ειδικής Έκδοσης"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο ID ειδικής έκδοσης"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο CODEN"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο SICI"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο PMID"
+
+msgid "metadata.property.displayName.uri"
+msgstr "Υπερσύνδεσμος για την δημοσίευση"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο υπερσύνδεσμο για την δημοσίευση"
+
+msgid "metadata.property.displayName.comment"
+msgstr "Σχόλιο"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο σχόλιο"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Υπομνηματισμός"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο υπομνηματισμό"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Τύπος Δημοσίευσης"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "Παρακαλούμε σιγουρευτείτε ότι δηλώνετε πάντα τον τύπο δημοσίευσης. Οι τύποι που υποστηρίζονται είναι βιβλίο (για βιβλία ή κεφάλαια βιβλίων) και περιοδικό (για άρθρα περιοδικών). Σε αντίθετη περίπτωση η απόδοση της αναφοράς δεν θα μορφοποιηθεί σωστά."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Τύπος τίτλου"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "Παρακαλούμε σιγουρευτείρε ότι έχετε επιλέξει έναν έγκυρο τύπο τίτλου. Οι τύπου που υποστηρίζονται είναι \"συντομευμένος\", \"μεταφρασμένος\",\"εναλλακτικός\" ή \"ενιαίος\"."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Μέρος του τίτλου αγνοήθηκε κατά την τακτοποίηση"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Παρακαλούμε εισάγετε μόνο τους αρχικούς χαρακτήρες του τίτλου που θα αγνοηθούν κατά την τακτοποίηση του τίτλου"
+
+msgid "metadata.property.displayName.title"
+msgstr "Τίτλος"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο τίτλο"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Υπότιτλο"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Παρακαλούμε εισάγετε έναν έγκυρο υπότιτλο"
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Αριθμός τμήματος"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο αριθμό τμήματος"
+
+msgid "metadata.property.displayName.partName"
+msgstr "Όνομα τμήματος"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Παρακαλούμε εισάγετε  ένα έγκυρο όνομα τμήματος"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Τύπος ονόματος"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "Παρακαλούμε σιγουρευτείρε ότι έχετε επιλέξει έναν έγκυρο τύπο ονόματος. Οι τύποι που υποστηρίζονται είναι \"προσωπικό\", \"επιχείρηση\" και \"συνέδριο\"."
+
+msgid "submission.page.citations"
+msgstr "#{$id} Αναφορές"
+
+msgid "submission.currentAgencies"
+msgstr "Υφιστάμενες Υπηρεσίες"
+
+msgid "submission.indexingInformation"
+msgstr "Πληροφορίες Ευρετηρίασης"
+
+msgid "submission.uploadSuccessful"
+msgstr "Το αρχείο σας φορτώθηκε."
+
+msgid "submission.uploadSuccessfulContinue"
+msgstr "Το αρχείο σας φορτώθηκε. Πατήστε Συνέχεια για να επεξεργαστείτε τα μεταδεδομένα του αρχείου."
+
+msgid "submission.loadMessage"
+msgstr "Σας παρακαλούμε περιμένετε μέχρι να φορτωθεί το αρχείο."
+
+msgid "submission.artworkFileDetails"
+msgstr "Λεπτομέρειες αρχείου artwork"
+
+msgid "submission.fileDetails"
+msgstr "Λεπτομέρειες αρχείου"
+
+msgid "submission.nameRequired"
+msgstr "Απαιτείται όνομα για αυτό το κομμάτι."
+
+msgid "submission.date.mmdd"
+msgstr "MM-HH"
+
+msgid "submission.date.yyyymmdd"
+msgstr "EEEE-MM-HH"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Αρχεία Αξιολόγησης"
+
+msgid "submission.stageNotInitiated"
+msgstr "Το στάδιο δεν ξεκίνησε."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Πρόσφατη απόφαση επιμελητή"
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Η υποβολή έχει γίνει αποδεκτή."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Η διαδικασία εξωτερικής αξιολόγησης έχει ξεκινήσει."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Η αναθεώρηση έχει απαιτηθεί."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Εκ νέου υποβολή για αξιολόγηση."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Η υποβολή έχει απορριφθεί."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Η διαδικασία παραγωγής έχει ξεκινήσει."
+
+msgid "notification.type.signoff"
+msgstr "Έχετε έναν έλεγχο σε εκκρεμότητα."
+
+msgid "notification.uploadedResponse"
+msgstr "Η απάντηση έχει μεταφορτωθεί (uploaded)."
+
+msgid "notification.type.editorAssignment"
+msgstr "Για να ξεκινήσει η διαδικασία αξιολόγησης πρέπει αυτή να ανατεθεί σε ένα επιμελητή (editor). Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Συνημμένα Αξιολογητή"
+
+msgid "workflow.review.externalReview"
+msgstr "Εξωτερική Αξιολόγηση"
+
+msgid "log.review.reviewerAssigned"
+msgstr "Ο/Η {$reviewerName} έχει αναλάβει την αξιολόγηση της υποβολής {$submissionId} για τo γύρο αξιολόγησης {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr "Εκκαθαρίστηκε ο γύρος αξιολόγησης {$round} από τον/ην {$reviewerName} για την υποβολή {$submissionId}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr "Ο/Η {$editorName} έχει επισημάνει το αίτημα για το γύρο αξιολόγησης {$round} για την υποβολή {$submissionId} ως ανεξέταστο."
+
+msgid "log.review.reviewReinstated"
+msgstr "Ξεκίνησε εκ νέου ο γύρος αξιολόγησης {$round} από τον/ην {$reviewerName} για την υποβολή {$submissionId}."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Πήγαινε στο ροή εργασιών της υποβολής"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "Για να ξεκινήσει η διαδικασία  παραγωγής μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή παραγωγής (production editor). Παρακαλούμε προσθέστε έναν επιμελητή παραγωγής επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "Για να ξεκινήσει η διαδικασία  σύνταξης/επιμέλειας μιας υποβολής πρέπει αυτή να ανατεθεί σε ένα επιμελητή. Παρακαλούμε προσθέστε έναν επιμελητή επιλέγοντας τον παραπάνω σύνδεσμο με τους Συμμετέχοντες."
+
+msgid "submission.reviewForm"
+msgstr "Φόρμα αξιολόγησης"
+
+msgid "submission.reviewFormResponse"
+msgstr "Απόκριση Φόρμας Αξιολόγησης"
+
+msgid "grid.category.categories"
+msgstr "Κατηγορίες"
+
+msgid "grid.category.add"
+msgstr "Προσθήκη Κατηγορίας"
+
+msgid "grid.category.edit"
+msgstr "Επεξεργασία Κατηγορίας"
+
+msgid "grid.category.name"
+msgstr "Όνομα"
+
+msgid "grid.category.path"
+msgstr "Διαδρομή (path)"
+
+msgid "grid.category.urlWillBe"
+msgstr "Το URL της κατηγορία θς είναι {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Η διαδρομή μιας κατηγορίας πρέπει να αποτελείται μόνο από γράμματα και αριθμούς"
+
+msgid "grid.category.pathExists"
+msgstr "Η διαδρομή της κατηγορίας υπάρχει ήδη. Παρακαλούμε καταχωρήστε μια μοναδική διαδρομή."
+
+msgid "grid.category.description"
+msgstr "Περιγραφή"
+
+msgid "grid.category.parentCategory"
+msgstr "Γονική κατηγορία"
+
+msgid "grid.category.removeText"
+msgstr "Είστε σίγουροι ότι επιθυμείτε να αφαιρέσετε αυτή την κατηγορία;"
+
+msgid "grid.category.nameRequired"
+msgstr "Παρακαλούμε καταχωρήστε ένα όνομα κατηγορίας."
+
+msgid "grid.category.categoryDetails"
+msgstr "Λεπτομέρειες Κατηγορίας"
+
+msgid "submission.submit.placement.categories"
+msgstr "Κατηγορίες"
+
+msgid "submission.currentCoverImage"
+msgstr "Τρέχουσα Εικόνα"
+
+msgid "catalog.browseTitles"
+msgstr "Περιήγηση σε {$numTitles} Τίτλους"

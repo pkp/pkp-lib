@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/AuthorGridHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorGridHandler
@@ -24,6 +24,9 @@ import('lib.pkp.classes.linkAction.request.AjaxModal');
 class AuthorGridHandler extends GridHandler {
 	/** @var boolean */
 	var $_readOnly;
+
+	/** @var int */
+	var $_version;
 
 	/**
 	 * Constructor
@@ -51,6 +54,14 @@ class AuthorGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Get the publication associated with this author grid.
+	 * @return Submission
+	 */
+	function getPublication() {
+		return $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+	}
+
+	/**
 	 * Get whether or not this grid should be 'read only'
 	 * @return boolean
 	 */
@@ -66,7 +77,6 @@ class AuthorGridHandler extends GridHandler {
 		$this->_readOnly = $readOnly;
 	}
 
-
 	//
 	// Overridden methods from PKPHandler.
 	//
@@ -74,8 +84,8 @@ class AuthorGridHandler extends GridHandler {
 	 * @copydoc PKPHandler::authorize()
 	 */
 	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+		import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
+		$this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -96,11 +106,12 @@ class AuthorGridHandler extends GridHandler {
 			LOCALE_COMPONENT_PKP_DEFAULT
 		);
 
-		if ($this->canAdminister($request->getUser())) {
+		if ($this->getSubmission()->getData('submissionProgress') || $this->canAdminister($request->getUser())) {
 			$this->setReadOnly(false);
 			// Grid actions
 			$router = $request->getRouter();
 			$actionArgs = $this->getRequestArgs();
+
 			$this->addAction(
 				new LinkAction(
 					'addAuthor',
@@ -118,7 +129,7 @@ class AuthorGridHandler extends GridHandler {
 		}
 
 		// Columns
-		$cellProvider = new PKPAuthorGridCellProvider();
+		$cellProvider = new PKPAuthorGridCellProvider($this->getPublication());
 		$this->addColumn(
 			new GridColumn(
 				'name',
@@ -194,11 +205,10 @@ class AuthorGridHandler extends GridHandler {
 	 * @copydoc GridHandler::setDataElementSequence()
 	 */
 	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$submission = $this->getSubmission();
-		$author = $authorDao->getById($rowId, $submission->getId());
+		if (!$this->canAdminister($request->getUser())) return;
+		$author = DAORegistry::getDAO('AuthorDAO')->getById($rowId);
 		$author->setSequence($newSequence);
-		$authorDao->updateObject($author);
+		DAORegistry::getDAO('AuthorDAO')->updateObject($author);
 	}
 
 	/**
@@ -206,7 +216,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @return AuthorGridRow
 	 */
 	protected function getRowInstance() {
-		return new AuthorGridRow($this->getSubmission(), $this->getReadOnly());
+		return new AuthorGridRow($this->getSubmission(), $this->getPublication(), $this->getReadOnly());
 	}
 
 	/**
@@ -216,8 +226,10 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
+		$publication = $this->getPublication();
 		return array(
-			'submissionId' => $submission->getId()
+			'submissionId' => $submission->getId(),
+			'publicationId' => $publication->getId()
 		);
 	}
 
@@ -227,22 +239,24 @@ class AuthorGridHandler extends GridHandler {
 	 * @return boolean
 	 */
 	function canAdminister($user) {
+		$publication = $this->getPublication();
 		$submission = $this->getSubmission();
+		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+
+		if ($publication->getData('status') === STATUS_PUBLISHED) {
+			return false;
+		}
+
+		if (in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+			return true;
+		}
 
 		// Incomplete submissions can be edited. (Presumably author.)
 		if ($submission->getDateSubmitted() == null) return true;
 
-		// Managers should always have access.
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		if (array_intersect(array(ROLE_ID_MANAGER), $userRoles)) return true;
-
-		// Sub editors and assistants need to be assigned to the current stage.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId(), null, $user->getId());
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		while ($stageAssignment = $stageAssignments->next()) {
-			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-			if (in_array($userGroup->getRoleId(), array(ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) return true;
+		// The user may not be allowed to edit the metadata
+		if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+			return true;
 		}
 
 		// Default: Read-only.
@@ -253,9 +267,7 @@ class AuthorGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter = null) {
-		$submission = $this->getSubmission();
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		return $authorDao->getBySubmissionId($submission->getId(), true);
+		return DAORegistry::getDAO('AuthorDAO')->getByPublicationId($this->getPublication()->getId(), true, false);
 	}
 
 	//
@@ -267,57 +279,57 @@ class AuthorGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function addAuthor($args, $request) {
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 		// Calling editAuthor() with an empty row id will add
 		// a new author.
 		return $this->editAuthor($args, $request);
 	}
 
 	/**
-	 * Edit a author
+	 * Edit an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function editAuthor($args, $request) {
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 		// Identify the author to be updated
 		$authorId = (int) $request->getUserVar('authorId');
-		$submission = $this->getSubmission();
 
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$author = $authorDao->getById($authorId, $submission->getId());
+		$author = DAORegistry::getDAO('AuthorDAO')->getById($authorId);
 
 		// Form handling
-		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author, 'submissionId');
+		import('controllers.grid.users.author.form.AuthorForm');
+		$authorForm = new AuthorForm($this->getPublication(), $author);
 		$authorForm->initData();
 
 		return new JSONMessage(true, $authorForm->fetch($request));
 	}
 
 	/**
-	 * Edit a author
+	 * Update an author
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return JSONMessage JSON object
 	 */
 	function updateAuthor($args, $request) {
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 		// Identify the author to be updated
 		$authorId = (int) $request->getUserVar('authorId');
-		$submission = $this->getSubmission();
+		$publication = $this->getPublication();
 
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$author = $authorDao->getById($authorId, $submission->getId());
+		$author = Services::get('author')->get($authorId);
 
 		// Form handling
-		import('lib.pkp.controllers.grid.users.author.form.AuthorForm');
-		$authorForm = new AuthorForm($submission, $author, 'submissionId');
+		import('controllers.grid.users.author.form.AuthorForm');
+		$authorForm = new AuthorForm($publication, $author);
 		$authorForm->readInputData();
 		if ($authorForm->validate()) {
 			$authorId = $authorForm->execute();
 
 			if(!isset($author)) {
 				// This is a new contributor
-				$author = $authorDao->getById($authorId, $submission->getId());
+				$author = Services::get('author')->get($authorId);
 				// New added author action notification content.
 				$notificationContent = __('notification.addedAuthor');
 			} else {
@@ -341,10 +353,12 @@ class AuthorGridHandler extends GridHandler {
 			if($author->getPrimaryContact()) {
 				// If this is the primary contact, redraw the whole grid
 				// so that it takes the checkbox off other rows.
-				return DAO::getDataChangedEvent();
+				$json = DAO::getDataChangedEvent();
 			} else {
-				return DAO::getDataChangedEvent($authorId);
+				$json = DAO::getDataChangedEvent($authorId);
 			}
+			$json->setGlobalEvent('authorsUpdated');
+			return $json;
 		} else {
 			return new JSONMessage(true, $authorForm->fetch($request));
 		}
@@ -358,12 +372,15 @@ class AuthorGridHandler extends GridHandler {
 	 */
 	function deleteAuthor($args, $request) {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
+		if (!$this->canAdminister($request->getUser())) return new JSONMessage(false);
 
-		$submission = $this->getSubmission();
 		$authorId = (int) $request->getUserVar('authorId');
+
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$authorDao->deleteById($authorId, $submission->getId());
-		return DAO::getDataChangedEvent($authorId);
+		$authorDao->deleteById($authorId);
+		$json = DAO::getDataChangedEvent($authorId);
+		$json->setGlobalEvent('authorsUpdated');
+		return $json;
 	}
 
 	/**
@@ -393,5 +410,3 @@ class AuthorGridHandler extends GridHandler {
 		}
 	}
 }
-
-

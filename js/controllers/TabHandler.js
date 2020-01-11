@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/TabHandler.js
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TabHandler
@@ -27,7 +27,8 @@
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.controllers.TabHandler = function($tabs, options) {
-		var pageUrl, pageAnchor, pattern, pageAnchors, tabAnchors, i;
+		var pageUrl, pageAnchor, pattern, pageAnchors, tabAnchors, i,
+				self = this;
 
 		this.parent($tabs, options);
 
@@ -63,10 +64,10 @@
 		// Render the tabs as jQueryUI tabs.
 		$tabs.tabs({
 			// Enable AJAX-driven tabs with JSON messages.
-			ajaxOptions: {
-				dataType: 'json',
-				cache: false,
-				dataFilter: this.callbackWrapper(this.dataFilter)
+			beforeLoad: function(event, ui) {
+				ui.ajaxSettings.dataType = 'json';
+				ui.jqXHR.setRequestHeader('Accept', 'application/json');
+				ui.ajaxSettings.dataFilter = self.callbackWrapper(self.dataFilter);
 			},
 			disabled: options.disabled,
 			active: options.selected

@@ -1,15 +1,17 @@
 {**
  * templates/workflow/reviewRound.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Review round info for a particular round
  *}
 <div class="pkp_panel_wrapper">
 
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
+	{if $isLastReviewRound}
+		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewRoundNotification_"|concat:$reviewRoundId requestOptions=$reviewRoundNotificationRequestOptions}
+	{/if}
 
 	{* Editorial decision actions, if available *}
 	<div class="pkp_context_sidebar">

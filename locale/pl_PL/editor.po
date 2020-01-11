@@ -1,0 +1,348 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:57+00:00\n"
+"Language: \n"
+
+msgid "editor.submissionLibrary"
+msgstr "Biblioteka zgłoszeń"
+
+msgid "editor.review.notInitiated"
+msgstr "Proces recenzji nie został jeszcze rozpoczęty."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Wiadomość do użytkownika"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Wybierz pliki, które zostaną wysłane do recenzji."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Musisz wybrać przynajmniej jeden plik, do którego zostanie przypisany użytkownik."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Wiadomość jest wymagana."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Nie wysyłaj wiadomości e-mail do kontrolera"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Musisz wybrać użytkownika do przypisania."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Prześlij/Wybierz pliki"
+
+msgid "editor.submission.selectFiles"
+msgstr "Wybierz pliki"
+
+msgid "editor.submission.revisions"
+msgstr "Wersje tekstu poprawione przez autora"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Użyj <em>+Dodaj recenzenta</em> aby zaprosić czytelników do recenzji zgłoszonych tekstów. Ikona notatnika oznacza, że recenzja została przesłana, a następnie jest oznaczona jako <em>Potwierdzone</em> po sprawdzeniu i skonsultowaniu. Jeżeli recenzenci przekraczają czas przeznaczony na wykonanie recenzji, czerwona ikona koperty pojawia się umożliwiając wysłanie ponaglenia recenzentom."
+
+msgid "editor.submission.addReviewer"
+msgstr "Dodaj recenzenta"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Znajdź recenzenta"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Znajdź użytkownika"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Pokaż pliki ze wszystkich dostępnych etapów."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Aktualne pliki recenzji dla rundy {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Powrót do wyszukiwania"
+
+msgid "editor.review.createReviewer"
+msgstr "Utwórz nowego recenzenta"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Przypisz istniejącego użytkownika"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Cofnij przypisanie recenzenta"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Rodzaj recenzji"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Nie wysyłaj wiadomości e-mail z powiadomieniem"
+
+msgid "editor.submissionReview.open"
+msgstr "Otwarta"
+
+msgid "editor.submissionReview.blind"
+msgstr "Ślepa"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Podwójna ślepa"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Pliki do zrecenzowania"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Zamknij dział plików"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Edytuj recenzję"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "E-mail, który zostanie wysłany do recenzenta"
+
+msgid "editor.review.importantDates"
+msgstr "Ważne terminy"
+
+msgid "editor.review.uploadRevision"
+msgstr "Prześlij poprawiony tekst"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Tekst wymaga poprawek, ale nie wymaga kolejnej rundy recenzji."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Tekst wymaga poprawek oraz kolejnej rundy recenzji."
+
+msgid "editor.review.dateAccepted"
+msgstr "Termin akceptacji recenzji"
+
+msgid "editor.review.noReviews"
+msgstr "Brak recenzji do zaimportowania"
+
+msgid "editor.review.reminder"
+msgstr "Przypomnienie o recenzji"
+
+msgid "editor.review.thankReviewer"
+msgstr "Podziękowanie dla recenzenta"
+
+msgid "editor.review.reminderError"
+msgstr "Błąd podczas wysyłania przypomnienia o recenzji"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Błąd podczas wysyłania podziękowania dla recenzenta"
+
+msgid "editor.review.skipEmail"
+msgstr "Nie wysyłaj wiadomości e-mail do recenzenta."
+
+msgid "editor.review.sendReminder"
+msgstr "Wyślij przypomnienie"
+
+msgid "editor.review.readReview"
+msgstr "Przeczytaj recenzję"
+
+msgid "editor.review.readNewReview"
+msgstr "Przeczytaj nową recenzję"
+
+msgid "editor.review.responseDue"
+msgstr "Odpowiedź do: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Zapytanie wysłane"
+
+msgid "editor.review.requestAccepted"
+msgstr "Zapytanie zaakceptowane"
+
+msgid "editor.review.revertDecision"
+msgstr "Przywróć decyzję"
+
+msgid "editor.review.reviewDue"
+msgstr "Recenzja do: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Termin ukończenia recenzji"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Recenzja zakończona"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Recenzja potwierdzona"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Recenzja przesłana"
+
+msgid "editor.review.reviewerComments"
+msgstr "Komentarze recenzenta"
+
+msgid "editor.review.days"
+msgstr "Średni czas wykonania recenzji (dni)"
+
+msgid "editor.review.mustSelect"
+msgstr "Musisz wybrać recenzenta"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Wystąpił błąd podczas dodawania recenzenta. Spróbuj ponownie później."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Wystąpił błąd podczas usuwania recenzenta. Spróbuj ponownie później."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Przypisz użytkownika do tej grupy recenzentów"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Czy oznaczyć tą recenzję jako nierozpatrzoną? Historia recenzji zostanie zachowana."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Cofnij rozpatrzenie recenzji"
+
+msgid "editor.review.readConfirmation"
+msgstr "Po przeczytaniu recenzji kliknij \"Potwierdź\", aby oznaczyć, że proces recenzji może zostać kontynuowany. Jeżeli recenzent przesłał swoją recenzję w inne miejsce, możesz przesłać plik recenzji poniżej i kliknąć \"Akceptuj\", aby przejść dalej."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Pliki korekty"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Wybierz recenzenta"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Termin wykonania zadania"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Harmonogram zadania"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Przypisz istniejącego użytkownika do roli recenzenta"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Brak prośby o wykonanie kontroli dla tego pliku"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-mail, który zostanie wysłany do użytkownika"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Przypomnienie o wykonaniu korekty pliku do publikacji"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Plik musi zostać zatwierdzony przed wysłaniem do etapu produkcji. Czy zatwierdzasz plik?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Odrzucenie pliku uniemożliwi jego przesłanie do etapu produkcji. Czy chcesz odrzucić plik?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Dodaj kontrolera"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Wszystkie pliki, które zostały przesłane do dowolnego etapu zgłoszenia mogą zostać dodane do listy plików korekty poprzez oznaczenie pola wyboru poniżej oraz kliknięcie Szukaj. Wszystkie znalezione pliki będą możliwe do uwzględnienia. Dodatkowe pliki, które nie zostały jeszcze przesłane, mogą zostać uwzględnione w liście poprzez kliknięcie w link Prześlij plik."
+
+msgid "editor.review"
+msgstr "Recenzja"
+
+msgid "editor.review.reviewDetails"
+msgstr "Szczegóły recenzji"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Brak przesłanych plików"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Nie przesłałeś(aś) plików recenzji."
+
+msgid "editor.review.emailReviewer"
+msgstr "Wyślij wiadomość e-mail do recenzenta"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Pliki gotowe do składu"
+
+msgid "editor.submission.newRound"
+msgstr "Nowa runda recenzji"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Zapisz decyzję redaktora"
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Masz zamiar utworzyć nową rundę recenzji dla tego zgłoszenia. Pliki, które nie zostały wykorzystane w poprzednich rundach są dostępne poniżej."
+
+msgid "editor.submission.createNewRound"
+msgstr "Utwórz nową rundę recenzji"
+
+msgid "editor.article.reviewForms"
+msgstr "Formularze recenzji"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Wybierz formularz recenzji"
+
+msgid "editor.article.clearReviewForm"
+msgstr "Wyczyść formularz recenzji"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Uwaga: Wprowadzenie zmian w formularzu recenzji będzie miało wpływ na odpowiedzi, które recenzenci już złożyli korzystając z tego formularza. Czy na pewno chcesz kontynuować?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Nie wybrano plików"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Nie wybrałeś(aś) żadnego pliku do wykonania recenzji."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Tytuł dyskusji jest wymagany"
+
+msgid "submission.queries.messageRequired"
+msgstr "Wiadomość dyskusji jest wymagana."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Dołączone pliki"
+
+msgid "grid.action.editQuery"
+msgstr "Edytuj dyskusję"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Pliki mogą zostać dołączone do dyskusji za pomocą listy widocznej poniżej."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Wybrany recenzent"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Zatwierdź korektę pliku do publikacji"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Cofnij zatwierdzenie korekty pliku do publikacji"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Zatwierdź korektę pliku, aby oznaczyć, że plik jest już gotowy do publikacji."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Cofnij zatwierdzenie korekty pliku, aby oznaczyć, że plik nie jest gotowy do publikacji."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Publiczny identyfikator '{$publicIdentifier}' nie może być liczbą."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Publiczny identyfikator nie może posiadać wzoru {$pattern}."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Zaplanuj do publikacji"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Wyślij e-mail z powiadomieniem do autora(ów): {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Wyślij e-mail z powiadomieniem do redaktora(ów): {$editorNames}"
+
+msgid "editor.review.newReviewRound"
+msgstr "Wymagaj kolejnej rundy recenzji"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Recenzje dodane do treści wiadomości."
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Zapisz rekomendację redaktora"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Powiadom redaktorów"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Nie wysyłaj redaktorom wiadomości e-mail."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Utwórz dyskusję poświęconą tej rekomendacji."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Nie twórz dyskusji poświęconej tej rekomendacji."

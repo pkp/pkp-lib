@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Pengguna Anonim"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Badan"
+
+msgid "comments.titleRequired"
+msgstr "Judul komentar diperlukan."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Menghapus komentar ini juga akan menghapus balasan untuk komentar ini. Apakah Anda yakin ingin melakukan ini?"
+
+msgid "comments.delete"
+msgstr "Hapus komentar ini"
+
+msgid "comments.email"
+msgstr "Email Poster"
+
+msgid "comments.emailReply"
+msgstr "Balas Email"
+
+msgid "comments.enterComment"
+msgstr "Masukkan komentar"
+
+msgid "comments.inResponseTo"
+msgstr "Merespon<a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Nama Poster"
+
+msgid "comments.noComments"
+msgstr "Tidak ada komentar pembaca yang telah diposting."
+
+msgid "comments.nReplies"
+msgstr "({$num} Balasan)"
+
+msgid "comments.oneReply"
+msgstr "(1 Balasan)"
+
+msgid "comments.postAnonymously"
+msgstr "Post komentar ini secara anonim"
+
+msgid "comments.postReply"
+msgstr "Post Balasan"
+
+msgid "comments.readerComments"
+msgstr "Komentar Pembaca"
+
+msgid "comments.readMore"
+msgstr "Baca Lebih Lanjut"
+
+msgid "comments.replies"
+msgstr "Balasan"
+
+msgid "comments.title"
+msgstr "Judul"
+
+msgid "comments.viewAllComments"
+msgstr "Lihat semua komentar"
+
+msgid "reader.fullText"
+msgstr "Teks Lengkap:"

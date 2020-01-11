@@ -1,0 +1,325 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:59+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Задаем название"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Задаем значение"
+
+msgid "admin.adminFunctions"
+msgstr "Административные функции"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Вы уверены, что хотите навсегда удалить этот источник аутентификации?"
+
+msgid "admin.auth.create"
+msgstr "Создать источник аутентификации"
+
+msgid "admin.auth.noneCreated"
+msgstr "Источники аутентификации не определены."
+
+msgid "admin.authSources"
+msgstr "Источники аутентификации"
+
+msgid "admin.clearDataCache"
+msgstr "Очистить кэши данных"
+
+msgid "admin.clearTemplateCache"
+msgstr "Очистить кэш шаблонов"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Ваш конфигурационный файл был успешно обновлен. Пожалуйста, обратите внимание на то, что если ваш сайт перестал правильно работать, вам может быть необходимо вручную исправить вашу конфигурацию, отредактировав <tt>config.inc.php</tt> напрямую."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Вы уверены, что хотите очистить кэш скомпилированных шаблонов?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Вы уверены, что хотите прекратить все сессии пользователей? Все пользователи, которые сейчас работают в системе, должны будут заново войти в нее под своей учетной записью (в том числе и вы)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Содержимое конфигурационного файла"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Вы уверены, что хотите навсегда удалить {$contextName} и все содержимое?"
+
+msgid "admin.currentVersion"
+msgstr "Текущая версия"
+
+msgid "admin.dateInstalled"
+msgstr "Дата установки"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Содержимое обновленной конфигурации показано ниже. Чтобы применить изменения к конфигурации, вы должны открыть <tt>config.inc.php</tt> в подходящем текстовом редакторе и заменить его содержимое содержимым текстового поля, расположенного ниже."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Показать новую конфигурацию"
+
+msgid "admin.expireSessions"
+msgstr "Прекратить сессии пользователей"
+
+msgid "admin.languages.download"
+msgstr "Загрузить язык"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Загрузить языки"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Не удается открыть дескриптор языка с веб-сайта PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Не удается добавить новый язык в файл списка языков, обычно это «registry/locales.xml»."
+
+msgid "admin.languages.cantDisable"
+msgstr "Этот язык является основным языком сайта. Вы не можете отключить его до тех пор, пока не выберете другой основной язык."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Вы уверены, что хотите изменить основной язык сайта? Имена пользователей, которые обязательно должны быть указаны на основном языке сайта, будут скопированы из текущего основного языка в новый, если такие имена отсутствуют на новом основном языке сайта."
+
+msgid "admin.languages.confirmReload"
+msgstr "Вы уверены, что хотите заново загрузить этот язык? Это приведет к удалению всех данных пользователя, связанных с этим языком, например, изменений в шаблонах писем электронной почты."
+
+msgid "admin.languages.installedLocales"
+msgstr "Установленные языки"
+
+msgid "admin.languages.installLanguages"
+msgstr "Управление языками"
+
+msgid "admin.languages.availableLocales"
+msgstr "Доступные языки"
+
+msgid "admin.languages.installLocale"
+msgstr "Установить язык"
+
+msgid "admin.languages.installLocales"
+msgstr "Установить"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Установить новые языки"
+
+msgid "admin.languages.languageSettings"
+msgstr "Настройки языка"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Нет доступных дополнительных языков для установки."
+
+msgid "admin.languages.reload"
+msgstr "Заново загрузить язык"
+
+msgid "admin.languages.uninstall"
+msgstr "Удалить язык"
+
+msgid "admin.phpInfo"
+msgstr "Расширенная информация PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Запланированная задача"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Начато выполнение задачи."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Закончено выполнение задачи."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Задача не создавала записей для журнала событий."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Ваша инсталляция {$softwareName} автоматически выполнила и завершила эту задачу, вы можете скачать файл с журналом событий по этой ссылке: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Вы уверены, что хотите удалить все журналы событий, содержащие информацию о выполнении запланированных задач?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Удалить журналы событий с информацией о выполнении запланированных задач"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Опубликовать материалы, запланированные к публикации"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Напоминание рецензенту"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Напоминание об окончании подписки"
+
+msgid "admin.server.apacheVersion"
+msgstr "Версия Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Драйвер базы данных"
+
+msgid "admin.server.dbVersion"
+msgstr "Версия СУБД"
+
+msgid "admin.serverInformation"
+msgstr "Информация о сервере"
+
+msgid "admin.server.phpVersion"
+msgstr "Версия PHP"
+
+msgid "admin.server.platform"
+msgstr "ОС платформы"
+
+msgid "admin.settings"
+msgstr "Настройки"
+
+msgid "admin.settings.about"
+msgstr "О сайте"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mail контактного лица"
+
+msgid "admin.settings.contactName"
+msgstr "Имя контактного лица"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tВаша инсталляция настроена на запись нескольких метрик использования. Статистика использования будет отображаться в нескольких контекстах.\n"
+"\t\tЕсть случаи, когда должна быть использована только одна статистика использования, например, чтобы отобразить упорядоченный список наиболее используемых материалов или отранжировать\n"
+"\t\tрезультаты поиска. Пожалуйста, выберите одну из настроенных метрик в качестве метрики по умолчанию.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Преамбула"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Минимальная длина пароля (в символах)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Язык сайта"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Неверный формат таблицы стилей сайта. Разрешенный формат — .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Таблица стилей сайта"
+
+msgid "admin.settings.siteLogo"
+msgstr "Логотип сайта"
+
+msgid "admin.settings.siteTitle"
+msgstr "Название сайта"
+
+msgid "admin.settings.siteTheme"
+msgstr "Тема оформления сайта"
+
+msgid "admin.siteAdmin"
+msgstr "Администрирование сайта"
+
+msgid "admin.siteManagement"
+msgstr "Управление сайтом"
+
+msgid "admin.siteSettings"
+msgstr "Настройки сайта"
+
+msgid "admin.siteSetup"
+msgstr "Установка сайта"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Конфигурационный файл <tt>config.inc.php</tt> не существует, не доступен для чтения или является неправильным."
+
+msgid "admin.systemInformation"
+msgstr "Информация о системе"
+
+msgid "admin.versionBuild"
+msgstr "Сборка"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Проверить наличие обновлений"
+
+msgid "admin.version.downloadPackage"
+msgstr "Скачать"
+
+msgid "admin.version.downloadPatch"
+msgstr "Скачать исправление"
+
+msgid "admin.versionHistory"
+msgstr "История версий"
+
+msgid "admin.version.latest"
+msgstr "Последняя версия"
+
+msgid "admin.versionMajor"
+msgstr "Старшая"
+
+msgid "admin.versionMinor"
+msgstr "Младшая"
+
+msgid "admin.version.moreInfo"
+msgstr "Дополнительная информация"
+
+msgid "admin.versionRevision"
+msgstr "Ревизия"
+
+msgid "admin.version.updateAvailable"
+msgstr "Доступна обновленная версия"
+
+msgid "admin.version.upToDate"
+msgstr "Ваша система актуальна"
+
+msgid "admin.version"
+msgstr "Версия"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Основной каталог {$path} должен быть внутри каталога с доступными для всех файлами."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Папка {$path} не является каталогом или не доступна для чтения."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Файл {$filename} не может быть перемещен из {$currentFilePath} в {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Файл {$filename} был обработан и помещен в архив."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Загрузчик файлов"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Копирует прошедшие файлы журнала доступа apache, отфильтровывая записи, связанные с этой инсталляцией,\n"
+"в каталог текущих файлов, находящийся внутри каталога stage модуля «Статистика использования». Должен запускаться под пользователем с достаточными правами для чтения файлов журнала доступа apache.\n"
+"\n"
+"Этот инструмент будет только копировать те файлы, которые еще не скопированы в каталоги загрузки файлов модуля «Статистика использования» (stage, processing, archive, reject).\n"
+"\n"
+"Вызов: {$scriptName} path/to/apache/log/file.log\n"
+"Вызов (обработка всех файлов в каталоге): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Ошибка: не могу создать временный каталог {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Ошибка: Файл {$filePath} не существует или к нему нет доступа."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Ошибка: не могу скопировать файл из {$filePath} в {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Ошибка: не могу удалить файл {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Предупреждение: файл {$filePath} уже существует в каталоге статистики использования."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Успех: {$filePath} в {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Выполнение программы «{$utilPath}» закончилось следующей ошибкой: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Ошибка: не могу выполнить «{$utilPath}». Проверьте вашу настройку {$utilVar} в файле config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Нет доступных языков для скачивания."

@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:00+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Запрос"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Руководство"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Скачать и рецензировать"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Завершение"
+
+msgid "reviewer.step1.request"
+msgstr "Запрос на рецензию"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Вы были выбраны в качестве потенциального рецензента для следующего материала. Ниже приведено описание материала и сроки выполнения этой рецензии. Мы надеемся, что вы сможете принять участие в рецензировании."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Показать всю информацию о материале"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Файлы рецензента"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Отклонить запрос на рецензию"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Вы можете описать для редактора причины вашего отказа от рецензирования этого материала в поле ниже."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Согласиться на рецензирование, перейти к шагу №2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Перейти к шагу №3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Отправить рецензию"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Руководство для рецензентов"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "У данного издателя есть правила декларирования потенциального конфликта интересов его рецензентов. Пожалуйста, ознакомьтесь с этими правилами."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "У меня нет конфликта интересов"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "У меня может быть конфликт интересов (опишите ниже)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Конфликт интересов"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Руководство для рецензентов"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Данный издатель не создал руководство для рецензентов."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Щелкайте на именах файлов ниже, чтобы скачать файлы, связанные с этим материалом."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Введите (или вставьте) вашу рецензию для этого материала в форму ниже."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Загрузите файлы, которые стоит просмотреть редактору и/или автору, включая откорректированные версии оригинальных файлов для рецензии."
+
+msgid "reviewer.complete"
+msgstr "Рецензия отправлена"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Вы уверены, что хотите отправить эту рецензию?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Благодарим вас за рецензирование данного материала. Ваша рецензия была успешно отправлена. Мы высоко ценим ваш вклад в качество работ, которые мы публикуем; если понадобится, редактор может связаться с вами снова для получения более подробной информации."
+
+msgid "reviewer.aboutDueDates"
+msgstr "О сроках выполнения"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Редактор просит вас принять или отклонить запрос на рецензию до даты ответа на запрос и выполнить рецензию до даты предоставления рецензии."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Для автора и редактора"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Только для редактора"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Данный пользователь не назначен рецензентом для запрошенного документа."

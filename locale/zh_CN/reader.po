@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-04T08:55:42-08:00\n"
+"PO-Revision-Date: 2019-11-04T08:55:42-08:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "匿名用户"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "正文"
+
+msgid "comments.titleRequired"
+msgstr "评论的标题是必须的."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "删除此评论将同时删除任何回复。您确定要做到这一点?"
+
+msgid "comments.delete"
+msgstr "删除这个评论"
+
+msgid "comments.email"
+msgstr "提交人电子邮箱"
+
+msgid "comments.emailReply"
+msgstr "回复电子邮件"
+
+msgid "comments.enterComment"
+msgstr "输入评论"
+
+msgid "comments.inResponseTo"
+msgstr "在回应 <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "提交人姓名"
+
+msgid "comments.noComments"
+msgstr "没有已经发布的读者评论."
+
+msgid "comments.nReplies"
+msgstr "({$num} 回复)"
+
+msgid "comments.oneReply"
+msgstr "(1 回复)"
+
+msgid "comments.postAnonymously"
+msgstr "匿名发布这个评论"
+
+msgid "comments.postReply"
+msgstr "发表回复"
+
+msgid "comments.readerComments"
+msgstr "读者评论"
+
+msgid "comments.readMore"
+msgstr "更多"
+
+msgid "comments.replies"
+msgstr "回复"
+
+msgid "comments.title"
+msgstr "标题"
+
+msgid "comments.viewAllComments"
+msgstr "查看所有评论"
+
+msgid "reader.fullText"
+msgstr "全文:"

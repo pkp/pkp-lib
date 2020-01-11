@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/usageEvent/PKPUsageEventPlugin.inc.php
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUsageEventPlugin
@@ -228,7 +228,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 		// 2) Standardized public identifiers, e.g. DOI, URN, etc.
 		if ($this->isPubIdObjectType($pubObject)) {
 			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-			if (is_array($pubIdPlugins)) {
+			if (!empty($pubIdPlugins)) {
 				foreach ($pubIdPlugins as $pubIdPlugin) {
 					if (!$pubIdPlugin->getEnabled()) continue;
 					$pubId = $pubObject->getStoredPubId($pubIdPlugin->getPubIdType());

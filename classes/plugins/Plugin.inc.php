@@ -9,8 +9,8 @@
 /**
  * @file classes/plugins/Plugin.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Plugin
@@ -116,7 +116,6 @@ abstract class Plugin {
 		HookRegistry::register ('Installer::postInstall', array($this, 'installFilters'));
 
 		$this->_registerTemplateResource();
-
 		return true;
 	}
 
@@ -375,6 +374,7 @@ abstract class Plugin {
 	 *			override template.
 	 *		@option string Template file requested
 	 * ]
+	 * @return boolean
 	 */
 	public function _overridePluginTemplates($hookName, $args) {
 		$filePath =& $args[0];
@@ -385,14 +385,45 @@ abstract class Plugin {
 		if (strpos($filePath, 'plugins/') === 0) $checkFilePath = 'templates/' . $checkFilePath;
 
 		// If there's a lib/pkp/ prefix on the template, test without it.
-		$libPkpPrefix = 'lib/pkp/';
+		$libPkpPrefix = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR;
 		if (strpos($checkFilePath, $libPkpPrefix) === 0) $checkFilePath = substr($filePath, strlen($libPkpPrefix));
 
 		// Check if an overriding plugin exists in the plugin path.
-		$checkPluginPath = sprintf('%s/%s', $this->getPluginPath(), $checkFilePath);
-		if (file_exists($checkPluginPath)) $filePath = $checkPluginPath;
+		if ($overriddenFilePath = $this->_findOverriddenTemplate($checkFilePath)) {
+			$filePath = $overriddenFilePath;
+		}
 
 		return false;
+	}
+
+	/**
+	 * Recursive check for existing templates
+	 * @param $path string
+	 * @return string|null
+	 */
+	private function _findOverriddenTemplate($path) {
+		$fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
+
+		if (file_exists($fullPath)) {
+			return $fullPath;
+		}
+
+		// Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
+		if (($fullPath = preg_replace("/templates\/(?!.*templates\/)/", "", $fullPath)) && file_exists($fullPath)) {
+			if (Config::getVar('debug', 'deprecation_warnings')) {
+				trigger_error('Deprecated: The template at ' . $fullPath . ' has moved and will not be found in the future.');
+			}
+			return $fullPath;
+		}
+
+		// Recursive check for templates in ancestors of a current theme plugin
+		if (is_a($this, 'ThemePlugin')
+			&& $this->parent
+			&& $fullPath = $this->parent->_findOverriddenTemplate($path)) {
+			return $fullPath;
+		}
+
+		return null;
 	}
 
 	/**
@@ -476,18 +507,25 @@ abstract class Plugin {
 	 * Get the filename for the locale data for this plugin.
 	 *
 	 * @param $locale string
-	 * @return string|array the locale file names (the scalar return value is supported for
-	 *  backwards compatibility only).
+	 * @return array The locale file names.
 	 */
 	function getLocaleFilename($locale) {
 		$masterLocale = MASTER_LOCALE;
-		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.xml";
-		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.xml";
+		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.po";
+		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.po";
 		$libPkpFilename = "lib/pkp/$baseLocaleFilename";
 		$masterLibPkpFilename = "lib/pkp/$baseMasterLocaleFilename";
 		$filenames = array();
 		if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
 		if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;
+
+		// This compatibility code for XML file fallback will eventually be removed.
+		// See https://github.com/pkp/pkp-lib/issues/5090.
+		$baseMasterXmlLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
+		if (file_exists($baseMasterXmlLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $baseLocaleFilename);
+		$masterXmlLibPkpLocaleFilename = preg_replace('/\.po$/', '.xml', $baseMasterLocaleFilename);
+		if (file_exists($masterXmlLibPkpLocaleFilename)) $filenames[] = preg_replace('/\.po$/', '.xml', $libPkpFilename);
+
 		return $filenames;
 	}
 
@@ -590,7 +628,7 @@ abstract class Plugin {
 
 		if ($sql === false) {
 			// The template file seems to be invalid.
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseEmailTemplatesFileError')));
+			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallEmailTemplatesFile(), __('installer.installParseEmailTemplatesFileError')));
 			$result = false;
 		} else {
 			// Are there any yet uninstalled email templates?
@@ -688,8 +726,6 @@ abstract class Plugin {
 		$result =& $args[1];
 
 		$schemaXMLParser = new adoSchema($installer->dbconn);
-		$dict =& $schemaXMLParser->dict;
-		$dict->SetCharSet($installer->dbconn->charSet);
 		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());
 		if ($sql) {
 			$result = $installer->executeSQL($sql);
@@ -784,13 +820,5 @@ abstract class Plugin {
 	 */
 	function getEnabled() {
 		return true;
-	}
-
-	/**
-	 * Retrieve a namespace used when attaching JavaScript data to $.pkp.plugins
-	 * @return string
-	 */
-	function getJavascriptNameSpace() {
-		return '$.pkp.plugins.' . strtolower(get_class($this));
 	}
 }

@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/SubmissionNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionNativeXmlFilter
@@ -133,7 +133,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 
 		// Add pub IDs by plugin
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-		foreach ((array) $pubIdPlugins as $pubIdPlugin) {
+		foreach ($pubIdPlugins as $pubIdPlugin) {
 			$this->addPubIdentifier($doc, $submissionNode, $submission, $pubIdPlugin);
 		}
 	}
@@ -253,7 +253,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$exportFilter->setDeployment($this->getDeployment());
 
 		$representationDao = Application::getRepresentationDAO();
-		$representations = $representationDao->getBySubmissionId($submission->getId());
+		$representations = $representationDao->getByPublicationId($submission->getCurrentPublication()->getId());
 		while ($representation = $representations->next()) {
 			$representationDoc = $exportFilter->execute($representation);
 			$clone = $doc->importNode($representationDoc->documentElement, true);

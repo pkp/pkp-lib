@@ -3,8 +3,8 @@
 /**
  * @file plugins/metadata/mods34/filter/Mods34SchemaSubmissionAdapter.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mods34SchemaSubmissionAdapter
@@ -296,7 +296,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		// Subject
 		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
 		$supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
-		$this->addLocalizedStatements($mods34Description, 'subject/topic', (array) $submissionSubjectDao->getSubjects($submission->getId(), $supportedLocales));
+		$this->addLocalizedStatements($mods34Description, 'subject/topic', (array) $submissionSubjectDao->getSubjects($submission->getCurrentPublication()->getId(), $supportedLocales));
 
 		// FIXME: Coverage not included
 

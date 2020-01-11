@@ -3,8 +3,8 @@
 /**
  * @file classes/log/SubmissionFileLog.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileLog
@@ -32,7 +32,6 @@ class SubmissionFileLog extends SubmissionLog {
 
 		// Set implicit parts of the log entry
 		$entry->setDateLogged(Core::getCurrentDate());
-		$entry->setIPAddress($request->getRemoteAddr());
 
 		$user = $request->getUser();
 		if ($user) $entry->setUserId($user->getId());

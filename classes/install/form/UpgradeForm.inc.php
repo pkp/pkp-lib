@@ -3,8 +3,8 @@
 /**
  * @file classes/install/form/UpgradeForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UpgradeForm
@@ -28,7 +28,9 @@ class UpgradeForm extends MaintenanceForm {
 	/**
 	 * Perform installation.
 	 */
-	function execute() {
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
 		define('RUNNING_UPGRADE', 1);
 		$templateMgr = TemplateManager::getManager($this->_request);
 		$installer = new Upgrade($this->_data);

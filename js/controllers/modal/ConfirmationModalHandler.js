@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/modal/ConfirmationModalHandler.js
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ConfirmationModalHandler
@@ -109,9 +109,9 @@
 			function() {
 
 		var $modal = this.parent('modalBuild'),
-				buttons = '<a href="#" class="ok pkpModalConfirmButton">' +
+				buttons = '<button class="ok pkpModalConfirmButton">' +
 				(/** @type {{ okButton: string }} */ (this.options)).okButton +
-				'</a>';
+				'</button>';
 
 		$modal.addClass('pkp_modal_confirmation').find('.content')
 				.append('<div class="message">' +
@@ -119,8 +119,8 @@
 				'</div>');
 
 		if (this.options.cancelButton) {
-			buttons += '<a href="#" class="cancel pkpModalCloseButton">' +
-					this.options.cancelButton + '</a>';
+			buttons += '<button class="cancel pkpModalCloseButton">' +
+					this.options.cancelButton + '</button>';
 		}
 
 		$modal.append('<div class="footer">' + buttons + '</div>');

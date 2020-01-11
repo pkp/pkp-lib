@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/PKPMastheadForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPMastheadForm
@@ -31,8 +31,9 @@ class PKPMastheadForm extends FormComponent {
 	 * @param $action string URL to submit the form to
 	 * @param $locales array Supported locales
 	 * @param $context Context Journal or Press to change settings for
+	 * @param $imageUploadUrl string The API endpoint for images uploaded through the rich text field
 	 */
-	public function __construct($action, $locales, $context) {
+	public function __construct($action, $locales, $context, $imageUploadUrl) {
 		$this->action = $action;
 		$this->successMessage = __('manager.setup.masthead.success');
 		$this->locales = $locales;
@@ -72,6 +73,9 @@ class PKPMastheadForm extends FormComponent {
 				'label' => __('manager.setup.editorialTeam'),
 				'isMultilingual' => true,
 				'groupId' => 'keyInfo',
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
+				'uploadUrl' => $imageUploadUrl,
 				'value' => $context->getData('editorialTeam'),
 			]))
 			->addGroup([
@@ -84,6 +88,9 @@ class PKPMastheadForm extends FormComponent {
 				'isMultilingual' => true,
 				'size' => 'large',
 				'groupId' => 'about',
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
+				'uploadUrl' => $imageUploadUrl,
 				'value' => $context->getData('about'),
 			]));
 	}

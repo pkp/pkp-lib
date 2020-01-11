@@ -9,8 +9,8 @@
 /**
  * @file classes/install/PKPInstall.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Install
@@ -166,10 +166,6 @@ class PKPInstall extends Installer {
 		// Get database creation sql
 		$dbdict = NewDataDictionary($this->dbconn);
 
-		if ($this->getParam('databaseCharset')) {
-				$dbdict->SetCharSet($this->getParam('databaseCharset'));
-		}
-
 		list($sql) = $dbdict->CreateDatabase($this->getParam('databaseName'));
 		unset($dbdict);
 
@@ -207,11 +203,12 @@ class PKPInstall extends Installer {
 	 * @return boolean
 	 */
 	function createConfig() {
+		$request = Application::get()->getRequest();
 		return $this->updateConfig(
 			array(
 				'general' => array(
 					'installed' => 'On',
-					'base_url' => Request::getBaseUrl(),
+					'base_url' => $request->getBaseUrl(),
 					'enable_beacon' => $this->getParam('enableBeacon')?'On':'Off',
 				),
 				'database' => array(
@@ -225,7 +222,6 @@ class PKPInstall extends Installer {
 					'locale' => $this->getParam('locale'),
 					'client_charset' => $this->getParam('clientCharset'),
 					'connection_charset' => $this->getParam('connectionCharset') == '' ? 'Off' : $this->getParam('connectionCharset'),
-					'database_charset' => $this->getParam('databaseCharset') == '' ? 'Off' : $this->getParam('databaseCharset')
 				),
 				'files' => array(
 					'files_dir' => $this->getParam('filesDir')
@@ -302,7 +298,7 @@ class PKPInstall extends Installer {
 		// Install default site settings
 		$schemaService = Services::get('schema');
 		$site = $schemaService->setDefaults(SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
-		$site->setData('contactEmail', $this->getParam('adminEmail'));
+		$site->setData('contactEmail', $this->getParam('adminEmail'), $site->getPrimaryLocale());
 		$siteDao->updateObject($site);
 
 		return true;

@@ -1,0 +1,666 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:48+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "Ei kohteita"
+
+msgid "grid.settings"
+msgstr "Asetukset"
+
+msgid "grid.noAuditors"
+msgstr "Ei tarkastajia"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Tämä on etäylläpidetty kohde."
+
+msgid "grid.action.manageAccess"
+msgstr "Hallinnoi saatavuutta"
+
+msgid "grid.action.sort"
+msgstr "Lajittele"
+
+msgid "grid.action.addItem"
+msgstr "Lisää kohde"
+
+msgid "grid.action.addNote"
+msgstr "Lisää muistiinpano"
+
+msgid "grid.action.addQuery"
+msgstr "Lisää keskustelu"
+
+msgid "grid.action.readQuery"
+msgstr "Lue keskustelu"
+
+msgid "grid.action.deleteQuery"
+msgstr "Poista keskustelu"
+
+msgid "grid.action.updateQuery"
+msgstr "Päivitä keskustelu"
+
+msgid "grid.action.addUser"
+msgstr "Lisää käyttäjä"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Peru arviointipyyntö"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Hyväksy tämä teknisen toimittamisen tiedosto seuraavaan vaiheeseen lähetettäväksi"
+
+msgid "grid.action.reload"
+msgstr "Lataa uudelleen"
+
+msgid "grid.action.delete"
+msgstr "Poista"
+
+msgid "grid.action.deleteFile"
+msgstr "Poista tiedosto"
+
+msgid "grid.action.deleteMedia"
+msgstr "Poista media"
+
+msgid "grid.action.editMedia"
+msgstr "Muokkaa mediaa"
+
+msgid "grid.action.editSection"
+msgstr "Muokkaa osastoa"
+
+msgid "grid.action.export"
+msgstr "Vie"
+
+msgid "grid.action.deleteSection"
+msgstr "Poista osasto"
+
+msgid "grid.action.editorialHistory"
+msgstr "Toimituksellinen historia"
+
+msgid "grid.action.remove"
+msgstr "Poista"
+
+msgid "grid.action.edit"
+msgstr "Muokkaa"
+
+msgid "grid.action.approve"
+msgstr "Hyväksy"
+
+msgid "grid.action.disapprove"
+msgstr "Älä hyväksy"
+
+msgid "grid.action.setApproval"
+msgstr "Aseta hyväksyntä"
+
+msgid "grid.action.moreInformation"
+msgstr "Lisätietoja"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Palauta oletusarvot"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Oletko varma, että haluat palauttaa oletusarvot?"
+
+msgid "grid.action.addAuthor"
+msgstr "Lisää kirjoittaja"
+
+msgid "grid.action.editAuthor"
+msgstr "Muokkaa kirjoittajaa"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Poista kirjoittaja"
+
+msgid "grid.action.addAuditor"
+msgstr "Lisää tarkastaja"
+
+msgid "grid.action.upgrade"
+msgstr "Päivitä"
+
+msgid "grid.action.order"
+msgstr "Järjestä"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Peruuta järjestys"
+
+msgid "grid.action.extendAll"
+msgstr "Laajenna kaikki"
+
+msgid "grid.action.collapse"
+msgstr "Kutista"
+
+msgid "grid.action.collapseAll"
+msgstr "Kutista kaikki"
+
+msgid "grid.action.wizard"
+msgstr "Ohjattu asetusten luonti"
+
+msgid "grid.action.moveItem"
+msgstr "Siirrä kohde"
+
+msgid "grid.action.downloadAll"
+msgstr "Lataa kaikki tiedostot pakettina"
+
+msgid "grid.action.readReview"
+msgstr "Lue tämä arviointi"
+
+msgid "grid.action.email"
+msgstr "Lähetä sähköpostia"
+
+msgid "grid.action.addReviewer"
+msgstr "Lisää arvioija"
+
+msgid "grid.action.addFile"
+msgstr "Lisää tiedosto"
+
+msgid "grid.action.editFile"
+msgstr "Muokkaa tiedostoa"
+
+msgid "grid.action.selectFiles"
+msgstr "Valitse hallinnoitavat tiedostot"
+
+msgid "grid.action.requestRevisions"
+msgstr "Pyydä korjauksia tähän käsikirjoitukseen"
+
+msgid "grid.action.accept"
+msgstr "Hyväksy tämä käsikirjoitus"
+
+msgid "grid.action.decline"
+msgstr "Hylkää tämä käsikirjoitus"
+
+msgid "grid.action.internalReview"
+msgstr "Lähetä tämä käsikirjoitus sisäiseen arviointiin"
+
+msgid "grid.action.externalReview"
+msgstr "Lähetä tämä käsikirjoitus ulkopuoliseen arviointiin"
+
+msgid "grid.action.sendToProduction"
+msgstr "Lähetä tämä käsikirjoitus tuotantoon"
+
+msgid "grid.action.settings"
+msgstr "Asetukset"
+
+msgid "grid.action.importexport"
+msgstr "Tuo tai vie sisältöä tai sivuston tietoja"
+
+msgid "grid.action.orderItems"
+msgstr "Ota järjestämistila käyttöön"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Muokkaa tätä tarkistuslistan kohtaa"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Poista tämä tarkistuslistan kohta"
+
+msgid "grid.action.resetAll"
+msgstr "Palauta kaikki kohteet oletusarvoisiksi"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Lisää uusi sähköpostipohja"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Muokkaa tätä sähköpostipohjaa"
+
+msgid "grid.action.disableEmail"
+msgstr "Poista tämä sähköpostipohja käytöstä"
+
+msgid "grid.action.resetEmail"
+msgstr "Palauta tämä sähköpostipohja oletusarvoiseksi"
+
+msgid "grid.action.expandAll"
+msgstr "Laajenna kaikki"
+
+msgid "grid.action.requestAccount"
+msgstr "Lisää osallistuja"
+
+msgid "grid.action.expand"
+msgstr "Laajenna"
+
+msgid "grid.action.notify"
+msgstr "Ilmoita tälle käyttäjälle"
+
+msgid "grid.action.addUserGroup"
+msgstr "Lisää uusi käyttäjäryhmä"
+
+msgid "grid.action.editUserGroup"
+msgstr "Muokkaa tätä käyttäjäryhmää"
+
+msgid "grid.action.disable"
+msgstr "Poista käytöstä"
+
+msgid "grid.action.details"
+msgstr "Näytä tämä kohde"
+
+msgid "grid.action.enrolExisting"
+msgstr "Lisää olemassa oleva käyttäjä arvioijaksi"
+
+msgid "grid.action.selectCreate"
+msgstr "Luo uusi arvioija"
+
+msgid "grid.action.search"
+msgstr "Hae"
+
+msgid "grid.action.advancedSearch"
+msgstr "Tarkennettu haku"
+
+msgid "grid.action.viewLibrary"
+msgstr "Näytä tiedostokirjasto"
+
+msgid "grid.action.viewMetadata"
+msgstr "Näytä tämän käsikirjoituksen metatiedot"
+
+msgid "grid.action.sendReminder"
+msgstr "Lähetä tälle käyttäjälle muistutus tehtävästä"
+
+msgid "grid.action.newRound"
+msgstr "Luo uusi kierros"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Näytä arviointiohjeet"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Näytä sidonnaisuuksien ilmoittamisen ohjeet"
+
+msgid "grid.action.thankReviewer"
+msgstr "Lähetä kiitosviesti tälle arvioijalle"
+
+msgid "grid.action.uploadFile"
+msgstr "Lataa tiedosto"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Lisää ilmoitustyyppi"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Lisää ilmoitus"
+
+msgid "grid.action.mergeUser"
+msgstr "Yhdistä käyttäjä"
+
+msgid "grid.action.unassignUser"
+msgstr "Poista käyttäjän valinta"
+
+msgid "grid.action.history"
+msgstr "Näytä historia"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Tämä arviointi on valmis, mutta voit merkitä sen käsittelemättömäksi"
+
+msgid "grid.action.enable"
+msgstr "Ota käyttöön"
+
+msgid "grid.action.bookInfo"
+msgstr "Käsikirjoituksen tiedot"
+
+msgid "grid.action.logInAs"
+msgstr "Kirjaudu käyttäjänä"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Vie kaikki käyttäjät"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Haluatko varmasti viedä kaikki käyttäjät?"
+
+msgid "grid.action.activate"
+msgstr "Aktivoi"
+
+msgid "grid.action.deactivate"
+msgstr "Poista aktivointi"
+
+msgid "grid.action.copy"
+msgstr "Kopioi"
+
+msgid "grid.action.preview"
+msgstr "Esikatselu"
+
+msgid "grid.action.install"
+msgstr "Asenna"
+
+msgid "grid.action.moreItems"
+msgstr "Lataa lisää"
+
+msgid "grid.task.status.completed"
+msgstr "Tämä tehtävä on suoritettu"
+
+msgid "grid.task.status.new"
+msgstr "Rastitetaan, kun käsitelty"
+
+msgid "grid.task.status.uploaded"
+msgstr "Sarakkeen otsikko ilmaisee tämän tiedoston lataajan"
+
+msgid "grid.task.status.unfinished"
+msgstr "Tehtävä keskeneräinen"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Tämä arviointi on valmis. Klikkaa muistiinpanokuvaketta vasemmalle lukeaksesi sen."
+
+msgid "grid.columns.actions"
+msgstr "Toimenpiteet"
+
+msgid "grid.columns.institution"
+msgstr "Instituutio"
+
+msgid "grid.columns.url"
+msgstr "URL-osoite"
+
+msgid "grid.columns.auditor"
+msgstr "Tarkastaja"
+
+msgid "grid.columns.locale"
+msgstr "Kielialue"
+
+msgid "grid.sponsor.title"
+msgstr "Tukiorganisaatiot"
+
+msgid "grid.action.addSponsor"
+msgstr "Lisää tukija"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Poista tukija"
+
+msgid "grid.action.editSponsor"
+msgstr "Muokkaa tukijaa"
+
+msgid "grid.action.addSeries"
+msgstr "Lisää sarja"
+
+msgid "grid.action.editSeries"
+msgstr "Muokkaa sarjaa"
+
+msgid "grid.action.deleteSeries"
+msgstr "Poista sarja"
+
+msgid "grid.action.addCategory"
+msgstr "Lisää kategoria"
+
+msgid "grid.action.editCategory"
+msgstr "Muokkaa kategoriaa"
+
+msgid "grid.action.deleteCategory"
+msgstr "Poista kategoria"
+
+msgid "grid.contributor.title"
+msgstr "Kannatuslähteet"
+
+msgid "grid.action.addContributor"
+msgstr "Lisää tekijä"
+
+msgid "grid.action.editContributor"
+msgstr "Muokkaa tekijää"
+
+msgid "grid.action.deleteContributor"
+msgstr "Poista tekijä"
+
+msgid "grid.reviewForm.title"
+msgstr "Arviointilomakkeet"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Vastausvaihtoehdot"
+
+msgid "grid.noFiles"
+msgstr "Ei tiedostoja"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Tiedostot"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Käsikirjoituskirjasto"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Toimituksen kirjasto"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Arviointikirjasto"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Tuotannon kirjasto"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Tuotannon mallipohjakirjasto"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Käsikirjoituksen tarkistuslista"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Tarkistuslistan kohta"
+
+msgid "author.users.contributor.name"
+msgstr "Nimi"
+
+msgid "author.users.contributor.email"
+msgstr "Sähköposti"
+
+msgid "author.users.contributor.role"
+msgstr "Rooli"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Ensisijainen yhteyshenkilö"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Näkyy luetteloissa"
+
+msgid "grid.roles.currentRoles"
+msgstr "Nykyiset roolit"
+
+msgid "grid.roles.add"
+msgstr "Luo uusi rooli"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Työvaiheiden valinta"
+
+msgid "grid.user.currentUsers"
+msgstr "Nykyiset käyttäjät"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Nykyiset roolit"
+
+msgid "grid.user.allRoles"
+msgstr "Kaikki roolit"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Kaikki käyttöoikeustasot"
+
+msgid "grid.user.add"
+msgstr "Lisää käyttäjä"
+
+msgid "grid.user.enroll"
+msgstr "Lisää käyttäjälle rooli"
+
+msgid "grid.user.edit"
+msgstr "Muokkaa käyttäjää"
+
+msgid "grid.user.email"
+msgstr "Sähköposti"
+
+msgid "grid.user.enable"
+msgstr "Salli"
+
+msgid "grid.user.disable"
+msgstr "Estä"
+
+msgid "grid.user.disableReason"
+msgstr "Syy käyttäjän estämiseen"
+
+msgid "grid.user.enableReason"
+msgstr "Syy käyttäjän sallimiseen"
+
+msgid "grid.user.error"
+msgstr "Tätä käyttäjää hallinnoitaessa ilmeni virhe. Yritä uudelleen."
+
+msgid "grid.user.errorEmail"
+msgstr "Tätä sähköpostia lähetettäessä ilmeni virhe. Varmista, että sähköpostipalvelimesi määritykset toimivat ja/tai ota yhteyttä järjestelmäsi ylläpitäjään."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Sinulla ei ole riittäviä oikeuksia hallinnoida tätä käyttäjää. Hallinnoidaksesi käyttäjää sinun tulee olla sivuston ylläpitäjä tai hallinnoida kaikkia niitä konteksteja, joihin tämä käyttäjä on lisätty."
+
+msgid "grid.user.authSource"
+msgstr "Todentamislähde"
+
+msgid "grid.user.mustProvideName"
+msgstr "Anna käyttäjälle ensin ainakin sukunimi."
+
+msgid "grid.user.generatePassword"
+msgstr "Luo salasana"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Luo tälle käyttäjälle satunnainen salasana."
+
+msgid "grid.user.notifyUser"
+msgstr "Ilmoita käyttäjälle"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Lähetä käyttäjälle tervetuloviesti sähköpostilla."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Vaihda salasana"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Käyttäjän on vaihdettava salasana seuraavan kirjautumisen yhteydessä."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Vaadi, että käyttäjä vaihtaa salasanansa kirjautuessaan sisään seuraavan kerran."
+
+msgid "grid.user.moreDetails"
+msgstr "Lisää tietoja käyttäjästä"
+
+msgid "grid.user.lessDetails"
+msgstr "Vähemmän tietoja käyttäjästä"
+
+msgid "grid.user.userDetails"
+msgstr "Käyttäjätiedot"
+
+msgid "grid.user.userRoles"
+msgstr "Käyttäjäroolit"
+
+msgid "grid.user.userNoRoles"
+msgstr "Tällä käyttäjällä ei ole rooleja."
+
+msgid "grid.user.step1"
+msgstr "Vaihe 1: Täytä käyttäjätiedot"
+
+msgid "grid.user.step2"
+msgstr "Vaihe 2: Lisää rooleja käyttäjälle {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Lisää rooleja"
+
+msgid "grid.user.addRole"
+msgstr "Lisää rooli"
+
+msgid "grid.user.selectUser"
+msgstr "Valitse käyttäjä"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Valitse käyttäjä"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Kirjaudu sisään tällä käyttäjätunnuksella? Kaikkia toimenpiteitä, joita teet, pidetään tämän käyttäjän tekeminä."
+
+msgid "grid.user.mergeUsers"
+msgstr "Yhdistä käyttäjät"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Yhdistä käyttäjä"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Yhdistä tähän käyttäjään"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Kaikki käyttäjät, joilla on rooleja"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Haluatko varmasti yhdistää tilin käyttäjätunnuksella \"{$oldUsername}\" tiliin, jonka käyttäjätunnus on \"{$newUsername}\"? Tili, jonka käyttäjätunnus on \"{$oldUsername}\", poistetaan kokonaan. Tätä toimintoa ei voi kumota."
+
+msgid "grid.preparedEmails.title"
+msgstr "Valmiit sähköpostipohjat"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Nykyinen lista"
+
+msgid "grid.plugin.allCategories"
+msgstr "Kaikki kategoriat"
+
+msgid "grid.plugin.disable"
+msgstr "Haluatko varmasti poistaa tämän lisäosan käytöstä?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Oikoluvun korjaukset tehty. Voit merkitä tämän tehtävän käsittelemättömäksi"
+
+msgid "grid.artworkFile.caption"
+msgstr "Kuvateksti"
+
+msgid "grid.artworkFile.credit"
+msgstr "Tekijätieto"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Tekijänoikeuden omistaja"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Yhteystiedot (jos ei kirjoittaja/julkaisija)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Lupaehdot"
+
+msgid "grid.artworkFile.placement"
+msgstr "Sijoitus käsikirjoitukseen"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Valitse työvaihe"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Poista työvaihe"
+
+msgid "grid.userGroup.allStages"
+msgstr "Kaikki työnkulun vaiheet"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Listaa roolit, jotka on valittu seuraaviin työvaiheisiin"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Joilla on seuraava käyttöoikeustaso"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "{$userGroupName}-rooli on oletusasetus ja sitä ei voi poistaa."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "{$userGroupName}-roolia ei voi poistaa. Rooliin on tällä hetkellä valittu {$usersCount} käyttäjä(ä)."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName}-rooli poistettu."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName}-rooli valittu {$stageName}-vaiheeseen."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName}-rooli poistettu {$stageName}-vaiheesta."
+
+msgid "grid.submission.itemTitle"
+msgstr "Kirjoittaja; Otsikko"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Sisällytä keskeneräiset käsikirjoitukset, jotka eivät ole kirjoittajan lähettämiä"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Ei valikkoja"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Ei kohteita"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Lisää kohde"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Lisää valikko"
+
+msgid "grid.action.uninstall"
+msgstr "Poista asennus"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Valitse tyyppi..."
+
+msgid "grid.action.users"
+msgstr "Selaa/valitse käyttäjiä"

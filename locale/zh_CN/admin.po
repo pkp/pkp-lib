@@ -1,0 +1,204 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-04T08:55:00-08:00\n"
+"PO-Revision-Date: 2019-11-04T08:55:00-08:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "管理职能"
+
+msgid "admin.auth.confirmDelete"
+msgstr "您确定要永久删除此验证来源?"
+
+msgid "admin.auth.create"
+msgstr "创建验证来源"
+
+msgid "admin.auth.noneCreated"
+msgstr "没有验证来源已经确定."
+
+msgid "admin.authSources"
+msgstr "验证来源"
+
+msgid "admin.clearDataCache"
+msgstr "清除数据缓存"
+
+msgid "admin.clearTemplateCache"
+msgstr "清除模板缓存"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "您的配置文件已成功更新. 请注意，如果您的网站不能正常工作，您需要直接手动修复编辑 <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "您确定要清除已编译模板缓存?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "A你确定要所有用户会话过期？目前所有登录的用户将被迫重新登录（包括自己）."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "配置文件的内容"
+
+msgid "admin.currentVersion"
+msgstr "当前版本"
+
+msgid "admin.dateInstalled"
+msgstr "安装日期"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "您的更新的配置的内容显示在下面. 要应用配置更改，您必须使用合适的编辑器打开 <tt>config.inc.php</tt>，并替换下面的文本字段的内容."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "显示新的配置"
+
+msgid "admin.expireSessions"
+msgstr "用户会话过期"
+
+msgid "admin.languages.confirmReload"
+msgstr "您确定要重新加载此语言环境？这将删除任何现有的区域设置特定的数据，如定制的电子邮件模板."
+
+msgid "admin.languages.installedLocales"
+msgstr "已安装的语言环境"
+
+msgid "admin.languages.installLanguages"
+msgstr "管理语言环境"
+
+msgid "admin.languages.installLocales"
+msgstr "安装"
+
+msgid "admin.languages.installNewLocales"
+msgstr "安装新的语言环境"
+
+msgid "admin.languages.languageSettings"
+msgstr "语言设置"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "没有额外的语言环境，可用于安装."
+
+msgid "admin.languages.reload"
+msgstr "刷新语言设置"
+
+msgid "admin.languages.uninstall"
+msgstr "卸载语言设置"
+
+msgid "admin.phpInfo"
+msgstr "扩展PHP的信息"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache版本"
+
+msgid "admin.server.dbDriver"
+msgstr "数据库驱动"
+
+msgid "admin.server.dbVersion"
+msgstr "数据库版本"
+
+msgid "admin.serverInformationDescription"
+msgstr "基本的操作系统和服务器软件版本. 点击 <span class=\"highlight\">额外的PHP信息</span>来查看这个服务器的PHP配置扩展详情."
+
+msgid "admin.serverInformation"
+msgstr "服务器信息"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP版本"
+
+msgid "admin.server.platform"
+msgstr "OS平台"
+
+msgid "admin.settings.about"
+msgstr "关于网站描述"
+
+msgid "admin.settings.contactEmail"
+msgstr "主要联络的电子邮件"
+
+msgid "admin.settings.contactName"
+msgstr "主要的联系人名"
+
+msgid "admin.settings.introduction"
+msgstr "介绍"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "最小的密码长度"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "字符"
+
+msgid "admin.settings.siteLanguage"
+msgstr "网站语言"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "无效的样式表格式，允许的格式有.css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "站点样式表"
+
+msgid "admin.settings.siteTitle"
+msgstr "站点标题"
+
+msgid "admin.siteAdmin"
+msgstr "站点管理"
+
+msgid "admin.siteManagement"
+msgstr "站点管理"
+
+msgid "admin.siteSettings"
+msgstr "站点设置"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "T配置文件 <tt>config.inc.php</tt> 不存在, 或者不可读, 或者无效."
+
+msgid "admin.systemInformation"
+msgstr "系统信息"
+
+msgid "admin.versionBuild"
+msgstr "Build"
+
+msgid "admin.version.checkForUpdates"
+msgstr "检查更新"
+
+msgid "admin.version.downloadPackage"
+msgstr "下载"
+
+msgid "admin.version.downloadPatch"
+msgstr "现在不定"
+
+msgid "admin.versionHistory"
+msgstr "版本历史"
+
+msgid "admin.version.latest"
+msgstr "最新版本"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.version.moreInfo"
+msgstr "更多信息"
+
+msgid "admin.versionRevision"
+msgstr "修订版本"
+
+msgid "admin.version.updateAvailable"
+msgstr "一个更新的版本可用"
+
+msgid "admin.version.upToDate"
+msgstr "您的系统是最新"
+
+msgid "admin.version"
+msgstr "版本"
+
+msgid "admin.settings"
+msgstr "设置"
+
+msgid "admin.siteSetup"
+msgstr "整站设置"
+
+msgid "admin.settings.siteTheme"
+msgstr "站点主题"

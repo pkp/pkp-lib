@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:54+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonym bruker"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Meldingstekst"
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Ved å slette denne kommentaren vil du også slette alle svar til den. Er du sikker på at du vil gjøre dette?"
+
+msgid "comments.delete"
+msgstr "Slett denne kommentaren"
+
+msgid "comments.email"
+msgstr "Innsenderens e-postadresse"
+
+msgid "comments.emailReply"
+msgstr "E-post svar"
+
+msgid "comments.enterComment"
+msgstr "Skriv inn kommentar"
+
+msgid "comments.inResponseTo"
+msgstr "Som svar til <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Innsenderens navn"
+
+msgid "comments.noComments"
+msgstr "Ingen leserkommentarer er gitt."
+
+msgid "comments.nReplies"
+msgstr "({$num} Svar)"
+
+msgid "comments.oneReply"
+msgstr "(1 Svar)"
+
+msgid "comments.postAnonymously"
+msgstr "Send inn denne kommentaren anonymt"
+
+msgid "comments.postReply"
+msgstr "Send inn svar"
+
+msgid "comments.readerComments"
+msgstr "Leserkommentarer"
+
+msgid "comments.readMore"
+msgstr "Les mer"
+
+msgid "comments.replies"
+msgstr "Svar"
+
+msgid "comments.title"
+msgstr "Tittel"
+
+msgid "comments.viewAllComments"
+msgstr "Vis alle kommentarer"
+
+msgid "reader.fullText"
+msgstr "Fulltekst:"
+
+msgid "comments.titleRequired"
+msgstr "En kommentartittel er påkrevd."

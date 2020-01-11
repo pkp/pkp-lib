@@ -3,8 +3,8 @@
 /**
  * @file classes/cliTool/InstallTool.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class installTool
@@ -94,7 +94,6 @@ class InstallTool extends CommandLineTool {
 		$this->readParamOptions('additionalLocales', 'installer.additionalLocales', $installForm->supportedLocales, '', true);
 		$this->readParamOptions('clientCharset', 'installer.clientCharset', $installForm->supportedClientCharsets, 'utf-8');
 		$this->readParamOptions('connectionCharset', 'installer.connectionCharset', $installForm->supportedConnectionCharsets, '');
-		$this->readParamOptions('databaseCharset', 'installer.databaseCharset', $installForm->supportedDatabaseCharsets, '');
 
 		// File Settings
 		$this->printTitle('installer.fileSettings');

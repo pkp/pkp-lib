@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlPKPAuthorFilter.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPKPAuthorFilter
@@ -69,7 +69,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 		// Create the data object
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
 		$author = $authorDao->newDataObject();
-		$author->setSubmissionId($submission->getId());
+		$author->setData('publicationId', $submission->getCurrentPublication()->getId());
 		if ($node->getAttribute('primary_contact')) $author->setPrimaryContact(true);
 		if ($node->getAttribute('include_in_browse')) $author->setIncludeInBrowse(true);
 

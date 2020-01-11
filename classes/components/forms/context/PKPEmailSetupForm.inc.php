@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/PKPEmailSetupForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailSetupForm
@@ -44,6 +44,11 @@ class PKPEmailSetupForm extends FormComponent {
 				'label' => __('manager.setup.emailSignature'),
 				'tooltip' => __('manager.setup.emailSignature.description'),
 				'value' => $context->getData('emailSignature'),
+				'preparedContent' => [
+					'contextName' => $context->getLocalizedName(),
+					'senderName' => __('email.senderName'),
+					'senderEmail' => __('email.senderEmail'),
+				]
 			]));
 
 		if ($canEnvelopeSender) {

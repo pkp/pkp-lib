@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:09+00:00\n"
+"Language: \n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Запит"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Довідник"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Завантажити та рецензувати"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Завершення"
+
+msgid "reviewer.step1.request"
+msgstr "Запит на рецензію"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr "Ви були обрані як потенційний рецензент наступного матеріалу. Нижче наведено опис матеріалу та терміни розгляду. Ми сподіваємось, що ви зможете взяти участь у рецензуванні."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Показати усю інформацію про матеріал"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Файли рецензента"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Відхилити запит на рецензію"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Ви можете навести редактору причини вашої відмови від рецензування цього матеріалу в полі, яке розташоване нижче."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Погодитися на рецензування, перейти до кроку №2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Перейти до кроку №3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Надіслати рецензію"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Довідник рецензента"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr "Цей видавець має правила щодо розкриття можливого конфлікту інтересів інтересів його рецензентів. Будь ласка, перегляньте ці правила."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "У мене немає конфлікту інтересів"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Я може бути конфлікт інтересів (зазначте нижче)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Конфлікт інтересів"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Довідник рецензентів"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Цей видавець не створив жодного довідника рецензента."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Натискайте на імена файлів нижче, щоб завантажити файли, пов'язані з цим матеріалом."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Введіть (або вставте) вашу рецензію цього матеріалу у форму, розашовану нижче."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr "Завантажте файли, які варто переглянути редакторові та/або автору, включаючи відкоректовані версії оригінальних файлів для рецензії."
+
+msgid "reviewer.complete"
+msgstr "Рецензію надіслано"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Ви впевнені, що хочете надіслати цю рецензію?"
+
+msgid "reviewer.complete.whatNext"
+msgstr "Дякуємо, що завершили рецензування цього матеріалу. Вашу рецензію успішно надіслано. Ми цінуємо ваш внесок у якість роботи, яку ми публікуємо; редактор може знову зв'язатися з вами для отримання додаткової інформації, якщо це буде необхідно."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Про терміни виконання"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr "Редактор просить вас прийняти або відхилити запит на рецензію до закінчення терміну відповіді на запит та завершити рецензію до закінчення терміну рецензування."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Для автора та редактора"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Лише для редактора"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Поточний користувач не призначений рецензентом для документа, щодо якого надіслано запит."

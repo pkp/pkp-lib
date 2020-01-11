@@ -1,17 +1,13 @@
 {**
  * templates/user/notificationSettingsForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User profile form.
  *}
-
-{* Help Link *}
-{help file="user-profile" class="pkp_help_tab"}
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#notificationSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', {ldelim}
@@ -26,9 +22,12 @@
 	{rdelim});
 </script>
 
-<p>{translate key="notification.settingsDescription"}</p>
-
 <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
+	<p>{translate key="notification.settingsDescription"}</p>
+	
+	{* Help Link *}
+	{help file="user-profile" class="pkp_help_tab"}
+
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notificationSettingsFormNotification"}

@@ -1,8 +1,8 @@
 /**
  * @file js/load.js
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Common configuration for building the Javascript package
@@ -13,14 +13,12 @@ import Vue from 'vue';
 import GlobalMixins from '@/mixins/global.js';
 import VTooltip from 'v-tooltip';
 import VueScrollTo from 'vue-scrollto';
-import Tabs from 'vue-tabs-component';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
-Vue.use(Tabs);
 Vue.mixin(GlobalMixins);
 
 export default {

@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/classes/handler/APIHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class APIHandler
@@ -24,7 +24,6 @@ class APIHandler extends PKPHandler {
 	protected $_request;
 	protected $_endpoints = array();
 	protected $_slimRequest = null;
-	protected $_apiToken = null;
 
 	/** @var string The endpoint pattern for this handler */
 	protected $_pathPattern;
@@ -115,6 +114,15 @@ class APIHandler extends PKPHandler {
 					$handler->_slimRequest = $request->withUri($uri);
 					return $app->process($handler->_slimRequest, $response);
 				}
+			} elseif ($pathInfoEnabled) {
+				// pkp/pkp-lib#4919: PKP software routes with PATH_INFO (unaffected by
+				// mod_rewrite) but Slim relies on REQUEST_URI. Inject PATH_INFO into
+				// Slim for consistent behavior in URL rewriting scenarios.
+				$newUri = $uri->withPath($_SERVER['PATH_INFO']);
+				if ($uri != $newUri) {
+					$handler->_slimRequest = $request->withUri($newUri);
+					return $app->process($handler->_slimRequest, $response);
+				}
 			}
 			return $next($request, $response);
 		});
@@ -123,7 +131,7 @@ class APIHandler extends PKPHandler {
 			$response = $response->withHeader('Access-Control-Allow-Origin', '*');
 			return $next($request, $response);
 		});
-		$this->_request = Application::getRequest();
+		$this->_request = Application::get()->getRequest();
 		$this->setupEndpoints();
 	}
 
@@ -134,23 +142,6 @@ class APIHandler extends PKPHandler {
 	 */
 	public function getRequest() {
 		return $this->_request;
-	}
-
-	/**
-	 * Return API token string
-	 *
-	 * @return string|null
-	 */
-	public function getApiToken() {
-		return $this->_apiToken;
-	}
-
-	/**
-	 * Set API token string
-	 *
-	 */
-	public function setApiToken($apiToken) {
-		return $this->_apiToken = $apiToken;
 	}
 
 	/**
@@ -211,6 +202,7 @@ class APIHandler extends PKPHandler {
 	public function setupEndpoints() {
 		$app = $this->getApp();
 		$endpoints = $this->getEndpoints();
+		HookRegistry::call('APIHandler::endpoints', [&$endpoints, $this]);
 		foreach ($endpoints as $method => $definitions) {
 			foreach ($definitions as $parameters) {
 				$method = strtolower($method);
@@ -319,8 +311,8 @@ class APIHandler extends PKPHandler {
 	 * @param $type One of boolean, integer or number
 	 */
 	private function _convertStringsToSchema($value, $type, $schema) {
-		// Convert all empty strings to null
-		if (is_string($value) && !strlen($value)) {
+		// Convert all empty strings to null except arrays (see note below)
+		if (is_string($value) && !strlen($value) && $type !== 'array') {
 			return null;
 		}
 		switch ($type) {
@@ -356,6 +348,12 @@ class APIHandler extends PKPHandler {
 						}
 					}
 					return $newArray;
+
+				// An empty string is accepted as an empty array. This addresses the
+				// issue where browsers strip empty arrays from post data before sending.
+				// See: https://bugs.jquery.com/ticket/6481
+				} elseif (is_string($value) && !strlen($value)) {
+					return [];
 				}
 				break;
 			case 'object':
@@ -372,5 +370,66 @@ class APIHandler extends PKPHandler {
 				break;
 		}
 		return $value;
+	}
+
+	/**
+	 * A helper method to validate start and end date params for stats
+	 * API handlers
+	 *
+	 * 1. Checks the date formats
+	 * 2. Ensures a start date is not earlier than STATISTICS_EARLIEST_DATE
+	 * 3. Ensures an end date is no later than yesterday
+	 * 4. Ensures the start date is not later than the end date
+	 *
+	 * @param array $params The params to validate
+	 * @param string $dateStartParam Where the find the start date in the array of params
+	 * @param string $dateEndParam Where to find the end date in the array of params
+	 * @return boolean|string True if they validate, or a string which
+	 *   contains the locale key of an error message.
+	 */
+	protected function _validateStatDates($params, $dateStartParam = 'dateStart', $dateEndParam = 'dateEnd') {
+		import('lib.pkp.classes.validation.ValidatorFactory');
+		$validator = \ValidatorFactory::make(
+			$params,
+			[
+				$dateStartParam => [
+					'date_format:Y-m-d',
+					'after_or_equal:' . STATISTICS_EARLIEST_DATE,
+					'before_or_equal:' . $dateEndParam,
+				],
+				$dateEndParam => [
+					'date_format:Y-m-d',
+					'before_or_equal:yesterday',
+					'after_or_equal:' . $dateStartParam,
+				],
+			],
+			[
+				'*.date_format' => 'invalidFormat',
+				$dateStartParam . '.after_or_equal' => 'tooEarly',
+				$dateEndParam . '.before_or_equal' => 'tooLate',
+				$dateStartParam . '.before_or_equal' => 'invalidRange',
+				$dateEndParam . '.after_or_equal' => 'invalidRange',
+			]
+		);
+
+		if ($validator->fails()) {
+			$errors = $validator->errors()->getMessages();
+			if ((!empty($errors[$dateStartParam]) && in_array('invalidFormat', $errors[$dateStartParam]))
+					|| (!empty($errors[$dateEndParam]) && in_array('invalidFormat', $errors[$dateEndParam]))) {
+				return 'api.stats.400.wrongDateFormat';
+			}
+			if (!empty($errors[$dateStartParam]) && in_array('tooEarly', $errors[$dateStartParam])) {
+				return 'api.stats.400.earlyDateRange';
+			}
+			if (!empty($errors[$dateEndParam]) && in_array('tooLate', $errors[$dateEndParam])) {
+				return 'api.stats.400.lateDateRange';
+			}
+			if ((!empty($errors[$dateStartParam]) && in_array('invalidRange', $errors[$dateStartParam]))
+					|| (!empty($errors[$dateEndParam]) && in_array('invalidRange', $errors[$dateEndParam]))) {
+				return 'api.stats.400.wrongDateRange';
+			}
+		}
+
+		return true;
 	}
 }

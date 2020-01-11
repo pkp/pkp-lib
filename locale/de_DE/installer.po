@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:24-07:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Weitere Regionaleinstellungen"
+
+msgid "installer.administratorAccount"
+msgstr "Administrator/innen-Konto"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Dieses Benutzer/innen-Konto erhält die Administrationsrechte für die gesamte Website und wird kompletten Zugriff auf das System haben. Zusätzliche Benutzer/innen-Konten können nach der Installation erstellt werden."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NEIN</span>"
+
+msgid "installer.checkYes"
+msgstr "Ja"
+
+msgid "installer.clientCharset"
+msgstr "Client-Zeichensatz"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Codierung für Daten, die vom oder zum Browser geschickt werden."
+
+msgid "installer.configFileError"
+msgstr "Die Konfigurationsdatei <tt>config.inc.php</tt> existiert nicht oder ist nicht lesbar."
+
+msgid "installer.connectionCharset"
+msgstr "Zeichensatz für Verbindungen"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Inhalt der Konfigurationsdatei"
+
+msgid "installer.createDatabase"
+msgstr "Datenbank anlegen"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Zur Benutzung dieser Option muss Ihr Datenbanksystem das Anlegen von Datenbanken aus der Entfernung unterstützten und muss Ihr Benutzer/innen-Name die Rechte haben, Datenbanken anzulegen. Wenn die Installation unter Verwendung dieser Option scheitert, legen Sie die Datenbank manuell auf dem Server an und führen dann den Installer ohne diese Option aus."
+
+msgid "installer.databaseDriver"
+msgstr "Datenbank-Treiber"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Zu den Datenbank-Treibern in Klammern scheinen nicht die nötigen PHP-Erweiterungen installiert zu sein, so dass die Installation vermutlich scheitern wird.</strong><br />Alle nicht unterstützten Datenbank-Treiber, die oben aufgeführt sind, sind ausschließlich aus Vollständigkeitsgründen erfasst und werden voraussichtlich nicht funktionieren."
+
+msgid "installer.databaseHost"
+msgstr "Server"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Bitte lassen Sie das Feld Server frei, wenn Sie die Verbindung über domain sockets statt per TCP/IP vornehmen wollen. Dies ist bei MySQL nicht notwendig, das automatisch Sockets verwendet, wenn \"localhost\" eingegeben wird. Andere Datenbanken wie PostgreSQL erfordern aber eine solche Einstellung."
+
+msgid "installer.databaseName"
+msgstr "Name der Datenbank"
+
+msgid "installer.databasePassword"
+msgstr "Passwort"
+
+msgid "installer.databaseSettings"
+msgstr "Datenbank-Einstellungen"
+
+msgid "installer.databaseUsername"
+msgstr "Benutzer/innen-Name"
+
+msgid "installer.filesDir"
+msgstr "Verzeichnis für hochgeladene Dateien"
+
+msgid "installer.fileSettings"
+msgstr "Dateieinstellungen"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Bitte wählen Sie einen Zeichensatz aus."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Bitte wählen Sie einen Datenbanktreiber aus."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Bitte geben Sie einen Namen für die Datenbank an."
+
+msgid "installer.form.emailRequired"
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse für das Administrations-Konto an."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Bitte geben Sie ein Verzeichnis an, in dem hochgeladene Dateien gespeichert werden sollen."
+
+msgid "installer.form.localeRequired"
+msgstr "Bitte wählen Sie eine Regionaleinstellung aus."
+
+msgid "installer.form.passwordRequired"
+msgstr "Bitte geben Sie ein Passwort für das Administrations-Konto an."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Die Passwörter für das Administrations-Konto stimmen nicht überein."
+
+msgid "installer.form.separateMultiple"
+msgstr "Bitte trennen Sie mehrere Werte durch Kommata."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Der Benutzer/innen-Name für das Administrations-Konto darf nur Buchstaben, Zahlen, Unterstriche und Bindestriche enthalten und muss mit einem Buchstaben oder einer Zahl beginnen und enden."
+
+msgid "installer.form.usernameRequired"
+msgstr "Bitte geben Sie einen Benutzer/innen-Namen für das Administrations-Konto an."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>WARNUNG: Ihre aktuelle PHP-Version erfüllt nicht die Minimalanforderungen für die Installation. Wir empfehlen ein Upgrade zu einer neueren Version von PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Während der Installation sind Fehler aufgetreten."
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL-Anweisungen für die Installation"
+
+msgid "installer.installFileError"
+msgstr "Die Installationsdatei <tt>dbscripts/xml/install.xml</tt> existiert nicht oder ist nicht lesbar."
+
+msgid "installer.installFilesDirError"
+msgstr "Das Verzeichnis, das als Ort für hochgeladene Dateien angegeben worden ist, existiert nicht oder erlaubt keine Schreibzugriffe."
+
+msgid "installer.installParseDBFileError"
+msgstr "Paring-Fehler bei der Verarbeitung der Datenbank-Installationsdatei <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Parsing-Fehler bei der Verarbeitung der E-Mail-Vorlagen-Datei <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Parsing-Fehler bei der Verarbeitung der Filterkonfigurationsdatei <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Upgrade nicht unterstützt. Siehe docs/UPGRADE-UNSUPPORTED für Details."
+
+msgid "installer.locale"
+msgstr "Regionaleinstellungen"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Die markierten Regionaleinstellungen sind möglicherweise unvollständig."
+
+msgid "installer.localeSettings"
+msgstr "Regionaleinstellungen"
+
+msgid "installer.oaiSettings"
+msgstr "OAI-Einstellungen"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Eine eindeutige Kennung zur Identifikation von Metadaten-Einträgen, die von dieser Website mittels des <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>-Protokolls für Metadaten-Harvesting abgerufen werden."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Kennung für das Repository"
+
+msgid "installer.publicFilesDirError"
+msgstr "Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe."
+
+msgid "installer.releaseNotes"
+msgstr "Versionsinformationen"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Vor der Installation"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Die folgenden Dateien und Verzeichnisse (mit ihren Inhalten) müssen beschreibbar sein:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> ist beschreibbar (optional): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> ist beschreibbar: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> ist beschreibbar: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> ist beschreibbar: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> ist beschreibbar: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> ist beschreibbar: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Ein Verzeichnis für die Ablage hochgeladener Dateien muss angelegt und beschreibbar gemacht werden (siehe \"Datei-Einstellungen\" unten).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>In Ihrer PHP-Installation ist das XSL-Modul nicht freigeschaltet. Entweder schalten Sie es frei, oder konfigurieren Sie das Parameter xsl_command in Ihrer Datei config.inc.php.</p>"
+
+msgid "installer.beacon"
+msgstr "Identifikationssignal"
+
+msgid "installer.beacon.enable"
+msgstr "Eine eindeutige Identifikation und die OAI base URL an PKP übermitteln (nur für Statistiken und Sicherheitsbenachrichtigungen)."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Die PHP-Version Ihres Servers wird nicht von dieser Software unterstützt. Bitte überprüfen Sie die Installationsanforderungen in docs/README."

@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonieme gebruiker"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Inhoud"
+
+msgid "comments.titleRequired"
+msgstr "Een titel is verplicht"
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Bij het verwijderen van deze reactie gaan ook de antwoorden daarop verloren. Weet u zeker dat u dit wilt doen?"
+
+msgid "comments.delete"
+msgstr "Verwijder dit commentaar"
+
+msgid "comments.email"
+msgstr "E-mailadres schrijver"
+
+msgid "comments.emailReply"
+msgstr "Antwoord via e-mail"
+
+msgid "comments.enterComment"
+msgstr "Geef reactie"
+
+msgid "comments.inResponseTo"
+msgstr "In reactie op <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Naam schrijver"
+
+msgid "comments.noComments"
+msgstr "Er zijn geen reacties van lezers."
+
+msgid "comments.nReplies"
+msgstr "({$num} antwoorden)"
+
+msgid "comments.oneReply"
+msgstr "(1 antwoord)"
+
+msgid "comments.postAnonymously"
+msgstr "Plaats deze reactie anoniem"
+
+msgid "comments.postReply"
+msgstr "Plaats antwoord"
+
+msgid "comments.readerComments"
+msgstr "Reacties van lezers"
+
+msgid "comments.readMore"
+msgstr "Lees verder"
+
+msgid "comments.replies"
+msgstr "Antwoorden"
+
+msgid "comments.title"
+msgstr "Titel"
+
+msgid "comments.viewAllComments"
+msgstr "Bekijk alle reacties"
+
+msgid "reader.fullText"
+msgstr "Volledige tekst:"

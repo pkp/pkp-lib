@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/FormComponent.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormComponent
@@ -29,6 +29,7 @@ class FormComponent {
 	public $action = '';
 
 	/** @var string The message to display when this form is successfully submitted */
+	public $successMessage = '';
 
 	/** @var array Key/value list of languages this form should support. Key = locale code. Value = locale name */
 	public $locales = [];
@@ -96,6 +97,21 @@ class FormComponent {
 			return $field->name !== $fieldName;
 		});
 		return $this;
+	}
+
+	/**
+	 * Get a form field
+	 *
+	 * @param $fieldName string
+	 * @return Field
+	 */
+	public function getField($fieldName) {
+		foreach ($this->fields as $field) {
+			if ($field->name === $fieldName) {
+				return $field;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -249,7 +265,7 @@ class FormComponent {
 
 		$fieldsConfig = array_map([$this, 'getFieldConfig'], $this->fields);
 
-		$session = \Application::getRequest()->getSession();
+		$session = \Application::get()->getRequest()->getSession();
 		$csrfToken = $session ? $session->getCSRFToken() : '';
 
 		$this->i18n = array_merge([

@@ -2,8 +2,8 @@
 /**
  * @file classes/services/QueryBuilders/PKPContextQueryBuilder.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPContextQueryBuilder
@@ -27,7 +27,7 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	/** @var string The column name for a context ID: `journal_id` or `press_id` */
 	protected $dbIdColumn;
 
-	/** @var string enabled or disabled contexts */
+	/** @var boolean enabled or disabled contexts */
 	protected $isEnabled = null;
 
 	/** @var string search phrase */
@@ -39,7 +39,7 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	/**
 	 * Set isEnabled filter
 	 *
-	 * @param $isEnabled string
+	 * @param $isEnabled boolean
 	 *
 	 * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
 	 */

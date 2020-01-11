@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/SubmissionFile.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFile
@@ -82,6 +82,26 @@ class SubmissionFile extends PKPFile {
 	 * @param $fileId int
 	 */
 	function setFileId($fileId) {
+		// WARNING: Do not modernize getter/setters without considering
+		// ID clash with subclasses ArticleGalley and ArticleNote!
+		$this->setData('fileId', $fileId);
+	}
+
+	/**
+	 * Get ID of file.
+	 * @return int
+	 */
+	function getId() {
+		// WARNING: Do not modernize getter/setters without considering
+		// ID clash with subclasses ArticleGalley and ArticleNote!
+		return $this->getData('fileId');
+	}
+
+	/**
+	 * Set ID of file.
+	 * @param $fileId int
+	 */
+	function setId($fileId) {
 		// WARNING: Do not modernize getter/setters without considering
 		// ID clash with subclasses ArticleGalley and ArticleNote!
 		$this->setData('fileId', $fileId);

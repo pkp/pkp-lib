@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/feature/GeneralPagingFeature.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GeneralPagingFeature
@@ -114,7 +114,7 @@ class GeneralPagingFeature extends GridFeature {
 
 		if (is_array($data)) {
 			import('lib.pkp.classes.core.ArrayItemIterator');
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$rangeInfo = $grid->getGridRangeInfo($request, $grid->getId());
 			$itemIterator = new ArrayItemIterator($data, $rangeInfo->getPage(), $rangeInfo->getCount());
 			$this->_itemIterator = $itemIterator;
@@ -134,7 +134,7 @@ class GeneralPagingFeature extends GridFeature {
 		// Add paging info so grid actions will not loose paging context.
 		// Only works if grid link actions use the getRequestArgs
 		// returned content.
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$rangeInfo = $grid->getGridRangeInfo($request, $grid->getId());
 		$requestArgs[GridHandler::getPageParamName($grid->getId())] = $rangeInfo->getPage();
 		$requestArgs[$this->_getItemsPerPageParamName($grid->getId())] = $rangeInfo->getCount();

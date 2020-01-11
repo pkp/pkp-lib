@@ -7,10 +7,4 @@
 	<php>
 		<server name="PKP_MOCK_ENV" value="env2"/>
 	</php>
-	<filter>
-		<blacklist>
-			<directory suffix=".php">../../../cache</directory>
-			<directory suffix=".php">../../../lib/pkp/lib</directory>
-		</blacklist>
-	</filter>
 </phpunit>

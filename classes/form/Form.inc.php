@@ -10,8 +10,8 @@
 /**
  * @file classes/form/Form.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Form
@@ -186,7 +186,7 @@ class Form {
 				'isError' => !$this->isValid(),
 				'errors' => $this->getErrorsArray(),
 				'formLocales' => $this->supportedLocales,
-				'formLocale' => $this->getFormLocale(),
+				'formLocale' => $this->getDefaultFormLocale(),
 			)
 		));
 
@@ -247,6 +247,7 @@ class Form {
 
 	/**
 	 * Validate form data.
+	 * @param $callHooks boolean True (default) iff hooks are to be called.
 	 */
 	function validate($callHooks = true) {
 		if (!isset($this->errorsArray)) {
@@ -281,7 +282,7 @@ class Form {
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$user = $request->getUser();
 
 			if (!$this->isValid() && $user) {
@@ -300,15 +301,17 @@ class Form {
 	/**
 	 * Execute the form's action.
 	 * (Note that it is assumed that the form has already been validated.)
+	 * @param mixed $functionArgs,... Arguments from the caller to be passed to the hook consumer
+	 * @return mixed Result from the consumer to be passed to the caller.  Send a true-ish result if you want the caller to do something with the return value.
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::execute"
 		// Note that class and function names are always lower
 		// case.
 		$returner = null;
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array_merge(array($this), func_get_args(), array(&$returner)));
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array_merge(array($this), $functionArgs, array(&$returner)));
 		return $returner;
 	}
 
@@ -325,16 +328,6 @@ class Form {
 		$returner = array();
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::getLocaleFieldNames'), array($this, &$returner));
 		return $returner;
-	}
-
-	/**
-	 * Determine whether or not the current request results from a resubmit
-	 * of locale data resulting from a form language change.
-	 * @return boolean
-	 */
-	function isLocaleResubmit() {
-		$formLocale = Request::getUserVar('formLocale');
-		return (!empty($formLocale));
 	}
 
 	/**
@@ -361,24 +354,12 @@ class Form {
 	 */
 	function addSupportedFormLocale($supportedLocale) {
 		if (!in_array($supportedLocale, $this->supportedLocales)) {
-			$site = Application::getRequest()->getSite();
+			$site = Application::get()->getRequest()->getSite();
 			$siteSupportedLocales = $site->getSupportedLocaleNames();
 			if (array_key_exists($supportedLocale, $siteSupportedLocales)) {
 				$this->supportedLocales[$supportedLocale] = $siteSupportedLocales[$supportedLocale];
 			}
 		}
-	}
-
-	/**
-	 * Get the current form locale.
-	 * @return string
-	 */
-	function getFormLocale() {
-		$formLocale = Request::getUserVar('formLocale');
-		if (!$formLocale || !isset($this->supportedLocales[$formLocale])) {
-			$formLocale = $this->getDefaultFormLocale();
-		}
-		return $formLocale;
 	}
 
 	/**
@@ -392,8 +373,9 @@ class Form {
 		// Note that class and function names are always lower
 		// case.
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserVars'), array($this, &$vars));
+		$request = Application::get()->getRequest();
 		foreach ($vars as $k) {
-			$this->setData($k, Request::getUserVar($k));
+			$this->setData($k, $request->getUserVar($k));
 		}
 	}
 

@@ -2,8 +2,8 @@
 /**
  * @file controllers/grid/files/query/QueryNoteFilesCategoryGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesGridCategoryDataProvider
@@ -30,7 +30,7 @@ class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGrid
 	 * @copydoc SubmissionFilesCategoryGridDataProvider::initGridDataProvider()
 	 */
 	function initGridDataProvider($fileStage, $initParams = null) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
 		return new QueryNoteFilesGridDataProvider($request->getUserVar('noteId'));
 	}

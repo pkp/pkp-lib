@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/controllers/grid/users/stageParticipant/form/PKPStageParticipantNotifyForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPStageParticipantNotifyForm
@@ -73,9 +73,15 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
-				$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-				$customTemplates = $emailTemplateDao->getCustomTemplateKeys($submission->getContextId());
-				$templateKeys = array_merge($templateKeys, $customTemplates);
+				$emailTemplatesIterator = Services::get('emailTemplate')->getMany([
+					'contextId' => $submission->getContextId(),
+					'isCustom' => true,
+				]);
+				$customTemplateKeys = [];
+				foreach ($emailTemplatesIterator as $emailTemplate) {
+					$customTemplateKeys[] = $emailTemplate->getData('key');
+				}
+				$templateKeys = array_merge($templateKeys, $customTemplateKeys);
 				break;
 			}
 		}
@@ -85,6 +91,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		if (array_key_exists($currentStageId, $stageTemplates)) {
 			$templateKeys = array_merge($templateKeys, $stageTemplates[$currentStageId]);
 		}
+		$templates = array();
 		foreach ($templateKeys as $templateKey) {
 			$thisTemplate = $this->_getMailTemplate($submission, $templateKey);
 			$thisTemplate->assignParams(array());
@@ -123,15 +130,15 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($this->_submissionId);
 		if ($this->getData('message')) {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$this->sendMessage((int) $this->getData('userId'), $submission, $request);
 			$this->_logEventAndCreateNotification($request, $submission);
 		}
-		return parent::execute();
+		return parent::execute(...$functionParams);
 	}
 
 	/**
@@ -169,6 +176,8 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 				'editorialContactName' => $user->getFullname(),
 				// EDITOR_ASSIGN
 				'editorUsername' => $user->getUsername(),
+				// AUTHOR ASSIGN, AUTHOR NOTIFY
+				'authorName' => $user->getFullName(),
 			));
 
 			if (!$email->send($request)) {
@@ -250,10 +259,10 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			case 'COPYEDIT_REQUEST':
 			case 'LAYOUT_REQUEST':
 			case 'INDEX_REQUEST': return array(
-					'participantName' => __('user.name'),
-					'participantUsername' => __('user.username'),
-					'submissionUrl' => __('common.url'),
-				);
+				'participantName' => __('user.name'),
+				'participantUsername' => __('user.username'),
+				'submissionUrl' => __('common.url'),
+			);
 			case 'LAYOUT_COMPLETE':
 			case 'INDEX_COMPLETE': return array(
 				'editorialContactName' => __('user.role.editor'),

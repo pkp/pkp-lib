@@ -1,0 +1,408 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:07+00:00\n"
+"Language: \n"
+
+msgid "editor.review.rateReviewer"
+msgstr "Hakem Puanlama"
+
+msgid "editor.submissionLibrary"
+msgstr "Gönderi Kütüphanesi"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Kullanıcıya mesaj gönder"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Dosyaları Seç/Yükle"
+
+msgid "editor.submission.selectFiles"
+msgstr "Dosyaları Seç"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Seçilen Hakem"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Değerlendirme tamamlandı"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Dün"
+
+msgid "reviewer.list.biography"
+msgstr "Biyografi"
+
+msgid "editor.review.notInitiated"
+msgstr "Değerlendirme süreci henüz başlatılmamıştır."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Değerlendirme aşamasına göndermek için aşağıdaki dosyaları seçin."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Kullanıcıya atamak için en az bir dosya seçmek gerekir."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Kişisel bir mesaj eklemelisiniz."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Denetçiye e-posta gönderme"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Atamak için bir kullanıcı seçmelisiniz."
+
+msgid "editor.submission.revisions"
+msgstr "Düzeltmeler"
+
+msgid "editor.submission.addReviewer"
+msgstr "Hakem Ekle"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Bir Hakem Belirleyin"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Bir Kullanıcı Belirleyin"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Tüm erişilebilir iş akışı aşamalarından dosyaları göster."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "{$round}. Tur İçin Geçerli İnceleme Dosyaları"
+
+msgid "editor.submission.backToSearch"
+msgstr "Aramaya Dön"
+
+msgid "editor.review.createReviewer"
+msgstr "Yeni Bir Hakem Oluştur"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Mevcut Kullanıcıyı Yetkilendir"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Hakem Atamasını İptal Et"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Değerlendirme Türü"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "{$authorName} adlı yazar(lar)a bir e-posta bildirimi gönderin"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "{$editorNames} adlı editör(ler)e bir e-posta bildirimi gönderin"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "e-posta bildirimi gönderme"
+
+msgid "editor.submissionReview.open"
+msgstr "Açık"
+
+msgid "editor.submissionReview.blind"
+msgstr "Körlenmiş"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Çift-Körlenmiş"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Değerlendirilecek Dosyalar"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Dosya Seçimini Kapat"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Değerlendirmeyi Düzenle"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonim Hakem"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Hakeme e-posta gönderilecek"
+
+msgid "editor.review.importantDates"
+msgstr "Önemli Tarihler"
+
+msgid "editor.review.uploadRevision"
+msgstr "Revizyon Yükle"
+
+msgid "editor.review.newReviewRound"
+msgstr "Yeni Değerlendirme Turu Gerekir"
+
+msgid "editor.review.dateAccepted"
+msgstr "Değerlendirme Kabul Tarihi"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Değerlendirmeler mesaj içeriğine eklenmiştir."
+
+msgid "editor.review.noReviews"
+msgstr "İçe aktarılacak hakem değerlendirmesi yok"
+
+msgid "editor.review.reminder"
+msgstr "Değerlendirme İçin Hatırlatma"
+
+msgid "editor.review.thankReviewer"
+msgstr "Hakeme Teşekkür Et"
+
+msgid "editor.review.reminderError"
+msgstr "Değerlendirme gönderi hatası"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Hakeme teşekkür gönderi hatası"
+
+msgid "editor.review.skipEmail"
+msgstr "Hakeme e-posta gönderme."
+
+msgid "editor.review.sendReminder"
+msgstr "Hatırlatma Gönder"
+
+msgid "editor.review.readReview"
+msgstr "Değerlendirmeyi Oku"
+
+msgid "editor.review.readNewReview"
+msgstr "Yeni Değerlendirme Oku"
+
+msgid "editor.review.responseDue"
+msgstr "Yanıt tarihi: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "İstek gönderildi"
+
+msgid "editor.review.requestAccepted"
+msgstr "İstek Kabul Edildi"
+
+msgid "editor.review.revertDecision"
+msgstr "İade Nedeni"
+
+msgid "editor.review.reviewDue"
+msgstr "İnceleme tarihi: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Son Değerlendirme Tarihi"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Değerlendirme Tamamlandı"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Değerlendirme Onaylandı"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Değerlendirme Gönderildi"
+
+msgid "editor.review.reviewerComments"
+msgstr "Değerlendirme Yorumları"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Yapılan değerlendirmenin kalitesini inceleyin. Bu değerlendirme, hakemle paylaşılmamaktadır."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Derecelendirme yok"
+
+msgid "editor.review.mustSelect"
+msgstr "Bir hakem seçmelisiniz"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Hakem eklerken bir hata oluştu. Lütfen yeniden deneyin."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Hakem silerken bir hata oluştu. Lütfen yeniden deneyin."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Bu hakem grubunda mevcut bir hakem yetkilendirin"
+
+msgid "editor.submission.createNewRound"
+msgstr "Yeni bir değerlendirme turu oluştur."
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$total} hakemden {$count} adet"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Atanma yapılmadı"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Bu yorumu değerlendirilmemiş olarak işaretlemek ister misiniz? eğerlendirme geçmişi korunacaktır."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Bu Yorumu İnceleme"
+
+msgid "editor.review.readConfirmation"
+msgstr "Bu değerlendirmeyi okunduktan sonra, değerlendirme sürecine devam edebilmek için \"Onayla\"ya basın. Değerlendirme yapan, başka bir yerde incelemesini yapmışsa, aşağıda dosya yükleyebilir ve devam etmek için \"Onayla\"ya basabilir."
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Hakem İlgi Alanları"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "İzin Ver"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Okuyucuları gönderileri değerlendirmeye davet etmek için <em>+Hakem Ekle</em>'yi kullanın. Dizüstü bilgisayar simgesi, bir değerlendirmenin gönderildiğini ve ardından da <em>Onaylandığını</em> gösterir. Değerlendirmeler geciktiğinde, hakemlere hatırlatmak için kırmızı bir zarf simgesi görüntülenir."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Düzeltmeler, yeni bir hakem değerlendirmesine tabi tutulmayacaktır."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Düzeltmeler yeni bir hakem değerlendirme turuna tabi olacaktır."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Düzeltme Kopyası Dosyaları"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Hakem Seç"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Görev Bitiş Tarihi"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Görev takvimi"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Mevcut bir kullanıcıyı hakem olarak yetkilendir"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Bu dosya için herhangi bir inceleme istenmiyor"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-posta kullanıcıya gönderilecek"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Düzeltmen Hatırlatması"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "Değerlendirme dosyasının basım aşamasına gönderilmeden önce onaylanması gerekir. Bu dosyayı onaylamak istiyor musunuz?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Bu değerlendirme dosyasının reddedilmesi halinde, basım aşamasına gönderilmesi mümkün olmayacaktır. Bu dosyayı reddetmek istiyor musunuz?"
+
+msgid "editor.submission.addAuditor"
+msgstr "İnceleme Yapacak Kişi Ata"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Herhangi bir gönderi aşamasına önceden yüklenmiş olan tüm dosyalar aşağıdaki İçeriği Ekle kutucuğunu işaretleyerek ve Ara'yı tıklayıp Değerlendirme Dosyaları listesine eklenebilir: Tüm mevcut dosyalar listelenir ve eklenecek şekilde seçilebilir. Bir dosyaya zaten yüklenmemiş ek dosyalar, Dosya Yükle bağlantısını tıklayarak listeye eklenebilir."
+
+msgid "editor.review"
+msgstr "Değerlendir"
+
+msgid "editor.review.reviewDetails"
+msgstr "Değerlendirme Detayları"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Hiç Bir Dosya Yüklenmedi"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Herhangi bir değerlendirme dosyası yüklenmedi."
+
+msgid "editor.review.emailReviewer"
+msgstr "E-posta Değerlendirmesi"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Basıma Hazır Dosyalar"
+
+msgid "editor.submission.newRound"
+msgstr "Yeni Değerlendirme Turu"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Editöryal Kararı Kaydet"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Editöryal Öneriyi Kaydet"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Editörleri Bilgilendir"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Editörlere e-posta gönderme"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Bu öneri hakkında bir değerlendirme tartışması oluştur."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Değerlendirme tartışması oluşturma."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "Bu gönderi için yeni bir değerlendirme turu oluşturmak üzeresiniz. Diğer değerlendirme turlarında kullanılmayan dosyalar aşağıda listelenmiştir."
+
+msgid "editor.article.reviewForms"
+msgstr "Değerlendirme Formları"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Değerlendirme Formu Seç"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Uyarı: Değerlendirme formunun değiştirilmesi, hakemlerin bu formu kullanarak yaptıkları cevapları etkileyecektir. Devam etmek istediğine emin misin?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Herhangi Bir Dosya Seçilmedi"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Değerlendirilecek olan gönderi için herhangi bir dosya seçmediniz."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Bir tartışma konusu gerekli."
+
+msgid "submission.queries.messageRequired"
+msgstr "Bir tartışma mesajı gerekli."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Ekli Dosyalar"
+
+msgid "grid.action.editQuery"
+msgstr "Tartışmayı Düzelt"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Aşağıdaki listeden bu tartışmaya eklenmek üzere dosyalar eklenebilir."
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Düzeltmeyi Onayla"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Düzeltme Onayını İptal Et"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Düzeltme işleminin tamamlandığını ve dosyanın yayınlanmaya hazır olduğunu göstermek için bu düzeltmeyi onayla."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Düzeltme işleminin tamamlanmadığını ve dosyanın yayınlanmaya hazır olmadığını göstermek için bu düzeltme onayını iptal edin."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "'{$publicIdentifier}' genel belirleyici bir sayı olmamalıdır."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Ortak tanımlayıcı için {$pattern} modeline izin verilmez."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Yayınlanacağı Sayı:"
+
+msgid "reviewer.list.count"
+msgstr "{$count} hakem"
+
+msgid "reviewer.list.filterRating"
+msgstr "En az reyting"
+
+msgid "reviewer.list.activeReviews"
+msgstr "Aktif {$count}"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Şu anda atanmış aktif hakemler"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Hakem reytingi: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} gün önce"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Son değerlendirme tarihinden bu yana geçen gün sayısı"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Ortalama değerlendirme gün sayısı"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Bu hakem, bu gönderiyi değerlendirmek için zaten atandı."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş olduğundan kilitlenmiştir. Körlenmiş hakem değerlendirmesi garanti edilemez. Yine de bu hakeme izin vermek ister misiniz?"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Değerlendirme istekleri reddedildi"

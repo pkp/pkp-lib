@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:07+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Site Yöneticisi"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Site Yöneticileri"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Basım editörü"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Basım editörleri"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "B.E."
+
+msgid "default.groups.name.copyeditor"
+msgstr "Kopya Editörü"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Kopya Editörleri"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "KE"
+
+msgid "default.groups.name.proofreader"
+msgstr "Düzeltmen"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Düzeltmenler"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Düz."
+
+msgid "default.groups.name.designer"
+msgstr "Tasarımcı"
+
+msgid "default.groups.plural.designer"
+msgstr "Tasarımcılar"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Tasarım"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Dahili Hakem"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Dahili Hakemler"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "DH"
+
+msgid "default.groups.name.marketing"
+msgstr "Pazarlama ve satış koordinatörü"
+
+msgid "default.groups.plural.marketing"
+msgstr "Pazarlama ve satış koordinatörleri"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "PK"
+
+msgid "default.groups.name.funding"
+msgstr "Fon Koordinatörü"
+
+msgid "default.groups.plural.funding"
+msgstr "Fon Koordinatörleri"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FK"
+
+msgid "default.groups.name.indexer"
+msgstr "İndeksleyici"
+
+msgid "default.groups.plural.indexer"
+msgstr "İndeksleyiciler"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "İND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Düzen Editörü"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Düzen Editörleri"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "DE"
+
+msgid "default.groups.name.author"
+msgstr "Yazar"
+
+msgid "default.groups.plural.author"
+msgstr "Yazarlar"
+
+msgid "default.groups.abbrev.author"
+msgstr "YA"
+
+msgid "default.groups.name.translator"
+msgstr "Çeviren"
+
+msgid "default.groups.plural.translator"
+msgstr "Çevirenler"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Çev"
+
+msgid "default.groups.name.reader"
+msgstr "Okuyucu"
+
+msgid "default.groups.plural.reader"
+msgstr "Okuyucular"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Oku"
+
+msgid "default.genres.other"
+msgstr "Diğer"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedya"
+
+msgid "default.genres.image"
+msgstr "Görsel"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Biçimi"

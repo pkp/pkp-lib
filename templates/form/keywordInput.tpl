@@ -1,8 +1,8 @@
 {**
  * templates/form/keywordInput.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Generic keyword input control
@@ -19,7 +19,7 @@
 					{if $FBV_sourceUrl && !$FBV_disabled}
 						tagSource: function(search, showChoices) {ldelim}
 							$.ajax({ldelim}
-								url: "{$FBV_sourceUrl}", {* this url should return a JSON array of possible keywords *}
+								url: "{$FBV_sourceUrl}&locale={$thisFormLocale|escape}", {* this url should return a JSON array of possible keywords *}
 								data: search,
 								success: function(choices) {ldelim}
 									showChoices(choices);

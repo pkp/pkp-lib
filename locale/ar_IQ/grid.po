@@ -1,0 +1,672 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:38+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "لا فقرات"
+
+msgid "grid.settings"
+msgstr "الإعدادات"
+
+msgid "grid.noAuditors"
+msgstr "بلا مراقبين"
+
+msgid "grid.remotelyHostedItem"
+msgstr "هذه الفقرة مستضافة خارجياً."
+
+msgid "grid.action.uninstall"
+msgstr "إلغاء التنصيب"
+
+msgid "grid.action.manageAccess"
+msgstr "إدارة الوصول"
+
+msgid "grid.action.sort"
+msgstr "الفرز"
+
+msgid "grid.action.addItem"
+msgstr "إضافة فقرة"
+
+msgid "grid.action.addNote"
+msgstr "إضافة ملاحظة"
+
+msgid "grid.action.addQuery"
+msgstr "إضافة مناقشة"
+
+msgid "grid.action.readQuery"
+msgstr "قراءة المناقشة"
+
+msgid "grid.action.deleteQuery"
+msgstr "حذف المناقشة"
+
+msgid "grid.action.updateQuery"
+msgstr "تعديل المناقشة"
+
+msgid "grid.action.addUser"
+msgstr "إضافة مستخدم"
+
+msgid "grid.action.unassignReviewer"
+msgstr "ألغ تعيين هذا المحكم"
+
+msgid "grid.action.approveCopyedit"
+msgstr "وافق على هذا الملف المدقق لإرساله إلى المرحلة الآتية"
+
+msgid "grid.action.reload"
+msgstr "إعادة تحميل"
+
+msgid "grid.action.delete"
+msgstr "حذف"
+
+msgid "grid.action.deleteFile"
+msgstr "حذف ملف"
+
+msgid "grid.action.deleteMedia"
+msgstr "حذف الوسط"
+
+msgid "grid.action.editMedia"
+msgstr "تعديل الوسط"
+
+msgid "grid.action.editSection"
+msgstr "تعديل المقطع"
+
+msgid "grid.action.export"
+msgstr "تصدير"
+
+msgid "grid.action.deleteSection"
+msgstr "حذف المقطع"
+
+msgid "grid.action.editorialHistory"
+msgstr "تاريخ هيئة التحرير"
+
+msgid "grid.action.remove"
+msgstr "إزالة"
+
+msgid "grid.action.edit"
+msgstr "تعديل"
+
+msgid "grid.action.approve"
+msgstr "موافقة"
+
+msgid "grid.action.disapprove"
+msgstr "رفض"
+
+msgid "grid.action.setApproval"
+msgstr "ضع الموافقة"
+
+msgid "grid.action.moreInformation"
+msgstr "مزيد من المعلومات"
+
+msgid "grid.action.restoreDefaults"
+msgstr "استعادة الإفتراضات"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "هل أنت متأكد من رغبتك في استعادة الإعدادات الافتراضية؟"
+
+msgid "grid.action.addAuthor"
+msgstr "أضف مؤلف"
+
+msgid "grid.action.editAuthor"
+msgstr "تعديل المؤلف"
+
+msgid "grid.action.deleteAuthor"
+msgstr "حذف المؤلف"
+
+msgid "grid.action.addAuditor"
+msgstr "أضف مدقق"
+
+msgid "grid.action.upgrade"
+msgstr "ترقية"
+
+msgid "grid.action.order"
+msgstr "الفرز"
+
+msgid "grid.action.cancelOrdering"
+msgstr "إلغاء الفرز"
+
+msgid "grid.action.extendAll"
+msgstr "توسيع الكل"
+
+msgid "grid.action.collapse"
+msgstr "طي"
+
+msgid "grid.action.collapseAll"
+msgstr "طي الكل"
+
+msgid "grid.action.wizard"
+msgstr "معالج الإعدادات"
+
+msgid "grid.action.moveItem"
+msgstr "نقل الفقرة"
+
+msgid "grid.action.downloadAll"
+msgstr "تنزيل كل الملفات ضمن أرشيف"
+
+msgid "grid.action.readReview"
+msgstr "إقرأ هذا التحكيم"
+
+msgid "grid.action.email"
+msgstr "راسله"
+
+msgid "grid.action.addReviewer"
+msgstr "أضف محكماً"
+
+msgid "grid.action.addFile"
+msgstr "أضف ملفاً"
+
+msgid "grid.action.editFile"
+msgstr "عدل ملفاً"
+
+msgid "grid.action.selectFiles"
+msgstr "إختر الملفات التي ترغب بإدارتها"
+
+msgid "grid.action.requestRevisions"
+msgstr "طالب بتحكيمات لطلب النشر هذا"
+
+msgid "grid.action.accept"
+msgstr "إقبل طلب التقديم هذا"
+
+msgid "grid.action.decline"
+msgstr "أرفض طلب التقديم هذا"
+
+msgid "grid.action.internalReview"
+msgstr "أرسل طلب التقديم هذا للتحكيم الداخلي"
+
+msgid "grid.action.externalReview"
+msgstr "أرسل طلب التقديم هذا للتحكيم الخارجي"
+
+msgid "grid.action.sendToProduction"
+msgstr "أرسل طلب التقديم هذا لمرحلة الإنتاج"
+
+msgid "grid.action.settings"
+msgstr "الإعدادات"
+
+msgid "grid.action.importexport"
+msgstr "استيراد أو تصدير محتوى أو بيانات الموقع"
+
+msgid "grid.action.orderItems"
+msgstr "تمكين نمط الفرز"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "تعديل فقرة التأشير هذه"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "حذف فقرة التأشير هذه"
+
+msgid "grid.action.resetAll"
+msgstr "استعادة الإعدادات الإفتراضية لجميع الفقرات"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "إضافة قالب جديد لرسالة"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "تعديل قالب الرسالة هذا"
+
+msgid "grid.action.disableEmail"
+msgstr "تعطيل قالب الرسالة هذا"
+
+msgid "grid.action.resetEmail"
+msgstr "استعادة الوضع الافتراضي لقالب الرسالة هذا"
+
+msgid "grid.action.expandAll"
+msgstr "توسيع الكل"
+
+msgid "grid.action.requestAccount"
+msgstr "أضف مشاركاً"
+
+msgid "grid.action.expand"
+msgstr "توسيع"
+
+msgid "grid.action.notify"
+msgstr "بلِّغ هذا المستخدم"
+
+msgid "grid.action.addUserGroup"
+msgstr "أضف مجموعة مستخدمين جديدة"
+
+msgid "grid.action.editUserGroup"
+msgstr "تعديل مجموعة المستخدمين هذه"
+
+msgid "grid.action.removeUserGroup"
+msgstr "إزالة مجموعة المستخدمين هذه"
+
+msgid "grid.action.disable"
+msgstr "تعطيل"
+
+msgid "grid.action.details"
+msgstr "معاينة هذه الفقرة"
+
+msgid "grid.action.enrolExisting"
+msgstr "كلف مستخدماً مسجلاً بدور المحكم"
+
+msgid "grid.action.selectCreate"
+msgstr "أنشئ محكماً جديداً"
+
+msgid "grid.action.search"
+msgstr "البحث"
+
+msgid "grid.action.advancedSearch"
+msgstr "البحث المتقدم"
+
+msgid "grid.action.viewLibrary"
+msgstr "معاينة مكتبة الوثائق"
+
+msgid "grid.action.viewMetadata"
+msgstr "معاينة البيانات الوصفية لطلب التقديم هذا"
+
+msgid "grid.action.sendReminder"
+msgstr "أرسل تذكيراً بالمهمة لهذا المستخدم"
+
+msgid "grid.action.newRound"
+msgstr "أنشئ جولة جديدة"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "معاينة إرشادات التحكيم"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "معاينة سياسة إرشادات تضارب المصالح"
+
+msgid "grid.action.thankReviewer"
+msgstr "إبعث برسالة شكر لهذا المحكم"
+
+msgid "grid.action.uploadFile"
+msgstr "رفع ملف"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "أضف نوعية إعلان"
+
+msgid "grid.action.addAnnouncement"
+msgstr "أضف إعلاناً"
+
+msgid "grid.action.mergeUser"
+msgstr "دمج المستخدم"
+
+msgid "grid.action.unassignUser"
+msgstr "فُكَّ تعيين المستخدم"
+
+msgid "grid.action.history"
+msgstr "معاينة التأريخ"
+
+msgid "grid.action.unconsiderReview"
+msgstr "هذا التحكيم مكتمل، لكنك قد تطعن به"
+
+msgid "grid.action.enable"
+msgstr "تمكين"
+
+msgid "grid.action.bookInfo"
+msgstr "معلومات طلب النشر"
+
+msgid "grid.action.logInAs"
+msgstr "سجل دخولك باسمه"
+
+msgid "grid.action.exportAllUsers"
+msgstr "تصدير كل المستخدمين"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "هل أنت متأكد من رغبتك في تصدير كل المستخدمين؟"
+
+msgid "grid.action.activate"
+msgstr "تفعيل"
+
+msgid "grid.action.deactivate"
+msgstr "إبطال"
+
+msgid "grid.action.copy"
+msgstr "نسخ"
+
+msgid "grid.action.preview"
+msgstr "معاينة"
+
+msgid "grid.action.install"
+msgstr "تنصيب"
+
+msgid "grid.action.moreItems"
+msgstr "تحميل المزيد"
+
+msgid "grid.action.users"
+msgstr "معاينة وتحديد المستخدمين"
+
+msgid "grid.task.status.completed"
+msgstr "هذه المهمة إكتملت"
+
+msgid "grid.task.status.new"
+msgstr "هذه فقرة جديدة وتستدعي الانتباه"
+
+msgid "grid.task.status.uploaded"
+msgstr "عنوان العمود يشير إلى من قام برفع الملف إلى الموقع"
+
+msgid "grid.task.status.unfinished"
+msgstr "المهمة لم تُنجز"
+
+msgid "grid.task.status.reviewReady"
+msgstr "هذا التحكيم جاهز. أنقر إيقونة الملاحظات على اليسار لقراءته."
+
+msgid "grid.columns.actions"
+msgstr "أفعال"
+
+msgid "grid.columns.institution"
+msgstr "مؤسسة"
+
+msgid "grid.columns.url"
+msgstr "رابط إنترنت"
+
+msgid "grid.columns.auditor"
+msgstr "مدقق"
+
+msgid "grid.columns.locale"
+msgstr "اللغة"
+
+msgid "grid.sponsor.title"
+msgstr "الرعاة"
+
+msgid "grid.action.addSponsor"
+msgstr "أضف جهة راعية"
+
+msgid "grid.action.deleteSponsor"
+msgstr "حذف الجهة الراعية"
+
+msgid "grid.action.editSponsor"
+msgstr "تعديل الجهة الراعية"
+
+msgid "grid.action.addSeries"
+msgstr "إضافة متسلسلة"
+
+msgid "grid.action.editSeries"
+msgstr "تعديل المتسلسلة"
+
+msgid "grid.action.deleteSeries"
+msgstr "حذف المتسلسلة"
+
+msgid "grid.action.addCategory"
+msgstr "إضافة فئة"
+
+msgid "grid.action.editCategory"
+msgstr "تعديل الفئة"
+
+msgid "grid.action.deleteCategory"
+msgstr "حذف الفئة"
+
+msgid "grid.contributor.title"
+msgstr "المساهمون"
+
+msgid "grid.action.addContributor"
+msgstr "إضافة مساهم"
+
+msgid "grid.action.editContributor"
+msgstr "تعديل المساهم"
+
+msgid "grid.action.deleteContributor"
+msgstr "حذف المساهم"
+
+msgid "grid.action.newVersion"
+msgstr "إنشاء نسخة جديدة"
+
+msgid "grid.reviewForm.title"
+msgstr "معاينة النماذج"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "خيارات الاستجابة"
+
+msgid "grid.noFiles"
+msgstr "لا ملفات"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "الملفات"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "مكتبة طلبات النشر"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "مكتبة التحرير"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "مكتبة التحكيم"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "مكتبة الإنتاج"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "مكتبة قوالب الإنتاج"
+
+msgid "grid.submissionChecklist.title"
+msgstr "قائمة تأشيرات طلب التقديم"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "فقرة قائمة التأشير"
+
+msgid "author.users.contributor.name"
+msgstr "الاسم"
+
+msgid "author.users.contributor.email"
+msgstr "البريد الالكتروني"
+
+msgid "author.users.contributor.role"
+msgstr "الدور"
+
+msgid "author.users.contributor.principalContact"
+msgstr "عنوان الاتصال الرئيسي"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "ضمن قوائم التصفح"
+
+msgid "grid.roles.currentRoles"
+msgstr "الأدوار الحالية"
+
+msgid "grid.roles.add"
+msgstr "إنشاء دور جديد"
+
+msgid "grid.roles.stageAssignment"
+msgstr "تعيين المرحلة"
+
+msgid "grid.user.currentUsers"
+msgstr "المستخدمون الحاليون"
+
+msgid "grid.user.currentEnrollment"
+msgstr "توزيع الأدوار الحالي"
+
+msgid "grid.user.allRoles"
+msgstr "كل الأدوار"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "كل مستويات الصلاحيات"
+
+msgid "grid.user.add"
+msgstr "إضافة مستخدم"
+
+msgid "grid.user.enroll"
+msgstr "تكليف المستخدم"
+
+msgid "grid.user.edit"
+msgstr "تعديل المستخدم"
+
+msgid "grid.user.email"
+msgstr "مراسلة المستخدم"
+
+msgid "grid.user.enable"
+msgstr "تمكين"
+
+msgid "grid.user.disable"
+msgstr "تعطيل"
+
+msgid "grid.user.disableReason"
+msgstr "سبب تعطيل المستخدم"
+
+msgid "grid.user.enableReason"
+msgstr "سبب تمكين المستخدم"
+
+msgid "grid.user.error"
+msgstr "حدث خطأ ما عند تنفيذ الإجراء الإداري لهذا المستخدم. لطفاً، حاول مجدداً."
+
+msgid "grid.user.errorEmail"
+msgstr "حدث خطأ ما عند إرسال هذه الرسالة. لطفاً، تحقق من كون إعدادات ملقم البريد الالكتروني عندك تعمل بالشكل الصحيح و/أو اتصل بالمشرف الإداري للنظام."
+
+msgid "grid.user.cannotAdminister"
+msgstr "ليس لديك الصلاحيات الكافية لتعديل هذا المستخدم."
+
+msgid "grid.user.authSource"
+msgstr "مصدر المصادقة"
+
+msgid "grid.user.mustProvideName"
+msgstr "لطفاً، أعطِ على الأقل الاسم الأخير للمستخدم أولاً."
+
+msgid "grid.user.generatePassword"
+msgstr "توليد كلمة المرور"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "أوجد كلمة مرور عشوائية لهذا المستخدم."
+
+msgid "grid.user.notifyUser"
+msgstr "أبلغ المستخدم"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "إبعث للمستخدم رسالة ترحيب."
+
+msgid "grid.user.mustChangePassword"
+msgstr "غيِّر كلمة المرور"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "على المستخدم تغيير كلمة مروره عند دخوله الموقع المرة القادمة."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "يتطلب من المستخدم تغيير كلمة مروره عند دخوله الموقع المرة القادمة."
+
+msgid "grid.user.moreDetails"
+msgstr "المزيد من التفاصيل عن المستخدم"
+
+msgid "grid.user.lessDetails"
+msgstr "تفاصيل أقل عن المستخدم"
+
+msgid "grid.user.userDetails"
+msgstr "تفاصيل المستخدم"
+
+msgid "grid.user.userRoles"
+msgstr "أدوار المستخدم"
+
+msgid "grid.user.userNoRoles"
+msgstr "ليس لهذا المستخدم أي دور حالياً."
+
+msgid "grid.user.step1"
+msgstr "الخطوة الأولى: إملأ تفاصيل بيانات المستخدم"
+
+msgid "grid.user.step2"
+msgstr "الخطوة الثانية: أضف أدواراً للمستخدم {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "أضف الأدوار"
+
+msgid "grid.user.addRole"
+msgstr "أضف دوراً"
+
+msgid "grid.user.selectUser"
+msgstr "إختر المستخدم"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "لطفاً، إختر مستخدماً"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "هل تريد دخول الموقع كأنك هذا المستخدم؟ كل ما ستقوم به من أفعال، سيتم إلحاقها بهذا المستخدم."
+
+msgid "grid.user.mergeUsers"
+msgstr "دمج المستخدمين"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "دمج المستخدم"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "إدمجه بهذا المستخدم"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "كل المستخدمين الممنوحين أدواراً"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "هل أنت متأكد من رغبتك في دمج هذا الحساب صاحب اسم الدخول \"{$oldUsername}\" مع الحساب صاحب اسم الدخول \"{$newUsername}\"؟ إن الحساب ذو الاسم \"{$oldUsername}\" لن يكون له وجود بعد ذلك. هذا الإجراء لا يمكن التراجع عنه."
+
+msgid "grid.preparedEmails.title"
+msgstr "قوالب الرسائل المحضرة"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "القائمة الحالية"
+
+msgid "grid.plugin.allCategories"
+msgstr "كل الفئات"
+
+msgid "grid.plugin.disable"
+msgstr "هل أنت متأكد من رغبتك في تعطيل هذا البرنامج الإضافي؟"
+
+msgid "grid.action.fileUnconsider"
+msgstr "إجراءات القراءة التصحيحة أنجزت. بإمكانك تجاهل هذه المهمة"
+
+msgid "grid.artworkFile.caption"
+msgstr "العبارة التوضيحية"
+
+msgid "grid.artworkFile.credit"
+msgstr "الرصيد"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "مالك الحقوق الفكرية"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "معلومات الاتصال (إن لم يكن المؤلف/الناشر)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "شروط الترخيص"
+
+msgid "grid.artworkFile.placement"
+msgstr "الموضع ضمن طلب النشر"
+
+msgid "grid.userGroup.assignStage"
+msgstr "مرحلة التعيين"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "مرحلة اللاتعيين"
+
+msgid "grid.userGroup.allStages"
+msgstr "كل مراحل المخطط الانسيابي"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "عرض الأدوار الممنوحة إلى"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "مع ضبط مستوى الصلاحيات على"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "إن دور {$userGroupName} هو دور إفتراضي ولا يمكن حذفه."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "تعذر حذف دور {$userGroupName}. حالياً، {$usersCount} مستخدم/مستخدمون يضطلعون به."
+
+msgid "grid.userGroup.removed"
+msgstr "دور {$userGroupName} تم حذفه."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "دور {$userGroupName} تم تعيينه لمرحلة {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "دور {$userGroupName} تم إلغاء تعيينه لمرحلة {$stageName}."
+
+msgid "grid.submission.itemTitle"
+msgstr "المؤلف؛ العنوان"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "إشمل طلبات النشر غير المكتملة التي لم تقدم من قبل أي مؤلف."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "إضافة قائمة"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "إضافة عنصر"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "لا عناصر في قائمة التنقل بعد"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "لا توجد قوائم تنقل بعد"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "إختر من القائمة..."

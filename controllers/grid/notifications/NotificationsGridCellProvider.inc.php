@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/notifications/NotificationsGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NotificationsGridCellProvider
@@ -132,7 +132,8 @@ class NotificationsGridCellProvider extends GridCellProvider {
 					case ASSOC_TYPE_REPRESENTATION:
 						$representationDao = Application::getRepresentationDAO();
 						$representation = $representationDao->getById($query->getAssocId());
-						$submissionId = $representation->getSubmissionId();
+						$publication = Services::get('publication')->get($representation->getData('publicationId'));
+						$submissionId = $publication->getData('submissionId');
 						break;
 					default: assert(false);
 				}

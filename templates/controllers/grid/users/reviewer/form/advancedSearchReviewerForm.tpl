@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/user/reviewer/form/advancedSearchReviewerForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Advanced Search and assignment reviewer form.
@@ -20,11 +20,15 @@
 	<div id="searchGridAndButton">
 
 		{assign var="uuid" value=""|uniqid|escape}
-		<div id="select-reviewer-list-handler-{$uuid}">
-			<script type="text/javascript">
-				pkp.registry.init('select-reviewer-list-handler-{$uuid}', 'SelectReviewerListPanel', {$selectReviewerListData|@json_encode});
-			</script>
+		<div id="select-reviewer-{$uuid}">
+			<select-reviewer-list-panel
+				v-bind="components.selectReviewer"
+				@set="set"
+			/>
 		</div>
+		<script type="text/javascript">
+			pkp.registry.init('select-reviewer-{$uuid}', 'Container', {$selectReviewerListData|@json_encode});
+		</script>
 
 		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
 		{fbvFormSection class="form_buttons"}

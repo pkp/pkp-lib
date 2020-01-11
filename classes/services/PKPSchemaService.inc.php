@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPSchemaService.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPSchemaService
@@ -16,8 +16,10 @@ namespace PKP\Services;
 
 define('SCHEMA_AUTHOR', 'author');
 define('SCHEMA_CONTEXT', 'context');
+define('SCHEMA_EMAIL_TEMPLATE', 'emailTemplate');
 define('SCHEMA_GALLEY', 'galley');
 define('SCHEMA_ISSUE', 'issue');
+define('SCHEMA_PUBLICATION', 'publication');
 define('SCHEMA_REVIEW_ASSIGNMENT', 'reviewAssignment');
 define('SCHEMA_REVIEW_ROUND', 'reviewRound');
 define('SCHEMA_SECTION', 'section');
@@ -136,7 +138,7 @@ class PKPSchemaService {
 	 * Get all properties of a schema
 	 *
 	 * Gets the complete list of properties of a schema which are considered part
-	 * of the full view prsented in an API.
+	 * of the full view presented in an API.
 	 *
 	 * @param $schemaName string One of the SCHEMA_... constants
 	 * @return array List of property names
@@ -144,7 +146,14 @@ class PKPSchemaService {
 	public function getFullProps($schemaName) {
 		$schema = $this->get($schemaName);
 
-		return array_keys(get_object_vars($schema->properties));
+		$propNames = [];
+		foreach ($schema->properties as $propName => $propSchema) {
+			if (empty($propSchema->writeOnly)) {
+				$propNames[] = $propName;
+			}
+		}
+
+		return $propNames;
 	}
 
 	/**
@@ -198,13 +207,13 @@ class PKPSchemaService {
 		foreach ($props as $propName => $propValue) {
 			if (empty($schema->properties->{$propName})
 				|| empty($schema->properties->{$propName}->type)
-				|| !empty($schema->properties->{$propName}->readonly)) {
+				|| !empty($schema->properties->{$propName}->readOnly)) {
 				continue;
 			}
 			$propSchema = $schema->properties->{$propName};
 			if (!empty($propSchema->multilingual)) {
-				$values = is_array($propValue) ? $propValue : [$propValue];
-				foreach ($propValue as $localeKey => $localeValue) {
+				$values = [];
+				foreach ((array) $propValue as $localeKey => $localeValue) {
 					$values[$localeKey] = $this->coerce($localeValue, $propSchema->type, $propSchema);
 				}
 				if (!empty($values)) {
@@ -243,8 +252,7 @@ class PKPSchemaService {
 				if (is_object($value) || is_array($value)) {
 					$value = serialize($value);
 				}
-				$value = (string) $value;
-				return get_magic_quotes_gpc() ? stripslashes($value) : $value;
+				return (string) $value;
 			case 'array':
 				$newArray = [];
 				if (is_array($schema->items)) {

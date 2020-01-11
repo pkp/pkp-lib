@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-04T08:55:27-08:00\n"
+"PO-Revision-Date: 2019-11-04T08:55:27-08:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "额外的语言环境"
+
+msgid "installer.administratorAccount"
+msgstr "管理员帐户"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "这个帐户将成为站点的管理员，并且可以存取整站的所有内容，额外的用户信息可以在安装后添加."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">未通过</span>"
+
+msgid "installer.checkYes"
+msgstr "通过"
+
+msgid "installer.clientCharset"
+msgstr "客户端字符设置"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "从浏览器发送和接受数据的使用的编码."
+
+msgid "installer.configFileError"
+msgstr "配置文件 <tt>config.inc.php</tt> 不存在或者不可读."
+
+msgid "installer.connectionCharset"
+msgstr "连接字符集"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "配置文件内容"
+
+msgid "installer.createDatabase"
+msgstr "创建新数据库"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "若要使用此选项，您的数据库系统必须支持远程数据库的建立和您的用户帐户必须具有适当的权限来创建新的数据库.如果选择此选项的时候安装失败，请在服务器上手动创建数据库，并禁用此项后重新执行安装."
+
+msgid "installer.databaseDriver"
+msgstr "数据库驱动"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>如果选择括弧中所列的数据库驱动程序，但没有安装与启用所需的PHP函数的话，可能无法执行。</strong><br />上面个别列出由于学术目的而不支持的数据库驱动程序，而且不太可能运作。"
+
+msgid "installer.databaseHost"
+msgstr "主机"
+
+msgid "installer.databaseHostInstructions"
+msgstr "不填入主机名称会使用网域接口代替TCP/IP链接。这对MySQL来说并不必要，如果输入\"localhost\"它会自动使用接口，不过对某些其他的数据库服务器，好比PostgreSQL来说就是必要的."
+
+msgid "installer.databaseName"
+msgstr "数据库名"
+
+msgid "installer.databasePassword"
+msgstr "密码"
+
+msgid "installer.databaseSettings"
+msgstr "数据库设置"
+
+msgid "installer.databaseUsername"
+msgstr "用户名"
+
+msgid "installer.encryption"
+msgstr "密码加密算法"
+
+msgid "installer.filesDir"
+msgstr "上传路径"
+
+msgid "installer.fileSettings"
+msgstr "文件设置"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "客户端字符设置必选."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "数据库驱动必须选择一个."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "数据库名字是必须的."
+
+msgid "installer.form.emailRequired"
+msgstr "一个有效的管理员帐户的电子邮箱是必须的."
+
+msgid "installer.form.encryptionRequired"
+msgstr "用户密码加密算法必须选择."
+
+msgid "installer.form.filesDirRequired"
+msgstr "用于存储上传文件的路径是必须的."
+
+msgid "installer.form.localeRequired"
+msgstr "至少一个语言环境选择."
+
+msgid "installer.form.passwordRequired"
+msgstr "管理员的帐号密码是必须的."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "管理员的密码不相符."
+
+msgid "installer.form.separateMultiple"
+msgstr "用逗号分隔多个值"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "管理员的用户名能包含数字和字符，下划线和链接符，而且必须以字母和数字开始和结束."
+
+msgid "installer.form.usernameRequired"
+msgstr "管理员的用户名是必须的."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>警告：您当前PHP的版本不符合系统安装的最低要求. 推荐您升级系统的PHP版本到最新.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "安装过程报错"
+
+msgid "installer.installerSQLStatements"
+msgstr "安装SQL语句"
+
+msgid "installer.installFileError"
+msgstr "安装文件 <tt>dbscripts/xml/install.xml</tt> 不存在后者不可读."
+
+msgid "installer.installFilesDirError"
+msgstr "为上传文件指定的目录不存在或者不可读."
+
+msgid "installer.installParseDBFileError"
+msgstr "错误解析数据库安装文件模板 <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "错误解析电子邮件模板文件<tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "语言设置"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "标记的语言环境尚未完成."
+
+msgid "installer.localeSettings"
+msgstr "语言环境设置"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "一个独一无二的识别码，用来识别本站使用<a href=\"https://www.openarchives.org/\" target=\"_blank\">开放存档计划(Open Archives Initiative)</a>元数据搜集协定所索引的元数据记录 "
+
+msgid "installer.oaiRepositoryId"
+msgstr "OAI库标识符"
+
+msgid "installer.publicFilesDirError"
+msgstr "Public的文件的目录不存在或不可写."
+
+msgid "installer.releaseNotes"
+msgstr "发行说明"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "错误解析过滤配置文件<tt>{$file}</tt>."
+
+msgid "installer.oaiSettings"
+msgstr "OAI 设置"

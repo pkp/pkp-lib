@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/SubmissionFileDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileDAO
@@ -56,7 +56,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function getRevision($fileId, $revision, $fileStage = null, $submissionId = null) {
 		if (!($fileId && $revision)) return null;
-		$revisions = $this->_getInternally($submissionId, $fileStage, $fileId, $revision);
+		$revisions = $this->_getInternally($submissionId, $fileStage, $fileId, $revision, null, null, null, null, null, false, null);
 		return $this->_checkAndReturnRevision($revisions);
 	}
 
@@ -73,24 +73,26 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 
 		$sql = 'SELECT DISTINCT	f.file_id
 			FROM	submission_files f
-				INNER JOIN submissions s ON s.submission_id = f.submission_id
-				LEFT JOIN published_submissions ps ON f.submission_id = ps.submission_id ';
+				INNER JOIN submissions s ON s.submission_id = f.submission_id';
 		if (is_null($settingValue)) {
-			$sql .= 'LEFT JOIN submission_file_settings fs ON f.file_id = fs.file_id AND fs.setting_name = ?
+			$sql .= ' LEFT JOIN submission_file_settings fs ON f.file_id = fs.file_id AND fs.setting_name = ?
 				WHERE	(fs.setting_value IS NULL OR fs.setting_value = \'\')';
 		} else {
 			$params[] = (string) $settingValue;
-			$sql .= 'INNER JOIN submission_file_settings fs ON f.file_id = fs.file_id
+			$sql .= ' INNER JOIN submission_file_settings fs ON f.file_id = fs.file_id
 				WHERE	fs.setting_name = ? AND fs.setting_value = ?';
 		}
+
 		if ($submissionId) {
 			$params[] = (int) $submissionId;
 			$sql .= ' AND f.submission_id = ?';
 		}
+
 		if ($contextId) {
 			$params[] = (int) $contextId;
 			$sql .= ' AND s.context_id = ?';
 		}
+
 		$sql .= ' ORDER BY f.file_id';
 		$result = $this->retrieve($sql, $params);
 
@@ -137,7 +139,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function getByBestId($fileId, $submissionId) {
 		$file = null;
-		if ($fileId != '') $file = $this->getByPubId('publisher-id', $fileId, $submissionId);
+		if ($fileId != '') $file = $this->getByPubId('publisher-id', $fileId, $submissionId, null);
 		if (!isset($file)) {
 			list($fileId, $revision) = array_map(function($a) {
 				return (int) $a;
@@ -160,7 +162,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	function getLatestRevision($fileId, $fileStage = null, $submissionId = null) {
 		if (!$fileId) return null;
 
-		$revisions = $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, true);
+		$revisions = $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, true, null, null);
 		return $this->_checkAndReturnRevision($revisions);
 	}
 
@@ -189,7 +191,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function getAllRevisions($fileId, $fileStage = null, $submissionId = null, $rangeInfo = null) {
 		if (!$fileId) return null;
-		return $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, false, $rangeInfo);
+		return $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, false, $rangeInfo);
 	}
 
 	/**
@@ -448,6 +450,10 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 	 */
 	function assignRevisionToReviewRound($fileId, $revision, $reviewRound) {
 		if (!is_numeric($fileId) || !is_numeric($revision)) fatalError('Invalid file!');
+
+		// Avoid duplication errors -- clear out any existing entries
+		$this->deleteReviewRoundAssignment($reviewRound->getSubmissionId(), $reviewRound->getStageId(), $fileId, $revision);
+
 		return $this->update(
 			'INSERT INTO review_round_files
 				(submission_id, review_round_id, stage_id, file_id, revision)
@@ -643,12 +649,13 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 				sf.file_id AS submission_file_id, sf.revision AS submission_revision,
 				af.file_id AS artwork_file_id, af.revision AS artwork_revision,
 				suf.file_id AS supplementary_file_id, suf.revision AS supplementary_revision,
-				s.locale AS submission_locale,
+				p.locale AS submission_locale,
 				sf.*, af.*, suf.*
 			FROM	submission_files sf
 				LEFT JOIN submission_artwork_files af ON sf.file_id = af.file_id AND sf.revision = af.revision
 				LEFT JOIN submission_supplementary_files suf ON sf.file_id = suf.file_id AND sf.revision = suf.revision
-				LEFT JOIN submissions s ON s.submission_id = sf.submission_id ';
+				LEFT JOIN submissions as s ON s.submission_id = sf.submission_id
+				LEFT JOIN publications p ON s.current_publication_id = p.publication_id ';
 	}
 
 
@@ -935,6 +942,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
+
 		return $submissionFiles;
 	}
 
@@ -959,7 +967,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 
 		// Identify all matched files.
 		$deletedFiles = $this->_getInternally($submissionId, $fileStage, $fileId, $revision,
-				$assocType, $assocId, $stageId, $uploaderUserId, null, $latestOnly);
+				$assocType, $assocId, $stageId, $uploaderUserId, null, $latestOnly, null);
 		if (empty($deletedFiles)) return 0;
 
 		foreach($deletedFiles as $deletedFile) { /* @var $deletedFile SubmissionFile */
@@ -1012,7 +1020,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			'sf.assoc_id' => $assocId,
 			'sf.uploader_user_id' => $uploaderUserId,
 			'rrf.stage_id' => $stageId,
-			'rrf.review_round_id' => $reviewRoundId
+			'rrf.review_round_id' => $reviewRoundId,
 		);
 
 		// Build and return a SQL where clause and a parameter
@@ -1088,6 +1096,22 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 		$revision = array_pop($revisions);
 		assert(is_a($revision, 'SubmissionFile'));
 		return $revision;
+	}
+
+	/**
+	 * Make a copy of the file to the specified file stage
+	 * @param $context Context
+	 * @param $submissionFile SubmissionFile
+	 * @param $fileStage int SUBMISSION_FILE_...
+	 * @return newFileId int
+	 */
+	function copyFile($context, $submissionFile, $fileStage){
+		import('lib.pkp.classes.file.SubmissionFileManager');
+		$submissionFileManager = new SubmissionFileManager($context->getId(), $submissionFile->getSubmissionId());
+		$fileId = $submissionFile->getFileId();
+		$revision = $submissionFile->getRevision();
+		list($newFileId, $newRevision) = $submissionFileManager->copyFileToFileStage($fileId, $revision, $fileStage, null, $submissionFile->getViewable());
+		return $newFileId;
 	}
 }
 

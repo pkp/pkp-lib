@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrador/a del lloc web"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administradors/ores del lloc web"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Editor/a de producció"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Editors/ores de producció"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Corrector/a d’originals"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Correctors/ores d’originals"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.name.proofreader"
+msgstr "Corrector/a de proves"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Correctors/ores de proves"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.name.designer"
+msgstr "Dissenyador"
+
+msgid "default.groups.plural.designer"
+msgstr "Dissenyadors"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Disseny"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Revisor/a intern"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Revisors/ores interns"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.externalReviewer"
+msgstr "Revisor/a extern"
+
+msgid "default.groups.plural.externalReviewer"
+msgstr "Revisors/ores externs"
+
+msgid "default.groups.abbrev.externalReviewer"
+msgstr "ER"
+
+msgid "default.groups.name.marketing"
+msgstr "Coordinador/a de màrqueting i vendes"
+
+msgid "default.groups.plural.marketing"
+msgstr "Coordinadors/es de màrqueting i vendes"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.name.funding"
+msgstr "Coordinador/a de finançament"
+
+msgid "default.groups.plural.funding"
+msgstr "Coordinadors/es de finançament"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexador/a"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexadors/es"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Maquetista"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Maquetistes"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.name.author"
+msgstr "Autor/a"
+
+msgid "default.groups.plural.author"
+msgstr "Autors/ores"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Traductor/a"
+
+msgid "default.groups.plural.translator"
+msgstr "Traductors/ores"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trad"
+
+msgid "default.groups.name.reader"
+msgstr "Lector/a"
+
+msgid "default.groups.plural.reader"
+msgstr "Lectors/es"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Llegir"
+
+msgid "default.genres.other"
+msgstr "Altres"
+
+msgid "default.genres.multimedia"
+msgstr "Multimèdia"
+
+msgid "default.genres.image"
+msgstr "Imatge"
+
+msgid "default.genres.styleSheet"
+msgstr "Full d'estil HTML"

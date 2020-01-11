@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form to read/create/edit navigation menu Items.
@@ -25,8 +25,6 @@
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="navigationMenuItemFormNotification"}
 	{fbvFormArea id="navigationMenuItemInfo"}
-		<input type="hidden" name="page" value="{$page|escape}" />
-		<input type="hidden" name="op" value="{$op|escape}" />
 		{if $navigationMenuItemId}
 			<input type="hidden" name="navigationMenuItemId" value="{$navigationMenuItemId|escape}" />
 		{/if}

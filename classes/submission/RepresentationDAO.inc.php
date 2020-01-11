@@ -2,8 +2,8 @@
 /**
  * @file classes/submission/RepresentationDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RepresentationDAO
@@ -18,19 +18,19 @@ abstract class RepresentationDAO extends DAO {
 	/**
 	 * Retrieves a representation by ID.
 	 * @param $representationId int Representation ID.
-	 * @param $submissionId int Optional submission ID.
+	 * @param $publicationId int Optional publication ID.
 	 * @param $contextId int Optional context ID.
 	 * @return DAOResultFactory
 	 */
-	abstract function getById($representationId, $submissionId = null, $contextId = null);
+	abstract function getById($representationId, $publicationId = null, $contextId = null);
 
 	/**
-	 * Retrieves an iterator of representations for a submission
-	 * @param $submissionId int
-	 * @param $contextId int
-	 * @return DAOResultFactory
-	 */
-	abstract function getBySubmissionId($submissionId, $contextId = null);
+	* Retrieves an iterator of representations for a publication
+	* @param $publicationId int
+	* @param $contextId int
+	* @return DAOResultFactory
+	*/
+	abstract function getByPublicationId($publicationId, $contextId = null);
 }
 
 

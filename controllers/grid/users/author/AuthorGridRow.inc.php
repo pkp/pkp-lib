@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/AuthorGridRow.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorGridRow
@@ -19,14 +19,21 @@ class AuthorGridRow extends GridRow {
 	/** @var Submission **/
 	var $_submission;
 
+	/** @var Publication **/
+	var $_publication;
+
 	/** @var boolean */
 	var $_readOnly;
+
+	/** @var int */
+	var $_version;
 
 	/**
 	 * Constructor
 	 */
-	function __construct($submission, $readOnly = false) {
+	function __construct($submission, $publication, $readOnly = false) {
 		$this->_submission = $submission;
+		$this->_publication = $publication;
 		$this->_readOnly = $readOnly;
 		parent::__construct();
 	}
@@ -40,9 +47,6 @@ class AuthorGridRow extends GridRow {
 	function initialize($request, $template = null) {
 		// Do the default initialization
 		parent::initialize($request, $template);
-
-		// Retrieve the submission from the request
-		$submission = $this->getSubmission();
 
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();
@@ -115,13 +119,23 @@ class AuthorGridRow extends GridRow {
 	}
 
 	/**
+	 * Get the publication for this row (already authorized)
+	 * @return Publication
+	 */
+	function getPublication() {
+		return $this->_publication;
+	}
+
+	/**
 	 * Get the base arguments that will identify the data in the grid.
 	 * @return array
 	 */
 	function getRequestArgs() {
 		$submission = $this->getSubmission();
+		$publication = $this->getPublication();
 		return array(
-			'submissionId' => $submission->getId()
+			'submissionId' => $submission->getId(),
+			'publicationId' => $publication->getId()
 		);
 	}
 

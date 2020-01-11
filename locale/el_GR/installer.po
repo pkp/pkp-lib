@@ -1,0 +1,162 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Πρόσθετες τοπικές ρυθμίσεις"
+
+msgid "installer.administratorAccount"
+msgstr "Λογαριασμός διαχειριστή"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Ο συγκεκριμένος λογαριασμός χρήστη θα αποτελεί τον διαχειριστή του ιστοτόπου και θα έχει πλήρη πρόσβαση στο σύστημα. Πρόσθετοι λογαριασμοί χρηστών μπορούν να δημιουργηθούν μετά από την εγκατάσταση."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">Όχι</span>"
+
+msgid "installer.checkYes"
+msgstr "Ναι"
+
+msgid "installer.clientCharset"
+msgstr "Client character set"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Κωδικοποίηση για τα δεδομένα που αποστέλλονται και λαμβάνονται από προγράμματα φυλλομέτρησης."
+
+msgid "installer.configFileError"
+msgstr "Το αρχείο ρυθμίσεων <tt>config.inc.php</tt> δεν υπάρχει ή δεν είναι αναγνώσιμο."
+
+msgid "installer.connectionCharset"
+msgstr " Connection character set"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Περιεχόμενα αρχείου ρυθμίσεων"
+
+msgid "installer.createDatabase"
+msgstr "Δημιουργία βάσης δεδομένων"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Για να χρησιμοποιήσετε αυτή την επιλογή, το σύστημά σας πρέπει να υποστηρίζει την απομακρυσμένη δημιουργία βάσης δεδομένων και ο λογαριασμός χρήστης σας πρέπει να διαθέτει τις απαραίτητες άδειες για τη δημιουργία νέας βάσης δεδομένων. Εάν η εγκατάσταση δεν ολοκληρωθεί επιτυχώς με την συγκεκριμένη επιλογή ενεργοποιημένη, δημιουργήστε βάση δεδομένων στον διακομιστή σας μη αυτόματα και εκτελέστε το πρόγραμμα εγκατάστασης ξανά έχοντας την συγκεκριμένη επιλογή απενεργοποιημένη."
+
+msgid "installer.databaseDriver"
+msgstr "Οδηγός βάσης δεδομένων (Database driver)"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Οι οδηγοί (drivers) της βάσης δεδομένων που παρουσιάζονται εντός αγκυλών δεν φαίνεται να έχουν φορτώσει την απαραίτητη επέκταση PHP, και, εάν επιλεχθεί η εγκατάσταση, πιθανώς να μην ολοκληρωθεί επιτυχώς.</strong><br /> Όλοι οι οδηγοί που δεν υποστηρίζονται από τους παραπάνων, παρουσιάζονται αποκλειστικά για ακαδημαϊκή χρήση και δεν είναι πιθανό να λειτουργήσουν."
+
+msgid "installer.databaseHost"
+msgstr "Host"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Αφήστε το όνομα του host κενό χρησιμοποιώντας υποδοχές τομέα αντί μέσω TCP/IP. Η ενέργεια αυτή δεν είναι απαραίτητη με την MySQL, η οποία χρησιμοποιεί αυτόματα υποδοχές (sockets) αν γίνει καταχώριση \"localhost\", αλλά μπορεί να είναι απαραίτητη με κάποιους άλλους εξυπηρετητές βάσης δεδομένων όπως PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Όνομα βάσης δεδομένων"
+
+msgid "installer.databasePassword"
+msgstr "Κωδικός πρόσβασης"
+
+msgid "installer.databaseSettings"
+msgstr "Ρυθμίσεις βάσης δεδομένων"
+
+msgid "installer.databaseUsername"
+msgstr "Όνομα χρήστη"
+
+msgid "installer.encryption"
+msgstr "Αλγόριθμος κωδικοποίησης (encryption) κωδικού πρόσβασης"
+
+msgid "installer.filesDir"
+msgstr "Κατάλογος για φόρτωση αρχείων"
+
+msgid "installer.fileSettings"
+msgstr "Ρυθμίσεις αρχείου"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Πρέπει να επιλεχθεί ένα client character set."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr " Πρέπει να επιλεχθεί οδηγός (driver) βάσης δεδομένων."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Απαιτείται όνομα βάσης δεδομένων"
+
+msgid "installer.form.emailRequired"
+msgstr "Απαιτείται έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου για τον λογαριασμό του διαχειριστή."
+
+msgid "installer.form.encryptionRequired"
+msgstr " Πρέπει να επιλεχθεί ο αλγόριθμος που θα χρησιμοποιηθεί για κωδικοποίηση (encryption) των κωδικών πρόσβασης χρηστών."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Απαιτείται ο ορισμός του φακέλου (directory( που θα χρησιμοποιηθεί για thn αποθήκευση των αρχείων που έχουν φορτωθεί."
+
+msgid "installer.form.localeRequired"
+msgstr "Πρέπει να επιλεχθεί μια τοπική ρύθμιση."
+
+msgid "installer.form.passwordRequired"
+msgstr " Απαιτείται κωδικός πρόσβασης για τον λογαριασμό διαχειριστή."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Οι κωδικοί πρόσβασης του διαχειριστή δεν ταιριάζουν"
+
+msgid "installer.form.separateMultiple"
+msgstr "Διαχωρίστε ξεχωριστές τιμές με κόμματα"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr " Το όνομα χρήστη του διαχειριστή μπορεί να περιέχει μόνο αλφαριθμητικούς χαρακτήρες, χαρακτήρες υπογράμμισης, και παύλες και πρέπει να αρχίζει και να τελειώνει με έναν αλφαρηθμητικό χαρακτήρα."
+
+msgid "installer.form.usernameRequired"
+msgstr "Απαιτείται όνομα χρήστη για τον λογαριασμό διαχειριστή."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>ΕΙΔΟΠΟΙΗΣΗ: Η τρέχουσα έκδοση της PHP στον υπολογιστή σας δεν ικανοποιεί τις ελάχιστες προδιαγραφές εγκατάστασης. Συνιστάται η αναβάθμιση σε μια νεώτερη έκδοση PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Σφάλματα που προέκυψαν κατά την εγκατάσταση"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL Statements για την εγκατάσταση"
+
+msgid "installer.installFileError"
+msgstr "Το αρχείο εγκατάστασης <tt>dbscripts/xml/install.xml</tt> δεν υπάρχει ή δεν είναι εγγράψιμο (writable)."
+
+msgid "installer.installFilesDirError"
+msgstr "Ο καθορισμένος φάκελος (directory) δεν υπάρχει ή δεν είναι εγγράψιμος (writable)."
+
+msgid "installer.installParseDBFileError"
+msgstr "Σφάλμα κατά την ανάλυση (parsing) του αρχείου εγκατάστασης της βάσης δεδομένων <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Τοπικές ρυθμίσεις"
+
+msgid "installer.localeSettings"
+msgstr "Τοπικές ρυθμίσεις"
+
+msgid "installer.miscSettings"
+msgstr "Λοιπές Ρυθμίσεις "
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Ένα μοναδικό αναγνωριστικό χρησιμοποιείται για την αναγνώριση των εγγραφών μεταδεδομένων των ευρετηρίων του συγκεκριμένου ιστοτόπου με χρήση του <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Αναγνωριστικό (identifier) OAI καταθετηρίου"
+
+msgid "installer.publicFilesDirError"
+msgstr "Ο κατάλογος των δημόσιων αρχείων δεν υπάρχει ή δεν είναι εγγράψιμος (writable)."
+
+msgid "installer.releaseNotes"
+msgstr "Σημιεώσεις έκδοσης"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Error parsing the email template file <tt>{$file}</tt>."
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Οι επιλεγμένες τοπικές ρυθμίσεις μπορεί να μην είναι ολοκλήρωμένες"

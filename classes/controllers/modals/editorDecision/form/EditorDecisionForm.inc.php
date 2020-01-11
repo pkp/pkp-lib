@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/EditorDecisionForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionForm
@@ -112,7 +112,7 @@ class EditorDecisionForm extends Form {
 		$this->setData('stageId', $this->getStageId());
 
 		$templateMgr = TemplateManager::getManager($request);
-		$stageDecisions = EditorDecisionActionsManager::getStageDecisions($request->getContext(), $this->getStageId());
+		$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $this->getStageId());
 		$templateMgr->assign(array(
 			'decisionData' => $stageDecisions[$this->getDecision()],
 			'submissionId' => $submission->getId(),

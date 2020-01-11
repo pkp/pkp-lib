@@ -1,8 +1,8 @@
 /**
  * @file styles/structure/body.less
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pkp_structure_page
@@ -67,6 +67,10 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 992px;
+
+	@media (min-width: 1400px) {
+		max-width: 1180px;
+	}
 }
 
 // Panel wrapper when supporting context sidebar
@@ -122,17 +126,6 @@ img {
 			float: left;
 			width: 75%;
 			padding-right: @double;
-		}
-	}
-}
-
-@media(min-width: 1700px) {
-
-	.pkp_context_sidebar {
-		width: 20%;
-
-		+ .pkp_content_panel {
-			width: 80%;
 		}
 	}
 }

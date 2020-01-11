@@ -1,8 +1,8 @@
 {**
  * templates/controllers/statistics/form/reportGeneratorForm.tpl
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Report generator form template.
@@ -62,7 +62,7 @@
 		{fbvFormArea id="reportTemplatesFormArea" title="manager.statistics.reports.defaultReportTemplates"}
 			{fbvFormSection}
 				{fbvElement type="select" name="reportTemplate" id="reportTemplate" from=$reportTemplateOptions selected=$reportTemplate translate=false}
-				{include file="core:common/loadingContainer.tpl"}
+				{include file="common/loadingContainer.tpl"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 		{fbvFormArea id="aggregationColumnsFormArea" title="manager.statistics.reports.aggregationColumns"}

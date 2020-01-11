@@ -6,8 +6,8 @@
 /**
  * @file lib/pkp/classes/statistics/PKPMetricsDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPMetricsDAO
@@ -16,6 +16,7 @@
  * @brief Class with basic operations for retrieving and adding statistics data.
  */
 
+import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
 
 class PKPMetricsDAO extends DAO {
 
@@ -145,13 +146,16 @@ class PKPMetricsDAO extends DAO {
 				if (is_scalar($values)) {
 					$currentClause .= "$column = ?";
 					$params[] = $values;
-				} else {
+				} elseif (count($values)) {
 					$placeholders = array_pad(array(), count($values), '?');
 					$placeholders = implode(', ', $placeholders);
 					$currentClause .= "$column IN ($placeholders)";
 					foreach ($values as $value) {
 						$params[] = $value;
 					}
+				} else {
+					// count($values) == 0: No matches should be returned.
+					$currentClause .= '1=0';
 				}
 			}
 
@@ -368,7 +372,8 @@ class PKPMetricsDAO extends DAO {
 					if (!$isFile) $isRepresentation = true;
 
 					$contextId = $representation->getContextId();
-					$submissionId = $representation->getSubmissionId();
+					$publication = Services::get('publication')->get($representation->getData('publicationId'));
+					$submissionId = $publication->getData('submissionId');
 				} else {
 					throw new Exception('Cannot load record: invalid representation id.');
 				}

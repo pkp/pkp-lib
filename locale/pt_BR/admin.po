@@ -1,0 +1,322 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
+"PO-Revision-Date: 2019-09-30T11:54:12-07:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nome da Configuração"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Valor da Configuração"
+
+msgid "admin.adminFunctions"
+msgstr "Funções Administrativas"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Deseja realmente excluir permanentemente esta fonte de autenticação?"
+
+msgid "admin.auth.create"
+msgstr "Criar fonte de autenticação"
+
+msgid "admin.auth.noneCreated"
+msgstr "Nenhuma fonte de autenticação definida."
+
+msgid "admin.authSources"
+msgstr "Fontes de Autenticação"
+
+msgid "admin.clearDataCache"
+msgstr "Limpar Caches de dados"
+
+msgid "admin.clearTemplateCache"
+msgstr "Limpar Caches de template"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "O documento de configuração foi atualizado com sucesso. Caso as alterações incorram em erros no sistema será necessário atualizar manualmente o arquivo <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Deseja realmente limpar o Cache das templates compiladas?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Deseja realmente expirar todas as sessões de todos os usuários? Todos os usuário conectados serão forçados a acessar novamente o sistema (incluindo o usuário atual)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Conteúdo do arquivo de configuração"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Tem certeza que deseja apagar permanentemente a {$contextName} e todo seu conteudo?"
+
+msgid "admin.currentVersion"
+msgstr "Versão Atual"
+
+msgid "admin.dateInstalled"
+msgstr "Data de instalação"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "As configurações atuais são exibidas abaixo. Para alterar as configurações é necessário editar o arquivo <tt>config.inc.php</tt> manualmente em um editor de texto, substituindo-o com o conteúdo do campo a seguir."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Exibir Configuração Atual"
+
+msgid "admin.expireSessions"
+msgstr "Expirar sessões de usuários"
+
+msgid "admin.languages.download"
+msgstr "Baixar idioma"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Baixar idiomas"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Não foi possível abrir a descição de idioma do site PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Não foi possível adicionar o novo idioma ao registro de idiomas, normalmente localizado em \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "Este idioma é o padrão do site. Você não pode desativá-lo até que escolha outro idioma padrão."
+
+msgid "admin.languages.confirmReload"
+msgstr "Deseja realmente recarregar este idioma? A execução irá apagar qualquer informação de idioma específico como customização de e-mails."
+
+msgid "admin.languages.installedLocales"
+msgstr "Idiomas Instalados"
+
+msgid "admin.languages.installLanguages"
+msgstr "Administrar idiomas"
+
+msgid "admin.languages.availableLocales"
+msgstr "Idiomas disponíveis"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalar Idioma"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalar"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalar Novos Idiomas"
+
+msgid "admin.languages.languageSettings"
+msgstr "Configurações de Idioma"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Nenhum idioma adicional disponível para instalação."
+
+msgid "admin.languages.reload"
+msgstr "Recarregar idioma"
+
+msgid "admin.languages.uninstall"
+msgstr "Desinstalar idioma"
+
+msgid "admin.phpInfo"
+msgstr "Informações do PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Tarefa Agendada"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Iniciada tarefa agendada."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Tarefa agendada parou."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tarefa não produziu log."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Sua instalação {$softwareName} executou automaticamente e finalizou esta tarefa. Você pode baixar o arquivo de registros (logs) aqui: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Você tem certeza de que deseja excluir todos os registros de execução de tarefas agendadas?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Limpar Registros (logs) de Tarefas Agendadas"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Lembrete de avaliador"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Lembrete de expiração de assinatura."
+
+msgid "admin.server.apacheVersion"
+msgstr "Versão do Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Driver da base de dados"
+
+msgid "admin.server.dbVersion"
+msgstr "Versão do servidor de base de dados"
+
+msgid "admin.serverInformation"
+msgstr "Informações do servidor"
+
+msgid "admin.server.phpVersion"
+msgstr "Versão do PHP"
+
+msgid "admin.server.platform"
+msgstr "Sistema Operacional"
+
+msgid "admin.settings"
+msgstr "Configurações"
+
+msgid "admin.settings.about"
+msgstr "Descrição sobre o Portal"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mail do Contato Principal"
+
+msgid "admin.settings.contactName"
+msgstr "Nome do contato principal"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tSua instalação está configurada para gravar mais de uma métrica de uso. Estatísticas de uso serão mostradas de diferentes modos.\n"
+"\t\tExistem casos onde uma única estatística de uso deve ser usada, por exemplo: para mostrar uma lista ordenada das submissões mais usadas\n"
+"\t\tou para rankear resultados de busca. Por favor selecione uma das métricas configuradas como padrão.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Introdução"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Tamanho mínimo de senha"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "caracteres"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Idioma do Portal"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Formato de folha de estilo inválido. Formato aceitável é .css. Verifique as configuração de mime_type, permissões e dono de pasta."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Folha de Estilos do Portal (CSS)"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema do Portal"
+
+msgid "admin.settings.siteTitle"
+msgstr "Título do Portal"
+
+msgid "admin.siteAdmin"
+msgstr "Administração do Portal"
+
+msgid "admin.siteManagement"
+msgstr "Administração do Portal"
+
+msgid "admin.siteSettings"
+msgstr "Configurações do Portal"
+
+msgid "admin.siteSetup"
+msgstr "Configuração do Portal"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "O documento de configuração <tt>config.inc.php</tt> não existe, não possui permissão de leitura ou está corrompido."
+
+msgid "admin.systemInformation"
+msgstr "Informações sobre o Sistema"
+
+msgid "admin.versionBuild"
+msgstr "Construção"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Buscar atualizações"
+
+msgid "admin.version.downloadPackage"
+msgstr "Baixar"
+
+msgid "admin.version.downloadPatch"
+msgstr "Baixar atualização (Patch)"
+
+msgid "admin.versionHistory"
+msgstr "Histórico de versões"
+
+msgid "admin.version.latest"
+msgstr "Última versão"
+
+msgid "admin.versionMajor"
+msgstr "Maior"
+
+msgid "admin.versionMinor"
+msgstr "Menor"
+
+msgid "admin.version.moreInfo"
+msgstr "Detalhar"
+
+msgid "admin.versionRevision"
+msgstr "Revisão"
+
+msgid "admin.version.updateAvailable"
+msgstr "Uma versão atualizada está disponível"
+
+msgid "admin.version.upToDate"
+msgstr "O sistema está atualizado"
+
+msgid "admin.version"
+msgstr "Versão"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "O caminho base {$path} deve estar dentro do diretório de arquivos públicos."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "O diretório {$path} não é um diretório ou não é acessível."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "O arquivo {$filename} não pôde ser movido de {$currentFilePath} para {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "O arquivo {$filename} foi processado e arquivado."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Carregador de arquivo"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copia o(s) arquivo(s) de log do apache repassado(s), filtrando as entradas relacionadas a este portal,\n"
+"para o diretório de arquivos atual, dentro do diretório stage do UsageStatsPlugin. Deve ser executado por um usuário com permissão para ler os logs do apache.\n"
+"\n"
+"Esta ferramenta irá apenas copiar os arquivos que já não estão dentro dos diretórios do usageStats (stage, processing, archive, reject).\n"
+"\n"
+"Uso: {$scriptName} caminho/para/arquivo/de/log/doapache.log\n"
+"Uso (processando todos os arquivos dentro de um diretório): {$scriptName} caminho/para/diretório/doapache\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Erro: não foi possível criar a pasta temporária {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Erro: Arquivo {$filePath} não existe ou não pode ser acessado."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Erro: não foi possível copiar o arquivo {$filePath} para {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Erro: não foi possível apagar o arquivo {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Aviso: o arquivo {$filePath} já existe dentro do diretório de estatísticas de uso."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Sucesso: {$filePath} para {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "\"{$utilPath}\" retornou o seguinte erro após executado: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Erro: não foi possível executar \"{$utilPath}\".  Cheque a configuração de {$utilVar} em config.inc.php."
+
+msgid "admin.settings.siteLogo"
+msgstr "Logotipo do Site"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Sem idiomas disponíveis para download."

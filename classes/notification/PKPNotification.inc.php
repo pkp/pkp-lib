@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/Notification.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Notification
@@ -79,7 +79,7 @@ define('NOTIFICATION_TYPE_EDITOR_ASSIGN',			0x1000027);
 define('NOTIFICATION_TYPE_PAYMENT_REQUIRED',			0x1000028);
 
 define('NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED',			0x1000029);
-
+define('NOTIFICATION_TYPE_EDITORIAL_REPORT', 0x100002A);
 
 class PKPNotification extends DataObject {
 

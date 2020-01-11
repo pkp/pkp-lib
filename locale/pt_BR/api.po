@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
+"PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
+"Language: \n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Seu pedido foi negado, provavelmente devido ao seu acesso ter expirado. Recarregue a página."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Você pode ver apenas submissões não publicadas as quais foi designada."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Você não pode apagar uma submissão que não está associada a esse contexto."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Você não tem permissões para apaar essa submissão."
+
+msgid "api.404.resourceNotFound"
+msgstr "O recurso requisitado não foi encontrado."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Seu pedido não pode ser atendido pois informação requerida está faltando."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "O volume requisitado, número ou ano não é válido."
+
+msgid "api.submissions.unknownError"
+msgstr "Ocorreu um erro não esperado. Por favor recarregue a página e tente novamente. Se o erro persistir contacte o suporte técnico."

@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/PKPAuthorGuidelinesForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorGuidelinesForm
@@ -41,12 +41,16 @@ class PKPAuthorGuidelinesForm extends FormComponent {
 				'description' => __('manager.setup.authorGuidelines.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('authorGuidelines'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+				'plugins' => 'paste,link,lists',
 			]))
 			->addField(new FieldRichTextarea('copyrightNotice', [
 				'label' => __('manager.setup.copyrightNotice'),
 				'description' => __('manager.setup.copyrightNotice.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('copyrightNotice'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+				'plugins' => 'paste,link,lists',
 			]));
 	}
 }

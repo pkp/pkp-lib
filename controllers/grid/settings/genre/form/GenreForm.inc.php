@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/genre/form/GenreForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GenreForm
@@ -43,7 +43,7 @@ class GenreForm extends Form {
 		$this->setGenreId($genreId);
 		parent::__construct('controllers/grid/settings/genre/form/genreForm.tpl');
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		// Validation checks for this form
@@ -63,7 +63,7 @@ class GenreForm extends Form {
 	 * @param $args array
 	 */
 	function initData($args) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		$genreDao = DAORegistry::getDAO('GenreDAO');
@@ -121,7 +121,7 @@ class GenreForm extends Form {
 	 */
 	function execute() {
 		$genreDao = DAORegistry::getDAO('GenreDAO');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		// Update or insert genre

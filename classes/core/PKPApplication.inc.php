@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPApplication.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -13,6 +13,8 @@
  * @brief Class describing this application.
  *
  */
+
+define('PHP_REQUIRED_VERSION', '7.2.0');
 
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
@@ -36,7 +38,6 @@ define('ASSOC_TYPE_REPRESENTATION',		0x0000209);
 define('ASSOC_TYPE_ANNOUNCEMENT',		0x000020A);
 define('ASSOC_TYPE_REVIEW_ROUND',		0x000020B);
 define('ASSOC_TYPE_SUBMISSION_FILES',		0x000020F);
-define('ASSOC_TYPE_PUBLISHED_SUBMISSION',	0x0000210);
 define('ASSOC_TYPE_PLUGIN',			0x0000211);
 define('ASSOC_TYPE_SECTION',			0x0000212);
 define('ASSOC_TYPE_USER',			0x0001000); // This value used because of bug #6068
@@ -49,6 +50,7 @@ define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES',	0x0100008);
 define('ASSOC_TYPE_SUBMISSION',			0x0100009);
 define('ASSOC_TYPE_QUERY',			0x010000a);
 define('ASSOC_TYPE_QUEUED_PAYMENT',		0x010000b);
+define('ASSOC_TYPE_PUBLICATION', 0x010000c);
 
 // Constant used in UsageStats for submission files that are not full texts
 define('ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER', 0x0000213);
@@ -68,23 +70,28 @@ interface iPKPApplicationInfoProvider {
 	/**
 	 * Get the top-level context DAO.
 	 */
-	static function getContextDAO();
+	public static function getContextDAO();
 
 	/**
 	 * Get the section DAO.
 	 * @return DAO
 	 */
-	static function getSectionDAO();
+	public static function getSectionDAO();
 
 	/**
 	 * Get the submission DAO.
 	 */
-	static function getSubmissionDAO();
+	public static function getSubmissionDAO();
 
 	/**
 	 * Get the representation DAO.
 	 */
-	static function getRepresentationDAO();
+	public static function getRepresentationDAO();
+
+	/**
+	 * Get a SubmissionSearchIndex instance.
+	 */
+	public static function getSubmissionSearchIndex();
 
 	/**
 	 * Returns the name of the context column in plugin_settings.
@@ -100,23 +107,23 @@ interface iPKPApplicationInfoProvider {
 	 * category can be initially be loaded correctly.
 	 * @return string
 	 */
-	static function getPluginSettingsContextColumnName();
+	public static function getPluginSettingsContextColumnName();
 
 	/**
 	 * Get the stages used by the application.
 	 */
-	static function getApplicationStages();
+	public static function getApplicationStages();
 
 	/**
 	 * Get the file directory array map used by the application.
 	 * should return array('context' => ..., 'submission' => ...)
 	 */
-	static function getFileDirectories();
+	public static function getFileDirectories();
 
 	/**
 	 * Returns the context type for this application.
 	 */
-	static function getContextAssocType();
+	public static function getContextAssocType();
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider {
@@ -126,7 +133,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
+	public function __construct() {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
@@ -199,10 +206,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	}
 
 	/**
+	 * @copydoc PKPApplication::get()
+	 * @deprecated Use PKPApplication::get() instead.
+	 */
+	public static function getApplication() {
+		return self::get();
+	}
+
+	/**
 	 * Get the current application object
 	 * @return Application
 	 */
-	static function getApplication() {
+	public static function get() {
 		return Registry::get('application');
 	}
 
@@ -210,7 +225,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the request implementation singleton
 	 * @return Request
 	 */
-	static function getRequest() {
+	public function getRequest() {
 		$request =& Registry::get('request', true, null); // Ref req'd
 
 		if (is_null($request)) {
@@ -227,9 +242,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the dispatcher implementation singleton
 	 * @return Dispatcher
 	 */
-	static function getDispatcher() {
+	public function getDispatcher() {
 		$dispatcher =& Registry::get('dispatcher', true, null); // Ref req'd
-
 		if (is_null($dispatcher)) {
 			import('lib.pkp.classes.core.Dispatcher');
 
@@ -237,7 +251,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$dispatcher = new Dispatcher();
 
 			// Inject dependency
-			$dispatcher->setApplication(PKPApplication::getApplication());
+			$dispatcher->setApplication(PKPApplication::get());
 
 			// Inject router configuration
 			$dispatcher->addRouterName('lib.pkp.classes.core.APIRouter', ROUTE_API);
@@ -252,7 +266,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * This executes the application by delegating the
 	 * request to the dispatcher.
 	 */
-	function execute() {
+	public function execute() {
 		// Dispatch the request to the correct handler
 		$dispatcher = $this->getDispatcher();
 		$dispatcher->dispatch($this->getRequest());
@@ -262,7 +276,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the symbolic name of this application
 	 * @return string
 	 */
-	function getName() {
+	public static function getName() {
 		return 'pkp-lib';
 	}
 
@@ -270,7 +284,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the locale key for the name of this application.
 	 * @return string
 	 */
-	abstract function getNameKey();
+	abstract public function getNameKey();
 
 	/**
 	 * Get the "context depth" of this application, i.e. the number of
@@ -279,7 +293,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Scheduled Conference [2]).
 	 * @return int
 	 */
-	abstract function getContextDepth();
+	abstract public function getContextDepth();
 
 	/**
 	 * Get the list of the contexts available for this application
@@ -287,14 +301,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * (e.g. array('journal') or array('conference', 'schedConf'))
 	 * @return Array
 	 */
-	abstract function getContextList();
+	abstract public function getContextList();
 
 	/**
 	 * Get the URL to the XML descriptor for the current version of this
 	 * application.
 	 * @return string
 	 */
-	abstract function getVersionDescriptorUrl();
+	abstract public function getVersionDescriptorUrl();
 
 	/**
 	 * This function retrieves all enabled product versions once
@@ -306,7 +320,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * (e.g. Journal, Conference, Press) to query for enabled products
 	 * @return array
 	 */
-	function &getEnabledProducts($category = null, $mainContextId = null) {
+	public function &getEnabledProducts($category = null, $mainContextId = null) {
 		$contextDepth = $this->getContextDepth();
 		if (is_null($mainContextId)) {
 			$request = $this->getRequest();
@@ -345,13 +359,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the list of plugin categories for this application.
 	 * @return array
 	 */
-	abstract function getPluginCategories();
+	abstract public function getPluginCategories();
 
 	/**
 	 * Return the current version of the application.
 	 * @return Version
 	 */
-	function &getCurrentVersion() {
+	public function &getCurrentVersion() {
 		$currentVersion =& $this->getEnabledProducts('core');
 		assert(count($currentVersion)) == 1;
 		return $currentVersion[$this->getName()];
@@ -361,7 +375,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the map of DAOName => full.class.Path for this application.
 	 * @return array
 	 */
-	function getDAOMap() {
+	public function getDAOMap() {
 		return array(
 			'AccessKeyDAO' => 'lib.pkp.classes.security.AccessKeyDAO',
 			'AnnouncementDAO' => 'lib.pkp.classes.announcement.AnnouncementDAO',
@@ -394,6 +408,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
 			'PluginGalleryDAO' => 'lib.pkp.classes.plugins.PluginGalleryDAO',
 			'PluginSettingsDAO' => 'lib.pkp.classes.plugins.PluginSettingsDAO',
+			'PublicationDAO' => 'classes.publication.PublicationDAO',
 			'QueuedPaymentDAO' => 'lib.pkp.classes.payment.QueuedPaymentDAO',
 			'ReviewAssignmentDAO' => 'lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO',
 			'ReviewFilesDAO' => 'lib.pkp.classes.submission.ReviewFilesDAO',
@@ -443,32 +458,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @param $name string
 	 * @return string
 	 */
-	function getQualifiedDAOName($name) {
+	public function getQualifiedDAOName($name) {
 		$map =& Registry::get('daoMap', true, $this->getDAOMap()); // Ref req'd
 		if (isset($map[$name])) return $map[$name];
 		return null;
-	}
-
-	/**
-	 * Define a constant so that it can be exposed to the JS front-end.
-	 * @param $name string
-	 * @param $value mixed
-	 */
-	static function defineExposedConstant($name, $value) {
-		define($name, $value);
-		assert(preg_match('/^[a-zA-Z_]+$/', $name));
-		$constants =& PKPApplication::getExposedConstants(); // Ref req'd
-		$constants[$name] = $value;
-	}
-
-	/**
-	 * Get an associative array of defined constants that should be exposed
-	 * to the JS front-end.
-	 * @return array
-	 */
-	static function &getExposedConstants() {
-		static $exposedConstants = array();
-		return $exposedConstants;
 	}
 
 	/**
@@ -476,7 +469,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * JavaScript classes in the JS front-end.
 	 * @return array
 	 */
-	function getJSLocaleKeys() {
+	public function getJSLocaleKeys() {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API);
 		return array(
 			'form.dataHasChanged',
@@ -497,10 +490,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 *
 	 * @return array An array of strings of supported metric type identifiers.
 	 */
-	function getMetricTypes($withDisplayNames = false) {
+	public function getMetricTypes($withDisplayNames = false) {
 		// Retrieve site-level report plugins.
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
-		if (!is_array($reportPlugins)) return array();
+		if (empty($reportPlugins)) return array();
 
 		// Run through all report plugins and retrieve all supported metrics.
 		$metricTypes = array();
@@ -520,14 +513,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	}
 
 	/**
-	* Returns the currently configured default metric type for this site.
-	* If no specific metric type has been set for this site then null will
-	* be returned.
-	*
-	* @return null|string A metric type identifier or null if no default metric
-	*   type could be identified.
-	*/
-	function getDefaultMetricType() {
+	 * Returns the currently configured default metric type for this site.
+	 * If no specific metric type has been set for this site then null will
+	 * be returned.
+	 *
+	 * @return null|string A metric type identifier or null if no default metric
+	 *   type could be identified.
+	 */
+	public function getDefaultMetricType() {
 		$request = $this->getRequest();
 		$site = $request->getSite();
 		if (!is_a($site, 'Site')) return null;
@@ -566,7 +559,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @return null|array The selected data as a simple tabular result set or
 	 *   null if the given parameter combination is not supported.
 	 */
-	function getMetrics($metricType = null, $columns = array(), $filter = array(), $orderBy = array(), $range = null) {
+	public function getMetrics($metricType = null, $columns = array(), $filter = array(), $orderBy = array(), $range = null) {
 		import('classes.statistics.StatisticsHelper');
 		$statsHelper = new StatisticsHelper();
 
@@ -605,7 +598,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			$contextId = CONTEXT_SITE;
 		}
 		$reportPlugins = PluginRegistry::loadCategory('reports', true, $contextId);
-		if (!is_array($reportPlugins)) return null;
+		if (empty($reportPlugins)) return null;
 
 		// Run through all report plugins and try to retrieve the requested metrics.
 		$report = array();
@@ -640,7 +633,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @param $assocId int
 	 * @return int
 	 */
-	function getPrimaryMetricByAssoc($assocType, $assocId) {
+	public function getPrimaryMetricByAssoc($assocType, $assocId) {
 		$filter = array(
 			STATISTICS_DIMENSION_ASSOC_ID => $assocId,
 			STATISTICS_DIMENSION_ASSOC_TYPE => $assocType);
@@ -665,7 +658,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * creative commons licenses.
 	 * @return array
 	 */
-	static function getCCLicenseOptions() {
+	public static function getCCLicenseOptions() {
 		return array(
 			'https://creativecommons.org/licenses/by-nc-nd/4.0' => 'submission.license.cc.by-nc-nd4',
 			'https://creativecommons.org/licenses/by-nc/4.0' => 'submission.license.cc.by-nc4',
@@ -680,27 +673,31 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get the Creative Commons license badge associated with a given
 	 * license URL.
 	 * @param $ccLicenseURL URL to creative commons license
+	 * @param $locale string Optional locale to return badge in
 	 * @return string HTML code for CC license
 	 */
-	function getCCLicenseBadge($ccLicenseURL) {
+	public function getCCLicenseBadge($ccLicenseURL, $locale = null) {
 		$licenseKeyMap = array(
-			'http://creativecommons.org/licenses/by-nc-nd/4.0' => 'submission.license.cc.by-nc-nd4.footer',
-			'http://creativecommons.org/licenses/by-nc/4.0' => 'submission.license.cc.by-nc4.footer',
-			'http://creativecommons.org/licenses/by-nc-sa/4.0' => 'submission.license.cc.by-nc-sa4.footer',
-			'http://creativecommons.org/licenses/by-nd/4.0' => 'submission.license.cc.by-nd4.footer',
-			'http://creativecommons.org/licenses/by/4.0' => 'submission.license.cc.by4.footer',
-			'http://creativecommons.org/licenses/by-sa/4.0' => 'submission.license.cc.by-sa4.footer',
-			'http://creativecommons.org/licenses/by-nc-nd/3.0' => 'submission.license.cc.by-nc-nd3.footer',
-			'http://creativecommons.org/licenses/by-nc/3.0' => 'submission.license.cc.by-nc3.footer',
-			'http://creativecommons.org/licenses/by-nc-sa/3.0' => 'submission.license.cc.by-nc-sa3.footer',
-			'http://creativecommons.org/licenses/by-nd/3.0' => 'submission.license.cc.by-nd3.footer',
-			'http://creativecommons.org/licenses/by/3.0' => 'submission.license.cc.by3.footer',
-			'http://creativecommons.org/licenses/by-sa/3.0' => 'submission.license.cc.by-sa3.footer'
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc-nd/4.0[/]?|' => 'submission.license.cc.by-nc-nd4.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc/4.0[/]?|' => 'submission.license.cc.by-nc4.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc-sa/4.0[/]?|' => 'submission.license.cc.by-nc-sa4.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nd/4.0[/]?|' => 'submission.license.cc.by-nd4.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by/4.0[/]?|' => 'submission.license.cc.by4.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/4.0[/]?|' => 'submission.license.cc.by-sa4.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc-nd/3.0[/]?|' => 'submission.license.cc.by-nc-nd3.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc/3.0[/]?|' => 'submission.license.cc.by-nc3.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nc-sa/3.0[/]?|' => 'submission.license.cc.by-nc-sa3.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-nd/3.0[/]?|' => 'submission.license.cc.by-nd3.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by/3.0[/]?|' => 'submission.license.cc.by3.footer',
+			'|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/3.0[/]?|' => 'submission.license.cc.by-sa3.footer'
 		);
+		if ($locale === null) $locale = AppLocale::getLocale();
 
-		if (isset($licenseKeyMap[$ccLicenseURL])) {
-			PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-			return __($licenseKeyMap[$ccLicenseURL]);
+		foreach($licenseKeyMap as $pattern => $key) {
+			if (preg_match($pattern, $ccLicenseURL)) {
+				PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, $locale);
+				return __($key, array(), $locale);
+			}
 		}
 		return null;
 	}
@@ -711,7 +708,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * @param array|null $roleIds Only return role names of these IDs
 	 * @return array
 	 */
-	static function getRoleNames($contextOnly = false, $roleIds = null) {
+	public static function getRoleNames($contextOnly = false, $roleIds = null) {
 		$siteRoleNames = array(ROLE_ID_SITE_ADMIN => 'user.role.siteAdmin');
 		$appRoleNames = array(
 			ROLE_ID_MANAGER => 'user.role.manager',
@@ -731,12 +728,47 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 * Get a mapping of roles allowed to access particular workflows
 	 * @return array
 	 */
-	static function getWorkflowTypeRoles() {
-		$workflowTypeRoles = array(
+	public static function getWorkflowTypeRoles() {
+		return array(
 			WORKFLOW_TYPE_EDITORIAL => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
 			WORKFLOW_TYPE_AUTHOR => array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR),
 		);
-		return $workflowTypeRoles;
+	}
+
+	/**
+	 * Get the name of a workflow stage
+	 *
+	 * @param int $stageId One of the WORKFLOW_STAGE_* constants
+	 * @return string
+	 */
+	public static function getWorkflowStageName($stageId) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
+		switch ($stageId) {
+			case WORKFLOW_STAGE_ID_SUBMISSION: return __('submission.submission');
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return __('workflow.review.internalReview');
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return __('workflow.review.externalReview');
+			case WORKFLOW_STAGE_ID_EDITING: return __('submission.editorial');
+			case WORKFLOW_STAGE_ID_PRODUCTION: return __('submission.production');
+		}
+		throw new Exception('Name requested for an unrecognized stage id.');
+	}
+
+	/**
+	 * Get the hex color (#000000) of a workflow stage
+	 *
+	 * @param int $stageId One of the WORKFLOW_STAGE_* constants
+	 * @return string
+	 */
+	public static function getWorkflowStageColor($stageId) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
+		switch ($stageId) {
+			case WORKFLOW_STAGE_ID_SUBMISSION: return '#d00a0a';
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return '#e05c14';
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return '#e08914';
+			case WORKFLOW_STAGE_ID_EDITING: return '#007ab2';
+			case WORKFLOW_STAGE_ID_PRODUCTION: return '#00b28d';
+		}
+		throw new Exception('Color requested for an unrecognized stage id.');
 	}
 
 	/**
@@ -744,7 +776,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 *
 	 * @return string
 	 */
-	static function getReadableMaxFileSize() {
+	public static function getReadableMaxFileSize() {
 		return strtolower(UPLOAD_MAX_FILESIZE) . 'b';
 	}
 
@@ -753,7 +785,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 *
 	 * @return int
 	 */
-	static function getIntMaxFileMBs() {
+	public static function getIntMaxFileMBs() {
 		$num = substr(UPLOAD_MAX_FILESIZE, 0, (strlen(UPLOAD_MAX_FILESIZE) - 1));
 		$scale = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
 		switch ($scale) {
@@ -770,7 +802,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 	 *
 	 * @return array
 	 */
-	static function getMetadataFields() {
+	public static function getMetadataFields() {
 		return [
 			'coverage',
 			'languages',
@@ -784,36 +816,20 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'citations',
 		];
 	}
-
-	/**
-	 * Does this application support multiple contexts
-	 *
-	 * @return boolean
-	 */
-	static function getAllowMultipleContexts() {
-		return true;
-	}
 }
 
-/**
- * @see PKPApplication::defineExposedConstant()
- */
-function define_exposed($name, $value) {
-	PKPApplication::defineExposedConstant($name, $value);
-}
+define('REALLY_BIG_NUMBER', 10000);
+define('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
 
-define_exposed('REALLY_BIG_NUMBER', 10000);
-define_exposed('UPLOAD_MAX_FILESIZE', ini_get('upload_max_filesize'));
-
-define_exposed('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
-define_exposed('WORKFLOW_STAGE_ID_SUBMISSION', 1);
-define_exposed('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
-define_exposed('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
-define_exposed('WORKFLOW_STAGE_ID_EDITING', 4);
-define_exposed('WORKFLOW_STAGE_ID_PRODUCTION', 5);
+define('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
+define('WORKFLOW_STAGE_ID_SUBMISSION', 1);
+define('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
+define('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
+define('WORKFLOW_STAGE_ID_EDITING', 4);
+define('WORKFLOW_STAGE_ID_PRODUCTION', 5);
 
 /* TextArea insert tag variable types used to change their display when selected */
-define_exposed('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');
+define('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');
 
 // To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');

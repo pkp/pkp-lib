@@ -3,8 +3,8 @@
 /**
  * @file classes/log/EventLogEntry.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EventLogEntry
@@ -54,22 +54,6 @@ class EventLogEntry extends DataObject {
 	 */
 	function setDateLogged($dateLogged) {
 		$this->setData('dateLogged', $dateLogged);
-	}
-
-	/**
-	 * Get IP address of user that initiated the event.
-	 * @return string
-	 */
-	function getIPAddress() {
-		return $this->getData('ipAddress');
-	}
-
-	/**
-	 * Set IP address of user that initiated the event.
-	 * @param $ipAddress string
-	 */
-	function setIPAddress($ipAddress) {
-		$this->setData('ipAddress', $ipAddress);
 	}
 
 	/**

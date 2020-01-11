@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/RepresentationNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RepresentationNativeXmlFilter
@@ -79,13 +79,13 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 		// Add metadata
 		$this->createLocalizedNodes($doc, $representationNode, 'name', $representation->getName(null));
 		$sequenceNode = $doc->createElementNS($deployment->getNamespace(), 'seq');
-		$sequenceNode->appendChild($doc->createTextNode($representation->getSequence()));
+		$sequenceNode->appendChild($doc->createTextNode((int) $representation->getSequence()));
 		$representationNode->appendChild($sequenceNode);
 
-		$remoteURL = $representation->getRemoteURL();
-		if ($remoteURL) {
+		$urlRemote = $representation->getData('urlRemote');
+		if ($urlRemote) {
 			$remoteNode = $doc->createElementNS($deployment->getNamespace(), 'remote');
-			$remoteNode->setAttribute('src', $remoteURL);
+			$remoteNode->setAttribute('src', $urlRemote);
 			$representationNode->appendChild($remoteNode);
 		} else {
 			// Add files
@@ -123,7 +123,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter {
 
 		// Add pub IDs by plugin
 		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-		foreach ((array) $pubIdPlugins as $pubIdPlugin) {
+		foreach ($pubIdPlugins as $pubIdPlugin) {
 			$this->addPubIdentifier($doc, $representationNode, $representation, $pubIdPlugin);
 		}
 	}

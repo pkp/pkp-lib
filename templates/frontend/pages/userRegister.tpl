@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/userRegister.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User registration form.
@@ -13,6 +13,9 @@
 
 <div class="page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
+	<h1>
+		{translate key="user.register"}
+	</h1>
 
 	<form class="cmp_form register" id="register" method="post" action="{url op="register"}">
 		{csrf}

@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/ReviewAssignmentAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignmentAccessPolicy
@@ -22,17 +22,17 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 	var $_request;
 
 	/** @var bool */
-	var $_permitDeclined;
+	var $_permitDeclinedOrCancelled;
 
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
-	 * @param $permitDeclined bool True if declined reviews are acceptable.
+	 * @param $permitDeclinedOrCancelled bool True if declined or cancelled reviews are acceptable.
 	 */
-	function __construct($request, $permitDeclined = false) {
+	function __construct($request, $permitDeclinedOrCancelled = false) {
 		parent::__construct('user.authorization.submissionReviewer');
 		$this->_request = $request;
-		$this->_permitDeclined = $permitDeclined;
+		$this->_permitDeclinedOrCancelled = $permitDeclinedOrCancelled;
 	}
 
 	//
@@ -57,8 +57,8 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
 		// Ensure a valid review assignment was fetched from the database
 		if (!is_a($reviewAssignment, 'ReviewAssignment')) return AUTHORIZATION_DENY;
 
-		// Ensure that the assignment isn't declined, unless that's permitted
-		if (!$this->_permitDeclined && $reviewAssignment->getDeclined()) return AUTHORIZATION_DENY;
+		// Ensure that the assignment isn't declined or cancelled, unless that's permitted
+		if (!$this->_permitDeclinedOrCancelled && ($reviewAssignment->getDeclined())) return AUTHORIZATION_DENY;
 
 		// Save the review assignment to the authorization context.
 		$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

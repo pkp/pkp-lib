@@ -6,8 +6,8 @@
 /**
  * @file classes/notification/form/NotificationSettingsForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationSettingsForm
@@ -53,6 +53,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => array('settingName' => 'notificationSubmissionSubmitted',
 				'emailSettingName' => 'emailNotificationSubmissionSubmitted',
 				'settingKey' => 'notification.type.submissionSubmitted'),
+			NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => array('settingName' => 'notificationEditorAssignmentRequired',
+				'emailSettingName' => 'emailNotificationEditorAssignmentRequired',
+				'settingKey' => 'notification.type.editorAssignmentTask'),
 			NOTIFICATION_TYPE_METADATA_MODIFIED => array('settingName' => 'notificationMetadataModified',
 				'emailSettingName' => 'emailNotificationMetadataModified',
 				'settingKey' => 'notification.type.metadataModified'),
@@ -68,6 +71,9 @@ class PKPNotificationSettingsForm extends Form {
 			NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => array('settingName' => 'notificationNewAnnouncement',
 				'emailSettingName' => 'emailNotificationNewAnnouncement',
 				'settingKey' => 'notification.type.newAnnouncement'),
+			NOTIFICATION_TYPE_EDITORIAL_REPORT => array('settingName' => 'notificationEditorialReport',
+				'emailSettingName' => 'emailNotificationEditorialReport',
+				'settingKey' => 'notification.type.editorialReport')
 		);
 	}
 
@@ -89,6 +95,7 @@ class PKPNotificationSettingsForm extends Form {
 			array('categoryKey' => 'notification.type.submissions',
 				'settings' => array(
 					NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+					NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
 					NOTIFICATION_TYPE_METADATA_MODIFIED,
 					NOTIFICATION_TYPE_NEW_QUERY,
 					NOTIFICATION_TYPE_QUERY_ACTIVITY,
@@ -97,6 +104,11 @@ class PKPNotificationSettingsForm extends Form {
 			array('categoryKey' => 'notification.type.reviewing',
 				'settings' => array(
 					NOTIFICATION_TYPE_REVIEWER_COMMENT,
+				)
+			),
+			array('categoryKey' => 'user.role.editors',
+				'settings' => array(
+					NOTIFICATION_TYPE_EDITORIAL_REPORT,
 				)
 			),
 		);
@@ -123,8 +135,10 @@ class PKPNotificationSettingsForm extends Form {
 	/**
 	 * @copydoc Form::execute
 	 */
-	function execute() {
-		$request = Application::getRequest();
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
+		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$userId = $user->getId();
 		$context = $request->getContext();

@@ -1,0 +1,666 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
+"Language: \n"
+
+msgid "grid.noItems"
+msgstr "Δεν υπάρχουν αντικείμενα"
+
+msgid "grid.settings"
+msgstr "Ρυθμίσεις"
+
+msgid "grid.noAuditors"
+msgstr "Δεν υπάρχουν Ελεγκτές"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Αυτό το αρχείο φιλοξενείται σε απομακρυσμένη υποδομή."
+
+msgid "grid.action.uninstall"
+msgstr "Απεγκατάσταση"
+
+msgid "grid.action.manageAccess"
+msgstr "Διαχείριση πρόσβασης"
+
+msgid "grid.action.sort"
+msgstr "Διάταξη"
+
+msgid "grid.action.addItem"
+msgstr "Προσθήκη αντικειμένου"
+
+msgid "grid.action.addNote"
+msgstr "Προσθήκη σημείωσης"
+
+msgid "grid.action.addQuery"
+msgstr "Προσθήκη συζήτησης"
+
+msgid "grid.action.readQuery"
+msgstr "Προβολή συζήτησης"
+
+msgid "grid.action.deleteQuery"
+msgstr "Διαγραφή συζήτησης"
+
+msgid "grid.action.updateQuery"
+msgstr "Ενημέρωση συζήτησης"
+
+msgid "grid.action.addUser"
+msgstr "Προσθήκη Χρήστη"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Αναίρεση ανάθεσης σε Αξιολογητή"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Έγκριση επιμελημένου κειμένου για αποστολή στο επόμενο στάδιο"
+
+msgid "grid.action.reload"
+msgstr "Επαναφόρτωση"
+
+msgid "grid.action.delete"
+msgstr "Διαγραφή"
+
+msgid "grid.action.deleteFile"
+msgstr "Διαγραφή του αρχείου"
+
+msgid "grid.action.deleteMedia"
+msgstr "Διαγραφή του πολυμέσου"
+
+msgid "grid.action.editMedia"
+msgstr "Επιμέλεια του πολυμέσου"
+
+msgid "grid.action.editSection"
+msgstr "Επιμέλεια ενότητας"
+
+msgid "grid.action.export"
+msgstr "Εξαγωγή"
+
+msgid "grid.action.deleteSection"
+msgstr "Διαγραφή ενότητας"
+
+msgid "grid.action.editorialHistory"
+msgstr "Ιστορικό επιμέλειας"
+
+msgid "grid.action.remove"
+msgstr "Αφαίρεση"
+
+msgid "grid.action.edit"
+msgstr "Επεξεργασία"
+
+msgid "grid.action.approve"
+msgstr "Έγκριση"
+
+msgid "grid.action.disapprove"
+msgstr "Απόρριψη"
+
+msgid "grid.action.setApproval"
+msgstr "Ορισμός έγκρισης"
+
+msgid "grid.action.moreInformation"
+msgstr "Περισσότερες πληροφορίες"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Επαναφορά προκαθορισμένων τιμών"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Επιβεβαιώνετε την επαναφορά στις αρχικές ρυθμίσεις;"
+
+msgid "grid.action.addAuthor"
+msgstr "Προσθήκη Συγγραφέα"
+
+msgid "grid.action.editAuthor"
+msgstr "Επεξεργασία στοιχείων Συγγραφέα"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Διαγραφή Συγγραφέα"
+
+msgid "grid.action.addAuditor"
+msgstr "Προσθήκη Ελεγκτή"
+
+msgid "grid.action.upgrade"
+msgstr "Αναβάθμιση"
+
+msgid "grid.action.order"
+msgstr "Παραγγελία"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Ακύρωση παραγγελίας"
+
+msgid "grid.action.extendAll"
+msgstr "Επέκταση όλων"
+
+msgid "grid.action.collapse"
+msgstr "Σύμπτηξη"
+
+msgid "grid.action.collapseAll"
+msgstr "Σύμπτηξη όλων"
+
+msgid "grid.action.wizard"
+msgstr "Οδηγός ρυθμίσεων"
+
+msgid "grid.action.moveItem"
+msgstr "Μετακίνηση αντικειμένου"
+
+msgid "grid.action.downloadAll"
+msgstr "Μεταφόρτωση όλων των αρχείων"
+
+msgid "grid.action.readReview"
+msgstr "Προβολή αξιολόγησης"
+
+msgid "grid.action.email"
+msgstr "Αποστολή μηνύματος"
+
+msgid "grid.action.addReviewer"
+msgstr "Προσθήκη Αξιολογητή"
+
+msgid "grid.action.addFile"
+msgstr "Προσθήκη αρχείου"
+
+msgid "grid.action.editFile"
+msgstr "Επεξεργασία αρχείου"
+
+msgid "grid.action.selectFiles"
+msgstr "Επιλογή αρχείων προς επιμέλεια"
+
+msgid "grid.action.requestRevisions"
+msgstr "Αίτημα υποβολής αναθεωρημένης έκδοσης"
+
+msgid "grid.action.accept"
+msgstr "Αποδοχή υποβολής"
+
+msgid "grid.action.decline"
+msgstr "Απόρριψη"
+
+msgid "grid.action.internalReview"
+msgstr "Αποστολή υποβολής για εσωτερική αξιολόγηση"
+
+msgid "grid.action.externalReview"
+msgstr "Αποστολή υποβολής για εξωτερική αξιολόγηση"
+
+msgid "grid.action.sendToProduction"
+msgstr "Αποστολή υποβολής στην παραγωγή"
+
+msgid "grid.action.settings"
+msgstr "Ρυθμίσεις"
+
+msgid "grid.action.importexport"
+msgstr "Εισαγωγή/εξαγωγή περιεχομένου ή δεδομένων του ιστοτόπου"
+
+msgid "grid.action.orderItems"
+msgstr "Ενεργοποίηση παραγγελιών"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Επεξεργασία αντικειμένου της λίστας"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Διαγραφή αντικειμένου της λίστας"
+
+msgid "grid.action.resetAll"
+msgstr "Επαναφορά αντικειμένων στις προκαθορισμένες τιμές"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Προσθήκη προτύπου ηλεκτρονικού μηνύματος"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Επεξεργασία προτύπου ηλεκτρονικού μηνύματος"
+
+msgid "grid.action.disableEmail"
+msgstr "Απενεργοποίηση προτύπου ηλεκτρονικού μηνύματος"
+
+msgid "grid.action.resetEmail"
+msgstr "Επαναφορά προτύπου μηνύματος στην προκαθορισμένη μορφή"
+
+msgid "grid.action.expandAll"
+msgstr "Ανάπτυξη όλων"
+
+msgid "grid.action.requestAccount"
+msgstr "Προσθήκη συμμετέχοντα"
+
+msgid "grid.action.expand"
+msgstr "Ανάπτυξη"
+
+msgid "grid.action.notify"
+msgstr "Ενημέρωση Χρήστη"
+
+msgid "grid.action.addUserGroup"
+msgstr "Προσθήκη νέας ομάδας Χρηστών"
+
+msgid "grid.action.editUserGroup"
+msgstr "Επεξεργασία ομάδας Χρηστών"
+
+msgid "grid.action.disable"
+msgstr "Απενεργοποίηση"
+
+msgid "grid.action.details"
+msgstr "Προβολή αντικειμένου"
+
+msgid "grid.action.enrolExisting"
+msgstr "Ανάθεση ρόλου Αξιολογητή σε Χρήστη του ιστοτόπου"
+
+msgid "grid.action.selectCreate"
+msgstr "Δημιουργία νέου Αξιολογητή"
+
+msgid "grid.action.search"
+msgstr "Αναζήτηση"
+
+msgid "grid.action.advancedSearch"
+msgstr "Σύνθετη Αναζήτηση"
+
+msgid "grid.action.viewLibrary"
+msgstr "Προβολή βιβλιοθήκης εγγράφων"
+
+msgid "grid.action.viewMetadata"
+msgstr "Προβολή μεταδεδομένων της υποβολής"
+
+msgid "grid.action.sendReminder"
+msgstr "Αποστολή υπενθύμισης στον Χρήστη"
+
+msgid "grid.action.newRound"
+msgstr "Εκκίνηση νέου γύρου αξιολόγησης"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Προβολή οδηγιών αξιολόγησης"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Προβολή δήλωσης συγκρουόμενων συμφερόντων"
+
+msgid "grid.action.thankReviewer"
+msgstr "Αποστολή ευχαριστήριου μηνύματος στον Αξιολογητή"
+
+msgid "grid.action.uploadFile"
+msgstr "Μεταφόρτωση αρχείου"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Προσθήκη τύπου ανακοίνωσης"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Προσθήκη ανακοίνωσης"
+
+msgid "grid.action.mergeUser"
+msgstr "Συγχώνευση Χρήστη"
+
+msgid "grid.action.unassignUser"
+msgstr "Απαλλαγή Χρήστη"
+
+msgid "grid.action.history"
+msgstr "Προβολή ιστορικού"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Αυτή η αξιολόγηση έχει ολοκληρωθεί, αλλά μπορείτε να αναθεωρήσετε"
+
+msgid "grid.action.enable"
+msgstr "Ενεργοποίηση"
+
+msgid "grid.action.bookInfo"
+msgstr "Πληροφορίες Υποβολής"
+
+msgid "grid.action.logInAs"
+msgstr "Σύνδεση ως"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Εξαγωγή Χρηστών"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Επιβεβαιώνετε την εξαγωγή όλων των Χρηστών;"
+
+msgid "grid.action.activate"
+msgstr "Ενεργοποίηση"
+
+msgid "grid.action.deactivate"
+msgstr "Απενεργοποίηση"
+
+msgid "grid.action.copy"
+msgstr "Αντιγραφή"
+
+msgid "grid.action.preview"
+msgstr "Προεπισκόπηση"
+
+msgid "grid.action.install"
+msgstr "Εγκατάσταση"
+
+msgid "grid.action.moreItems"
+msgstr "Φόρτωση περισσότερων"
+
+msgid "grid.action.users"
+msgstr "Δείτε/Επιλέξτε χρήστες"
+
+msgid "grid.task.status.completed"
+msgstr "Η ενέργεια έχει ολοκληρωθεί."
+
+msgid "grid.task.status.new"
+msgstr "Αυτό είναι ένα νέο αντικείμενο και απαιτεί προσοχή."
+
+msgid "grid.task.status.uploaded"
+msgstr "Ο τίτλος της στήλης δείχνει ποιος ανέβασε αυτό το αρχείο."
+
+msgid "grid.task.status.unfinished"
+msgstr "Η ενέργεια δεν έχει ολοκληρωθεί."
+
+msgid "grid.task.status.reviewReady"
+msgstr "Αυτή η αξιολόγηση είναι έτοιμη. Πατήστε το εικονίδιο στα αριστερά για να την προβάλετε."
+
+msgid "grid.columns.actions"
+msgstr "Ενέργειες"
+
+msgid "grid.columns.institution"
+msgstr "Ίδρυμα"
+
+msgid "grid.columns.url"
+msgstr "Σϋνδεσμος URL"
+
+msgid "grid.columns.auditor"
+msgstr "Ελεγκτής"
+
+msgid "grid.columns.locale"
+msgstr "Γλώσσα"
+
+msgid "grid.sponsor.title"
+msgstr "Χορηγοί"
+
+msgid "grid.action.addSponsor"
+msgstr "Προσθήκη Χορηγού"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Διαγραφή Χορηγού"
+
+msgid "grid.action.editSponsor"
+msgstr "Επεξεργασία Χορηγού"
+
+msgid "grid.action.addSeries"
+msgstr "Προσθήκη σειράς"
+
+msgid "grid.action.editSeries"
+msgstr "Επεξεργασία σειράς"
+
+msgid "grid.action.deleteSeries"
+msgstr "Διαγραφή σειράς"
+
+msgid "grid.action.addCategory"
+msgstr "Προσθήκη κατηγορίας"
+
+msgid "grid.action.editCategory"
+msgstr "Επεξεργασία κατηγορίας"
+
+msgid "grid.action.deleteCategory"
+msgstr "Διαγραφή κατηγορίας"
+
+msgid "grid.contributor.title"
+msgstr "Συντελεστής"
+
+msgid "grid.action.addContributor"
+msgstr "Προσθήκη Συντελεστή"
+
+msgid "grid.action.editContributor"
+msgstr "Επεξεργασία Συντελεστή"
+
+msgid "grid.action.deleteContributor"
+msgstr "Διαγραφή Συντελεστή"
+
+msgid "grid.reviewForm.title"
+msgstr "Φόρμες αξιολόγησης"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Επιλογές απάντησης"
+
+msgid "grid.noFiles"
+msgstr "Κανένα αρχείο"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Αρχεία"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Λίστα αρχείων υποβολής"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Λίστα αρχείων επιμέλειας"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Λίστα αρχείων αξιολόγησης"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Λίστα αρχείων παραγωγής"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Λίστα αρχείων προτύπων παραγωγής"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Λίστα ελέγχου υποβολής"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Στοιχείο λίστας ελέγχου υποβολής"
+
+msgid "author.users.contributor.name"
+msgstr "Όνομα"
+
+msgid "author.users.contributor.email"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
+
+msgid "author.users.contributor.role"
+msgstr "Ρόλος"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Κύρια επαφή"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Σε λίστες πλοήγησης"
+
+msgid "grid.roles.currentRoles"
+msgstr "Ρόλοι"
+
+msgid "grid.roles.add"
+msgstr "Προσθήκη νέου ρόλου"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Ανάθεση σταδίου"
+
+msgid "grid.user.currentUsers"
+msgstr "Υφιστάμενοι Χρήστες"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Υφιστάμενες αναθέσεις"
+
+msgid "grid.user.allRoles"
+msgstr "Ολοι οι ρόλοι"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Όλες οι διαβαθμίσεις δικαιωμάτων πρόσβασης"
+
+msgid "grid.user.add"
+msgstr "Προσθήκη Χρήστη"
+
+msgid "grid.user.enroll"
+msgstr "Ανάθεση σε Χρήστη"
+
+msgid "grid.user.edit"
+msgstr "Επεξεργασία Χρήστη"
+
+msgid "grid.user.email"
+msgstr "Ηλεκτρονικό ταχυδρομείο"
+
+msgid "grid.user.enable"
+msgstr "Ενεργοποίηση"
+
+msgid "grid.user.disable"
+msgstr "Απενεργοποίηση"
+
+msgid "grid.user.disableReason"
+msgstr "Λόγος απενεργοποίσης Χρήστη"
+
+msgid "grid.user.enableReason"
+msgstr "Λόγος ενεργοποίησης Χρήστη"
+
+msgid "grid.user.error"
+msgstr "Παρουσιάστηκε σφάλμα κατά τις ενέργειες διαχείρισης αυτού του Χρήστη. Δοκιμάστε ξανά."
+
+msgid "grid.user.errorEmail"
+msgstr "Παρουσιάστηκε σφάλμα κατά την αποστολή αυτού του μηνύματος ηλεκτρονικού ταχυδρομείου. Βεβαιωθείτε ότι ο διακομιστής ηλεκτρονικού ταχυδρομείου λειτουργεί και/ή επικοινωνήστε με τον Διαχειριστή του συστήματός σας."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Δεν έχετε δικαιώματα πλήρους διαχείρισης του προφίλ Χρήστη."
+
+msgid "grid.user.authSource"
+msgstr "Πηγή ταυτοποίησης"
+
+msgid "grid.user.mustProvideName"
+msgstr "Παρακαλούμε καταχωρήστε τουλάχιστον το επίθετο Χρήστη."
+
+msgid "grid.user.generatePassword"
+msgstr "Δημιουργία Κωδικού"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Δημιουργία τυχαίου κωδικού για αυτόν τον Χρήστη"
+
+msgid "grid.user.notifyUser"
+msgstr "Ενημέρωση Χρήστη"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Αποστολή μηνύματος καλωσορίσματος στον Χρήστη"
+
+msgid "grid.user.mustChangePassword"
+msgstr "Αλλαγή κωδικού"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Ο Χρήστης πρέπει να αλλάξει τον κωδικό του στην επόμενη σύνδεση."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Απαιτείται αλλαγή του κωδικού πρόσβασης κατά την επόμενη σύνδεση στο σύστημα."
+
+msgid "grid.user.moreDetails"
+msgstr "Περισσότερες λεπτομέρειες προφίλ Χρήστη"
+
+msgid "grid.user.lessDetails"
+msgstr "Λιγότερες λεπτομέρειες προφίλ Χρήστη"
+
+msgid "grid.user.userDetails"
+msgstr "Λεπτομέρειες προφίλ Χρήστη"
+
+msgid "grid.user.userRoles"
+msgstr "Ρόλοι Χρήστη"
+
+msgid "grid.user.userNoRoles"
+msgstr "Αυτός ο Χρήστης δεν έχει κανένα ρόλο."
+
+msgid "grid.user.step1"
+msgstr "Βήμα #1: Συμπληρώστε τα στοιχεία Χρήστη"
+
+msgid "grid.user.step2"
+msgstr "Βήμα #2: Προσθήκη ρόλων στον Χρήστη {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Προσθέσετε ρόλους"
+
+msgid "grid.user.addRole"
+msgstr "Προσθήκη ρόλου"
+
+msgid "grid.user.selectUser"
+msgstr "Επιλογή Χρήστη"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Παρακαλούμε επιλέξτε έναν Χρήστη."
+
+msgid "grid.user.confirmLogInAs"
+msgstr "Σύνδεση με τον λογαριασμό του Χρήστη; Όλες οι ενέργειές σας θα αποδοθούν στον συγκεκριμένο Χρήστη."
+
+msgid "grid.user.mergeUsers"
+msgstr "Συγχώνευση Χρηστών"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Συγχώνευση Χρήστη"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Συγχώνευση σε αυτον τον Χρήστη"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Όλοι οι εγγεγραμμένοι Χρήστες"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr "Επιβεβαιώνετε τη συγχώνευση του λογαριασμού \"{$oldUsername}\" στον λογαριασμό \"{$newUsername}\"? Μετά τη συγχώνευση, ο λογαριασμός \"{$oldUsername}\" θα διαγραφεί. Αυτή η ενέργεια είναι μη αναστρέψιμη."
+
+msgid "grid.preparedEmails.title"
+msgstr "Έτοιμα πρότυπα μηνυμάτων"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Τρέχουσα λίστα"
+
+msgid "grid.plugin.allCategories"
+msgstr "Όλες οι κατηγορίες"
+
+msgid "grid.plugin.disable"
+msgstr "Επιβεβαιώνετε την απενεργοποίηση του Πρόσθετου;"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Οι διορθώσεις τυπογραφικού δοκιμίου ολοκληρώθηκαν. Μπορείτε να μην θεωρήσετε αυτή την εργασία."
+
+msgid "grid.artworkFile.caption"
+msgstr "Λεζάντα"
+
+msgid "grid.artworkFile.credit"
+msgstr "Ευχαριστίες"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Κάτοχος πνευματικών δικαιωμάτων"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Στοιχεία επικοινωνίας (εάν δεν πρόκειται για Συγγραφέα/Εκδότη)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Όροι αδειοδότησης"
+
+msgid "grid.artworkFile.placement"
+msgstr "Θέση στην υποβολή"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Σύνδεση σταδίου εργασιών"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Αναίρεση σύνδεσης σταδίου εργασιών"
+
+msgid "grid.userGroup.allStages"
+msgstr "Όλα τα στάδια της ροής εργασιών"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Προβολή ρόλων με ανάθεση στο"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Με διαβάθμιση αδειοδότητης στο"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Ο ρόλος {$userGroupName} είναι προεπιλεγμένος και δεν μπορεί να αφαιρεθεί."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr "Είναι αδύνατη η αφαίρεση του ρόλου {$userGroupName}. Ο ρόλος έχει αποδοθεί σε {$usersCount} Χρήστες."
+
+msgid "grid.userGroup.removed"
+msgstr "Ο ρόλος {$userGroupName} αφαιρέθηκε."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Ο ρόλος {$userGroupName} συνδέθηκε με το στάδιο {$stageName}."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Ο ρόλος {$userGroupName} αποσυνδέθηκε από το στάδιο {$stageName}."
+
+msgid "grid.submission.itemTitle"
+msgstr "Συγγραφέας, Τίτλος"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Να συμπεριληφθούν μη ολοκληρωμένες υποβολές Sυγγραφέων."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Προσθήκη Μενού"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Προσθήκη αντικειμένου"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Δεν υπάρχουν αντικέμενα στα Μενού Περιήγησης"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Δεν υπάρχουν Μενού Περιήγησης"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Επιλογή τύπου..."

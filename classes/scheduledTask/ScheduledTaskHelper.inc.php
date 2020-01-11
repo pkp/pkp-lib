@@ -3,8 +3,8 @@
 /**
  * @file classes/scheduledTask/ScheduledTaskHelper.inc.php
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTaskHelper
@@ -166,7 +166,7 @@ class ScheduledTaskHelper {
 			return __('admin.scheduledTask.noLog');
 		}
 		
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, array('file' => basename($executionLogFile)));
 		return __('admin.scheduledTask.downloadLog', array(

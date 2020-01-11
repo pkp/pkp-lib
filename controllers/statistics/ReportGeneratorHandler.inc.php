@@ -3,8 +3,8 @@
 /**
  * @file controllers/statistics/ReportGeneratorHandler.inc.php
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReportGeneratorHandler
@@ -98,11 +98,13 @@ class ReportGeneratorHandler extends Handler {
 		if (!$issueId) {
 			return new JSONMessage(false);
 		} else {
-			$articleDao = DAORegistry::getDAO('PublishedArticleDAO'); /* @var $articleDao PublishedArticleDAO */
-			$articles = $articleDao->getPublishedArticles($issueId);
+			$submissionsIterator = Services::get('submission')->getMany([
+				'contextId' => $request->getContext()->getId(),
+				'issueIds' => $issueId,
+			]);
 			$articlesInfo = array();
-			foreach ($articles as $article) {
-				$articlesInfo[] = array('id' => $article->getId(), 'title' => $article->getLocalizedTitle());
+			foreach ($submissionsIterator as $submission) {
+				$articlesInfo[] = array('id' => $submission->getId(), 'title' => $submission->getLocalizedTitle());
 			}
 
 			return new JSONMessage(true, $articlesInfo);

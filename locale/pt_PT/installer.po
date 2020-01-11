@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:58+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Idiomas Adicionais"
+
+msgid "installer.administratorAccount"
+msgstr "Conta de Administrador"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Este utilizador será o Administrador do Portal e terá acesso total ao sistema. Contas adicionais podem ser criadas após a instalação."
+
+msgid "installer.checkNo"
+msgstr "Não<span class=\"pkp_form_error formError\">NÃO</span>"
+
+msgid "installer.checkYes"
+msgstr "Sim"
+
+msgid "installer.clientCharset"
+msgstr "Conjunto de caracteres do Cliente"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "A codificação utilizada para dados enviados e recebidos pelos navegadores."
+
+msgid "installer.configFileError"
+msgstr "O documento de configuração <tt>config.inc.php</tt> não existe ou não possui permissão de leitura."
+
+msgid "installer.connectionCharset"
+msgstr "Conjunto de Caracteres da Conexão"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Conteúdo para ficheiro de configuração"
+
+msgid "installer.createDatabase"
+msgstr "Criar nova base de dados"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente a base de dados no servidor e execute novamente o instalador desactivando esta opção."
+
+msgid "installer.databaseDriver"
+msgstr "Driver da Base de Dados"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Drivers de bases de dados relacionados entre chaves ([]) não tiveram as suas extensões PHP reconhecidas pelo sistema, e portanto não devem funcionar.</strong><br />Os drivers não suportados, listados acima, são exibidos apenas em carácter académico e experimental, não devendo funcionar por padrão. Somente poderão ser utilizados pelo sistema os drivers que tiverem as suas extensões PHP prévia e correctamente instaladas no servidor."
+
+msgid "installer.databaseHost"
+msgstr "Servidor"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Deixe o nome do servidor em branco para conectar através de socket de domínio em vez de TCP/IP. Não é necessário para o MySQL, que automaticamente utiliza sockets caso \"localhost\" seja digitado, porém é obrigatório para outras bases como o PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Nome da Base de Dados"
+
+msgid "installer.databasePassword"
+msgstr "Senha para acesso à base de dados"
+
+msgid "installer.databaseSettings"
+msgstr "Configurações de Bases de Dados"
+
+msgid "installer.databaseUsername"
+msgstr "Utilizador da base de dados"
+
+msgid "installer.filesDir"
+msgstr "Pasta para Envio de Ficheiros"
+
+msgid "installer.fileSettings"
+msgstr "Configurações de Ficheiros"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Deve ser definido um conjunto de caracteres do cliente."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "É obrigatório o driver de base de dados."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "É obrigatório o nome da base de dados."
+
+msgid "installer.form.emailRequired"
+msgstr "É obrigatório um endereço de e-mail válido."
+
+msgid "installer.form.filesDirRequired"
+msgstr "É obrigatório a pasta para envio de ficheiros."
+
+msgid "installer.form.localeRequired"
+msgstr "Deve ser definido um idioma."
+
+msgid "installer.form.passwordRequired"
+msgstr "Senha obrigatória."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Senhas inseridas não combinam."
+
+msgid "installer.form.separateMultiple"
+msgstr "Separe valores múltiplos com vírgulas"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "A autenticação apenas pode conter caracteres alfanuméricos, sublinhados \"_\" e hífens \"-\", devendo começar e terminar por um caractere alfanumérico."
+
+msgid "installer.form.usernameRequired"
+msgstr "Autenticação obrigatória."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>AVISO: A versão do PHP utilizada não está em conformidade com os requisitos mínimos para instalação do sistema. Recomenda-se usar a versão mais recente do PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Ocorreram erros durante a instalação"
+
+msgid "installer.installerSQLStatements"
+msgstr "Comandos SQL para instalação"
+
+msgid "installer.installFileError"
+msgstr "O documento de instalação <tt>dbscripts/xml/install.xml</tt> não existe ou não possui permissão de leitura."
+
+msgid "installer.installFilesDirError"
+msgstr "A pasta indicado não existe ou não possui permissão de escrita."
+
+msgid "installer.installParseDBFileError"
+msgstr "Erro na execução do documento de instalação da base de dados <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Idioma"
+
+msgid "installer.localeSettings"
+msgstr "Configurações de Idioma"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Um identificador único de registos de metadados indexados através do protocolo de Recolha de Metadados do <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identificador para repositório OAI"
+
+msgid "installer.publicFilesDirError"
+msgstr "A pasta de documentos públicos não existe ou não possui permissão de escrita."
+
+msgid "installer.releaseNotes"
+msgstr "Notas da Versão"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Erro ao tentar analisar o ficheiro de e-mail padrão <tt>{$file}</tt>."
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Traduções marcadas podem estar incompletas."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Erro ao analisar o ficheiro de configuração do filtro <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Atualizaçã sem suporte. Veja documentos/UPGRADE-UNSUPPORTED para obter detalhes."
+
+msgid "installer.oaiSettings"
+msgstr "Configurações OAI"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Passos P´re-Instalação"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<p>1. The following files and directories (and their contents) must be made writable:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> is writable: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> is writable: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> is writable: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. A directory to store uploaded files must be created and made writable (see \"File Settings\" below).</p>"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>A sua instalação do PHP não possui o módulo XSL activado. Active-o, ou configure o parâmetro xslt_command no ficheiro config.inc.php.</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Forneça um ID de site único e URL base OAI para PKP apenas para estatísticas e avisos de segurança."
+
+msgid "installer.unsupportedPhpError"
+msgstr "A versão de PHP do seu servidor não é suportada por esta aplicação. Verifique os requisitos de instalação no ficheiro docs/README."
+
+msgid "installer.miscSettings"
+msgstr "Configurações Gerais"

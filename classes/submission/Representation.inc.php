@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/Representation.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Representation
@@ -69,22 +69,6 @@ class Representation extends DataObject {
 	}
 
 	/**
-	 * Set submission ID.
-	 * @param $submissionId int
-	 */
-	function setSubmissionId($submissionId) {
-		$this->setData('submissionId', $submissionId);
-	}
-
-	/**
-	 * Get submission id
-	 * @return int
-	 */
-	function getSubmissionId() {
-		return $this->getData('submissionId');
-	}
-
-	/**
 	 * Determines if a representation is approved or not.
 	 * @return boolean
 	 */
@@ -125,17 +109,19 @@ class Representation extends DataObject {
 	/**
 	 * Get the remote URL at which this representation is retrievable.
 	 * @return string
+	 * @deprecated 3.2.0.0
 	 */
 	function getRemoteURL() {
-		return $this->getData('remoteUrl');
+		return $this->getData('urlRemote');
 	}
 
 	/**
 	 * Set the remote URL for retrieving this representation.
 	 * @param $remoteURL string
+	 * @deprecated 3.2.0.0
 	 */
 	function setRemoteURL($remoteURL) {
-		return $this->setData('remoteUrl', $remoteURL);
+		return $this->setData('urlRemote', $remoteURL);
 	}
 
 	/**
@@ -143,8 +129,9 @@ class Representation extends DataObject {
 	 * @return int
 	 */
 	function getContextId() {
+		$publication = Services::get('publication')->get($this->getData('publicationId'));
 		$submissionDao = Application::getSubmissionDAO();
-		$submission = $submissionDao->getById($this->getSubmissionId());
+		$submission = $submissionDao->getById($publication->getData('submissionId'));
 		return $submission->getContextId();
 	}
 
@@ -153,6 +140,18 @@ class Representation extends DataObject {
 	 */
 	function getDAO() {
 		return Application::getRepresentationDAO();
+	}
+
+	function getRepresentationFiles($fileStage = null) {
+		$publication = Services::get('publication')->get($this->getData('publicationId'));
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var $submissionFileDao SubmissionFileDAO */
+		return $submissionFileDao->getLatestRevisionsByAssocId(
+			ASSOC_TYPE_REPRESENTATION,
+			$this->getId(),
+			$publication->getData('submissionId'),
+			$fileStage,
+			null
+		);
 	}
 }
 

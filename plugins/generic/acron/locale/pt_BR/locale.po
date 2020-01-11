@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T11:54:39-07:00\n"
+"PO-Revision-Date: 2019-09-30T11:54:39-07:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Plugin Acron"
+
+msgid "plugins.generic.acron.description"
+msgstr "Este plugin tem a intenção de reduzir a dependência do OMP em ferramentas de agendamento periódico, tais como a 'cron.'"
+
+msgid "plugins.generic.acron.reload"
+msgstr "Recarregar Tarefas Agendadas"
+
+msgid "plugins.generic.acron.disabled"
+msgstr "O Plugin Acron foi desabilitado."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "O Plugin Acron foi habilitado."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Guia do Cron recarregada com sucesso."
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Tarefas Agendadas foram recarregadas."

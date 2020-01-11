@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/PKPAuthorGridCellProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataObjectGridCellProvider
@@ -16,6 +16,18 @@
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class PKPAuthorGridCellProvider extends DataObjectGridCellProvider {
+
+	/** @var Publication The publication this author is related to */
+	private $_publication;
+
+	/**
+	 * Constructor
+	 *
+	 * @param Publication $publication
+	 */
+	public function __construct($publication) {
+		$this->_publication = $publication;
+	}
 
 	//
 	// Template methods from GridCellProvider
@@ -39,7 +51,7 @@ class PKPAuthorGridCellProvider extends DataObjectGridCellProvider {
 			case 'email':
 				return parent::getTemplateVarsFromRowColumn($row, $column);
 			case 'principalContact':
-				return array('isPrincipalContact' => $element->getPrimaryContact());
+				return array('isPrincipalContact' => $this->_publication->getData('primaryContactId') === $element->getId());
 			case 'includeInBrowse':
 				return array('includeInBrowse' => $element->getIncludeInBrowse());
 		}

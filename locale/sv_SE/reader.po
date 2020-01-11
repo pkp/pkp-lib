@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:06+00:00\n"
+"Language: \n"
+
+msgid "comments.anonymous"
+msgstr "Anonym användare"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Text"
+
+msgid "comments.titleRequired"
+msgstr "Det krävs en titel på kommentaren."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "Om du tar bort kommentaren kommer även alla svar på den att raderas. Är du säker på att du vill göra det?"
+
+msgid "comments.delete"
+msgstr "Ta bort kommentar"
+
+msgid "comments.email"
+msgstr "Kommentators e-postadress"
+
+msgid "comments.emailReply"
+msgstr "Svara via e-post"
+
+msgid "comments.enterComment"
+msgstr "Kommentera"
+
+msgid "comments.inResponseTo"
+msgstr "Som svar på <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Namn på kommentator"
+
+msgid "comments.noComments"
+msgstr "Inga läsarkommentarer har lämnats."
+
+msgid "comments.nReplies"
+msgstr "({$num} svar)"
+
+msgid "comments.oneReply"
+msgstr "(1 svar)"
+
+msgid "comments.postAnonymously"
+msgstr "Kommentera anonymt"
+
+msgid "comments.postReply"
+msgstr "Skicka svar"
+
+msgid "comments.readerComments"
+msgstr "Läsarkommentarer"
+
+msgid "comments.readMore"
+msgstr "Läs mer"
+
+msgid "comments.replies"
+msgstr "Svar"
+
+msgid "comments.title"
+msgstr "Titel"
+
+msgid "comments.viewAllComments"
+msgstr "Visa alla kommentarer"
+
+msgid "reader.fullText"
+msgstr "Fulltext:"

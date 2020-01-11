@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/reviewForms/form/ReviewFormForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormForm
@@ -46,7 +46,7 @@ class ReviewFormForm extends Form {
 	 */
 	function initData() {
 		if ($this->reviewFormId) {
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$context = $request->getContext();
 			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
@@ -72,7 +72,7 @@ class ReviewFormForm extends Form {
 	 * Save review form.
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
 

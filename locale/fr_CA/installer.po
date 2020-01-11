@@ -1,0 +1,207 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2020-01-07 10:13+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
+"helene.vezina@umontreal.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/fr_CA/>\n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+# localization file for fr_CA. Last revision 2019-10-23T01:53:45 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+msgid "installer.additionalLocales"
+msgstr "Paramètres régionaux supplémentaires"
+
+msgid "installer.administratorAccount"
+msgstr "Compte administrateur"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Ce compte utilisateur deviendra l'administrateur-trice du site et aura le plein accès à tout le système. D'autres comptes utilisateurs peuvent être créés après l'installation."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NON</span>"
+
+msgid "installer.checkYes"
+msgstr "Oui"
+
+msgid "installer.clientCharset"
+msgstr "Jeu de caractères du client"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Encodage à utiliser pour les données envoyées et reçues des navigateurs."
+
+msgid "installer.configFileError"
+msgstr "Le fichier de configuration <tt>config.inc.php</tt> n'existe pas ou n'est pas lisible."
+
+msgid "installer.connectionCharset"
+msgstr "Jeu de caractères pour la connexion"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Contenu du fichier de configuration"
+
+msgid "installer.createDatabase"
+msgstr "Créer une nouvelle base de données"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Pour utiliser cette option, votre système de base de données doit prendre en charge la création d'une base de données distante et votre compte utilisateur doit avoir les permissions appropriées pour créer de nouvelles bases de données. Si l'installation ne réussit pas avec cette option sélectionnée, veuillez créer manuellement la base de données sur votre serveur et exécuter de nouveau l'installateur avec cette option désactivée."
+
+msgid "installer.databaseDriver"
+msgstr "Pilote de la base de données"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Les pilotes de bases de données qui sont listés entre crochets ne semblent pas avoir chargé l'extension PHP requise et l'installation risque donc d'échouer s'ils sont sélectionnés.</strong><br />Tous les pilotes de bases de données qui ne sont pas pris en charge, tel indiqué ci-dessus, sont listés uniquement à des fins académiques et ne fonctionneront vraisemblablement pas."
+
+msgid "installer.databaseHost"
+msgstr "Hôte de la base de données"
+
+msgid "installer.databaseHostInstructions"
+msgstr "Laisser le nom de l'hôte de la base de données vide pour se connecter à l'aide de connecteurs logiciels de domaine au lieu de le faire par TCP/IP. Ce n'est pas nécessaire avec MySQL, qui utilisera automatiquement des connecteurs logiciels si « localhost » a été saisi, mais c'est obligatoire avec d'autres serveurs de bases de données tel que PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Nom de la base de données"
+
+msgid "installer.databasePassword"
+msgstr "Mot de passe"
+
+msgid "installer.databaseSettings"
+msgstr "Paramètres de la base de données"
+
+msgid "installer.databaseUsername"
+msgstr "Nom d'utilisateur-trice"
+
+msgid "installer.filesDir"
+msgstr "Répertoire pour les téléversements"
+
+msgid "installer.fileSettings"
+msgstr "Paramètres des fichiers"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Un jeu de caractères client doit être sélectionné."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Un pilote de base de données doit être sélectionné."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Le nom de la base de données est obligatoire."
+
+msgid "installer.form.emailRequired"
+msgstr "Un courriel valide pour le compte administrateur est obligatoire."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Le répertoire à utiliser pour stocker les fichiers téléversés est obligatoire."
+
+msgid "installer.form.localeRequired"
+msgstr "Un paramètre régional doit être sélectionné."
+
+msgid "installer.form.passwordRequired"
+msgstr "Un mot de passe pour le compte administrateur est obligatoire."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Les mots de passe de l'administrateur-trice ne correspondent pas."
+
+msgid "installer.form.separateMultiple"
+msgstr "Séparer les valeurs multiples par une virgule"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Le nom d'utilisateur-trice de l'administrateur-trice ne peut contenir que des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique."
+
+msgid "installer.form.usernameRequired"
+msgstr "Un nom d'utilisateur-trice pour le compte administrateur-trice est obligatoire."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>AVERTISSEMENT : Votre version actuelle de PHP ne satisfait pas aux exigences minimales d'installation. Nous vous recommandons de faire la mise à jour vers une version plus récente de PHP.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Des erreurs se sont produites pendant l'installation"
+
+msgid "installer.installerSQLStatements"
+msgstr "Énoncés SQL pour l'installation"
+
+msgid "installer.installFileError"
+msgstr "Le fichier d'installation <tt>dbscripts/xml/install.xml</tt> n'existe pas ou n'est pas lisible."
+
+msgid "installer.installFilesDirError"
+msgstr "Le répertoire demandé pour les fichiers téléversés n'existe pas ou n'est pas disponible en écriture."
+
+msgid "installer.installParseDBFileError"
+msgstr "Erreur de traitement du fichier d'installation de la base de données <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Une erreur s'est produite lors de l'analyse du fichier du modèle de courriel <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Erreur de traitement du fichier de configuration du filtre <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Mise à niveau non supportée. Voir docs/UPGRADE-UNSUPPORTED pour plus de renseignements."
+
+msgid "installer.locale"
+msgstr "Paramètre régional"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Les contenus des paramètres régionaux sélectionnés peuvent être incomplets."
+
+msgid "installer.localeSettings"
+msgstr "Paramètrage du paramètre régional"
+
+msgid "installer.oaiSettings"
+msgstr "Paramètres OAI"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Un identifiant unique utilisé pour identifier les enregistrements de métadonnées indexés dans ce site à l'aide du protocole <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> pour la collecte de métadonnées."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Identifiant du dépôt OAI"
+
+msgid "installer.publicFilesDirError"
+msgstr "Le répertoire des fichiers publics n'existe pas ou n'est pas disponible en écriture."
+
+msgid "installer.releaseNotes"
+msgstr "Notes relatives à la mise à jour"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Étapes de préinstallation"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Les fichiers et répertoires suivants (et leur contenu) doivent "
+"être accessibles en écriture :</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> est accessible en écriture (optionnel) : "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> est accessible en écriture : "
+"{$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> est accessible en écriture : {$writable_cache}</li>"
+"\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> est accessible en écriture : "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> est accessible en écriture : "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> est accessible en écriture : "
+"{$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Vous devez créer un répertoire pour conserver les fichiers "
+"téléversés et il doit être accessible en écriture (voir « Paramètres du "
+"fichier » ci-dessous).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Le module XSL de votre installation PHP n'est pas activé. Veuillez l'activer ou configurer le paramètre xslt_command de votre fichier config.inc.php.</p>"
+
+msgid "installer.beacon"
+msgstr "Balise"
+
+msgid "installer.beacon.enable"
+msgstr "Procure un identifiant unique de site et un URL de base pour le protocole OAI pour PKP. Ceux-ci sont utilisés uniuqement à des fins de statistiques et de sécurité."
+
+msgid "installer.unsupportedPhpError"
+msgstr "La version PHP de votre serveur n'est pas supportée par ce logiciel. Vérifiez les conditions d'installation dans docs/README."

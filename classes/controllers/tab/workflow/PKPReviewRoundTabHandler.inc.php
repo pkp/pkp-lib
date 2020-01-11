@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/workflow/PKPReviewRoundTabHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewRoundTabHandler
@@ -70,10 +70,15 @@ class PKPReviewRoundTabHandler extends Handler {
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 
+		// Is this round the most recent round?
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+
 		// Add the round information to the template.
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('stageId', $stageId);
 		$templateMgr->assign('reviewRoundId', $reviewRound->getId());
+		$templateMgr->assign('isLastReviewRound', $reviewRound->getId() == $lastReviewRound->getId());
 		$templateMgr->assign('submission', $submission);
 
 		// Assign editor decision actions to the template, only if

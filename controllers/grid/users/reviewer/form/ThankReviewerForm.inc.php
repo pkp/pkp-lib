@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/ThankReviewerForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ThankReviewerForm
@@ -49,7 +49,7 @@ class ThankReviewerForm extends Form {
 	 * @copydoc Form::initData
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $request->getUser();
 		$context = $request->getContext();
@@ -67,7 +67,6 @@ class ThankReviewerForm extends Form {
 		$dispatcher = $request->getDispatcher();
 		$email->assignParams(array(
 			'reviewerName' => $reviewer->getFullName(),
-			'editorialContactSignature' => $user->getContactSignature(),
 			'reviewerUserName' => $reviewer->getUsername(),
 			'passwordResetUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), array('confirm' => Validation::generatePasswordResetHash($reviewer->getId()))),
 			'submissionReviewUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'reviewer', 'submission', null, array('submissionId' => $reviewAssignment->getSubmissionId()))
@@ -110,7 +109,7 @@ class ThankReviewerForm extends Form {
 
 		if (!$this->getData('skipEmail')) {
 			HookRegistry::call('ThankReviewerForm::thankReviewer', array(&$submission, &$reviewAssignment, &$email));
-			$request = Application::getRequest();
+			$request = Application::get()->getRequest();
 			$dispatcher = $request->getDispatcher();
 			$context = $request->getContext();
 			$user = $request->getUser();

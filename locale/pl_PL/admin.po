@@ -1,0 +1,309 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Funkcje administracyjne"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Czy na pewno usunąć źródła uwierzytelniania?"
+
+msgid "admin.auth.create"
+msgstr "Stwórz źródło uwierzytelniania."
+
+msgid "admin.auth.noneCreated"
+msgstr "Nie zdefiniowano źródeł uwierzytelniania."
+
+msgid "admin.authSources"
+msgstr "Źródła uwierzytelniania"
+
+msgid "admin.clearDataCache"
+msgstr "Wyczyść pamięć cache danych"
+
+msgid "admin.clearTemplateCache"
+msgstr "Wyczyść pamięć cache szablonów"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Twój plik konfiguracyjny został zaktualizowany. Jeżeli twoja strona w dalszym ciągu nie działa poprawnie, poddaj ręcznej edycji plik <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Czy na pewno usunąć pamięć cache skompilowanych szablonów?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Czy na pewno wylogować wszystkich użytkowników? Wszyscy zalogowani do systemu użytkownicy będą zmuszeni zalogować się powtórnie (dotyczy to również ciebie)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Zawartość pliku konfiguracyjnego"
+
+msgid "admin.currentVersion"
+msgstr "Bieżąca wersja"
+
+msgid "admin.dateInstalled"
+msgstr "Data instalacji"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Zawartość twojego zaktualizowanego pliku konfiguracyjnego wyświetlana jest poniżej. Aby zastosować zmiany musisz otworzyć plik <tt>config.inc.php</tt> w edytorze tekstowym i zamienić jego treść na tą widoczną poniżej."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Wyświetl nową konfigurację"
+
+msgid "admin.expireSessions"
+msgstr "Wyloguj wszystkich użytkowników"
+
+msgid "admin.languages.confirmReload"
+msgstr "Czy na pewno przeładować ten język? Takie działanie spowoduje usunięcie wszystkich danych związanych z językiem włączając w to szablony wiadomości e-mail."
+
+msgid "admin.languages.installedLocales"
+msgstr "Zainstalowane języki"
+
+msgid "admin.languages.installLanguages"
+msgstr "Zarządzaj językami"
+
+msgid "admin.languages.installLocales"
+msgstr "Instaluj"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Zainstaluj nowe języki"
+
+msgid "admin.languages.languageSettings"
+msgstr "Ustawienia języków"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Brak dodatkowych języków możliwych do instalacji."
+
+msgid "admin.languages.reload"
+msgstr "Przeładuj język"
+
+msgid "admin.languages.uninstall"
+msgstr "Odinstaluj język"
+
+msgid "admin.phpInfo"
+msgstr "Wyświetl informację o wersji PHP"
+
+msgid "admin.server.apacheVersion"
+msgstr "Wersja serwera Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Sterownik bazy danych"
+
+msgid "admin.server.dbVersion"
+msgstr "Wersja serwera bazy danych"
+
+msgid "admin.serverInformation"
+msgstr "Informacje dotyczące serwera"
+
+msgid "admin.server.phpVersion"
+msgstr "Wersja PHP"
+
+msgid "admin.server.platform"
+msgstr "System operacyjny"
+
+msgid "admin.settings.about"
+msgstr "Opis strony"
+
+msgid "admin.settings.contactEmail"
+msgstr "Adres e-mail głównego administratora"
+
+msgid "admin.settings.contactName"
+msgstr "Nazwa głównego administratora"
+
+msgid "admin.settings.introduction"
+msgstr "Wprowadzenie"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimalna długość hasła"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Język strony"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Niepoprawny format stylów strony. Akceptowany format pliku to CSS."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Szablon stylów strony"
+
+msgid "admin.settings.siteTitle"
+msgstr "Tytuł strony"
+
+msgid "admin.siteAdmin"
+msgstr "Administracja stroną"
+
+msgid "admin.siteManagement"
+msgstr "Zarządzanie stroną"
+
+msgid "admin.siteSettings"
+msgstr "Ustawienia strony"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Plik konfiguracyjny <tt>config.inc.php</tt> nie istnieje, nie można go odczytać lub jest uszkodzony."
+
+msgid "admin.systemInformation"
+msgstr "Informacje dotyczące systemu"
+
+msgid "admin.versionBuild"
+msgstr "Wersja"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Sprawdź aktualizacje"
+
+msgid "admin.version.downloadPackage"
+msgstr "Pobierz"
+
+msgid "admin.version.downloadPatch"
+msgstr "Pobierz łatkę"
+
+msgid "admin.versionHistory"
+msgstr "Historia wersji"
+
+msgid "admin.version.latest"
+msgstr "Najnowsza wersja"
+
+msgid "admin.versionMajor"
+msgstr "Główna"
+
+msgid "admin.versionMinor"
+msgstr "Pomniejsza"
+
+msgid "admin.version.moreInfo"
+msgstr "Więcej informacji"
+
+msgid "admin.versionRevision"
+msgstr "Tekst poprawiony przez autora"
+
+msgid "admin.version.updateAvailable"
+msgstr "Aktualizacja jest dostępna"
+
+msgid "admin.version.upToDate"
+msgstr "Twój system jest aktualny"
+
+msgid "admin.version"
+msgstr "Wersja"
+
+msgid "admin.scheduledTask"
+msgstr "Zaplanowane zadania"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proces rozpoczęty."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proces zatrzymany."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Proces nie wygenerował pliku dziennika."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Twoja instalacja OJS - {$softwareName} - automatycznie włączyła i ukończyła zadanie. Możesz pobrać plik dziennika pod tym adresem: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Czy na pewno usunąć wszystkie pliki dziennika?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Wyczyść pliki dziennika"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Przypomnienie recenzji"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Przypomnienie o końcu subskrypcji"
+
+msgid "admin.settings"
+msgstr "Ustawienia"
+
+msgid "admin.settings.siteTheme"
+msgstr "Szablon strony"
+
+msgid "admin.siteSetup"
+msgstr "Konfiguracja strony"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Bazowa ścieżka {$path} musi znajdować się wewnątrz folderu z publicznie dostępnymi plikami."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} nie jest dostępny do odczytu."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Plik {$filename} nie mógł być przesunięty z {$currentFilePath} do {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Plik {$filename} został zarchiwizowany."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Program \"{$utilPath}\" zwrócił błąd: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Błąd: nie można uruchomić \"{$utilPath}\".  Sprawdź parametr {$utilVar} w pliku config.inc.php."
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nazwa"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Wartość"
+
+msgid "admin.languages.download"
+msgstr "Pobierz tłumaczenie"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Pobierz tłumaczenia"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Nie można załadować opisu języka ze strony PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Nie można dodać nowego języka w rejestrze tłumaczeń, w pliku \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "Ten język jest językiem domyślnym dla strony. Nie można go wyłączyć przed wybraniem innego języka."
+
+msgid "admin.languages.availableLocales"
+msgstr "Dostępne języki"
+
+msgid "admin.languages.installLocale"
+msgstr "Zainstaluj tłumaczenie"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr "Twój system jest skonfigurowany, aby wykorzystywać więcej niż jedną metrykę. Statystyki mogą być wyświetlane w wielu kontekstach. Niektóre konteksty wymagają użycia pojedynczej metryki, np. w celu wyświetlenia listy punktowanej najczęściej wyświetlanych zgłoszeń lub w celu stopniowania list wyników wyszukiwania. Wybierz jedną z metryk jako domyślną."
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo strony"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Załaduj plik"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Błąd: Nie można utworzyć folderu tymczasowego {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Błąd: Plik {$filePath} nie istnieje lub nie może zostać odczytany."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Błąd: Nie można skopiować pliku z {$filePath} do {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Błąd: Nie można usunąć pliku {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Ostrzeżenie: Plik {$filePath} już istnieje w katalogu statystyk."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Powodzenie: {$filePath} do {$destinationPath}"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Brak plików tłumaczeń do pobrania."
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopiuj pliki dziennika apache.\n"
+"Zastosowanie: {$scriptName} path/to/apache/log/file.log\n"
+"Zastosowanie (przetworzenie wszystkich plików w folderze): {$scriptName} path/to/apache/directory"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Czy na pewno usunąć {$contextName} wraz z całą zawartością?"

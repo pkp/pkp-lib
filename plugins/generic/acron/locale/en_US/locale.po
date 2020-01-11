@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T07:05:57-07:00\n"
+"PO-Revision-Date: 2019-09-30T07:05:57-07:00\n"
+"Language: \n"
+
+msgid "plugins.generic.acron.name"
+msgstr "Acron Plugin"
+
+msgid "plugins.generic.acron.description"
+msgstr "This plugin attempts to reduce the dependance of the application on periodic scheduling tools such as 'cron.'"
+
+msgid "plugins.generic.acron.enabled"
+msgstr "The Acron Plugin has been enabled."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "The Acron Plugin has been disabled."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Cron tab successfully reloaded."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Reload Scheduled Tasks"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Scheduled Tasks were reloaded."

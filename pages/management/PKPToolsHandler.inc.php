@@ -3,8 +3,8 @@
 /**
  * @file pages/management/PKPToolsHandler.inc.php
  *
- * Copyright (c) 2013-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPToolsHandler
@@ -200,12 +200,12 @@ class PKPToolsHandler extends ManagementHandler {
 		}
 
 		$columns = $request->getUserVar('columns');
-		$filters = unserialize($request->getUserVar('filters'));
+		$filters = json_decode($request->getUserVar('filters'));
 		if (!$filters) $filters = $request->getUserVar('filters');
 
 		$orderBy = $request->getUserVar('orderBy');
 		if ($orderBy) {
-			$orderBy = unserialize($orderBy);
+			$orderBy = json_decode($orderBy);
 			if (!$orderBy) $orderBy = $request->getUserVar('orderBy');
 		} else {
 			$orderBy = array();
@@ -432,7 +432,7 @@ class PKPToolsHandler extends ManagementHandler {
 		}
 
 		$submissionDao = Application::getSubmissionDAO();
-		$submissionDao->deletePermissions($context->getId());
+		$submissionDao->resetPermissions($context->getId());
 
 		$user = $request->getUser();
 		NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('manager.setup.resetPermissions.success')));

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/user/form/UserDetailsForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserDetailsForm
@@ -88,7 +88,7 @@ class UserDetailsForm extends UserForm {
 	 * Initialize form data from current user profile.
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
@@ -173,7 +173,7 @@ class UserDetailsForm extends UserForm {
 		$templateMgr->assign('countries', $countryDao->getCountries());
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO');
-		$authSources =& $authDao->getSources();
+		$authSources = $authDao->getSources();
 		$authSourceOptions = array();
 		foreach ($authSources->toArray() as $auth) {
 			$authSourceOptions[$auth->getAuthId()] = $auth->getTitle();
@@ -236,9 +236,9 @@ class UserDetailsForm extends UserForm {
 	/**
 	 * Create or update a user.
 	 */
-	function execute() {
+	function execute(...$functionParams) {
 		$userDao = DAORegistry::getDAO('UserDAO');
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		if (!isset($this->user)) {
@@ -283,7 +283,7 @@ class UserDetailsForm extends UserForm {
 			$auth =& $authDao->getPlugin($this->user->getAuthId());
 		}
 
-		parent::execute();
+		parent::execute(...$functionParams);
 
 		if ($this->user->getId() != null) {
 			if ($this->getData('password') !== '') {

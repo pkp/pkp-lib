@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/SubmissionMailTemplate.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionMailTemplate
@@ -48,10 +48,10 @@ class SubmissionMailTemplate extends MailTemplate {
 	 */
 	function assignParams($paramArray = array()) {
 		$submission = $this->submission;
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		parent::assignParams(array_merge(
 			array(
-				'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
+				'submissionTitle' => strip_tags($submission->getLocalizedFullTitle()),
 				'submissionId' => $submission->getId(),
 				'submissionAbstract' => PKPString::stripUnsafeHtml($submission->getLocalizedAbstract()),
 				'authorString' => strip_tags($submission->getAuthorString()),
@@ -110,13 +110,12 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * Save the email in the submission email log.
 	 */
 	function log($request = null) {
-		import('classes.log.SubmissionEmailLogEntry');
-		$entry = new SubmissionEmailLogEntry();
+		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$entry = $logDao->newDataObject();
 		$submission = $this->submission;
 
 		// Event data
 		$entry->setEventType($this->logEventType);
-		$entry->setAssocType(ASSOC_TYPE_SUBMISSION);
 		$entry->setAssocId($submission->getId());
 		$entry->setDateSent(Core::getCurrentDate());
 
@@ -124,7 +123,6 @@ class SubmissionMailTemplate extends MailTemplate {
 		if ($request) {
 			$user = $request->getUser();
 			$entry->setSenderId($user == null ? 0 : $user->getId());
-			$entry->setIPAddress($request->getRemoteAddr());
 		} else {
 			// No user supplied -- this is e.g. a cron-automated email
 			$entry->setSenderId(0);
@@ -139,7 +137,6 @@ class SubmissionMailTemplate extends MailTemplate {
 		$entry->setBccs($this->getBccString());
 
 		// Add log entry
-		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
 		$logEntryId = $logDao->insertObject($entry);
 	}
 

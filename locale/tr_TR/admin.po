@@ -1,0 +1,312 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:06+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Yönetsel İşlevler"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?"
+
+msgid "admin.auth.create"
+msgstr "Yetkilendirme kaynağı yarat"
+
+msgid "admin.auth.noneCreated"
+msgstr "Herhangi bir yetkilendirme kaynağı tanımlanmamış."
+
+msgid "admin.authSources"
+msgstr "Yetkilendirme Kaynakları"
+
+msgid "admin.clearDataCache"
+msgstr "Önbellekteki Verileri Temizle"
+
+msgid "admin.clearTemplateCache"
+msgstr "Önbellekteki Şablonları Temizle"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Yapılandırma dosyanız başarı ile güncellendi. Sitenizin çalışmaması durumunda <tt>config.inc.php</tt> dosyasında gerekli düzenlemeleri yaparak sorurunu giderebilirsiniz."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Hazırlanmış şablonları önbellekten silmek istediğinizden emin misiniz?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Tüm kullanıcı oturumlarını kapatmak istediğinizden emin misiniz? Siz dahil şu anda sitede oturum açmış olan tüm kullanıcılar yeniden giriş yapmak zorunda kalacaktır."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Yapılandırma dosyasının içeriği"
+
+msgid "admin.currentVersion"
+msgstr "Güncel sürüm"
+
+msgid "admin.dateInstalled"
+msgstr "Kurulum Tarihi"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Güncellenmiş yapılandırmanızın içeriği aşağıda verilmiştir. Yapıladırma değişikliklerini uygulayabilmek için <tt>config.inc.php</tt> dosyasını uygun bir editörle açmanız ve içeriğini aşağıda belirtilen içerikle değiştirmeniz gerekmektedir."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Yeni Yapılandırmayı Görüntüle"
+
+msgid "admin.expireSessions"
+msgstr "Kullanıcı Oturumlarını Kapat"
+
+msgid "admin.languages.confirmReload"
+msgstr "Bu dili yeniden yüklemek istediğinizden emin misiniz? Yeniden yükleme dile özgü hazırlanmış özelleştirilmiş e-posta şablonlarını silecektir."
+
+msgid "admin.languages.installedLocales"
+msgstr "Kurulmuş Diller"
+
+msgid "admin.languages.installLanguages"
+msgstr "Dilleri Yönet"
+
+msgid "admin.languages.installLocales"
+msgstr "Kur"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Yeni Dil Ekle"
+
+msgid "admin.languages.languageSettings"
+msgstr "Dil Ayarları"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Kurulum için ek dil kullanılabilir değil."
+
+msgid "admin.languages.reload"
+msgstr "Dili Yeniden Yükle"
+
+msgid "admin.languages.uninstall"
+msgstr "Dili Kaldır"
+
+msgid "admin.phpInfo"
+msgstr "Genişletilmiş PHP Bilgisi"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache sürümü"
+
+msgid "admin.server.dbDriver"
+msgstr "Veri tabanı sürücüsü"
+
+msgid "admin.server.dbVersion"
+msgstr "Veri tabanı sunucu sürümü"
+
+msgid "admin.serverInformation"
+msgstr "Sunucu Bilgisi"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP sürümü"
+
+msgid "admin.server.platform"
+msgstr "İşletim Sistemi Platformu"
+
+msgid "admin.settings.about"
+msgstr "Site Tanımı Hakkında"
+
+msgid "admin.settings.contactEmail"
+msgstr "Temel iletişim e-posta adresi"
+
+msgid "admin.settings.contactName"
+msgstr "İletişim için temel kişi adı"
+
+msgid "admin.settings.introduction"
+msgstr "Giriş"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Şifre için en kısa karakter sayısı"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Site Dili"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Geçersiz biçim. Kabul edilebilir biçimler .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Site biçimi"
+
+msgid "admin.settings.siteTitle"
+msgstr "Site başlığı"
+
+msgid "admin.siteAdmin"
+msgstr "Site Yönetimi"
+
+msgid "admin.siteManagement"
+msgstr "Site Yönetimi"
+
+msgid "admin.siteSettings"
+msgstr "Site Ayarları"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "<tt>config.inc.php</tt> adlı konfigürasyon dosyası bulunamıyor, okunabilir değil veya geçersiz."
+
+msgid "admin.systemInformation"
+msgstr "Sistem Bilgisi"
+
+msgid "admin.versionBuild"
+msgstr "Yapı"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Güncellemeleri kontro et"
+
+msgid "admin.version.downloadPackage"
+msgstr "İndir"
+
+msgid "admin.version.downloadPatch"
+msgstr "Yama İndir"
+
+msgid "admin.versionHistory"
+msgstr "Sürüm geçmişi"
+
+msgid "admin.version.latest"
+msgstr "Son sürüm"
+
+msgid "admin.versionMajor"
+msgstr "Büyük"
+
+msgid "admin.versionMinor"
+msgstr "Küçük"
+
+msgid "admin.version.moreInfo"
+msgstr "Daha Fazla Bilgi"
+
+msgid "admin.versionRevision"
+msgstr "Düzeltme"
+
+msgid "admin.version.updateAvailable"
+msgstr "Güncellenmiş sürüm mevcut"
+
+msgid "admin.version.upToDate"
+msgstr "Sisteminiz güncel"
+
+msgid "admin.version"
+msgstr "Sürüm"
+
+msgid "admin.settings"
+msgstr "Ayarlar"
+
+msgid "admin.settings.siteTheme"
+msgstr "Site teması"
+
+msgid "admin.siteSetup"
+msgstr "Site Ayarı"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Ayar Adı"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Ayar Değeri"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "{$contextName} ve tüm  içeriklerini kalıcı olarak silmek istediğinizden emin misiniz?"
+
+msgid "admin.languages.download"
+msgstr "Dil İndir"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Dilleri İndir"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "PKP web sayfasından dil tanımlayıcısı açılamıyor."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "İndirmek için herhangi kullanılabilir bir dil yoktur."
+
+msgid "admin.languages.availableLocales"
+msgstr "Kullanılabilir Diller"
+
+msgid "admin.languages.installLocale"
+msgstr "Dil Yükle"
+
+msgid "admin.scheduledTask"
+msgstr "Planlanmış görevler"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Görev süreci başladı."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Görev süreci durduruldu."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Görev günlüğü oluşturmadı."
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Tüm planlanmış görev günlüklerini silmek istediğinizden emin misiniz?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Zamanlanmış Görev Yürütme Günlüklerini Temizle"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Hatırlatıcıyı gözden geçir"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Abonelik süresi hatırlatıcısı"
+
+msgid "admin.settings.siteLogo"
+msgstr "Site Logosu"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "{$path} bir klasör değil veya okunabilir değil."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Dosya çağırıcı"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Hata: {$tmpDir} geçici klasörü oluşturulamadı."
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Hata: {$filePath} dosyası açık veya erişilebilir değil."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Hata: {$filePath}  yolundan {$tmpFilePath} yoluna dosya kopyalanamadı."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Hata: {$tmpFilePath} dosyası silinemedi."
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Uyarı: {$filePath}  adlı dosya kullanım istatistikleri dosyasında mevcut."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Başarı: {$filePath} yolundan {$destinationPath} yoluna"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "\"{$utilPath}\" program yürütmesi şu hatayı döndürdü: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Hata:  \"{$utilPath}\" işlemi yürütülemedi. config.inc.php dosyasındaki {$utilVar} ayarı kontrol edin."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "{$softwareName} kurulumu bu görevi otomatik olarak yürütür ve bitirir. Günlük dosyasını buradan indirebilirsiniz: {$url}"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "{$path} temel yolu ortak dosyalar dizini içinde bulunmalıdır."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "{$filename} dosyası {$currentFilePath} yolundan {$destinationPath} yoluna taşınamadı."
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "{$filename} dosyası işlendi ve arşivlendi."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Genellikle \"registry/locales.xml\" dosyasında bulunan dosyaya yeni dil ayarı ekleyemez."
+
+msgid "admin.languages.cantDisable"
+msgstr "Bu dil bu site için öncelikli dildir. Başka bir dili öncelikli dil olarak seçmeden önce silemezsiniz."
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr "Yüklemeniz, birden fazla kullanım metriği kaydetmek için yapılandırıldı. Kullanım istatistikleri birkaç bağlamda görüntülenecektir. Tek kullanımlık istatistiğin kullanılması gereken durumlar vardır: Ör. Arama sonuçlarında en çok kullanılan gönderilerin sıralı bir listesini görüntülemek veya sıralama. Lütfen yapılandırılmış metriklerden birini varsayılan olarak seçin."
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"UsageStatsPlugin dizininin içindeki geçerli dosya dizinine, bu yükleme ile ilgili girdileri filtreleyen geçirilmiş apache erişim günlüğü dosyalarını kopyalayın. Erişim apache günlük dosyalarını okumak için yeterli ayrıcalıklarla kullanıcı altında çalışmalıdır.\n"
+"\n"
+"Bu araç, yalnızca useStats dosya yükleyici dizinlerinin içinde olmayan dosyaları (evre, işleme, arşivleme, reddetme) kopyalayacaktır.\n"
+"\n"
+"Kullanımı: {$scriptName} path/to/apache/log/file.log\n"
+"Kullanım (bir dizinin içindeki tüm dosyaların işlenmesi):  {$scriptName} path/to/apache/directory"

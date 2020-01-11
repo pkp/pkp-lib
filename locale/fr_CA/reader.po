@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
+"Language: fr_CA\n"
+# localization file for fr_CA. Last revision 2019-10-23T01:54:07 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+
+msgid "comments.anonymous"
+msgstr "Utilisateur-trice anonyme"
+
+msgid "comments.anonymousNamed"
+msgstr "« {$userName} »"
+
+msgid "comments.body"
+msgstr "Corps"
+
+msgid "comments.titleRequired"
+msgstr "Le titre du commentaire est obligatoire."
+
+msgid "comments.confirmDeleteChildren"
+msgstr "La suppression de ce commentaire supprimera aussi toutes ses réponses. Êtes-vous certain-e de vouloir effectuer cette opération ?"
+
+msgid "comments.delete"
+msgstr "Supprimer ce commentaire"
+
+msgid "comments.email"
+msgstr "Courriel de l'expéditeur-trice"
+
+msgid "comments.emailReply"
+msgstr "Répondre par courriel"
+
+msgid "comments.enterComment"
+msgstr "Saisir le commentaire"
+
+msgid "comments.inResponseTo"
+msgstr "En réponse à <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Nom de l'expéditeur-trice"
+
+msgid "comments.noComments"
+msgstr "Aucun commentaire de lecteurs-trices publié."
+
+msgid "comments.nReplies"
+msgstr "({$num} réponses)"
+
+msgid "comments.oneReply"
+msgstr "(1 réponse)"
+
+msgid "comments.postAnonymously"
+msgstr "Publier ce commentaire anonymement"
+
+msgid "comments.postReply"
+msgstr "Publier la réponse"
+
+msgid "comments.readerComments"
+msgstr "Commentaires des lecteurs-trices"
+
+msgid "comments.readMore"
+msgstr "Lire la suite"
+
+msgid "comments.replies"
+msgstr "Réponses"
+
+msgid "comments.title"
+msgstr "Titre"
+
+msgid "comments.viewAllComments"
+msgstr "Voir tous les commentaires"
+
+msgid "reader.fullText"
+msgstr "Texte intégral :"
+

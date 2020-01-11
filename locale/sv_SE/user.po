@@ -1,0 +1,426 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:06+00:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Kontoinformation"
+
+msgid "user.affiliation"
+msgstr "Affiliering"
+
+msgid "user.affiliation.description"
+msgstr "(Din tillhörighet, t.ex. \"Karlstads universitet\")"
+
+msgid "user.affiliations"
+msgstr "Affilieringar"
+
+msgid "user.authorization.accessDenied"
+msgstr "Åtkomst nekad."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Processens autentiseringsnyckel saknas eller är felaktig."
+
+msgid "user.authorization.contextRequired"
+msgstr "Denna process kan inte genomföras utan ett sammanhang (press, tidskrift, konferens etc)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Inloggning krävs."
+
+msgid "user.authorization.privateOperation"
+msgstr "Funktionen du försökte komma åt är antingen privat eller så finns den inte."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Åtkomst nekad. Åtkomst till den här sidan är för närvarande begränsad."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Den nuvarande rollen har inte tillgång till den här funktionen."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Du har inte blivit tilldelad det här bidraget i en roll som tillåter dig att komma åt den här funktionen."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "En giltig användargrupp behöver anges för att använda den här funktionen."
+
+msgid "user.authorization.managerRequired"
+msgstr "En ansvarig användare (t.ex. produktionsredaktör) måste tilldelas steget innan du kan fortsätta."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Du har för närvarande inte tillgång till det här steget i arbetsflödet."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Steg i arbetsflödet krävs."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Plugin krävs."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Du har inte åtkomsträttigheter till det här granskningsuppdraget."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Du har inte åtkomsträttigheter till den här diskussionen."
+
+msgid "user.biography"
+msgstr "Biografiska upplysningar (t.ex. institution och position)"
+
+msgid "user.changeMyPassword"
+msgstr "Ändra mitt lösenord"
+
+msgid "user.changePassword"
+msgstr "Ändra lösenord"
+
+msgid "user.dateLastLogin"
+msgstr "Senaste inloggning"
+
+msgid "user.dateRegistered"
+msgstr "Datum för registrering"
+
+msgid "user.editMyProfile"
+msgstr "Redigera min profil"
+
+msgid "user.email"
+msgstr "E-post"
+
+msgid "user.interests"
+msgstr "Intresseområden för granskning"
+
+msgid "user.interests.description"
+msgstr "(Separera intressen genom att trycka enter eller komma)"
+
+msgid "user.gossip"
+msgstr "Redaktionella anteckningar"
+
+msgid "user.gossip.description"
+msgstr "Mata in anteckningar om den här granskaren som du vill göra synliga för andra administratörer, tidskriftsansvariga, redaktörer och underredaktörer. Anteckningarna blir synliga för framtida granskningsuppdrag."
+
+msgid "user.group"
+msgstr "Användargrupp"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Ogiltigt format för profilbild, eller för stor bild. Godkända format är  .gif, .jpg, och .png, och bilden får inte ara större än 150x150 pixlar."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Ditt konto har inaktiverats på grund av följande orsak: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Ditt konto har inaktiverats. Kontakta tidskriftens administratörer för mer information."
+
+msgid "user.login.accountNotValidated"
+msgstr "Vi har skickat ett e-postmeddelande till dig ({$email}) för bekräftelse. Följ instruktionerna i meddelandet för att aktivera ditt nya konto. Om du inte kan se något meddelande, vänligen kontrollera din skräppost."
+
+msgid "user.login.activate"
+msgstr "Aktivera konto"
+
+msgid "user.login.activated"
+msgstr "Ditt konto är aktiverat. Du kan nu logga in med de uppgifter du angav när du skapade kontot."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "Du måste välja ett nytt lösenord innan du kan logga in.<br /><br />Ange ditt användarnamn, nuvarande lösenord och nytt lösenord nedan."
+
+msgid "user.login.forgotPassword"
+msgstr "Har du glömt ditt lösenord?"
+
+msgid "user.login.loginError"
+msgstr "Fel användarnamn eller lösenord. Försök igen."
+
+msgid "user.login"
+msgstr "Logga in"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "Vi har skickat ett meddelande till din e-postadress för bekräftelse. Följ instruktionerna i meddelandet för att återställa ditt lösenord."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Länken du har klickat på har upphört eller är ogiltig. Prova att återställa ditt lösenord igen."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Det finns ingen användare med den här e-postadressen."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "Ett nytt lösenord har skickats till din e-postadress. Du kan nu logga in med det nya lösenordet."
+
+msgid "user.login.registeredEmail"
+msgstr "Registrerad användares e-postadress"
+
+msgid "user.login.registrationComplete"
+msgstr "Registrering slutförd"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Tack för att du registrerat dig! Vad vill du göra härnäst?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Visa inskickade bidrag"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Skicka in ett bidrag"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Surfa vidare"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Avvaktar verifiering"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Håll mig inloggad"
+
+msgid "user.login.resetPassword"
+msgstr "Återställ lösenord"
+
+msgid "user.logOut"
+msgstr "Logga ut"
+
+msgid "user.logOutAs"
+msgstr "Logga ut som"
+
+msgid "user.hello"
+msgstr "Hejsan, "
+
+msgid "user.mailingAddress"
+msgstr "Postadress"
+
+msgid "user.myAccount"
+msgstr "Mitt användarkonto"
+
+msgid "user.name"
+msgstr "Namn"
+
+msgid "user.password"
+msgstr "Lösenord"
+
+msgid "user.repeatPassword"
+msgstr "Upprepa lösenord"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Ange ditt aktuella lösenord samt nytt lösenord nedan för att ändra lösenordet för ditt konto."
+
+msgid "user.profile.editProfile"
+msgstr "Redigera profil"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Land krävs."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Giltig e-postadress krävs."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "Affiliering krävs."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Postadress krävs."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Nytt lösenord krävs."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Aktuellt lösenord stämmer inte."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "E-postmeddelande när nytt nummer gjorts tillgängligt open access."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Lösenord krävs."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Ditt nya lösenord är samma som ditt förra."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profilbild"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-postmeddelande när nytt nummer publicerats"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "Angiven URL ogiltig. Vänligen kontrollera och försök igen. (Tips: Testa att lägga till http:// i början av URL:en.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Användargrupp krävs."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Användarnamn krävs."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Du måste acceptera villkoren i integritetspolicyn."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Lämna lösenordsfälten tomma om du vill behålla det nuvarande lösenordet."
+
+msgid "user.profile.newPassword"
+msgstr "Nytt lösenord"
+
+msgid "user.profile.oldPassword"
+msgstr "Nuvarande lösenord"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.publicProfile"
+msgstr "Användarprofil"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Upprepa nytt lösenord"
+
+msgid "user.login.registerNewAccount"
+msgstr "Registrera dig"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Fyll i e-postadressen för ditt konto nedan och få ett e-postmeddelande med instruktioner om hur du återställer ditt lösenord."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Ja, jag accepterar att mina data samlas och lagras enligt <a href=\"{$privacyUrl}\" target=\"_blank\">integritetspolicyn</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Ja, jag vill bli kontaktad med information om nya publiceringar och meddelanden."
+
+msgid "user.register.form.emailExists"
+msgstr "E-postadressen används redan av annan användare."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Lösenorden stämmer inte överens."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Fälten för e-postadress stämmer inte överens."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "Användarnamnet får bara innehålla gemena alfanumeriska tecken, under- och bindestreck, samt måste börja och sluta med ett alfanumeriskt tecken."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Minst en roll krävs."
+
+msgid "user.register.form.usernameExists"
+msgstr "Användarnamnet används redan av en annan användare."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Lösenordet måste innehålla minst {$length} tecken."
+
+msgid "user.register.registerAs"
+msgstr "Registrera dig hos {$contextName} som..."
+
+msgid "user.register"
+msgstr "Registrera dig"
+
+msgid "user.register.usernameRestriction"
+msgstr "Användarnamnet får bara innehålla gemener, siffror, och under-/bindestreck."
+
+msgid "user.register.registrationCompleted"
+msgstr "Du har registrerat dig. <a href=\"{$profileUrl}\">Klicka här</a> för att färdigställa din användarprofil."
+
+msgid "user.role.assistant"
+msgstr "Assistent"
+
+msgid "user.role.author"
+msgstr "Författare"
+
+msgid "user.role.author_s"
+msgstr "Författare"
+
+msgid "user.role.authors"
+msgstr "Författare"
+
+msgid "user.role.editor"
+msgstr "Redaktör"
+
+msgid "user.role.editors"
+msgstr "Redaktörer"
+
+msgid "user.role.reader"
+msgstr "Läsare"
+
+msgid "user.role.readers"
+msgstr "Läsare"
+
+msgid "user.role.reviewer"
+msgstr "Granskare"
+
+msgid "user.role.reviewers"
+msgstr "Granskare"
+
+msgid "user.role.siteAdmin"
+msgstr "Webbplatsadministratör"
+
+msgid "user.role.siteAdmins"
+msgstr "Webbplatsadministratörer"
+
+msgid "user.role.copyeditor"
+msgstr "Manusredaktör"
+
+msgid "user.role.copyeditors"
+msgstr "Manusredaktörer"
+
+msgid "user.role.proofreader"
+msgstr "Korrekturläsare"
+
+msgid "user.role.proofreaders"
+msgstr "Korrekturläsare"
+
+msgid "user.role.layoutEditor"
+msgstr "Layoutredaktör"
+
+msgid "user.role.layoutEditors"
+msgstr "Layoutredaktörer"
+
+msgid "user.roles"
+msgstr "Roller"
+
+msgid "user.sendPassword"
+msgstr "Bekräftelse"
+
+msgid "user.sendPassword.description"
+msgstr "Skicka mig en bekräftelse per e-post innehållande mitt användarnamn och lösenord"
+
+msgid "user.signature"
+msgstr "Signatur"
+
+msgid "user.title"
+msgstr "Titel"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Min sida"
+
+msgid "user.username"
+msgstr "Användarnamn"
+
+msgid "user.workingLanguages"
+msgstr "Arbetsspråk"
+
+msgid "user.orcid"
+msgstr "ORCID-iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "ORCID-iD inkorrekt. Fyll i hela URI:n (t.ex. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identitet"
+
+msgid "user.profile.contact"
+msgstr "Kontakt"
+
+msgid "user.profile.public"
+msgstr "Publik"
+
+msgid "user.apiKey"
+msgstr "API-nyckel"
+
+msgid "user.apiKeyEnabled"
+msgstr "Tillåt externa applikationer som har API-nyckeln att få tillgång till det här kontot"
+
+msgid "user.apiKey.generate"
+msgstr "Skapa ny API-nyckel"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Vid skapande av ny API-nyckel blir den nuvarande nyckeln för det här kontot ogiltig."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Innan det är möjligt att skapa en API-nyckel måste administratören för webbplatsen ange något i fältet \"api_key_secret\" i konfigurationsfilen."

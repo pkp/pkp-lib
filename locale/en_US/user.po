@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:21-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:21-07:00\n"
+"Language: \n"
+
+msgid "user.accountInformation"
+msgstr "Account Information"
+
+msgid "user.affiliation"
+msgstr "Affiliation"
+
+msgid "user.affiliation.description"
+msgstr "(Your institution, e.g. \"Simon Fraser University\")"
+
+msgid "user.affiliations"
+msgstr "Affiliations"
+
+msgid "user.authorization.accessDenied"
+msgstr "Access denied."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "The process authentication token is missing or invalid."
+
+msgid "user.authorization.contextRequired"
+msgstr "You cannot call this operation without a context (press, journal, conference, etc)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Login required."
+
+msgid "user.authorization.privateOperation"
+msgstr "The operation you tried to access is either private or doesn't exist."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "You have been denied access. Access to this site is currently restricted."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "The current role does not have access to this operation."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "You have not been assigned to this submission with a role that is allowed to access this operation."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "You have to set a valid user group to access this operation."
+
+msgid "user.authorization.managerRequired"
+msgstr "A user with a Manager role (i.e. Production Editor) must be assigned to the stage before you can proceed."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "You don't currently have access to that stage of the workflow."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "A workflow stage was not specified."
+
+msgid "user.authorization.pluginRequired"
+msgstr "A plugin was not specified and is required."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "You do not have permission to access this review assignment."
+
+msgid "user.authorization.submissionQuery"
+msgstr "You do not have permission to access this discussion."
+
+msgid "user.biography"
+msgstr "Bio Statement (e.g., department and rank)"
+
+msgid "user.changeMyPassword"
+msgstr "Change My Password"
+
+msgid "user.changePassword"
+msgstr "Change Password"
+
+msgid "user.dateLastLogin"
+msgstr "Last login"
+
+msgid "user.dateRegistered"
+msgstr "Date registered"
+
+msgid "user.editMyProfile"
+msgstr "Edit My Profile"
+
+msgid "user.email"
+msgstr "Email"
+
+msgid "user.givenName"
+msgstr "Given Name"
+
+msgid "user.interests"
+msgstr "Reviewing interests"
+
+msgid "user.interests.description"
+msgstr "(Separate interests by pressing the enter or comma key)"
+
+msgid "user.gossip"
+msgstr "Editorial Notes"
+
+msgid "user.gossip.description"
+msgstr "Record notes about this reviewer that you would like to make visible to other administrators, managers and all editors. Notes will be visible for future review assignments."
+
+msgid "user.group"
+msgstr "User Group"
+
+msgid "user.familyName"
+msgstr "Family Name"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Your account has been disabled for the following reason: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "Your account has been disabled. Please contact the administrator for more information."
+
+msgid "user.login.accountNotValidated"
+msgstr "We've sent a confirmation email to you at {$email}. Please follow the instructions in that email to activate your new account. If you do not see an email, please check to see if it was put in your spam folder."
+
+msgid "user.login.activate"
+msgstr "Activate Account"
+
+msgid "user.login.activated"
+msgstr "Thank you for activating your account. You may now log in using the credentials you supplied when you created your account."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account."
+
+msgid "user.login.forgotPassword"
+msgstr "Forgot your password?"
+
+msgid "user.login.loginError"
+msgstr "Invalid username or password. Please try again."
+
+msgid "user.login"
+msgstr "Login"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "No user exists with the specified email address."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "A new password has been sent to your email address. You may now login to the site with your new password."
+
+msgid "user.login.registeredEmail"
+msgstr "Registered user's email"
+
+msgid "user.login.registrationComplete"
+msgstr "Registration complete"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Thanks for registering! What would you like to do next?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "View Submissions"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Make a New Submission"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continue Browsing"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registration awaiting verification"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Keep me logged in"
+
+msgid "user.login.resetPassword"
+msgstr "Reset Password"
+
+msgid "user.logOut"
+msgstr "Logout"
+
+msgid "user.logOutAs"
+msgstr "Logout as"
+
+msgid "user.hello"
+msgstr "Hello, "
+
+msgid "user.mailingAddress"
+msgstr "Mailing Address"
+
+msgid "user.myAccount"
+msgstr "My Account"
+
+msgid "user.name"
+msgstr "Name"
+
+msgid "user.password"
+msgstr "Password"
+
+msgid "user.repeatPassword"
+msgstr "Repeat password"
+
+msgid "user.phone"
+msgstr "Phone"
+
+msgid "user.preferredPublicName"
+msgstr "Preferred Public Name"
+
+msgid "user.preferredPublicName.description"
+msgstr "How do you prefer to be addressed? Salutations, middle names and suffixes can be added here if you would like."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "Enter your current and new passwords below to change the password for your account."
+
+msgid "user.profile.editProfile"
+msgstr "Edit Profile"
+
+msgid "user.profile.form.countryRequired"
+msgstr "A country is required."
+
+msgid "user.profile.form.emailRequired"
+msgstr "A valid email address is required."
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "An affiliation is required."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "A given name is required."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "You have added a family name for a language that is missing the given name. Please add a given name for this language."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "A mailing address is required."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "You must enter your new password."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "The current password you entered was incorrect."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Issue open access email notifications"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "A password is required."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Your new password is the same as your old password."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profile Image"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "New issue published email notifications"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "A user group is required."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "A username is required."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "You must agree to the terms of the privacy statement."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Leave the password fields blank to keep the current password."
+
+msgid "user.profile.newPassword"
+msgstr "New password"
+
+msgid "user.profile.oldPassword"
+msgstr "Current password"
+
+msgid "user.profile"
+msgstr "Profile"
+
+msgid "user.profile.publicProfile"
+msgstr "User Profile"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Repeat new password"
+
+msgid "user.login.registerNewAccount"
+msgstr "Register"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "Enter your account email address below and an email will be sent with instructions on how to reset your password."
+
+msgid "user.register.form.privacyConsent"
+msgstr "Yes, I agree to have my data collected and stored according to the <a href=\"{$privacyUrl}\" target=\"_blank\">privacy statement</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Yes, I would like to be notified of new publications and announcements."
+
+msgid "user.register.form.emailExists"
+msgstr "The selected email address is already in use by another user."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "The passwords do not match."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "The email address fields do not match."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr "The username can contain only lower-case alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "At least one role must be selected."
+
+msgid "user.register.form.usernameExists"
+msgstr "The selected username is already in use by another user."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "The password must be at least {$length} characters."
+
+msgid "user.register.registerAs"
+msgstr "Register in {$contextName} as..."
+
+msgid "user.register"
+msgstr "Register"
+
+msgid "user.register.usernameRestriction"
+msgstr "The username must contain only lowercase letters, numbers, and hyphens/underscores."
+
+msgid "user.register.registrationCompleted"
+msgstr "You have successfully registered. <a href=\"{$profileUrl}\">Click here</a> to complete your user profile."
+
+msgid "user.role.assistant"
+msgstr "Assistant"
+
+msgid "user.role.author"
+msgstr "Author"
+
+msgid "user.role.author_s"
+msgstr "Author(s)"
+
+msgid "user.role.authors"
+msgstr "Authors"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.editors"
+msgstr "Editors"
+
+msgid "user.role.reader"
+msgstr "Reader"
+
+msgid "user.role.readers"
+msgstr "Readers"
+
+msgid "user.role.reviewer"
+msgstr "Reviewer"
+
+msgid "user.role.reviewers"
+msgstr "Reviewers"
+
+msgid "user.role.siteAdmin"
+msgstr "Site Administrator"
+
+msgid "user.role.siteAdmins"
+msgstr "Site Administrators"
+
+msgid "user.role.copyeditor"
+msgstr "Copyeditor"
+
+msgid "user.role.copyeditors"
+msgstr "Copyeditors"
+
+msgid "user.role.proofreader"
+msgstr "Proofreader"
+
+msgid "user.role.proofreaders"
+msgstr "Proofreaders"
+
+msgid "user.role.layoutEditor"
+msgstr "Layout Editor"
+
+msgid "user.role.layoutEditors"
+msgstr "Layout Editors"
+
+msgid "user.roles"
+msgstr "Roles"
+
+msgid "user.sendPassword"
+msgstr "Confirmation"
+
+msgid "user.sendPassword.description"
+msgstr "Send me a confirmation email including my username and password"
+
+msgid "user.signature"
+msgstr "Signature"
+
+msgid "user.title"
+msgstr "Title"
+
+msgid "user.url"
+msgstr "Homepage URL"
+
+msgid "user.userHome"
+msgstr "User Home"
+
+msgid "user.username"
+msgstr "Username"
+
+msgid "user.workingLanguages"
+msgstr "Working Languages"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr "The ORCID iD you specified is invalid. Please include the full URI (e.g. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identity"
+
+msgid "user.profile.contact"
+msgstr "Contact"
+
+msgid "user.profile.public"
+msgstr "Public"
+
+msgid "user.apiKey"
+msgstr "API Key"
+
+msgid "user.apiKeyEnabled"
+msgstr "Enable external applications with the API key to access this account"
+
+msgid "user.apiKey.generate"
+msgstr "Generate new API key"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Generating a new API key will invalidate any existing key for this user."
+
+msgid "user.apiKey.secretRequired"
+msgstr "Before generating an API key, your site administrator must set a secret in the config file (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr "Your data is stored in accordance with our <a href=\"{$privacyUrl}\" target=\"_blank\">privacy statement</a>."

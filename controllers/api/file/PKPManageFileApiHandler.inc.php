@@ -3,8 +3,8 @@
 /**
  * @file controllers/api/file/PKPManageFileApiHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPManageFileApiHandler
@@ -219,6 +219,11 @@ abstract class PKPManageFileApiHandler extends Handler {
 				$submissionFile->getRevision()>1?'submission.event.fileRevised':'submission.event.fileUploaded',
 				array('fileStage' => $submissionFile->getFileStage(), 'fileId' => $submissionFile->getFileId(), 'fileRevision' => $submissionFile->getRevision(), 'originalFileName' => $submissionFile->getOriginalFileName(), 'submissionId' => $submissionFile->getSubmissionId(), 'username' => $user->getUsername(), 'name' => $submissionFile->getLocalizedName())
 			);
+
+			// Inform SearchIndex of changes
+			$articleSearchIndex = Application::getSubmissionSearchIndex();
+			$articleSearchIndex->submissionFilesChanged($submission);
+			$articleSearchIndex->submissionChangesFinished();
 
 			return DAO::getDataChangedEvent();
 		} else {

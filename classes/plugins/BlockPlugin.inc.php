@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/BlockPlugin.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BlockPlugin
@@ -12,9 +12,6 @@
  *
  * @brief Abstract class for block plugins
  */
-
-define('BLOCK_CONTEXT_SIDEBAR',		0x00000001);
-define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
 
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
@@ -41,16 +38,6 @@ abstract class BlockPlugin extends LazyLoadPlugin {
 	 */
 	function setEnabled($enabled, $contextId = null) {
 		$this->updateSetting(is_null($contextId) ? $this->getCurrentContextId() : $contextId, 'enabled', $enabled, 'bool');
-	}
-
-
-	/**
-	 * Get the supported contexts (e.g. BLOCK_CONTEXT_...) for this block.
-	 *
-	 * @return array
-	 */
-	function getSupportedContexts() {
-		return array(BLOCK_CONTEXT_SIDEBAR);
 	}
 
 	/**

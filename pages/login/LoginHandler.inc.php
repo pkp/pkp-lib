@@ -3,8 +3,8 @@
 /**
  * @file pages/login/LoginHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LoginHandler
@@ -314,7 +314,6 @@ class LoginHandler extends Handler {
 		if (isset($args[0]) && !empty($args[0])) {
 			$userId = (int)$args[0];
 			$session = $request->getSession();
-
 			if (!Validation::canAdminister($userId, $session->getUserId())) {
 				$this->setupTemplate($request);
 				// We don't have administrative rights
@@ -337,12 +336,13 @@ class LoginHandler extends Handler {
 				$session->setSessionVar('userId', $userId);
 				$session->setUserId($userId);
 				$session->setSessionVar('username', $newUser->getUsername());
-				$this->sendHome($request);
+				$this->_redirectByURL($request);
 			}
 		}
 
 		$request->redirect(null, $request->getRequestedPage());
 	}
+
 
 	/**
 	 * Restore original user account after signing in as a user.
@@ -367,8 +367,21 @@ class LoginHandler extends Handler {
 				$session->setSessionVar('username', $oldUser->getUsername());
 			}
 		}
+		$this->_redirectByURL($request);
+	}
 
-		$this->sendHome($request);
+
+	/**
+	 * Redirect to redirectURL if exists else send to Home
+	 * @param $request PKPRequest
+	 */
+	function _redirectByURL($request) {
+		$requestVars  = $request->getUserVars();
+		if (isset($requestVars['redirectUrl']) && !empty($requestVars['redirectUrl'])) {
+			$request->redirectUrl($requestVars['redirectUrl']);
+		} else {
+			$this->sendHome($request);
+		}
 	}
 
 

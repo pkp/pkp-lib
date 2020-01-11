@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PKPPubIdPluginDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPubIdPluginDAO
@@ -18,6 +18,7 @@ interface PKPPubIdPluginDAO {
 	/**
 	 * Checks if public identifier exists (other than for the specified
 	 * submission ID, which is treated as an exception).
+	 *
 	 * @param $pubIdType string One of the NLM pub-id-type values or
 	 * 'other::something' if not part of the official NLM list
 	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).

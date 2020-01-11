@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/filter/FilterDAOTest.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FilterDAOTest
@@ -26,7 +26,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		return array('filters', 'filter_settings', 'filter_groups');
 	}
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		// Create a test filter group.

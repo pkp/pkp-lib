@@ -1,0 +1,450 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
+"Language: \n"
+
+msgid "submission.agencies"
+msgstr "Ustanove"
+
+msgid "submission.abstractViews"
+msgstr "Pristupa sažetku"
+
+msgid "submission.accepted"
+msgstr "Prihvaćena"
+
+msgid "submission.acknowledge"
+msgstr "Potvrđeno"
+
+msgid "submission.addSuppFile"
+msgstr "Dodavanje dopunske datoteke"
+
+msgid "submission.ask"
+msgstr "Upit"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Nazad na uređivanje prijave"
+
+msgid "submission.changeComments"
+msgstr "Promjeni u"
+
+msgid "submission.comments.addComment"
+msgstr "Dodaj komentar"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Jeste li sigurni da želite obrisati ovaj komentar?"
+
+msgid "submission.comments.corrections"
+msgstr "Ispravke"
+
+msgid "submission.comments.editComment"
+msgstr "Uredi komentar"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Uvedi stručne recenzije"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Recenzent {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Bez komentara"
+
+msgid "submission.comments.noReviews"
+msgstr "Bez recenzije"
+
+msgid "submission.comments.review"
+msgstr "Recenzija"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Pošalji recenzentima lektorsku odluku"
+
+msgid "submission.comments.subject"
+msgstr "Naslov"
+
+msgid "submission.complete"
+msgstr "Završeno"
+
+msgid "submission.done"
+msgstr "Učinjena"
+
+msgid "submission.dueDate"
+msgstr "Rok"
+
+msgid "submission.due"
+msgstr "Rok"
+
+msgid "submission.editing"
+msgstr "Uređivanje"
+
+msgid "submission.editMetadata"
+msgstr "Uređivanje metapodataka"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Nazad na zapis e-pošte"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Jeste li sigurni da želite obrisati ovu stavku zapisa e-pošte?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Obriši stavku zapisa"
+
+msgid "submission.emailLog"
+msgstr "Zapis E-pošte"
+
+msgid "submission.event.backToEventLog"
+msgstr "Nazad na zapis događaja"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Jeste li sigurni da želite obrisati ovu stavku zapisa događaja?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Obriši stavku zapisa"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Metapodaci prijave su ažurirani"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Datoteka prijave je ažurirana"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Dodjelu recenzije je prihvatio zamjenik"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Dodjela recenzije je prihvaćena"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Dodjela recenzije je odbijena"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Izmjenjen je rok recenzije"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Recenzentu je dodijeljena prijava"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Evidentirana je recenzentova ocjena"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Recenzentu je povučena prijava"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Datoteka recenzije je ažurirana"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Pokrenuta je dodjela recenzije"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Unesena recenzentska preporuka"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Ponovno je pokrenuta dodjela recenzije"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Recenzija je ponovno prijavljena"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Recenzentova revidirana datoteka je ažuririrana"
+
+msgid "submission.files"
+msgstr "Datoteke"
+
+msgid "submission.galley"
+msgstr "Prijelom"
+
+msgid "submission.history.clearLog"
+msgstr "Očisti zapis"
+
+msgid "submission.history"
+msgstr "Kronologija priloga"
+
+msgid "submission.history.noLogEntries"
+msgstr "Nema zabilježenih prijava."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Kronologija događaja (noviji unosi)"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Korespondencija e-poštom"
+
+msgid "submission.history.submissionNotes"
+msgstr "Bilješke o prijavi"
+
+msgid "submission.history.viewLog"
+msgstr "Pregled zapisa"
+
+msgid "submission.initiated"
+msgstr "Započeto"
+
+msgid "submission.lastModified"
+msgstr "Zadnja izmjena"
+
+msgid "submission.layout.addGalley"
+msgstr "Dodajte prijelom"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Jeste li sigurni da želite trajno izbrisati ovaj prijelom?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Jeste li sigurni da želite ukloniti ovu sliku iz prijeloma?"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "Jeste li sigurni da želite trajno izbrisati ovu dopunsku datoteku?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Obrišite ovu stilsku tablicu."
+
+msgid "submission.layout.editGalley"
+msgstr "Uređivanje prijeloma"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Konačni prijelom"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML datoteke prijeloma"
+
+msgid "submission.layout.galleyImages"
+msgstr "Slike"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Ekstenzijom se označava format datoteke prijeloma (npr. HTML, PDF, itd.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Ekstenzija"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Oznaka prijeloma."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Potrebno je navesti jezik prijeloma."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Potrebno je navesti lokalizaciju prijeloma."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Nema slika"
+
+msgid "submission.layout.galleys"
+msgstr "Prijelomi"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stilska tablica datoteke "
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stil"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Početak stvaranje prijeloma"
+
+msgid "submission.layout.layoutFile"
+msgstr "Datoteka prijeloma"
+
+msgid "submission.layout"
+msgstr "Prijelom"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Verzija za prijelom"
+
+msgid "submission.layout.newGalley"
+msgstr "Kreirajte novu prijelom"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "Postavite novu dopunsku datoteku"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Stilska tablica datoteke nije dodana ovom prijelomu."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "Recenzija dopunske datoteke"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Pregled prijave za prijelom"
+
+msgid "submission.layout.viewProof"
+msgstr "Pogledajte"
+
+msgid "submission.metadata"
+msgstr "Metapodaci prijave"
+
+msgid "submission.noReviewAssignments"
+msgstr "Recenzija nije dodijeljena"
+
+msgid "submission.notes.addNewNote"
+msgstr "Dodavanje nove bilješke"
+
+msgid "submission.notes.attachedFile"
+msgstr "Datoteka privitka"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Nazad na bilješke uz prijave"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Bilješke"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Brisanje svih bilježaka"
+
+msgid "submission.notes.collapseNotes"
+msgstr "ukloni tekst bilježaka"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Ukloniti sve bilješke uz prijavu?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Ukloniti ovu bilješku uz prijavu?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Kreiranje nove bilješke"
+
+msgid "submission.notes.deleteNote"
+msgstr "Bilješka obrisanog"
+
+msgid "submission.notes.editNote"
+msgstr "Uređivanje bilješke"
+
+msgid "submission.notes.expandNotes"
+msgstr "Prikaži"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Nema bilježaka uz prijavu"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Uklanjanje poslane datoteke"
+
+msgid "submission.notes.updateNote"
+msgstr "Bilješka ažuriranja"
+
+msgid "submission.notes.viewNotes"
+msgstr "Pregled bilježaka"
+
+msgid "submission.originalFile"
+msgstr "Izvorna datoteka"
+
+msgid "submission.page.editing"
+msgstr "Uređivanje br.{$id}"
+
+msgid "submission.page.history"
+msgstr "Kronologija priloga br.{$id}"
+
+msgid "submission.page.review"
+msgstr "Recenzija br.{$id}"
+
+msgid "submission.page.summary"
+msgstr "Pregled priloga br.{$id}"
+
+msgid "submission.peerReview"
+msgstr "Recenzija"
+
+msgid "submission.recommendation"
+msgstr "Preporuka: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Odbijena"
+
+msgid "submission.request"
+msgstr "Zahtjev"
+
+msgid "submission.response"
+msgstr "Odgovor"
+
+msgid "submission.restrictions"
+msgstr "Ograničenja"
+
+msgid "submission.reviewMetadata"
+msgstr "Pregled metapodataka"
+
+msgid "submission.review"
+msgstr "Recenzija"
+
+msgid "submission.reviewVersion"
+msgstr "Verzija u recenziji"
+
+msgid "submissions.active"
+msgstr "Aktivno"
+
+msgid "submissions.archived"
+msgstr "Arhivirano"
+
+msgid "submission.saveMetadata"
+msgstr "Spremanje metapodataka"
+
+msgid "submissions.completed"
+msgstr "Završeno"
+
+msgid "submissions.declined"
+msgstr "Odbijeno"
+
+msgid "submissions.incomplete"
+msgstr "Nedovršeno"
+
+msgid "submissions.noSubmissions"
+msgstr "Nema prijava"
+
+msgid "submissions.queuedEditing"
+msgstr "Uređuje se"
+
+msgid "submissions.queued"
+msgstr "Na čekanju"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Čeka dodijeljivanje"
+
+msgid "submissions.ruling"
+msgstr "Odluka"
+
+msgid "submissions.submit"
+msgstr "prijave"
+
+msgid "submission.start"
+msgstr "Početak"
+
+msgid "submission.submissionHistory"
+msgstr "Kronologija događaja (noviji unosi)"
+
+msgid "submission.submissionManuscript"
+msgstr "Rukopis priloga"
+
+msgid "submission.submissionReview"
+msgstr "Recenzija prijave"
+
+msgid "submission.submitter"
+msgstr "Podnositelj"
+
+msgid "submission.supplementaryFiles"
+msgstr "Dopunske datoteke"
+
+msgid "submission.titleAndAbstract"
+msgstr "Naslov i sažetak"
+
+msgid "submission.underway"
+msgstr "U tijeku"
+
+msgid "submission.uploadFileTo"
+msgstr "Slanje datoteke kao"
+
+msgid "submission.viewMetadata"
+msgstr "Pregled metapodataka"
+
+msgid "submission.views"
+msgstr "Pristupa datoteci"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} je dodijeljen(a) kao recenzent priloga {$submissionId} u {$round}. krugu recenzije."
+
+msgid "log.review.reviewCleared"
+msgstr "Recenzija {$round}. kruga recenzenta {$reviewerName} za prilog {$submissionId} je izbrisana."
+
+msgid "log.review.reviewReinstated"
+msgstr "{$round}. krug recenzije recenzenta {$reviewerName} za prilog {$submissionId} je iznova pokrenut."
+
+msgid "submission.reviewForm"
+msgstr "Recenzijski obrazac"
+
+msgid "submission.reviewFormResponse"
+msgstr "Odgovor na recenziju"

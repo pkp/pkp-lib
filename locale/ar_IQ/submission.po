@@ -1,0 +1,1791 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
+"Language: \n"
+
+msgid "author.submit.submissionCitations"
+msgstr "إدرج قائمة منسقة من المراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل بين المراجع بسطر فارغ."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "لقد تم تسليم تحكيمات جديدة وقد تم الأخذ بها من قبل المحرر."
+
+msgid "submission.confirm.message"
+msgstr "قد تم رفع طلبك وصار جاهزاً للإرسال. بإمكانك العودة من أجل تنقيح وتعديل المعلومات التي سبق لك إدخالها قبل المتابعة. عندما تكون جاهزاً، أنقر \"إنهاء طلب النشر\"."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "التقديم بمثابة"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "إختر الدور الذي يقدم أفضل وصف لمساهمتك في هذا العمل."
+
+msgid "submission.submit.contactConsent"
+msgstr "عنوان الاتصال المعني"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "نعم، أود مراسلتي بشأن طلب النشر هذا."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr "قدم طلبك بأي من الأدوار الآتية إذا أردت أن تتمكن من تحرير ونشر هذا المؤلَّف بنفسك: {$managerGroups}"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "متطلبات طلب النشر"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "عليك قراءة المتطلبات أدناه والإقرار بها قبل المتابعة."
+
+msgid "submission.submit.submissionComplete"
+msgstr "إنهاء طلب النشر"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "نشكر لك اهتمامك بالنشر لدى {$contextName}."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "الإقرار ببيان الحقوق الفكرية"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "نعم، أنا أوافق على التزامي ببنود بيان الحقوق الفكرية."
+
+msgid "submission.submit.whatNext"
+msgstr "ماذا سيحدث بعد ذلك؟"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "حالياً، بإمكانك:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "مراجعة طلب النشر هذا"
+
+msgid "submission.submit.whatNext.create"
+msgstr "إنشاء طلب نشر جديد"
+
+msgid "submission.submit.whatNext.return"
+msgstr "العودة إلى دفة القيادة"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "البيانات الوصفية الموسعة"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "البريد الالكتروني لتسجيل المراجع المترابطة"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr "لطفاً، أدخل عنوان البريد الالكتروني الصحيح لتسجيل المراجع المترابطة. بإمكانك تسجيل عنوانك البريدي مجاناً في موقع المراجع المترابطة."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "مفتاح ISBNdb API"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "لطفاً، أدخل مفتاح ISBNdb API. إن لم يكن لديك مفتاح بعد، فبإمكانك الحصول على واحد مجاناً من مشروع ISBNdb."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "عنوان البريد الالكتروني للتسجيل في PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "لطفاً، أدخل عنوان البريد الالكتروني الصحيح الذي سجلت به في موقع PubMed إن كان لديك."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "مفتاح WorldCat API"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "لطفاً، أدخل المفتاح WorldCat API الصحيح الذي سجلت به إن كان لديك."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "وحدة الاقتباس"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "لطفاً، إختر واحداً من وحدات الاقتباس المتوفرة لك."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "لا تُستعمل إفتراضياً (ستكون مع ذلك متاحة للمحرر)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "خطأ داخلي. قيمة غير صحيحة تم تمريرها إلى إعداد 'التصفية الإختيارية' . لطفاً، أبلغ عن هذا الأمر كخطأ برمجي."
+
+msgid "metadata.property.displayName.author"
+msgstr "المؤلفون"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "لأفضل نتائج، ينبغي إدخال المؤلفين بالصيغة الآتية: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "المحررون"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "لأفضل نتائج، ينبغي إدخال المؤلفين بالصيغة الآتية: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "عنوان المؤلَّف"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "لطفاً، أدخل عنواناً صحيحاً للمؤلَّف."
+
+msgid "metadata.property.displayName.source"
+msgstr "عنوان النشر"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "لطفاً، أدخل عنواناً صحيحاً للنشر."
+
+msgid "metadata.property.displayName.date"
+msgstr "تأريخ النشر"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "لطفاً، أدخل تأريخاً صحيحاً للنشر (بصيغة: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "تأريخ الوصول"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "لطفاً، أدخل تأريخاً صحيحاً للوصول (بصيغة: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "العدد"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "لطفاً، أدخل عدداً صحيحاً."
+
+msgid "metadata.property.displayName.volume"
+msgstr "المجلد"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "لطفاً، أدخل مجلداً صحيحاً."
+
+msgid "metadata.property.displayName.season"
+msgstr "الموسم"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "لطفاً، أدخل معرفاً صحيحاً للموسم."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "عنوان الفصل"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "لطفاً، أدخل عنوناً صحيحاً للفصل."
+
+msgid "metadata.property.displayName.edition"
+msgstr "طبعة"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "لطفاً، أدخل طبعة صحيحة."
+
+msgid "metadata.property.displayName.series"
+msgstr "الدورية"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "لطفاً، أدخل دورية صحيحة."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "المكمل"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "لطفاً، أدخل مكملاً صحيحاً."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "تأريخ المؤتمر"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "لطفاً، أدخل تأريخاً صحيحاً للمؤتمر (بصيغة: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "موقع المؤتمر"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "لطفاً، أدخل موقعاً صحيحاً للمؤتمر."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "اسم المؤتمر"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "لطفاً، أدخل اسماً صحيحاً للمؤتمر."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "راعي المؤتمر"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "لطفاً، أدخل راعياً صحيحاً للمؤتمر."
+
+msgid "metadata.property.displayName.institution"
+msgstr "المؤسسة"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "لطفاً، أدخل مؤسسة صحيحة."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "أول صفحة"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "لطفاً، أدخل صفحة أولى صحيحة (ينبغي أن تكون قيمة رقمية)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "آخر صفحة"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "لطفاً، أدخل صفحة أخيرة صحيحة (ينبغي أن تكون قيمة رقمية)."
+
+msgid "metadata.property.displayName.size"
+msgstr "عدد الصفحات"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "لطفاً، أدخل عدداً صحيحاً للصفحات (ينبغي أن تكون قيمة رقمية)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "موقع الناشر"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "لطفاً، أدخل موقعاً صحيحاً للناشر."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "اسم الناشر"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "لطفاً، أدخل اسماً صحيحاً للناشر."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "لطفاً، أدخل قيمة صحيحة لـ ISBN (9 أو 13 مرتبة رقمية)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN طباعي"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "لطفاً، أدخل قيمة صحيحة للرمز الطباعي ISSN."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "لطفاً، أدخل قيمة صحيحة للرمز eISSN."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "لطفاً، أدخل قيمة صحيحة للرمز DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "رمز النشر المخصص"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "لطفاً، أدخل قيمة صحيحة لرمز النشر المخصص."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "لطفاً، أدخل قيمة صحيحة للرمز CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "لطفاً، أدخل قيمة صحيحة للرمز SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "لطفاً، أدخل قيمة صحيحة للرمز PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "رابط النشر"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "لطفاً، أدخل قيمة صحيحة لبديل رابط النشر."
+
+msgid "metadata.property.displayName.comment"
+msgstr "التعليق"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "لطفاً، أدخل تعليقاً صحيحاً."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "التأشير"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "لطفاً، أدخل تأشيراً صحيحاً."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "نوعية النشر"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr "لطفاً، تأكد دوماً من تحديد نوعية النشر. النوعيات المدعومة حالياً هي: الكتب (للكتب أو فصول منها)، والمجلات (لمقالات المجلات). خلاف ذلك، سوف لن يعمل تنسيق الاقتباس بالشكل الصحيح."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "نوعية العنوان"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr "لطفاً، تأكد من تحديد نوعية صحيحة للعنوان. النوعيات المدعومة هي: 'abbreviated'، 'translated'، 'alternative' و 'uniform'، ومعانيها على التوالي: مختصر، مترجم، بديل، وموحد."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "تم تجاهل جزء من العنوان عند إجراء الفرز"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "لطفاً، فقط أدخل الحروف الأولى من العنوان التي ينبغي تجاهلها عند فرز العناوين."
+
+msgid "metadata.property.displayName.title"
+msgstr "العنوان"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "لطفاً، أدخل عنواناً صحيحاً."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "العنوان الفرعي"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "لطفاً، أدخل عنواناً فرعياً صحيحاً."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "رقم الجزء"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "لطفاً، أدخل رقماً صحيحاً للجزء."
+
+msgid "metadata.property.displayName.partName"
+msgstr "اسم الجزء"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "لطفاً، أدخل اسماً صحيحاً للجزء."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "نوعية الاسم"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr "لطفاً، تأكد من تحديدك نوعية صحيحة للاسم. النوعيات المدعومة هي: 'personal'، 'corporate' و 'conference' ومعانيها على التوالي: شخصي، مؤسساتي، ومؤتمر."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "الملخص"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "غير معيّن"
+
+msgid "common.queue.long.myAssigned"
+msgstr "المعيّن لي"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "طلبات النشر المحفوظة"
+
+msgid "submission.authors"
+msgstr "المؤلفون"
+
+msgid "submission.authorBiography"
+msgstr "السيرة الشخصية للمؤلف"
+
+msgid "submission.authorBiographies"
+msgstr "السير الشخصية للمؤلفين"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}، {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author}."
+
+msgid "submission.mySubmissions"
+msgstr "طلباتي للنشر"
+
+msgid "submission.addFile"
+msgstr "رفع الملف"
+
+msgid "submission.agencies"
+msgstr "الوكالات"
+
+msgid "submission.abstractViews"
+msgstr "معاينات الملخص"
+
+msgid "submission.accepted"
+msgstr "مقبول"
+
+msgid "submission.acknowledge"
+msgstr "إقرار"
+
+msgid "submission.addSuppFile"
+msgstr "أضف ملفاً تكميلياً"
+
+msgid "submission.ask"
+msgstr "إسأل"
+
+msgid "submission.attachedFile"
+msgstr "الملف المرفق"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "عودة إلى تعديل طلب النشر"
+
+msgid "submission.changeComments"
+msgstr "التغيير إلى"
+
+msgid "submission.changeFile"
+msgstr "تغيير الملف"
+
+msgid "submission.citations"
+msgstr "المراجع"
+
+msgid "submission.citations.description"
+msgstr "أدخل كل مرجع في سطر جديد من أجل استخلاصه."
+
+msgid "submission.parsedCitations"
+msgstr "المراجع المستخلصة"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr "المراجع الآتية قد تم استخلاصها وسيتم ربطها بالبيانات الوصفية للمؤلَّف."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "إستخلص المراجع واحفظها"
+
+msgid "submission.comments.addComment"
+msgstr "أضف تعليقاً"
+
+msgid "submission.comments.comments"
+msgstr "التعليقات"
+
+msgid "submission.comments.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في حذف هذا التعليق؟"
+
+msgid "submission.comments.corrections"
+msgstr "التصحيحات"
+
+msgid "submission.comments.editComment"
+msgstr "تعديل التعليق"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "استيراد التحكيمات المناظرة"
+
+msgid "submission.comments.addReviews"
+msgstr "أضف تعليقات المحكمين إلى الرسالة"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "المحكم {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "لا تعليقات"
+
+msgid "submission.comments.noReviews"
+msgstr "لا تحكيمات"
+
+msgid "submission.comments.review"
+msgstr "التحكيم"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "أرسل قرار التحرير إلى المحكمين"
+
+msgid "submission.comments.subject"
+msgstr "الموضوع"
+
+msgid "submission.complete"
+msgstr "إكمال"
+
+msgid "submission.contributors"
+msgstr "قائمة المساهمين"
+
+msgid "submission.copyedited"
+msgstr "مدقق"
+
+msgid "submission.copyediting"
+msgstr "التدقيق"
+
+msgid "submission.queryNoteFiles"
+msgstr "ملفات المناقشة"
+
+msgid "submission.coverage"
+msgstr "معلومات التغطية"
+
+msgid "submission.done"
+msgstr "تم"
+
+msgid "submission.dueDate"
+msgstr "تأريخ الاستيجاب"
+
+msgid "submission.due"
+msgstr "مستحق"
+
+msgid "submission.editing"
+msgstr "التحرير"
+
+msgid "submission.editMetadata"
+msgstr "تعديل البيانات الوصفية"
+
+msgid "submission.editorial"
+msgstr "التدقيق"
+
+msgid "submission.email.backToEmailLog"
+msgstr "العودة إلى سجل وقائع البريد الالكتروني"
+
+msgid "submission.email.confirmClearLog"
+msgstr "هل أنت متأكد من رغبتك في تصفير سجل وقائع البريد الالكتروني لطلب التقديم هذا؟"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه المعلومة من سجل وقائع البريد الالكتروني؟"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "حذف المعلومة من سجل الوقائع"
+
+msgid "submission.emailLog"
+msgstr "وقائع البريد الالكتروني"
+
+msgid "submission.event.participantAdded"
+msgstr "\"{$name}\" ({$username}) تم تعيينه لطلب النشر هذا بمثابة {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) تمت إزالته بمثابة {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "العودة إلى وقائع الأحداث"
+
+msgid "submission.event.confirmClearLog"
+msgstr "هل أنت متأكد من رغبتك في تصفير سجل وقائع الأحداث لطلب التقديم هذا؟"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه المعلومة من سجل وقائع الأحداث؟"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "حذف المعلومة من سجل الوقائع"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "طلب النشر الأساسي إكتمل."
+
+msgid "submission.event.fileRevised"
+msgstr "التنقيح \"{$name}\" (رمز الملف {$fileId}-{$fileRevision}) قد رُفع إلى الموقع."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "البيانات الوصفية للمؤلَّف تم تحديثها"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "ملف المؤلَّف تم تحديثه"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "مهمة التحكيم قُبلت من قبل الوكيل"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "مهمة التحكيم قُبلت"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "مهمة التحكيم رُفضت"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "تأريخ استيجاب التحكيم تم تعديله"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "المحكم المتكفل بالمؤلَّف"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "تم تقديم تقييم المحكم"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "تم فك تكليف المحكم من طلب النشر"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "ملف التحكيم تم تحديثه"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "بوشر بالتحكيم"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "ملف توصيات التحكيم"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "بوشر بالتحكيم مجدداً"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "أُعيد تقديم التحكيم"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "ملف التحكيمات تم تحديثه"
+
+msgid "submission.event.subjectPrefix"
+msgstr "الرسالة قد أُرسلت:"
+
+msgid "submission.event.viewEmail"
+msgstr "معاينة الرسالة"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr "يمكن للمؤلفين الآن تعديل البيانات الوصفية عندما يكون طلب التقديم في مرحلة {stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr "لا يمكن للمؤلفين الآن تعديل البيانات الوصفية عندما يكون طلب التقديم في مرحلة {stage}."
+
+msgid "submission.files"
+msgstr "الملفات"
+
+msgid "submission.files.downloadAll"
+msgstr "تنزيل كل الملفات"
+
+msgid "submission.galley"
+msgstr "ألواح الطباعة"
+
+msgid "submission.history.clearLog"
+msgstr "تصفير سجل الوقائع"
+
+msgid "submission.history"
+msgstr "الماضي"
+
+msgid "submission.history.noLogEntries"
+msgstr "لا مدخلات في سجل الوقائع."
+
+msgid "submission.history.recentLogEntries"
+msgstr "المدخلات الأخيرة"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "سجل وقائع البريد الالكتروني"
+
+msgid "submission.history.submissionEventLog"
+msgstr "سجل وقائع الأحداث"
+
+msgid "submission.history.submissionNotes"
+msgstr "ملاحظات طلب النشر"
+
+msgid "submission.history.viewLog"
+msgstr "معاينة سجل الوقائع"
+
+msgid "submission.howToCite"
+msgstr "كيفية الاقتباس"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "المزيد من صيغ الاقتباسات"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "تنزيل الاقتباسات"
+
+msgid "submission.initiated"
+msgstr "بوشر به"
+
+msgid "submission.identifiers"
+msgstr "المعرفات"
+
+msgid "submission.publisherId"
+msgstr "معرفات الرابط العام"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "معلومات المؤلَّف"
+
+msgid "submission.informationCenter.metadata"
+msgstr "البيانات الوصفية"
+
+msgid "submission.informationCenter.notes"
+msgstr "الملاحظات"
+
+msgid "submission.informationCenter.history"
+msgstr "الماضي"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "أظهر أحداث النسخ السابقة"
+
+msgid "submission.stageParticipants.notify"
+msgstr "إشعار"
+
+msgid "submission.lastModified"
+msgstr "آخر تعديل"
+
+msgid "submission.layout.addGalley"
+msgstr "أضف تصميماً طباعياً"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "هل أنت متأكد من رغبتك في حذف هذا اللوح الطباعي نهائياً؟"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "هل أنت متأكد من رغبتك في إزالة هذه الصورة من اللوح الطباعي؟"
+
+msgid "submission.layout.confirmDeleteSupplementaryFile"
+msgstr "هل أنت متأكد من رغبتك في حذف هذا الملف التكميلي نهائياً؟"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "حذف ملف الأنماط هذا."
+
+msgid "submission.layout.editGalley"
+msgstr "تعديل اللوح الطباعي"
+
+msgid "submission.layout.galleyFormat"
+msgstr "صيغة اللوح الطباعي"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "الملفات الطباعية بصيغة HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "الصور"
+
+msgid "submission.layout.galleyLabel"
+msgstr "التسمية"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "تسمية اللوح الطباعي مستعملة للتعرف على صيغة الملف (مثل: HTML، PDF... إلخ.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "تسمية اللوح الطباعي مطلوبة حتماً."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "لغة محتوى اللوح الطباعي مطلوبة حتماً."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "لغة مسمى اللوح الطباعي مطلوبة حتماً."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "رابط الإنترنت الخارجي"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "لطفاً، أذكر رابط الإنترنت الخارجي الصحيح (متضمناً http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "لا صور"
+
+msgid "submission.layout.galleys"
+msgstr "الألواح الطباعية"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "ملف الأنماط"
+
+msgid "submission.layout.galleyStyle"
+msgstr "النمط"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "إنشاء اللوح الطباعي الأساسي"
+
+msgid "submission.layout.layoutFile"
+msgstr "ملف التصميم"
+
+msgid "submission.layout"
+msgstr "التصميم"
+
+msgid "submission.layout.layoutVersion"
+msgstr "نسخة التصميم"
+
+msgid "submission.layout.newGalley"
+msgstr "إنشاء لوح طباعي جديد"
+
+msgid "submission.layout.newSupplementaryFile"
+msgstr "رفع ملف تكميلي جديد"
+
+msgid "submission.layout.noStyleFile"
+msgstr "لم تتم إضافة ملف أنماط إلى هذا اللوح الطباعي."
+
+msgid "submission.layout.supplementaryFiles"
+msgstr "تحكيم الملف التكميلي"
+
+msgid "submission.layout.viewingGalley"
+msgstr "معاينة اللوح الطباعي للمؤلَّف"
+
+msgid "submission.layout.viewProof"
+msgstr "معاينة تجريبية"
+
+msgid "submission.metadata"
+msgstr "البيانات الوصفية لطلب النشر"
+
+msgid "submission.noReviewAssignments"
+msgstr "لا مهام تحكيمية"
+
+msgid "submission.notes.addNewNote"
+msgstr "أضف ملاحظة جديدة"
+
+msgid "submission.notes.attachedFile"
+msgstr "الملف المرفق"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "العودة إلى ملاحظات طلب النشر"
+
+msgid "submission.notes.breadcrumb"
+msgstr "الملاحظات"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "إزالة كل الملاحظات"
+
+msgid "submission.notes.collapseNotes"
+msgstr "طي الملاحظات"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "أتريد إزالة كل الملاحظات؟"
+
+msgid "submission.notes.confirmDelete"
+msgstr "أتريد إزالة هذه الملاحظة؟"
+
+msgid "submission.notes.createNewNote"
+msgstr "إنشاء ملاحظة جديدة"
+
+msgid "submission.notes.deleteNote"
+msgstr "حذف الملاحظة"
+
+msgid "submission.notes.editNote"
+msgstr "تعديل الملاحظة"
+
+msgid "submission.notes.expandNotes"
+msgstr "توسيع الملاحظات"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "لا ملاحظات على طلب النشر"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "إزالة الملف المرفوع إلى الموقع"
+
+msgid "submission.notes"
+msgstr "ملاحظات طلب النشر"
+
+msgid "submission.notes.updateNote"
+msgstr "تحديث الملاحظة"
+
+msgid "submission.notes.viewNotes"
+msgstr "معاينة الملاحظات"
+
+msgid "submission.originalFile"
+msgstr "الملف الأصلي"
+
+msgid "submission.page.editing"
+msgstr "تحرير #{$id}"
+
+msgid "submission.page.history"
+msgstr "تأريخ #{$id}"
+
+msgid "submission.page.review"
+msgstr "تحكيم #{$id}"
+
+msgid "submission.page.summary"
+msgstr "موجز #{$id}"
+
+msgid "submission.page.citations"
+msgstr "اقتباسات #{$id}"
+
+msgid "submission.peerReview"
+msgstr "التحكيم المناظر"
+
+msgid "submission.production"
+msgstr "الإنتاج"
+
+msgid "submission.recommendation"
+msgstr "التوصية: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "مرفوض"
+
+msgid "submission.request"
+msgstr "إلتماس"
+
+msgid "submission.response"
+msgstr "الرد"
+
+msgid "submission.restrictions"
+msgstr "القيود"
+
+msgid "submission.reviewMetadata"
+msgstr "البيانات الوصفية للتحكيم"
+
+msgid "submission.review"
+msgstr "التحكيم"
+
+msgid "submission.reviewed"
+msgstr "محكم"
+
+msgid "submission.reviewVersion"
+msgstr "نسخة التحكيم"
+
+msgid "submission.rights"
+msgstr "الحقوق"
+
+msgid "submission.rights.tip"
+msgstr "إذا رغبت، بإمكانك إدخال عبارة موجزة عن حقوق الوصول التي تتعلق بطلب النشر هذا."
+
+msgid "submissions.active"
+msgstr "نشط"
+
+msgid "submissions.archived"
+msgstr "محفوظ"
+
+msgid "submission.saveMetadata"
+msgstr "حفظ البيانات الوصفية"
+
+msgid "submissions.completed"
+msgstr "إكتمل"
+
+msgid "submissions.declined"
+msgstr "رفض"
+
+msgid "submissions.incomplete"
+msgstr "غير مكتمل"
+
+msgid "submissions.noSubmissions"
+msgstr "لا طلبات نشر"
+
+msgid "submissions.queuedEditing"
+msgstr "قيد التحرير"
+
+msgid "submissions.queued"
+msgstr "ضمن الطابور"
+
+msgid "submissions.queuedUnassigned"
+msgstr "لم يتم تكليف أي محرر بهذا الطلب بعد"
+
+msgid "submissions.ruling"
+msgstr "التحكيم"
+
+msgid "submission.source"
+msgstr "المصدر"
+
+msgid "submission.source.tip"
+msgstr "هل إن هذا المؤلَّف مستقى من مصدر آخر؟ إن كان كذلك، بإمكانك إدخال رابط أو وصف لذلك المصدر."
+
+msgid "submissions.submit"
+msgstr "التقديم"
+
+msgid "submissions.submitted"
+msgstr "مقدم"
+
+msgid "submission.submission"
+msgstr "تقديم طلب النشر"
+
+msgid "submission.submissionTitle"
+msgstr "عنوان المؤلَّف:"
+
+msgid "submission.start"
+msgstr "إبدأ"
+
+msgid "submission.submissionHistory"
+msgstr "تأريخ طلب النشر"
+
+msgid "submission.submissionManuscript"
+msgstr "مخطوطة طلب النشر"
+
+msgid "submission.submissionReview"
+msgstr "تحكيم طلب النشر"
+
+msgid "submission.submitter"
+msgstr "مقدم طلب النشر"
+
+msgid "submission.submit.finishSubmission"
+msgstr "إنهاء طلب النشر"
+
+msgid "submission.submit.selectFile"
+msgstr "إختر ملفاً"
+
+msgid "submission.submit.fileInformation"
+msgstr "معلومات الملف"
+
+msgid "submission.submit.fileAdded"
+msgstr "الملف أُضيف"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "أريد تضمين هذا المساهم في قوائم العرض"
+
+msgid "submission.submit.newFile"
+msgstr "أضف ملفاً آخر"
+
+msgid "submission.submit.metadataForm"
+msgstr "تحسينات إضافية"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة."
+
+msgid "submission.submit.submissionLocale"
+msgstr "لغة المؤلَّف"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "نقبل نشر المؤلفات بعدة لغات. لطفاً إختر اللغة الأساسية لمؤلَّفِك من القائمة المنسدلة."
+
+msgid "submission.submit.submissionFiles"
+msgstr "ملفات المؤلَّف"
+
+msgid "submission.submit.dependentFiles"
+msgstr "الملفات الملحقة"
+
+msgid "submission.manageDependentFiles"
+msgstr "إدارة الملفات الملحقة"
+
+msgid "submission.upload.dependent"
+msgstr "إرفع ملفاً ملحقاً"
+
+msgid "submission.upload.query"
+msgstr "إرفع ملف مناقشة"
+
+msgid "submission.summary"
+msgstr "الموجز"
+
+msgid "submission.supplementaryFiles"
+msgstr "الملفات التكميلية"
+
+msgid "submission.supportingAgencies"
+msgstr "الوكالات الداعمة"
+
+msgid "submission.currentAgencies"
+msgstr "الوكالات الحالية"
+
+msgid "submission.indexingInformation"
+msgstr "معلومات الفهرسة"
+
+msgid "submission.titleAndAbstract"
+msgstr "العنوان والملخص"
+
+msgid "submission.type.tip"
+msgstr "نوع التقديم عادة ما يكون واحداً من: صورة، نص، أو غيرهما من متعددات الوسائط التي بضمنها: البرامجات أو الملفات التفاعلية. لطفاً، إختر ما تجده أنسبها لطلبك. أمثلة ذلك قد تجدها في <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.underway"
+msgstr "جارية"
+
+msgid "submission.uploadFileTo"
+msgstr "رفع الملف إلى"
+
+msgid "submission.createRemote"
+msgstr "إنشاء رابط خارجي"
+
+msgid "submission.viewMetadata"
+msgstr "معاينة البيانات الوصفية"
+
+msgid "submission.views"
+msgstr "معاينات"
+
+msgid "submission.uploadSuccessful"
+msgstr "لقد تم رفع ملفك."
+
+msgid "submission.loadMessage"
+msgstr "لطفاً، إنتظر ريثما يتم رفع ملفك إلى الملقم."
+
+msgid "submission.artworkFileDetails"
+msgstr "تفاصيل ملف العمل الفني"
+
+msgid "submission.fileDetails"
+msgstr "تفاصيل الملف"
+
+msgid "submission.nameRequired"
+msgstr "الاسم مطلوب لهذه الفقرة."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "هذا عنوان الاتصال الرئيسي فيما يتعلق بمهام التحرير."
+
+msgid "submission.submit.contributorRole"
+msgstr "دور المساهم"
+
+msgid "submission.submit.addAuthor"
+msgstr "أضف مساهماً"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "لطفاً، أدخل اللغة."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "لطفاً، أدخل الموضوع."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "لطفاً، أدخل التخصص."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "لطفاً، أدخل كلمة مفتاحية."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "لطفاً، أدخل معلومات التغطية."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "لطفاً، أدخل النوع."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "لطفاً، أدخل المصدر."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "لطفاً، أدخل الحقوق."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "لطفاً، أدخل المراجع."
+
+msgid "submission.form.name"
+msgstr "أعط هذا الملف اسماً يساعد على التعرف عليه"
+
+msgid "submission.form.replaceExisting"
+msgstr "أتريد استبدال الملف الموجود؟"
+
+msgid "workflow.review.internalReview"
+msgstr "التحكيم الداخلي"
+
+msgid "workflow.stage.any"
+msgstr "أية مرحلة"
+
+msgid "workflow.stage"
+msgstr "المرحلة"
+
+msgid "submission.status.editorial"
+msgstr "قيد التدقيق"
+
+msgid "submission.status.production"
+msgstr "قيد القراءة التصحيحية"
+
+msgid "submission.status.review"
+msgstr "قيد التحكيم"
+
+msgid "submission.status.submission"
+msgstr "بانتظار قرار المحرر"
+
+msgid "submission.status.unassigned"
+msgstr "غير معيَّن"
+
+msgid "submission.status.declined"
+msgstr "مرفوض"
+
+msgid "submission.status.published"
+msgstr "منشور"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. رفع الملف"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "رفع ملف المؤلَّف"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. مراجعة التفاصيل"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. التأكيد"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "عليك أن تمنح هذا الملف اسماً"
+
+msgid "submission.upload.noGenre"
+msgstr "مكون مفقود أو غير صحيح!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "مجموعة المستخدم مفقودة أو غير صحيحة!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "هناك احتمالية تكرار قد تحدث"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr "إن اسم الملف المرفوع يماثل اسم ملف مرفوع سابقاً، \"{$revisedFileName}.\" هل إن الغرض من هذا الملف استبدال \"{$revisedFileName}\"؟ إن كان الأمر كذلك، إختر الملف أدناه. بخلاف ذلك، إختر \"هذه ليست نسخة أخرى من ملف موجود سابقاً\" قبل المتابعة."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "لطفاً، إختر الملف الذي تريد تنقيحه."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "إذا كنت ترفع نسخة أخرى من ملف موجود سابقاً، لطفاً، حدد أي ملف تعني."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "هذه ليست نسخة أخرى من ملف موجود سابقاً"
+
+msgid "submission.upload.userGroup"
+msgstr "إرفع هذا الملف كأنني أمتلك دور..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr "إذا كنت تقدم مجلداً محرراً، عليك أن ترفع فصول المجلد كل على حدة ضمن دورك كمحرر مجلد."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "رفع ملف مكتبة"
+
+msgid "submission.upload.libraryCategory"
+msgstr "تصنيف وثيقة مؤلَّف"
+
+msgid "submission.upload.finalDraft"
+msgstr "رفع الملف"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "إرفع ملفاً مدققاً"
+
+msgid "submission.upload.fairCopy"
+msgstr "رفع نسخة مصفاة"
+
+msgid "submission.upload.uploadFiles"
+msgstr "رفع الملفات"
+
+msgid "submission.upload.response.description"
+msgstr "بعد تنقيح هذه الملف، سجل أي ملاحظات عنه أدناه، و/أو إرفع نسخة مؤشرة من الملف (أو ملفاً آخر)."
+
+msgid "submission.upload.productionReady"
+msgstr "رفع ملف جاهز للإنتاج"
+
+msgid "submission.upload.proof"
+msgstr "إرفع ملفاً جاهزاً للنشر"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "ليس لديك ملفات لتحكيمها حالياً."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "تم التماس التنقيحات."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "تم تسليم التنقيحات."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "لا بد من إعادة تقديم الطلب إلى جولة تحكيم أخرى."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "لقد أُعيد تقديم الطلب إلى جولة تحكيم أخرى."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "أُرسل للتحكيم الخارجي."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "المؤلَّف مقبول."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "المؤلَّف مرفوض."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "بانتظار تكليف المحكمين."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "بانتظار إجابات المحكمين."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "تحكيمات جديدة قد تم تقديمها."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "كل المحكمين وردت تحكيماتهم وبصدد اتخاذ القرار."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "أحد التحكيمات تجاوز مهلة التحكيم."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "بانتظار التوصيات من المحررين."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "توصيات تحرير جديدة قد وصلت."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "كل التوصيات مستلمة وبانتظار اتخاذ القرار."
+
+msgid "editor.submission.stageParticipants"
+msgstr "المشاركون"
+
+msgid "editor.submission.noneAssigned"
+msgstr "لا أحد معيَّن"
+
+msgid "editor.submission.participant"
+msgstr "المشارك"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "عيِّن مشاركاً"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "تعديل التعيين"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr "يتم تعيين المستخدمين لمراحل المخطط الانسيابي حسب مجموعاتهم. أي مستخدم معين لهذه المرحلة سيتم تعيينه تلقائياً لمراحل أخرى بناءً على ما تم تعيينه لمجموعته. هذا الأمر عادة ما يكون محفوظاً للمحررين، المؤلفين والمترجمين."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "إزالة المشارك"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "أنت على وشك إزالة هذا المشارك من <strong>كل</strong> المراحل. إن كان لهذا المستخدم أيضاً مهام متابعة معلقة، ستتم إزالتها أيضاً."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "عليك أن تختار مجموعة مستخدمين."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "عليك أن تختار مستخدماً لهذه المجموعة."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr "المشارك الذي اخترته قد سبق تعيينه لإجراء التحكيم السري. إذا عينته بدور مشارك، سيكون له إمكانية التعرف على هوية المؤلف. من الأفضل تجنب تعيين هذا المشارك إلا إذا كان بإمكانك وبشكل مستقل ضمان نزاهة عملية التحكيم السري."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "منع تعديل البيانات الوصفية"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "السماح بتعديل البيانات الوصفية"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr "هل أنت متأكد من رغبتك في منع مؤلفي هذا العمل من تعديل البيانات الوصفية لطلب التقديم في تلك المرحلة؟"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr "هل أنت متأكد من رغبتك في السماح لمؤلفي هذا العمل بتعديل البيانات الوصفية لطلب التقديم في تلك المرحلة؟"
+
+msgid "editor.submission.decision"
+msgstr "القرار"
+
+msgid "editor.submission.decision.accept"
+msgstr "قبول طلب النشر"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "إلتماس التنقيحات"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "إعادة التقديم للتحكيم"
+
+msgid "editor.submission.decision.decline"
+msgstr "رفض المؤلَّف"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "الإرسال إلى الإنتاج"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "القبول وتجاوز عملية التحكيم"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "الإرسال إلى التحكيم الداخلي"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr "ينبغي تأشير الملف على أنه مصادق عليه ليكون متاحاً. هل تريد المصادقة عليه الآن؟"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "المصادقة على التصحيحات"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr "إن هذا الملف لن يكون متاحاً للعامة لأغراض التنزيل أو الشراء. هل تريد رفع المصادقة منه؟"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "عيِّن محرراً لتمكين قرارات التحرير لهذه المرحلة."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "تقديم التوصية"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "تعديل التوصية"
+
+msgid "editor.submission.recommendation.display"
+msgstr "التوصية: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "التوصيات: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "التوصية"
+
+msgid "editor.submission.recommendation.description"
+msgstr "التوصية بقرار تحرير بشأن طلب النشر هذا."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "التوصيات المسجلة"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "التالي: إختر الملفات من أجل {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "إختر الملفات التي تريد تمريرها إلى مرحلة {$stageName}."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "السابق: إشعار المؤلف"
+
+msgid "submission.currentStage"
+msgstr "المرحلة الحالية"
+
+msgid "submission.noActionRequired"
+msgstr "لا يتطلب أي إجراء"
+
+msgid "submission.actionNeeded"
+msgstr "يتطلب إجراءً ما"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "ملفات التحكيم"
+
+msgid "submission.submit.currentFile"
+msgstr "الملف الحالي"
+
+msgid "submission.finalDraft"
+msgstr "ملفات المسودات"
+
+msgid "editor.submission.addAuditorError"
+msgstr "حدث خطأ ما عند محاولة تعيين المتابع. لطفاً، حاول مجدداً."
+
+msgid "submission.event.fileUploaded"
+msgstr "تم رفع الملف \"{$originalFileName}\" إلى طلب النشر {$submissionId} من قبل {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr "تم حذف الملف \"{$originalFileName}\" من طلب النشر {$submissionId} من قبل {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr "تم رفع الملف المنقح \"{$originalFileName}\" إلى طلب النشر {$submissionId} من قبل {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr "تم حذف الملف المنقح \"{$originalFileName}\" من طلب النشر {$submissionId} من قبل {$username}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "تم حذف آخر ملف منقح لطلب التقديم المعنون \"{$title}\" من قبل {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) قد تمت إضافته كمتابع للملف \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) قد تمت إزالته كمتابع للملف \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) قد أكمل المتابعة ورفع الملف \"{$file}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) قد سجل خروجه من الملف \"{$file}.\""
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) قد صادق على الصحيحات للمؤلَّف \"{$formatName}.\""
+
+msgid "submission.overview"
+msgstr "المؤلَّف بنظرة عامة"
+
+msgid "submission.description"
+msgstr "الوصف"
+
+msgid "submission.stageNotInitiated"
+msgstr "المرحلة لم يباشر بها بعد."
+
+msgid "submission.documents"
+msgstr "وثائق المؤلَّف"
+
+msgid "notification.type.editorAssign"
+msgstr "لقد تم تعيينك بصفة محرر لتولي متعلقات طلب النشر \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "لقد تمت مطالبتك بتنقيح التدقيقات للمؤلَّف \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "لقد تمت مطالبتك بتنقيح التصميم الطباعي للمؤلَّف \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "لقد تمت مطالبتك بإنشاء فهرس للمؤلَّف \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "قرار المحرر النهائي."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "المؤلَّف مقبول."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "بدأت عملية التحكيم الخارجي."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "التحكيم مطلوب."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "أعد التقديم للتحكيم."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "طلب النشر مرفوض."
+
+msgid "notification.uploadedResponse"
+msgstr "تم رفع الإجابة."
+
+msgid "notification.type.editorAssignment"
+msgstr "لا بد من تعيين المحرر قبل الشروع بالتحكيم. لطفاً، أضف محرراً مستعملاً قائمة المشاركين."
+
+msgid "grid.reviewAttachments.title"
+msgstr "مرفقات المحكم"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "إختر ملفات التحكيم التي تريد مشاركتها مع المؤلف/المؤلفين"
+
+msgid "submission.productionReady"
+msgstr "الكتاب متوافر"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "إرفع ملفاً محكماً"
+
+msgid "log.review.reviewerAssigned"
+msgstr "{$reviewerName} قد تم تعيينه لتحكيم المؤلَّف {$submissionId} لجولة التحكيم {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr "جولة التحكيم {$round} من قبل {$reviewerName} للمؤلَّف {$submissionId} قد إزيلت."
+
+msgid "log.review.reviewUnconsidered"
+msgstr "{$editorName} قد أشر على الجولة {$round} لطلب النشر {$submissionId} بأنها غير معتبرة."
+
+msgid "log.review.reviewReinstated"
+msgstr "جولة التحكيم {$round} من قبل {$reviewerName} للمؤلَّف {$submissionId} قد أعيد الشروع بها."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "بانتظار استجابة المحكم."
+
+msgid "submission.review.status.declined"
+msgstr "لقد أعرض المحكم عن معاينة هذا المؤلَّف."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "لقد تجاوز المحكم موعد إبداء الرأي بشأن تولي التحكيم."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "لقد تجاوز المحكم موعد تقديم التحكيم."
+
+msgid "submission.review.status.accepted"
+msgstr "لقد تم قبول هذا التحكيم."
+
+msgid "submission.review.status.received"
+msgstr "المحكم سلَّم تحكيمه."
+
+msgid "submission.review.status.complete"
+msgstr "هذا التحكيم مكتمل."
+
+msgid "submission.review.status.thanked"
+msgstr "هذا التحكيم مكتمل والمحكم قد تم شكره على مساهمته."
+
+msgid "submission.document"
+msgstr "المستند"
+
+msgid "submission.art"
+msgstr "العمل الفني"
+
+msgid "submission.supplementary"
+msgstr "المحتوى التكميلي"
+
+msgid "submission.supplementary.creator"
+msgstr "منشئ (أو مالك) الملف"
+
+msgid "submission.supplementary.subject"
+msgstr "الموضوع"
+
+msgid "submission.supplementary.publisher"
+msgstr "الناشر"
+
+msgid "submission.supplementary.sponsor"
+msgstr "الوكالة المساهمة أو الراعية"
+
+msgid "grid.action.itemWorkflow"
+msgstr "إذهب إلى المخطط الانسيابي لهذا المؤلَّف"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "بدأت عملية الإنتاج."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr "لا بد من تعيين محرر الإنتاج قبل الشروع بعملية الإنتاج. لطفاً، أضف محرراً مستعملاً قائمة المشاركين."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr "لا بد من تعيين محرر الإنتاج قبل الشروع بعملية التحرير. لطفاً، أضف محرراً مستعملاً قائمة المشاركين."
+
+msgid "submission.reviewForm"
+msgstr "نموذج التحكيم"
+
+msgid "submission.reviewFormResponse"
+msgstr "إجابة نموذج التحكيم"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "إنشاء مكون جديد لنموذج التحكيم"
+
+msgid "grid.action.editMetadata"
+msgstr "تعديل البيانات الوصفية"
+
+msgid "submission.permissions"
+msgstr "الصلاحيات"
+
+msgid "submission.attachPermissions"
+msgstr "إرفق الصلاحيات الآتية بالمؤلَّف:"
+
+msgid "submission.license"
+msgstr "الرخصة"
+
+msgid "submission.copyright"
+msgstr "الحقوق الفكرية"
+
+msgid "submission.copyrightHolder"
+msgstr "مالك الحقوق الفكرية"
+
+msgid "submission.copyrightYear"
+msgstr "سنة الحقوق الفكرية"
+
+msgid "submission.copyrightStatement"
+msgstr "الحقوق الفكرية (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "لطفاً، أدرج رابط خارجي صحيح (متضمناً http://)."
+
+msgid "submission.licenseURL"
+msgstr "رابط الرخصة"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-NonCommercial 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-NoDerivatives 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 International License</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "مناقشات ما قبل التحكيم"
+
+msgid "submission.queries.review"
+msgstr "مناقشات التحكيم"
+
+msgid "submission.queries.editorial"
+msgstr "مناقشات التدقيق"
+
+msgid "submission.queries.production"
+msgstr "مناقشات الإنتاج"
+
+msgid "submission.query.subject"
+msgstr "الموضوع"
+
+msgid "submission.query.messages"
+msgstr "المراسلات"
+
+msgid "submission.query.replies"
+msgstr "الإجابات"
+
+msgid "submission.query.from"
+msgstr "من"
+
+msgid "submission.query.lastReply"
+msgstr "آخر إجابة"
+
+msgid "submission.query.closed"
+msgstr "مغلق"
+
+msgid "submission.query.addNote"
+msgstr "أضف رسالة"
+
+msgid "submission.query.leaveQuery"
+msgstr "مغادرة المناقشة"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr "إذا غادرت هذه المناقشة، لن يتم إشعارك لاحقاً بالرسائل المستجدة. هل تريد فعلاً مغادرة المناقشة؟"
+
+msgid "grid.action.openNoteForm"
+msgstr "أضف رداً جديداً إلى المناقشة"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} أجاب عن {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} بدأ المناقشة: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr "هناك نشاط جديد في المناقشة المعنونة \"{$queryTitle}\" المتعلقة بالمؤلَّف الموسوم \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr "لقد تمت إضافتك إلى المناقشة المعنونة \"{$queryTitle}\" المتعلقة بالمؤلَّف الموسوم \"{$submissionTitle}\"."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}، {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "لا بد من تعيين مشارك واحد على الأقل لطلب التقديم هذا قبل الشروع بالمناقشة."
+
+msgid "submission.list.infoCenter"
+msgstr "سجل الوقوعات والملاحظات"
+
+msgid "submission.list.empty"
+msgstr "لا طلبات تقديم هنا."
+
+msgid "submission.list.responseDue"
+msgstr "موعد الإجابة"
+
+msgid "submission.list.reviewDue"
+msgstr "استيجاب التحكيم"
+
+msgid "submission.list.reviewComplete"
+msgstr "التحكيم مسَلم"
+
+msgid "submission.list.reviewCancelled"
+msgstr "التحكيم مُلغى"
+
+msgid "submission.list.confirmDelete"
+msgstr "أتريد حذف الطلب؟"
+
+msgid "submission.list.viewSubmission"
+msgstr "معاينة الطلب"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "مهام التحكيم مكتملة"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "التحكيمات مسلَّمة"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "ملفات التدقيق مسلَّمة"
+
+msgid "submission.list.galleysCreated"
+msgstr "الألواح الطباعية منشأة"
+
+msgid "submission.list.filesPrepared"
+msgstr "الملفات محضرة"
+
+msgid "submission.list.discussions"
+msgstr "المناقشات المفتوحة"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr "بإمكانك تعيين عدة أدوار لطلب النشر هذا. هل ترغب بالوصول إلى <a href=\"{$urlAuthorWorkflow}\">المخطط الانسيابي للمؤلف</a> أو <a href=\"{$urlEditorialWorkflow}\">المخطط الانسيابي للتحرير</a>؟"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr "لقد عينت دوراً تحريرياً لطلب التقديم هذا. هل ترغب بالوصول إلى <a href=\"{$urlEditorialWorkflow}\">المخطط الانسيابي للتحرير</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "لا بد من إكمال طلب التقديم هذا قبل أن يتسنى للمحرر معاينته."
+
+msgid "submission.list.currentStage"
+msgstr "حالياً، في مرحلة {$stage}."
+
+msgid "submission.list.assignEditor"
+msgstr "تعيين المحرر"
+
+msgid "grid.category.categories"
+msgstr "الفئات"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "العنوان (أ-ي)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "العنوان (ي-أ)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "تأريخ النشر (الأقدم أولاً)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "تأريخ النشر (الأحدث أولاً)"
+
+msgid "category.coverImage"
+msgstr "صورة الغلاف"
+
+msgid "submission.submit.placement.categories"
+msgstr "الفئات"
+
+msgid "submission.currentCoverImage"
+msgstr "الصورة الحالية"
+
+msgid "catalog.category.noItems"
+msgstr "لم يتم نشر أي شيء من هذه الفئة بعد."
+
+msgid "catalog.category.subcategories"
+msgstr "الفئات الفرعية"
+
+msgid "submission.production.version"
+msgstr "النسخة {$submissionVersion}"
+
+msgid "submission.production.newVersion"
+msgstr "نسخة جديدة"
+
+msgid "submission.production.editMetadata"
+msgstr "البيانات الوصفية لهذه النسخة"
+
+msgid "submission.production.editMetadata.info"
+msgstr "هذه هي البيانات الوصفية للنسخة {$version}."
+
+msgid "submission.production.editMetadata.previous"
+msgstr "النسخ السابقة يمكن معاينتها في التبويب المعني عند مرحلة الإنتاج."

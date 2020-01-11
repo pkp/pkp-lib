@@ -1,0 +1,319 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Name der Einstellung"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Wert der Einstellung"
+
+msgid "admin.adminFunctions"
+msgstr "Administrationsaufgaben"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Sind Sie sicher, dass Sie diese Authentifizierungsquelle endgültig löschen möchten?"
+
+msgid "admin.auth.create"
+msgstr "Authentifizierungsquelle erstellen"
+
+msgid "admin.auth.noneCreated"
+msgstr "Keine Authentifizierungsquelle definiert."
+
+msgid "admin.authSources"
+msgstr "Authentifizierungsquellen"
+
+msgid "admin.clearDataCache"
+msgstr "Den Datenspeicher leeren"
+
+msgid "admin.clearTemplateCache"
+msgstr "Den Vorlagenspeicher leeren"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, dass Sie, falls Ihre Seite nicht mehr richtig arbeitet, eventuell die Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config.inc.php</tt> bearbeiten."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Sind Sie sicher, dass Sie den Vorlagenspeicher leeren wollen?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich danach neu einloggen."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Inhalt der Konfigurationsdatei"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Sind Sie sicher, dass Sie {$contextName} und den gesamten zugehörigen Inhalt dauerhaft löschen wollen?"
+
+msgid "admin.currentVersion"
+msgstr "Aktuelle Version"
+
+msgid "admin.dateInstalled"
+msgstr "Installiert am"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Der Inhalt Ihrer aktualisierten Konfiguration wird nachstehend angezeigt. Öffnen Sie <tt>config.inc.php</tt> mit einem geeigneten Texteditor und ersetzen Sie den Inhalt durch den Text im nachstehenden Textfeld."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Neue Konfiguration anzeigen"
+
+msgid "admin.expireSessions"
+msgstr "Benutzer/innensitzungen schließen"
+
+msgid "admin.languages.download"
+msgstr "Regionaleinstellung herunterladen"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Regionaleinstellungen herunterladen"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Die Sprachbeschreibung von der PKP-Webseite kann nicht geöffnet werden."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Die neue Regionaleinstellung kann nicht zu der Registrierungsdatei für Regionaleinstellungen (üblicherweise \"registry/locales.xml\") hinzugefügt werden."
+
+msgid "admin.languages.cantDisable"
+msgstr "Diese Sprache ist die primäre Sprache dieser Website. Sie können sie erst deaktivieren, wenn Sie eine andere primäre Regionalausstellung ausgewählt haben."
+
+msgid "admin.languages.confirmReload"
+msgstr "Sind Sie sicher, dass Sie diese Regionaleinstellung neu laden wollen? Dadurch werden alle regionalspezifischen Daten (wie z.B. angepasste E-Mail-Vorlagen) gelöscht."
+
+msgid "admin.languages.installedLocales"
+msgstr "Eingerichtete Regionaleinstellungen"
+
+msgid "admin.languages.installLanguages"
+msgstr "Regionaleinstellungen verwalten"
+
+msgid "admin.languages.availableLocales"
+msgstr "Verfügbare Regionaleinstellungen"
+
+msgid "admin.languages.installLocale"
+msgstr "Regionaleinstellungen installieren"
+
+msgid "admin.languages.installLocales"
+msgstr "Installieren"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Neue Regionaleinstellungen installieren"
+
+msgid "admin.languages.languageSettings"
+msgstr "Spracheinstellungen"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Keine weiteren Regionaleinstellungen verfügbar."
+
+msgid "admin.languages.reload"
+msgstr "Regionaleinstellung neu laden"
+
+msgid "admin.languages.uninstall"
+msgstr "Regionaleinstellung deinstallieren"
+
+msgid "admin.phpInfo"
+msgstr "Ausführliche Informationen zu PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Geplante Aufgabe"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Geplante Aufgabe wurde gestartet."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Geplante Aufgabe wurde beendet."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Geplante Aufgabe hat keine Logdatei erzeugt."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Ihre {$softwareName}-Installation hat diese Aufgabe automatisch ausgeführt und beendet. Sie können die Logdatei hier herunterladen: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Sind Sie sicher, dass Sie alle Logdateien zu geplanten Aufgaben löschen möchten?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Logdateien zur Ausführung geplanter Aufgaben löschen"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Erinnerung an Begutachtung"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Erinnerung an Ende des Abonnements"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache-Version"
+
+msgid "admin.server.dbDriver"
+msgstr "Datenbanktreiber"
+
+msgid "admin.server.dbVersion"
+msgstr "Version des Datenbankservers"
+
+msgid "admin.serverInformation"
+msgstr "Serverinformationen"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP-Version"
+
+msgid "admin.server.platform"
+msgstr "OS-Plattform"
+
+msgid "admin.settings"
+msgstr "Einstellungen"
+
+msgid "admin.settings.about"
+msgstr "Beschreibung Über uns"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-Mail-Adresse des Hauptkontakts"
+
+msgid "admin.settings.contactName"
+msgstr "Name des Hauptkontakts"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tIhre Installation ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.\n"
+"\t\tEs gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Beiträge angezeigt werden soll oder um\n"
+"\t\tSuchergebnisse zu gewichten. Bitte wählen Sie eine der Nutzungsmetriken als Standard aus.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Einführung"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Mindestlänge des Passworts"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Sprache der Website"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Ungültiges Format für die Formatvorlage der Website. Gültiges Format ist .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Formatvorlage der Website"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo der Website"
+
+msgid "admin.settings.siteTitle"
+msgstr "Titel der Website"
+
+msgid "admin.settings.siteTheme"
+msgstr "Thema der Website"
+
+msgid "admin.siteAdmin"
+msgstr "Administration der Website"
+
+msgid "admin.siteManagement"
+msgstr "Management der Website"
+
+msgid "admin.siteSettings"
+msgstr "Einstellungen der Website"
+
+msgid "admin.siteSetup"
+msgstr "Einrichtung der Website"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Die Konfigurationsdatei <tt>config.inc.php</tt> ist nicht vorhanden, nicht lesbar oder ungültig."
+
+msgid "admin.systemInformation"
+msgstr "Systeminformationen"
+
+msgid "admin.versionBuild"
+msgstr "Build"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Nach Aktualisierungen suchen"
+
+msgid "admin.version.downloadPackage"
+msgstr "Herunterladen"
+
+msgid "admin.version.downloadPatch"
+msgstr "Patch herunterladen"
+
+msgid "admin.versionHistory"
+msgstr "Bisherige Versionen"
+
+msgid "admin.version.latest"
+msgstr "Neueste Version"
+
+msgid "admin.versionMajor"
+msgstr "Hauptversion"
+
+msgid "admin.versionMinor"
+msgstr "Unterversion"
+
+msgid "admin.version.moreInfo"
+msgstr "Nähere Informationen"
+
+msgid "admin.versionRevision"
+msgstr "Revision"
+
+msgid "admin.version.updateAvailable"
+msgstr "Eine aktuellere Version ist verfügbar."
+
+msgid "admin.version.upToDate"
+msgstr "Ihr System ist auf dem aktuellen Stand."
+
+msgid "admin.version"
+msgstr "Version"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden."
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Die Datei {$filename} wurde verarbeitet und archiviert."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Fileloader"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopiere die übergebenen Apache-Zugriffsdatei(en), woraus die mit dieser Installation zusammenhängenden Einträge ausgewählt werden,\n"
+"in das aktuelle Dateiverzeichnis innerhalb des Vorbereitungs-Verzeichnisses des UsageStats-Plugins. Muss unter einem Benutzer mit ausreichenden Rechten für den Lesezugriff auf Apache-Log-Dateien ausgeführt werden.\n"
+"\n"
+"Dieses Werkzeug wird nur Dateien kopieren, die nicht bereits in den usageStats-Verzeichnissen (Vorbereitung, Bearbeitung, Archiv, zurückgewiesen) sind.\n"
+"\n"
+"Benutzung: {$scriptName} path/to/apache/log/file.log\n"
+"Benutzung (verarbeite alle Dateien in einem Verzeichnis): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Fehler: kann temporären Ordner {$tmpDir} nicht anlegen"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Fehler: Datei {$filePath} existiert nicht, oder es kann nicht auf sie zugegriffen werden."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Fehler: kann Datei nicht von {$filePath} nach {$tmpFilePath} kopieren"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Fehler: kann Datei {$tmpFilePath} nicht löschen"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Warnung: Datei {$filePath} gibt es bereits im Verzeichnis der Nutzungsstatistiken."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Erfolgreich kopiert: {$filePath} nach {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Die Ausführung des Programms \"{$utilPath}\" hat den folgenden Fehler geliefert: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Fehler: Ausführung von \"{$utilPath}\" nicht möglich. Überprüfen Sie die {$utilVar}-Einstellung in config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Es sind keine Regionaleinstellungen zum Download verfügbar."

@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionAuthorPolicy.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAuthorPolicy
@@ -16,6 +16,7 @@
  */
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 
 class SubmissionAuthorPolicy extends AuthorizationPolicy {
 	/** @var PKPRequest */
@@ -45,13 +46,26 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
 
+		$context = $this->_request->getContext();
+
 		// Check authorship of the submission. Any ROLE_ID_AUTHOR assignment will do.
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
+		$workflowStages = Application::getApplicationStages();
 		while ($assignment = $submitterAssignments->next()) {
 			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
 			if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+
+				$accessibleWorkflowStages = array();
+				foreach ($workflowStages as $stageId) {
+					$accessibleStageRoles = Services::get('user')->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
+					if (!empty($accessibleStageRoles)) {
+						$accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
+					}
+				}
+				$this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+
 				return AUTHORIZATION_PERMIT;
 			}
 		}

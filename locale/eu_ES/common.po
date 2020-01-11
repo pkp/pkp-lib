@@ -1,0 +1,1002 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
+"Language: \n"
+
+msgid "about.aboutSite"
+msgstr "Guneari buruz"
+
+msgid "about.contact"
+msgstr "Kontaktua"
+
+msgid "about.contact.email"
+msgstr "Helb. el."
+
+msgid "about.contact.phone"
+msgstr "Telefonoa"
+
+msgid "about.contact.principalContact"
+msgstr "Kontaktu nagusia"
+
+msgid "about.contact.supportContact"
+msgstr "Laguntza teknikoko kontaktua"
+
+msgid "about.other"
+msgstr "Bestelakoak"
+
+msgid "about.people"
+msgstr "Jendea"
+
+msgid "about.policies"
+msgstr "Politikak"
+
+msgid "about.siteMap"
+msgstr "Gunearen mapa"
+
+msgid "announcement.announcements"
+msgstr "Anuntzioak"
+
+msgid "announcement.announcementsHome"
+msgstr "Anuntzioak"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Anuntzio gehiago..."
+
+msgid "announcement.noneExist"
+msgstr "Ez da anuntziorik argitaratu."
+
+msgid "announcement.posted"
+msgstr "Argitaratuta"
+
+msgid "announcement.viewLink"
+msgstr "Gehiago..."
+
+msgid "announcement.view"
+msgstr "Ikusi anuntzioa"
+
+msgid "common.copy"
+msgstr "Kopiatu"
+
+msgid "common.preview"
+msgstr "Aurrebista"
+
+msgid "common.activate"
+msgstr "Aktibatu"
+
+msgid "common.deactivate"
+msgstr "Desaktibatu"
+
+msgid "common.action"
+msgstr "Ekintza"
+
+msgid "common.active"
+msgstr "Aktibo"
+
+msgid "common.add"
+msgstr "Gehitu"
+
+msgid "common.addSelf"
+msgstr "Gehitu nire burua"
+
+msgid "common.all"
+msgstr "Denak"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z"
+
+msgid "common.alreadyAssigned"
+msgstr "Esleituta"
+
+msgid "common.altText"
+msgstr "Ordezko testua"
+
+msgid "common.and"
+msgstr "-"
+
+msgid "common.applyAction"
+msgstr "Aplikatu ekintza"
+
+msgid "common.assign"
+msgstr "Esleitu"
+
+msgid "common.assigned"
+msgstr "Esleituta"
+
+msgid "common.back"
+msgstr "Atzera"
+
+msgid "common.between"
+msgstr "epe honetan:"
+
+msgid "common.cancel"
+msgstr "Utzi"
+
+msgid "common.cancelled"
+msgstr "Ezereztuta"
+
+msgid "common.captchaField.altText"
+msgstr "Balidazio-irudia"
+
+msgid "common.captchaField.badCaptcha"
+msgstr "Idatzi dituzun karaktereak ez datoz bat irudiko karaktereekin. Zuzendu karaktereak eta saiatu berriro."
+
+msgid "common.captchaField.description"
+msgstr "Idatzi goiko irudian ikusten diren letrak."
+
+msgid "common.captchaField"
+msgstr "Balidazioa"
+
+msgid "common.changesSaved"
+msgstr "Aldaketak gorde dira."
+
+msgid "common.chooseOne"
+msgstr "Aukeratu bat"
+
+msgid "common.close"
+msgstr "Itxi"
+
+msgid "common.closeWindow"
+msgstr "Itxi leihoa"
+
+msgid "common.complete"
+msgstr "Bukatu"
+
+msgid "common.completed"
+msgstr "Bukatuta"
+
+msgid "common.continue"
+msgstr "Jarraitu"
+
+msgid "common.country"
+msgstr "Estatua"
+
+msgid "common.create"
+msgstr "Sortu"
+
+msgid "common.dateCompleted"
+msgstr "Bukatze-data"
+
+msgid "common.date"
+msgstr "Data"
+
+msgid "common.dateModified"
+msgstr "Aldatze-data"
+
+msgid "common.dateRequested"
+msgstr "Eskatze-data"
+
+msgid "common.dateSubmitted"
+msgstr "Bidaltze-data"
+
+msgid "common.dateUploaded"
+msgstr "Kargatze-data"
+
+msgid "common.day"
+msgstr "Eguna"
+
+msgid "common.default"
+msgstr "Lehenetsia"
+
+msgid "common.delete"
+msgstr "Ezabatu"
+
+msgid "common.deleteSelection"
+msgstr "Ezabatu hautapena"
+
+msgid "common.description"
+msgstr "Azalpena"
+
+msgid "common.disabled"
+msgstr "Desgaituta"
+
+msgid "common.discipline"
+msgstr "Diziplina"
+
+msgid "common.done"
+msgstr "Eginda"
+
+msgid "common.download"
+msgstr "Deskargatu"
+
+msgid "common.edit"
+msgstr "Editatu"
+
+msgid "common.enabled"
+msgstr "Gaituta"
+
+msgid "common.error.databaseError"
+msgstr "Datu-baseko errore bat gertatu da: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Datu-baseko konexio-errore ezezagun bat gertatu da."
+
+msgid "common.error.framesRequired"
+msgstr "Orri honek markoak erabiltzen ditu. Egin klik <a href=\"{$url}\">hemen</a> markorik gabeko bertsioa ikusteko."
+
+msgid "common.event"
+msgstr "Gertaera"
+
+msgid "common.export"
+msgstr "Esportatu"
+
+msgid "common.file"
+msgstr "Fitxategia"
+
+msgid "common.fileName"
+msgstr "Fitxategi-izena"
+
+msgid "common.fileSize"
+msgstr "Fitxategi-tamaina"
+
+msgid "common.fileType"
+msgstr "Fitxategi mota"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.height"
+msgstr "Altuera"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Hasierako orriaren goiburuko logoa"
+
+msgid "common.hour"
+msgstr "Ordua"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Inportatu"
+
+msgid "common.initiate"
+msgstr "Hasi"
+
+msgid "common.inProgress"
+msgstr "Lanean"
+
+msgid "common.keywords"
+msgstr "Gako-hitzak"
+
+msgid "common.language"
+msgstr "Hizkuntza"
+
+msgid "common.languages"
+msgstr "Hizkuntzak"
+
+msgid "common.mailingAddress"
+msgstr "Posta-helbidea"
+
+msgid "common.minute"
+msgstr "Minutua(k)"
+
+msgid "common.modify"
+msgstr "Aldatu"
+
+msgid "common.month"
+msgstr "Hila"
+
+msgid "common.noneAssigned"
+msgstr "Esleitu gabe"
+
+msgid "common.none"
+msgstr "Bat ere ez"
+
+msgid "common.no"
+msgstr "Ez"
+
+msgid "common.notApplicable"
+msgstr "Ez da aplikagarria"
+
+msgid "common.notApplicableShort"
+msgstr "E/A"
+
+msgid "common.notAvailable"
+msgstr "Ez dago erabilgarri"
+
+msgid "common.note"
+msgstr "Oharra"
+
+msgid "common.notes"
+msgstr "Oharrak"
+
+msgid "common.off"
+msgstr "Off"
+
+msgid "common.on"
+msgstr "On"
+
+msgid "common.options"
+msgstr "Aukerak"
+
+msgid "common.order"
+msgstr "Ordena"
+
+msgid "common.originalFileName"
+msgstr "Jatorrizko izena"
+
+msgid "common.or"
+msgstr "edo"
+
+msgid "common.other"
+msgstr "Bestelakoak"
+
+msgid "common.plugin"
+msgstr "Plugina"
+
+msgid "common.publisher"
+msgstr "Argitaratzailea"
+
+msgid "common.record"
+msgstr "Grabatu"
+
+msgid "common.related"
+msgstr "Erlazionatua"
+
+msgid "common.remove"
+msgstr "Kendu"
+
+msgid "common.removeSelection"
+msgstr "Kendu hautapena"
+
+msgid "common.replaced"
+msgstr "Ordeztuta"
+
+msgid "common.replaceFile"
+msgstr "Ordeztu fitxategia"
+
+msgid "common.requiredField"
+msgstr "* Nahitaezko eremua adierazten du"
+
+msgid "common.required"
+msgstr "Nahitaezkoa"
+
+msgid "common.saveAndContinue"
+msgstr "Gorde eta jarraitu"
+
+msgid "common.saveAndEmail"
+msgstr "Gorde eta bidali mezu el."
+
+msgid "common.save"
+msgstr "Gorde"
+
+msgid "common.search"
+msgstr "Bilatu"
+
+msgid "common.second"
+msgstr "Segundoa(k)"
+
+msgid "common.selectAll"
+msgstr "Hautatu dena"
+
+msgid "common.selectNone"
+msgstr "Ez hautatu bat ere"
+
+msgid "common.select"
+msgstr "Hautatu"
+
+msgid "common.size"
+msgstr "Tamaina"
+
+msgid "common.source"
+msgstr "Iturburua"
+
+msgid "common.status"
+msgstr "Egoera"
+
+msgid "common.subject"
+msgstr "Gaia"
+
+msgid "common.suggest"
+msgstr "Proposatu"
+
+msgid "common.title"
+msgstr "Titulua"
+
+msgid "common.top"
+msgstr "Orri-hasierara"
+
+msgid "common.type"
+msgstr "Mota"
+
+msgid "common.uninitiated"
+msgstr "Hasi gabe"
+
+msgid "common.untitled"
+msgstr "Izengabea"
+
+msgid "common.updated"
+msgstr "Eguneratuta"
+
+msgid "common.upload"
+msgstr "Kargatu"
+
+msgid "common.up"
+msgstr "Gora"
+
+msgid "common.url"
+msgstr "URLa"
+
+msgid "common.user"
+msgstr "Erabiltzailea"
+
+msgid "common.view"
+msgstr "Ikusi"
+
+msgid "common.weeks"
+msgstr "aste"
+
+msgid "common.width"
+msgstr "Zabalera"
+
+msgid "common.year"
+msgstr "Urtea"
+
+msgid "common.yes"
+msgstr "Bai"
+
+msgid "debug.databaseQueries"
+msgstr "Datu-base kontsulten kopurua"
+
+msgid "debug.executionTime"
+msgstr "Page generated in"
+
+msgid "debug.memoryUsage"
+msgstr "Memoria-erabilera:"
+
+msgid "debug.notes.localeListLoad"
+msgstr "{$localeList} locale-zerrenda XMLtik kargatu da"
+
+msgid "debug.notes.localeLoad"
+msgstr "{$localeFile} locale-fitxategia XMLtik kargatu da"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "{$key} locale-gakoa falta da"
+
+msgid "debug.notes"
+msgstr "Oharrak:"
+
+msgid "email.addAttachment"
+msgstr "Gehitu eranskina"
+
+msgid "email.addBccRecipient"
+msgstr "Gehitu BCC"
+
+msgid "email.addCcRecipient"
+msgstr "Gehitu CC"
+
+msgid "email.addToRecipient"
+msgstr "Gehitu hartzailea"
+
+msgid "email.attachments"
+msgstr "Eranskinak"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Bidali mezu honen kopia nire helbidera ({$address})"
+
+msgid "email.body"
+msgstr "Gorputza"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Bidali mezua"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Bidali nahi duzun mezuak hartzaile gehiegi ditu."
+
+msgid "email.compose.tooSoon"
+msgstr "Denbora gutxiegi igaro da azkeneko mezua bidali zenuenetik. Itxaron egin beharko duzu beste mezu bat bidali aurretik."
+
+msgid "email.email"
+msgstr "Mezu el."
+
+msgid "email.from"
+msgstr "Nork"
+
+msgid "email.invalid"
+msgstr "{$email} helbide elektronikoa ez da baliozkoa."
+
+msgid "email.multipart"
+msgstr "MIME formatuko zati anitzeko mezua da hau."
+
+msgid "email.recipient"
+msgstr "Hartzailea"
+
+msgid "email.recipients"
+msgstr "Hartzaileak"
+
+msgid "email.sender"
+msgstr "Bidaltzailea"
+
+msgid "email.send"
+msgstr "Bidali"
+
+msgid "email.skip"
+msgstr "Saltatu mezua"
+
+msgid "email.subject"
+msgstr "Gaia"
+
+msgid "email.to"
+msgstr "Nori"
+
+msgid "form.contains"
+msgstr "hau dauka"
+
+msgid "form.errorsOccurred"
+msgstr "Erroreak gertatu dira inprimaki hau prozesatzean"
+
+msgid "form.formLanguage.description"
+msgstr "Beheko informazioa beste hizkuntza batzuetan sartzeko, hautatu hizkuntza."
+
+msgid "form.formLanguage"
+msgstr "Hizkuntza"
+
+msgid "form.is"
+msgstr "da"
+
+msgid "form.postRequired"
+msgstr "Inprimakia ez da ondo bidali."
+
+msgid "form.required"
+msgstr "(* Nahitaezkoa)"
+
+msgid "form.resubmit"
+msgstr "Birbidali"
+
+msgid "form.saveToUpload"
+msgstr "Fitxategia kargatzeko, hautatu Gorde."
+
+msgid "form.send"
+msgstr "Bidali"
+
+msgid "form.submit"
+msgstr "Bidali"
+
+msgid "help.contents"
+msgstr "Edukia"
+
+msgid "help.help"
+msgstr "Laguntza"
+
+msgid "help.helpIndex"
+msgstr "Laguntza-indizea"
+
+msgid "help.matchesFound"
+msgstr "{$matches} gai aurkitu dira"
+
+msgid "help.noMatchingTopics"
+msgstr "Ez da laguntza-gairik aurkitu"
+
+msgid "help.relatedTopics"
+msgstr "Inguruko gaiak"
+
+msgid "help.searchFor"
+msgstr "Bilatu laguntza-gaiak:"
+
+msgid "help.searchResultsFor"
+msgstr "Galdera:"
+
+msgid "help.searchResults"
+msgstr "Bilaketaren emaitza"
+
+msgid "help.search"
+msgstr "Bilatu laguntza"
+
+msgid "help.toc"
+msgstr "Aurkibidea"
+
+msgid "help.upALevel"
+msgstr "Igo maila bat"
+
+msgid "icon.checked.alt"
+msgstr "Hautatuta"
+
+msgid "icon.comment.alt"
+msgstr "Oharra"
+
+msgid "icon.delete.alt"
+msgstr "Ezabatu"
+
+msgid "icon.edit.alt"
+msgstr "Editatu"
+
+msgid "icon.folder.alt"
+msgstr "Karpeta"
+
+msgid "icon.font_large.alt"
+msgstr "Handia"
+
+msgid "icon.font_medium.alt"
+msgstr "Tartekoa"
+
+msgid "icon.font_small.alt"
+msgstr "Txikia"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Gutuna"
+
+msgid "icon.mail.alt"
+msgstr "Mezua"
+
+msgid "icon.unchecked.alt"
+msgstr "Hautatu gabe"
+
+msgid "icon.view.alt"
+msgstr "Ikusi"
+
+msgid "locale.primary"
+msgstr "Locale nagusia"
+
+msgid "locale.supported"
+msgstr "Onartutako localeak"
+
+msgid "navigation.about"
+msgstr "Guri buruz"
+
+msgid "navigation.browse"
+msgstr "Arakatu"
+
+msgid "navigation.browseByTitle"
+msgstr "Tituluz"
+
+msgid "navigation.home"
+msgstr "Hasiera"
+
+msgid "navigation.infoForReaders"
+msgstr "Irakurleentzat"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Irakurleentzako informazioa"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} / {$total}"
+
+msgid "navigation.login"
+msgstr "Hasi saioa"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Hurrengo urratsa"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Aurreko urratsa"
+
+msgid "navigation.register"
+msgstr "Erregistratu"
+
+msgid "navigation.search"
+msgstr "Bilatu"
+
+msgid "navigation.stepNumber"
+msgstr "{$step}. urratsa"
+
+msgid "navigation.userHome"
+msgstr "Erabiltzaile-hasiera"
+
+msgid "navigation.user"
+msgstr "Erabiltzailea"
+
+msgid "search.abstract"
+msgstr "Laburpena"
+
+msgid "search.author"
+msgstr "Egileak"
+
+msgid "search.coverage"
+msgstr "Estaldura"
+
+msgid "search.date"
+msgstr "Data"
+
+msgid "search.dateFrom"
+msgstr "Noiztik"
+
+msgid "search.dateTo"
+msgstr "Noiz arte"
+
+msgid "search.discipline"
+msgstr "Diziplina(k)"
+
+msgid "search.fullText"
+msgstr "Testu osoa"
+
+msgid "search.indexTerms"
+msgstr "Indizeko terminoak"
+
+msgid "search.matchAll"
+msgstr "Kategoria guztietan"
+
+msgid "search.noKeywordError"
+msgstr "Gako-hitz bat behintzat sartu behar duzu bilaketa egiteko."
+
+msgid "search.noResults"
+msgstr "Emaitzarik ez"
+
+msgid "search.operator.and"
+msgstr "ETA"
+
+msgid "search.operator.not"
+msgstr "EZ"
+
+msgid "search.operator.or"
+msgstr "EDO"
+
+msgid "search.reviseSearch"
+msgstr "Berrikusi bilaketa"
+
+msgid "search.searchAllCategories"
+msgstr "Bilatu kategoria guztietan"
+
+msgid "search.searchCategories"
+msgstr "Bilaketa egiteko kategoriak"
+
+msgid "search.searchResults"
+msgstr "Bilaketaren emaitza"
+
+msgid "search.subject"
+msgstr "Gako-hitza(k)"
+
+msgid "search.titleIndex"
+msgstr "Arakatu tituluen indizea"
+
+msgid "search.title"
+msgstr "Titulua"
+
+msgid "search.typeMethodApproach"
+msgstr "Mota (metodoa/hurbilketa)"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.ccLicense"
+msgstr ""
+"<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\tLan hau baimentzen du: <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tLan hau baimentzen du: <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t</div>"
+
+msgid "common.false"
+msgstr "Faltsua"
+
+msgid "common.manage"
+msgstr "Kudeatu"
+
+msgid "common.noComments"
+msgstr "Iruzkinik ez"
+
+msgid "common.ok"
+msgstr "Ados"
+
+msgid "common.true"
+msgstr "Egiazkoa"
+
+msgid "common.uploadFailed"
+msgstr "Fitxategia ezin izan da kargatu. Saiatu berriro edo administratzailearekin harremanetan jarri arazoak jarraitzen badu."
+
+msgid "form.startsWith"
+msgstr "honela hasten da"
+
+msgid "navigation.dashboard"
+msgstr "Aginte-panela"
+
+msgid "notification.allow"
+msgstr "Onartu horrelako jakinarazpenak nire jakinarazpen barran agertzea."
+
+msgid "notification.confirmError"
+msgstr "Errorea harpidetza baieztatzean."
+
+msgid "notification.confirmSuccess"
+msgstr "Harpidetza burutu da."
+
+msgid "notification.noneExist"
+msgstr "Une honetan ez duzu jakinarazpenik."
+
+msgid "notification.notification"
+msgstr "Jakinarazpena"
+
+msgid "notification.notifications"
+msgstr "Jakinarazpenak"
+
+msgid "notification.settings"
+msgstr "Jakinarazpen ezarpenak"
+
+msgid "notification.settingsDescription"
+msgstr "Hautatu sistemako zer gertaerei buruzko informazioa jaso nahi duzun. Elementu bat ezabatuz gero gertaera horri buruzko jakinarazpenik ez da agertuko jakinarazpen barran."
+
+msgid "notification.reminderError"
+msgstr "Errorea pasahitza bidaltzean, egiaztatu posta elektronikoko helbidea zuzen idatzi duzula."
+
+msgid "notification.reminderSent"
+msgstr "Pasahitz berria bidali da emandako posta elektronikoko helbidera."
+
+msgid "common.disable"
+msgstr "Desgaitu"
+
+msgid "common.enable"
+msgstr "Gaitu"
+
+msgid "common.fullscreen"
+msgstr "Pantaila osoa"
+
+msgid "common.fullscreenOff"
+msgstr "Kendu pantaila osoa"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\" plugina gaitu da."
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" plugina desgaitu da."
+
+msgid "common.refresh"
+msgstr "Freskatu"
+
+msgid "common.loading"
+msgstr "Kargatzen..."
+
+msgid "announcement.postedOn"
+msgstr "Bidalia {$postDate}"
+
+msgid "common.accepted"
+msgstr "Onartua"
+
+msgid "common.acknowledged"
+msgstr "Jasoa"
+
+msgid "common.warning"
+msgstr "Oharra"
+
+msgid "common.confirm"
+msgstr "Baieztatu"
+
+msgid "common.content"
+msgstr "Edukia"
+
+msgid "common.declined"
+msgstr "Uko egina"
+
+msgid "common.finish"
+msgstr "Amaitua"
+
+msgid "common.go"
+msgstr "Aurrera"
+
+msgid "common.less"
+msgstr "Gutxiago"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.billingAddress"
+msgstr "Fakturatze helbidea (desberdina izanez gero)"
+
+msgid "common.more"
+msgstr "Gehiago"
+
+msgid "common.notified"
+msgstr "Jakinarazia"
+
+msgid "common.noMatches"
+msgstr "Ez dago bat datorrenik"
+
+msgid "common.overdue"
+msgstr "Atzeratua"
+
+msgid "common.reminder"
+msgstr "Gogorarazlea"
+
+msgid "common.remote"
+msgstr "Urruneko"
+
+msgid "common.remoteURL"
+msgstr "UrrunekoURL"
+
+msgid "common.reset"
+msgstr "Berrezarri"
+
+msgid "common.signoff"
+msgstr "Itxi saioa"
+
+msgid "common.element"
+msgstr "Elementu"
+
+msgid "common.unread"
+msgstr "Irakurri gabea"
+
+msgid "common.plugins"
+msgstr "Pluginak"
+
+msgid "email.subjectRequired"
+msgstr "Mesedez, idatzi mezuaren gaia"
+
+msgid "email.bodyRequired"
+msgstr "Mesedez, idatzi mezuaren testua"
+
+msgid "form.confirmSubmit"
+msgstr "Ziur zaude inprimaki hau bidali nahi duzula?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Baieztatu"
+
+msgid "form.emailRequired"
+msgstr "Beharrezkoa da helbide elektroniko bat."
+
+msgid "form.dataHasChanged"
+msgstr "Inprimaki honetako datuak aldatu dira. Jarraitu hala ere?"
+
+msgid "form.invalidImage"
+msgstr "Irudi baliogabe bat kargatu da. Onartzen diren formatuak: .png, .gif, edo .jpg."
+
+msgid "navigation.admin"
+msgstr "Administrazioa"
+
+msgid "navigation.data"
+msgstr "Datuak"
+
+msgid "navigation.settings"
+msgstr "Ezarpenak"
+
+msgid "navigation.sitemap"
+msgstr "Gunearen mapa"
+
+msgid "navigation.system"
+msgstr "Sistema"
+
+msgid "navigation.userManagement"
+msgstr "Erabiltzaileen kudeaketa"
+
+msgid "navigation.browseByAuthor"
+msgstr "Egileka"
+
+msgid "navigation.publicMenu"
+msgstr "Menu publikoa"
+
+msgid "navigation.setup"
+msgstr "Konfigurazioa"
+
+msgid "navigation.submissions"
+msgstr "Aurkezpenak"
+
+msgid "navigation.access"
+msgstr "&amp erabiltzaileak; eginkizunak"
+
+msgid "semicolon"
+msgstr "{$label}:"

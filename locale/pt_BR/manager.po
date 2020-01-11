@@ -1,0 +1,1442 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
+"PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
+"Language: \n"
+
+msgid "manager.website.information"
+msgstr "Informação"
+
+msgid "manager.website.appearance"
+msgstr "Aparência"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Um arquivo de imagem é requerido. Certifique-se de que escolheu e enviou um arquivo."
+
+msgid "manager.announcements"
+msgstr "Notícias"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Deseja realmente excluir permanentemente esta notícia?"
+
+msgid "manager.announcements.create"
+msgstr "Criar nova notícia"
+
+msgid "manager.announcements.createTitle"
+msgstr "Criar"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Expiração"
+
+msgid "manager.announcements.edit"
+msgstr "Editar notícia"
+
+msgid "manager.announcements.editTitle"
+msgstr "Editar"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Escolha o ano e/ou mês além do dia de expiração."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Expira em"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "A notícia será exibida aos leitores até esta data. Deixe em branco caso deseje exibir a notícia permanentemente."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Escolha o ano e/ou dia além do mês de expiração."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Escolha uma data de expiração válida."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Escolha o mês e/ou dia além do ano de expiração."
+
+msgid "manager.announcements.form.description"
+msgstr "Corpo da notícia"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "O texto completo da notícia."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "O corpo da notícia é obrigatório."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Um texto introdutório a ser exibido com o título da notícia."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "A introdução da notícia é obrigatória."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Introdução"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Salvar e criar outra"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "O título da notícia é obrigatório."
+
+msgid "manager.announcements.form.title"
+msgstr "Título"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tipo"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Escolha um tipo válido de notícia."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Não há notícias."
+
+msgid "manager.announcements.title"
+msgstr "Título"
+
+msgid "manager.announcements.type"
+msgstr "Tipo"
+
+msgid "manager.announcementTypes"
+msgstr "Tipos de notícia"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Aviso! Todas as notícias deste tipo serão excluídas. Deseja realmente continuar e excluir este tipo de notícia?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Criar Tipo de notícia"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Criar"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Editar Tipo de notícia"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Editar"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Salvar e criar outro"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Já existe um tipo de notícia com esse nome."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nome"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Nome do tipo de notícia obrigatório."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Não há tipos de notícia."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tipo de Notícia"
+
+msgid "manager.publication.submissionStage"
+msgstr "Submissão"
+
+msgid "manager.publication.reviewStage"
+msgstr "Avaliação"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.productionStage"
+msgstr "Editoração"
+
+msgid "manager.publication.emails"
+msgstr "Emails"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Deseja realmente excluir esta mensagem padrão?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Deseja realmente restaurar este e-mail para o padrão original?"
+
+msgid "manager.emails.createEmail"
+msgstr "Criar e-mail"
+
+msgid "manager.emails.disable"
+msgstr "Desabilitar"
+
+msgid "manager.emails.editEmail"
+msgstr "Editar e-mail"
+
+msgid "manager.emails.editTestExample"
+msgstr "Editar e-mail de teste"
+
+msgid "manager.emails.emailKey"
+msgstr "Chave de e-mail"
+
+msgid "manager.emails.emailKeyExists"
+msgstr "Um e-mail com a chave informada já existe. As chaves de e-mail devem ser únicas."
+
+msgid "manager.emails.emailTemplate"
+msgstr "E-mail padrão"
+
+msgid "manager.emails.enabled"
+msgstr "Habilitar este e-mail padrão"
+
+msgid "manager.emails.enable"
+msgstr "Habilitar"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "O corpo da mensagem é obrigatório."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "O assunto da mensagem é obrigatório."
+
+msgid "manager.emails"
+msgstr "E-mails"
+
+msgid "manager.emails.reset"
+msgstr "Restaurar"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Restaurar para original"
+
+msgid "manager.filesBrowser"
+msgstr "Navegador de Arquivos"
+
+msgid "manager.files.confirmDelete"
+msgstr "Excluir este arquivo ou diretório? Um diretório deve estar vazio antes de ser excluído."
+
+msgid "manager.files.createDir"
+msgstr "Criar diretório"
+
+msgid "manager.files.emptyDir"
+msgstr "Nenhum arquivo encontrado neste diretório."
+
+msgid "manager.files.indexOfDir"
+msgstr "Índice de {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Diretório acima"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Arquivos transferidos"
+
+msgid "manager.files.uploadFile"
+msgstr "Transferir arquivo"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Deseja realmente excluir este grupo?"
+
+msgid "manager.groups.createTitle"
+msgstr "Criar título"
+
+msgid "manager.groups.editTitle"
+msgstr "Editar título"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "O título do grupo é obrigatório!"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Incluir membro"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Deseja realmente excluir este grupo?"
+
+msgid "manager.groups.membership"
+msgstr "Membros"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Não há membros neste grupo!"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Nenhum usuário encontrado"
+
+msgid "manager.groups.title"
+msgstr "Título"
+
+msgid "manager.importExport"
+msgstr "Importar/Exportar dados"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "O sistema permite opcionalmente informar conteúdo crítico em vários idiomas adicionais. Para utilizar esta ferramenta, habilite idiomas alternativos e escolha uma das opções a seguir."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Escolha, da lista de idiomas que será exibida em todas as páginas, todos os aqueles que serão suportados. A lista aparecerá caso seja escolhido mais de um idioma."
+
+msgid "manager.payment.timestamp"
+msgstr "Data de emissão"
+
+msgid "manager.people.authSource"
+msgstr "Fonte de autenticação"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Remover o usuário deste papel?"
+
+msgid "manager.people.createUser"
+msgstr "Incluir novo usuário"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Gerar senha aleatória."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Enviar login e senha via e-mail."
+
+msgid "manager.people.disable"
+msgstr "Bloquear"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Não cadastrar"
+
+msgid "manager.people.editProfile"
+msgstr "Editar Perfil"
+
+msgid "manager.people.editUser"
+msgstr "Editar perfil"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Enviar e-mail a usuários selecionados"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Enviar e-mail a usuários cadastrados como"
+
+msgid "manager.people.emailUsers"
+msgstr "Enviar e-mail aos usuários"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Selecionar idioma"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Escolha os usuários para quem deseja enviar e-mail clicando na caixa de opção ao lado do nome"
+
+msgid "manager.people.enable"
+msgstr "Habilitar"
+
+msgid "manager.people.enroll"
+msgstr "Cadastrar Usuário"
+
+msgid "manager.people.enrollment"
+msgstr "Cadastrar"
+
+msgid "manager.people.enrollSelected"
+msgstr "Cadastrar usuários selecionados"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Sincronizar papéis"
+
+msgid "manager.people.enrollSync"
+msgstr "Sincronizar cadastro"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "O sistema permite designar ou remover papéis de usuários cadastrados a qualquer momento. O histórico de atividade é perdido caso um papel seja removido e atribuído novamente ao mesmo usuário."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Cadastrar usuário como"
+
+msgid "manager.people.invalidUser"
+msgstr "Usuário não existe."
+
+msgid "manager.people.mergeUser"
+msgstr "Mesclar cadastro"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Deseja realmente mesclar o(s) {$oldAccountCount} cadastro(s) com o cadastro do usuário \"{$newUsername}\"? O(s) {$oldAccountCount} cadastro(s) será(ão) excluído(s) permanentemente. Esta ação NÃO é reversível!"
+
+msgid "manager.people.mergeUsers"
+msgstr "Mesclar cadastros"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Escolha um papel editorial antes de confirmar"
+
+msgid "manager.people.mustProvideName"
+msgstr "Informe pelo menos o sobrenome do usuário."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Nenhum usuário encontrado."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Nenhum usuário cadastrado."
+
+msgid "manager.people"
+msgstr "Equipe"
+
+msgid "manager.people.remove"
+msgstr "Remover"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Salvar e incluir outro"
+
+msgid "manager.people.signInAs"
+msgstr "Entrar no sistema como"
+
+msgid "manager.people.signInAsUser"
+msgstr "Entrar como este usuário"
+
+msgid "manager.people.syncUsers"
+msgstr "Sincronizar cadastro de usuários"
+
+msgid "manager.people.unenroll"
+msgstr "Remover papel"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Usuário incluído com sucesso."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Solicitar alteração de senha no próximo acesso ao sistema."
+
+msgid "manager.readingTools"
+msgstr "Ferramentas para Leitura"
+
+msgid "manager.roles"
+msgstr "Papéis"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "Formato de imagem inválido para a imagem da página inicial. Formatos aceitáveis são .gif, .jpg ou .png.Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "Formato de imagem inválido para o título no cabeçalho da página inicial. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Controle e Auditoria"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Formato de imagem inválido ou falha no envio para logo no cabeçalho de páginas internas. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configurações de mime_type, permissão e dono de pasta, e tamanho de arquivo permitido."
+
+msgid "manager.statistics"
+msgstr "Estatísticas &amp; Relatórios"
+
+msgid "manager.statistics.reports"
+msgstr "Gerador de Relatórios"
+
+msgid "manager.statistics.reports.description"
+msgstr "O sistema gera relatórios que registram os detalhes associados com os procedimentos da submissão, da perspectiva de submissões, editores, avaliadores e seções, em um dado período. Relatórios são gerados no formato CSV, que exigem um aplicativo de planilha eletrônica para serem visualizados."
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} nova(s))"
+
+msgid "manager.users"
+msgstr "Usuários"
+
+msgid "plugins.categories.auth"
+msgstr "Plugins de Autenticação"
+
+msgid "plugins.categories.blocks"
+msgstr "Plugins de Bloco"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Plugins de Bloco oferecem controle de posicionamento de ferramentas da interface, como as barras laterais."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Plugins de Gateway alimentam sistemas externos com conteúdo do sistema."
+
+msgid "plugins.categories.gateways"
+msgstr "Plugins de Gateway"
+
+msgid "plugins.categories.generic"
+msgstr "Plugins Genéricos"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Plugins de Importação/Exportação podem ser utilizados para transferir conteúdo de um sistema a outro e vice-versa."
+
+msgid "plugins.categories.importexport"
+msgstr "Plugins de Importação/Exportação"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Plugins de Métodos de Pagamento implementam suporte a várias formas de processamento de pagamento online."
+
+msgid "plugins.categories.paymethod"
+msgstr "Plugins de Métodos de Pagamento"
+
+msgid "plugins.categories.reports.description"
+msgstr "Plugins de Relatório são utilizados para implementar vários tipos de relatórios e extração de dados por parte dos Editores Gerentes."
+
+msgid "plugins.categories.reports"
+msgstr "Plugins de Relatório"
+
+msgid "plugins.categories.themes.description"
+msgstr "Plugins de Visual podem ser utilizados para alterar o visual do sistema."
+
+msgid "plugins.categories.themes"
+msgstr "Plugins de Visual"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "É necessária uma chave única para o e-mail."
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Ocorreu um erro ao tentar excluir o item."
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Buscar por Nome do Avaliador"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Área de interesse para avaliação"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publicado"
+
+msgid "manager.emails.data"
+msgstr "Dados do modelo de mensagem"
+
+msgid "manager.emails.details"
+msgstr "Detalhes do modelo"
+
+msgid "manager.emails.disable.message"
+msgstr "Está prestes a desabilitar este modelo de mensgaem. Caso existam processos usando este modelo, o modelo não será mais usado. Deseja confirmar a operação?"
+
+msgid "manager.emails.enable.message"
+msgstr "Está prestes a habilitar esta mensagem. Deseja confirmar esta operação?"
+
+msgid "manager.emails.resetAll.message"
+msgstr "Caso restaure todos os modelos, todas as alterações aos modelos de mensagem serão perdidas. Deseja confirmar a operação?"
+
+msgid "manager.emails.reset.message"
+msgstr "Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Buscar por Nome"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr "Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos."
+
+msgid "plugins.categories.metadata"
+msgstr "Plugins de metadados"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Plugins de metadados implementam padrões adicionais de metadados."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Plugins de Formatos de Metadados OAI"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Os plugins de formato geram metadados para comunicação via protocolo OAI."
+
+msgid "grid.action.addGenre"
+msgstr "Incluir gênero"
+
+msgid "manager.language.ui"
+msgstr "IU"
+
+msgid "manager.language.submissions"
+msgstr "Submissões"
+
+msgid "manager.language.forms"
+msgstr "Formulários"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Restaurar padrões"
+
+msgid "manager.statistics.city"
+msgstr "Cidade"
+
+msgid "manager.statistics.region"
+msgstr "Região"
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Agregar estatísticas por:"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Gerar relatório personalizado"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Opções avançadas"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Colunas"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Filtros"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Tipo de Objeto"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Identificador do Objeto"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "Defina um ou mais identificadores, separados por vírgula (ex. 1,3,5,7)."
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Mês atual"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Ordenar por"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Direção"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Crescente"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Decrescente"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Use o formato ano/mês."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Use o formato ano/mês/dia."
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "Um ou mais nomes de cidades, separadas por vírgula (ex. Brasília,São Paulo,Curitiba)"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Selecione ao menos uma coluna para gerar o relatório."
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL do relatório"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Por contexto"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Por tipo de objeto e/ou identificador"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Selecione o alcance do relatório"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Ou selecione o alcance por:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Por localização geográfica"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Patrocinador"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Diretrizes para autores"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"Seu {$contextObjectName} está configurado para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em diferentes contextos.\n"
+"Há casos em que uma única estatística de uso devem ser utilizada, por exemplo, para exibir uma lista ordenada de submissões mais utilizados ou para classificação de resultados da pesquisa. Por favor selecione uma das métricas configuradas como padrão."
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Modelos de relatórios padrão"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr "Defina as colunas que serão utilizadas para a construção do relatório. As colunas que você selecionar aqui não só definirão quais dados serão apresentados dentro dos relatórios, mas também definem o nível de agregação das estatísticas. Por exemplo, se você escolher as colunas ID, Tipo e Mês, o relatório irá somar todas as visualizações de um objeto a partir de um mês e vai apresentar os dados em uma linha. Se você optar por dia em vez de mês, cada objeto terá uma linha para cada dia."
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr "A seguinte URL pode ser usado para gerar o relatório com as definições atuais. Basta copiar ela e colar em seu navegador. Você pode usar seus favoritos para armazenar a URL do seu gerador de relatório personalizado."
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Restringir resultados por país, região e / ou cidade."
+
+msgid "manager.setup.competingInterests"
+msgstr "Conflito de Interesses"
+
+msgid "manager.setup.groupType"
+msgstr "Agrupamento por tipo de arquivo"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Tempo dado para respostas dos avaliadores (semanas)"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Tempo para término da avaliação (semanas)"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Nunca lembrar"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "Envie um lembrete se um avaliador não responder a um pedido de avaliação dentro do seguinte tempo (dias):"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr "Envie um lembrete se um avaliadores não apresentar um parecer dentro do seguinte tempo (dias):"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Você pode adicionar uma nota descrevendo sua política e relacionamento com o patrocinador, que irá aparecer junto à lista de patrocinadores na página Sobre."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Você pode fazer upload do arquivo de folha de estilo adicional (CSS) para alterar a aparência."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.description"
+msgstr "Escolha um tema a partir da lista"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Opções de Acesso ao Site"
+
+msgid "plugins.categories.pubIds"
+msgstr "Plugins de Identificação Pública"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Estes plugins implementam o suporte para identificadores públicos."
+
+msgid "manager.plugins.action"
+msgstr "Ação:"
+
+msgid "manager.plugins.disable"
+msgstr "Desabilitar"
+
+msgid "manager.plugins.enable"
+msgstr "Habilitar"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Administração de Plugins"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Este é um plugin de uso geral. Somente o Administrador do Portal possui permissão de administração."
+
+msgid "manager.plugins"
+msgstr "Plugins do Sistema"
+
+msgid "manager.plugins.copyError"
+msgstr "Plugin não foi copiado com sucesso. Isso pode ser um problema de permissões. Por favor, certifique-se de que o servidor web é capaz de escrever no diretório plugins (incluindo subdiretórios), mas não se esqueça de torná-lo seguro novamente mais tarde."
+
+msgid "manager.plugins.delete"
+msgstr "Apagar Plugin"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Tem certeza que deseja apagar este plugin do sistema?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Ao clicar em 'apagar', o plugin será apagado do sistema de arquivos do servidor."
+
+msgid "manager.plugins.deleteError"
+msgstr "O plugin \"{$pluginName}\" não pôde ser excluído do sistema de arquivos. Isso pode ser um problema de permissões. Por favor, certifique-se de que o servidor web é capaz de escrever no diretório plugins (incluindo subdiretórios), mas não se esqueça de torná-lo seguro novamente mais tarde."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "O plugin \"{$pluginName}\" eliminado com sucesso"
+
+msgid "manager.plugins.description"
+msgstr "Esta página permite que o gerente revise e configure os plugins que estão instalados atualmente. Plugins são divididos em categorias, de acordo com a sua função. As categorias estão listados abaixo, e dentro de cada categoria, o seu atual conjunto de plugins."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "O plugin \"{$pluginName}\" não existe"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Por favor, primeiro selecione um arquivo"
+
+msgid "manager.plugins.installed"
+msgstr "Plugins instalados"
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "O plugin já existe, e é mais novo ou igual a versão instalada"
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "O plugin já existe, e é mais antigo ou igual à versão instalada"
+
+msgid "manager.plugins.installFailed"
+msgstr "Falha na instalação. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Versão instalada com sucesso {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "O arquivo do plugin carregado não contém uma pasta que corresponde ao nome do plugin."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "O plugin carregado não se encaixa na categoria do plugin atualizado."
+
+msgid "manager.plugins.wrongName"
+msgstr "O version.xml no plugin carregado contém um nome de plugin que não se encaixa no nome do plugin atualizado."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Plugin não existe. Por favor instale-o"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Plugin já existe, mas é mais recente do que a versão instalada. Por favor, atualize"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galeria de plugins"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Overview"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Instalação"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Ultima versão compativel"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Oficial"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Revisado"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Parceiro"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Mantenedor"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "Versão: {$version}"
+
+msgid "manager.plugins.pluginGallery.date"
+msgstr "Data de lançamento: {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Homepage"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Resumo"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.settings"
+msgstr "Configurações"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "O comando tar não está disponível. Por favor, configure-o corretamente em seu \"config.inc.php\"."
+
+msgid "manager.plugins.upload"
+msgstr "Enviar novo plugin"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "Este formulário permite enviar e instalar um novo plugin. Assegure que o arquivo do plugin esteja no formato .tar.gz."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Please ensure a file was selected for upload."
+
+msgid "manager.plugins.upgrade"
+msgstr "Atualizar plugin"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "Este formulário permite a você atualizar um plugin. Certifique-se o plugin está compactado como um arquivo tar.gz.."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Falha na atualização. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Atualizado com êxito para a versão {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Erro enviando arquivo"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Selecione o arquivo do plugin"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml no diretório do plugin contém dados inválidos."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml não encontrado no diretório do plugin"
+
+msgid "notification.localeEnabled"
+msgstr "Idioma habilitado."
+
+msgid "notification.localeDisabled"
+msgstr "Idioma desativado."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} definido como idioma primário."
+
+msgid "notification.localeInstalled"
+msgstr "Os idiomas selecionados foram instalados e ativados."
+
+msgid "notification.localeUninstalled"
+msgstr "Idioma {$locale} desinstalado."
+
+msgid "notification.localeReloaded"
+msgstr "Idioma {$locale} recarregado."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Configurações de idioma salvas."
+
+msgid "notification.editedUser"
+msgstr "Usuário editado."
+
+msgid "manager.paymentMethod"
+msgstr "Pagamentos"
+
+msgid "manager.paymentMethod.title"
+msgstr "Métodos de Pagamento"
+
+msgid "manager.paymentMethod.none"
+msgstr "Nenhum método de pagamento selecionado"
+
+msgid "manager.paymentMethod.method"
+msgstr "Método de Pagamento"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Moeda"
+
+msgid "settings.roles.roleOptions"
+msgstr "Opções de Papéis"
+
+msgid "settings.roles.showTitles"
+msgstr "Mostrar papel na lista de colaboradores"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Permitir autoregistro de usuários"
+
+msgid "settings.roles.roleName"
+msgstr "Nome do Papel"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Abreviação"
+
+msgid "settings.roles.assignedStages"
+msgstr "Estagios Designados"
+
+msgid "settings.roles.stages"
+msgstr "Estágios"
+
+msgid "settings.roles.roleDetails"
+msgstr "Detalhes do papel"
+
+msgid "settings.roles.from"
+msgstr "Nível de permissão"
+
+msgid "settings.roles.nameRequired"
+msgstr "Você precisa definir um nome para o papel."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Defina uma abreviatura para o papel."
+
+msgid "settings.roles.uniqueName"
+msgstr "Defina um nome único para o papel."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Defina uma abreviatura única para o papel."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Defina um nível de permissão para o papel."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Defina um estágio a ser associado."
+
+msgid "settings.roles.removeText"
+msgstr "Você está prestes a remover este papel deste contexto. Esta operação também vai apagar as definições relacionadas e todas as atribuições de usuários para este papel. Você quer continuar?"
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Um arquivo de biblioteca é necessária. Certifique-se que você escolheu e enviou um arquivo."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Um nome é necessário para este arquivo de biblioteca."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Um tipo de arquivo é necessário para este arquivo de biblioteca."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Contratos"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Permissões"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Relatórios"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Outros"
+
+msgid "grid.action.editGenre"
+msgstr "Editar este Gênero"
+
+msgid "grid.action.deleteGenre"
+msgstr "Apagar este Gênero"
+
+msgid "grid.action.restoreGenres"
+msgstr "Restaurar os gêneros para as configurações padrão"
+
+msgid "manager.settings.wizard"
+msgstr "Assistente de Configurações"
+
+msgid "manager.users.roleRequired"
+msgstr "Você precisa selecionar pelo menos um papel a ser associado a este usuário."
+
+msgid "manager.website"
+msgstr "Website"
+
+msgid "manager.website.title"
+msgstr "Configurações do Site"
+
+msgid "manager.workflow"
+msgstr "Fluxo de Trabalho"
+
+msgid "manager.distribution"
+msgstr "Distribuição"
+
+msgid "manager.distribution.title"
+msgstr "Configurações da Distribuição"
+
+msgid "manager.workflow.title"
+msgstr "Definições de Fluxo de Trabalho"
+
+msgid "manager.reviewForms"
+msgstr "Formulários de avaliação"
+
+msgid "manager.reviewForms.completed"
+msgstr "Concluído"
+
+msgid "manager.reviewForms.create"
+msgstr "Criar formulário de avaliação"
+
+msgid "manager.reviewForms.description"
+msgstr "Detalhes e instruções"
+
+msgid "manager.reviewForms.edit"
+msgstr "Forumlário de avaliação"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "É necessário informar o título do formulário."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Em avaliação"
+
+msgid "manager.reviewForms.list.description"
+msgstr "Os formulários de avaliação pelos pares criados aqui serão apresentados aos avaliadores para seu preenchimento, em vez do formulário padrão que consiste de dois campos de texto aberto, sendo o primeiro \"para autor editor,\" e o segundo \"para editor.\" Formulários de avaliação podem ser designados a seções específicas, e editores poderão escolher qual formulário designar durante a avaliação. Em todos os casos, os editores poderão optar por incluir as avaliações ao se comunicarem com o autor."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Nenhum / Formulário aberto de avaliação"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Nenhum formulário de avaliação criado."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Nenhum formulário de avaliação usado."
+
+msgid "manager.reviewForms.preview"
+msgstr "Prévia do formulário"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Dados do formulário de avaliação"
+
+msgid "manager.reviewForms.title"
+msgstr "Título"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Alterando o tipo de item do formulário..."
+
+msgid "manager.reviewFormElements"
+msgstr "Itens do formulário"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Incliur seleção"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Checkboxes (permite escolher mais de uma opção)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Escolher tipo de item"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Confirmar a exclusão de item de formulário publicado..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Copiar para:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Criar novo item"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Menu dropdown"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Editar item"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tipo de item"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "É necessário definir o tipo para o item de formulário."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "A pergunta é obrigatório para o item."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Nenhum item de formulário criado."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Escolha"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Item"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Botões rádio (permite escolher apenas uma opção)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Preenchimento obrigatório para avaliadores"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Caixa de texto de uma palavra"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Caixa de texto estendida"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Caixa de texto de uma linha"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Visível (para autores)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Criar Novo Formulário de Avaliação"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Requisitar uma declaração de Conflito de Interesses durante a avaliação por pares."
+
+msgid "manager.setup.includeCopyrightStatement"
+msgstr "Display the copyright statement with content (advisable for asserting an author-held copyright)."
+
+msgid "manager.setup.includeLicense"
+msgstr "Display the license with published work."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "Informe a URL da página da licença, se disponível."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Formulário de Submissão"
+
+msgid "manager.setup.genres.dependent"
+msgstr "Marque os arquivos deste tipo como arquivos dependentes (por exemplo, não submissões primárias)"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Mudar"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "Marcar arquivos deste tipo como arquivos suplementares (por exemplo conteúdos que não sejam primários à submissão)"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "Ter certeza que deseja ativar este formulário de avaliação? Uma vez designado a um avaliador você não poderá mais desativa-lo."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "Ter certeza que deseja desativar este formulário de avaliação? Ele não estará mais disponível para novas avaliações."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Tem certeza que deseja criar uma cópia desse formulário de avaliação?"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Tem certeza que deseja apagar este formulário de avaliação?"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Incluído na mensagem ao autor"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Ocultar Opções Avançadas"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Objeto não encontrado na base de dados"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Ontem"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Tem certeza que deseja instalar este plugin?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Tem certeza que deseja atualizar este plugin?"
+
+msgid "grid.action.installPlugin"
+msgstr "Instalar ou atualizar este plugin"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "O plugin ainda não foi instalado."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Atualmente não há versão compatível com este plugin."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Plugin já instalado e atualizado."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Mais novo do que a versão disponível"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Pode ser atualizado"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Atualizado"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Não disponível"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr "Os itens em itálico e marcados com * representam dados que são opcionais para a atual forma de contar as estatísticas no sistema (tipo de métrica). Você pode ter estes dados ou não, dependendo da configuração do plugin de estatísticas."
+
+msgid "manager.setup.additionalContent"
+msgstr "Conteúdo Adicional"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "O que for digitado aqui será exibido na sua página inicial."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Nota de direitos autorais"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Exigir que os autores concordam com o Nota de direitos autorais, como parte do processo de submissão."
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "Diretrizes podem incluir normas bibliográficas e de formatação, junto de exemplos de formatos de citação comuns a serem usados nos envios dos manuscritos."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.homepageImage"
+msgstr "Imagem da Página Inicial"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Upload de uma imagem para exibir de forma destacada na página inicial."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Descrições"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.notifications"
+msgstr "Notificação do Autor da Submissão"
+
+msgid "manager.setup.notifications.copyPrimaryContact"
+msgstr "Envie uma cópia para o contato principal, identificado na configuração do Passo 1."
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Envie uma cópia para este endereço de e-mail"
+
+msgid "manager.setup.notifications.description"
+msgstr "Um e-mail é enviado automaticamente aos autores confirmando o seu envio. Você pode ter cópias deste e-mail enviadas para os seguintes:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Política de Acesso Aberto"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr "Se proporcionar livre acesso imediato a todo o conteúdo publicado, você pode inserir uma descrição da sua política de acesso aberto."
+
+msgid "manager.setup.pageFooter"
+msgstr "Rodapé"
+
+msgid "manager.setup.pageFooter.description"
+msgstr "Insira quaisquer imagens, texto ou código HTML que você gostaria de aparecer na parte inferior do seu site."
+
+msgid "manager.setup.peerReview.description"
+msgstr "Descreva a política de avaliação por pares e processos para os leitores e autores. Esta descrição inclui muitas vezes o número de avaliadores normalmente utilizados na avaliação de uma submissão, os critérios pelos quais os avaliadores são convidados a julgar as inscrições, o tempo de espera necessário para conduzir as avaliações e os princípios usados para selecionar avaliadores."
+
+msgid "manager.setup.principalContact"
+msgstr "Contato Principal"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Padrões podem ser modificados para cada avaliação durante o processo editorial."
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Padrão dos Prazos de Avaliação"
+
+msgid "manager.setup.sponsors.description"
+msgstr "Exemplos: associações acadêmicas, departamentos de universidades, cooperativas, etc. Os patrocinadores são exibidos ao público."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Contato de Apoio Técnico"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr "Uma pessoa que pode ajudar editores, autores e avaliadores com quaisquer problemas que tenham na submissão, edição, avaliação e publicação dos documentos."
+
+msgid "manager.setup.principalContactDescription"
+msgstr "Digite os detalhes de contato, normalmente para do editor principal, administrador editorial ou pessoal administrativo que pode ser exibido em seu site acessível ao público."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Declaração de Privacidade"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Erros de validação:"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Buscar Esuário por Nome"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Barra Lateral"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Este plugin foi desenvolvido e mantido pela equipe do Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Este plugin foi revisado e aprovado pela equipe do Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Este plugin é oferecido por um de nossos desenvolvedores parceiros."
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Advertências encontradas:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Erros encontrados:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Elemento desconhecido {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Gênero desconhecido {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Codificação desconhecida {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "O conteúdo não é codificado como {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Grupo de usuário desconhecido {$param}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Uploader desconhecido {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Arquivo temporário {$dest} não pode ser criado por {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "O tamanho de arquivo informado \"{$expected}\" e o tamanho real  \"{$actual}\" não conferem"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "O arquivo da submissão não pode ser importado"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Título"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Caminho"
+
+msgid "manager.navigationMenus"
+msgstr "Menus de navegação"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr "<p>Esta págima será acessível em: <blockquote>{$pagesPath}</blockquote>...onde %PATH% é o caminho digitado acima. <strong>Nota:</strong> Duas páginas não podem possuir o mesmo caminho. O uso de caminhos já utilizados no sistema pode causar perda de acesso a funções importantes.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Conteúdo"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "O campo caminho deve conter apenas caracteres alfanuméricos, além de '.', '/', '-', e '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr " Este caminho já existe para outro item do menu de navegação."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr " Este título já existe para outro menu de navegação."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "O título é obrigatório"
+
+msgid "manager.navigationMenuItems"
+msgstr "Itens do menu de navegação"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Itens associados ao menu"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Itens não associados ao menu"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Áreas de navegação do Tema ativo"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Selecionar uma área de navegação"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Um menu de navegação já está associado a esta área."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Uma URL deve ser informada"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Saiba mais sobre quando esse item de menu será mostrado ou ocultado."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr " Quando um item de menu abre um submenu, esse link poderá não funcionar em todos os dispositivos. Por exemplo, se existe um item \"Sobre\" que abre um submenu com os itens \"Contato\" e \"Equipe Editorial\", o link \"Sobre\" pode não ser acessivel em todos os dispositivos. No menu padrão, isto é resolvido criando um segundo item de menu, \"Sobre a Revista\", que aparece no submenu."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Tipo de Menu de Navegação"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Selecionar um Tipo Navegação de Menu ou customize ou criar o seu próprio"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Página personalizada"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Criar uma página customizada em seu site e colocar seu link a partir de um menu de navegação."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL remota"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Link para qualquer URL em outro site, como https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr "Link para uma página exibindo o conteúdo do Sobre a Revista em Configurações > Revista"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr "Este link será exibido se você tiver preenchido a seção Sobre a Revista em Configurações > Revista. "
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Link exibindo o conteúdo da página Equipe Editorial em Configurações > Revista."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "Este link apenas será exibido se você tiver preenchido a seção Equipe Editorial em Configurações > Revista."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Link para a página exibindo as instruções de submissão."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Link para a sua edição atual."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Link para sua edição anteriore."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Link para a página exibindo suas notícias."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "Este link apenas será exibido se você tiver habilitado a aba notícias em Configurações > Website."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Link para a página de login de usuário."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Link para a página de registro de usuário."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Link para o painel editorial."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Link para a página de perfil de usuário."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Link para as ferramentas de administração geral do site."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Este link será exibido apenas para usuários administradores."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Um link que irá finalizar a sessão do usuário."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Este link apenas será exibido quando o visitante estiver logado."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Este link apenas será exibido quando o visitante estiver deslogado."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Link para uma página com suas informações de contato."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "Este link apenas será exibido se você tiver preenchido a informação de Contato em Configurações > Contato."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Por favor selecionar um tipo de menu de navegação."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr "Este link apenas será exibido se a opção de pagamentos estiver habilitada em Configurações > Distribuição > Pagamentos."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr "Este link apenas será exibido se o visitante estiver logado, os pagamentos estiverem habilitados Configurações > Distribuição > Pagamentos e as assinaturas estiverem obrigatórias em Configurações > Distribuição > Acesso."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Link para a página de busca."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Link para a página mostrando sua declaração de privacidade."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr "Este link apenas será exibido se você submeteu uma declaração de privacidade em Configurações > Fluxo de Trabalho > Subimissão."

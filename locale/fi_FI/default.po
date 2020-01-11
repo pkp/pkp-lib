@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Sivuston ylläpitäjä"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Sivuston ylläpitäjät"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Tuotantotoimittaja"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Tuotantotoimittajat"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "TuotT"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Tekninen toimittaja"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Tekniset toimittajat"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "TT"
+
+msgid "default.groups.name.proofreader"
+msgstr "Oikolukija"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Oikolukijat"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "OL"
+
+msgid "default.groups.name.designer"
+msgstr "Suunnittelija"
+
+msgid "default.groups.plural.designer"
+msgstr "Suunnittelijat"
+
+msgid "default.groups.abbrev.designer"
+msgstr "S"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Sisäinen arvioija"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Sisäiset arvioijat"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "SA"
+
+msgid "default.groups.name.marketing"
+msgstr "Markkinointi- ja myyntikoordinaattori"
+
+msgid "default.groups.plural.marketing"
+msgstr "Markkinointi- ja myyntikoordinaattorit"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MM"
+
+msgid "default.groups.name.funding"
+msgstr "Rahoituskoordinaattori"
+
+msgid "default.groups.plural.funding"
+msgstr "Rahoituskoordinaattorit"
+
+msgid "default.groups.abbrev.funding"
+msgstr "RK"
+
+msgid "default.groups.name.indexer"
+msgstr "Indeksoija"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indeksoijat"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Taittaja"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Taittajat"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "T"
+
+msgid "default.groups.name.author"
+msgstr "Kirjoittaja"
+
+msgid "default.groups.plural.author"
+msgstr "Kirjoittajat"
+
+msgid "default.groups.abbrev.author"
+msgstr "K"
+
+msgid "default.groups.name.translator"
+msgstr "Kääntäjä"
+
+msgid "default.groups.plural.translator"
+msgstr "Kääntäjät"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Käänt"
+
+msgid "default.groups.name.reader"
+msgstr "Lukija"
+
+msgid "default.groups.plural.reader"
+msgstr "Lukijat"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Luk"
+
+msgid "default.genres.other"
+msgstr "Muu"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Kuva"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML-muotoinen tyylitiedosto"

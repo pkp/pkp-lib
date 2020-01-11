@@ -1,0 +1,332 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2019-12-29 20:34+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"it/>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.adminFunctions"
+msgstr "Funzioni di amministrazione"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Sei sicuro di voler cancellare permanentemente questa fonte di autenticazione?"
+
+msgid "admin.auth.create"
+msgstr "Crea una fonte di autenticazione"
+
+msgid "admin.auth.noneCreated"
+msgstr "Non sono state definite fonti di autenticazione."
+
+msgid "admin.authSources"
+msgstr "Autenticazione"
+
+msgid "admin.clearDataCache"
+msgstr "Svuota la cache dei dati"
+
+msgid "admin.clearTemplateCache"
+msgstr "Svuota la cache dei template"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Il file di configurazione &#x00E8; stato modificato con successo. Da notare che se il sito non dovesse pi&#x00F9; funzionare correttamente dopo queste modifiche sar&#x00E0; necessario sistemare manualmente il file di configurazione <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Sei sicuro di voler svuotare la cache dei template compilati?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Sei sicuro di voler chiudere tutte le sessioni utente? Tutti gli utenti attualmente collegati al sistema saranno costretti ad effettuare di nuovo il log in (te compreso)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Contenuti del file di configurazione"
+
+msgid "admin.currentVersion"
+msgstr "Versione corrente"
+
+msgid "admin.dateInstalled"
+msgstr "Data d'installazione"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Il contenuto del file di configurazione aggiornato e visualizzato qui di seguito. Per applicare queste modifiche dovete aprire il file <tt>config.inc.php</tt> con un editor di testo e sostituirne il contenuto con il testo della form sottostante."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Visualizza la nuova configurazione"
+
+msgid "admin.expireSessions"
+msgstr "Fai scadere le sessioni degli utenti"
+
+msgid "admin.languages.confirmReload"
+msgstr "Sei sicuro di voler aggiornare questa lingua aggiuntiva? Questo cancellerà le impostazioni già esistenti, come ad esempio i modelli per le email."
+
+msgid "admin.languages.installedLocales"
+msgstr "localizzazioni installate"
+
+msgid "admin.languages.installLanguages"
+msgstr "Amministra localizzazioni"
+
+msgid "admin.languages.installLocales"
+msgstr "Installazione"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installa nuove localizzazioni"
+
+msgid "admin.languages.languageSettings"
+msgstr "Impostazioni per le lingue"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Non è disponibile per l'installazione nessuna lingua aggiuntiva."
+
+msgid "admin.languages.reload"
+msgstr "Ricarica localizzazione"
+
+msgid "admin.languages.uninstall"
+msgstr "Disinstalla localizzazione"
+
+msgid "admin.phpInfo"
+msgstr "Informazioni dettagliate su PHP"
+
+msgid "admin.server.apacheVersion"
+msgstr "Versione di Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Driver del database"
+
+msgid "admin.server.dbVersion"
+msgstr "Versione del server di database"
+
+msgid "admin.serverInformation"
+msgstr "Informazioni sul Server"
+
+msgid "admin.server.phpVersion"
+msgstr "Versione di PHP"
+
+msgid "admin.server.platform"
+msgstr "Sistema operativo"
+
+msgid "admin.settings.about"
+msgstr "Descrizione del sito"
+
+msgid "admin.settings.contactEmail"
+msgstr "Email del contatto principale"
+
+msgid "admin.settings.contactName"
+msgstr "Nome del contatto principale"
+
+msgid "admin.settings.introduction"
+msgstr "Introduzione"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Lunghezza minima delle password"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Lingua del sito"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Formato del foglio di stile del sito non valido. Il formato accettato è .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Foglio di stile del sito"
+
+msgid "admin.settings.siteTitle"
+msgstr "Titolo del sito"
+
+msgid "admin.siteAdmin"
+msgstr "Amministrazione del sito"
+
+msgid "admin.siteManagement"
+msgstr "Gestione del sito"
+
+msgid "admin.siteSettings"
+msgstr "Impostazioni"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Il file di configurazione <tt>config.inc.php</tt> non esiste, non &#x00E8; leggibile o non &#x00E8; valido."
+
+msgid "admin.systemInformation"
+msgstr "Informazioni sul sistema"
+
+msgid "admin.versionBuild"
+msgstr "Compilazione"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Cerca aggiornamenti"
+
+msgid "admin.version.downloadPackage"
+msgstr "Scarica"
+
+msgid "admin.version.downloadPatch"
+msgstr "Scarica patch"
+
+msgid "admin.versionHistory"
+msgstr "Versioni precedenti"
+
+msgid "admin.version.latest"
+msgstr "Ultima versione"
+
+msgid "admin.versionMajor"
+msgstr "Maggiore"
+
+msgid "admin.versionMinor"
+msgstr "Minore"
+
+msgid "admin.version.moreInfo"
+msgstr "Altre informazioni"
+
+msgid "admin.versionRevision"
+msgstr "Revisione"
+
+msgid "admin.version.updateAvailable"
+msgstr "&Egrave; disponibile una versione aggiornata"
+
+msgid "admin.version.upToDate"
+msgstr "Il tuo sistema è aggiornato"
+
+msgid "admin.version"
+msgstr "Versione"
+
+msgid "admin.settings"
+msgstr "Impostazioni"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema del sito"
+
+msgid "admin.siteSetup"
+msgstr "Setup del sito"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nome"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Valore"
+
+msgid "admin.languages.installLocale"
+msgstr "Installa lingua"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Svuota registro delle procedure programmate"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Sei sicuro di voler rimuovere definitivamente {$contextName} e tutti i suoi contenuti?"
+
+msgid "admin.languages.availableLocales"
+msgstr "Lingue disponibili"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"Il path  {$path}  deve essere all'interno della cartella dei file pubblici."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "La cartella {$path} non è una cartella o non è scrivibile."
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Attenzione: il file {$filePath} esiste già nella cartella delle statistiche d'uso."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Successo: {$filePath} a{$destinationPath}"
+
+msgid "admin.error.executingUtil"
+msgstr "Error: non posso eseguire \"{$utilPath}\".  Controlla la configurazione di {$utilVar} config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Non ci sono lingue disponibili per il download."
+
+msgid "admin.languages.download"
+msgstr "Scarica traduzione"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Scarica traduzioni"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Non riesco ad aprire la descrizione della lingua dal sito di PKP."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Non riesco ad aggiungere la nuova traduzione al file registry collegato, di solito è \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "Questa lingua è la lingua primaria del sito. Non puoi disabilitarla fino a quando non scegli un'altra lingua come primaria."
+
+msgid "admin.scheduledTask"
+msgstr "Procedura programmata"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Inizia procedura programmata."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Ferma procedura programmata."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "La procedura programmata non ha creato log."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "L'installazione di  {$softwareName} è stata eseguita, puoi scaricare il log da qui: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Sei sicuro di voler cancellare tutti i log della procedure programmate ?"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Promemoria per la revisione"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Promemoria per la scadenza dell'abbonamento"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tLa tua installazione è configurata per registrare più di una metrica "
+"d'uso. Le statistiche d'uso sono visualizzate in diversi contesti. Ci sono "
+"casi dove una singola metodologia va usata, ad esempio per visualizzare una "
+"lista delle pubblicazioni più usate o per ordinare risultati di ricerca. Per "
+"favore scegli una delle metriche configurate come default.\n"
+"\t"
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Il file {$filename} non può essre mosso da {$currentFilePath} a {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Il file {$filename} è stato lavorato e salvato."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Caricamento file"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copia i log di Apache, filtrando solo le operazioni collegate a questa installazione, dentro la directory stage del UsageStatsPlugin. Deve essere eseguito con abbastanza privilegi per leggere i file access log di Apache.\n"
+"\n"
+"Questo strumento copia solo i file che non sono già nelle dir usageStats (stage, processing, archive, reject).\n"
+"\n"
+"Uso: {$scriptName} path/al/apache/log/file.log\n"
+"Uso (per lavorare tutti i file dentro una dir): {$scriptName} path/ad/apache/directory"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Errore: non riesco a creare la dir temporanea {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Errore: il file {$filePath} non esiste o non è accessibile."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Errore: non puoi copiare il file da {$filePath} a {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Errore: non puoi cancellare il file {$tmpFilePath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "L'esecuzione di \"{$utilPath}\" ha generato questo errore: {$output}"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Pubblica gli articoli pianificati"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Confermi di voler modificare la lingua principale del sito?  I nomi degli "
+"utenti, che sono obbligatori nella lingua primaria del sito, saranno copiati "
+"dalla lingua primaria attuale, dove mancano."

@@ -3,8 +3,8 @@
 /**
  * @file classes/install/form/MaintenanceForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MaintenanceForm
@@ -41,10 +41,11 @@ class MaintenanceForm extends Form {
 	/**
 	 * Fail with a generic installation error.
 	 * @param $errorMsg string
+	 * @param $translate boolean
 	 */
-	function installError($errorMsg) {
+	function installError($errorMsg, $translate = true) {
 		$templateMgr = TemplateManager::getManager($this->_request);
-		$templateMgr->assign(array('isInstallError' => true, 'errorMsg' => $errorMsg));
+		$templateMgr->assign(array('isInstallError' => true, 'errorMsg' => $errorMsg, 'translateErrorMsg' => $translate));
 		$this->display($this->_request);
 	}
 

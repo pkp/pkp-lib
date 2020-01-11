@@ -1,0 +1,1553 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:05+00:00\n"
+"Language: \n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Aktuell stilmall"
+
+msgid "about.description"
+msgstr "Beskrivning"
+
+msgid "about.guidelines"
+msgstr "Riktlinjer"
+
+msgid "about.aboutSite"
+msgstr "Om webbplatsen"
+
+msgid "about.contact"
+msgstr "Kontakt"
+
+msgid "about.contact.email"
+msgstr "E-post"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.principalContact"
+msgstr "Primär kontakt"
+
+msgid "about.contact.supportContact"
+msgstr "Support"
+
+msgid "about.other"
+msgstr "Andra"
+
+msgid "about.people"
+msgstr "Personer"
+
+msgid "about.policies"
+msgstr "Policyer"
+
+msgid "about.siteMap"
+msgstr "Site Map"
+
+msgid "announcement.announcements"
+msgstr "Meddelanden"
+
+msgid "announcement.announcementsHome"
+msgstr "Meddelanden"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Fler meddelanden..."
+
+msgid "announcement.noneExist"
+msgstr "Inga meddelanden publicerade."
+
+msgid "announcement.posted"
+msgstr "Publicerad"
+
+msgid "announcement.postedOn"
+msgstr "Publicerad den {$postDate}"
+
+msgid "announcement.view"
+msgstr "Visa meddelande"
+
+msgid "common.allDownloads"
+msgstr "Alla nedladdningar"
+
+msgid "common.navigation.sidebar"
+msgstr "Sidomeny"
+
+msgid "common.navigation.site"
+msgstr "Navigering webbplats"
+
+msgid "common.navigation.siteContext"
+msgstr "Navigering webbplatskontext"
+
+msgid "common.navigation.user"
+msgstr "Navigering användare"
+
+msgid "common.tasks"
+msgstr "Uppgifter"
+
+msgid "common.list"
+msgstr "Lista"
+
+msgid "common.grid"
+msgstr "Rutnät"
+
+msgid "common.confirmDelete"
+msgstr "Är du säker på att du vill ta bort det här objektet? Åtgärden går inte att ångra."
+
+msgid "common.abstract"
+msgstr "Abstract"
+
+msgid "common.accepted"
+msgstr "Accepterad"
+
+msgid "common.acknowledged"
+msgstr "Tack till"
+
+msgid "common.action"
+msgstr "Åtgärd"
+
+msgid "common.activate"
+msgstr "Aktivera"
+
+msgid "common.active"
+msgstr "Aktiv"
+
+msgid "common.add"
+msgstr "Lägg till"
+
+msgid "common.addSelf"
+msgstr "Lägg till dig själv"
+
+msgid "common.name"
+msgstr "Namn"
+
+msgid "common.all"
+msgstr "Alla"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö"
+
+msgid "common.titleSmallWords"
+msgstr "av en det och eller men är om de annars när från av på av i ut över i med"
+
+msgid "common.alreadyAssigned"
+msgstr "Tilldelat"
+
+msgid "common.altText"
+msgstr "Alternativ text"
+
+msgid "common.and"
+msgstr "och"
+
+msgid "common.applyAction"
+msgstr "Verkställ åtgärd"
+
+msgid "common.assign"
+msgstr "Utse"
+
+msgid "common.assigned"
+msgstr "Utsedd"
+
+msgid "common.assigned.date"
+msgstr "Utsedd: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Tillgänglig"
+
+msgid "common.back"
+msgstr "Tillbaka"
+
+msgid "common.between"
+msgstr "mellan"
+
+msgid "common.cancel"
+msgstr "Avbryt"
+
+msgid "common.cancelled"
+msgstr "Avbruten"
+
+msgid "common.warning"
+msgstr "Varning"
+
+msgid "common.error"
+msgstr "Fel"
+
+msgid "common.notice"
+msgstr "Anmärkning"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "Captcha-valideringen för den här webbplatsen är inte ordentligt konfigurerad. Den hemliga nyckeln saknas."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "Captcha-valideringen för den här webbplatsen är inte ordentligt konfigurerad. Den hemliga nyckeln är ogiltig."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Du måste komma igenom valideringskontrollen, som används för att förhindra spambidrag."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Du kom inte igenom valideringskontrollen, som används för att förhindra spambidrag."
+
+msgid "common.captchaField.description"
+msgstr "Skriv in bokstäverna som du ser dem i bilden ovan."
+
+msgid "common.captchaField"
+msgstr "Validering"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons-licens\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tDetta verk är licensierat under en <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Erkännande Attribution 3.0-licens</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tDetta verk är licensierat under en <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Erkännande Attribution 3.0-licens</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Dina ändringar sparades."
+
+msgid "common.chooseOne"
+msgstr "Välj en"
+
+msgid "common.close"
+msgstr "Stäng"
+
+msgid "common.closePanel"
+msgstr "Stäng panel"
+
+msgid "common.closeWindow"
+msgstr "Stäng fönster"
+
+msgid "common.complete"
+msgstr "Slutför"
+
+msgid "common.completed"
+msgstr "Slutförd"
+
+msgid "common.completed.date"
+msgstr "Slutförd: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Bekräfta"
+
+msgid "common.confirmed.date"
+msgstr "Bekräftad: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Innehåll"
+
+msgid "common.contents"
+msgstr "Innehåll"
+
+msgid "common.continue"
+msgstr "Fortsätt"
+
+msgid "common.copy"
+msgstr "Kopiera"
+
+msgid "common.country"
+msgstr "Land"
+
+msgid "common.create"
+msgstr "Skapa"
+
+msgid "common.dateCompleted"
+msgstr "Datum för slutförande"
+
+msgid "common.date"
+msgstr "Datum"
+
+msgid "common.dateModified"
+msgstr "Datum för ändringar"
+
+msgid "common.dateRequested"
+msgstr "Datum för förfrågan"
+
+msgid "common.dateSubmitted"
+msgstr "Datum för inlämning"
+
+msgid "common.dateUploaded"
+msgstr "Datum för uppladdning"
+
+msgid "common.dateHijri"
+msgstr "Hijri-kalender"
+
+msgid "common.day"
+msgstr "Dag"
+
+msgid "common.deactivate"
+msgstr "Avaktivera"
+
+msgid "common.default"
+msgstr "Default"
+
+msgid "common.declined"
+msgstr "Avböjd"
+
+msgid "common.delete"
+msgstr "Radera"
+
+msgid "common.deleting"
+msgstr "Raderar"
+
+msgid "common.deleteSelection"
+msgstr "Radera markerad(e)"
+
+msgid "common.designation"
+msgstr "Benämning"
+
+msgid "common.description"
+msgstr "Beskrivning"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; vid {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixlar"
+
+msgid "common.disable"
+msgstr "Avaktivera"
+
+msgid "common.disabled"
+msgstr "Avaktiverad"
+
+msgid "common.discipline"
+msgstr "Disciplin"
+
+msgid "common.done"
+msgstr "Klar"
+
+msgid "common.download"
+msgstr "Ladda ner"
+
+msgid "common.downloadPdf"
+msgstr "Ladda ned PDF"
+
+msgid "common.edit"
+msgstr "Redigera"
+
+msgid "common.enable"
+msgstr "Aktivera"
+
+msgid "common.enabled"
+msgstr "Aktiverad"
+
+msgid "common.error.databaseError"
+msgstr "Ett fel i databasen inträffade: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Ett okänt fel vid anslutning till databasen inträffade."
+
+msgid "common.error.framesRequired"
+msgstr "Den här sidan kräver frames. <a href=\"{$url}\">Klicka här</a> för en version utan frames."
+
+msgid "common.event"
+msgstr "Händelse"
+
+msgid "common.export"
+msgstr "Exportera"
+
+msgid "common.finish"
+msgstr "Avsluta"
+
+msgid "common.fullscreen"
+msgstr "Helskärm"
+
+msgid "common.fullscreenOff"
+msgstr "Lämna helskärm"
+
+msgid "common.false"
+msgstr "Falsk"
+
+msgid "common.file"
+msgstr "Fil"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Filnamn"
+
+msgid "common.fileSize"
+msgstr "Filstorlek"
+
+msgid "common.fileType"
+msgstr "Filtyp"
+
+msgid "common.fileUploaderError"
+msgstr "Systemets filuppladdningsverktyg laddas in. Om det inte dyker upp är det förmodligen så att den här webbläsaren inte stödjer några av dess runtimes. Vänligen kontakta din administratör för support."
+
+msgid "common.filter"
+msgstr "Filter"
+
+msgid "common.filterAdd"
+msgstr "Lägg till filter: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Rensa filter: {$filterTitle}"
+
+msgid "common.from"
+msgstr "Från"
+
+msgid "common.until"
+msgstr "Till"
+
+msgid "common.go"
+msgstr "Fortsätt"
+
+msgid "common.height"
+msgstr "Höjd"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Hem"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logotyp på förstasidans sidhuvud"
+
+msgid "common.hour"
+msgstr "Timme"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Importera"
+
+msgid "common.initiate"
+msgstr "Påbörja"
+
+msgid "common.inProgress"
+msgstr "Pågående"
+
+msgid "common.itemsPerPage"
+msgstr "Items per page"
+
+msgid "common.keywords"
+msgstr "Nyckelord"
+
+msgid "common.language"
+msgstr "Språk"
+
+msgid "common.languages"
+msgstr "Språk"
+
+msgid "common.less"
+msgstr "Färre"
+
+msgid "common.lessThan"
+msgstr "{$value} eller färre"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Administrera"
+
+msgid "common.mailingAddress"
+msgstr "Adress"
+
+msgid "common.billingAddress"
+msgstr "Faktureringsadress (om annan)"
+
+msgid "common.minute"
+msgstr "Minut(er)"
+
+msgid "common.modify"
+msgstr "Ändra"
+
+msgid "common.month"
+msgstr "Månad"
+
+msgid "common.more"
+msgstr "Fler"
+
+msgid "common.moreThan"
+msgstr "{$value} or fler"
+
+msgid "common.noneAssigned"
+msgstr "Ingen utsedd"
+
+msgid "common.none"
+msgstr "Ingen"
+
+msgid "common.no"
+msgstr "Nej"
+
+msgid "common.noComments"
+msgstr "Inga kommentarer"
+
+msgid "common.notApplicable"
+msgstr "Ej tillämpligt"
+
+msgid "common.notApplicableShort"
+msgstr "N/A"
+
+msgid "common.notAvailable"
+msgstr "Ej tillgängligt"
+
+msgid "common.note"
+msgstr "Anteckning"
+
+msgid "common.notes"
+msgstr "Anteckningar"
+
+msgid "common.notes.tooltip"
+msgstr "Anteckningar (gul: har nya anteckningar; blå: har lästa anteckningar; grå: inga anteckningar)"
+
+msgid "common.notified"
+msgstr "Meddelad"
+
+msgid "common.notified.date"
+msgstr "Meddelad: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Inga träffar"
+
+msgid "common.off"
+msgstr "Av"
+
+msgid "common.on"
+msgstr "På"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Alternativ"
+
+msgid "common.order"
+msgstr "Ordna"
+
+msgid "common.orderUp"
+msgstr "Flytta up {$itemTitle} i listan"
+
+msgid "common.orderDown"
+msgstr "Flytta ned {$itemTitle} i listan"
+
+msgid "common.originalFileName"
+msgstr "Ursprungligt filnamn"
+
+msgid "common.or"
+msgstr "eller"
+
+msgid "common.other"
+msgstr "Annat"
+
+msgid "common.overdue"
+msgstr "Försenad"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} av {$total}"
+
+msgid "common.pagination.label"
+msgstr "Bläddra bland ytterligare sidor"
+
+msgid "common.pageNumber"
+msgstr "Sida {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.pluginEnabled"
+msgstr "Pluginet \"{$pluginName}\" har aktiverats."
+
+msgid "common.pluginDisabled"
+msgstr "Pluginet \"{$pluginName}\" har avaktiverats."
+
+msgid "common.prefix"
+msgstr "Prefix"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Exempel: En, Det, Den"
+
+msgid "common.preview"
+msgstr "Förhandsgranska"
+
+msgid "common.publisher"
+msgstr "Utgivare"
+
+msgid "common.quality"
+msgstr "Kvalitet"
+
+msgid "common.queue.long.active"
+msgstr "Alla aktiva"
+
+msgid "common.range"
+msgstr "{$min}–{$max}"
+
+msgid "common.re"
+msgstr "Sv:"
+
+msgid "common.readMore"
+msgstr "Läs mer"
+
+msgid "common.readMoreWithTitle"
+msgstr "Läs mer om {$title}"
+
+msgid "common.record"
+msgstr "Registrera"
+
+msgid "common.refresh"
+msgstr "Uppdatera"
+
+msgid "common.related"
+msgstr "Relaterad"
+
+msgid "common.reminder"
+msgstr "Påminnelse"
+
+msgid "common.reminded.date"
+msgstr "Påmind: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Extern"
+
+msgid "common.remoteURL"
+msgstr "Extern URL"
+
+msgid "common.remove"
+msgstr "Ta bort"
+
+msgid "common.removeSelection"
+msgstr "Ta bort markerad(e)"
+
+msgid "common.replaced"
+msgstr "Ersatt"
+
+msgid "common.replaceFile"
+msgstr "Ersätt fil"
+
+msgid "common.requiredField"
+msgstr "* betyder obligatoriskt fält"
+
+msgid "common.required"
+msgstr "Obligatoriskt"
+
+msgid "common.reset"
+msgstr "Återställ"
+
+msgid "common.saveAndContinue"
+msgstr "Spara och fortsätt"
+
+msgid "common.saveAndEmail"
+msgstr "Spara och skicka e-postmeddelande"
+
+msgid "common.save"
+msgstr "Spara"
+
+msgid "common.saving"
+msgstr "Sparar"
+
+msgid "common.search"
+msgstr "Sök"
+
+msgid "common.searchQuery"
+msgstr "Sökfråga"
+
+msgid "common.clearSearch"
+msgstr "Rensa sökfråga"
+
+msgid "common.second"
+msgstr "Sekund(er)"
+
+msgid "common.selectAll"
+msgstr "Välj alla"
+
+msgid "common.selectNone"
+msgstr "Välj ingen"
+
+msgid "common.select"
+msgstr "Välj"
+
+msgid "common.sendEmail"
+msgstr "Skicka e-postmeddelande"
+
+msgid "common.size"
+msgstr "Storlek"
+
+msgid "common.source"
+msgstr "Källa"
+
+msgid "common.status"
+msgstr "Status"
+
+msgid "common.subject"
+msgstr "Ämne"
+
+msgid "common.subjects"
+msgstr "Ämnen"
+
+msgid "common.subtitle"
+msgstr "Undertitel"
+
+msgid "common.suggest"
+msgstr "Föreslå"
+
+msgid "common.title"
+msgstr "Titel"
+
+msgid "common.top"
+msgstr "Till början"
+
+msgid "common.true"
+msgstr "Sant"
+
+msgid "common.type"
+msgstr "Typ"
+
+msgid "common.component"
+msgstr "Component"
+
+msgid "common.uninitiated"
+msgstr "Ej påbörjad"
+
+msgid "common.unread"
+msgstr "Oläst"
+
+msgid "common.untitled"
+msgstr "Utan titel"
+
+msgid "common.updated"
+msgstr "Uppdaterad"
+
+msgid "common.uploadedDate"
+msgstr "Uppladdningsdatum"
+
+msgid "common.upload"
+msgstr "Ladda upp"
+
+msgid "common.uploadFailed"
+msgstr "Filen kunde inte laddas upp eller ändras."
+
+msgid "common.up"
+msgstr "Upp"
+
+msgid "common.upload.addFile"
+msgstr "Ladda upp fil"
+
+msgid "common.upload.changeFile"
+msgstr "Ändra fil"
+
+msgid "common.upload.dragFile"
+msgstr "Dra och släpp en fil här för att starta uppladdningen"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Användare"
+
+msgid "common.view"
+msgstr "Visa"
+
+msgid "common.viewProfile"
+msgstr "Visa profil"
+
+msgid "common.weeks"
+msgstr "veckor"
+
+msgid "common.width"
+msgstr "Bredd"
+
+msgid "common.year"
+msgstr "År"
+
+msgid "common.yes"
+msgstr "Ja"
+
+msgid "common.loading"
+msgstr "Laddar"
+
+msgid "common.plugins"
+msgstr "Plugins"
+
+msgid "common.metric"
+msgstr "Mått"
+
+msgid "common.count"
+msgstr "Antal"
+
+msgid "common.publicAccess"
+msgstr "Publik tillgång"
+
+msgid "debug.databaseQueries"
+msgstr "Antal databasfrågor"
+
+msgid "debug.executionTime"
+msgstr "Sidan genererad på"
+
+msgid "debug.memoryUsage"
+msgstr "Minnesanvändning"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Hämtade språk/region-lista \"{$localeList}\" från XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Laddade språk/region-filen \"{$localeFile}\" från XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Saknar språk/region-koden \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Meddelanden:"
+
+msgid "defaultMetric.title"
+msgstr "Defaultmått"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Tillgängliga mått"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Ladda upp granskningsfil"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Ladda upp fil"
+
+msgid "email.addAttachment"
+msgstr "Lägg till bilaga"
+
+msgid "email.addBccRecipient"
+msgstr "Lägg till BCC"
+
+msgid "email.addCcRecipient"
+msgstr "Lägg till CC"
+
+msgid "email.addToRecipient"
+msgstr "Lägg till mottagare"
+
+msgid "email.attachments"
+msgstr "Bilagor"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Skicka en kopia av det här meddelandet till min adress ({$address})"
+
+msgid "email.body"
+msgstr "Text"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Skicka e-postmeddelande"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Meddelandet du försöker skicka har för många mottagare."
+
+msgid "email.compose.tooSoon"
+msgstr "Det har gått för kort tid sedan du senast skickade ett meddelande. Vänligen vänta innan du skickar meddelandet på nytt."
+
+msgid "email.email"
+msgstr "Skicka e-postmeddelande"
+
+msgid "email.from"
+msgstr "Från"
+
+msgid "email.invalid"
+msgstr "E-postadressen {$Email} är ogiltig."
+
+msgid "email.multipart"
+msgstr "Det här är ett multi-part-meddelande i MIME-format."
+
+msgid "email.recipient"
+msgstr "Mottagare"
+
+msgid "email.recipients"
+msgstr "Mottagare"
+
+msgid "email.sender"
+msgstr "Avsändare"
+
+msgid "email.senderName"
+msgstr "Avsändarens namn"
+
+msgid "email.senderEmail"
+msgstr "Avsändarens e-postadress"
+
+msgid "email.send"
+msgstr "Skicka"
+
+msgid "email.skip"
+msgstr "Hoppa över e-postmeddelande"
+
+msgid "email.subject"
+msgstr "Ämne"
+
+msgid "email.subjectRequired"
+msgstr "Vänligen förse e-postmeddelandet med en ämnesrad."
+
+msgid "email.bodyRequired"
+msgstr "Vänligen förse e-postmeddelandet med något textinnehåll."
+
+msgid "email.to"
+msgstr "Till"
+
+msgid "form.url.invalid"
+msgstr "URL:en är ogiltig. Kontrollera och försök igen."
+
+msgid "form.confirmSubmit"
+msgstr "Är du säker på att du vill skicka formuläret?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Bekräfta"
+
+msgid "form.emailRequired"
+msgstr "En e-postadress krävs."
+
+msgid "form.dataHasChanged"
+msgstr "Informationen i formuläret har ändrats. Vill du fortsätta utan att spara?"
+
+msgid "form.errorsOccurred"
+msgstr "Det uppstod ett fel när formuläret behandlades."
+
+msgid "form.formLanguage.description"
+msgstr "För att fylla i informationen nedan på ytterligare språk, ange språk först."
+
+msgid "form.formLanguage"
+msgstr "Formulärspråk"
+
+msgid "form.contains"
+msgstr "innehåller"
+
+msgid "form.is"
+msgstr "är"
+
+msgid "form.startsWith"
+msgstr "börjar med"
+
+msgid "form.postRequired"
+msgstr "Formuläret var inte korrekt ifyllt."
+
+msgid "form.fileRequired"
+msgstr "Filuppladdning är obligatorisk."
+
+msgid "form.required"
+msgstr "(* obligatorisk)"
+
+msgid "form.resubmit"
+msgstr "Skicka in igen"
+
+msgid "form.saveToUpload"
+msgstr "Använd Spara för att ladda upp filen."
+
+msgid "form.send"
+msgstr "Skicka"
+
+msgid "form.submit"
+msgstr "Skicka in"
+
+msgid "form.invalidImage"
+msgstr "En ogiltig bildfil laddades upp. Tillåtna format är .png, .gif eller .jpg."
+
+msgid "help.help"
+msgstr "Hjälp"
+
+msgid "help.toc"
+msgstr "Innehållsförteckning"
+
+msgid "help.previous"
+msgstr "Föregående"
+
+msgid "help.next"
+msgstr "Nästa"
+
+msgid "help.upALevel"
+msgstr "Upp en nivå"
+
+msgid "icon.checked.alt"
+msgstr "Markerad"
+
+msgid "icon.comment.alt"
+msgstr "Kommentar"
+
+msgid "icon.delete.alt"
+msgstr "Radera"
+
+msgid "icon.edit.alt"
+msgstr "Redigera"
+
+msgid "icon.folder.alt"
+msgstr "Mapp"
+
+msgid "icon.font_large.alt"
+msgstr "Stor"
+
+msgid "icon.font_medium.alt"
+msgstr "Mellan"
+
+msgid "icon.font_small.alt"
+msgstr "Liten"
+
+msgid "icon.info.alt"
+msgstr "Info"
+
+msgid "icon.letter.alt"
+msgstr "Brev"
+
+msgid "icon.mail.alt"
+msgstr "E-post"
+
+msgid "icon.unchecked.alt"
+msgstr "Omarkerade"
+
+msgid "icon.view.alt"
+msgstr "Visa"
+
+msgid "informationCenter.informationCenter"
+msgstr "Informationscenter"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Redaktionell historik"
+
+msgid "informationCenter.addNote"
+msgstr "Lägg till en anteckning"
+
+msgid "informationCenter.noNotes"
+msgstr "Det finns inga anteckningar att visa."
+
+msgid "informationCenter.pastNotes"
+msgstr "Tidigare anteckningar om bearbetning"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Är du säker på att du vill ta bort den här anteckningen?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Aktuell version"
+
+msgid "informationCenter.pastHistory"
+msgstr "Tidigare versioner"
+
+msgid "informationCenter.history.noItems"
+msgstr "Inga händelser loggade."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Skickade ny anteckning."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Avisering skickad till användare."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Avisering skickad till användare."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Påbörja diskussion"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Påbörja en diskussion mellan dig själv och {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Välj ett fördefinierat meddelande att använda eller fyll i formuläret nedan."
+
+msgid "stageParticipants.notify.message"
+msgstr "Meddelande"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Vänligen se till att du har fyllt i meddelandefältet och valt minst en mottagare."
+
+msgid "stageParticipants.options"
+msgstr "Behörigheter"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Den här deltagaren tillåts endast rekommendera ett redaktörsbeslut, en behörig redaktör krävs för att registrera redaktörsbeslut."
+
+msgid "locale.primary"
+msgstr "Primärt språk"
+
+msgid "locale.supported"
+msgstr "Språk som stöds"
+
+msgid "navigation.access"
+msgstr "Användare &amp; Roller"
+
+msgid "navigation.about"
+msgstr "Om"
+
+msgid "navigation.admin"
+msgstr "Administration"
+
+msgid "navigation.archives"
+msgstr "Arkiv"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Här är du:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Verktyg"
+
+msgid "navigation.tools.importExport"
+msgstr "Importera/Exportera"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistik"
+
+msgid "navigation.browse"
+msgstr "Bläddra"
+
+msgid "navigation.browseByAuthor"
+msgstr "Per författare"
+
+msgid "navigation.browseByTitle"
+msgstr "Per titel"
+
+msgid "navigation.dashboard"
+msgstr "Översikt"
+
+msgid "navigation.data"
+msgstr "Data"
+
+msgid "navigation.home"
+msgstr "Hem"
+
+msgid "navigation.infoForReaders"
+msgstr "För läsare"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Information för läsare"
+
+msgid "navigation.items"
+msgstr "{$from} – {$to} av {$total} objekt"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} av {$total} objekt"
+
+msgid "navigation.login"
+msgstr "Logga in"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Nästa steg"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Föregående steg"
+
+msgid "navigation.publicMenu"
+msgstr "Publik meny"
+
+msgid "navigation.register"
+msgstr "Registrera"
+
+msgid "navigation.search"
+msgstr "Sök"
+
+msgid "navigation.settings"
+msgstr "Inställningar"
+
+msgid "navigation.setup"
+msgstr "Inställning"
+
+msgid "navigation.sitemap"
+msgstr "Site map"
+
+msgid "navigation.skip.main"
+msgstr "Hoppa till huvudinnehåll"
+
+msgid "navigation.skip.nav"
+msgstr "Hoppa till primär navigationsmeny"
+
+msgid "navigation.skip.footer"
+msgstr "Hoppa till sidfot"
+
+msgid "navigation.stepNumber"
+msgstr "Steg {$step}"
+
+msgid "navigation.submissions"
+msgstr "Bidrag"
+
+msgid "navigation.system"
+msgstr "System"
+
+msgid "navigation.userHome"
+msgstr "Min sida"
+
+msgid "navigation.user"
+msgstr "Användare"
+
+msgid "navigation.userManagement"
+msgstr "Administrera användare"
+
+msgid "navigation.viewFrontend"
+msgstr "Visa webbplats"
+
+msgid "notification.addedAuditor"
+msgstr "Manusgranskare tillagd."
+
+msgid "notification.removedAuditor"
+msgstr "Manusgranskare borttagen."
+
+msgid "notification.addedQuery"
+msgstr "Diskussion tillagd."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Granskning markerad som godkänd. Inget e-postmeddelande skickat."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "E-postmeddelande med tack skickat till granskare."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Granskningsfiler uppdaterade."
+
+msgid "notification.allow"
+msgstr "Aktivera den här sortens aviseringar."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Meddelandetyp tillagd."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Meddelandetyp redigerad."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Meddelandetyp borttagen."
+
+msgid "notification.addedAnnouncement"
+msgstr "Meddelande tillagt."
+
+msgid "notification.editedAnnouncement"
+msgstr "Meddelande redigerat."
+
+msgid "notification.removedAnnouncement"
+msgstr "Meddelande borttaget."
+
+msgid "notification.addedAuthor"
+msgstr "Författare tillagd."
+
+msgid "notification.editedAuthor"
+msgstr "Författare redigerad."
+
+msgid "notification.confirmError"
+msgstr "Det uppstod ett problem när din prenumeration skulle bekräftas."
+
+msgid "notification.confirmSuccess"
+msgstr "Registreringen av din prenumeration är nu färdig."
+
+msgid "notification.email"
+msgstr "Sluta skicka den här typen av meddelanden till min e-postadress."
+
+msgid "notification.noneExist"
+msgstr "Du har inga aviseringar just nu."
+
+msgid "notification.addedNote"
+msgstr "Anteckning skickad."
+
+msgid "notification.removedNote"
+msgstr "Antagning borttagen."
+
+msgid "notification.removedFile"
+msgstr "Tog bort fil."
+
+msgid "notification.removedSubmission"
+msgstr "Tog bort bidrag."
+
+msgid "notification.notification"
+msgstr "Avisering"
+
+msgid "notification.notifications"
+msgstr "Aviseringar"
+
+msgid "notification.sentNotification"
+msgstr "Avisering skickad."
+
+msgid "notification.settings"
+msgstr "Inställningar för aviseringar"
+
+msgid "notification.settingsDescription"
+msgstr "Välj de systemhändelser som du vill bli aviserad om. Om du kryssar ur en händelse dyker inga aviseringar för den händelsen upp i systemet eller via e-post. Ikryssade händelser dyker upp i systemet och du kan välja om du vill få aviseringen även via e-post eller inte."
+
+msgid "notification.reminderError"
+msgstr "Det uppstod ett fel vid utskick av lösenord till dig, vänligen dubbelkolla att den e-postadress du angivit verkligen stämmer."
+
+msgid "notification.reminderSent"
+msgstr "Ditt nya lösenord har skickats till e-postadressen du angivit."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadata för bidrag sparat."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Skicka e-postmeddelande med avisering till alla registrerade användare."
+
+msgid "search.author"
+msgstr "Författare"
+
+msgid "search.abstract"
+msgstr "Abstract"
+
+msgid "search.advancedFilters"
+msgstr "Avancerade filter"
+
+msgid "search.advancedSearchMore"
+msgstr "Fler sökalternativ"
+
+msgid "search.advancedSearchLess"
+msgstr "Dölj fler sökalternativ"
+
+msgid "search.searchAgain"
+msgstr "Sök igen"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Rensar index"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "klart"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "fel"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artiklar indexerade"
+
+msgid "search.coverage"
+msgstr "Täckning"
+
+msgid "search.date"
+msgstr "Publiceringsdatum"
+
+msgid "search.dateFrom"
+msgstr "Publicerad senare än"
+
+msgid "search.dateTo"
+msgstr "Publicerad tidigare än"
+
+msgid "search.deleteFilter"
+msgstr "Ta bort"
+
+msgid "search.discipline"
+msgstr "Disciplin(er)"
+
+msgid "search.fullText"
+msgstr "Fulltext"
+
+msgid "search.indexTerms"
+msgstr "Ämnesord"
+
+msgid "search.indexTermsLong"
+msgstr "Alla fält för ämnesord"
+
+msgid "search.matchAll"
+msgstr "Matcha i alla kategorier"
+
+msgid "search.noKeywordError"
+msgstr "Du måste ange minst ett sökord."
+
+msgid "search.noResults"
+msgstr "Inga träffar"
+
+msgid "search.operator.and"
+msgstr "OCH"
+
+msgid "search.operator.not"
+msgstr "INTE"
+
+msgid "search.operator.or"
+msgstr "ELLER"
+
+msgid "search.SearchFor"
+msgstr "Sök efter"
+
+msgid "search.searchResults"
+msgstr "Sökresultat"
+
+msgid "search.subject"
+msgstr "Nyckelord"
+
+msgid "search.titleIndex"
+msgstr "Bläddra i titelregister"
+
+msgid "search.title"
+msgstr "Titel"
+
+msgid "search.typeMethodApproach"
+msgstr "Typ (metod/tillvägagångssätt)"
+
+msgid "grid.action.downloadFile"
+msgstr "Ladda ned den här filen"
+
+msgid "context.path"
+msgstr "Sökväg"
+
+msgid "review.ensuringBlindReview"
+msgstr "Att säkerställa anonym granskning"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Läs aktuell granskningspolicy"
+
+msgid "grid.action.deleteNotification"
+msgstr "Ta bort uppgift"
+
+msgid "grid.action.markNew"
+msgstr "Markera som ny"
+
+msgid "grid.action.markRead"
+msgstr "Markera som läst"
+
+msgid "dashboard.tasks"
+msgstr "Uppgifter"
+
+msgid "dashboard.myQueue"
+msgstr "Min kö"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"\n"
+"\t  <p>För att säkerställa den anonyma granskningsprocessen som används för insända bidrag till den här utgivaren ska alla försiktighetsåtgärder tas för att hindra att identiteterna hos författare och granskare röjs för varandra. Detta innebär att författare, redaktörer och granskare (som laddar upp dokument under granskningsprocessen) behöver kontrollera att följande steg tagits gällande text- och filegenskaper:</p>\n"
+"\t\t\t<ul><li>Författare till dokumentet rensar texten från sina namn och använder \"Författaren\" och år i referenslistor och fotnoter istället för författarens namn, artikeltitel, etc.</li>\n"
+"\t\t\t<li>För Microsoft Office-dokument ska element som identifierar författaren också tas bort från filens metadata (se under Arkiv i Word) genom att klicka på följande, med start i Arkiv i huvudmenyn på Microsoft-programmet: Arkiv (eller Microsoft Office-knappen) &gt; Info &gt; Felsök &gt; Kontrollera dokument &gt; Ta bort dold och personlig information &gt; Spara. (Word 2007–2016.)</li>\n"
+"\t\t\t<li>För PDF:er ska författarnamn också tas bort från PDF-metadatan, exempelvis via Egenskaper under Arkiv i Adobe Acrobats huvudmeny.</li>\n"
+"\t\t</ul>\n"
+"\t"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Granskningsplan"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Förfrågan från redaktör"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Deadline för svar"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Deadline för granskning"
+
+msgid "submission.task.responseDueDate"
+msgstr "Deadline för svar"
+
+msgid "navigation.goBack"
+msgstr "Gå tillbaka"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} har utsetts till granskare för det här bidraget och har meddelats via e-post."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} har utsetts som granskare för det här bidraget men har inte meddelats via e-post."
+
+msgid "notification.removedReviewer"
+msgstr "Granskare borttagen."
+
+msgid "notification.addedStageParticipant"
+msgstr "Användaren tillagd som deltagare i steget."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Nytt meddelande."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Väntar på granskning."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Granskningsuppdrag uppdaterat."
+
+msgid "notification.type.auditorRequest"
+msgstr "Förfrågan om manusgranskning av \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Alla granskningar har kommit in och ett beslut behövs vid {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "En bearbetad fil har laddats upp för redaktionell bedömning av dig vid {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Bearbetningar att ta ställning till vid {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Bearbetningar inskickade till {$stage}."
+
+msgid "notification.type.metadataModified"
+msgstr "\"{$title}s\" metadata har redigerats."
+
+msgid "notification.type.reviewerComment"
+msgstr "En granskare har kommenterat \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Fil bedömd."
+
+msgid "user.authorization.submissionFile"
+msgstr "Aktuell användare har inte behörighet att få tillgång till den specificerade bidragsfilen."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Ogiltigt bidrag."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Ogiltig representation."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "I nuläget har du inte tillräcklig behörighet för att se bidraget. Vänligen se över din profil för att säkerställa att du har fått alla roller du behöver under \"Registrera som\"."
+
+msgid "user.authorization.submissionAuthor"
+msgstr "Aktuell användare är inte författare till det begärda bidraget. Vänligen kontrollera att du är inloggad på rätt användarkonto."
+
+msgid "notification.type.queryActivity"
+msgstr "Diskussionsaktivitet."
+
+msgid "notification.type.queryAdded"
+msgstr "Diskussion tillagd."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Utse manusredaktör genom Utse-länken i Deltagar-listan."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Väntar på manusredigeringar."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status för omgång {$round}"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Objekt i navigationsmeny uppdaterat."
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Objekt i navigationsmeny borttaget."
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Objekt i navigationsmeny tillagt."
+
+msgid "notification.addedNavigationMenu"
+msgstr "Navigationsmeny tillagd."
+
+msgid "notification.editedNavigationMenu"
+msgstr "Navigationsmeny uppdaterad."
+
+msgid "notification.removedNavigationMenu"
+msgstr "Navigationsmeny borttagen."
+
+msgid "list.viewMore"
+msgstr "Visa mer detaljer om {$name}"
+
+msgid "list.viewLess"
+msgstr "Göm visade detaljer om {$name}"

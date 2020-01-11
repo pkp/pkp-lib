@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
+"PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
+"Language: \n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrador do site"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administradores do site"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Editor de Leiaute"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Editores de Leiaute"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "EP"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Editor de texto"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Editores de texto"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "ET"
+
+msgid "default.groups.name.proofreader"
+msgstr "Leitor de Prova"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Leitores de prova"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "LP"
+
+msgid "default.groups.name.designer"
+msgstr "Designer"
+
+msgid "default.groups.plural.designer"
+msgstr "Designers"
+
+msgid "default.groups.abbrev.designer"
+msgstr "DE"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Avaliador Interno"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Avaliadores Internos"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "AI"
+
+msgid "default.groups.name.marketing"
+msgstr "Coordenador de Vendas e Marketing"
+
+msgid "default.groups.plural.marketing"
+msgstr "Coordenadores de Vendas e Marketing"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "CVM"
+
+msgid "default.groups.name.funding"
+msgstr "Coordenador de Financiamento"
+
+msgid "default.groups.plural.funding"
+msgstr "Coordenadores de Financiamento"
+
+msgid "default.groups.abbrev.funding"
+msgstr "CF"
+
+msgid "default.groups.name.indexer"
+msgstr "Indexador"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indexadores"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Editor de Leiaute"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Editores de Leiaute"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "EL"
+
+msgid "default.groups.name.author"
+msgstr "Autor"
+
+msgid "default.groups.plural.author"
+msgstr "Autores"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Tradutor"
+
+msgid "default.groups.plural.translator"
+msgstr "Tradutores"
+
+msgid "default.groups.abbrev.translator"
+msgstr "TR"
+
+msgid "default.groups.name.reader"
+msgstr "Leitor"
+
+msgid "default.groups.plural.reader"
+msgstr "Leitores"
+
+msgid "default.groups.abbrev.reader"
+msgstr "LE"
+
+msgid "default.genres.other"
+msgstr "Outros"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Imagem"
+
+msgid "default.genres.styleSheet"
+msgstr "Folha de Estilos"

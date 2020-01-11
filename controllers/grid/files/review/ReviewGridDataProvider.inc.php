@@ -2,8 +2,8 @@
 /**
  * @file controllers/grid/files/review/ReviewGridDataProvider.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewGridDataProvider
@@ -15,11 +15,16 @@
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
 class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
+	/** @var boolean */
+	protected $_showAll;
 
 	/**
 	 * Constructor
+	 * @copydoc SubmissionFilesGridDataProvider::__construct()
+	 * @param $showAll boolean True iff all review round files should be included.
 	 */
-	function __construct($fileStageId, $viewableOnly = false) {
+	function __construct($fileStageId, $viewableOnly = false, $showAll = false) {
+		$this->_showAll = $showAll;
 		parent::__construct($fileStageId, $viewableOnly);
 	}
 
@@ -59,7 +64,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider {
 		// Get all review files assigned to this submission.
 		$reviewRound = $this->getReviewRound();
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $this->getFileStage());
+		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($reviewRound, $this->_showAll?null:$this->getFileStage());
 		return $this->prepareSubmissionFileData($submissionFiles, $this->_viewableOnly, $filter);
 	}
 

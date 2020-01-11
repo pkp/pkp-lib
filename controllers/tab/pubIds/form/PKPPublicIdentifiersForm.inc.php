@@ -3,8 +3,8 @@
 /**
  * @file controllers/tab/pubIds/form/PKPPublicIdentifiersForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicIdentifiersForm
@@ -48,7 +48,7 @@ class PKPPublicIdentifiersForm extends Form {
 		$this->_stageId = $stageId;
 		$this->_formParams = $formParams;
 
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$this->_contextId = $context->getId();
 
@@ -73,6 +73,13 @@ class PKPPublicIdentifiersForm extends Form {
 			'stageId' => $this->getStageId(),
 			'formParams' => $this->getFormParams(),
 		));
+		if (is_a($this->getPubObject(), 'Representation') || is_a($this->getPubObject(), 'Chapter')) {
+			$publicationId = $this->getPubObject()->getData('publicationId');
+			$publication = Services::get('publication')->get($publicationId);
+			$templateMgr->assign([
+				'submissionId' => $publication->getData('submissionId'),
+			]);
+		}
 		// consider JavaScripts
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->addJavaScripts($this->getContextId(), $request, $templateMgr);
@@ -155,6 +162,9 @@ class PKPPublicIdentifiersForm extends Form {
 			if (ctype_digit($publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationNumericNotAllowed', array('publicIdentifier' => $publisherId)));
 				$this->addErrorField('$publisherId');
+			} elseif (count(explode('/', $publisherId)) > 1) {
+				$this->addError('publisherId', __('editor.publicIdentificationPatternNotAllowed', array('pattern' => '"/"')));
+				$this->addErrorField('$publisherId');
 			} elseif (is_a($pubObject, 'SubmissionFile') && preg_match('/^(\d+)-(\d+)$/', $publisherId)) {
 				$this->addError('publisherId', __('editor.publicIdentificationPatternNotAllowed', array('pattern' => '\'/^(\d+)-(\d+)$/\' i.e. \'number-number\'')));
 				$this->addErrorField('$publisherId');
@@ -181,10 +191,7 @@ class PKPPublicIdentifiersForm extends Form {
 		$pubIdPluginHelper = new PKPPubIdPluginHelper();
 		$pubIdPluginHelper->execute($this->getContextId(), $this, $pubObject);
 
-		if (is_a($pubObject, 'Submission')) {
-			$submissionDao = Application::getSubmissionDAO();
-			$submissionDao->updateObject($pubObject);
-		} elseif (is_a($pubObject, 'Representation')) {
+		if (is_a($pubObject, 'Representation')) {
 			$representationDao = Application::getRepresentationDAO();
 			$representationDao->updateObject($pubObject);
 		} elseif (is_a($pubObject, 'SubmissionFile')) {
@@ -211,6 +218,8 @@ class PKPPublicIdentifiersForm extends Form {
 		$assocType = null;
 		if (is_a($pubObject, 'Submission')) {
 			$assocType = ASSOC_TYPE_SUBMISSION;
+		} elseif (is_a($pubObject, 'Publication')) {
+			$assocType = ASSOC_TYPE_PUBLICATION;
 		} elseif (is_a($pubObject, 'Representation')) {
 			$assocType = ASSOC_TYPE_REPRESENTATION;
 		} elseif (is_a($pubObject, 'SubmissionFile')) {
@@ -219,5 +228,3 @@ class PKPPublicIdentifiersForm extends Form {
 		return $assocType;
 	}
 }
-
-

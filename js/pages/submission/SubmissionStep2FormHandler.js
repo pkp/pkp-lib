@@ -5,8 +5,8 @@
 /**
  * @file js/pages/submission/SubmissionStep2FormHandler.js
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionStep2FormHandler
@@ -53,7 +53,11 @@
 			prototype.showFileUploadWizard_ = function(sourceElement, event, data) {
 
 		if (data == 'submissionFilesGridDiv') {
+			// OJS and OMP: Click the "add file" button
 			$('#' + data).find('[id*="-addFile-button-"]').click();
+		} else if (data.startsWith('formatsGridContainer')) {
+			// Preprint server: Click the "add galley" button
+			$('#' + data).find('[id*="-addGalley-button-"]').click();
 		}
 	};
 

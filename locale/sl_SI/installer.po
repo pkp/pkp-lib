@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:01+00:00\n"
+"Language: \n"
+
+msgid "installer.additionalLocales"
+msgstr "Dodatni jeziki"
+
+msgid "installer.administratorAccount"
+msgstr "Račun administratorja"
+
+msgid "installer.administratorAccountInstructions"
+msgstr "Ta uporabniški račun bo postal administrator celotnega spletišča in bo imel dostop do celotnega sistema. Dodani uporabniški računi se lahko naredijo po namestitvi."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NE</span>"
+
+msgid "installer.checkYes"
+msgstr "Da"
+
+msgid "installer.clientCharset"
+msgstr "Nabor znakov klienta"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Kodiranje, ki se uporablja za pošiljanje in prejemanje podatkov iz različnih brskalnikov."
+
+msgid "installer.configFileError"
+msgstr "Nastavitvena datoteka <tt>config.inc.php</tt> ne obstaja ali ni berljiva."
+
+msgid "installer.connectionCharset"
+msgstr "Nabor znakov povezave"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Vsebina nastavitvene datoteke"
+
+msgid "installer.createDatabase"
+msgstr "Ustvari novo bazo podatkov"
+
+msgid "installer.createDatabaseInstructions"
+msgstr "Če želite uporabiti to opcijo, mora vaša baza podatkov podpirati oddaljeno ustvarjane baze podatkov, vaš uporabniški račun pa mora imeti ustrezne pravice. Če namestitev s to opcijo ni uspešna, ustvarite bazo podatkov ročno in ponovno zaženite namestitev brez te opcije."
+
+msgid "installer.databaseDriver"
+msgstr "Gonilnik baze podatkov"
+
+msgid "installer.databaseDriverInstructions"
+msgstr "<strong>Gonilniki za bazo podatkov v oklepajih nimajo potrebne podpore za PHP, zato bo namestitev z njimi najverjetneje neuspešna.</strong><br />Vsi nepodprti gonilniki za baze podatkov zgoraj so našteti le zaradi akademskih potreb in najverjetneje ne bodo delovali."
+
+msgid "installer.databaseHost"
+msgstr "Gostitelj \"Host\""
+
+msgid "installer.databaseHostInstructions"
+msgstr "Pustite ime gostitelja prazno za povezavo s pomočjo domenske vtičnice namesto TCP/IP-ja. To ni potrebno pri MySQL, ki avtomatsko uporabi vtičnico, če je vpisano \"localhost\". Je pa potrebno pri nekaterih drugih bazah podatkov, recimo PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Ime baze podatkov"
+
+msgid "installer.databasePassword"
+msgstr "Geslo"
+
+msgid "installer.databaseSettings"
+msgstr "Nastavitve baze podatkov"
+
+msgid "installer.databaseUsername"
+msgstr "Uporabniško ime"
+
+msgid "installer.filesDir"
+msgstr "Mapa za nalaganje datotek"
+
+msgid "installer.fileSettings"
+msgstr "Nastavitve datotek"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Izbrati morate nabor znakov klienta."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Izbrati morate gonilnik za bazo podatkov."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Ime baze podatkov je obvezno."
+
+msgid "installer.form.emailRequired"
+msgstr "Veljaven e-poštni naslov za račun administratorja je obvezen."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Mapa za shranjevanje naloženih datotek je obvezna."
+
+msgid "installer.form.localeRequired"
+msgstr "Izbrati morate jezik."
+
+msgid "installer.form.passwordRequired"
+msgstr "Geslo za račun administratorja je obvezno."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Gesli administratorja se ne ujemata."
+
+msgid "installer.form.separateMultiple"
+msgstr "Več vrednosti med seboj ločite z vejicami"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr "Uporabniško ime administratorja lahko vsebuje samo alfanumerične znake, podčrtaj, pomišljaj in se mora začeti in končati z alfanumeričnim znakom."
+
+msgid "installer.form.usernameRequired"
+msgstr "Uporabniško ime za račun administratorja je obvezno."
+
+msgid "installer.installationWrongPhp"
+msgstr "<br/><strong>OPOZORILO: Vaša verzija PHP ne zadostuje minimalnim zahtevam za namestitev. Priporočljivo je, da PHP nadgradite z novejšo verzijo.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Med namestitvijo je prišlo do napak"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL stavki za namestitev"
+
+msgid "installer.installFileError"
+msgstr "Namestitvena datoteka <tt>dbscripts/xml/install.xml</tt> ne obstaja ali ni berljiva."
+
+msgid "installer.installFilesDirError"
+msgstr "Podana mapa za nalaganje datotek ne obstaja ali vanj ne moremo pisati."
+
+msgid "installer.installParseDBFileError"
+msgstr "Napaka pri analiziranju namestitvene datoteke za bazo podatkov <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Napaka pri analizi datoteke s predlogo za emaile <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Napaka pri analizi nastavitvene datoteke filtra <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Nadgradnja ni podprta. Za več informacij poglejte v docs/UPGRADE-UNSUPPORTED."
+
+msgid "installer.locale"
+msgstr "Jezik"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Označeni jeziki so lahko nepopolni."
+
+msgid "installer.localeSettings"
+msgstr "Jezikovne nastavitve"
+
+msgid "installer.oaiSettings"
+msgstr "OAI nastavitve"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr "Enoznačen identifikator, ki se uporablja za identifikacijo zapisov metapodatkov  pridobljenih na tem spletišču z uporabo <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> protokola za zajemanje metapodatkov."
+
+msgid "installer.oaiRepositoryId"
+msgstr "OAI identifikator repozitorija"
+
+msgid "installer.publicFilesDirError"
+msgstr "Mapa za javne datoteke ne obstaja ali vanj ne moremo pisati."
+
+msgid "installer.releaseNotes"
+msgstr "Opombe k izdaji"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Prednamestitveni koraki"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Nasldenje datoteke in mape (vključno z vsebino) morajo imeti pravico pisanja:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> omogočeno pisanje (opcijsko): {$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> omogočeno pisanje: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> omogočeno pisanje: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> omogočeno pisanje: {$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> omogočeno pisanje: {$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> omogočeno pisanje: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Mapa za shranjevanje naloženih datotek mora obstajati in imeti omogočeno pisanje (več v \"Nastavitve datotek\" spodaj).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr "<p>Vaša PHP namestitev nima omogočenega XSL modula. Ali ga vključite ali pa ustrezno konfigurirajte paramer xslt_command v vaši config.inc.php datoteki.</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr "Vnesite enolični identifikator spletišča, ki bo hkrati osnova za OAI za PKP, izključno za statistiko in varnostna opozorila."
+
+msgid "installer.unsupportedPhpError"
+msgstr "Vaš strežnik ima nameščeno verzijo PHP, ki ni podprta. Preverite zahtevane pogoje za namestitev v docs/README."

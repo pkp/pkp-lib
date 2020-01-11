@@ -3,8 +3,8 @@
 /**
  * @file classes/db/DBConnection.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DBConnection
@@ -14,6 +14,7 @@
  * Currently integrated with ADOdb (from http://adodb.sourceforge.net).
  */
 
+define('ADODB_OUTP', array('DBConnection', 'logAdodbMessage'));
 
 class DBConnection {
 
@@ -54,6 +55,16 @@ class DBConnection {
 			$args = func_get_args();
 			call_user_func_array(array($this, 'initCustomDBConnection'), $args);
 		}
+	}
+
+	/**
+	 * Log message handler for ADODB.
+	 * @param $msg string
+	 * @param $newline boolean
+	 * @see ADOConnection::outp
+	 */
+	static function logAdodbMessage($msg, $newline=true) {
+		error_log('PKP-Database-Logger ' . Registry::get('system.debug.startTime') . ': ' . PKPString::html2text($msg));
 	}
 
 	/**
@@ -118,7 +129,7 @@ class DBConnection {
 	 * @return boolean
 	 */
 	function initConn() {
-		require_once('lib/pkp/lib/adodb/adodb.inc.php');
+		require_once('lib/pkp/lib/vendor/adodb/adodb-php/adodb.inc.php');
 
 		$this->dbconn = ADONewConnection($this->driver);
 

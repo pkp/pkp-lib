@@ -1,8 +1,9 @@
 {
 	"require": {
+		"ralouphie/getallheaders": "*",
 		"components/jqueryui": "1.*",
 		"components/jquery": "3.*",
-		"oyejorge/less.php": "1.*",
+		"wikimedia/less.php": "1.*",
 		"phpmailer/phpmailer": "6.*",
 		"smarty/smarty": "3.*",
 		"ezyang/htmlpurifier": "4.*",
@@ -12,16 +13,29 @@
 		"michelf/php-markdown": "1.*",
 		"slim/slim": "3.*",
 		"pimple/pimple": "3.*",
-		"illuminate/database": "5.5.41",
-		"illuminate/validation": "5.5.41",
+		"illuminate/database": "^5.5.41",
+		"illuminate/validation": "^5.5.41",
 		"firebase/php-jwt": "5.*",
-		"danielstjules/stringy": "3.*"
+		"danielstjules/stringy": "3.*",
+		"adodb/adodb-php": "dev-v5.20.14-mods",
+		"gettext/gettext": "^4.6"
 	},
 	"require-dev": {
-		"phpunit/phpunit-selenium": "1.4.2"
+		"facebook/webdriver": "~1.6",
+		"phpunit/phpunit": "~8",
+		"psy/psysh": "@stable"
 	},
 	"config": {
 		"component-dir": "lib/components",
-		"vendor-dir": "lib/vendor"
-	}
+		"vendor-dir": "lib/vendor",
+		"platform": {
+			"php": "7.2.0"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/asmecher/ADOdb"
+		}
+	]
 }

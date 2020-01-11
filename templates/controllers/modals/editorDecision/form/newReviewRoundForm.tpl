@@ -1,23 +1,23 @@
 {**
  * templates/controllers/modals/editorDecision/form/newReviewRoundForm.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form used to create a new review round (after the first round)
  *
  *}
-
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#newRoundForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', null);
 	{rdelim});
 </script>
 
-<p>{translate key="editor.submission.newRoundDescription"}</p>
 <form class="pkp_form" id="newRoundForm" method="post" action="{url op="saveNewReviewRound"}" >
+	<p>{translate key="editor.submission.newRoundDescription"}</p>
+
 	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
@@ -31,4 +31,3 @@
 
 	{fbvFormButtons submitText="editor.submission.createNewRound"}
 </form>
-

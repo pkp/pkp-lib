@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/PromoteForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PromoteForm
@@ -51,8 +51,8 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	 * @copydoc EditorDecisionWithEmailForm::initData()
 	 */
 	function initData($actionLabels = array()) {
-		$request = Application::getRequest();
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$request = Application::get()->getRequest();
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		$submission = $this->getSubmission();
 		$this->setData('stageId', $this->getStageId());
@@ -74,14 +74,16 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		$request = Application::getRequest();
+	function execute(...$functionParams) {
+		parent::execute(...$functionParams);
+
+		$request = Application::get()->getRequest();
 
 		// Retrieve the submission.
 		$submission = $this->getSubmission();
 
 		// Get this form decision actions labels.
-		$actionLabels = EditorDecisionActionsManager::getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
+		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getStageId(), $this->_getDecisions());
 
 		// Record the decision.
 		$reviewRound = $this->getReviewRound();
@@ -168,7 +170,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 		if ($this->getData('requestPayment')) {
 			$context = $request->getContext();
-			$stageDecisions = EditorDecisionActionsManager::getStageDecisions($context, $this->getStageId());
+			$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($context, $this->getStageId());
 			$decisionData = $stageDecisions[$decision];
 			if (isset($decisionData['paymentType'])) {
 				$paymentType = $decisionData['paymentType'];

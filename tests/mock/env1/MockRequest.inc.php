@@ -3,8 +3,8 @@
 /**
  * @file tests/mock/env1/MockRequest.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Request
@@ -17,15 +17,14 @@
 import('lib.pkp.classes.core.PKPRequest');
 
 class Request extends PKPRequest {
-	private static
-		$requestMethod;
+	private static $_requestMethod;
 
 	public function setRequestMethod($requestMethod) {
-		self::$requestMethod = $requestMethod;
+		self::$_requestMethod = $requestMethod;
 	}
 
 	public function isPost() {
-		return (self::$requestMethod == 'POST');
+		return (self::$_requestMethod == 'POST');
 	}
 }
 

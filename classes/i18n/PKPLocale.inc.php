@@ -8,8 +8,8 @@
 /**
  * @file classes/i18n/PKPLocale.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPLocale
@@ -68,6 +68,7 @@ define('LOCALE_COMPONENT_APP_EDITOR',		0x00000104);
 define('LOCALE_COMPONENT_APP_ADMIN',		0x00000105);
 define('LOCALE_COMPONENT_APP_DEFAULT',		0x00000106);
 define('LOCALE_COMPONENT_APP_API',		0x00000107);
+define('LOCALE_COMPONENT_APP_EMAIL',		0x00000108);
 
 class PKPLocale {
 	static $request;
@@ -136,7 +137,7 @@ class PKPLocale {
 			}
 		}
 
-		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
+		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.po");
 
 		// Set site time zone
 		// Starting from PHP 5.3.0 PHP will throw an E_WARNING if the default
@@ -164,6 +165,10 @@ class PKPLocale {
 					$dbconn->execute('SET time_zone = \''.$offset.'\'');
 					break;
 				case 'postgres':
+				case 'postgres64':
+				case 'postgres7':
+				case 'postgres8':
+				case 'postgres9':
 					$dbconn->execute('SET TIME ZONE INTERVAL \''.$offset.'\' HOUR TO MINUTE');
 					break;
 				default: assert(false);
@@ -181,18 +186,18 @@ class PKPLocale {
 		$baseDir = "lib/pkp/locale/$locale/";
 
 		return array(
-			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.xml',
-			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.xml',
-			LOCALE_COMPONENT_PKP_INSTALLER => $baseDir . 'installer.xml',
-			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.xml',
-			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.xml',
-			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.xml',
-			LOCALE_COMPONENT_PKP_EDITOR => $baseDir . 'editor.xml',
-			LOCALE_COMPONENT_PKP_REVIEWER => $baseDir . 'reviewer.xml',
-			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xml',
-			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.xml',
-			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.xml',
-			LOCALE_COMPONENT_PKP_API => $baseDir . 'api.xml',
+			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.po',
+			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.po',
+			LOCALE_COMPONENT_PKP_INSTALLER => $baseDir . 'installer.po',
+			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.po',
+			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.po',
+			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.po',
+			LOCALE_COMPONENT_PKP_EDITOR => $baseDir . 'editor.po',
+			LOCALE_COMPONENT_PKP_REVIEWER => $baseDir . 'reviewer.po',
+			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.po',
+			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.po',
+			LOCALE_COMPONENT_PKP_DEFAULT => $baseDir . 'default.po',
+			LOCALE_COMPONENT_PKP_API => $baseDir . 'api.po',
 		);
 	}
 

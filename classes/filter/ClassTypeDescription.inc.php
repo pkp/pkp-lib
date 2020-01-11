@@ -2,8 +2,8 @@
 /**
  * @file classes/filter/ClassTypeDescription.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ClassTypeDescription
@@ -11,7 +11,7 @@
  *
  * @brief A type description that validates objects by class type.
  *
- * Example type identifier: 'class::lib.pkp.classes.submission.Submission'
+ * Example type identifier: 'class::lib.pkp.classes.submission.PKPSubmission'
  */
 
 import('lib.pkp.classes.filter.TypeDescription');

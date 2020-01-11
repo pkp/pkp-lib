@@ -3,8 +3,8 @@
 /**
  * @file classes/core/APIRouter.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class APIRouter
@@ -159,7 +159,9 @@ class APIRouter extends PKPRouter {
 		// APIHandlers do not understand $op, $path or $anchor. All routing is baked
 		// into the $endpoint string. It only accepts a string as the $newContext,
 		// since it relies on this when path info is disabled.
-		assert(is_null($op) && is_null($path) && is_null($anchor) && is_scalar($newContext));
+		if (!is_null($op) || !is_null($path) || !is_null($anchor) || !is_scalar($newContext)) {
+			throw new Exception('APIRouter::url() should not be called with an op, path or anchor. If a new context is passed, the context path must be passed instead of the context object.');
+		}
 
 		//
 		// Base URL and Context

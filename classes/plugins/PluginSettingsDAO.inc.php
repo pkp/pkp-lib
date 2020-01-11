@@ -3,8 +3,8 @@
 /**
  * @file classes/plugins/PluginSettingsDAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginSettingsDAO
@@ -247,10 +247,7 @@ class PluginSettingsDAO extends DAO {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
-		if (!$tree) {
-			$xmlParser->destroy();
-			return false;
-		}
+		if (!$tree) return false;
 
 		// Check for existing settings and leave them if they are already in place.
 		$currentSettings = $this->getPluginSettings($contextId, $pluginName);
@@ -277,8 +274,6 @@ class PluginSettingsDAO extends DAO {
 				$this->updateSetting($contextId, $pluginName, $name, $value, $type);
 			}
 		}
-
-		$xmlParser->destroy();
 	}
 }
 

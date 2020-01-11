@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewReminderForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminderForm
@@ -51,7 +51,7 @@ class ReviewReminderForm extends Form {
 	 * @copydoc Form::initData
 	 */
 	function initData() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$user = $request->getUser();
 		$context = $request->getContext();
@@ -132,7 +132,7 @@ class ReviewReminderForm extends Form {
 	function execute() {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$submissionDao = Application::getSubmissionDAO();
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 
 		$reviewAssignment = $this->getReviewAssignment();
 		$reviewerId = $reviewAssignment->getReviewerId();

@@ -1,0 +1,318 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:41+00:00\n"
+"Language: \n"
+
+msgid "admin.adminFunctions"
+msgstr "Administrative funktioner"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Er du sikker på, at du vil slette denne godkendelseskilde permanent?"
+
+msgid "admin.auth.create"
+msgstr "Opret godkendelseskilde"
+
+msgid "admin.auth.noneCreated"
+msgstr "Der er ikke angivet nogen godkendelseskilder."
+
+msgid "admin.authSources"
+msgstr "Godkendelseskilder"
+
+msgid "admin.clearDataCache"
+msgstr "Ryd datacache"
+
+msgid "admin.clearTemplateCache"
+msgstr "Ryd skabeloncachen"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Konfigurationsfilen er blevet opdateret. Vær opmærksom på, at hvis webstedet ikke længere fungerer korrekt, skal du muligvis rette konfigurationen manuelt ved at redigere direkte i filen <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Er du sikker på, at du vil rydde cachen for kompilerede skabeloner?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Er du sikker på, at du vil lade alle brugersessioner udløbe? Alle brugere, der i øjeblikket er logget på systemet, vil blive tvunget til at logge på igen (herunder dig selv)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Konfigurationsfilens indhold"
+
+msgid "admin.currentVersion"
+msgstr "Aktuel version"
+
+msgid "admin.dateInstalled"
+msgstr "Installationsdato"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Indholdet af den opdaterede konfiguration vises nedenfor. Hvis du vil aktivere konfigurationsændringerne, skal du åbne filen <tt>config.inc.php</tt> i en passende teksteditor og erstatte dens indhold med indholdet i tekstfeltet nedenfor."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Vis ny konfiguration"
+
+msgid "admin.expireSessions"
+msgstr "Lad brugersessioner udløbe"
+
+msgid "admin.languages.confirmReload"
+msgstr "Er du sikker på, at du vil genindlæse denne landestandard? Denne handling sletter alle eksisterende landestandardspecifikke data, f.eks. tilpassede e-mail-skabeloner."
+
+msgid "admin.languages.installedLocales"
+msgstr "Installerede landestandarder"
+
+msgid "admin.languages.installLanguages"
+msgstr "Administrer landestandarder"
+
+msgid "admin.languages.installLocales"
+msgstr "Installér"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Installer nye landestandarder"
+
+msgid "admin.languages.languageSettings"
+msgstr "Sprogindstillinger"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Der findes ingen yderligere landestandarder, som skal installeres."
+
+msgid "admin.languages.reload"
+msgstr "Genindlæs landestandard"
+
+msgid "admin.languages.uninstall"
+msgstr "Fjern landestandard"
+
+msgid "admin.phpInfo"
+msgstr "Detaljerede oplysninger om PHP"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache-version"
+
+msgid "admin.server.dbDriver"
+msgstr "Databasedriver"
+
+msgid "admin.server.dbVersion"
+msgstr "Version af databaseserver"
+
+msgid "admin.serverInformation"
+msgstr "Serveroplysninger"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP-version"
+
+msgid "admin.server.platform"
+msgstr "Operativsystemplatform"
+
+msgid "admin.settings.about"
+msgstr "Om webstedsbeskrivelsen"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mail-adresse på primær kontaktperson"
+
+msgid "admin.settings.contactName"
+msgstr "Navn på primær kontaktperson"
+
+msgid "admin.settings.introduction"
+msgstr "Introduktion"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimumlængde for adgangskode"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Sprog på websted"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Ugyldigt format for typografiark til websted. Det accepterede format er .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Typografiark til websted"
+
+msgid "admin.settings.siteTitle"
+msgstr "Titel på websted"
+
+msgid "admin.siteAdmin"
+msgstr "Administration af websted"
+
+msgid "admin.siteManagement"
+msgstr "Administration af websted"
+
+msgid "admin.siteSettings"
+msgstr "Indstillinger for websted"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Konfigurationsfilen <tt>config.inc.php</tt> findes ikke, kan ikke læses eller er ugyldig."
+
+msgid "admin.systemInformation"
+msgstr "Systemoplysninger"
+
+msgid "admin.versionBuild"
+msgstr "Byg"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Søg efter opdateringer"
+
+msgid "admin.version.downloadPackage"
+msgstr "Hent"
+
+msgid "admin.version.downloadPatch"
+msgstr "Hent programrettelse"
+
+msgid "admin.versionHistory"
+msgstr "Versionsoversigt"
+
+msgid "admin.version.latest"
+msgstr "Nyeste version"
+
+msgid "admin.versionMajor"
+msgstr "Overordnet"
+
+msgid "admin.versionMinor"
+msgstr "Underordnet"
+
+msgid "admin.version.moreInfo"
+msgstr "Flere oplysninger"
+
+msgid "admin.versionRevision"
+msgstr "Revision"
+
+msgid "admin.version.updateAvailable"
+msgstr "Der findes en opdateret version"
+
+msgid "admin.version.upToDate"
+msgstr "Systemet er opdateret"
+
+msgid "admin.version"
+msgstr "Version"
+
+msgid "admin.settings"
+msgstr "Indstillinger"
+
+msgid "admin.settings.siteTheme"
+msgstr "Website tema"
+
+msgid "admin.siteSetup"
+msgstr "Website opsætning"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Din {$softwareName}-installation udførte og afsluttede automatisk denne proces. Du kan downloade logfilen her: {$url}"
+
+msgid "admin.settings.siteLogo"
+msgstr "Webstedets logo"
+
+msgid "admin.languages.cantDisable"
+msgstr "Denne landestandard er valgt som webstedets primære sprog. Den kan ikke deaktiveres før en ny primær landestandard er valgt."
+
+msgid "admin.languages.availableLocales"
+msgstr "Tilgængelige landestandarder"
+
+msgid "admin.languages.installLocale"
+msgstr "Installér landestandard"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Fejl: Kan ikke danne midlertidig mappe {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Fejl: Filen {$filePath} eksisterer ikke eller kan ikke tilgås."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Fejl: Kan ikke kopiere filen fra {$filePath} til {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Fejl: Kan ikke slette filen {$tmpFilePath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "\"{$utilPath}\" programudførelse returnerede følgende fejl: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Fejl: Kan ikke eksekvere \"{$utilPath}\".  Tjek {$utilVar} indstillinger i config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Ingen landestandarder er tilgængelige for download."
+
+msgid "admin.scheduledTask"
+msgstr "Planlagt opgave"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Planlagt opgave påbegyndt."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Planlagt opgave afsluttet."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Planlagt opgave genererede ingen log-data."
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Er du sikker på, at du vil slette alle de genererede log-data fra planlagte opgaver?"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Påmindelse om bedømmelse"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Påmindelse om abonnementsophør"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Indsættelse af navn"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Indsættelse af værdi"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Er du sikker på, at du vil slette {$contextName} og alt indhold permanent?"
+
+msgid "admin.languages.download"
+msgstr "Download landestandard"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Download landestandarder"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Kan ikke åbne sprogbeskrivelse fra PKPs websted."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Kan ikke tilføje den nye lokalitet til den lokale registreringsfil, typisk \"registry/locales.xml\"."
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Ryd 'Scheduled Task Execution Logs'"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"Din installation er konfigureret til at optage mere end én brugsparameter. Brugsstatistikker vises i flere sammenhænge.\n"
+"Der er tilfælde, hvor en enkelt brugsstatistik skal anvendes, f.eks. en visning af en ordnet liste over mest viste indlæg eller en rangering af søgeresultater. Vælg venligst en af de konfigurerede beregninger som standard."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Basisstien {$path} skal ligge under den offentligt tilgængelige filmappe"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Mappen {$path} er ikke et fil-katalog, eller også er mappen ikke læsbar."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Filen {$filename} kunne ikke flyttes fra {$currentFilePath} til {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Filen {$filename} blev færdigbehandlet og arkiveret."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Fillæser"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Kopier de(n) godkendte apache-adgangslogfil(er), der har filtreret de poster, som er relateret til denne installation,\n"
+"til det aktuelle fil-katalog, inde i UsageStatsPlugin-kartoteket. Skal gennemføres af bruger med tilstrækkelige rettigheder til at læse adgangs-apache logfiler.\n"
+"\n"
+"Dette værktøj kopierer kun filer, der ikke allerede er inde i usageStats-fil-indlæsningskatalogerne (trin, behandling, arkivering, afvisning).\n"
+"\n"
+"Anvendelse: {$scriptName} path/to/apache/log/file.log\n"
+"Anvendelse (databehandling af alle filer inde i et indeks): {$ scriptName} path/to/apache/directory"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Advarsel: filen {$filePath} eksisterer allerede inde i brugerstatistik-indekset"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Succes: {$filePath} til {$destinationPath}"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Er du sikker på at du vil ændre den primære landestandard? Brugernes navne, der kræves under sitets primære landestandard vil, hvor de mangler, blive kopieret fra den eksisterende landestandard."

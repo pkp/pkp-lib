@@ -1,0 +1,306 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "نام تنظیم"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "مقدار تنظیم"
+
+msgid "admin.adminFunctions"
+msgstr "عملیات مدیریتی"
+
+msgid "admin.auth.confirmDelete"
+msgstr "آیا مطمئن هستید که می‌خواهید این منبع احراز هویت به‌طور دائم پاک شود؟"
+
+msgid "admin.auth.create"
+msgstr "ایجاد منبع احراز هویت"
+
+msgid "admin.auth.noneCreated"
+msgstr "هیچ منبع احراز هویتی تعریف نشده است"
+
+msgid "admin.authSources"
+msgstr "منابع احراز هویت"
+
+msgid "admin.clearDataCache"
+msgstr "پاک کردن نهان گاه داده‌ها"
+
+msgid "admin.clearTemplateCache"
+msgstr "پاک کردن نهان گاه الگوها"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "فایل پیکربندی شما با موفقیت به‌روزرسانی گردید. لطفاً به یاد داشته باشید که در صورت عدم کارکرد صحیح سایت ممکن است لازم شود که به‌طور دستی فایل <tt>config.inc.php</tt> را ویرایش کنید."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "آیا مطمئن هستید که می‌خواهید نهان گاه الگوهای کامپایل شده را پاک کنید؟"
+
+msgid "admin.confirmExpireSessions"
+msgstr "مطمئن هستید که می‌خواهید نشست (session) همه کاربران را منقضی کنید؟ در این صورت تمام کاربرانی که هم اکنون در سیستم هستند، از جمله خودتان، از سامانه خارج خواهید شد."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "محتویات فایل پیکره‌بندی"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "آیا مطمئنید که می‌خواهید به‌طور دائم {$contextName} و تمام محتویات آن را پاک کنید؟"
+
+msgid "admin.currentVersion"
+msgstr "نسخه جاری"
+
+msgid "admin.dateInstalled"
+msgstr "تاریخ نصب"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "محتوای فایل به‌روزرسانی شده پیکربندی شما در زیر نشان داده شده است. برای اعمال تغییرات باید فایل <tt>config.inc.php</tt> را در یک ویرایشگر متن مناسب باز کنید و محتوای آن را با محتوای زیر عوض کنید."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "نمایش پیکره‌بندی جدید"
+
+msgid "admin.expireSessions"
+msgstr "خارج کردن کاربران از سیستم"
+
+msgid "admin.languages.download"
+msgstr "دانلود فایل (های) زبانی"
+
+msgid "admin.languages.downloadLocales"
+msgstr "دانلود زبان‌ها"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "قادر به باز کردن فایل توصیف کننده زبان از سایت PKP نیست"
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "افزودن زبان جدید به فایل رجیستری زبان ممکن نیست"
+
+msgid "admin.languages.cantDisable"
+msgstr "این زیان، زبان اصلی سایت است و تا زمانی که زبان دیگری را به‌عنوان زبان اصلی سایت انتخاب نکنید، اجازه حذف این زبان را ندارید."
+
+msgid "admin.languages.confirmReload"
+msgstr "آیا می‌خواهید این زبان را از نو بارگذاری کنید؟ این کار باعث می‌شود داده‌های مختص این زبان مانند ایمیل‌های اختصاصی شده پاک شود"
+
+msgid "admin.languages.installedLocales"
+msgstr "زبان‌های نصب شده"
+
+msgid "admin.languages.installLanguages"
+msgstr "نصب زبان‌ها"
+
+msgid "admin.languages.availableLocales"
+msgstr "زبان‌های موجود"
+
+msgid "admin.languages.installLocale"
+msgstr "نصب زبان دیگر"
+
+msgid "admin.languages.installLocales"
+msgstr "نصب"
+
+msgid "admin.languages.installNewLocales"
+msgstr "نصب زبان‌های جدید"
+
+msgid "admin.languages.languageSettings"
+msgstr "تنظیمات زبان"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "هیچ زبان دیگری برای نصب وجود ندارد"
+
+msgid "admin.languages.reload"
+msgstr "نصب مجدد زبان"
+
+msgid "admin.languages.uninstall"
+msgstr "حذف زبان"
+
+msgid "admin.phpInfo"
+msgstr "اطلاعات تفصیلی PHP"
+
+msgid "admin.scheduledTask"
+msgstr "وظایف زمان‌بندی شده"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "پردازش وظیفه آغاز شد"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "پردازش وظیفه متوقف شد."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "اجرای وظیفه هیچ log تولید نکرد"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "نصب {$softwareName} به صورت خودکار انجام شده و به پایان رسید. می‌توانید فایل log مربوطه را از این آدرس دانلود کنید:  {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "آیا مطمئنید که می‌خواهید فایل‌های log تمامی وظایف زمان‌بندی شده را حذف کنید؟"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "پاک کردن فایل‌های log وظایف زمان‌بندی شده"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "یادآوری داوری"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "یادآوری اتمام اشتراک"
+
+msgid "admin.server.apacheVersion"
+msgstr "نسخه آپاچی"
+
+msgid "admin.server.dbDriver"
+msgstr "درایور پایگاه داده"
+
+msgid "admin.server.dbVersion"
+msgstr "نسخه پایگاه داده"
+
+msgid "admin.serverInformation"
+msgstr "اطلاعات سرور"
+
+msgid "admin.server.phpVersion"
+msgstr "نسخه PHP"
+
+msgid "admin.server.platform"
+msgstr "سیستم‌عامل"
+
+msgid "admin.settings"
+msgstr "تنظیمات"
+
+msgid "admin.settings.about"
+msgstr "درباره سایت"
+
+msgid "admin.settings.contactEmail"
+msgstr "ایمیل اطلاعات تماس اصلی"
+
+msgid "admin.settings.contactName"
+msgstr "نام اطلاعات تماس اصلی"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr "در تنظیمات نصب شما، چندین معیار اندازه‌گیری تعیین شده است. اما در برخی موارد نیاز است که از یک معیار استفاده شود، برای مثال در نمایش لیست مقالات بیشتر مشاهده شده. لطفاً یک معیار اندازه‌گیری را به عنوان معیار پیش‌فرض انتخاب کنید."
+
+msgid "admin.settings.introduction"
+msgstr "معرفی"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "حداقل طول رمز ورود"
+
+msgid "admin.settings.siteLanguage"
+msgstr "زبان سایت"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "استایل شیت انتخاب شده نامناسب است. باید از نوع css باشد."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "استایل شیت سایت"
+
+msgid "admin.settings.siteLogo"
+msgstr "لوگوی سایت"
+
+msgid "admin.settings.siteTitle"
+msgstr "عنوان سایت"
+
+msgid "admin.settings.siteTheme"
+msgstr "پوسته سایت"
+
+msgid "admin.siteAdmin"
+msgstr "مدیریت سایت"
+
+msgid "admin.siteManagement"
+msgstr "مدیریت سایت"
+
+msgid "admin.siteSettings"
+msgstr "تنظیمات سایت"
+
+msgid "admin.siteSetup"
+msgstr "نصب سایت"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "فایل پیکربندی <tt>config.inc.php</tt> وجود ندارد، قابل خواندن نیست و یا بی‌اعتبار است."
+
+msgid "admin.systemInformation"
+msgstr "اطلاعات سیستم"
+
+msgid "admin.versionBuild"
+msgstr "ساخت"
+
+msgid "admin.version.checkForUpdates"
+msgstr "بررسی به‌روزرسانی‌ها"
+
+msgid "admin.version.downloadPackage"
+msgstr "دانلود"
+
+msgid "admin.version.downloadPatch"
+msgstr "دانلود وصله"
+
+msgid "admin.versionHistory"
+msgstr "سوابق نسخه‌های نصب شده"
+
+msgid "admin.version.latest"
+msgstr "آخرین نسخه"
+
+msgid "admin.versionMajor"
+msgstr "کلی"
+
+msgid "admin.versionMinor"
+msgstr "جزئی"
+
+msgid "admin.version.moreInfo"
+msgstr "اطلاعات بیشتر"
+
+msgid "admin.versionRevision"
+msgstr "اصلاح"
+
+msgid "admin.version.updateAvailable"
+msgstr "نسخه به‌روز موجود است"
+
+msgid "admin.version.upToDate"
+msgstr "سیستم شما به‌روز است"
+
+msgid "admin.version"
+msgstr "نسخه"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "مسیر {$path} باید در داخل پوشه فایل‌های عمومی باشد."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "مسیر {$path} آدرس یک پوشه نیست یا این پوشه قبل خواندن نمی‌باشد."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "فایل {$filename} قابل انتقال از {$currentFilePath} به {$destinationPath} نمی‌باشد."
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "فایل {$filename} پردازش و بایگانی شد."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "بارگزار فایل"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr "فایل log آپاچی را کپی کنید. محتویات مربوط به نصب این سامانه را از آن استخراج کنید. و آن را در پوشه UsageStatsPlugin کپی کنید.  به یاد داشته باشید که باید سطح دسترسی کافی برای دسترسی به فایل log داشته باشید.\t\tUsage: {$scriptName} path/to/apache/log/file.log\t  Usage: (پردازش تمام فایل‌های داخل پوشه) {$scriptName} path/to/apache/directory  "
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "خطا: ایجاد پوشه موقت {$tmpDir} امکان پذیر نیست"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "خطا: فایل {$filePath} وجود ندارد یا قابل دسترسی نیست."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "خطا: کپی فایل از {$filePath} به {$tmpFilePath} امکان‌پذیر نیست."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "خطا: حذف فایل {$tmpFilePath} امکان پذیر نیست."
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "اخطار: فایل {$filePath} در داخل پوشه آمار استفاده، وجود دارد."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "موفقیت‌آمیز: {$filePath} به {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "اجرای برنامه \"{$utilPath}\"  با خطای زیر مواجه شد: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "خطا: اجرای \"{$utilPath}\" امکان‌پذیر نمی‌باشد. تنظیمات {$utilVar} را در فایل config.inc.php بررسی کنید."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "زبانی برای دانلود وجود ندارد."

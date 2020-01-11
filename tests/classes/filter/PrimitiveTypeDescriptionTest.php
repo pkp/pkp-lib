@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/filter/PrimitiveTypeDescriptionTest.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PrimitiveTypeDescriptionTest
@@ -68,30 +68,30 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase {
 	/**
 	 * @covers PrimitiveTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException PHPUnit_Framework_Error
 	 */
 	function testInstantiateWithInvalidTypeDescriptor1() {
 		// An unknown type name will cause an error.
+		$this->expectError();
 		$typeDescription = new PrimitiveTypeDescription('xyz');
 	}
 
 	/**
 	 * @covers PrimitiveTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException PHPUnit_Framework_Error
 	 */
 	function testInstantiateWithInvalidTypeDescriptor2() {
 		// We don't allow multi-dimensional arrays.
+		$this->expectError();
 		$typeDescription = new PrimitiveTypeDescription('integer[][]');
 	}
 
 	/**
 	 * @covers PrimitiveTypeDescription
 	 * @covers TypeDescription
-	 * @expectedException PHPUnit_Framework_Error
 	 */
 	function testInstantiateWithInvalidTypeDescriptor3() {
 		// An invalid cardinality will also cause an error.
+		$this->expectError();
 		$typeDescription = new PrimitiveTypeDescription('integer[x]');
 	}
 }

@@ -3,8 +3,8 @@
 /**
  * @file api/v1/_submissions/PKPBackendSubmissionsHandler.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPBackendSubmissionsHandler
@@ -15,7 +15,7 @@
  */
 
 import('lib.pkp.classes.handler.APIHandler');
-import('lib.pkp.classes.submission.Submission');
+import('lib.pkp.classes.submission.PKPSubmission');
 import('classes.core.Services');
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler {
@@ -110,6 +110,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 					break;
 
 				case 'assignedTo':
+				case 'daysInactive':
+				case 'offset':
 					$params[$param] = (int) $val;
 					break;
 
@@ -119,12 +121,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 					$params[$param] = min(100, (int) $val);
 					break;
 
-				case 'offset':
-					$params[$param] = (int) $val;
-					break;
-
 				case 'orderBy':
-					if (!in_array($val, array('dateSubmitted', 'lastModified', 'title'))) {
+					if (!in_array($val, array('dateSubmitted', 'dateLastActivity', 'lastModified', 'title'))) {
 						unset($params[$param]);
 					}
 					break;
@@ -150,14 +148,14 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		}
 
 		$submissionService = Services::get('submission');
-		$submissions = $submissionService->getMany($params);
+		$submissionsIterator = $submissionService->getMany($params);
 		$items = array();
-		if (!empty($submissions)) {
+		if (count($submissionsIterator)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
-			foreach ($submissions as $submission) {
+			foreach ($submissionsIterator as $submission) {
 				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
 			}
 		}
@@ -203,7 +201,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
 		}
 
-		$submissionService->delete($submissionId);
+		$submissionService->delete($submission);
 
 		return $response->withJson(true);
 	}

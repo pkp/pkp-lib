@@ -8,8 +8,8 @@
 /**
  * @file classes/db/DAO.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -100,8 +100,9 @@ class DAO {
 		$result = $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
+
 		return $result;
 	}
 
@@ -131,7 +132,7 @@ class DAO {
 		$result = $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
 		return $result;
 	}
@@ -161,7 +162,7 @@ class DAO {
 		$dataSource = $this->getDataSource();
 		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
 		return $result;
 	}
@@ -193,7 +194,7 @@ class DAO {
 				$result = $dataSource->SelectLimit($sql, $dbResultRange->getCount(), $dbResultRange->getOffset(), $params);
 			}
 			if ($dataSource->errorNo()) {
-				fatalError('DB Error: ' . $dataSource->errorMsg());
+				$this->handleError($dataSource, $sql);
 			}
 		}
 		else {
@@ -227,7 +228,7 @@ class DAO {
 		$dataSource = $this->getDataSource();
 		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dieOnError && $dataSource->errorNo()) {
-			fatalError('DB Error: ' . $dataSource->errorMsg());
+			$this->handleError($dataSource, $sql);
 		}
 		return $dataSource->errorNo() == 0 ? true : false;
 	}
@@ -587,7 +588,6 @@ class DAO {
 			$params = false;
 		}
 		$result = $this->retrieve($sql, $params);
-
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
 			$dataObject->setData(
@@ -601,6 +601,7 @@ class DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
+
 	}
 
 	/**
@@ -697,6 +698,8 @@ class DAO {
 			return null;
 		}
 	}
+
+	function handleError($dataSource, $sql) {
+		fatalError('DB Error: ' . $dataSource->errorMsg() . ' Query: ' . $sql);
+	}
 }
-
-

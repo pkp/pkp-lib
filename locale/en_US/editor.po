@@ -1,0 +1,465 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
+"Language: \n"
+
+msgid "editor.activityLog"
+msgstr "Activity Log"
+
+msgid "editor.submissionLibrary"
+msgstr "Library"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decision recorded"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Submission declined."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Submission accepted."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Submission published."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Sent for a new round of reviews."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Sent to production."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Submission accepted for review."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Change decision"
+
+msgid "editor.review.notInitiated"
+msgstr "The review process has not yet been initiated."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Message to user"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Select files below to send them to the review stage."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "You must select at least one file to assign the user to."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "You must include a personal message."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Do not send email to the Auditor"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "You must select a user to assign."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Upload/Select Files"
+
+msgid "editor.submission.selectFiles"
+msgstr "Select Files"
+
+msgid "editor.submission.revisions"
+msgstr "Revisions"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "Use <em>+Add Reviewer</em> to invite readers to review the submission files. The notebook icon indicates that a review has been submitted, which is then checked <em>Acknowledged</em> after it has been consulted. When reviews are overdue, a red envelope icon appears for reminding reviewers."
+
+msgid "editor.submission.addReviewer"
+msgstr "Add Reviewer"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Locate a Reviewer"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Locate a User"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Show files from all accessible workflow stages."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Current Review Files For Round {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Back to Search"
+
+msgid "editor.review.createReviewer"
+msgstr "Create New Reviewer"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Enroll Existing User"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Unassign Reviewer"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Cancel Reviewer"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Reinstate Reviewer"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Review Type"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Send an email notification to the author(s): {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Send an email notification to the editor(s): {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Do not send an email notification"
+
+msgid "editor.submissionReview.open"
+msgstr "Open"
+
+msgid "editor.submissionReview.blind"
+msgstr "Blind"
+
+msgid "editor.submissionReview.doubleBlind"
+msgstr "Double-blind"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Files To Be Reviewed"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Close File Selection"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Edit Review"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonymous Reviewer"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Email to be sent to reviewer"
+
+msgid "editor.review.importantDates"
+msgstr "Important Dates"
+
+msgid "editor.review.uploadRevision"
+msgstr "Upload Revision"
+
+msgid "editor.review.newReviewRound"
+msgstr "Require New Review Round"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Revisions will not be subject to a new round of peer reviews."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Revisions will be subject to a new round of peer reviews."
+
+msgid "editor.review.dateAccepted"
+msgstr "Review Acceptance Date"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Reviews added to message body."
+
+msgid "editor.review.noReviews"
+msgstr "No peer reviews to import"
+
+msgid "editor.review.reminder"
+msgstr "Review Reminder"
+
+msgid "editor.review.thankReviewer"
+msgstr "Thank Reviewer"
+
+msgid "editor.review.reminderError"
+msgstr "Error sending review reminder"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Error sending thank you to reviewer"
+
+msgid "editor.review.skipEmail"
+msgstr "Do not send email to Reviewer."
+
+msgid "editor.review.sendReminder"
+msgstr "Send Reminder"
+
+msgid "editor.review.readReview"
+msgstr "Read Review"
+
+msgid "editor.review.readNewReview"
+msgstr "Read New Review"
+
+msgid "editor.review.responseDue"
+msgstr "Response due: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Request Sent"
+
+msgid "editor.review.requestAccepted"
+msgstr "Request Accepted"
+
+msgid "editor.review.requestDeclined"
+msgstr "Request Declined"
+
+msgid "editor.review.requestCancelled"
+msgstr "Request Cancelled"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "The reviewer declined this review request."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "The editor cancelled this review request."
+
+msgid "editor.review.revertDecision"
+msgstr "Revert Decision"
+
+msgid "editor.review.reviewDue"
+msgstr "Review due: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Review Due Date"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Review Completed"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Review Confirmed"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Review Submitted"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Reviewer Thanked"
+
+msgid "editor.review.reviewerComments"
+msgstr "Reviewer Comments"
+
+msgid "editor.review.rateReviewer"
+msgstr "Reviewer rating"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Rate the quality of the review provided. This rating is not shared with the reviewer."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "No rating"
+
+msgid "editor.review.mustSelect"
+msgstr "You must select a reviewer"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "There was an error adding the reviewer.  Please try again."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "There was an error deleting the reviewer.  Please try again."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "There was an error reinstating the reviewer.  Please try again."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Enroll the user with this reviewer user group"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "Do you wish to mark this review as unconsidered?  The review history will be preserved."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Unconsider this Review"
+
+msgid "editor.review.readConfirmation"
+msgstr "Once this review has been read, press \"Confirm\" to indicate that the review process may proceed. If the reviewer has submitted their review elsewhere, you may upload the file below and then press \"Confirm\" to proceed."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Schedule For Publication"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Copyediting Files"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Select Reviewer"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Task Due Date"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Task schedule"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Enroll an Existing User as Reviewer"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "No audit requested for this file"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Email to be sent to user"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Proof reminder"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "The copyedited file needs to be approved before it can be sent to the Production stage. Do you want to approve this file?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "Disapproving this copyedited file will make it unavailable to send to production stage. Do you want to disapprove this file?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Assign Auditor"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "Any files that have already been uploaded to any submission stage can be added to the Copyedit Files listing by checking the Include checkbox below and clicking Search: all available files will be listed and can be chosen for inclusion. Additional files not already uploaded to a stage can be added to the listing by clicking the Upload File link."
+
+msgid "editor.review"
+msgstr "Review"
+
+msgid "editor.review.reviewDetails"
+msgstr "Review Details"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "No Files Uploaded"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "You have not uploaded any review files."
+
+msgid "editor.review.emailReviewer"
+msgstr "Email Reviewer"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Production Ready Files"
+
+msgid "editor.submission.newRound"
+msgstr "New Review Round"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Record Editorial Decision"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Record Editorial Recommendation"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notify Editors"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Do not send editors an email."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Create a review discussion about this recommendation."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Do not create a review discussion."
+
+msgid "editor.submission.newRoundDescription"
+msgstr "You are about to create a new review round for this submission.  Files that have not been used in other review rounds are listed below."
+
+msgid "editor.submission.createNewRound"
+msgstr "Create New Review Round"
+
+msgid "editor.article.reviewForms"
+msgstr "Review Forms"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Select Review Form"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "Warning: Changing the review form will affect any answers reviewers have made using this form. Are you sure you wish to continue?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "No Files Selected"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "You have not selected any files for the reviewer to review."
+
+msgid "submission.queries.subjectRequired"
+msgstr "A discussion subject is required."
+
+msgid "submission.queries.messageRequired"
+msgstr "A discussion message is required."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Attached Files"
+
+msgid "grid.action.editQuery"
+msgstr "Edit Discussion"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Files can be attached for inclusion in this discussion from the list below."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Selected Reviewer"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Approve Proof"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Revoke Proof Approval"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "Approve this proof to indicate proofreading is complete and the file is ready to be published."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "Revoke approval for this proof to indicate proofreading is no longer complete and the file is not ready to be published."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "The public identifier '{$publicIdentifier}' must not be a number."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "The pattern {$pattern} is not allowed for the public identifier."
+
+msgid "reviewer.list.count"
+msgstr "{$count} reviewers"
+
+msgid "reviewer.list.itemsOfTotal"
+msgstr "{$count} of {$total} reviewers"
+
+msgid "reviewer.list.filterRating"
+msgstr "Rated at least"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} active"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Active reviews currently assigned"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Reviews completed"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Review requests declined"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Review requests cancelled"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Reviewer rating: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} days ago"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Yesterday"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Days since last review assigned"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Average days to complete review"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Never assigned"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "This reviewer has already been assigned to review this submission."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr "This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Blind peer review can not be guaranteed. Would you like to unlock this reviewer anyway?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Unlock"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Reviewing Interests"
+
+msgid "reviewer.list.biography"
+msgstr "Biography"
+
+msgid "reviewer.list.empty"
+msgstr "No reviewers found"

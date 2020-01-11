@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/submissionChecklist/form/SubmissionChecklistForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionChecklistForm
@@ -39,7 +39,7 @@ class SubmissionChecklistForm extends Form {
 	 * @param $args array
 	 */
 	function initData($args) {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		$submissionChecklistAll = $context->getData('submissionChecklist');
@@ -89,7 +89,7 @@ class SubmissionChecklistForm extends Form {
 	 * Save checklist entry.
 	 */
 	function execute() {
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 		$submissionChecklistAll = $context->getData('submissionChecklist');

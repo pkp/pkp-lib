@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/PKPAppearanceSetupForm.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAppearanceSetupForm
@@ -35,8 +35,9 @@ class PKPAppearanceSetupForm extends FormComponent {
 	 * @param $context Context Journal or Press to change settings for
 	 * @param $baseUrl string Site's base URL. Used for image previews.
 	 * @param $temporaryFileApiUrl string URL to upload files to
+	 * @param $imageUploadUrl string The API endpoint for images uploaded through the rich text field
 	 */
-	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl) {
+	public function __construct($action, $locales, $context, $baseUrl, $temporaryFileApiUrl, $imageUploadUrl) {
 		$this->action = $action;
 		$this->successMessage = __('manager.setup.appearance.success');
 		$this->locales = $locales;
@@ -74,6 +75,9 @@ class PKPAppearanceSetupForm extends FormComponent {
 				'tooltip' => __('manager.setup.pageFooter.description'),
 				'isMultilingual' => true,
 				'value' => $context->getData('pageFooter'),
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,lists,image,code',
+				'uploadUrl' => $imageUploadUrl,
 			]))
 			->addField(new FieldOptions('sidebar', [
 				'label' => __('manager.setup.layout.sidebar'),

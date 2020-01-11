@@ -1,14 +1,14 @@
 {**
  * templates/manager/importexport/plugins.tpl
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2003-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * List available import/export plugins.
  *}
 <div class="pkp_page_content pkp_page_importexport_plugins">
-	{help file="tools" section="import-export" class="pkp_help_tab"}
+	{help file="tools" class="pkp_help_tab"}
 
 	<ul>
 		{foreach from=$plugins item=plugin}

@@ -1,0 +1,325 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
+"PO-Revision-Date: 2019-09-27T09:47:20-07:00\n"
+"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Setting Name"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Setting Value"
+
+msgid "admin.adminFunctions"
+msgstr "Administrative Functions"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Are you sure you want to permanently delete this authentication source?"
+
+msgid "admin.auth.create"
+msgstr "Create authentication source"
+
+msgid "admin.auth.noneCreated"
+msgstr "No authentication sources have been defined."
+
+msgid "admin.authSources"
+msgstr "Authentication Sources"
+
+msgid "admin.clearDataCache"
+msgstr "Clear Data Caches"
+
+msgid "admin.clearTemplateCache"
+msgstr "Clear Template Cache"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Your configuration file has been successfully updated. Please note that if your site no longer functions correctly you may need to manually fix your configuration by editing <tt>config.inc.php</tt> directly."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Are you sure you want to clear the cache of compiled templates?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Are you sure you want to expire all user sessions? All users who are currently logged into the system will be forced to log in again (yourself included)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Contents of configuration file"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Are you sure you want to permanently delete {$contextName} and all of its contents?"
+
+msgid "admin.currentVersion"
+msgstr "Current version"
+
+msgid "admin.dateInstalled"
+msgstr "Date installed"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "The contents of your updated configuration are displayed below. To apply the configuration changes you must open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Display New Configuration"
+
+msgid "admin.expireSessions"
+msgstr "Expire User Sessions"
+
+msgid "admin.languages.download"
+msgstr "Download Locale"
+
+msgid "admin.languages.downloadLocales"
+msgstr "Download Locales"
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Cannot open language descriptor from PKP web site."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr "Cannot add the new locale to the locale registry file, typically \"registry/locales.xml\"."
+
+msgid "admin.languages.cantDisable"
+msgstr "This locale is the primary language of the site. You can't disable it until you choose another primary locale."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Are you sure you want to change the site primary locale? Users' names, which are required in the site's primary locale, will be copied from the existing primary locale where they are missing."
+
+msgid "admin.languages.confirmReload"
+msgstr "Are you sure you want to reload this locale? This will erase any existing locale-specific data such as customized email templates."
+
+msgid "admin.languages.installedLocales"
+msgstr "Installed Locales"
+
+msgid "admin.languages.installLanguages"
+msgstr "Manage Locales"
+
+msgid "admin.languages.availableLocales"
+msgstr "Available Locales"
+
+msgid "admin.languages.installLocale"
+msgstr "Install Locale"
+
+msgid "admin.languages.installLocales"
+msgstr "Install"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Install New Locales"
+
+msgid "admin.languages.languageSettings"
+msgstr "Language Settings"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "No additional locales are available for installation."
+
+msgid "admin.languages.reload"
+msgstr "Reload Locale"
+
+msgid "admin.languages.uninstall"
+msgstr "Uninstall Locale"
+
+msgid "admin.phpInfo"
+msgstr "Extended PHP Information"
+
+msgid "admin.scheduledTask"
+msgstr "Scheduled task"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Task process started."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Task process stopped."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Task produced no log."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Your {$softwareName} installation automatically executed and finished this task and you can download the log file here: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Are you sure you want to delete all scheduled task execution logs?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Clear Scheduled Task Execution Logs"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publish submissions scheduled for publication"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Review reminder"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Subscription expiry reminder"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache version"
+
+msgid "admin.server.dbDriver"
+msgstr "Database driver"
+
+msgid "admin.server.dbVersion"
+msgstr "Database server version"
+
+msgid "admin.serverInformation"
+msgstr "Server Information"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP version"
+
+msgid "admin.server.platform"
+msgstr "OS platform"
+
+msgid "admin.settings"
+msgstr "Settings"
+
+msgid "admin.settings.about"
+msgstr "About the Site"
+
+msgid "admin.settings.contactEmail"
+msgstr "Email of principal contact"
+
+msgid "admin.settings.contactName"
+msgstr "Name of principal contact"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tYour installation is configured to record more than one usage metric. Usage statistics will be displayed in several contexts.\n"
+"\t\tThere are cases where a single usage statistic must be used, e.g. to display an ordered list of most-used submissions or to rank\n"
+"\t\tsearch results. Please select one of the configured metrics as a default.\n"
+"\t"
+
+msgid "admin.settings.introduction"
+msgstr "Introduction"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimum password length (characters)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Site language"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Invalid site style sheet format. Accepted format is .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Site style sheet"
+
+msgid "admin.settings.siteLogo"
+msgstr "Site Logo"
+
+msgid "admin.settings.siteTitle"
+msgstr "Site Name"
+
+msgid "admin.settings.siteTheme"
+msgstr "Site Theme"
+
+msgid "admin.siteAdmin"
+msgstr "Site Administration"
+
+msgid "admin.siteManagement"
+msgstr "Site Management"
+
+msgid "admin.siteSettings"
+msgstr "Site Settings"
+
+msgid "admin.siteSetup"
+msgstr "Site Setup"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "The configuration file <tt>config.inc.php</tt> does not exist, is not readable, or is invalid."
+
+msgid "admin.systemInformation"
+msgstr "System Information"
+
+msgid "admin.versionBuild"
+msgstr "Build"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Check for updates"
+
+msgid "admin.version.downloadPackage"
+msgstr "Download"
+
+msgid "admin.version.downloadPatch"
+msgstr "Download Patch"
+
+msgid "admin.versionHistory"
+msgstr "Version history"
+
+msgid "admin.version.latest"
+msgstr "Latest version"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.version.moreInfo"
+msgstr "More Information"
+
+msgid "admin.versionRevision"
+msgstr "Revision"
+
+msgid "admin.version.updateAvailable"
+msgstr "An updated version is available"
+
+msgid "admin.version.upToDate"
+msgstr "Your system is up-to-date"
+
+msgid "admin.version"
+msgstr "Version"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Base path {$path} must be inside the public files directory."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} is not a directory or is not readable."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "File {$filename} could not be moved from {$currentFilePath} to {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "File {$filename} was processed and archived."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "File loader"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Copy the passed apache access log file(s), filtering the entries related with this installation,\n"
+"to the current files directory, inside the UsageStatsPlugin stage directory. Must run under user with enough privilegies to read access apache log files.\n"
+"\n"
+"This tool will only copy files that aren't already inside the usageStats file loader directories (stage, processing, archive, reject).\n"
+"\n"
+"Usage: {$scriptName} path/to/apache/log/file.log\n"
+"Usage (processing all files inside a directory): {$scriptName} path/to/apache/directory\n"
+"\t"
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Error: can't create temporary folder {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Error: File {$filePath} don't exist or can't be accessed."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Error: can't copy file from {$filePath} to {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Error: can't delete file {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr "Warning: file {$filePath} already exists inside the usage stats directory."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Success: {$filePath} to {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "The \"{$utilPath}\" program execution returned the following error: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr "Error: can't execute \"{$utilPath}\".  Check your {$utilVar} setting in config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "There are no locales available for download."

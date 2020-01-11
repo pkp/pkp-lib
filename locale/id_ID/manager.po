@@ -1,0 +1,576 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
+"Language: \n"
+
+msgid "manager.announcements"
+msgstr "Pengumuman"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Apakah Anda yakin ingin menghapus pengumuman ini secara permanen?"
+
+msgid "manager.announcements.create"
+msgstr "Buat Pengumuman Baru"
+
+msgid "manager.announcements.createTitle"
+msgstr "Buat"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Masa Berakhir"
+
+msgid "manager.announcements.edit"
+msgstr "Edit Pengumuman"
+
+msgid "manager.announcements.editTitle"
+msgstr "Edit"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Pilih tahun dan/atau bulan di samping hari tanggal masa berakhir."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Tanggal Masa Berakhir"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr "Pengumuman bisa dibaca hingga tanggal ini. Biarkan kosong jika pengumuman bisa dibaca sewaktu-waktu."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Pilih tahun dan/atau hari di samping bulan tanggal masa berakhir."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Pilih tanggal masa berakhir pengumuman yang valid."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Pilih bulan dan/atau hari di samping tahun tanggal masa berakhir."
+
+msgid "manager.announcements.form.description"
+msgstr "Deskripsi"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Teks lengkap pengumuman."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Deskripsi pengumuman diperlukan."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Deskripsi singkat untuk ditampilkan bersama judul pengumuman."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Deskripsi pengumuman singkat diperlukan."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Deskripsi singkat"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Simpan dan Buat Baru"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Judul pengumuman diperlukan."
+
+msgid "manager.announcements.form.title"
+msgstr "Judul"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tipe"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Pilih tipe pengumuman yang valid."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Belum ada pengumuman."
+
+msgid "manager.announcements.title"
+msgstr "Judul"
+
+msgid "manager.announcements.type"
+msgstr "Tipe"
+
+msgid "manager.announcementTypes"
+msgstr "Tipe Pengumuman"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr "Peringatan! Semua pengumuman dengan tipe pengumuman ini juga akan dihapus. Apakah Anda yakin ingin melanjutkan dan menghapus tipe pengumuman ini?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Buat Tipe Pengumuman"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Buat"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Edit Tipe Pengumuman"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Edit"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Simpan dan Buat yang lain."
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Tipe pengumuman dengan nama ini yang sudah ada."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nama"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Nama tipe Pengumuman diperlukan."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Tidak ada tipe pengumuman telah dibuat."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tipe pengumuman"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Apakah Anda ingin menghapus template email ini?"
+
+msgid "manager.emails.confirmReset"
+msgstr "Apakah Anda yakin ingin mengatur ulang template email ini ke nilai defaultnya?"
+
+msgid "manager.emails.createEmail"
+msgstr "Buat Email"
+
+msgid "manager.emails.disable"
+msgstr "Tidak Aktif"
+
+msgid "manager.emails.editEmail"
+msgstr "Edit Email"
+
+msgid "manager.emails.editTestExample"
+msgstr "Contoh tes Edit Email"
+
+msgid "manager.emails.emailKey"
+msgstr "Kunci Email"
+
+msgid "manager.emails.emailfile:///usr/share/blankon-artwork/home/index.htmlKeyExists"
+msgstr "Email dengan kunci yang telah diberikan sudah ada. Kunci email harus unik."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Template Email"
+
+msgid "manager.emails.enabled"
+msgstr "Aktifkan template email ini"
+
+msgid "manager.emails.enable"
+msgstr "Aktifkan"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Kunci email unik dibutuhkan untuk email ini."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Isi dibutuhkan untuk email."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Judul dibutuhkan untuk email."
+
+msgid "manager.emails"
+msgstr "Email yang Disiapkan "
+
+msgid "manager.emails.resetAll"
+msgstr "Atur ulang semua template"
+
+msgid "manager.emails.reset"
+msgstr "Atur Ulang"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Atur ulang ke Default"
+
+msgid "manager.filesBrowser"
+msgstr "Berkas Penelusuran"
+
+msgid "manager.files.confirmDelete"
+msgstr "Hapus direktori atau file ini?  Perhatikan direktori harus kosong sebelum dapat dihapus."
+
+msgid "manager.files.createDir"
+msgstr "Buat direktori"
+
+msgid "manager.files.emptyDir"
+msgstr "Tidak ada file yang ditemukan di direktori ini."
+
+msgid "manager.files.indexOfDir"
+msgstr "Indeks {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Parent Directory"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Unggah File"
+
+msgid "manager.files.uploadFile"
+msgstr "Unduh File"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Apakah Anda yakin ingin menghapus grup ini?"
+
+msgid "manager.groups.createTitle"
+msgstr "Buat Judul"
+
+msgid "manager.groups.editTitle"
+msgstr "Edit Judul"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Judul grup diperlukan."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Tambah Anggota"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Apakah Anda yakin ingin menghapus keanggotaan grup ini?"
+
+msgid "manager.groups.membership"
+msgstr "Keanggotaan"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Grup ini tidak punya anggota."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Tidak ada pengguna yang ditemukan."
+
+msgid "manager.groups.title"
+msgstr "Judul"
+
+msgid "manager.importExport"
+msgstr "Impor/Ekspor Data"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr "Sistem ini membuat informasi kritis tertentu bisa dimasukkan dalam beberapa bahasa tambahan. Untuk menggunakan fitur ini, pilih ubah local dan pilih dari opsi yang terdaftar di bawah ini."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr "Pilih semua locale untuk mensupport situs melalui sebuah bahasa. Pilih menu untuk ditampilkan di tiap halaman. Menu hanya akan ditampilkan jika ada lebih dari satu locale dipilih."
+
+msgid "manager.payment.timestamp"
+msgstr "Timestamp"
+
+msgid "manager.people.authSource"
+msgstr "Sumber Pengesahan"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Membatalkan pendaftaran pengguna ini?"
+
+msgid "manager.people.createUser"
+msgstr "Buat Pengguna Baru"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Hasilkan kata sandi acak"
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Kirim email selamat datang kepada pengguna yang berisi nama pengguna dan kata sandi mereka."
+
+msgid "manager.people.disable"
+msgstr "Tidak Aktif"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Dengan tidak ada peran"
+
+msgid "manager.people.editProfile"
+msgstr "Edit Profil"
+
+msgid "manager.people.editUser"
+msgstr "Edit Pengguna"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Kirim email ke pengguna yang dipilih"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Kirim email ke pengguna yang terdaftar sebagai"
+
+msgid "manager.people.emailUsers"
+msgstr "Kirim email ke pengguna"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Pilih locale"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "Pilih pengguna yang Anda ingin kirimi email dengan mencentang kotak di samping nama mereka"
+
+msgid "manager.people.enable"
+msgstr "Aktifkan"
+
+msgid "manager.people.enroll"
+msgstr "Daftarkan pengguna"
+
+msgid "manager.people.enrollment"
+msgstr "Pendaftaran"
+
+msgid "manager.people.enrollSelected"
+msgstr "Daftarkan Pengguna Terpilih"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Sinkronisasikan Peran"
+
+msgid "manager.people.enrollSync"
+msgstr "Sync Enrollment"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Pengguna dapat ditugaskan ke, atau dipindahkan dari, satu peran kapanpun."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Daftarkan pengguna sebagai"
+
+msgid "manager.people.invalidUser"
+msgstr "Maaf, pengguna yang diinginkan tidak ada."
+
+msgid "manager.people.mergeUser"
+msgstr "Gabungkan Pengguna"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr "Apakah Anda yakin ingin menggabungkan{$oldAccountCount} akun yang terpilih ke akun dengan nama pengguna \"{$newUsername}\"? Akun {$oldAccountCount} terpilih tidak akan ada setelahnya. Tindakan ini tidak bisa dilakukan sebaliknya."
+
+msgid "manager.people.mergeUsers"
+msgstr "Gabungkan pengguna"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Pilih peran di atas halaman sebelum mengklik \"Daftarkan Pengguna\"."
+
+msgid "manager.people.mustProvideName"
+msgstr "Sediakan minimal satu nama terakhir untuk pengguna."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Tidak ada pengguna yang cocok."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Tidak ada pengguna yang terdaftar."
+
+msgid "manager.people"
+msgstr "Penata Laksana"
+
+msgid "manager.people.remove"
+msgstr "Hapus"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Simpan dan Buat yang Lain"
+
+msgid "manager.people.signInAs"
+msgstr "Login Sebagai"
+
+msgid "manager.people.signInAsUser"
+msgstr "Login Sebagai Pengguna"
+
+msgid "manager.people.syncUsers"
+msgstr "Sinkronisasikan Pedaftaran Pengguna"
+
+msgid "manager.people.unenroll"
+msgstr "Batalkan Pendaftaran"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Pengguna telah dibuat dengan sukses."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Pengguna perlu mengganti kata sandi mereka lain waktu saat mereka login."
+
+msgid "manager.plugins.action"
+msgstr "Aksi:"
+
+msgid "manager.plugins.disable"
+msgstr "TIdak Aktif"
+
+msgid "manager.plugins.enable"
+msgstr "Aktif"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Manajemen Plugin"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Ini adalah site-wide plugin. Hanya Administrator bisa mengatur plugin ini."
+
+msgid "manager.plugins"
+msgstr "Sistem Plugins"
+
+msgid "manager.readingTools"
+msgstr "Alat Membaca"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Cari Reviewer dengan Nama"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Minat Mereview"
+
+msgid "manager.roles"
+msgstr "Peran"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Ada kesalahan saat menghapus item ini."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr "format gambar beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr "format gambar judul header beranda invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Proses Login dan Audit"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr "Format gambar logo header halaman invalid atau unggahan gagal. Format yang diterima adalah .gif, .jpg, or .png."
+
+msgid "manager.setup.selectOne"
+msgstr "Pilih satu"
+
+msgid "manager.statistics"
+msgstr "Statistik &amp; Laporan"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} new)"
+
+msgid "manager.users"
+msgstr "Pengguna"
+
+msgid "plugins.categories.auth"
+msgstr "Plugin Otorisasi"
+
+msgid "plugins.categories.blocks"
+msgstr "Plugin Block"
+
+msgid "plugins.categories.blocks.description"
+msgstr "Block Plugins adalah komponen UI yang dapat di-plug, seperti sidebar tool yang bervariasi."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway Plugins menyediakan data langsung ke sistem eksternal."
+
+msgid "plugins.categories.gateways"
+msgstr "Plugin Gateway"
+
+msgid "plugins.categories.generic"
+msgstr "Plugin Generic"
+
+msgid "plugins.categories.importexport.description"
+msgstr "Impor/Ekspor Plugin dapat digunakan untuk mentransfer konten ke dan dari sistem lain."
+
+msgid "plugins.categories.importexport"
+msgstr "Plugin Impor/Ekspor"
+
+msgid "plugins.categories.paymethod.description"
+msgstr "Plugin Metode Pembayaran mengimplementasikan dukungan untuk berbagai cara proses pembayaran online."
+
+msgid "plugins.categories.paymethod"
+msgstr "Plugin Pembayaran"
+
+msgid "plugins.categories.reports.description"
+msgstr "Laporkan Plugin digunakan untuk mengimplementasikan berbagai tipe laporan dan ekstrak data."
+
+msgid "plugins.categories.reports"
+msgstr "Plugin Laporan"
+
+msgid "plugins.categories.themes.description"
+msgstr "Tema Plugins  dapat digunakan untuk mengubah penampilan sistem."
+
+msgid "plugins.categories.themes"
+msgstr "Plugin Tema"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Plugin Format Metadata OAI"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Plugin format ini mengekspresikan metadata in komunikasi OAI."
+
+msgid "manager.reviewFormElement.changeType"
+msgstr " Peringatan: mengubah tipe elemen form review dari tipe pilihan banyak ke tipe akhir terbuka akan berakibat ke penghapusan opsi pilihan banyak."
+
+msgid "manager.reviewFormElements"
+msgstr "Item Form"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr " Tambahkan penyeleksian "
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr " Kotak cek? (Anda bisa memilih satu atau lebih)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr " Pilih Tipe Item "
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr " Apakah Anda yakin ingin menghapus elemen dari form review yang diterbitkan?"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr " Salin ke:"
+
+msgid "manager.reviewFormElements.create"
+msgstr " Buat Item Baru "
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Kotak Drop-down"
+
+msgid "manager.reviewFormElements.edit"
+msgstr " Edit Tipe Form "
+
+msgid "manager.reviewFormElements.elementType"
+msgstr " Tipe item "
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr " Sebuah tipe item diperlukan untuk item form."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr " Pertanyaan diperlukan untuk item form."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr " Tidak ada item form telah dibuat."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr " Penyeleksian "
+
+msgid "manager.reviewFormElements.question"
+msgstr "Item"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radio buttons (Anda hanya bisa memilih satu)"
+
+msgid "manager.reviewFormElements.required"
+msgstr " Reviewer perlu melengkapi/ menyelesaikan item "
+
+msgid "manager.reviewFormElements.included"
+msgstr " Termasuk di pesan untuk penulis "
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr " Kotak teks satu kata "
+
+msgid "manager.reviewFormElements.textarea"
+msgstr " Kotak teks lebih besar "
+
+msgid "manager.reviewFormElements.textfield"
+msgstr " Kotak teks satu garis "
+
+msgid "manager.reviewForms"
+msgstr " Form Review"
+
+msgid "manager.reviewForms.completed"
+msgstr " Selesai "
+
+msgid "manager.reviewForms.create"
+msgstr " Buat Form Review "
+
+msgid "manager.reviewForms.description"
+msgstr " Deskripsi dan Instruksi "
+
+msgid "manager.reviewForms.edit"
+msgstr " Form Review "
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr " Judul diperlukan untuk form review."
+
+msgid "manager.reviewForms.inReview"
+msgstr " Dalam Review "
+
+msgid "manager.reviewForms.list.description"
+msgstr " Form peer review yang dibuat di sini akan ditampilkan kepada Reviewer untuk dilengkapi, bukan form default yang terdiri dari dua kotak teks terbuka, yang pertama \"untuk Penulis dan Editor\", dan yang kedua \"untuk Editor\". Form review dapat dipilih untuk bagian jurnal yang spesifik, dan Editor punya opsi untuk memilih form mana yang akan digunakan dalam penugasan review. Dalam semua kasus, editor punya opsi untuk memasukkan review dalam berkorespondensi dengan penulis."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr " Tidak ada form review "
+
+msgid "manager.reviewForms.noneCreated"
+msgstr " Tidak ada form review dibuat."
+
+msgid "manager.reviewForms.preview"
+msgstr " Form Preview "
+
+msgid "manager.reviewForms.title"
+msgstr " Judul "

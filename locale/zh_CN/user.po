@@ -1,0 +1,297 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-04T08:55:56-08:00\n"
+"PO-Revision-Date: 2019-11-04T08:55:56-08:00\n"
+"Language: \n"
+
+msgid "user.affiliation"
+msgstr "工作单位"
+
+msgid "user.affiliations"
+msgstr "工作单位"
+
+msgid "user.biography"
+msgstr "传记"
+
+msgid "user.biography.description"
+msgstr "(E.g., 部门和职称)"
+
+msgid "user.changeMyPassword"
+msgstr "修改我的密码"
+
+msgid "user.changePassword"
+msgstr "修改密码"
+
+msgid "user.dateLastLogin"
+msgstr "最后登录时间"
+
+msgid "user.dateRegistered"
+msgstr "注册时间"
+
+msgid "user.editMyProfile"
+msgstr "编辑我的信息"
+
+msgid "user.email"
+msgstr "电子邮件"
+
+msgid "user.interests"
+msgstr "回顾利益"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr "无效的照片格式或者文件太大，可接受的格式有 .gif, .jpg, or .png, 而且图片不能超过 150x150 pixels."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "您的帐户已被禁用，原因如下: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "您的帐户已被禁用。需要更多帮助，请联系管理员."
+
+msgid "user.login.accountNotValidated"
+msgstr "您的电子邮件地址未被验证.请检查您的电子邮件以及下面提供的介绍.如果您还没有接受一个邮件，请联系管理员获得更多信息."
+
+msgid "user.login.activate"
+msgstr "激活帐户"
+
+msgid "user.login.activated"
+msgstr "谢谢您激活帐户. 您现在可以使用当您创建帐户时提供的凭据登录."
+
+msgid "user.login.changePasswordInstructions"
+msgstr "您必须在您登录到本站之前选择一个新密码.<br /><br />请在下面输入您的用户名，以及您当前的密码，还有新密码."
+
+msgid "user.login.forgotPassword"
+msgstr "忘记您的密码?"
+
+msgid "user.login.loginError"
+msgstr "无效的用户名或者密码，请重试."
+
+msgid "user.login"
+msgstr "登录"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr "一封确认已发送到您的电子邮件地址,请按照电子邮件中的说明重置您的密码."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "对不起，你点击链接已过期或无效,请尝试再次重置您的密码."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "指定的电子邮件相关用户不存在."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr "一个新的密码已发送到您的电子邮件地址.您现在可以使用新的密码登录了."
+
+msgid "user.login.registeredEmail"
+msgstr "注册的用户电子邮件"
+
+msgid "user.login.resetPassword"
+msgstr "重置密码"
+
+msgid "user.logOut"
+msgstr "登出"
+
+msgid "user.mailingAddress"
+msgstr "通信地址"
+
+msgid "user.myAccount"
+msgstr "我的帐户"
+
+msgid "user.name"
+msgstr "名"
+
+msgid "user.password"
+msgstr "密码"
+
+msgid "user.phone"
+msgstr "电话"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr "在下面输入您当前的密码和新密码，以修改帐户密码."
+
+msgid "user.profile.editProfile"
+msgstr "编辑帐户信息"
+
+msgid "user.profile.form.emailRequired"
+msgstr "有效的电子邮件地址."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "您必须输入您新的密码."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "您输入的密码是不正确的."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "刊期的开放存取电子邮件通知"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "密码是必须的."
+
+msgid "user.profile.form.profileImage"
+msgstr "照片"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "新刊期出版的电子邮件通知"
+
+msgid "user.profile.form.urlInvalid"
+msgstr "指定的URL是无效的.请双击URL再试.(提示: 尝试在URL的开始添加 http:// .)"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "用户名是必须的."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "将密码字段留空，以保持目前的密码."
+
+msgid "user.profile.newPassword"
+msgstr "新密码"
+
+msgid "user.profile.oldPassword"
+msgstr "当前密码"
+
+msgid "user.profile"
+msgstr "用户信息"
+
+msgid "user.profile.publicProfile"
+msgstr "用户信息"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "重复新密码"
+
+msgid "user.register.form.emailExists"
+msgstr "选择的电子邮件地址已经被其他用户使用."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "密码不相符."
+
+msgid "user.register.form.usernameExists"
+msgstr "选择的用户名已经被其他用户使用."
+
+msgid "user.register.passwordLengthRestriction"
+msgstr "密码必须至少含有 {$length} 个字符."
+
+msgid "user.register.registerAs"
+msgstr "注册为"
+
+msgid "user.register"
+msgstr "注册"
+
+msgid "user.register.usernameRestriction"
+msgstr "用户名只能包含小写字母，数字和连字符/下标线."
+
+msgid "user.role.reader"
+msgstr "读者"
+
+msgid "user.role.readers"
+msgstr "读者"
+
+msgid "user.role.reviewer"
+msgstr "审稿人"
+
+msgid "user.role.reviewers"
+msgstr "审稿人"
+
+msgid "user.role.siteAdmin"
+msgstr "站点管理员"
+
+msgid "user.role.siteAdmins"
+msgstr "站点管理员"
+
+msgid "user.roles"
+msgstr "角色"
+
+msgid "user.sendPassword"
+msgstr "确认"
+
+msgid "user.sendPassword.description"
+msgstr "发送给我一个包含我的用户名与密码的确认邮件"
+
+msgid "user.signature"
+msgstr "签名"
+
+msgid "user.title"
+msgstr "标题"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "用户中心"
+
+msgid "user.username"
+msgstr "用户名"
+
+msgid "user.workingLanguages"
+msgstr "工作语言"
+
+msgid "user.register.completeForm"
+msgstr "填写这个表格以注册到这个期刊."
+
+msgid "user.repeatPassword"
+msgstr "重复密码"
+
+msgid "user.profile.form.affiliationRequired"
+msgstr "联系地址是必须的"
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "电子邮件地址不匹配"
+
+msgid "user.authorization.loginRequired"
+msgstr "需要登陆"
+
+msgid "user.accountInformation"
+msgstr "帐户信息"
+
+msgid "user.authorization.accessDenied"
+msgstr "拒绝读取"
+
+msgid "user.affiliation.description"
+msgstr "（您的所在机构，如“西蒙.弗雷泽大学”）"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "过程认证令牌丢失或无效。"
+
+msgid "user.authorization.contextRequired"
+msgstr "您不能在没有背景（出版社、期刊、会议等）的情况下调用该操作。"
+
+msgid "user.authorization.privateOperation"
+msgstr "您试图连接的操作为私有或不存在的。"
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "您被拒绝访问。目前禁止访问该网站。"
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "当前的身份无法访问该操作。"
+
+msgid "user.authorization.userGroupRequired"
+msgstr "您必须设立有效的用户群来访问该操作。"
+
+msgid "user.authorization.managerRequired"
+msgstr "在您能够进行下一步前您必须指派一个出版管理身份的用户 （如出版或制作编辑）。"
+
+msgid "user.interests.description"
+msgstr "（按输入或逗号键来分隔兴趣）"
+
+msgid "user.gossip"
+msgstr "个人提醒"
+
+msgid "user.group"
+msgstr "用户群"
+
+msgid "user.hello"
+msgstr "嗨，"
+
+msgid "user.profile.form.countryRequired"
+msgstr "要求国家名"
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "要求邮件地址"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "您的新密码同旧密码相同"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "要求用户群"

@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/MailTemplate.inc.php
  *
- * Copyright (c) 2014-2018 Simon Fraser University
- * Copyright (c) 2000-2018 John Willinsky
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MailTemplate
@@ -57,7 +57,7 @@ class MailTemplate extends Mail {
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
 		// If a context wasn't specified, use the current request.
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		if ($context === null) $context = $request->getContext();
 
 		$this->includeSignature = $includeSignature;
@@ -70,8 +70,7 @@ class MailTemplate extends Mail {
 		$this->addressFieldsEnabled = true;
 
 		if (isset($this->emailKey)) {
-			$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-			$emailTemplate = $emailTemplateDao->getEmailTemplate($this->emailKey, $this->locale, $context == null ? 0 : $context->getId());
+			$emailTemplate = Services::get('emailTemplate')->getByKey($context ? $context->getId() : CONTEXT_SITE, $this->emailKey);
 		}
 
 		$userSig = '';
@@ -82,9 +81,9 @@ class MailTemplate extends Mail {
 		}
 
 		if (isset($emailTemplate)) {
-			$this->setSubject($emailTemplate->getSubject());
-			$this->setBody($emailTemplate->getBody() . $userSig);
-			$this->enabled = $emailTemplate->getEnabled();
+			$this->setSubject($emailTemplate->getData('subject', $this->locale));
+			$this->setBody($emailTemplate->getData('body', $this->locale) . $userSig);
+			$this->enabled = $emailTemplate->getData('enabled');
 		} else {
 			$this->setBody($userSig);
 			$this->enabled = true;
@@ -200,7 +199,8 @@ class MailTemplate extends Mail {
 			if (!empty($envelopeSender) && Config::getVar('email', 'allow_envelope_sender')) $this->setEnvelopeSender($envelopeSender);
 		}
 
-		$user = defined('SESSION_DISABLE_INIT')?null:Request::getUser();
+		$request = Application::get()->getRequest();
+		$user = defined('SESSION_DISABLE_INIT')?null:$request->getUser();
 
 		if ($user && $this->bccSender) {
 			$this->addBcc($user->getEmail(), $user->getFullName());

@@ -50,8 +50,8 @@ class APIHandler extends PKPHandler {
 			)
 		));
 		$this->_app->add(new ApiAuthorizationMiddleware($this));
-		$this->_app->add(new ApiTokenDecodingMiddleware($this));
 		$this->_app->add(new ApiCsrfMiddleware($this));
+		$this->_app->add(new ApiTokenDecodingMiddleware($this));
 		// remove trailing slashes
 		$this->_app->add(function ($request, $response, $next) {
 			$uri = $request->getUri();

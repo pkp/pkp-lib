@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPUserQueryBuilder extends BaseQueryBuilder {
+class PKPUserQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int Context ID */
 	protected $contextId = null;
@@ -57,9 +58,6 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	/** @var string search phrase */
 	protected $searchPhrase = null;
 
-	/** @var bool whether to return only a count of results */
-	protected $countOnly = null;
-
 	/** @var bool whether to return reviewer activity data */
 	protected $getReviewerData = null;
 
@@ -80,6 +78,12 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 
 	/** @var int|array filter by average days to complete a review */
 	protected $averageCompletion = null;
+
+	/** @var int|null whether to limit the number of results returned */
+	protected $limit = null;
+
+	/** @var int whether to offset the number of results returned. Use to return a second page of results. */
+	protected $offset = 0;
 
 	/**
 	 * Set context submissions filter
@@ -214,18 +218,6 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
-	 *
-	 * @param $enable bool
-	 *
-	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
-	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
-		return $this;
-	}
-
-	/**
 	 * Whether to return reviewer activity data
 	 *
 	 * @param $enable bool
@@ -330,11 +322,61 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
+	 * Set query limit
+	 *
+	 * @param int $count
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function limitTo($count) {
+		$this->limit = $count;
+		return $this;
+	}
+
+	/**
+	 * Set how many results to skip
+	 *
+	 * @param int $offset
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
+	 */
+	public function offsetBy($offset) {
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+	 */
+	public function getCount() {
+		$q = $this->getQuery();
+		// Reset the groupBy and orderBy
+		$q->groups = ['u.user_id'];
+		$q->orders = [];
+		return $q->select('u.user_id')
+			->get()
+			->count();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+	 */
+	public function getIds() {
+		$q = $this->getQuery();
+		// Reset the groupBy and orderBy
+		$q->groups = ['u.user_id'];
+		$q->orders = [];
+		return $q->select('u.user_id')
+			->pluck('u.user_id')
+			->toArray();
+	}
+
+	/**
 	 * Execute query builder
 	 *
 	 * @return object Query object
 	 */
-	public function get() {
+	public function getQuery() {
 		$locale = \AppLocale::getLocale();
 		// the users register for the site, thus
 		// the site primary locale should be the default locale
@@ -541,17 +583,20 @@ class PKPUserQueryBuilder extends BaseQueryBuilder {
 			$q->orWhereIn('u.user_id', $includeUsers);
 		}
 
+		// Limit and offset results for pagination
+		if (!is_null($this->limit)) {
+			$q->limit($this->limit);
+		}
+		if (!empty($this->offset)) {
+			$q->offset($this->offset);
+		}
+
 		// Add app-specific query statements
 		\HookRegistry::call('User::getMany::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as user_count'))
-				->groupBy('u.user_id');
-		} else {
-			$q->select($this->columns)
-				->groupBy('u.user_id', 'user_given', 'user_family')
-				->orderBy($this->orderColumn, $this->orderDirection);
-		}
+		$q->select($this->columns)
+			->groupBy('u.user_id', 'user_given', 'user_family')
+			->orderBy($this->orderColumn, $this->orderDirection);
 
 		return $q;
 	}

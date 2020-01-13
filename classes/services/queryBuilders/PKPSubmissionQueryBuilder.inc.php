@@ -16,8 +16,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
+abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int|string|null Context ID or '*' to get from all contexts */
 	protected $categoryIds = null;
@@ -46,9 +47,6 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	/** @var string|null search phrase */
 	protected $searchPhrase = null;
 
-	/** @var bool|null whether to return only a count of results */
-	protected $countOnly = null;
-
 	/** @var bool whether to return only incomplete results */
 	protected $isIncomplete = false;
 
@@ -57,6 +55,12 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 
 	/** @var int|null whether to return only submissions that have not been modified for last X days */
 	protected $daysInactive = null;
+
+	/** @var int|null whether to limit the number of results returned */
+	protected $limit = null;
+
+	/** @var int whether to offset the number of results returned. Use to return a second page of results. */
+	protected $offset = 0;
 
 	/**
 	 * Set context submissions filter
@@ -204,23 +208,55 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
+	 * Set query limit
 	 *
-	 * @param bool $enable
+	 * @param int $count
 	 *
 	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
 	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
+	public function limitTo($count) {
+		$this->limit = $count;
 		return $this;
 	}
 
 	/**
-	 * Execute query builder
+	 * Set how many results to skip
 	 *
-	 * @return object Query object
+	 * @param int $offset
+	 *
+	 * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
 	 */
-	public function get() {
+	public function offsetBy($offset) {
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+	 */
+	public function getCount() {
+		return $this
+			->getQuery()
+			->select('s.submission_id')
+			->get()
+			->count();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+	 */
+	public function getIds() {
+		return $this
+			->getQuery()
+			->select('s.submission_id')
+			->pluck('s.submission_id')
+			->toArray();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 */
+	public function getQuery() {
 		$this->columns[] = 's.*';
 		$q = Capsule::table('submissions as s')
 					->orderBy($this->orderColumn, $this->orderDirection)
@@ -390,14 +426,18 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder {
 				->whereIn('pc.category_id', $this->categoryIds);
 		}
 
+		// Limit and offset results for pagination
+		if (!is_null($this->limit)) {
+			$q->limit($this->limit);
+		}
+		if (!empty($this->offset)) {
+			$q->offset($this->offset);
+		}
+
 		// Add app-specific query statements
 		\HookRegistry::call('Submission::getMany::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as submission_count'));
-		} else {
-			$q->select($this->columns);
-		}
+		$q->select($this->columns);
 
 		return $q;
 	}

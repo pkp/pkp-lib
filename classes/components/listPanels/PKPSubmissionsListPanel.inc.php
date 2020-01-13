@@ -176,11 +176,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 	 * @return array
 	 */
 	public function getItems($request) {
-		$submissionService = \Services::get('submission');
-		$submissionsIterator = $submissionService->getMany($this->_getItemsParams());
+		$submissionsIterator = \Services::get('submission')->getMany($this->_getItemsParams());
 		$items = [];
 		foreach ($submissionsIterator as $submission) {
-			$items[] = $submissionService->getBackendListProperties($submission, ['request' => $request]);
+			$items[] = \Services::get('submission')->getBackendListProperties($submission, ['request' => $request]);
 		}
 
 		return $items;

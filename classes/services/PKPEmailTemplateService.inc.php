@@ -37,7 +37,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * @see PKPEmailTemplateService::getByKey()
 	 */
 	public function get($emailTemplateId) {
-		throw new Exception('Use the PKPEmailTemplateService::getByKey() method to retrieve an email template.');
+		throw new \Exception('Use the PKPEmailTemplateService::getByKey() method to retrieve an email template.');
 	}
 
 	/**
@@ -68,6 +68,20 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	}
 
 	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		throw new \Exception('PKPEmailTemplateService::getIds() is not supported. Email templates should be referenced by key instead of id.');
+	}
+
+	/**
 	 * Get email templates
 	 *
 	 * @param array $args {
@@ -75,17 +89,13 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * 		@option int|array fromRoleIds
 	 * 		@option int|array toRoleIds
 	 * 		@option string searchPhrase
-	 * 		@option int count
-	 * 		@option int offset
 	 * }
 	 * @return Iterator
 	 */
-	public function getMany($args = array()) {
-		$emailTemplateQB = $this->_getQueryBuilder($args);
-		$emailTemplateQueryParts = $emailTemplateQB->getCompiledQuery();
-		$range = $this->getRangeByArgs($args);
+	public function getMany($args = []) {
+		$emailTemplateQueryParts = $this->getQueryBuilder($args)->getCompiledQuery();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-		$result = $emailTemplateDao->retrieveRange($emailTemplateQueryParts[0], $emailTemplateQueryParts[1], $range);
+		$result = $emailTemplateDao->retrieveRange($emailTemplateQueryParts[0], $emailTemplateQueryParts[1]);
 		$queryResults = new DAOResultFactory($result, $emailTemplateDao, '_fromRow');
 
 		return $queryResults->toIterator();
@@ -94,18 +104,17 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
-	public function getMax($args = array()) {
-		$emailTemplateQB = $this->_getQueryBuilder($args);
-		return $emailTemplateQB->getCount();
+	public function getMax($args = []) {
+		// Count/offset is not supported so getMax is always
+		// the same as getCount
+		return $this->getCount();
 	}
 
 	/**
-	 * Build the query object for getting email templates
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return PKPEmailTemplateQueryBuilder
 	 */
-	private function _getQueryBuilder($args = array()) {
+	public function getQueryBuilder($args = []) {
 		$context = Application::get()->getRequest()->getContext();
 
 		$defaultArgs = array(

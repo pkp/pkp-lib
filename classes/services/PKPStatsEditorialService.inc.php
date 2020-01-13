@@ -21,7 +21,7 @@ class PKPStatsEditorialService {
 	/**
 	 * Get overview of key editorial stats
 	 *
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return array
 	 */
 	public function getOverview($args = []) {
@@ -164,11 +164,11 @@ class PKPStatsEditorialService {
 	 * Any date restrictions will be applied to the submission date, so it
 	 * will only count submissions completed within the date range.
 	 *
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countSubmissionsReceived($args = []) {
-		return $this->_getQueryBuilder($args)->countSubmissionsReceived();
+		return $this->getQueryBuilder($args)->countSubmissionsReceived();
 	}
 
 
@@ -178,11 +178,11 @@ class PKPStatsEditorialService {
 	 * Any date restrictions will be applied to the initial publication date,
 	 * so it will only count submissions published within the date range.
 	 *
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countSubmissionsPublished($args = []) {
-		return $this->_getQueryBuilder($args)->countPublished();
+		return $this->getQueryBuilder($args)->countPublished();
 	}
 
 	/**
@@ -192,11 +192,11 @@ class PKPStatsEditorialService {
 	 * count decisions that occurred within the date range.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countByDecisions($decisions, $args = []) {
-		return $this->_getQueryBuilder($args)->countByDecisions((array) $decisions);
+		return $this->getQueryBuilder($args)->countByDecisions((array) $decisions);
 	}
 
 	/**
@@ -207,11 +207,11 @@ class PKPStatsEditorialService {
 	 * one of the decisions.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countByDecisionsForSubmittedDate($decisions, $args = []) {
-		return $this->_getQueryBuilder($args)->countByDecisions((array) $decisions, true);
+		return $this->getQueryBuilder($args)->countByDecisions((array) $decisions, true);
 	}
 
 	/**
@@ -221,11 +221,11 @@ class PKPStatsEditorialService {
 	 * all submissions with the passed statuses.
 	 *
 	 * @param int|array $statuses One or more STATUS_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countByStatus($statuses, $args = []) {
-		return $this->_getQueryBuilder($args)->countByStatus((array) $statuses);
+		return $this->getQueryBuilder($args)->countByStatus((array) $statuses);
 	}
 
 	/**
@@ -235,11 +235,11 @@ class PKPStatsEditorialService {
 	 * all submissions with the passed statuses.
 	 *
 	 * @param int|array $stages One or more WORKFLOW_STAGE_ID_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function countActiveByStages($stages, $args = []) {
-		return $this->_getQueryBuilder($args)->countActiveByStages((array) $stages);
+		return $this->getQueryBuilder($args)->countActiveByStages((array) $stages);
 	}
 
 	/**
@@ -251,11 +251,11 @@ class PKPStatsEditorialService {
 	 * the selected date range.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return array
 	 */
 	public function getDaysToDecisions($decisions, $args = []) {
-		return $this->_getQueryBuilder($args)->getDaysToDecisions((array) $decisions);
+		return $this->getQueryBuilder($args)->getDaysToDecisions((array) $decisions);
 	}
 
 	/**
@@ -266,11 +266,11 @@ class PKPStatsEditorialService {
 	 * the selected date range.
 	 *
 	 * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-	 * @param array $args See self::_getQueryBuilder()
+	 * @param array $args See self::getQueryBuilder()
 	 * @return int
 	 */
 	public function getAverageDaysToDecisions($decisions, $args = []) {
-		return ceil($this->_getQueryBuilder($args)->getAverageDaysToDecisions((array) $decisions));
+		return ceil($this->getQueryBuilder($args)->getAverageDaysToDecisions((array) $decisions));
 	}
 
 	/**
@@ -306,7 +306,7 @@ class PKPStatsEditorialService {
 	 * ]
 	 * @return \APP\Services\QueryBuilders\StatsEditorialQueryBuilder
 	 */
-	protected function _getQueryBuilder($args = []) {
+	protected function getQueryBuilder($args = []) {
 		$qb = new \APP\Services\QueryBuilders\StatsEditorialQueryBuilder();
 
 		if (!empty($args['dateStart'])) {

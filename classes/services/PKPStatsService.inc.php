@@ -50,7 +50,7 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$statsQB = $this->_getQueryBuilder($args);
+		$statsQB = $this->getQueryBuilder($args);
 
 		\HookRegistry::call('Stats::getRecords::queryBuilder', array($statsQB, $args));
 
@@ -106,7 +106,7 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$timelineQB = $this->_getQueryBuilder($args);
+		$timelineQB = $this->getQueryBuilder($args);
 
 		\HookRegistry::call('Stats::getTimeline::queryBuilder', array($timelineQB, $args));
 
@@ -174,7 +174,7 @@ class PKPStatsService {
 		];
 
 		$args = array_merge($defaultArgs, $args);
-		$orderedQB = $this->_getQueryBuilder($args);
+		$orderedQB = $this->getQueryBuilder($args);
 
 		\HookRegistry::call('Stats::getOrderedObjects::queryBuilder', array($orderedQB, $args));
 
@@ -296,7 +296,7 @@ class PKPStatsService {
 	 * @param array $args See self::getRecords()
 	 * @return \PKP\Services\QueryBuilders\PKPStatsQueryBuilder
 	 */
-	protected function _getQueryBuilder($args = []) {
+	protected function getQueryBuilder($args = []) {
 		$statsQB = new \PKP\Services\QueryBuilders\PKPStatsQueryBuilder();
 		$statsQB
 			->filterByContexts($args['contextIds'])

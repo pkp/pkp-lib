@@ -15,13 +15,14 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
+abstract class PKPContextQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var string The database name for this context: `journals` or `presses` */
 	protected $db;
 
-	/** @var string The database name for this context's settings: `journal_setttings` or `press_settings` */
+	/** @var string The database name for this context's settings: `journal_settings` or `press_settings` */
 	protected $dbSettings;
 
 	/** @var string The column name for a context ID: `journal_id` or `press_id` */
@@ -32,9 +33,6 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 
 	/** @var string search phrase */
 	protected $searchPhrase = null;
-
-	/** @var bool whether to return only a count of results */
-	protected $countOnly = null;
 
 	/**
 	 * Set isEnabled filter
@@ -61,23 +59,31 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
-	 *
-	 * @param $enable bool
-	 *
-	 * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
 	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
-		return $this;
+	public function getCount() {
+		return $this
+			->getQuery()
+			->select('c.' . $this->dbIdColumn)
+			->get()
+			->count();
 	}
 
 	/**
-	 * Execute query builder
-	 *
-	 * @return object Query object
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
 	 */
-	public function get() {
+	public function getIds() {
+		return $this
+			->getQuery()
+			->select('c.' . $this->dbIdColumn)
+			->pluck('c.' . $this->dbIdColumn)
+			->toArray();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 */
+	public function getQuery() {
 		$this->columns[] = 'c.*';
 		$q = Capsule::table($this->db . ' as c')
 					->leftJoin($this->dbSettings . ' as cs', 'cs.' . $this->dbIdColumn, '=', 'c.' . $this->dbIdColumn)
@@ -119,11 +125,7 @@ abstract class PKPContextQueryBuilder extends BaseQueryBuilder {
 		// Add app-specific query statements
 		\HookRegistry::call('Context::getContexts::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as context_count'));
-		} else {
-			$q->select($this->columns);
-		}
+		$q->select($this->columns);
 
 		return $q;
 	}

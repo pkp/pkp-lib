@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPPublicationQueryBuilder extends BaseQueryBuilder {
+class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var array get publications for one or more contexts */
 	protected $contextIds = [];
@@ -27,8 +28,11 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder {
 	/** @var array get publications for one or more submissions */
 	protected $submissionIds = [];
 
-	/** @var bool whether to return only a count of results */
-	protected $countOnly = null;
+	/** @var int|null whether to limit the number of results returned */
+	protected $limit = null;
+
+	/** @var int whether to offset the number of results returned. Use to return a second page of results. */
+	protected $offset = 0;
 
 	/**
 	 * Set contextIds filter
@@ -64,22 +68,55 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
+	 * Set query limit
 	 *
-	 * @param $enable bool
+	 * @param int $count
+	 *
 	 * @return \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder
 	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
+	public function limitTo($count) {
+		$this->limit = $count;
 		return $this;
 	}
 
 	/**
-	 * Execute query builder
+	 * Set how many results to skip
 	 *
-	 * @return object Query object
+	 * @param int $offset
+	 *
+	 * @return \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder
 	 */
-	public function get() {
+	public function offsetBy($offset) {
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+	 */
+	public function getCount() {
+		return $this
+			->getQuery()
+			->select('p.publication_id')
+			->get()
+			->count();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+	 */
+	public function getIds() {
+		return $this
+			->getQuery()
+			->select('p.publication_id')
+			->pluck('p.publication_id')
+			->toArray();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 */
+	public function getQuery() {
 		$this->columns = ['*'];
 		$q = Capsule::table('publications as p');
 
@@ -100,14 +137,18 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder {
 			$q->whereIn('p.submission_id', $this->submissionIds);
 		}
 
+		// Limit and offset results for pagination
+		if (!is_null($this->limit)) {
+			$q->limit($this->limit);
+		}
+		if (!empty($this->offset)) {
+			$q->offset($this->offset);
+		}
+
 		// Add app-specific query statements
 		\HookRegistry::call('Publication::getMany::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as publication_count'));
-		} else {
-			$q->select($this->columns);
-		}
+		$q->select($this->columns);
 
 		return $q;
 	}
@@ -118,11 +159,9 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder {
 	 * @return object Query object
 	 */
 	public function getDateBoundaries() {
-		$q = $this->get();
-		$q->select([
-			Capsule::raw('MIN(p.date_published)', 'MAX(p.date_published)')
-		]);
-
-		return $q;
+		return $this->getQuery()
+			->select([
+				Capsule::raw('MIN(p.date_published)', 'MAX(p.date_published)')
+			]);
 	}
 }

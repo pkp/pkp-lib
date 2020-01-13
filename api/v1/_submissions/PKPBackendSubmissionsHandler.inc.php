@@ -147,8 +147,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
 		}
 
-		$submissionService = Services::get('submission');
-		$submissionsIterator = $submissionService->getMany($params);
+		$submissionsIterator = Services::get('submission')->getMany($params);
 		$items = array();
 		if (count($submissionsIterator)) {
 			$propertyArgs = array(
@@ -156,12 +155,12 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 				'slimRequest' => $slimRequest,
 			);
 			foreach ($submissionsIterator as $submission) {
-				$items[] = $submissionService->getBackendListProperties($submission, $propertyArgs);
+				$items[] = Services::get('submission')->getBackendListProperties($submission, $propertyArgs);
 			}
 		}
 		$data = array(
 			'items' => $items,
-			'itemsMax' => $submissionService->getMax($params),
+			'itemsMax' => Services::get('submission')->getMax($params),
 		);
 
 		return $response->withJson($data);
@@ -176,13 +175,9 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 	 * @return Response
 	 */
 	public function delete($slimRequest, $response, $args) {
-
 		$request = $this->getRequest();
-		$currentUser = $request->getUser();
 		$context = $request->getContext();
-
 		$submissionId = (int) $args['submissionId'];
-
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submissionId);
 
@@ -195,13 +190,11 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler {
 		}
 
 		import('classes.core.Services');
-		$submissionService = Services::get('submission');
-
-		if (!$submissionService->canCurrentUserDelete($submission)) {
+		if (!Services::get('submission')->canCurrentUserDelete($submission)) {
 			return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
 		}
 
-		$submissionService->delete($submission);
+		Services::get('submission')->delete($submission);
 
 		return $response->withJson(true);
 	}

@@ -70,11 +70,11 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 		// Determine if the current user can use any custom templates defined.
 		$user = $request->getUser();
 		$roleDao = DAORegistry::getDAO('RoleDAO');
-		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getContextId());
+		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
 				$emailTemplatesIterator = Services::get('emailTemplate')->getMany([
-					'contextId' => $submission->getContextId(),
+					'contextId' => $submission->getData('contextId'),
 					'isCustom' => true,
 				]);
 				$customTemplateKeys = [];

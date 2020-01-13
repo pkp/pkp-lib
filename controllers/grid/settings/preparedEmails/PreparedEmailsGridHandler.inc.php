@@ -70,12 +70,11 @@ class PreparedEmailsGridHandler extends GridHandler {
 	 */
 	function editPreparedEmail($args, $request) {
 		import('classes.core.Services');
-		$emailTemplateService = Services::get('emailTemplate');
 		$context = $request->getContext();
 		$emailKey = $request->getUserVar('emailKey');
 
 		if ($emailKey) {
-			$emailTemplate = $emailTemplateService->getByKey($context->getId(), $emailKey);
+			$emailTemplate = Services::get('emailTemplate')->getByKey($context->getId(), $emailKey);
 
 			$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'emailTemplates/' . $emailTemplate->getData('key'));
 		} else {

@@ -38,6 +38,20 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	}
 
 	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		return $this->getQueryBuilder($args)->getIds();
+	}
+
+	/**
 	 * Get publications
 	 *
 	 * @param array $args {
@@ -49,9 +63,12 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @return Iterator
 	 */
 	public function getMany($args = []) {
-		$publicationQB = $this->_getQueryBuilder($args);
-		$publicationQO = $publicationQB->get();
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
 		$range = $this->getRangeByArgs($args);
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$publicationQO = $this->getQueryBuilder($args)->getQuery();
 		$publicationDao = DAORegistry::getDAO('PublicationDAO');
 		$result = $publicationDao->retrieveRange($publicationQO->toSql(), $publicationQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $publicationDao, '_fromRow');
@@ -63,41 +80,38 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
 	public function getMax($args = []) {
-		$publicationQB = $this->_getQueryBuilder($args);
-		$countQO = $publicationQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$publicationDao = DAORegistry::getDAO('PublicationDAO');
-		$countResult = $publicationDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $publicationDao, '_fromRow');
-
-		return (int) $countQueryResults->getCount();
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		return $this->getQueryBuilder($args)->getCount();
 	}
 
 	/**
-	 * Build the query object for getting publications
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return PKPPublicationQueryBuilder
 	 */
-	private function _getQueryBuilder($args = []) {
+	public function getQueryBuilder($args = []) {
 
 		$defaultArgs = [
-			'contextIds' => null,
-			'publisherIds' => null,
-			'submissionIds' => null,
+			'contextIds' => [],
+			'publisherIds' => [],
+			'submissionIds' => [],
 		];
 
 		$args = array_merge($defaultArgs, $args);
 
 		$publicationQB = new PKPPublicationQueryBuilder();
-		if (!empty($args['contextIds'])) {
-			$publicationQB->filterByContextIds($args['contextIds']);
+		$publicationQB
+			->filterByContextIds($args['contextIds'])
+			->filterByPublisherIds($args['publisherIds'])
+			->filterBySubmissionIds($args['submissionIds']);
+
+		if (isset($args['count'])) {
+			$publicationQB->limitTo($args['count']);
 		}
-		if (!empty($args['publisherIds'])) {
-			$publicationQB->filterByPublisherIds($args['publisherIds']);
-		}
-		if (!empty($args['submissionIds'])) {
-			$publicationQB->filterBySubmissionIds($args['submissionIds']);
+
+		if (isset($args['offset'])) {
+			$publicationQB->offsetBy($args['count']);
 		}
 
 		\HookRegistry::call('Publication::getMany::queryBuilder', [$publicationQB, $args]);
@@ -219,7 +233,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @return array [oldest, newest]
 	 */
 	public function getDateBoundaries($args) {
-		$publicationQO = $this->_getQueryBuilder($args)->getDateBoundaries();
+		$publicationQO = $this->getQueryBuilder($args)->getDateBoundaries();
 		$result = DAORegistry::getDAO('PublicationDAO')->retrieve($publicationQO->toSql(), $publicationQO->getBindings());
 		return [$result->fields[0], $result->fields[1]];
 	}

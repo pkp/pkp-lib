@@ -98,7 +98,6 @@ class PKPContextHandler extends APIHandler {
 	 */
 	public function getMany($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$contextService = Services::get('context');
 
 		$defaultParams = array(
 			'count' => 20,
@@ -143,19 +142,19 @@ class PKPContextHandler extends APIHandler {
 		}
 
 		$items = array();
-		$contextsIterator = $contextService->getMany($allowedParams);
+		$contextsIterator = Services::get('context')->getMany($allowedParams);
 		if (count($contextsIterator)) {
 			$propertyArgs = array(
 				'request' => $request,
 				'slimRequest' => $slimRequest,
 			);
 			foreach ($contextsIterator as $context) {
-				$items[] = $contextService->getSummaryProperties($context, $propertyArgs);
+				$items[] = Services::get('context')->getSummaryProperties($context, $propertyArgs);
 			}
 		}
 
 		$data = array(
-			'itemsMax' => $contextService->getMax($allowedParams),
+			'itemsMax' => Services::get('context')->getMax($allowedParams),
 			'items' => $items,
 		);
 

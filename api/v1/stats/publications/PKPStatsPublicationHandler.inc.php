@@ -178,8 +178,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			$otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
 
 			// Get the publication
-			$submissionService = \Services::get('submission');
-			$submission = $submissionService->get($total['id']);
+			$submission = \Services::get('submission')->get($total['id']);
 			$getPropertiesArgs = [
 				'request' => $request,
 				'slimRequest' => $slimRequest,
@@ -187,7 +186,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			// Stats may still exist for deleted publications
 			$submissionProps = ['id' => $total['id']];
 			if ($submission) {
-				$submissionProps = $submissionService->getProperties(
+				$submissionProps = \Services::get('submission')->getProperties(
 					$submission,
 					[
 						'_href',
@@ -609,16 +608,11 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 	 * @return array submission ids
 	 */
 	protected function _processSearchPhrase($searchPhrase, $submissionIds = []) {
-		$submissionsIterator = \Services::get('submission')->getMany([
+		$searchPhraseSubmissionIds = \Services::get('submission')->getIds([
 			'contextId' => \Application::get()->getRequest()->getContext()->getId(),
 			'searchPhrase' => $searchPhrase,
 			'status' => STATUS_PUBLISHED,
 		]);
-
-		$searchPhraseSubmissionIds = [];
-		foreach ($submissionsIterator as $submission) {
-			$searchPhraseSubmissionIds[] = $submission->getId();
-		}
 
 		if (!empty($submissionIds)) {
 			$submissionIds = array_intersect($submissionIds, $searchPhraseSubmissionIds);

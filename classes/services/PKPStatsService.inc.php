@@ -15,10 +15,7 @@
 
 namespace PKP\Services;
 
-use PKP\Services\Traits\EntityReadTrait;
-
 class PKPStatsService {
-	use EntityReadTrait;
 
 	/**
 	 * Get all statistics records that match the passed arguments
@@ -182,8 +179,14 @@ class PKPStatsService {
 			->getSum([$groupBy])
 			->orderBy('metric', $orderDirection === STATISTICS_ORDER_ASC ? 'asc' : 'desc');
 
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+
 		$result = \DAORegistry::getDAO('MetricsDAO')
-			->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $this->getRangeByArgs($args));
+			->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $range);
 
 		$objects = [];
 		while (!$result->EOF) {

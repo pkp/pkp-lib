@@ -23,12 +23,10 @@ use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder;
-use \PKP\Services\traits\EntityReadTrait;
 
 import('lib.pkp.classes.db.DBResultRange');
 
 class PKPPublicationService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
@@ -63,9 +61,13 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @return Iterator
 	 */
 	public function getMany($args = []) {
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
 		// Pagination is handled by the DAO, so don't pass count and offset
 		// arguments to the QueryBuilder.
-		$range = $this->getRangeByArgs($args);
 		if (isset($args['count'])) unset($args['count']);
 		if (isset($args['offset'])) unset($args['offset']);
 		$publicationQO = $this->getQueryBuilder($args)->getQuery();

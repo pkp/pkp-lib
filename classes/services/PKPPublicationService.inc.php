@@ -524,6 +524,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		if ($newPublication->getData('status') === STATUS_PUBLISHED) {
 			Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
 			Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
+			Application::getSubmissionSearchDAO()->flushCache();
 			Application::getSubmissionSearchIndex()->submissionChangesFinished();
 		}
 
@@ -569,6 +570,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
 			Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
 		}
+		Application::getSubmissionSearchDAO()->flushCache();
 		Application::getSubmissionSearchIndex()->submissionChangesFinished();
 
 		return $newPublication;

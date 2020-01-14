@@ -49,7 +49,7 @@ class PKPNotificationSettingsForm extends Form {
 	 * @return array
 	 */
 	protected function getNotificationSettingsMap() {
-		return array(
+		$result = array(
 			NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => array('settingName' => 'notificationSubmissionSubmitted',
 				'emailSettingName' => 'emailNotificationSubmissionSubmitted',
 				'settingKey' => 'notification.type.submissionSubmitted'),
@@ -75,6 +75,10 @@ class PKPNotificationSettingsForm extends Form {
 				'emailSettingName' => 'emailNotificationEditorialReport',
 				'settingKey' => 'notification.type.editorialReport')
 		);
+
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::getNotificationSettingsMap'), array($this, &$result));
+
+		return $result;
 	}
 
 	/**
@@ -83,7 +87,7 @@ class PKPNotificationSettingsForm extends Form {
 	 * @return array
 	 */
 	public function getNotificationSettingCategories() {
-		return array(
+		$result = array(
 			// Changing the `categoryKey` for public notification types will disrupt
 			// the email notification opt-in/out feature during user registration
 			// @see RegistrationForm::execute()
@@ -112,6 +116,10 @@ class PKPNotificationSettingsForm extends Form {
 				)
 			),
 		);
+
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::getNotificationSettingCategories'), array($this, &$result));
+
+		return $result;
 	}
 
 	/**

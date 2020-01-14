@@ -23,13 +23,11 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
-use \PKP\Services\traits\EntityReadTrait;
 use \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder;
 
 import('lib.pkp.classes.db.DBResultRange');
 
 class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
-	use EntityReadTrait;
 
 	/**
 	 * Do not use. An email template should be retrieved by its key.

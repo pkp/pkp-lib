@@ -23,10 +23,8 @@ use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
-use \PKP\Services\traits\EntityReadTrait;
 
 class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()

@@ -14,7 +14,7 @@
 	<tabs>
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
 			{help file="settings/website-settings" class="pkp_help_tab"}
-			<tabs is-side-tabs="true">
+			<tabs :is-side-tabs="true">
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
 						v-bind="components.{$smarty.const.FORM_THEME}"
@@ -38,7 +38,7 @@
 		</tab>
 		<tab id="setup" label="{translate key="navigation.setup"}">
 			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
-			<tabs is-side-tabs="true">
+			<tabs :is-side-tabs="true">
 				<tab id="information" label="{translate key="manager.website.information"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_INFORMATION}"

@@ -99,5 +99,11 @@ abstract class SubmissionSearchIndex {
 	 * @param $submission Submission
 	 */
 	abstract public function submissionMetadataChanged($submission);
+
+	/**
+	 * Remove indexed file contents for a submission
+	 * @param $submission Submission
+	 */
+	abstract function clearSubmissionFiles($submission);
 }
 

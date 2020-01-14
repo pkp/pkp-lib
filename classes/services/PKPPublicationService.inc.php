@@ -563,7 +563,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		// Update the metadata in the search index.
 		if ($submission->getData('status') !== STATUS_PUBLISHED) {
 			Application::getSubmissionSearchIndex()->deleteTextIndex($submission->getId());
-			Application::getSubmissionSearchIndex()->clearMonographFiles($submission);
+			Application::getSubmissionSearchIndex()->clearSubmissionFiles($submission);
 		} else {
 			Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
 			Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2020-01-14 15:35+0000\n"
+"PO-Revision-Date: 2020-01-15 19:33+0000\n"
 "Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -2188,3 +2188,96 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Os autores desta publicação não podem ser alterados por que ela já está "
 "publicada."
+
+msgid "publication.wordCount"
+msgstr "Contagem de palavras: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"O resumo é muito longo. Ele deve ter {$limit} palavras ou menos. Atualmente "
+"ele possui {$limit} palavras."
+
+msgid "publication.version.details"
+msgstr "Detalhes da publicação da versão {$version}"
+
+msgid "publication.version.all"
+msgstr "Todas as Versões"
+
+msgid "publication.unschedule.confirm"
+msgstr "Tem certeza que não deseja agendar isto para publicação?"
+
+msgid "publication.unschedule"
+msgstr "Desagendar"
+
+msgid "publication.unpublish.confirm"
+msgstr "Tem certeza que não gostaria de publicar isto?"
+
+msgid "publication.unpublish"
+msgstr "Despublicar"
+
+msgid "publication.titleAbstract.success"
+msgstr "O título e resumo foram atualizados."
+
+msgid "publication.titleAbstract"
+msgstr "Título e Resumo"
+
+msgid "publication.status.unscheduled"
+msgstr "Não Agendado"
+
+msgid "publication.status.unpublished"
+msgstr "Despublicado"
+
+msgid "publication.status.scheduled"
+msgstr "Agendado"
+
+msgid "publication.status.published"
+msgstr "Publicado"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"A submissão precisa estar nos estágios de Edição ou Produção para que ela "
+"possa ser publicada."
+
+msgid "publication.required.declined"
+msgstr "Uma submissão recusada não pode ser publicada."
+
+msgid "publication.publish.success"
+msgstr "A situação desta publicação foi alterada com sucesso."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Os seguintes requisitos devem ser atendidos antes que isso possa ser "
+"publicado."
+
+msgid "publication.publish"
+msgstr "Publicar"
+
+msgid "publication.publicationLicense.success"
+msgstr "As informações de direitos autorais e licença foram atualizadas."
+
+msgid "publication.publicationLicense"
+msgstr "Permissão e Divulgação"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Os identificadores foram atualizados."
+
+msgid "publication.metadata.success"
+msgstr "Os metadados foram atualizados."
+
+msgid "publication.invalidSubmission"
+msgstr "A submissão para esta publicação não foi encontrada."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Uma versão foi despublicada."
+
+msgid "publication.event.versionScheduled"
+msgstr "Uma nova versão foi agendada para publicação."
+
+msgid "publication.event.versionPublished"
+msgstr "Uma nova versão foi publicada."
+
+msgid "publication.event.versionCreated"
+msgstr "Uma nova versão foi criada."
+
+msgid "publication.event.unpublished"
+msgstr "A submissão foi despublicada."

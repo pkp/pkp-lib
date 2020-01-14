@@ -94,7 +94,7 @@ interface iPKPApplicationInfoProvider {
 	public static function getSubmissionSearchIndex();
 
 	/**
-	 * Get a SubmissionSearchIndex instance.
+	 * Get a SubmissionSearchDAO instance.
 	 */
 	public static function getSubmissionSearchDAO();
 

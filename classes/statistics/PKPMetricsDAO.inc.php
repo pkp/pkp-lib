@@ -131,6 +131,10 @@ class PKPMetricsDAO extends DAO {
 				$currentClause =& $whereClause; // Reference required.
 			}
 
+			if (is_object($values)) {
+				$values = (array) $values;
+			}
+
 			if (is_array($values) && isset($values['from'])) {
 				// Range filter: The value is a hashed array with from/to entries.
 				if (!isset($values['to'])) return $nullVar;

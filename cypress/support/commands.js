@@ -8,27 +8,28 @@
  */
 
 import 'cypress-file-upload';
+import 'cypress-wait-until';
 
 Cypress.Commands.add('install', function() {
 	cy.visit('/');
 
 	// Administrator information
-	cy.get('input[name=adminUsername]').type('admin');
-	cy.get('input[name=adminPassword]').type('admin');
-	cy.get('input[name=adminPassword2]').type('admin');
-	cy.get('input[name=adminEmail]').type('pkpadmin@mailinator.com');
+	cy.get('input[name=adminUsername]').type('admin', {delay: 0});
+	cy.get('input[name=adminPassword]').type('admin', {delay: 0});
+	cy.get('input[name=adminPassword2]').type('admin', {delay: 0});
+	cy.get('input[name=adminEmail]').type('pkpadmin@mailinator.com', {delay: 0});
 
 	// Database configuration
 	cy.get('select[name=databaseDriver]').select(Cypress.env('DBTYPE'));
-	cy.get('input[id^=databaseHost-]').clear().type(Cypress.env('DBHOST'));
-	cy.get('input[id^=databasePassword-]').clear().type(Cypress.env('DBPASSWORD'));
-	cy.get('input[id^=databaseUsername-]').clear().type(Cypress.env('DBUSERNAME'));
-	cy.get('input[id^=databaseName-]').clear().type(Cypress.env('DBNAME'));
+	cy.get('input[id^=databaseHost-]').clear().type(Cypress.env('DBHOST'), {delay: 0});
+	cy.get('input[id^=databasePassword-]').clear().type(Cypress.env('DBPASSWORD'), {delay: 0});
+	cy.get('input[id^=databaseUsername-]').clear().type(Cypress.env('DBUSERNAME'), {delay: 0});
+	cy.get('input[id^=databaseName-]').clear().type(Cypress.env('DBNAME'), {delay: 0});
 	cy.get('input[id=createDatabase]').uncheck();
 	cy.get('select[id=connectionCharset]').select('Unicode (UTF-8)');
 
 	// Files directory
-	cy.get('input[id^=filesDir-]').clear().type(Cypress.env('FILESDIR'));
+	cy.get('input[id^=filesDir-]').clear().type(Cypress.env('FILESDIR'), {delay: 0});
 
 	// Locale configuration
 	cy.get('input[id=additionalLocales-en_US').check();
@@ -54,9 +55,9 @@ Cypress.Commands.add('logout', function() {
 Cypress.Commands.add('resetPassword', (username,oldPassword,newPassword) => {
 	oldPassword = oldPassword || (username + username);
 	newPassword = newPassword || oldPassword;
-	cy.get('input[name=oldPassword]').type(oldPassword);
-	cy.get('input[name=password]').type(newPassword);
-	cy.get('input[name=password2]').type(newPassword);
+	cy.get('input[name=oldPassword]').type(oldPassword, {delay: 0});
+	cy.get('input[name=password]').type(newPassword, {delay: 0});
+	cy.get('input[name=password2]').type(newPassword, {delay: 0});
 	cy.get('button').contains('OK').click();
 });
 
@@ -67,14 +68,14 @@ Cypress.Commands.add('register', data => {
 
 	cy.visit('');
 	cy.get('a').contains('Register').click();
-	cy.get('input[id=givenName]').type(data.givenName);
-	cy.get('input[id=familyName]').type(data.familyName);
-	cy.get('input[id=affiliation]').type(data.affiliation);
+	cy.get('input[id=givenName]').type(data.givenName, {delay: 0});
+	cy.get('input[id=familyName]').type(data.familyName, {delay: 0});
+	cy.get('input[id=affiliation]').type(data.affiliation, {delay: 0});
 	cy.get('select[id=country]').select(data.country);
-	cy.get('input[id=email]').type(data.email);
-	cy.get('input[id=username]').type(data.username);
-	cy.get('input[id=password]').type(data.password);
-	cy.get('input[id=password2]').type(data.password2);
+	cy.get('input[id=email]').type(data.email, {delay: 0});
+	cy.get('input[id=username]').type(data.username, {delay: 0});
+	cy.get('input[id=password]').type(data.password, {delay: 0});
+	cy.get('input[id=password2]').type(data.password2, {delay: 0});
 
 	cy.get('input[name=privacyConsent]').click();
 	cy.get('button').contains('Register').click();
@@ -114,9 +115,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 
 	// === Submission Step 1 ===
 	if ('section' in data) cy.get('select[id="sectionId"],select[id="seriesId"]').select(data.section);
-	cy.get('input[id^="checklist-"]').each(($el, index, $list) => {
-		cy.wrap($el).click();
-	});
+	cy.get('input[id^="checklist-"]').click({multiple: true});
 	switch (data.type) { // Only relevant to OMP
 		case 'monograph':
 			cy.get('input[id="isEditedVolume-0"]').click();
@@ -136,7 +135,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	var firstFile = true;
 	data.files.forEach(file => {
 		if (!firstFile) cy.get('a[id^="component-grid-"][id*="-add"]').click();
-		cy.wait(1000); // Permit form to initialize
+		cy.wait(500); // Avoid occasional failure due to form init taking time
 		cy.get('select[id=genreId]').select(file.genre);
 		cy.fixture(file.file, 'base64').then(fileContent => {
 			cy.get('input[type=file]').upload(
@@ -145,7 +144,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		});
 		cy.get('button').contains('Continue').click();
 		for (const field in file.metadata) {
-			cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field]);
+			cy.get('input[id^="' + Cypress.$.escapeSelector(field) + '"]:visible,textarea[id^="' + Cypress.$.escapeSelector(field) + '"]').type(file.metadata[field], {delay: 0});
 			cy.get('a:contains("2. Review Details")').click(); // Close potential multilingual pop-over
 		}
 		cy.get('button').contains('Continue').click();
@@ -162,7 +161,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 
 	// === Submission Step 3 ===
 	// Metadata fields
-	cy.get('input[id^="title-en_US-"').type(data.title);
+	cy.get('input[id^="title-en_US-"').type(data.title, {delay: 0});
 	cy.get('label').contains('Title').click(); // Close multilingual popover
 	cy.get('textarea[id^="abstract-en_US"]').then(node => {
 		cy.setTinyMceContent(node.attr('id'), data.abstract);
@@ -176,20 +175,19 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		if (!('role' in author)) author.role = 'Author';
 		cy.get('a[id^="component-grid-users-author-authorgrid-addAuthor-button-"]').click();
 		cy.wait(250);
-		cy.get('input[id^="givenName-en_US-"]').type(author.givenName);
-		cy.get('input[id^="familyName-en_US-"]').type(author.familyName);
+		cy.get('input[id^="givenName-en_US-"]').type(author.givenName, {delay: 0});
+		cy.get('input[id^="familyName-en_US-"]').type(author.familyName, {delay: 0});
 		cy.get('select[id=country]').select(author.country);
-		cy.get('input[id^="email"]').type(author.email);
-		if ('affiliation' in author) cy.get('input[id^="affiliation-en_US-"]').type(author.affiliation);
+		cy.get('input[id^="email"]').type(author.email, {delay: 0});
+		if ('affiliation' in author) cy.get('input[id^="affiliation-en_US-"]').type(author.affiliation, {delay: 0});
 		cy.get('label').contains(author.role).click();
 		cy.get('form#editAuthor').find('button:contains("Save")').click();
 		cy.get('div[id^="component-grid-users-author-authorgrid-"] span.label:contains("' + Cypress.$.escapeSelector(author.givenName) + '")');
 	});
 	// Chapters (OMP only)
 	if ('chapters' in data) data.chapters.forEach(chapter => {
-		cy.wait(1000); // FIXME: First chapter creation sometimes fails; let DOM settle
-		cy.get('a[id^="component-grid-users-chapter-chaptergrid-addChapter-button-"]').click();
-		cy.wait(1000); // Delay for form initialization
+		cy.get('a[id^="component-grid-users-chapter-chaptergrid-addChapter-button-"]:visible').click();
+		cy.wait(500); // Avoid occasional failure due to form init taking time
 
 		// Contributors
 		chapter.contributors.forEach(contributor => {
@@ -197,13 +195,15 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		});
 
 		// Title/subtitle
-		cy.get('form[id="editChapterForm"] input[id^="title-en_US-"]').type(chapter.title);
+		cy.get('form[id="editChapterForm"] input[id^="title-en_US-"]').type(chapter.title, {delay: 0});
 		if ('subtitle' in chapter) {
-			cy.get('form[id="editChapterForm"] input[id^="subtitle-en_US-"]').type(chapter.subtitle);
+			cy.get('form[id="editChapterForm"] input[id^="subtitle-en_US-"]').type(chapter.subtitle, {delay: 0});
 		}
 		cy.get('div.pkp_modal_panel div:contains("Add Chapter")').click(); // FIXME: Resolve focus problem on title field
 
+		cy.flushNotifications();
 		cy.get('form[id="editChapterForm"] button:contains("Save")').click();
+		cy.get('div:contains("Your changes have been saved.")');
 
 		// Files
 		if ('files' in chapter) {
@@ -211,16 +211,10 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 			chapter.files.forEach(file => {
 				cy.get('form[id="editChapterForm"] label:contains("' + Cypress.$.escapeSelector(chapter.title.substring(0, 40)) + '")').click();
 			});
+			cy.flushNotifications();
 			cy.get('form[id="editChapterForm"] button:contains("Save")').click();
-			cy.wait(4000); // FIXME: Wait for the grid to reload before continuing
-		}
-
-		// Test the public identifiers form
-		if ('pubId' in chapter) {
-			cy.get('div[id="chaptersGridContainer"] a:contains("' + Cypress.$.escapeSelector(chapter.title) + '")').click();
-			cy.get('a:contains("Identifiers")').click();
-			cy.get('input[id^="publisherId-"]').type(chapter.pubId);
-			cy.get('form[id="publicIdentifiersForm"] button:contains("Save")').click();
+			cy.get('div:contains("Your changes have been saved.")');
+			cy.waitJQuery(); // Wait for grid to reload.
 		}
 
 		cy.get('div[id^="component-grid-users-chapter-chaptergrid-"] a[title="Edit this chapter"]:contains("' + Cypress.$.escapeSelector(chapter.title) + '")');
@@ -257,13 +251,13 @@ Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 	var names = name.split(' ');
 	cy.get('a[id^="component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-"]:visible').click();
 	cy.get('select[name=filterUserGroupId').select(role);
-	cy.get('input[id^="namegrid-users-userselect-userselectgrid-"]').type(names[1]);
+	cy.get('input[id^="namegrid-users-userselect-userselectgrid-"]').type(names[1], {delay: 0});
 	cy.get('form[id="searchUserFilter-grid-users-userselect-userselectgrid"]').find('button[id^="submitFormButton-"]').click();
 	cy.get('input[name="userId"]').click(); // Assume only one user results from the search.
 	if (recommendOnly) cy.get('input[name="recommendOnly"]').click();
+	cy.flushNotifications();
 	cy.get('button').contains('OK').click();
-	cy.get('div:contains("User added as a stage participant")');
-	cy.wait(2000); // FIXME: Give the participant and decision lists time to reload
+	cy.waitJQuery();
 });
 
 Cypress.Commands.add('recordEditorialRecommendation', recommendation => {
@@ -275,9 +269,10 @@ Cypress.Commands.add('recordEditorialRecommendation', recommendation => {
 
 Cypress.Commands.add('assignReviewer', name => {
 	cy.get('a[id^="component-grid-users-reviewer-reviewergrid-addReviewer-button-"]').click();
-	cy.get('fieldset.pkpListPanel--selectReviewer input.pkpSearch__input').type(name);
+	cy.get('fieldset.pkpListPanel--selectReviewer input.pkpSearch__input').type(name, {delay: 0});
 	cy.get('div.pkpListPanelItem--reviewer__fullName:contains(' + Cypress.$.escapeSelector(name) + ')').click();
 	cy.get('button[id="selectReviewerButton"]').click();
+	cy.flushNotifications();
 	cy.get('button:contains("Add Reviewer")').click();
 	cy.get('div:contains("' + Cypress.$.escapeSelector(name) + ' was assigned to review")');
 });
@@ -316,23 +311,35 @@ Cypress.Commands.add('createUser', user => {
 	if (!('password' in user)) user.password = user.username + user.username;
 	if (!('password2' in user)) user.password2 = user.username + user.username;
 	if (!('roles' in user)) user.roles = [];
-	cy.get('div[id=userGridContainer]').contains('Add User').click();
+	cy.get('div[id=userGridContainer] a:contains("Add User")').click();
 	cy.wait(500); // Avoid occasional glitches with given name field
-	cy.get('input[id^="givenName-en_US"]').type(user.givenName);
-	cy.get('input[id^="familyName-en_US"]').type(user.familyName);
-	cy.get('input[name=email]').type(user.email);
-	cy.get('input[name=username]').type(user.username);
-	cy.get('input[name=password]').type(user.password);
-	cy.get('input[name=password2]').type(user.password2);
+	cy.get('input[id^="givenName-en_US"]').type(user.givenName, {delay: 0});
+	cy.get('input[id^="familyName-en_US"]').type(user.familyName, {delay: 0});
+	cy.get('input[name=email]').type(user.email, {delay: 0});
+	cy.get('input[name=username]').type(user.username, {delay: 0});
+	cy.get('input[name=password]').type(user.password, {delay: 0});
+	cy.get('input[name=password2]').type(user.password2, {delay: 0});
 	cy.get('select[name=country]').select(user.country);
 	cy.contains('More User Details').click();
-	cy.wait(500);
-	cy.get('input[id^="affiliation-en_US"]').type(user.affiliation);
+	cy.get('span:contains("Less User Details"):visible');
+	cy.get('input[id^="affiliation-en_US"]').type(user.affiliation, {delay: 0});
 	cy.get('form[id=userDetailsForm]').find('button[id^=submitFormButton]').click();
 	user.roles.forEach(role => {
 		cy.get('form[id=userRoleForm]').contains(role).click();
 	});
-	cy.get('form[id=userRoleForm]').find('button[id^=submitFormButton]').click();
+	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
 	cy.get('span[id$="-username"]:contains("' + Cypress.$.escapeSelector(user.username) + '")');
 	cy.scrollTo('topLeft');
+});
+
+Cypress.Commands.add('flushNotifications', function() {
+	cy.window().then(win => {
+		if (typeof PNotify !== 'undefined') {
+			PNotify.removeAll();
+		}
+	});
+});
+
+Cypress.Commands.add('waitJQuery', function() {
+	cy.waitUntil(() => cy.window().then(win => win.jQuery.active == 0));
 });

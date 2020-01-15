@@ -23,18 +23,6 @@ msgstr "NLM 3.0 adapter za citiranje"
 msgid "plugins.metadata.nlm30.citationAdapter.description"
 msgstr "Izlušči/vnese metapodatke iz/v citiranja."
 
-msgid "plugins.metadata.nlm30.citationParsers.displayName"
-msgstr "Servis za izluščevanje citatov\""
-
-msgid "plugins.metadata.nlm30.citationParsers.description"
-msgstr "Citiranja v prostem besedilu preoblikuje v NLM 3.0 obliko citiranja.\""
-
-msgid "plugins.metadata.nlm30.citationLookup.displayName"
-msgstr "Servis za podatkovno bazo citiranj\""
-
-msgid "plugins.metadata.nlm30.citationLookup.description"
-msgstr "Izboljša NLM 3.0 oznake za citrianje, npr. z iskanjem citatov v zunanjih podatkovnih bazah.\""
-
 msgid "plugins.metadata.nlm30.citationOutput.displayName"
 msgstr "Servis za pretvorbo citiranj"
 

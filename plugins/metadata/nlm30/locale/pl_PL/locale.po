@@ -23,18 +23,6 @@ msgstr "Adapter cytowań NLM 3.0"
 msgid "plugins.metadata.nlm30.citationAdapter.description"
 msgstr "Wyodrębnia/wprowadza metadane z/do cytowań."
 
-msgid "plugins.metadata.nlm30.citationParsers.displayName"
-msgstr "Serwisy do wyodrębniania cytowań \""
-
-msgid "plugins.metadata.nlm30.citationParsers.description"
-msgstr "Konwertuj tekst z cytowaniami do dokumentu ze znacznikami cytowań NLM 3.0."
-
-msgid "plugins.metadata.nlm30.citationLookup.displayName"
-msgstr "Usługi baz danych cytowań"
-
-msgid "plugins.metadata.nlm30.citationLookup.description"
-msgstr "Popraw dokument ze znacznikami cytowań NLM 3.0 poprzez wyszukanie cytowań w zewnętrznych bazach danych."
-
 msgid "plugins.metadata.nlm30.citationOutput.displayName"
 msgstr "Citation Output Services"
 

@@ -182,7 +182,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		if ('affiliation' in author) cy.get('input[id^="affiliation-en_US-"]').type(author.affiliation, {delay: 0});
 		cy.get('label').contains(author.role).click();
 		cy.get('form#editAuthor').find('button:contains("Save")').click();
-		cy.get('div[id^="component-grid-users-author-authorgrid-"] span.label:contains("' + Cypress.$.escapeSelector(author.givenName) + '")');
+		cy.get('div[id^="component-grid-users-author-authorgrid-"] span.label:contains("' + Cypress.$.escapeSelector(author.givenName + ' ' + author.familyName) + '")');
 	});
 	// Chapters (OMP only)
 	if ('chapters' in data) data.chapters.forEach(chapter => {

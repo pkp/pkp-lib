@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
+"PO-Revision-Date: 2020-01-14 15:35+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/submission/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2019-09-30T11:54:14-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Forneça uma lista formatada de citações incluídas nesta submissão."
@@ -1916,3 +1919,272 @@ msgstr "{$numTitles} títulos"
 
 msgid "catalog.noTitlesSection"
 msgstr "Sem publicações para esta seção no momento."
+
+msgid "publication.event.scheduled"
+msgstr "A submissão foi agendada para publicação."
+
+msgid "publication.event.published"
+msgstr "A submissão foi publicada."
+
+msgid "publication.editDisabled"
+msgstr "Esta versão foi publicada e não pode ser editada."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "A data deve estar no formato AAAA-MM-DD, como 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Data de Publicação"
+
+msgid "publication.createVersion"
+msgstr "Criar Nova Versão"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"O ano dos direitos autorais serão definido automaticamente quando for "
+"publicado em um fascículo."
+
+msgid "publication.contributors"
+msgstr "Contribuidores"
+
+msgid "publication.citations.success"
+msgstr "As referências foram atualizadas."
+
+msgid "submission.publication"
+msgstr "Publicação"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Avaliação Cancelada"
+
+msgid "submission.list.reviewComplete"
+msgstr "Avaliação Submetida"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Designação de Avaliação"
+
+msgid "submission.list.empty"
+msgstr "Não foram encontradas submissões."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Se você sair desta discussão você não será mais notificado de novas "
+"mensagens. Você gostaria de sair da discussão?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Sair da Discussão"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
+"Commons Attribution-ShareAlike 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Attribution-NoDerivatives 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
+"Commons Attribution-NonCommercial 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 "
+"International License</a>.</p>"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} finalizou a avaliação para a rodada {$round} de avaliação da "
+"submissão {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Editor(a) {$userName} confirmou uma avaliação para a rodada {$round} de "
+"avaliação para a submissão {$submissionId}."
+
+msgid "grid.reviewAttachments.send.title"
+msgstr ""
+"Selecione arquivos de avaliação para serem compartilhados com o(s) autor(es)"
+
+msgid "notification.type.editorAssign"
+msgstr "Você foi designado como um(a) editor(a) para a submissão \"{$title}\"."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Tem certeza de que gostaria de permitir autores desta submissão alterarem os "
+"metadados da submissão nesta etapa?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Tem certeza de que gostaria de não permitir autores desta submissão "
+"alterarem os metadados da submissão nesta etapa?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Permitir Edição de Metadados"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Não Permitir Edição de Metadados"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"O(a) participante que você selecionou foi designado para realizar uma "
+"avaliação cega. Se você o(a) atribuir como participante, ele(a) terá acesso "
+"à identidade do autor. Recomendamos não atribuir este(a) participante, a "
+"menos que possa garantir independentemente a integridade do processo de "
+"avaliação por pares."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Editar Designação"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Todas as recomendações foram enviadas e uma decisão é necessária."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Novas recomendações editoriais foram submetidas."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Aguardando recomendações dos editores."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Submissão foi resubmetida para outra rodada de avaliação."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "A submissão deve ser resubmetida para outra rodada de avaliação."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Revisões foram submetidas."
+
+msgid "submission.status.scheduled"
+msgstr "Agendado"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Por favor insira as referências."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Por favor insira os direitos."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Por favor insira a fonte."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Por favor insira o tipo."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Por favor insira a informação de cobertura."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Por favor insira uma palavra-chave."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Por favor insira uma disciplina."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Por favor insira um assunto."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Por favor insira um idioma."
+
+msgid "submissions.inactive"
+msgstr "Inativo por {$days} dias"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Esta é uma versão desatualizada publicada em {$datePublished}. Leia a <a "
+"href=\"{$urlRecentVersion}\">versão mais recente</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$versionId})"
+
+msgid "submission.versions"
+msgstr "Versões"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Atualizado em {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Os autores agora não podem editar os metadados quando a submissão estiver na "
+"etapa {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Os autores agora podem editar os metadados quando a submissão estiver na "
+"etapa {stage}."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Extrair e Salvar Referências"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"As seguintes referências foram extraídas e serão vinculadas aos metadados da "
+"submissão."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Referências Extraídas"
+
+msgid "submission.citations.description"
+msgstr ""
+"Insira cada referência em uma nova linha para que elas possam ser extraídas "
+"e registradas separadamente."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Resumo"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Submeter em qualquer um dos seguintes papéis caso você gostaria de poder "
+"editar e publicar esta submissão por conta própria: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Sim, eu gostaria de ser contactado sobre esta submissão."
+
+msgid "submission.submit.contactConsent"
+msgstr "Contato de Correspondência"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Selecione o papel que melhor descreve sua contribuição para esta submissão."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Submeter Como"
+
+msgid "author.publicationNotFound"
+msgstr "A publicação para este autor não pôde ser encontrada."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Os autores desta publicação não podem ser alterados por que ela já está "
+"publicada."

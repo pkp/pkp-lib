@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
+"PO-Revision-Date: 2020-01-14 15:35+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/common/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -877,7 +880,7 @@ msgid "form.dataHasChanged"
 msgstr "Os dados deste formulário foram alterados. Continuar assim mesmo?"
 
 msgid "form.errorsOccurred"
-msgstr "Erros detectados ao processar formulário!"
+msgstr "Erros detectados ao processar formulário"
 
 msgid "form.formLanguage.description"
 msgstr "Escolha o idioma desejado para incluir as informações em outro idioma."
@@ -1503,3 +1506,98 @@ msgstr "Você deve completar a checagem de validação para evitar o envio de SP
 
 msgid "common.captcha.error.invalid-input-response"
 msgstr "Informe o código como aparece na imagem."
+
+msgid "common.publicAccess"
+msgstr "Acesso Público"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Prévia of the imagem selecionada atualmente."
+
+msgid "common.submenu"
+msgstr "Submenu"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Descreva esta imagem para visitantes visualizando o site em um navegador "
+"somente texto ou com recursos de acessibilidade. Exemplo: \"Nosso editor "
+"palestrando na Conferência PKP.\""
+
+msgid "common.upload.restore"
+msgstr "Restaurar Original"
+
+msgid "common.toWithValue"
+msgstr "Para: {$value}"
+
+msgid "common.selectedPrefix"
+msgstr "Selecionado:"
+
+msgid "common.saving"
+msgstr "Salvando"
+
+msgid "common.removeItem"
+msgstr "Remover {$item}"
+
+msgid "common.pagination.previous"
+msgstr "Página anterior"
+
+msgid "common.pagination.next"
+msgstr "Próxima página"
+
+msgid "common.pagination.goToPage"
+msgstr "Ir para {$page}"
+
+msgid "common.pagination.label"
+msgstr "Visualizar páginas adicionais"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} de {$total}"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"O arquivo que você transferiu não foi encontrado. Por favor tente transferi-"
+"lo novamente."
+
+msgid "common.noItemsFound"
+msgstr "Nenhum item encontrado."
+
+msgid "common.moreThan"
+msgstr "{$value} ou mais"
+
+msgid "common.lessThan"
+msgstr "{$value} ou menor"
+
+msgid "common.lastActivity"
+msgstr "Última atividade registrada em {$date}."
+
+msgid "common.until"
+msgstr "Até"
+
+msgid "common.fromWithValue"
+msgstr "De: {$value}"
+
+msgid "common.from"
+msgstr "De"
+
+msgid "common.filterAdd"
+msgstr "Adicionar filtro: {$filterTitle}"
+
+msgid "common.deleting"
+msgstr "Excluindo"
+
+msgid "common.dateDecided"
+msgstr "Data da decisão"
+
+msgid "validator.orcid"
+msgstr "Este ORCID não é válido."
+
+msgid "validator.required_unless"
+msgstr "Este campo é obrigatório a não ser que {$other} esteja em {$values}."
+
+msgid "validator.required_if"
+msgstr "Este campo é obrigatório quando {$other} é {$value}."
+
+msgid "validator.required"
+msgstr "Este campo é obrigatório."
+
+msgid "validator.regex"
+msgstr "Isto não está formatado corretamente."

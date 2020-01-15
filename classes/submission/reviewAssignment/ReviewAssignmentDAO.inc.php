@@ -479,9 +479,9 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment = $this->newDataObject();
 		$user = $this->userDao->getById($row['reviewer_id']);
 
-		$reviewAssignment->setId($row['review_id']);
-		$reviewAssignment->setSubmissionId($row['submission_id']);
-		$reviewAssignment->setReviewerId($row['reviewer_id']);
+		$reviewAssignment->setId((int) $row['review_id']);
+		$reviewAssignment->setSubmissionId((int) $row['submission_id']);
+		$reviewAssignment->setReviewerId((int) $row['reviewer_id']);
 		$reviewAssignment->setReviewerFullName($user->getFullName());
 		$reviewAssignment->setCompetingInterests($row['competing_interests']);
 		$reviewAssignment->setRecommendation($row['recommendation']);
@@ -493,18 +493,18 @@ class ReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setDateDue($this->datetimeFromDB($row['date_due']));
 		$reviewAssignment->setDateResponseDue($this->datetimeFromDB($row['date_response_due']));
 		$reviewAssignment->setLastModified($this->datetimeFromDB($row['last_modified']));
-		$reviewAssignment->setDeclined($row['declined']);
-		$reviewAssignment->setCancelled($row['cancelled']);
+		$reviewAssignment->setDeclined((int) $row['declined']);
+		$reviewAssignment->setCancelled((int) $row['cancelled']);
 		$reviewAssignment->setQuality($row['quality']);
 		$reviewAssignment->setDateRated($this->datetimeFromDB($row['date_rated']));
 		$reviewAssignment->setDateReminded($this->datetimeFromDB($row['date_reminded']));
-		$reviewAssignment->setReminderWasAutomatic($row['reminder_was_automatic']);
-		$reviewAssignment->setRound($row['round']);
-		$reviewAssignment->setReviewFormId($row['review_form_id']);
-		$reviewAssignment->setReviewRoundId($row['review_round_id']);
-		$reviewAssignment->setReviewMethod($row['review_method']);
-		$reviewAssignment->setStageId($row['stage_id']);
-		$reviewAssignment->setUnconsidered($row['unconsidered']);
+		$reviewAssignment->setReminderWasAutomatic((int) $row['reminder_was_automatic']);
+		$reviewAssignment->setRound((int) $row['round']);
+		$reviewAssignment->setReviewFormId((int) $row['review_form_id']);
+		$reviewAssignment->setReviewRoundId((int) $row['review_round_id']);
+		$reviewAssignment->setReviewMethod((int) $row['review_method']);
+		$reviewAssignment->setStageId((int) $row['stage_id']);
+		$reviewAssignment->setUnconsidered((int) $row['unconsidered']);
 
 		return $reviewAssignment;
 	}

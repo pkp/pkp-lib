@@ -121,6 +121,17 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			? $args['context']
 			: $args['context'] = Services::get('context')->get($submission->getData('contextId'));
 
+		// Users assigned as reviewers should not receive author details
+		if (array_intersect(['authors', 'authorsString', 'authorsStringShort', 'galleys'], $props)) {
+			$currentUserReviewAssignment = isset($args['currentUserReviewAssignment'])
+				? $args['currentUserReviewAssignment']
+				: DAORegistry::getDAO('ReviewAssignmentDAO')
+					->getLastReviewRoundReviewAssignmentByReviewer(
+						$submission->getId(),
+						$request->getUser()->getId()
+					);
+		}
+
 		$values = [];
 
 		foreach ($props as $prop) {
@@ -134,21 +145,30 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					);
 					break;
 				case 'authors':
-					$values[$prop] = array_map(
-						function($author) use ($request) {
-							return Services::get('author')->getSummaryProperties($author, ['request' => $request]);
-						},
-						$publication->getData('authors')
-					);
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+						$values[$prop] = [];
+					} else {
+						$values[$prop] = array_map(
+							function($author) use ($request) {
+								return Services::get('author')->getSummaryProperties($author, ['request' => $request]);
+							},
+							$publication->getData('authors')
+						);
+					}
 					break;
 				case 'authorsString':
 					$values[$prop] = '';
-					if (isset($args['userGroups'])) {
+					if ((!$currentUserReviewAssignment || $currentUserReviewAssignment->getReviewMethod() !== SUBMISSION_REVIEW_METHOD_DOUBLEBLIND)
+						&& isset($args['userGroups'])) {
 						$values[$prop] = $publication->getAuthorString($args['userGroups']);
 					}
 					break;
 				case 'authorsStringShort':
-					$values[$prop] = $publication->getShortAuthorString();
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+						$values[$prop] = '';
+					} else {
+						$values[$prop] = $publication->getShortAuthorString();
+					}
 					break;
 				case 'citations':
 					$values[$prop] = array_map(
@@ -162,12 +182,16 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					$values[$prop] = $publication->getFullTitles();
 					break;
 				case 'galleys':
-					$values[$prop] = array_map(
-						function($galley) use ($request, $args) {
-							return Services::get('galley')->getSummaryProperties($galley, $args);
-						},
-						$publication->getData('galleys')
-					);
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+						$values[$prop] = [];
+					} else {
+						$values[$prop] = array_map(
+							function($galley) use ($request, $args) {
+								return Services::get('galley')->getSummaryProperties($galley, $args);
+							},
+							$publication->getData('galleys')
+						);
+					}
 					break;
 				case 'urlPublished':
 					$values[$prop] = $dispatcher->url(

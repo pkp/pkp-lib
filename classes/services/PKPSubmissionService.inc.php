@@ -156,6 +156,11 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 									$args + [
 										'submission' => $submission,
 										'context' => $submissionContext,
+										'currentUserReviewAssignment' => DAORegistry::getDAO('ReviewAssignmentDAO')
+											->getLastReviewRoundReviewAssignmentByReviewer(
+												$submission->getId(),
+												$args['request']->getUser()->getId()
+											),
 									]);
 							},
 							$submission->getData('publications')

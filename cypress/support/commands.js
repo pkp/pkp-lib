@@ -269,7 +269,7 @@ Cypress.Commands.add('recordEditorialRecommendation', recommendation => {
 
 Cypress.Commands.add('assignReviewer', name => {
 	cy.get('a[id^="component-grid-users-reviewer-reviewergrid-addReviewer-button-"]').click();
-	cy.wait(2000); // Avoid occasional failure due to form init taking time
+	cy.wait(4000); // Avoid occasional failure due to form init taking time
 	cy.get('fieldset.pkpListPanel--selectReviewer input.pkpSearch__input').type(name, {delay: 0});
 	cy.get('div.pkpListPanelItem--reviewer__fullName:contains(' + Cypress.$.escapeSelector(name) + ')').click();
 	cy.get('button[id="selectReviewerButton"]').click();

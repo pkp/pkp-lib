@@ -275,6 +275,7 @@ Cypress.Commands.add('assignReviewer', name => {
 	cy.flushNotifications();
 	cy.get('button:contains("Add Reviewer")').click();
 	cy.get('div:contains("' + Cypress.$.escapeSelector(name) + ' was assigned to review")');
+	cy.waitJQuery();
 });
 
 Cypress.Commands.add('recordEditorialDecision', decision => {

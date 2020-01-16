@@ -118,7 +118,7 @@ class PKPToolsHandler extends ManagementHandler {
 
 		$templateMgr = TemplateManager::getManager($request);
 
-		$application = Application::getApplication();
+		$application = Application::get();
 		$templateMgr->assign('appSettings', $this->hasAppStatsSettings());
 		$templateMgr->assign('contextObjectName', __($application->getNameKey()));
 

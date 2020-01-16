@@ -568,7 +568,7 @@ abstract class Plugin {
 	 */
 	function installSiteSettings($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$application = Application::getApplication();
+		$application = Application::get();
 		$contextDepth = $application->getContextDepth();
 		if ($contextDepth >0) {
 			$arguments = array_fill(0, $contextDepth, 0);

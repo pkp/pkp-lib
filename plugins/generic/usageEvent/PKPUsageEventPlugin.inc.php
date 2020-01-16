@@ -154,7 +154,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin {
 			return null;
 		}
 
-		$application = Application::getApplication();
+		$application = Application::get();
 		$request = $application->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$templateMgr = $args[0]; /* @var $templateMgr TemplateManager */

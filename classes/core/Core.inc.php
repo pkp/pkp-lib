@@ -133,7 +133,7 @@ class Core {
 	 */
 	static function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = array()) {
 		$contextPaths = array();
-		$application = Application::getApplication();
+		$application = Application::get();
 
 		if (!$contextList) {
 			$contextList = $application->getContextList();
@@ -449,7 +449,7 @@ class Core {
 			$isArrayComponent = true;
 		}
 		if ($isPathInfo) {
-			$application = Application::getApplication();
+			$application = Application::get();
 			$contextDepth = $application->getContextDepth();
 
 			$vars = explode('/', trim($urlInfo, '/'));

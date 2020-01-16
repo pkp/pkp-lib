@@ -149,7 +149,7 @@ abstract class PKPTestCase extends TestCase {
 
 		// Create a test request.
 		Registry::delete('request');
-		$application = Application::getApplication();
+		$application = Application::get();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
 		$_SERVER['PATH_INFO'] = $path;
 		$request = $application->getRequest();

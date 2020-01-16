@@ -51,7 +51,7 @@ class CommandLineTool {
 
 	function __construct($argv = array()) {
 		// Initialize the request object with a page router
-		$application = Application::getApplication();
+		$application = Application::get();
 		$request = $application->getRequest();
 
 		// FIXME: Write and use a CLIRouter here (see classdoc)

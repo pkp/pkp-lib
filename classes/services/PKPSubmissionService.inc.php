@@ -341,7 +341,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	public function getPropertyStages($submission, $stageIds = null) {
 
 		if (is_null($stageIds)) {
-			$stageIds = Application::getApplicationStages();
+			$stageIds = Application::get();
 		} elseif (is_int($stageIds)) {
 			$stageIds = array($stageIds);
 		}

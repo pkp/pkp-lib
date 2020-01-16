@@ -139,7 +139,7 @@ class MailTemplate extends Mail {
 	 * @param $params array Associative array of variables to supply to the email template
 	 */
 	function assignParams($params = array()) {
-		$application = Application::getApplication();
+		$application = Application::get();
 		$request = $application->getRequest();
 		$site = $request->getSite();
 

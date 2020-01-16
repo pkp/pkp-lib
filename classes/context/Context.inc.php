@@ -335,7 +335,7 @@ abstract class Context extends DataObject {
 	 * @return int
 	 */
 	function getViews() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getPrimaryMetricByAssoc(Application::getContextAssocType(), $this->getId());
 	}
 

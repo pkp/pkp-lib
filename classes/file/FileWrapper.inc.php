@@ -135,7 +135,7 @@ class FileWrapper {
 				$scheme = null;
 			}
 
-			$application = Application::getApplication();
+			$application = Application::get();
 			$request = $application->getRequest();
 			$router = $request->getRouter();
 			if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE') || !$router) {

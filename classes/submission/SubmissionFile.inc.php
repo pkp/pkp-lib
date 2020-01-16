@@ -582,7 +582,7 @@ class SubmissionFile extends PKPFile {
 	* @return int
 	*/
 	function getViews() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $this->getFileId());
 	}
 

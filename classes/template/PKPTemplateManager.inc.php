@@ -98,7 +98,7 @@ class PKPTemplateManager extends Smarty {
 		$this->_request = $request;
 
 		$locale = AppLocale::getLocale();
-		$application = Application::getApplication();
+		$application = Application::get();
 		$router = $request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
@@ -726,7 +726,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function registerJSLibraryData() {
 
-		$application = Application::getApplication();
+		$application = Application::get();
 		$context = $this->_request->getContext();
 
 		// Instantiate the namespace
@@ -1259,7 +1259,7 @@ class PKPTemplateManager extends Smarty {
 			// from the parameters array. Variables remaining in params will be
 			// passed along to Request::url as extra parameters.
 			$context = array();
-			$application = Application::getApplication();
+			$application = Application::get();
 			$contextList = $application->getContextList();
 			foreach ($contextList as $contextName) {
 				if (isset($parameters[$contextName])) {

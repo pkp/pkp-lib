@@ -110,7 +110,7 @@ class PKPSection extends DataObject {
 	 * @return int
 	 */
 	function getViews() {
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SECTION, $this->getId());
 	}
 

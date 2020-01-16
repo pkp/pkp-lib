@@ -28,7 +28,7 @@ class VersionDAO extends DAO {
 	 */
 	function getCurrentVersion($productType = null, $product = null, $isPlugin = false) {
 		if(!$productType || !$product) {
-			$application = Application::getApplication();
+			$application = Application::get();
 			$productType = 'core';
 			$product = $application->getName();
 		}
@@ -80,7 +80,7 @@ class VersionDAO extends DAO {
 		$versions = array();
 
 		if(!$productType || !$product) {
-			$application = Application::getApplication();
+			$application = Application::get();
 			$productType = 'core';
 			$product = $application->getName();
 		}

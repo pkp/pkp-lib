@@ -135,7 +135,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	var firstFile = true;
 	data.files.forEach(file => {
 		if (!firstFile) cy.get('a[id^="component-grid-"][id*="-add"]').click();
-		cy.wait(1000); // Avoid occasional failure due to form init taking time
+		cy.wait(2000); // Avoid occasional failure due to form init taking time
 		cy.get('select[id=genreId]').select(file.genre);
 		cy.fixture(file.file, 'base64').then(fileContent => {
 			cy.get('input[type=file]').upload(
@@ -187,7 +187,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	// Chapters (OMP only)
 	if ('chapters' in data) data.chapters.forEach(chapter => {
 		cy.get('a[id^="component-grid-users-chapter-chaptergrid-addChapter-button-"]:visible').click();
-		cy.wait(1000); // Avoid occasional failure due to form init taking time
+		cy.wait(2000); // Avoid occasional failure due to form init taking time
 
 		// Contributors
 		chapter.contributors.forEach(contributor => {
@@ -313,7 +313,7 @@ Cypress.Commands.add('createUser', user => {
 	if (!('password2' in user)) user.password2 = user.username + user.username;
 	if (!('roles' in user)) user.roles = [];
 	cy.get('div[id=userGridContainer] a:contains("Add User")').click();
-	cy.wait(1000); // Avoid occasional glitches with given name field
+	cy.wait(2000); // Avoid occasional glitches with given name field
 	cy.get('input[id^="givenName-en_US"]').type(user.givenName, {delay: 0});
 	cy.get('input[id^="familyName-en_US"]').type(user.familyName, {delay: 0});
 	cy.get('input[name=email]').type(user.email, {delay: 0});

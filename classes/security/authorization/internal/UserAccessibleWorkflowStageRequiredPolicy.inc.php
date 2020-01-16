@@ -52,7 +52,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
 		$accessibleWorkflowStages = array();
-		$workflowStages = Application::get();
+		$workflowStages = Application::get()->getApplicationStages();
 		$userService = Services::get('user');
 		foreach ($workflowStages as $stageId) {
 			$accessibleStageRoles = $userService->getAccessibleStageRoles($userId, $contextId, $submission, $stageId);

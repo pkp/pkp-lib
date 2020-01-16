@@ -278,6 +278,8 @@ class UserGroupGridHandler extends GridHandler {
 
 		$userGroupForm->readInputData();
 		if($userGroupForm->validate()) {
+			$notificationMgr = new NotificationManager();
+			$notificationMgr->createTrivialNotification($request->getUser()->getId());
 			$userGroupForm->execute();
 			$json = DAO::getDataChangedEvent();
 			$json->setGlobalEvent('userGroupUpdated');

@@ -21,7 +21,6 @@
 		"gettext/gettext": "^4.6"
 	},
 	"require-dev": {
-		"facebook/webdriver": "~1.6",
 		"phpunit/phpunit": "~8",
 		"psy/psysh": "@stable"
 	},

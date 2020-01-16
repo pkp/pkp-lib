@@ -320,6 +320,9 @@ Cypress.Commands.add('createUser', user => {
 	cy.get('input[name=username]').type(user.username, {delay: 0});
 	cy.get('input[name=password]').type(user.password, {delay: 0});
 	cy.get('input[name=password2]').type(user.password2, {delay: 0});
+	if (!user.mustChangePassword) {
+		cy.get('input[name="mustChangePassword"]').click();
+	}
 	cy.get('select[name=country]').select(user.country);
 	cy.contains('More User Details').click();
 	cy.get('span:contains("Less User Details"):visible');

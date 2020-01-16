@@ -388,7 +388,7 @@ abstract class Context extends DataObject {
 				$defaultMetricType = $availableMetrics[0];
 			} else {
 				// Use the site-wide default metric.
-				$application = Application::getApplication();
+				$application = Application::get();
 				$defaultMetricType = $application->getDefaultMetricType();
 			}
 		} else {
@@ -416,7 +416,7 @@ abstract class Context extends DataObject {
 	function getMetrics($metricType = null, $columns = array(), $filter = array(), $orderBy = array(), $range = null) {
 		// Add a context filter and run the report.
 		$filter[STATISTICS_DIMENSION_CONTEXT_ID] = $this->getId();
-		$application = Application::getApplication();
+		$application = Application::get();
 		return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);
 	}
 }

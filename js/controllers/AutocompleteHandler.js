@@ -244,5 +244,4 @@
 		this.hiddenInput_.val(String(this.textInput.val()));
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

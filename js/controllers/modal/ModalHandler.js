@@ -127,7 +127,7 @@
 
 		// Check for basic configuration requirements.
 		return typeof options === 'object' &&
-				(/** @type {{ buttons: Object }} */ options).buttons === undefined;
+				(/** @type {{ buttons: Object }} */ (options)).buttons === undefined;
 	};
 
 
@@ -264,7 +264,7 @@
 					id = vueInstances[i];
 					if (typeof pkp.registry._instances[id] !== 'undefined') {
 						instance = /** @type {{ $destroy: Function }} */
-								pkp.registry._instances[id];
+								(pkp.registry._instances[id]);
 						instance.$destroy();
 					}
 				}
@@ -350,5 +350,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

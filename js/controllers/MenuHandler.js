@@ -123,5 +123,4 @@
 				this.callbackWrapper(this.setDropdownAlignment), 1000);
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

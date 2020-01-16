@@ -47,5 +47,4 @@
 	$.pkp.pages.header.HeaderHandler.prototype.options_ = null;
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

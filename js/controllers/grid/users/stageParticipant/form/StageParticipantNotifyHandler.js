@@ -228,7 +228,7 @@
 				$checkboxDiv = $form.find('.recommendOnlyWrapper'),
 				i,
 				found = false,
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		// If user group changes, hide the recommendOnly option
 		if ($(sourceElement).prop('name') == 'userGroupId') {
@@ -308,7 +308,7 @@
 				$checkboxDiv = $form.find('.submissionEditMetadataPermit'),
 				i,
 				found = false,
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		// If user group changes, hide the canChangeMetadata option
 		if ($(sourceElement).prop('name') == 'userGroupId') {
@@ -371,5 +371,4 @@
 				'handleResponse', formElement, jsonData));
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -60,7 +60,7 @@
 								currentPage: number,
 								filter: string,
 								pagingMarkup: string }} */
-				this.parent('getOptions');
+				(this.parent('getOptions'));
 
 		return castOptions;
 	};
@@ -87,5 +87,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

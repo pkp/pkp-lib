@@ -583,7 +583,7 @@
 					// Attach the continue request handler.
 					bind('click',
 							this.callbackWrapper(this.continueRequest));
-			this.$continueButton_ = /** @type {jQueryObject} */ $continueButton;
+			this.$continueButton_ = /** @type {jQueryObject} */ ($continueButton);
 			this.$progressIndicator_ = $progressIndicator;
 
 			// Remember the button labels.
@@ -629,5 +629,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

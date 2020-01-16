@@ -35,7 +35,7 @@
 
 		$('input[name=\'userId\']').click(function() {
 			var filterUserIdVal =
-					/** @type {string} */ $('input[name=\'userId\']:checked').val();
+					/** @type {string} */ ($('input[name=\'userId\']:checked').val());
 			$('input[name=\'userIdSelected\']').val(filterUserIdVal).trigger('change');
 		});
 
@@ -60,11 +60,10 @@
 
 		var $form = this.getHtmlElement(),
 				$filterUserGroupId = $form.find('select[name^=\'filterUserGroupId\']'),
-				filterUserGroupIdVal = /** @type {string} */ $filterUserGroupId.val();
+				filterUserGroupIdVal = /** @type {string} */ ($filterUserGroupId.val());
 
 		$('input[name=\'userGroupId\']').val(filterUserGroupIdVal).trigger('change');
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

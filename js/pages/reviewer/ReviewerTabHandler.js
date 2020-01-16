@@ -100,5 +100,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

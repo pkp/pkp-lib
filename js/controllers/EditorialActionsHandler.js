@@ -23,7 +23,8 @@
 	 */
 	$.pkp.controllers.EditorialActionsHandler = function($element, options) {
 		this.parent($element, options);
-		$element.find('.pkp_workflow_change_decision').click(this.callbackWrapper(this.showActions_));
+		$element.find('.pkp_workflow_change_decision')
+				.click(this.callbackWrapper(this.showActions_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.EditorialActionsHandler, $.pkp.classes.Handler);
@@ -45,5 +46,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

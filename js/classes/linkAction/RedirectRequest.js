@@ -46,9 +46,8 @@
 		window.open(options.url, options.name,
 				/** @type {{specs: string}} */ (options).specs);
 
-		return /** @type {boolean} */ this.parent('activate', element, event);
+		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

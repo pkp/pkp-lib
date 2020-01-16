@@ -32,14 +32,6 @@ function ajaxAction(actOnId, callingElement, url, data, eventName, form) {}
  */
 function PNotify(param1) {}
 
-// JQuery externs. These appear to be included in newer versions of Closure --
-// see https://code.google.com/p/closure-compiler/source/browse/externs/es5.js
-/**
- * A fake type to model the JSON object.
- * @constructor
- */
-var JSONType = function() {};
-
 
 /**
  * @param {string} jsonStr The string to parse.

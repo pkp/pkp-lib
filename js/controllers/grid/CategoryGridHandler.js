@@ -168,7 +168,7 @@
 		rowDataId = $gridRow.attr('id').
 				slice(this.getRowIdPrefix().length);
 		rowDataId = rowDataId.match('-row-(.*)');
-		return /** @type {string} */ $.trim(rowDataId[1]);
+		return /** @type {string} */ ($.trim(rowDataId[1]));
 	};
 
 
@@ -272,7 +272,7 @@
 
 		var fetchedAlready = false, elementIds,
 				// Hack to avoid closure compiler warnings on type difference
-				castElementId = /** @type {{parentElementId: number}} */ opt_elementId;
+				castElementId = /** @type {{parentElementId: number}} */ (opt_elementId);
 
 		if (opt_elementId !== undefined) {
 			// Check if we want to refresh a row inside a category.
@@ -408,5 +408,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -84,5 +84,4 @@
 		return this;
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 })(jQuery);

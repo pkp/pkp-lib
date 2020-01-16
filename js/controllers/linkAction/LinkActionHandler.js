@@ -50,7 +50,7 @@
 			// If none, the link action element id is
 			// not using the unique function, so we
 			// can consider it static.
-			this.staticId_ = /** @type {string} */ $handledElement.attr('id');
+			this.staticId_ = /** @type {string} */ ($handledElement.attr('id'));
 		}
 
 		// Instantiate the link action request.
@@ -269,5 +269,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -77,5 +77,4 @@
 		}
 		return true;
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

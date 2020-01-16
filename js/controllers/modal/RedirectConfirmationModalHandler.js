@@ -93,5 +93,4 @@
 
 		document.location = this.remoteUrl_;
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -53,5 +53,4 @@
 		event.stopPropagation();
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

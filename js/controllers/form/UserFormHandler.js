@@ -92,11 +92,11 @@
 
 		// Fetch entered names
 		sitePrimaryLocale =
-				/** @type {string} */ $('[name="sitePrimaryLocale"]', $form).val();
-		givenName = /** @type {string} */ $('[name="givenName[' +
-				sitePrimaryLocale + ']"]', $form).val();
-		familyName = /** @type {string} */ $('[name="familyName[' +
-				sitePrimaryLocale + ']"]', $form).val();
+				/** @type {string} */ ($('[name="sitePrimaryLocale"]', $form).val());
+		givenName = /** @type {string} */ ($('[name="givenName[' +
+				sitePrimaryLocale + ']"]', $form).val());
+		familyName = /** @type {string} */ ($('[name="familyName[' +
+				sitePrimaryLocale + ']"]', $form).val());
 
 		// Replace dummy values in the URL with entered values
 		fetchUrl = this.fetchUsernameSuggestionUrl_.
@@ -146,5 +146,4 @@
 			$interestsElement.hide(300);
 		}
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

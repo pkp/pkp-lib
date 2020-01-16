@@ -369,7 +369,7 @@
 
 		if (jsonData.status === true) {
 			// Trigger events passed from the server
-			_.each((/** @type {{ events: Object }} */ jsonData).events,
+			_.each((/** @type {{ events: Object }} */ (jsonData)).events,
 					function(event) {
 						/** @type {{isGlobalEvent: boolean}} */
 						var eventData = _.has(event, 'data') ? event.data : null;
@@ -872,5 +872,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

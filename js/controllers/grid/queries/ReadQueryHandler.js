@@ -164,5 +164,4 @@
 			reloadParticipantsList_ = function(sourceElement, event, triggerElement) {
 		this.loadParticipantsList();
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

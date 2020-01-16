@@ -190,5 +190,4 @@
 		// refreshed.
 		this.handleJson(jsonData);
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

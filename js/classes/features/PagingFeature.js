@@ -113,7 +113,7 @@
 									pagingInfo: string,
 									loadLastPage: boolean,
 									newTopRow: string}} */
-				handledJsonData;
+				(handledJsonData);
 
 		if (castJsonData.deletedRowReplacement != undefined) {
 			rowMarkup = handledJsonData.deletedRowReplacement;
@@ -244,5 +244,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

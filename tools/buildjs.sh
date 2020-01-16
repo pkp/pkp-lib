@@ -189,7 +189,7 @@ LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -$EXTE
 echo >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >&2
-java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_warning visibility --warning_level VERBOSE \
+java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_warning visibility --warning_level DEFAULT \
 	$CLOSURE_EXTERNS $LINT_FILES --js_output_file /dev/null 2>&1 \
 	| sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
 
@@ -219,7 +219,7 @@ echo "$COMPILE_FILES" | sed 's/^/.../' >&2
 COMPILE_FILES=`echo "$COMPILE_FILES" | tr '\n' ' ' | sed -$EXTENDED_REGEX_FLAG 's/ $//;s/(^| )/ --js /g'`
 
 # Run Closure - second pass to minify
-java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_off checkTypes --warning_level VERBOSE $COMPILE_FILES \
+java -jar "$TOOL_PATH/compiler.jar" --language_in=ECMASCRIPT5 --jscomp_off checkTypes --warning_level DEFAULT $COMPILE_FILES \
 	$CLOSURE_EXTERNS --js_output_file "$JS_OUTPUT" 2>&1
 echo >&2
 

@@ -101,7 +101,7 @@
 		if (opt_elementId && opt_elementId !==
 				$.pkp.controllers.grid.GridHandler.FETCH_ALL_ROWS_ID) {
 			// We need to make sure we pass the right page for the element.
-			elementId = /** @type {number} */ opt_elementId;
+			elementId = (/** @type {number} */ (opt_elementId));
 			$gridRow = this.gridHandler.getRowByDataId(elementId);
 			if ($gridRow.length == 1) {
 				params[options.pageParamName] = Number($gridRow.attr('data-paging'));
@@ -125,7 +125,7 @@
 		options = this.getOptions();
 		castJsonData = /** @type {{pagingInfo: Object,
 				deletedRowReplacement: string}} */
-				handledJsonData;
+				(handledJsonData);
 
 		if (castJsonData.deletedRowReplacement != undefined) {
 			rowMarkup = handledJsonData.deletedRowReplacement;
@@ -307,7 +307,7 @@
 		if (opt_show) {
 			this.getGridHtmlElement().addClass('loading');
 			scrollTop = $scrollableElement.scrollTop();
-			scrollTarget = /** @type {number} */ scrollTop + loadingHeight;
+			scrollTarget = /** @type {number} */ (scrollTop + loadingHeight);
 			$scrollableElement.scrollTop(scrollTarget);
 		} else {
 			this.getGridHtmlElement().removeClass('loading');
@@ -336,5 +336,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

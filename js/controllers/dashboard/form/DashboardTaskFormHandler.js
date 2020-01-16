@@ -69,7 +69,8 @@
 	$.pkp.controllers.dashboard.form.DashboardTaskFormHandler.
 			prototype.startSingleContextSubmission_ = function() {
 
-		window.location.href = /** @type {string} */ this.singleContextSubmissionUrl_;
+		window.location.href =
+				/** @type {string} */ (this.singleContextSubmissionUrl_);
 	};
 
 
@@ -84,10 +85,9 @@
 				url = $form.find('#multipleContext').val();
 
 		if (url != 0) { // not the default
-			window.location.href = /** @type {string} */ url;
+			window.location.href = /** @type {string} */ (url);
 		}
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

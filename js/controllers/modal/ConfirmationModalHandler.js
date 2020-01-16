@@ -87,7 +87,7 @@
 
 		// Hack to prevent closure compiler type mismatches
 		var castOptions = /** @type {{okButton: string,
-				cancelButton: string, dialogText: string}} */ options;
+				cancelButton: string, dialogText: string}} */ (options);
 
 		// Check for our own mandatory options.
 		return typeof castOptions.okButton === 'string' &&
@@ -129,7 +129,7 @@
 		$modal.attr('role', 'dialog')
 				.attr('aria-label', this.options.title);
 
-		return /** @type {jQueryObject} */ $modal;
+		return /** @type {jQueryObject} */ ($modal);
 	};
 
 
@@ -153,5 +153,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

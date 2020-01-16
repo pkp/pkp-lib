@@ -12,10 +12,12 @@
  */
 (function($) {
 
-	// Define the namespace.
-	$.pkp.controllers.grid.files  = {};
-	$.pkp.controllers.grid.files.review  = {};
-	$.pkp.controllers.grid.files.review.AuthorReviewRevisionsGridHandler = {};
+	/**
+	 * Define the namespace
+	 */
+	$.pkp.controllers.grid.files = $.pkp.controllers.grid.files ||
+			{ review: {} };
+
 
 
 	/**
@@ -27,15 +29,15 @@
 	 *  attached to.
 	 * @param {Object} options Grid handler configuration.
 	 */
-	$.pkp.controllers.grid.files.review.AuthorReviewRevisionsGridHandler = function($grid, options) {
+	$.pkp.controllers.grid.files.review.AuthorReviewRevisionsGridHandler = function(
+			$grid, options) {
 		this.parent($grid, options);
 		this.bindGlobal('refreshRevisionsGrid', function() {
 			this.refreshGridHandler();
 		});
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.files.review.AuthorReviewRevisionsGridHandler,
-			$.pkp.controllers.grid.GridHandler);
+	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.files.review.
+			AuthorReviewRevisionsGridHandler, $.pkp.controllers.grid.GridHandler);
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

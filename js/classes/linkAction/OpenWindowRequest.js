@@ -45,9 +45,8 @@
 		var options = this.getOptions();
 		window.open(options.url);
 
-		return /** @type {boolean} */ this.parent('activate', element, event);
+		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

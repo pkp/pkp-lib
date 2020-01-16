@@ -54,5 +54,4 @@
 			function() {
 		return false;
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

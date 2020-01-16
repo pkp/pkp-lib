@@ -214,8 +214,8 @@
 	$.pkp.controllers.grid.GridHandler.prototype.getRowDataId =
 			function($gridRow) {
 		var rowDataId;
-		rowDataId = /** @type {string} */ $gridRow.attr('id').
-				slice(this.getRowIdPrefix().length);
+		rowDataId = /** @type {string} */ ($gridRow.attr('id').
+				slice(this.getRowIdPrefix().length));
 		return rowDataId;
 	};
 
@@ -762,7 +762,7 @@
 					this.insertOrReplaceElement(handledJsonData.content);
 				}
 
-				castJsonData = /** @type {{sequenceMap: Array}} */ handledJsonData;
+				castJsonData = /** @type {{sequenceMap: Array}} */ (handledJsonData);
 				this.resequenceRows(castJsonData.sequenceMap);
 			}
 		}
@@ -980,5 +980,4 @@
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -52,15 +52,10 @@
 	$.pkp.pages.submission.SubmissionStep2FormHandler.
 			prototype.showFileUploadWizard_ = function(sourceElement, event, data) {
 
-		if (data == 'submissionFilesGridDiv') {
-			// OJS and OMP: Click the "add file" button
-			$('#' + data).find('[id*="-addFile-button-"]').click();
-		} else if (data.startsWith('formatsGridContainer')) {
-			// Preprint server: Click the "add galley" button
-			$('#' + data).find('[id*="-addGalley-button-"]').click();
-		}
+		// OJS and OMP use addFile; PPS uses addGalley
+		$('#' + data).find('[id*="-addFile-button-"], [id*="-addGalley-button-"]')
+				.click();
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

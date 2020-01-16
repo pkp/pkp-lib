@@ -80,5 +80,4 @@ jQuery.pkp.pages.submission = jQuery.pkp.pages.submission || { };
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

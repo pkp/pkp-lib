@@ -59,5 +59,4 @@
 			$.pkp.controllers.tab.workflow.WorkflowTabHandler,
 			$.pkp.controllers.TabHandler);
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

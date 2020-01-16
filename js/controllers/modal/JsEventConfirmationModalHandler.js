@@ -106,5 +106,4 @@
 				/** @type {Array} */ (this.extraArguments_));
 		this.modalClose(dialogElement);
 	};
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

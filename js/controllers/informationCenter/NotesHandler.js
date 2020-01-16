@@ -66,5 +66,4 @@ jQuery.pkp.controllers.informationCenter =
 	};
 
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

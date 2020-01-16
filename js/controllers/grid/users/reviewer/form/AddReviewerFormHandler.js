@@ -120,5 +120,4 @@
 		return processedJsonData.status;
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

@@ -106,5 +106,4 @@
 		this.getHtmlElement().change();
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

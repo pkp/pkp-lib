@@ -98,5 +98,4 @@
 		this.modalClose();
 	};
 
-/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

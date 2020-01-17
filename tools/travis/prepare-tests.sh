@@ -20,6 +20,15 @@ export DBPASSWORD=ojs-ci # Database password
 export FILESDIR=files # Files directory (relative to OJS installation -- do not do this in production!)
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
 
+# Cypress requires a CYPRESS_ prefix on environment variables
+export CYPRESS_baseUrl=${BASEURL}
+export CYPRESS_DBTYPE=${DBTYPE}
+export CYPRESS_DBUSERNAME=${DBUSERNAME}
+export CYPRESS_DBNAME=${DBNAME}
+export CYPRESS_DBPASSWORD=${DBPASSWORD}
+export CYPRESS_DBHOST=${DBHOST}
+export CYPRESS_FILESDIR=${FILESDIR}
+
 # Install required software
 sudo apt-get install -q -y libbiblio-citation-parser-perl libhtml-parser-perl
 

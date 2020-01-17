@@ -13,13 +13,6 @@ set -xe
 
 # Run the data build suite (integration tests).
 # Environment variables used in Cypress need prefix.
-export CYPRESS_baseUrl=${BASEURL}
-export CYPRESS_DBTYPE=${DBTYPE}
-export CYPRESS_DBUSERNAME=${DBUSERNAME}
-export CYPRESS_DBNAME=${DBNAME}
-export CYPRESS_DBPASSWORD=${DBPASSWORD}
-export CYPRESS_DBHOST=${DBHOST}
-export CYPRESS_FILESDIR=${FILESDIR}
 $(npm bin)/cypress run --headless --browser chrome
 
 # Dump the database before continuing. Some tests restore this to reset the

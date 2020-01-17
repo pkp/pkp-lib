@@ -9,6 +9,7 @@
 
 // See https://stackoverflow.com/questions/58657895/is-there-a-reliable-way-to-have-cypress-exit-as-soon-as-a-test-fails/58660504#58660504
 // See https://github.com/bahmutov/cypress-failed-log
+// See https://github.com/cypress-io/cypress/issues/3199#issuecomment-534717443
 let shouldSkip = false;
 module.exports = ( on ) => {
 	on('task', {
@@ -20,6 +21,10 @@ module.exports = ( on ) => {
 			if ( value != null ) shouldSkip = value;
 			return shouldSkip;
 		},
-		failed: require('cypress-failed-log/src/failed')()
+		failed: require('cypress-failed-log/src/failed')(),
+		consoleLog(message) {
+			console.log(message);
+			return null;
+		}
 	});
 }

@@ -12,15 +12,18 @@
 set -xe
 
 # Run the data build suite (integration tests).
-# Environment variables used in Cypress need prefix.
-$(npm bin)/cypress run --headless --browser chrome
+$(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/data
 
 # Dump the database before continuing. Some tests restore this to reset the
 # environment.
 ./lib/pkp/tools/travis/dump-database.sh
 
-# Run the rest of the test suite (unit tests etc).
-sudo rm -f cache/*.php
+# Run the pkp-lib integration tests.
+$(npm bin)/cypress run --headless --browser chrome --config integrationFolder=lib/pkp/cypress/tests/integration
+if [ -d "cypress/tests/integration" ]; then
+	# If application integration tests are provided, run them.
+	$(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/integration
+fi
 
-# Run the tests.
+# Run the unit tests.
 ./lib/pkp/tools/runAllTests.sh -CcPpd

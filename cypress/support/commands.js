@@ -362,3 +362,7 @@ Cypress.Commands.add('flushNotifications', function() {
 Cypress.Commands.add('waitJQuery', function() {
 	cy.waitUntil(() => cy.window().then(win => win.jQuery.active == 0));
 });
+
+Cypress.Commands.add('consoleLog', message => {
+	cy.task('consoleLog', message);
+});

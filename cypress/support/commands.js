@@ -194,6 +194,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	});
 	// Chapters (OMP only)
 	if ('chapters' in data) data.chapters.forEach(chapter => {
+		cy.waitJQuery();
 		cy.get('a[id^="component-grid-users-chapter-chaptergrid-addChapter-button-"]:visible').click();
 		cy.wait(2000); // Avoid occasional failure due to form init taking time
 
@@ -212,6 +213,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		cy.flushNotifications();
 		cy.get('form[id="editChapterForm"] button:contains("Save")').click();
 		cy.get('div:contains("Your changes have been saved.")');
+		cy.waitJQuery();
 
 		// Files
 		if ('files' in chapter) {
@@ -222,16 +224,18 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 			cy.flushNotifications();
 			cy.get('form[id="editChapterForm"] button:contains("Save")').click();
 			cy.get('div:contains("Your changes have been saved.")');
-			cy.waitJQuery(); // Wait for grid to reload.
 		}
 
 		cy.get('div[id^="component-grid-users-chapter-chaptergrid-"] a[title="Edit this chapter"]:contains("' + Cypress.$.escapeSelector(chapter.title) + '")');
 	});
+	cy.waitJQuery();
 	cy.get('form[id=submitStep3Form]').find('button').contains('Save and continue').click();
 
 	// === Submission Step 4 ===
+	cy.waitJQuery();
 	cy.get('form[id=submitStep4Form]').find('button').contains('Finish Submission').click();
 	cy.get('button.pkpModalConfirmButton').click();
+	cy.waitJQuery();
 	cy.get('h2').contains('Submission complete');
 });
 

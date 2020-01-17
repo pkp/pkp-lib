@@ -280,6 +280,7 @@ Cypress.Commands.add('recordEditorialRecommendation', recommendation => {
 });
 
 Cypress.Commands.add('assignReviewer', name => {
+	cy.wait(2000); // FIXME: Occasional problems opening the grid
 	cy.get('a[id^="component-grid-users-reviewer-reviewergrid-addReviewer-button-"]').click();
 	cy.waitJQuery();
 	cy.get('fieldset.pkpListPanel--selectReviewer input.pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});

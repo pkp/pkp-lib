@@ -122,7 +122,7 @@ class PluginGalleryGridHandler extends GridHandler {
 		// Get all plugins.
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
 		return $pluginGalleryDao->getNewestCompatible(
-			Application::get();
+			Application::get(),
 			$request->getUserVar('category'),
 			$request->getUserVar('pluginText')
 		);
@@ -304,7 +304,7 @@ class PluginGalleryGridHandler extends GridHandler {
 	function _getSpecifiedPlugin($request) {
 		// Get all plugins.
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		$plugins = $pluginGalleryDao->getNewestCompatible(Application::get();
+		$plugins = $pluginGalleryDao->getNewestCompatible(Application::get());
 
 		// Get specified plugin. Indexes into $plugins are 0-based
 		// but row IDs are 1-based; compensate.

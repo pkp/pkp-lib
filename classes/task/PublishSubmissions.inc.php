@@ -30,12 +30,12 @@ class PublishSubmissions extends ScheduledTask {
 	public function executeActions() {
 		import('classes.submission.Submission'); // import constants
 
-		$contextsIterator = Services::get('context')->getMany([
+		$contextIds = Services::get('context')->getIds([
 			'isEnabled' => true,
 		]);
-		foreach ($contextsIterator as $context) {
+		foreach ($contextIds as $contextId) {
 			$submissionsIterator = Services::get('submission')->getMany([
-				'contextId' => $context->getID(),
+				'contextId' => $contextId,
 				'status' => STATUS_SCHEDULED,
 			]);
 			foreach ($submissionsIterator as $submission) {

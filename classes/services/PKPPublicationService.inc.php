@@ -14,27 +14,42 @@
 
 namespace PKP\Services;
 
+use Application;
 use \Core;
 use \DAOResultFactory;
 use \DAORegistry;
 use \DBResultRange;
+use HookRegistry;
 use \Services;
+use SubmissionLog;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder;
-use \PKP\Services\traits\EntityReadTrait;
 
 import('lib.pkp.classes.db.DBResultRange');
 
 class PKPPublicationService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
 	 */
 	public function get($publicationId) {
 		return DAORegistry::getDAO('PublicationDAO')->getById($publicationId);
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		return $this->getQueryBuilder($args)->getIds();
 	}
 
 	/**
@@ -49,9 +64,16 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @return Iterator
 	 */
 	public function getMany($args = []) {
-		$publicationQB = $this->_getQueryBuilder($args);
-		$publicationQO = $publicationQB->get();
-		$range = $this->getRangeByArgs($args);
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$publicationQO = $this->getQueryBuilder($args)->getQuery();
 		$publicationDao = DAORegistry::getDAO('PublicationDAO');
 		$result = $publicationDao->retrieveRange($publicationQO->toSql(), $publicationQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $publicationDao, '_fromRow');
@@ -63,44 +85,41 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
 	public function getMax($args = []) {
-		$publicationQB = $this->_getQueryBuilder($args);
-		$countQO = $publicationQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$publicationDao = DAORegistry::getDAO('PublicationDAO');
-		$countResult = $publicationDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $publicationDao, '_fromRow');
-
-		return (int) $countQueryResults->getCount();
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		return $this->getQueryBuilder($args)->getCount();
 	}
 
 	/**
-	 * Build the query object for getting publications
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return PKPPublicationQueryBuilder
 	 */
-	private function _getQueryBuilder($args = []) {
+	public function getQueryBuilder($args = []) {
 
 		$defaultArgs = [
-			'contextIds' => null,
-			'publisherIds' => null,
-			'submissionIds' => null,
+			'contextIds' => [],
+			'publisherIds' => [],
+			'submissionIds' => [],
 		];
 
 		$args = array_merge($defaultArgs, $args);
 
 		$publicationQB = new PKPPublicationQueryBuilder();
-		if (!empty($args['contextIds'])) {
-			$publicationQB->filterByContextIds($args['contextIds']);
-		}
-		if (!empty($args['publisherIds'])) {
-			$publicationQB->filterByPublisherIds($args['publisherIds']);
-		}
-		if (!empty($args['submissionIds'])) {
-			$publicationQB->filterBySubmissionIds($args['submissionIds']);
+		$publicationQB
+			->filterByContextIds($args['contextIds'])
+			->filterByPublisherIds($args['publisherIds'])
+			->filterBySubmissionIds($args['submissionIds']);
+
+		if (isset($args['count'])) {
+			$publicationQB->limitTo($args['count']);
 		}
 
-		\HookRegistry::call('Publication::getMany::queryBuilder', [$publicationQB, $args]);
+		if (isset($args['offset'])) {
+			$publicationQB->offsetBy($args['count']);
+		}
+
+		HookRegistry::call('Publication::getMany::queryBuilder', [$publicationQB, $args]);
 
 		return $publicationQB;
 	}
@@ -121,6 +140,17 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			? $args['context']
 			: $args['context'] = Services::get('context')->get($submission->getData('contextId'));
 
+		// Users assigned as reviewers should not receive author details
+		if (array_intersect(['authors', 'authorsString', 'authorsStringShort', 'galleys'], $props)) {
+			$currentUserReviewAssignment = isset($args['currentUserReviewAssignment'])
+				? $args['currentUserReviewAssignment']
+				: DAORegistry::getDAO('ReviewAssignmentDAO')
+					->getLastReviewRoundReviewAssignmentByReviewer(
+						$submission->getId(),
+						$request->getUser()->getId()
+					);
+		}
+
 		$values = [];
 
 		foreach ($props as $prop) {
@@ -134,21 +164,30 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					);
 					break;
 				case 'authors':
-					$values[$prop] = array_map(
-						function($author) use ($request) {
-							return Services::get('author')->getSummaryProperties($author, ['request' => $request]);
-						},
-						$publication->getData('authors')
-					);
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+						$values[$prop] = [];
+					} else {
+						$values[$prop] = array_map(
+							function($author) use ($request) {
+								return Services::get('author')->getSummaryProperties($author, ['request' => $request]);
+							},
+							$publication->getData('authors')
+						);
+					}
 					break;
 				case 'authorsString':
 					$values[$prop] = '';
-					if (isset($args['userGroups'])) {
+					if ((!$currentUserReviewAssignment || $currentUserReviewAssignment->getReviewMethod() !== SUBMISSION_REVIEW_METHOD_DOUBLEBLIND)
+						&& isset($args['userGroups'])) {
 						$values[$prop] = $publication->getAuthorString($args['userGroups']);
 					}
 					break;
 				case 'authorsStringShort':
-					$values[$prop] = $publication->getShortAuthorString();
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+						$values[$prop] = '';
+					} else {
+						$values[$prop] = $publication->getShortAuthorString();
+					}
 					break;
 				case 'citations':
 					$values[$prop] = array_map(
@@ -162,12 +201,16 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					$values[$prop] = $publication->getFullTitles();
 					break;
 				case 'galleys':
-					$values[$prop] = array_map(
-						function($galley) use ($request, $args) {
-							return Services::get('galley')->getSummaryProperties($galley, $args);
-						},
-						$publication->getData('galleys')
-					);
+					if ($currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_DOUBLEBLIND) {
+						$values[$prop] = [];
+					} else {
+						$values[$prop] = array_map(
+							function($galley) use ($request, $args) {
+								return Services::get('galley')->getSummaryProperties($galley, $args);
+							},
+							$publication->getData('galleys')
+						);
+					}
 					break;
 				case 'urlPublished':
 					$values[$prop] = $dispatcher->url(
@@ -187,7 +230,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_PUBLICATION, $values, $submissionContext->getSupportedLocales());
 
-		\HookRegistry::call('Publication::getProperties', [&$values, $publication, $props, $args]);
+		HookRegistry::call('Publication::getProperties', [&$values, $publication, $props, $args]);
 
 		ksort($values);
 
@@ -219,7 +262,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @return array [oldest, newest]
 	 */
 	public function getDateBoundaries($args) {
-		$publicationQO = $this->_getQueryBuilder($args)->getDateBoundaries();
+		$publicationQO = $this->getQueryBuilder($args)->getDateBoundaries();
 		$result = DAORegistry::getDAO('PublicationDAO')->retrieve($publicationQO->toSql(), $publicationQO->getBindings());
 		return [$result->fields[0], $result->fields[1]];
 	}
@@ -275,7 +318,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it
-		$user = \Application::get()->getRequest()->getUser();
+		$user = Application::get()->getRequest()->getUser();
 		\ValidatorFactory::temporaryFilesExist(
 			$validator,
 			['coverImage'],
@@ -289,7 +332,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_PUBLICATION), $allowedLocales);
 		}
 
-		\HookRegistry::call('Publication::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
+		HookRegistry::call('Publication::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
 
 		return $errors;
 	}
@@ -328,7 +371,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$errors['reviewStage'] = __('publication.required.reviewStage');
 		}
 
-		\HookRegistry::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
+		HookRegistry::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
 
 		return $errors;
 	}
@@ -351,7 +394,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		if ($publication->getData('coverImage')) {
 			$userId = $request->getUser() ? $request->getUser()->getId() : null;
 
-			$submissionContext = \Application::get()->getRequest()->getContext();
+			$submissionContext = Application::get()->getRequest()->getContext();
 			if ($submissionContext->getId() !== $submission->getData('contextId')) {
 				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 			}
@@ -367,7 +410,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			$publication = $this->edit($publication, ['coverImage' => $value], $request);
 		}
 
-		\HookRegistry::call('Publication::add', [$publication, $request]);
+		HookRegistry::call('Publication::add', [$publication, $request]);
 
 		// Update a submission's status based on the status of its publications
 		$submission = Services::get('submission')->updateStatus($submission);
@@ -390,6 +433,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$newPublication->setData('id', null);
 		$newPublication->setData('datePublished', '');
 		$newPublication->setData('status', STATUS_QUEUED);
+		$newPublication->setData('version', $publication->getData('version') + 1);
 		$newPublication->stampModified();
 		$newPublication = $this->add($newPublication, $request);
 
@@ -413,12 +457,12 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		$newPublication = $this->get($newPublication->getId());
 
-		\HookRegistry::call('Publication::version', [&$newPublication, $publication, $request]);
+		HookRegistry::call('Publication::version', [&$newPublication, $publication, $request]);
 
 		$submission = Services::get('submission')->get($newPublication->getData('submissionId'));
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
-		\SubmissionLog::logEvent(\Application::get()->getRequest(), $submission, SUBMISSION_LOG_CREATE_VERSION, 'publication.event.versionCreated');
+		SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_CREATE_VERSION, 'publication.event.versionCreated');
 
 		return $newPublication;
 	}
@@ -433,7 +477,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		if (array_key_exists('coverImage', $params)) {
 			$userId = $request->getUser() ? $request->getUser()->getId() : null;
 
-			$submissionContext = \Application::get()->getRequest()->getContext();
+			$submissionContext = Application::get()->getRequest()->getContext();
 			if ($submissionContext->getId() !== $submission->getData('contextId')) {
 				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 			}
@@ -451,7 +495,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$newPublication->_data = array_merge($publication->_data, $params);
 		$newPublication->stampModified();
 
-		\HookRegistry::call('Publication::edit', [$newPublication, $publication, $params, $request]);
+		HookRegistry::call('Publication::edit', [$newPublication, $publication, $params, $request]);
 
 		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);
 		$newPublication = $this->get($newPublication->getId());
@@ -464,7 +508,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		// Log an event when publication data is updated
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
-		\SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
+		SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
 
 		return $newPublication;
 	}
@@ -491,7 +535,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		$newPublication->stampModified();
 
-		\HookRegistry::call('Publication::publish', [$newPublication, $publication]);
+		HookRegistry::call('Publication::publish::before', [$newPublication, $publication]);
 
 		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);
 
@@ -512,7 +556,17 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		}
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
-		\SubmissionLog::logEvent(\Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_PUBLISH, $msg);
+		SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_PUBLISH, $msg);
+
+		HookRegistry::call('Publication::publish', [$newPublication, $publication, $submission]);
+
+		// Update the search index.
+		if ($newPublication->getData('status') === STATUS_PUBLISHED) {
+			Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
+			Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
+			Application::getSubmissionSearchDAO()->flushCache();
+			Application::getSubmissionSearchIndex()->submissionChangesFinished();
+		}
 
 		return $newPublication;
 	}
@@ -521,14 +575,14 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * Unpublish a publication that has already been published
 	 *
 	 * @param Publication $publication
-	 * @return Publlication
+	 * @return Publication
 	 */
 	public function unpublish($publication) {
 		$newPublication = clone $publication;
 		$newPublication->setData('status', STATUS_QUEUED);
 		$newPublication->stampModified();
 
-		\HookRegistry::call('Publication::unpublish', [$newPublication, $publication]);
+		HookRegistry::call('Publication::unpublish::before', [$newPublication, $publication]);
 
 		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);
 		$newPublication = $this->get($newPublication->getId());
@@ -544,7 +598,20 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$msg = count($submission->getData('publications')) > 1 ? 'publication.event.versionUnpublished' : 'publication.event.unpublished';
 		import('lib.pkp.classes.log.SubmissionLog');
 		import('classes.log.SubmissionEventLogEntry');
-		\SubmissionLog::logEvent(\Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_UNPUBLISH, $msg);
+		SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_UNPUBLISH, $msg);
+
+		HookRegistry::call('Publication::unpublish', [$newPublication, $publication, $submission]);
+
+		// Update the metadata in the search index.
+		if ($submission->getData('status') !== STATUS_PUBLISHED) {
+			Application::getSubmissionSearchIndex()->deleteTextIndex($submission->getId());
+			Application::getSubmissionSearchIndex()->clearSubmissionFiles($submission);
+		} else {
+			Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
+			Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
+		}
+		Application::getSubmissionSearchDAO()->flushCache();
+		Application::getSubmissionSearchIndex()->submissionChangesFinished();
 
 		return $newPublication;
 	}
@@ -553,7 +620,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
 	 */
 	public function delete($publication) {
-		\HookRegistry::call('Publication::delete::before', [$publication]);
+		HookRegistry::call('Publication::delete::before', [$publication]);
 
 		DAORegistry::getDAO('PublicationDAO')->deleteObject($publication);
 
@@ -561,7 +628,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		$submission = Services::get('submission')->get($publication->getData('submissionId'));
 		$submission = $submission = Services::get('submission')->updateStatus($submission);
 
-		\HookRegistry::call('Publication::delete', [$publication]);
+		HookRegistry::call('Publication::delete', [$publication]);
 	}
 
 	/**
@@ -629,7 +696,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		}
 
 		// Get the submission context
-		$submissionContext = \Application::get()->getRequest()->getContext();
+		$submissionContext = Application::get()->getRequest()->getContext();
 		if ($submissionContext->getId() !== $submission->getData('contextId')) {
 			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}

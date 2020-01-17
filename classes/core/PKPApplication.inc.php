@@ -94,6 +94,11 @@ interface iPKPApplicationInfoProvider {
 	public static function getSubmissionSearchIndex();
 
 	/**
+	 * Get a SubmissionSearchDAO instance.
+	 */
+	public static function getSubmissionSearchDAO();
+
+	/**
 	 * Returns the name of the context column in plugin_settings.
 	 * This is necessary to prevent a column name mismatch during
 	 * the upgrade process when the codebase and the database are out

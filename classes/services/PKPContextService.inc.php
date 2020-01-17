@@ -23,13 +23,11 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
-use \PKP\Services\traits\EntityReadTrait;
 use \APP\Services\QueryBuilders\ContextQueryBuilder;
 
 import('lib.pkp.classes.db.DBResultRange');
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @var array List of file directories to create on installation. Use %d to
@@ -51,7 +49,22 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	}
 
 	/**
-	 * Get contexts
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		return $this->getQueryBuilder($args)->getIds();
+	}
+
+	/**
+	 * Get a collection of Context objects limited, filtered
+	 * and sorted by $args
 	 *
 	 * @param array $args {
 	 * 		@option bool isEnabled
@@ -62,9 +75,16 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
-		$contextListQB = $this->_getQueryBuilder($args);
-		$contextListQO = $contextListQB->get();
-		$range = $this->getRangeByArgs($args);
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$contextListQO = $this->getQueryBuilder($args)->getQuery();
 		$contextDao = Application::getContextDAO();
 		$result = $contextDao->retrieveRange($contextListQO->toSql(), $contextListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $contextDao, '_fromRow');
@@ -76,23 +96,17 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
 	public function getMax($args = array()) {
-		$contextListQB = $this->_getQueryBuilder($args);
-		$countQO = $contextListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$contextDao = Application::getContextDAO();
-		$countResult = $contextDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $contextDao, '_fromRow');
-
-		return (int) $countQueryResults->getCount();
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		return $this->getQueryBuilder($args)->getCount();
 	}
 
 	/**
-	 * Build the query object for getting contexts
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return ContextQueryBuilder
 	 */
-	private function _getQueryBuilder($args = array()) {
+	public function getQueryBuilder($args = array()) {
 
 		$defaultArgs = array(
 			'isEnabled' => null,
@@ -117,7 +131,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 	public function getProperties($context, $props, $args = null) {
 		$slimRequest = $args['slimRequest'];
 		$request = $args['request'];
-		$router = $request->getRouter();
 		$dispatcher = $request->getDispatcher();
 
 		$values = array();

@@ -144,8 +144,8 @@ class APIRouter extends PKPRouter {
 		http_response_code('403');
 		header('Content-Type: application/json');
 		echo json_encode([
-			'error' => 'api.403.unauthorized',
-			'errorMessage' => __('api.403.unauthorized'),
+			'error' => $authorizationMessage,
+			'errorMessage' => __($authorizationMessage),
 		]);
 		exit;
 	}

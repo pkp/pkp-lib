@@ -174,7 +174,6 @@ class PKPSubmissionHandler extends APIHandler {
 		$request = Application::get()->getRequest();
 		$currentUser = $request->getUser();
 		$context = $request->getContext();
-		$submissionService = Services::get('submission');
 
 		if (!$context) {
 			return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -253,7 +252,7 @@ class PKPSubmissionHandler extends APIHandler {
 		}
 
 		$items = [];
-		$submissionsIterator = $submissionService->getMany($params);
+		$submissionsIterator = Services::get('submission')->getMany($params);
 		if (count($submissionsIterator)) {
 			$propertyArgs = [
 				'request' => $request,
@@ -261,12 +260,12 @@ class PKPSubmissionHandler extends APIHandler {
 				'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId())->toArray()
 			];
 			foreach ($submissionsIterator as $submission) {
-				$items[] = $submissionService->getSummaryProperties($submission, $propertyArgs);
+				$items[] = Services::get('submission')->getSummaryProperties($submission, $propertyArgs);
 			}
 		}
 
 		$data = [
-			'itemsMax' => $submissionService->getMax($params),
+			'itemsMax' => Services::get('submission')->getMax($params),
 			'items' => $items,
 		];
 

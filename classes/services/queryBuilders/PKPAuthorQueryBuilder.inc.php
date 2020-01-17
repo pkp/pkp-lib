@@ -15,8 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-class PKPAuthorQueryBuilder extends BaseQueryBuilder {
+class PKPAuthorQueryBuilder extends BaseQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var array get authors for one or more contexts */
 	protected $contextIds = [];
@@ -29,9 +30,6 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder {
 
 	/** @var array get authors for one or more publications */
 	protected $publicationIds = [];
-
-	/** @var bool whether to return only a count of results */
-	protected $countOnly = null;
 
 	/**
 	 * Filter by one or more contexts
@@ -69,22 +67,31 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder {
 	}
 
 	/**
-	 * Whether to return only a count of results
-	 *
-	 * @param $enable bool
-	 * @return \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
 	 */
-	public function countOnly($enable = true) {
-		$this->countOnly = $enable;
-		return $this;
+	public function getCount() {
+		return $this
+			->getQuery()
+			->select('a.author_id')
+			->get()
+			->count();
 	}
 
 	/**
-	 * Execute query builder
-	 *
-	 * @return object Query object
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
 	 */
-	public function get() {
+	public function getIds() {
+		return $this
+			->getQuery()
+			->select('a.author_id')
+			->pluck('a.author_id')
+			->toArray();
+	}
+
+	/**
+	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+	 */
+	public function getQuery() {
 		$this->columns = ['*'];
 		$q = Capsule::table('authors as a');
 
@@ -116,11 +123,7 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder {
 		// Add app-specific query statements
 		\HookRegistry::call('Author::getMany::queryObject', array(&$q, $this));
 
-		if (!empty($this->countOnly)) {
-			$q->select(Capsule::raw('count(*) as author_count'));
-		} else {
-			$q->select($this->columns);
-		}
+		$q->select($this->columns);
 
 		return $q;
 	}

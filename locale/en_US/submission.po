@@ -669,7 +669,7 @@ msgid "submission.versions"
 msgstr "Versions"
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$versionId})"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr "This is an outdated version published on {$datePublished}. Read the <a href=\"{$urlRecentVersion}\">most recent version</a>."
@@ -1915,6 +1915,9 @@ msgstr "Are you sure you don't want this scheduled for publication?"
 
 msgid "publication.version.all"
 msgstr "All Versions"
+
+msgid "publication.version.confirm"
+msgstr "Are you sure you want to create a new version?"
 
 msgid "publication.version.details"
 msgstr "Publication details for version {$version}"

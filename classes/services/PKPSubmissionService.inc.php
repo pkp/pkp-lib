@@ -24,13 +24,11 @@ use \Services;
 use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
-use \PKP\Services\traits\EntityReadTrait;
 use \APP\Services\QueryBuilders\SubmissionQueryBuilder;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 
 abstract class PKPSubmissionService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
@@ -40,7 +38,22 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	}
 
 	/**
-	 * Get a collection of submissions limited, filtered and sorted by $args
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		return $this->getQueryBuilder($args)->getIds();
+	}
+
+	/**
+	 * Get a collection of Submission objects limited, filtered
+	 * and sorted by $args
 	 *
 	 * @param array $args
 	 *		@option int contextId If not supplied, CONTEXT_ID_NONE will be used and
@@ -55,10 +68,17 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * 		@option int offset
 	 * @return \Iterator
 	 */
-	public function getMany($args = array()) {
-		$submissionListQB = $this->_getQueryBuilder($args);
-		$submissionListQO = $submissionListQB->get();
-		$range = $this->getRangeByArgs($args);
+	public function getMany($args = []) {
+		$range = null;
+		if (isset($args['count'])) {
+			import('lib.pkp.classes.db.DBResultRange');
+			$range = new \DBResultRange($args['count'], null, isset($args['offset']) ? $args['offset'] : 0);
+		}
+		// Pagination is handled by the DAO, so don't pass count and offset
+		// arguments to the QueryBuilder.
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		$submissionListQO = $this->getQueryBuilder($args)->getQuery();
 		$submissionDao = Application::get()->getSubmissionDAO();
 		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow');
@@ -69,24 +89,18 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
-	public function getMax($args = array()) {
-		$submissionListQB = $this->_getQueryBuilder($args);
-		$countQO = $submissionListQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$submissionDao = Application::get()->getSubmissionDAO();
-		$countResult = $submissionDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $submissionDao, '_fromRow');
-
-		return (int) $countQueryResults->getCount();
+	public function getMax($args = []) {
+		// Don't accept args to limit the results
+		if (isset($args['count'])) unset($args['count']);
+		if (isset($args['offset'])) unset($args['offset']);
+		return $this->getQueryBuilder($args)->getCount();
 	}
 
 	/**
-	 * Build the submission query object for getMany requests
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return SubmissionQueryBuilder
 	 */
-	private function _getQueryBuilder($args = array()) {
+	public function getQueryBuilder($args = []) {
 
 		$defaultArgs = array(
 			'contextId' => CONTEXT_ID_NONE,
@@ -115,6 +129,14 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			->filterByDaysInactive($args['daysInactive'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
 			->searchPhrase($args['searchPhrase']);
+
+		if (isset($args['count'])) {
+			$submissionListQB->limitTo($args['count']);
+		}
+
+		if (isset($args['offset'])) {
+			$submissionListQB->offsetBy($args['count']);
+		}
 
 		\HookRegistry::call('Submission::getMany::queryBuilder', array($submissionListQB, $args));
 
@@ -156,6 +178,11 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 									$args + [
 										'submission' => $submission,
 										'context' => $submissionContext,
+										'currentUserReviewAssignment' => DAORegistry::getDAO('ReviewAssignmentDAO')
+											->getLastReviewRoundReviewAssignmentByReviewer(
+												$submission->getId(),
+												$args['request']->getUser()->getId()
+											),
 									]);
 							},
 							$submission->getData('publications')

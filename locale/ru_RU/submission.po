@@ -673,7 +673,7 @@ msgid "submission.versions"
 msgstr "Версии"
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$versionId})"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr "Это устаревшая версия, которая была опубликована {$datePublished}. Прочтите <a href=\"{$urlRecentVersion}\">самую последнюю версию</a>."

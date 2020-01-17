@@ -1973,7 +1973,7 @@ msgstr ""
 "href=\"{$urlRecentVersion}\">versione più recente</a>."
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$versionId})"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.versions"
 msgstr "Versioni"

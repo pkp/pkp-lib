@@ -23,10 +23,8 @@ use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
-use \PKP\Services\traits\EntityReadTrait;
 
 class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface {
-	use EntityReadTrait;
 
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
@@ -36,24 +34,35 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	}
 
 	/**
-	 * Get authors
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+	 */
+	public function getCount($args = []) {
+		return $this->getQueryBuilder($args)->getCount();
+	}
+
+	/**
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+	 */
+	public function getIds($args = []) {
+		return $this->getQueryBuilder($args)->getIds();
+	}
+
+	/**
+	 * Get a collection of Author objects limited, filtered
+	 * and sorted by $args
 	 *
 	 * @param array $args {
 	 * 		@option int|array contextIds
 	 * 		@option string familyName
 	 * 		@option string givenName
 	 * 		@option int|array publicationIds
-	 * 		@option int count
-	 * 		@option int offset
 	 * }
 	 * @return Iterator
 	 */
 	public function getMany($args = array()) {
-		$authorQB = $this->_getQueryBuilder($args);
-		$authorQO = $authorQB->get();
-		$range = $this->getRangeByArgs($args);
+		$authorQO = $this->getQueryBuilder($args)->getQuery();
 		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$result = $authorDao->retrieveRange($authorQO->toSql(), $authorQO->getBindings(), $range);
+		$result = $authorDao->retrieveRange($authorQO->toSql(), $authorQO->getBindings());
 		$queryResults = new DAOResultFactory($result, $authorDao, '_fromRow');
 
 		return $queryResults->toIterator();
@@ -62,24 +71,17 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	/**
 	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
 	 */
-	public function getMax($args = array()) {
-		$authorQB = $this->_getQueryBuilder($args);
-		$countQO = $authorQB->countOnly()->get();
-		$countRange = new DBResultRange($args['count'], 1);
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$countResult = $authorDao->retrieveRange($countQO->toSql(), $countQO->getBindings(), $countRange);
-		$countQueryResults = new DAOResultFactory($countResult, $authorDao, '_fromRow');
-
-		return (int) $countQueryResults->getCount();
+	public function getMax($args = []) {
+		// Count/offset is not supported so getMax is always
+		// the same as getCount
+		return $this->getCount();
 	}
 
 	/**
-	 * Build the query object for getting authors
-	 *
-	 * @see self::getMany()
-	 * @return object Query object
+	 * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+	 * @return PKPAuthorQueryBuilder
 	 */
-	private function _getQueryBuilder($args = []) {
+	public function getQueryBuilder($args = []) {
 
 		$defaultArgs = [
 			'contextIds' => [],

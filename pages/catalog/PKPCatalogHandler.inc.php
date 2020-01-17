@@ -61,7 +61,6 @@ class PKPCatalogHandler extends Handler {
 		$offset = $page > 1 ? ($page - 1) * $count : 0;
 
 		import('classes.core.Services');
-		$submissionService = Services::get('submission');
 		$params = array(
 			'contextId' => $context->getId(),
 			'categoryIds' => $category->getId(),
@@ -72,8 +71,8 @@ class PKPCatalogHandler extends Handler {
 			'offset' => $offset,
 			'status' => STATUS_PUBLISHED,
 		);
-		$submissionsIterator = $submissionService->getMany($params);
-		$total = $submissionService->getMax($params);
+		$submissionsIterator = Services::get('submission')->getMany($params);
+		$total = Services::get('submission')->getMax($params);
 
 		// Provide the parent category and a list of subcategories
 		$parentCategory = $categoryDao->getById($category->getParentId());

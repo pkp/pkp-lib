@@ -136,6 +136,14 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 	data.files.forEach(file => {
 		if (!firstFile) cy.get('a[id^="component-grid-"][id*="-add"]').click();
 		cy.wait(2000); // Avoid occasional failure due to form init taking time
+		cy.get('div.pkp_modal_panel').then($modalDiv => {
+			// PPS has a "create galley" modal that needs attention first
+			if ($modalDiv.find('div.header:contains("Create New Galley")').length) {
+				cy.get('div.pkp_modal_panel input[id^="label-"]').type('PDF', {delay: 0});
+				cy.get('div.pkp_modal_panel button:contains("Save")').click();
+				cy.wait(2000); // Avoid occasional failure due to form init taking time
+			}
+		});
 		cy.get('select[id=genreId]').select(file.genre);
 		cy.fixture(file.file, 'base64').then(fileContent => {
 			cy.get('input[type=file]').upload(

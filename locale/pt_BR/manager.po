@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
+"PO-Revision-Date: 2020-01-17 14:35+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/manager/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2019-09-30T11:54:13-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.website.information"
 msgstr "Informação"
@@ -1440,3 +1443,129 @@ msgstr "Link para a página mostrando sua declaração de privacidade."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr "Este link apenas será exibido se você submeteu uma declaração de privacidade em Configurações > Fluxo de Trabalho > Subimissão."
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Usuários cadastrados"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Os detalhes de acesso do usuário foram atualizados."
+
+msgid "manager.setup.theme.notFound"
+msgstr "O tema selecionado não está instalado ou habilitado."
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"O tema foi atualizado. <a href=\"{$url}\" target=\"_blank\">Visualizar "
+"Agora</a>"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Apresentar link <button type=\"button\">Garantindo uma Avaliação "
+"Cega</button> durante a transferência"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Modo de Avaliação Padrão"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Lembrete de Avaliação"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Lembrete de Resposta"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Prazo de Conclusão Padrão"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Prazo de Resposta Padrão"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Esta declaração aparecerá durante o cadastro do usuário, submissão do autor "
+"e na página de Privacidade disponível ao público. Em algumas jurisdições, "
+"você é legalmente obrigado a divulgar como lida com os dados do usuário "
+"nesta política de privacidade."
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"O arquivo transferido não pôde ser encontrado. Por favor tente transferi-lo "
+"novamente."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"O bloco {$name} não pôde ser encontrado. Por favor certifique-se de que o "
+"plugin esteja instalado e habilitado."
+
+msgid "manager.setup.checklist"
+msgstr "Lista de verificação"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "As instruções aos autores foram atualizadas com sucesso."
+
+msgid "manager.setup.contact.success"
+msgstr "Os detalhes de contato foram atualizados."
+
+msgid "manager.setup.appearance.success"
+msgstr "As configurações de aparência foram atualizadas."
+
+msgid "manager.setup.advanced"
+msgstr "Avançado"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Você não pode excluir este representante por que ele(a) está designado(a) "
+"para os metadados de um ou mais formatos de publicação para esta submissão."
+
+msgid "manager.people.existingUserRequired"
+msgstr "Um usuário existente deve ser inserido."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Assunto:  {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Enviado para"
+
+msgid "manager.emails.sentFrom"
+msgstr "Enviado de"
+
+msgid "manager.emails.resetAll"
+msgstr "Redefinir Tudo"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "A chave que você forneceu já está em uso."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Você precisa fornecer um ID de contexto ao adicionar um modelo de e-mail."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Modelos de E-mail"
+
+msgid "manager.emails.emailKey.description"
+msgstr "A chave de e-mail pode conter apenas letras, números e sobrescritos."
+
+msgid "manager.emails.editEmail.success"
+msgstr "O modelo de e-mail foi modificado."
+
+msgid "manager.emails.customTemplate"
+msgstr "Modelo Customizado"
+
+msgid "manager.emails.addEmail.success"
+msgstr "O modelo de e-mail foi adicionado."
+
+msgid "manager.emails.addEmail"
+msgstr "Adicionar modelo"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Os detalhes de lembrete de avaliação foram atualizados."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "As configurações de avaliação foram atualizadas."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "As orientações ao avaliador foram atualizadas."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Orientações ao Avaliador"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "As configurações de e-mail foram atualizadas."

@@ -15,12 +15,10 @@ set -xe
 sudo pip install six
 sudo pip install https://github.com/google/closure-linter/zipball/master
 
-# FIXME: The Closure compiler was previously available here, but it disappeared.
-# It was temporarily added to the PKP repository instead.
-# wget -O compiler.zip "http://dl.google.com/closure-compiler/compiler-20130603.zip"
-# unzip compiler.zip compiler.jar
-# mv compiler.jar ~/bin/compiler.jar
-cp lib/pkp/tools/travis/compiler.jar ~/bin
+wget -O compiler.zip "https://dl.google.com/closure-compiler/compiler-latest.zip"
+JARNAME=`unzip -Z1 compiler.zip "*.jar"`
+unzip compiler.zip ${JARNAME}
+mv ${JARNAME} ~/bin/compiler.jar
 
 # Install jslint4java
 wget "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/jslint4java/jslint4java-2.0.2-dist.zip"

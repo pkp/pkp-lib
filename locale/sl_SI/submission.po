@@ -2,14 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
+"PO-Revision-Date: 2020-01-18 18:35+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/sl/>\n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:02+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Prosimo navedite oblikovan seznam citirane literature v prispevku. Vsako postavko zapišite v svojo vrstico in ločite z eno prazno vrstico."
@@ -150,7 +154,7 @@ msgid "metadata.property.displayName.volume"
 msgstr "Letnik"
 
 msgid "metadata.property.validationMessage.volume"
-msgstr "Prosimo vnesite veljaven letnik"
+msgstr "Prosimo vnesite veljaven letnik."
 
 msgid "metadata.property.displayName.season"
 msgstr "Sezona"
@@ -174,13 +178,13 @@ msgid "metadata.property.displayName.series"
 msgstr "Serija"
 
 msgid "metadata.property.validationMessage.series"
-msgstr "Prosimo vnesite veljavno serijo"
+msgstr "Prosimo vnesite veljavno serijo."
 
 msgid "metadata.property.displayName.supplement"
 msgstr "Dodatek"
 
 msgid "metadata.property.validationMessage.supplement"
-msgstr "Prosimo vnesite veljaven dodatek"
+msgstr "Prosimo vnesite veljaven dodatek."
 
 msgid "metadata.property.displayName.conf-date"
 msgstr "Datum konference"
@@ -240,7 +244,7 @@ msgid "metadata.property.displayName.publisher-name"
 msgstr "Ime založnika"
 
 msgid "metadata.property.validationMessage.publisher-name"
-msgstr "Prosimo vnesite veljavno ime založnika"
+msgstr "Prosimo vnesite veljavno ime založnika."
 
 msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
@@ -306,7 +310,7 @@ msgid "metadata.property.displayName.annotation"
 msgstr "Pripomba"
 
 msgid "metadata.property.validationMessage.annotation"
-msgstr "Prosimo vnesite veljavno pripombo"
+msgstr "Prosimo vnesite veljavno pripombo."
 
 msgid "metadata.property.displayName.publication-type"
 msgstr "Tip revije"
@@ -321,7 +325,7 @@ msgid "metadata.property.validationMessage.title-type"
 msgstr "Prosimo vnesite pravilen tip naslova. Podprte vrednosti so 'krajše', 'preveden', 'alternativen' in 'enoten'."
 
 msgid "metadata.property.displayName.nonSort"
-msgstr "Del naslova, ki se bo zanemaril pri sortiranju."
+msgstr "Del naslova, ki se bo zanemaril pri sortiranju"
 
 msgid "metadata.property.validationMessage.nonSort"
 msgstr "Prosimo vpišite le začetne znake naslova, ki se bo zanemaril pri sortiranju naslova."
@@ -348,7 +352,7 @@ msgid "metadata.property.displayName.partName"
 msgstr "Ime nadaljevanja"
 
 msgid "metadata.property.validationMessage.partName"
-msgstr "Prosimo vnesite veljavno ime nadaljevanja"
+msgstr "Prosimo vnesite veljavno ime nadaljevanja."
 
 msgid "metadata.property.displayName.name-type"
 msgstr "Tip imena"
@@ -615,7 +619,7 @@ msgid "submission.history"
 msgstr "Zgodovina"
 
 msgid "submission.history.noLogEntries"
-msgstr "Ni vpisov v zaporedje"
+msgstr "Ni vpisov v zaporedje."
 
 msgid "submission.history.recentLogEntries"
 msgstr "Zadnji vpisi"
@@ -840,7 +844,7 @@ msgid "submission.peerReview"
 msgstr "Recenzija"
 
 msgid "submission.production"
-msgstr "Production"
+msgstr "Produkcija"
 
 msgid "submission.recommendation"
 msgstr "Priporočilo: {$recommendation}"
@@ -903,7 +907,7 @@ msgid "submissions.queued"
 msgstr "Na čakanju"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Čaka dodelitev"
+msgstr "Čaka dodelitev."
 
 msgid "submissions.ruling"
 msgstr "Odločitev"
@@ -1005,7 +1009,13 @@ msgid "submission.titleAndAbstract"
 msgstr "Naslov in izvleček"
 
 msgid "submission.type.tip"
-msgstr "Tip prispevka je običajno eno od 'slika', 'besedilo', ali drug multimedijski tip vključno s 'programska oprema' ali 'interaktivno'. Prosimo, izberite najbolj relevantno možnost. Primere lahko najdete na <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a></a>"
+msgstr ""
+"Tip prispevka je običajno eno od 'slika', 'besedilo', ali drug multimedijski "
+"tip vključno s 'programska oprema' ali 'interaktivno'. Prosimo, izberite "
+"najbolj relevantno možnost. Primere lahko najdete na <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "Sprejeto"
@@ -1023,7 +1033,7 @@ msgid "submission.views"
 msgstr "Pristopi"
 
 msgid "submission.uploadSuccessful"
-msgstr "Datoteka je bila naložena"
+msgstr "Datoteka je bila naložena."
 
 msgid "submission.loadMessage"
 msgstr "Prosimo počakajte, da se datoteka naloži na strežnik."
@@ -1527,7 +1537,7 @@ msgid "submission.copyrightYear"
 msgstr "Leto avtorskih pravic"
 
 msgid "submission.copyrightStatement"
-msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+msgstr "Avtorske pravice (c) {$copyrightYear} {$copyrightHolder}"
 
 msgid "submission.licenseURLValid"
 msgstr "Prosimo vnesite veljavno povezavo URL (skupaj z začetnim http://)."
@@ -1730,3 +1740,263 @@ msgstr "V tej kategorij ni bilo še ničesar objavljeno."
 msgid "catalog.category.subcategories"
 msgstr "Podkategorije"
 
+msgid "publication.wordCount"
+msgstr "Števec besed: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Izvleček je predolg. Največja dolžina je {$limit} besed. Trenutno je dolg  "
+"{$count} besed."
+
+msgid "publication.version.details"
+msgstr "Podrobnosti objave za verzijo {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Ste prepričani, da želite ustvariti novo verzijo?"
+
+msgid "publication.version.all"
+msgstr "Vse verzije"
+
+msgid "publication.unschedule.confirm"
+msgstr "Ste prepričani, da ne želite načrtovati te objave?"
+
+msgid "publication.unschedule"
+msgstr "Odstrani načrtovanje"
+
+msgid "publication.unpublish.confirm"
+msgstr "Ste prepričani, da želite umakniti to objavo?"
+
+msgid "publication.unpublish"
+msgstr "Umakni objavo"
+
+msgid "publication.titleAbstract.success"
+msgstr "Naslov in izvleček sta bila posodobljena."
+
+msgid "publication.titleAbstract"
+msgstr "Naslov in izvleček"
+
+msgid "publication.status.unscheduled"
+msgstr "Ni načrtovano"
+
+msgid "publication.status.unpublished"
+msgstr "Neobjavljeno"
+
+msgid "publication.status.scheduled"
+msgstr "Načrtovano"
+
+msgid "publication.status.published"
+msgstr "Objavljeno"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Prispevek mora biti v fazi Lektoriranje ali Produkcija preden je lahko "
+"objavljen."
+
+msgid "publication.required.declined"
+msgstr "Zavrnjen prispevek ne more biti objavljen."
+
+msgid "publication.publish.success"
+msgstr "Status objave je bil uspešno spremenjen."
+
+msgid "publication.publish.requirements"
+msgstr "Spodnje zahteve morajo biti izpolnjene pred objavo."
+
+msgid "publication.publish"
+msgstr "Objavi"
+
+msgid "publication.publicationLicense.success"
+msgstr "Avtorske pravice in informacije o licenci so bile posodobljene."
+
+msgid "publication.publicationLicense"
+msgstr "Dovoljenja in razkritja"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Identifikatorji so bili posodobljeni."
+
+msgid "publication.metadata.success"
+msgstr "Metapodatki so bili posodobljeni."
+
+msgid "publication.invalidSubmission"
+msgstr "Prispevka za objavo ni bilo mogoče najti."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Nova verzija ni več objavljena."
+
+msgid "publication.event.versionScheduled"
+msgstr "Nova verzija je bila načrtovana za objavo."
+
+msgid "publication.event.versionPublished"
+msgstr "Nova verzija je bila objavljena."
+
+msgid "publication.event.versionCreated"
+msgstr "Ustvarjena je bila nova verzija."
+
+msgid "publication.event.unpublished"
+msgstr "Prispevek ni več objavljen."
+
+msgid "publication.event.scheduled"
+msgstr "Prispevek je bil načrtovan za objavo."
+
+msgid "publication.event.published"
+msgstr "Prispevek je bil objavljen."
+
+msgid "publication.editDisabled"
+msgstr "Ta verzija je bila objavljena in je ni mogoče spremeniti."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datum mora biti v formatu YYYY-MM-DD, kot na primer 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Datum objave"
+
+msgid "publication.createVersion"
+msgstr "Ustvari novo verzijo"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Leto avtorskih pravic bo določeno avtomatično, ko bo številka objavljena."
+
+msgid "publication.contributors"
+msgstr "Sodelujoči"
+
+msgid "publication.citations.success"
+msgstr "Reference so bile posodobljene."
+
+msgid "submission.publication"
+msgstr "Objava"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Recenzija preklicana"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Recenzijska zadolžitev"
+
+msgid "submission.list.empty"
+msgstr "Ni nobenega prispevka."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Če zapustite diskusijo, ne boste več obveščeni o nadaljnjih sporočilih v "
+"njej. Ste prepričani, da jo želite zapustiti?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Zapusti diskusijo"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>To delo je licencirano kot <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 mednarodna licenca</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>To delo je licencirano kot <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 International licenca</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>To delo je licencirano kot <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 mednarodna licenca</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>To delo je licencirano kot <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 mednarodna "
+"licenca</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>To delo je licencirano kot <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 mednarodna licenca</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>To delo je licencirano kot <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 mednarodna "
+"licenca </a>.</p>"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} je končal recenzijo za recenzijski krog {$round} za "
+"prispevek {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"urednik {$userName} je potrdil recenzijski krog {$round} za prispevek "
+"{$submissionId}."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Ste prepričani, da želite omogočiti avtorjem prispevka, da spreminjano "
+"metapodatke prispevka v tej fazi?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Ste prepričani, da želite onemogočiti avtorjem prispevka, da spreminjano "
+"metapodatke prispevka v tej fazi?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Dovoli urejanje metapodatkov"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Ne dovoli urejanja metapodatkov"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Uredi zadolžitev"
+
+msgid "submission.status.scheduled"
+msgstr "Načrtovano"
+
+msgid "submissions.inactive"
+msgstr "Neaktiven {$days} dni"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"To je stara verzija objvaljena {$datePublished}. Preberite <a href=\""
+"{$urlRecentVersion}\">najnovejšo verzijo</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Verzije"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — posodobljeno {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Avtorji sedaj ne morejo spreminjati matapodatke, kadar je prispevek v fazi "
+"{stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Avtorji sedaj lahko spreminjajo matapodatke, kadar je prispevek v fazi "
+"{stage}."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Izvleček"
+
+msgid "author.publicationNotFound"
+msgstr "Objave za tega avtorja ni bilo mogoče najti."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Avtorji te objave ne morejo biti spremenjeni, ker je bila že objavljena."

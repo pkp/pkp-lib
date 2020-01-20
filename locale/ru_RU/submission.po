@@ -1920,6 +1920,9 @@ msgstr "Вы уверены, что не хотите запланировать
 msgid "publication.version.all"
 msgstr "Все версии"
 
+msgid "publication.version.confirm"
+msgstr "Вы уверены, что хотите создать новую версию?"
+
 msgid "publication.version.details"
 msgstr "Информация о публикации для версии {$version}"
 

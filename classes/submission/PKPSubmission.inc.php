@@ -422,7 +422,7 @@ abstract class PKPSubmission extends DataObject {
 			return [];
 		}
 		$authors = $publication->getData('authors');
-		if (empty(!$authors)) {
+		if (empty($authors)) {
 			return [];
 		}
 		if ($onlyIncludeInBrowse) {

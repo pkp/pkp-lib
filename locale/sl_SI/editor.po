@@ -2,14 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2020-01-18 18:35+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"editor/sl/>\n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:01+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Knjižnica prispevka"
@@ -412,3 +416,56 @@ msgstr "Zahteva zavrnjena"
 
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "Recenzent je zavrnil zahtevo za to recenzijo."
+
+msgid "reviewer.list.empty"
+msgstr "Nobenih najdenih recenzentov"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Zahteva za recenzijo je preklicana"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Prišlo je do napaka pri ponovni določitvi recenzenta. Prosimo poskusite "
+"ponovno."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzentu smo se zahvalili"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Urednik je preklical to zahtevo za recenzijo."
+
+msgid "editor.review.requestCancelled"
+msgstr "Zahteva preklicana"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Ponovno izberi recenzenta"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Prekliči recenzenta"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Spremeni odločitev"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Prispevek sprejet v recenzijo."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Poslano v produkcijo."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Pošlji v nov recenzijski krog."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Prispevek objavljen."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Prispevek sprejet."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Prispevek zavrnjen."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Odločitev je zabeležena"
+
+msgid "editor.activityLog"
+msgstr "Zapis aktivnosti"

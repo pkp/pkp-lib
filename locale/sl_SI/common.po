@@ -2,14 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2020-01-18 18:35+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/sl/>\n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:01+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -63,7 +67,7 @@ msgid "announcement.moreAnnouncements"
 msgstr "Več obvestil..."
 
 msgid "announcement.noneExist"
-msgstr "Ni objavljenih obvestil"
+msgstr "Ni objavljenih obvestil."
 
 msgid "announcement.posted"
 msgstr "Objavljeno"
@@ -568,7 +572,7 @@ msgid "common.prefix"
 msgstr "Prefix"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Examples: A, The"
+msgstr "Primer: A, The"
 
 msgid "common.preview"
 msgstr "Predolged"
@@ -763,7 +767,7 @@ msgid "common.yes"
 msgstr "Da"
 
 msgid "common.loading"
-msgstr "Nalaganje ..."
+msgstr "Nalaganje"
 
 msgid "common.plugins"
 msgstr "Vtičniki"
@@ -880,10 +884,10 @@ msgid "email.subject"
 msgstr "Zadeva"
 
 msgid "email.subjectRequired"
-msgstr "Prosim navedite zadevo e-pošte"
+msgstr "Prosim navedite zadevo e-pošte."
 
 msgid "email.bodyRequired"
-msgstr "Prosim navedite vsebino e-pošte"
+msgstr "Prosim navedite vsebino e-pošte."
 
 msgid "email.to"
 msgstr "Za"
@@ -904,7 +908,7 @@ msgid "form.dataHasChanged"
 msgstr "Podatki na tem obrazcu so se spremenili. vseeno nadaljujem?"
 
 msgid "form.errorsOccurred"
-msgstr "Pojavila se je napaka pri obdelavi obrazca."
+msgstr "Pojavila se je napaka pri obdelavi obrazca"
 
 msgid "form.formLanguage.description"
 msgstr "Za vpis podatkov v dodatnem jeziku najprej izberite jezik."
@@ -1547,10 +1551,10 @@ msgid "common.dateDecided"
 msgstr "Datum odločitve"
 
 msgid "common.commaListSeparator"
-msgstr ","
+msgstr ", "
 
 msgid "common.semicolonListSeparator"
-msgstr ";"
+msgstr "; "
 
 msgid "common.pagination.goToPage"
 msgstr "Pojdi na {$page}"
@@ -1563,3 +1567,355 @@ msgstr "Predhodna stran"
 
 msgid "email.compose.error"
 msgstr "Prišlo je do težave pri pošiljanju emaila. Poskusite ponovno kasneje ali kontaktirajte administratorja."
+
+msgid "validator.url"
+msgstr "To ni veljaven URL."
+
+msgid "validator.unique"
+msgstr "{$attribute} je že zaseden."
+
+msgid "validator.timezone"
+msgstr "To ni veljavna časovna cona."
+
+msgid "validator.string"
+msgstr "To ni veljaven niz."
+
+msgid "validator.size.array"
+msgstr "To mora vsebovati {$size} postavk."
+
+msgid "validator.size.string"
+msgstr "To mora biti dolgo {$size} znakov."
+
+msgid "validator.size.file"
+msgstr "To mora biti {$size} kilobaytov."
+
+msgid "validator.size.numeric"
+msgstr "To mora biti {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} in {$other} se morata ujemati."
+
+msgid "validator.required_without_all"
+msgstr "To polje je obvezno kadar ni nobene od vrednosti {$values}."
+
+msgid "validator.required_without"
+msgstr "To polje je obvezno kadar ni vrednosti {$values}."
+
+msgid "validator.required_with_all"
+msgstr "To polje je obvezno kadar je določeno  {$values}."
+
+msgid "validator.required_with"
+msgstr "To polje je obvezno kadar je določeno  {$values}."
+
+msgid "validator.required_unless"
+msgstr "To polje je obvezno, razen če ima {$other} eno od vrednosti {$value}."
+
+msgid "validator.required_if"
+msgstr "To polje je obvezno, če ima {$other} vrednost {$value}."
+
+msgid "validator.required"
+msgstr "To polje je obvezno."
+
+msgid "validator.regex"
+msgstr "To ni pravilnega formata."
+
+msgid "validator.present"
+msgstr "Polje {$attribute} mora biti določeno."
+
+msgid "validator.orcid"
+msgstr "To ni veljaven ORCID."
+
+msgid "validator.numeric"
+msgstr "To ni veljavno število."
+
+msgid "validator.not_in"
+msgstr "Izbrani {$attribute} ni veljaven."
+
+msgid "validator.min.array"
+msgstr "To mora imeti najmanj {$min} postavk."
+
+msgid "validator.min.string"
+msgstr "To mora biti dolgo najmanj {$min} znakov."
+
+msgid "validator.min.file"
+msgstr "To mora biti najmanj {$min} kilobytov."
+
+msgid "validator.min.numeric"
+msgstr "To mora biti najmanj {$min}."
+
+msgid "validator.mimes"
+msgstr "To mora biti tipa datoteke {$values}."
+
+msgid "validator.max.array"
+msgstr "To ne sme imeti več to {$max} postavk."
+
+msgid "validator.max.string"
+msgstr "To ne sme biti daljše od {$max} znakov."
+
+msgid "validator.max.file"
+msgstr "To ne sme biti večje od  {$max} kilobytov."
+
+msgid "validator.max.numeric"
+msgstr "To ne sme biti večje od {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Jeziki morajo biti določeni z uporabo kod lokalov. Primeri: sl_SI, en_US, "
+"de_DE."
+
+msgid "validator.localeExpected"
+msgstr ""
+"To polje je večjezično. Podane morajo biti vrednosti za vsak podprt jezik."
+
+msgid "validator.locale"
+msgstr "Ta jezik ni sprejet."
+
+msgid "validator.json"
+msgstr "To ni veljaven JSON zapis."
+
+msgid "validator.issn"
+msgstr "To ni veljaven ISSN."
+
+msgid "validator.ip"
+msgstr "To ni veljaven IP naslov."
+
+msgid "validator.integer"
+msgstr "To ni veljavno celo število."
+
+msgid "validator.in"
+msgstr "Izbran {$attribute} je neveljaven."
+
+msgid "validator.image"
+msgstr "To mora biti slika."
+
+msgid "validator.filled"
+msgstr "To polje je obvezno."
+
+msgid "validator.exists"
+msgstr "Izbran {$attribute} je neveljaven."
+
+msgid "validator.email"
+msgstr "To ni veljavne email naslov."
+
+msgid "validator.digits_between"
+msgstr "To mora biti med {$min} in {$max} števkami."
+
+msgid "validator.digits"
+msgstr "To mora biti dolgo {$digits} števk."
+
+msgid "validator.different"
+msgstr "Atributa {$attribute} in {$other} morata biti različna."
+
+msgid "validator.date_format"
+msgstr "To ne ustreza veljavni obliki {$format}."
+
+msgid "validator.date"
+msgstr "To ni veljaven datum."
+
+msgid "validator.currency"
+msgstr "To ni veljavna valuta."
+
+msgid "validator.confirmed"
+msgstr "Potrditev tega polja se ne ujema."
+
+msgid "validator.boolean"
+msgstr "To polje mora biti ali pravilno ali napačno."
+
+msgid "validator.between.array"
+msgstr "To mora biti med {$min} in {$max} postavkami."
+
+msgid "validator.between.string"
+msgstr "To mora biti med {$min} in {$max} znaki."
+
+msgid "validator.between.file"
+msgstr "To mora biti med {$min} in {$max} kilobytov."
+
+msgid "validator.between.numeric"
+msgstr "To mora biti med {$min} in {$max}."
+
+msgid "validator.before"
+msgstr "Ta datum mora biti manjši od {$date}."
+
+msgid "validator.array"
+msgstr "To ni veljavna niz."
+
+msgid "validator.alpha_num"
+msgstr "To lahko vsebuje le črke in številke."
+
+msgid "validator.alpha_dash"
+msgstr "To lahko vsebuje le črke, številke, pomišljaje in podčrtaje."
+
+msgid "validator.alpha"
+msgstr "To lahko vsebuje le črke."
+
+msgid "validator.after"
+msgstr "Ta datum mora biti večji od {$date}."
+
+msgid "validator.active_url"
+msgstr "To ni veljaven URL naslov."
+
+msgid "validator.accepted"
+msgstr "Prosimo sprejmite to postavko.."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"To je neke vrste opomnik za vas, da preverite zdravje vaše revije s pomočjo "
+"uredniškega poročila."
+
+msgid "notification.type.editorialReport"
+msgstr "Povzetek statističnih poročil."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Napačna objava."
+
+msgid "notification.editStageParticipant"
+msgstr "Zadolžitev v tem koraku je bila spremenjena."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Recenzent je bil ponovno dodeljen."
+
+msgid "notification.cancelledReviewer"
+msgstr "Recenzent je bil preklican."
+
+msgid "navigation.skip.announcements"
+msgstr "Preskoči na objave"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Pri tem sodelujočem spremembe niso možne"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Sodelujoči"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Dovolite tej osebi, da spreminja podrobnosti objave."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Dovoljenja"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} jezikov zaključeno"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} v jeziku {$localeName}"
+
+msgid "form.requireId"
+msgstr "Vnesti morate veljaven ID."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Vnesti morate vrednost polja za jezik {$language}."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Obrazen ni bil poslal. Morda ste bili odjavljeni. Prosimo ponovno naložite "
+"stran in poskusite ponovno."
+
+msgid "form.missingRequired"
+msgstr "Polje je obvezno."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Nepričakovana napaka. Lahko ste bili odjavljeni iz sistema. Prosimo ponovno "
+"naložite stran in poskusite ponovno."
+
+msgid "form.errors"
+msgstr ""
+"Obrazec ni bil shranjen, ker je bilo najdenih  {$count} napak. Prosimo "
+"odpravite te napaka in poskusite ponovno."
+
+msgid "form.errorMany"
+msgstr "Prosimo popravite {$count} napak."
+
+msgid "form.errorOne"
+msgstr "Prosimo popravite eno napako."
+
+msgid "form.errorGoTo"
+msgstr "Skoči na naslednjo napako"
+
+msgid "form.errorA11y"
+msgstr "Pojdi na {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Več datotek ne morete naložiti."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Odstrani datoteko"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Ste prepričani, da želite preklicati to nalaganje?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Nalaganje preklicano"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Prekliči nalaganje"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Strežnik je vrnil napako s kodo  {{statusCode}}. Prosimo kontaktirajte "
+"administratorja sistema, če se bo ta napaka še ponavljala."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Datoteke tega tipa ne morete naložiti."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Datoteka je prevelika ({{filesize}}mb). Dateoteke večje od {{maxFilesize}}mb "
+"ne morete naložiti."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Prosimo uporabite rezervni obrazec spodaj za nalaganje datotek."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Vaš brskalnik ne omogoča \"potegni in spusti\" nalaganja datotek."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Tukaj odložite datoteke za nalaganje"
+
+msgid "form.disallowedProp"
+msgstr "Ta lastnost ni dovoljena."
+
+msgid "form.disallowedLocales"
+msgstr "Dovoljeni so le naslednji jeziki: {$languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Predogled trenutno izbrane slike."
+
+msgid "common.upload.restore"
+msgstr "Obnovi na prvotno"
+
+msgid "common.toWithValue"
+msgstr "Do:  {$value}"
+
+msgid "common.submenu"
+msgstr "Podmeni"
+
+msgid "common.selectedPrefix"
+msgstr "Izbrano:"
+
+msgid "common.removeItem"
+msgstr "Odstrani {$item}"
+
+msgid "common.orderDown"
+msgstr "Zmanjšaj pozicijo {$itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Povečaj pozicijo {$itemTitle}"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Datoteka, ki ste jo želeli naložiti, ni bila najdena. Prosimo poskusite jo "
+"ponovno naložiti."
+
+msgid "common.noItemsFound"
+msgstr "Ni najdenih predmetov."
+
+msgid "common.lastActivity"
+msgstr "Zadnja aktivnost zabeležena {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Od: {$value}"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Opišite sliko za obiskovalce, ki imajo le besedilni dostop ali z pomožnimi "
+"napravami. Primer: \"Nastop našega urednika na konferenci\"."

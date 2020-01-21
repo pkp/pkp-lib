@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-01-22 10:35+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"da/>\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionReview.doubleBlind"
 msgstr "Double-blind"
@@ -42,7 +45,7 @@ msgid "editor.submission.production.productionReadyFiles"
 msgstr "Produktionsklare filer"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "Vælg filer nedenfor og send dem videre til bedømmelsestrinnet"
+msgstr "Vælg filer nedenfor og send dem videre til bedømmelsestrinnet."
 
 msgid "editor.submission.newRound"
 msgstr "Ny bedømmelsesrunde"
@@ -84,7 +87,7 @@ msgid "editor.review.personalMessageToReviewer"
 msgstr "E-mail, der skal sendes til bedømmeren"
 
 msgid "editor.review.skipEmail"
-msgstr "Spring e-mail over"
+msgstr "Send ikke e-mail til bedømmer."
 
 msgid "editor.review.importantDates"
 msgstr "Vigtige datoer"
@@ -321,7 +324,7 @@ msgid "editor.review.newReviewRound"
 msgstr "Forlang en ny bedømmelsesrunde"
 
 msgid "editor.review.reviewsAdded"
-msgstr "Bedømmelser er tilføjet mailbesked"
+msgstr "Bedømmelser er tilføjet mailbesked."
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Registrér redaktionel anbefaling"
@@ -412,3 +415,54 @@ msgstr "Anmodning afvist"
 
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "Bedømmeren afviste denne anmodning om bedømmelse."
+
+msgid "reviewer.list.empty"
+msgstr "Der blev ikke fundet nogen bedømmere"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Bedømmelsesanmodningen annulleret"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Der opstod en fejl ved genindsættelsen af bedømmeren. Prøv igen."
+
+msgid "editor.review.reviewerThanked"
+msgstr "Bedømmer takket"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktøren annullerede denne bedømmelsesanmodning."
+
+msgid "editor.review.requestCancelled"
+msgstr "Anmodning annulleret"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Genindsæt bedømmer"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Annuller bedømmer"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Skift beslutning"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Indsendelse accepteret og sendt til bedømmelse."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Sendt til produktion."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Sendt til en ny runde af bedømmelser."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Indsendelse publiceret."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Indsendelse accepteret."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Indsendelse afvist."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Beslutning registreret"
+
+msgid "editor.activityLog"
+msgstr "Aktivitetslog"

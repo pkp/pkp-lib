@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
+"PO-Revision-Date: 2020-01-22 10:35+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/da/>\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:43+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.agencies"
 msgstr "Instanser"
@@ -1720,3 +1723,266 @@ msgstr "Intet er endnu blevet offentliggjort i denne kategori."
 
 msgid "catalog.category.subcategories"
 msgstr "Underkategorier"
+
+msgid "publication.wordCount"
+msgstr "Ordantal: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Resuméet er for langt. Det skal være på {$limit} ord eller derunder. Det er "
+"i øjeblikket {$count} ord langt."
+
+msgid "publication.version.details"
+msgstr "Publikationsdetaljer for version {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Er du sikker på, at du vil oprette en ny version?"
+
+msgid "publication.version.all"
+msgstr "Aller versioner"
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+"Er du sikker på, at du ikke vil have dette planlagt til senere publicering?"
+
+msgid "publication.unschedule"
+msgstr "Ikke planlagt"
+
+msgid "publication.unpublish.confirm"
+msgstr "Er du sikker på, at du ikke ønsker, at dette skal publiceres?"
+
+msgid "publication.unpublish"
+msgstr "Ikke publiceret"
+
+msgid "publication.titleAbstract.success"
+msgstr "Titlen og resuméet er blevet opdateret."
+
+msgid "publication.titleAbstract"
+msgstr "Titel & Resumé"
+
+msgid "publication.status.unscheduled"
+msgstr "Ikke planlagt"
+
+msgid "publication.status.unpublished"
+msgstr "Ikke publiceret"
+
+msgid "publication.status.scheduled"
+msgstr "Planlagt"
+
+msgid "publication.status.published"
+msgstr "Publiceret"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Indsendelsen skal være under manuskriptredigerings- eller "
+"produktionstrinnet, før det kan offentliggøres."
+
+msgid "publication.required.declined"
+msgstr "En afvist indsendelse kan ikke offentliggøres."
+
+msgid "publication.publish.success"
+msgstr "Publikationsstatus er blevet ændret."
+
+msgid "publication.publish.requirements"
+msgstr "Følgende krav skal være opfyldt, før dette kan offentliggøres."
+
+msgid "publication.publish"
+msgstr "Publicér"
+
+msgid "publication.publicationLicense.success"
+msgstr "Oplysninger om ophavsret og licens er blevet opdateret."
+
+msgid "publication.publicationLicense"
+msgstr "Tilladelser & offentliggørelse"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Identifikatorerne er blevet opdateret."
+
+msgid "publication.metadata.success"
+msgstr "Metadata er blevet opdateret."
+
+msgid "publication.invalidSubmission"
+msgstr "Indsendelsen til denne publikation kunne ikke findes."
+
+msgid "publication.event.versionUnpublished"
+msgstr "En version blev fjernet fra publikationen."
+
+msgid "publication.event.versionScheduled"
+msgstr "En ny version var planlagt til publicering."
+
+msgid "publication.event.versionPublished"
+msgstr "En ny version blev publiceret."
+
+msgid "publication.event.versionCreated"
+msgstr "En ny version blev oprettet."
+
+msgid "publication.event.unpublished"
+msgstr "Indsendelsen blev ikke publiceret."
+
+msgid "publication.event.scheduled"
+msgstr "Indsendelsen var planlagt til publicering."
+
+msgid "publication.event.published"
+msgstr "Indsendelsen blev publiceret."
+
+msgid "publication.editDisabled"
+msgstr "Denne version er blevet publiceret og kan ikke redigeres."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD, som f.eks. 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Dato publiceret"
+
+msgid "publication.createVersion"
+msgstr "Opret ny version"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Copyright-året indstilles automatisk, når dette offentliggøres i et nummer."
+
+msgid "publication.contributors"
+msgstr "Bidragydere"
+
+msgid "publication.citations.success"
+msgstr "Referencerne er blevet opdateret."
+
+msgid "submission.publication"
+msgstr "Publikation"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Bedømmelse annulleret"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Bedømmelsesopgave"
+
+msgid "submission.list.empty"
+msgstr "Der blev ikke fundet nogen indsendelser."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Hvis du forlader denne drøftelse, får du ikke længere besked om nye "
+"meddelelser. Vil du forlade drøftelsen?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Forlad drøftelse"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Dette arbejde er licenseret under en <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
+"Commons Attribution-ShareAlike 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Dette arbejde er licenseret under en <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Dette arbejde er licenseret under en <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Attribution-NoDerivatives 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Dette arbejde er licenseret under en <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Dette arbejde er licenseret under en <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
+"Commons Attribution-NonCommercial 3.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Dette arbejde er licenseret under en <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 International "
+"License</a>.</p>"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} har afsluttet bedømmelsen under runde {$round}-bedømmelsen i "
+"forbindelse med indsendelse {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktør {$userName} har bekræftet en bedømmelse fra  {$round}-bedømmelsen i "
+"forbindelse med indsendelse {$submissionId}."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Er du sikker på, at du vil have, at forfatterne til denne indsendelse skal "
+"kunne redigere indsendelsens metadata på dette trin?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Er du sikker på, at du vil have, at forfatterne til denne indsendelse ikke "
+"skal kunneredigere indsendelsens metadata på dette trin?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Tillade redigering af metadata"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Afvis redigering af metadata"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Redigér opgave"
+
+msgid "submission.status.scheduled"
+msgstr "Planlagt"
+
+msgid "submissions.inactive"
+msgstr "Inaktiv i {$days} dage"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Dette er en forældet version offentliggjort d. {$datePublished}. Læs den <a "
+"href=\"{$urlRecentVersion}\">seneste version</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versioner"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Opdateret d. {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Forfatterne har nu ikke lov til at redigere metadata, når de indsendes i "
+"trin {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Forfatterne har nu lov til at redigere metadata, når de indsendes i trin "
+"{stage}."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Resumé"
+
+msgid "author.publicationNotFound"
+msgstr "Publikationen til denne forfatter blev ikke fundet."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Forfatterne til denne publikation kan ikke redigeres, fordi publikationen "
+"allerede er offentliggjort."

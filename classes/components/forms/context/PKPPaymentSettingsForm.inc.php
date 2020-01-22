@@ -47,7 +47,14 @@ class PKPPaymentSettingsForm extends FormComponent {
 		}
 
 		// Ensure payment method plugins can hook in
-		\PluginRegistry::loadCategory('paymethod', true);
+		$paymentPlugins = \PluginRegistry::loadCategory('paymethod', true);
+		$pluginList = array();
+		foreach ($paymentPlugins as $plugin) {
+			$pluginList[] = [
+				'value' => $plugin->getName(),
+				'label' => $plugin->getDisplayName(),
+			];
+		}
 
 		$this->addGroup([
 				'id' => 'setup',
@@ -66,6 +73,13 @@ class PKPPaymentSettingsForm extends FormComponent {
 				'options' => $currencies,
 				'showWhen' => 'paymentsEnabled',
 				'value' => $context->getData('currency'),
+				'groupId' => 'setup',
+			]))
+			->addField(new FieldSelect('paymentPluginName', [
+				'label' => __('plugins.categories.paymethod'),
+				'options' => $pluginList,
+				'showWhen' => 'paymentsEnabled',
+				'value' => $context->getData('paymentPluginName'),
 				'groupId' => 'setup',
 			]));
 	}

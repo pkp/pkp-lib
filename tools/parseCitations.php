@@ -57,7 +57,7 @@ class CitationsParsingTool extends CommandLineTool {
 				while ($context = $contexts->next()) {
 					$submissions = $submissionDao->getByContextId($context->getId());
 					while ($submission = $submissions->next()) {
-						$this->__parseSubmission($submission);
+						$this->_parseSubmission($submission);
 					}
 				}
 				break;
@@ -70,7 +70,7 @@ class CitationsParsingTool extends CommandLineTool {
 					}
 					$submissions = $submissionDao->getByContextId($contextId);
 					while ($submission = $submissions->next()) {
-						$this->__parseSubmission($submission);
+						$this->_parseSubmission($submission);
 					}
 				}
 				break;
@@ -81,7 +81,7 @@ class CitationsParsingTool extends CommandLineTool {
 						printf("Error: Skipping $submissionId. Unknown submission.\n");
 						continue;
 					}
-					$this->__parseSubmission($submission);
+					$this->_parseSubmission($submission);
 				}
 				break;
 			default:

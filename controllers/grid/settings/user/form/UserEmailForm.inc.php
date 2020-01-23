@@ -65,8 +65,9 @@ class UserEmailForm extends Form {
 
 	/**
 	 * Send the email
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$toUser = $userDao->getById($this->userId);
 		$request = Application::get()->getRequest();
@@ -80,6 +81,9 @@ class UserEmailForm extends Form {
 		$email->setSubject($this->getData('subject'));
 		$email->setBody($this->getData('message'));
 		$email->assignParams();
+
+		parent::execute(...$functionArgs);
+
 		if (!$email->send()) {
 			import('classes.notification.NotificationManager');
 			$notificationMgr = new NotificationManager();

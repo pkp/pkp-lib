@@ -79,8 +79,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	/**
 	 * @copydoc PKPNotificationOperationManager::getNotificationMessage()
 	 */
-	public function getNotificationContents($request, $notification) : void
-	{
+	public function getNotificationContents($request, $notification) {
 		$locale = AppLocale::getLocale();
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplate = $emailTemplateDao->getEmailTemplate('STATISTICS_REPORT_NOTIFICATION', $locale, $notification->getContextId());

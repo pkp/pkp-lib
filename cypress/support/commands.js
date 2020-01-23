@@ -366,3 +366,63 @@ Cypress.Commands.add('waitJQuery', function() {
 Cypress.Commands.add('consoleLog', message => {
 	cy.task('consoleLog', message);
 });
+
+Cypress.Commands.add('checkGraph', (totalAbstractViews, abstractViews, files, totalFileViews, fileViews) => {
+	const today = new Date(),
+		yesterday = (d => new Date(d.setDate(d.getDate()-1)) )(new Date),
+		daysAgo90 = (d => new Date(d.setDate(d.getDate()-91)) )(new Date),
+		daysAgo10 = (d => new Date(d.setDate(d.getDate()-10)) )(new Date),
+		daysAgo50 = (d => new Date(d.setDate(d.getDate()-50)) )(new Date),
+		d = daysAgo50;
+	cy.get('button.pkpDateRange__button').click();
+	cy.get('button:contains("Last 90 days")').click();
+	cy.waitJQuery();
+	cy.get('span:contains("' + daysAgo90.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + ' — ' + yesterday.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + '")');
+	cy.get('button.pkpDateRange__button').click();
+	cy.get('.pkpDateRange__input--start');
+	cy.get('input.pkpDateRange__input--start').clear().type(daysAgo50.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}));
+	cy.get('input.pkpDateRange__input--end').clear().type(daysAgo10.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}));
+	cy.get('button:contains("Apply")').click();
+	cy.get('.pkpDateRange__options').should('not.exist');
+	cy.get('span:contains("' + daysAgo50.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + ' — ' + daysAgo10.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + '")');
+
+	// Test that the hidden timeline table for screen readers is getting populated
+	// with rows of content.
+	Cypress.$('.pkpStats__graph table.-screenReader').removeClass('-screenReader');
+	cy.get('div.pkpStats__graph  table caption:contains("' + totalAbstractViews + '")');
+	cy.get('div.pkpStats__graph table thead tr th:contains("' + abstractViews + '")');
+	while (d < daysAgo10) {
+		var dateString = d.toLocaleDateString(['en-CA'], {timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric'});
+		// PHP quirk: The date format specifier %e front-pads single-digit days with a space and there
+		// doesn't seem to be a standard way to avoid it. (Apparently %-e works but not documented.)
+		dateString = dateString.replace(/^([^ ]*) ([^ ]), ([^ ]*)$/, '$1  $2, $3');
+		cy.get('div.pkpStats__graph table tbody tr th:contains("' + dateString + '")');
+		cy.log(d.toLocaleDateString(['en-CA'], {timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric'}));
+		d.setDate(d.getDate()+1);
+	};
+	cy.get('div.pkpStats__graphSelectors button:contains("Monthly")').click();
+});
+
+Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
+	cy.get('h2:contains("' + articleDetails + '")');
+	cy.get('div:contains("2 of 2 ' + articles + '")');
+	authors.forEach(author => {
+		cy.get('div.pkpStats__table td.pkpTable__cell span:contains("' + author + '")');
+	});
+	cy.get('input.pkpSearch__input').type('shouldreturnzeromatches', {delay: 0});
+	cy.get('div:contains("No ' + articles + ' were found with usage statistics matching these parameters.")');
+	cy.get('div:contains("0 of 0 ' + articles + '")');
+	cy.get('input.pkpSearch__input').clear().type(authors[0], {delay: 0});
+	cy.get('div.pkpStats__table td.pkpTable__cell span:contains("' + authors[0] + '")');
+	cy.get('div:contains("1 of 1 ' + articles + '")');
+	cy.get('input.pkpSearch__input').clear();
+});
+
+Cypress.Commands.add('checkFilters', filters => {
+	cy.get('button:contains("Filters")').click();
+	filters.forEach(filter => {
+		cy.get('div.pkpStats__filterSet button:contains("' + filter + '")');
+	});
+	cy.get('button:contains("Filters")').click();
+});
+

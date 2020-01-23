@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-01-23 17:10+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
+"\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Din anmodning blev ikke accepteret. Det kan skyldes, at dit login er udløbet. Prøv at genindlæse siden og prøv igen."
@@ -52,3 +55,101 @@ msgstr "Din anmodning var ikke gyldig. DateStart kan ikke være senere end dateE
 
 msgid "api.stats.400.wrongTimeSegmentDaily"
 msgstr "Din anmodning var ikke gyldig. Tidssegmentet 'daily' kan kun bruges sammen med et datointerval (dateStart og datoEnd) inden for de sidste 90 dage."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Det {$vocab} vokabularium understøttes ikke."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Den {$locale} lokalitet understøttes ikke."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Det aktive tema, {$themePluginPath}, er ikke aktiveret og er muligvis ikke "
+"installeret."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Filen kunne ikke uploades på grund af en serverkonfigurationsfejl. Kontakt "
+"systemadministratoren."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Filer, der er større end {$maxSize}, kan ikke uploades."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "En eller flere filer kunne ikke uploades."
+
+#, fuzzy
+msgid "api.temporaryFiles.400.noUpload"
+msgstr ""
+"Ingen fil af dem, der skal uploades, blev fundet på baggrund af anmodningen."
+
+#, fuzzy
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Dette grænsepunkt er ikke tilgængeligt fra en kontekst. Det skal tilgås fra "
+"hele webstedets namespace."
+
+#, fuzzy
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Din anmodning var ikke gyldig. TimelineInterval  skal være 'dag' eller "
+"'måned'."
+
+#, fuzzy
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Din anmodning var ikke gyldig. OrderDirection skal være `desc` or `asc`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Slutdatoen kan ikke være senere end i går."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Startdatoen kan ikke være tidligere end 2001-01-01."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Du har ikke tilladelse til at redigere denne publikation."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Det offentlige filkatalog blev ikke fundet, eller filer kan ikke gemmes i "
+"det. Kontakt din administrator for at løse dette problem."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Du har ikke nok plads i dit brugerkatalog. Den fil, du uploader, er på "
+"{$fileUploadSize} kb, og du har {$dirSizeLeft} kb tilbage."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Du har ikke tilladelse til at uploade filer."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Filen, du uploadede, stemte ikke overens med filtypenavnet. Dette kan ske, "
+"når en fil er blevet omdøbt til en inkompatibel type, for eksempel når "
+"photo.png ændres til photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Det billede, du uploadede, er ikke gyldigt."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Du kan kun uploade følgende filtyper:  {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Du skal trække denne publikation tilbage, før du kan slette den."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Du kan ikke ændre status direkte via API'en. I stedet skal du bruge / "
+"publicere og / træk tilbage grænsepunkterne."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Du kan ikke redigere denne publikation, da den allerede er publiceret."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Den publikation som du ønsker at trække tilbage er ikke publiceret."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Den publikation, du vil udgive, er allerede publiceret."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Den e-mail-skabelon, du anmodede om, blev ikke fundet."

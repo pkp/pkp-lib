@@ -109,7 +109,7 @@ class CurrencyDAO extends DAO {
 	 * @param $row array
 	 * @return Currency
 	 */
-	function &_returnCurrencyFromRow($codeAlpha, &$entry) {
+	function _returnCurrencyFromRow($codeAlpha, $entry) {
 		$currency = $this->newDataObject();
 		$currency->setCodeAlpha($codeAlpha);
 		$currency->setName($entry[0]);

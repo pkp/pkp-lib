@@ -33,8 +33,7 @@ abstract class BaseQueryBuilder {
 	/**
 	 * bootstrap query builder
 	 */
-	protected function bootstrap() : void
-	{
+	protected function bootstrap() {
 		// Map valid OJS3 config options to Illuminate database drivers
 		$driver = strtolower(Config::getVar('database', 'driver'));
 		if (substr($driver, 0, 8) === 'postgres') {

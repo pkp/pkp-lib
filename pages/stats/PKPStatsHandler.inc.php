@@ -192,8 +192,7 @@ class PKPStatsHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	public function editorialReport(array $args, PKPRequest $request) : void
-	{
+	public function editorialReport(array $args, PKPRequest $request) {
 		$dispatcher = $request->getDispatcher();
 		$context = $request->getContext();
 		$user = $request->getUser();

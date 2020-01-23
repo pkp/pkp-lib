@@ -66,8 +66,7 @@ class EditorialReportComponentHandler extends PKPHandler {
 	 *
 	 * @param $args array Configuration params
 	 */
-	public function init(array $args = []) : void
-	{
+	public function init(array $args = []) {
 		foreach ($args as $key => $value) {
 			$property = '_' . $key;
 			if (property_exists($this, $property)) {

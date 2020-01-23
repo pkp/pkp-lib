@@ -50,8 +50,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * @param $context DateTimeInterface Start date filter for the ranged statistics
 	 * @param $context DateTimeInterface End date filter for the ranged statistics
 	 */
-	public function initialize(Context $context, DateTimeInterface $dateStart, DateTimeInterface $dateEnd) : void
-	{
+	public function initialize(Context $context, DateTimeInterface $dateStart, DateTimeInterface $dateEnd) {
 		$this->_context = $context;
 		$this->_dateStart = $dateStart;
 		$this->_dateEnd = $dateEnd;

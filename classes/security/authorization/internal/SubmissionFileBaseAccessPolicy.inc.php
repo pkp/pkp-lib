@@ -78,7 +78,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy {
 		$cache =& $this->_getCache();
 		if (!isset($cache[$cacheId])) {
 			// Cache miss
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			if ($revision) {
 				$cache[$cacheId] = $submissionFileDao->getRevision($fileId, $revision);
 			} else {

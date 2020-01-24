@@ -48,7 +48,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$languages = $this->build($publicationId);
-		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
 		$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
 		while ($languageEntry = $submissionLanguages->next()) {
 			$language = $languageEntry->getLanguage();
@@ -93,8 +93,8 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertLanguages($languages, $publicationId, $deleteFirst = true) {
-		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
-		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO');
+		$languageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $languageDao SubmissionLanguageDAO */
+		$submissionLanguageEntryDao = DAORegistry::getDAO('SubmissionLanguageEntryDAO'); /* @var $submissionLanguageEntryDao SubmissionLanguageEntryDAO */
 		$currentLanguages = $this->build($publicationId);
 
 		if ($deleteFirst) {

@@ -74,7 +74,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		if (isset($args['count'])) unset($args['count']);
 		if (isset($args['offset'])) unset($args['offset']);
 		$publicationQO = $this->getQueryBuilder($args)->getQuery();
-		$publicationDao = DAORegistry::getDAO('PublicationDAO');
+		$publicationDao = DAORegistry::getDAO('PublicationDAO'); /* @var $publicationDao PublicationDAO */
 		$result = $publicationDao->retrieveRange($publicationQO->toSql(), $publicationQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $publicationDao, '_fromRow');
 

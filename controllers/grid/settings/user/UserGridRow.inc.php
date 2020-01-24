@@ -63,7 +63,7 @@ class UserGridRow extends GridRow {
 				$actionArgs['newUserId'] = $rowId;
 
 				// Verify that the old user exists
-				$userDao = DAORegistry::getDAO('UserDAO');
+				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$oldUser = $userDao->getById($this->getOldUserId());
 
 				// Don't merge a user in itself

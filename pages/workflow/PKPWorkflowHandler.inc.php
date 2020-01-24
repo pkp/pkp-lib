@@ -466,7 +466,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		// cannot be recorded.
 		if ($reviewRoundId) {
 			$actionArgs['reviewRoundId'] = $reviewRoundId;
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 			$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 			$reviewRound = $reviewRoundDao->getById($reviewRoundId);
 		} else {
@@ -474,7 +474,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		// If there is an editor assigned, retrieve stage decisions.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
 		$dispatcher = $request->getDispatcher();
 		$user = $request->getUser();
@@ -496,7 +496,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		// see if the user is manager, and
 		// if the group is recommendOnly
 		if (!$recommendOnly && !$makeDecision) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$userGroups = $userGroupDao->getByUserId($user->getId(), $request->getContext()->getId());
 			while ($userGroup = $userGroups->next()) {
 				if (in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER))) {
@@ -515,7 +515,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$lastRecommendation = $allRecommendations = null;
 		if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
 			import('classes.workflow.EditorDecisionActionsManager');
-			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 			$recommendationOptions = (new EditorDecisionActionsManager())->getRecommendationOptions($stageId);
 			// If this is a review stage and the user has "recommend only role"
 			if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
@@ -600,7 +600,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		}
 
 		import('lib.pkp.classes.workflow.WorkflowStageDAO');
-		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /* @var $workflowStageDao WorkflowStageDAO */
 		$hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
 		$lastDecision = null;
 		switch( $submission->getStatus() ) {
@@ -728,7 +728,7 @@ abstract class PKPWorkflowHandler extends Handler {
 	 */
 	protected function notificationOptionsByStage($user, $stageId, $contextId) {
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 
 		$editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
 

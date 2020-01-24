@@ -46,12 +46,12 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 		// Check if it's associated with a note.
 		if ($submissionFile->getAssocType() != ASSOC_TYPE_NOTE) return AUTHORIZATION_DENY;
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($submissionFile->getAssocId());
 		if (!is_a($note, 'Note')) return AUTHORIZATION_DENY;
 
 		if ($note->getAssocType() != ASSOC_TYPE_QUERY) return AUTHORIZATION_DENY;
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($note->getAssocId());
 		if (!$query) return AUTHORIZATION_DENY;
 

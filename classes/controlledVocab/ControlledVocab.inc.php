@@ -77,7 +77,7 @@ class ControlledVocab extends DataObject {
 	 * @return array $controlledVocabEntryId => name
 	 */
 	function enumerate($settingName = 'name') {
-		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		return $controlledVocabDao->enumerate($this->getId(), $settingName);
 	}
 }

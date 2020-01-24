@@ -223,7 +223,7 @@ class EmailLogDAO extends DAO {
 		preg_match_all($pattern, $recipients, $matches);
 		if (!isset($matches[0])) return;
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		foreach ($matches[0] as $emailAddress) {
 			$user = $userDao->getUserByEmail($emailAddress);
 			if (is_a($user, 'User')) {

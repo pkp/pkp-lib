@@ -103,7 +103,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 				return $json->getString();
 			case 'import':
 				$temporaryFileId = $request->getUserVar('temporaryFileId');
-				$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+				$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 				$user = $request->getUser();
 				$temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
 				if (!$temporaryFile) {
@@ -173,7 +173,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @return string XML contents representing the supplied user IDs.
 	 */
 	function exportAllUsers($context, $user, &$filter = null) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$users = $userGroupDao->getUsersByContextId($context->getId());
 		if (!$filter) {
 			$filter = $this->getUserImportExportFilter($context, $user, false);
@@ -191,7 +191,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @return string XML contents representing the supplied user IDs.
 	 */
 	function exportUsers($ids, $context, $user, &$filter = null) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$xml = '';
 
 		if (!$filter) {
@@ -239,7 +239,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin {
 	 * @return Filter
 	 */
 	function getUserImportExportFilter($context, $user, $isImport = true) {
-		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 
 		if ($isImport) {
 			$userFilters = $filterDao->getObjectsByGroup('user-xml=>user');

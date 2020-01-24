@@ -69,7 +69,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 
 		// Determine if the current user can use any custom templates defined.
 		$user = $request->getUser();
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
 		foreach ($userRoles as $userRole) {
 			if (in_array($userRole->getId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT))) {
@@ -157,7 +157,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 
 		$dispatcher = $request->getDispatcher();
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($userId);
 		if (isset($user)) {
 			$email->addRecipient($user->getEmail(), $user->getFullName());
@@ -203,7 +203,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			}
 
 			// Create a query
-			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 			$query = $queryDao->newDataObject();
 			$query->setAssocType(ASSOC_TYPE_SUBMISSION);
 			$query->setAssocId($submission->getId());
@@ -219,7 +219,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 			}
 
 			// Create a head note
-			$noteDao = DAORegistry::getDAO('NoteDAO');
+			$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 			$headNote = $noteDao->newDataObject();
 			$headNote->setUserId($request->getUser()->getId());
 			$headNote->setAssocType(ASSOC_TYPE_QUERY);

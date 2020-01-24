@@ -30,7 +30,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 	 */
 	function __construct($contextId, $fileId) {
 		parent::__construct('controllers/grid/settings/library/form/editFileForm.tpl', $contextId);
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$this->libraryFile = $libraryFileDao->getById($fileId);
 
 		if (!$this->libraryFile || $this->libraryFile->getContextId() != $this->contextId) {
@@ -57,7 +57,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		$this->libraryFile->setType($this->getData('fileType'));
 		$this->libraryFile->setPublicAccess($this->getData('publicAccess'));
 
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFileDao->updateObject($this->libraryFile);
 	}
 }

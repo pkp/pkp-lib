@@ -52,7 +52,7 @@ class ReviewReminderForm extends Form {
 	 */
 	function initData() {
 		$request = Application::get()->getRequest();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $request->getUser();
 		$context = $request->getContext();
 
@@ -130,7 +130,7 @@ class ReviewReminderForm extends Form {
 	 * Save review assignment
 	 */
 	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$submissionDao = Application::getSubmissionDAO();
 		$request = Application::get()->getRequest();
 
@@ -174,7 +174,7 @@ class ReviewReminderForm extends Form {
 		// update the ReviewAssignment with the reminded and modified dates
 		$reviewAssignment->setDateReminded(Core::getCurrentDate());
 		$reviewAssignment->stampModified();
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 	}
 

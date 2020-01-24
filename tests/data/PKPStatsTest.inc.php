@@ -32,7 +32,7 @@ abstract class PKPStatsTest extends WebTestCase {
 		// Generate some usage statistics for the last 90 days
 		import('lib.pkp.classes.submission.PKPSubmission');
 		import('classes.statistics.StatisticsHelper');
-		$metricsDao = DAORegistry::getDAO('MetricsDAO');
+		$metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
 		$submissionIds = array_map(function($submission) {
 				return $submission->getId();
 			},

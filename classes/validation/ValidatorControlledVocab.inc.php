@@ -27,7 +27,7 @@ class ValidatorControlledVocab extends Validator {
 	 * @param $assocId int
 	 */
 	function __construct($symbolic, $assocType, $assocId) {
-		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		$controlledVocab = $controlledVocabDao->getBySymbolic($symbolic, $assocType, $assocId);
 		if ($controlledVocab) $this->_acceptedValues = array_keys($controlledVocab->enumerate());
 		else $this->_acceptedValues = array();

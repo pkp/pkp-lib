@@ -389,11 +389,11 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	function checkDuplicate($pubId, $pubObjectType, $excludeId, $contextId) {
 		foreach ($this->getPubObjectTypes() as $type) {
 			if ($type === 'Publication') {
-				$typeDao = DAORegistry::getDAO('PublicationDAO');
+				$typeDao = DAORegistry::getDAO('PublicationDAO'); /* @var $typeDao PublicationDAO */
 			} elseif ($type === 'Representation') {
 				$typeDao = Application::getRepresentationDAO();
 			} elseif ($type === 'SubmissionFile') {
-				$typeDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$typeDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $typeDao SubmissionFileDAO */
 			}
 			$excludeTypeId = $type === $pubObjectType ? $excludeId : null;
 			if (isset($typeDao) && $typeDao->pubIdExists($this->getPubIdType(), $pubId, $excludeTypeId, $contextId)) {

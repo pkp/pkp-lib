@@ -66,7 +66,7 @@ abstract class ReviewerNotifyActionForm extends Form {
 		import('lib.pkp.classes.mail.SubmissionMailTemplate');
 		$template = new SubmissionMailTemplate($submission, $this->getEmailKey());
 		if ($template) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$reviewer = $userDao->getById($reviewerId);
 			$user = $request->getUser();
 
@@ -94,7 +94,7 @@ abstract class ReviewerNotifyActionForm extends Form {
 		$mail = new SubmissionMailTemplate($submission, $this->getEmailKey(), null, null, false);
 
 		if ($mail->isEnabled() && !$this->getData('skipEmail')) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$reviewerId = (int) $this->getData('reviewerId');
 			$reviewer = $userDao->getById($reviewerId);
 			$mail->addRecipient($reviewer->getEmail(), $reviewer->getFullName());

@@ -51,7 +51,7 @@ class IdentityForm extends BaseProfileForm {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$user = $this->getUser();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$templateMgr->assign(array(
 			'username' => $user->getUsername(),
 		));

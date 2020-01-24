@@ -211,7 +211,7 @@ class QueryNotesGridHandler extends GridHandler {
 	 */
 	function deleteNote($args, $request) {
 		$query = $this->getQuery();
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($request->getUserVar('noteId'));
 		$user = $request->getUser();
 

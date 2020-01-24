@@ -57,7 +57,7 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
 			// Make sure the file is visible. Unless file is included in an open review.
 			if (!$submissionFile->getViewable()){
 				if ($submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT){
-					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 					$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getAssocId());
 					if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
 						return AUTHORIZATION_DENY;

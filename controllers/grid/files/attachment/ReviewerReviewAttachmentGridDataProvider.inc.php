@@ -97,7 +97,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
 		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
 		$submission = $this->getSubmission();
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getById($this->_getReviewId());
 
 		return new AddFileLinkAction(

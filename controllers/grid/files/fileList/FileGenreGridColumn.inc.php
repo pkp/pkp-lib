@@ -43,7 +43,7 @@ class FileGenreGridColumn extends GridColumn {
 		assert(is_a($submissionFile, 'SubmissionFile'));
 
 		// Retrieve the genre label for the submission file.
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($submissionFile->getGenreId());
 
 		// If no label exists (e.g. for review attachments)

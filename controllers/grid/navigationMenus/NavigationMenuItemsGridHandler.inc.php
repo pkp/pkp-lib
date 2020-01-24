@@ -57,7 +57,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 
 		$navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
 		if ($navigationMenuItemId) {
-			$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+			$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 			$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
 			if (!$navigationMenuItem ||  $navigationMenuItem->getContextId() != $contextId) {
 				return false;
@@ -124,7 +124,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		return $navigationMenuItemDao->getByContextId($contextId);
 	}
 
@@ -243,7 +243,7 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		$navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId, $contextId);
 		if ($navigationMenuItem) {
 			$navigationMenuItemDao->deleteObject($navigationMenuItem);

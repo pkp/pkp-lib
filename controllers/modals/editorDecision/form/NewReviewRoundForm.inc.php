@@ -54,7 +54,7 @@ class NewReviewRoundForm extends EditorDecisionForm {
 		$editorAction->recordDecision($request, $submission, SUBMISSION_EDITOR_DECISION_RESUBMIT, $actionLabels, $reviewRound);
 
 		// Update the review round status.
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRoundDao->updateStatus($reviewRound, REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW);
 
 		// Create a new review round.

@@ -71,7 +71,7 @@ class UploadPluginForm extends Form {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 		$temporaryFileId = $this->getData('temporaryFileId');
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 		$temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
 
 		$pluginHelper = new PluginHelper();

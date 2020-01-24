@@ -541,7 +541,7 @@ class SubmissionFile extends PKPFile {
 		// Generate a human readable time stamp.
 		$timestamp = date('Ymd', strtotime($this->getDateUploaded()));
 
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($this->getGenreId());
 
 		// Make the file name unique across all files and file revisions.
@@ -616,7 +616,7 @@ class SubmissionFile extends PKPFile {
 	 * @return string
 	 */
 	function _generateName($anonymous = false) {
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($this->getGenreId());
 		$userDAO = DAORegistry::getDAO('UserDAO');
 		$user = $userDAO->getById($this->getUploaderUserId());

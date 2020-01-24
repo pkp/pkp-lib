@@ -36,7 +36,7 @@ class CategoryGridCategoryRow extends GridCategoryRow {
 			$category = $this->getData();
 			$router = $request->getRouter();
 
-			$categoryDao = DAORegistry::getDAO('CategoryDAO');
+			$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 			$childCategories = $categoryDao->getByParentId($categoryId);
 			if ($childCategories->getCount() == 0) {
 				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');

@@ -66,7 +66,7 @@ class NewNoteForm extends Form {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$templateMgr->assign(array(
 			'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId()),
 			'submitNoteText' => $this->getSubmitNoteLocaleKey(),
@@ -92,7 +92,7 @@ class NewNoteForm extends Form {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->newDataObject();
 
 		$note->setUserId($user->getId());

@@ -759,7 +759,7 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			case SUBMISSION_FILE_REVIEW_FILE:
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getFileId());
 				return $reviewRound->getStageId();
 			case SUBMISSION_FILE_FINAL:
@@ -770,9 +770,9 @@ class SubmissionFileDAO extends DAO implements PKPPubIdPluginDAO {
 			case SUBMISSION_FILE_DEPENDENT:
 				return WORKFLOW_STAGE_ID_PRODUCTION;
 			case SUBMISSION_FILE_QUERY:
-				$noteDao = DAORegistry::getDAO('NoteDAO');
+				$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 				$note = $noteDao->getById($submissionFile->getAssocId());
-				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 				$query = $queryDao->getById($note->getAssocId());
 				return $query?$query->getStageId():null;
 		}

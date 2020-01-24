@@ -149,7 +149,7 @@ class StageAssignmentDAO extends DAO {
 	 */
 	function build($submissionId, $userGroupId, $userId, $recommendOnly = false, $canChangeMetadata = null) {
 		if (!isset($canChangeMetadata)) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 			/** @var $userGroup UserGroup */
 			$userGroup = $userGroupDao->getById($userGroupId);

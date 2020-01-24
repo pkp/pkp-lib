@@ -86,7 +86,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 			$revisionNode->setAttribute('source', $sourceFileId . '-' . $submissionFile->getSourceRevision());
 		}
 
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($submissionFile->getGenreId());
 		if ($genre) {
 			$revisionNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
@@ -102,7 +102,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$revisionNode->setAttribute('filesize', $submissionFile->getFileSize());
 		$revisionNode->setAttribute('filetype', $submissionFile->getFileType());
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$uploaderUser = $userDao->getById($submissionFile->getUploaderUserId());
 		assert(isset($uploaderUser));
 		$revisionNode->setAttribute('uploader', $uploaderUser->getUsername());
@@ -114,7 +114,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		if ($submissionFile->getFileStage() == SUBMISSION_FILE_DEPENDENT && $submissionFile->getAssocType() == ASSOC_TYPE_SUBMISSION_FILE) {
 			$fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
 			$fileRefNode->setAttribute('id', $submissionFile->getAssocId());
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$latestRevision = $submissionFileDao->getLatestRevisionNumber($submissionFile->getAssocId());
 			$fileRefNode->setAttribute('revision', $latestRevision);
 			$revisionNode->appendChild($fileRefNode);

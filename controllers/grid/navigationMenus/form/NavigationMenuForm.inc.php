@@ -79,7 +79,7 @@ class NavigationMenuForm extends Form {
 			$contextId = $context->getId();
 		}
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		$navigationMenuItems = $navigationMenuItemDao->getByContextId($contextId)
 				->toArray();
 		$assignedItems = $navigationMenuItemDao->getByMenuId($this->_navigationMenuId)
@@ -123,7 +123,7 @@ class NavigationMenuForm extends Form {
 	function initData() {
 
 		if (isset($this->_navigationMenuId) && $this->_navigationMenuId != 0) {
-			$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
+			$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenusDao NavigationMenuDAO */
 			$navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
 
 			if ($navigationMenu != null) {
@@ -156,8 +156,8 @@ class NavigationMenuForm extends Form {
 	function execute(...$functionParams) {
 		parent::execute(...$functionParams);
 
-		$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO');
-		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+		$navigationMenusDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenusDao NavigationMenuDAO */
+		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /* @var $navigationMenuItemAssignmentDao NavigationMenuItemAssignmentDAO */
 
 		if (isset($this->_navigationMenuId)) {
 			$navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
@@ -202,7 +202,7 @@ class NavigationMenuForm extends Form {
 	 * @copydoc Form::validate
 	 */
 	function validate($callHooks = true) {
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 
 		$navigationMenu = $navigationMenuDao->getByTitle($this->_contextId, $this->getData('title'));
 		if (isset($navigationMenu) && $navigationMenu->getId() != $this->_navigationMenuId) {

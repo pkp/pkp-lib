@@ -273,7 +273,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 				$supportedLocales = $site->getSupportedLocales();
 				$supportedLocales = array_diff($supportedLocales, array($locale));
 				$site->setSupportedLocales($supportedLocales);
-				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 				$siteDao->updateObject($site);
 
 				$this->_updateContextLocaleSettings($request);
@@ -366,10 +366,10 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		if (array_key_exists($rowId, $gridData)) {
 			if (AppLocale::isLocaleValid($rowId)) {
 				$oldSitePrimaryLocale = $site->getPrimaryLocale();
-				$userDao = DAORegistry::getDAO('UserDAO');
+				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$userDao->changeSitePrimaryLocale($oldSitePrimaryLocale, $rowId);
 				$site->setPrimaryLocale($rowId);
-				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 				$siteDao->updateObject($site);
 
 				$notificationManager->createTrivialNotification(
@@ -416,7 +416,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler {
 		$site = $request->getSite();
 		$site->setSupportedLocales($newSupportedLocales);
 
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$siteDao->updateObject($site);
 
 		$this->_updateContextLocaleSettings($request);

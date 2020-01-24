@@ -60,7 +60,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 
 		$this->setReviewerFormAction($advancedSearchAction);
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmissionId(), $this->getReviewRound()->getId());
 		$currentlyAssigned = array();
 		if (!empty($reviewAssignments)) {
@@ -73,12 +73,12 @@ class AdvancedSearchReviewerForm extends ReviewerForm {
 		// managers who may have access to author identities and can not guarantee
 		// blind reviews
 		$warnOnAssignment = array();
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignmentResults = $stageAssignmentDao->getBySubmissionAndStageId($this->getSubmissionId());
 		while ($stageAssignment = $stageAssignmentResults->next()) {
 			$warnOnAssignment[] = $stageAssignment->getUserId();
 		}
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$managerUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $submissionContext->getId());
 		while ($manager = $managerUsersResults->next()) {
 			$warnOnAssignment[] = $manager->getId();

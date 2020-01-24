@@ -50,7 +50,7 @@ class ThankReviewerForm extends Form {
 	 */
 	function initData() {
 		$request = Application::get()->getRequest();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $request->getUser();
 		$context = $request->getContext();
 
@@ -93,7 +93,7 @@ class ThankReviewerForm extends Form {
 	 * Save review assignment
 	 */
 	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$submissionDao = Application::getSubmissionDAO();
 
 		$reviewAssignment = $this->getReviewAssignment();
@@ -127,7 +127,7 @@ class ThankReviewerForm extends Form {
 		}
 
 		// update the ReviewAssignment with the acknowledged date
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
 		$reviewAssignment->stampModified();
 		$reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);

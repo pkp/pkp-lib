@@ -31,7 +31,7 @@ class EditReviewForm extends Form {
 		$this->_reviewAssignment = $reviewAssignment;
 		assert(is_a($this->_reviewAssignment, 'ReviewAssignment'));
 
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
 		assert(is_a($this->_reviewRound, 'ReviewRound'));
 
@@ -62,11 +62,11 @@ class EditReviewForm extends Form {
 	 */
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$context = $request->getContext();
 
 		if (!$this->_reviewAssignment->getDateCompleted()){
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
 			$reviewForms = array();
 			while ($reviewForm = $reviewFormsIterator->next()) {
@@ -112,13 +112,13 @@ class EditReviewForm extends Form {
 		$context = $request->getContext();
 
 		// Get the list of available files for this review.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.submission.SubmissionFile'); // File constants
 		$submissionFiles = $submissionFileDao->getLatestRevisionsByReviewRound($this->_reviewRound, SUBMISSION_FILE_REVIEW_FILE);
 		$selectedFiles = (array) $this->getData('selectedFiles');
 
 		// Revoke all, then grant selected.
-		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
+		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /* @var $reviewFilesDao ReviewFilesDAO */
 		$reviewFilesDao->revokeByReviewId($this->_reviewAssignment->getId());
 		foreach ($submissionFiles as $submissionFile) {
 			if (in_array($submissionFile->getFileId(), $selectedFiles)) {
@@ -126,7 +126,7 @@ class EditReviewForm extends Form {
 			}
 		}
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getReviewAssignment($this->_reviewRound->getId(), $this->_reviewAssignment->getReviewerId(), $this->_reviewRound->getRound(), $this->_reviewRound->getStageId());
 
 		// Send notification to reviewer if details have changed.
@@ -154,7 +154,7 @@ class EditReviewForm extends Form {
 		if (!$reviewAssignment->getDateCompleted()){
 			// Ensure that the review form ID is valid, if specified
 			$reviewFormId = (int) $this->getData('reviewFormId');
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 			$reviewAssignment->setReviewFormId($reviewForm?$reviewFormId:null);
 		}

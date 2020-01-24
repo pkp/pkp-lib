@@ -116,13 +116,13 @@ class NotificationsGridCellProvider extends GridCellProvider {
 				$submissionId = $reviewAssignment->getSubmissionId();
 				break;
 			case ASSOC_TYPE_REVIEW_ROUND:
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
 				assert(is_a($reviewRound, 'ReviewRound'));
 				$submissionId = $reviewRound->getSubmissionId();
 				break;
 			case ASSOC_TYPE_QUERY:
-				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 				$query = $queryDao->getById($notification->getAssocId());
 				assert(is_a($query, 'Query'));
 				switch ($query->getAssocType()) {

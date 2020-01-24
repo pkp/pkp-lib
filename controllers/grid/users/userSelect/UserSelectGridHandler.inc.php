@@ -61,7 +61,7 @@ class UserSelectGridHandler extends GridHandler {
 		);
 
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
 			$stageId

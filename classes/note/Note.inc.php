@@ -37,7 +37,7 @@ class Note extends DataObject {
 	 * @return User
 	 */
 	function getUser() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		return $userDao->getById($this->getUserId(), true);
 	}
 
@@ -143,7 +143,7 @@ class Note extends DataObject {
 	 * @return int RECORD_VIEW_RESULT_...
 	 */
 	function markViewed($userId) {
-		$viewsDao = DAORegistry::getDAO('ViewsDAO');
+		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 		return $viewsDao->recordView(ASSOC_TYPE_NOTE, $this->getId(), $userId);
 	}
 }

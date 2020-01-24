@@ -27,7 +27,7 @@ class SubmissionFileLog extends SubmissionLog {
 	 */
 	static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = array()) {
 		// Create a new entry object
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
+		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
 		$entry = $submissionFileEventLogDao->newDataObject();
 
 		// Set implicit parts of the log entry

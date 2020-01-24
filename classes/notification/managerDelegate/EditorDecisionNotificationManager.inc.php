@@ -70,7 +70,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate {
 		$context = $request->getContext();
 
 		// Remove any existing editor decision notifications.
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationFactory = $notificationDao->getByAssoc(
 			ASSOC_TYPE_SUBMISSION,
 			$assocId,

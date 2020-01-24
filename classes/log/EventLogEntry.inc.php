@@ -154,7 +154,7 @@ class EventLogEntry extends DataObject {
 		unset($params['params']); // Clean up for translate call
 
 		if ($hideReviewerName) {
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			// Reviewer activity log entries (assigning, accepting, declining)
 			if (isset($params['reviewerName'])) {
 				$blindAuthor = true;
@@ -172,7 +172,7 @@ class EventLogEntry extends DataObject {
 			if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
 				assert(isset($params['fileId']) && isset($params['submissionId']));
 				$blindAuthor = true;
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 				$submissionFile = $submissionFileDao->getLatestRevision($params['fileId']);
 				if ($submissionFile && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
 					$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());
@@ -218,7 +218,7 @@ class EventLogEntry extends DataObject {
 	function getUserFullName() {
 		$userFullName =& $this->getData('userFullName');
 		if(!isset($userFullName)) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$userFullName = $userDao->getUserFullName($this->getUserId(), true);
 		}
 
@@ -233,7 +233,7 @@ class EventLogEntry extends DataObject {
 		$userEmail =& $this->getData('userEmail');
 
 		if(!isset($userEmail)) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$userEmail = $userDao->getUserEmail($this->getUserId(), true);
 		}
 

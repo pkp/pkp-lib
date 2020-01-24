@@ -41,7 +41,7 @@ class LibraryFileHandler extends Handler {
 		import('classes.file.LibraryFileManager');
 		$context = $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 
 		$publicFileId = $args[0];
 
@@ -65,7 +65,7 @@ class LibraryFileHandler extends Handler {
 		import('classes.file.LibraryFileManager');
 		$context = $request->getContext();
 		$libraryFileManager = new LibraryFileManager($context->getId());
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'), $context->getId());
 		if ($libraryFile) {
 
@@ -82,7 +82,7 @@ class LibraryFileHandler extends Handler {
 
 				// Check for specific assignments.
 				$user = $request->getUser();
-				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
+				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
 				if (!$assignedUsers->wasEmpty()) {
 					while ($assignedUser = $assignedUsers->next()) {

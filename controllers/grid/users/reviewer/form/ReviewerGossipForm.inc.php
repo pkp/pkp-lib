@@ -64,7 +64,7 @@ class ReviewerGossipForm extends Form {
 	 */
 	function execute() {
 		$this->_user->setGossip($this->getData('gossip'));
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$userDao->updateObject($this->_user);
 
 		return $user;

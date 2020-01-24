@@ -170,7 +170,7 @@ class PKPSiteService implements EntityPropertyInterface {
 	 * @return Site
 	 */
 	public function edit($site, $params, $request) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 
 		// Move uploaded files into place and update the params
 		$userId = $request->getUser() ? $request->getUser()->getId() : null;

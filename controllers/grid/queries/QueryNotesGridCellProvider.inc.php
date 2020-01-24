@@ -59,7 +59,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider {
 		switch ($column->getId()) {
 			case 'contents':
 				$element = $row->getData();
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 				import('lib.pkp.classes.submission.SubmissionFile');
 				$submissionFiles = $submissionFileDao->getLatestRevisionsByAssocId(
 					ASSOC_TYPE_NOTE, $element->getId(),

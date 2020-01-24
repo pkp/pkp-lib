@@ -215,7 +215,7 @@ class NavigationMenuDAO extends DAO {
 
 		$this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', (int) $navigationMenuId);
 
-		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+		$navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /* @var $navigationMenuItemAssignmentDao NavigationMenuItemAssignmentDAO */
 		$navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
 	}
 
@@ -254,7 +254,7 @@ class NavigationMenuDAO extends DAO {
 			$context = $contextDao->getById($contextId);
 			$supportedLocales = $context->getSupportedLocales();
 		} else {
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$site = $siteDao->getSite();
 			$supportedLocales = $site->getSupportedLocales();
 		}
@@ -300,13 +300,13 @@ class NavigationMenuDAO extends DAO {
 
 				$seq = 0;
 				foreach ($navigationMenuNode->getChildren() as $navigationMenuItemFirstLevelNode) {
-					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+					$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 					$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuItemFirstLevelNode, $navigationMenu->getId(), null, $seq, true);
 
 					$seq++;
 				}
 			} elseif ($navigationMenuNode->name == 'navigationMenuItem') {
-				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 				$navigationMenuItemDao->installNodeSettings($contextId, $navigationMenuNode, null, null, 0, true);
 			}
 		}

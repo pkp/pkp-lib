@@ -486,7 +486,7 @@ class PKPRequest {
 	function &getSite() {
 		$site =& Registry::get('site', true, null);
 		if ($site === null) {
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$site = $siteDao->getSite();
 			// PHP bug? This is needed for some reason or extra queries results.
 			Registry::set('site', $site);
@@ -520,7 +520,7 @@ class PKPRequest {
 		$router = $this->getRouter();
 		if (!is_null($handler = $router->getHandler()) && !is_null($token = $handler->getApiToken())) {
 			if ($user === null) {
-				$userDao = DAORegistry::getDAO('UserDAO');
+				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$user = $userDao->getBySetting('apiKey', $token);
 			}
 			if (is_null($user) || !$user->getData('apiKeyEnabled')) {

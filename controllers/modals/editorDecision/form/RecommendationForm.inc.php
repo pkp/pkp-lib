@@ -82,8 +82,8 @@ class RecommendationForm extends Form {
 		$submission = $this->getSubmission();
 
 		// Get the decision making editors, the e-mail about the recommendation will be send to
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 		$editorsStr = '';
 		$i = 0;
@@ -110,7 +110,7 @@ class RecommendationForm extends Form {
 		$email->replaceParams();
 
 		// Get the recorded recommendations
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$editorRecommendations = $editDecisionDao->getEditorDecisions($submission->getId(), $this->getStageId(), null, $user->getId());
 
 		// Set form data
@@ -167,8 +167,8 @@ class RecommendationForm extends Form {
 			$email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION', null, null, null, false);
 			$email->setBody($this->getData('personalMessage'));
 
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 			foreach ($editorsStageAssignments as $editorsStageAssignment) {
 				if (!$editorsStageAssignment->getRecommendOnly()) {
@@ -199,7 +199,7 @@ class RecommendationForm extends Form {
 
 			if (!$this->getData('skipDiscussion')) {
 				// Create a discussion
-				$queryDao = DAORegistry::getDAO('QueryDAO');
+				$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 				$query = $queryDao->newDataObject();
 				$query->setAssocType(ASSOC_TYPE_SUBMISSION);
 				$query->setAssocId($submission->getId());
@@ -209,8 +209,8 @@ class RecommendationForm extends Form {
 				$queryDao->resequence(ASSOC_TYPE_SUBMISSION, $submission->getId());
 
 				// Add the decision making editors as discussion participants
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-				$userDao = DAORegistry::getDAO('UserDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$discussionParticipantsIds = array();
 				$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 				foreach ($editorsStageAssignments as $editorsStageAssignment) {
@@ -222,7 +222,7 @@ class RecommendationForm extends Form {
 					}
 				}
 
-				$noteDao = DAORegistry::getDAO('NoteDAO');
+				$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 				$note = $noteDao->newDataObject();
 				$note->setAssocType(ASSOC_TYPE_QUERY);
 				$note->setAssocId($query->getId());

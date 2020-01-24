@@ -110,7 +110,7 @@ class SubmissionMailTemplate extends MailTemplate {
 	 * Save the email in the submission email log.
 	 */
 	function log($request = null) {
-		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $logDao SubmissionEmailLogDAO */
 		$entry = $logDao->newDataObject();
 		$submission = $this->submission;
 
@@ -179,13 +179,13 @@ class SubmissionMailTemplate extends MailTemplate {
 	protected function _addUsers($submissionId, $roleId, $stageId, $method) {
 		assert(in_array($method, array('addRecipient', 'addCc', 'addBcc')));
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByRoleId($this->context->getId(), $roleId);
 
 		$returner = array();
 		// Cycle through all the userGroups for this role
 		while ($userGroup = $userGroups->next()) {
-			$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
+			$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
 			// FIXME: #6692# Should this be getting users just for a specific user group?
 			$users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submissionId, $stageId, $userGroup->getId());
 			while ($user = $users->next()) {

@@ -193,7 +193,7 @@ class PKPAuthor extends Identity {
 		//FIXME: should this be queried when fetching Author from DB? - see #5231.
 		static $userGroup; // Frequently we'll fetch the same one repeatedly
 		if (!$userGroup || $this->getUserGroupId() != $userGroup->getId()) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$userGroup = $userGroupDao->getById($this->getUserGroupId());
 		}
 		return $userGroup;

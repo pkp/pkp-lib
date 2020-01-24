@@ -45,8 +45,8 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm {
 
 		// Delete or cancel the review assignment.
 		$submissionDao = Application::getSubmissionDAO();
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
 		if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::clearReview', array(&$submission, $reviewAssignment))) {
 			$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
@@ -64,7 +64,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm {
 			$submission->stampModified();
 			$submissionDao->updateObject($submission);
 
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 			$notificationDao->deleteByAssoc(
 				ASSOC_TYPE_REVIEW_ASSIGNMENT,
 				$reviewAssignment->getId(),

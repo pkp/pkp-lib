@@ -90,7 +90,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 	 */
 	protected function loadData($request, $filter = null) {
 		$submissionFile = $this->getSubmissionFile();
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO');
+		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
 		$eventLogEntries = $submissionFileEventLogDao->getByFileId(
 			$submissionFile->getFileId()
 		);
@@ -98,7 +98,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler {
 
 		if ($filter['allEvents']) {
 			// Also include events from past versions
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			while (true) {
 				$submissionFile = $submissionFileDao->getRevision($submissionFile->getSourceFileId(), $submissionFile->getSourceRevision());
 				if (!$submissionFile) break;

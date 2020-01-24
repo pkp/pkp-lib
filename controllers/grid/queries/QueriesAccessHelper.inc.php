@@ -89,7 +89,7 @@ class QueriesAccessHelper {
 	 * @return boolean True iff the user is allowed to edit the query.
 	 */
 	function getCanEdit($queryId) {
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($queryId);
 		if (!$query) return false;
 
@@ -112,7 +112,7 @@ class QueriesAccessHelper {
 	 */
 	function getCanDelete($queryId) {
 		// Users can always delete their own placeholder queries.
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($queryId);
 		if ($query) {
 			$headNote = $query->getHeadNote();
@@ -143,7 +143,7 @@ class QueriesAccessHelper {
 	 * @return boolean
 	 */
 	protected function isAssigned($userId, $queryId) {
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		return (boolean) $queryDao->getParticipantIds($queryId, $userId);
 	}
 

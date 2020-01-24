@@ -110,7 +110,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 	 */
 	function loadData($request, $filter) {
 		// For top-level rows, only list categories without parents.
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$categoriesIterator = $categoryDao->getByParentId(null, $this->_getContextId());
 		return $categoriesIterator->toAssociativeArray();
 	}
@@ -138,7 +138,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 	 */
 	function setDataElementInCategorySequence($parentCategoryId, &$category, $newSequence) {
 		$category->setSequence($newSequence);
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$categoryDao->updateObject($category);
 	}
 
@@ -154,7 +154,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 	 */
 	function setDataElementSequence($request, $categoryId, $category, $newSequence) {
 		$category->setSequence($newSequence);
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$categoryDao->updateObject($category);
 	}
 
@@ -185,7 +185,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 	 */
 	function loadCategoryData($request, &$category, $filter = null) {
 		$categoryId = $category->getId();
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$categoriesIterator = $categoryDao->getByParentId($categoryId, $this->_getContextId());
 		return $categoriesIterator->toAssociativeArray();
 	}
@@ -239,7 +239,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 	 */
 	function deleteCategory($args, $request) {
 		// Identify the category to be deleted
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$context = $request->getContext();
 		$category = $categoryDao->getById(
 			$request->getUserVar('categoryId'),

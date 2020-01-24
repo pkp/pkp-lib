@@ -94,7 +94,7 @@ class QueuedPaymentDAO extends DAO {
 	 * @param $queuedPaymentId int
 	 */
 	function deleteById($queuedPaymentId) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_QUEUED_PAYMENT, $queuedPaymentId);
 		return $this->update(
 			'DELETE FROM queued_payments WHERE queued_payment_id = ?',

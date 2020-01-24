@@ -134,11 +134,11 @@ class PKPSectionForm extends Form {
 	 * @param $contextId int
 	 */
 	public function _saveSubEditors($contextId) {
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
 		$subEditorsDao->deleteBySectionId($this->getSectionId(), $contextId);
 		$subEditors = $this->getData('subEditors');
 		if (!empty($subEditors)) {
-			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 			foreach ($subEditors as $subEditor) {
 				if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
 					$subEditorsDao->insertEditor($contextId, $this->getSectionId(), $subEditor);

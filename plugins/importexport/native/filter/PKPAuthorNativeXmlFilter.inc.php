@@ -82,7 +82,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter {
 		if ($author->getPrimaryContact()) $authorNode->setAttribute('primary_contact', 'true');
 		if ($author->getIncludeInBrowse()) $authorNode->setAttribute('include_in_browse', 'true');
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroup = $userGroupDao->getById($author->getUserGroupId());
 		assert(isset($userGroup));
 		$authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));

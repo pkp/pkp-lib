@@ -71,7 +71,7 @@ class ManageSubmissionFilesForm extends Form {
 	 */
 	function execute($stageSubmissionFiles, $fileStage = null) {
 		$selectedFiles = (array)$this->getData('selectedFiles');
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFiles = $submissionFileDao->getLatestRevisions($this->getSubmissionId());
 
 		foreach ($submissionFiles as $submissionFile) {
@@ -119,7 +119,7 @@ class ManageSubmissionFilesForm extends Form {
 	 * @return SubmissionFile Resultant new submission file
 	 */
 	protected function importFile($context, $submissionFile, $fileStage) {
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.file.SubmissionFileManager');
 		$submissionFileManager = new SubmissionFileManager($context->getId(), $submissionFile->getSubmissionId());
 		// Split the file into file id and file revision.

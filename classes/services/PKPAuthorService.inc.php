@@ -61,7 +61,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 */
 	public function getMany($args = array()) {
 		$authorQO = $this->getQueryBuilder($args)->getQuery();
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$result = $authorDao->retrieveRange($authorQO->toSql(), $authorQO->getBindings());
 		$queryResults = new DAOResultFactory($result, $authorDao, '_fromRow');
 
@@ -221,7 +221,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
 	 */
 	public function edit($author, $params, $request) {
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 
 		$newAuthor = $authorDao->newDataObject();
 		$newAuthor->_data = array_merge($author->_data, $params);

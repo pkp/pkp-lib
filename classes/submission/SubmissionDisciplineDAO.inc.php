@@ -48,7 +48,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$disciplines = $this->build($publicationId);
-		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
+		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
 		$submissionDisciplines = $submissionDisciplineEntryDao->getByControlledVocabId($disciplines->getId());
 		while ($disciplineEntry = $submissionDisciplines->next()) {
 			$discipline = $disciplineEntry->getDiscipline();
@@ -93,8 +93,8 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertDisciplines($disciplines, $publicationId, $deleteFirst = true) {
-		$disciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
-		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
+		$disciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $disciplineDao SubmissionDisciplineDAO */
+		$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
 		$currentDisciplines = $this->build($publicationId);
 
 		if ($deleteFirst) {

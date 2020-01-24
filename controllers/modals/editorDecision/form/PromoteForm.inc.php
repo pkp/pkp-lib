@@ -182,7 +182,7 @@ class PromoteForm extends EditorDecisionWithEmailForm {
 
 				// Notify any authors that this needs payment.
 				$notificationMgr = new NotificationManager();
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
 				$userIds = array();
 				while ($stageAssignment = $stageAssignments->next()) {

@@ -215,7 +215,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 	 * @param $submission Submission
 	 */
 	function parseAuthor($n, $submission) {
-		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$importFilters = $filterDao->getObjectsByGroup('native-xml=>author');
 		assert(count($importFilters)==1); // Assert only a single unserialization filter
 		$importFilter = array_shift($importFilters);

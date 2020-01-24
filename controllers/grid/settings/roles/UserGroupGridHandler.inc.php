@@ -194,7 +194,7 @@ class UserGroupGridHandler extends GridHandler {
 	*/
 	function renderFilter($request, $filterData = array()) {
 		// Get filter data.
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$roleOptions = array(0 => 'grid.user.allPermissionLevels') + Application::getRoleNames(true);
 
 		// Reader roles are not important for stage assignments.

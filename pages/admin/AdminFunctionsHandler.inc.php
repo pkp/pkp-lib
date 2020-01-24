@@ -43,7 +43,7 @@ class AdminFunctionsHandler extends AdminHandler {
 	function systemInfo($args, $request) {
 		$this->setupTemplate($request, true);
 
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$currentVersion = $versionDao->getCurrentVersion();
 
 		$templateMgr = TemplateManager::getManager($request);
@@ -69,7 +69,7 @@ class AdminFunctionsHandler extends AdminHandler {
 	 * @param $request PKPRequest
 	 */
 	function expireSessions($args, $request) {
-		$sessionDao = DAORegistry::getDAO('SessionDAO');
+		$sessionDao = DAORegistry::getDAO('SessionDAO'); /* @var $sessionDao SessionDAO */
 		$sessionDao->deleteAllSessions();
 		$request->redirect(null, 'admin');
 	}

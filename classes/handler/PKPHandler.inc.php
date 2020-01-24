@@ -511,7 +511,7 @@ class PKPHandler {
 	 * @return mixed Either Context or null
 	 */
 	function getFirstUserContext($user, $contexts) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$context = null;
 		foreach($contexts as $workingContext) {
 			$userIsEnrolled = $userGroupDao->userInAnyGroup($user->getId(), $workingContext->getId());

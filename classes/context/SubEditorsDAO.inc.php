@@ -59,7 +59,7 @@ class SubEditorsDAO extends DAO {
 	 * @return array matching Users
 	 */
 	function getBySectionId($sectionId, $contextId) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$params = array((int) $contextId, (int) $sectionId);
 		$params = array_merge($userDao->getFetchParameters(), $params);
 		$result = $this->retrieve(

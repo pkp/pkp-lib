@@ -50,7 +50,7 @@ class AnnouncementHandler extends Handler {
 		$templateMgr->assign('announcementsIntroduction', $announcementsIntro);
 
 
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		// TODO the announcements list should support pagination
 		import('lib.pkp.classes.db.DBResultRange');
 		$rangeInfo = new DBResultRange(50, -1);
@@ -71,7 +71,7 @@ class AnnouncementHandler extends Handler {
 
 		$context = $request->getContext();
 		$announcementId = (int) array_shift($args);
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		$announcement = $announcementDao->getById($announcementId);
 		if ($announcement && $announcement->getAssocType() == Application::getContextAssocType() && $announcement->getAssocId() == $context->getId() && ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time())) {
 			$templateMgr = TemplateManager::getManager($request);

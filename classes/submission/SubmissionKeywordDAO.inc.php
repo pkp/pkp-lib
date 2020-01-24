@@ -48,7 +48,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$keywords = $this->build($publicationId);
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 		$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
 		while ($keywordEntry = $submissionKeywords->next()) {
 			$keyword = $keywordEntry->getKeyword();
@@ -93,8 +93,8 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertKeywords($keywords, $publicationId, $deleteFirst = true) {
-		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $keywordDao SubmissionKeywordDAO */
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 
 		if ($deleteFirst) {
 			$currentKeywords = $this->deleteByPublicationId($publicationId);
@@ -127,8 +127,8 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @return int|array Controlled Vocab
 	 */
 	public function deleteByPublicationId($publicationId) {
-		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+		$keywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $keywordDao SubmissionKeywordDAO */
+		$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 		$currentKeywords = $this->build($publicationId);
 
 		$existingEntries = $keywordDao->enumerate($currentKeywords->getId(), CONTROLLED_VOCAB_SUBMISSION_KEYWORD);

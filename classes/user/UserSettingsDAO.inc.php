@@ -120,7 +120,7 @@ class UserSettingsDAO extends DAO {
 	 * @return DAOResultFactory matching Users
 	 */
 	function getUsersByAssocSetting($name, $value, $type = null, $assocType = null, $assocId = null) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
 		$value = $this->convertToDB($value, $type);
 		$result = $this->retrieve(

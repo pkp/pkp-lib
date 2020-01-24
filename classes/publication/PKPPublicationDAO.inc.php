@@ -54,15 +54,15 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 		));
 
 		// Get controlled vocab metadata
-		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
+		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
 		$publication->setData('keywords', $submissionKeywordDao->getKeywords($publication->getId()));
-		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
+		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
 		$publication->setData('subjects', $submissionSubjectDao->getSubjects($publication->getId()));
-		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
+		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
 		$publication->setData('disciplines', $submissionDisciplineDao->getDisciplines($publication->getId()));
-		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
+		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
 		$publication->setData('languages', $submissionLanguageDao->getLanguages($publication->getId()));
-		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
+		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
 		$publication->setData('supportingAgencies', $submissionAgencyDao->getAgencies($publication->getId()));
 
 		// Get categories

@@ -110,7 +110,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		$context = $request->getContext();
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 		return $announcementTypeDao->getByAssoc($context->getAssocType(), $context->getId());
 	}
 
@@ -202,7 +202,7 @@ class AnnouncementTypeGridHandler extends GridHandler {
 		$announcementTypeId = (int) $request->getUserVar('announcementTypeId');
 		$context = $request->getContext();
 
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 		$announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getAssocType(), $context->getId());
 		if ($announcementType && $request->checkCSRF()) {
 			$announcementTypeDao->deleteObject($announcementType);

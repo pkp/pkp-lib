@@ -81,7 +81,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 		));
 
 		// If open reviews exist, show the reviewers grid
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		if ($reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId())){
 			$templateMgr->assign('showReviewerGrid', true);
 		}
@@ -89,7 +89,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler {
 		// Editor has taken an action and sent an email; Display the email
 		import('classes.workflow.EditorDecisionActionsManager');
 		if((new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound)) {
-			$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+			$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 			$user = $request->getUser();
 			$templateMgr->assign(array(
 				'submissionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId()),

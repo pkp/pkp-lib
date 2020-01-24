@@ -58,7 +58,7 @@ class NavigationMenuItemHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 
 		$navigationMenuItem = $navigationMenuItemDao->newDataObject();
 		$navigationMenuItem->setContent((array) $request->getUserVar('content'), null);
@@ -104,7 +104,7 @@ class NavigationMenuItemHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 
 		$navigationMenuItem = $navigationMenuItemDao->getByPath($contextId, $path);
 

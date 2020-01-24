@@ -88,8 +88,8 @@ class AuthorGridRow extends GridRow {
 					)
 				);
 
-				$authorDao = DAORegistry::getDAO('AuthorDAO');
-				$userDao = DAORegistry::getDAO('UserDAO');
+				$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 				$author = $authorDao->getById($rowId);
 
 				if ($author && !$userDao->userExistsByEmail($author->getEmail())) {

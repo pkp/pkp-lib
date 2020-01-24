@@ -57,7 +57,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	 * @return ReviewRound
 	 */
 	function getReviewRound() {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		return $reviewRoundDao->getById($this->getReviewRoundId());
 	}
 
@@ -94,7 +94,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm {
 	protected function importFile($context, $submissionFile, $fileStage) {
 		$newSubmissionFile = parent::importFile($context, $submissionFile, $fileStage);
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->assignRevisionToReviewRound($newSubmissionFile->getFileId(), $newSubmissionFile->getRevision(), $this->getReviewRound());
 	}
 }

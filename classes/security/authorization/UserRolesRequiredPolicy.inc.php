@@ -45,7 +45,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		}
 
 		// Get all user roles.
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
 
 		// Prepare an array with the context ids of the request.
@@ -74,7 +74,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	function _getContextRoles($roleContext, $contextDepth, $userRoles) {
 		// Adapt the role context based on the passed role id.
 		$workingRoleContext = $roleContext;
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$contextRoles = array();
 
 		// Check if user has site level or manager roles.

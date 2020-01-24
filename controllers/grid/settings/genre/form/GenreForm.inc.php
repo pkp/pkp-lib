@@ -50,7 +50,7 @@ class GenreForm extends Form {
 		$form = $this;
 		$this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', function($key) use ($context, $form) {
-			$genreDao = DAORegistry::getDAO('GenreDAO');
+			$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 			return $key == '' || !$genreDao->keyExists($key, $context->getId(), $form->getGenreId());
 		}));
 		$this->addCheck(new FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
@@ -66,7 +66,7 @@ class GenreForm extends Form {
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 
 		if($this->getGenreId()) {
 			$genre = $genreDao->getById($this->getGenreId(), $context->getId());
@@ -120,7 +120,7 @@ class GenreForm extends Form {
 	 * Save email template.
 	 */
 	function execute() {
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 

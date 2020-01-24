@@ -84,7 +84,7 @@ class PKPUserHandler extends Handler {
 		$user = $request->getUser();
 		$user->setInlineHelp($user->getInlineHelp() ? 0 : 1);
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$userDao->updateObject($user);
 
 		import('lib.pkp.classes.core.JSONMessage');

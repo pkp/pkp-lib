@@ -55,11 +55,11 @@ class PreviewReviewForm extends Form {
 			// Get review form
 			$request = Application::get()->getRequest();
 			$context = $request->getContext();
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
 
 			// Get review form elements
-			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($this->reviewFormId);
 			$count = count($reviewFormElements);
 

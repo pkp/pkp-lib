@@ -53,7 +53,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 	 */
 	function parseUserGroup($node) {
 
-		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$importFilters = $filterDao->getObjectsByGroup('user-xml=>usergroup');
 		assert(count($importFilters)==1); // Assert only a single unserialization filter
 		$importFilter = array_shift($importFilters);
@@ -74,7 +74,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 		$site = $deployment->getSite();
 
 		// Create the data object
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->newDataObject();
 
 		// Password encryption
@@ -243,7 +243,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 
 		// We can only assign a user to a user group if persisted to the database by $userId
 		if ($userId) {
-	  		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+	  		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
   			$userGroupsFactory = $userGroupDao->getByContextId($context->getId());
   			$userGroups = $userGroupsFactory->toArray();
 
@@ -310,7 +310,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 		$passwordHash = $userToImport->getPassword();
 		$password = null;
 		if (!$encryption) {
-			$siteDao = DAORegistry::getDAO('SiteDAO');
+			$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 			$site = $siteDao->getSite();
 			if (strlen($passwordHash) >= $site->getMinPasswordLength()) {
 				$userToImport->setPassword(Validation::encryptCredentials($userToImport->getUsername(), $passwordHash));

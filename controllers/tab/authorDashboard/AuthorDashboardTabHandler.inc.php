@@ -70,13 +70,13 @@ class AuthorDashboardTabHandler extends Handler {
 		$templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumber($submission, $currentStage));
 
 		if (in_array($stageId, array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 			$templateMgr->assign('reviewRounds', $reviewRoundDao->getBySubmissionId($submission->getId(), $stageId));
 		}
 
 		// If the submission is in or past the editorial stage,
 		// assign the editor's copyediting emails to the template
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$user = $request->getUser();
 
 		// Define the notification options.
@@ -112,7 +112,7 @@ class AuthorDashboardTabHandler extends Handler {
 	 * @return int Round number, 0 if none.
 	 */
 	protected function _getLastReviewRoundNumber($submission, $stageId) {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$lastExternalReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 		if ($lastExternalReviewRound) {
 			return $lastExternalReviewRound->getRound();

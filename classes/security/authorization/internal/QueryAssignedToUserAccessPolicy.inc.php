@@ -44,7 +44,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy {
 		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
 
 		// Determine if the query is assigned to the user.
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		if ($queryDao->getParticipantIds($query->getId(), $user->getId())) return AUTHORIZATION_PERMIT;
 
 		// Managers are allowed to access discussions they are not participants in

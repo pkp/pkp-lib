@@ -167,8 +167,8 @@ class RoleDAO extends DAO {
 	 * @return array
 	 */
 	function getByUserIdGroupedByContext($userId) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$userGroupsFactory = $userGroupDao->getByUserId($userId);
 
 		$roles = array();

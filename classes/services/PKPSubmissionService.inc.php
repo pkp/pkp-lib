@@ -381,7 +381,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		foreach ($stageIds as $stageId) {
 
 			import('lib.pkp.classes.workflow.WorkflowStageDAO');
-			$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+			$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /* @var $workflowStageDao WorkflowStageDAO */
 			$stage = array(
 				'id' => (int) $stageId,
 				'label' => __($workflowStageDao->getTranslationKeyFromId($stageId)),
@@ -392,7 +392,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$stage['queries'] = array();
 			$request = Application::get()->getRequest();
 			import('lib.pkp.classes.query.QueryDAO');
-			$queryDao = DAORegistry::getDAO('QueryDAO');
+			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 			$queries = $queryDao->getByAssoc(
 				ASSOC_TYPE_SUBMISSION,
 				$submission->getId(),
@@ -413,9 +413,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 			$currentUserAssignedRoles = array();
 			if ($currentUser) {
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 				$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $currentUser->getId(), $stageId);
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				while ($stageAssignment = $stageAssignmentsResult->next()) {
 					$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
 					$currentUserAssignedRoles[] = (int) $userGroup->getRoleId();
@@ -428,7 +428,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 				case WORKFLOW_STAGE_ID_SUBMISSION:
 					import('lib.pkp.classes.stageAssignment.StageAssignmentDAO');
-					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 					$assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
 					if (!$assignedEditors) {
 						$stage['statusId'] = STAGE_STATUS_SUBMISSION_UNASSIGNED;
@@ -444,7 +444,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
 				case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
 					import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
-					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 					$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 					if ($reviewRound) {
 						$stage['statusId'] = $reviewRound->determineStatus();
@@ -452,14 +452,14 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 						// Revision files in this round.
 						import('lib.pkp.classes.submission.SubmissionFile');
-						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+						$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 						$submissionFiles = $submissionFileDao->getRevisionsByReviewRound($reviewRound, SUBMISSION_FILE_REVIEW_REVISION);
 						$stage['files'] = array(
 							'count' => count($submissionFiles),
 						);
 
 						// See if the  curent user can only recommend:
-						$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+						$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 						$user = $request->getUser();
 						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
 						// if the user is assigned several times in the editorial role, and
@@ -484,7 +484,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 				case WORKFLOW_STAGE_ID_EDITING:
 				case WORKFLOW_STAGE_ID_PRODUCTION:
 					import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
-					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 					$fileStageIId = $stageId === WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF;
 					$submissionFiles = $submissionFileDao->getLatestRevisions($submission->getId(), $fileStageIId);
 					$stage['files'] = array(
@@ -519,7 +519,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		if (is_null($userId)) {
 			$user = $request->getUser();
 		} else {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$user = $userDao->getById($userId);
 		}
 
@@ -631,7 +631,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$canDelete = true;
 		} else {
 			if ($submission->getSubmissionProgress() != 0 ) {
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 				$assignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, 1, $currentUser->getId());
 				$assignment = $assignments->next();
 				if ($assignment) {
@@ -650,7 +650,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @return \Iterator
 	 */
 	public function getReviewRounds($submission) {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		return $reviewRoundDao->getBySubmissionId($submission->getId())->toIterator();
 	}
 
@@ -662,7 +662,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 */
 	public function getReviewAssignments($submission) {
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		return $reviewAssignmentDao->getBySubmissionId($submission->getId());
 	}
 
@@ -793,9 +793,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @return boolean true if the user is allowed to edit metadata by default
 	 */
 	private static function _canUserAccessUnassignedSubmissions($contextId, $userId) {
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		$roles = $roleDao->getByUserId($userId, $contextId);
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$allowedRoles = $userGroupDao->getNotChangeMetadataEditPermissionRoles();
 		foreach ($roles as $role) {
 			if (in_array($role->getRoleId(), $allowedRoles))

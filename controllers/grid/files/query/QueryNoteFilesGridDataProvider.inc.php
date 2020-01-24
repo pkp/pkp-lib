@@ -63,7 +63,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
 		$submission = $this->getSubmission();
 		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($this->_noteId);
 		if ($note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
 			fatalError('Invalid note ID specified!');

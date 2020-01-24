@@ -78,7 +78,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		if (isset($args['count'])) unset($args['count']);
 		if (isset($args['offset'])) unset($args['offset']);
 		$userListQO = $this->getQueryBuilder($args)->getQuery();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData');
 
@@ -161,7 +161,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		if (isset($args['count'])) unset($args['count']);
 		if (isset($args['offset'])) unset($args['offset']);
 		$userListQO = $this->getReviewersQueryBuilder($args)->getQuery();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
 		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithReviewerStats');
 
@@ -340,7 +340,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					$values[$prop] = null;
 					if ($context) {
 						import('lib.pkp.classes.security.UserGroupDAO');
-						$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+						$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 						$userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
 						$values[$prop] = array();
 						while ($userGroup = $userGroups->next()) {
@@ -361,11 +361,11 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 					$values[$prop] = [];
 					if ($context) {
 						import('lib.pkp.classes.user.InterestDAO');
-						$interestDao = DAORegistry::getDAO('InterestDAO');
+						$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
 						$interestEntryIds = $interestDao->getUserInterestIds($user->getId());
 						if (!empty($interestEntryIds)) {
 							import('lib.pkp.classes.user.InterestEntryDAO');
-							$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
+							$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
 							$results = $interestEntryDao->getByIds($interestEntryIds);
 							$values[$prop] = array();
 							while ($interest = $results->next()) {
@@ -447,7 +447,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @return boolean
 	 */
 	public function userHasRole($userId, $roleIds, $contextId) {
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		return $roleDao->userHasRole($contextId, $userId, $roleIds);
 	}
 
@@ -529,7 +529,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 
 		// If unassigned, only managers and admins have access
 		if ($stageAssignmentsResult->wasEmpty()) {
-			$roleDao = DAORegistry::getDAO('RoleDAO');
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 			$userRoles = $roleDao->getByUserId($userId, $contextId);
 			foreach ($userRoles as $userRole) {
 				if (in_array($userRole->getId(), array(ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER))) {
@@ -539,7 +539,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			$accessibleStageRoles = array_unique($accessibleStageRoles);
 		// Assigned users have access based on their assignment
 		} else {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			while ($stageAssignment = $stageAssignmentsResult->next()) {
 				$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
 				$accessibleStageRoles[] = $userGroup->getRoleId();

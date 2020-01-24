@@ -113,11 +113,11 @@ class PKPSubmissionMetadataFormImplementation {
 			$locales = array_keys($this->_parentForm->supportedLocales);
 
 			// load the persisted metadata controlled vocabularies
-			$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-			$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-			$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
-			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
-			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
+			$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
+			$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
+			$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
+			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
+			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
 
 			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($publication->getId(), $locales));
 			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($publication->getId(), $locales));
@@ -161,7 +161,7 @@ class PKPSubmissionMetadataFormImplementation {
 	 */
 	function execute($submission, $request) {
 		$publication = $submission->getCurrentPublication();
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$context = $request->getContext();
 
 		// Get params to update
@@ -196,11 +196,11 @@ class PKPSubmissionMetadataFormImplementation {
 		$locales = array_keys($this->_parentForm->supportedLocales);
 
 		// persist the metadata/keyword fields.
-		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO');
-		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO');
-		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO');
+		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
+		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
+		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
+		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
+		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
 
 		$keywords = array();
 		$agencies = array();

@@ -127,7 +127,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$session = $sessionManager->getUserSession();
 		$user = $session->getUser();
 		if (is_a($user, 'User')) {
-			$viewsDao = DAORegistry::getDAO('ViewsDAO');
+			$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 			$viewsDao->recordView(
 			ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileIdAndRevision(),
 			$user->getId()
@@ -265,7 +265,7 @@ class SubmissionFileManager extends BaseSubmissionFileManager {
 		$submissionFile->setUploaderUserId($copyUserId);
 
 		// Save the submission file to the database.
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		return $submissionFileDao->insertObject($submissionFile, $filePath, false);
 	}
 

@@ -33,7 +33,7 @@ class SubmissionLog {
 	 */
 	static function logEvent($request, $submission, $eventType, $messageKey, $params = array()) {
 		// Create a new entry object
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
+		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /* @var $submissionEventLogDao SubmissionEventLogDAO */
 		$entry = $submissionEventLogDao->newDataObject();
 
 		// Set implicit parts of the log entry

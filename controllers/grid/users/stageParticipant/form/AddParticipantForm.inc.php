@@ -74,7 +74,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * Initialize private attributes that need to be used through all functions.
 	 */
 	function initialize() {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		// assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
 		$this->_managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_MANAGER, $this->_contextId);
@@ -83,7 +83,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 		if ($this->_assignmentId) {
 			/** @var $stageAssignmentDao StageAssignmentDAO */
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 
 			/** @var $stageAssignment StageAssignment */
 			$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
@@ -96,7 +96,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getUserGroupsByStage(
 			$request->getContext()->getId(),
 			$this->getStageId()
@@ -132,16 +132,16 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 
 		if ($this->_assignmentId) {
 			/** @var $stageAssignmentDao StageAssignmentDAO */
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 
 			/** @var $stageAssignment StageAssignment */
 			$stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
 
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			/** @var $currentUser User */
 			$currentUser = $userDao->getById($stageAssignment->getUserId());
 
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			/** @var $userGroup UserGroup */
 			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 
@@ -165,7 +165,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 		$blindReviewerIds = array();
 		if (in_array($this->getSubmission()->getStageId(), array(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW))) {
 			$blindReviewMethods = array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND);
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmission()->getId());
 			$blindReviews = array_filter($reviewAssignments, function($reviewAssignment) use ($blindReviewMethods) {
 				return in_array($reviewAssignment->getReviewMethod(), $blindReviewMethods) && !$reviewAssignment->getDeclined();

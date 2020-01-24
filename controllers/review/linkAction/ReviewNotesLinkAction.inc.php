@@ -47,7 +47,7 @@ class ReviewNotesLinkAction extends LinkAction {
 			'modal_information'
 		);
 
-		$viewsDao = DAORegistry::getDAO('ViewsDAO');
+		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 		$lastViewDate = $viewsDao->getLastViewDate(ASSOC_TYPE_REVIEW_RESPONSE, $reviewAssignment->getId(), $user->getId());
 
 		$icon = !$lastViewDate || $isUnread ? 'read_new_review' : null;

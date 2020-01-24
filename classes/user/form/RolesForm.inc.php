@@ -34,8 +34,8 @@ class RolesForm extends BaseProfileForm {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
 		$userGroupAssignments = $userGroupAssignmentDao->getByUserId($request->getUser()->getId());
 		$userGroupIds = array();
 		while ($assignment = $userGroupAssignments->next()) {

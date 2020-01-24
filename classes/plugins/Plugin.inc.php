@@ -461,7 +461,7 @@ abstract class Plugin {
 			$name,
 		);
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		return call_user_func_array(array(&$pluginSettingsDao, 'getSetting'), $arguments);
 	}
 
@@ -484,7 +484,7 @@ abstract class Plugin {
 			$type,
 		);
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		call_user_func_array(array(&$pluginSettingsDao, 'updateSetting'), $arguments);
 	}
 
@@ -577,7 +577,7 @@ abstract class Plugin {
 		}
 		$arguments[] = $this->getName();
 		$arguments[] = $this->getInstallSitePluginSettingsFile();
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
 
 		return false;
@@ -591,7 +591,7 @@ abstract class Plugin {
 	 */
 	function installControlledVocabs($hookName, $args) {
 		// All contexts are set to zero for site-wide plug-in settings
-		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
+		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
 		foreach ($this->getInstallControlledVocabFiles() as $file) {
 			$controlledVocabDao->installXML($file);
 		}
@@ -607,7 +607,7 @@ abstract class Plugin {
 	 */
 	function installContextSpecificSettings($hookName, $args) {
 		$context = $args[0];
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
 		return false;
 	}
@@ -652,7 +652,7 @@ abstract class Plugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		foreach ($installer->installedLocales as $locale) {
 			$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
 			if (!file_exists($filename)) continue;
@@ -677,7 +677,7 @@ abstract class Plugin {
 	function installLocale($hookName, $args) {
 		$locale =& $args[0];
 		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->installEmailTemplateData($filename);
 		return false;
 	}
@@ -761,7 +761,7 @@ abstract class Plugin {
 	 * @return Version
 	 */
 	function getCurrentVersion() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$pluginPath = $this->getPluginPath();
 		$product = basename($pluginPath);
 		$category = basename(dirname($pluginPath));

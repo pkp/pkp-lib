@@ -175,7 +175,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 	 * @return array a list of SubmissionFile instances.
 	 */
 	function getRevisionSubmissionFilesSelection($user, $uploadedFile = null) {
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$allSubmissionFiles = $this->getSubmissionFiles();
 		$submissionFiles = array();
 		foreach ($allSubmissionFiles as $submissionFile) {

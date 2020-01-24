@@ -166,7 +166,7 @@ class LoginHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$email = $request->getUserVar('email');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getUserByEmail($email);
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
@@ -204,7 +204,7 @@ class LoginHandler extends Handler {
 		$this->setupTemplate($request);
 
 		$username = isset($args[0]) ? $args[0] : null;
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$confirmHash = $request->getUserVar('confirm');
 
 		if ($username == null || ($user = $userDao->getByUsername($username)) == null) {
@@ -226,7 +226,7 @@ class LoginHandler extends Handler {
 			$newPassword = Validation::generatePassword();
 
 			if ($user->getAuthId()) {
-				$authDao = DAORegistry::getDAO('AuthSourceDAO');
+				$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 				$auth = $authDao->getPlugin($user->getAuthId());
 			}
 
@@ -328,7 +328,7 @@ class LoginHandler extends Handler {
 				return $templateMgr->display('frontend/pages/error.tpl');
 			}
 
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$newUser = $userDao->getById($userId);
 
 			if (isset($newUser) && $session->getUserId() != $newUser->getId()) {
@@ -356,7 +356,7 @@ class LoginHandler extends Handler {
 		if (isset($signedInAs) && !empty($signedInAs)) {
 			$signedInAs = (int)$signedInAs;
 
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$oldUser = $userDao->getById($signedInAs);
 
 			$session->unsetSessionVar('signedInAs');

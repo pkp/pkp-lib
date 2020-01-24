@@ -158,7 +158,7 @@ class ReviewFormElementDAO extends DAO {
 	 * @param $reviewFormElementId int
 	 */
 	function deleteById($reviewFormElementId) {
-		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
 		$reviewFormResponseDao->deleteByReviewFormElementId($reviewFormElementId);
 
 		$this->update('DELETE FROM review_form_element_settings WHERE review_form_element_id = ?', (int) $reviewFormElementId);

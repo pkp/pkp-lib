@@ -25,7 +25,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		parent::__construct($request, $reviewerSubmission, $reviewAssignment, 3);
 
 		// Validation checks for this form
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		$requiredReviewFormElementIds = $reviewFormElementDao->getRequiredReviewFormElementIds($reviewAssignment->getReviewFormId());
 		$this->addCheck(new FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', function($reviewFormResponses) use ($requiredReviewFormElementIds) {
 			foreach ($requiredReviewFormElementIds as $requiredReviewFormElementId) {
@@ -45,7 +45,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$reviewAssignment = $this->getReviewAssignment();
 
 		// Retrieve most recent reviewer comments, one private, one public.
-		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
 
 		$submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
 		$submissionComment = $submissionComments->next();
@@ -86,9 +86,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		if ($reviewAssignment->getReviewFormId()) {
 
 			// Get the review form components
-			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
+			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$templateMgr->assign(array(
 				'reviewForm' => $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId()),
 				'reviewFormElements' => $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId()),
@@ -115,14 +115,14 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$reviewAssignment = $this->getReviewAssignment();
 		$notificationMgr = new NotificationManager();
 		if ($reviewAssignment->getReviewFormId()) {
-			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
 			$reviewFormResponses = $this->getData('reviewFormResponses');
 			if (is_array($reviewFormResponses)) foreach ($reviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
 				$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), $reviewFormElementId);
 				if (!isset($reviewFormResponse)) {
 					$reviewFormResponse = new ReviewFormResponse();
 				}
-				$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+				$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 				$reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
 				$elementType = $reviewFormElement->getElementType();
 				switch ($elementType) {
@@ -154,7 +154,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 			// No review form configured. Use the default form.
 			if (strlen($comments = $this->getData('comments'))>0) {
 				// Create a comment with the review.
-				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
 				$comment = $submissionCommentDao->newDataObject();
 				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
 				$comment->setRoleId(ROLE_ID_REVIEWER);
@@ -173,7 +173,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 
 			if (strlen($commentsPrivate = $this->getData('commentsPrivate'))>0) {
 				// Create a comment with the review.
-				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+				$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
 				$comment = $submissionCommentDao->newDataObject();
 				$comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
 				$comment->setRoleId(ROLE_ID_REVIEWER);
@@ -196,9 +196,9 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$receivedList = array(); // Avoid sending twice to the same user.
 
 		while ($stageAssignment = $stageAssignments->next()) {
@@ -231,7 +231,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		$reviewAssignmentDao->updateObject($reviewAssignment);
 
 		// Remove the task
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationDao->deleteByAssoc(
 			ASSOC_TYPE_REVIEW_ASSIGNMENT,
 			$reviewAssignment->getId(),
@@ -244,7 +244,7 @@ class ReviewerReviewStep3Form extends ReviewerReviewForm {
 		import('classes.log.SubmissionEventLogEntry');
 
 
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 		$request = Application::get()->getRequest();
 		SubmissionLog::logEvent(

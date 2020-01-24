@@ -137,40 +137,40 @@ abstract class PKPSubmissionDAO extends SchemaDAO {
 		$submissionFileManager = new SubmissionFileManager($submission->getContextId(), $submission->getId());
 		$submissionFileManager->rmtree($submissionFileManager->getBasePath());
 
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRoundDao->deleteBySubmissionId($submissionId);
 
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$editDecisionDao->deleteDecisionsBySubmissionId($submissionId);
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->deleteBySubmissionId($submissionId);
 
 		// Delete the queries associated with a submission
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$queryDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 
 		// Delete the stage assignments.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submissionId);
 		while ($stageAssignment = $stageAssignments->next()) {
 			$stageAssignmentDao->deleteObject($stageAssignment);
 		}
 
-		$noteDao = DAORegistry::getDAO('NoteDAO');
+		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 
-		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
 		$submissionCommentDao->deleteBySubmissionId($submissionId);
 
 		// Delete any outstanding notifications for this submission
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
+		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /* @var $submissionEventLogDao SubmissionEventLogDAO */
 		$submissionEventLogDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$submissionEmailLogDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
 	}
 

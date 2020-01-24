@@ -73,7 +73,7 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 	 * @return JSONMessage JSON object
 	 */
 	function readSubmissionEmail($args, $request) {
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$user = $request->getUser();
 		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 		$submissionEmailId = $request->getUserVar('submissionEmailId');

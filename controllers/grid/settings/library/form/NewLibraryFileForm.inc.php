@@ -43,12 +43,12 @@ class NewLibraryFileForm extends LibraryFileForm {
 		$userId = Application::get()->getRequest()->getUser()->getId();
 
 		// Fetch the temporary file storing the uploaded library file
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO');
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
 		$temporaryFile = $temporaryFileDao->getTemporaryFile(
 			$this->getData('temporaryFileId'),
 			$userId
 		);
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFileManager = new LibraryFileManager($this->contextId);
 
 		// Convert the temporary file to a library file and store

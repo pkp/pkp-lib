@@ -47,7 +47,7 @@ class PKPCatalogHandler extends Handler {
 		$context = $request->getContext();
 
 		// Get the category
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$category = $categoryDao->getByPath($args[0], $context->getId());
 		if (!$category) $this->getDispatcher()->handle404();
 
@@ -99,7 +99,7 @@ class PKPCatalogHandler extends Handler {
 		switch ($request->getUserVar('type')) {
 			case 'category':
 				$context = $request->getContext();
-				$categoryDao = DAORegistry::getDAO('CategoryDAO');
+				$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 				$category = $categoryDao->getById($request->getUserVar('id'), $context->getId());
 				if (!$category) $this->getDispatcher()->handle404();
 				$imageInfo = $category->getImage();
@@ -121,7 +121,7 @@ class PKPCatalogHandler extends Handler {
 		switch ($request->getUserVar('type')) {
 			case 'category':
 				$context = $request->getContext();
-				$categoryDao = DAORegistry::getDAO('CategoryDAO');
+				$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 				$category = $categoryDao->getById($request->getUserVar('id'), $context->getId());
 				if (!$category) $this->getDispatcher()->handle404();
 				$imageInfo = $category->getImage();

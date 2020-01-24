@@ -58,7 +58,7 @@ class UserDetailsForm extends UserForm {
 				}));
 			}
 		} else {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$this->user = $userDao->getById($userId);
 
 			$this->addCheck(new FormValidatorLength($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
@@ -169,10 +169,10 @@ class UserDetailsForm extends UserForm {
 
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
 
-		$countryDao = DAORegistry::getDAO('CountryDAO');
+		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
 		$templateMgr->assign('countries', $countryDao->getCountries());
 
-		$authDao = DAORegistry::getDAO('AuthSourceDAO');
+		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$authSources = $authDao->getSources();
 		$authSourceOptions = array();
 		foreach ($authSources->toArray() as $auth) {
@@ -229,7 +229,7 @@ class UserDetailsForm extends UserForm {
 	 * Get all locale field names
 	 */
 	function getLocaleFieldNames() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		return $userDao->getLocaleFieldNames();
 	}
 
@@ -237,7 +237,7 @@ class UserDetailsForm extends UserForm {
 	 * Create or update a user.
 	 */
 	function execute(...$functionParams) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
@@ -279,7 +279,7 @@ class UserDetailsForm extends UserForm {
 		$this->user->setLocales($locales);
 
 		if ($this->user->getAuthId()) {
-			$authDao = DAORegistry::getDAO('AuthSourceDAO');
+			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 			$auth =& $authDao->getPlugin($this->user->getAuthId());
 		}
 

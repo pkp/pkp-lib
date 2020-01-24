@@ -84,7 +84,7 @@ class CreateReviewerForm extends ReviewerForm {
 	 * Save review assignment
 	 */
 	function execute() {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->newDataObject();
 
 		$user->setGivenName($this->getData('givenName'), null);
@@ -92,7 +92,7 @@ class CreateReviewerForm extends ReviewerForm {
 		$user->setEmail($this->getData('email'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
 
-		$authDao = DAORegistry::getDAO('AuthSourceDAO');
+		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$auth = $authDao->getDefaultPlugin();
 		$user->setAuthId($auth?$auth->getAuthId():0);
 		$user->setInlineHelp(1); // default new reviewers to having inline help visible

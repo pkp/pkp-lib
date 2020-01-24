@@ -295,7 +295,7 @@ class PKPFileUploadWizardHandler extends Handler {
 				// If this attachment was created in the review stage, add it to
 				// the review round.
 				if ($reviewRound = $this->getReviewRound()) {
-					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+					$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 					$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
 				}
 				break;
@@ -304,13 +304,13 @@ class PKPFileUploadWizardHandler extends Handler {
 			case SUBMISSION_FILE_REVIEW_REVISION:
 				// Add the uploaded review file to the review round.
 				$reviewRound = $this->getReviewRound();
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 				$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
 
 				if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
 					// Get a list of author user IDs
 					$authorUserIds = array();
-					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 					$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR);
 					while ($assignment = $submitterAssignments->next()) {
 						$authorUserIds[] = $assignment->getUserId();
@@ -328,7 +328,7 @@ class PKPFileUploadWizardHandler extends Handler {
 
 					// Update the ReviewRound status when revision is submitted
 					import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
-					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+					$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 					$reviewRoundDao->updateStatus($reviewRound);
 
 					// Notify editors about the revision upload
@@ -343,7 +343,7 @@ class PKPFileUploadWizardHandler extends Handler {
 
 						// Fetch the latest notification email timestamp if any
 						import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
-						$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+						$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 						$submissionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
 						$lastNotification = null;
 						$sentDates = array();
@@ -363,7 +363,7 @@ class PKPFileUploadWizardHandler extends Handler {
 						$mail->setEventType(SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
 						$mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
 						// Get editors assigned to the submission, consider also the recommendOnly editors
-						$userDao = DAORegistry::getDAO('UserDAO');
+						$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 						$editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
 						foreach ($editorsStageAssignments as $editorsStageAssignment) {
 							$editor = $userDao->getById($editorsStageAssignment->getUserId());

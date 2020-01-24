@@ -48,13 +48,13 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		$submissionDao->updateObject($this->submission);
 
 		// Assign the default stage participants.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$notifyUsers = array();
 
 		// Manager and assistant roles -- for each assigned to this
 		//  stage in setup, iff there is only one user for the group,
 		//  automatically assign the user to the stage.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$submissionStageGroups = $userGroupDao->getUserGroupsByStage($this->submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION);
 		while ($userGroup = $submissionStageGroups->next()) {
 			// Only handle manager and assistant roles
@@ -85,7 +85,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm {
 		$notificationManager = new NotificationManager();
 
 		// Assign sub editors for that section
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
 		$subEditors = $subEditorsDao->getBySectionId($this->submission->getSectionId(), $this->submission->getContextId());
 		foreach ($subEditors as $subEditor) {
 			$userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());

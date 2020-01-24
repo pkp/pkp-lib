@@ -105,7 +105,7 @@ class AnnouncementGridHandler extends GridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		$context = $request->getContext();
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 		return $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
 	}

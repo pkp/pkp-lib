@@ -96,7 +96,7 @@ class PKPReviewerHandler extends Handler {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
 		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
 
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO');
+		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
 		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
 		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
 
@@ -126,7 +126,7 @@ class PKPReviewerHandler extends Handler {
 	function showDeclineReview($args, $request) {
 		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
 
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO');
+		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
 		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
 		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
 

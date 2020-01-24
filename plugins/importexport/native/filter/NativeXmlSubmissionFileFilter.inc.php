@@ -127,7 +127,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		if ($genreName) {
 			// Build a cached list of genres by context ID by name
 			if (!isset($genresByContextId[$context->getId()])) {
-				$genreDao = DAORegistry::getDAO('GenreDAO');
+				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 				$genres = $genreDao->getByContextId($context->getId());
 				while ($genre = $genres->next()) {
 					foreach ($genre->getName(null) as $locale => $name) {
@@ -144,7 +144,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			}
 		}
 
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFile = $submissionFileDao->newDataObjectByGenreId($genreId);
 		$submissionFile->setSubmissionId($submission->getId());
 		$submissionFile->setSubmissionLocale($submission->getLocale());
@@ -177,7 +177,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$user = $deployment->getUser();
 		} else {
 			// Determine the user based on the username
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$user = $userDao->getByUsername($uploaderUsername);
 		}
 		if ($user) {

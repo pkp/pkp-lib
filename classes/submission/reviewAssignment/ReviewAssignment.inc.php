@@ -531,9 +531,9 @@ class ReviewAssignment extends DataObject {
 	 */
 	function isRead() {
 		$submissionDao = Application::getSubmissionDAO();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO');
-		$viewsDao = DAORegistry::getDAO('ViewsDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
+		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
 
 		$submission = $submissionDao->getById($this->getSubmissionId());
 

@@ -108,7 +108,7 @@ class MergeUsersTool extends CommandLineTool {
 	 * @return User|null
 	 */
 	protected function _getUserBySpecifier($specifier) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		if (substr($specifier, 0, 3) == 'id=') {
 			return $userDao->getById(substr($specifier, 3));
 		}

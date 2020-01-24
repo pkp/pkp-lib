@@ -46,7 +46,7 @@ class SelectCategoryListHandler extends SelectListHandler {
 
 		$items = array();
 
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$categories = $categoryDao->getByContextId($contextId);
 		if (!$categories->wasEmpty) {
 			while ($category = $categories->next()) {

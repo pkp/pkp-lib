@@ -48,7 +48,7 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 	 * @copydoc GridHandler::loadData()
 	 */
 	protected function loadData($request, $filter = null) {
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		$reviewFormElement = $reviewFormElementDao->getById($this->_reviewFormElementId);
 		$formattedResponses = array();
 		if ($reviewFormElement) {

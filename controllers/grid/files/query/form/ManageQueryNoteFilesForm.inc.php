@@ -83,7 +83,7 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm {
 		$submissionFile = parent::importFile($context, $submissionFile, $fileStage);
 		$submissionFile->setAssocType(ASSOC_TYPE_NOTE);
 		$submissionFile->setAssocId($this->_noteId);
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		$submissionFileDao->updateObject($submissionFile);
 		return $submissionFile;
 	}

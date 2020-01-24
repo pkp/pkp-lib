@@ -82,7 +82,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 		$submissionDao = Application::getSubmissionDAO();
 		$submission = $submissionDao->getById($submissionId);
 
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getStageId());
 
 		// Get the copyediting and production discussions
@@ -91,7 +91,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 		$productionQueries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
 
 		// Get the copyedited files
-		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		import('lib.pkp.classes.submission.SubmissionFile');
 		$copyeditedFiles = $submissionFileDao->getLatestRevisions($submissionId, SUBMISSION_FILE_COPYEDIT);
 

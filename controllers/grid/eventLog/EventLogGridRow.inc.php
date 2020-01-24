@@ -53,7 +53,7 @@ class EventLogGridRow extends GridRow {
 		assert($logEntry != null && (is_a($logEntry, 'EventLogEntry') || is_a($logEntry, 'EmailLogEntry')));
 
 		if (is_a($logEntry, 'EventLogEntry')) {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$params = $logEntry->getParams();
 
 			switch ($logEntry->getEventType()) {
@@ -64,7 +64,7 @@ class EventLogGridRow extends GridRow {
 						$blindAuthor = false;
 						$maybeBlindAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getFileStage() === SUBMISSION_FILE_REVIEW_ATTACHMENT;
 						if ($maybeBlindAuthor && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+							$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 							$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());
 							if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_BLIND, SUBMISSION_REVIEW_METHOD_DOUBLEBLIND))) {
 								$blindAuthor = true;

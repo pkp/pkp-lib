@@ -78,7 +78,7 @@ class AccessKeyManager {
 	 */
 	function _performPeriodicCleanup() {
 		if (time() % 100 == 0) {
-			$accessKeyDao = DAORegistry::getDAO('AccessKeyDAO');
+			$accessKeyDao = DAORegistry::getDAO('AccessKeyDAO'); /* @var $accessKeyDao AccessKeyDAO */
 			$accessKeyDao->deleteExpiredKeys();
 		}
 	}

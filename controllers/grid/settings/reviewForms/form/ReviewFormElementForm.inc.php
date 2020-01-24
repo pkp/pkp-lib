@@ -49,7 +49,7 @@ class ReviewFormElementForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		return $reviewFormElementDao->getLocaleFieldNames();
 	}
 
@@ -76,7 +76,7 @@ class ReviewFormElementForm extends Form {
 		if ($this->reviewFormElementId) {
 			$request = Application::get()->getRequest();
 			$context = $request->getContext();
-			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId, $this->reviewFormId);
 			$this->_data = array(
 				'question' => $reviewFormElement->getQuestion(null), // Localized
@@ -106,13 +106,13 @@ class ReviewFormElementForm extends Form {
 	 * @return int Review form element ID
 	 */
 	function execute() {
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		$request = Application::get()->getRequest();
 
 		if ($this->reviewFormElementId) {
 			$context = $request->getContext();
 			$reviewFormElement = $reviewFormElementDao->getById($this->reviewFormElementId);
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$reviewForm = $reviewFormDao->getById($reviewFormElement->getReviewFormId(), Application::getContextAssocType(), $context->getId());
 			if (!$reviewForm) fatalError('Invalid review form element ID!');
 		} else {

@@ -65,7 +65,7 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 		$context = $deployment->getContext();
 
 		// Create the UserGroup object.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroup = $userGroupDao->newDataObject();
 		$userGroup->setContextId($context->getId());
 

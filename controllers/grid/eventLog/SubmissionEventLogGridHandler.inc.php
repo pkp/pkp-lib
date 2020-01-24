@@ -177,8 +177,8 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 * @copydoc GridHandler::loadData
 	 */
 	protected function loadData($request, $filter = null) {
-		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO');
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /* @var $submissionEventLogDao SubmissionEventLogDAO */
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 
 		$submission = $this->getSubmission();
 
@@ -207,7 +207,7 @@ class SubmissionEventLogGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function viewEmail($args, $request) {
-		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+		$submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /* @var $submissionEmailLogDao SubmissionEmailLogDAO */
 		$emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId']);
 		return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
 	}

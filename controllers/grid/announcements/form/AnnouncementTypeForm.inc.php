@@ -47,7 +47,7 @@ class AnnouncementTypeForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 		return $announcementTypeDao->getLocaleFieldNames();
 	}
 
@@ -65,7 +65,7 @@ class AnnouncementTypeForm extends Form {
 	 */
 	function initData() {
 		if (isset($this->typeId)) {
-			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 			$announcementType = $announcementTypeDao->getById($this->typeId);
 
 			if ($announcementType != null) {
@@ -91,7 +91,7 @@ class AnnouncementTypeForm extends Form {
 	 * Save announcement type.
 	 */
 	function execute() {
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 
 		if (isset($this->typeId)) {
 			$announcementType = $announcementTypeDao->getById($this->typeId);

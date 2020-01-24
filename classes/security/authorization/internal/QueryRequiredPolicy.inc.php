@@ -37,7 +37,7 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy {
 		if (!$queryId) return AUTHORIZATION_DENY;
 
 		// Make sure the query belongs to the submission.
-		$queryDao = DAORegistry::getDAO('QueryDAO');
+		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $queryDao->getById($queryId);
 		if (!is_a($query, 'Query')) return AUTHORIZATION_DENY;
 		switch ($query->getAssocType()) {

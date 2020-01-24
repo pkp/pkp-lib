@@ -55,7 +55,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 
 					// Anonymize reviewer details where necessary
 					if ($this->_isCurrentUserAssignedAuthor) {
-						$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+						$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 
 						// Maybe anonymize reviewer log entries
 						$reviewerLogTypes = array(
@@ -82,7 +82,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider {
 						if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
 							assert(isset($params['fileId']) && isset($params['submissionId']));
 							$blindAuthor = true;
-							$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+							$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 							$submissionFile = $submissionFileDao->getLatestRevision($params['fileId']);
 							if ($submissionFile && $submissionFile->getAssocType() === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
 								$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getAssocId());

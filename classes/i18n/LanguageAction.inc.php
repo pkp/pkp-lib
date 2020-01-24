@@ -55,7 +55,7 @@ class LanguageAction {
 	 * version.
 	 */
 	function getDownloadableLocales() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$version = $versionDao->getCurrentVersion();
 		$versionString = $version->getVersionString();
 
@@ -76,7 +76,7 @@ class LanguageAction {
 			return false;
 		}
 
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$version = $versionDao->getCurrentVersion();
 		$versionString = $version->getVersionString();
 

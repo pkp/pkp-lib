@@ -49,7 +49,7 @@ class StatisticsReport extends ScheduledTask {
 		);
 
 		$contextDao = Application::get()->getContextDAO();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 
 		$sentMessages = 0;
 		for ($contexts = $contextDao->getAll(true); $context = $contexts->next(); ) {

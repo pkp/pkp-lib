@@ -143,7 +143,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 		// Get the existing review assignments for this submission
 		// Only show open requests that have been accepted
 		$reviewRound = $this->getReviewRound();
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		return $reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId());
 	}
 
@@ -167,12 +167,12 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 		if ($reviewAssignment->getReviewFormId()) {
 			// Retrieve review form
 			$context = $request->getContext();
-			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 			// Get review form elements visible for authors
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId(), null, true);
-			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+			$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
 			$reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$reviewformid = $reviewAssignment->getReviewFormId();
 			$reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
 			$templateMgr->assign(array(
@@ -183,7 +183,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler {
 			));
 		} else {
 			// Retrieve reviewer comments. Skip private comments.
-			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+			$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
 			$templateMgr->assign(array(
 				'comments' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), true),
 			));

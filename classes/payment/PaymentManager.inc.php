@@ -36,7 +36,7 @@ abstract class PaymentManager {
 	function queuePayment($queuedPayment, $expiryDate = null) {
 		if (!$this->isConfigured()) return false;
 
-		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
+		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /* @var $queuedPaymentDao QueuedPaymentDAO */
 		$queuedPaymentId = $queuedPaymentDao->insertObject($queuedPayment, $expiryDate);
 
 		// Perform periodic cleanup
@@ -88,7 +88,7 @@ abstract class PaymentManager {
 	 * @return QueuedPayment
 	 */
 	function getQueuedPayment($queuedPaymentId) {
-		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
+		$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /* @var $queuedPaymentDao QueuedPaymentDAO */
 		$queuedPayment = $queuedPaymentDao->getById($queuedPaymentId);
 		return $queuedPayment;
 	}

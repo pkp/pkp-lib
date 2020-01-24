@@ -154,7 +154,7 @@ abstract class PluginGridHandler extends CategoryGridHandler {
 	function loadCategoryData($request, &$categoryDataElement, $filter = null) {
 		$plugins = PluginRegistry::loadCategory($categoryDataElement);
 
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		import('lib.pkp.classes.site.VersionCheck');
 		$fileManager = new FileManager();
 

@@ -235,7 +235,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	 */
 	protected function loadData($request, $filter) {
 		$submission = $this->getSubmission();
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId(
 			$this->getSubmission()->getId(),
 			$this->getStageId()
@@ -310,8 +310,8 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			$notificationMgr = new NotificationManager();
 
 			// Check user group role id.
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 
 			$userGroup = $userGroupDao->getById($userGroupId);
 			import('classes.workflow.EditorDecisionActionsManager');
@@ -329,7 +329,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			foreach ($stages as $workingStageId) {
 				// remove the 'editor required' task if we now have an editor assigned
 				if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $workingStageId)) {
-					$notificationDao = DAORegistry::getDAO('NotificationDAO');
+					$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 					$notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
 				}
 			}
@@ -344,7 +344,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 
 
 			// Log addition.
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$assignedUser = $userDao->getById($userId);
 			import('lib.pkp.classes.log.SubmissionLog');
 			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
@@ -406,9 +406,9 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		}
 
 		// Log removal.
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$assignedUser = $userDao->getById($stageAssignment->getUserId());
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
 		import('lib.pkp.classes.log.SubmissionLog');
 		SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
@@ -432,7 +432,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
 		$users = $userStageAssignmentDao->getUsersNotAssignedToStageInUserGroup($submission->getId(), $stageId, $userGroupId);
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroup = $userGroupDao->getById($userGroupId);
 		$roleId = $userGroup->getRoleId();
 

@@ -195,7 +195,7 @@ class PKPPublicIdentifiersForm extends Form {
 			$representationDao = Application::getRepresentationDAO();
 			$representationDao->updateObject($pubObject);
 		} elseif (is_a($pubObject, 'SubmissionFile')) {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 			$submissionFileDao->updateObject($pubObject);
 		}
 	}

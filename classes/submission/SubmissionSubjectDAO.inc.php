@@ -48,7 +48,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 		$result = [];
 
 		$subjects = $this->build($publicationId);
-		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
+		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
 		$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
 		while ($subjectEntry = $submissionSubjects->next()) {
 			$subject = $subjectEntry->getSubject();
@@ -93,8 +93,8 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @return int
 	 */
 	function insertSubjects($subjects, $publicationId, $deleteFirst = true) {
-		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
+		$subjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $subjectDao SubmissionSubjectDAO */
+		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
 		$currentSubjects = $this->build($publicationId);
 
 		if ($deleteFirst) {

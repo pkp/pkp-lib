@@ -201,7 +201,7 @@ class UserDAO extends DAO {
 	 * @return array matching Users
 	 */
 	function getReviewersNotAssignedToSubmission($contextId, $submissionId, &$reviewRound, $name = '') {
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 
 		$params = array(
 			(int) $contextId,

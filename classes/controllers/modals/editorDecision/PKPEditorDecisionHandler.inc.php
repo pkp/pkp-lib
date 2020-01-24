@@ -201,10 +201,10 @@ class PKPEditorDecisionHandler extends Handler {
 		$reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
 
 		// Retrieve peer reviews.
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
+		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 
 		$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 		$reviewIndexes = $reviewAssignmentDao->getReviewIndexesForRound($submission->getId(), $reviewRound->getId());
@@ -447,7 +447,7 @@ class PKPEditorDecisionHandler extends Handler {
 
 			// Get a list of author user IDs
 			$authorUserIds = array();
-			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 			$submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
 			while ($assignment = $submitterAssignments->next()) {
 				$authorUserIds[] = $assignment->getUserId();

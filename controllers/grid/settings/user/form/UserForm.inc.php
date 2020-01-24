@@ -41,7 +41,7 @@ class UserForm extends Form {
 	 */
 	public function initData() {
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByUserId($this->userId);
 		$userGroupIds = array();
 		while ($userGroup = $userGroups->next()) {
@@ -106,10 +106,10 @@ class UserForm extends Form {
 	function execute(...$functionArgs) {
 		if (isset($this->userId)) {
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
-			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
+			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
 			$userGroupAssignmentDao->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
 			if ($this->getData('userGroupIds')) {
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				foreach ($this->getData('userGroupIds') as $userGroupId) {
 					$userGroupDao->assignUserToGroup($this->userId, $userGroupId);
 				}

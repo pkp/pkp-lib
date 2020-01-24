@@ -621,7 +621,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			$contextId = $context->getId();
 		}
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 
 		// Remove setting row for empty string values (but not all falsey values)
 		if ($value === '') {

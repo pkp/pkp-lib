@@ -90,7 +90,7 @@ class PKPSitemapHandler extends Handler {
 		// Announcements
 		if ($context->getData('enableAnnouncements') == 1) {
 			$root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement')));
-			$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
+			$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 			$contextAssocType = Application::getContextAssocType();
 			$announcementsResult = $announcementDao->getByAssocId($contextAssocType, $contextId);
 			while ($announcement = $announcementsResult->next()) {
@@ -112,7 +112,7 @@ class PKPSitemapHandler extends Handler {
 			$root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'about', 'contact')));
 		}
 		// Custom pages (navigation menu items)
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 		$menuItemsResult = $navigationMenuItemDao->getByType(NMI_TYPE_CUSTOM, $contextId);
 		while ($menuItem = $menuItemsResult->next()) {
 			$root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), $menuItem->getPath())));

@@ -29,7 +29,7 @@ class NotificationHandler extends Handler {
 		$user = $request->getUser();
 		$userId = $user?$user->getId():null;
 		$context = $request->getContext();
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notifications = array();
 
 		// Get the notification options from request.
@@ -76,7 +76,7 @@ class NotificationHandler extends Handler {
 	 * @return Array
 	 */
 	function _getNotificationsByOptions($notificationOptions, $contextId, $userId = null) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationsArray = array();
 		$notificationMgr = new NotificationManager();
 

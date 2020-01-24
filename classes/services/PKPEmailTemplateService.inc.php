@@ -56,7 +56,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			->filterByContext($contextId)
 			->filterByKeys([$key])
 			->getCompiledQuery();
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$result = $emailTemplateDao->retrieve($emailTemplateQueryParts[0], $emailTemplateQueryParts[1]);
 		if ($result->RecordCount() !== 0) {
 			$emailTemplate = $emailTemplateDao->_fromRow($result->GetRowAssoc(false));
@@ -92,7 +92,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 */
 	public function getMany($args = []) {
 		$emailTemplateQueryParts = $this->getQueryBuilder($args)->getCompiledQuery();
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$result = $emailTemplateDao->retrieveRange($emailTemplateQueryParts[0], $emailTemplateQueryParts[1]);
 		$queryResults = new DAOResultFactory($result, $emailTemplateDao, '_fromRow');
 
@@ -265,7 +265,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 			$contextId = $context ? $context->getId() : CONTEXT_SITE;
 		}
 
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->insertObject($emailTemplate);
 		$emailTemplate = $this->getByKey($contextId, $emailTemplate->getData('key'));
 
@@ -278,7 +278,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 	 * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
 	 */
 	public function edit($emailTemplate, $params, $request) {
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$newEmailTemplate = $emailTemplateDao->newDataObject();
 		$newEmailTemplate->_data = array_merge($emailTemplate->_data, $params);
 
@@ -325,7 +325,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
 		$emailTemplateQB = new PKPEmailTemplateQueryBuilder();
 		$emailTemplateQB->filterByContext($contextId);
 		$emailTemplateQO = $emailTemplateQB->getModified();
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$result = $emailTemplateDao->retrieve($emailTemplateQO->toSql(), $emailTemplateQO->getBindings());
 		$queryResults = new DAOResultFactory($result, $emailTemplateDao, '_fromRow');
 		$deletedKeys = [];

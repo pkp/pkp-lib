@@ -67,7 +67,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm {
 		}
 
 		$items = [];
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$categories = $categoryDao->getByContextId($context->getId());
 		if (!$categories->wasEmpty) {
 			while ($category = $categories->next()) {

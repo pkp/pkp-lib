@@ -56,7 +56,7 @@ class NavigationMenusGridCellProvider extends GridCellProvider {
 			case 'title':
 				return array('label' => '');
 			case 'nmis':
-				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
 				$items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
 
 				$navigationMenusTitles = '';

@@ -102,7 +102,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm {
 				$this, 'genreId', FORM_VALIDATOR_REQUIRED_VALUE,
 				'submission.upload.noGenre',
 				function($genreId) use ($context) {
-					$genreDao = DAORegistry::getDAO('GenreDAO');
+					$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 					return is_a($genreDao->getById($genreId, $context->getId()), 'Genre');
 				}
 			));

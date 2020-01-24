@@ -42,7 +42,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
 				$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 				$reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				$operation = $reviewAssignment->getStageId()==WORKFLOW_STAGE_ID_INTERNAL_REVIEW?WORKFLOW_STAGE_PATH_INTERNAL_REVIEW:WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW;
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'workflow', $operation, $reviewAssignment->getSubmissionId());
 			case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
@@ -62,7 +62,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				$context = $contextDao->getById($notification->getContextId());
 				Application::getPaymentManager($context);
 				assert($notification->getAssocType() == ASSOC_TYPE_QUEUED_PAYMENT);
-				$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO');
+				$queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /* @var $queuedPaymentDao QueuedPaymentDAO */
 				$queuedPayment = $queuedPaymentDao->getById($notification->getAssocId());
 				$context = $contextDao->getById($queuedPayment->getContextId());
 				return $dispatcher->url($request, ROUTE_PAGE, $context->getPath(), 'payment', 'pay', array($queuedPayment->getId()));
@@ -144,9 +144,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 				return __('notification.type.reviewAssignmentUpdated');
 			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
 				assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 
 				AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
 				$user = $request->getUser();
@@ -224,7 +224,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager {
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getById($notification->getAssocId());
 				return __('notification.type.roundStatusTitle', array('round' => $reviewRound->getRound()));
 			case NOTIFICATION_TYPE_FORM_ERROR:

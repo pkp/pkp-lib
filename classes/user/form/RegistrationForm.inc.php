@@ -63,7 +63,7 @@ class RegistrationForm extends Form {
 			$this->addCheck(new FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
 		}
 
-		$authDao = DAORegistry::getDAO('AuthSourceDAO');
+		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$this->defaultAuth = $authDao->getDefaultPlugin();
 		if (isset($this->defaultAuth)) {
 			$auth = $this->defaultAuth;
@@ -98,7 +98,7 @@ class RegistrationForm extends Form {
 			));
 		}
 
-		$countryDao = DAORegistry::getDAO('CountryDAO');
+		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
 		$countries = $countryDao->getCountries();
 		$templateMgr->assign('countries', $countries);
 
@@ -179,7 +179,7 @@ class RegistrationForm extends Form {
 			}
 
 			if (!Config::getVar('general', 'sitewide_privacy_statement')) {
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				$contextIds = array();
 				foreach ($this->getData('userGroupIds') as $userGroupId) {
 					$userGroup = $userGroupDao->getById($userGroupId);
@@ -210,7 +210,7 @@ class RegistrationForm extends Form {
 	 */
 	function execute(...$functionArgs) {
 		$requireValidation = Config::getVar('email', 'require_validation');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
 		// New user
 		$this->user = $user = $userDao->newDataObject();
@@ -270,7 +270,7 @@ class RegistrationForm extends Form {
 
 		// Save the selected roles or assign the Reader role if none selected
 		if ($request->getContext() && !$this->getData('reviewerGroup')) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 			$defaultReaderGroup = $userGroupDao->getDefaultByRoleId($request->getContext()->getId(), ROLE_ID_READER);
 			if ($defaultReaderGroup) $userGroupDao->assignUserToGroup($user->getId(), $defaultReaderGroup->getId(), $request->getContext()->getId());
 		} else {
@@ -292,7 +292,7 @@ class RegistrationForm extends Form {
 				}
 			}
 			if (isset($publicNotifications)) {
-				$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+				$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 				$notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings(
 					'blocked_emailed_notification',
 					$publicNotifications,

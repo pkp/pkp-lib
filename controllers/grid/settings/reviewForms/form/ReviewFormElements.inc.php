@@ -53,11 +53,11 @@ class ReviewFormElements extends Form {
 	function initData() {
 		if (isset($this->reviewFormId)) {
 			// Get review form
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $this->contextId);
 
 			// Get review form elements
-			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+			$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 			$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId, null);
 
 			// Set data

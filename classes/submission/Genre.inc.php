@@ -163,7 +163,7 @@ class Genre extends DataObject {
 	 * @return bool
 	 */
 	function isDefault() {
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$defaultKeys = $genreDao->getDefaultKeys();
 		return in_array($this->getKey(), $defaultKeys);
 	}

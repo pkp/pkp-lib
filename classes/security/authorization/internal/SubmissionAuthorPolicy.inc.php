@@ -49,8 +49,8 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 		$context = $this->_request->getContext();
 
 		// Check authorship of the submission. Any ROLE_ID_AUTHOR assignment will do.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
 		$workflowStages = Application::getApplicationStages();
 		while ($assignment = $submitterAssignments->next()) {

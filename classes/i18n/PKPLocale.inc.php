@@ -406,7 +406,7 @@ class PKPLocale {
 		// Install default locale-specific data
 		import('lib.pkp.classes.db.DBDataXMLParser');
 
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
 
 		// Load all plugins so they can add locale data if needed
@@ -423,7 +423,7 @@ class PKPLocale {
 	 */
 	static function uninstallLocale($locale) {
 		// Delete locale-specific data
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->deleteEmailTemplatesByLocale($locale);
 		$emailTemplateDao->deleteDefaultEmailTemplatesByLocale($locale);
 	}

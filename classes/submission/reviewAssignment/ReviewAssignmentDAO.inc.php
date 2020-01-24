@@ -455,7 +455,7 @@ class ReviewAssignmentDAO extends DAO {
 	 */
 	public function updateReviewRoundStatus($reviewAssignment) {
 		import('lib.pkp.classes.submission.reviewRound/ReviewRoundDAO');
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 		$reviewRound = $reviewRoundDao->getReviewRound(
 			$reviewAssignment->getSubmissionId(),
 			$reviewAssignment->getStageId(),
@@ -522,13 +522,13 @@ class ReviewAssignmentDAO extends DAO {
 	 * @param $reviewId int
 	 */
 	function deleteById($reviewId) {
-		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /* @var $reviewFormResponseDao ReviewFormResponseDAO */
 		$reviewFormResponseDao->deleteByReviewId($reviewId);
 
-		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO');
+		$reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /* @var $reviewFilesDao ReviewFilesDAO */
 		$reviewFilesDao->revokeByReviewId($reviewId);
 
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notificationDao->deleteByAssoc(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewId);
 
 		// Retrieve the review assignment before it's deleted, so it can be

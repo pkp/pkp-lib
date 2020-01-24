@@ -37,8 +37,8 @@ class ReviewReminder extends ScheduledTask {
 	 * 	REVIEW_REMIND_AUTO, REVIEW_REQUEST_REMIND_AUTO
 	 */
 	function sendReminder ($reviewAssignment, $submission, $context, $reminderType = REVIEW_REMIND_AUTO) {
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$reviewId = $reviewAssignment->getId();
 
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
@@ -127,7 +127,7 @@ class ReviewReminder extends ScheduledTask {
 		$submission = null;
 		$context = null;
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$submissionDao = Application::getSubmissionDAO();
 		$contextDao = Application::getContextDAO();
 

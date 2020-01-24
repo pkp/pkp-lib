@@ -48,7 +48,7 @@ class ReviewFormForm extends Form {
 		if ($this->reviewFormId) {
 			$request = Application::get()->getRequest();
 			$context = $request->getContext();
-			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+			$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
 
 			$this->setData('title', $reviewForm->getTitle(null));
@@ -74,7 +74,7 @@ class ReviewFormForm extends Form {
 	function execute() {
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
-		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 
 		if ($this->reviewFormId) {
 			$reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
@@ -103,7 +103,7 @@ class ReviewFormForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
 		return $reviewFormDao->getLocaleFieldNames();
 	}
 }

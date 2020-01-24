@@ -46,8 +46,8 @@ class InterestManager {
 		static $interestsCache = array();
 		$interests = array();
 
-		$interestDao = DAORegistry::getDAO('InterestDAO');
-		$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
+		$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
+		$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
 		$controlledVocab = $interestDao->build();
 		foreach($interestDao->getUserInterestIds($user->getId()) as $interestEntryId) {
 			if (!isset($interestsCache[$interestEntryId])) {
@@ -81,7 +81,7 @@ class InterestManager {
 	 * @param $interests mixed
 	 */
 	function setInterestsForUser($user, $interests) {
-		$interestDao = DAORegistry::getDAO('InterestDAO');
+		$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
 		$interests = is_array($interests) ? $interests : (empty($interests) ? null : explode(",", $interests));
 		$interestDao->setUserInterests($interests, $user->getId());
 	}

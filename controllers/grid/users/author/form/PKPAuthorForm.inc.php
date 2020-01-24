@@ -129,14 +129,14 @@ class PKPAuthorForm extends Form {
 		$author = $this->getAuthor();
 
 		$templateMgr = TemplateManager::getManager($request);
-		$countryDao = DAORegistry::getDAO('CountryDAO');
+		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
 		$countries = $countryDao->getCountries();
 		$templateMgr->assign('countries', $countries);
 
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
 		$templateMgr->assign('authorUserGroups', $authorUserGroups);
 
@@ -174,7 +174,7 @@ class PKPAuthorForm extends Form {
 	 * @see Form::execute()
 	 */
 	function execute(...$functionParams) {
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$publication = $this->getPublication();
 
 		$author = $this->getAuthor();

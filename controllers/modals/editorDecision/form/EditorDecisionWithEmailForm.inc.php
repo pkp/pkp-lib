@@ -116,7 +116,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$reviewsAvailable = false;
 			$submission = $this->getSubmission();
 			$reviewRound = $this->getReviewRound();
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 			foreach ($reviewAssignments as $reviewAssignment) {
 				if ($reviewAssignment->getDateCompleted() != null) {

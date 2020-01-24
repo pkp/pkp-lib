@@ -37,8 +37,8 @@ class ReviewerAction {
 	 * @param $emailText string optional
 	 */
 	function confirmReview($request, $reviewAssignment, $submission, $decline, $emailText = null) {
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 		if (!isset($reviewer)) return true;
@@ -92,13 +92,13 @@ class ReviewerAction {
 		$email = new SubmissionMailTemplate($submission, $decline?'REVIEW_DECLINE':'REVIEW_CONFIRM');
 
 		// Get reviewer
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 
 		// Get editorial contact name
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
 		$recipient = null;
 		while ($stageAssignment = $stageAssignments->next()) {

@@ -37,7 +37,7 @@ class EditorAction {
 	 * @param $recommendation boolean optional
 	 */
 	function recordDecision($request, $submission, $decision, $decisionLabels, $reviewRound = null, $stageId = null, $recommendation = false) {
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 
 		// Define the stage and round data.
 		if (!is_null($reviewRound)) {
@@ -69,7 +69,7 @@ class EditorAction {
 		$result = $editorDecision;
 		if (!HookRegistry::call('EditorAction::recordDecision', array(&$submission, &$editorDecision, &$result, &$recommendation))) {
 			// Record the new decision
-			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 			$editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
 
 			// Set a new submission status if necessary
@@ -104,8 +104,8 @@ class EditorAction {
 	 * @param $responseDueDate datetime
 	 */
 	function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null) {
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
 		$reviewer = $userDao->getById($reviewerId);
 
@@ -163,7 +163,7 @@ class EditorAction {
 	 * @param $logEntry boolean
 	 */
 	function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate, $logEntry = false) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$context = $request->getContext();
 
 		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());

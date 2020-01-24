@@ -376,7 +376,7 @@ class AuthorGridHandler extends GridHandler {
 
 		$authorId = (int) $request->getUserVar('authorId');
 
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$authorDao->deleteById($authorId);
 		$json = DAO::getDataChangedEvent($authorId);
 		$json->setGlobalEvent('authorsUpdated');
@@ -393,8 +393,8 @@ class AuthorGridHandler extends GridHandler {
 		// Identify the author Id.
 		$authorId = (int) $request->getUserVar('authorId');
 
-		$authorDao = DAORegistry::getDAO('AuthorDAO');
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$author = $authorDao->getById($authorId);
 
 		if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {

@@ -93,7 +93,7 @@ class PluginTestCase extends DatabaseTestCase {
 		// self::assertTrue($installer->execute());
 
 		// Test whether the filter groups have been installed.
-		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO');
+		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 		foreach($filterGroups as $filterGroupSymbolic) {
 			// Check the group.
 			self::assertInstanceOf('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);

@@ -25,7 +25,7 @@ class Validation {
 	 */
 	static function login($username, $password, &$reason, $remember = false) {
 		$reason = null;
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getByUsername($username, true);
 		if (!isset($user)) {
 			// User does not exist
@@ -33,7 +33,7 @@ class Validation {
 		}
 
 		if ($user->getAuthId()) {
-			$authDao = DAORegistry::getDAO('AuthSourceDAO');
+			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 			$auth = $authDao->getPlugin($user->getAuthId());
 		} else {
 			$auth = null;
@@ -133,7 +133,7 @@ class Validation {
 		}
 
 		$user->setDateLastLogin(Core::getCurrentDate());
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$userDao->updateObject($user);
 
 		return $user;
@@ -155,7 +155,7 @@ class Validation {
 			$sessionManager->updateSessionLifetime(0);
 		}
 
-		$sessionDao = DAORegistry::getDAO('SessionDAO');
+		$sessionDao = DAORegistry::getDAO('SessionDAO'); /* @var $sessionDao SessionDAO */
 		$sessionDao->updateObject($session);
 
 		return true;
@@ -186,13 +186,13 @@ class Validation {
 	 * @return boolean
 	 */
 	static function checkCredentials($username, $password) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getByUsername($username, false);
 
 		$valid = false;
 		if (isset($user)) {
 			if ($user->getAuthId()) {
-				$authDao = DAORegistry::getDAO('AuthSourceDAO');
+				$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 				$auth =& $authDao->getPlugin($user->getAuthId());
 			}
 
@@ -238,7 +238,7 @@ class Validation {
 		$session = $sessionManager->getUserSession();
 		$user = $session->getUser();
 
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 		return $roleDao->userHasRole($contextId, $user->getId(), $roleId);
 	}
 
@@ -298,7 +298,7 @@ class Validation {
 	 * @return string (boolean false if user is invalid)
 	 */
 	static function generatePasswordResetHash($userId, $expiry = null) {
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		if (($user = $userDao->getById($userId)) == null) {
 			// No such user
 			return false;
@@ -359,7 +359,7 @@ class Validation {
 		}
 
 		$suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
 		return $suggestion . $i;
 	}
@@ -403,7 +403,7 @@ class Validation {
 	 * @return boolean True IFF the administration operation is permitted
 	 */
 	static function canAdminister($administeredUserId, $administratorUserId) {
-		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
 
 		// You can administer yourself
 		if ($administeredUserId == $administratorUserId) return true;
@@ -416,7 +416,7 @@ class Validation {
 
 		// Check for administered user group assignments in other contexts
 		// that the administrator user doesn't have a manager role in.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByUserId($administeredUserId);
 		while ($userGroup = $userGroups->next()) {
 			if ($userGroup->getContextId()!=CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {

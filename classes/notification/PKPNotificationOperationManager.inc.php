@@ -90,7 +90,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
 	public function getFormattedNotificationsForUser($request, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $contextId = null, $rangeInfo = null, $notificationTemplate = 'notification/notification.tpl') {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notifications = $notificationDao->getByUserId($userId, $level, null, $contextId, $rangeInfo);
 
 		return $this->formatNotifications($request, $notifications, $notificationTemplate);
@@ -151,7 +151,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
 		if(!in_array($notificationType, $blockedNotifications)) {
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 			$notification = $notificationDao->newDataObject(); /** @var $notification Notification */
 			$notification->setUserId((int) $userId);
 			$notification->setType((int) $notificationType);
@@ -172,7 +172,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			}
 
 			if ($params) {
-				$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO');
+				$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
 				foreach($params as $name => $value) {
 					$notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
 				}
@@ -191,7 +191,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return Notification object
 	 */
 	public function createTrivialNotification($userId, $notificationType = NOTIFICATION_TYPE_SUCCESS, $params = null) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$notification = $notificationDao->newDataObject();
 		$notification->setUserId($userId);
 		$notification->setContextId(CONTEXT_ID_NONE);
@@ -201,7 +201,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$notificationId = $notificationDao->insertObject($notification);
 
 		if ($params) {
-			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO');
+			$notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
 			foreach($params as $name => $value) {
 				$notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
 			}
@@ -215,7 +215,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @param array $notifications
 	 */
 	public function deleteTrivialNotifications($notifications) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO');
+		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		foreach($notifications as $notification) {
 			// Delete only trivial notifications.
 			if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL) {
@@ -271,7 +271,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return array
 	 */
 	protected function getUserBlockedNotifications($userId, $contextId) {
-		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, (int) $contextId);
 	}
 
@@ -280,7 +280,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return array
 	 */
 	protected function getUserBlockedEmailedNotifications($userId, $contextId) {
-		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+		$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /* @var $notificationSubscriptionSettingsDao NotificationSubscriptionSettingsDAO */
 		return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $userId, (int) $contextId);
 	}
 
@@ -340,7 +340,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
 		// Set the date read if it isn't already set
 		if (!$notification->getDateRead()) {
-			$notificationDao = DAORegistry::getDAO('NotificationDAO');
+			$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 			$dateRead = $notificationDao->setDateRead($notification->getId(), Core::getCurrentDate());
 			$notification->setDateRead($dateRead);
 		}
@@ -373,7 +373,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 */
 	protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null) {
 		$userId = $notification->getUserId();
-		$userDao = DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($userId);
 		if ($user && !$user->getDisabled()) {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);

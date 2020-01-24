@@ -126,8 +126,8 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 			$this->createOptionalNode($doc, $userNode, 'disabled_reason', $user->getDisabledReason());
 		}
 
-		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$assignedGroups = $userGroupAssignmentDao->getByUserId($user->getId(), $context->getId());
 		while ($assignedGroup = $assignedGroups->next()) {
 			$userGroup = $userGroupDao->getById($assignedGroup->getUserGroupId());
@@ -150,9 +150,9 @@ class PKPUserUserXmlFilter extends NativeExportFilter {
 		$context = $deployment->getContext();
 		$userGroupsNode = $doc->createElementNS($deployment->getNamespace(), 'user_groups');
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		$userGroups = $userGroupDao->getByContextId($context->getId());
-		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');
 		assert(count($userGroupExportFilters)==1); // Assert only a single serialization filter
 		$exportFilter = array_shift($userGroupExportFilters);

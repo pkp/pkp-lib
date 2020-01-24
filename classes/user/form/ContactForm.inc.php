@@ -36,7 +36,7 @@ class ContactForm extends BaseProfileForm {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
-		$countryDao = DAORegistry::getDAO('CountryDAO');
+		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
 		$templateMgr->assign(array(
 			'countries' => $countryDao->getCountries(),
 			'availableLocales' => $site->getSupportedLocaleNames(),

@@ -410,7 +410,7 @@ class PKPTemplateManager extends Smarty {
 
 			$user = $request->getUser();
 			if ($user) {
-				$notificationDao = DAORegistry::getDAO('NotificationDAO');
+				$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 				$notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
 				if ($notifications->getCount() > 0) {
 					$this->assign('hasSystemNotifications', true);
@@ -778,7 +778,7 @@ class PKPTemplateManager extends Smarty {
 			if ($user) {
 				import('lib.pkp.classes.security.RoleDAO');
 				import('lib.pkp.classes.security.UserGroupDAO');
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 				$userGroups = $userGroupDao->getByUserId($this->_request->getUser()->getId())->toArray();
 				$currentUserAccessRoles = array();
 				foreach ($userGroups as $userGroup) {
@@ -1557,7 +1557,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			$appVersion = $versionDao->getCurrentVersion()->getVersionString();
 		} else $appVersion = null;
 
@@ -1639,7 +1639,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			$appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
 		} else $appVersion = null;
 
@@ -1729,7 +1729,7 @@ class PKPTemplateManager extends Smarty {
 			$menuTemplatePath = $declaredMenuTemplatePath;
 		}
 
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 
 		$output = '';
 		$navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName)->toArray();
@@ -1846,7 +1846,7 @@ class PKPTemplateManager extends Smarty {
 
 		$matching_files = array();
 
-		$genreDao = DAORegistry::getDAO('GenreDAO');
+		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		foreach ($params['files'] as $file) {
 			switch ($params['by']) {
 

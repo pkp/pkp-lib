@@ -80,21 +80,21 @@ class PKPVocabHandler extends APIHandler {
 
 		switch ($vocab) {
 			case CONTROLLED_VOCAB_SUBMISSION_KEYWORD:
-				$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO');
+				$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
 				$entries = $submissionKeywordEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_SUBJECT:
-				$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
+				$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
 				$entries = $submissionSubjectEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE:
-				$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
+				$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
 				$entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_LANGUAGE:
 				return $response->withJson(DAORegistry::getDAO('LanguageDAO')->getLanguageNames($locale), 200);
 			case CONTROLLED_VOCAB_SUBMISSION_AGENCY:
-				$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO');
+				$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
 				$entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			default:

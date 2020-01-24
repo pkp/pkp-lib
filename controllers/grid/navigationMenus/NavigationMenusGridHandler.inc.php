@@ -133,7 +133,7 @@ class NavigationMenusGridHandler extends GridHandler {
 			$contextId = $context->getId();
 		}
 
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 		return $navigationMenuDao->getByContextId($contextId);
 	}
 
@@ -230,7 +230,7 @@ class NavigationMenusGridHandler extends GridHandler {
 		$navigationMenuId = (int) $request->getUserVar('navigationMenuId');
 		$context = $request->getContext();
 
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 		$navigationMenu = $navigationMenuDao->getById($navigationMenuId, $context?$context->getId():CONTEXT_SITE);
 		if ($navigationMenu && $request->checkCSRF()) {
 			$navigationMenuDao->deleteObject($navigationMenu);

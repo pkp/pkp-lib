@@ -142,7 +142,7 @@ class Installer {
 
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			$this->currentVersion = $versionDao->getCurrentVersion();
 		}
 
@@ -277,7 +277,7 @@ class Installer {
 	 */
 	function updateVersion() {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
-			$versionDao = DAORegistry::getDAO('VersionDAO');
+			$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 			if (!$versionDao->insertVersion($this->newVersion)) {
 				return false;
 			}
@@ -614,7 +614,7 @@ class Installer {
 	 * 		'locales' => 'en_US,fr_CA,...'
 	 */
 	function installEmailTemplate($installer, $attr) {
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
 		foreach (explode(',', $attr['locales']) as $locale) {
 			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
@@ -668,7 +668,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function columnExists($tableName, $columnName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$dataSource = $siteDao->getDataSource();
 		$dict = NewDataDictionary($dataSource);
 
@@ -692,7 +692,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function tableExists($tableName) {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$dataSource = $siteDao->getDataSource();
 		$dict = NewDataDictionary($dataSource);
 
@@ -707,7 +707,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function addPluginVersions() {
-		$versionDao = DAORegistry::getDAO('VersionDAO');
+		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		import('lib.pkp.classes.site.VersionCheck');
 		$fileManager = new FileManager();
 		$categories = PluginRegistry::getCategories();
@@ -758,7 +758,7 @@ class Installer {
 	 */
 	function installDefaultNavigationMenus() {
 		$contextDao = Application::getContextDAO();
-		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+		$navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /* @var $navigationMenuDao NavigationMenuDAO */
 
 		$contexts = $contextDao->getAll();
 		while ($context = $contexts->next()) {
@@ -785,7 +785,7 @@ class Installer {
 	 * Migrate site locale settings to a serialized array in the database
 	 */
 	function migrateSiteLocales() {
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 
 		$result = $siteDao->retrieve('SELECT installed_locales, supported_locales FROM site');
 
@@ -812,7 +812,7 @@ class Installer {
 	 */
 	function migrateSidebarBlocks() {
 
-		$siteDao = DAORegistry::getDAO('SiteDAO');
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$site = $siteDao->getSite();
 
 		$plugins = PluginRegistry::loadCategory('blocks');
@@ -825,7 +825,7 @@ class Installer {
 			return "'" . preg_replace("/[^A-Za-z0-9]/", '', $name) . "'";
 		}, array_keys($plugins));
 
-		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+		$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
 		$result = $pluginSettingsDao->retrieve(
 			"SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name='context';"
 		);
@@ -855,7 +855,7 @@ class Installer {
 				$context->setData('sidebar', $contextSetting);
 				$contextDao->updateObject($context);
 			} else {
-				$siteDao = DAORegistry::getDAO('SiteDAO');
+				$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 				$site = $siteDao->getSite();
 				$site->setData('sidebar', $contextSetting);
 				$siteDao->updateObject($site);

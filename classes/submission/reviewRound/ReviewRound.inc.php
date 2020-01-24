@@ -135,7 +135,7 @@ class ReviewRound extends DataObject {
 		// submitted
 		if ($this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
 			// get editor decisions
-			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 			$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
 
 			if ($pendingRevisionDecision) {
@@ -150,7 +150,7 @@ class ReviewRound extends DataObject {
 		// submitted
 		if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
 			// get editor decisions
-			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+			$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 			$pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), SUBMISSION_EDITOR_DECISION_RESUBMIT);
 
 			if ($pendingRevisionDecision) {
@@ -173,8 +173,8 @@ class ReviewRound extends DataObject {
 		}
 
 		// Determine the round status by looking at the recommendOnly editor assignment statuses
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO');
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /* @var $editDecisionDao EditDecisionDAO */
 		$pendingRecommendations = false;
 		$recommendationsFinished = true;
 		$recommendationsReady = false;
@@ -205,7 +205,7 @@ class ReviewRound extends DataObject {
 		$anyIncompletedReview = false;
 		$anyUnreadReview = false;
 		import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($this->getId());
 		foreach ($reviewAssignments as $reviewAssignment) {
 			assert(is_a($reviewAssignment, 'ReviewAssignment'));

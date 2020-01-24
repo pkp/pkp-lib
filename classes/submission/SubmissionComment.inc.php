@@ -112,7 +112,7 @@ class SubmissionComment extends DataObject {
 		$authorFullName =& $this->getData('authorFullName');
 
 		if(!isset($authorFullName)) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$authorFullName = $userDao->getUserFullName($this->getAuthorId(), true);
 		}
 
@@ -128,7 +128,7 @@ class SubmissionComment extends DataObject {
 		$authorEmail =& $this->getData('authorEmail');
 
 		if(!isset($authorEmail)) {
-			$userDao = DAORegistry::getDAO('UserDAO');
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 			$authorEmail = $userDao->getUserEmail($this->getAuthorId(), true);
 		}
 

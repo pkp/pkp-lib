@@ -52,7 +52,7 @@ class PKPStatsEditorialContainer extends PKPStatsComponent {
 					[
 						'descriptionForStat' => __('stats.descriptionForStat'),
 					],
-					$this->i18n,
+					$this->i18n
 				),
 			]
 		);

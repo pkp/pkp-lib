@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2020-01-24 16:01+0000\n"
+"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"da/>\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:42+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.announcements"
 msgstr "Meddelelser"
@@ -1595,3 +1598,110 @@ msgstr "Den importerede bruger \"{$username}\" har en almindelig adgangskode, de
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr "Brugernavnet \"{$username}\" og e-mailen \"{$email}\" stemmer ikke overens med en og samme eksisterende bruger."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Det valgte tema er ikke blevet installeret eller aktiveret."
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"Temaet er blevet opdateret. <a href=\"{$url}\" target=\"_blank\">Se nu</a>"
+
+msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgstr ""
+"Vis et link til <button type=\"button\">Sikring af en blind review</button> "
+"under upload"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Standard bedømmelsesindstilling"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Bedømmelses-påmindelse"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Svarpåmindelse"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Standardfrist for afsluttet færdiggørelse"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Standard svarfrist"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Filen, du uploadede, blev ikke fundet. Prøv at uploade den igen."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name}-blokken blev ikke fundet. Sørg for, at pluginen er installeret og "
+"aktiveret."
+
+msgid "manager.setup.checklist"
+msgstr "Tjekliste"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Forfattervejledningerne er blevet opdateret."
+
+msgid "manager.setup.contact.success"
+msgstr "Dette forlags kontaktoplysninger er blevet opdateret."
+
+msgid "manager.setup.appearance.success"
+msgstr "Indstillingerne for udseende er blevet opdateret."
+
+msgid "manager.setup.advanced"
+msgstr "Udvidet"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Du kan ikke slette denne repræsentant, da vedkommende er tilknyttet "
+"markedsmetadata til et eller flere publikationsformater i forbindelse med "
+"denne indsendelse."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Emne: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Sendt til"
+
+msgid "manager.emails.sentFrom"
+msgstr "Sendt fra"
+
+msgid "manager.emails.resetAll"
+msgstr "Nulstil alt"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Den angivne nøgle er allerede i brug."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Du skal angive et kontekst-id, når du tilføjer en e-mail-skabelon."
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-mail-skabelon"
+
+msgid "manager.emails.emailKey.description"
+msgstr "E-mail-nøglen kan kun indeholde bogstaver, tal og understregninger."
+
+msgid "manager.emails.editEmail.success"
+msgstr "E-mail-skabelonen blev ændret."
+
+msgid "manager.emails.customTemplate"
+msgstr "Brugerdefineret skabelon"
+
+msgid "manager.emails.addEmail.success"
+msgstr "E-mail-skabelonen blev tilføjet."
+
+msgid "manager.emails.addEmail"
+msgstr "Tilføj skabelon"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Detaljer under rykkerindstillinger til bedømmerne er blevet opdateret."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Bedømmerindstillingerne er blevet opdateret."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Vejledning til bedømmere er blevet opdateret."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Vejledning til bedømmere"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "E-mail-indstillingerne er blevet opdateret."

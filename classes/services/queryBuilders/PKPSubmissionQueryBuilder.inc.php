@@ -275,11 +275,11 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 		if (is_object($this->orderColumn) && $this->orderColumn->getValue() === 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)') {
 			$locale = \AppLocale::getLocale();
 			$this->columns[] = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
-			$q->leftJoin('publications as publication_tlp', 's.submission_id', '=', 'publication_tlp.submission_id')
+			$q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
 				->leftJoin('publication_settings as publication_tlps', 'publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
 				->where('publication_tlps.setting_name', '=', 'title')
 				->where('publication_tlps.locale', '=', $locale);
-			$q->leftJoin('publications as publication_tlpl', 's.submission_id', '=', 'publication_tlpl.submission_id')
+			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
 				->leftJoin('publication_settings as publication_tlpsl', 'publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
 				->where('publication_tlpsl.setting_name', '=', 'title')
 				->where('publication_tlpsl.locale', '=', Capsule::raw('publication_tlpl.locale'));

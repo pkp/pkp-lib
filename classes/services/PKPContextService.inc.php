@@ -613,20 +613,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 			return null;
 		}
 
-		// Get uploaded file to move
-		if ($isImage) {
-			if (empty($value['temporaryFileId'])) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value['temporaryFileId'];
-		} else {
-			if (!ctype_digit($value)) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value;
+		// Check if there is something to upload
+		if (empty($value['temporaryFileId'])) {
+			return $value;
 		}
 
-		$temporaryFile = $temporaryFileManager->getFile($temporaryFileId, $userId);
+		$temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
 		$fileName = $this->moveTemporaryFile($context, $temporaryFile, $settingName, $userId, $localeKey);
 
 		if ($fileName) {
@@ -648,7 +640,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 					'altText' => $altText,
 				];
 			} else {
-				return $fileName;
+				return [
+					'name' => $temporaryFile->getOriginalFileName(),
+					'uploadName' => $fileName,
+					'dateUploaded' => \Core::getCurrentDate(),
+				];
 			}
 		}
 

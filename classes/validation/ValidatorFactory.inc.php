@@ -363,7 +363,10 @@ class ValidatorFactory {
 						}
 					}
 				} else {
-					if (!$temporaryFileManager->getFile($props[$uploadProp], $userId)) {
+					if (!isset($props[$uploadProp]['temporaryFileId'])) {
+						continue;
+					}
+					if (!$temporaryFileManager->getFile($props[$uploadProp]['temporaryFileId'], $userId)) {
 						$validator->errors()->add($uploadProp, __('common.noTemporaryFile'));
 					}
 				}

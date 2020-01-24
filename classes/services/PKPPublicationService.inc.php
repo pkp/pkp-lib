@@ -682,17 +682,9 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			return null;
 		}
 
-		// Get uploaded file to move
-		if ($isImage) {
-			if (empty($value['temporaryFileId'])) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value['temporaryFileId'];
-		} else {
-			if (!ctype_digit($value)) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value;
+		// Check if there is something to upload
+		if (empty($value['temporaryFileId'])) {
+			return $value;
 		}
 
 		// Get the submission context
@@ -703,7 +695,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new \TemporaryFileManager();
-		$temporaryFile = $temporaryFileManager->getFile($temporaryFileId, $userId);
+		$temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
 		$fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage
 		$fileName = Services::get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
 
@@ -715,7 +707,10 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 					'uploadName' => $fileName,
 				];
 			} else {
-				return $fileName;
+				return [
+					'dateUploaded' => \Core::getCurrentDate(),
+					'uploadName' => $fileName,
+				];
 			}
 		}
 

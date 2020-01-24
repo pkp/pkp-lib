@@ -273,20 +273,12 @@ class PKPSiteService implements EntityPropertyInterface {
 			return null;
 		}
 
-		// Get uploaded file to move
-		if ($isImage) {
-			if (empty($value['temporaryFileId'])) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value['temporaryFileId'];
-		} else {
-			if (!ctype_digit($value)) {
-				return $value; // nothing to upload
-			}
-			$temporaryFileId = (int) $value;
+		// Check if there is something to upload
+		if (empty($value['temporaryFileId'])) {
+			return $value;
 		}
 
-		$temporaryFile = $temporaryFileManager->getFile($temporaryFileId, $userId);
+		$temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
 		$fileName = $this->moveTemporaryFile($site, $temporaryFile, $settingName, $userId, $localeKey);
 
 		if ($fileName) {
@@ -307,7 +299,11 @@ class PKPSiteService implements EntityPropertyInterface {
 					'altText' => $altText,
 				];
 			} else {
-				return $fileName;
+				return [
+					'originalFilename' => $temporaryFile->getOriginalFileName(),
+					'uploadName' => $fileName,
+					'dateUploaded' => \Core::getCurrentDate(),
+				];
 			}
 		}
 

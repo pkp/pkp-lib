@@ -557,10 +557,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 */
 	public function count($args = []) {
 		$qb = $this->getQueryBuilder($args);
-		return $qb
-			->get() // Calls PKPUserQueryBuilder::get() to get the query object
-			->get() // Calls Laravel's get method to execute the query
-			->count();
+		return $qb->getQuery()->get()->count();
 	}
 
 	/**

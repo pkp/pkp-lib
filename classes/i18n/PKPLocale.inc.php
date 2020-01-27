@@ -174,6 +174,10 @@ class PKPLocale {
 				default: assert(false);
 			}
 		}
+		// Fix known php issue for turkish language selection, see also:
+		// https://www.sobstel.org/blog/php-call-to-undefined-method-on-tr-tr-locale/
+		if ($locale == 'tr_TR') setlocale(LC_CTYPE, 'en_US');
+
 	}
 
 	/**

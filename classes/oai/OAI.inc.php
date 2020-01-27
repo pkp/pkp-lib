@@ -157,9 +157,10 @@ abstract class OAI {
 	/**
 	 * Return set of OAI sets.
 	 * @param $offset int current set offset
+	 * @param $limit int Maximum number of sets to return
 	 * @param $total int output parameter, set to total number of sets
 	 */
-	function sets($offset, &$total) {
+	function sets($offset, $limit, &$total) {
 		return array();
 	}
 

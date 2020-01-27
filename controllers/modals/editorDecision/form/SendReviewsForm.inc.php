@@ -95,7 +95,7 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 
 		// Retrieve the submission.
@@ -111,6 +111,8 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		import('lib.pkp.classes.submission.action.EditorAction');
 		$editorAction = new EditorAction();
 		$editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound, $stageId);
+
+		parent::execute(...$functionArgs);
 
 		// Identify email key and status of round.
 		switch ($decision) {

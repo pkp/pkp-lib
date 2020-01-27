@@ -33,11 +33,11 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm {
 	}
 
 	/**
-	 * Deletes the review assignment and notifies the reviewer via email
+	 * @copydoc Form::execute()
 	 * @return bool whether or not the review assignment was deleted successfully
 	 */
-	public function execute() {
-		if (!parent::execute()) return false;
+	public function execute(...$functionArgs) {
+		if (!parent::execute(...$functionArgs)) return false;
 
 		$request = Application::get()->getRequest();
 		$submission = $this->getSubmission();

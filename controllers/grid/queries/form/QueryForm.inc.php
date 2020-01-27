@@ -349,7 +349,7 @@ class QueryForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 		$query = $this->getQuery();
@@ -403,5 +403,7 @@ class QueryForm extends Form {
 			$submission->stampLastActivity();
 			Application::getSubmissionDAO()->updateObject($submission);
 		}
+
+		parent::execute(...$functionArgs);
 	}
 }

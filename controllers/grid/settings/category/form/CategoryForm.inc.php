@@ -186,7 +186,7 @@ class CategoryForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$categoryId = $this->getCategoryId();
 		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 
@@ -289,6 +289,7 @@ class CategoryForm extends Form {
 
 		// Update category object to store image information.
 		$categoryDao->updateObject($category);
+		parent::execute(...$functionArgs);
 		return $category;
 	}
 }

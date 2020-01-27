@@ -150,9 +150,9 @@ class AnnouncementForm extends Form {
 	}
 
 	/**
-	 * Save announcement.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
 
 		$announcement = $announcementDao->getById($this->announcementId);
@@ -202,6 +202,7 @@ class AnnouncementForm extends Form {
 				);
 			}
 		}
+		parent::execute(...$functionArgs);
 		return $announcement->getId();
 	}
 }

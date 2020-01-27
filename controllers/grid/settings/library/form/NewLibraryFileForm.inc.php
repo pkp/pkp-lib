@@ -36,10 +36,10 @@ class NewLibraryFileForm extends LibraryFileForm {
 	}
 
 	/**
-	 * Save the new library file.
+	 * @copydoc Form::execute()
 	 * @return $fileId int The new library file id.
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userId = Application::get()->getRequest()->getUser()->getId();
 
 		// Fetch the temporary file storing the uploaded library file
@@ -65,7 +65,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 		import('lib.pkp.classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 		$temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
-
+		parent::execute(...$functionArgs);
 		return $fileId;
 	}
 }

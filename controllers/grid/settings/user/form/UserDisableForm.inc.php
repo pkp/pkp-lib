@@ -78,9 +78,9 @@ class UserDisableForm extends Form {
 	}
 
 	/**
-	 * Enable/Disable the user
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getById($this->_userId);
 
@@ -89,7 +89,7 @@ class UserDisableForm extends Form {
 			$user->setDisabledReason($this->getData('disableReason'));
 			$userDao->updateObject($user);
 		}
-
+		parent::execute(...$functionArgs);
 		return $user;
 	}
 }

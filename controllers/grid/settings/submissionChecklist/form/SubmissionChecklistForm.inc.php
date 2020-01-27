@@ -86,9 +86,9 @@ class SubmissionChecklistForm extends Form {
 	}
 
 	/**
-	 * Save checklist entry.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$context = $router->getContext($request);
@@ -114,6 +114,7 @@ class SubmissionChecklistForm extends Form {
 		}
 
 		$context->updateSetting('submissionChecklist', $submissionChecklistAll, 'object', true);
+		parent::execute(...$functionArgs);
 		return true;
 	}
 }

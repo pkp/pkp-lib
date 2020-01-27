@@ -88,7 +88,7 @@ class NewNoteForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
@@ -100,6 +100,7 @@ class NewNoteForm extends Form {
 		$note->setAssocType($this->getAssocType());
 		$note->setAssocId($this->getAssocId());
 
+		parent::execute(...$functionArgs);
 		return $noteDao->insertObject($note);
 	}
 }

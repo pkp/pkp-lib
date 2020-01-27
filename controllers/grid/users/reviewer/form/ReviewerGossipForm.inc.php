@@ -62,11 +62,11 @@ class ReviewerGossipForm extends Form {
 	/**
 	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$this->_user->setGossip($this->getData('gossip'));
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$userDao->updateObject($this->_user);
-
+		parent::execute(...$functionArgs);
 		return $user;
 	}
 }

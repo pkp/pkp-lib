@@ -48,9 +48,9 @@ class EnrollExistingReviewerForm extends ReviewerForm {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		// Assign a reviewer user group to an existing non-reviewer
 		$userId = (int) $this->getData('userId');
 
@@ -61,7 +61,7 @@ class EnrollExistingReviewerForm extends ReviewerForm {
 		// Set the reviewerId in the Form for the parent class to use
 		$this->setData('reviewerId', $userId);
 
-		return parent::execute();
+		return parent::execute(...$functionArgs);
 	}
 }
 

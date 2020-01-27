@@ -219,10 +219,10 @@ abstract class PKPReportGeneratorForm extends Form {
 	}
 
 	/**
-	 * @see Form::execute()
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
-		parent::execute();
+	function execute(...$functionArgs) {
+		parent::execute(...$functionArgs);
 		$request = Application::get()->getRequest();
 		$router = $request->getRouter(); /* @var $router PageRouter */
 		$context = $router->getContext($request);

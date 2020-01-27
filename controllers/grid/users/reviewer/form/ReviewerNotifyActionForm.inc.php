@@ -81,10 +81,10 @@ abstract class ReviewerNotifyActionForm extends Form {
 	}
 
 	/**
-	 * Performs a task on the review assignment and notifies the reviewer via email.
+	 * @copydoc Form::execute()
 	 * @return bool whether or not the review assignment was modified successfully
 	 */
-	public function execute() {
+	public function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$submission = $this->getSubmission();
 		$reviewAssignment = $this->getReviewAssignment();
@@ -106,7 +106,7 @@ abstract class ReviewerNotifyActionForm extends Form {
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
 			}
 		}
-
+		parent::execute(...$functionArgs);
 		return true;
 	}
 

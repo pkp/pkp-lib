@@ -85,9 +85,9 @@ class ChangePasswordForm extends Form {
 	}
 
 	/**
-	 * Save new password.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$user = $this->getUser();
 
 		if ($user->getAuthId()) {
@@ -101,6 +101,8 @@ class ChangePasswordForm extends Form {
 		} else {
 			$user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
 		}
+
+		parent::execute(...$functionArgs);
 
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$userDao->updateObject($user);

@@ -117,9 +117,10 @@ class GenreForm extends Form {
 	}
 
 	/**
-	 * Save email template.
+	 * @copydoc Form::execute()
+	 * @return boolean
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
@@ -146,7 +147,7 @@ class GenreForm extends Form {
 		} else {
 			$genreDao->updateObject($genre);
 		}
-
+		parent::execute(...$functionArgs);
 		return true;
 	}
 }

@@ -74,9 +74,9 @@ class APIProfileForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Save user's API key settings form.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
@@ -93,5 +93,7 @@ class APIProfileForm extends BaseProfileForm {
 			$apiKey = sha1(time());
 			$user->updateSetting('apiKey', $apiKey);
 		}
+
+		parent::execute(...$functionArgs);
 	}
 }

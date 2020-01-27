@@ -60,11 +60,13 @@ class SubmissionFilesUploadConfirmationForm extends PKPSubmissionFilesUploadBase
 	 * @see Form::execute()
 	 * @return SubmissionFile if successful, otherwise null
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		// Retrieve the file ids of the revised and the uploaded files.
 		$revisedFileId = $this->getRevisedFileId();
 		$uploadedFileId = (int)$this->getData('uploadedFileId');
 		if ($revisedFileId == $uploadedFileId) fatalError('The revised file id and the uploaded file id cannot be the same!');
+
+		parent::execute(...$functionArgs);
 
 		// Assign the new file as the latest revision of the old file.
 		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */

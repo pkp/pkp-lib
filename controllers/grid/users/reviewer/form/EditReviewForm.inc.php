@@ -105,9 +105,9 @@ class EditReviewForm extends Form {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
@@ -160,7 +160,7 @@ class EditReviewForm extends Form {
 		}
 
 		$reviewAssignmentDao->updateObject($reviewAssignment);
-
+		parent::execute(...$functionArgs);
 	}
 }
 

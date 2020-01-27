@@ -130,9 +130,9 @@ class PublicProfileForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Save public profile settings.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
@@ -140,7 +140,7 @@ class PublicProfileForm extends BaseProfileForm {
 		$user->setUrl($this->getData('userUrl'));
 		$user->setBiography($this->getData('biography'), null); // Localized
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 	}
 }
 

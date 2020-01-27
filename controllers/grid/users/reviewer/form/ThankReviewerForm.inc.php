@@ -90,9 +90,9 @@ class ThankReviewerForm extends Form {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$submissionDao = Application::getSubmissionDAO();
 
@@ -132,6 +132,8 @@ class ThankReviewerForm extends Form {
 		$reviewAssignment->stampModified();
 		$reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
 		$reviewAssignmentDao->updateObject($reviewAssignment);
+
+		parent::execute(...$functionArgs);
 	}
 }
 

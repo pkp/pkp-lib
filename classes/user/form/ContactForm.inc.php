@@ -79,9 +79,9 @@ class ContactForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Save contact settings.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$user = $this->getUser();
 
 		$user->setCountry($this->getData('country'));
@@ -102,7 +102,7 @@ class ContactForm extends BaseProfileForm {
 		}
 		$user->setLocales($locales);
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 	}
 }
 

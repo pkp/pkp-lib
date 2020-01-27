@@ -84,9 +84,9 @@ class IdentityForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Save identity settings.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
@@ -94,7 +94,7 @@ class IdentityForm extends BaseProfileForm {
 		$user->setFamilyName($this->getData('familyName'), null);
 		$user->setPreferredPublicName($this->getData('preferredPublicName'), null);
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 	}
 }
 

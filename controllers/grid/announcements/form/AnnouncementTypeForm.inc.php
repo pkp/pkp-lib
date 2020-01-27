@@ -88,9 +88,9 @@ class AnnouncementTypeForm extends Form {
 	}
 
 	/**
-	 * Save announcement type.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 
 		if (isset($this->typeId)) {
@@ -111,6 +111,7 @@ class AnnouncementTypeForm extends Form {
 		} else {
 			$announcementTypeDao->insertObject($announcementType);
 		}
+		parent::execute(...$functionArgs);
 	}
 }
 

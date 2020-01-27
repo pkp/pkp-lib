@@ -55,12 +55,13 @@ class LoginChangePasswordForm extends Form {
 	}
 
 	/**
-	 * Save new password.
+	 * @copydoc Form::execute()
 	 * @return boolean success
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->getByUsername($this->getData('username'), false);
+		parent::execute(...$functionArgs);
 		if ($user != null) {
 			if ($user->getAuthId()) {
 				$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */

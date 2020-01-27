@@ -81,9 +81,9 @@ class RolesForm extends BaseProfileForm {
 	}
 
 	/**
-	 * Save roles settings.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
@@ -97,7 +97,7 @@ class RolesForm extends BaseProfileForm {
 		$interestManager = new InterestManager();
 		$interestManager->setInterestsForUser($user, $this->getData('interests'));
 
-		parent::execute();
+		parent::execute(...$functionArgs);
 	}
 }
 

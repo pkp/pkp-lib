@@ -69,9 +69,9 @@ class ReviewFormForm extends Form {
 	}
 
 	/**
-	 * Save review form.
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 		$reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /* @var $reviewFormDao ReviewFormDAO */
@@ -96,6 +96,7 @@ class ReviewFormForm extends Form {
 			$this->reviewFormId = $reviewFormDao->insertObject($reviewForm);
 			$reviewFormDao->resequenceReviewForms(Application::getContextAssocType(), $context->getId());
 		}
+		parent::execute(...$functionArgs);
 	}
 
 	/**

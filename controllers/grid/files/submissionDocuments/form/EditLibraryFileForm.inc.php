@@ -52,14 +52,16 @@ class EditLibraryFileForm extends LibraryFileForm {
 	}
 
 	/**
-	 * Save name for library file
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
 		$this->libraryFile->setType($this->getData('fileType'));
 
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
 		$libraryFileDao->updateObject($this->libraryFile);
+
+		parent::execute(...$functionArgs);
 	}
 
 	/**

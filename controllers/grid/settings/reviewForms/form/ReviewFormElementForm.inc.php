@@ -102,10 +102,10 @@ class ReviewFormElementForm extends Form {
 	}
 
 	/**
-	 * Save review form element.
+	 * @copydoc Form::execute()
 	 * @return int Review form element ID
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /* @var $reviewFormElementDao ReviewFormElementDAO */
 		$request = Application::get()->getRequest();
 
@@ -141,6 +141,7 @@ class ReviewFormElementForm extends Form {
 			$this->reviewFormElementId = $reviewFormElementDao->insertObject($reviewFormElement);
 			$reviewFormElementDao->resequenceReviewFormElements($this->reviewFormId);
 		}
+		parent::execute(...$functionArgs);
 		return $this->reviewFormElementId;
 	}
 

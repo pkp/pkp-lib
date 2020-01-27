@@ -107,7 +107,7 @@ class QueryNoteForm extends Form {
 	 * @copydoc Form::execute()
 	 * @return Note The created note object.
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$request = Application::get()->getRequest();
 		$user = $request->getUser();
 
@@ -161,6 +161,8 @@ class QueryNoteForm extends Form {
 				NOTIFICATION_LEVEL_TASK
 			);
 		}
+
+		parent::execute(...$functionArgs);
 
 		return $note;
 	}

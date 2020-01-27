@@ -127,9 +127,9 @@ class ReviewReminderForm extends Form {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$submissionDao = Application::getSubmissionDAO();
 		$request = Application::get()->getRequest();
@@ -176,6 +176,8 @@ class ReviewReminderForm extends Form {
 		$reviewAssignment->stampModified();
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->updateObject($reviewAssignment);
+
+		parent::execute(...$functionArgs);
 	}
 
 	/**

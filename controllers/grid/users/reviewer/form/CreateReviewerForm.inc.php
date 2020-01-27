@@ -81,9 +81,9 @@ class CreateReviewerForm extends ReviewerForm {
 	}
 
 	/**
-	 * Save review assignment
+	 * @copydoc Form::execute()
 	 */
-	function execute() {
+	function execute(...$functionArgs) {
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$user = $userDao->newDataObject();
 
@@ -145,7 +145,7 @@ class CreateReviewerForm extends ReviewerForm {
 			}
 		}
 
-		return parent::execute();
+		return parent::execute(...$functionArgs);
 	}
 }
 

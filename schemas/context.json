@@ -554,10 +554,25 @@
 			]
 		},
 		"styleSheet": {
-			"type": "string",
+			"type": "object",
 			"validation": [
 				"nullable"
-			]
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"dateUploaded": {
+					"type": "string"
+				}
+			}
 		},
 		"subjects": {
 			"type": "string",

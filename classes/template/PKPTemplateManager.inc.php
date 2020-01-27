@@ -275,7 +275,7 @@ class PKPTemplateManager extends Smarty {
 						$publicFileManager = new PublicFileManager();
 						$this->addStyleSheet(
 							'contextStylesheet',
-							$request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId()) . '/' . $contextStyleSheet,
+							$request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId()) . '/' . $contextStyleSheet['uploadName'],
 							array(
 								'priority' => STYLE_SEQUENCE_LATE
 							)

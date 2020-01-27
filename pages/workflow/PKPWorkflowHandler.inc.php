@@ -138,8 +138,6 @@ abstract class PKPWorkflowHandler extends Handler {
 		// context.
 		$currentStageId = $submission->getStageId();
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-		$workflowRoles = Application::getWorkflowTypeRoles();
-		$editorialWorkflowRoles = $workflowRoles[WORKFLOW_TYPE_EDITORIAL];
 		$canAccessPublication = false; // View title, metadata, etc.
 		$canEditPublication = Services::get('submission')->canEditPublication($submission->getId(), $request->getUser()->getId());
 		$canAccessProduction = false; // Access to galleys and issue entry
@@ -156,19 +154,29 @@ abstract class PKPWorkflowHandler extends Handler {
 			$canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
 			$canAccessPublication = true;
 
-			// "Recommend only" stage assignments can not publish
 			$result = DAORegistry::getDAO('StageAssignmentDAO')->getBySubmissionAndUserIdAndStageId(
 				$submission->getId(),
 				$request->getUser()->getId(),
 				WORKFLOW_STAGE_ID_PRODUCTION
 			);
-			while (!$result->eof()) {
-				$stageAssignment = $result->next();
-				foreach ($workflowUserGroups as $workflowUserGroup) {
-					if ($stageAssignment->getUserGroupId() == $workflowUserGroup->getId() &&
-							!$stageAssignment->getRecommendOnly()) {
-						$canPublish = true;
-						break;
+
+			// If they have no stage assignments, check the role they have been granted
+			// for the production workflow stage. An unassigned admin or manager may
+			// have been granted access and should be allowed to publish.
+			if ($result->wasEmpty() && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
+				$canPublish = (bool) array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
+
+			// Otherwise, check stage assignments
+			// "Recommend only" stage assignments can not publish
+			} else {
+				while (!$result->eof()) {
+					$stageAssignment = $result->next();
+					foreach ($workflowUserGroups as $workflowUserGroup) {
+						if ($stageAssignment->getUserGroupId() == $workflowUserGroup->getId() &&
+								!$stageAssignment->getRecommendOnly()) {
+							$canPublish = true;
+							break;
+						}
 					}
 				}
 			}

@@ -136,9 +136,6 @@ abstract class ScheduledTask {
 	 * Make sure the execution process follow the required steps.
 	 * This is not the method one should extend to implement the
 	 * task actions, for this see ScheduledTask::executeActions().
-	 * @param boolean $notifyAdmin optional Whether or not the task
-	 * will notify the site administrator about errors, warnings or
-	 * completed process.
 	 * @return boolean Whether or not the task was succesfully
 	 * executed.
 	 */

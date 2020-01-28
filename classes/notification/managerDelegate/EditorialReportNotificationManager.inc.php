@@ -50,7 +50,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 		$dateStart = $dateStart;
 		$dateEnd = $dateEnd;
 
-		$dispatcher = $this->_request->getDispatcher();
+		$dispatcher = Application::get()->getDispatcher();
 
 		$this->_editorialTrends = Services::get('editorialStats')->getOverview([
 			'contextIds' => [$this->_context->getId()],
@@ -156,8 +156,9 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	 * @copydoc PKPNotificationOperationManager::getNotificationUrl()
 	 */
 	public function getNotificationUrl($request, $notification) {
-		$context = Application::get()->getContextDAO()->getById($notification->getContextId());
-		return $request->getDispatcher()->url($this->_request, ROUTE_PAGE, $context->getPath(), 'stats', 'editorialReport');
+		$application = Application::get();
+		$context = $application->getContextDAO()->getById($notification->getContextId());
+		return $application->getDispatcher()->url($this->_request, ROUTE_PAGE, $context->getPath(), 'stats', 'editorialReport');
 	}
 
 	/**

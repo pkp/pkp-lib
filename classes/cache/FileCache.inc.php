@@ -86,7 +86,7 @@ class FileCache extends GenericCache {
 	function setEntireCache($contents) {
 		if (file_put_contents(
 			$this->filename,
-			'<?php return ' . var_export($contents, true) . '; ?>',
+			'<?php return ' . var_export($contents, true) . ';',
 			LOCK_EX
 		) !== false) {
 			$umask = Config::getVar('files', 'umask');

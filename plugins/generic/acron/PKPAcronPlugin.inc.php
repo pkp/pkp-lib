@@ -223,7 +223,7 @@ class PKPAcronPlugin extends GenericPlugin {
 		// http://www.php.net/manual/en/function.register-shutdown-function.php#92657
 		chdir($this->_workingDir);
 
-		$taskDao =& DAORegistry::getDao('ScheduledTaskDAO');
+		$taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
 		foreach($this->_tasksToRun as $task) {
 			// Strip off the package name(s) to get the base class name
 			$className = $task['className'];
@@ -331,7 +331,7 @@ class PKPAcronPlugin extends GenericPlugin {
 		$isEnabled = $this->getSetting(0, 'enabled');
 
 		if($isEnabled) {
-			$taskDao =& DAORegistry::getDao('ScheduledTaskDAO');
+			$taskDao = DAORegistry::getDAO('ScheduledTaskDAO');
 
 			// Grab the scheduled scheduled tree
 			$scheduledTasks = $this->getSetting(0, 'crontab');

@@ -170,7 +170,11 @@
 		},
 		"licenseUrl": {
 			"type": "string",
-			"description": "A URL to a webpage describing the license terms for this publication."
+			"description": "A URL to a webpage describing the license terms for this publication.",
+			"validation": [
+				"nullable",
+				"url"
+			]
 		},
 		"locale": {
 			"type": "string",

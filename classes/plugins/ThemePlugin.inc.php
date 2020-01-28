@@ -415,7 +415,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 			try {
 				$this->options[$name] = new $class($name, $args);
 			} catch (Exception $e) {
-				fatalError(sprintf(
+				throw new Exception(sprintf(
 					'The %s class was not found for the theme option, %s,  defined by %s or one of its parent themes.',
 					$type,
 					$name,

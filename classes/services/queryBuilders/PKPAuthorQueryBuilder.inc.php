@@ -31,6 +31,12 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder implements EntityQueryBuild
 	/** @var array get authors for one or more publications */
 	protected $publicationIds = [];
 
+	/** @var string get authors with a specified country code */
+	protected $country = '';
+
+	/** @var string get authors with a specified affiliation */
+	protected $affiliation = '';
+
 	/**
 	 * Filter by one or more contexts
 	 *
@@ -52,6 +58,28 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder implements EntityQueryBuild
 	public function filterByName($givenName, $familyName) {
 		$this->givenName = $givenName;
 		$this->familyName = $familyName;
+		return $this;
+	}
+
+	/**
+	 * Filter by the specified country code
+	 *
+	 * @param $country string Country code (2-letter)
+	 * @return \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder
+	 * */
+	public function filterByCountry($country) {
+		$this->country = $country;
+		return $this;
+	}
+
+	/**
+	 * Filter by the specified affiliation code
+	 *
+	 * @param $country string Affiliation
+	 * @return \PKP\Services\QueryBuilders\PKPAuthorQueryBuilder
+	 * */
+	public function filterByAffiliation($affiliation) {
+		$this->affiliation = $affiliation;
 		return $this;
 	}
 
@@ -118,6 +146,24 @@ class PKPAuthorQueryBuilder extends BaseQueryBuilder implements EntityQueryBuild
 
 		if (!empty($this->publicationIds)) {
 			$q->whereIn('a.publication_id', $this->publicationIds);
+		}
+
+		if (!empty($this->country)) {
+			$country = $this->country;
+			$q->join('author_settings as cs', 'a.author_id', '=', 'cs.author_id')
+				->where(function($q) use ($country) {
+					$q->where('cs.setting_name', '=', 'country');
+					$q->where('cs.setting_value', '=', $country);
+				});
+		}
+
+		if (!empty($this->affiliation)) {
+			$affiliation = $this->affiliation;
+			$q->join('author_settings as afs', 'a.author_id', '=', 'afs.author_id')
+				->where(function($q) use ($affiliation) {
+					$q->where('afs.setting_name', '=', 'affiliation');
+					$q->where('afs.setting_value', '=', $affiliation);
+				});
 		}
 
 		// Add app-specific query statements

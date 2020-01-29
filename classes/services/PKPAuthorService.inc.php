@@ -100,6 +100,12 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 		if (!empty($args['contextIds'])) {
 			$authorQB->filterByContextIds($args['contextIds']);
 		}
+		if (!empty($args['country'])) {
+			$authorQB->filterByCountry($args['country']);
+		}
+		if (!empty($args['affiliation'])) {
+			$authorQB->filterByAffiliation($args['affiliation']);
+		}
 
 		\HookRegistry::call('Author::getMany::queryBuilder', array($authorQB, $args));
 

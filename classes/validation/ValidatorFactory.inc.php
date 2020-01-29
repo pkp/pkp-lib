@@ -115,14 +115,9 @@ class ValidatorFactory {
 
 		// Add custom validation rule for currency
 		$validation->extend('currency', function($attribute, $value, $parameters, $validator) {
-			$currencyDao = \DAORegistry::getDAO('CurrencyDAO');
-			$allowedCurrencies = array_map(
-				function ($currency) {
-					return $currency->getCodeAlpha();
-				},
-				$currencyDao->getCurrencies()
-			);
-			return in_array($value, $allowedCurrencies);
+			$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+			$currency = $isoCodes->getCurrencies()->getByLetterCode($value);
+			return isset($currency);
 		});
 
 		$validator = $validation->make($props, $rules, ValidatorFactory::getMessages($messages));

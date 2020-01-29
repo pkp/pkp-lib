@@ -392,7 +392,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',
 			'ControlledVocabEntrySettingsDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntrySettingsDAO',
 			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO', // DEPRECATED
-			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
+			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO', // DEPRECATED
 			'DataObjectTombstoneDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneDAO',
 			'DataObjectTombstoneSettingsDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneSettingsDAO',
 			'EditDecisionDAO' => 'lib.pkp.classes.submission.EditDecisionDAO',

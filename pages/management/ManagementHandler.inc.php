@@ -315,4 +315,13 @@ class ManagementHandler extends Handler {
 
 		$templateMgr->display('management/access.tpl');
 	}
+
+	public function setupTemplate($request) {
+		parent::setupTemplate($request);
+		$templateMgr = TemplateManager::getManager($request);
+		import('lib.pkp.classes.components.forms.context.PKPPaymentSettingsForm'); // Constant
+		$templateMgr->setConstants([
+                        'FORM_PAYMENT_SETTINGS',
+                ]);
+	}
 }

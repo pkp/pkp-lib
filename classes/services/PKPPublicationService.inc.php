@@ -535,6 +535,20 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
 		$newPublication->stampModified();
 
+		// Set the copyright and license information
+		$submission = Services::get('submission')->get($newPublication->getData('submissionId'));
+		if ($newPublication->getData('status') === STATUS_PUBLISHED) {
+			if (!$newPublication->getData('copyrightHolder')) {
+				$newPublication->setData('copyrightHolder', $submission->_getContextLicenseFieldValue(null, PERMISSIONS_FIELD_COPYRIGHT_HOLDER, $newPublication));
+			}
+			if (!$newPublication->getData('copyrightYear')) {
+				$newPublication->setData('copyrightYear', $submission->_getContextLicenseFieldValue(null, PERMISSIONS_FIELD_COPYRIGHT_YEAR, $newPublication));
+			}
+			if (!$newPublication->getData('licenseUrl')) {
+				$newPublication->setData('licenseUrl', $submission->_getContextLicenseFieldValue(null, PERMISSIONS_FIELD_LICENSE_URL, $newPublication));
+			}
+		}
+
 		HookRegistry::call('Publication::publish::before', [$newPublication, $publication]);
 
 		DAORegistry::getDAO('PublicationDAO')->updateObject($newPublication);

@@ -1586,11 +1586,17 @@ msgstr "Attach the following permissions to the submission:"
 msgid "submission.license"
 msgstr "License"
 
+msgid "submission.license.description"
+msgstr "The license will be set automatically to <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> when this is published."
+
 msgid "submission.copyright"
 msgstr "Copyright"
 
 msgid "submission.copyrightHolder"
 msgstr "Copyright Holder"
+
+msgid "submission.copyrightHolder.description"
+msgstr "Copyright will be assigned automatically to {$copyright} when this is published."
 
 msgid "submission.copyrightYear"
 msgstr "Copyright Year"
@@ -1819,6 +1825,9 @@ msgstr "Contributors"
 
 msgid "publication.copyrightYearBasis.issueDescription"
 msgstr "The copyright year will be set automatically when this is published in an issue."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr "The copyright year will be set automatically based on the publication date."
 
 msgid "publication.createVersion"
 msgstr "Create New Version"

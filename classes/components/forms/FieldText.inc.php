@@ -19,11 +19,17 @@ class FieldText extends Field {
 	/** @var string What should the <input type=""> be? */
 	public $inputType = 'text';
 
+	/** @var boolean Whether the user should have to click a button to edit the field */
+	public $optIntoEdit = false;
+
+	/** @var string The label of the button added by self::$optIntoEdit */
+	public $optIntoEditLabel = '';
+
 	/** @var string Accepts: `small`, `regular` or `large` */
-	public $size;
+	public $size = 'regular';
 
 	/** @var string A prefix to display before the input value */
-	public $prefix;
+	public $prefix = '';
 
 	/**
 	 * @copydoc Field::getConfig()
@@ -31,12 +37,10 @@ class FieldText extends Field {
 	public function getConfig() {
 		$config = parent::getConfig();
 		$config['inputType'] = $this->inputType;
-		if (isset($this->size)) {
-			$config['size'] = $this->size;
-		}
-		if (isset($this->prefix)) {
-			$config['prefix'] = $this->prefix;
-		}
+		$config['optIntoEdit'] = $this->optIntoEdit;
+		$config['optIntoEditLabel'] = $this->optIntoEditLabel;
+		$config['size'] = $this->size;
+		$config['prefix'] = $this->prefix;
 
 		return $config;
 	}

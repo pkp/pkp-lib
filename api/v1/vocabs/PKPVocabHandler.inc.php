@@ -92,7 +92,13 @@ class PKPVocabHandler extends APIHandler {
 				$entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_LANGUAGE:
-				return $response->withJson(DAORegistry::getDAO('LanguageDAO')->getLanguageNames($locale), 200);
+				$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory(\Sokil\IsoCodes\IsoCodesFactory::OPTIMISATION_IO);
+				$languageNames = [];
+				foreach ($isoCodes->getLanguages() as $language) {
+					if (!$language->getAlpha2() || $language->getType() != 'L' || $language->getScope() != 'I') continue;
+					$languageNames[] = $language->getLocalName();
+				}
+				return $response->withJson($languageNames, 200);
 			case CONTROLLED_VOCAB_SUBMISSION_AGENCY:
 				$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
 				$entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();

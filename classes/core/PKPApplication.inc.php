@@ -402,7 +402,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'GenreDAO' => 'lib.pkp.classes.submission.GenreDAO',
 			'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',
 			'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
-			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
+			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO', // DEPRECATED
 			'LibraryFileDAO' => 'lib.pkp.classes.context.LibraryFileDAO',
 			'NavigationMenuDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuDAO',
 			'NavigationMenuItemDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuItemDAO',

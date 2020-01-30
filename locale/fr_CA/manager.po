@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-01-07 10:13+0000\n"
+"PO-Revision-Date: 2020-01-29 05:35+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -365,7 +365,7 @@ msgid "manager.people.authSource"
 msgstr "Source d'authentification"
 
 msgid "manager.people.confirmUnenroll"
-msgstr "Désincrire cet ou cette utilisateur-trice?"
+msgstr "Désinscrire cet,cette utilisateur-trice ?"
 
 msgid "manager.people.createUser"
 msgstr "Créer un-e nouvel-elle utilisateur-trice"
@@ -784,20 +784,19 @@ msgstr "Les valeurs par défauts peuvent être modifiées pour chaque évaluatio
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Rappel de demande d'évaluation"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Envoyer un rappel si l'évaluateur-trice n'a pas répondu à la demande "
-"d'évaluation dans le délai suivant (jours) :"
+"d'évaluation dans un délai de (___ jours) suivants la date d'échéance de "
+"réponse."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Rappel de délai d'échéance de l'évaluation"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"Envoyer un rappel si l'évaluateur-trice n'a pas fait sa recommandation dans "
-"le délai suivant (jours) :"
+"Envoyer un rappel si l'évaluateur-trice n'a pas soumis sa recommandation "
+"dans un délai de (___ jours) suivants la date d'échéance de l'évaluation."
 
 msgid "manager.setup.sponsors.note"
 msgstr "Politique en matière de commandites"
@@ -845,10 +844,12 @@ msgid "manager.users"
 msgstr "Utilisateurs-trices"
 
 msgid "plugins.categories.metadata"
-msgstr "Modules d'extension des métadonnées"
+msgstr "Plugiciels des métadonnées"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Les modules d'extension des métadonnées mettent en place des normes supplémentaires pour les métadonnées."
+msgstr ""
+"Les plugiciels de métadonnées prennent en charge des normes supplémentaires "
+"pour les métadonnées."
 
 msgid "plugins.categories.auth"
 msgstr "Plugiciels d'autorisation"
@@ -869,7 +870,9 @@ msgid "plugins.categories.generic"
 msgstr "Plugiciels génériques"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Les plugiciels d'importation/exportation peuvent être utilisés pour transférer le contenu soit vers un système, soit à partir d'un système."
+msgstr ""
+"Les plugiciels d'importation/exportation peuvent être utilisés pour "
+"transférer le contenu à partir de ou encore vers un système."
 
 msgid "plugins.categories.importexport"
 msgstr "Plugiciels d'importation/exportation"
@@ -1205,7 +1208,7 @@ msgid "grid.action.deleteGenre"
 msgstr "Supprimer cet élément"
 
 msgid "grid.action.restoreGenres"
-msgstr "Restaurer les paramètres par défaut des éléments."
+msgstr "Restaurer les paramètres par défaut des éléments"
 
 msgid "manager.setup.genres.dependent"
 msgstr "Marquer les fichiers de ce type en tant que fichiers reliés (ne sont pas des soumissions principales)"
@@ -1325,7 +1328,7 @@ msgid "manager.reviewFormElements.copyTo"
 msgstr "Copier :"
 
 msgid "manager.reviewFormElements.create"
-msgstr "Créer un nouvel élément "
+msgstr "Créer un nouvel élément"
 
 msgid "manager.reviewFormElements.dropdownbox"
 msgstr "Case déroulante"
@@ -1379,7 +1382,7 @@ msgid "grid.action.createReviewForm"
 msgstr "Créer un nouveau formulaire d'évaluation"
 
 msgid "manager.setup.competingInterests.required"
-msgstr "Demander une déclaration d'intérêts divergents lors de l'évaluation."
+msgstr "Exiger une déclaration d'intérêts divergents lors de l'évaluation."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "URL de la page décrivant la licence, si disponible."
@@ -1707,3 +1710,171 @@ msgstr "Total"
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Couverture de contenu"
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Obliger l'auteur-e à fournir un URL source avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Obliger l'auteur-e à divulguer tout droit d'accès antérieur avant d'accepter "
+"sa soumission."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Obliger l'auteur-e à entrer la,les langue-s du document soumis avant "
+"d'accepter sa soumission."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Obliger l'auteur-e à suggérer des mots-clés avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Obliger l'auteur-e à suggérer des métadonnées de couverture de contenu avant "
+"d'accepter sa soumission."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Demander à l'auteur-e de fournir des références pendant la soumission."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Demander à l'auteur-e de divulguer tout organisme subventionnaire pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Demander à l'auteur-e de fournir des disciplines pendant la soumission."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Demander à l'auteur-e de fournir le type pendant la soumission."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Demander à l'auteur-e de fournir des sujets pendant la soumission."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Demander à l'auteur-e de divulguer tout droit d'accès antérieur pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Demander à l'auteur-e d'indiquer la,les langues du document soumis pendant "
+"la soumission."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Demander à l'auteur-e de suggérer des mots-clés pendant la soumission."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Demander à l'auteur-e de suggérer des métadonnées de couverture de contenu "
+"pendant la soumission."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Ne pas demander une divulgation de droits à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Ne pas demander de références à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Ne pas demander d'organismes subventionnaires à l'auteur-e pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Ne pas demander de sujets à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Ne pas demander le type à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Ne pas demander de disciplines à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Ne pas demander la,les langue-s du document à l'auteur-e pendant la "
+"soumission."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Ne pas demander de mots-clés à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Ne pas demander de métadonnées de couverture de contenu à l'auteur-e pendant "
+"la soumission."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Activer la métadonnée couverture de contenu"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"La couverture de contenu comporte de façon typique la localisation spatiale ("
+"un nom de lieu ou des coordonnées géographiques), une période temporelle ("
+"une étiquette temporelle, une date ou une intervalle de dates) ou un "
+"juridiction (telle qu'une entité administrative nommée)."
+
+msgid "manager.setup.metadata.success"
+msgstr "Les métadonnées de la soumission ont bien été mises à jour."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permettre l'édition des métadonnées de la soumission."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Ajouter des balises HTML personnalisées, également appelées balises méta, "
+"que vous souhaitez insérer dans l'en-tête de chaque page. Consulter un "
+"conseiller technique avant d'ajouter ici des balises."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Balises personalisées"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Saisir les termes de licence publique que vous souhaitez faire afficher à "
+"côté du contenu publié."
+
+msgid "manager.distribution.license.other"
+msgstr "Autre URL de la licence"
+
+msgid "manager.setup.userAccess.success"
+msgstr ""
+"Les renseignements d'accès de l'utilisateur-trice à cette revue on été mis à "
+"jour."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Activer la métadonnée disciplines"
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Activer la métadonnée type"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Ne pas demander d'URL source à l'auteur-e pendant la soumission."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Activer la métadonnée source"
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Activer la métadonnée sujet"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"La nature ou le genre du contenu principal de la soumission. Le type est "
+"habituellement « Text », mais peut également être « Dataset », « Image » ou "
+"n'importe lequel des <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">types "
+"Dublin</a>."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Demander à l'auteur-e de fournir un URL source pendant la soumission."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termes de la licence"
+
+msgid "manager.distribution.license.success"
+msgstr "Les clauses de la licence ont été mises à jour. "
+
+msgid "manager.distribution.license"
+msgstr "Licence"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Utilisateurs-trices enregistrés-es"

@@ -264,9 +264,6 @@
 	<message key="notification.confirmError">Wystąpił błąd podczas potwierdzania twojej subskrypcji.</message>
 	<message key="notification.confirmSuccess">Zostałeś zasubskrybowany(a).</message>
 	<message key="notification.email">Wyślij e-mail dla tych rodzajów powiadomień.</message>
-	<message key="notification.location">Idź do URL</message>
-	<message key="notification.mailList">Lista mailingowa</message>
-	<message key="notification.mailList.emailInvalid">Podaj poprawny adres e-mail.</message>
 	<message key="notification.mailList.privacyProtection">Polityka prywatności</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subskrybuj</a> zabezpieczoną zawartość.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Wysłać</a> artykuł]]></message>
@@ -392,7 +389,7 @@
 	<message key="common.dimensionsPixels"><![CDATA[{$width}&times;{$height} pikseli]]></message>
 	<message key="common.downloadPdf">Pobierz PDF</message>
 	<message key="common.file.namingPattern">{$username}, {$userGroup}, {$originalFilename}</message>
-	<message key="common.file.anonymousNamingPattern">{$userGroup}, {$originalFilename}</message>
+	<message key="common.file.anonymousNamingPattern">{$genre}, {$originalFilename}</message>
 	<message key="common.fileUploaderError">Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy.</message>
 	<message key="common.homepageNavigationLabel">Strona domowa</message>
 	<message key="common.itemsPerPage">Elementów na stronę</message>
@@ -534,4 +531,25 @@
 	<message key="notification.reviewerThankedEmail">Wiadomość z podziękowaniem została przesłana do recenzenta.</message>
 	<message key="notification.sendNotificationConfirmation">Wyślij e-mail z podziękowaniem do wszystkich zarejestrowanych użytkowników</message>
 	<message key="notification.addedReviewerNoEmail">{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem nie został wysłany.</message>
+	<message key="common.dateDecided">Data decyzji</message>
+	<message key="common.filter">Filtry</message>
+	<message key="common.filterAdd">Dodaj filtr: {$filterTitle}</message>
+	<message key="common.filterRemove">Usuń filtr: {$filterTitle}</message>
+	<message key="common.lessThan">{$value} lub mniej</message>
+	<message key="common.commaListSeparator">, </message>
+	<message key="common.semicolonListSeparator">; </message>
+	<message key="common.moreThan">{$value} lub więcej</message>
+	<message key="common.pagination">{$start}-{$end} z {$total}</message>
+	<message key="common.pagination.label">Zobacz dodatkowe strony</message>
+	<message key="common.pagination.goToPage">Idź do {$page}</message>
+	<message key="common.pagination.next">Następna strona</message>
+	<message key="common.pagination.previous">Poprzednia strona</message>
+	<message key="common.clearSearch">Wyczyść zapytanie</message>
+	<message key="common.publicAccess">Dostęp publiczny</message>
+	<message key="email.compose.error">Wystąpił problem z przesłaniem wiadomości e-mail. Spróbuj ponownie przesłać wiadomość lub skontaktuj się z administratorem.</message>
+	<message key="stageParticipants.notify.startDiscussion">Rozpoczęcie dyskusji</message>
+	<message key="stageParticipants.notify.startDiscussion.description">Rozpocznij dyskusję z {$userFullName}.</message>
+	<message key="notification.type.reviewAssignmentUpdated">Zaktualizowano zadanie dotyczące recenzji.</message>
+	<message key="list.viewMore">Zobacz szczegółowe informacje o {$name}</message>
+	<message key="list.viewLess">Ukryj szczegółowe informacje o {$name}</message>
 </locale>

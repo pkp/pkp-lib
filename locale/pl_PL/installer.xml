@@ -78,4 +78,5 @@
 
 		<p>2. Katalog dla mediów (przesłanych plików) musi być utworzony oraz zapisywalny (zobacz "Ustawienia plików" poniżej).</p>]]></message>
 	<message key="installer.configureXSLMessage"><![CDATA[<p>Twoja instalacja PHP nie posiada skonfigurowanego modułu XSL. Włącz go lub skonfiguruj komendę xslt_command w swoim pliku konfiguracyjnym config.inc.php.</p>]]></message>
+	<message key="installer.unsupportedPhpError">Twoja wersja serwera PHP nie jest wspierana przez to oprogramowanie. Sprawdź wymagania instalacyjne w pliku docs/README.</message>
 </locale>

@@ -20,4 +20,11 @@
 	<message key="api.submissions.400.missingRequired">Zapytanie nie mogło zostać spełnione, ponieważ brakuje wymaganych informacji.</message>
 	<message key="api.submissions.400.invalidIssueIdentifiers">Zapytanie o wolumen, numer lub rok jest niepoprawne.</message>
 	<message key="api.submissions.unknownError">Wystąpił nieznany błąd. Przeładuj stronę i spróbuj ponownie.</message>
+	<message key="api.400.paramNotSupported">Parametr {$param} nie jest wspierany.</message>
+	<message key="api.403.unauthorized">Brak uprawnień dostępu do zasobu.</message>
+	<message key="api.404.resourceNotFound">Zasób nie został odnaleziony.</message>
+	<message key="api.404.endpointNotFound">URL nie został rozpoznany.</message>
+	<message key="api.stats.400.wrongDateFormat">Zapytanie nie jest poprawne. Dane powinny zostać wpisane w formacie YYYY-MM-DD.</message>
+	<message key="api.stats.400.wrongDateRange">Zapytanie nie jest poprawne. Data początkowa nie może być późniejsza niż data końcowa.</message>
+	<message key="api.stats.400.wrongTimeSegmentDaily">Zapytanie nie jest poprawne. Funkcja "codzienny" może być używana razem z zakresem data (data początkowa i data końcowa) w okresie ostatnich 90 dni.</message>
 </locale>

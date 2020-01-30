@@ -583,6 +583,9 @@ msgstr "Прочее"
 msgid "common.overdue"
 msgstr "Просрочено"
 
+msgid "common.override"
+msgstr "Переопределить"
+
 msgid "common.pagination"
 msgstr "{$start}-{$end} из {$total}"
 

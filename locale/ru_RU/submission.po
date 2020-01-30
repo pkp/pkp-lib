@@ -1590,11 +1590,17 @@ msgstr "Добавить следующие права к материалу:"
 msgid "submission.license"
 msgstr "Лицензия"
 
+msgid "submission.license.description"
+msgstr "Автоматически при публикации будет назначена лицензия <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a>."
+
 msgid "submission.copyright"
 msgstr "Авторское право"
 
 msgid "submission.copyrightHolder"
 msgstr "Владелец авторского права"
+
+msgid "submission.copyrightHolder.description"
+msgstr "Автоматически при публикации будет проставлено авторское право {$copyright}."
 
 msgid "submission.copyrightYear"
 msgstr "Год авторского права"
@@ -1822,7 +1828,10 @@ msgid "publication.contributors"
 msgstr "Авторы"
 
 msgid "publication.copyrightYearBasis.issueDescription"
-msgstr "Дата копирайта будет задана автоматически, когда выпуск будет опубликован."
+msgstr "Год копирайта будет задан автоматически при публикации выпуска."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr "Год копирайта будет проставлен автоматически, исходя из даты публикации."
 
 msgid "publication.createVersion"
 msgstr "Создать новую версию"

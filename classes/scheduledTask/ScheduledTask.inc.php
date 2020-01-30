@@ -124,6 +124,7 @@ abstract class ScheduledTask {
 	//
 	/**
 	 * Implement this method to execute the task actions.
+	 * @return boolean true iff success
 	 */
 	abstract protected function executeActions();
 

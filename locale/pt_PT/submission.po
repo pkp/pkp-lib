@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
+"PO-Revision-Date: 2020-01-30 18:24+0000\n"
+"Last-Translator: José Carvalho <josekarvalho@gmail.com>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/submission/pt_PT/>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:59+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.agencies"
 msgstr "Entidades"
@@ -1684,3 +1687,61 @@ msgstr "Submeta em algum dos seguintes papeis se desejar ser capaz de editar e p
 
 msgid "log.review.reviewUnconsidered"
 msgstr "{$editorName} marcou a ronda de revisão {$round} para a submissão {$submissionId} como não considerada."
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Tem a certeza de que gostaria de não permitir aos autores desta submissão "
+"alterarem os metadados da submissão nesta etapa?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Permitir Edição de Metadados"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Não Permitir Edição de Metadados"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Editar Designação"
+
+msgid "submission.status.scheduled"
+msgstr "Agendado"
+
+msgid "submissions.inactive"
+msgstr "Inativo à {$days} dias"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Esta é uma versão desatualizada publicada em {$datePublished}. Consulte a <a "
+"href=\"{$urlRecentVersion}\">versão mais recente</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versões"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Atualizado em {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Os autores agora não podem editar os metadados quando a submissão estiver na "
+"etapa {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Os autores podem editar os metadados quando a submissão estiver na etapa "
+"{stage}."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Resumo"
+
+msgid "author.publicationNotFound"
+msgstr "A publicação para este autor não foi encontrada."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Os autores desta publicação não podem ser alterados por que ela já está "
+"publicada."

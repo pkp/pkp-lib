@@ -37,7 +37,7 @@
 	<message key="editor.submissionReview.skipEmail">Nie wysyłaj wiadomości e-mail z powiadomieniem</message>
 	<message key="editor.submissionReview.open">Otwarta</message>
 	<message key="editor.submissionReview.blind">Ślepa</message>
-	<message key="editor.submissionReview.doubleBlind">Podwójna ślepa</message>
+	<message key="editor.submissionReview.doubleBlind">Podwójnie ślepa</message>
 	<message key="editor.submissionReview.restrictFiles">Pliki do zrecenzowania</message>
 	<message key="editor.submissionReview.restrictFiles.hide">Zamknij dział plików</message>
 	<message key="editor.submissionReview.editReview">Edytuj recenzję</message>
@@ -66,7 +66,6 @@
 	<message key="editor.review.reviewConfirmed">Recenzja potwierdzona</message>
 	<message key="editor.review.reviewSubmitted">Recenzja przesłana</message>
 	<message key="editor.review.reviewerComments">Komentarze recenzenta</message>
-	<message key="editor.review.days">Średni czas wykonania recenzji (dni)</message>
 	<message key="editor.review.mustSelect">Musisz wybrać recenzenta</message>
 	<message key="editor.review.errorAddingReviewer">Wystąpił błąd podczas dodawania recenzenta. Spróbuj ponownie później.</message>
 	<message key="editor.review.errorDeletingReviewer">Wystąpił błąd podczas usuwania recenzenta. Spróbuj ponownie później.</message>
@@ -98,7 +97,6 @@
 	<message key="editor.submission.createNewRound">Utwórz nową rundę recenzji</message>
 	<message key="editor.article.reviewForms">Formularze recenzji</message>
 	<message key="editor.article.selectReviewForm">Wybierz formularz recenzji</message>
-	<message key="editor.article.clearReviewForm">Wyczyść formularz recenzji</message>
 	<message key="editor.article.confirmChangeReviewForm">Uwaga: Wprowadzenie zmian w formularzu recenzji będzie miało wpływ na odpowiedzi, które recenzenci już złożyli korzystając z tego formularza. Czy na pewno chcesz kontynuować?</message>
 	<message key="editor.submission.noReviewerFilesSelected">Nie wybrano plików</message>
 	<message key="editor.submission.noReviewerFilesSelected.details">Nie wybrałeś(aś) żadnego pliku do wykonania recenzji.</message>
@@ -123,4 +121,28 @@
 	<message key="editor.submissionReview.recordRecommendation.skipEmail">Nie wysyłaj redaktorom wiadomości e-mail.</message>
 	<message key="editor.submissionReview.recordRecommendation.createDiscussion">Utwórz dyskusję poświęconą tej rekomendacji.</message>
 	<message key="editor.submissionReview.recordRecommendation.skipDiscussion">Nie twórz dyskusji poświęconej tej rekomendacji.</message>
+	<message key="editor.review.anonymousReviewer">Anonimowy recenzent</message>
+	<message key="editor.review.requestDeclined">Zapytanie odrzucone</message>
+	<message key="editor.review.requestDeclined.tooltip">Recenzent odrzucił zapytanie o wykonanie recenzji.</message>
+	<message key="editor.review.rateReviewer">Ocena recenzenta</message>
+	<message key="editor.review.rateReviewer.description">Oceń jakość dostarczonej recenzji. Ocena recenzenta nie jest widoczna dla recenzenta.</message>
+	<message key="editor.review.reviewerRating.none">Brak oceny</message>
+	<message key="reviewer.list.count">{$count} recenzenci</message>
+	<message key="reviewer.list.itemsOfTotal">{$count} z {$total} recenzentów</message>
+	<message key="reviewer.list.filterRating">Oceniono przynajmniej na</message>
+	<message key="reviewer.list.activeReviews">{$count} aktywny</message>
+	<message key="reviewer.list.activeReviewsDescription">Aktywni recenzenci obecnie przypisani</message>
+	<message key="reviewer.list.completedReviews">Ukończone recenzje</message>
+	<message key="reviewer.list.declinedReviews">Odrzucone zapytania o wykonania recenzji</message>
+	<message key="reviewer.list.reviewerRating">Ocena recenzenta: {$rating}</message>
+	<message key="reviewer.list.daysSinceLastAssignment">{$days} dni przed</message>
+	<message key="reviewer.list.daySinceLastAssignment">Wczoraj</message>
+	<message key="reviewer.list.daysSinceLastAssignmentDescription">Dni odkąd przypisano do wykonania recenzji</message>
+	<message key="reviewer.list.averageCompletion">Średnia liczba dni wykonania recenzji</message>
+	<message key="reviewer.list.neverAssigned">Nigdy nie przypisany</message>
+	<message key="reviewer.list.currentlyAssigned">Recenzent został już przypisany do zrecenzowania tego tekstu.</message>
+	<message key="reviewer.list.warnOnAssign">Recenzent jest zablokowany ponieważ został przypisany z rolą, która pozwala na identyfikację danych autora. Niemożliwe jest zapewnienie ślepej recenzji. Czy mimo to chcesz odblokować możliwość wykonania recenzji przez tego użytkownika?</message>
+	<message key="reviewer.list.warnOnAssignUnlock">Odblokuj</message>
+	<message key="reviewer.list.reviewInterests">Zainteresowania</message>
+	<message key="reviewer.list.biography">Biografia</message>
 </locale>

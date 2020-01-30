@@ -122,7 +122,7 @@
 	<message key="grid.action.addAnnouncementType">Dodaj rodzaj ogłoszenia</message>
 	<message key="grid.action.addAnnouncement">Dodaj ogłoszenie</message>
 	<message key="grid.action.mergeUser">Scal użytkownika</message>
-	<message key="grid.action.unassignUser">Cofnij przydział</message>
+	<message key="grid.action.unassignUser">Cofnij przypisanie</message>
 	<message key="grid.action.history">Wyświetl historię</message>
 	<message key="grid.action.unconsiderReview">Recenzja jest ukończona, ale możesz zmienić jej status</message>
 	<message key="grid.task.status.completed">Zadanie zrealizowane</message>
@@ -249,4 +249,7 @@
 	<message key="grid.action.addNavigationMenuItem">Dodaj element menu</message>
 	<message key="grid.navigationMenus.navigationMenuItems.noneExist">Brak elementów menu</message>
 	<message key="grid.navigationMenus.navigationMenu.noneExist">Brak menu</message>
+	<message key="grid.action.uninstall">Odinstaluj</message>
+	<message key="grid.action.users">Zobacz/Wybierz użytkowników</message>
+	<message key="grid.navigationMenus.navigationMenu.selectType">Wybierz typ...</message>
 </locale>

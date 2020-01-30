@@ -118,4 +118,5 @@
 Zastosowanie: {$scriptName} path/to/apache/log/file.log
 Zastosowanie (przetworzenie wszystkich plików w folderze): {$scriptName} path/to/apache/directory</message>
 	<message key="admin.contexts.confirmDelete">Czy na pewno usunąć {$contextName} wraz z całą zawartością?</message>
+	<message key="admin.languages.confirmSitePrimaryLocaleChange">Czy na pewno zmienić język strony? Nazwa użytkownika, wymagana do zalogowania się na stronie zostanie skopiowana, jeżeli nie została podana dla wybranego języka.</message>
 </locale>

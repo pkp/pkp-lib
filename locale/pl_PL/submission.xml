@@ -291,7 +291,6 @@
 	<message key="submission.createRemote">Utwórz zdalne</message>
 	<message key="submission.form.name">Opis pliku</message>
 	<message key="submission.form.replaceExisting">Zamiana istniejącego pliku?</message>
-	<message key="author.submit.userGroupRequired">Twoje konto użytkownika nie posiada aktualnie przydzielonej roli autora, która umożliwia przesyłanie zgłoszeń. Sprawdź zakładkę moje konto - jeżeli administrator strony nie postanowił inaczej, będziesz mógł(ogła) samodzielnie dokonać odpowiednich zmian w swoim profilu.</message>
 	<message key="author.submission.roundStatus.reviewsReady">Nowe recenzje zostały przesłane i są rozpatrywane przez redaktora.</message>
 	<message key="submission.confirm.message">Twoje zgłoszenie zostało umieszczone na serwerze i jest gotowe do wysłania. Możesz ponownie sprawdzić dane zanim ukończysz proces zgłaszania tekstu. Jeżeli jesteś gotowy(a), kliknij "Zakończ proces zgłaszania tekstu".</message>
 	<message key="submission.submit.submissionChecklist">Wymagania wobec zgłaszanego tekstu</message>
@@ -323,7 +322,7 @@
 	<message key="submission.event.submissionSubmitted">Zakończono wstępne zgłoszenie.</message>
 	<message key="submission.event.fileUploaded">Plik "{$originalFileName}" został przesłany do zgłoszenia {$submissionId} przez {$username}.</message>
 	<message key="submission.event.fileRevised">Wersja "{$name}" (ID {$fileId}-{$fileRevision}) została przesłana.</message>
-	<message key="submission.event.participantAdded">{$name} został przypisany do zgłoszenia jako {$userGroupName}.</message>
+	<message key="submission.event.participantAdded">{$name} ({$username}) został przypisany do zgłoszenia jako {$userGroupName}.</message>
 	<message key="submission.event.subjectPrefix">E-mail został wysłany:</message>
 	<message key="submission.event.viewEmail">Wyświetl e-mail</message>
 	<message key="submission.files.downloadAll">Pobierz wszystkie pliki</message>
@@ -398,7 +397,6 @@
 	<message key="submission.upload.proof">Prześlij plik gotowy do publikacji</message>
 	<message key="submission.upload.noAvailableReviewFiles">Brak plików do recenzji.</message>
 	<message key="editor.submission.roundStatus.revisionsRequested">Prośba o wprowadzenie poprawek.</message>
-	<message key="editor.submission.roundStatus.resubmitted">Zgłoszenie zostało przesłane ponownie w celu wykonania recenzji.</message>
 	<message key="editor.submission.roundStatus.sentToExternal">Wyślij do recenzji zewnętrznej.</message>
 	<message key="editor.submission.roundStatus.accepted">Zgłoszenie zaakceptowane.</message>
 	<message key="editor.submission.roundStatus.declined">Zgłoszenie odrzucone.</message>
@@ -521,8 +519,6 @@
 	<message key="submission.list.responseDue">Odpowiedź do</message>
 	<message key="submission.list.reviewDue">Recenzja do</message>
 	<message key="submission.list.confirmDelete">Usunąć przesłany tekst?</message>
-	<message key="submission.list.filter">Filtry</message>
-	<message key="submission.list.filterRemove">Usuń filtr: {$filterTitle}</message>
 	<message key="submission.event.participantRemoved">"{$name}" ({$username}) jest usunięty z {$userGroupName}.</message>
 	<message key="submission.howToCite.downloadCitation">Pobierz cytowania</message>
 	<message key="editor.submission.roundStatus.revisionsSubmitted">Poprawki zostały przesłane.</message>
@@ -555,7 +551,6 @@
 	<message key="submission.list.itemOrdererUp">W górę: {$itemTitle}</message>
 	<message key="submission.list.itemOrdererDown">W dół: {$itemTitle}</message>
 	<message key="submission.list.viewSubmission">Wyświetl zgłoszenie</message>
-	<message key="submission.list.clearSearch">Wyczyść wyszukiwaną frazę</message>
 	<message key="submission.list.reviewsCompleted">Zakończone recenzje</message>
 	<message key="submission.list.revisionsSubmitted">Przesłane poprawki</message>
 	<message key="submission.list.copyeditsSubmitted">Przesłane pliki z poprawkami</message>
@@ -563,4 +558,44 @@
 	<message key="submission.list.filesPrepared">Przygotowane pliki</message>
 	<message key="submission.list.discussions">Otwarte dyskusje</message>
 	<message key="submission.list.incompleteSubmissionNotice">Zgłoszenie musi być kompletne zanim redaktor będzie mógł je przejrzeć.</message>
+	<message key="submission.submit.availableUserGroups">Zgłoś jako</message>
+	<message key="submission.submit.availableUserGroupsDescription">Wybierz rolę, która najlepiej opisuje twój udział w zgłoszeniu.</message>
+	<message key="submission.submit.contactConsent">Autor korespondencyjny</message>
+	<message key="submission.submit.contactConsentDescription">Wyrażam zgodę na kontakt w sprawie tego zgłoszenia.</message>
+	<message key="submission.submit.userGroupDescriptionManagers">Zgłoś korzystając z jednej z poniższych ról. Jeżeli chcesz mieć możliwość samodzielnego edytowania i publikowania tego tekstu wybierz: {$managerGroups}</message>
+	<message key="submission.citations.description">Wpisz każdy opis bibliograficzny w nowej linii, aby można było go wyodrębnić.</message>
+	<message key="submission.parsedCitations">Wyodrębnione opisy bibliograficzne</message>
+	<message key="submission.parsedCitations.DOI">DOI</message>
+	<message key="submission.parsedCitations.description">Następujące opisy bibliograficzne zostały wyodrębnione i zostaną podlinkowane do metadanych zgłoszenia.</message>
+	<message key="submission.parsedAndSaveCitations">Wyodrębnij i zapisz opisy bibliograficzne</message>
+	<message key="submission.submit.form.languagesRequired">Włącz języki.</message>
+	<message key="submission.submit.form.subjectsRequired">Włącz hasła przedmiotowe.</message>
+	<message key="submission.submit.form.disciplinesRequired">Włącz dyscypliny.</message>
+	<message key="submission.submit.form.keywordsRequired">Włącz słowa kluczowe.</message>
+	<message key="submission.submit.form.agenciesRequired">Włącz instytucję wspierającą.</message>
+	<message key="submission.submit.form.coverageRequired">Włącz informacje o zasięgu.</message>
+	<message key="submission.submit.form.typeRequired">Włącz typy.</message>
+	<message key="submission.submit.form.sourceRequired">Włącz źródło.</message>
+	<message key="submission.submit.form.rightsRequired">Włącz prawa.</message>
+	<message key="submission.submit.form.citationsRequired">Włącz opisy bibliograficzne.</message>
+	<message key="editor.submission.roundStatus.resubmitForReview">Tekst musi zostać ponownie przesłany do kolejnej rundy recenzji.</message>
+	<message key="editor.submission.roundStatus.submissionResubmitted">Tekst został ponownie przesłany do kolejnej rudny recenzji.</message>
+	<message key="editor.submission.addStageParticipant.form.reviewerWarning">Użytkownik został przypisany do przeprowadzenia ślepej recenzji. Jeśli przypiszesz go, będzie posiadać dostęp do danych autora. Polecamy, aby nie przypisywać tego uczestnika, chyba, że jesteś w stanie zapewnić rzetelny proces recenzji.</message>
+	<message key="log.review.reviewUnconsidered">{$editorName} został oznaczony(a) w {$round} rundzie recenzji do tekstu {$submissionId} oznaczonego jako nierozpoznany.</message>
+	<message key="submission.query.participantTitle">{$fullName}, {$userGroup}</message>
+	<message key="submission.list.reviewComplete">Recenzja przesłana</message>
+	<message key="submission.list.dualWorkflowLinks"><![CDATA[Posiadasz wiele ról dla tego zgłoszenia. Czy chciałbyś(chciałabyś) posiadać dostęp do <a href="{$urlAuthorWorkflow}">Panelu roboczego autora</a>  lub do <a href="{$urlEditorialWorkflow}">Panelu roboczego redaktora</a>?]]></message>
+	<message key="submission.list.reviewerWorkflowLink"><![CDATA[Przypisano Cię jako redaktora do tego tekstu. Czy chciałbyś(chciałabyś) posiadać dostęp do <a href="{$urlEditorialWorkflow}">Panelu roboczego redakcji</a>?]]></message>
+	<message key="submission.list.currentStage">Obecnie na etapie {$stage}.</message>
+	<message key="submission.list.assignEditor">Przypisany redaktor</message>
+	<message key="grid.category.categories">Kategorie</message>
+	<message key="catalog.sortBy.titleAsc">Tytuł (A-Z)</message>
+	<message key="catalog.sortBy.titleDesc">Tytuł (Z-A)</message>
+	<message key="catalog.sortBy.datePublishedAsc">Data publikacji (od najstarszej)</message>
+	<message key="catalog.sortBy.datePublishedDesc">Data publikacji (od najwcześniejszej)</message>
+	<message key="category.coverImage">Obraz okładki</message>
+	<message key="submission.submit.placement.categories">Kategorie</message>
+	<message key="submission.currentCoverImage">Obecny obraz</message>
+	<message key="catalog.category.noItems">Nic nie zostało dotychczas opublikowane w tej kategorii.</message>
+	<message key="catalog.category.subcategories">Subkategorie</message>
 </locale>

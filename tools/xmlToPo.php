@@ -94,8 +94,8 @@ class xmlToPo extends CommandLineTool {
 	static function convertFile($source, $target) {
 		$localeData = array();
 
-		$sourceData = self::parseLocaleFile($this->source);
-		if (!$sourceData) throw new Exception('Unable to load source file ' . $this->source);
+		$sourceData = self::parseLocaleFile($source);
+		if (!$sourceData) throw new Exception('Unable to load source file ' . $source);
 
 		$translations = new \Gettext\Translations();
 		foreach ($sourceData as $key => $sourceTranslation) {
@@ -104,7 +104,7 @@ class xmlToPo extends CommandLineTool {
 			$translations->append($translation);
 		}
 
-		$translations->toPoFile($this->target);
+		return $translations->toPoFile($target);
 	}
 
 	/**

@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:57+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:12:53+00:00\n"
 "Language: \n"
 
 msgid "about.aboutSite"
@@ -85,6 +85,9 @@ msgstr "Przypisany"
 
 msgid "common.altText"
 msgstr "Alternatywny tekst"
+
+msgid "common.altTextInstructions"
+msgstr "Proszę wpisać zawartość obrazka w formie tekstu."
 
 msgid "common.and"
 msgstr "oraz"
@@ -356,6 +359,9 @@ msgstr "lub"
 msgid "common.other"
 msgstr "Inny"
 
+msgid "common.pageHeaderLogo.altText"
+msgstr "Nagłówek strony"
+
 msgid "common.plugin"
 msgstr "Wtyczka"
 
@@ -460,6 +466,9 @@ msgstr "Bez nazwy"
 
 msgid "common.updated"
 msgstr "Zaktualizowany"
+
+msgid "common.uploadedFile"
+msgstr "Przesłany plik"
 
 msgid "common.upload"
 msgstr "Prześlij"
@@ -740,15 +749,6 @@ msgstr "Zostałeś zasubskrybowany(a)."
 msgid "notification.email"
 msgstr "Wyślij e-mail dla tych rodzajów powiadomień."
 
-msgid "notification.location"
-msgstr "Idź do URL"
-
-msgid "notification.mailList"
-msgstr "Lista mailingowa"
-
-msgid "notification.mailList.emailInvalid"
-msgstr "Podaj poprawny adres e-mail."
-
 msgid "notification.mailList.privacyProtection"
 msgstr "Polityka prywatności"
 
@@ -931,6 +931,9 @@ msgstr "Reset"
 
 msgid "common.unread"
 msgstr "Nieczytany"
+
+msgid "common.invalidFileType"
+msgstr "Żaden plik nie został przesłany lub niepoprawny typ pliku!"
 
 msgid "common.plugins"
 msgstr "Wtyczki"
@@ -1122,7 +1125,7 @@ msgid "common.file.namingPattern"
 msgstr "{$username}, {$userGroup}, {$originalFilename}"
 
 msgid "common.file.anonymousNamingPattern"
-msgstr "{$userGroup}, {$originalFilename}"
+msgstr "{$genre}, {$originalFilename}"
 
 msgid "common.fileUploaderError"
 msgstr "Narzędzie do przesyłania plików jest ładowane. Jeżeli nie pojawi się po dłuższej chwili istnieje prawdopodobieństwo, że nie jest wspierane przez Twoją przeglądarkę. Gdyby tak się stało, skontaktuj się z administratorem w celu uzyskania pomocy."
@@ -1132,6 +1135,9 @@ msgstr "Strona domowa"
 
 msgid "common.itemsPerPage"
 msgstr "Elementów na stronę"
+
+msgid "common.favicon.altText"
+msgstr "Favicon"
 
 msgid "common.notes.tooltip"
 msgstr "Uwagi (żółty: nowe; niebieski: przeczytane; szary: brak)"
@@ -1187,6 +1193,9 @@ msgstr "Element"
 msgid "common.uploadedDate"
 msgstr "Data przesłania"
 
+msgid "common.homepageImage.altText"
+msgstr "Obraz strony głównej"
+
 msgid "common.upload.addFile"
 msgstr "Prześlij plik"
 
@@ -1213,6 +1222,9 @@ msgstr "Adres e-mail nadawcy"
 
 msgid "form.url.invalid"
 msgstr "Podany URL jest niepoprawny. Sprawdź adres i spróbuj ponownie."
+
+msgid "form.csrfInvalid"
+msgstr "Formularz nie został przesłany poprawnie."
 
 msgid "form.fileRequired"
 msgstr "Plik jest wymagany."
@@ -1534,3 +1546,66 @@ msgstr "Wyślij e-mail z podziękowaniem do wszystkich zarejestrowanych użytkow
 
 msgid "notification.addedReviewerNoEmail"
 msgstr "{$reviewerName} został przydzielony do recenzji przesłanego tekstu - e-mail z powiadomieniem nie został wysłany."
+
+msgid "common.dateDecided"
+msgstr "Data decyzji"
+
+msgid "common.filter"
+msgstr "Filtry"
+
+msgid "common.filterAdd"
+msgstr "Dodaj filtr: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Usuń filtr: {$filterTitle}"
+
+msgid "common.lessThan"
+msgstr "{$value} lub mniej"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.moreThan"
+msgstr "{$value} lub więcej"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} z {$total}"
+
+msgid "common.pagination.label"
+msgstr "Zobacz dodatkowe strony"
+
+msgid "common.pagination.goToPage"
+msgstr "Idź do {$page}"
+
+msgid "common.pagination.next"
+msgstr "Następna strona"
+
+msgid "common.pagination.previous"
+msgstr "Poprzednia strona"
+
+msgid "common.clearSearch"
+msgstr "Wyczyść zapytanie"
+
+msgid "common.publicAccess"
+msgstr "Dostęp publiczny"
+
+msgid "email.compose.error"
+msgstr "Wystąpił problem z przesłaniem wiadomości e-mail. Spróbuj ponownie przesłać wiadomość lub skontaktuj się z administratorem."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Rozpoczęcie dyskusji"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Rozpocznij dyskusję z {$userFullName}."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Zaktualizowano zadanie dotyczące recenzji."
+
+msgid "list.viewMore"
+msgstr "Zobacz szczegółowe informacje o {$name}"
+
+msgid "list.viewLess"
+msgstr "Ukryj szczegółowe informacje o {$name}"

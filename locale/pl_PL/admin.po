@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:12:25+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:12:25+00:00\n"
 "Language: \n"
 
 msgid "admin.adminFunctions"
@@ -107,7 +107,7 @@ msgstr "Wersja PHP"
 msgid "admin.server.platform"
 msgstr "System operacyjny"
 
-msgid "admin.settings.about"
+msgid "admin.settings.aboutDescription"
 msgstr "Opis strony"
 
 msgid "admin.settings.contactEmail"
@@ -115,6 +115,24 @@ msgstr "Adres e-mail głównego administratora"
 
 msgid "admin.settings.contactName"
 msgstr "Nazwa głównego administratora"
+
+msgid "admin.settings.form.contactEmailRequired"
+msgstr "Adres e-mail głównego administratora jest wymagany."
+
+msgid "admin.settings.form.contactNameRequired"
+msgstr "Nazwa głównego administratora jest wymagana."
+
+msgid "admin.settings.form.minPasswordLengthRequired"
+msgstr "Musisz podać hasło o długości co najmniej 4 znaków."
+
+msgid "admin.settings.form.titleRequired"
+msgstr "Tytuł jest wymagany."
+
+msgid "admin.settings.homeHeaderImage.altText"
+msgstr "Logo strony"
+
+msgid "admin.settings.homeHeaderImageInvalid"
+msgstr "Niepoprawny format pliku. Akceptowane formaty to GIF, JPG, lub PNG."
 
 msgid "admin.settings.introduction"
 msgstr "Wprowadzenie"
@@ -307,3 +325,6 @@ msgstr ""
 
 msgid "admin.contexts.confirmDelete"
 msgstr "Czy na pewno usunąć {$contextName} wraz z całą zawartością?"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Czy na pewno zmienić język strony? Nazwa użytkownika, wymagana do zalogowania się na stronie zostanie skopiowana, jeżeli nie została podana dla wybranego języka."

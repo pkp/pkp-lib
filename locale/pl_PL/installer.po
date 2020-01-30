@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:57+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:57+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:13:19+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:13:19+00:00\n"
 "Language: \n"
 
 msgid "installer.additionalLocales"
@@ -46,6 +46,9 @@ msgstr "Utwórz nową bazę danych"
 
 msgid "installer.createDatabaseInstructions"
 msgstr "Aby zdalnie utworzyć bazę danych, musisz posiadać stosowne uprawnienia oraz odpowiednią konfigurację serwera. Jeżeli instalacja nie powiedzie się z pomocą tej opcji, utwórz bazę manualnie i spróbuj instalacji ponownie."
+
+msgid "installer.databaseCharset"
+msgstr "Kodowanie znaków (baza danych)"
 
 msgid "installer.databaseDriver"
 msgstr "Sterownik bazy danych"
@@ -186,3 +189,6 @@ msgstr ""
 
 msgid "installer.configureXSLMessage"
 msgstr "<p>Twoja instalacja PHP nie posiada skonfigurowanego modułu XSL. Włącz go lub skonfiguruj komendę xslt_command w swoim pliku konfiguracyjnym config.inc.php.</p>"
+
+msgid "installer.unsupportedPhpError"
+msgstr "Twoja wersja serwera PHP nie jest wspierana przez to oprogramowanie. Sprawdź wymagania instalacyjne w pliku docs/README."

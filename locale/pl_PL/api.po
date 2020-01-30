@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
+"POT-Creation-Date: 2020-01-30T17:12:45+00:00\n"
+"PO-Revision-Date: 2020-01-30T17:12:45+00:00\n"
 "Language: \n"
 
 msgid "api.submissions.403.csrfTokenFailure"
@@ -23,7 +23,7 @@ msgstr "Nie możesz usunąć przesłanego tekstu, do którego nie zostałeś prz
 msgid "api.submissions.403.unauthorizedDeleteSubmission"
 msgstr "Nie posiadasz uprawnień do usunięcia tego przesłanego tekstu."
 
-msgid "api.404.resourceNotFound"
+msgid "api.submissions.404.resourceNotFound"
 msgstr "Zasób nie został odnaleziony."
 
 msgid "api.submissions.400.missingRequired"
@@ -34,3 +34,24 @@ msgstr "Zapytanie o wolumen, numer lub rok jest niepoprawne."
 
 msgid "api.submissions.unknownError"
 msgstr "Wystąpił nieznany błąd. Przeładuj stronę i spróbuj ponownie."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametr {$param} nie jest wspierany."
+
+msgid "api.403.unauthorized"
+msgstr "Brak uprawnień dostępu do zasobu."
+
+msgid "api.404.resourceNotFound"
+msgstr "Zasób nie został odnaleziony."
+
+msgid "api.404.endpointNotFound"
+msgstr "URL nie został rozpoznany."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Zapytanie nie jest poprawne. Dane powinny zostać wpisane w formacie YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Zapytanie nie jest poprawne. Data początkowa nie może być późniejsza niż data końcowa."
+
+msgid "api.stats.400.wrongTimeSegmentDaily"
+msgstr "Zapytanie nie jest poprawne. Funkcja \"codzienny\" może być używana razem z zakresem data (data początkowa i data końcowa) w okresie ostatnich 90 dni."

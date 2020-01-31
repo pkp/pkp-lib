@@ -267,6 +267,12 @@ class ManagementHandler extends Handler {
 
 		$licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
 		$searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+
+		// Expose the FORM_PAYMENT_SETTINGS constant for the payment settings form reload
+		import('lib.pkp.classes.components.forms.context.PKPPaymentSettingsForm'); // Constant
+		$templateMgr->setConstants([
+			'FORM_PAYMENT_SETTINGS',
+		]);
 		$paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
 		$settingsData = [

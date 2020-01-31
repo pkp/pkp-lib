@@ -22,7 +22,7 @@ import('lib.pkp.classes.core.PKPRequest');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
 
 /**
- * @runTestsInSeparateProcesses
+ * @backupGlobals enabled
  */
 class PKPRequestTest extends PKPTestCase {
 	protected $request;

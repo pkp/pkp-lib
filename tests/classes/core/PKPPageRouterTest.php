@@ -23,7 +23,7 @@ import('classes.security.Validation'); // This will import our mock validation c
 import('classes.i18n.AppLocale'); // This will import our mock locale.
 
 /**
- * @runTestsInSeparateProcesses
+ * @backupGlobals enabled
  */
 class PKPPageRouterTest extends PKPRouterTestCase {
 	protected function setUp() : void {

@@ -20,7 +20,7 @@ import('lib.pkp.classes.core.PKPComponentRouter');
 import('lib.pkp.tests.classes.core.PKPRouterTestCase');
 
 /**
- * @runTestsInSeparateProcesses
+ * @backupGlobals enabled
  */
 class PKPComponentRouterTest extends PKPRouterTestCase {
 	protected function setUp() : void {

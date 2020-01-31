@@ -23,7 +23,7 @@ import('classes.core.Application');
 import('lib.pkp.classes.db.DAORegistry');
 
 /**
- * @runTestsInSeparateProcesses
+ * @backupGlobals enabled
  */
 class PKPRouterTestCase extends PKPTestCase {
 	const

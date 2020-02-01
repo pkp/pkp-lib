@@ -165,28 +165,21 @@ class EmailTemplateDAO extends SchemaDAO {
 		return 'registry/emailTemplates.xml';
 	}
 
-	function getMainEmailTemplateDataFilename($locale = null) {
-		if ($locale !== null && !PKPLocale::isLocaleValid($locale)) return null;
-		if ($locale === null) $locale = '{$installedLocale}';
-		return "locale/$locale/emailTemplates.xml";
-	}
-
 	/**
 	 * Install email templates from an XML file.
 	 * NOTE: Uses qstr instead of ? bindings so that SQL can be fetched
 	 * rather than executed.
 	 * @param $templatesFile string Filename to install
+	 * @param $locales List of locales to install data for
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
 	 * @param $emailKey string Optional name of single email key to install,
 	 * skipping others
 	 * @param $skipExisting boolean If true, do not install email templates
 	 * that already exist in the database
-	 * @param $emailKey string If specified, the key of the single template
-	 * to install (otherwise all are installed)
-	 * @return array
+	 * @return array|boolean
 	 */
-	function installEmailTemplates($templatesFile, $returnSql = false, $emailKey = null, $skipExisting = false) {
+	function installEmailTemplates($templatesFile, $locales = array(), $returnSql = false, $emailKey = null, $skipExisting = false) {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parseStruct($templatesFile, array('email'));
@@ -213,6 +206,60 @@ class EmailTemplateDAO extends SchemaDAO {
 			if (!$returnSql) {
 				$this->update(array_shift($sql));
 			}
+
+			// Add localized data
+			$additionalQueries = $this->installEmailTemplateLocaleData($templatesFile, $locales, $returnSql, $attrs['key']);
+			if ($returnSql) $sql = array_merge($sql, $additionalQueries);
+		}
+		if ($returnSql) return $sql;
+		return true;
+	}
+
+	/**
+	 * Install email template contents from an XML file.
+	 * NOTE: Uses qstr instead of ? bindings so that SQL can be fetched
+	 * rather than executed.
+	 * @param $templatesFile string Filename to install
+	 * @param $locales List of locales to install data for
+	 * @param $returnSql boolean Whether or not to return SQL rather than
+	 * executing it
+	 * @param $emailKey string Optional name of single email key to install,
+	 * skipping others
+	 * @return array|boolean
+	 */
+	function installEmailTemplateLocaleData($templatesFile, $locales = array(), $returnSql = false, $emailKey = null) {
+		$xmlDao = new XMLDAO();
+		$sql = array();
+		$data = $xmlDao->parseStruct($templatesFile, array('email'));
+		if (!isset($data['email'])) return false;
+		$dataSource = $this->getDataSource();
+		foreach ($data['email'] as $entry) {
+			$attrs = $entry['attributes'];
+			if ($emailKey && $emailKey != $attrs['key']) continue;
+
+			$subject = $attrs['subject']??null;
+			$body = $attrs['body']??null;
+			$description = $attrs['description']??null;
+			if ($subject && $body) foreach ($locales as $locale) {
+				$sql[] = 'DELETE FROM email_templates_default_data WHERE email_key = ' . $dataSource->qstr($attrs['key']) . ' AND locale = ' . $dataSource->qstr($locale);
+				if (!$returnSql) {
+					$this->update(array_shift($sql));
+				}
+
+				$sql[] = 'INSERT INTO email_templates_default_data
+					(email_key, locale, subject, body, description)
+					VALUES
+					(' .
+					$dataSource->qstr($attrs['key']) . ', ' .
+					$dataSource->qstr($locale) . ', ' .
+					$dataSource->qstr(__($subject, [], $locale)) . ', ' .
+					$dataSource->qstr(__($body, [], $locale)) . ', ' .
+					$dataSource->qstr(__($description, [], $locale)) .
+					")";
+				if (!$returnSql) {
+					$this->update(array_shift($sql));
+				}
+			}
 		}
 		if ($returnSql) return $sql;
 		return true;
@@ -222,20 +269,20 @@ class EmailTemplateDAO extends SchemaDAO {
 	 * Install email template localized data from an XML file.
 	 * NOTE: Uses qstr instead of ? bindings so that SQL can be fetched
 	 * rather than executed.
+	 * @deprecated Since OJS/OMP 3.2, this data should be supplied via the non-localized email template list and PO files. (pkp/pkp-lib#5461)
 	 * @param $templateDataFile string Filename to install
+	 * @param $locale string Locale of template(s) to install
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
 	 * @param $emailKey string If specified, the key of the single template
 	 * to install (otherwise all are installed)
-	 * @return array
+	 * @return array|boolean
 	 */
-	function installEmailTemplateData($templateDataFile, $returnSql = false, $emailKey = null) {
+	function installEmailTemplateData($templateDataFile, $locale, $returnSql = false, $emailKey = null) {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parse($templateDataFile, array('email_texts', 'email_text', 'subject', 'body', 'description'));
 		if (!$data) return false;
-		$locale = $data->getAttribute('locale');
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 
 		foreach ($data->getChildren() as $emailNode) {
 			$subject = $emailNode->getChildValue('subject');
@@ -245,7 +292,7 @@ class EmailTemplateDAO extends SchemaDAO {
 			// Translate variable contents
 			foreach (array(&$subject, &$body, &$description) as &$var) {
 				$var = preg_replace_callback('{{translate key="([^"]+)"}}', function($matches) {
-					return __($matches[1]);
+					return __($matches[1], array(), $locale);
 				}, $var);
 			}
 

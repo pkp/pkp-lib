@@ -101,10 +101,10 @@ abstract class Plugin {
 		}
 		if ($this->getInstallEmailTemplatesFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplates'));
+			HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
 		}
 		if ($this->getInstallEmailTemplateDataFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplateData'));
-			HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
 		}
 		if ($this->getInstallDataFile()) {
 			HookRegistry::register ('Installer::postInstall', array($this, 'installData'));
@@ -623,8 +623,16 @@ abstract class Plugin {
 		$installer =& $args[0]; /* @var $installer Installer */
 		$result =& $args[1];
 
+		// Load email template data as required from the locale files.
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true, null, true);
+		$emailTemplateLocales = [];
+		foreach ($installer->installedLocales as $locale) {
+			$emailFile = $this->getPluginPath() . "/locale/$locale/emails.po";
+			if (!file_exists($emailFile)) continue;
+			AppLocale::registerLocaleFile($locale, $emailFile);
+			$emailTemplateLocales[] = $locale;
+		}
+		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), $emailTemplateLocales, true, null, true);
 
 		if ($sql === false) {
 			// The template file seems to be invalid.
@@ -643,6 +651,7 @@ abstract class Plugin {
 
 	/**
 	 * Callback used to install email template data.
+	 * @deprecated Email template data should be installed via installEmailTemplates (pkp/pkp-lib#5461)
 	 *
 	 * @param $hookName string
 	 * @param $args array
@@ -656,7 +665,7 @@ abstract class Plugin {
 		foreach ($installer->installedLocales as $locale) {
 			$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
 			if (!file_exists($filename)) continue;
-			$sql = $emailTemplateDao->installEmailTemplateData($filename, true);
+			$sql = $emailTemplateDao->installEmailTemplateData($filename, $locale, true);
 			if ($sql) {
 				$result = $installer->executeSQL($sql);
 			} else {
@@ -678,7 +687,16 @@ abstract class Plugin {
 		$locale =& $args[0];
 		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplateDao->installEmailTemplateData($filename);
+
+		// Since pkp/pkp-lib#5461, there are two ways to specify localized email data in plugins.
+		// Install locale data specified in the old form. (Deprecated!)
+		if ($this->getInstallEmailTemplateDataFile()) $emailTemplateDao->installEmailTemplateData($filename, $locale);
+
+		// Install locale data specified in the new form.
+		if (file_exists($emailFile = $this->getPluginPath() . "/locale/$locale/emails.po")) {
+			AppLocale::registerLocaleFile($locale, $emailFile);
+			$emailTemplateDao->installEmailTemplateLocaleData($this->getInstallEmailTemplatesFile(), [$locale]);
+		}
 		return false;
 	}
 

@@ -400,7 +400,7 @@ class PKPLocale {
 		import('lib.pkp.classes.db.DBDataXMLParser');
 
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
+		$emailTemplateDao->installEmailTemplateLocaleData($emailTemplateDao->getMainEmailTemplatesFilename(), array($locale));
 
 		// Load all plugins so they can add locale data if needed
 		$categories = PluginRegistry::getCategories();

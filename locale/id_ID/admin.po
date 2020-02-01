@@ -2,20 +2,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2020-02-01 08:35+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"admin/id/>\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Fungsi Administratif"
 
 msgid "admin.auth.confirmDelete"
-msgstr " Apakah Anda yakin ingin menghapus sumber pengesahan ini secara permanen?"
+msgstr ""
+"Apakah Anda yakin ingin menghapus sumber pengesahan ini secara permanen?"
 
 msgid "admin.auth.create"
 msgstr "Buat Sumber Pengesahan"
@@ -39,7 +43,10 @@ msgid "admin.confirmClearTemplateCache"
 msgstr "Apakah Anda yakin ingin membersihkan template cache yang disusun?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Apakah Anda yakin ingin mengakhiri seluruh sesi pengguna? Semua pengguna yang sedang <em>log in</em> ke sistem akan dipaksa untuk <em>log in</em> lagi (termasuk diri Anda). "
+msgstr ""
+"Apakah Anda yakin ingin mengakhiri seluruh sesi pengguna? Semua pengguna "
+"yang sedang masuk ke dalam sistem akan dipaksa untuk login kembali (termasuk "
+"Anda)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "File konfigurasi isi"
@@ -87,7 +94,7 @@ msgid "admin.languages.uninstall"
 msgstr "Uninstal locale"
 
 msgid "admin.phpInfo"
-msgstr " Informasi Detail PHP"
+msgstr "Informasi PHP Selengkapnya"
 
 msgid "admin.saveSystemConfig"
 msgstr "Simpan Konfigurasi"
@@ -135,7 +142,7 @@ msgid "admin.settings.siteLanguage"
 msgstr "Bahasa Situs"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr " Format lembar model situs invalid. Format yang dapat diterima adalah .css."
+msgstr "Format Stylesheet situs tidak valid. Format yang diterima adalah .css."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "Style Sheet"
@@ -168,7 +175,7 @@ msgid "admin.version.downloadPackage"
 msgstr "Unduh"
 
 msgid "admin.version.downloadPatch"
-msgstr "Download Patch"
+msgstr "Unduh Patch"
 
 msgid "admin.versionHistory"
 msgstr "Sejarah Versi"
@@ -196,3 +203,163 @@ msgstr "Sistem Anda up-to-date"
 
 msgid "admin.version"
 msgstr "Versi"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Salin file log akses apache yang dilewati, yang menyaring entri berkaitan "
+"dengan instalasi ini,\n"
+"ke direktori file saat ini, di dalam direktori tahapan UsageStatsPlugin. "
+"Harus dijalankan oleh pengguna hak kases istimewa yang bisa membaca file log "
+"apache aksess.\n"
+"\n"
+"Tool ini hanya akan menyalin file yang belum ada di dalam direktori pemuat "
+"file usageStats (stage, processing, archive, reject).\n"
+"\n"
+"Penggunaan: {$scriptName} path/to/apache/log/file.log\n"
+"Penggunaan (memproses semua file dalam sebuah direktori): {$scriptName} path/"
+"to/apache/directory\n"
+"\t"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Terbitkan naskah yang telah dijadwalkan terbit"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Tidak ada bahasa yang dapat diunduh."
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Error: tidak dapat mejalankan \"{$utilPath}\".  Periksa pengaturan {$utilVar}"
+" dalam file config.inc.php."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr "Eksekusi program \"{$utilPath}\" mengembalikan galat berikut: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Berhasil: {$filePath} ke {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Peringatan: file {$filePath} sudah ada di dalam direktori statistik "
+"pemakaian."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Error: tidak bisa menghapus file {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Error: tidak dapat menyalin file dari {$filePath} ke {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Error: File {$filePath} tidak dapat diakses atau tidak ada."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Error: tidak dapat membuat foledr temporer {$tmpDir}"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Pemuat File"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "File {$filename} telah diproses dan disimpan."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"File {$filename} tidak bisa dipindahkan dari {$currentFilePath} ke "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} bukan sebuah direktori atau tidak dapat dibaca."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Alamat utama {$path} harus berada di direktori file publik."
+
+msgid "admin.siteSetup"
+msgstr "Pengaturan Situs"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema Situs"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo Situs"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tInstalasi Anda diatur untuk mencatat lebih dari satu metrik pemakaian. "
+"statistik pemakaian akan ditampilkan dalam beberapa konteks.\n"
+"\t\tAda beberapa kasus di mana hanya satu statistik penggunakan yang boleh "
+"digunakan, misalnya untuk menampilkan daftar urut naskah yang paling banyak "
+"digunakan atau untuk mengurutkan\n"
+"\t\thasil pencarian. Pilih satu metrik sebagai pengaturan bawaan.\n"
+"\t"
+
+msgid "admin.settings"
+msgstr "Pengaturan"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Pengingat masa habis berlangganan"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Pengingat Review"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Bersihkan Log Eksekusi Tugas Terjadwal"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Anda yakin ingin menghapus semua log pelaksanaan tugas terjadwal?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Instalasi {$softwareName} Anda secara otomatis menjalankan dan menyelesaikan "
+"tugas ini dan Anda dapat mengunduh file lognya di sini: {$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tugas tidak menghasilkan log."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proses tugas dihentikan."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proses tugas dimulai."
+
+msgid "admin.scheduledTask"
+msgstr "Tugas Terjadwal"
+
+msgid "admin.languages.installLocale"
+msgstr "Install Bahasa"
+
+msgid "admin.languages.availableLocales"
+msgstr "Bahasa yang Tersedia"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Yakin ingin mengganti bahasa utama situs web? Nama pengguna, yang diperlukan "
+"dalam bahasa utama situs, akan disalin dari bahasa utama yang ada apabila "
+"belum ditemukan."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Bahasa ini adalah bahasa utama situs web. Anda tidak bisa menonaktifkannya "
+"sebelum memilih bahasa utama lain."
+
+msgid "admin.languages.download.cannotModifyRegistry"
+msgstr ""
+"Tidak dapat menambahkan bahasa baru ke dalam file registry bahasa, biasanya "
+"\"registry/locales.xml\"."
+
+msgid "admin.languages.download.cannotOpen"
+msgstr "Tidak dapat membuka deskriptor bahasa dari situs web PKP."
+
+msgid "admin.languages.downloadLocales"
+msgstr "Unduh Bahasa"
+
+msgid "admin.languages.download"
+msgstr "Unduh Bahasa"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Yakin ingin menghapus secara permanen {$contextName} dan seluruh isinya?"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Pengaturan Nilai"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Pengaturan Nama"

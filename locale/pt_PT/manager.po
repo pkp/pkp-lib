@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-01-30 18:24+0000\n"
-"Last-Translator: José Carvalho <josekarvalho@gmail.com>\n"
+"PO-Revision-Date: 2020-02-04 14:33+0000\n"
+"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -1491,3 +1491,320 @@ msgstr "Modo de Revisão Padrão"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Lembrete de Revisão"
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Ativar metadados de referências"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Recolher as referências bibliográficas da submissão num campo separado. Esta "
+"opção pode necessitar que cumpra com os serviços de rastreamento de citações "
+"tal como a CrossRef."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Exigir que os autores declarem quaisquer agências de financiamento antes de "
+"aceitar a sua submissão."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Solicitar aos autores que declarem quaisquer agências de financiamente "
+"durante a submissão."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Não solicitar aos autores as agências de financiamento durante a submissão."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Ativar metadados de agências de financiamento"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Agências de financiamento podem indicar a fonte do financiamento da "
+"investigação ou outro apoio institucional que financiou a investigação."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Exigir aos autores que forneçam as disciplinas antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Solicitar aos autores que forneçam as disciplinas durante a submissão."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Não solicitar a disciplina aos autores durante a submissão."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Ativar metadados de disciplinas"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disciplinas são tipos de estudo ou ramos do conhecimento conforme descrito "
+"pelas universidades ou sociedades científicas."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Exigir aos autores que forneçam o tipo antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Solicitar aos autores que forneçam o tipo durante a submissão."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Não solicitar aos autores o tipo durante a submissão."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Ativar metadados de tipo"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"A natureza ou género do conteúdo principal da submissão. O tipo é geralmente "
+"\"Texto\", mas também pode ser \"Conjunto de Dados\", \"Imagem\" ou algum "
+"dos <a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">tipos de documento "
+"Dublin Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Exigir aos autores que forneçam os assuntos antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Solicitar aos autores que forneçam os assuntos durante a submissão."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Não solicitar assuntos aos autores durante a submissão."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Ativar metadados de assunto"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Assuntos são palavras-chave, frases chave ou códigos de classificação que "
+"descrevem o tópico da submissão."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Não solicitar um URL da fonte aos autores durante a submissão."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Exigir aos autores que forneçam um URL da fonte antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Solicitar aos autores que forneçam um URL da fonte durante a submissão."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Ativar metadados de fonte"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"A fonte pode ser um ID, tal como um DOI, de outro trabalho ou recurso do "
+"qual a submissão é derivada."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Solicitar aos autores que declarem quaisquer direitos de acesso prévios "
+"antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Solicitar aos autores que declarem direitos de acesso prévios durante a "
+"submissão."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Não solicitar uma declaração de direitos durante a submissão."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Ativar metadados de direitos"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Quaisquer direitos sobre a submissão, que podem ser incluídos nos Direitos "
+"de Propriedade Intelectual (DPI), Direitos de autor, e vários Direitos de "
+"Propriedade."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Exigir aos autores que insiram os idiomas da submissão antes de aceitar a "
+"submissão."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Solicitar aos autores que sugiram idiomas da submissão durante a submissão."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Não solicitar o idioma da submissão aos autores durante a submissão."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Ativar metadado de idioma"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Idioma indica o idioma principal do trabalho através de códigos ISO (\"en\") "
+"com códigos de país opcionais (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Exigir aos autores que sugiram palavras-chave antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Solicitar ao autores que sugiram palavras-chave durante a submissão."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Não exigir palavras-chave aos autores durante a submissão."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Ativar palavras-chave"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Palavras-chave são tipicamente de uma a três expressões usadas para indicar "
+"os assuntos principais da submissão."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Exigir aos autores que sugiram metadados de cobertura antes de aceitar a "
+"submissão."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Solicitar aos autores que sugiram metadados de cobertura durante a submissão."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Não solicitar metadado de cobertura aos autores durante a submissão."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Ativar metadado de cobertura"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"A cobertura indica tipicamente a localização espacial do trabalho (nome do "
+"local ou coordenadas geográficas), período temporal (rótulo de um período, "
+"data ou período de tempo) ou jurisdição (tal como nome administrativo da "
+"entidade)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Cobertura"
+
+msgid "manager.setup.metadata.success"
+msgstr "Os metadados da submissão foram atualizados com sucesso."
+
+msgid "manager.reviewFormElements.description"
+msgstr "Descrição"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permitir a edição dos metadados da submissão."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Adicione etiquetas HTML personalizadas, também conhecidas como meta tags, "
+"que gostaria de inserir no cabeçalho de cada página. Consulte apoio técnico "
+"antes de inserir as etiquetas."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Etiquetas Personalizadas"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Insira os termos públicos da licença que pretende disponibilizar junto com o "
+"trabalho publicado."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termos da Licença"
+
+msgid "manager.distribution.license.other"
+msgstr "URL de outra licença"
+
+msgid "manager.distribution.license.success"
+msgstr "Os detalhes de licença foram atualizados. "
+
+msgid "manager.distribution.license"
+msgstr "Licença"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Utilizadores registados"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Os detalhes de acesso do utilizador foram atualizados."
+
+msgid "manager.setup.theme.notFound"
+msgstr "O tema que selecionou não se encontra instalado ou ativado."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Lembrete de Resposta"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Prazo de Conclusão Padrão"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Prazo de Resposta Padrão"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "O ficheiro carregado não foi encontrato. Tente carregá-lo novamente."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"O bloco {$name} não foi encontrado. Certifique-se que o plugin se encontra "
+"instalado e ativo."
+
+msgid "manager.setup.checklist"
+msgstr "Lista de verificação"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "As instruções aos autores foram atualizadas com sucesso."
+
+msgid "manager.setup.contact.success"
+msgstr "Os detalhes de contacto desta editora foram atualizados."
+
+msgid "manager.setup.appearance.success"
+msgstr "As configurações da aparência foram atualizadas."
+
+msgid "manager.setup.advanced"
+msgstr "Avançado"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Não pode eliminar este representante porque está designado aos metadados de "
+"mercados para um ou mais formatos de publicação para esta submissão."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Assunto: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Enviado para"
+
+msgid "manager.emails.sentFrom"
+msgstr "Enviado de"
+
+msgid "manager.emails.resetAll"
+msgstr "Restaurar tudo"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "A chave que inseriu já se encontra em uso."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Deve inserir um ID do contexto quando adiciona um modelo de e-mail."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Modelos de e-mail"
+
+msgid "manager.emails.emailKey.description"
+msgstr "A senha de e-mail só pode conter letras, números e underscores."
+
+msgid "manager.emails.editEmail.success"
+msgstr "O modelo de e-mail foi modificado."
+
+msgid "manager.emails.customTemplate"
+msgstr "Modelo personalizado"
+
+msgid "manager.emails.addEmail.success"
+msgstr "O modelo de e-mail foi adicionado."
+
+msgid "manager.emails.addEmail"
+msgstr "Adicionar modelo"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Os detalhes dos lembretes aos revisores foram atualizados."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "As configurações de revisão foram atualizadas."

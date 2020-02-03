@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
+"PO-Revision-Date: 2020-02-04 14:32+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/de/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:24-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen."
@@ -516,7 +519,7 @@ msgid "submission.editorial"
 msgstr "Lektorat"
 
 msgid "submission.email.backToEmailLog"
-msgstr "Zurück zum E-Mail-Protokoll "
+msgstr "Zurück zum E-Mail-Protokoll"
 
 msgid "submission.email.confirmClearLog"
 msgstr "Sind Sie sicher, dass Sie das E-Mail-Protokoll zu diesem Beitrag löschen wollen?"
@@ -525,7 +528,7 @@ msgid "submission.email.confirmDeleteLogEntry"
 msgstr "Sind Sie sicher, dass Sie diesen Eintrag im E-Mail-Protokoll löschen wollen?"
 
 msgid "submission.email.deleteLogEntry"
-msgstr "Eintrag löschen "
+msgstr "Eintrag löschen"
 
 msgid "submission.emailLog"
 msgstr "E-Mail-Protokoll"
@@ -543,10 +546,11 @@ msgid "submission.event.confirmClearLog"
 msgstr "Sind Sie sicher, dass Sie das Ereignisprotokoll zu diesem Beitrag löschen wollen?"
 
 msgid "submission.event.confirmDeleteLogEntry"
-msgstr "Sind Sie sicher, dass Sie diesen Eintrag im Ereignisprotokoll löschen wollen"
+msgstr ""
+"Sind Sie sicher, dass Sie diesen Eintrag im Ereignisprotokoll löschen wollen?"
 
 msgid "submission.event.deleteLogEntry"
-msgstr "Eintrag löschen "
+msgstr "Eintrag löschen"
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Ersteinreichung abgeschlossen."
@@ -615,13 +619,13 @@ msgid "submission.galley"
 msgstr "Fahne"
 
 msgid "submission.history.clearLog"
-msgstr "Protokoll löschen "
+msgstr "Protokoll löschen"
 
 msgid "submission.history"
 msgstr "Verlauf"
 
 msgid "submission.history.noLogEntries"
-msgstr "Kein Eintrag im Protokoll"
+msgstr "Kein Eintrag im Protokoll."
 
 msgid "submission.history.recentLogEntries"
 msgstr "Neue Einträge"
@@ -678,7 +682,7 @@ msgid "submission.lastModified"
 msgstr "Zuletzt geändert"
 
 msgid "submission.layout.addGalley"
-msgstr "Fahne hinzufügen "
+msgstr "Fahne hinzufügen"
 
 msgid "submission.layout.confirmDeleteGalley"
 msgstr "Sind Sie sicher, dass Sie die Fahnen endgültig löschen wollen?"
@@ -762,7 +766,7 @@ msgid "submission.layout.supplementaryFiles"
 msgstr "Begutachtung der Zusatzdatei"
 
 msgid "submission.layout.viewingGalley"
-msgstr "Fahne anzeigen "
+msgstr "Fahne anzeigen"
 
 msgid "submission.layout.viewProof"
 msgstr "Korrekturfahnen ansehen"
@@ -909,7 +913,7 @@ msgid "submissions.queued"
 msgstr "Anstehend"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Noch nicht zugewiesen"
+msgstr "Dieser Einreichung wurde noch kein/e Redakteur/in zugewiesen."
 
 msgid "submissions.ruling"
 msgstr "Beschluss"
@@ -960,7 +964,7 @@ msgid "submission.submit.fileAdded"
 msgstr "Datei hinzugefügt"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Include this contributor in browse lists?"
+msgstr "Diesen Beitragenden in der Liste anzeigen?"
 
 msgid "submission.submit.newFile"
 msgstr "Neue Datei einreichen"
@@ -1086,7 +1090,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Bitte geben Sie die Literaturnachweise ein."
 
 msgid "submission.form.name"
-msgstr "Bitte geben Sie dieser Datei einen aussagefähigen Namen."
+msgstr "Bitte geben Sie dieser Datei einen aussagekräftigen Namen."
 
 msgid "submission.form.replaceExisting"
 msgstr "Eine existierende Datei ersetzen?"
@@ -1110,7 +1114,7 @@ msgid "submission.status.review"
 msgstr "In Begutachtung"
 
 msgid "submission.status.submission"
-msgstr "Awaiting Editor Decision"
+msgstr "Wartet auf Redaktionsentscheidung"
 
 msgid "submission.status.unassigned"
 msgstr "Nicht zugewiesen"
@@ -1146,7 +1150,12 @@ msgid "submission.upload.possibleRevision"
 msgstr "Mögliche Dublette oder Überarbeitung entdeckt"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "<p>Der Name der hochgeladenen Datei ähnelt dem Namen der zuvor hochgeladenen Datei \"{$revisedFileName}\". Wenn die jetzt hochgeladene Datei die frühere ersetzen soll, wählen Sie bitte die zu ersetzende Datei im Pulldown-Menü aus. Wenn die hochgeladene Datei keine frühere Datei ersetzen soll, wählen Sie bitte \"Datei auswählen (um Historie intakt zu lassen).\"</p>"
+msgstr ""
+"Der Name der hochgeladenen Datei ähnelt dem Namen der zuvor hochgeladenen "
+"Datei \"{$revisedFileName}\". Wenn die jetzt hochgeladene Datei die frühere "
+"ersetzen soll, wählen Sie bitte die zu ersetzende Datei im Pulldown-Menü "
+"aus. Wenn die hochgeladene Datei keine frühere Datei ersetzen soll, wählen "
+"Sie bitte \"Datei auswählen (um Historie intakt zu lassen).\"."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Bitte wählen Sie die Datei aus, die Sie überarbeiten/ersetzen wollen."
@@ -1341,10 +1350,10 @@ msgid "submission.noActionRequired"
 msgstr "Keine Aktion erforderlich"
 
 msgid "submission.actionNeeded"
-msgstr "Needs action"
+msgstr "Aktion erforderlich"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Review Files"
+msgstr "Gutachten-Dateien"
 
 msgid "submission.submit.currentFile"
 msgstr "Aktuelle Datei"
@@ -1377,7 +1386,9 @@ msgid "submission.event.fileAuditorCleared"
 msgstr "\"{$name}\" ({$username}) wurde als Prüfer/in für die Datei \"{$file}\" entfernt."
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) hat eine Prüfung abgeschlossen und \"{$file}\" hochgeladen."
+msgstr ""
+"\"{$name}\" ({$username}) hat die Prüfung abgeschlossen und \"{$file}\" "
+"hochgeladen."
 
 msgid "submission.event.signoffSignoff"
 msgstr "\"{$name}\" ({$username}) hat die Datei \"{$file}\" freigegeben."
@@ -1641,7 +1652,9 @@ msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
-msgstr "You must assign at least one participant to this submission before initiating a discussion."
+msgstr ""
+"Es muss mindestens ein Teilnehmer zu dieser Einreichung zugeordnet werden, "
+"bevor eine Diskussion gestartet werden kann."
 
 msgid "submission.list.infoCenter"
 msgstr "Aktivitätsprotokoll & Notizen"
@@ -1723,3 +1736,203 @@ msgstr "{$numTitles} Titel"
 
 msgid "catalog.noTitlesSection"
 msgstr "In dieser Rubrik wurden bisher keine Titel veröffentlicht."
+
+msgid "publication.event.versionPublished"
+msgstr "Eine neue Version wurde veröffentlicht."
+
+msgid "publication.event.versionCreated"
+msgstr "Eine neue Version wurde erstellt."
+
+msgid "publication.event.unpublished"
+msgstr "Der Beitrag wurde zurückgezogen."
+
+msgid "publication.event.scheduled"
+msgstr "Der Beitrag wurde zur Veröffentlichung vorgesehen."
+
+msgid "publication.event.published"
+msgstr "Der Beitrag wurde veröffentlicht."
+
+msgid "publication.editDisabled"
+msgstr "Diese Version wurde veröffentlicht und kann nicht geändert werden."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Das Datum muss in dem Format YYYY-MM-DD vorliegen, z.B.  2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Veröffentlichungsdatum"
+
+msgid "publication.createVersion"
+msgstr "Erstelle eine neue Version"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Das Copyright-Jahr wird, basierend auf dem Veröffentlichungsdatum, "
+"automatisch gesetzt."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Das Copyright-Jahr wird automatisch gesetzt, wenn dieser Beitrag in einer "
+"Ausgabe veröffentlicht wird."
+
+msgid "publication.contributors"
+msgstr "Beitragende"
+
+msgid "publication.citations.success"
+msgstr "Die Referenzen wurden aktualisiert."
+
+msgid "submission.publication"
+msgstr "Veröffentlichung"
+
+msgid "catalog.category.subcategories"
+msgstr "Unterkategorien"
+
+msgid "catalog.category.noItems"
+msgstr "In dieser Kategorie wurde noch nichts veröffentlicht."
+
+msgid "submission.list.reviewCancelled"
+msgstr "Begutachtung abgebrochen"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Gutachterzuordnung"
+
+msgid "submission.list.empty"
+msgstr "Keine Einreichungen gefunden."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Wenn Sie diese Diskussion verlassen, werden Sie zukünftig nicht mehr über "
+"neue Nachrichten informiert. Möchten Sie diese Diskussion verlassen?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Diskussion verlassen"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">"
+"\n"
+"<img alt=\"Creative-Commons-Lizenz\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Dieses Werk steht unter der <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/3.0/\">Lizenz Creative Commons "
+"Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 "
+"International</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"<img alt=\"Creative-Commons-Lizenz\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Dieses Werk steht unter der <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Lizenz Creative Commons "
+"Namensnennung 3.0 International</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">"
+"\n"
+"<img alt=\"Creative-Commons-Lizenz\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Dieses Werk steht unter der <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/3.0/\">Lizenz Creative Commons "
+"Namensnennung - Keine Bearbeitungen 3.0 International</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">\n"
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Dieses Werk steht unter einer  <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter "
+"gleichen Bedingungen -  3.0 International -Lizenz</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">"
+"\n"
+"<img alt=\"Creative-Commons-Lizenz\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Dieses Werk steht unter der <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/3.0/\">Lizenz Creative Commons "
+"Namensnennung - Nicht-kommerziell 3.0 International</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Dieses Werk steht unter einer  <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Namensnennung - Nicht-kommerziell - Keine Bearbeitung  3.0 "
+"International -Lizenz</a>.</p>"
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"{$copyright} wird bei Veröffentlichung automatisch als Rechteinhaber gesetzt."
+
+msgid "submission.license.description"
+msgstr ""
+"Die Lizenz wird bei Veröffentlichung  automatisch auf <a href='{$licenseUrl}"
+"' target='_blank'>{$licenseName}</a> gesetzt."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} hat das Gutachten aus Begutachtungsrunde {$round} für die "
+"Einreichung {$submissionId} fertiggestellt."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redakteur/in {$userName} hat ein Gutachten aus Begutachtungsrunde {$round} "
+"für die Einreichung {$submissionId} bestätigt."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Sind Sie sicher, dass Sie den Autoren/innen in diesem Stadium das Editieren "
+"der Metadaten der Einreichung erlauben wollen?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Sind Sie sicher, dass Sie den Autoren/innen in diesem Stadium das Editieren "
+"der Metadaten der Einreichung nicht erlauben wollen?"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Ändern der Metadaten erlauben"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Ändern der Metadaten nicht erlauben"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Zuordnung ändern"
+
+msgid "submission.status.scheduled"
+msgstr "Eingeplant"
+
+msgid "submissions.inactive"
+msgstr "Inaktiv seit {$days} Tagen"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Dies ist eine überholte Version, die am {$datePublished} veröffentlicht "
+"wurde. Lesen Sie die  <a href=\"{$urlRecentVersion}\">aktuellste Version</a>."
+
+msgid "submission.versions"
+msgstr "Versionen"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — aktualisiert am {$dateUpdated}"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Die Autoren/innen sind nicht autorisiert die Metadaten zu ändern, solange "
+"sich die Einreichung im Stadium {stage} befindet."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Die Autoren/innen sind nicht autorisiert die Metadaten zu ändern, solange "
+"sich die Einreichung im Stadium {stage} befindet."
+
+msgid "author.publicationNotFound"
+msgstr "Die Veröffentlichung dieses/er Autors/in konnte nicht gefunden werden."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Die Autoren/innen dieses Beitrags können nicht geändert werden, da er "
+"bereits veröffentlicht wurde."

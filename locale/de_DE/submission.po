@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2020-02-04 14:32+0000\n"
+"PO-Revision-Date: 2020-02-04 23:10+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
@@ -1936,3 +1936,92 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Die Autoren/innen dieses Beitrags können nicht geändert werden, da er "
 "bereits veröffentlicht wurde."
+
+msgid "publication.wordCount"
+msgstr "Wortzahl: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Die Zusammenfassung ist zu lang. Es sollten {$limit} Worte oder weniger "
+"sein. Sie ist derzeit {$count} Worte lang."
+
+msgid "publication.version.details"
+msgstr "Veröffentlichungsdetails für Version {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Sind Sie sicher, dass Sie eine neue Version erstellen wollen?"
+
+msgid "publication.version.all"
+msgstr "Alle Versionen"
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+"Sind sie sicher, dass dies nicht zur Veröffentlichung eingeplant werden soll?"
+
+msgid "publication.unschedule"
+msgstr "Nicht einplanen"
+
+msgid "publication.unpublish.confirm"
+msgstr "Sind sie sicher, dass dies nicht veröffentlicht werden soll?"
+
+msgid "publication.unpublish"
+msgstr "Zurückziehen"
+
+msgid "publication.titleAbstract.success"
+msgstr "Der Titel und die Zusammenfassung wurden aktualisiert."
+
+msgid "publication.titleAbstract"
+msgstr "Titel und Abstract"
+
+msgid "publication.status.unscheduled"
+msgstr "Nicht eingeplant"
+
+msgid "publication.status.unpublished"
+msgstr "Unveröffentlicht"
+
+msgid "publication.status.scheduled"
+msgstr "Eingeplant"
+
+msgid "publication.status.published"
+msgstr "Veröffentlicht"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Die Einreichung muss sich im Copyediting oder im Produktionsschritt befinden "
+"um veröffentlicht werden zu können."
+
+msgid "publication.required.declined"
+msgstr "Ein abgelehnter Beitrag kann nicht veröffentlicht werden."
+
+msgid "publication.publish.success"
+msgstr "Der Veröffentlichungsstatus wurde erfolgreich geändert."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Die folgenden Bedingungen müssen erfüllt sein, bevor dies veröffentlicht "
+"werden kann."
+
+msgid "publication.publish"
+msgstr "Veröffentlichen"
+
+msgid "publication.publicationLicense.success"
+msgstr "Das Copyright und die Lizenzinformationen wurden aktualisiert."
+
+msgid "publication.publicationLicense"
+msgstr "Berechtigungen und Offenlegung"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Die Identifier wurden aktualisiert."
+
+msgid "publication.metadata.success"
+msgstr "Die Metadaten wurden aktualisiert."
+
+msgid "publication.invalidSubmission"
+msgstr ""
+"Die Einreichung für diese Veröffentlichung konnte nicht gefunden werden."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Eine Version wurde zurückgezogen."
+
+msgid "publication.event.versionScheduled"
+msgstr "Eine neue Version wurde zur Veröffentlichung vorgesehen."

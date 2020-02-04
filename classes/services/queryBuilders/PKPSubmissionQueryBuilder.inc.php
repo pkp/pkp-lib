@@ -290,6 +290,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 		if ($this->orderColumn === 'po.seq') {
 			$this->columns[] = 'po.seq';
 			$q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
+			$q->groupBy('po.seq');
 
 		// order by date of current version's publication
 		} else if ($this->orderColumn === 'po.date_published') {

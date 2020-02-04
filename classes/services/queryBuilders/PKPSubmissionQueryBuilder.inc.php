@@ -92,7 +92,7 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 		} elseif ($column === 'title') {
 			$this->orderColumn = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
 		} elseif ($column === 'seq') {
-			$this->orderColumn = 'publication_seq.setting_value';
+			$this->orderColumn = 'po.seq';
 		} elseif ($column === ORDERBY_DATE_PUBLISHED) {
 			$this->orderColumn = 'po.date_published';
 		} else {
@@ -287,16 +287,12 @@ abstract class PKPSubmissionQueryBuilder extends BaseQueryBuilder implements Ent
 		}
 
 		// order by publication sequence
-		if ($this->orderColumn === 'publication_seq.setting_value') {
-			$this->columns[] = 'publication_seq.setting_value';
-			$q->leftJoin('publications as publication_seqp', 's.submission_id', '=', 'publication_seqp.submission_id')
-				->leftJoin('publication_settings as publication_seqps', 'publication_seqp.publication_id', '=', 'publication_seqps.publication_id')
-				->where('publication_seqps.setting_name', '=', 'seq');
-			$q->groupBy('publication_seq.setting_value');
-		}
+		if ($this->orderColumn === 'po.seq') {
+			$this->columns[] = 'po.seq';
+			$q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
 
 		// order by date of current version's publication
-		if ($this->orderColumn === 'po.date_published') {
+		} else if ($this->orderColumn === 'po.date_published') {
 			$this->columns[] = 'po.date_published';
 			$q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
 		}

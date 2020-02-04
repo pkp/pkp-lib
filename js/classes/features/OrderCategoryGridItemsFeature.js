@@ -108,7 +108,7 @@
 			addOrderingClassToRows = function() {
 
 		var options = this.getOptions(),
-				type = options.type, $categories;
+				type = parseInt(options.type, 10), $categories;
 
 		if (type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ONLY ||
 				type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {

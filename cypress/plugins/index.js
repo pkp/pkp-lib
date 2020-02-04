@@ -11,7 +11,7 @@
 // See https://github.com/bahmutov/cypress-failed-log
 // See https://github.com/cypress-io/cypress/issues/3199#issuecomment-534717443
 let shouldSkip = false;
-module.exports = ( on ) => {
+module.exports = ( on, config ) => {
 	on('task', {
 		resetShouldSkipFlag () {
 			shouldSkip = false;
@@ -27,4 +27,14 @@ module.exports = ( on ) => {
 			return null;
 		}
 	});
+
+	// Allow the baseUrl to be overwritten
+	// in a local cypress.env.json file.
+	// https://github.com/cypress-io/cypress/issues/909#issuecomment-578505704
+	const baseUrl = config.env.baseUrl || null;
+	if (baseUrl) {
+		config.baseUrl = baseUrl;
+	}
+
+	return config;
 }

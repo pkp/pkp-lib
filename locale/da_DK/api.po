@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-02-01 08:35+0000\n"
+"PO-Revision-Date: 2020-02-04 14:32+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
 "\n"
@@ -48,19 +48,19 @@ msgid "api.404.endpointNotFound"
 msgstr "Den angivne URL blev ikke genkendt."
 
 msgid "api.stats.400.wrongDateFormat"
-msgstr "Din anmodning var ikke gyldig. Datoen skal være i formatet ÅÅÅÅ-MM-DD."
+msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD."
 
 msgid "api.stats.400.wrongDateRange"
-msgstr "Din anmodning var ikke gyldig. DateStart kan ikke være senere end dateEnd."
+msgstr "Startdatoen kan ikke være senere end slutdatoen."
 
 msgid "api.stats.400.wrongTimeSegmentDaily"
 msgstr "Din anmodning var ikke gyldig. Tidssegmentet 'daily' kan kun bruges sammen med et datointerval (dateStart og datoEnd) inden for de sidste 90 dage."
 
 msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Det {$vocab} vokabularium understøttes ikke."
+msgstr "Vokabulariet {$vocab} understøttes ikke."
 
 msgid "api.vocabs.400.localeNotSupported"
-msgstr "Den {$locale} lokalitet understøttes ikke."
+msgstr "Sproget {$locale} understøttes ikke."
 
 msgid "api.themes.404.themeUnavailable"
 msgstr ""

@@ -214,6 +214,13 @@
 				"nullable"
 			]
 		},
+		"seq": {
+			"type": "integer",
+			"default": 0,
+			"validation": [
+				"nullable"
+			]
+		},
 		"source": {
 			"type": "string",
 			"description": "Optional metadata that may be an ID, such as a DOI, of another work from which the submission is derived.",

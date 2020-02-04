@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
+"PO-Revision-Date: 2020-02-04 14:33+0000\n"
+"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/common/pt_PT/>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:58+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
 msgstr "Sobre o Portal"
@@ -1544,3 +1547,341 @@ msgstr "Esconder detalhes de {$name}"
 
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Atribuição de revisão atualizada."
+
+msgid "validator.required_without"
+msgstr "Este campo é obrigatório quando {$values} não se encontra presente."
+
+msgid "validator.required_with_all"
+msgstr "Este campo é obrigatório quando {$values} está presente."
+
+msgid "validator.required_with"
+msgstr "O campo é obrigatório quando {$values} está presente."
+
+msgid "validator.required_unless"
+msgstr "O campo é obrigatório a menos que {$other} esteja em {$values}."
+
+msgid "validator.required_if"
+msgstr "Este campo é obrigatório quando {$other} é {$value}."
+
+msgid "validator.required"
+msgstr "Este campo é obrigatório."
+
+msgid "validator.regex"
+msgstr "Não se encontra formatado corretamente."
+
+msgid "validator.present"
+msgstr "O campo {$attribute} precisa estar presente."
+
+msgid "validator.orcid"
+msgstr "Este ORCID não é válido."
+
+msgid "validator.numeric"
+msgstr "Este número não é válido."
+
+msgid "validator.not_in"
+msgstr "O {$attribute} selecionado é inválido."
+
+msgid "validator.min.array"
+msgstr "Deve ter pelo menos {$min} itens."
+
+msgid "validator.min.string"
+msgstr "Deve ter pelo menos {$min} caracteres."
+
+msgid "validator.min.file"
+msgstr "Deve ter pelo menos {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Deve ter pelo menos {$min}."
+
+msgid "validator.mimes"
+msgstr "Este ficheiro deve ser do tipo {$values}."
+
+msgid "validator.max.array"
+msgstr "Não pode ter mais do que {$max} itens."
+
+msgid "validator.max.string"
+msgstr "Não pode ser maior do que {$max} caracteres."
+
+msgid "validator.max.file"
+msgstr "Não pode ser maior do que {$max} kilobytes."
+
+msgid "validator.max.numeric"
+msgstr "Não pode ser maior do que {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Os idiomas devem ser especificados através do código de idioma. Por exemplo: "
+"en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Este campo é multilingue. Deve inserir informações separadas para cada "
+"idioma suportado."
+
+msgid "validator.locale"
+msgstr "Este idioma não é aceite."
+
+msgid "validator.json"
+msgstr "Este não é uma string JSON válida."
+
+msgid "validator.issn"
+msgstr "Este ISSN não é válido."
+
+msgid "validator.ip"
+msgstr "Este não é um endereço de IP válido."
+
+msgid "validator.integer"
+msgstr "Este não é um número inteiro válido."
+
+msgid "validator.in"
+msgstr "O {$attribute} selecionado é inválido."
+
+msgid "validator.image"
+msgstr "Deve ser uma imagem."
+
+msgid "validator.filled"
+msgstr "Este campo é obrigatório."
+
+msgid "validator.exists"
+msgstr "O {$attribute} selecionado não é válido."
+
+msgid "validator.email"
+msgstr "Este e-mail não é válido."
+
+msgid "validator.digits_between"
+msgstr "Deve ter entre {$min} e {$max} dígitos."
+
+msgid "validator.digits"
+msgstr "Deve ter {$digits} dígitos."
+
+msgid "validator.different"
+msgstr "O {$attribute} e {$other} devem ser diferentes."
+
+msgid "validator.date_format"
+msgstr "Não corresponde com o formato {$format}."
+
+msgid "validator.date"
+msgstr "Esta data não é válida."
+
+msgid "validator.currency"
+msgstr "Esta moeda não é válida."
+
+msgid "validator.confirmed"
+msgstr "A confirmação para este campo não corresponde."
+
+msgid "validator.boolean"
+msgstr "Este campo deve ser de verdadeiro ou falso."
+
+msgid "validator.between.array"
+msgstr "Deve ter entre {$min} e {$max} itens."
+
+msgid "validator.between.string"
+msgstr "Deve estar entre {$min} e {$max} caracteres."
+
+msgid "validator.between.file"
+msgstr "Deve estar entre {$min} e {$max} kilobytes."
+
+msgid "validator.between.numeric"
+msgstr "Deve estar entre {$min} e {$max}."
+
+msgid "validator.before"
+msgstr "A data deve ser anterior a {$date}."
+
+msgid "validator.array"
+msgstr "Esta não é uma matriz válida."
+
+msgid "validator.alpha_num"
+msgstr "Só pode conter letras e números."
+
+msgid "validator.alpha_dash"
+msgstr "Só pode conter letras, números, traços e underscores."
+
+msgid "validator.alpha"
+msgstr "Só pode conter letras."
+
+msgid "validator.after"
+msgstr "A data deve ser posterior a {$date}."
+
+msgid "validator.active_url"
+msgstr "Este URL não é válido."
+
+msgid "validator.accepted"
+msgstr "Aceite este item..."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Este é um lembrete para verificar a situação da sua revista através do "
+"relatório editorial."
+
+msgid "notification.type.editorialReport"
+msgstr "Resumo do relatório de estatísticas."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publicação inválida."
+
+msgid "notification.editStageParticipant"
+msgstr "A designação para esta etapa foi alterada."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Revisor restabelecido."
+
+msgid "notification.cancelledReviewer"
+msgstr "Revisor cancelado."
+
+msgid "navigation.skip.announcements"
+msgstr "Saltar para as notícias"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Não podem ser feitas alterações a este participante"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Participante"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Permitir a esta pessoa editar os detalhes da publicação."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Permissões"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} idiomas completos"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} em {$localeName}"
+
+msgid "form.requireId"
+msgstr "Deve fornecer um ID válido."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Deve preencher o campo em {$language}."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"O formulário não foi submetido. Pode ter saído do sistema. Recarregue a "
+"página e tente novamente."
+
+msgid "form.missingRequired"
+msgstr "Este campo é obrigatório."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Ocorreu um erro inesperado. Pode ter saído do sistema. Recarregue a página e "
+"tente novamente."
+
+msgid "form.errors"
+msgstr ""
+"O formulário não foi gravado porque contém {$count} erro(s). Corrija estes "
+"erros e tente novamente."
+
+msgid "form.errorMany"
+msgstr "Corrija {$count} erros."
+
+msgid "form.errorOne"
+msgstr "Corrija um erro."
+
+msgid "form.errorGoTo"
+msgstr "Saltar para o próximo erro"
+
+msgid "form.errorA11y"
+msgstr "Ir para {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Não pode transferir mais ficheiros."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Remover ficheiro"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Deseja realmente cancelar esta transferência?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Transferência cancelada"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Cancelar transferência"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"O servidor devolveu o código {{statusCode}}. Contacte o administrador do "
+"sistema caso o problema persista."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Ficheiros deste tipo não podem ser transferidos."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"O ficheiro é demasiado pesado ({{filesize}}mb). Ficheiros maiores do que "
+"{{maxFilesize}}mb não podem ser transferidos."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Utilize o formulário alternativo abaixo para transferir os seus ficheiros."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "O seu browser não suporta arrastar ficheiros para transferências."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Arraste os ficheiros para aqui para transferir."
+
+msgid "form.disallowedProp"
+msgstr "Esta propriedade não é permitida."
+
+msgid "form.disallowedLocales"
+msgstr "Apenas os seguintes idiomas são permitidos: {$languages}."
+
+msgid "email.compose.error"
+msgstr ""
+"Ocorreu um erro ao enviar o e-mail. Tente novamente mais tarde, ou contacte "
+"o administrador do sistema."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Pré-visualização da imagem selecionada."
+
+msgid "common.upload.restore"
+msgstr "Restaurar Original"
+
+msgid "common.toWithValue"
+msgstr "Para: {$value}"
+
+msgid "common.submenu"
+msgstr "Submenu"
+
+msgid "common.selectedPrefix"
+msgstr "Selecionado:"
+
+msgid "common.removeItem"
+msgstr "Remover {$item}"
+
+msgid "common.pagination.previous"
+msgstr "Página anterior"
+
+msgid "common.pagination.next"
+msgstr "Próxima página"
+
+msgid "common.pagination.goToPage"
+msgstr "Ir para {$page}"
+
+msgid "common.override"
+msgstr "Sobrepor"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"O ficheiro que transferiu não foi encontrado. Tente transferir novamente."
+
+msgid "common.noItemsFound"
+msgstr "Nenhum item encontrado."
+
+msgid "common.lastActivity"
+msgstr "Última atividade registada em {$date}."
+
+msgid "common.fromWithValue"
+msgstr "De: {$value}"
+
+msgid "common.dateDecided"
+msgstr "Data de decisão"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Descreva esta imagem para utilizadores que visitem o site através de um "
+"browser apenas de texto ou dispositivos de acessibilidade. Por exemplo: \"O "
+"nosso editor a dar uma palestra na conferência do PKP.\""

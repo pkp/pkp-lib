@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-01-29 05:35+0000\n"
+"PO-Revision-Date: 2020-02-04 14:33+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/da/>"
 "\n"
@@ -120,7 +120,7 @@ msgid "grid.action.deleteAuthor"
 msgstr "Slet forfatter"
 
 msgid "grid.action.addAuditor"
-msgstr "Tilføj en revisor"
+msgstr "Tilføj en auditør"
 
 msgid "grid.action.upgrade"
 msgstr "Opgradér"
@@ -144,7 +144,7 @@ msgid "grid.action.wizard"
 msgstr "Indstillingsguide"
 
 msgid "grid.action.editMedia"
-msgstr "Rediger medie"
+msgstr "Redigér medie"
 
 msgid "grid.action.moveItem"
 msgstr "Flyt element"
@@ -174,7 +174,7 @@ msgid "grid.action.requestRevisions"
 msgstr "Anmod om revidering af dette manuskript"
 
 msgid "grid.action.accept"
-msgstr "Accepter dette manuskript"
+msgstr "Acceptér dette manuskript"
 
 msgid "grid.action.internalReview"
 msgstr "Send dette manuskript til intern bedømmelse"
@@ -189,7 +189,7 @@ msgid "grid.action.settings"
 msgstr "Indstillinger"
 
 msgid "grid.action.importexport"
-msgstr "Importer eller eksporter indhold eller websitedata"
+msgstr "Importér eller eksportér indhold eller websitedata"
 
 msgid "grid.action.orderItems"
 msgstr "Aktiver bestillingsform"
@@ -210,7 +210,7 @@ msgid "grid.action.editPreparedEmail"
 msgstr "Rediger denne e-mail-skabelon"
 
 msgid "grid.action.disableEmail"
-msgstr "Deaktiver denne e-mail-skabelon"
+msgstr "Deaktivér denne e-mail-skabelon"
 
 msgid "grid.action.resetEmail"
 msgstr "Genindstil denne e-mail-skabelon til standardindstilling"
@@ -231,10 +231,10 @@ msgid "grid.action.addUserGroup"
 msgstr "Tilføj en ny brugergruppe"
 
 msgid "grid.action.editUserGroup"
-msgstr "Rediger denne brugergruppe"
+msgstr "Redigér denne brugergruppe"
 
 msgid "grid.action.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "grid.action.details"
 msgstr "Se dette punkt"
@@ -300,10 +300,10 @@ msgid "grid.task.status.reviewReady"
 msgstr "Denne bedømmelse er klar. Klik notat-ikonet til venstre for at læse den."
 
 msgid "grid.columns.auditor"
-msgstr "Revisor"
+msgstr "Auditør"
 
 msgid "grid.columns.locale"
-msgstr "Landestandard"
+msgstr "Sprog"
 
 msgid "grid.action.addSponsor"
 msgstr "Tilføj sponsor"
@@ -312,13 +312,13 @@ msgid "grid.action.deleteSponsor"
 msgstr "Slet sponsor"
 
 msgid "grid.action.editSponsor"
-msgstr "Rediger sponsor"
+msgstr "Redigér sponsor"
 
 msgid "grid.action.addSeries"
 msgstr "Tilføj serie"
 
 msgid "grid.action.editSeries"
-msgstr "Rediger serie"
+msgstr "Redigér serie"
 
 msgid "grid.action.deleteSeries"
 msgstr "Slet serie"
@@ -327,7 +327,7 @@ msgid "grid.action.addCategory"
 msgstr "Tilføj kategori"
 
 msgid "grid.action.editCategory"
-msgstr "Rediger kategori"
+msgstr "Redigér kategori"
 
 msgid "grid.action.deleteCategory"
 msgstr "Slet kategori"
@@ -369,16 +369,16 @@ msgid "grid.user.enroll"
 msgstr "Tilmeld bruger"
 
 msgid "grid.user.edit"
-msgstr "Rediger bruger"
+msgstr "Redigér bruger"
 
 msgid "grid.user.email"
 msgstr "E-mail"
 
 msgid "grid.user.enable"
-msgstr "Aktiver"
+msgstr "Aktivér"
 
 msgid "grid.user.disable"
-msgstr "Deaktiver"
+msgstr "Deaktivér"
 
 msgid "grid.user.disableReason"
 msgstr "Grund til deaktivering af bruger"
@@ -426,13 +426,13 @@ msgid "grid.user.mustChangePasswordDescriptionOld"
 msgstr "Bed brugeren om at ændre sin adgangskode, næste gang vedkommende logger på."
 
 msgid "grid.user.moreDetails"
-msgstr "Flere brugerdetaljer"
+msgstr "Flere brugeroplysninger"
 
 msgid "grid.user.lessDetails"
-msgstr "Færre brugerdetaljer"
+msgstr "Færre brugeroplysninger"
 
 msgid "grid.user.userDetails"
-msgstr "Brugerdetaljer"
+msgstr "Brugeroplysninger"
 
 msgid "grid.user.userRoles"
 msgstr "Brugerroller"
@@ -441,7 +441,7 @@ msgid "grid.user.userNoRoles"
 msgstr "Denne bruger har ikke fået tildelt nogen rolle."
 
 msgid "grid.user.step1"
-msgstr "Trin #1: Udfyld brugerdetaljer"
+msgstr "Trin #1: Udfyld brugeroplysninger"
 
 msgid "grid.user.step2"
 msgstr "Trin #2: Tilføj brugeroller til {$userFullName}"
@@ -465,7 +465,7 @@ msgid "grid.plugin.allCategories"
 msgstr "Alle kategorier"
 
 msgid "grid.plugin.disable"
-msgstr "Er du sikker på, at du vil deaktivere dette plug-in?"
+msgstr "Er du sikker på, at du vil deaktivere denne plug-in?"
 
 msgid "grid.submission.itemTitle"
 msgstr "Forfatter; Titel"
@@ -498,7 +498,7 @@ msgid "grid.user.mergeUsers.mergeUser"
 msgstr "Flet bruger"
 
 msgid "grid.noAuditors"
-msgstr "Ingen auditorer"
+msgstr "Ingen auditører"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Dette nummer er eksternt hosted."
@@ -567,7 +567,7 @@ msgid "grid.action.activate"
 msgstr "Aktivér"
 
 msgid "grid.action.deactivate"
-msgstr "De aktivér"
+msgstr "Deaktivér"
 
 msgid "grid.action.copy"
 msgstr "Kopiér"
@@ -633,7 +633,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Rollen  {$userGroupName} er en standardindstilling og den kan ikke fjernes."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Kan ikke fjerne {$userGroupName} rolle. Nuværende {$usersCount} bruge(e) er tilskrevet den."
+msgstr ""
+"Kan ikke fjerne {$userGroupName} rolle. Nuværende {$usersCount} bruger(e) er "
+"tilknyttet den."
 
 msgid "grid.userGroup.removed"
 msgstr "{$userGroupName} rolle er fjernet."
@@ -648,7 +650,8 @@ msgid "grid.user.mergeUsers.confirm"
 msgstr "Er du sikker på, at du vil flette denne konto med brugernavnet \"{$oldUsername}\" ind under kontoen med brugernavnet \"{$newUsername}\"? Kontoen med brugernavnet \"{$oldUsername}\" ophører herefter. Handlingen kan ikke fortrydes."
 
 msgid "grid.submission.active.selectOrphaned"
-msgstr "Indkluder ukomplette indsendelser, der ikke er indsendt af en forfatter."
+msgstr ""
+"Indkludér ukomplette indsendelser, der ikke er indsendt af en forfatter."
 
 msgid "grid.action.addNavigationMenu"
 msgstr "Tilføj menu"
@@ -663,7 +666,7 @@ msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "Ingen navigationsmenuer"
 
 msgid "grid.action.uninstall"
-msgstr "Afinstaller"
+msgstr "Afinstallér"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Vælg en type..."

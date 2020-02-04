@@ -135,7 +135,7 @@ class xmlToPo extends CommandLineTool {
 				$fileManager->mkdirtree($targetPath);
 
 				echo "$pathname => $targetFile\n";
-				self::convertFile($pathname, $target);
+				self::convertFile($pathname, $targetFile);
 			}
 		} else {
 			// Convert just a single file, as specified.

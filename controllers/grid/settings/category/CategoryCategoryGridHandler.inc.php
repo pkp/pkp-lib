@@ -122,7 +122,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 		import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
 		return array_merge(
 			parent::initFeatures($request, $args),
-			array(new OrderCategoryGridItemsFeature(ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS))
+			array(new OrderCategoryGridItemsFeature(ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, true, $this))
 		);
 	}
 

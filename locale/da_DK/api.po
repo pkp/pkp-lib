@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-01-29 05:35+0000\n"
+"PO-Revision-Date: 2020-02-04 14:32+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
 "\n"
@@ -48,19 +48,19 @@ msgid "api.404.endpointNotFound"
 msgstr "Den angivne URL blev ikke genkendt."
 
 msgid "api.stats.400.wrongDateFormat"
-msgstr "Din anmodning var ikke gyldig. Datoen skal være i formatet ÅÅÅÅ-MM-DD."
+msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD."
 
 msgid "api.stats.400.wrongDateRange"
-msgstr "Din anmodning var ikke gyldig. DateStart kan ikke være senere end dateEnd."
+msgstr "Startdatoen kan ikke være senere end slutdatoen."
 
 msgid "api.stats.400.wrongTimeSegmentDaily"
 msgstr "Din anmodning var ikke gyldig. Tidssegmentet 'daily' kan kun bruges sammen med et datointerval (dateStart og datoEnd) inden for de sidste 90 dage."
 
 msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Det {$vocab} vokabularium understøttes ikke."
+msgstr "Vokabulariet {$vocab} understøttes ikke."
 
 msgid "api.vocabs.400.localeNotSupported"
-msgstr "Den {$locale} lokalitet understøttes ikke."
+msgstr "Sproget {$locale} understøttes ikke."
 
 msgid "api.themes.404.themeUnavailable"
 msgstr ""
@@ -78,24 +78,20 @@ msgstr "Filer, der er større end {$maxSize}, kan ikke uploades."
 msgid "api.temporaryFiles.409.uploadFailed"
 msgstr "En eller flere filer kunne ikke uploades."
 
-#, fuzzy
 msgid "api.temporaryFiles.400.noUpload"
 msgstr ""
-"Ingen fil af dem, der skal uploades, blev fundet på baggrund af anmodningen."
+"Ingen af de filer, der skal uploades, blev fundet på baggrund af anmodningen."
 
-#, fuzzy
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
 "Dette grænsepunkt er ikke tilgængeligt fra en kontekst. Det skal tilgås fra "
-"hele webstedets namespace."
+"hele webstedets navnerum."
 
-#, fuzzy
 msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
 "Din anmodning var ikke gyldig. The timelineInterval skal være 'dag' eller "
 "'måned'."
 
-#, fuzzy
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
 "Din anmodning var ikke gyldig. OrderDirection skal være `desc` or `asc`."

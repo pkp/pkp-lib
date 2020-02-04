@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-01-09 22:34+0000\n"
+"PO-Revision-Date: 2020-02-01 08:35+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -911,7 +911,7 @@ msgid "submissions.queued"
 msgstr "En attente"
 
 msgid "submissions.queuedUnassigned"
-msgstr "En attente d'assignation"
+msgstr "Cette soumission est  en attente d'assignation d'un-e rédacteur-trice."
 
 msgid "submissions.ruling"
 msgstr "Décision ferme"
@@ -1559,7 +1559,7 @@ msgid "submission.copyrightStatement"
 msgstr "(c) Tous droits réservés {$copyrightHolder} {$copyrightYear}"
 
 msgid "submission.licenseURLValid"
-msgstr "Veuillez indiquer un URL distant valide (inclure http: //)."
+msgstr "Veuillez indiquer un URL distant valide (inclure http://)."
 
 msgid "submission.licenseURL"
 msgstr "URL de la licence"
@@ -1855,7 +1855,7 @@ msgstr ""
 "href=\"{$urlRecentVersion}\">version la plus récente</a>."
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$versionId})"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.versions"
 msgstr "Versions"
@@ -1883,3 +1883,171 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Les auteures et auteurs de cette publication ne peuvent être édités puisque "
 "celle-ci a déjà été publiée."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Les droits d'auteur seront automatiquement attribués à {$copyright} lorsque "
+"ceci sera publié."
+
+msgid "submission.license.description"
+msgstr ""
+"La licence sera automatiquement définie comme <a href='{$licenseUrl}' "
+"target='_blank'> {$licenseName} </a> lorsque ceci sera publié."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Le,la rédacteur-trice {$userName} a confirmé une évaluation pour le cycle "
+"d'évaluation {$round} pour la soumission {$submissionId}."
+
+msgid "publication.wordCount"
+msgstr "Décompte de mots : {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Le résumé est trop long. Il doit compter {$limit} mots ou moins et en compte "
+"actuellement {$count}."
+
+msgid "publication.version.details"
+msgstr "Renseignements de publication pour la version {$version}"
+
+msgid "publication.version.confirm"
+msgstr "Êtes-vous certain-e de vouloir créer une nouvelle version ?"
+
+msgid "publication.version.all"
+msgstr "Toutes les versions"
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+"Êtes-vous certain-e de ne pas vouloir planifier la publication de ceci ?"
+
+msgid "publication.unschedule"
+msgstr "Retirer de la planification"
+
+msgid "publication.unpublish.confirm"
+msgstr "Êtes-vous certain-e de ne pas vouloir que cela soit publié ?"
+
+msgid "publication.unpublish"
+msgstr "Dépublier"
+
+msgid "publication.titleAbstract.success"
+msgstr "Le titre et résumé ont été mis à jour."
+
+msgid "publication.titleAbstract"
+msgstr "Titre et résumé"
+
+msgid "publication.status.unscheduled"
+msgstr "Non planifié-e"
+
+msgid "publication.status.unpublished"
+msgstr "Dépublié-e"
+
+msgid "publication.status.scheduled"
+msgstr "Planifié-e"
+
+msgid "publication.status.published"
+msgstr "Publié-e"
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"La soumission doit être à l'étape de révision ou de production avant de "
+"pouvoir être publiée."
+
+msgid "publication.required.declined"
+msgstr "Une soumission refusée ne peut pas être publiée."
+
+msgid "publication.publish.success"
+msgstr "Le statut de publication a bien été modifié."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Les conditions suivantes doivent être remplies avant que ceci ne puisse être "
+"publié."
+
+msgid "publication.publish"
+msgstr "Publier"
+
+msgid "publication.publicationLicense.success"
+msgstr "Les informations de droit d'auteur et de licence ont été mises à jour."
+
+msgid "publication.publicationLicense"
+msgstr "Autorisations et divulgation"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Les identifiants ont été mis à jour."
+
+msgid "publication.metadata.success"
+msgstr "Les métadonnées ont été mises à jour."
+
+msgid "publication.invalidSubmission"
+msgstr "La soumission pour cette publication n'a pu être trouvée."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Une version a été dépubliée."
+
+msgid "publication.event.versionScheduled"
+msgstr ""
+"La planification de la publication d'une nouvelle version a été enregistrée."
+
+msgid "publication.event.versionPublished"
+msgstr "Une nouvelle version a été publiée."
+
+msgid "publication.event.versionCreated"
+msgstr "Une nouvelle version a été créée."
+
+msgid "publication.event.unpublished"
+msgstr "La soumission a été dépubliée."
+
+msgid "publication.event.scheduled"
+msgstr "La planification de la publication de la soumission a été enregistrée."
+
+msgid "publication.event.published"
+msgstr "La soumission a été publiée."
+
+msgid "publication.editDisabled"
+msgstr "Cette version a été publiée et ne peut pas être modifiée."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "La date doit être au format AAAA-MM-JJ, par exemple 2019-01-01."
+
+msgid "publication.datePublished"
+msgstr "Date de publication"
+
+msgid "publication.createVersion"
+msgstr "Créer une nouvelle version"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"L'année du droit d'auteur sera définie automatiquement en fonction de la "
+"date de publication."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"L'année du droit d'auteur sera définie automatiquement lorsque ça sera "
+"publié dans un numéro."
+
+msgid "publication.contributors"
+msgstr "Contributeurs-trices"
+
+msgid "publication.citations.success"
+msgstr "Les références ont été mises à jour."
+
+msgid "submission.publication"
+msgstr "Publication"
+
+#, fuzzy
+msgid "submission.list.reviewAssignment"
+msgstr "Évaluation assignée"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Évaluation annulée"
+
+msgid "submission.list.empty"
+msgstr "Aucune soumission trouvée."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Si vous quittez cette discussion, vous ne serez plus informé des nouveaux "
+"messages. Souhaitez-vous quitter la discussion ?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Quitter la discussion"

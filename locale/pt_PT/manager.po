@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-01-30 18:24+0000\n"
-"Last-Translator: José Carvalho <josekarvalho@gmail.com>\n"
+"PO-Revision-Date: 2020-02-04 23:10+0000\n"
+"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -213,7 +213,7 @@ msgid "manager.groups.editTitle"
 msgstr "Editar Título"
 
 msgid "manager.groups.form.groupTitleRequired"
-msgstr "É obrigatório o título do grupo!"
+msgstr "É obrigatório o título do grupo."
 
 msgid "manager.groups.membership.addMember"
 msgstr "Adicionar Membro"
@@ -225,10 +225,10 @@ msgid "manager.groups.membership"
 msgstr "Membros"
 
 msgid "manager.groups.membership.noneCreated"
-msgstr "Não há membros neste grupo!"
+msgstr "Não há membros neste grupo."
 
 msgid "manager.groups.membership.noUsers"
-msgstr "Nenhum utilizador encontrado"
+msgstr "Nenhum utilizador encontrado."
 
 msgid "manager.groups.title"
 msgstr "Título"
@@ -255,7 +255,7 @@ msgid "manager.people.createUser"
 msgstr "Criar novo utilizador"
 
 msgid "manager.people.createUserGeneratePassword"
-msgstr "Gerar senha aleatória"
+msgstr "Gerar senha aleatória."
 
 msgid "manager.people.createUserSendNotify"
 msgstr "Enviar nome de utilizador e senha via e-mail."
@@ -318,13 +318,16 @@ msgid "manager.people.mergeUser"
 msgstr "Juntar Registo"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "Deseja realmente juntar o registo do utilizador \"{$oldAccountCount}\" no registo do utilizador \"{$newUsername}\"? O registo de \"{$oldAccountCount}\" será eliminado permanentemente. Esta acção é irreversível!"
+msgstr ""
+"Deseja realmente juntar o registo do utilizador {$oldAccountCount} com o(s) "
+"registo(s) do utilizador \"{$newUsername}\"? O registo de {$oldAccountCount} "
+"será eliminado permanentemente. Esta ação é irreversível."
 
 msgid "manager.people.mergeUsers"
 msgstr "Fundir Registos"
 
 msgid "manager.people.mustChooseRole"
-msgstr "Escolha um papel editorial antes de confirmar"
+msgstr "Escolha um papel editorial antes de confirmar."
 
 msgid "manager.people.mustProvideName"
 msgstr "Indique pelo menos o apelido para o utilizador."
@@ -489,7 +492,7 @@ msgid "manager.reviewFormElements.chooseType"
 msgstr "Escolher tipo de campo"
 
 msgid "manager.reviewFormElements.copyTo"
-msgstr "Copiar para"
+msgstr "Copiar para:"
 
 msgid "manager.reviewFormElements.create"
 msgstr "Criar novo campo"
@@ -510,7 +513,7 @@ msgid "manager.reviewFormElements.form.questionRequired"
 msgstr "É  obrigatória uma pergunta para o campo do formulário."
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr "Não foi criado nenhum campo do formulário"
+msgstr "Não foi criado nenhum campo do formulário."
 
 msgid "manager.reviewFormElements.possibleResponse"
 msgstr "Resposta possível"
@@ -588,7 +591,7 @@ msgid "manager.publication.reviewStage"
 msgstr "Revisão"
 
 msgid "manager.publication.editorialStage"
-msgstr "Editorial"
+msgstr "Edição"
 
 msgid "manager.publication.productionStage"
 msgstr "Produção"
@@ -640,9 +643,14 @@ msgstr "Use o formulário abaixo para definir os valores máximos para os termos
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"O {$contextObjectName} está configurada para gravar mais de uma métrica de uso. As estatísticas de uso serão exibidas em vários contextos.\n"
-"\t\tExistem casos em que uma estatística de uso único deve ser usada, e.g. para exibir uma lista ordenada de submissões mais utilizadas ou para classificar\n"
-"\t\tresultados da pesquisa. Selecione uma das métricas configuradas como padrão."
+"\n"
+"\t\tO {$contextObjectName} está configurada para gravar mais de uma métrica "
+"de uso. As estatísticas de uso serão exibidas em vários contextos.\n"
+"  Existem casos em que uma estatística de uso único deve ser usada, ex. para "
+"exibir uma lista ordenada de submissões mais utilizadas ou para classificar\n"
+"  resultados da pesquisa. Selecione uma das métricas configuradas como "
+"padrão.\n"
+"\t"
 
 msgid "manager.statistics.city"
 msgstr "Cidade"
@@ -774,10 +782,10 @@ msgid "manager.statistics.reports.orderDir.desc"
 msgstr "Descendente"
 
 msgid "manager.statistics.reports.month.label"
-msgstr "Usar o formato YYYYMM"
+msgstr "Usar o formato AAAAMM."
 
 msgid "manager.statistics.reports.day.label"
-msgstr "Usar o formato YYYYMMDD"
+msgstr "Usar o formato AAAAMMDD."
 
 msgid "manager.statistics.reports.cities.label"
 msgstr "Um ou mais nomes de cidades, separados por vírgulas (por exemplo, Nome da Cidade 1, Nome da Cidade 2)"
@@ -894,7 +902,7 @@ msgid "manager.setup.privacyStatement"
 msgstr "Declaração Privacidade"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Semanas permitidas para aceitar ou recusar um pedido de revisão"
+msgstr "Número de semanas para aceitar ou recusar um pedido de revisão."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Semanas permitidas para concluir uma revisão"
@@ -1042,7 +1050,8 @@ msgid "manager.plugins.installedVersionNewer"
 msgstr "Plugin já instalado, e é mais recente do que a versão disponível na galeria."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr "Plugin já instalado, mas pode ser actualizado para uma versão mais recente"
+msgstr ""
+"Plugin já instalado, mas pode ser atualizado para uma versão mais recente."
 
 msgid "manager.plugins.installedVersionNewest"
 msgstr "Plugin já instalado e actualizado."
@@ -1075,10 +1084,11 @@ msgid "manager.plugins.wrongName"
 msgstr "A versão.xml no plugin carregado contém um nome de plugin que não corresponde ao nome do plugin actualizado."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "O plugin não existe. Instale."
+msgstr "O plugin não existe.  Instale"
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "O plugin já existe, mas é mais recente do que a versão instalada. Actualize."
+msgstr ""
+"O plugin já existe, mas é mais recente do que a versão instalada. Atualize"
 
 msgid "manager.plugins.settings"
 msgstr "Configurações"
@@ -1303,7 +1313,9 @@ msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "O ficheiro temporário {$dest} não pôde ser criado em {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr "O tamanho providenciado \"{$expected}\" e o tamanho real \"{$actual}\" diferem."
+msgstr ""
+"O tamanho providenciado \"{$expected}\" e o tamanho real \"{$actual}\" não "
+"correspondem"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr "A revisão \"{$revisionId}\" para o ficheiro de submissão \"{$fileId}\" iria criar um registo duplicado"
@@ -1411,7 +1423,7 @@ msgid "manager.navigationMenus.current.description"
 msgstr "Ligação à edição atual."
 
 msgid "manager.navigationMenus.archives.description"
-msgstr "Ligação para o arquivo de edições"
+msgstr "Ligação para o arquivo de edições."
 
 msgid "manager.navigationMenus.announcements.description"
 msgstr "Ligação à página com os anúncios."
@@ -1465,7 +1477,9 @@ msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Ligação para a página que apresenta a mensagem de privacidade."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
-msgstr "Esta ligação só irá ser apresentada se tiver introduzido uma mensagem de privacidade, em Configurações > Fluxo de Trabalho > Submissões"
+msgstr ""
+"Esta ligação só irá ser apresentada se tiver introduzido uma declaração de "
+"privacidade, em Configurações > Fluxo de Trabalho > Submissões."
 
 msgid "manager.publication.reviewerGuidance.success"
 msgstr "As orientações para o revisor foram atualizadas."
@@ -1491,3 +1505,561 @@ msgstr "Modo de Revisão Padrão"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Lembrete de Revisão"
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Ativar metadados de referências"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Recolher as referências bibliográficas da submissão num campo separado. Esta "
+"opção pode necessitar que cumpra com os serviços de rastreamento de citações "
+"tal como a CrossRef."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Exigir que os autores declarem quaisquer agências de financiamento antes de "
+"aceitar a sua submissão."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Solicitar aos autores que declarem quaisquer agências de financiamente "
+"durante a submissão."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Não solicitar aos autores as agências de financiamento durante a submissão."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Ativar metadados de agências de financiamento"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Agências de financiamento podem indicar a fonte do financiamento da "
+"investigação ou outro apoio institucional que financiou a investigação."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Exigir aos autores que forneçam as disciplinas antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Solicitar aos autores que forneçam as disciplinas durante a submissão."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Não solicitar a disciplina aos autores durante a submissão."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Ativar metadados de disciplinas"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disciplinas são tipos de estudo ou ramos do conhecimento conforme descrito "
+"pelas universidades ou sociedades científicas."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Exigir aos autores que forneçam o tipo antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Solicitar aos autores que forneçam o tipo durante a submissão."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Não solicitar aos autores o tipo durante a submissão."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Ativar metadados de tipo"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"A natureza ou género do conteúdo principal da submissão. O tipo é geralmente "
+"\"Texto\", mas também pode ser \"Conjunto de Dados\", \"Imagem\" ou algum "
+"dos <a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">tipos de documento "
+"Dublin Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Exigir aos autores que forneçam os assuntos antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Solicitar aos autores que forneçam os assuntos durante a submissão."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Não solicitar assuntos aos autores durante a submissão."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Ativar metadados de assunto"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Assuntos são palavras-chave, frases chave ou códigos de classificação que "
+"descrevem o tópico da submissão."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Não solicitar um URL da fonte aos autores durante a submissão."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Exigir aos autores que forneçam um URL da fonte antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Solicitar aos autores que forneçam um URL da fonte durante a submissão."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Ativar metadados de fonte"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"A fonte pode ser um ID, tal como um DOI, de outro trabalho ou recurso do "
+"qual a submissão é derivada."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Solicitar aos autores que declarem quaisquer direitos de acesso prévios "
+"antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Solicitar aos autores que declarem direitos de acesso prévios durante a "
+"submissão."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Não solicitar uma declaração de direitos durante a submissão."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Ativar metadados de direitos"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Quaisquer direitos sobre a submissão, que podem ser incluídos nos Direitos "
+"de Propriedade Intelectual (DPI), Direitos de autor, e vários Direitos de "
+"Propriedade."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Exigir aos autores que insiram os idiomas da submissão antes de aceitar a "
+"submissão."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Solicitar aos autores que sugiram idiomas da submissão durante a submissão."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Não solicitar o idioma da submissão aos autores durante a submissão."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Ativar metadado de idioma"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Idioma indica o idioma principal do trabalho através de códigos ISO (\"en\") "
+"com códigos de país opcionais (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Exigir aos autores que sugiram palavras-chave antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Solicitar ao autores que sugiram palavras-chave durante a submissão."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Não exigir palavras-chave aos autores durante a submissão."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Ativar palavras-chave"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Palavras-chave são tipicamente de uma a três expressões usadas para indicar "
+"os assuntos principais da submissão."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Exigir aos autores que sugiram metadados de cobertura antes de aceitar a "
+"submissão."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Solicitar aos autores que sugiram metadados de cobertura durante a submissão."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Não solicitar metadado de cobertura aos autores durante a submissão."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Ativar metadado de cobertura"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"A cobertura indica tipicamente a localização espacial do trabalho (nome do "
+"local ou coordenadas geográficas), período temporal (rótulo de um período, "
+"data ou período de tempo) ou jurisdição (tal como nome administrativo da "
+"entidade)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Cobertura"
+
+msgid "manager.setup.metadata.success"
+msgstr "Os metadados da submissão foram atualizados com sucesso."
+
+msgid "manager.reviewFormElements.description"
+msgstr "Descrição"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permitir a edição dos metadados da submissão."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Adicione etiquetas HTML personalizadas, também conhecidas como meta tags, "
+"que gostaria de inserir no cabeçalho de cada página. Consulte apoio técnico "
+"antes de inserir as etiquetas."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Etiquetas Personalizadas"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Insira os termos públicos da licença que pretende disponibilizar junto com o "
+"trabalho publicado."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termos da Licença"
+
+msgid "manager.distribution.license.other"
+msgstr "URL de outra licença"
+
+msgid "manager.distribution.license.success"
+msgstr "Os detalhes de licença foram atualizados. "
+
+msgid "manager.distribution.license"
+msgstr "Licença"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Utilizadores registados"
+
+msgid "manager.setup.userAccess.success"
+msgstr "Os detalhes de acesso do utilizador foram atualizados."
+
+msgid "manager.setup.theme.notFound"
+msgstr "O tema que selecionou não se encontra instalado ou ativado."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Lembrete de Resposta"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Prazo de Conclusão Padrão"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Prazo de Resposta Padrão"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "O ficheiro carregado não foi encontrato. Tente carregá-lo novamente."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"O bloco {$name} não foi encontrado. Certifique-se que o plugin se encontra "
+"instalado e ativo."
+
+msgid "manager.setup.checklist"
+msgstr "Lista de verificação"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "As instruções aos autores foram atualizadas com sucesso."
+
+msgid "manager.setup.contact.success"
+msgstr "Os detalhes de contacto desta editora foram atualizados."
+
+msgid "manager.setup.appearance.success"
+msgstr "As configurações da aparência foram atualizadas."
+
+msgid "manager.setup.advanced"
+msgstr "Avançado"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Não pode eliminar este representante porque está designado aos metadados de "
+"mercados para um ou mais formatos de publicação para esta submissão."
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Assunto: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Enviado para"
+
+msgid "manager.emails.sentFrom"
+msgstr "Enviado de"
+
+msgid "manager.emails.resetAll"
+msgstr "Restaurar tudo"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "A chave que inseriu já se encontra em uso."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Deve inserir um ID do contexto quando adiciona um modelo de e-mail."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Modelos de e-mail"
+
+msgid "manager.emails.emailKey.description"
+msgstr "A senha de e-mail só pode conter letras, números e underscores."
+
+msgid "manager.emails.editEmail.success"
+msgstr "O modelo de e-mail foi modificado."
+
+msgid "manager.emails.customTemplate"
+msgstr "Modelo personalizado"
+
+msgid "manager.emails.addEmail.success"
+msgstr "O modelo de e-mail foi adicionado."
+
+msgid "manager.emails.addEmail"
+msgstr "Adicionar modelo"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Os detalhes dos lembretes aos revisores foram atualizados."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "As configurações de revisão foram atualizadas."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Taxa de Rejeição após Revisão"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Taxa de Rejeição de secretariado"
+
+msgid "stats.name.declineRate"
+msgstr "Taxa de Rejeição"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Taxa de Aceitação"
+
+msgid "stats.name.daysToReject"
+msgstr "Dias até Rejeitar"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dias até Aceitar"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dias até à Primeira Decisão Editorial"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Submissões Publicadas"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Submissões Recusadas (Após Revisão)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Submissões Recusadas (rejeição de secretariado)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Submissões Recusadas"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Submissões Aceites"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Submissões Recebidas"
+
+msgid "stats.userStatistics"
+msgstr "Estatísticas do Utilizador"
+
+msgid "stats.trends"
+msgstr "Tendências"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total dentro do Intervalo de Datas"
+
+msgid "stats.total"
+msgstr "Total"
+
+msgid "stats.submissionsActive"
+msgstr "Submissão Ativas"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Pesquisar por título, autor e ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Mensal"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Visualizações de Ficheiros"
+
+msgid "stats.editorialActivity"
+msgstr "Atividade Editorial"
+
+msgid "stats.descriptionForStat"
+msgstr "Descrição para {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Número de dias que leva a que a maioria das submissões recebam a sua "
+"primeira decisão editorial, tal como rejeição de secreatariado ou enviar "
+"para revisão. <br><br> Estes números indicam que 80% das submissões recebem "
+"uma decisão editorial num dado número de dias. <br><br>Esta estatística "
+"tenta descrever quando a maioria dos autores que submetam à revista podem "
+"esperar uma decisão."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"A percentagem para o período selecionado é calculada para submissões "
+"enviadas durante esse mesmo período de tempo e receberam uma decisão "
+"final..<br><br>Por exemplo, considere o caso em que foram feitas dez "
+"submissões neste período de tempo. Quatro foram aceites, quatro foram "
+"rejeitadas e duas ainda se encontram a aguardar a decisão final.<br><br>A "
+"taxa de aceitação será de 50% (4 em 8 submissões) porque as duas submissões "
+"que ainda não tiveram uma decisão final não são contabilizadas."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Até {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Para"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Ano atual"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Desde {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Último ano"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Últimos dois anos"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Últimos 90 dias"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Últimos 30 dias"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Últimos 12 meses"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "A data de início não pode ser anterior a {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "A data de fim não pode ser posterior a {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "A data de início deve ser anterior à data de fim."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "O formato da data é inválido. Insira cada data no formato AAAA-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Insira cada data no formato AAAA-MM-DD. Por exemplo, se pretender a data 15 "
+"de janeiro de 2019, insira 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "De"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Uma das datas inseridas não existe."
+
+msgid "stats.dateRange.customRange"
+msgstr "Intervalo personalizado"
+
+msgid "stats.dateRange.change"
+msgstr "Alterar o intervalo de datas"
+
+msgid "stats.dateRange.apply"
+msgstr "Aplicar"
+
+msgid "stats.dateRange.allDates"
+msgstr "Todas as datas"
+
+msgid "stats.dateRange"
+msgstr "Intervalo de datas"
+
+msgid "stats.daily"
+msgstr "Diariamente"
+
+msgid "stats.allUsers"
+msgstr "Todos os utilizadores"
+
+msgid "grid.category.categoryDetails"
+msgstr "Detalhes da Categoria"
+
+msgid "grid.category.nameRequired"
+msgstr "Insira o nome da categoria."
+
+msgid "grid.category.removeText"
+msgstr "Deseja realmente eliminar esta categoria?"
+
+msgid "grid.category.parentCategory"
+msgstr "Categoria Mãe"
+
+msgid "grid.category.description"
+msgstr "Descrição"
+
+msgid "grid.category.pathExists"
+msgstr "O caminho da categoria já existe. Insira um caminho único."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "O caminho da categoria constiste apenas em letras e números."
+
+msgid "grid.category.urlWillBe"
+msgstr "O URL da categoria será: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Caminho"
+
+msgid "grid.category.name"
+msgstr "Nome"
+
+msgid "grid.category.edit"
+msgstr "Editar Categoria"
+
+msgid "grid.category.add"
+msgstr "Adicionar Categoria"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"O nome de utilizador \"{$username}\" e o e-mail \"{$username}\" não "
+"correspondem ao mesmo utilizador."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"O utilizador importado \"{$username}\" tem uma senha de texto que não é "
+"válida. O utilizador não foi importado."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"A senha do utilizador importado \"{$username}\" não foi importada. Foi "
+"enviada uma nova senha para o e-mail do utilizador. O utilizador foi "
+"importado."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"O utilizador importado \"{$username}\" não tem senha. Verifique o seu "
+"ficheiro XML de importação. O utilizador não foi importado."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Erros de importação/exportação:"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"O autor {$authorName} não tem um nome próprio no idioma da submissão, "
+"{$localeName}. A submissão não pode ser importada sem esta informação."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Solicitar aos autores que forneçam as referências antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Solicitar aos autores que forneçam as referências durante a submissão."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Não solicitar as referências aos autores durante a submissão."

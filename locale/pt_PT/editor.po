@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
+"PO-Revision-Date: 2020-02-04 23:10+0000\n"
+"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/editor/pt_PT/>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:58+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionLibrary"
 msgstr "Biblioteca Submissão"
@@ -406,3 +409,60 @@ msgstr "Bibliografia"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Pedidos de revisão recusados"
+
+msgid "reviewer.list.empty"
+msgstr "Não foram encontrados revisores"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Pedido de revisão cancelado"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Ocorreu um erro ao restituir o revisor.  Tente novamente."
+
+msgid "editor.review.reviewerThanked"
+msgstr "O Revisor Agradeceu"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "O editor cancelou este pedido de revisão."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "O revisor rejeitou o pedido de revisão."
+
+msgid "editor.review.requestCancelled"
+msgstr "Solicitação Cancelada"
+
+msgid "editor.review.requestDeclined"
+msgstr "Recusar Solicitação"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Restituir  Revisor"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Cancelar Revisor"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Alterar decisão"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Sumbissão aceite para revisão."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Enviar para Produção."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Enviada para nova ronda de revisão."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Submissão publicada."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Submissão aceite."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Submissão rejeitada."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decisão registada"
+
+msgid "editor.activityLog"
+msgstr "Histórico de Atividade"

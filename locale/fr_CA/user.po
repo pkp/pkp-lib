@@ -2,16 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2020-02-01 08:35+0000\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
+"helene.vezina@umontreal.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"user/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: fr_CA\n"
-# localization file for fr_CA. Last revision 2019-10-23T01:54:34 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
+# localization file for fr_CA. Last revision 2019-10-23T01:54:34 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "user.accountInformation"
 msgstr "Renseignements sur le compte"
 
@@ -25,13 +29,15 @@ msgid "user.affiliations"
 msgstr "Affiliations"
 
 msgid "user.authorization.accessDenied"
-msgstr "Accès refusé"
+msgstr "Accès refusé."
 
 msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "Le jeton d'authentification du processus est absent ou invalide."
 
 msgid "user.authorization.contextRequired"
-msgstr "Vous ne pouvez pas effectuer cette opération sans spécifier son contexte (presse, revue, conférence, etc.)"
+msgstr ""
+"Vous ne pouvez pas effectuer cette opération sans spécifier son contexte ("
+"presse, revue, conférence, etc.)."
 
 msgid "user.authorization.loginRequired"
 msgstr "Ouverture de session requise."
@@ -58,10 +64,10 @@ msgid "user.authorization.accessibleWorkflowStage"
 msgstr "Vous n'avez pas actuellement accès à cette étape du processus éditorial."
 
 msgid "user.authorization.workflowStageRequired"
-msgstr "Une étape du processus éditorial n'est pas spécifiée"
+msgstr "Une étape du processus éditorial n'est pas spécifiée."
 
 msgid "user.authorization.pluginRequired"
-msgstr "Un plugiciel requis n'a pas été sélectionné"
+msgstr "Un plugiciel requis n'a pas été sélectionné."
 
 msgid "user.authorization.invalidReviewAssignment"
 msgstr "Vous n'êtes pas autorisé-e à accéder à cette évaluation."
@@ -187,7 +193,7 @@ msgid "user.logOutAs"
 msgstr "Fermeture de session en tant que"
 
 msgid "user.hello"
-msgstr "Bonjour,"
+msgstr "Bonjour, "
 
 msgid "user.mailingAddress"
 msgstr "Adresse postale"
@@ -220,7 +226,7 @@ msgid "user.profile.editProfile"
 msgstr "Modifier le profil"
 
 msgid "user.profile.form.countryRequired"
-msgstr "Il faut indiquer un pays"
+msgstr "Il faut indiquer un pays."
 
 msgid "user.profile.form.emailRequired"
 msgstr "Une adresse de courriel valide est obligatoire."
@@ -235,7 +241,7 @@ msgid "user.profile.form.givenNameRequired.locale"
 msgstr "Vous avez ajouté un nom de famille dans une langue pour laquelle un prénom n'a pas été spécifié. Veuillez ajouter un prénom pour cette langue."
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "Il faut indiquer l'adresse postale"
+msgstr "Il faut indiquer l'adresse postale."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Vous devez saisir votre nouveau mot de passe."
@@ -262,7 +268,7 @@ msgid "user.profile.form.urlInvalid"
 msgstr "L'URL spécifié n'est pas valide. Veuillez vérifier l'URL et essayer de nouveau. (Astuce : Essayer d'ajouter http:// au début de l'URL.)"
 
 msgid "user.profile.form.usergroupRequired"
-msgstr "Il faut indiquer le groupe d'utilisateurs-trices"
+msgstr "Il faut indiquer le groupe d'utilisateurs-trices."
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Le nom d'utilisateur-trice est obligatoire."
@@ -289,7 +295,7 @@ msgid "user.profile.repeatNewPassword"
 msgstr "Saisir de nouveau le nouveau mot de passe"
 
 msgid "user.login.registerNewAccount"
-msgstr "Vous n'êtes pas un-e utilisateur-trice? Veuillez vous inscrire au site."
+msgstr "S'inscrire"
 
 msgid "user.login.resetPasswordInstructions"
 msgstr "Entrer votre adresse courriel ci-dessous. Un courriel comprenant des instructions sur comment réinitialiser votre mot de passe vous sera envoyé."
@@ -313,7 +319,7 @@ msgid "user.register.form.usernameAlphaNumeric"
 msgstr "Le nom d'utilisateur-trice ne peut contenir que des caractères alphanumériques minuscules, traits de soulignement et traits d'union. Il doit commencer et se terminer par un caractère alphanumérique."
 
 msgid "user.register.form.userGroupRequired"
-msgstr "Au moins un rôle doit être sélectionné"
+msgstr "Au moins un rôle doit être sélectionné."
 
 msgid "user.register.form.usernameExists"
 msgstr "Le nom d'utilisateur-trice sélectionné est déjà utilisé par un-e autre utilisateur-trice."
@@ -433,10 +439,11 @@ msgid "user.apiKey"
 msgstr "Clé API"
 
 msgid "user.apiKeyEnabled"
-msgstr "Activer les applications externes avec la clé API pour accéder à ce compte."
+msgstr ""
+"Activer les applications externes avec la clé API pour accéder à ce compte"
 
 msgid "user.apiKey.generate"
-msgstr "Générer une nouvelle clé API."
+msgstr "Générer une nouvelle clé API"
 
 msgid "user.apiKey.generateWarning"
 msgstr "Générer une nouvelle clé API invalidera toute clé préexistante pour cet ou cette utilisateur-trice."
@@ -446,4 +453,3 @@ msgstr "Avant de générer une clé API, l'administrateur-trice du site doit dé
 
 msgid "user.privacyLink"
 msgstr "Vos données sont stockées conformément à notre <a href=\"{$privacyUrl}\" target=\"_blank\">déclaration de confidentialité</a>."
-

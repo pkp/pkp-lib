@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2020-01-29 05:35+0000\n"
+"PO-Revision-Date: 2020-02-01 08:35+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "id/>\n"
@@ -345,9 +345,8 @@ msgstr "Anda tidak berhak mengakses pembahasan ini."
 msgid "user.authorization.invalidReviewAssignment"
 msgstr "Anda tidak berhak mengakses tugas review ini."
 
-#, fuzzy
 msgid "user.authorization.pluginRequired"
-msgstr "Plugin belum ditentukan dan diperlukan."
+msgstr "Plugin yang dibutuhkan belum ditentukan."
 
 msgid "user.authorization.workflowStageRequired"
 msgstr "Tahap alur kerja belum ditetapkan."
@@ -367,3 +366,100 @@ msgstr ""
 
 msgid "user.accountInformation"
 msgstr "Informasi Akun"
+
+msgid "user.apiKeyEnabled"
+msgstr "Aktifkan aplikasi eksternal dengan kunci API untuk mengakses akun ini"
+
+msgid "user.apiKey"
+msgstr "Kunci API"
+
+msgid "user.profile.public"
+msgstr "Publik"
+
+msgid "user.profile.contact"
+msgstr "Narahubung"
+
+msgid "user.profile.identity"
+msgstr "Identitas"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"iD ORCID yang Anda masukkan tidak valid. Cantumkanlah URI lengkapnya (misal, "
+"\"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.orcid"
+msgstr "iD ORCID"
+
+msgid "user.role.proofreaders"
+msgstr "Proofreader"
+
+msgid "user.role.proofreader"
+msgstr "Proofreader"
+
+msgid "user.role.copyeditors"
+msgstr "Copyeditor"
+
+msgid "user.role.copyeditor"
+msgstr "Copyeditor"
+
+msgid "user.role.editors"
+msgstr "Penyunting"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.authors"
+msgstr "Penulis"
+
+msgid "user.role.author_s"
+msgstr "Penulis"
+
+msgid "user.role.author"
+msgstr "Penulis"
+
+msgid "user.role.assistant"
+msgstr "Bantuan"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Anda telah berhasil mendaftar. <a href=\"{$profileUrl}\">Klik di sini</a> "
+"untuk melengkapi profil Anda."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Password minimal berjumlah {$length} karakter."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Pilih minimal satu peran."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"username hanya boleh diisi karakter huruf kecil, underscore, dan garis "
+"datar, serta harus dimuai dan diakhiri dengan karakter huruf-angka"
+
+msgid "user.register.form.emailConsent"
+msgstr "Ya, saya ingin diberi tahu bila ada terbitan dan pengumuman baru."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ya, saya setuju data saya diambil dan disimpan berdasarkan <a href=\""
+"{$privacyUrl}\" target=\"_blank\">pernyataan privasi</a>."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Masukkan alamat email Anda di bawah ini dan email akan dikirim disertai "
+"petunjuk bagaimana mereset password Anda."
+
+msgid "user.login.registerNewAccount"
+msgstr "Daftar"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Anda harus menyetujui syarat penyataan privasi."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Diperlukan grup pengguna."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Password baru sama dengan password lama Anda."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Alamat surat diperlukan."

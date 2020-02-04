@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-01-29 05:35+0000\n"
+"PO-Revision-Date: 2020-02-01 08:35+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
 "helene.vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -242,7 +242,9 @@ msgid "manager.emails.enable"
 msgstr "Activer"
 
 msgid "manager.emails.enable.message"
-msgstr "Vous êtes sur le point de désactiver ce courriel. Vous souhaitez confirmer cette opération ?"
+msgstr ""
+"Vous êtes sur le point de d'activer ce courriel. Vous souhaitez confirmer "
+"cette opération ?"
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr "Une clé de courriel unique est obligatoire pour le courriel."
@@ -1804,7 +1806,7 @@ msgstr ""
 "la soumission."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr "Activer la métadonnée couverture de contenu"
+msgstr "Activer la métadonnée « Couverture de contenu »"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
@@ -1842,19 +1844,19 @@ msgstr ""
 "jour."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Activer la métadonnée disciplines"
+msgstr "Activer la métadonnée « Disciplines »"
 
 msgid "manager.setup.metadata.type.enable"
-msgstr "Activer la métadonnée type"
+msgstr "Activer la métadonnée « Type »"
 
 msgid "manager.setup.metadata.source.noRequest"
 msgstr "Ne pas demander d'URL source à l'auteur-e pendant la soumission."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr "Activer la métadonnée source"
+msgstr "Activer la métadonnée « Source »"
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr "Activer la métadonnée sujet"
+msgstr "Activer la métadonnée « Sujet »"
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
@@ -1878,3 +1880,175 @@ msgstr "Licence"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Utilisateurs-trices enregistrés-es"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Colliger les références d'une soumission dans un champ séparé. Ceci peut "
+"être nécessaire pour se conformer aux services de suivi des citations tels "
+"que Crossref."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Les organismes subventionnaires peuvent référer à la source de financement "
+"de la recherche ou tout autre soutien institutionnel ayant facilité la "
+"recherche."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Les disciplines sont des types d'études ou des branches de connaissances "
+"telles que décrites par les facultés universitaires et les sociétés savantes."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Les sujets seront des mots-clés, des phrases-clés ou des codes de "
+"classification qui décrivent un sujet de la soumission."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"La source peut être un identifiant, tel qu'un DOI, d'un autre travail ou "
+"ressource dont la soumission est dérivée."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Tous les droits détenus sur la soumission, lesquels peuvent inclure les "
+"droits de propriété intellectuelle (DPI), le droit d'auteur et divers droits "
+"de propriété."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Le nombre de jours nécessaires à la plupart des soumissions pour recevoir "
+"une première décision éditoriale, comme le rejet en préévaluation ou l'envoi "
+"pour évaluation. <br> <br> Ces chiffres indiquent que 80% des soumissions "
+"parviennent à la décision dans le délai imparti. < br> <br> Cette "
+"statistique tente de chiffrer le délai pour lequel la majorité des auteurs-"
+"es soumettant à votre revue peuvent s'attendre à une décision."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Le pourcentage pour la période sélectionnée entre deux dates est calculé "
+"pour les soumissions qui ont été soumises pendant cet intervalle de dates et "
+"qui ont reçu une décision finale. <br> <br> Par exemple, considérons le cas "
+"où dix soumissions ont été faites pendant cet intervalle de dates :  Quatre "
+"ont été acceptées, quatre ont été rejetées et deux attendent toujours une "
+"décision finale. <br> <br> Le taux d'acceptation sera de 50% (4 des 8 "
+"soumissions) car les deux soumissions qui n'ont pas abouti à une décision "
+"finale ne sont pas comptées."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Saisir chaque date au format AAAA-MM-JJ. Par exemple, si vous voulez la date "
+"du 15 janvier 2019, entrer 2019-01-15."
+
+msgid "stats.dateRange.thisYear"
+msgstr "Depuis le début de l'année jusqu'à ce jour"
+
+msgid "stats.name.daysToDecision"
+msgstr "Nb de jour(s) pour prendre une 1ère décision éditoriale"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Taux de refus suite à l'évaluation"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Taux de refus en préévaluation"
+
+msgid "stats.name.declineRate"
+msgstr "Taux de refus"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Taux d'acceptation"
+
+msgid "stats.name.daysToAccept"
+msgstr "Nb de jour(s) pour accepter"
+
+msgid "stats.name.daysToReject"
+msgstr "Nb de jour(s) pour refuser"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Soumissions publiées"
+
+msgid "stats.editorialActivity"
+msgstr "Activité éditoriale"
+
+msgid "stats.descriptionForStat"
+msgstr "Description de {$stat}"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Soumissions rejetées (suite à l'évaluation)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Soumissions rejetées (suite à la préévaluation)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Soumissions refusées"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Soumissions acceptées"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Soumissions reçues"
+
+#, fuzzy
+msgid "stats.userStatistics"
+msgstr "Statistiques utilisateur"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total pour la période"
+
+msgid "stats.trends"
+msgstr "Tendances"
+
+msgid "stats.submissionsActive"
+msgstr "Soumissions actives"
+
+msgid "stats.dateRange.lastYear"
+msgstr "La dernière année"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Les 2 dernières années"
+
+msgid "stats.allUsers"
+msgstr "Tous,toutes les utilisateurs-trices"
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Activer la métadonnée « Références »"
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Activer la métadonnée « organismes subventionnaires »"
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Activer la métadonnée « Droits »"
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Activer la métadonnée « Langue »"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"La langue indique la langue principale de l'œuvre à l'aide d'un code de "
+"langue (« en ») avec, facultativement, un code de pays (« en_US »)."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Activer la métadonnée « Mot-clé»"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Les mots-clés sont généralement des phrases qui comportent de un à trois "
+"mots qui sont utilisées pour indiquer les principaux sujets d'une soumission."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Obliger l'auteur-e à divulguer tout organisme subventionnaire avant "
+"d'accepter sa soumission."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Obliger l'auteur-e à fournir des références avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Obliger l'auteur-e à fournir des disciplines avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Obliger l'auteur-e à fournir le type avant d'accepter sa soumission."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Obliger l'auteur-e à fournir des sujets avant d'accepter sa soumission."

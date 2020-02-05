@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2020-01-15 19:33+0000\n"
-"Last-Translator: Edvin Erdtman <edvin.erdtman@liu.se>\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv/>\n"
 "Language: sv_SE\n"
@@ -698,10 +698,14 @@ msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Defaultvärden kan ändras för varje granskning under redaktionsprocessen."
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Skicka en påminnelse om granskaren inte har svarat på en granskningsförfrågan inom följande antal dagar efter deadline:"
+msgstr ""
+"Skicka en påminnelse om granskaren inte har svarat på en "
+"granskningsförfrågan inom följande antal dagar efter deadline."
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom följande antal dagar efter deadline:"
+msgstr ""
+"Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom "
+"följande antal dagar efter deadline."
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Default-deadlines för granskning"
@@ -923,16 +927,19 @@ msgid "manager.plugins.invalidPluginArchive"
 msgstr "Den uppladdade filen innehåller inte en mapp som överensstämmer med pluginets namn."
 
 msgid "manager.plugins.wrongCategory"
-msgstr "Det uppladdade pluginet passar inte det uppgraderade pluginets kategori"
+msgstr ""
+"Det uppladdade pluginet passar inte det uppgraderade pluginets kategori."
 
 msgid "manager.plugins.wrongName"
 msgstr "Filen version.xml i det uppladdade pluginet innehåller ett namn som inte stämmer överens med namnet på det uppgraderade pluginet."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Pluginet finns inte. Installera i stället."
+msgstr "Pluginet finns inte. Installera i stället"
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "Pluginet finns redan men är nyare än den installerade versionen. Uppgradera i stället."
+msgstr ""
+"Pluginet finns redan men är nyare än den installerade versionen. Uppgradera "
+"i stället"
 
 msgid "manager.plugins.settings"
 msgstr "Inställningar"
@@ -1349,7 +1356,7 @@ msgid "manager.navigationMenus.form.duplicateTitles"
 msgstr "Den här titeln används redan för ett annat element i navigationsmenyn."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr "Titel måste anges."
+msgstr "Titel måste anges"
 
 msgid "manager.navigationMenuItems"
 msgstr "Element i navigationsmenyn"
@@ -1487,4 +1494,30 @@ msgid "manager.publication.reviewerGuidance"
 msgstr "Guide för granskare"
 
 msgid "manager.publication.emailSetup.success"
-msgstr "E-postinställningarna har uppdaterats"
+msgstr "E-postinställningarna har uppdaterats."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Täckning"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Beskrivning"
+
+msgid "manager.distribution.customHeaders"
+msgstr ""
+
+msgid "manager.distribution.license"
+msgstr "Licens"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrerade användare"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Blocket {$name} kan inte hittas. Kontrollera att pluginet är installerat och "
+"aktiverat."
+
+msgid "manager.setup.advanced"
+msgstr "Avancerad"
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-postmallar"

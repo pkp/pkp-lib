@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2020-02-01 08:35+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "id/>\n"
 "Language: id_ID\n"
@@ -222,7 +222,7 @@ msgid "user.register.passwordLengthRestriction"
 msgstr "Kata sandi minimal {$length} karakter."
 
 msgid "user.register.registerAs"
-msgstr "Daftar sebagai"
+msgstr "Mendaftar di {$contextName} sebagai..."
 
 msgid "user.register"
 msgstr "Daftar"
@@ -237,7 +237,7 @@ msgid "user.role.readers"
 msgstr "Pembaca"
 
 msgid "user.role.reviewer"
-msgstr "Reviewer"
+msgstr "Peninjau"
 
 msgid "user.role.reviewers"
 msgstr "Reviewer"
@@ -255,16 +255,17 @@ msgid "user.sendPassword"
 msgstr "Konfirmasi"
 
 msgid "user.sendPassword.description"
-msgstr "Kirimi saya email konfirmasi termasuk nama pengguna dan kata sandi saya"
+msgstr ""
+"Kirimkan saya surel konfirmasi termasuk nama pengguna dan kata sandi saya"
 
 msgid "user.signature"
-msgstr "Signature"
+msgstr "Tanda Tangan"
 
 msgid "user.title"
-msgstr "Gelar"
+msgstr "Judul"
 
 msgid "user.url"
-msgstr "URL"
+msgstr "URL Beranda"
 
 msgid "user.userHome"
 msgstr "Beranda Pengguna"
@@ -273,7 +274,7 @@ msgid "user.username"
 msgstr "Nama Pengguna"
 
 msgid "user.workingLanguages"
-msgstr "Bahasa"
+msgstr "Bahasa Kerja"
 
 msgid "user.register.completeForm"
 msgstr "Isi form di bawah ini untuk mendaftar ke jurnal ini."
@@ -384,20 +385,20 @@ msgstr "Identitas"
 
 msgid "user.orcid.orcidInvalid"
 msgstr ""
-"iD ORCID yang Anda masukkan tidak valid. Cantumkanlah URI lengkapnya (misal, "
-"\"https://orcid.org/0000-0002-1825-0097\")."
+"ORCID iD yang Anda cantumkan tidak valid. Harap sertakan URI lengkap (mis. \""
+"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.orcid"
 msgstr "iD ORCID"
 
 msgid "user.role.proofreaders"
-msgstr "Proofreader"
+msgstr "Para Proofreader"
 
 msgid "user.role.proofreader"
 msgstr "Proofreader"
 
 msgid "user.role.copyeditors"
-msgstr "Copyeditor"
+msgstr "Para Copyeditor"
 
 msgid "user.role.copyeditor"
 msgstr "Copyeditor"
@@ -433,8 +434,8 @@ msgstr "Pilih minimal satu peran."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"username hanya boleh diisi karakter huruf kecil, underscore, dan garis "
-"datar, serta harus dimuai dan diakhiri dengan karakter huruf-angka"
+"Nama pengguna hanya boleh diisi huruf kecil, garis bawah, dan garis sambung, "
+"serta harus dimulai dan diakhiri dengan karakter alfanumerik."
 
 msgid "user.register.form.emailConsent"
 msgstr "Ya, saya ingin diberi tahu bila ada terbitan dan pengumuman baru."
@@ -463,3 +464,27 @@ msgstr "Password baru sama dengan password lama Anda."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Alamat surat diperlukan."
+
+msgid "user.privacyLink"
+msgstr ""
+"Data Anda disimpan menurut <a href=\"{$privacyUrl}\" target=\"_blank\">"
+"pernyataan privasi kami</a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Sebelum membuat kunci API, administrator situs Anda harus menetapkan frasa "
+"rahasia di file konfigurasi (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Membuat kunci API baru akan membatalkan kunci yang sudah ada untuk pengguna "
+"ini."
+
+msgid "user.apiKey.generate"
+msgstr "Membuat kunci API baru"
+
+msgid "user.role.layoutEditors"
+msgstr "Para Editor Tata Letak"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor Tata Letak"

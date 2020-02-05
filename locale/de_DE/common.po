@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"de/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2019-09-27T09:47:23-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -36,7 +39,7 @@ msgid "about.contact.phone"
 msgstr "Telefon"
 
 msgid "about.contact.principalContact"
-msgstr "Hauptkontakt "
+msgstr "Hauptkontakt"
 
 msgid "about.contact.supportContact"
 msgstr "Kontakt bei technischen Fragen"
@@ -78,7 +81,7 @@ msgid "common.allDownloads"
 msgstr "Alle Downloads"
 
 msgid "common.navigation.sidebar"
-msgstr "Sidebar"
+msgstr "Seitenleiste"
 
 msgid "common.navigation.site"
 msgstr "Website-Navigation"
@@ -96,7 +99,7 @@ msgid "common.list"
 msgstr "Liste"
 
 msgid "common.grid"
-msgstr "Grid"
+msgstr "Raster"
 
 msgid "common.confirmDelete"
 msgstr "Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann nicht rückgängig gemacht werden."
@@ -226,7 +229,7 @@ msgid "common.changesSaved"
 msgstr "Ihre Änderungen wurden gespeichert."
 
 msgid "common.chooseOne"
-msgstr "Bitte wählen Sie aus."
+msgstr "Bitte wählen Sie aus"
 
 msgid "common.close"
 msgstr "Schließen"
@@ -586,7 +589,7 @@ msgid "common.prefix"
 msgstr "Präfix"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Wenn der Buchtitel mit \"Ein(e)\" oder \"Die\" (oder etwas ähnlichem in Bezug auf alphabetische Sortierung) beginnt, geben Sie dieses Wort bei Präfix ein."
+msgstr "Beispielsweise: A, Das"
 
 msgid "common.preview"
 msgstr "Vorschau"
@@ -805,7 +808,7 @@ msgid "debug.executionTime"
 msgstr "Seite erstellt am"
 
 msgid "debug.memoryUsage"
-msgstr "Speicherbelegung:"
+msgstr "Speicherbelegung"
 
 msgid "debug.notes.localeListLoad"
 msgstr "Regionaleinstellungsliste \"{$localeList}\" aus XML geladen"
@@ -865,7 +868,10 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Ihre Nachricht hat zu viele Empfänger/innen."
 
 msgid "email.compose.tooSoon"
-msgstr "Sie versuchen, eine Nachricht zu früh nach Ihrer letzten Nachricht zu versenden. Bitte warten Sie ein wenig, bevor Sie eine weitere Nachricht versenden.>"
+msgstr ""
+"Sie versuchen, eine Nachricht zu früh nach Ihrer letzten Nachricht zu "
+"versenden. Bitte warten Sie ein wenig, bevor Sie eine weitere Nachricht "
+"versenden."
 
 msgid "email.compose.error"
 msgstr "Beim Senden einer E-Mail ist ein Problem aufgetreten. Bitte versuchen Sie es später noch einmal oder benachrichtigen Sie Ihre/n Systemadministrator/in."
@@ -955,7 +961,7 @@ msgid "form.fileRequired"
 msgstr "Dateiupload ist erforderlich."
 
 msgid "form.required"
-msgstr "Mit * gekennzeichnete Angaben sind Pflichtangaben."
+msgstr "(* Pflichtangabe)"
 
 msgid "form.resubmit"
 msgstr "Erneut abschicken"
@@ -1027,7 +1033,7 @@ msgid "icon.view.alt"
 msgstr "Anzeigen"
 
 msgid "informationCenter.informationCenter"
-msgstr "Information Center"
+msgstr "Informationszentrum"
 
 msgid "informationCenter.editorialHistory"
 msgstr "Redaktionsverlauf"
@@ -1177,7 +1183,7 @@ msgid "navigation.setup"
 msgstr "Einrichtung"
 
 msgid "navigation.sitemap"
-msgstr "Site Map"
+msgstr "Übersichtsseite"
 
 msgid "navigation.skip.main"
 msgstr "Zum Inhalt springen"
@@ -1297,19 +1303,19 @@ msgid "notification.reminderError"
 msgstr "Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben."
 
 msgid "notification.reminderSent"
-msgstr "Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt"
+msgstr "Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt."
 
 msgid "notification.savedSubmissionMetadata"
 msgstr "Metadaten gespeichert."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Benachrichtigungs-E-Mail an alle angemeldeten Nutzer/innen schicken."
+msgstr "Benachrichtigungs-E-Mail an alle angemeldeten Nutzer/innen schicken"
 
 msgid "search.author"
 msgstr "Nach Autor/in"
 
 msgid "search.abstract"
-msgstr "Abstract"
+msgstr "Zusammenfassung"
 
 msgid "search.advancedFilters"
 msgstr "Erweiterte Filter"
@@ -1505,7 +1511,7 @@ msgid "user.authorization.invalidSubmission"
 msgstr "Ungültige Einreichung."
 
 msgid "user.authorization.invalidRepresentation"
-msgstr "Ungültige Repräsentation"
+msgstr "Ungültige Repräsentation."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr "Sie verfügen nicht über ausreichende Rechte, um die Einreichung anzusehen. Bitte überarbeiten Sie Ihr Profil, um zu gewährleisten, dass Sie für die entsprechenden Rollen registriert sind."
@@ -1554,3 +1560,114 @@ msgstr "Mehr Details über {$name} anzeigen"
 
 msgid "list.viewLess"
 msgstr "Details über {$name} verbergen"
+
+msgid "form.errorMany"
+msgstr "Bitte beheben Sie {$count} Fehler."
+
+msgid "form.errorOne"
+msgstr "Bitte beheben Sie einen Fehler."
+
+msgid "form.errorGoTo"
+msgstr "Springe zum nächsten Fehler"
+
+msgid "form.errorA11y"
+msgstr "Gehe zu {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Sie können keine weiteren Dateien hochladen."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Datei entfernen"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Sind Sie sicher, dass das Hochladen abgebrochen werden soll?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Hochladen abgebrochen"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Hochladen abbrechen"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Der Server antwortete mit {{statusCode}}. Bitte kontaktieren Sie Ihre/n "
+"Systemadministrator/in, wenn dieses Problem länger bestehen bleibt."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Dateien diesen Formats können nicht hochgeladen werden."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Die Datei ist zu groß ({{filesize}}mb). Dateien größer als {{maxFilesize}}mb "
+"können nicht hochgeladen werden."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Bitte benutzen Sie das Ersatzformular unten zum Hochladen Ihrer Dateien."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Hochladen von Dateien per Drag'n'Drop wird von Ihrem Browser nicht "
+"unterstützt."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Dateien hier ablegen zum Hochladen"
+
+msgid "form.disallowedProp"
+msgstr "Diese Eigenschaft ist nicht zulässig."
+
+msgid "form.disallowedLocales"
+msgstr "Nur die folgenden Sprachen sind zugelassen: {$languages}."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Vorschau des derzeit ausgewählten Bildes."
+
+msgid "common.upload.restore"
+msgstr "Original wiederherstellen"
+
+msgid "common.toWithValue"
+msgstr "An: {$value}"
+
+msgid "common.submenu"
+msgstr "Untermenü"
+
+msgid "common.selectedPrefix"
+msgstr "Ausgewählt:"
+
+msgid "common.removeItem"
+msgstr "Entferne {$item}"
+
+msgid "common.pagination.previous"
+msgstr "vorherige Seite"
+
+msgid "common.pagination.next"
+msgstr "nächste Seite"
+
+msgid "common.pagination.goToPage"
+msgstr "Gehe zu {$page}"
+
+msgid "common.override"
+msgstr "Überschreiben"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Die hochgeladene Datei konnte nicht gefunden werden. Bitte versuchen Sie "
+"erneut die Datei hochzuladen."
+
+msgid "common.noItemsFound"
+msgstr "Keine Elemente gefunden."
+
+msgid "common.lastActivity"
+msgstr "Letzte Aktivität verzeichnet am {$date}."
+
+msgid "common.fromWithValue"
+msgstr "Von: {$value}"
+
+msgid "common.dateDecided"
+msgstr "Entscheidungsdatum"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Beschreiben Sie das Bild für Benutzer/innen, die die Webseite mit einem nur-"
+"Text-Browser oder mit Hilfsgeräten besuchen. Beispielsweise: \"Unser "
+"Redakteur spricht auf der PKP Konferenz.\""

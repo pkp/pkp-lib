@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/id/>\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.announcements"
 msgstr "Pengumuman"
@@ -111,7 +114,7 @@ msgid "manager.announcementTypes.editTitle"
 msgstr "Edit"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Simpan dan Buat yang lain."
+msgstr "Simpan dan Buat yang Lain"
 
 msgid "manager.announcementTypes.form.typeNameExists"
 msgstr "Tipe pengumuman dengan nama ini yang sudah ada."
@@ -171,7 +174,7 @@ msgid "manager.emails.form.subjectRequired"
 msgstr "Judul dibutuhkan untuk email."
 
 msgid "manager.emails"
-msgstr "Email yang Disiapkan "
+msgstr "Surel yang Disiapkan"
 
 msgid "manager.emails.resetAll"
 msgstr "Atur ulang semua template"
@@ -258,7 +261,7 @@ msgid "manager.people.createUser"
 msgstr "Buat Pengguna Baru"
 
 msgid "manager.people.createUserGeneratePassword"
-msgstr "Hasilkan kata sandi acak"
+msgstr "Buat kata sandi acak."
 
 msgid "manager.people.createUserSendNotify"
 msgstr "Kirim email selamat datang kepada pengguna yang berisi nama pengguna dan kata sandi mereka."
@@ -474,103 +477,257 @@ msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Plugin format ini mengekspresikan metadata in komunikasi OAI."
 
 msgid "manager.reviewFormElement.changeType"
-msgstr " Peringatan: mengubah tipe elemen form review dari tipe pilihan banyak ke tipe akhir terbuka akan berakibat ke penghapusan opsi pilihan banyak."
+msgstr "Mengubah jenis butir dalam formulir..."
 
 msgid "manager.reviewFormElements"
-msgstr "Item Form"
+msgstr "Butir Formulir"
 
 msgid "manager.reviewFormElements.addResponseItem"
-msgstr " Tambahkan penyeleksian "
+msgstr "Tambahkan pilihan"
 
 msgid "manager.reviewFormElements.checkboxes"
-msgstr " Kotak cek? (Anda bisa memilih satu atau lebih)"
+msgstr "Kotak centang (Anda dapat memilih satu atau lebih)"
 
 msgid "manager.reviewFormElements.chooseType"
-msgstr " Pilih Tipe Item "
+msgstr "Pilih jenis butir"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr " Apakah Anda yakin ingin menghapus elemen dari form review yang diterbitkan?"
+msgstr "Konfirmasikan penghapusan butir formulir yang diterbitkan..."
 
 msgid "manager.reviewFormElements.copyTo"
-msgstr " Salin ke:"
+msgstr "Salin ke:"
 
 msgid "manager.reviewFormElements.create"
-msgstr " Buat Item Baru "
+msgstr "Buat Butir Baru"
 
 msgid "manager.reviewFormElements.dropdownbox"
-msgstr "Kotak Drop-down"
+msgstr "Kotak drop-down"
 
 msgid "manager.reviewFormElements.edit"
-msgstr " Edit Tipe Form "
+msgstr "Edit Butir Formulir"
 
 msgid "manager.reviewFormElements.elementType"
-msgstr " Tipe item "
+msgstr "Tipe Butir"
 
 msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr " Sebuah tipe item diperlukan untuk item form."
+msgstr "Jenis butir diperlukan untuk butir formulir."
 
 msgid "manager.reviewFormElements.form.questionRequired"
-msgstr " Pertanyaan diperlukan untuk item form."
+msgstr "Perlu butir pertanyaan dalam formulir."
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr " Tidak ada item form telah dibuat."
+msgstr "Tidak ada butir formulir yang dibuat."
 
 msgid "manager.reviewFormElements.possibleResponse"
-msgstr " Penyeleksian "
+msgstr "Pilihan"
 
 msgid "manager.reviewFormElements.question"
-msgstr "Item"
+msgstr "Butir"
 
 msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Radio buttons (Anda hanya bisa memilih satu)"
+msgstr "Tombol radio (Anda hanya dapat memilih satu)"
 
 msgid "manager.reviewFormElements.required"
-msgstr " Reviewer perlu melengkapi/ menyelesaikan item "
+msgstr "Peninjau harus menyelesaikan semua butir"
 
 msgid "manager.reviewFormElements.included"
-msgstr " Termasuk di pesan untuk penulis "
+msgstr "Sertakan dalam pesan untuk penulis"
 
 msgid "manager.reviewFormElements.smalltextfield"
-msgstr " Kotak teks satu kata "
+msgstr "Kotak teks kata tunggal"
 
 msgid "manager.reviewFormElements.textarea"
-msgstr " Kotak teks lebih besar "
+msgstr "Kotak teks diperpanjang"
 
 msgid "manager.reviewFormElements.textfield"
-msgstr " Kotak teks satu garis "
+msgstr "Kotak teks baris tunggal"
 
 msgid "manager.reviewForms"
 msgstr " Form Review"
 
 msgid "manager.reviewForms.completed"
-msgstr " Selesai "
+msgstr "Selesai"
 
 msgid "manager.reviewForms.create"
-msgstr " Buat Form Review "
+msgstr "Buat Formulir Tinjauan"
 
 msgid "manager.reviewForms.description"
-msgstr " Deskripsi dan Instruksi "
+msgstr "Deskripsi dan Instruksi"
 
 msgid "manager.reviewForms.edit"
-msgstr " Form Review "
+msgstr "Formulir Tinjauan"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr " Judul diperlukan untuk form review."
+msgstr "Judul diperlukan untuk formulir tinjauan"
 
 msgid "manager.reviewForms.inReview"
-msgstr " Dalam Review "
+msgstr "Dalam Tinjauan"
 
 msgid "manager.reviewForms.list.description"
-msgstr " Form peer review yang dibuat di sini akan ditampilkan kepada Reviewer untuk dilengkapi, bukan form default yang terdiri dari dua kotak teks terbuka, yang pertama \"untuk Penulis dan Editor\", dan yang kedua \"untuk Editor\". Form review dapat dipilih untuk bagian jurnal yang spesifik, dan Editor punya opsi untuk memilih form mana yang akan digunakan dalam penugasan review. Dalam semua kasus, editor punya opsi untuk memasukkan review dalam berkorespondensi dengan penulis."
+msgstr ""
+"Formulir ulasan sejawat yang dibuat di sini akan disajikan kepada pengulas "
+"untuk diisi, alih-alih formulir bawaan yang terdiri dari dua kotak teks "
+"terbuka, yang pertama \"untuk penulis dan editor,\" dan yang kedua \"untuk "
+"editor\" Formulir ulasan dapat ditetapkan untuk bagian pers tertentu, dan "
+"editor akan memiliki opsi untuk memilih formulir mana yang akan digunakan "
+"dalam menetapkan ulasan. Dalam semua kasus, editor akan memiliki opsi untuk "
+"menyertakan ulasan tersebut dalam komunikasinya dengan penulis."
 
 msgid "manager.reviewForms.noneChosen"
-msgstr " Tidak ada form review "
+msgstr "Tidak Ada Formulir Ulasan"
 
 msgid "manager.reviewForms.noneCreated"
-msgstr " Tidak ada form review dibuat."
+msgstr "Tidak ada formulir tinjauan yang dibuat."
 
 msgid "manager.reviewForms.preview"
-msgstr " Form Preview "
+msgstr "Formulir Pratinjau"
 
 msgid "manager.reviewForms.title"
-msgstr " Judul "
+msgstr "Judul"
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Aktifkan metadata subyek"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Subyek akan berupa kata kunci, frasa kunci atau kode klasifikasi yang "
+"menggambarkan topik dari naskah yang diserahkan."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Mewajibkan penulis untuk mencantumkan URL sumber sebelum menerima naskahnya."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Meminta penulis mencantumkan URL sumber saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Jangan meminta URL sumber dari penulis saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Aktifkan metadata sumber"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Sumber dapat berupa ID, seperti DOI, karya lain atau sumber lain dari mana "
+"naskah tersebut berasal."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Mewajibkan penulis untuk mengungkapkan hak akses terdahulu sebelum menerima "
+"naskahnya."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Minta penulis untuk mengungkapkan hak akses sebelumnya saat menyerahkan "
+"naskah."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Jangan meminta pengungkapan hak dari penulis saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Aktifkan metadata hak"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Semua hak yang menyertai naskah, yang mungkin mencakupi Hak Kekayaan "
+"Intelektual (HKI), Hak Cipta, dan berbagai Hak Milik."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Minta penulis untuk memasukkan bahasa yang digunakan dalam naskah sebelum "
+"menerima naskahnya."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Minta penulis untuk mencantumkan bahasa yang digunakan dalam naskah saat "
+"menyerahkannya."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Jangan meminta penulis mencantumkan bahasa yang digunakan dalam naskah saat "
+"menyerahkannya."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Aktifkan metadata bahasa"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Bahasa menunjukkan bahasa utama yang digunakan dalam naskah yang berupa kode "
+"bahasa (\"en\") dengan pilihan kode negara (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Mewajibkan penulis untuk menyarankan kata kunci sebelum naskahnya diterima."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Minta penulis untuk menyarankan kata kunci saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Kata kunci biasanya berupa sebuah frasa tunggal atau frasa-tiga-kata yang "
+"digunakan untuk menandakan topik utama sebuah naskah."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Jangan meminta kata kunci dari penulis saat proses penyerahan naskah."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Aktifkan metadata kata kunci"
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Mewajibkan penulis untuk menyarankan metadata cakupan sebelum menerima "
+"naskahnya."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Minta penulis untuk mengajukan saran metadata cakupan saat menyerahkan "
+"naskah."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Jangan mengajukan permintaan metadata cakupan pada penulis saat menyerahkan "
+"naskah."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Aktifkan metadata cakupan"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Cakupan umumnya merujuk pada lokasi spasial suatu karya (nama tempat atau "
+"koordinat geografis), periode waktu (label periode, tanggal, atau rentang "
+"tanggal) atau yurisdiksi (seperti nama lembaga administratif)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Cakupan"
+
+msgid "manager.setup.metadata.success"
+msgstr "Metadata pengiriman naskah telah berhasil diperbarui."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Formulir Pengajuan Naskah"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr ""
+"Cantumkan URL ke halaman web yang menerangkan lisensi tersebut, jika ada."
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"Mohon sertakan pernyataan Konflik Kepentingan saat proses ulasan sejawat."
+
+msgid "grid.action.createReviewForm"
+msgstr "Buat Fomulir Tinjauan baru"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Dapat dilihat (untuk penulis)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Deskripsi"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Data Formulir Tinjauan"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Tidak ada formulir tinjauan yang digunakan."
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Apakah Anda yakin ingin menghapus formulir tinjauan ini?"

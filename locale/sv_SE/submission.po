@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/sv/>\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:06+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Lägg till en formaterad lista av referenser för verk som citeras i bidraget. Separera varje referens med blankrad."
@@ -153,7 +156,7 @@ msgid "metadata.property.displayName.volume"
 msgstr "Volym"
 
 msgid "metadata.property.validationMessage.volume"
-msgstr "Vänligen ange en giltig volym"
+msgstr "Vänligen ange en giltig volym."
 
 msgid "metadata.property.displayName.season"
 msgstr "Säsong"
@@ -549,10 +552,10 @@ msgid "submission.event.fileRevised"
 msgstr "Bearbetningen \"{$name}\" (fil-ID {$fileId}-{$fileRevision}) laddas upp."
 
 msgid "submission.event.general.metadataUpdated"
-msgstr "Bidragets metadata uppdaterade."
+msgstr "Bidragets metadata uppdaterade"
 
 msgid "submission.event.general.suppFileUpdated"
-msgstr "Bidragsfil uppdaterad."
+msgstr "Bidragsfil uppdaterad"
 
 msgid "submission.event.reviewer.reviewAcceptedByProxy"
 msgstr "Granskningsuppdrag accepterat via mellanhand"
@@ -1365,19 +1368,25 @@ msgid "submission.event.lastRevisionDeleted"
 msgstr "Filen \"{$title}\" fick sin senaste bearbetning borttagen av {$username}."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "\"{$name}\" ({$username}) lades till som manusgranskare för filen \"{$file}\"."
+msgstr ""
+"\"{$name}\" ({$username}) lades till som manusgranskare för filen \"{$file}."
+"\""
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "\"{$name}\" ({$username}) togs bort som manusgranskare för filen \"{$file}\"."
+msgstr ""
+"\"{$name}\" ({$username}) togs bort som manusgranskare för filen \"{$file}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) har färdigställt manusgranskningen och laddat upp \"{$file}\"."
+msgstr ""
+"\"{$name}\" ({$username}) har färdigställt manusgranskningen och laddat upp "
+"\"{$file}.\""
 
 msgid "submission.event.signoffSignoff"
 msgstr "\"{$name}\" ({$username}) har signerat godkännande för \"{$file}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) har godkänt korrekturet för \"{$formatName}\"."
+msgstr ""
+"\"{$name}\" ({$username}) har godkänt korrekturet för \"{$formatName}.\""
 
 msgid "submission.overview"
 msgstr "Översikt bidrag"
@@ -1684,3 +1693,106 @@ msgstr "För närvarande i {$stage}-steget."
 
 msgid "submission.list.assignEditor"
 msgstr "Tilldela redaktör"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
+"Commons Erkännande-IngaBearbetningar 3.0 Internationell license</a>.</p>"
+
+msgid "publication.version.confirm"
+msgstr "Vill du skapa en ny version?"
+
+msgid "publication.version.all"
+msgstr "Alla versioner"
+
+msgid "publication.status.published"
+msgstr "Publicerad"
+
+msgid "publication.publish.success"
+msgstr "Publikationsstatus har ändrats."
+
+msgid "publication.publish"
+msgstr "Publicera"
+
+msgid "publication.metadata.success"
+msgstr "Metadatan har uppdaterats."
+
+msgid "publication.event.published"
+msgstr "Bidraget är publicerat."
+
+msgid "publication.editDisabled"
+msgstr "Versionen har publicerats och kan inte redigeras."
+
+msgid "publication.datePublished"
+msgstr "Publiceringsdatum"
+
+msgid "publication.createVersion"
+msgstr "Skapa en ny version"
+
+msgid "publication.contributors"
+msgstr "Medarbetare"
+
+msgid "publication.citations.success"
+msgstr "Referenserna har uppdaterats."
+
+msgid "submission.publication"
+msgstr "Publikation"
+
+msgid "catalog.category.subcategories"
+msgstr "Underkategorier"
+
+msgid "catalog.category.noItems"
+msgstr "Ingenting har publicerats i kategorin ännu."
+
+msgid "submission.currentCoverImage"
+msgstr "Nuvarande bild"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorier"
+
+msgid "category.coverImage"
+msgstr "Omslagsbild"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publiceringsdatum (nyaste först)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publiceringsdatum (äldsta först)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titel (Z-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titel (A-Z)"
+
+msgid "grid.category.categories"
+msgstr "Kategorier"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Det här verket är licensierad under en  <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Erkännande 3.0 Internationell licens</a>.</p>"
+
+msgid "publication.status.unscheduled"
+msgstr ""
+
+msgid "publication.titleAbstract"
+msgstr "Titel & Abstract"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versioner"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstract"

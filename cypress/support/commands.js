@@ -36,7 +36,7 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id=additionalLocales-fr_CA').check();
 
 	// Complete the installation
-	cy.get('button[id^=submitFormButton-]', {timeout: 90000}).click();
+	cy.get('button[id^=submitFormButton-]').click();
 });
 
 Cypress.Commands.add('login', (username, password, context) => {

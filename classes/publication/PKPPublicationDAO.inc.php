@@ -229,8 +229,24 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 			[
 				$pubId,
 				$pubObjectId,
-				'pubid::' . $pubIdType,
+				'pub-id::' . $pubIdType,
 			]
+		);
+		$this->flushCache();
+	}
+
+	/**
+	 * Insert a public ID of a publication
+	 * @param $pubObjectId int ID of the pub object
+	 * @param $pubIdType string One of the NLM pub-id-type values or
+	 * 'other::something' if not part of the official NLM list
+	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+	 * @param $pubId string
+	 */
+	public function insertPubId($pubObjectId, $pubIdType, $pubId) {
+		$this->update(
+			'INSERT INTO publication_settings (publication_id, setting_value, setting_name) VALUES (?, ?, ?)',
+			array((int) $pubObjectId, $pubId, 'pub-id::' . $pubIdType)
 		);
 		$this->flushCache();
 	}
@@ -245,7 +261,7 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO {
 				AND ps.setting_name= ?',
 			[
 				$pubObjectId,
-				'pubid::' . $pubIdType,
+				'pub-id::' . $pubIdType,
 			]
 		);
 		$this->flushCache();

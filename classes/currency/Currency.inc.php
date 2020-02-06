@@ -15,6 +15,7 @@
  * @class Currency
  * @ingroup currency
  * @see CurrencyDAO
+ * @deprecated Use \Sokil\IsoCodes directly.
  *
  * @brief Basic class describing a currency.
  *
@@ -28,6 +29,7 @@ class Currency extends DataObject {
 
 	/**
 	 * Get the name of the currency.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @return string
 	 */
 	function getName() {
@@ -36,6 +38,7 @@ class Currency extends DataObject {
 
 	/**
 	 * Set the name of the currency.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @param $name string
 	 */
 	function setName($name) {
@@ -44,6 +47,7 @@ class Currency extends DataObject {
 
 	/**
 	 * Get currency alpha code.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @return string
 	 */
 	function getCodeAlpha() {
@@ -52,6 +56,7 @@ class Currency extends DataObject {
 
 	/**
 	 * Set currency alpha code.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @param $alphaCode string
 	 */
 	function setCodeAlpha($codeAlpha) {
@@ -60,6 +65,7 @@ class Currency extends DataObject {
 
 	/**
 	 * Get currency numeric code.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @return int
 	 */
 	function getCodeNumeric() {
@@ -68,6 +74,7 @@ class Currency extends DataObject {
 
 	/**
 	 * Set currency numeric code.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @param $codeNumeric string
 	 */
 	function setCodeNumeric($codeNumeric) {
@@ -76,6 +83,7 @@ class Currency extends DataObject {
 
 	/**
 	 * Format a number per a currency.
+	 * @deprecated Use \Sokil\IsoCodes directly.
 	 * @param $amount numeric|null Numeric amount, or null
 	 * @return string|null Formatted amount, or null if null was supplied as amount
 	 */

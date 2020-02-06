@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"PO-Revision-Date: 2020-02-08 03:24+0000\n"
 "Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv/>\n"
@@ -1320,7 +1320,7 @@ msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Bidragsfilen kunde inte importeras"
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Fel underi mport/export:"
+msgstr "Fel under import/export:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr "Den importerade användaren \"{$username}\" saknar lösenord. Kolla formatet på din import-XML. Användaren importerades inte."
@@ -1521,3 +1521,102 @@ msgstr "Avancerad"
 
 msgid "manager.emails.emailTemplates"
 msgstr "E-postmallar"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Bidraget är publicerat"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Bidraget är accepterat"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Bidraget är mottaget"
+
+msgid "stats.userStatistics"
+msgstr "Användarstatistik"
+
+msgid "stats.trends"
+msgstr "Trender"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Totalt inom datum intervallet"
+
+msgid "stats.total"
+msgstr "Totalt"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Månadsvis"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.editorialActivity"
+msgstr "Redaktionell aktivitet"
+
+msgid "stats.descriptionForStat"
+msgstr "Beskrivning för {$stat}"
+
+msgid "stats.dateRange.to"
+msgstr "Till"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Sedan {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Förra året"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Senaste 2 åren"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Senaste 90 dagarna"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Senaste 30 dagarna"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Senaste 12 månaderna"
+
+msgid "stats.dateRange.from"
+msgstr "Från"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Ett av de inlagda datumen finns inte."
+
+msgid "stats.daily"
+msgstr "Dagligen"
+
+msgid "stats.allUsers"
+msgstr "Alla användare"
+
+msgid "grid.category.description"
+msgstr "Beskrivning"
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Kategorins sökväg kan bara innehålla bara bokstäver och nummer."
+
+msgid "grid.category.pathExists"
+msgstr "Kategorins sökväg finns redan. Lägg till en unik sökväg."
+
+msgid "grid.category.urlWillBe"
+msgstr "Kategorins URL kommer att vara: {$sampleUrl}"
+
+msgid "grid.category.name"
+msgstr "Namn"
+
+msgid "grid.category.edit"
+msgstr "Redigera kategori"
+
+msgid "grid.category.add"
+msgstr "Lägg till kategori"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Gör det möjligt att lägga in metadata om täckning"

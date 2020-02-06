@@ -31,7 +31,7 @@ class LibraryFile extends DataObject {
 	function getFilePath() {
 		$contextId = $this->getContextId();
 
-		return Config::getVar('files', 'public_files_dir') . '/contexts/' . $contextId . '/library/' . $this->getServerFileName();
+		return Config::getVar('files', 'files_dir') . '/contexts/' . $contextId . '/library/' . $this->getServerFileName();
 	}
 
 	//

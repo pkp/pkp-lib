@@ -47,8 +47,7 @@ class LibraryFileHandler extends Handler {
 
 		$libraryFile = $libraryFileDao->getById($publicFileId, $context->getId());
 		if ($libraryFile && $libraryFile->getPublicAccess()) {
-			$filePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
-			$libraryFileManager->downloadByPath($filePath);
+			$libraryFileManager->downloadByPath($libraryFile->getFilePath());
 		} else {
 				header('HTTP/1.0 403 Forbidden');
 				echo '403 Forbidden<br>';
@@ -97,8 +96,7 @@ class LibraryFileHandler extends Handler {
 			}
 
 			if ($allowedAccess) {
-				$filePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
-				$libraryFileManager->downloadByPath($filePath);
+				$libraryFileManager->downloadByPath($libraryFile->getFilePath());
 			} else {
 				header('HTTP/1.0 403 Forbidden');
 				echo '403 Forbidden<br>';

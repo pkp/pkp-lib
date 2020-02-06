@@ -278,10 +278,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 				$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
 
 				// Add the attachment to the email.
-				$email->addAttachment(
-					$libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName(),
-					$libraryFile->getOriginalFileName()
-				);
+				$email->addAttachment($libraryFile->getFilePath(), $libraryFile->getOriginalFileName());
 			}
 		}
 

@@ -265,6 +265,8 @@ abstract class Plugin {
 	/**
 	 * Get the filename of the email template data for this plugin.
 	 * Subclasses using email templates should override this.
+	 * @deprecated Starting with OJS/OMP 3.2, localized content should be
+	 *  specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
 	 *
 	 * @return string
 	 */

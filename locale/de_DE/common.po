@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"PO-Revision-Date: 2020-02-08 03:24+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
@@ -1671,3 +1671,89 @@ msgstr ""
 "Beschreiben Sie das Bild für Benutzer/innen, die die Webseite mit einem nur-"
 "Text-Browser oder mit Hilfsgeräten besuchen. Beispielsweise: \"Unser "
 "Redakteur spricht auf der PKP Konferenz.\""
+
+msgid "validator.alpha_num"
+msgstr "Dies darf nur Buchstaben und Zahlen enthalten."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Dies darf nur Buchstaben, Zahlen, Striche und Unterstriche enthalten. "
+"enthalten."
+
+msgid "validator.alpha"
+msgstr "Dies darf nur Buchstaben enthalten."
+
+msgid "validator.after"
+msgstr "Dieses Datum muss nach dem {$date} liegen."
+
+msgid "validator.active_url"
+msgstr "Dies ist keine gültige URL."
+
+msgid "validator.accepted"
+msgstr "Bitte akzeptieren Sie dieses Element."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Dies ist eine freundliche Erinnerung daran, die Gesundheit der Zeitschrift "
+"anhand des Redaktionsberichts zu überprüfen."
+
+msgid "notification.type.editorialReport"
+msgstr "Zusammenfassung des Statistikberichts."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ungültige Veröffentlichung."
+
+msgid "notification.editStageParticipant"
+msgstr "Die Zuordnung zu einem Bearbeitungsschritt wurde geändert."
+
+msgid "notification.cancelledReviewer"
+msgstr "Gutachter/in gestrichen."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Gutachter/in wiedereingesetzt."
+
+msgid "navigation.skip.announcements"
+msgstr "Zu den Mitteilungen springen"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Dieser Beteiligte kann nicht geändert werden."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Beteiligte/r"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Dieser Person das Ändern der Veröffentlichungsdetails erlauben."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Rechte"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} Sprachen vollständig"
+
+#, fuzzy
+msgid "form.multilingualLabel"
+msgstr "{$label} in {$localeName}"
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Dieses Formular konnte nicht abgeschickt werden. Sie wurden möglicherweise "
+"abgemeldet. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
+
+msgid "form.missingRequired"
+msgstr "Dies ist ein Pflichtfeld."
+
+msgid "form.requireId"
+msgstr "Bitte geben Sie eine gültige ID an."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Bitte füllen Sie dieses Feld in {$language} aus."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Es ist ein unerwarteter Fehler aufgetreten. Sie wurden möglicherweise "
+"abgemeldet. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
+
+msgid "form.errors"
+msgstr ""
+"Das Formular wurde nicht gespeichert, da {$count} Fehler aufgetreten sind. "
+"Bitte korrigieren Sie diese(n) Fehler und versuchen Sie es erneut."

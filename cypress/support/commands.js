@@ -36,7 +36,7 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id=additionalLocales-fr_CA').check();
 
 	// Complete the installation
-	cy.get('button[id^=submitFormButton-]', {timeout: 90000}).click();
+	cy.get('button[id^=submitFormButton-]').click();
 });
 
 Cypress.Commands.add('login', (username, password, context) => {
@@ -329,8 +329,8 @@ Cypress.Commands.add('createUser', user => {
 	if (!('roles' in user)) user.roles = [];
 	cy.get('div[id=userGridContainer] a:contains("Add User")').click();
 	cy.wait(2000); // Avoid occasional glitches with given name field
-	cy.get('input[id^="givenName-en_US"]').type(user.givenName, {delay: 0});
-	cy.get('input[id^="familyName-en_US"]').type(user.familyName, {delay: 0});
+	cy.get('input[name="givenName[en_US]"').type(user.givenName, {delay: 0});
+	cy.get('input[name="familyName[en_US]"').type(user.familyName, {delay: 0});
 	cy.get('input[name=email]').type(user.email, {delay: 0});
 	cy.get('input[name=username]').type(user.username, {delay: 0});
 	cy.get('input[name=password]').type(user.password, {delay: 0});
@@ -341,7 +341,7 @@ Cypress.Commands.add('createUser', user => {
 	cy.get('select[name=country]').select(user.country);
 	cy.contains('More User Details').click();
 	cy.get('span:contains("Less User Details"):visible');
-	cy.get('input[id^="affiliation-en_US"]').type(user.affiliation, {delay: 0});
+	cy.get('input[name="affiliation[en_US]"').type(user.affiliation, {delay: 0});
 	cy.get('form[id=userDetailsForm]').find('button[id^=submitFormButton]').click();
 	user.roles.forEach(role => {
 		cy.get('form[id=userRoleForm]').contains(role).click();

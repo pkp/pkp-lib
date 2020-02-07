@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2020-02-06 08:35+0000\n"
+"PO-Revision-Date: 2020-02-08 03:24+0000\n"
 "Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -586,7 +586,7 @@ msgid "manager.reviewForms.title"
 msgstr "Judul"
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr "Aktifkan metadata subyek"
+msgstr "Aktifkan metadata klasifikasi subjek"
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
@@ -731,3 +731,56 @@ msgstr "Tidak ada formulir tinjauan yang digunakan."
 
 msgid "manager.reviewForms.confirmDelete"
 msgstr "Apakah Anda yakin ingin menghapus formulir tinjauan ini?"
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+"Meminta penulis untuk mencantumkan disiplin ilmu saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Jangan meminta disiplin ilmu dari penulis saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Aktifkan metadata disiplin ilmu"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disiplin adalah jenis studi atau cabang pengetahuan seperti yang dijelaskan "
+"oleh fakultas universitas dan masyarakat terpelajar."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Mewajibkan penulis untuk mencantumkan tipe penelitian (metode/pendekatan) "
+"sebelum naskahnya diterima."
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+"Meminta penulis untuk mencantumkan tipe penelitian (metode/pendekatan) saat "
+"menyerahkan naskah."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+"Jangan meminta tipe riset (metode/pendekatan) dari penulis saat menyerahkan "
+"naskah."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Aktifkan metadata tipe riset (metode/pendekatan)"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Sifat atau genre konten utama naskah. Biasanya bertipe \"Teks\", namun dapat "
+"juga berupa \"Dataset\", \"Gambar\" atau salah satu dari <a target=\"_blank\""
+" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-"
+"type-vocabulary\">tipe Dublin Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Mewajibkan penulis untuk mencantumkan klasifikasi subjek sebelum naskahnya "
+"diterima."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+"Meminta penulis untuk mencantumkan klasifikasi subjek saat menyerahkan "
+"naskah."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Jangan meminta klasifikasi subjek dari penulis saat menyerahkan naskah."

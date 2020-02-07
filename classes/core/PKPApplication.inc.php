@@ -391,8 +391,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'ControlledVocabDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabDAO',
 			'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',
 			'ControlledVocabEntrySettingsDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntrySettingsDAO',
-			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO',
-			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
+			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO', // DEPRECATED
+			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO', // DEPRECATED
 			'DataObjectTombstoneDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneDAO',
 			'DataObjectTombstoneSettingsDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneSettingsDAO',
 			'EditDecisionDAO' => 'lib.pkp.classes.submission.EditDecisionDAO',
@@ -402,7 +402,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			'GenreDAO' => 'lib.pkp.classes.submission.GenreDAO',
 			'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',
 			'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
-			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
+			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO', // DEPRECATED
 			'LibraryFileDAO' => 'lib.pkp.classes.context.LibraryFileDAO',
 			'NavigationMenuDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuDAO',
 			'NavigationMenuItemDAO' => 'lib.pkp.classes.navigationMenu.NavigationMenuItemDAO',

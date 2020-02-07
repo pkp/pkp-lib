@@ -245,15 +245,14 @@ class Identity extends DataObject {
 
 	/**
 	 * Get localized country
-	 * @return string
+	 * @return string?
 	 */
 	function getCountryLocalized() {
-		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
-		$country = $this->getCountry();
-		if ($country) {
-			return $countryDao->getCountry($country);
-		}
-		return null;
+		$countryCode = $this->getCountry();
+		if (!$countryCode) return null;
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$country = $isoCodes->getCountries()->getByAlpha2($countryCode);
+		return $country?$country->getLocalName():null;
 	}
 
 	/**

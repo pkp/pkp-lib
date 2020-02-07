@@ -126,23 +126,21 @@ class PKPAuthorForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$author = $this->getAuthor();
-
-		$templateMgr = TemplateManager::getManager($request);
-		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
-		$countries = $countryDao->getCountries();
-		$templateMgr->assign('countries', $countries);
-
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
-
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
-		$templateMgr->assign('authorUserGroups', $authorUserGroups);
-
+		$authorUserGroups = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_AUTHOR);
 		$publication = $this->getPublication();
-		$templateMgr->assign('submissionId', $publication->getData('submissionId'));
-		$templateMgr->assign('publicationId', $publication->getId());
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$countries = array();
+		foreach ($isoCodes->getCountries() as $country) {
+			$countries[$country->getAlpha2()] = $country->getLocalName();
+		}
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign(array(
+			'submissionId' => $publication->getData('submissionId'),
+			'publicationId' => $publication->getId(),
+			'countries' => $countries,
+			'authorUserGroups' => $authorUserGroups,
+		));
 
 		return parent::fetch($request, $template, $display);
 	}

@@ -289,11 +289,11 @@ class PKPInstall extends Installer {
 		}
 
 		// Install email template list and data for each locale
-		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename());
 		foreach ($this->installedLocales as $locale) {
-			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
 		}
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $this->installedLocales);
 
 		// Install default site settings
 		$schemaService = Services::get('schema');

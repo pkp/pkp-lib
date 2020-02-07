@@ -614,11 +614,9 @@ class Installer {
 	 * 		'locales' => 'en_US,fr_CA,...'
 	 */
 	function installEmailTemplate($installer, $attr) {
+		$locales = explode(',', $attr['locales']);
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
-		foreach (explode(',', $attr['locales']) as $locale) {
-			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
-		}
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $locales, false, $attr['key']);
 		return true;
 	}
 
@@ -997,6 +995,39 @@ class Installer {
 			}
 		}
 
+		return true;
+	}
+
+	/**
+	 * Fix library files, which were mistakenly named server-side using source filenames.
+	 * See https://github.com/pkp/pkp-lib/issues/5471
+	 * @return boolean
+	 */
+	public function fixLibraryFiles() {
+		import('classes.file.LibraryFileManager');
+		// Fetch all library files (no method currently in LibraryFileDAO for this)
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+		$result = $libraryFileDao->retrieve('SELECT * FROM library_files');
+		$libraryFiles = new DAOResultFactory($result, $libraryFileDao, '_fromRow', array('id'));
+		$wrongFiles = array();
+		while ($libraryFile = $libraryFiles->next()) {
+			$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
+			$wrongFilePath = $libraryFileManager->getBasePath() .  $libraryFile->getOriginalFileName();
+			$rightFilePath = $libraryFile->getFilePath();
+
+			if (isset($wrongFiles[$wrongFilePath])) {
+				error_log('A potential collision was found between library files ' . $libraryFile->getId() . ' and ' . $wrongFiles[$wrongFilePath]->getId() . '. Please review the database entries and ensure that the associated files are correct.');
+			} else {
+				$wrongFiles[$wrongFilePath] = $libraryFile;
+			}
+
+			// For all files for which the "wrong" filename exists and the "right" filename doesn't,
+			// copy the "wrong" file over to the "right" one. This will leave the "wrong" file in
+			// place, and won't disambiguate cases for which files were clobbered.
+			if (file_exists($wrongFilePath) && !file_exists($rightFilePath)) {
+				$libraryFileManager->copyFile($wrongFilePath, $rightFilePath);
+			}
+		}
 		return true;
 	}
 }

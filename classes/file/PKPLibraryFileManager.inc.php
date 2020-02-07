@@ -100,7 +100,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 		$libraryFile->setFileSize($temporaryFile->getFileSize());
 		$libraryFile->setServerFileName($this->generateFileName($libraryFileType, $temporaryFile->getOriginalFileName()));
 		$libraryFile->setOriginalFileName($temporaryFile->getOriginalFileName());
-		if (!$this->copyFile($temporaryFile->getFilePath(), $this->getBasePath() . $temporaryFile->getOriginalFileName())) {
+		if (!$this->copyFile($temporaryFile->getFilePath(), $this->getBasePath() . $libraryFile->getServerFileName())) {
 			return false;
 		}
 

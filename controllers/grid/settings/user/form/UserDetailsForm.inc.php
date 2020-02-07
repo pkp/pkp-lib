@@ -154,6 +154,11 @@ class UserDetailsForm extends UserForm {
 	 */
 	function display($request = null, $template = null) {
 		$site = $request->getSite();
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$countries = array();
+		foreach ($isoCodes->getCountries() as $country) {
+			$countries[$country->getAlpha2()] = $country->getLocalName();
+		}
 		$templateMgr = TemplateManager::getManager($request);
 
 		$templateMgr->assign(array(
@@ -161,16 +166,13 @@ class UserDetailsForm extends UserForm {
 			'source' => $request->getUserVar('source'),
 			'userId' => $this->userId,
 			'sitePrimaryLocale' => $site->getPrimaryLocale(),
+			'availableLocales' => $site->getSupportedLocaleNames(),
+			'countries' => $countries,
 		));
 
 		if (isset($this->user)) {
 			$templateMgr->assign('username', $this->user->getUsername());
 		}
-
-		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
-
-		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
-		$templateMgr->assign('countries', $countryDao->getCountries());
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
 		$authSources = $authDao->getSources();

@@ -37,12 +37,12 @@ class PKPPaymentSettingsForm extends FormComponent {
 		$this->successMessage = __('manager.payment.success');
 		$this->locales = $locales;
 
-		$currencyDao = \DAORegistry::getDAO('CurrencyDAO');
 		$currencies = [];
-		foreach ($currencyDao->getCurrencies() as $currency) {
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		foreach ($isoCodes->getCurrencies() as $currency) {
 			$currencies[] = [
-				'value' => $currency->getCodeAlpha(),
-				'label' => $currency->getName(),
+				'value' => $currency->getLetterCode(),
+				'label' => $currency->getLocalName(),
 			];
 		}
 

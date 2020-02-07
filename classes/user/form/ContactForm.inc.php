@@ -34,11 +34,15 @@ class ContactForm extends BaseProfileForm {
 	 * @copydoc BaseProfileForm::fetch
 	 */
 	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
-		$countryDao = DAORegistry::getDAO('CountryDAO'); /* @var $countryDao CountryDAO */
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+		$countries = array();
+		foreach ($isoCodes->getCountries() as $country) {
+			$countries[$country->getAlpha2()] = $country->getLocalName();
+		}
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
-			'countries' => $countryDao->getCountries(),
+			'countries' => $countries,
 			'availableLocales' => $site->getSupportedLocaleNames(),
 		));
 

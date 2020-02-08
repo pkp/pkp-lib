@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2020-02-01 08:35+0000\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da/>\n"
@@ -54,7 +54,7 @@ msgid "submission.comments.editComment"
 msgstr "Rediger kommentar"
 
 msgid "submission.comments.importPeerReviews"
-msgstr "Importer peer reviews"
+msgstr "Importér fagfællebedømmelser"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
 msgstr "Bedømmer {$reviewerLetter}:"
@@ -144,28 +144,28 @@ msgid "submission.event.reviewer.reviewerRated"
 msgstr "Bedømmerklassificeringen er fremsendt"
 
 msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "Tildelingen af bedømmer til manuskriptet er fjernet"
+msgstr "Bedømmer ikke længere tilknyttet indsendelsen"
 
 msgid "submission.event.reviewer.reviewFile"
 msgstr "Bedømmelsesfilen er opdateret"
 
 msgid "submission.event.reviewer.reviewInitiated"
-msgstr "Bedømmelsesopgaven er startet"
+msgstr "Bedømmelsesopgaven er påbegyndt"
 
 msgid "submission.event.reviewer.reviewRecommendation"
 msgstr "Fil med bedømmelsesanbefaling"
 
 msgid "submission.event.reviewer.reviewReinitiated"
-msgstr "Bedømmelsesopgaven er startet igen"
+msgstr "Bedømmelsesopgaven er påbegyndt igen"
 
 msgid "submission.event.reviewer.reviewResubmitted"
 msgstr "Bedømmelsen er fremsendt igen"
 
 msgid "submission.event.reviewer.reviewRevision"
-msgstr "Bedømmers revideringsfil er opdateret"
+msgstr "Bedømmers revisionsfil er opdateret"
 
 msgid "submission.files"
-msgstr "filer"
+msgstr "Filer"
 
 msgid "submission.galley"
 msgstr "Publiceringsversion"
@@ -174,7 +174,7 @@ msgid "submission.history.clearLog"
 msgstr "Ryd log"
 
 msgid "submission.history"
-msgstr "Oversigt"
+msgstr "Historik"
 
 msgid "submission.history.noLogEntries"
 msgstr "Ingen logposter."
@@ -195,34 +195,34 @@ msgid "submission.history.viewLog"
 msgstr "Vis log"
 
 msgid "submission.initiated"
-msgstr "Startet"
+msgstr "Påbegyndt"
 
 msgid "submission.lastModified"
 msgstr "Senest ændret"
 
 msgid "submission.layout.addGalley"
-msgstr "Tilføj et layoutsatsskib"
+msgstr "Tilføj et layout-publiceringsfil"
 
 msgid "submission.layout.confirmDeleteGalley"
-msgstr "Er du sikker på, at du vil slette dette satsskib permanent?"
+msgstr "Er du sikker på, at du vil slette denne publiceringsfil permanent?"
 
 msgid "submission.layout.confirmDeleteGalleyImage"
-msgstr "Er du sikker på, at du vil fjerne dette billede fra satsskibet?"
+msgstr "Er du sikker på, at du vil fjerne dette billede fra publiceringsfilen?"
 
 msgid "submission.layout.confirmDeleteSupplementaryFile"
 msgstr "Er du sikker på, at du vil slette denne supplerende fil permanent?"
 
 msgid "submission.layout.deleteGalleyStylesheet"
-msgstr "Slet dette typografiark."
+msgstr "Slet dette stylesheet."
 
 msgid "submission.layout.editGalley"
-msgstr "Rediger et layoutsatsskib"
+msgstr "Rediger et layout-publiceringsfil"
 
 msgid "submission.layout.galleyFormat"
-msgstr "Publiceringsversion"
+msgstr "Publiceringsformat"
 
 msgid "submission.layout.galleyHTMLData"
-msgstr "HTML-satsskibsfiler"
+msgstr "HTML-publiceringsfiler"
 
 msgid "submission.layout.galleyImages"
 msgstr "Billeder"
@@ -231,16 +231,16 @@ msgid "submission.layout.galleyLabelInstructions"
 msgstr "Bruges til at identificere elementets filformat (f.eks. HTML, PDF osv.)."
 
 msgid "submission.layout.galleyLabel"
-msgstr "Etiket"
+msgstr "Publicerings-etiket"
 
 msgid "submission.layout.galleyLabelRequired"
-msgstr "En etiket (format) er påkrævet."
+msgstr "En publicerings-etiket er påkrævet."
 
 msgid "submission.layout.galleyLanguageRequired"
 msgstr "Valg af sprog er påkrævet."
 
 msgid "submission.layout.galleyLocaleRequired"
-msgstr "En landestandard er påkrævet."
+msgstr "En publiceringssprog er påkrævet."
 
 msgid "submission.layout.galleyNoImages"
 msgstr "Ingen billeder"
@@ -249,7 +249,7 @@ msgid "submission.layout.galleys"
 msgstr "Publiceringsversioner"
 
 msgid "submission.layout.galleyStylesheet"
-msgstr "Typografiarksfil"
+msgstr "Stylesheet-fil"
 
 msgid "submission.layout.galleyStyle"
 msgstr "Typografi"
@@ -258,22 +258,22 @@ msgid "submission.layout.initialGalleyCreation"
 msgstr "Oprettelse af første publiceringsversion"
 
 msgid "submission.layout.layoutFile"
-msgstr "Layoutfil"
+msgstr "Layout-fil"
 
 msgid "submission.layout"
 msgstr "Layout"
 
 msgid "submission.layout.layoutVersion"
-msgstr "Layoutversion"
+msgstr "Layout-version"
 
 msgid "submission.layout.newGalley"
-msgstr "Opret ny publiceringsversion"
+msgstr "Opret ny publicerings-version"
 
 msgid "submission.layout.newSupplementaryFile"
 msgstr "Overfør ny supplerende fil"
 
 msgid "submission.layout.noStyleFile"
-msgstr "Der er ikke føjet en typografiarksfil til denne publiceringsversion."
+msgstr "Der er ikke føjet en stylesheet-fil til denne publiceringsversion."
 
 msgid "submission.layout.supplementaryFiles"
 msgstr "Bedømmelse af supplerende fil"
@@ -285,7 +285,7 @@ msgid "submission.layout.viewProof"
 msgstr "Vis korrektur"
 
 msgid "submission.metadata"
-msgstr "Manuskriptmetadata"
+msgstr "Indsendelsesmetadata"
 
 msgid "submission.noReviewAssignments"
 msgstr "Ingen bedømmelsesopgaver"
@@ -297,7 +297,7 @@ msgid "submission.notes.attachedFile"
 msgstr "Vedhæftet fil"
 
 msgid "submission.notes.backToSubmissionNotes"
-msgstr "Tilbage til Manuskriptnoter"
+msgstr "Tilbage til indsendelsesnoter"
 
 msgid "submission.notes.breadcrumb"
 msgstr "Noter"
@@ -309,10 +309,10 @@ msgid "submission.notes.collapseNotes"
 msgstr "Skjul noter"
 
 msgid "submission.notes.confirmDeleteAll"
-msgstr "Vil du fjerne alle manuskriptnoter?"
+msgstr "Vil du fjerne alle indsendelsesnoter?"
 
 msgid "submission.notes.confirmDelete"
-msgstr "Vil du fjerne denne manuskriptnote?"
+msgstr "Vil du fjerne denne indsendelsesnote?"
 
 msgid "submission.notes.createNewNote"
 msgstr "Opret ny note"
@@ -327,13 +327,13 @@ msgid "submission.notes.expandNotes"
 msgstr "Udvid noter"
 
 msgid "submission.notes.noSubmissionNotes"
-msgstr "Ingen manuskriptnoter"
+msgstr "Ingen indsendelsesnoter"
 
 msgid "submission.notes.removeUploadedFile"
 msgstr "Fjern overført fil"
 
 msgid "submission.notes"
-msgstr "Manuskriptnoter"
+msgstr "Indsendelsesnoter"
 
 msgid "submission.notes.updateNote"
 msgstr "Opdater note"
@@ -348,7 +348,7 @@ msgid "submission.page.editing"
 msgstr "#{$id} Redigering"
 
 msgid "submission.page.history"
-msgstr "#{$id} Oversigt"
+msgstr "#{$id} Historik"
 
 msgid "submission.page.review"
 msgstr "#{$id} Bedømmelse"
@@ -357,7 +357,7 @@ msgid "submission.page.summary"
 msgstr "#{$id} Resumé"
 
 msgid "submission.peerReview"
-msgstr "Peer review"
+msgstr "Fagfællebedømmelse"
 
 msgid "submission.recommendation"
 msgstr "Anbefaling: {$recommendation}"
@@ -402,7 +402,7 @@ msgid "submissions.incomplete"
 msgstr "Ikke fuldført"
 
 msgid "submissions.noSubmissions"
-msgstr "Ingen manuskripter"
+msgstr "Ingen indsendelser"
 
 msgid "submissions.queuedEditing"
 msgstr "I kø til redigering"
@@ -426,13 +426,13 @@ msgid "submission.start"
 msgstr "Start"
 
 msgid "submission.submissionHistory"
-msgstr "Oversigt over manuskript"
+msgstr "Indsendelseshistorik"
 
 msgid "submission.submissionManuscript"
-msgstr "Manuskript"
+msgstr "Indsendelsesmanuskript"
 
 msgid "submission.submissionReview"
-msgstr "Bedømmelse af manuskript"
+msgstr "Bedømmelse af indsendelse"
 
 msgid "submission.submitter"
 msgstr "Indsender"
@@ -540,10 +540,10 @@ msgid "metadata.property.validationMessage.issue"
 msgstr "Indtast et gyldigt nummer."
 
 msgid "metadata.property.displayName.volume"
-msgstr "Årgang"
+msgstr "Årgang/Bind"
 
 msgid "metadata.property.validationMessage.volume"
-msgstr "Indtast en gyldig årgang."
+msgstr "Indtast gyldig årgang/bind."
 
 msgid "metadata.property.displayName.season"
 msgstr "Sæson"
@@ -573,7 +573,7 @@ msgid "metadata.property.displayName.supplement"
 msgstr "Tillæg"
 
 msgid "metadata.property.validationMessage.supplement"
-msgstr "Indtast et gyldigt supplement."
+msgstr "Indtast et gyldigt tillæg."
 
 msgid "metadata.property.displayName.conf-date"
 msgstr "Konferencedato"
@@ -636,52 +636,52 @@ msgid "metadata.property.validationMessage.publisher-name"
 msgstr "Indtast et gyldigt udgivernavn."
 
 msgid "metadata.property.displayName.isbn"
-msgstr "ISBN-nummer"
+msgstr "ISBN"
 
 msgid "metadata.property.validationMessage.isbn"
-msgstr "Indtast et gyldigt ISBN-nummer (9 eller 13 cifre)."
+msgstr "Indtast et gyldigt ISBN (9 eller 13 cifre)."
 
 msgid "metadata.property.displayName.issn"
-msgstr "ISSN-nummer (tryk)"
+msgstr "Print-ISSN"
 
 msgid "metadata.property.validationMessage.issn"
-msgstr "Indtast et gyldigt ISSN-nummer (tryk)."
+msgstr "Indtast et gyldigt print-ISSN."
 
 msgid "metadata.property.displayName.eissn"
-msgstr "eISSN-nummer"
+msgstr "eISSN"
 
 msgid "metadata.property.validationMessage.eissn"
-msgstr "Indtast et gyldigt eISSN-nummer."
+msgstr "Indtast et gyldigt eISSN."
 
 msgid "metadata.property.displayName.doi"
-msgstr "DOI-nummer"
+msgstr "DOI"
 
 msgid "metadata.property.validationMessage.doi"
-msgstr "Indtast et gyldigt DOI-nummer."
+msgstr "Indtast et gyldigt DOI."
 
 msgid "metadata.property.displayName.publisher-id"
-msgstr "Custom Publication-id"
+msgstr "Custom Publication ID"
 
 msgid "metadata.property.validationMessage.publisher-id"
-msgstr "Indtast et gyldigt Custom Publication-id."
+msgstr "Indtast et gyldigt custom publication ID."
 
 msgid "metadata.property.displayName.coden"
-msgstr "CODEN-kode"
+msgstr "CODEN"
 
 msgid "metadata.property.validationMessage.coden"
-msgstr "Indtast en gyldig CODEN-kode."
+msgstr "Indtast en gyldig CODEN."
 
 msgid "metadata.property.displayName.sici"
-msgstr "SICI-kode"
+msgstr "SICI"
 
 msgid "metadata.property.validationMessage.sici"
-msgstr "Indtast en gydlg SICI-kode."
+msgstr "Indtast en gyldlg SICI."
 
 msgid "metadata.property.displayName.pmid"
-msgstr "PMID-nummer"
+msgstr "PMID"
 
 msgid "metadata.property.validationMessage.pmid"
-msgstr "Indtast et gyldigt PMID-nummer."
+msgstr "Indtast et gyldigt PMID."
 
 msgid "metadata.property.displayName.uri"
 msgstr "Link til udgivelsen"
@@ -759,7 +759,7 @@ msgid "submission.currentAgencies"
 msgstr "Aktuelle bureauer"
 
 msgid "submission.indexingInformation"
-msgstr "Indekserer information"
+msgstr "Indekseringsinformation"
 
 msgid "submission.uploadSuccessful"
 msgstr "Din fil er blevet uploadet."
@@ -807,19 +807,25 @@ msgid "submission.createRemote"
 msgstr "Opret ekstern"
 
 msgid "submission.form.name"
-msgstr "Giv denne fil et sigendenavn"
+msgstr "Giv denne fil et navn (f.eks., Manuskript; Tabel 1)"
 
 msgid "submission.form.replaceExisting"
 msgstr "Erstat en eksisterende fil?"
 
 msgid "log.review.reviewerAssigned"
-msgstr "{$reviewerName} er blevet tildelt til at bedømme manuskriptet {$submissionId} for bedømmelsesrunde {$round}."
+msgstr ""
+"{$reviewerName} er blevet valgt til at bedømme manuskriptet {$submissionId} "
+"i forbindelse med bedømmelsesrunde {$round}."
 
 msgid "log.review.reviewCleared"
-msgstr "Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er ryddet."
+msgstr ""
+"Runde {$round}-bedømmelsen, der blev foretaget af {$reviewerName}, i "
+"forbindelse med manuskriptet {$submissionId} er blevet godkendt."
 
 msgid "log.review.reviewReinstated"
-msgstr "Rundebedømmelsen {$round}, der foretages af {$reviewerName}, for manuskriptet {$submissionId} er startet igen."
+msgstr ""
+"Runde {$round}-bedømmelsen, der foretages af {$reviewerName}, i forbindelse "
+"med manuskriptet {$submissionId} er blevet genoptaget."
 
 msgid "submission.reviewForm"
 msgstr "Review formular"
@@ -903,7 +909,7 @@ msgid "submission.contributors"
 msgstr "Liste over bidragydere"
 
 msgid "submission.documents"
-msgstr "Dokument"
+msgstr "Indsendelsesdokumenter"
 
 msgid "submission.document"
 msgstr "Dokument"
@@ -969,7 +975,7 @@ msgid "editor.submission.stageParticipants"
 msgstr "Deltagere"
 
 msgid "submission.identifiers"
-msgstr "Identifikator"
+msgstr "Identifikatorer"
 
 msgid "submission.publisherId"
 msgstr "Public URL identifier"
@@ -1011,7 +1017,8 @@ msgid "editor.submission.removeStageParticipant"
 msgstr "Fjern deltager"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Du er i gang med at fjerne denne deltager fra <strong>alle</strong> trin. Hvis brugeren har andre igangværende redigeringsopgaver, vil de også blive slettet."
+msgstr ""
+"Du er i gang med at fjerne denne deltager fra <strong>alle</strong> trin."
 
 msgid "submission.queries.production"
 msgstr "Drøftelser under produktion"
@@ -1053,7 +1060,7 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Tilføj denne bidragyder til oversigtslisten?"
 
 msgid "submission.upload.query"
-msgstr "Upload indlæg"
+msgstr "Upload indlægs-fil"
 
 msgid "submission.upload.userGroup"
 msgstr "Upload denne fil i min egenskab af..."
@@ -1107,10 +1114,12 @@ msgid "submission.upload.copyeditedVersion"
 msgstr "Upload manuskriptredigeret fil"
 
 msgid "submission.submit.submissionLocale"
-msgstr "Sprog"
+msgstr "Indsendelsessprog"
 
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "Dette tidsskrift accepterer indleverede manuskripter på en række sprog. Vælg det primære sprog for indleveringen i rullemenuen."
+msgstr ""
+"Dette tidsskrift accepterer indsendelser på en række sprog. Vælg det primære "
+"sprog for indsendelsen i rullemenuen."
 
 msgid "notification.type.copyeditorRequest"
 msgstr "Du er blevet bedt om at gennemse manuskriptredigeringen af \"{$title}\"."
@@ -1356,10 +1365,10 @@ msgid "submission.stageNotInitiated"
 msgstr "Trinnet blev ikke påbegyndt."
 
 msgid "notification.type.layouteditorRequest"
-msgstr "Du er belvet bedt om at bedømme layout til \"{$title}\"."
+msgstr "Du er blevet bedt om at gennemse layout til \"{$title}\"."
 
 msgid "notification.type.indexRequest"
-msgstr "Du er belvet bedt om at indeksere \"{$title}\"."
+msgstr "Du er blevet bedt om at indeksere \"{$title}\"."
 
 msgid "notification.type.editorDecisionTitle"
 msgstr "Seneste redaktørbeslutning."
@@ -1479,7 +1488,7 @@ msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
 
 msgid "submission.howToCite.downloadCitation"
-msgstr "Download henvisninger"
+msgstr "Download citationer"
 
 msgid "submission.event.participantRemoved"
 msgstr "\"{$name}\" ({$username}) blev fjernet som en {$userGroupName}."
@@ -1572,7 +1581,7 @@ msgid "submission.query.noParticipantOptions"
 msgstr "Der skal udpeges mindst én deltager i forbindelse med denne indsendelse før en drøftelse kan påbegyndes."
 
 msgid "submission.list.infoCenter"
-msgstr "Historik & Noter"
+msgstr "Aktivitetslog & Noter"
 
 msgid "submission.list.responseDue"
 msgstr "Svar forfalden"
@@ -1590,7 +1599,7 @@ msgid "submission.list.reviewsCompleted"
 msgstr "Angivne bedømmelser afsluttet"
 
 msgid "submission.list.revisionsSubmitted"
-msgstr "Tilretninger indsendt"
+msgstr "Revisioner indsendt"
 
 msgid "submission.list.copyeditsSubmitted"
 msgstr "Manuskriptredigerede filer indsendt"
@@ -1608,7 +1617,9 @@ msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Denne indsendelse skal afsluttes før en redaktør vil bedømme den."
 
 msgid "submission.citations.description"
-msgstr "Indsæt hver reference på en ny linje så den kan ekstraheres."
+msgstr ""
+"Indsæt hver reference på en ny linje så den kan ekstraheres og registreres "
+"separat."
 
 msgid "submission.parsedCitations"
 msgstr "Ekstraherede referencer"
@@ -1690,22 +1701,24 @@ msgid "submission.submit.userGroupDescriptionManagers"
 msgstr "Indsend med en af følgende roller, hvis du gerne selv vil kunne redigere og publicere denne indsendelse: {$managerGroups}"
 
 msgid "log.review.reviewUnconsidered"
-msgstr "{$editorName} har markeret runde {$round} bedømmelsen til indsendelse {$submissionId} som værende ikke overvejet."
+msgstr ""
+"{$editorName} har markeret runde {$round}-bedømmelsen i forbindelse med "
+"indsendelse {$submissionId} som værende uovervejet."
 
 msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
 msgid "submission.list.assignEditor"
-msgstr "Tildel Redaktør"
+msgstr "Tilknyt redaktør"
 
 msgid "grid.category.categories"
 msgstr "Kategorier"
 
 msgid "catalog.sortBy.titleAsc"
-msgstr "Titel (A-Z)"
+msgstr "Titel (A-Å)"
 
 msgid "catalog.sortBy.titleDesc"
-msgstr "Titel (Z-A)"
+msgstr "Titel (Å-A)"
 
 msgid "catalog.sortBy.datePublishedAsc"
 msgstr "Udgivelsesdato (ældste først)"
@@ -1737,7 +1750,7 @@ msgstr ""
 "i øjeblikket {$count} ord langt."
 
 msgid "publication.version.details"
-msgstr "Publikationsdetaljer for version {$version}"
+msgstr "Publikationsoplysninger i forbindelse med version {$version}"
 
 msgid "publication.version.confirm"
 msgstr "Er du sikker på, at du vil oprette en ny version?"
@@ -1750,13 +1763,13 @@ msgstr ""
 "Er du sikker på, at du ikke vil have dette planlagt til senere publicering?"
 
 msgid "publication.unschedule"
-msgstr "Ikke planlagt"
+msgstr "Planlæg ikke"
 
 msgid "publication.unpublish.confirm"
 msgstr "Er du sikker på, at du ikke ønsker, at dette skal publiceres?"
 
 msgid "publication.unpublish"
-msgstr "Ikke publiceret"
+msgstr "Træk tilbage"
 
 msgid "publication.titleAbstract.success"
 msgstr "Titlen og resuméet er blevet opdateret."
@@ -1928,8 +1941,8 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Redaktør {$userName} har bekræftet en bedømmelse fra  {$round}-bedømmelsen i "
-"forbindelse med indsendelse {$submissionId}."
+"Redaktør {$userName} har valideret en {$round}-bedømmelsen i forbindelse med "
+"indsendelse {$submissionId}."
 
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
@@ -1939,7 +1952,7 @@ msgstr ""
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
 "Er du sikker på, at du vil have, at forfatterne til denne indsendelse ikke "
-"skal kunneredigere indsendelsens metadata på dette trin?"
+"skal kunne redigere indsendelsens metadata på dette trin?"
 
 msgid "editor.submission.addPermissionToEdit"
 msgstr "Tillade redigering af metadata"
@@ -1972,12 +1985,12 @@ msgstr "{$datePublished} — Opdateret d. {$dateUpdated}"
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""
-"Forfatterne har nu ikke lov til at redigere metadata, når de indsendes i "
-"trin {stage}."
+"Forfatterne har nu lov til at redigere metadata, når indsendelsen er på trin "
+"{stage}."
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
-"Forfatterne har nu lov til at redigere metadata, når de indsendes i trin "
+"Forfatterne har nu lov til at redigere metadata, når indsendelsen er på trin "
 "{stage}."
 
 msgid "metadata.property.displayName.abstract"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-02-04 23:10+0000\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
 "Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/de/>"
 "\n"
@@ -60,3 +60,92 @@ msgstr "Sie sind nicht berechtigt auf die angeforderte Quelle zuzugreifen."
 
 msgid "api.400.paramNotSupported"
 msgstr "Der Parameter {$param} wird nicht unterstützt."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Das {$vocab} Vokabular wird nicht unterstützt."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Die {$locale} Regionaleinstellung wird nicht unterstützt."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Das aktive Theme, {$themePluginPath}, ist nicht angeschalten oder nicht "
+"installiert."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Die Datei konnte aufgrund eines Fehlers in der Serverkonfiguration nicht "
+"hochgeladen werden. Bitte kontaktieren Sie den Systemadministrator."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Dateien größer als {$maxSize} können nicht hochgeladen werden."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Eine oder mehrere Dateien konnten nicht hochgeladen werden."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Mit dieser Anfrage konnte keine hochzuladende Datei gefunden werden."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Dieser Endpoint ist nicht verfügbar in diesem Zusammenhang. Er muss aus dem "
+"Seiten-weiten Namensraum angefragt werden."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Ihre Anfrage war ungültig. Die Sortierreihenfolge muss `desc` oder `asc` "
+"sein."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Ihre Anfrage war ungültig. Der Zeitabschnitt muss `day` oder `month` sein."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Das Enddatum kann nicht später als gestern sein."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Das Datum kann nicht vor dem 2001-01-01 liegen."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Das Startdatum kann nicht nach dem Enddatum liegen."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Das Datum muss in dem Format YYYY-MM-DD vorliegen."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Sie sind nicht berechtigt diese Veröffentlichung zu ändern."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Das Verzeichnis für öffentliche Dokumente wurde nicht gefunden oder Dateien "
+"können nicht dorthin gespeichert werden. Bitte wenden Sie sich zur "
+"Problemlösung an Ihre/n Administrator/in."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Sie haben nicht genug Platz in Ihrem Nutzerverzeichnis. Die hochzuladende "
+"Datei ist  {$fileUploadSize}kb groß und es stehen nur  {$dirSizeLeft}kb zur "
+"Verfügung."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Sie sind nicht berechtigt Dateien hochzuladen."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Das hochgeladene Dateiformat stimmt nicht mit der Dateiendung überein. Dies "
+"kann passieren, wenn eine Datei in einen inkompatibles Format umbenannt "
+"wurde, z.B von photo.png in photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Das hochgeladene Bild ist ungültig."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Es können nur folgende Dateiformate hochgeladen werden: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Sie müssen diesen Beitrag zrückziehen, bevor er gelöscht werden kann."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Der Stats kann nicht direkt durch die API geändert werden. Bitte nutzen Sie "
+"die /publish und /unpubish endpoints."

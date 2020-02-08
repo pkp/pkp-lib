@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2020-02-04 14:33+0000\n"
+"PO-Revision-Date: 2020-02-06 08:35+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "da/>\n"
@@ -33,13 +33,13 @@ msgid "reviewer.step1.requestBoilerplate"
 msgstr "Du er blevet valgt som mulig bedømmer på medfølgende indsendelse. Nedenfor finder du en oversigt over indsendelsen såvel som tidsplanen for denne bedømmelse. Vi håber, du har mulighed for at medvirke."
 
 msgid "reviewer.step1.viewAllDetails"
-msgstr "Se alle indsendelsesdetaljer"
+msgstr "Se alle indsendelsesoplysninger"
 
 msgid "reviewer.aboutDueDates"
 msgstr "Om forfaldsdatoer"
 
 msgid "reviewer.submission.acceptReview"
-msgstr "Acceptér anmodningen, forstsæt til trin #2"
+msgstr "Acceptér anmodningen, fortsæt til trin #2"
 
 msgid "reviewer.submission.declineReview"
 msgstr "Afvis anmodningen"
@@ -87,7 +87,7 @@ msgid "reviewer.submission.noCompetingInterests"
 msgstr "Jeg har ingen konkurrencemæssige interesser"
 
 msgid "reviewer.submission.hasCompetingInterests"
-msgstr "Jeg har muligvis konkurrencemæssige interesser (Uddyb nedenfor)"
+msgstr "Jeg har muligvis konkurrencemæssige interesser (uddyb nedenfor)"
 
 msgid "reviewer.submission.competingInterests"
 msgstr "Konkurrencemæssige interesser"

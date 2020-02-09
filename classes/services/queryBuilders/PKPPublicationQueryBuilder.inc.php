@@ -161,7 +161,7 @@ class PKPPublicationQueryBuilder extends BaseQueryBuilder implements EntityQuery
 	public function getDateBoundaries() {
 		return $this->getQuery()
 			->select([
-				Capsule::raw('MIN(p.date_published)', 'MAX(p.date_published)')
+				Capsule::raw('MIN(p.date_published), MAX(p.date_published)')
 			]);
 	}
 }

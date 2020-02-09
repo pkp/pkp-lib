@@ -174,24 +174,7 @@ class PKPInstall extends Installer {
 			return false;
 		}
 
-		// Re-connect to the created database
-		$this->dbconn->disconnect();
-
-		$conn = new DBConnection(
-			$this->getParam('databaseDriver'),
-			$this->getParam('databaseHost'),
-			$this->getParam('databaseUsername'),
-			$this->getParam('databasePassword'),
-			$this->getParam('databaseName'),
-			true,
-			$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
-		);
-
-		DBConnection::getInstance($conn);
-
-		$this->dbconn =& $conn->getDBConn();
-
-		if (!$conn->isConnected()) {
+		if (!$this->dbconn->SelectDB($this->getParam('databaseName'))) {
 			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
 			return false;
 		}

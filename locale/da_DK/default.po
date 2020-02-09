@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-02-04 14:32+0000\n"
+"PO-Revision-Date: 2020-02-10 15:35+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "da/>\n"
@@ -18,7 +18,7 @@ msgid "default.genres.other"
 msgstr "Andet"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Websted- admin"
+msgstr "Websted-admin"
 
 msgid "default.groups.plural.siteAdmin"
 msgstr "Websteds-admin'er"
@@ -30,7 +30,7 @@ msgid "default.groups.plural.productionEditor"
 msgstr "Produktionsredaktører"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdR"
+msgstr "ProdE"
 
 msgid "default.groups.name.copyeditor"
 msgstr "Manuskriptredaktør"
@@ -39,7 +39,7 @@ msgid "default.groups.plural.copyeditor"
 msgstr "Manuskriptredaktører"
 
 msgid "default.groups.abbrev.copyeditor"
-msgstr "MR"
+msgstr "CE"
 
 msgid "default.groups.name.proofreader"
 msgstr "Korrekturlæser"
@@ -48,7 +48,7 @@ msgid "default.groups.plural.proofreader"
 msgstr "Korrekturlæsere"
 
 msgid "default.groups.abbrev.proofreader"
-msgstr "KL"
+msgstr "PR"
 
 msgid "default.groups.name.designer"
 msgstr "Designer"
@@ -66,7 +66,7 @@ msgid "default.groups.plural.internalReviewer"
 msgstr "Interne bedømmere"
 
 msgid "default.groups.abbrev.internalReviewer"
-msgstr "IB"
+msgstr "IR"
 
 msgid "default.groups.name.marketing"
 msgstr "Marketings- og salgskoordinator"
@@ -75,7 +75,7 @@ msgid "default.groups.plural.marketing"
 msgstr "Marketings- og salgskoordinatorer"
 
 msgid "default.groups.abbrev.marketing"
-msgstr "MSK"
+msgstr "MS"
 
 msgid "default.groups.name.funding"
 msgstr "Finansieringskoordinator"
@@ -84,7 +84,7 @@ msgid "default.groups.plural.funding"
 msgstr "Finansieringskoordinatorer"
 
 msgid "default.groups.abbrev.funding"
-msgstr "FK"
+msgstr "FC"
 
 msgid "default.groups.name.indexer"
 msgstr "Klassifikator"
@@ -93,7 +93,7 @@ msgid "default.groups.plural.indexer"
 msgstr "Klassifikatorer"
 
 msgid "default.groups.abbrev.indexer"
-msgstr "KLA"
+msgstr "IND"
 
 msgid "default.groups.name.layoutEditor"
 msgstr "Layoutredaktør"
@@ -102,7 +102,7 @@ msgid "default.groups.plural.layoutEditor"
 msgstr "Layoutredaktører"
 
 msgid "default.groups.abbrev.layoutEditor"
-msgstr "LR"
+msgstr "LE"
 
 msgid "default.groups.name.author"
 msgstr "Forfatter"
@@ -111,7 +111,7 @@ msgid "default.groups.plural.author"
 msgstr "Forfattere"
 
 msgid "default.groups.abbrev.author"
-msgstr "FO"
+msgstr "AU"
 
 msgid "default.groups.name.translator"
 msgstr "Oversætter"
@@ -129,10 +129,10 @@ msgid "default.groups.plural.reader"
 msgstr "Læsere"
 
 msgid "default.groups.abbrev.reader"
-msgstr "Laes"
+msgstr "Læs"
 
 msgid "default.genres.multimedia"
-msgstr "Multimedia"
+msgstr "Multimedie"
 
 msgid "default.genres.image"
 msgstr "Billede"

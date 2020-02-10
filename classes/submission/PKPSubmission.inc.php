@@ -330,7 +330,7 @@ abstract class PKPSubmission extends DataObject {
 		if (!$publication) {
 			return '';
 		}
-		return $publication->getData('licenseURL');
+		return $publication->getData('licenseUrl');
 	}
 
 	/**
@@ -341,7 +341,7 @@ abstract class PKPSubmission extends DataObject {
 	function setLicenseURL($licenseURL) {
 		$publication = $this->getCurrentPublication();
 		if ($publication) {
-			$publication->setData('licenseURL', $licenseURL);
+			$publication->setData('licenseUrl', $licenseURL);
 		}
 	}
 

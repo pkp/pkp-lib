@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2020-02-10 15:35+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/id/>\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "about.aboutSite"
 msgstr "Tentang Kami"
@@ -397,7 +400,7 @@ msgid "common.pluginDisabled"
 msgstr "Plugin \"{$pluginName}\" tidak aktif."
 
 msgid "common.preview"
-msgstr "Preview"
+msgstr "Pratinjau"
 
 msgid "common.publisher"
 msgstr "Penerbit"
@@ -409,7 +412,7 @@ msgid "common.record"
 msgstr "Rekam"
 
 msgid "common.refresh"
-msgstr "Refresh"
+msgstr "Segarkan"
 
 msgid "common.related"
 msgstr "Terkait"
@@ -490,7 +493,7 @@ msgid "common.untitled"
 msgstr "Tidak berjudul"
 
 msgid "common.updated"
-msgstr "Updated"
+msgstr "Diperbaharui"
 
 msgid "common.upload"
 msgstr "Unggah"
@@ -616,7 +619,7 @@ msgid "email.to"
 msgstr "Kepada"
 
 msgid "form.errorsOccurred"
-msgstr "Kesalahan terjadi memproses form ini"
+msgstr "Terjadi masalah dalam memproses formulir ini"
 
 msgid "form.formLanguage.description"
 msgstr "Pilih bahasa yang diinginkan."
@@ -637,7 +640,7 @@ msgid "form.postRequired"
 msgstr "Form tidak diserahkan dengan tepat."
 
 msgid "form.required"
-msgstr "(* Dibutuhkan)"
+msgstr "(* Wajib diisi)"
 
 msgid "form.resubmit"
 msgstr "Serahkan ulang"
@@ -727,10 +730,10 @@ msgid "icon.view.alt"
 msgstr "Lihat"
 
 msgid "locale.primary"
-msgstr "Locale Utama"
+msgstr "Bahasa Utama"
 
 msgid "locale.supported"
-msgstr "Locale Pendukung"
+msgstr "Bahasa Pendukung"
 
 msgid "navigation.about"
 msgstr "Tentang Kami"
@@ -751,10 +754,10 @@ msgid "navigation.infoForReaders"
 msgstr "Untuk Pembaca"
 
 msgid "navigation.infoForReaders.long"
-msgstr "Informasi untuk pembaca"
+msgstr "Informasi Untuk Pembaca"
 
 msgid "navigation.items"
-msgstr "{$from} - {$to} of {$total} Item"
+msgstr "{$from} - {$to} of {$total} item"
 
 msgid "navigation.login"
 msgstr "Login"
@@ -781,13 +784,13 @@ msgid "navigation.stepNumber"
 msgstr "Langkah{$step}"
 
 msgid "navigation.userHome"
-msgstr " Beranda Pengguna"
+msgstr "Beranda Pengguna"
 
 msgid "navigation.user"
 msgstr "Pengguna"
 
 msgid "notification.allow"
-msgstr "Izinkan semua tipe notifikasi ini untuk ditampilkan di fees notifikasi saya."
+msgstr "Izinkan semua tipe notifikasi ini."
 
 msgid "notification.confirmError"
 msgstr "Ada kesalahan saat mengkonfirmasi langganan Anda."
@@ -799,10 +802,10 @@ msgid "notification.noneExist"
 msgstr "Anda tidak punya notifikasi saat ini."
 
 msgid "notification.notification"
-msgstr "Notifikasi"
+msgstr "Pemberitahuan"
 
 msgid "notification.notifications"
-msgstr "Notifikasi"
+msgstr "Pemberitahuan"
 
 msgid "notification.settings"
 msgstr "Pengaturan Notifikasi"
@@ -887,3 +890,719 @@ msgstr "Tipe (metode/pendekatan)"
 
 msgid "semicolon"
 msgstr "{$label}:"
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadata naskah telah disimpan."
+
+msgid "notification.sentNotification"
+msgstr "Pemberitahuan telah dikirim."
+
+msgid "notification.removedSubmission"
+msgstr "Hapus naskah masuk."
+
+msgid "notification.removedFile"
+msgstr "Hapus file."
+
+msgid "notification.removedNote"
+msgstr "Cacatan telah dihapus."
+
+msgid "notification.addedNote"
+msgstr "Cacatan telah ditambahkan."
+
+msgid "notification.email"
+msgstr "Jangan kirimi saya surel untuk jenis pemberitahuan ini."
+
+msgid "notification.editedAuthor"
+msgstr "Penulis telah diubah."
+
+msgid "notification.addedAuthor"
+msgstr "Penulis telah ditambahkan."
+
+msgid "notification.removedAnnouncement"
+msgstr "Pengumuman telah dihapus."
+
+msgid "notification.editedAnnouncement"
+msgstr "Pengumuman telah diubah."
+
+msgid "notification.addedAnnouncement"
+msgstr "Pengumuman telah ditambahkan."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Jenis pengumuman telah dihapus."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Jenis pengumuman telah diubah."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Jenis Pengumuman telah ditambahkan."
+
+msgid "notification.updatedReviewFiles"
+msgstr "File review diperbaharui."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Surel ucapan terima kasih dikirim ke mitra bestari."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Review ditandai sebagai diterima. Surel tidak terkirim."
+
+msgid "notification.addedQuery"
+msgstr "Diskusi Ditambahkan"
+
+msgid "notification.removedAuditor"
+msgstr "Auditor dihapus."
+
+msgid "notification.addedAuditor"
+msgstr "Auditor ditambahkan."
+
+msgid "navigation.viewFrontend"
+msgstr "Buka Wibsite"
+
+msgid "navigation.userManagement"
+msgstr "Pengelolaan Pengguna"
+
+msgid "navigation.system"
+msgstr "Sistem"
+
+msgid "navigation.submissions"
+msgstr "Naskah Masuk"
+
+msgid "navigation.skip.footer"
+msgstr "Beralih ke bagian footer website"
+
+msgid "navigation.skip.nav"
+msgstr "Beralih ke menu navigasi utama"
+
+msgid "navigation.skip.main"
+msgstr "Beralih ke bagian utama"
+
+msgid "navigation.skip.announcements"
+msgstr "Beralih ke Pengumuman"
+
+msgid "navigation.sitemap"
+msgstr "Peta Situs"
+
+msgid "navigation.setup"
+msgstr "Pengaturan"
+
+msgid "navigation.settings"
+msgstr "Pengaturan"
+
+msgid "navigation.publicMenu"
+msgstr "Menu Publik"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} dari {$total} item"
+
+msgid "navigation.data"
+msgstr "Data"
+
+msgid "navigation.browseByAuthor"
+msgstr "Berdasarkan Penulis"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistik"
+
+msgid "navigation.tools.importExport"
+msgstr "Impor/Ekspor"
+
+msgid "navigation.tools"
+msgstr "Perangkat"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Anda berada di sini:"
+
+msgid "navigation.archives"
+msgstr "Arsip"
+
+msgid "navigation.admin"
+msgstr "Administrasi"
+
+msgid "navigation.access"
+msgstr "Pengguna &amp; Peran"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Tidak boleh mengubah partisipan ini"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Partisipan"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Izinkan orang ini mengubah rincian publikasi."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Perijinan"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Peserta ini hanya diperbolehkan merekomendasikan keputusan editorial dan "
+"akan membutuhkan penyunting berwenang untuk merekam keputusan editorial."
+
+msgid "stageParticipants.options"
+msgstr "Hak Penugasan"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Pastikan kolom pesan telah terisi dan mencantumkan orang lain dalam diskusi "
+"ini."
+
+msgid "stageParticipants.notify.message"
+msgstr "Pesan"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Gunakan pesan yang ada, atau buat pesan baru di bawah ini."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Mulai diskusi antara Anda dan {$userFullName}."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Mulai Diskusi"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Pemberitahuan dikirim ke pengguna."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Pemberitahuan dikirim ke pengguna."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Memuat catatan baru."
+
+msgid "informationCenter.history.noItems"
+msgstr "Tidak aca catatan peristiwa."
+
+msgid "informationCenter.pastHistory"
+msgstr "Revisi Terdahulu"
+
+msgid "informationCenter.currentHistory"
+msgstr "Revisi Terkini"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Yakin ingin menghapus catatan ini?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Catatan Revisi Terdahulu"
+
+msgid "informationCenter.noNotes"
+msgstr "Tidak ada catatan untuk disajikan."
+
+msgid "informationCenter.addNote"
+msgstr "Tambahkan Catatan"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Riwayat Editorial"
+
+msgid "informationCenter.informationCenter"
+msgstr "Pusat Informasi"
+
+msgid "validator.unique"
+msgstr "{$attribute} sudah dipakai."
+
+msgid "validator.timezone"
+msgstr "Zona waktu ini tidak valid."
+
+msgid "validator.string"
+msgstr "String ini tidak valid."
+
+msgid "validator.size.array"
+msgstr "Harus mengandung {$size} item."
+
+msgid "validator.size.string"
+msgstr "Harus {$size} karakter."
+
+msgid "help.next"
+msgstr "Berikutnya"
+
+msgid "help.previous"
+msgstr "Sebelumya"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} bahasa selesai"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} dalam {$localeName}"
+
+msgid "form.invalidImage"
+msgstr ""
+"Gambar yang dipilih tidak valid. Format yang diterima adalah .png, .gif, "
+"atau .jpg."
+
+msgid "form.requireId"
+msgstr "Berikan ID yang valid."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Kolom ini wajib diisi dalam {$language}."
+
+msgid "form.fileRequired"
+msgstr "File wajib diisi untuk dikirim."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formulir tidak dapat dikirimkan. Anda mungkin sudah logged out. Harap muat "
+"ulang halaman dan coba lagi."
+
+msgid "form.missingRequired"
+msgstr "Kolom ini wajib diisi."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Terjadi kesalahan tak terduga. Anda mungkin sudah logged out. Harap muat "
+"ulang halaman dan coba lagi."
+
+msgid "form.errors"
+msgstr ""
+"Formulir tidak tersimpan karena ditemukan {$count} galat . Perbaikilah dan "
+"coba kembali."
+
+msgid "form.errorMany"
+msgstr "Perbaiki {$count} galat."
+
+msgid "form.errorOne"
+msgstr "Perbaiki galat."
+
+msgid "form.errorGoTo"
+msgstr "Lanjut ke galat berikutnya"
+
+msgid "form.errorA11y"
+msgstr "Buka {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Anda tidak bisa lagi mengunggah file."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Hapus file"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Yakin ingin membatalkan proses unggah ini?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Unggah dibatalkan"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Batalkan unggah"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Server merespon dengan code {{statusCode}}. Hubungi admin sistem bila masih "
+"mengalami kendala."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "FIle tipe ini tidak dapat diunggah."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"File terlalu besar ({{filesize}}mb), melebihi {{maxFilesize}}mb besar yang "
+"diperbolehkan diunggah."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Gunakanlaj formulir berikut untuk mengunggah file."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Browser Anda tidak mendukung unggah file dengan cara drag'n'drop."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Letakkan file di sini untuk diunggah"
+
+msgid "form.disallowedProp"
+msgstr "Properti ini tidak diperbolehkan."
+
+msgid "form.disallowedLocales"
+msgstr "Hanya bahasa berikut yang dibolehkan: {$languages}."
+
+msgid "form.dataHasChanged"
+msgstr "Data pada formulir ini telah berubah. Ingin menyimpannya?"
+
+msgid "form.emailRequired"
+msgstr "Wajib mengisi alamat surel."
+
+msgid "form.confirmSubmit.title"
+msgstr "Konfirmasi"
+
+msgid "form.confirmSubmit"
+msgstr "Yakin ingin mengiri formulis ini?"
+
+msgid "form.url.invalid"
+msgstr "URL tidak valid. Periksa dan ulangi lagi."
+
+msgid "email.bodyRequired"
+msgstr "Tuliskan isi surel."
+
+msgid "email.subjectRequired"
+msgstr "Tuliskan subjek surel."
+
+msgid "email.senderEmail"
+msgstr "Surel Pengirim"
+
+msgid "email.senderName"
+msgstr "Nama Pengirim"
+
+msgid "email.compose.error"
+msgstr ""
+"Terjadi masalah dalam mengirim pesan surel. Ulangi lagi atau hubungi admin "
+"sistem Anda."
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Unggah File"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Unggah File Review"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Metrik Tersedia"
+
+msgid "defaultMetric.title"
+msgstr "Metrik Bawaan"
+
+msgid "common.publicAccess"
+msgstr "AKses Publik"
+
+msgid "common.count"
+msgstr "Jumlah"
+
+msgid "common.metric"
+msgstr "Metrik"
+
+msgid "common.plugins"
+msgstr "Plugin"
+
+msgid "common.viewProfile"
+msgstr "Lihat Profil"
+
+msgid "common.upload.dragFile"
+msgstr "Drag and Drop file untuk diunggah ke sini"
+
+msgid "common.upload.changeFile"
+msgstr "Ubah File"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Pratinjau gambar yang dipilih."
+
+msgid "common.upload.restore"
+msgstr "Pulihkan Ke Asal"
+
+msgid "common.upload.addFile"
+msgstr "Unggah File"
+
+msgid "common.uploadedDate"
+msgstr "Tanggal unggah"
+
+msgid "common.unread"
+msgstr "Belum dibaca"
+
+msgid "common.component"
+msgstr "Komponen"
+
+msgid "common.toWithValue"
+msgstr "Ke: {$value}"
+
+msgid "common.subtitle"
+msgstr "Subjudul"
+
+msgid "common.submenu"
+msgstr "Submenu"
+
+msgid "common.subjects"
+msgstr "Subjek"
+
+msgid "common.sendEmail"
+msgstr "Kirim Surel"
+
+msgid "common.selectedPrefix"
+msgstr "Dipilih:"
+
+msgid "common.clearSearch"
+msgstr "Hapus frasa pencarian"
+
+msgid "common.searchQuery"
+msgstr "Mencari"
+
+msgid "common.saving"
+msgstr "Menyimpan"
+
+msgid "common.reset"
+msgstr "Reset"
+
+msgid "common.removeItem"
+msgstr "Hapus {$item}"
+
+msgid "common.remoteURL"
+msgstr "RemoteURL"
+
+msgid "common.remote"
+msgstr "Jauh"
+
+msgid "common.reminded.date"
+msgstr "Diingatkan: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "Pengingat"
+
+msgid "common.readMoreWithTitle"
+msgstr "Baca lebih lanjut tentang {$title}"
+
+msgid "common.readMore"
+msgstr "Baca Selengkapnya"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.queue.long.active"
+msgstr "Semua Aktif"
+
+msgid "common.quality"
+msgstr "Kualitas"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Contoh: A, The"
+
+msgid "common.prefix"
+msgstr "Prefiks"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.pageNumber"
+msgstr "Halaman {$pageNumber}"
+
+msgid "common.pagination.previous"
+msgstr "Halaman sebelumnya"
+
+msgid "common.pagination.next"
+msgstr "Halaman berikut"
+
+msgid "common.pagination.goToPage"
+msgstr "Kunjungi {$page}"
+
+msgid "common.pagination.label"
+msgstr "Lihat halaman tambahan"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} dari {$total}"
+
+msgid "common.override"
+msgstr "Kesampingkan"
+
+msgid "common.overdue"
+msgstr "Terlambat"
+
+msgid "common.orderDown"
+msgstr "Turunkan posisi dari {$itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Naikkan posisi dari {$itemTitle}"
+
+msgid "common.noMatches"
+msgstr "Tidak Cocok"
+
+msgid "common.notified.date"
+msgstr "Diberi tahu: {$dateNotified}"
+
+msgid "common.notified"
+msgstr "Diberitahukan"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Catatan (kuning: ada catatan; biru: telah melihat catatan; abu-abu: tidak "
+"ada catatan)"
+
+msgid "common.noTemporaryFile"
+msgstr "File yang diunggah tidak ditemukan. Coba unggah ulang."
+
+msgid "common.noItemsFound"
+msgstr "Tidak ada artikel yang ditemukan."
+
+msgid "common.moreThan"
+msgstr "{$value} atau lebih"
+
+msgid "common.more"
+msgstr "Lebih lengkap"
+
+msgid "common.billingAddress"
+msgstr "Alamat tagihan (jika berbeda)"
+
+msgid "common.lessThan"
+msgstr "{$value} atau kurang"
+
+msgid "common.less"
+msgstr "Lebih ringkas"
+
+msgid "common.lastActivity"
+msgstr "Aktivitas terkahir dicatat pada {$date}."
+
+msgid "common.itemsPerPage"
+msgstr "Item per halaman"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Beranda"
+
+msgid "common.go"
+msgstr "Lanjut"
+
+msgid "common.until"
+msgstr "Hingga"
+
+msgid "common.fromWithValue"
+msgstr "Dari: {$value}"
+
+msgid "common.from"
+msgstr "Dari"
+
+msgid "common.filterRemove"
+msgstr "Hapus filter: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "Tambahkan filter: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "Filter"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Pengunggah file sistem sedang memuat. Jika tidak muncul, kemungkinan runtime-"
+"nya tidak didukung oleh browser ini. Hubungilah admin untuk meminta bantuan."
+
+msgid "common.finish"
+msgstr "Selesai"
+
+msgid "common.downloadPdf"
+msgstr "Unduh PDF"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.designation"
+msgstr "Penunjukan"
+
+msgid "common.deleting"
+msgstr "Menghapus"
+
+msgid "common.declined"
+msgstr "Ditolak"
+
+msgid "common.dateHijri"
+msgstr "Kalender Hijrah"
+
+msgid "common.dateDecided"
+msgstr "Tanggal ditetapkan"
+
+msgid "common.contents"
+msgstr "Isi"
+
+msgid "common.content"
+msgstr "Isi"
+
+msgid "common.confirmed.date"
+msgstr "Dikonfirmasi: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Konfirmasi"
+
+msgid "common.completed.date"
+msgstr "Selesai: {$dateCompleted}"
+
+msgid "common.closePanel"
+msgstr "Tutup Panel"
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr ""
+"Validasi gagal dilewati yang digunakan untuk mencegah kiriman naskah palsu."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Lengkapilah cek validasi yang digunakan untuk mencegah kiriman naskah palsu."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr ""
+"Validasi captcha website belum diatur dengan benar. Secret key-nya tidak "
+"valid."
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr ""
+"Validasi captcha website belum diatur dengan benar. Secret key-nya belum ada."
+
+msgid "common.notice"
+msgstr "Pemberitahuan"
+
+msgid "common.error"
+msgstr "Galat"
+
+msgid "common.warning"
+msgstr "Peringatan"
+
+msgid "common.available"
+msgstr "Tersedia"
+
+msgid "common.assigned.date"
+msgstr "Ditugaskan: {$dateAssigned}"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Uraikan gambar ini untuk pengunjung yang membuka website pada browser teks "
+"atau dengan perangkat tambahan. Contoh: \"Penyunting kami berbicara pada "
+"konferensi PKP.\""
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "common.name"
+msgstr "Nama"
+
+msgid "common.acknowledged"
+msgstr "Diterima"
+
+msgid "common.accepted"
+msgstr "Diterima"
+
+msgid "common.abstract"
+msgstr "Abstrak"
+
+msgid "common.confirmDelete"
+msgstr "Yakin ingin manghapus bagian ini? Tindakan ini tidak bisa dibatalkan."
+
+msgid "common.grid"
+msgstr "Grid"
+
+msgid "common.list"
+msgstr "Daftar"
+
+msgid "common.tasks"
+msgstr "Tugas"
+
+msgid "common.navigation.user"
+msgstr "Navigasi Pengguna"
+
+msgid "common.navigation.siteContext"
+msgstr "Navigasi Konteks Website"
+
+msgid "common.navigation.site"
+msgstr "Navigasi Website"
+
+msgid "common.navigation.sidebar"
+msgstr "Sidebar"
+
+msgid "common.allDownloads"
+msgstr "Semua Unduhan"
+
+msgid "announcement.postedOn"
+msgstr "Diposkan pada {$postDate}"
+
+msgid "validator.url"
+msgstr "URL tidak vallid."
+
+msgid "about.guidelines"
+msgstr "Pedoman"
+
+msgid "about.description"
+msgstr "Deskripsi"
+
+msgid "common.currentStyleSheet"
+msgstr "Stylesheet Saat Ini"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"

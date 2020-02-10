@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
 "PO-Revision-Date: 2020-02-10 15:35+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
 "Language: id_ID\n"
@@ -1955,3 +1955,107 @@ msgstr "Tampilan"
 
 msgid "manager.website.information"
 msgstr "Informasi"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Pengguna yang diimpor \"{$username}\" tidak memiliki kata sandi. Periksa "
+"format XML impor Anda. Pengguna belum diimpor."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Kesalahan Impor/Ekspor:"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "File naskah tidak dapat diimpor"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Revisi \"{$revisionId}\" atas file naskah \"{$fileId}\" akan menghasilkan "
+"duplikasi data"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Ukuran file yang disediakan \"{$expected}\" dan ukuran file yang aktual \""
+"{$aktual}\" tidak cocok"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "File sementara {$dest} tidak dapat dibuat dari {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Pengunggah tidak dikenal {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Penulis {$authorName} tidak memiliki nama pemberian dalam bahasa yang "
+"digunakan pada naskah, {$localeName}. Naskah tersebut tidak dapat diimpor "
+"tanpa informasi ini."
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Grup pengguna tidak dikenal {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Konten tidak dikodekan sebagai {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Pengkodean tidak dikenal {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Genre tidak dikenal {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Elemen tidak dikenal {$param}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Terjadi kesalahan:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Peringatan yang ditemui:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Kesalahan validasi:"
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Mewajibkan penulis untuk mengungkapkan semua lembaga pendukung risetnya "
+"sebelum menerima naskahnya."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Mewajibkan penulis untuk menyediakan daftar pustaka sebelum menerima "
+"naskahnya."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Meminta penulis untuk menyediakan daftar pustaka saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Jangan meminta daftar pustaka dari penulis saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Aktifkan metadata daftar pustaka"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Kumpulkan daftar pustaka naskah di bagian yang terpisah. Hal ini mungkin "
+"diperlukan untuk mematuhi layanan pelacakan kutipan seperti Crossref."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Meminta penulis untuk mengungkapkan semua lembaga pendukung risetnya saat "
+"menyerahkan naskah."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Jangan meminta  data lembaga pendukung dari penulis saat menyerahkan naskah."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Aktifkan metadata lembaga pendukung"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Lembaga pendukung dapat berupa sumber pendanaan riset atau lembaga pendukung "
+"lain yang memfasilitasi riset tersebut."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Mewajibkan penulis untuk mencantumkan disiplin ilmu sebelum menerimah "
+"naskahnya."

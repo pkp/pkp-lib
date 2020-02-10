@@ -279,7 +279,7 @@ class FormComponent {
 			'successMessage' => $this->successMessage,
 			'required' => __('common.required'),
 			'missingRequired' => __('validator.required'),
-			'help' => __('common.help'),
+			'help' => __('help.help'),
 			'multilingualLabel' => __('form.multilingualLabel'),
 			'multilingualProgress' => __('form.multilingualProgress'),
 		], $this->i18n);

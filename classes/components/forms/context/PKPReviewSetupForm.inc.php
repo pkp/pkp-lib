@@ -44,8 +44,6 @@ class PKPReviewSetupForm extends FormComponent {
 
 		$this->addField(new FieldOptions('defaultReviewMode', [
 				'label' => __('manager.setup.reviewOptions.reviewMode'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'workflow-review-mode',
 				'type' => 'radio',
 				'value' => $context->getData('defaultReviewMode'),
 				'options' => [
@@ -56,8 +54,6 @@ class PKPReviewSetupForm extends FormComponent {
 			]))
 			->addField(new FieldOptions('restrictReviewerFileAccess', [
 				'label' => __('manager.setup.reviewOptions.restrictReviewerFileAccess'),
-				'helpTopic' => 'settings',
-				'helpSection' => 'workflow-review-file-access',
 				'type' => 'checkbox',
 				'value' => $context->getData('restrictReviewerFileAccess'),
 				'options' => [

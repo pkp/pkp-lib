@@ -44,7 +44,7 @@ class PKPPublicationLicenseForm extends FormComponent {
 		if ($context->getData('copyrightHolderType') === 'author') {
 			$copyright = $publication->getAuthorString($userGroups);
 		} elseif ($context->getData('copyrightHolderType') === 'other') {
-			$copyright = $context->getData('copyrightHolderOther');
+			$copyright = $context->getLocalizedData('copyrightHolderOther');
 		} else {
 			$copyright = $context->getLocalizedData('name');
 		}

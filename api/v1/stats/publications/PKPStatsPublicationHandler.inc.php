@@ -605,6 +605,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 			}
 		}
 
+		// Get the earliest date of publication if no start date set
+		if (in_array('dateStart', $allowedParams) && !isset($returnParams['dateStart'])) {
+			$dateRange = Services::get('publication')->getDateBoundaries(['contextIds' => $this->getRequest()->getContext()->getId()]);
+			$returnParams['dateStart'] = $dateRange[0];
+		}
+
 		return $returnParams;
 	}
 

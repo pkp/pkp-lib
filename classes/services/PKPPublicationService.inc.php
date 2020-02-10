@@ -264,7 +264,11 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 	public function getDateBoundaries($args) {
 		$publicationQO = $this->getQueryBuilder($args)->getDateBoundaries();
 		$result = DAORegistry::getDAO('PublicationDAO')->retrieve($publicationQO->toSql(), $publicationQO->getBindings());
-		return [$result->fields[0], $result->fields[1]];
+		if (!empty($result->fields)) {
+			return [$result->fields[0], $result->fields[1]];
+		}
+		import('classes.statistics.StatisticsHelper');
+		return [STATISTICS_EARLIEST_DATE, date('Y-m-d', strtotime('yesterday'))];
 	}
 
 	/**

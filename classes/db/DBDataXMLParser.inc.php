@@ -119,7 +119,7 @@ class DBDataXMLParser {
 							// This is to guarantee idempotence of upgrade scripts.
 							$run = false;
 							if (in_array($table, $allTables)) {
-								$columns =& $this->dbconn->MetaColumns($table, true);
+								$columns = $this->dbconn->MetaColumns($table, true);
 								if (!isset($columns[strtoupper($to)])) {
 									// Only run if the column has not yet been
 									// renamed.
@@ -159,6 +159,17 @@ class DBDataXMLParser {
 								$this->sql[] = $dbdict->RenameTableSQL($table, $to);
 							}
 						}
+						break;
+					case 'dropindex':
+						if (!isset($dbdict)) {
+							$dbdict = @NewDataDictionary($this->dbconn);
+						}
+						$table = $child->getAttribute('table');
+						$index = $child->getAttribute('index');
+						if (!$table || !$index) {
+							throw new Exception('dropindex called without table or index');
+						}
+						$this->sql[] = $dbdict->DropIndexSQL($index, $table);
 						break;
 					case 'query':
 						$driver = $child->getAttribute('driver');

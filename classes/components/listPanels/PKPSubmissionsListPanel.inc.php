@@ -140,6 +140,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel {
 		import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
 		$templateMgr = \TemplateManager::getManager($request);
 		$templateMgr->setConstants([
+			'STATUS_QUEUED',
+			'STATUS_PUBLISHED',
+			'STATUS_DECLINED',
+			'STATUS_SCHEDULED',
 			'WORKFLOW_STAGE_ID_SUBMISSION',
 			'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
 			'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',

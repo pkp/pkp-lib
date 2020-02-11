@@ -168,15 +168,15 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 			$schemaService->getValidationRules(SCHEMA_AUTHOR, $allowedLocales)
 		);
 
-		// Check required fields if we're adding the object
-		if ($action === VALIDATE_ACTION_ADD) {
-			\ValidatorFactory::required(
-				$validator,
-				$schemaService->getRequiredProps(SCHEMA_AUTHOR),
-				$schemaService->getMultilingualProps(SCHEMA_AUTHOR),
-				$primaryLocale
-			);
-		}
+		// Check required fields
+		\ValidatorFactory::required(
+			$validator,
+			$action,
+			$schemaService->getRequiredProps(SCHEMA_AUTHOR),
+			$schemaService->getMultilingualProps(SCHEMA_AUTHOR),
+			$allowedLocales,
+			$primaryLocale
+		);
 
 		// Check for input from disallowed locales
 		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_AUTHOR), $allowedLocales);
@@ -192,15 +192,6 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
 				}
 			}
 		});
-
-		// Don't allow an empty value for the primary locale of the givenName field
-		\ValidatorFactory::requirePrimaryLocale(
-			$validator,
-			['givenName'],
-			$props,
-			$allowedLocales,
-			$primaryLocale
-		);
 
 		if ($validator->fails()) {
 			$errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(SCHEMA_AUTHOR), $allowedLocales);

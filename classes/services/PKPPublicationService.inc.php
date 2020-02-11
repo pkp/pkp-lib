@@ -288,15 +288,15 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			]
 		);
 
-		// Check required fields if we're adding the object
-		if ($action === VALIDATE_ACTION_ADD) {
-			\ValidatorFactory::required(
-				$validator,
-				$schemaService->getRequiredProps(SCHEMA_PUBLICATION),
-				$schemaService->getMultilingualProps(SCHEMA_PUBLICATION),
-				$primaryLocale
-			);
-		}
+		// Check required fields
+		\ValidatorFactory::required(
+			$validator,
+			$action,
+			$schemaService->getRequiredProps(SCHEMA_PUBLICATION),
+			$schemaService->getMultilingualProps(SCHEMA_PUBLICATION),
+			$allowedLocales,
+			$primaryLocale
+		);
 
 		// Check for input from disallowed locales
 		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_PUBLICATION), $allowedLocales);
@@ -310,15 +310,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 				}
 			}
 		});
-
-		// Don't allow an empty value for the primary locale of the title field
-		\ValidatorFactory::requirePrimaryLocale(
-			$validator,
-			['title'],
-			$props,
-			$allowedLocales,
-			$primaryLocale
-		);
 
 		// If a new file has been uploaded, check that the temporary file exists and
 		// the current user owns it

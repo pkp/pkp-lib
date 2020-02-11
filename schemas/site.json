@@ -1,6 +1,11 @@
 {
 	"title": "Site",
 	"description": "The overall site hosting one or more contexts (journals/presses).",
+	"required": [
+		"title",
+		"contactName",
+		"contactEmail"
+	],
 	"properties": {
 		"about": {
 			"type": "string",

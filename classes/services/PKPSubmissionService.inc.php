@@ -678,15 +678,15 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			$schemaService->getValidationRules(SCHEMA_SUBMISSION, $allowedLocales)
 		);
 
-		// Check required fields if we're adding the object
-		if ($action === VALIDATE_ACTION_ADD) {
-			\ValidatorFactory::required(
-				$validator,
-				$schemaService->getRequiredProps(SCHEMA_SUBMISSION),
-				$schemaService->getMultilingualProps(SCHEMA_SUBMISSION),
-				$primaryLocale
-			);
-		}
+		// Check required fields
+		\ValidatorFactory::required(
+			$validator,
+			$action,
+			$schemaService->getRequiredProps(SCHEMA_SUBMISSION),
+			$schemaService->getMultilingualProps(SCHEMA_SUBMISSION),
+			$primaryLocale,
+			$allowedLocales
+		);
 
 		// Check for input from disallowed locales
 		\ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(SCHEMA_SUBMISSION), $allowedLocales);

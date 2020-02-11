@@ -15,6 +15,7 @@ namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldRadioInput;
 use \PKP\components\forms\FieldRichTextarea;
+use \PKP\components\forms\FieldText;
 
 define('FORM_LICENSE', 'license');
 
@@ -51,12 +52,7 @@ class PKPLicenseForm extends FormComponent {
 			'isInput' => true,
 		];
 
-		$copyrightHolder = $context->getData('copyrightHolderType');
-		if (!empty($copyrightHolder) && !in_array($copyrightHolder, ['author', 'context'])) {
-			$copyrightHolder = $context->getData('copyrightHolderOther');
-		}
-
-		$this->addField(new FieldRadioInput('copyrightHolder', [
+		$this->addField(new FieldRadioInput('copyrightHolderType', [
 				'label' => __('submission.copyrightHolder'),
 				'helpTopic' => 'settings',
 				'helpSection' => 'copyright-v-license',
@@ -64,9 +60,16 @@ class PKPLicenseForm extends FormComponent {
 				'options' => [
 					['value' => 'author', 'label' => __('user.role.author')],
 					['value' => 'context', 'label' => __('context.context')],
-					['value' => 'other', 'isInput' => true],
+					['value' => 'other', 'label' => __('submission.copyrightHolder.other')],
 				],
-				'value' => $copyrightHolder,
+				'value' => $context->getData('copyrightHolderType'),
+			]))
+			->addField(new FieldText('copyrightHolderOther', [
+				'label' => __('submission.copyrightOther'),
+				'description' => __('submission.copyrightOther.description'),
+				'isMultilingual' => true,
+				'showWhen' => ['copyrightHolderType', 'other'],
+				'value' => $context->getData('copyrightHolderOther'),
 			]))
 			->addField(new FieldRadioInput('licenseUrl', [
 				'label' => __('manager.distribution.license'),

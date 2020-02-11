@@ -115,6 +115,7 @@
 		},
 		"copyrightHolderOther": {
 			"type": "string",
+			"multilingual": true,
 			"validation": [
 				"nullable"
 			]

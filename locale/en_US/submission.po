@@ -1598,6 +1598,15 @@ msgstr "Copyright Holder"
 msgid "submission.copyrightHolder.description"
 msgstr "Copyright will be assigned automatically to {$copyright} when this is published."
 
+msgid "submission.copyrightHolder.other"
+msgstr "Custom copyright statement"
+
+msgid "submission.copyrightOther"
+msgstr "Copyright statement"
+
+msgid "submission.copyrightOther.description"
+msgstr "Assign copyright for published submissions to the following party."
+
 msgid "submission.copyrightYear"
 msgstr "Copyright Year"
 

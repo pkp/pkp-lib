@@ -14,7 +14,7 @@
 	<tabs>
 		<tab id="license" label="{translate key="submission.license"}">
 			{help file="settings/distribution-settings" class="pkp_help_tab"}
-			<license-form
+			<pkp-form
 				v-bind="components.{$smarty.const.FORM_LICENSE}"
 				@set="set"
 			/>

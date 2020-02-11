@@ -2,14 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2020-02-11 07:23+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/id/>\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:52+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.submissionCitations"
 msgstr "Sediakan daftar referensi yang telah diformat untuk karya yang dikutip di penyerahan ini. Pisahkan referensi individu dengan garis kosong."
@@ -195,7 +198,7 @@ msgid "metadata.property.validationMessage.isbn"
 msgstr "Masukkan ISBN yang valid (9 atau 13 nomor)."
 
 msgid "metadata.property.displayName.issn"
-msgstr "Print ISSN"
+msgstr "ISSN Cetak"
 
 msgid "metadata.property.validationMessage.issn"
 msgstr "Masukkan print ISSN yang valid."
@@ -281,7 +284,7 @@ msgid "metadata.property.validationMessage.title"
 msgstr "Masukkan judul yang valid."
 
 msgid "metadata.property.displayName.subTitle"
-msgstr "Subtitle"
+msgstr "Subjudul"
 
 msgid "metadata.property.validationMessage.subTitle"
 msgstr "Masukkan subtitle yang valid."
@@ -350,7 +353,7 @@ msgid "submission.comments.importPeerReviews"
 msgstr "Impor Peer Review"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
-msgstr "Reviewer {$reviewerLetter}:"
+msgstr "Mitra Bestari {$reviewerLetter}:"
 
 msgid "submission.comments.noComments"
 msgstr "Tidak ada komentar"
@@ -479,7 +482,7 @@ msgid "submission.history.submissionEmailLog"
 msgstr "Log Email"
 
 msgid "submission.history.submissionEventLog"
-msgstr " Log Event"
+msgstr "Log Kegiatan"
 
 msgid "submission.history.submissionNotes"
 msgstr "Catatan Naskah"
@@ -707,7 +710,7 @@ msgid "submissions.queued"
 msgstr "Antri"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Menunggu Penugasan"
+msgstr "Menunggu Penugasan untuk naskah ini."
 
 msgid "submissions.ruling"
 msgstr "Aturan"
@@ -801,3 +804,104 @@ msgstr "Form Review"
 
 msgid "submission.reviewFormResponse"
 msgstr "Respon Form Review"
+
+msgid "submission.mySubmissions"
+msgstr "Artikel Saya"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} dkk."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Biografi Penulis"
+
+msgid "submission.authorBiography"
+msgstr "Biografi Penulis"
+
+msgid "submission.authors"
+msgstr "Penulis"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Naskah Yang Diarsipkan"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Penugasan"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Belum Diproses"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstrak"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Metadata Selengkapnya"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Kembali ke dashboard"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Kirim naskah baru"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Review naskah ini"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Sekarang, Anda bisa:"
+
+msgid "submission.submit.whatNext"
+msgstr "Apa Selanjutnya?"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Ya, Saya setuju mengikuti syarat pernyataan hak cipta."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Setujui pernyataan hak cipta"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Terima kasih Anda berminat menerbitkan naskah pada {$contextName}."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Pengiriman Naskah Selesai"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Anda harus membaca dan menyatakan bahwa Anda sudah melengkapi persyaratan "
+"berikut ini sebelum melanjutkan."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Persyaratan Mengirim Naskah"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Kirim dalam peran berikut jika ingin bisa menyunting dan menerbitkan naskah "
+"ini sendiri: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Ya, Saya ingin dihubungi terkait naskah ini."
+
+msgid "submission.submit.contactConsent"
+msgstr "Narahubung Korenspondesi"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Pilih peran yang sesuai dengan kontribusi Anda bagi naskah ini."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Kirim Sebagai"
+
+msgid "submission.confirm.message"
+msgstr ""
+"Naskah Anda telah diunggah dan siap dikirim. Anda masih bisa kembali "
+"mereview dan memperbaiki informasi yang kurang sebelum mengirim.nya Jika "
+"sudah siap, langsung klik \"Kirim Naskah Selesai\"."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr ""
+"Hasil review baru telah masuk dan sedang dalam pertimbangan oleh penyunting."
+
+msgid "author.publicationNotFound"
+msgstr "Publikasi penulis ini tidak dapat ditemukan."
+
+msgid "author.editPublishedDisabled"
+msgstr "Penulis artikel ini tidak bisa diubah karena telah diterbitkan."

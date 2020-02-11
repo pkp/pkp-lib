@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2020-02-10 15:35+0000\n"
-"Last-Translator: Fransisca H <sisca.ojs@gmail.com>\n"
+"PO-Revision-Date: 2020-02-11 07:23+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
 "Language: id_ID\n"
@@ -2059,3 +2059,169 @@ msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
 "Mewajibkan penulis untuk mencantumkan disiplin ilmu sebelum menerimah "
 "naskahnya."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Jumlah hari yang dibutuhkan naskah untuk menerima keputusan editorial "
+"pertama, seperti desk rejeck atau dikirim untuk direview.<br><br>Angka-angka "
+"ini menunjukkan bahwa 80% dari naskah mencapai keputusan dalam jumlah hari "
+"tertentu.<br><br>Statistik ini berupaya menjelaskan kapan mayoritas penulis "
+"yang mengirim naskah ke jurnal Anda bisa mendapat keputusan."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Persentase rentang tanggal yang dipilih dihitung untuk naskah yang diajukan "
+"selama rentang tanggal ini dan telah menerima keputusan akhir.<br><br>"
+"Misalnya, ada kasus di mana sepuluh naskah masuk dalam rentang tanggal ini. "
+"Empat diterima, empat ditolak dan dua masih menunggu keputusan akhir.<br><br>"
+"Tingkat penerimaan sama dengan 50% (4 dari 8 pengajuan) karena dua pengajuan "
+"yang belum mencapai keputusan akhir tidak dihitung."
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "grid.category.nameRequired"
+msgstr "Masukkan nama kategori."
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Tingkat Desk Reject"
+
+msgid "stats.name.declineRate"
+msgstr "Tingkat Penolakan"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Tingkat Penerimaan"
+
+msgid "stats.name.daysToReject"
+msgstr "Batas Waktu Menolak"
+
+msgid "stats.name.daysToAccept"
+msgstr "Lama (hari) untuk Menerima"
+
+msgid "stats.name.daysToDecision"
+msgstr "Lama (hari) untuk Keputusan Editorial Pertama"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Naskah Diterbitkan"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Naskah Ditolak (Setelah Review)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Naskah Ditolak (Desk Reject)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Naskah Ditolak"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Naskah Diterima"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Naskah Masuk"
+
+msgid "stats.userStatistics"
+msgstr "Statiatik Pengguna"
+
+msgid "stats.trends"
+msgstr "Tren"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total Dalam Rentang Tanggal"
+
+msgid "stats.total"
+msgstr "Total"
+
+msgid "stats.submissionsActive"
+msgstr "Naskah Aktif"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Cari berdasarkan judul, penulis dan ID"
+
+msgid "stats.monthly"
+msgstr "Bulanan"
+
+msgid "stats.fileViews"
+msgstr "Tayangan File"
+
+msgid "stats.editorialActivity"
+msgstr "Aktivitas Editorial"
+
+msgid "stats.descriptionForStat"
+msgstr "Deskripsi untuk {$stat}"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Sampai {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Ke"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Tahun ke hari"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Sejak {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Tahun lalu"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Dua tahun terakhir"
+
+msgid "stats.dateRange.last90Days"
+msgstr "90 hari terakhir"
+
+msgid "stats.dateRange.last30Days"
+msgstr "30 hari terakhir"
+
+msgid "stats.dateRange.last12Months"
+msgstr "12 bulan terakhir"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Tanggal mulai tidak boleh lebih kecil dari {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Tanggal akhir tidak boleh lebih besar dari {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Tanggal mulai harus sebelum tanggal akhir."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Format tanggal tidak valid. Masukkan dengan format YYYY-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Masukkan setiap tanggal dalam format YYYY-MM-DD. Misalnya, jika Anda ingin "
+"tanggal 15 Januari 2019, masukkan 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Dari"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Salah satu tanggal yang dimasukkan tidak ada."
+
+msgid "stats.dateRange.customRange"
+msgstr "Rentang Baru"
+
+msgid "stats.dateRange.change"
+msgstr "Ubah rentang tanggal"
+
+msgid "stats.dateRange.apply"
+msgstr "Terapkan"
+
+msgid "stats.dateRange.allDates"
+msgstr "Semua tanggal"
+
+msgid "stats.dateRange"
+msgstr "Rentang Tanggal"
+
+msgid "stats.daily"
+msgstr "Harian"
+
+msgid "stats.allUsers"
+msgstr "Semua Pengguna"
+
+msgid "grid.category.categoryDetails"
+msgstr "Rincian kategori"

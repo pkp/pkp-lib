@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2020-02-10 15:35+0000\n"
+"PO-Revision-Date: 2020-02-11 07:23+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/id/>\n"
@@ -820,7 +820,7 @@ msgid "notification.reminderSent"
 msgstr "Kata sandi baru Anda telah dikirim ke alamat email yang disediakan."
 
 msgid "search.abstract"
-msgstr "Sari"
+msgstr "Abstrak"
 
 msgid "search.author"
 msgstr "Penulis"
@@ -829,13 +829,13 @@ msgid "search.coverage"
 msgstr "Cakupan"
 
 msgid "search.date"
-msgstr "Tanggal"
+msgstr "Tanggal Terbit"
 
 msgid "search.dateFrom"
-msgstr "Dari"
+msgstr "Diterbitkan Setelah"
 
 msgid "search.dateTo"
-msgstr "Sampai"
+msgstr "Diterbitkan Sebelum"
 
 msgid "search.discipline"
 msgstr "Disiplin Ilmu"
@@ -844,7 +844,7 @@ msgid "search.fullText"
 msgstr "Teks Lengkap"
 
 msgid "search.indexTerms"
-msgstr "Indeks"
+msgstr "Indeks peristilahan"
 
 msgid "search.matchAll"
 msgstr "Cocok dengan semua kategori"
@@ -1606,3 +1606,424 @@ msgstr "Stylesheet Saat Ini"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
+
+msgid "validator.size.file"
+msgstr "Ukuranny harus {$size} kb."
+
+msgid "validator.size.numeric"
+msgstr "Ukurannya harus {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} dan {$other} harus cocok."
+
+msgid "validator.required_without_all"
+msgstr "Field wajib diisi jika tidak ada nilai {$value}."
+
+msgid "validator.required_without"
+msgstr "Field wajib diisi jika nilai {$value} tidak ada."
+
+msgid "validator.required_if"
+msgstr "Field wajib diisi jika {$other} bernilai {$value}."
+
+msgid "validator.required_with_all"
+msgstr "Field wajib diisi jika nilai {$value} ada."
+
+msgid "validator.required_with"
+msgstr "Field wajib diisi jika nilai {$value} ada."
+
+msgid "validator.required_unless"
+msgstr "Field wajib diisi jika {$other} sama dengan {$value}."
+
+msgid "validator.required"
+msgstr "Field ini wajib diisi."
+
+msgid "validator.regex"
+msgstr "Tidak diformat dengan benar."
+
+msgid "validator.present"
+msgstr "Field {$attribute} harus ada."
+
+msgid "validator.orcid"
+msgstr "ORCID tidak valid."
+
+msgid "validator.numeric"
+msgstr "Nomor tidak valid."
+
+msgid "validator.not_in"
+msgstr "{$attribute} yang dipilih tidak valid."
+
+msgid "validator.min.array"
+msgstr "Nilainya minimal {$min} item."
+
+msgid "validator.min.string"
+msgstr "Nilainya minimal {$min} karakter."
+
+msgid "validator.min.file"
+msgstr "Nilainya minimal {$min} kb."
+
+msgid "validator.min.numeric"
+msgstr "Nilainya minimal {$min}."
+
+msgid "validator.mimes"
+msgstr "Harus diisi jenis file {$values}."
+
+msgid "validator.max.array"
+msgstr "Tidak boleh memiliki lebih dari {$max} item."
+
+msgid "validator.max.string"
+msgstr "Nilainya tidak boleh lebih dari {$max} karakter."
+
+msgid "validator.max.file"
+msgstr "Nilainya tidak boleh lebih dari {$max} kb."
+
+msgid "validator.max.numeric"
+msgstr "Nilainya tidak boleh lebih dari {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Bahasa harua dipilih berdasarkan kode bahasa. Contoh: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Bidang ini multibahasa. Nilai terpisah harus disediakan untuk setiap bahasa "
+"yang didukung."
+
+msgid "validator.locale"
+msgstr "Bahasa ini ditolak."
+
+msgid "validator.json"
+msgstr "String JSON tidak valid."
+
+msgid "validator.issn"
+msgstr "ISSN tidak valid."
+
+msgid "validator.ip"
+msgstr "Alamat IP tidak valid."
+
+msgid "validator.integer"
+msgstr "Integernya tidak valid."
+
+msgid "validator.in"
+msgstr "{$attribute} yang dipilih tidak valid."
+
+msgid "validator.image"
+msgstr "Harus diisi gambar."
+
+msgid "validator.filled"
+msgstr "Kolom ini wajib diisi."
+
+msgid "validator.exists"
+msgstr "{$attribute} yang dipilih tidak valid."
+
+msgid "validator.email"
+msgstr "Alamat surel tidak valid."
+
+msgid "validator.digits_between"
+msgstr "Harus diisi antara {$min} dan {$max} digit."
+
+msgid "validator.digits"
+msgstr "Harus berisi {$digits} digit."
+
+msgid "validator.different"
+msgstr "{$attribute} dan {$other} harus berbeda."
+
+msgid "validator.date_format"
+msgstr "Formatnya tidak cocok dengan  {$format}."
+
+msgid "validator.date"
+msgstr "Tanggal tidak valid."
+
+msgid "validator.currency"
+msgstr "Mata uang ini tidak valid."
+
+msgid "validator.confirmed"
+msgstr "Konfirmasi kolom ini tidak cocok."
+
+msgid "validator.boolean"
+msgstr "Kolom ini harus berisi benar atau salah."
+
+msgid "validator.between.array"
+msgstr "Harus diisi antara {$min} dan {$max} item."
+
+msgid "validator.between.string"
+msgstr "Harus diisi antara {$min} dan {$max} karakter."
+
+msgid "validator.between.file"
+msgstr "Harus diisi antara {$min} dan {$max} kb."
+
+msgid "validator.between.numeric"
+msgstr "Harus diisi antara {$min} dan {$max}."
+
+msgid "validator.before"
+msgstr "Tanggalnya harus diisi sebelum {$date}."
+
+msgid "validator.array"
+msgstr "Array-nya tidak valid."
+
+msgid "validator.alpha_num"
+msgstr "Hanya boleh diisi huruf dan angka."
+
+msgid "validator.alpha_dash"
+msgstr "Hanya boleh diisi huruf, angka, garis datar, dan garis bawah."
+
+msgid "validator.alpha"
+msgstr "Hanya boleh berisi huruf."
+
+msgid "validator.after"
+msgstr "Tanggalnya harus setelah {$date}."
+
+msgid "validator.active_url"
+msgstr "URL tidak valid."
+
+msgid "validator.accepted"
+msgstr "Terima item ini."
+
+msgid "list.viewLess"
+msgstr "Sembunyikan rincian tentang {$name}"
+
+msgid "list.viewMore"
+msgstr "Tampilkan lebih rinci tentang {$name}"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Menu navigasi berhasil dihapus"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Menu navigasi berhasil diperbaharui"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Menu navigasi berhasil ditambah"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Item menu navigasi berhasil ditambahkan"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Menu navigasi berhasil dihapus"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Menu navigasi berhasil diperbaharui"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Ini adalah semacam pengingat bagi Anda untuk memeriksa kondisi jurnal Anda "
+"melalui laporan editorial."
+
+msgid "notification.type.editorialReport"
+msgstr "Rangkuman laporan statistik."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status Ronde{$round}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Menunggu Copyedit."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Tugaskan copyeditor menggunakan tautan Penugasan dalam daftar Partisipan."
+
+msgid "notification.type.queryAdded"
+msgstr "Diskusi telah ditambahkan."
+
+msgid "notification.type.queryActivity"
+msgstr "Aktivitas diskusi."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Pengguna saat ini bukan penulis dari kiriman yang diminta. Harap verifikasi "
+"bahwa Anda masuk dengan akun pengguna yang benar."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Saat ini Anda tidak memiliki hak istimewa yang memadai untuk melihat naskah. "
+"Silakan ubah profil Anda untuk memastikan bahwa Anda telah diberikan peran "
+"yang sesuai pada \"Mendaftar Sebagai\"."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Representasi tidak valid."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Naskah tidak valid."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publikai tidak valid."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Pengguna saat ini tidak berwenang untuk mengakses file naskah yang dimaksud."
+
+msgid "notification.signedFile"
+msgstr "File dipertimbangkan."
+
+msgid "notification.type.reviewerComment"
+msgstr "Mitra bestari telah mengomentari \"{$title}\"."
+
+msgid "notification.type.metadataModified"
+msgstr "Metadata \"{$title}\" telah diubah ."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revisi dikirim ke {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Revisi untuk dipertimbangkan pada {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"File revisi telah diunggah untuk pertimbangan editorial Anda pada {$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"Semua mitra bestari telah menanggapi dan perlu mengambil keputusan pada "
+"{$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Permintaan audit untuk \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Penugasan review diperbaharui."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Review ditunda."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Pengumuman baru."
+
+msgid "notification.editStageParticipant"
+msgstr "Penugasan tahapan telah diubah."
+
+msgid "notification.addedStageParticipant"
+msgstr "Pengguna ditambahkan sebagai partisipan tahapan."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Mitra Bestari dipulihkan."
+
+msgid "notification.cancelledReviewer"
+msgstr "Mitra Bestari dibatalkan."
+
+msgid "notification.removedReviewer"
+msgstr "Mitra Bestari Dikeluarkan."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} ditugaskan untuk menelaah naskah ini dan belum mengirim "
+"surel pemberitahuan."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} ditugaskan untuk menelaah naskah ini dan mengirim surel "
+"pemberitahuan."
+
+msgid "navigation.goBack"
+msgstr "Kembali"
+
+msgid "submission.task.responseDueDate"
+msgstr "Batas Waktu Menanggapi"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Batas Waktu Mereview"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Batas Waktu Menjawab"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Permintaan Penyunting"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Review Jadwal"
+
+msgid "review.blindPeerReview"
+msgstr ""
+"<p>Untuk memastikan integritas blind peer-review untuk diserahkan kepada "
+"jurnal ini, setiap upaya harus dilakukan untuk mencegah identitas penulis "
+"dan mitra bestari agar tidak saling mengetahui. Ini melibatkan penulis, "
+"editor, dan mitra bestari (yang mengunggah dokumen sebagai bagian dari "
+"eeview mereka) memeriksa untuk melihat apakah langkah-langkah berikut telah "
+"diambil berkaitan dengan teks dan properti file:</p>\n"
+"<ul><li>Penulis dokumen telah menghapus nama mereka dari teks, dengan \""
+"Penulis\" dan tahun yang digunakan dalam referensi dan catatan kaki, alih-"
+"alih nama penulis, judul artikel, dll.</li>\n"
+"<li>Penulis dokumen telah menghapus informasi pribadi dari properti file "
+"dengan mengambil langkah-langkah berikut:\n"
+"<ul><li>Microsoft Word for Windows:\n"
+"<ul><li>Pilih File</li>\n"
+"<li>Pilih Info</li>\n"
+"<li>Klik pada Periksa Masalah</li>\n"
+"<li>Klik Periksa Dokumen</li>\n"
+"<li>Pada kotak dialog Pemeriksa Dokumen, centang kotak untuk memeriksa jenis "
+"file tersembunyi yang ingin Anda periksa.</li>\n"
+"<li>Klik Hapus Semua</li>\n"
+"<li>Klik Tutup</li>\n"
+"<li>Simpan dokumen</li></ul>\n"
+"<li>Microsoft Word untuk MacOS:\n"
+"<ul><li>Buka Perangkat</li>\n"
+"<li>Klik Proteksi Dokumen</li>\n"
+"<li>Pilih hapus informasi pribadi untuk disimpan</li>\n"
+"<li>Klik OK dan simpan file</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Lihat File</li>\n"
+"<li>Pilih Properti</li>\n"
+"<li>Hapus nama di kolom penulis</li>\n"
+"<li>Klik OK</li>\n"
+"<li>Simpan dokumen</li></ul></li></ul>\n"
+
+msgid "dashboard.myQueue"
+msgstr "Antrianku"
+
+msgid "dashboard.tasks"
+msgstr "Tugas"
+
+msgid "grid.action.markRead"
+msgstr "Tandai telah dibaca"
+
+msgid "grid.action.markNew"
+msgstr "Tandai Baru"
+
+msgid "grid.action.deleteNotification"
+msgstr "Hapus Tugas"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Baca kebijakan review terbaru"
+
+msgid "review.ensuringBlindReview"
+msgstr "Pastikan Blind Review"
+
+msgid "context.path"
+msgstr "Alamat"
+
+msgid "grid.action.downloadFile"
+msgstr "Unduh file ini"
+
+msgid "search.SearchFor"
+msgstr "Cari ini"
+
+msgid "search.indexTermsLong"
+msgstr "Semua kolom istilah indeks"
+
+msgid "search.deleteFilter"
+msgstr "Hapus"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artikel diindeks"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "galat"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "Selesai"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Membersihkan indeks"
+
+msgid "search.searchAgain"
+msgstr "Cari lagi"
+
+msgid "search.advancedSearchLess"
+msgstr "Sembunyikan opsi pencarian lanjut"
+
+msgid "search.advancedSearchMore"
+msgstr "Pilihan pencarian lanjut"
+
+msgid "search.advancedFilters"
+msgstr "Filter lanjutan"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Kirim surel pemberitahuan kepada semua pengguna terdaftar"
